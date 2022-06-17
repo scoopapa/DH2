@@ -1061,7 +1061,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Leviflame');
 				return null;
 			}
@@ -1102,7 +1102,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Feel No Pain');
 				return null;
 			}
@@ -1168,7 +1168,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.stab = 2;
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Levitability');
 				return null;
 			}
@@ -1285,7 +1285,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Sticky Float');
 				return null;
 			}
@@ -2654,7 +2654,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.galvanizeBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Magnetic Waves');
 				return null;
 			}
@@ -3131,7 +3131,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Etativel');
 				return null;
 			}
@@ -3192,7 +3192,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Lighthearted');
 				return null;
 			}
@@ -3666,7 +3666,7 @@ lifedrain: {
 	},
 	clearlyfloating: {
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Clearly Floating');
 				return null;
 			}
@@ -3913,7 +3913,7 @@ lifedrain: {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Float Guise');
 				return null;
 			}
@@ -3996,7 +3996,7 @@ lifedrain: {
 	},
 	aerialbreak: {
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Aerial Break');
 				return null;
 			}
@@ -4257,7 +4257,7 @@ lifedrain: {
 			return this.trunc(weighthg / 2);
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Levimetal');
 				return null;
 			}
@@ -4290,7 +4290,7 @@ lifedrain: {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Hoverboard');
 				return null;
 			}
@@ -4399,7 +4399,7 @@ lifedrain: {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Loveless Float');
 				return null;
 			}
@@ -5414,7 +5414,7 @@ lifedrain: {
 			return false;
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Feel Some Pain');
 				return null;
 			}
@@ -5856,7 +5856,7 @@ lifedrain: {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Levistatic');
 				return null;
 			}
