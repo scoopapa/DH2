@@ -107,7 +107,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: -5,
 		accuracy: 100,
 		basePower: 90,
-		category: "Special",
+		category: "Physical",
 		shortDesc: "Type varies matches the user's primary type. The user is flung into the air.",
 		name: "Pom-pom Dance",
 		pp: 15,

@@ -983,9 +983,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.5,
 		weightkg: 81.9,
 	},
-	banjokazooie: {
+	banjoandkazooie: {
 		num: 83,
-		name: "Banjo & Kazooie",
+		name: "Banjo and Kazooie",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 90, atk: 120, def: 90, spa: 60, spd: 90, spe: 100},
 		abilities: {0: "Honey Gather", 1: "Big Pecks", H: "Thick Fat"},

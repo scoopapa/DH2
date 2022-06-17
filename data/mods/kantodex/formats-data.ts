@@ -60,11 +60,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	beedrill: {
 		tier: "OU",
 	},
+	beedrillmega: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
 	pidgey: {
 		tier: "LC",
 	},
 	pidgeotto: {
 		tier: "NFE",
+	},
+	pidgeotmega: {
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	pidgeot: {
 		tier: "OU",
