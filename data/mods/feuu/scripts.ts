@@ -691,7 +691,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		//Right here
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull') || pokemon.hasAbility('sheerluck'))) && !(pokemon.hasAbility('sheerluck') && move.critRatio > 1)) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull') || pokemon.hasAbility('sheerluck') || pokemon.hasAbility('hydroforce'))) && !(pokemon.hasAbility('sheerluck') && move.critRatio > 1)) {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
