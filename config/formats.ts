@@ -535,7 +535,7 @@ export const Formats: FormatList = [
 			'Eiscudile', 'Carcannon', 'Lapfisk', 'Whisdur', 'Emposerker', 'Salasian-Alola',
 			
 			'Claylamar', 'Vishitomb', 'Swampflora', 'Swampflora-Mega', 'Azekrow', 'Trapeino', 'Bearyx', 'Fetchey', "Aromarel", 'Googersby', 'Harisect', 
-			'Absable', 'Tapu Lop', 'Hypnakart', 'Hawlazzle', 'Glasnow', 
+			'Absable', 'Tapu Lop', 'Hypnakart', 'Hawlazzle', 'Glasnow', 'Paracoal',
 			'Swannamence', 'Vullacham', 
 			
 			'Silvino-Bug', 'Silvino-Electric', 'Silvino-Fighting',
