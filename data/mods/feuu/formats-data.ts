@@ -142,10 +142,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleLevel: 77,
 	},
 	tapulop: {
-		tier: "FERU",
+		tier: "FENU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["moonblast", "uturn", "focusblast", "switcheroo"],
-		randomBattleLevel: 77,
+		randomBattleLevel: 81,
 		randomDoubleBattleMoves: ["protect", "moonblast", "uturn", "dazzlinggleam", "focusblast"],
 		randomDoubleBattleLevel: 77,
 	},
