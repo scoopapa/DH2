@@ -249,7 +249,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asoneheracross: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
-			this.add( '-message', 'Protein and Skill Link!');
+			this.add( '-message', 'Protein and Moxie!');
 		},
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
