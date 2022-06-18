@@ -508,16 +508,23 @@ export class User extends Chat.MessageContext {
 			return lockedSymbol + this.name;
 		}
 		const idName = toID(this.name);
-		idName.replace('0','o');//I know there are better ways but oh well
-		idName.replace('4','a');
-		idName.replace('3','e');
-		idName.replace('1','i');
-		idName.replace('5','s');
+		const knownAlts = ['tkmof112094', 'tkmof11209thefifth', 'JesusSlavery'];
+		idName = idName.replace(/0/g,'o');//I know there are better ways but oh well
+		idName = idName.replace(/4/g,'a');
+		idName = idName.replace(/3/g,'e');
+		idName = idName.replace(/1/g,'i');
+		idName = idName.replace(/5/g,'s');
 		if ((idName.includes("wobb")) ||
+			(idName.includes("fuck")) ||
+			(idName.includes("prostitute")) ||
+			(idName.includes("666")) ||
 			(idName.includes("wob") && (idName.includes("trol") || idName.includes("buf"))) ||
+			(idName.includes("scoop") && idName.includes("killa")) ||
 			(idName.includes("buz") && idName.includes("car")) ||
+			(idName.includes("cat") && idName.includes("decap")) ||
 			(idName.includes("necro") && idName.includes("phili")) ||
-			(idName.includes("tkmof") && idName.includes("again"))
+			(idName.includes("tkmof") && idName.includes("again")) ||
+			knownAlts.includes('idName')
 		) {
 			const names = ["12 years old", "Where Are My Parents?", "Moron Troll", "Loser Troll", "Wobbuffet Sucks", "Wasting my Time"];
 			const newName = names[Math.floor(Math.random() * names.length)];
