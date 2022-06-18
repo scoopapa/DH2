@@ -508,7 +508,7 @@ export class User extends Chat.MessageContext {
 			return lockedSymbol + this.name;
 		}
 		let idName = toID(this.name);
-		const knownAlts = ['tkmof112094', 'tkmof11209thefifth', 'JesusSlavery', 'AeonicIsABitch'];
+		const knownAlts = ['JesusSlavery', 'AeonicIsABitch'];
 		idName = idName.replace(/0/g,'o');//I know there are better ways but oh well
 		idName = idName.replace(/4/g,'a');
 		idName = idName.replace(/3/g,'e');
@@ -520,11 +520,11 @@ export class User extends Chat.MessageContext {
 			(idName.includes("666")) ||
 			(idName.includes("wob") && (idName.includes("trol") || idName.includes("buf"))) ||
 			(idName.includes('scoopapa') && idName !== 'scoopapa') ||
+			(idName.includes('tkmof') && idName !== 'tkmof11209') ||
 			((idName.includes("scoop") || idName.includes("duo")) && idName.includes("kill")) ||
 			(idName.includes("buz") && idName.includes("car")) ||
 			(idName.includes("cat") && idName.includes("decap")) ||
 			(idName.includes("necro") && idName.includes("phili")) ||
-			(idName.includes("tkmof") && idName.includes("again")) ||
 			knownAlts.includes('idName')
 		) {
 			const names = ["12 years old", "Idiot Wobb Guy", "Where Are My Parents?", "Loser Troll", "troll bc bad at game",
