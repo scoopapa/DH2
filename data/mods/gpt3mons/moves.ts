@@ -81,7 +81,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		zMove: {boost: {spe: 2}},
 		contestType: "Tough",
-	}
+	},
 	draconicroar: {
 		num: 3004,
 		accuracy: 100,
