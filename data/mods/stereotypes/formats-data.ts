@@ -235,6 +235,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
+	//Slate 19: Rock/Water, Ground/Electric, Poison/Flying
+	groundingo: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	hadalith: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	toxeath: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
 	
 	
 	//LC Slate 1

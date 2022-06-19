@@ -191,7 +191,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Steel",
-		zMove: {boost: {spa: 1}},
-		contestType: "Clever",
+	},
+	pollenpuff: {
+		num: 676,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "30% chance to lower the target's Attack by 1 stage.",
+		name: "Pollen Puff",
+		pp: 15,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+	},
+	geargrind: {
+		inherit: true,
+		accuracy: 95,
 	},
 };

@@ -67,4 +67,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	ribombee: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	ribombeetotem: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	araquanid: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	araquanidtotem: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	vikavolt: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	vikavolttotem: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
