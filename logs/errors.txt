@@ -6506,4 +6506,3 @@ Additional information:
 |-damage|p1a: Groudon|234/384
 |-start|p1a: Groudon|move: Heal Block
 |-status|p2a: Eelektross|brn
-
