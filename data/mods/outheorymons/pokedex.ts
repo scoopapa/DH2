@@ -105,5 +105,52 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	obstagoon: {
 		inherit: true,
 		baseStats: {hp: 93, atk: 90, def: 101, spa: 60, spd: 81, spe: 105},
+	},
+	copperajah: {
+      inherit: true,
+		types: ["Steel", "Water"],
+		baseStats: {hp: 122, atk: 130, def: 69, spa: 80, spd: 89, spe: 30},
+	},
+	latios: {
+		inherit: true,
+		types: ["Dragon", "Electric"],
+	},
+	virizion: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Adaptability"},
+	},
+	wishiwashi: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 20, def: 20, spa: 25, spd: 25, spe: 40},
+	},
+	wishiwashischool: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 140, def: 130, spa: 140, spd: 135, spe: 30},
+	},
+	celebi: {
+		inherit: true,
+		types: ["Grass", "Fairy"],
+		abilities: {0: "Natural Cure", H: "Flower Veil"},
+   },
+   articunogalar: {
+      inherit: true, 
+      abilities: {0: "Competitive", H: "Trace"},
+   }, 
+   krookodile: {
+      inherit: true,
+      baseStats: {hp: 95, atk: 117, def: 80, spa: 65, spd: 70, spe: 103},
+   }, 
+   goodra: {
+      inherit: true,
+      abilities: {0: "Sap Sipper", 1: "Analytic", H: "Gooey"},
+   }, 
+   noctowl: {
+      inherit: true, 
+      types: ["Steel", "Flying"],
+      baseStats: {hp: 100, atk: 50, def: 50, spa: 86, spd: 116, spe: 70},
+   }, 
+   scrafty: {
+      inherit: true, 
+      baseStats: {hp: 80, atk: 90, def: 115, spa: 45, spd: 115, spe: 58},
 	}, 
 };

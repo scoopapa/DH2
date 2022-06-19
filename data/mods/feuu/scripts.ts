@@ -37,15 +37,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'hoopagigasunbound').learnset.hyperspacefury = ['7L1'];
 		this.modData('Learnsets', 'rotofable').learnset.overheat = ['7L1'];
 		this.modData('Learnsets', 'appletomwash').learnset.hydropump = ['7L1'];
+		this.modData('Learnsets', 'igglyciancrowned').learnset.behemothblade = ['7L1'];
 		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
 		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
+		delete this.modData('Learnsets', 'igglyciancrowned').learnset.ironhead;
 	},
 	
 	teambuilderConfig: {
         // for micrometas to only show custom tiers
         excludeStandardTiers: true,
         // only to specify the order of custom tiers
-        customTiers: ['FEUU', 'FERUBL', 'FERU', 'Bugged', 'FENFE', 'FELC', 'Forms', 'FEUUber'],
+        customTiers: ['FEUU', 'FERUBL', 'FERU', 'FENU', 'Bugged', 'FENFE', 'FELC', 'Forms', 'FEUUber'],
 	},
 	
 	canMegaEvo(pokemon) {
@@ -156,6 +158,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		if (item.name === "Swampertite" && pokemon.baseSpecies.name === "Impert-Female") {
 			return "Impert-Female-Mega"; 
+		}
+		if (item.name === "Salamencite" && pokemon.baseSpecies.name === "Salasian-Alola") {
+			return "Salasian-Alola-Mega"; 
 		}
 		
 		return item.megaStone;
@@ -353,7 +358,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.hasAbility('magneticwaves') ||
 				this.hasAbility('leviflame') ||
 				this.hasAbility('levitability') || 
-				this.hasAbility('stickyfloat')) &&
+				this.hasAbility('stickyfloat') || 
+				this.hasAbility('etativel') || 
+				this.hasAbility('lighthearted') || 
+				this.hasAbility('clearlyfloating') || 
+				this.hasAbility('floatguise') || 
+				this.hasAbility('aerialbreak') || 
+				this.hasAbility('levimetal') || 
+				this.hasAbility('hoverboard') || 
+				this.hasAbility('levistatic') || 
+				this.hasAbility('lovelessfloat')) &&
 				
 				!this.battle.suppressingAttackEvents()
 			) return null;
@@ -686,7 +700,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		//Right here
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull') || pokemon.hasAbility('sheerluck'))) && !(pokemon.hasAbility('sheerluck') && move.critRatio > 1)) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull') || pokemon.hasAbility('sheerluck') || pokemon.hasAbility('hydroforce'))) && !(pokemon.hasAbility('sheerluck') && move.critRatio > 1)) {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);

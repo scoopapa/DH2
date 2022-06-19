@@ -6,6 +6,7 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'shedinja').learnset.partingshot = ['8L1'];
 		this.modData('Learnsets', 'torkoal').learnset.flipturn = ['8L1'];
 	   this.modData('Learnsets', 'latias').learnset.moonblast = ['8L1'];
+		this.modData('Learnsets', 'latios').learnset.voltswitch = ['8L1'];
 	   this.modData('Learnsets', 'tangrowth').learnset.spikes = ['8L1'];
 	   this.modData('Learnsets', 'darmanitan').learnset.thunderouskick = ['8L1'];
       this.modData('Learnsets', 'cofagrigus').learnset.recover = ['8L1'];
@@ -21,7 +22,16 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'comfey').learnset.oblivionwing = ['8L1'];
 	   this.modData('Learnsets', 'kommoo').learnset.rapidspin = ['8L1'];
 	   this.modData('Learnsets', 'guzzlord').learnset.slackoff = ['8L1'];
+		this.modData('Learnsets', 'copperajah').learnset.liquidation = ['8L1'];
 		this.modData('Learnsets', 'zarude').learnset.swordsdance = ['8L1'];
-     this.modData('Learnsets', 'glastrier').learnset.glaciallance = ['8L1']; 
+      this.modData('Learnsets', 'glastrier').learnset.glaciallance = ['8L1']; 
+      this.modData('Learnsets', 'celebi').learnset.moonblast = ['8L1'];
+      this.modData('Learnsets', 'articunogalar').learnset.focusblast = ['8L1'];
+      this.modData('Learnsets', 'krookodile').learnset.uturn = ['8L1'];
+      this.modData('Learnsets', 'goodra').learnset.recover = ['8L1'];
+      this.modData('Learnsets', 'virizion').learnset.hornleech = ['8L1'];
+      this.modData('Learnsets', 'wishiwashi').learnset.recover = ['8L1'];
+      this.modData('Learnsets', 'noctowl').learnset.flashcannon = ['8L1'];
+      this.modData('Learnsets', 'scrafty').learnset.slackoff = ['8L1'];
    },
 };
