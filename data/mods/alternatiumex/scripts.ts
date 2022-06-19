@@ -14,6 +14,43 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "oricorio").learnset.firespin = ["8L1"];
 		this.modData("Learnsets", "oricorio").learnset.willowisp = ["8L1"];
 		this.modData("Learnsets", "oricorio").learnset.twirlingdance = ["8L1"];
+		
+		this.modData("Learnsets", "ribombee").learnset.gigadrain = ["8L1"];
+		this.modData("Learnsets", "ribombee").learnset.thunderwave = ["8L1"];
+		this.modData("Learnsets", "ribombee").learnset.magiccoat = ["8L1"];
+
+		this.modData("Learnsets", "ribombeetotem").learnset.acidspray = ["8L1"];
+		this.modData("Learnsets", "ribombeetotem").learnset.corrosivegas = ["8L1"];
+		this.modData("Learnsets", "ribombeetotem").learnset.mysticalfire = ["8L1"];
+		this.modData("Learnsets", "ribombeetotem").learnset.sludgebomb = ["8L1"];
+		this.modData("Learnsets", "ribombeetotem").learnset.sludgewave = ["8L1"];
+		this.modData("Learnsets", "ribombeetotem").learnset.strengthsap = ["8L1"];
+		this.modData("Learnsets", "ribombeetotem").learnset.venoshock = ["8L1"];
+
+		this.modData("Learnsets", "araquanid").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "araquanid").learnset.recover = ["8L1"];
+
+		this.modData("Learnsets", "araquanidtotem").learnset.airslash = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.healorder = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.hurricane = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.nastyplot = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.sludgebomb = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.sludgewave = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.toxic = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.venomdrench = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.venoshock = ["8L1"];
+		
+		this.modData("Learnsets", "vikavolt").learnset.geargrind = ["8L1"];
+		this.modData("Learnsets", "vikavolt").learnset.irontail = ["8L1"];
+		this.modData("Learnsets", "vikavolt").learnset.metalclaw = ["8L1"];
+		this.modData("Learnsets", "vikavolt").learnset.ironhead = ["8L1"];
+		this.modData("Learnsets", "vikavolt").learnset.switcheroo = ["8L1"];
+		delete this.modData('Learnsets', 'vikavolt').learnset.agility;
+		delete this.modData('Learnsets', 'vikavolt').learnset.stickyweb;
+
+		this.modData("Learnsets", "vikavolttotem").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "vikavolttotem").learnset.uturn = ["8L1"];
+		delete this.modData('Learnsets', 'vikavolttotem').learnset.agility;
 	},
 	
 	pokemon: {
