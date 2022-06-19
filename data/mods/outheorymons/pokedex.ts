@@ -143,5 +143,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
    goodra: {
       inherit: true,
       abilities: {0: "Sap Sipper", 1: "Analytic", H: "Gooey"},
+   }, 
+   noctowl: {
+      inherit: true, 
+      types: ["Steel", "Flying"],
+      baseStats: {hp: 100, atk: 50, def: 50, spa: 86, spd: 116, spe: 70},
+   }, 
+   scrafty: {
+      inherit: true, 
+      baseStats: {hp: 80, atk: 90, def: 115, spa: 45, spd: 115, spe: 58},
 	}, 
 };

@@ -54,5 +54,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addNewMoves('golemalola', ['zingzap', 'headsmash', 'bodypress', 'heatcrash', 'rapidspin']);
 		addNewMoves('lycanrocmidnight', ['accelerock', 'highhorsepower']);
 		addNewMoves('corsola', ['flipturn', 'thunderbolt', 'energyball']);
+      addNewMoves('persian', ['extremespeed', 'tripleaxel', 'shadowsneak', 'superpower']);
+      addNewMoves('furfrou', ['hex', 'glare', 'smellingsalts']);
+      addNewMoves('furret', ['extremespeed', 'hydropump', 'machpunch', 'megakick', 'stompingtantrum', 'stoneedge']);
 	},
 };
