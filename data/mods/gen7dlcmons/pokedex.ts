@@ -324,6 +324,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		prevo: "Kubfu",
 		eggGroups: ["Undiscovered"],
+		gen: 7,
 	},
 	urshifurapidstrikealola: {
 		num: 892,
@@ -339,6 +340,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		prevo: "Kubfu",
 		eggGroups: ["Undiscovered"],
+		gen: 7,
 	},
 	tynamo: {
 		inherit: true,
