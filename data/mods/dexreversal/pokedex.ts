@@ -1020,7 +1020,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Zygarde",
 		baseStats: {hp: 55, atk: 45, def: 50, spa: 45, spd: 65, spe: 80},
 	},
-	zygarde10%: {
+	zygarde10: {
 		name: "Zygarde-10%",
 		baseSpecies: "Zygarde",
 		forme: "10%",
