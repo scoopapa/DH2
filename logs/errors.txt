@@ -5842,3 +5842,54 @@ Additional information:
 |-anim|p2a: iceghost|Glacial Lance|p1a: steelflying
 |-damage|p1a: steelflying|38/398 par
 
+
+Error: More than one thing matches "Barrage"; please specify one of: pokemon:barrage, move:barrage
+    at ModdedDex.validateBanRule (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:1035:10)
+    at ModdedDex.validateRule (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:965:33)
+    at ModdedDex.getRuleTable (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:843:26)
+    at new TeamValidator (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\team-validator.js:2110:10)
+    at QueryProcessManager._query (C:\Users\anaco\Documents\GitHub\DH\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:394:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:920:12)
+
+Additional information:
+  formatid = gen8gpt3mons
+  team = Yeetle|||intimidate||||||||
+
+
+Error: More than one thing matches "Iceshard"; please specify one of: pokemon:iceshard, move:iceshard
+    at ModdedDex.validateBanRule (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:1035:10)
+    at ModdedDex.validateRule (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:965:33)
+    at ModdedDex.getRuleTable (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:843:26)
+    at new TeamValidator (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\team-validator.js:2110:10)
+    at QueryProcessManager._query (C:\Users\anaco\Documents\GitHub\DH\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:394:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:920:12)
+
+Additional information:
+  formatid = gen8gpt3mons
+  team = Yeetle|||intimidate||||||||
+
+
+Error: More than one thing matches "Miasma"; please specify one of: pokemon:miasma, move:miasma
+    at ModdedDex.validateBanRule (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:1035:10)
+    at ModdedDex.validateRule (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:965:33)
+    at ModdedDex.getRuleTable (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\dex.js:843:26)
+    at new TeamValidator (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\team-validator.js:2110:10)
+    at QueryProcessManager._query (C:\Users\anaco\Documents\GitHub\DH\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:394:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:920:12)
+
+Additional information:
+  formatid = gen8gpt3mons
+  team = Yeetle|||intimidate||||||||
+

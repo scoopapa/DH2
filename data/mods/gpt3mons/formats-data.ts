@@ -1,106 +1,106 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	abrakin: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
-	barrage: {
-		tier: "OU",
-		doublesTier: "DOU",
+	bunbunt: {
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	crawk: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	dopplebop: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	echovine: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	fiendal: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	grimalkin: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	hoarfrost: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
-	iceshard: {
-		tier: "OU",
-		doublesTier: "DOU",
+	isickle: {
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	jiagu: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	kitsune: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	leaford: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
-	miasma: {
-		tier: "OU",
-		doublesTier: "DOU",
+	miasmax: {
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	nyaon: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	obscurio: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	piplant: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	quirog: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	rolyboly: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	saevus: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	toxidile: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	ursaforce: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	vectol: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	wyverna: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	xaetron: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	yeetle: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 	zaprong: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "G3",
+		doublesTier: "DG3",
 	},
 };

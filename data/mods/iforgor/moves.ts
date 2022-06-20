@@ -1140,7 +1140,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Special",
 		name: "Silver Wind",
-		shortDesc: "Raises user's SpA by 1 on turn 1. Hits turn 2."
+		shortDesc: "Raises user's SpA by 1 on turn 1. Hits turn 2.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1174,7 +1174,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (this.field.isTerrain('grassyterrain')) {
 				move.basePower *= 1.5;
 			}
-		}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -1194,7 +1194,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (pokemon.effectiveWeather() == 'sunnyday' || pokemon.effectiveWeather() == 'desolateland') {
 				move.basePower *= 1.5;
 			}
-		}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
