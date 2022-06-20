@@ -2980,7 +2980,15 @@ export const Formats: FormatList = [
 					'Sneaz', 'Durone', 'Drifble', 'Tangel',
 		],
 	},
-	 {
+	{
+		name: "[Gen 8] Dex Reversal",
+		desc: `<b>Dex Reversal</b>.`,
+		mod: 'dexreversal',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Kangaskhanite', 'Medichamite', 'Kangaskhan-Mega', 'Kartana', 'Kyurem', 'Medicham-Mega'],
+	},
+	{
         name: "[Gen 8] Duomod v3",
         desc: `<b>Duomod</b>: Legendary YouTuber and professional Smash player DuoM2's solomod, where wacky nonsense can happen on any turn.`,
         threads: [
