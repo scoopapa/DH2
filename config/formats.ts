@@ -359,7 +359,7 @@ export const Formats: FormatList = [
 			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
 			],
-		unbanlist: ['Thwackey-Eternal',],
+		unbanlist: ['Thwackey-Eternal','Floette-Eternal'],
 		mod: "eternalpokemonv2",
 		teambuilderFormat: "OU",
 	},
