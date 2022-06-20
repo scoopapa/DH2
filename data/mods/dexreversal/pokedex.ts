@@ -4921,8 +4921,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Nidorino",
 		baseStats: {hp: 70, atk: 65, def: 60, spa: 125, spd: 90, spe: 65},
 	},
-	nidoran♂: {
-		name: "Nidoran♂",
+	nidoranm: {
+		inherit: true,
 		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 20, spe: 70},
 	},
 	nidoqueen: {
@@ -4935,8 +4935,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Nidorina",
 		baseStats: {hp: 60, atk: 65, def: 55, spa: 105, spd: 95, spe: 95},
 	},
-	nidoran♀: {
-		name: "Nidoran♀",
+	nidoranf: {
+		inherit: true,
+		name: "Nidoran-F",
 		baseStats: {hp: 58, atk: 95, def: 58, spa: 70, spd: 58, spe: 97},
 	},
 	sandslash: {
