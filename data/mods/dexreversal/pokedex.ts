@@ -1,3 +1,4 @@
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	braviaryhisui: {
 		inherit: true,
 		baseStats: {hp: 50, atk: 1, def: 25, spa: 110, spd: 25, spe: 70},
