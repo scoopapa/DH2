@@ -2984,9 +2984,10 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Dex Reversal",
 		desc: `<b>Dex Reversal</b>.`,
 		mod: 'dexreversal',
+		teambuilderFormat: "National Dex AG",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Kangaskhanite', 'Medichamite', 'Kangaskhan-Mega', 'Kartana', 'Kyurem', 'Medicham-Mega'],
+		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Eviolite'],
 	},
 	{
         name: "[Gen 8] Duomod v3",
