@@ -5487,3 +5487,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Lickitung",
 		baseStats: {hp: 59, atk: 181, def: 131, spa: 59, spd: 31, spe: 109},
 	},
+};
