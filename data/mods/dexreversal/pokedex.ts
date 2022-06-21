@@ -640,7 +640,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Grumpig",
 		baseStats: {hp: 62, atk: 44, def: 50, spa: 44, spd: 50, spe: 55},
 	},
-	zygarde10%: {
+	zygarde10: {
 		inherit: true,
 		baseStats: {hp: 1, atk: 45, def: 1, spa: 25, spd: 55, spe: 100},
 	},
