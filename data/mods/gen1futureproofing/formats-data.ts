@@ -1,11 +1,41 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	lagosnow: {
+	tyranitar: {
 		tier: "OU",
 		isNonstandard: null,
 		gen: 1,
 	},
-	dracolilla: {
+ 	gardevoir: {
 		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	escavalier: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	larvitar: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 1,
+	},
+	pupitar: {
+		tier: "NFE",
+		isNonstandard: null,
+		gen: 1,
+	},
+ 	karrablast: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 1,
+	},
+ 	kirlia: {
+		tier: "NFE",
+		isNonstandard: null,
+		gen: 1,
+	},
+	ralts: {
+		tier: "LC",
 		isNonstandard: null,
 		gen: 1,
 	},
