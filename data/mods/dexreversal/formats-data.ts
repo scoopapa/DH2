@@ -3461,7 +3461,4 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	enamorustherian: {
 		tier: "OU",
 	},
-	missingno: {
-		tier: "(PU)",
-	},
 };
