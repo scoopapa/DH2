@@ -6,6 +6,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Chilling Squeal",
+		shortDesc: "This Pokemon's Attack is raised by 1 stage if it attacks and KOes another Pokemon.",
 		rating: 3,
 		num: -1,
 	},
