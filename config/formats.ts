@@ -359,7 +359,7 @@ export const Formats: FormatList = [
 			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
 			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
 			],
-		unbanlist: ['Thwackey-Eternal',],
+		unbanlist: ['Thwackey-Eternal','Floette-Eternal'],
 		mod: "eternalpokemonv2",
 		teambuilderFormat: "OU",
 	},
@@ -617,10 +617,10 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Baton Pass',
+			'All Pokemon', 'Baton Pass', 'Gardevoirite',
 		],
 		unbanlist: [
-			'Throh-Inteleon', 'Dhelmise-Rillaboom', 'Starmie-Cinderace', 'Riolu-Perrserker', 'Heliolisk-Sirfetchd', 'Axew-MrRime', 'Corviknight-Obstagoon', 'Chesnaught-Runerigus', 'Grimer-Alola-Cursola'
+			'Throh-Inteleon', 'Dhelmise-Rillaboom', 'Starmie-Cinderace', 'Riolu-Perrserker', 'Heliolisk-Sirfetchd', 'Axew-MrRime', 'Corviknight-Obstagoon', 'Chesnaught-Runerigus', 'Grimer-Alola-Cursola', 'Garchomp-Venusaur', 'Garchomp-Venusaur-Mega', 'Flygon-Gardevoir', 'Hitmontop-Scizor', 'Hitmontop-Scizor-Mega', 'Gloom-Diancie', 'Gloom-Diancie-Mega', 'Tapu Koko-Slowbro', 'Tapu Koko-Slowbro-Mega', 'Tentacruel-Volcanion', 'Sandslash-Alola-Zygarde', 'Glaceon-Dragapult', 'Swinub-Glastrier', 'Slowbro-Galar-Necrozma', 'Corviknight-Zarude', 'Centiskorch-Hydreigon', 'Zarude-Tyranitar', 'Zarude-Tyranitar-Mega', 'Slowpoke-Gliscor', 'Torkoal-Chesnaught', 'Bibarel-Politoed',
 		],
 	},
 	{

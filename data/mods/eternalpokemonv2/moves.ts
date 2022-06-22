@@ -160,10 +160,10 @@ onHit(target, source) {
 		basePower: 100,
 		category: "Special",
 		shortDesc: "Both the target and the user switch out to a random teammate after using this move. -6 Priority",
-		name: "Fungal Ferno",
+		name: "Fungalferno",
 		pp: 5,
 		priority: -6,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1},
 		self: {
 		forceSwitch: true,
 		},
