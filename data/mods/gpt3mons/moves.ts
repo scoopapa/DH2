@@ -88,6 +88,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Draconic Roar",
+		shortDesc: "No additional effect.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
@@ -319,12 +320,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Cute",
 	},
-	navelstrike: {
+	neurostrike: {
 		num: 3014,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
-		name: "Navel Strike",
+		name: "Neurostrike",
 		shortDesc: "Lowers the user's Defense by 1.",
 		pp: 10,
 		priority: 0,
@@ -340,7 +341,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Fighting",
+		type: "Psychic",
 		contestType: "Tough",
 	},
 	oasis: {
