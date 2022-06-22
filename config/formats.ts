@@ -407,17 +407,6 @@ export const Formats: FormatList = [
 		// },
 	// },
 	{
-	name: "[Gen 1] FutureProofing",
-	   desc: `<b>[Gen 1] RBY CAP</b>: Adapting Dark, Steel, and Fairy-type moves and Pokemon to the Gen 1 OU metagame.`,
-	   threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-futureproofing-slate-1-discussion.3703375/">FutureProofing on Smogon Forums</a>`,
-	   ],
-      mod: 'gen1rbycap',
-      ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber'],
-		unbanlist: ['Tyranitar', 'Gardevoir', 'Escavalier', 'Karrablast', 'Ralts', 'Kirlia', 'Pupitar', 'Larvitar'],
-    },
-	{
 		name: "[Gen 8] Fusion Evolution UU",
 		mod: "feuu",
 		desc: [
@@ -582,6 +571,17 @@ export const Formats: FormatList = [
 			'Exeggcute',
 		],
 	},
+	{
+	name: "[Gen 1] FutureProofing",
+	   desc: `<b>[Gen 1] FutureProofing</b>: Adapting Dark, Steel, and Fairy-type moves and Pokemon to the Gen 1 OU metagame.`,
+	   threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-futureproofing-slate-1-discussion.3703375/">FutureProofing on Smogon Forums</a>`,
+	   ],
+      mod: 'gen1futureproofing',
+      ruleset: ['Standard', 'Data Mod'],
+		banlist: ['Uber'],
+		unbanlist: ['Tyranitar', 'Gardevoir', 'Escavalier', 'Karrablast', 'Ralts', 'Kirlia', 'Pupitar', 'Larvitar'],
+    },
 	{
 		name: "[Gen 8] Generation X",
 		desc: ["<b>Generation X</b>: A mod that aims to add everything you would expect from a whole new generation of Pokemon games. Welcome to the Brazil-inspired Brazdo region!",],
