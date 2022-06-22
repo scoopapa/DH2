@@ -1389,6 +1389,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Qwilfish",
 		baseStats: {hp: 62, atk: 55, def: 52, spa: 109, spd: 94, spe: 109},
 	},
+	qwilfishhisui: {
+		inherit: true,
+		name: "Qwilfish-Hisui",
+		baseStats: {hp: 62, atk: 55, def: 52, spa: 109, spd: 94, spe: 109},
+	},
 	dewgong: {
 		inherit: true,
 		name: "Dewgong",
@@ -2764,6 +2769,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Sneasel",
 		baseStats: {hp: 65, atk: 75, def: 90, spa: 97, spd: 123, spe: 44},
 	},
+	sneaselhisui: {
+		inherit: true,
+		name: "Sneasel-Hisui",
+		baseStats: {hp: 65, atk: 75, def: 90, spa: 97, spd: 123, spe: 44},
+	},
 	rampardos: {
 		inherit: true,
 		name: "Rampardos",
@@ -3179,7 +3189,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Centiskorch",
 		baseStats: {hp: 80, atk: 82, def: 78, spa: 95, spd: 80, spe: 85},
 	},
-	sneaseler: {
+	sneasler: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 82, def: 83, spa: 100, spd: 100, spe: 80},
 	},
@@ -4817,22 +4827,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	genesectdouse: {
 		inherit: true,
-		name: "Genesect",
+		name: "Genesect-Douse",
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
 	},
 	genesectshock: {
 		inherit: true,
-		name: "Genesect",
+		name: "Genesect-Shock",
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
 	},
 	genesectburn: {
 		inherit: true,
-		name: "Genesect",
+		name: "Genesect-Burn",
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
 	},
 	genesectchill: {
 		inherit: true,
-		name: "Genesect",
+		name: "Genesect-Chill",
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
 	},
 	tyrunt: {
