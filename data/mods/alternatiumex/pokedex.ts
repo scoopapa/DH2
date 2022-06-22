@@ -226,7 +226,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Vikavolt",
 		types: ["Steel"],
 		baseStats: {hp: 77, atk: 115, def: 90, spa: 70, spd: 90, spe: 85},
-		abilities: {0: "Levitate", 1: "Rough Skin"},
+		abilities: {0: "Levitate", H: "Rough Skin"},
 		heightm: 1.5,
 		weightkg: 45,
 		otherFormes: null,

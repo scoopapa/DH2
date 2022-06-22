@@ -814,6 +814,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Slowbro",
 		baseStats: {hp: 60, atk: 45, def: 110, spa: 80, spd: 120, spe: 90},
 	},
+	slowbromega: {
+		inherit: true,
+		name: "Slowbro-Mega",
+		baseStats: {hp: 60, atk: 45, def: 180, spa: 110, spd: 120, spe: 90},
+	},
 	litwick: {
 		inherit: true,
 		name: "Litwick",
@@ -1382,6 +1387,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	qwilfish: {
 		inherit: true,
 		name: "Qwilfish",
+		baseStats: {hp: 62, atk: 55, def: 52, spa: 109, spd: 94, spe: 109},
+	},
+	qwilfishhisui: {
+		inherit: true,
+		name: "Qwilfish-Hisui",
 		baseStats: {hp: 62, atk: 55, def: 52, spa: 109, spd: 94, spe: 109},
 	},
 	dewgong: {
@@ -2759,6 +2769,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Sneasel",
 		baseStats: {hp: 65, atk: 75, def: 90, spa: 97, spd: 123, spe: 44},
 	},
+	sneaselhisui: {
+		inherit: true,
+		name: "Sneasel-Hisui",
+		baseStats: {hp: 65, atk: 75, def: 90, spa: 97, spd: 123, spe: 44},
+	},
 	rampardos: {
 		inherit: true,
 		name: "Rampardos",
@@ -3174,7 +3189,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Centiskorch",
 		baseStats: {hp: 80, atk: 82, def: 78, spa: 95, spd: 80, spe: 85},
 	},
-	sneaseler: {
+	sneasler: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 82, def: 83, spa: 100, spd: 100, spe: 80},
 	},
@@ -4808,6 +4823,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	genesect: {
 		inherit: true,
 		name: "Genesect",
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
+	},
+	genesectdouse: {
+		inherit: true,
+		name: "Genesect-Douse",
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
+	},
+	genesectshock: {
+		inherit: true,
+		name: "Genesect-Shock",
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
+	},
+	genesectburn: {
+		inherit: true,
+		name: "Genesect-Burn",
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
+	},
+	genesectchill: {
+		inherit: true,
+		name: "Genesect-Chill",
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
 	},
 	tyrunt: {

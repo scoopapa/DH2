@@ -533,7 +533,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Groundingo",
 		types: ["Ground", "Electric"],
 		baseStats: {hp: 80, atk: 130, def: 80, spa: 75, spd: 80, spe: 91},
-		abilities: {0: "static", H: "Unaware"},
+		abilities: {0: "Static", H: "Unaware"},
 		weightkg: 19,
 	},
 	hadalith: {
