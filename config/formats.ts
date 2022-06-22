@@ -3083,6 +3083,19 @@ export const Formats: FormatList = [
 		teambuilderFormat: "OU", 	
 	},
 	{
+		name: "[Gen 8] GPT3mons",
+	   desc: '<b>GPT3mons</b>: A solomod featuring pokemon generated using a GPT3 neural network.',
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1tJ99u-GxfyCq5-fGMaygDUN8FUzQadk0aK5Y9Gstf9k/edit#gid=0
+			">Spreadsheet</a>`,
+		],
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['All Pokemon', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		unbanlist: ['Abrakin', 'Barrage', 'Crawk', 'Dopplebop', 'Echovine', 'Fiendal', 'Grimalkin', 'Hoarfrost', 'Iceshard', 'Jiagu', 'Kitsune', 'Leaford', 'Miasma', 'Nyaon', 'Obscurio', 'Piplant', 'Quirog', 'Rolyboly', 'Saevus', 'Toxidile', 'Ursaforce', 'Vectol', 'Wyverna', 'Xaetron', 'Yeetle', 'Zaprong'],
+		mod: "gpt3mons",
+		teambuilderFormat: "OU",
+	},
+	{
 		name: "[Gen 2] GSC Doubles",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9132049">Post in Solomods Megathread</a>`,
