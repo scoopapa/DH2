@@ -814,6 +814,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Slowbro",
 		baseStats: {hp: 60, atk: 45, def: 110, spa: 80, spd: 120, spe: 90},
 	},
+	slowbromega: {
+		inherit: true,
+		name: "Slowbro-Mega",
+		baseStats: {hp: 60, atk: 45, def: 180, spa: 110, spd: 120, spe: 90},
+	},
 	litwick: {
 		inherit: true,
 		name: "Litwick",
@@ -4806,6 +4811,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 120, def: 70, spa: 50, spd: 60, spe: 100},
 	},
 	genesect: {
+		inherit: true,
+		name: "Genesect",
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
+	},
+	genesectdouse: {
+		inherit: true,
+		name: "Genesect",
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
+	},
+	genesectshock: {
+		inherit: true,
+		name: "Genesect",
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
+	},
+	genesectburn: {
+		inherit: true,
+		name: "Genesect",
+		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},
+	},
+	genesectchill: {
 		inherit: true,
 		name: "Genesect",
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 110, spd: 70, spe: 80},

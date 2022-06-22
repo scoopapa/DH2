@@ -2997,8 +2997,19 @@ export const Formats: FormatList = [
 		mod: 'dexreversal',
 		teambuilderFormat: "National Dex AG",
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
-		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Eviolite'],
+		banlist: [
+				//Abilities
+				'Arena Trap', 'Moody', 'Shadow Tag', 
+				
+				//Items
+				'Blastoisinite', 'Bright Powder', 'Eviolite', 'Gengarite', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 'Pidgeotine', 'Razor Fang', 
+				
+				//Moves
+				'Baton Pass',
+				
+				//Pokemon
+				'AG', 'Blastoise-Mega', 'Gengar-Mega', 'Kangaskhan-Mega', 'Pidgeot-Mega', 'Smeargle',
+		],
 	},
 	{
         name: "[Gen 8] Duomod v3",
