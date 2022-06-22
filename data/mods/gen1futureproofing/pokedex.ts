@@ -10,6 +10,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Green",
 		evos: ["Pupitar"],
 		eggGroups: ["Monster"],
+		gen: 1,
 	},
 	pupitar: {
 		num: 247,
@@ -21,6 +22,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 152,
 		color: "Gray",
 		prevo: "Larvitar",
+		gen: 1,
 	},
 	tyranitar: {
 		num: 248,
@@ -33,6 +35,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Green",
 		prevo: "Pupitar",
 		evoLevel: 55,
+		gen: 1,
 	},
 	karrablast: {
 		num: 588,
@@ -44,6 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 5.9,
 		color: "Blue",
 		evos: ["Escavalier"],
+		gen: 1,
 	},
 	escavalier: {
 		num: 589,
@@ -56,6 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		prevo: "Karrablast",
 		evoType: "trade",
+		gen: 1,
 	},
 	ralts: {
 		num: 280,
@@ -68,6 +73,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		evos: ["Kirlia"],
 		eggGroups: ["Human-Like", "Amorphous"],
+		gen: 1,
 	},
 	kirlia: {
 		num: 281,
@@ -81,6 +87,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Ralts",
 		evoLevel: 20,
 		evos: ["Gardevoir"],
+		gen: 1,
 	},
 	gardevoir: {
 		num: 282,
@@ -93,6 +100,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		prevo: "Kirlia",
 		evoLevel: 30,
+		gen: 1,
 	},
 
 // don't touch
