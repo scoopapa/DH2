@@ -343,6 +343,27 @@ export const Formats: FormatList = [
 		mod: 'doeppelgangers',
 	},
 	{
+		name: "[Gen 8] Eternal Pokemon V2",
+		desc: [
+			"The idea behind this Pet Mod would be to give every single Non Fully Evolved Pokémon the same treatment that was given to Floette-E.",
+		],
+		threads: [
+			'&bullet; <a href="https://www.smogon.com/forums/threads/eternal-pokemon-v2-slate-3-high-horse-power.3700796/">Eternal Pokemon V2</a>',
+			'&bullet; <a href="https://docs.google.com/spreadsheets/d/1o7QNbqIN85CWuLJm-MJJ0u7yoUXvOZGuJfL_08oI1b4/edit#gid=0">Spreadsheet</a>',
+			  ],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		banlist: [
+						'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cinderace', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 
+			'Dialga', 'Dracovish', 'Dragapult', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 
+			'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Magearna', 'Metagross-Mega', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 
+			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Spectrier', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+			],
+		unbanlist: ['Thwackey-Eternal','Floette-Eternal'],
+		mod: "eternalpokemonv2",
+		teambuilderFormat: "OU",
+	},
+	{
 		name: "[Gen 8] Extreme Reboot",
 		desc: `A metagame where the types, statuses, moves, abilities, and pokemon are rebooted.`,
 		threads: [
@@ -477,7 +498,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Baton Pass', 'Gardevoirite', 'Mawilite', 'Cameruptite', 'Scizorite', 'Glalitite', 'Sablenite', 'Lopunnite', 'Garchompite', 'Venusaurite', 'Pinsirite', 'Medichamite', 'Alakazite', 'Beedrillite', 'Manectite', 'Herasir + Heracronite', 'Charizardite Y', 'Charizardite X', 'Lucarionite',
+			'All Pokemon', 'Baton Pass', 'Gardevoirite', 'Mawilite', 'Cameruptite', 'Scizorite', 'Glalitite', 'Sablenite', 'Lopunnite', 'Garchompite', 'Venusaurite', 'Pinsirite', 'Medichamite', 'Alakazite', 'Beedrillite', 'Manectite', 'Herasir + Heracronite', 'Charizardite Y', 'Charizardite X', 'Lucarionite', 'Swannamence + Salamencite',
 		],
 		unbanlist: [
 			'Torranadus-Therian', 'Togetops', 'Toxicargo', 'Claylamar', 'Vishitomb', 'Swampflora', 'Swampflora-Mega', 'Swalurchin', 'Serpeblim',
@@ -499,6 +520,7 @@ export const Formats: FormatList = [
 			'Tapu Lop', 'Absable', 'Absable-Mega-X', 'Cofazor', 'Lurodactyl', 'Lurodactyl-Mega', 'Wishirupti', 'Hypnakart', 'Talonsyl', 'Paracoal', 'Avarupt', 'Pherogonga', 
 			'Hawlazzle', 'Glakiss', 'Glasnow', 'Glasnow-Mega', 'Dusking', 'Strikados-Galar', 'Regibee',
 			'Toxalure', 'Pigapult', 'Eternabat', 'Goatitar', 'Goatitar-Mega', 'Altarizard', 'Serpanadel', 'Crustboar', 'Flaant', 'Keclyrex-Shadow', 'Frozerade', 'Sirsola', 'Snortine',
+			'Swannamence', 'Vullacham', 
 			
 			'Silvino-Bug', 'Silvino-Dark', 'Silvino-Dragon', 'Silvino-Electric', 'Silvino-Fairy', 'Silvino-Fighting',
 			'Silvino-Fire', 'Silvino-Flying', 'Silvino-Ghost', 'Silvino-Grass', 'Silvino-Ground', 'Silvino-Ice', 
@@ -527,12 +549,20 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Baton Pass', 'Salamencite',
+			'All Pokemon', 'Baton Pass', 'Salamencite', 'Abomasite', 'Absolite', 'Medichamite', 'Lopunnite',
 		],
 		unbanlist: [
 	 		'Rhybite',
 			'Appledam', 'Regidurr', 'Duskoma', 'Fraxblade', 'Igglycian-Crowned', 
-			'Eiscudile', 'Carcannon', 'Lapfisk', 'Whisdur', 'Emposerker', 'Salasian-Alola', 'Salasian-Alola-Mega', 
+			'Eiscudile', 'Carcannon', 'Lapfisk', 'Whisdur', 'Emposerker', 'Salasian-Alola',
+			
+			'Claylamar', 'Vishitomb', 'Swampflora', 'Swampflora-Mega', 'Azekrow', 'Trapeino', 'Bearyx', 'Fetchey', "Aromarel", 'Googersby', 'Harisect', 
+			'Absable', 'Tapu Lop', 'Hypnakart', 'Hawlazzle', 'Glasnow', 'Paracoal',
+			'Swannamence', 'Vullacham', 
+			
+			'Silvino-Bug', 'Silvino-Electric', 'Silvino-Fighting',
+			'Silvino-Fire', 'Silvino-Flying', 'Silvino-Grass', 'Silvino-Ice', 
+			'Silvino-Poison', 'Silvino-Psychic', 'Silvino-Rock', 'Silvino', 'Silvino-Mega',	
 			
 			'Corveotto', 'Torraaffy', 'Rosadin', 'Mr. Boot-Galar', 'Palpitrik', 'Pikabat', 'Krokocroco', 'Ivycat', 'Tranquorino', 'Kadabeak', 'Vibrachu', 'Chokloom', 'Magmabuzz',
 			'Mariwick', 'Krabsweet', 'Slowmite', 'Eebat', 'Gibloon', 'Mieyu', 'Duspoke', 'Frillnub', 'Dreepig', 'Meowruff-Galar', 'Golidimp', 'Panchanpy', 'Shroolix', 'Noixel', 'Pidgeidee', 'Bronlin', 'Seedpoke-Galar', 'Glitoy', 'Munchyke', 'Venipawn', 'Krelpinch', 'Tirtipek', 'Grinamo', 'Cubodile', 'Snodew', 'Claunchiwag', 'Scymask', 'Fletchee', 'Farsola-Galar', 'Cottonas', 'Snipole', 'Maritten', 'Snogepi', 'Hippee', 'Dwepig', 'Parycoly', 'Charblu', 'Inkshrew-Alola', 'Chewkit', 'Duckgon', 'Larvaura', 'Crabrola', 'Chespew', 'Rowlipede', 'Scor Jr.', 'Porymask', 'Wimbuto', 'Larkiddo', 'Bergmel',
@@ -541,6 +571,17 @@ export const Formats: FormatList = [
 			'Exeggcute',
 		],
 	},
+	{
+	name: "[Gen 1] FutureProofing",
+	   desc: `<b>[Gen 1] FutureProofing</b>: Adapting Dark, Steel, and Fairy-type moves and Pokemon to the Gen 1 OU metagame.`,
+	   threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-futureproofing-slate-1-discussion.3703375/">FutureProofing on Smogon Forums</a>`,
+	   ],
+      mod: 'gen1futureproofing',
+      ruleset: ['Standard', 'Data Mod'],
+		banlist: ['Uber'],
+		unbanlist: ['Tyranitar', 'Gardevoir', 'Escavalier', 'Karrablast', 'Ralts', 'Kirlia', 'Pupitar', 'Larvitar'],
+    },
 	{
 		name: "[Gen 8] Generation X",
 		desc: ["<b>Generation X</b>: A mod that aims to add everything you would expect from a whole new generation of Pokemon games. Welcome to the Brazil-inspired Brazdo region!",],
@@ -587,10 +628,10 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Baton Pass',
+			'All Pokemon', 'Baton Pass', 'Gardevoirite',
 		],
 		unbanlist: [
-			'Throh-Inteleon', 'Dhelmise-Rillaboom', 'Starmie-Cinderace', 'Riolu-Perrserker', 'Heliolisk-Sirfetchd', 'Axew-MrRime', 'Corviknight-Obstagoon', 'Chesnaught-Runerigus', 'Grimer-Alola-Cursola'
+			'Throh-Inteleon', 'Dhelmise-Rillaboom', 'Starmie-Cinderace', 'Riolu-Perrserker', 'Heliolisk-Sirfetchd', 'Axew-MrRime', 'Corviknight-Obstagoon', 'Chesnaught-Runerigus', 'Grimer-Alola-Cursola', 'Garchomp-Venusaur', 'Garchomp-Venusaur-Mega', 'Flygon-Gardevoir', 'Hitmontop-Scizor', 'Hitmontop-Scizor-Mega', 'Gloom-Diancie', 'Gloom-Diancie-Mega', 'Tapu Koko-Slowbro', 'Tapu Koko-Slowbro-Mega', 'Tentacruel-Volcanion', 'Sandslash-Alola-Zygarde', 'Glaceon-Dragapult', 'Swinub-Glastrier', 'Slowbro-Galar-Necrozma', 'Corviknight-Zarude', 'Centiskorch-Hydreigon', 'Zarude-Tyranitar', 'Zarude-Tyranitar-Mega', 'Slowpoke-Gliscor', 'Torkoal-Chesnaught', 'Bibarel-Politoed',
 		],
 	},
 	{
@@ -2950,7 +2991,16 @@ export const Formats: FormatList = [
 					'Sneaz', 'Durone', 'Drifble', 'Tangel',
 		],
 	},
-	 {
+	{
+		name: "[Gen 8] Dex Reversal",
+		desc: `<b>Dex Reversal</b>.`,
+		mod: 'dexreversal',
+		teambuilderFormat: "National Dex AG",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+		'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Eviolite'],
+	},
+	{
         name: "[Gen 8] Duomod v3",
         desc: `<b>Duomod</b>: Legendary YouTuber and professional Smash player DuoM2's solomod, where wacky nonsense can happen on any turn.`,
         threads: [
@@ -3044,6 +3094,19 @@ export const Formats: FormatList = [
 		teambuilderFormat: "OU", 	
 	},
 	{
+		name: "[Gen 8] GPT3mons",
+	   desc: '<b>GPT3mons</b>: A solomod featuring pokemon generated using a GPT3 neural network.',
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1tJ99u-GxfyCq5-fGMaygDUN8FUzQadk0aK5Y9Gstf9k/edit#gid=0
+			">Spreadsheet</a>`,
+		],
+		mod: "gpt3mons",
+		teambuilderFormat: "G3",
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'OHKO Clause', 'Data Mod'],
+		banlist: ['All Pokemon', 'Baton Pass'],
+		unbanlist: ['Abrakin', 'Bunbunt', 'Crawk', 'Dopplebop', 'Echovine', 'Fiendal', 'Grimalkin', 'Hoarfrost', 'Isickle', 'Jiagu', 'Kitsune', 'Leaford', 'Miasmax', 'Nyaon', 'Obscurio', 'Piplant', 'Quirog', 'Rolyboly', 'Saevus', 'Toxidile', 'Ursaforce', 'Vectol', 'Wyverna', 'Xaetron', 'Yeetle', 'Zaprong'],	
+	},
+	{
 		name: "[Gen 2] GSC Doubles",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9132049">Post in Solomods Megathread</a>`,
@@ -3053,6 +3116,17 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Swagger Clause'],
 		banlist: ['Uber'],
+	},
+    {
+		name: "[Gen 3] Hoennification",
+        desc: 'This is a Solomod that adds Gen 4-8 Pokemon to the Gen 3 format. It takes away their Gen 4-8 abilities and replaces them with Illuminate (I will be changing them later). As for existing Gen 1-3 Pokemon, I have updated their stats, typing and learnsets to match National Dex (minus Gen 4-8 moves). Megas do not require a Mega Stone, and they have been nerfed to 50% of their original stats (for example, if a Mega usually gains +20 in a stat, it now only gains +10). If a Pokemon has Fairy type, I have converted that to Normal. I have also given them their Hidden Abilities if they have no ability in their second ability slot. Pokemon who were Ubers in [Gen 8] OU are Ubers here, while Pokemon who were OU in [Gen 8] OU are OU here, meaning some Pokemon may deserve a quickban',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/page-6#post-9240115">Post in Solomods Megathread</a>`,
+		],
+
+		mod: 'gen3hoennification',
+		ruleset: ['Standard', '3 Baton Pass Clause'],
+		banlist: ['Uber', 'Smeargle + Baton Pass'],
 	},
 	{    
        name: "[Gen 8] i forgor OU",

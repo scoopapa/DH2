@@ -2009,7 +2009,6 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			pinmissile: ["8M", "8L25", "7L45"],
 			poisonsting: ["8L1", "7L1"],
 			raindance: ["8M", "7M"],
-			recover: ["8L20", "7L33"],
 			safeguard: ["8M", "7M"],
 			scald: ["8M", "7M"],
 			spikecannon: ["7L29"],

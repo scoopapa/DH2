@@ -110,4 +110,115 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Flying",
 	},
+	conifercrash: {
+		num: 795,
+		accuracy: 95,
+		basePower: 100,
+		shortDesc: "50% chance to raise user's Def by 2 for each hit",
+		category: "Physical",
+		name: "Conifer Crash",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			chance: 50,
+			boosts: {
+				def: 2,
+			},
+		},
+		secondary: {
+			// Sheer Force negates the self even though it is not secondary
+		},
+		target: "allAdjacentFoes",
+		type: "Grass",
+		contestType: "Beautiful",
+	},
+	lavaeruption: {
+		num: 796,
+		accuracy: 95,
+		basePower: 110,
+		shortDesc: "30% chance to burn the target. Thaws target.",
+		category: "Special",
+		name: "Lava Eruption",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1},
+		thawsTarget: true,
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	onearrow: {
+		num: 797,
+		accuracy: 100,
+		basePower: 90,
+		shortDesc: "Grounds adjacent foes. First hit neutral on Flying.",
+		category: "Special",
+		name: "One Arrow",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			if (move.type !== 'Ground') return;
+			if (!target) return; // avoid crashing when called from a chat plugin
+			// ignore effectiveness if the target is Flying type and immune to Ground
+			if (!target.runImmunity('Ground')) {
+				if (target.hasType('Flying')) return 0;
+			}
+		},
+		volatileStatus: 'smackdown',
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		zMove: {basePower: 180},
+		contestType: "Beautiful",
+	},
+	frostenforcer: {
+		num: 798,
+		accuracy: 100,
+		basePower: 100,
+		shortDesc: "Nullifies the foe(s) Ability if the foe(s) move first.",
+		category: "Physical",
+		name: "Frost Enforcer",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target) {
+			if (target.getAbility().isPermanent) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			target.addVolatile('gastroacid');
+		},
+		onAfterSubDamage(damage, target) {
+			if (target.getAbility().isPermanent) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			target.addVolatile('gastroacid');
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ice",
+		zMove: {basePower: 140},
+		contestType: "Tough",
+	},
+	spectraldarts: {
+		num: 799,
+		accuracy: 100,
+		basePower: 50,
+		shortDesc: "Hits twice. Doubles: Tries to hit each foe once.",
+		category: "Special",
+		name: "Spectral Darts",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		smartTarget: true,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		maxMove: {basePower: 130},
+	},
 };

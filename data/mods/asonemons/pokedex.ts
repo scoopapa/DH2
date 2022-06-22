@@ -139,7 +139,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 18,
 		name: "Thwackey-Dune",
 		types: ["Grass", "Ground"],
-		baseStats: {hp: 108, atk: 112, def: 118, spa: 68, spd: 127, spe: 62},
+		baseStats: {hp: 108, atk: 112, def: 118, spa: 88, spd: 107, spe: 62},
 		abilities: {0: "As One (Hippowdon)"},
 		weightkg: 314,
 	},
