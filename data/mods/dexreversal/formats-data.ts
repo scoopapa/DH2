@@ -95,9 +95,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	raticatealola: {
 		tier: "(PU)",
 	},
-	raticatealolatotem: {
-		tier: "(PU)",
-	},
 	spearow: {
 		tier: "LC",
 	},
@@ -516,9 +513,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 	},
 	marowakalola: {
-		tier: "RU",
-	},
-	marowakalolatotem: {
 		tier: "RU",
 	},
 	tyrogue: {
@@ -2762,9 +2756,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	gumshoos: {
 		tier: "(PU)",
 	},
-	gumshoostotem: {
-		tier: "(PU)",
-	},
 	grubbin: {
 		tier: "LC",
 	},
@@ -2772,9 +2763,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	vikavolt: {
-		tier: "(PU)",
-	},
-	vikavolttotem: {
 		tier: "(PU)",
 	},
 	crabrawler: {
@@ -2799,9 +2787,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	ribombee: {
-		tier: "PU",
-	},
-	ribombeetotem: {
 		tier: "PU",
 	},
 	rockruff: {
@@ -2842,16 +2827,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	araquanid: {
 		tier: "NU",
 	},
-	araquanidtotem: {
-		tier: "NU",
-	},
 	fomantis: {
 		tier: "LC",
 	},
 	lurantis: {
-		tier: "(PU)",
-	},
-	lurantistotem: {
 		tier: "(PU)",
 	},
 	morelull: {
@@ -2864,9 +2843,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	salazzle: {
-		tier: "NU",
-	},
-	salazzletotem: {
 		tier: "NU",
 	},
 	stufful: {
@@ -2979,16 +2955,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	togedemaru: {
 		tier: "PU",
 	},
-	togedemarutotem: {
-		tier: "PU",
-	},
 	mimikyu: {
-		tier: "RU",
-	},
-	mimikyutotem: {
-		tier: "RU",
-	},
-	mimikyubustedtotem: {
 		tier: "RU",
 	},
 	bruxish: {
@@ -3007,9 +2974,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	kommoo: {
-		tier: "UUBL",
-	},
-	kommoototem: {
 		tier: "UUBL",
 	},
 	tapukoko: {

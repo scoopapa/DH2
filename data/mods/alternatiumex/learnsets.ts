@@ -208,6 +208,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			flamecharge: ["8L1"],
 			flamethrower: ["8L1"],
 			flamewheel: ["8L1"],
+			flareblitz: ["8L1"],
 			fling: ["8L1"],
 			focusblast: ["8L1"],
 			focuspunch: ["8L1"],
