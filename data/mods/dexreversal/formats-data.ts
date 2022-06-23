@@ -1098,7 +1098,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	blazikenmega: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	mudkip: {
 		tier: "LC",
@@ -1110,7 +1110,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	swampertmega: {
-		tier: "OU",
+		tier: "AG",
 	},
 	poochyena: {
 		tier: "LC",
@@ -1119,7 +1119,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 	},
 	zigzagoon: {
-		tier: "NFE",
+		tier: "AG",
 	},
 	zigzagoongalar: {
 		tier: "LC",
@@ -1284,7 +1284,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU",
 	},
 	medichammega: {
-		tier: "OU",
+		tier: "AG",
 	},
 	electrike: {
 		tier: "LC",
@@ -2007,10 +2007,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PU",
 	},
 	woobat: {
-		tier: "NFE",
+		tier: "AG",
 	},
 	swoobat: {
-		tier: "(PU)",
+		tier: "AG",
 	},
 	drilbur: {
 		tier: "LC",
@@ -3031,7 +3031,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	necrozmaultra: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	magearna: {
 		tier: "Uber",

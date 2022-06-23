@@ -5530,7 +5530,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	necrozmaultra: {
 		inherit: true,
 		name: "Necrozma-Ultra",
-		baseStats: {hp: 50, atk: 160, def: 80, spa: 160, spd: 80, spe: 137},
+		baseStats: {hp: 50, atk: 180, def: 100, spa: 180, spd: 100, spe: 137},
 	},
 	garchompmega: {
 		inherit: true,
