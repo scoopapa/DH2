@@ -6,9 +6,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 40, atk: 95, def: 80, spa: 105, spd: 80, spe: 110},
 		abilities: {0: "Magic Guard", H: "Flash Fire"},
 	},
-	barrage: {
+	bunbunt: {
 		num: 2,
-		name: "Barrage",
+		name: "Bunbunt",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 		abilities: {0: "Guts", H: "Sheer Force"},
@@ -55,9 +55,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 80, atk: 110, def: 90, spa: 90, spd: 90, spe: 90},
 		abilities: {0: "Refrigerate", H: "Vital Spirit"},
 	},
-	iceshard: {
+	isickle: {
 		num: 9,
-		name: "Iceshard",
+		name: "Isickle",
 		types: ["Ice", "Steel"],
 		baseStats: {hp: 80, atk: 100, def: 110, spa: 130, spd: 105, spe: 45},
 		abilities: {0: "Snow Warning", H: "Technician"},
@@ -83,9 +83,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 100, spd: 90, spe: 90},
 		abilities: {0: "Grassy Surge", H: "Serene Grace"},
 	},
-	miasma: {
+	miasmax: {
 		num: 13,
-		name: "Miasma",
+		name: "Miasmax",
 		types: ["Bug", "Poison"],
 		baseStats: {hp: 70, atk: 110, def: 65, spa: 95, spd: 65, spe: 110},
 		abilities: {0: "Tinted Lens", H: "Tough Claws"},
