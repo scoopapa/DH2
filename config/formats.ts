@@ -2996,19 +2996,20 @@ export const Formats: FormatList = [
 		desc: `<b>Dex Reversal</b>.`,
 		mod: 'dexreversal',
 		teambuilderFormat: "National Dex AG",
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 				//Abilities
-				'Arena Trap', 'Moody', 'Shadow Tag', 
+				'Arena Trap', 'Moody', 'Shadow Tag', 'Swift Swim',
 				
 				//Items
-				'Blastoisinite', 'Bright Powder', 'Eviolite', 'Gengarite', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 'Pidgeotine', 'Razor Fang', 
+				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Eviolite', 'Gengarite', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 
+				'Medichamite', 'Pidgeotite', 'Razor Fang', 'Swampertite', 'Thick Club',
 				
 				//Moves
 				'Baton Pass',
 				
 				//Pokemon
-				'AG', 'Blastoise-Mega', 'Gengar-Mega', 'Kangaskhan-Mega', 'Pidgeot-Mega', 'Smeargle',
+				'AG',
 		],
 	},
 	{
