@@ -201,6 +201,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			ember: ["8L1"],
 			endure: ["8L1"],
 			eruption: ["8L1"],
+			extrasensory: ["8L1"],
 			facade: ["8L1"],
 			fireblast: ["8L1"],
 			firepledge: ["8L1"],
