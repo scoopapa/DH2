@@ -3002,7 +3002,7 @@ export const Formats: FormatList = [
 				'Arena Trap', 'Moody', 'Shadow Tag', 
 				
 				//Items
-				'Blastoisinite', 'Bright Powder', 'Eviolite', 'Gengarite', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 'Pidgeotine', 'Razor Fang', 
+				'Blastoisinite', 'Bright Powder', 'Eviolite', 'Gengarite', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 'Pidgeotite', 'Razor Fang', 
 				
 				//Moves
 				'Baton Pass',
