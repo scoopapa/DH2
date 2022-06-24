@@ -1569,10 +1569,12 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			tackle: ["1L1"],
 			screech: ["1L1"],
+			irondefense: ["1L8"],
 			bind: ["1L15"],
 			rockthrow: ["1L19"],
 			rage: ["1L25", "1M"],
 			slam: ["1L33"],
+			ironhead: ["1L38"],
 			harden: ["1L43"],
 			toxic: ["1M"],
 			bodyslam: ["1M"],
@@ -1592,6 +1594,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			cut: ["1M"],
 			strength: ["1M"],
+			dragonrage: ["1L1"],
 		},
 	},
 	rhyperior: {
