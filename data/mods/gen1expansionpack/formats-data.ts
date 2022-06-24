@@ -185,7 +185,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	lickilicky: {
-		tier: "New",
+		tier: "Uber",
 		gen: 1,
 	},
 	tangrowth: {
@@ -193,7 +193,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	blissey: {
-		tier: "New",
+		tier: "Uber",
 		gen: 1,
 	},
 	rhyperior: {
