@@ -1287,29 +1287,23 @@ export const Formats: {[k: string]: FormatData} = {
 						if (!isNaN(target.set.name.substr(15 + offset, 3))) newSpecies.baseStats.spe = target.set.name.substr(15 + offset, 3);
 					}
 				}
-				target.isSandbox = true;
-				//Idk if this is necessary but better safe than sorry? unless this crashes when it activates. in which case i will be sorry anyways.
-				//If isModded is true, then sometimes the *non-sandbox* Data Mod displays *its* utilichart instead of this one,
-				//which doesn't accurately display our sandboxed stats and typing. Regardless of which one activates first, it doesn't give
-				//two utilicharts because the first one sets our switchedIn to true, which the second one then reads and goes "oh ok, im done then!"
-				//Switching this to use a separate isSandbox boolean resolves this issue.
-				//... Although, on second thought, maybe setting this rule's onSwitchInPriority (if that's a thing) to be higher than Data Mod would be
-				//a better approach? Might revisit this another time.
-				if (target.isModded) delete target.isModded;
+				target.isModded = true;
 				return newSpecies;
 			}
 		},
+		//onSwitchInPriority, so we go before Data Mod 100% of the time
+		onSwitchInPriority: 1,
 		onSwitchIn(pokemon) {
 			let species = pokemon.species;
 			let switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
-				if (!pokemon.illusion.isSandbox) return;
+				if (!pokemon.illusion.isModded) return;
 				species = pokemon.illusion.species;
 				this.add('-start', pokemon, 'typechange', species.types.join('/'), '[silent]');
 				if (pokemon.illusion.switchedIn) return;
 				pokemon.illusion.switchedIn = true;
 			} else {
-				if (!pokemon.isSandbox) return;
+				if (!pokemon.isModded) return;
 				this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 				if (pokemon.switchedIn) return;
 				pokemon.switchedIn = true;
@@ -1324,9 +1318,11 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 			this.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 		},
+		//onDamagingHitOrder, so we go before Data Mod (and after Illusion wearing off, which I modded to have a priority of 1) 100% of the time
+		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
 			if (target.hasAbility('illusion')) { // making sure the correct information is given when an Illusion breaks
-				if (target.isSandbox) {
+				if (target.isModded) {
 					this.add('-start', target, 'typechange', target.species.types.join('/'), '[silent]');
 					if (!target.switchedIn) {
 						target.switchedIn = true;
