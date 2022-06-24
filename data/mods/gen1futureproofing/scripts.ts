@@ -5,7 +5,7 @@
  */
 
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'gen2',
+	inherit: 'gen1',
 	gen: 1,
 	init() {
 		for (const i in this.data.Pokedex) {
