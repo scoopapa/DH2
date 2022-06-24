@@ -357,6 +357,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		target: "normal",
 		gen: 1,
+		boosts: {
+			spd: -2,
+			spa: -2,
+		},
 	},
 	falsesurrender: {
 		inherit: true,
