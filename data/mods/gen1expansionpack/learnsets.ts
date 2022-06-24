@@ -1112,6 +1112,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bide: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
+			
+			surf: ["1S0"], //doesn't show in builder otherwise...
 		},
 	},
 	guardia: {
@@ -1129,7 +1131,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			megakick: ["1M"],
 			bodyslam: ["1M"],
 			takedown: ["1M"],
-			doubleeedge: ["1M"],
+			doubleedge: ["1M"],
 			bubblebeam: ["1M"],
 			watergun: ["1M"],
 			icebeam: ["1M"],
@@ -2931,7 +2933,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			psybeam: ["1L25"],
 			stomp: ["1L30"],
 			takedown: ["1L41", "1M"],
-			dazlinggleam: ["1L45"],
+			dazzlinggleam: ["1L45"],
 			psychic: ["1L50", "1M"],
 			bodyslam: ["1M"],
 			swift: ["1M"],
