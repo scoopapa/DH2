@@ -273,7 +273,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	totartle: {
 		num: 1184,
-		name: "Gorochu",
+		name: "Totartle",
 		types: ["Water", "Grass"],
 		baseStats: {hp: 70, atk: 100, def: 65, spa: 100, spd: 100, spe: 110},
 		abilities: {},
