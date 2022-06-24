@@ -119,7 +119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1165,
 		name: "Nidoreign",
 		types: ["Poison", "Rock"],
-		baseStats: {hp: 102, atk: 83, def: 76, spa: 121, spd: 121, spe: 118},
+		baseStats: {hp: 90, atk: 92, def: 87, spa: 75, spd: 75, spe: 85},
 		abilities: {},
 		prevo: "Nidorino", // It seems we can't have convergent evolutions, so Nidorino will be used here. I believe it'll be functionally identical in the validator as long as I make it learn the Nidorina-exclusive moves via an event entry or something. 
 		evoType: "useItem", //NOTE TO SELF: Make the moves all learned at L1 and L50. The lowest reasonable level people will use this at is 50, and this will resolve any incompatabilities in the validator. The moves suck but let's make sure nobody becomes uncanny.
