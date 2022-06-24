@@ -6,7 +6,7 @@
  * Psychic was immune to ghost
  */
 
-export const TypeChart: {[k: string]: ModdedTypeData | null} = {
+export const TypeChart: {[k: string]: ModdedTypeData} = {
 	bug: {
 		damageTaken: {
 			Bug: 0,
