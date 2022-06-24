@@ -300,7 +300,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	diglettalola: {
 		inherit: true,
 		name: "Diglett-Alola",
-		baseStats: {hp: 42, atk: 30, def: 50, spa: 56, spd: 53, spe: 39},
+		baseStats: {hp: 42, atk: 30, def: 50, spa: 56, spd: 53, spe: 34},
 	},
 	mamoswine: {
 		inherit: true,
@@ -3029,6 +3029,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Stunfisk",
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 55, spd: 55, spe: 90},
 	},
+	stunfiskgalar: {
+		inherit: true,
+		name: "Stunfisk-Galar",
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 55, spd: 55, spe: 90},
+	},
 	mareanie: {
 		inherit: true,
 		name: "Mareanie",
@@ -3679,6 +3684,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	darumaka: {
 		inherit: true,
 		name: "Darumaka",
+		baseStats: {hp: 60, atk: 90, def: 70, spa: 60, spd: 120, spe: 40},
+	},
+	darumakagalar: {
+		inherit: true,
+		name: "Darumaka-Galar",
 		baseStats: {hp: 60, atk: 90, def: 70, spa: 60, spd: 120, spe: 40},
 	},
 	darmanitangalarzen: {
@@ -4569,7 +4579,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zoroarkhisui: {
 		inherit: true,
-		baseStats: {hp: 68, atk: 110, def: 60, spa: 70, spd: 60, spe: 95},
+		baseStats: {hp: 68, atk: 110, def: 60, spa: 65, spd: 60, spe: 95},
 	},
 	politoed: {
 		inherit: true,
