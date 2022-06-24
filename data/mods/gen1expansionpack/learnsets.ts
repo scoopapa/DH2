@@ -3414,6 +3414,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			gust: ["1L1"],
 			confusion: ["1L5"],
 			reflect: ["1L10", "1M"],
+			hypnosis: ["1L15"],
 			agility: ["1L20"],
 			psybeam: ["1L25"],
 			lightscreen: ["1L30"],
