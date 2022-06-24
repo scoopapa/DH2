@@ -342,6 +342,7 @@ export const TypeChart: {[k: string]: ModdedTypeData | null} = {
 		},
 	},
 	dark: {
+		isNonstandard: null,
 		damageTaken: {
 			Bug: 0,
 			Dragon: 0,
@@ -364,6 +365,7 @@ export const TypeChart: {[k: string]: ModdedTypeData | null} = {
 		},
 	},
 	steel: {
+		isNonstandard: null,
 		damageTaken: {
 			Bug: 0,
 			Dragon: 0,
@@ -386,6 +388,7 @@ export const TypeChart: {[k: string]: ModdedTypeData | null} = {
 		},
 	},
 	fairy: {
+		isNonstandard: null,
 		damageTaken: {
 			Bug: 2,
 			Dark: 2,
