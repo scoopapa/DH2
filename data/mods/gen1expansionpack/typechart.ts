@@ -300,7 +300,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			"Electric": 1,
 			"Fairy": 2,
 			"Fighting": 2,
-			"Fire": 1,
+			"Fire": 0,
 			"Flying": 0,
 			"Ghost": 0,
 			"Grass": 0,
@@ -311,7 +311,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			"Psychic": 0,
 			"Rock": 2,
 			"Steel": 3,
-			"Water": 0,
+			"Water": 1,
 		},
 	},
 "Fairy": {
