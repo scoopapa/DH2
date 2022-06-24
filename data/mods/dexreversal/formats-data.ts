@@ -1125,7 +1125,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	linoone: {
-		tier: "NUBL",
+		tier: "AG",
 	},
 	linoonegalar: {
 		tier: "NFE",
@@ -2837,7 +2837,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	shiinotic: {
-		tier: "(PU)",
+		tier: "AG",
 	},
 	salandit: {
 		tier: "LC",
