@@ -869,7 +869,90 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove() {},
 	},
 	substitute: {
-		inherit: true,
+		num: 164,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "The user takes 1/4 of its maximum HP, rounded down, and puts it into a substitute to take its place in battle. The substitute is removed once enough damage is inflicted on it, or if the user switches out or faints. Until the substitute is broken, it receives damage from all attacks made by other Pokemon and shields the user from poison status and some stat stage changes caused by other Pokemon. The user still takes normal damage from status effects while behind its substitute. If the substitute breaks during a multi-hit attack, the user will take damage from any remaining hits. This move fails if the user already has a substitute.",
+		shortDesc: "User takes 1/4 its max HP to put in a Substitute.",
+		id: "substitute",
+		isViable: true,
+		name: "Substitute",
+		pp: 10,
+		priority: 0,
+		volatileStatus: 'Substitute',
+		onTryHit: function (target) {
+			if (target.volatiles['substitute']) {
+				this.add('-fail', target, 'move: Substitute');
+				return null;
+			}
+			// We only prevent when hp is less than one quarter.
+			// If you use substitute at exactly one quarter, you faint.
+			if (target.hp === target.maxhp / 4) target.faint();
+			if (target.hp < target.maxhp / 4) {
+				this.add('-fail', target, 'move: Substitute', '[weak]');
+				return null;
+			}
+		},
+		onHit: function (target) {
+			// If max HP is 3 or less substitute makes no damage
+			if (target.maxhp > 3) {
+				this.directDamage(target.maxhp / 4, target, target);
+			}
+		},
+		condition: {
+			onStart: function (target) {
+				this.add('-start', target, 'Substitute');
+				this.effectData.hp = Math.floor(target.maxhp / 4) + 1;
+				delete target.volatiles['partiallytrapped'];
+			},
+			onTryHitPriority: -1,
+			onTryHit: function (target, source, move) {
+				if (move.category === 'Status') {
+					// In gen 1 it only blocks:
+					// poison, confusion, secondary effect confusion, stat reducing moves and Leech Seed.
+					let SubBlocked = ['lockon', 'meanlook', 'mindreader', 'nightmare'];
+					if (move.status === 'psn' || move.status === 'tox' || (move.boosts && target !== source) || move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)) {
+						return false;
+					}
+					return;
+				}
+				if (move.volatileStatus && target === source) return;
+				let damage = this.getDamage(source, target, move);
+				if (!damage) return null;
+				damage = this.runEvent('SubDamage', target, source, move, damage);
+				if (!damage) return damage;
+				target.volatiles['substitute'].hp -= damage;
+				source.lastDamage = damage;
+				if (target.volatiles['substitute'].hp <= 0) {
+					target.removeVolatile('substitute');
+					target.subFainted = true;
+				} else {
+					this.add('-activate', target, 'Substitute', '[damage]');
+				}
+				// Drain/recoil does not happen if the substitute breaks
+				if (target.volatiles['substitute']) {
+					if (move.recoil) {
+						this.damage(Math.round(damage * move.recoil[0] / move.recoil[1]), source, target, 'recoil');
+					}
+					if (move.drain) {
+						this.heal(Math.ceil(damage * move.drain[0] / move.drain[1]), source, target, 'drain');
+					}
+				}
+				this.runEvent('AfterSubDamage', target, source, move, damage);
+				// Add here counter damage
+				if (!target.lastAttackedBy) target.lastAttackedBy = {pokemon: source, thisTurn: true};
+				target.lastAttackedBy.move = move.id;
+				target.lastAttackedBy.damage = damage;
+				return 0;
+			},
+			onEnd: function (target) {
+				this.add('-end', target, 'Substitute');
+			},
+		},
+		secondary: false,
+		target: "self",
+		type: "Normal",
 	},
 	superfang: {
 		inherit: true,
