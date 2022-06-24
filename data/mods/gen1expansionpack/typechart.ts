@@ -5,7 +5,7 @@
  * All types are put in here in case something crazy happens, also so Fairy and everything work properly.
  */
 
-export const TypeChart: {[k: string]: ModdedTypeData | null} = {
+export const TypeChart: {[k: string]: ModdedTypeData} = {
 	bug: {
 		damageTaken: {
 			Bug: 0,
