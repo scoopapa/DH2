@@ -506,7 +506,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Arcanine-Hisui",
 		forme: "Hisui",
 		types: ["Fire", "Rock"],
-		baseStats: {hp: 95, atk: 115, def: 80, spa: 80, spd: 80, spe: 95},
+		baseStats: {hp: 95, atk: 115, def: 80, spa: 80, spd: 80, spe: 90},
 		abilities: {},
 		prevo: "Growlithe-Hisui",
 		evoType: "useItem",
