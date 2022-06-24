@@ -3003,7 +3003,7 @@ export const Formats: FormatList = [
 				
 				//Items
 				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Eviolite', 'Gengarite', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 
-				'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 'Swampertite', 'Thick Club',
+				'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 'Thick Club',
 				
 				//Moves
 				'Baton Pass',

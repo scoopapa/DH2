@@ -1110,7 +1110,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	swampertmega: {
-		tier: "AG",
+		tier: "OU",
 	},
 	poochyena: {
 		tier: "LC",
