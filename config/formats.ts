@@ -2999,11 +2999,11 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 				//Abilities
-				'Arena Trap', 'Moody', 'Shadow Tag', 'Swift Swim',
+				'Arena Trap', 'Drizzle', 'Moody', 'Shadow Tag',
 				
 				//Items
 				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Eviolite', 'Gengarite', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 
-				'Medichamite', 'Pidgeotite', 'Razor Fang', 'Swampertite', 'Thick Club',
+				'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 'Thick Club',
 				
 				//Moves
 				'Baton Pass',
