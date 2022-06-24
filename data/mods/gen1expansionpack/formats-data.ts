@@ -1021,7 +1021,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["icebeam", "thunderwave"],
 		essentialMove: "softboiled",
 		exclusiveMoves: ["counter", "reflect", "seismictoss", "sing", "thunderbolt", "thunderbolt", "thunderbolt"],
-		tier: "NFE", //lol
+		tier: "OU", 
 	},
 	tangela: {
 		randomBattleMoves: ["bodyslam", "sleeppowder", "swordsdance"],
