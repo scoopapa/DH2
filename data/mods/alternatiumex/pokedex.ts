@@ -176,6 +176,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 6,
 	},
 	ribombee: {
+		inherit: true,
 		num: 743,
 		name: "Ribombee",
 		types: ["Bug", "Psychic"],
@@ -187,6 +188,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 	},
 	ribombeetotem: {
+		inherit: true,
 		num: 743,
 		name: "Ribombee-Totem",
 		types: ["Grass", "Poison"],
@@ -199,6 +201,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: null,
 	},
 	araquanid: {
+		inherit: true,
 		num: 752,
 		name: "Araquanid",
 		types: ["Bug", "Water"],
@@ -210,6 +213,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 	},
 	araquanidtotem: {
+		inherit: true,
 		num: 752,
 		name: "Araquanid-Totem",
 		types: ["Poison", "Flying"],
@@ -222,6 +226,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: null,
 	},
 	vikavolt: {
+		inherit: true,
 		num: 738,
 		name: "Vikavolt",
 		types: ["Steel"],
@@ -229,10 +234,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Levitate", H: "Rough Skin"},
 		heightm: 1.5,
 		weightkg: 45,
+		prevo: "Dewpider",
 		otherFormes: null,
 		formeOrder: null,
 	},
 	vikavolttotem: {
+		inherit: true,
 		num: 738,
 		name: "Vikavolt-Totem",
 		types: ["Bug", "Electric"],
