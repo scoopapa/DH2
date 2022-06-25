@@ -48,10 +48,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'clauncher').learnset.bugbuzz = ['8L1'];
 		delete this.modData('Learnsets', 'clauncher').learnset.swordsdance;
 		
-		this.modData('Learnsets', 'dusion').learnset.teleport = ['8L1'];
-		this.modData('Learnsets', 'dusion').learnset.toxic = ['8L1'];
-		this.modData('Learnsets', 'dusion').learnset.wish = ['8L1'];
-		delete this.modData('Learnsets', 'dusion').learnset.calmmind;
+		this.modData('Learnsets', 'duosion').learnset.teleport = ['8L1'];
+		this.modData('Learnsets', 'duosion').learnset.toxic = ['8L1'];
+		this.modData('Learnsets', 'duosion').learnset.wish = ['8L1'];
+		delete this.modData('Learnsets', 'duosion').learnset.calmmind;
 		
 		this.modData('Learnsets', 'eiscue').learnset.meltymash = ['8L1'];
 		this.modData('Learnsets', 'eiscue').learnset.slackoff = ['8L1'];
