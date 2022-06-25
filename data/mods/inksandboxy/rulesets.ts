@@ -1,4 +1,104 @@
 export const Formats: {[k: string]: FormatData} = {
+	/*
+	const IconCategories: {[k: string]: any} = {
+		regions: {
+			kanto: {},
+			johto: {},
+			hoenn: {},
+			sinnoh: {},
+			unova: {},
+			kalos: {},
+			alola: {},
+			galar: {}
+		},
+		types: {
+			bug: {
+				favored: ["alder", "emmet", "lian", "all:ninjaboy"],
+				exclusive: ["aaron", "all:bugcatcher", "all:bugmaniac", "all:bugsy", "burgh", "guzma",
+					"viola"]
+			},
+			dark: {
+				favored: ["adaman", "archer", "all:archie", "cyrus", "all:gladion", "marnie",
+					"all:maxie", "all:ninjaboy", "shadowtriad", "all:aqua", "all:magma", "all:yellgrunt"],
+				exclusive: ["all:grimsley", "all:karen", "nanu", "piers", "all:sidney"]
+				},
+			dragon: {
+				favored: ["adaman", "all:cynthia", "irida", "all:lance", "nurseryaide", "all:veteran",
+					"volo", "zinnia"],
+				exclusive: ["all:clair", "all:dragontamer", "all:drake", "drasna", "drayden", "iris",
+					"raihan"]
+				},
+			electric: {
+				favored: ["all:cameraman", "all:cyclist", "emmet", "all:guitarist", "all:rocker",
+					"all:supernerd"],
+				exclusive: ["clemont", "all:elesa", "all:ltsurge", "volkner", "all:wattson", "sophocles"]
+				},
+			fairy: {
+				favored: ["bede", "cogita"],
+				exclusive: ["bede-leader", "all:furisode", "all:mina", "opal"]
+				},
+			fighting: {
+				favored: ["all:mustard"],
+				exclusive: ["all:battlegirl", "bea", "all:blackbelt", "all:brawly", "all:bruno",
+					"all:chuck", "hala", "korrina", "marshal"]
+				},
+			fire: {
+				favored: ["all:magma", "all:maxie"],
+				exclusive: ["all:blaine", "chili", "all:firebreather", "all:flannery", "flint", "kabu",
+					"kiawe", "malva"]
+				},
+			flying: {
+				favored: ["all:cyclist", "cyrus", "all:lance"],
+				exclusive: ["all:birdkeeper", "falkner", "kahili", "pilot", "skyla", "all:winona"]
+				},
+			ghost: {
+				favored: [],
+				exclusive: ["acerola", "all:agatha", "allister", "all:channeler", "fantina",
+					"all:hexmaniac", "all:phoebe", "shauntal"]
+				},
+			grass: {
+				favored: ["adaman"],
+				exclusive: ["all:aromalady", "cilan", "all:erika", "gardenia", "mallow", "all:milo",
+					"ramos"]
+				},
+			ground: {
+				favored: ["all:giovanni", "all:hiker", "all:ruinmaniac"],
+				exclusive: ["bertha", "clay", "hapu"]
+				},
+			ice: {
+				favored: ["all:acetrainersnow", "irida", "workerice"],
+				exclusive: ["all:boarder", "brycen", "candice", "glacia", "all:lorelei", "melony",
+					"all:pryce", "all:skier", "wulfric"]
+				},
+			normal: {
+				favored: ["all:anabel", "calaba", "cheren", "mai", "mars", "all:youngster"],
+				exclusive: ["cheren-gen5bw2", "ilima", "lenora", "all:norman", "all:whitney"]
+				},
+			poison: {
+				favored: ["archer", "all:ninjaboy", "oleana"],
+				exclusive: ["jupiter", "all:koga", "petrel", "plumeria", "proton", "roxie"]
+				},
+			psychic: {
+				favored: ["all:anabel", "bede-leader", "irida", "all:ruinmaniac", "all:wally"],
+				exclusive: ["avery", "bede", "all:caitlin", "faba", "all:liza", "all:tate", "lucian",
+					"olympia", "all:psychic", "all:sabrina", "all:will"]
+				},
+			rock: {
+				favored: ["emmet", "all:hiker", "lian", "peonia", "all:ruinmaniac"],
+				exclusive: ["all:brock", "gordie", "olivia", "roark", "roxanne"]
+				},
+			steel: {
+				favored: ["adaman", "ingo", "all:steven", "all:supernerd"],
+				exclusive: ["byron", "jasmine:all", "molayne", "peony", "rose", "wikstrom"]
+				},
+			water: {
+				favored: ["adaman", "all:archie", "irida", "all:parasollady", "all:sailor", "all:aqua"],
+				exclusive: ["crasherwake", "all:fisher", "all:juan", "lana", "marlon", "all:misty",
+					"nessa", "siebold", "all:sisandbro", "all:swimmer", "all:tuber", "all:wallace"]
+				}
+		},
+	};
+	*/
 	sandboxmod: {
 		effectType: 'Rule',
 		name: 'Sandbox Mod',
