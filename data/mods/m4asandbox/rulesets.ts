@@ -968,7 +968,7 @@ export const Formats: {[k: string]: FormatData} = {
 								break;
 							case "p":
 							case "P":
-   							newSpecies.types[0] = "Poison";
+								newSpecies.types[0] = "Poison";
 								break;
 							case "r":
 							case "R":
@@ -1046,7 +1046,7 @@ export const Formats: {[k: string]: FormatData} = {
 								break;
 							case "p":
 							case "P":
-	   						newSpecies.types[1] = "Poison";
+								newSpecies.types[1] = "Poison";
 								break;
 							case "r":
 							case "R":
@@ -1074,11 +1074,11 @@ export const Formats: {[k: string]: FormatData} = {
 								break;
 						}
 						//Use isNaN() (lit. Not a Number) to allow for not modifying specific base stats if we want, by just inputting like, xxx
-						if (!isNaN(target.set.name.substr(3, 3))) newSpecies.baseStats.atk = pokemon.set.name.substr(3, 3);
-						if (!isNaN(target.set.name.substr(6, 3))) newSpecies.baseStats.def = pokemon.set.name.substr(6, 3);
-						if (!isNaN(target.set.name.substr(9, 3))) newSpecies.baseStats.spa = pokemon.set.name.substr(9, 3);
-						if (!isNaN(target.set.name.substr(12, 3))) newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
-						if (!isNaN(target.set.name.substr(15, 3))) newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
+						if (!isNaN(pokemon.set.name.substr(3, 3))) newSpecies.baseStats.atk = pokemon.set.name.substr(3, 3);
+						if (!isNaN(pokemon.set.name.substr(6, 3))) newSpecies.baseStats.def = pokemon.set.name.substr(6, 3);
+						if (!isNaN(pokemon.set.name.substr(9, 3))) newSpecies.baseStats.spa = pokemon.set.name.substr(9, 3);
+						if (!isNaN(pokemon.set.name.substr(12, 3))) newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
+						if (!isNaN(pokemon.set.name.substr(15, 3))) newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
 						newSpecies.baseSpecies = pokemon.baseSpecies;
 						newSpecies.abilities[0] = pokemon.ability;
 						newSpecies.forme = 'Mega';
@@ -1154,7 +1154,7 @@ export const Formats: {[k: string]: FormatData} = {
 						break;
 					case "p":
 					case "P":
-	   				newSpecies.types[0] = "Poison";
+						newSpecies.types[0] = "Poison";
 						break;
 					case "r":
 					case "R":
@@ -1232,7 +1232,7 @@ export const Formats: {[k: string]: FormatData} = {
 						break;
 					case "p":
 					case "P":
-	   				newSpecies.types[1] = "Poison";
+						newSpecies.types[1] = "Poison";
 						break;
 					case "r":
 					case "R":
