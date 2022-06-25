@@ -577,6 +577,7 @@ this.modData('Learnsets', 'moltresgalar').learnset.toxic = ['8L1'];
 this.modData('Learnsets', 'magmortar').learnset.recover = ['8L1'];
 this.modData('Learnsets', 'girafarig').learnset.focusblast = ['8L1'];
 this.modData('Learnsets', 'zarude').learnset.focusblast = ['8L1'];
+this.modData('Learnsets', 'zarudedada').learnset.focusblast = ['8L1'];
 this.modData('Learnsets', 'samurott').learnset.focusblast = ['8L1'];
 this.modData('Learnsets', 'jirachi').learnset.focusblast = ['8L1'];
 this.modData('Learnsets', 'delphox').learnset.focusblast = ['8L1'];
@@ -893,9 +894,13 @@ this.modData('Learnsets', 'guzzlord').learnset.deafeningshriek = ['8L1'];
 this.modData('Learnsets', 'banette').learnset.deafeningshriek = ['8L1'];
 this.modData('Learnsets', 'ludicolo').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'politoed').learnset.lifedew = ['8L1'];
+		/*
 this.modData('Learnsets', 'alomomola').learnset.lifedew = ['8L1'];
+*/
 this.modData('Learnsets', 'luvdisc').learnset.lifedew = ['8L1'];
+		/*
 this.modData('Learnsets', 'florges').learnset.lifedew = ['8L1'];
+*/
 this.modData('Learnsets', 'xerneas').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'empoleon').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'phione').learnset.lifedew = ['8L1'];
@@ -908,7 +913,9 @@ this.modData('Learnsets', 'meganium').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'wailmer').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'panpour').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'misdreavus').learnset.lifedew = ['8L1'];
+		/*
 this.modData('Learnsets', 'hoopa').learnset.lifedew = ['8L1'];
+*/
 this.modData('Learnsets', 'morelull').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'munna').learnset.lifedew = ['8L1'];
 this.modData('Learnsets', 'litten').learnset.trashtalk = ['8L1'];
@@ -946,6 +953,7 @@ this.modData('Learnsets', 'liepard').learnset.trashtalk = ['8L1'];
 this.modData('Learnsets', 'malamar').learnset.trashtalk = ['8L1'];
 this.modData('Learnsets', 'vullaby').learnset.trashtalk = ['8L1'];
 this.modData('Learnsets', 'zarude').learnset.trashtalk = ['8L1'];
+this.modData('Learnsets', 'zarudedada').learnset.trashtalk = ['8L1'];
 this.modData('Learnsets', 'seviper').learnset.trashtalk = ['8L1'];
 this.modData('Learnsets', 'zangoose').learnset.trashtalk = ['8L1'];
 this.modData('Learnsets', 'gulpin').learnset.trashtalk = ['8L1'];
@@ -1160,6 +1168,7 @@ this.modData('Learnsets', 'necrozma').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'zeraora').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'hatterene').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'zarude').learnset.crushclaw = ['8L1'];
+this.modData('Learnsets', 'zarudedada').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'poliwag').learnset.flipturn = ['8L1'];
 this.modData('Learnsets', 'seel').learnset.flipturn = ['8L1'];
 this.modData('Learnsets', 'qwilfish').learnset.flipturn = ['8L1'];
@@ -1489,6 +1498,7 @@ this.modData('Learnsets', 'liepard').learnset.aggravate = ['8L1'];
 this.modData('Learnsets', 'malamar').learnset.aggravate = ['8L1'];
 this.modData('Learnsets', 'vullaby').learnset.aggravate = ['8L1'];
 this.modData('Learnsets', 'zarude').learnset.aggravate = ['8L1'];
+this.modData('Learnsets', 'zarudedada').learnset.aggravate = ['8L1'];
 this.modData('Learnsets', 'seviper').learnset.aggravate = ['8L1'];
 this.modData('Learnsets', 'zangoose').learnset.aggravate = ['8L1'];
 this.modData('Learnsets', 'gulpin').learnset.aggravate = ['8L1'];
@@ -1672,7 +1682,9 @@ this.modData("Learnsets", "keldeo").learnset.bulkup = ["8L1"];
 this.modData("Learnsets", "keldeo").learnset.aurasphere = ["8L1"];
 this.modData("Learnsets", "keldeo").learnset.brine = ["8L1"];
 this.modData("Learnsets", "keldeo").learnset.aquaring = ["8L1"];
+		/*
 this.modData("Learnsets", "keldeo").learnset.lifedew = ["8L1"];
+*/
 this.modData("Learnsets", "keldeo").learnset.signalbeam = ["8L1"];
 this.modData("Learnsets", "cobalion").learnset.vacuumwave = ["8L1"];
 this.modData("Learnsets", "cobalion").learnset.highjumpkick = ["8L1"];
@@ -1892,5 +1904,8 @@ this.modData('Learnsets', 'ledian').learnset.skysoiree = ['8L1'];
 this.modData('Learnsets', 'woobat').learnset.skysoiree = ['8L1'];
 this.modData('Learnsets', 'castform').learnset.skysoiree = ['8L1'];
 this.modData('Learnsets', 'hoppip').learnset.skysoiree = ['8L1'];
+this.modData("Learnsets", "gourgeist").learnset.disarmingvoice = ["8L1"];
+delete this.modData('Learnsets', 'gourgeist').learnset.moonblast;
+delete this.modData('Learnsets', 'jirachi').learnset.lifedew;
 	},
 };

@@ -68,13 +68,58 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 3.8,
 		weightkg: 140.4,
 	},
-	
+	skunkle: {
+		num: 259,
+		name: "Skunkle",
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 50, atk: 60, def: 50, spa: 65, spd: 70, spe: 55},
+		abilities: {0: "No Ability"},
+		heightm: 0.4,
+		weightkg: 19.2,
+		evos: ["Skunking"],
+	},
+	skunking: {
+		num: 260,
+		name: "Skunking",
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 97, atk: 80, def: 81, spa: 83, spd: 70, spe: 62},
+		abilities: {0: "No Ability"},
+		heightm: 1.2,
+		weightkg: 50,
+		prevo: "Skunkle",
+	},
+	kipuro: {
+		num: 261,
+		name: "Kipuro",
+		types: ["Rock", "Grass"],
+		baseStats: {hp: 100, atk: 90, def: 100, spa: 90, spd: 80, spe: 50},
+		abilities: {0: "No Ability"},
+		heightm: 2.1,
+		weightkg: 360,
+	},
+	kamebi: {
+		num: 262,
+		name: "Kamebi",
+		types: ["Psychic", "Ground"],
+		baseStats: {hp: 75, atk: 110, def: 100, spa: 100, spd: 65, spe: 50},
+		abilities: {0: "No Ability"},
+		heightm: 2.1,
+		weightkg: 195.3,
+	},
+	pyronoir: {
+		num: 263,
+		name: "Pyronoir",
+		types: ["Ghost", "Fire"],
+		baseStats: {hp: 85, atk: 125, def: 60, spa: 65, spd: 140, spe: 65},
+		abilities: {0: "No Ability"},
+		heightm: 2.2,
+		weightkg: 106.6,
+	},
 	
 	
 // Vanilla Edits
 	
-	
-	
+
 	quagsire: {
 		inherit: true,
 		evos: ["Exoltol"],

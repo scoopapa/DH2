@@ -27,6 +27,7 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+
 	armthrust: {
 		num: 292,
 		accuracy: 100,
@@ -60,6 +61,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Ice",
+	},
+	armthrust: {
+		num: 292,
+		accuracy: 100,
+		basePower: 15,
+		category: "Physical",
+		name: "Arm Thrust",
+		pp: 20,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
 	},
 	beakblast: {
 		num: 690,
@@ -340,7 +356,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, heal: 1},
-      drain: [1, 2],
+    drain: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -479,7 +495,7 @@ export const Moves: {[moveid: string]: MoveData} = {
       accuracy: 85,
       basePower: 130,
       category: "Physical",
-		shortDesc: "20% chance to lower the target's Def by one stage.",
+		  shortDesc: "20% chance to lower the target's Def by one stage.",
       name: "Horn Drill",
       pp: 5,
       priority: 0,
@@ -904,6 +920,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacent",
 		type: "Water",
+		contestType: "Tough",
+	},
+	steamroller: {
+		num: 537,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Steamroller",
+		pp: 10,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Ground', type);
+		},
+		priority: 0,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
 		contestType: "Tough",
 	},*/
 	steamroller: {

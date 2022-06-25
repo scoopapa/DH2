@@ -1,4 +1,4 @@
-const csi = ["horatekku", "aroofaondo", "exoltol", "animon", "esscargoo", "tunguru", "terricks"];
+const csi = ["horatekku", "aroofaondo", "exoltol", "animon", "esscargoo", "tunguru", "terricks", "skunkle", "skunking", "kipuro", "kamebi", "pyronoir"];
 
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
@@ -20,7 +20,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 		
-		console.log('init gen2crystalseviiislands');
 		for (const id in this.dataCache.Pokedex) {
 			const pokemon = this.dataCache.Pokedex[id];
 			if (this.modData('FormatsData', id)) {

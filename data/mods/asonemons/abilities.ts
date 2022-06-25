@@ -2,8 +2,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonetorkoal: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Speed Boost and Drought!');
 		},
-		start: "  Speed Boost and Drought!",
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
@@ -24,6 +24,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonetentacruel: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Drizzle and Rain Dish!');
 		},
 		onWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
@@ -44,6 +45,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonegigalith: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Sand Stream and Sand Force!');
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
@@ -63,6 +65,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonebeartic: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Snow Warning and Slush Rush!');
 		},
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('hail')) {
@@ -78,6 +81,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonelanturn: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Compound Eyes and Volt Absorb!');
 		},
 		onSourceModifyAccuracyPriority: 9,
 		onSourceModifyAccuracy(accuracy) {
@@ -99,6 +103,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonehawlucha: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Cheek Pouch and Unburden!');
 		},
 		onEatItem(item, pokemon) {
 			this.heal(pokemon.baseMaxhp / 3);
@@ -127,6 +132,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
 			this.add('-ability', pokemon, 'Gluttony');
+			this.add( '-message', 'Gluttony and Beast Boost!');
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
@@ -148,6 +154,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonetorterra: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Thick Fat and Overgrow!');
 		},
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
@@ -170,6 +177,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonemudsdale: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Huge Power and Stamina!');
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
@@ -184,6 +192,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonerapidashgalar: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Scrappy and Pastel Veil!');
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
@@ -240,6 +249,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asoneheracross: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Protein and Moxie!');
 		},
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
@@ -249,20 +259,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
 			}
 		},
-		onModifyMove(move) {
-			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
-				move.multihit = move.multihit[1];
-			}
-			if (move.multiaccuracy) {
-				delete move.multiaccuracy;
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
 			}
 		},
 		name: "As One (Heracross)",
-		shortDesc: "The combination of Protean and Skill Link.",
+		shortDesc: "The combination of Protean and Moxie.",
 	},
 	asonedrifblim: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Flash Fire and Unburden!');
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
@@ -322,6 +330,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asoneexeggutoralola: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Iron Fist and Frisk!');
 		},
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
@@ -344,6 +353,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonesteelix: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Shield Dust and Sheer Force!');
 		},
 		onModifySecondaries(secondaries) {
 			this.debug('Shield Dust prevent secondary');
@@ -369,6 +379,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonemagnezone: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Synchronize and Analytic!');
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon) {
@@ -395,29 +406,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			source.trySetStatus(status, target, {status: status.id, id: 'synchronize'} as Effect);
 		},
 		name: "As One (Magnezone)",
-		shortDesc: "The combination of Syncronize and Analytic.",
+		shortDesc: "The combination of Synchronize and Analytic.",
 	},
 	asoneabsol: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
-		},
-		onModifyPriority(priority, pokemon, target, move) {
-			if (move?.category === 'Status') {
-				move.pranksterBoosted = true;
-				return priority + 1;
-			}
-		},
-		onDamagingHit(damage, target, source, move) {
-			if (move.type === 'Dark') {
-				this.boost({atk: 1});
-			}
-		},
-		name: "As One (Absol)",
-		shortDesc: "The combination of Prankster and Justified.",
-	},
-	asoneabsol: {
-		onPreStart(pokemon) {
-			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Prankster and Justified!');
 		},
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.category === 'Status') {
@@ -436,11 +430,330 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	asonesalazzle: {
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Merciless and Corrosion!');
 		},
 		onModifyCritRatio(critRatio, source, target) {
 			if (target && ['psn', 'tox'].includes(target.status)) return 5;
 		},
 		name: "As One (Salazzle)",
 		shortDesc: "The combination of Merciless and Corrosion.",
+	},
+	asonehippowdon: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Grassy Surge and Sand Force!');
+		},
+		onStart(source) {
+			this.field.setTerrain('grassyterrain');
+		},
+        onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sandstorm')) {
+				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+					this.debug('Sand Force boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		name: "As One (Hippowdon)",
+		shortDesc: "The combination of Grassy Surge and Sand Force.",
+	},
+   asonetapufini: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Thick Fat and Misty Surge!');
+		},
+		onStart(source) {
+			this.field.setTerrain('mistyterrain');
+		},
+        onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "As One (Tapu Fini)",
+		shortDesc: "The combination of Thick Fat and Misty Surge.",
+	},
+   asonesliggoo: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Electric Surge and Gooey!');
+		},
+		onStart(source) {
+			this.field.setTerrain('electricterrain');
+		},
+        onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.add('-ability', target, 'Gooey');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		name: "As One (Sliggoo)",
+		shortDesc: "The combination of Electric Surge and Gooey.",
+	},
+   asoneindeedeef: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Beast Boost and Psychic Surge!');
+		},
+		onStart(source) {
+			this.field.setTerrain('psychicterrain');
+		},
+        onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		name: "As One (Indeedee-F)",
+		shortDesc: "The combination of Beast Boost and Psychic Surge.",
+	},
+   asonedruddigon: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Static and Rough Skin!');
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+                this.damage(source.baseMaxhp / 8, source, target);
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		name: "As One (Druddigon)",
+		shortDesc: "The combination of Static and Rough Skin.",
+	},
+   asonemandibuzz: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Defiant and Overcoat!');
+		},
+        onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
+				this.add('-immune', target, '[from] ability: Overcoat');
+				return null;
+			}
+		},
+        onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.side === source.side) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Defiant only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Defiant');
+				this.boost({atk: 2}, target, target, null, true);
+			}
+		},
+		name: "As One (Mandibuzz)",
+		shortDesc: "The combination of Defiant and Overcoat.",
+	},
+   asonebraviary: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Analytic and Sheer Force!');
+		},
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Analytic boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+        onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
+		},
+		name: "As One (Braviary)",
+		shortDesc: "The combination of Analytic and Sheer Force.",
+	},
+   asonegourgeistsuper: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Tinted Lens and Frisk!');
+		},
+        onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Frisk', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "As One (Gourgeist-Super)",
+		shortDesc: "The combination of Tinted Lens and Frisk.",
+	},
+   asonelunatone: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Magic Guard and Levitate!');
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		name: "As One (Lunatone)",
+		shortDesc: "The combination of Magic Guard and Levitate.",
+	},
+   asoneslowkinggalar: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Tinted Lens and Regenerator!');
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+		},
+        onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "As One (Slowking-Galar)",
+		shortDesc: "The combination of Tinted Lens and Regenerator.",
+	},
+   asonevileplume: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Unaware and Chlorophyll!');
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectData.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+        onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		name: "As One (Vileplume)",
+		shortDesc: "The combination of Unaware and Chlorophyll.",
+	},
+   asoneaurorus: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Beast Boost and Refrigerate!');
+		},
+        onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Ice';
+				move.refrigerateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.refrigerateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		name: "As One (Aurorus)",
+		shortDesc: "The combination of Beast Boost and Refrigerate.",
+	},
+   asonegirafarig: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add( '-message', 'Contrary and Inner Focus!');
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+			if (effect && effect.id === 'zpower') return;
+			let i: BoostName;
+			for (i in boost) {
+				boost[i]! *= -1;
+			}
+		},
+		name: "As One (Girafarig)",
+		shortDesc: "The combination of Contrary and Inner Focus.",
 	},
 };

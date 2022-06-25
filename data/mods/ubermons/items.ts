@@ -181,13 +181,23 @@ export const Items: {[itemid: string]: ItemData} = {
 	blueorb: {
 		name: "Blue Orb",
 		spritenum: 41,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name !== 'Kyogre') return;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						pokemon.formeChange('Kyogre-Primal', this.effect, true);
+						return;
+					}
+				}
 			}
-		},
-		onPrimal(pokemon) {
-			pokemon.formeChange('Kyogre-Primal', this.effect, true);
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
@@ -197,6 +207,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 535,
 		gen: 6,
 		isNonstandard: null,
+		shortDesc: "This item triggers Kyogre's Primal Reversion when switching into a Pokemon with a SE move.",
 	},
 	buginiumz: {
 		name: "Buginium Z",
@@ -906,13 +917,23 @@ export const Items: {[itemid: string]: ItemData} = {
 	redorb: {
 		name: "Red Orb",
 		spritenum: 390,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name !== 'Groudon') return;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						pokemon.formeChange('Groudon-Primal', this.effect, true);
+						return;
+					}
+				}
 			}
-		},
-		onPrimal(pokemon) {
-			pokemon.formeChange('Groudon-Primal', this.effect, true);
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Groudon') return false;
@@ -922,6 +943,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 534,
 		gen: 6,
 		isNonstandard: null,
+		shortDesc: "This item triggers Groudon's Primal Reversion when switching into a Pokemon with a SE move.",
 	},
 	rockiumz: {
 		name: "Rockium Z",
