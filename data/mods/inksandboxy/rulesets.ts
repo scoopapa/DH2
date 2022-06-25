@@ -60,7 +60,7 @@ export const Formats: {[k: string]: FormatData} = {
 								break;
 							case "p":
 							case "P":
-   							newSpecies.types[0] = "Poison";
+								newSpecies.types[0] = "Poison";
 								break;
 							case "r":
 							case "R":
@@ -138,7 +138,7 @@ export const Formats: {[k: string]: FormatData} = {
 								break;
 							case "p":
 							case "P":
-	   						newSpecies.types[1] = "Poison";
+								newSpecies.types[1] = "Poison";
 								break;
 							case "r":
 							case "R":
@@ -166,11 +166,11 @@ export const Formats: {[k: string]: FormatData} = {
 								break;
 						}
 						//Use isNaN() (lit. Not a Number) to allow for not modifying specific base stats if we want, by just inputting like, xxx
-						if (!isNaN(target.set.name.substr(3, 3))) newSpecies.baseStats.atk = pokemon.set.name.substr(3, 3);
-						if (!isNaN(target.set.name.substr(6, 3))) newSpecies.baseStats.def = pokemon.set.name.substr(6, 3);
-						if (!isNaN(target.set.name.substr(9, 3))) newSpecies.baseStats.spa = pokemon.set.name.substr(9, 3);
-						if (!isNaN(target.set.name.substr(12, 3))) newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
-						if (!isNaN(target.set.name.substr(15, 3))) newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
+						if (!isNaN(pokemon.set.name.substr(3, 3))) newSpecies.baseStats.atk = pokemon.set.name.substr(3, 3);
+						if (!isNaN(pokemon.set.name.substr(6, 3))) newSpecies.baseStats.def = pokemon.set.name.substr(6, 3);
+						if (!isNaN(pokemon.set.name.substr(9, 3))) newSpecies.baseStats.spa = pokemon.set.name.substr(9, 3);
+						if (!isNaN(pokemon.set.name.substr(12, 3))) newSpecies.baseStats.spd = pokemon.set.name.substr(12, 3);
+						if (!isNaN(pokemon.set.name.substr(15, 3))) newSpecies.baseStats.spe = pokemon.set.name.substr(15, 3);
 						newSpecies.baseSpecies = pokemon.baseSpecies;
 						newSpecies.abilities[0] = pokemon.ability;
 						newSpecies.forme = 'Mega';
@@ -246,7 +246,7 @@ export const Formats: {[k: string]: FormatData} = {
 						break;
 					case "p":
 					case "P":
-	   				newSpecies.types[0] = "Poison";
+						newSpecies.types[0] = "Poison";
 						break;
 					case "r":
 					case "R":
@@ -324,7 +324,7 @@ export const Formats: {[k: string]: FormatData} = {
 						break;
 					case "p":
 					case "P":
-	   				newSpecies.types[1] = "Poison";
+						newSpecies.types[1] = "Poison";
 						break;
 					case "r":
 					case "R":
@@ -353,25 +353,49 @@ export const Formats: {[k: string]: FormatData} = {
 				}
 				if (target.set.name.length > 3) {//Allow compatibility for JUST changing the type; if the rest is blank, dont zero stats
 					let offset = 0;
-					if (target.set.name.length > 18) {//Only account for HP if the name is longer than the old format
+					let mods = ["Y", "Z", "y", "z", "+", "-"];
+					/*
+					if (target.set.name.length > 18) {//Only account for HP if the name is longer than the old format (R.I.P.)
 						offset = 3;
 						//Use isNaN() to allow for not modifying specific base stats if we want, by just inputting like, xxx
 						if (!isNaN(target.set.name.substr(3, 3))) newSpecies.baseStats.hp = target.set.name.substr(3, 3);
 					}
+					*/
 					//Check to see if we want to ADD or SUB
 					if (
-						target.set.name.substr(3, 3).toLowerCase() === "add" || 
-						target.set.name.substr(3, 3).toLowerCase() === "sub"
-					) {
+						target.set.name.substr(3, 3).toLowerCase() === "add" ||
+						target.set.name.substr(3, 3).toLowerCase() === "sub" ||
+						mods.includes(target.set.name.substr(3, 1))
+					) {//2 digit stat modifications
 						let sign = (target.set.name.substr(3, 3).toLowerCase() === "sub") ? -1 : 1;
-						if (!isNaN(target.set.name.substr(6, 2))) newSpecies.baseStats.hp = species.baseStats.hp + target.set.name.substr(6, 2)*sign;
-						if (!isNaN(target.set.name.substr(8, 2))) newSpecies.baseStats.atk = species.baseStats.atk + target.set.name.substr(8, 2)*sign;
-						if (!isNaN(target.set.name.substr(10, 2))) newSpecies.baseStats.def = species.baseStats.def + target.set.name.substr(10, 2)*sign;
-						if (!isNaN(target.set.name.substr(12, 2))) newSpecies.baseStats.spa = species.baseStats.spa + target.set.name.substr(12, 2)*sign;
-						if (!isNaN(target.set.name.substr(14, 2))) newSpecies.baseStats.spd = species.baseStats.spd + target.set.name.substr(14, 2)*sign;
-						if (!isNaN(target.set.name.substr(16, 2))) newSpecies.baseStats.spe = species.baseStats.spe + target.set.name.substr(16, 2)*sign;
+						//Individual modifier logic
+						let m = new Array(6).fill(sign);
+						if (mods.includes(target.set.name.substr(3, 1))) {
+							let key = Array.from(target.set.name.substr(3, 3));
+							for (let k = 0; k < key.length; k++) {
+								//If lowercase (or -): negative. else positive
+								//If Z (or -): negative. else positive
+								m[k*2] = (key[k] === "+") ? 1 : 
+									(key[k].toLowerCase() === key[k]) ? -1 : 1;
+								m[k*2 + 1] = (key[k] === "-") ? -1 :
+									(key[k].toLowerCase() === "z") ? -1 : 1;
+							}
+						}
+						if (!isNaN(target.set.name.substr(6, 2))) {
+							newSpecies.baseStats.hp = species.baseStats.hp + target.set.name.substr(6, 2)*m[0];
+						} if (!isNaN(target.set.name.substr(8, 2))) {
+							newSpecies.baseStats.atk = species.baseStats.atk + target.set.name.substr(8, 2)*m[1];
+						} if (!isNaN(target.set.name.substr(10, 2))) {
+							newSpecies.baseStats.def = species.baseStats.def + target.set.name.substr(10, 2)*m[2];
+						} if (!isNaN(target.set.name.substr(12, 2))) {
+							newSpecies.baseStats.spa = species.baseStats.spa + target.set.name.substr(12, 2)*m[3];
+						} if (!isNaN(target.set.name.substr(14, 2))) {
+							newSpecies.baseStats.spd = species.baseStats.spd + target.set.name.substr(14, 2)*m[4];
+						} if (!isNaN(target.set.name.substr(16, 2))) {
+							newSpecies.baseStats.spe = species.baseStats.spe + target.set.name.substr(16, 2)*m[5];
+						}
 					}
-					else {
+					else {//3 digit stat assignments
 						if (!isNaN(target.set.name.substr(3 + offset, 3))) newSpecies.baseStats.atk = target.set.name.substr(3 + offset, 3);
 						if (!isNaN(target.set.name.substr(6 + offset, 3))) newSpecies.baseStats.def = target.set.name.substr(6 + offset, 3);
 						if (!isNaN(target.set.name.substr(9 + offset, 3))) newSpecies.baseStats.spa = target.set.name.substr(9 + offset, 3);
@@ -379,29 +403,23 @@ export const Formats: {[k: string]: FormatData} = {
 						if (!isNaN(target.set.name.substr(15 + offset, 3))) newSpecies.baseStats.spe = target.set.name.substr(15 + offset, 3);
 					}
 				}
-				target.isSandbox = true;
-				//Idk if this is necessary but better safe than sorry? unless this crashes when it activates. in which case i will be sorry anyways.
-				//If isModded is true, then sometimes the *non-sandbox* Data Mod displays *its* utilichart instead of this one,
-				//which doesn't accurately display our sandboxed stats and typing. Regardless of which one activates first, it doesn't give
-				//two utilicharts because the first one sets our switchedIn to true, which the second one then reads and goes "oh ok, im done then!"
-				//Switching this to use a separate isSandbox boolean resolves this issue.
-				//... Although, on second thought, maybe setting this rule's onSwitchInPriority (if that's a thing) to be higher than Data Mod would be
-				//a better approach? Might revisit this another time.
-				if (target.isModded) delete target.isModded;
+				target.isModded = true;
 				return newSpecies;
 			}
 		},
+		//onSwitchInPriority, so we go before Data Mod 100% of the time
+		onSwitchInPriority: 1,
 		onSwitchIn(pokemon) {
 			let species = pokemon.species;
 			let switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
-				if (!pokemon.illusion.isSandbox) return;
+				if (!pokemon.illusion.isModded) return;
 				species = pokemon.illusion.species;
 				this.add('-start', pokemon, 'typechange', species.types.join('/'), '[silent]');
 				if (pokemon.illusion.switchedIn) return;
 				pokemon.illusion.switchedIn = true;
 			} else {
-				if (!pokemon.isSandbox) return;
+				if (!pokemon.isModded) return;
 				this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 				if (pokemon.switchedIn) return;
 				pokemon.switchedIn = true;
@@ -416,9 +434,11 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 			this.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 		},
+		//onDamagingHitOrder, so we go before Data Mod (and after Illusion wearing off, which I modded to have a priority of 1) 100% of the time
+		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
 			if (target.hasAbility('illusion')) { // making sure the correct information is given when an Illusion breaks
-				if (target.isSandbox) {
+				if (target.isModded) {
 					this.add('-start', target, 'typechange', target.species.types.join('/'), '[silent]');
 					if (!target.switchedIn) {
 						target.switchedIn = true;
