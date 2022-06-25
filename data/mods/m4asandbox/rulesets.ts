@@ -1261,25 +1261,49 @@ export const Formats: {[k: string]: FormatData} = {
 				}
 				if (target.set.name.length > 3) {//Allow compatibility for JUST changing the type; if the rest is blank, dont zero stats
 					let offset = 0;
-					if (target.set.name.length > 18) {//Only account for HP if the name is longer than the old format
+					let mods = ["Y", "Z", "y", "z", "+", "-"];
+					/*
+					if (target.set.name.length > 18) {//Only account for HP if the name is longer than the old format (R.I.P.)
 						offset = 3;
 						//Use isNaN() to allow for not modifying specific base stats if we want, by just inputting like, xxx
 						if (!isNaN(target.set.name.substr(3, 3))) newSpecies.baseStats.hp = target.set.name.substr(3, 3);
 					}
+					*/
 					//Check to see if we want to ADD or SUB
 					if (
-						target.set.name.substr(3, 3).toLowerCase() === "add" || 
-						target.set.name.substr(3, 3).toLowerCase() === "sub"
-					) {
+						target.set.name.substr(3, 3).toLowerCase() === "add" ||
+						target.set.name.substr(3, 3).toLowerCase() === "sub" ||
+						mods.includes(target.set.name.substr(3, 1))
+					) {//2 digit stat modifications
 						let sign = (target.set.name.substr(3, 3).toLowerCase() === "sub") ? -1 : 1;
-						if (!isNaN(target.set.name.substr(6, 2))) newSpecies.baseStats.hp = species.baseStats.hp + target.set.name.substr(6, 2)*sign;
-						if (!isNaN(target.set.name.substr(8, 2))) newSpecies.baseStats.atk = species.baseStats.atk + target.set.name.substr(8, 2)*sign;
-						if (!isNaN(target.set.name.substr(10, 2))) newSpecies.baseStats.def = species.baseStats.def + target.set.name.substr(10, 2)*sign;
-						if (!isNaN(target.set.name.substr(12, 2))) newSpecies.baseStats.spa = species.baseStats.spa + target.set.name.substr(12, 2)*sign;
-						if (!isNaN(target.set.name.substr(14, 2))) newSpecies.baseStats.spd = species.baseStats.spd + target.set.name.substr(14, 2)*sign;
-						if (!isNaN(target.set.name.substr(16, 2))) newSpecies.baseStats.spe = species.baseStats.spe + target.set.name.substr(16, 2)*sign;
+						//Individual modifier logic
+						let m = new Array(6).fill(sign);
+						if (mods.includes(target.set.name.substr(3, 1))) {
+							let key = Array.from(target.set.name.substr(3, 3));
+							for (let k = 0; k < key.length; k++) {
+								//If lowercase (or -): negative. else positive
+								//If Z (or -): negative. else positive
+								m[k*2] = (key[k] === "+") ? 1 : 
+									(key[k].toLowerCase() === key[k]) ? -1 : 1;
+								m[k*2 + 1] = (key[k] === "-") ? -1 :
+									(key[k].toLowerCase() === "z") ? -1 : 1;
+							}
+						}
+						if (!isNaN(target.set.name.substr(6, 2))) {
+							newSpecies.baseStats.hp = species.baseStats.hp + target.set.name.substr(6, 2)*m[0];
+						} if (!isNaN(target.set.name.substr(8, 2))) {
+							newSpecies.baseStats.atk = species.baseStats.atk + target.set.name.substr(8, 2)*m[1];
+						} if (!isNaN(target.set.name.substr(10, 2))) {
+							newSpecies.baseStats.def = species.baseStats.def + target.set.name.substr(10, 2)*m[2];
+						} if (!isNaN(target.set.name.substr(12, 2))) {
+							newSpecies.baseStats.spa = species.baseStats.spa + target.set.name.substr(12, 2)*m[3];
+						} if (!isNaN(target.set.name.substr(14, 2))) {
+							newSpecies.baseStats.spd = species.baseStats.spd + target.set.name.substr(14, 2)*m[4];
+						} if (!isNaN(target.set.name.substr(16, 2))) {
+							newSpecies.baseStats.spe = species.baseStats.spe + target.set.name.substr(16, 2)*m[5];
+						}
 					}
-					else {
+					else {//3 digit stat assignments
 						if (!isNaN(target.set.name.substr(3 + offset, 3))) newSpecies.baseStats.atk = target.set.name.substr(3 + offset, 3);
 						if (!isNaN(target.set.name.substr(6 + offset, 3))) newSpecies.baseStats.def = target.set.name.substr(6 + offset, 3);
 						if (!isNaN(target.set.name.substr(9 + offset, 3))) newSpecies.baseStats.spa = target.set.name.substr(9 + offset, 3);
