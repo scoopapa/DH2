@@ -45,6 +45,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "vikavolt").learnset.metalclaw = ["8L1"];
 		this.modData("Learnsets", "vikavolt").learnset.ironhead = ["8L1"];
 		this.modData("Learnsets", "vikavolt").learnset.switcheroo = ["8L1"];
+		delete this.modData('Learnsets', 'grubbin').learnset.agility;
+		delete this.modData('Learnsets', 'grubbin').learnset.stickyweb;
+		delete this.modData('Learnsets', 'charjabug').learnset.agility;
+		delete this.modData('Learnsets', 'charjabug').learnset.stickyweb;
 		delete this.modData('Learnsets', 'vikavolt').learnset.agility;
 		delete this.modData('Learnsets', 'vikavolt').learnset.stickyweb;
 
