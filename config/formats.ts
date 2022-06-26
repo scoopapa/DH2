@@ -3433,6 +3433,28 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] ViZar's 235 Metagame",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: '235metagame',
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: [
+				//Pokemon
+				'Uber',
+				
+				//Abilities
+				'Moody', 'Sand Veil',
+				
+				//Moves
+				'Baton Pass',
+				
+				//Items
+				'King\s Rock', 'Lax Incense', 'Quick Claw', 'Razor Fang',
+		],
+	},
+	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
 		desc: [
 			"Yoshiblaze's Greatest Hits",
