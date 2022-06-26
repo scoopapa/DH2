@@ -1,5 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-		abrakin: {
+	abrakin: {
 		learnset: {
 			psychic: ["8L1"],
 			fireblast: ["8L1"],
