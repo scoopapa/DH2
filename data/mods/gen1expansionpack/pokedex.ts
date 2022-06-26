@@ -297,7 +297,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	///
 	scizor: { 
 		inherit: true,
-		baseStats: {hp: 70, atk: 130, def: 100, spa: 55, spd: 80, spe: 60},
+		baseStats: {hp: 70, atk: 130, def: 100, spa: 55, spd: 55, spe: 60},
 	},
 	cleffa: {
 		inherit: true,
