@@ -3388,6 +3388,26 @@ export const Formats: FormatList = [
 	},
 */
 	{
+		name: "[Gen 8] Random Pool 0",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-8894655">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1e49Kywx7ouHlUMQAp7R88wnQ-ZF3ykrUUiMCvK0coCE/edit#gid=171151629">Spreadsheet</a>`,
+		],
+		mod: 'randompool0',
+		ruleset: ['Standard', 'Dynamax Clause', "Data Mod", "Mega Data Mod"],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'RP0') {
+					return [set.species + ' is not useable in Random Pool 0.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 8] Roulettemons The Solomod",
 		desc: `<b>Roulettemons The Solomod</b>: literally roulettemons but a solomod + clean slate micro`,
 		mod: 'roulettemonsthesolomod',
