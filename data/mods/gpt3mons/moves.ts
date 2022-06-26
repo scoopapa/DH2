@@ -1,4 +1,4 @@
-export const Moves: {[moveid: string]: ModdedMoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	ampup: {
 		num: 3001,
 		accuracy: true,
