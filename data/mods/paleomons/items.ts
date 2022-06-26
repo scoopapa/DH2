@@ -10,6 +10,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		num: -100,
+		shortDesc: "If held by a Trobsidon, this item allows it to Mega Evolve in battle.",
 		//isNonstandard: "Past",
 	},
 
@@ -34,6 +35,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Plusle"],
 		num: -101,
 		gen: 6,
+		shortDesc: "If held by Plusle, this item triggers its Primal Reversion in battle.",
 		//isNonstandard: "Past",
 	},
 
@@ -59,6 +61,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Kyogre", "Minun"],
 		num: -102,
 		gen: 6,
+		shortDesc: "If held by Kyogre or Plusle, this item triggers its Primal Reversion in battle.",
 		isNonstandard: "Past",
 	},
 
@@ -80,6 +83,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Swalot"],
 		num: -103,
 		gen: 6,
+		shortDesc: "If held by Swalot, this item triggers its Primal Reversion in battle.",
 		//isNonstandard: "Past",
 	},
 
@@ -101,6 +105,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Hariyama"],
 		num: -104,
 		gen: 6,
+		shortDesc: "If held by Hariyama, this item triggers its Primal Reversion in battle.",
 		//isNonstandard: "Past",
 	},
 
@@ -120,8 +125,24 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		itemUser: ["Grumpig"],
-		num: -101,
+		num: -105,
 		gen: 6,
+		shortDesc: "If held by Grumpig, this item triggers its Primal Reversion in battle.",
+		//isNonstandard: "Past",
+	},
+
+	trobsidonite: {
+		name: "Trobsidonite",
+		spritenum: 624,
+		megaStone: "Trobsidon-Mega",
+		megaEvolves: "Trobsidon",
+		itemUser: ["Trobsidon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -106,
+		shortDesc: "If held by a Trobsidon, this item allows it to Mega Evolve in battle.",
 		//isNonstandard: "Past",
 	},
 };
