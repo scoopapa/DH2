@@ -1,5 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-		abrakin: {
+	abrakin: {
 		learnset: {
 			curseofthemoon: ["8L1"],
 			psychic: ["8L1"],
@@ -1960,7 +1960,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			fairywind: ["8L1"],
 			defog: ["8L1"],
 			roost: ["8L1"],
-			dragondance: ["8L1"],
 			fly: ["8L1"],
 			playrough: ["8L1"],
 			dragonhammer: ["8L1"],
@@ -1978,7 +1977,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			brickbreak: ["8L1"],
 			brutalswing: ["8L1"],
 			bulldoze: ["8L1"],
-			calmmind: ["8L1"],
 			captivate: ["8L1"],
 			charm: ["8L1"],
 			confide: ["8L1"],
