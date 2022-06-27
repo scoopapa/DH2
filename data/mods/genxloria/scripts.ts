@@ -280,6 +280,29 @@ this.modData('Learnsets', 'stantler').learnset.psyshieldbash = ['8L1'];
 		this.modData("Learnsets", "basculin").learnset.drainfang = ["8L1"];
 		// Florges
 		this.modData("Learnsets", "florges").learnset.leechseed = ["8L1"];
+
+// Hisuian Evolutions
+this.modData("Learnsets", "wyrdeer").learnset.expandingforce = ["8L1"];
+this.modData("Learnsets", "wyrdeer").learnset.hyperbeam = ["8L1"];
+this.modData("Learnsets", "wyrdeer").learnset.hypervoice = ["8L1"];
+this.modData("Learnsets", "wyrdeer").learnset.recover = ["8L1"];
+this.modData("Learnsets", "wyrdeer").learnset.bodypress = ["8L1"];
+this.modData("Learnsets", "wyrdeer").learnset.focusblast = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.ceaselessedge = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.nightslash = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.slash = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.darkpulse = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.psychocut = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.megahorn = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.hydrocannon = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.gigaimpact = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.hyperbeam = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.superpower = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.dragontail = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.spikes = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.shadowclaw = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.snarl = ["8L1"];
+this.modData("Learnsets", "samurotthisui").learnset.knockoff = ["8L1"];
 	},
 	// BattlePokemon scripts. Commented out for safety but an implementation for Tree-Topper is there.
 	/*
