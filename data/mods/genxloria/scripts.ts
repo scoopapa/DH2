@@ -1,4 +1,8 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ["Loria FE", "Loria NFE", "Loria LC"],
+	},
 	init: function () {
 /*
 		for (const id in this.dataCache.Pokedex) {
