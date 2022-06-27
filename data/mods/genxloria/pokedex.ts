@@ -2443,5 +2443,99 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 11,
 		weightkg: 200,
 	},
-
+	skitty: {
+		inherit: true,
+		otherFormes: ["Skitty-Loria"],
+		formeOrder: ["Skitty", "Skitty-Loria"],
+	},
+	delcatty: {
+		inherit: true,
+		otherFormes: ["Delcatty-Loria"],
+		formeOrder: ["Delcatty", "Delcatty-Loria"],
+	},
+	spoink: {
+		inherit: true,
+		otherFormes: ["Spoink-Loria"],
+		formeOrder: ["Spoink", "Spoink-Loria"],
+	},
+	grumpig: {
+		inherit: true,
+		otherFormes: ["Grumpig-Loria"],
+		formeOrder: ["Grumpig", "Grumpig-Loria"],
+	},
+	beheeyem: {
+		inherit: true,
+		otherFormes: ["Beheeyem-Loria"],
+		formeOrder: ["Beheeyem", "Beheeyem-Loria"],
+	},
+	elgyem: {
+		inherit: true,
+		otherFormes: ["Elgyem-Loria"],
+		formeOrder: ["Elgyem", "Elgyem-Loria"],
+	},
+	litleo: {
+		inherit: true,
+		otherFormes: ["Litleo-Loria"],
+		formeOrder: ["Litleo", "Litleo-Loria"],
+	},
+	pyroar: {
+		inherit: true,
+		otherFormes: ["Pyroar-Loria"],
+		formeOrder: ["Pyroar", "Pyroar-Loria"],
+	},
+	bagon: {
+		inherit: true,
+		otherFormes: ["Bagon-Loria"],
+		formeOrder: ["Bagon", "Bagon-Loria"],
+	},
+	shelgon: {
+		inherit: true,
+		otherFormes: ["Shelgon-Loria"],
+		formeOrder: ["Shelgon", "Shelgon-Loria"],
+	},
+	salamence: {
+		inherit: true,
+		otherFormes: ["Salamence-Mega", "Salamence-Loria"],
+		formeOrder: ["Salamence", "Salamence-Mega", "Salamence-Loria"],
+	},
+	yanma: {
+		inherit: true,
+		otherFormes: ["Yanma-Loria"],
+		formeOrder: ["Yanma", "Yanma-Loria"],
+	},
+	sandile: {
+		inherit: true,
+		otherFormes: ["Sandile-Loria"],
+		formeOrder: ["Sandile", "Sandile-Loria"],
+	},
+	krokorok: {
+		inherit: true,
+		otherFormes: ["Krokorok-Loria"],
+		formeOrder: ["Krokorok", "Krokorok-Loria"],
+	},
+	throh: {
+		inherit: true,
+		otherFormes: ["Throh-Prehistoric"],
+		formeOrder: ["Throh", "Throh-Prehistoric"],
+	},
+	sawk: {
+		inherit: true,
+		otherFormes: ["Sawk-Prehistoric"],
+		formeOrder: ["Sawk", "Sawk-Prehistoric"],
+	},
+	panpour: {
+		inherit: true,
+		otherFormes: ["Panpour-Loria"],
+		formeOrder: ["Panpour", "Panpour-Loria"],
+	},
+	pansear: {
+		inherit: true,
+		otherFormes: ["Pansear-Loria"],
+		formeOrder: ["Pansear", "Pansear-Loria"],
+	},
+	pansage: {
+		inherit: true,
+		otherFormes: ["Pansage-Loria"],
+		formeOrder: ["Pansage", "Pansage-Loria"],
+	},
 };
