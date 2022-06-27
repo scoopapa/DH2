@@ -324,8 +324,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	stonehouse: {
 		id: "stonehouse",
-		shortDesc: "Placeholder, does nothing right now.",
-		/* shortDesc: "When this Pokemon switches in on Stealth Rock, it gains +2 Defense.
+		shortDesc: "When this Pokemon switches in on Stealth Rock, it gains +2 Defense.",
 		onSwitchIn(pokemon) {
 			this.effectData.switchingIn = true;
 		},
@@ -335,7 +334,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({def: 2});
 			}
 		},
-		*/
 		name: "Stone House",
 		rating: 0.1,
 	},
@@ -612,4 +610,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Potion Brewer",
 	},
+
 };
