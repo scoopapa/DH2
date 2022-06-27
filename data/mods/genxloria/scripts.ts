@@ -129,6 +129,157 @@ this.modData('Learnsets', 'toucannon').learnset.pressurecook = ['7L1'];
 this.modData('Learnsets', 'espurr').learnset.pressurecook = ['7L1'];
 this.modData('Learnsets', 'meowstic').learnset.pressurecook = ['7L1'];
 this.modData('Learnsets', 'meowsticf').learnset.pressurecook = ['7L1'];
+		
+// Loria Additions
+// Shock Tail
+this.modData('Learnsets', 'srinbow').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'elekid').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'mareep').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'shinx').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'pachirisu').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'blitzle').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'eelektrik').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'eelektross').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'yamper').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'toxel').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'rhyhorn').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'absol').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'pichu').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'raichu').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'plusle').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'minun').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'pachirisu').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'emolga').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'dedenne').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'togedemaru').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'rikomoco').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'aipom').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'jolteon').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'flareon').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'vibrava').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'galliwatt').learnset.shocktail = ['8L1'];
+this.modData('Learnsets', 'cougaquil').learnset.shocktail = ['8L1'];
+
+// Banana Split 
+this.modData('Learnsets', 'vanillite').learnset.bananasplit = ['8L1'];
+this.modData('Learnsets', 'tropius').learnset.bananasplit = ['8L1'];
+this.modData('Learnsets', 'snover').learnset.bananasplit = ['8L1'];
+this.modData('Learnsets', 'skittyloria').learnset.bananasplit = ['8L1'];
+this.modData('Learnsets', 'oranguru').learnset.bananasplit = ['8L1'];
+this.modData('Learnsets', 'passimian').learnset.bananasplit = ['8L1'];
+this.modData('Learnsets', 'aipom').learnset.bananasplit = ['8L1'];
+this.modData('Learnsets', 'darumakagalar').learnset.bananasplit = ['8L1'];
+
+// Sparking Leap 
+this.modData('Learnsets', 'usawald').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'plusle').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'minun').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'eelektrik').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'joltik').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'chinchou').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'regieleki').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'stunfisk').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'togedemaru').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'blitzle').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'zeraora').learnset.sparkingleap = ['8L1'];
+this.modData('Learnsets', 'rotom').learnset.sparkingleap = ['8L1'];
+
+// Firework Leaf
+this.modData('Learnsets', 'firack').learnset.fireworkleaf = ['8L1'];
+this.modData('Learnsets', 'zarude').learnset.fireworkleaf = ['8L1'];
+this.modData('Learnsets', 'zarudedada').learnset.fireworkleaf = ['8L1'];
+this.modData('Learnsets', 'rowlet').learnset.fireworkleaf = ['8L1'];
+this.modData('Learnsets', 'cacnea').learnset.fireworkleaf = ['8L1'];
+this.modData('Learnsets', 'phantump').learnset.fireworkleaf = ['8L1'];
+this.modData('Learnsets', 'carnivine').learnset.fireworkleaf = ['8L1'];
+this.modData('Learnsets', 'leafeon').learnset.fireworkleaf = ['8L1'];
+
+// Quick Shot
+this.modData('Learnsets', 'nymphire').learnset.quickshot = ['8L1'];
+this.modData('Learnsets', 'magby').learnset.quickshot = ['8L1'];
+this.modData('Learnsets', 'cyndaquil').learnset.quickshot = ['8L1'];
+this.modData('Learnsets', 'fennekin').learnset.quickshot = ['8L1'];
+this.modData('Learnsets', 'salandit').learnset.quickshot = ['8L1'];
+this.modData('Learnsets', 'litleo').learnset.quickshot = ['8L1'];
+
+// Cripple Clobber
+this.modData('Learnsets', 'sawkprehistoric').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'rhyhorn').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'onix').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'aron').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'armaldo').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'regirock').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'rampardos').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'gigalith').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'barbaracle').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'lycanrocmidnight').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'stonjourner').learnset.crippleclobber = ['8L1'];
+this.modData('Learnsets', 'stantler').learnset.psyshieldbash = ['8L1'];
+
+// Dex Additions
+		// Spearow
+		this.modData("Learnsets", "spearow").learnset.payday = ["8L1"];
+		// Oranguru
+		this.modData("Learnsets", "oranguru").learnset.bushclaws = ["8L1"];
+		// Passimian
+		this.modData("Learnsets", "passimian").learnset.bushclaws = ["8L1"];
+		// Aipom
+		this.modData("Learnsets", "aipom").learnset.highjumpkick = ["8L1"];
+		this.modData("Learnsets", "aipom").learnset.bushclaws = ["8L1"];
+		this.modData("Learnsets", "aipom").learnset.clinch = ["8L1"];
+		this.modData("Learnsets", "aipom").learnset.revenge = ["8L1"];
+		// Ambipom
+		this.modData("Learnsets", "ambipom").learnset.highjumpkick = ["8L1"];
+		this.modData("Learnsets", "ambipom").learnset.bushclaws = ["8L1"];
+		this.modData("Learnsets", "ambipom").learnset.clinch = ["8L1"];
+		this.modData("Learnsets", "ambipom").learnset.revenge = ["8L1"];
+		// Eevee
+		this.modData("Learnsets", "eevee").learnset.drainfang = ["8L1"];
+		// Flareon
+		this.modData("Learnsets", "flareon").learnset.bulkup = ["8L1"];
+		// Glaceon
+		this.modData("Learnsets", "glaceon").learnset.surf = ["8L1"];
+		this.modData("Learnsets", "glaceon").learnset.hydropump = ["8L1"];
+		// Leafeon
+		this.modData("Learnsets", "leafeon").learnset.bushclaws = ["8L1"];
+		// Bronzor
+		this.modData("Learnsets", "bronzor").learnset.gravity = ["8L1"];
+		this.modData("Learnsets", "bronzor").learnset.imprison = ["8L1"];
+		// Cufant
+		this.modData("Learnsets", "cufant").learnset.gunkshot = ["8L1"];
+		// Poliwrath
+		this.modData("Learnsets", "poliwrath").learnset.bodypress = ["8L1"];
+		// Politoed
+		this.modData("Learnsets", "politoed").learnset.aquaballet = ["8L1"];
+		this.modData("Learnsets", "politoed").learnset.hurricane = ["8L1"];
+		// Hippopotas
+		this.modData("Learnsets", "hippopotas").learnset.terracharge = ["8L1"];
+		// Solosis
+		this.modData("Learnsets", "solosis").learnset.pressurecook = ["8L1"];
+		// Gastly
+		this.modData("Learnsets", "gastly").learnset.drainfang = ["8L1"];
+		// Mimikyu
+		this.modData("Learnsets", "mimikyu").learnset.bushclaws = ["8L1"];
+		// Luxray
+		this.modData("Learnsets", "luxray").learnset.thunderstrike = ["8L1"];
+		// Elekid
+		this.modData("Learnsets", "elekid").learnset.thunderstrike = ["8L1"];
+		// Klinklang
+		this.modData("Learnsets", "klinklang").learnset.thunderstrike = ["8L1"];
+		// Shroomish
+		this.modData("Learnsets", "shroomish").learnset.revenge = ["8L1"];
+		// Breloom
+		this.modData("Learnsets", "breloom").learnset.revenge = ["8L1"];
+		// Glameow
+		this.modData("Learnsets", "glameow").learnset.bushclaws = ["8L1"];
+		// Purugly
+		this.modData("Learnsets", "purugly").learnset.bushclaws = ["8L1"];
+		// Galliwatt
+		this.modData("Learnsets", "galliwatt").learnset.thunderstrike = ["8L1"];
+		// Basculin
+		this.modData("Learnsets", "basculin").learnset.drainfang = ["8L1"];
+		// Florges
+		this.modData("Learnsets", "florges").learnset.leechseed = ["8L1"];
 	},
 	// BattlePokemon scripts. Commented out for safety but an implementation for Tree-Topper is there.
 	/*
