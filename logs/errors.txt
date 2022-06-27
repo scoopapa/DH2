@@ -5893,3 +5893,99 @@ Additional information:
   formatid = gen8gpt3mons
   team = Yeetle|||intimidate||||||||
 
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:875:26)
+    at QueryProcessWrapper.destroy (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:394:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:905:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:875:26)
+    at QueryProcessWrapper.destroy (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:394:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:905:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:875:26)
+    at QueryProcessWrapper.destroy (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:394:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:905:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:875:26)
+    at QueryProcessWrapper.destroy (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:394:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:905:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+TypeError: Cannot read property 'then' of null
+    at RawProcessManager.releaseCrashed (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:423:25)
+    at Worker.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at Worker.emit (node:events:394:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:513:28)
+    at ChildProcess.emit (node:events:394:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:905:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:875:26)
+    at QueryProcessWrapper.destroy (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:394:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:905:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:875:26)
+    at StreamProcessWrapper.destroy (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:290:16)
+    at StreamProcessWrapper.release (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:394:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:905:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:875:26)
+    at QueryProcessWrapper.destroy (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\anaco\Documents\GitHub\DH\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:394:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:905:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
