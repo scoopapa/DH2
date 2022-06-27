@@ -2769,4 +2769,50 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 13.5,
 		evos: ["Simisoar"],
 	},
+	tropius: {
+		inherit: true,
+		name: "Tropius",
+		prevo: "Tropitano",
+		evos: ["Tropiconti"],
+	},
+	toxicroak: {
+		inherit: true,
+		name: "Toxicroak",
+		evos: ["Croakorrode"],
+	},
+	spiritomb: {
+		inherit: true,
+		name: "Spiritomb",
+		evos: ["Corruptomb"],
+	},
+	pawniard: {
+		inherit: true,
+		name: "Pawniard",
+		evos: ["Bisharp", "Knightmare"],
+	},
+	fearow: {
+		inherit: true,
+		name: "Fearow",
+		evos: ["Hearow"],
+	},
+	eiscue: {
+		inherit: true,
+		name: "Eiscue",
+		evos: ["Keisberg"],
+	},
+	stonjourner: {
+		inherit: true,
+		name: "Stonjourner",
+		evos: ["Stontravank"],
+	},
+	weepinbell: {
+		inherit: true,
+		name: "Weepinbell",
+		evos: ["Victreebel", "Narabel"],
+	},
+	torkoal: {
+		inherit: true,
+		name: "Torkoal",
+		prevo: "Torklear",
+	},
 };
