@@ -1228,6 +1228,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.5,
 		weightkg: 245,
 		prevo: "Tropiclaw",
+		otherFormes: ["Jaibastion-Mega"],
+		formeOrder: ["Jaibastion", "Jaibastion-Mega"],
+	},
+	jaibastionmega: {
+		num: 1203,
+		name: "Jaibastion-Mega",
+		baseSpecies: "Jaibastion",
+		forme: "Mega",
+		types: ["Grass", "Rock"],
+		baseStats: {hp: 82, atk: 150, def: 101, spa: 116, spd: 81, spe: 100},
+		abilities: {0: "Skill Link"},
+		heightm: 1.5,
+		weightkg: 245,
+		requiredItem: "Jaibastionite",
 	},
 	embaa: {
 		num: 1204,
@@ -1259,6 +1273,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.6,
 		weightkg: 74,
 		prevo: "Cinemere",
+		otherFormes: ["Sulfuram-Mega"],
+		formeOrder: ["Sulfuram", "Sulfuram-Mega"],
+	},
+	sulfurammega: {
+		num: 1206,
+		name: "Sulfuram-Mega",
+		baseSpecies: "Sulfuram",
+		forme: "Mega",
+		types: ["Fire", "Dark"],
+		baseStats: {hp: 115, atk: 115, def: 85, spa: 144, spd: 103, spe: 68},
+		abilities: {0: "Neutralizing Gas"},
+		heightm: 1.6,
+		weightkg: 74,
+		requiredItem: "Sulfuramite",
 	},
 	flowtter: {
 		num: 1207,
@@ -1289,7 +1317,21 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Torrent", H: "Frisk"},
 		heightm: 10.5,
 		weightkg: 186,
-		prevo: "Minkfinit",
+		prevo: "Ottorrent",
+		otherFormes: ["Minkfinit-Mega"],
+		formeOrder: ["Minkfinit", "Minkfinit-Mega"],
+	},
+	minkfinitmega: {
+		num: 1209,
+		name: "Minkfinit-Mega",
+		baseSpecies: "Minkfinit",
+		forme: "Mega",
+		types: ["Water", "Electric"],
+		baseStats: {hp: 94, atk: 121, def: 80, spa: 111, spd: 105, spe: 119},
+		abilities: {0: "Drizzle"},
+		heightm: 10.5,
+		weightkg: 186,
+		requiredItem: "Minkfinitite",
 	},
 	perocotton: {
 		num: 1210,
@@ -1361,6 +1403,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.1,
 		weightkg: 1.9,
 		prevo: "Antyke",
+		evos: ["Dronaught", "Combattant", "Antunnel", "Formiquen"],
 	},
 	dronaught: {
 		num: 1217,
@@ -1371,7 +1414,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.1,
 		weightkg: 0.4,
 		prevo: "Pupant",
-		evos: ["Dronaught", "Combattant", "Antunnel", "Formiquen"],
 	},
 	combattant: {
 		num: 1218,
@@ -1639,7 +1681,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Tough Claws", H: "Solid Rock"},
 		heightm: 2,
 		weightkg: 175,
-		evos: ["TMs"],
 	},
 	myoce: {
 		num: 1245,
@@ -1648,6 +1689,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 45, atk: 35, def: 60, spa: 65, spd: 40, spe: 60},
 		abilities: {0: "Slush Rush", H: "Inflitrator"},
 		heightm: 1,
+		weightkg: 30,
 		evos: ["Viverodon"],
 	},
 	viverodon: {
@@ -1657,6 +1699,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 65, atk: 70, def: 105, spa: 110, spd: 60, spe: 105},
 		abilities: {0: "Slush Rush", H: "Inflitrator"},
 		heightm: 1,
+		weightkg: 30,
 		prevo: "Myoce",
 	},
 	usawald: {
@@ -1729,7 +1772,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	ribbolt: {
 		num: 1254,
 		name: "Ribbolt",
-		types: ["Electric Ground"],
+		types: ["Electric", "Ground"],
 		baseStats: {hp: 56, atk: 59, def: 35, spa: 65, spd: 35, spe: 55},
 		abilities: {0: "Static", 1: "Dry Skin", H: "Swift Swim"},
 		heightm: 0.5,
@@ -1739,7 +1782,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	dendrobolt: {
 		num: 1255,
 		name: "Dendrobolt",
-		types: ["Electric Ground"],
+		types: ["Electric", "Ground"],
 		baseStats: {hp: 76, atk: 69, def: 55, spa: 75, spd: 55, spe: 55},
 		abilities: {0: "Static", 1: "Dry Skin", H: "Swift Swim"},
 		heightm: 0.9,
@@ -1750,7 +1793,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	thundart: {
 		num: 1256,
 		name: "Thundart",
-		types: ["Electric Ground"],
+		types: ["Electric", "Ground"],
 		baseStats: {hp: 96, atk: 89, def: 75, spa: 115, spd: 75, spe: 55},
 		abilities: {0: "Static", 1: "Dry Skin", H: "Swift Swim"},
 		heightm: 1.4,
@@ -1991,7 +2034,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Tsunamey",
 		types: ["Dragon"],
 		baseStats: {hp: 60, atk: 115, def: 95, spa: 50, spd: 95, spe: 50},
-		abilities: {0: "Surfs Up"},
+		abilities: {0: "Surf's Up"},
 		heightm: 0.9,
 		weightkg: 40.5,
 		otherFormes: ["Tsunamey-Surfing"],
@@ -2004,7 +2047,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Surfing",
 		types: ["Dragon"],
 		baseStats: {hp: 60, atk: 115, def: 60, spa: 50, spd: 80, spe: 100},
-		abilities: {0: "Surfs Up"},
+		abilities: {0: "Surf's Up"},
 		heightm: 0.9,
 		weightkg: 40.5,
 		requiredAbility: "Surfs Up",
@@ -2147,7 +2190,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Stamina", 1: "Unnerve", H: "Steadfast"},
 		heightm: 1.6,
 		weightkg: 73,
-		prevo: "Kittuf",
+		prevo: "Kittuff",
 	},
 	punkey: {
 		num: 1295,
@@ -2814,5 +2857,69 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		name: "Torkoal",
 		prevo: "Torklear",
+	},
+	magby: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Precision", H: "Vital Spirit"},
+	},
+	magmar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Precision", H: "Vital Spirit"},
+	},
+	magmortar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Precision", H: "Vital Spirit"},
+	},
+	elekid: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Ambitious", H: "Vital Spirit"},
+	},
+	electabuzz: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Ambitious", H: "Vital Spirit"},
+	},
+	electivire: {
+		inherit: true,
+		abilities: {0: "Motor Drive", 1: "Ambitious", H: "Vital Spirit"},
+	},
+	oranguru: {
+		inherit: true,
+		abilities: {0: "Precision", 1: "Telepathy", H: "Symbiosis"},
+	},
+	passimian: {
+		inherit: true,
+		abilities: {0: "Receiver", 1: "Bombadier", H: "Defiant"},
+	},
+	rotom: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Precision"},
+	},
+	rotomheat: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Precision"},
+	},
+	rotomwash: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Precision"},
+	},
+	rotomfrost: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Precision"},
+	},
+	rotomfan: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Precision"},
+	},
+	rotommow: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Precision"},
+	},
+	regice: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Eternal Ice"},
+	},
+	sudowoodo: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Rock Head", H: "Traveler"},
 	},
 };
