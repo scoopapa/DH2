@@ -396,13 +396,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		maxMove: {basePower: 130},
 	},
-	eyesofchaos: {
+	eyeofchaos: {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
 		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
 		isViable: true,
-		name: "Eyes of Chaos",
+		name: "Eye of Chaos",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -493,6 +493,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "If User's Attack > Target's, it gains +1 Speed, else target gains -1 Defense.",
+		isViable: true,
 		name: "Flare Up",
 		pp: 30,
 		priority: 0,
@@ -521,6 +522,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Protects the user. If hit by a contact move, the attacker loses 25% of thier max HP and gets poisoned.",
+		isViable: true,
 		name: "Toxic Snowball",
 		pp: 10,
 		priority: 4,
@@ -585,6 +587,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Special",
 		shortDesc: "Resets the user's lowered stats.",
+		isViable: true,
 		name: "Purification",
 		pp: 5,
 		priority: 0,
@@ -610,6 +613,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Sets Mist and Safeguard for 3 turns. The user then switches out.",
+		isViable: true,
 		name: "Guardian Wind",
 		pp: 10,
 		priority: 0,
@@ -678,6 +682,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 25,
 		category: "Physical",
 		shortDesc: "Hits 2-5 times. 10% chance to lower the target's Defense by 1.",
+		isViable: true,
 		name: "Coconut Burst",
 		pp: 30,
 		priority: 0,
@@ -704,6 +709,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Heals 66% of the user's HP and removes it Fire-type. Fails if the user is not Fire.",
+		isViable: true,
 		name: "Heat Release",
 		pp: 10,
 		priority: 0,
@@ -740,6 +746,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		category: "Special",
 		shortDesc: "Power increases when used on consecutive turns.",
+		isViable: true,
 		name: "Steady Stream",
 		pp: 15,
 		priority: 0,
@@ -775,6 +782,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 95,
 		category: "Special",
 		shortDesc: "If Psychic Terrain is active, user's Speed goes up by 1 stage.",
+		isViable: true,
 		name: "Psychic Surf",
 		pp: 15,
 		priority: 0,
@@ -802,6 +810,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		shortDesc: "If the opponent has any stat boosts, they are paralyzed.",
+		isViable: true,
 		name: "Shock Tail",
 		pp: 15,
 		priority: 0,
@@ -851,6 +860,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
     	shortDesc: "(Bugged) Switches the user's item with the foes, then switches out if successful.",
+		isViable: true,
 		name: "Swindle",
 		pp: 20,
 		priority: 0,
@@ -904,6 +914,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
     	shortDesc: "High critical hit ratio.",
+		isViable: true,
 		name: "Sparking Leap",
 		pp: 10,
 		priority: 0,
@@ -923,6 +934,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Special",
     	shortDesc: "Lowers the foe(s)'s Attack and Special Attack by 1 stage.",
+		isViable: true,
 		name: "Pearl Barrage",
 		pp: 10,
 		priority: 0,
@@ -946,6 +958,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Special",
     	shortDesc: "Super effective against Steel-types.",
+		isViable: true,
 		name: "Firework Leaf",
 		pp: 10,
 		priority: 0,
@@ -968,6 +981,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 40,
 		category: "Special",
     	shortDesc: "Usually goes first.",
+		isViable: true,
 		name: "Quick Shot",
 		pp: 30,
 		priority: 1,
@@ -986,6 +1000,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Physical",
     	shortDesc: "Traps the target and deals damage for 4 turns.",
+		isViable: true,
 		name: "Merciless Rend",
 		pp: 10,
 		priority: 0,
@@ -1005,6 +1020,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 130,
 		category: "Physical",
     	shortDesc: "Fails if the user is grounded.",
+		isViable: true,
 		name: "Sky Lance",
 		pp: 5,
 		priority: 0,
@@ -1026,6 +1042,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
     	shortDesc: "20% chance to paralyze or poison or put the target to sleep.",
+		isViable: true,
 		name: "Spell Cast",
 		pp: 10,
 		priority: 0,
@@ -1056,6 +1073,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 95,
 		category: "Special",
     	shortDesc: "Super effective against Water. 30% chance to burn.",
+		isViable: true,
 		name: "Steaming Blast",
 		pp: 10,
 		priority: 0,
@@ -1081,6 +1099,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
     	shortDesc: "If used on foe, traps the foe. If used on ally, heals them by 50% of their max HP.",
+		isViable: true,
 		name: "Jaws of Life",
 		pp: 10,
 		priority: 0,
@@ -1118,6 +1137,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
     	shortDesc: "20% chance to lower the target's Defense by 1 stage.",
+		isViable: true,
 		name: "Javelin Stone",
 		pp: 10,
 		priority: 0,
@@ -1141,6 +1161,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
     	shortDesc: "Lowers the target's Speed by 1.",
+		isViable: true,
 		name: "Cripple Clobber",
 		pp: 20,
 		priority: 0,
@@ -1164,6 +1185,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Physical",
     	shortDesc: "30% chance to paralyze foe. Perfect accuracy in Sun.",
+		isViable: true,
 		name: "Thunderstrike",
 		pp: 10,
 		priority: 0,
@@ -1193,6 +1215,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
     	shortDesc: "Raises the user's Special Attack and Speed by 1 stage",
+		isViable: true,
 		name: "Aqua Ballet",
 		pp: 20,
 		priority: 0,
@@ -1210,5 +1233,273 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Water",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
+	},
+	ironblaster: {
+		accuracy: 80,
+		basePower: 120,
+		category: "Special",
+    	shortDesc: "30% chance to lower the foe's Special Defense by 1 stage",
+		isViable: true,
+		name: "Iron Blaster",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Steel Beam", target);
+		},
+		secondary: {
+			chance: 30,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	genesiswave: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+    	shortDesc: "Heals the user by 75% of the damage dealt",
+		isViable: true,
+		name: "Genesis Wave",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Parabolic Charge", target);
+		},
+		drain: [3, 4],
+		secondary: null,
+		target: "any",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	idlethunder: {
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+    	shortDesc: "Hits two turns after being used",
+		isViable: true,
+		name: "Idle Thunder",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Zap Cannon", target);
+		},
+		isFutureMove: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'idlethunder',
+				source: source,
+				moveData: {
+					id: 'idlethunder',
+					name: "Idle Thunder",
+					accuracy: 100,
+					basePower: 140,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Electric',
+				},
+			});
+			this.add('-start', source, 'Idle Thunder');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+	disasterbolt: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+    	shortDesc: "100% chance to lower the foe's Special Defense by 1 stage",
+		isViable: true,
+		name: "Disaster Bolt",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Thunder", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
+	dragonsgift: {
+		accuracy: 90,
+		basePower: 0,
+		category: "Physical",
+    	shortDesc: "80, 100, 120 power, or raises the target's crit ratio by 1 stage.",
+		isViable: true,
+		name: "Dragon's Gift",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dynamax Cannon", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			const rand = this.random(10);
+			if (rand < 2) {
+				target.addVolatile('gmaxchistrike');
+				move.infiltrates = true;
+			} else if (rand < 6) {
+				move.basePower = 80;
+			} else if (rand < 9) {
+				move.basePower = 100;
+			} else {
+				move.basePower = 120;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cute",
+	},
+		
+// PLA Moves
+	psyshieldbash: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+    	shortDesc: "Raises the user's Defense by 1 stage.",
+		isViable: true,
+		name: "Psyshield Bash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Zen Headbutt", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					def: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+		contestType: "Tough",
+	},
+	ragingfury: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+    	shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
+		isViable: true,
+		name: "Raging Fury",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, defrost: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flare Blitz", target);
+			this.add('-anim', source, "Bulk Up", target);
+		},
+		self: {
+			volatileStatus: 'lockedmove',
+		},
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
+				pokemon.removeVolatile('lockedmove');
+			}
+		},
+		secondary: null,
+		target: "randomNormal",
+		type: "Fire",
+		contestType: "Cool",
+	},
+	wavecrash: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+    	shortDesc: "Usually goes first. 33% Recoil.",
+		isViable: true,
+		name: "Wave Crash",
+		pp: 10,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Waterfall", target);
+		},
+		recoil: [33, 100],
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Cool",
+	},
+	bittermalice: {
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+    	shortDesc: "10% chance to freeze the foe(s). Double damage if the target is statused.",
+		isViable: true,
+		name: "Bitter Malice",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fiery Wrath", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "allAdjacentFoes",
+		type: "Ghost",
+		zMove: {basePower: 160},
+		contestType: "Clever",
+	},
+	ceaselessedge: {
+		accuracy: 90,
+		basePower: 60,
+		category: "Physical",
+    	shortDesc: "Sets one layer of Spikes after dealing damage.",
+		isViable: true,
+		name: "Ceaseless Edge",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Slash", target);
+			this.add('-anim', source, "Spikes", target);
+		},
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('spikes');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
 	},
 };
