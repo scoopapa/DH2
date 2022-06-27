@@ -2434,5 +2434,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.5,
 		weightkg: 64,
 	},
+	fortuigon: {
+		num: 1327,
+		name: "Fortuigon",
+		types: ["Dragon"],
+		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
+		abilities: {0: "Super Luck"},
+		heightm: 11,
+		weightkg: 200,
+	},
 
 };
