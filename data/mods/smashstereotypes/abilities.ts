@@ -611,4 +611,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Flaming Skin",
 		shortDesc: "Dry Skin + Flame Body",
 	},
+	fromashes: {
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; ignores burn's effects.",
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				this.heal(target.maxhp / 8);
+				return false;
+			}
+		},
+		id: "fromashes",
+		name: "From Ashes",
+	},
+	sandbubbler: {
+		onStart(source) {
+			this.field.setWeather('sandstorm');
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Sand Bubbler boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Sand Bubbler",
+		shortDesc: "Sand Stream + Iron Fist.",
+	},
 };

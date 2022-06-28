@@ -317,4 +317,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toxicargo: {
 		tier: "SSS",
 	},
+	heatloom: {
+		tier: "SSS",
+	},
+	drampaschrodinger: {
+		tier: "SSS",
+	},
+	gigacrab: {
+		tier: "SSS",
+	},
 };
