@@ -230,7 +230,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	crabhammer: {
 		inherit: true,
 		category: "Special",
-		willCrit: true,
+		critRatio: 2,
 	},
 	dig: {
 		inherit: true,
@@ -448,7 +448,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	karatechop: {
 		inherit: true,
-		willCrit: true,
+		critRatio: 2,
 		type: "Normal",
 	},
 	leechseed: {
@@ -628,7 +628,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	razorleaf: {
 		inherit: true,
 		category: "Special",
-		willCrit: true,
+		critRatio: 2,
 		target: "normal",
 	},
 	razorwind: {
@@ -733,7 +733,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	slash: {
 		inherit: true,
-		willCrit: true,
+		critRatio: 2,
 	},
 	sludge: {
 		inherit: true,
