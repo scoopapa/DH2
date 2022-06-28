@@ -3015,7 +3015,7 @@ export const Formats: FormatList = [
 				'Arena Trap', 'Drizzle', 'Moody', 'Shadow Tag',
 				
 				//Items
-				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Charizardite X', 'Charizardite Y'. 'Eviolite', 'Gengarite', 
+				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Charizardite X', 'Charizardite Y', 'Eviolite', 'Gengarite', 
 				'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 
 				'Sablenite', 'Swampertite', 'Thick Club',
 				
@@ -3470,21 +3470,18 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'OU',
 	},
 	{
-		name: "[Gen 8] ViZar's 235 Metagame Uber",
+		name: "[Gen 8] ViZar's 235 Metagame UU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: '235metagame',
-		ruleset: ['Standard', 'Dynamax Clause'],
+		ruleset: ['[Gen 8] ViZar\s 235 Metagame'],
 		banlist: [
-				//Abilities
-				'Moody',
-				
-				//Moves
-				'Baton Pass',
+				//Pokemon
+				'OU', 'UUBL',
 		],
-		teambuilderFormat: 'Uber',
+		teambuilderFormat: 'UU',
 	},
 	{
 		name: "[Gen 8] ViZar's 235 Metagame LC",

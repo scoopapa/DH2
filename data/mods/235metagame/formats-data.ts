@@ -118,13 +118,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	sandshrew: {
-		tier: "LC",
+		tier: "UUBL",
 	},
 	sandshrewalola: {
 		tier: "LC",
 	},
 	sandslash: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	sandslashalola: {
 		tier: "UU",
@@ -1302,7 +1302,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	empoleon: {
-		tier: "UU",
+		tier: "OU",
 	},
 	bidoof: {
 		tier: "LC",
@@ -2792,7 +2792,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	hatterene: {
-		tier: "UU",
+		tier: "OU",
 	},
 	impidimp: {
 		tier: "LC",
@@ -2830,7 +2830,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	indeedee: {
-		tier: "UU",
+		tier: "OU",
 	},
 	indeedeef: {
 		tier: "UU",
@@ -2847,7 +2847,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	dracozolt: {
-		tier: "UUBL",
+		tier: "OU",
 	},
 	arctozolt: {
 		tier: "UUBL",
