@@ -1137,7 +1137,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -172,
 		name: "Anklarmor",
 		types: ["Steel"],
-		baseStats: {hp: 79, atk: 65, def: 102, spa: 90, spd: 11, spe: 46},
+		baseStats: {hp: 79, atk: 65, def: 102, spa: 90, spd: 111, spe: 46},
 		abilities: {0: "Filter", 1: "Justified", H: "Overcoat"},
 		weightkg: 398,
 	},
