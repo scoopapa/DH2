@@ -249,7 +249,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		shortDesc: "No additional effect.",
 		name: "Glacial Charge",
-		pp: 16,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
