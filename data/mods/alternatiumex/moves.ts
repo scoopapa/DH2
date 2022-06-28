@@ -215,4 +215,57 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		accuracy: 95,
 	},
+	wickedblow: {
+		inherit: true,
+		accuracy: 90,
+		basePower: 85,
+		shortDesc: "Inflicts Torment on the opponent.",
+		pp: 10,
+		willCrit: null,
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.addVolatile('torment');
+				}
+			},
+		},
+	},
+	surgingstrikes: {
+		inherit: true,
+		basePower: 20,
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower + 10 * pokemon.positiveBoosts();
+		},
+		shortDesc: "+ 10 power for each of the user's stat boosts.",
+		pp: 10,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		willCrit: null,
+		multihit: null,
+	},
+	glacialcharge: {
+		num: -8,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "No additional effect.",
+		name: "Glacial Charge",
+		pp: 16,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Glacial Lance", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+	},
+	astralbarrage: {
+		inherit: true,
+		accuracy: 80,
+		basePower: 100,
+		shortDesc: "High critical hit ratio.",
+		target: "normal",
+		type: "Dark",
+	},
 };

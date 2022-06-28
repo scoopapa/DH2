@@ -24,10 +24,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PU",
 	},
 	charizardmegax: {
-		tier: "OU",
+		tier: "AG",
 	},
 	charizardmegay: {
-		tier: "OU",
+		tier: "AG",
 	},
 	charizardgmax: {
 		tier: "AG",
@@ -39,7 +39,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	blastoise: {
-		tier: "NU",
+		tier: "AG",
 	},
 	blastoisemega: {
 		tier: "AG",
@@ -72,7 +72,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	pidgey: {
-		tier: "LC",
+		tier: "AG",
 	},
 	pidgeotto: {
 		tier: "NFE",
@@ -444,7 +444,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	cloyster: {
-		tier: "RU",
+		tier: "AG",
 	},
 	gastly: {
 		tier: "NFE",
@@ -1110,7 +1110,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	swampertmega: {
-		tier: "OU",
+		tier: "AG",
 	},
 	poochyena: {
 		tier: "LC",
@@ -1257,7 +1257,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 	},
 	sableyemega: {
-		tier: "OU",
+		tier: "AG",
 	},
 	mawile: {
 		tier: "(PU)",
@@ -1566,7 +1566,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	groudonprimal: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	rayquaza: {
 		tier: "Uber",
@@ -1700,7 +1700,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	gastrodon: {
-		tier: "RU",
+		tier: "AG",
 	},
 	drifloon: {
 		tier: "NFE",
@@ -2475,7 +2475,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	greninjaash: {
-		tier: "OU",
+		tier: "AG",
 	},
 	bunnelby: {
 		tier: "LC",
@@ -3322,7 +3322,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	dracovish: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	arctovish: {
 		tier: "(PU)",
@@ -3346,7 +3346,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	zaciancrowned: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	zamazenta: {
 		tier: "Uber",
@@ -3396,7 +3396,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	calyrexshadow: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	wyrdeer: {
 		tier: "OU",

@@ -140,4 +140,41 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 207,
 	},
+	rubberarmor: {
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('rubberarmor');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'Rubber Armor');
+			},
+			onBeforeMove(source, target, move) {
+				const action = this.queue.willMove(target);
+				if (action && action.move.category !== 'Status') {
+					target.addVolatile('gastroacid');
+				}
+			},
+			onAfterMove(source, target, move) {
+				target.removeVolatile('gastroacid');
+			},
+		},
+		name: "Rubber Armor",
+		shortDesc: "(Bugged) Negates opponent's abilities when targeted by an attacking move.",
+		rating: 2,
+		num: -7,
+	},
+	grimneigh: {
+		onFaint(source, target) {
+			for (const target of this.getAllActive()) {
+				target.clearBoosts();
+				this.add('-clearboost', target, '[from] ability: Grim Neigh', '[of] ' + source);
+				target.cureStatus();
+			}
+		},
+		name: "Grim Neigh",
+		shortDesc: "Upon fainting, all active Pokemon have their stat changes and non-volatile status cleared.",
+		rating: 3,
+		num: 265,
+	},
 };

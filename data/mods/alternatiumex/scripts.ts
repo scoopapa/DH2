@@ -55,6 +55,23 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "vikavolttotem").learnset.earthquake = ["8L1"];
 		this.modData("Learnsets", "vikavolttotem").learnset.uturn = ["8L1"];
 		delete this.modData('Learnsets', 'vikavolttotem').learnset.agility;
+		
+		this.modData("Learnsets", "urshifu").learnset.stealthrock = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.powertrip = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.highhorsepower = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.stompingtantrum = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.partingshot = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.switcheroo = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.earthpower = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.nastyplot = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.bulldoze = ["8L1"];
+		delete this.modData('Learnsets', 'urshifu').learnset.closecombat;
+		delete this.modData('Learnsets', 'urshifu').learnset.superpower;
+		delete this.modData('Learnsets', 'urshifu').learnset.focuspunch;
+		delete this.modData('Learnsets', 'urshifu').learnset.focusblast;
+		delete this.modData('Learnsets', 'urshifu').learnset.aurasphere;
+		delete this.modData('Learnsets', 'urshifu').learnset.thunderpunch;
 	},
 	
 	pokemon: {
