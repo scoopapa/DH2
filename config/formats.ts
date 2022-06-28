@@ -3459,7 +3459,7 @@ export const Formats: FormatList = [
 				'Uber',
 				
 				//Abilities
-				'Moody', 'Sand Veil', 'Snow Cloak',
+				'Moody', 'Sand Rush', 'Sand Veil', 'Snow Cloak',
 				
 				//Moves
 				'Baton Pass',
@@ -3467,6 +3467,7 @@ export const Formats: FormatList = [
 				//Items
 				'King\s Rock', 'Lax Incense', 'Quick Claw', 'Razor Fang',
 		],
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] ViZar's 235 Metagame Uber",
@@ -3483,6 +3484,7 @@ export const Formats: FormatList = [
 				//Moves
 				'Baton Pass',
 		],
+		teambuilderFormat: 'Uber',
 	},
 	{
 		name: "[Gen 8] ViZar's 235 Metagame LC",
@@ -3491,7 +3493,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: '235metagame',
-		ruleset: ['Standard', 'Dynamax Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
 		banlist: [
 				//Pokemon
 				'NFE',
@@ -3502,6 +3504,7 @@ export const Formats: FormatList = [
 				//Moves
 				'Baton Pass',
 		],
+		teambuilderFormat: 'LC',
 	},
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",

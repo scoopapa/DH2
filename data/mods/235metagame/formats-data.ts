@@ -1263,7 +1263,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	latios: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	kyogre: {
 		tier: "Uber",
@@ -2137,7 +2137,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	hawlucha: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	dedenne: {
 		isNonstandard: "Past",
@@ -2517,7 +2517,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	tapulele: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	tapubulu: {
 		tier: "OU",
@@ -2557,7 +2557,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	kartana: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	guzzlord: {
 		tier: "UU",
@@ -2596,7 +2596,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	blacephalon: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	zeraora: {
 		isNonstandard: "Past",
@@ -2847,10 +2847,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	dracozolt: {
-		tier: "OU",
+		tier: "UUBL",
 	},
 	arctozolt: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	dracovish: {
 		tier: "Uber",
