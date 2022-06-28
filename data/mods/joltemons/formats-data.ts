@@ -1551,4 +1551,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	ariados: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	charizardmegax: {
+		tier: "UU",
+		doublesTier: "DOU",
+	},
+	barraskewda: {
+		tier: "UU",
+		doublesTier: "DOU",
+	},
+
 };
