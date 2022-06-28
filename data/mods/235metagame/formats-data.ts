@@ -118,13 +118,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	sandshrew: {
-		tier: "UUBL",
+		tier: "(Uber)",
 	},
 	sandshrewalola: {
 		tier: "LC",
 	},
 	sandslash: {
-		tier: "UUBL",
+		tier: "(Uber)",
 	},
 	sandslashalola: {
 		tier: "UU",

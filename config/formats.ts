@@ -3470,6 +3470,23 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'OU',
 	},
 	{
+		name: "[Gen 8] ViZar's 235 Metagame Uber",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: '235metagame',
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: [	
+				//Abilities
+				'Moody',
+				
+				//Moves
+				'Baton Pass',
+		],
+		teambuilderFormat: 'Uber',
+	},
+	{
 		name: "[Gen 8] ViZar's 235 Metagame UU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
