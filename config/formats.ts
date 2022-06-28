@@ -3477,7 +3477,7 @@ export const Formats: FormatList = [
 		],
 		mod: '235metagame',
 		ruleset: ['Standard', 'Dynamax Clause'],
-		banlist: [	
+		banlist: [
 				//Abilities
 				'Moody',
 				
