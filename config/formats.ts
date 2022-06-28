@@ -862,6 +862,18 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] Signature Restrictions",
+		desc: `<b>Singature Restrictions</b>: A metagame made up of brand new Pok&eacute;mon that are made according to various restrictions provided by Pet Mod Users.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3673824/">Singature Restrictions on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1nUaGjuy4ZHWa7x-f1hpw7jc6ecNUZtT7QChAidv5CvY/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'signaturerestrictions',
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['uber', 'ou', 'uubl', 'uu', 'rubl', 'ru', 'nubl', 'nu', 'publ', 'pu', 'zu', 'nfe', 'lcuber', 'lc', 'cap', 'caplc', 'capnfe', 'ag','past', 'future', 'lgpe'],
+		teambuilderBans: ['unreleased'],
+	},
+	{
 		name: "[Gen 8] Super Smash Stereotypes",
 		desc: [
 			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
@@ -3475,13 +3487,48 @@ export const Formats: FormatList = [
 				'Uber',
 				
 				//Abilities
-				'Moody', 'Sand Veil',
+				'Moody', 'Sand Veil', 'Snow Cloak',
 				
 				//Moves
 				'Baton Pass',
 				
 				//Items
 				'King\s Rock', 'Lax Incense', 'Quick Claw', 'Razor Fang',
+		],
+	},
+	{
+		name: "[Gen 8] ViZar's 235 Metagame Uber",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: '235metagame',
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: [
+				//Abilities
+				'Moody',
+				
+				//Moves
+				'Baton Pass',
+		],
+	},
+	{
+		name: "[Gen 8] ViZar's 235 Metagame LC",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: '235metagame',
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: [
+				//Pokemon
+				'NFE',
+				
+				//Abilities
+				'Moody',
+				
+				//Moves
+				'Baton Pass',
 		],
 	},
 	{
