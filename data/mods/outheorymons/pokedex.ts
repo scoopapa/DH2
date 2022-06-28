@@ -152,5 +152,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
    scrafty: {
       inherit: true, 
       baseStats: {hp: 80, atk: 90, def: 115, spa: 45, spd: 115, spe: 58},
+   },
+   rotommow: {
+      inherit: true, 
+      abilities: {0: "Levitate", H: "Grassy Surge"},
+   }, 
+   flygon: {
+      inherit: true, 
+      abilities: {0: "Levitate", H: "Poison Heal"},
 	}, 
 };
