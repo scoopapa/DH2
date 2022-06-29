@@ -4,6 +4,69 @@
  */
 
 export const Moves: {[k: string]: ModdedMoveData} = {
+	snarl: {
+		num: 555,
+		shortDesc: "100% chance to lower the target's Special by 1.",
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Snarl",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+				spd: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Rock",
+		gen: 1,
+	},
+	steelwing: {
+		num: 211,
+		shortDesc: "20% chance to lower the target's Defense by 1 stage.",
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Steel Wing",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+		gen: 1,
+	},
+	strangesteam: {
+		num: 790,
+		shortDesc: "Clears the target's stat changes after dealing damage.",
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Strange Steam",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		onHit(target) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		gen: 1,
+	},
+
+// don't touch
 	acid: {
 		inherit: true,
 		category: "Physical",
