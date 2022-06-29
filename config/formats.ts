@@ -3015,9 +3015,9 @@ export const Formats: FormatList = [
 				'Arena Trap', 'Drizzle', 'Moody', 'Shadow Tag',
 				
 				//Items
-				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Charizardite X', 'Charizardite Y', 'Eviolite', 'Gengarite', 
-				'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 
-				'Sablenite', 'Swampertite', 'Thick Club',
+				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Charizardite X', 'Eviolite', 'Gengarite', 'Kangaskhanite', 
+				'King\'s Rock', 'Lax Incense', 'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 'Sablenite', 'Swampertite', 
+				'Thick Club',
 				
 				//Moves
 				'Baton Pass', 'Quiver Dance',
