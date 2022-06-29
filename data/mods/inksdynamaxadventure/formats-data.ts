@@ -29,6 +29,9 @@ export const FormatsData: {[k: string]: ModdedFormatsData} = {
 	spectriersoul: {
 		tier: "NEW",
 	},
+	falinks: {
+		tier: "NEW",
+	},
 	decidueyemega: {
 		tier: "NEW",
 	},
@@ -42,24 +45,6 @@ export const FormatsData: {[k: string]: ModdedFormatsData} = {
 		tier: "NEW",
 	},
 	bunslinger: {
-		tier: "NEW",
-	},
-	stalagmight: {
-		tier: "NEW",
-	},
-	stalactice: {
-		tier: "NEW",
-	},
-	magmalodon: {
-		tier: "NEW",
-	},
-	blizzeraph: {
-		tier: "NEW",
-	},
-	primchilla: {
-		tier: "NEW",
-	},
-	chemacaw: {
 		tier: "NEW",
 	},
 }; 
