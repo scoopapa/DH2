@@ -581,7 +581,9 @@ export const Formats: FormatList = [
       mod: 'gen1futureproofing',
       ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber'],
-		unbanlist: ['Tyranitar', 'Gardevoir', 'Escavalier', 'Karrablast', 'Ralts', 'Kirlia', 'Pupitar', 'Larvitar'],
+		unbanlist: ['Tyranitar', 'Gardevoir', 'Escavalier', 'Karrablast', 'Ralts', 'Kirlia', 'Pupitar', 'Larvitar',
+					  'Snarl', 'Steel Wing', 'Strange Steam',
+					  ],
     },
 	{
 		name: "[Gen 8] Generation X",
