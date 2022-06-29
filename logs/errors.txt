@@ -7069,3 +7069,4 @@ Require stack:
     at StreamProcessManager.releaseCrashed (C:\Users\mamba\Downloads\GitHub\DH\.lib-dist\process-manager.js:423:16)
     at ChildProcess.<anonymous> (C:\Users\mamba\Downloads\GitHub\DH\.lib-dist\process-manager.js:470:48)
     at ChildProcess.emit (node:events:527:28)
+    at ChildProcess.emit (node:domain:475:12)
