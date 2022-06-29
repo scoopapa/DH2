@@ -91,4 +91,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	urshifu: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	urshifuerosion: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	calyrexmythic: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	calyrexglacier: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	calyrexmidnight: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };

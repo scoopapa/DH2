@@ -134,7 +134,8 @@ export const Formats: FormatList = [
 		unbanlist: [
 				'Decidueye-Hermit', 'Decidueye-Autumn', 'Typhlosion-Explosive', 'Typhlosion-Warlock', 'Samurott-Foamy', 'Samurott-Rogue', 'Oricorio', 'Oricorio-Cheerleader',
 				'Oricorio-Pa\u2019u', 'Horrorcorio', 'Pikachu-Kanto', 'Pikachu-Hoenn', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-Tactic', 'Pikachu-Alola', 'Pikachu-World',
-				'Ribombee', 'Ribombee-Totem', 'Araquanid', 'Araquanid-Totem', 'Vikavolt', 'Vikavolt-Totem',
+				'Ribombee', 'Ribombee-Totem', 'Araquanid', 'Araquanid-Totem', 'Vikavolt', 'Vikavolt-Totem', 'Urshifu', 'Urshifu-Erosion', 'Calyrex-Mythic', 'Calyrex-Glacier', 
+				'Calyrex-Midnight',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -3003,11 +3004,12 @@ export const Formats: FormatList = [
 				'Arena Trap', 'Drizzle', 'Moody', 'Shadow Tag',
 				
 				//Items
-				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Eviolite', 'Gengarite', 'Kangaskhanite', 'King\'s Rock', 'Lax Incense', 
-				'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 'Thick Club',
+				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Charizardite X', 'Eviolite', 'Gengarite', 'Kangaskhanite', 
+				'King\'s Rock', 'Lax Incense', 'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 'Sablenite', 'Swampertite', 
+				'Thick Club',
 				
 				//Moves
-				'Baton Pass',
+				'Baton Pass', 'Quiver Dance',
 				
 				//Pokemon
 				'AG',
@@ -3476,7 +3478,7 @@ export const Formats: FormatList = [
 				'Uber',
 				
 				//Abilities
-				'Moody', 'Sand Veil', 'Snow Cloak',
+				'Moody', 'Sand Rush', 'Sand Veil', 'Snow Cloak',
 				
 				//Moves
 				'Baton Pass',
@@ -3484,6 +3486,7 @@ export const Formats: FormatList = [
 				//Items
 				'King\s Rock', 'Lax Incense', 'Quick Claw', 'Razor Fang',
 		],
+		teambuilderFormat: 'OU',
 	},
 	{
 		name: "[Gen 8] ViZar's 235 Metagame Uber",
@@ -3500,6 +3503,21 @@ export const Formats: FormatList = [
 				//Moves
 				'Baton Pass',
 		],
+		teambuilderFormat: 'Uber',
+	},
+	{
+		name: "[Gen 8] ViZar's 235 Metagame UU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: '235metagame',
+		ruleset: ['[Gen 8] ViZar\s 235 Metagame'],
+		banlist: [
+				//Pokemon
+				'OU', 'UUBL',
+		],
+		teambuilderFormat: 'UU',
 	},
 	{
 		name: "[Gen 8] ViZar's 235 Metagame LC",
@@ -3508,7 +3526,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: '235metagame',
-		ruleset: ['Standard', 'Dynamax Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
 		banlist: [
 				//Pokemon
 				'NFE',
@@ -3519,6 +3537,7 @@ export const Formats: FormatList = [
 				//Moves
 				'Baton Pass',
 		],
+		teambuilderFormat: 'LC',
 	},
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",

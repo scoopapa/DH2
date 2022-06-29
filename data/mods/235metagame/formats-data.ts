@@ -118,13 +118,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	sandshrew: {
-		tier: "LC",
+		tier: "(Uber)",
 	},
 	sandshrewalola: {
 		tier: "LC",
 	},
 	sandslash: {
-		tier: "UU",
+		tier: "(Uber)",
 	},
 	sandslashalola: {
 		tier: "UU",
@@ -1263,7 +1263,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	latios: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	kyogre: {
 		tier: "Uber",
@@ -1302,7 +1302,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	empoleon: {
-		tier: "UU",
+		tier: "OU",
 	},
 	bidoof: {
 		tier: "LC",
@@ -2137,7 +2137,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	hawlucha: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	dedenne: {
 		isNonstandard: "Past",
@@ -2517,7 +2517,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	tapulele: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	tapubulu: {
 		tier: "OU",
@@ -2557,7 +2557,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	kartana: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	guzzlord: {
 		tier: "UU",
@@ -2596,7 +2596,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	blacephalon: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	zeraora: {
 		isNonstandard: "Past",
@@ -2792,7 +2792,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	hatterene: {
-		tier: "UU",
+		tier: "OU",
 	},
 	impidimp: {
 		tier: "LC",
@@ -2830,7 +2830,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	indeedee: {
-		tier: "UU",
+		tier: "OU",
 	},
 	indeedeef: {
 		tier: "UU",
@@ -2850,7 +2850,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	arctozolt: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	dracovish: {
 		tier: "Uber",
