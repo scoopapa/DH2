@@ -3551,7 +3551,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	woopquaza: {
 		fusion: ['Rayquaza', 'Wooper'],
-		num: 213,
+		num: 214,
 		name: "Woopquaza",
 		types: ["Dragon", "Ground"],
 		baseStats: {hp: 95, atk: 97, def: 75, spa: 87, spd: 74, spe: 55},
@@ -3560,7 +3560,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	woopquazamega: {
 		fusion: ['Rayquaza', 'Wooper'],
-		num: 213,
+		num: 214,
 		name: "Woopquaza-Mega",
 		baseSpecies: "Woopquaza",
 		forme: "Mega",
@@ -3573,7 +3573,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	yandos: {
 		fusion: ['Yanma', 'Zapdos'],
-		num: 214,
+		num: 215,
 		name: "Yandos",
 		types: ["Bug", "Electric"],
 		baseStats: {hp: 77, atk: 77, def: 67, spa: 100, spd: 67, spe: 102},
@@ -3582,7 +3582,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zaponawgalar: {
 		fusion: ['Croconaw', 'Zapdos-Galar'],
-		num: 215,
+		num: 216,
 		name: "Zaponaw-Galar",
 		types: ["Fighting", "Water"],
 		baseStats: {hp: 77, atk: 102, def: 85, spa: 72, spd: 76, spe: 79},
@@ -3591,7 +3591,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pelilicky: {
 		fusion: ['Lickilicky', 'Pelipper'],
-		num: 216,
+		num: 217,
 		name: "Pelilicky",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 85, atk: 70, def: 100, spa: 100, spd: 85, spe: 60},
@@ -3600,7 +3600,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mudscash: {
 		fusion: ['Mudsdale', 'Whiscash'],
-		num: 217,
+		num: 218,
 		name: "Mudscash",
 		types: ["Ground"],
 		baseStats: {hp: 110, atk: 105, def: 90, spa: 65, spd: 80, spe: 50},
