@@ -3510,7 +3510,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
 		banlist: [
 				//Pokemon
-				'NFE',
+				'Corsola-Galar', 'Gligar', 'Misdreavus', 'Scyther', 'Sneasel', 'Swirlix',
 				
 				//Abilities
 				'Moody',
@@ -3518,7 +3518,6 @@ export const Formats: FormatList = [
 				//Moves
 				'Baton Pass',
 		],
-		teambuilderFormat: 'LC',
 	},
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
