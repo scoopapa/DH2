@@ -2677,6 +2677,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.5,
 		weightkg: 81.5,
 		prevo: "Litleo-Loria",
+		evos: ["Jungelion"],
 	},
 	bagonloria: {
 		num: 371,
