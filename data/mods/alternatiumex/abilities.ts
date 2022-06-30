@@ -164,6 +164,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: -7,
 	},
+	asoneglastrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onStart(source) {
+			this.field.setWeather('hail');
+		},
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		isPermanent: true,
+		name: "As One (Glastrier)",
+		shortDesc: "The combination of Ice Body and Snow Warning.",
+		rating: 3.5,
+		num: 266,
+	},
 	grimneigh: {
 		onFaint(source, target) {
 			for (const target of this.getAllActive()) {
