@@ -280,6 +280,10 @@ this.modData('Learnsets', 'stantler').learnset.psyshieldbash = ['8L1'];
 		this.modData("Learnsets", "basculin").learnset.drainfang = ["8L1"];
 		// Florges
 		this.modData("Learnsets", "florges").learnset.leechseed = ["8L1"];
+		// Spiritomb
+		this.modData("Learnsets", "spiritomb").learnset.recover = ["8L1"];
+		this.modData("Learnsets", "spiritomb").learnset.astonish = ["8L1"];
+		this.modData("Learnsets", "spiritomb").learnset.confuseray = ["8L1"];
 
 // Hisuian Evolutions
 this.modData("Learnsets", "wyrdeer").learnset.expandingforce = ["8L1"];
