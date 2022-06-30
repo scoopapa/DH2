@@ -864,4 +864,34 @@ export const Scripts: ModdedBattleScriptsData = {
 		// And we are done.
 		return Math.floor(damage);
 	},
+	init: function () {
+		//Move Slate 1
+		this.modData('Learnsets', 'aerodactyl').learnset.snarl = ['1L1'];
+		this.modData('Learnsets', 'geodude').learnset.snarl = ['1L1'];
+		this.modData('Learnsets', 'kabuto').learnset.snarl = ['1L1'];
+		this.modData('Learnsets', 'omanyte').learnset.snarl = ['1L1'];
+		this.modData('Learnsets', 'growlithe').learnset.snarl = ['1L1'];
+		this.modData('Learnsets', 'escavalier').learnset.snarl = ['1L1'];
+		this.modData('Learnsets', 'charizard').learnset.steelwing = ['1L1'];
+		this.modData('Learnsets', 'scyther').learnset.steelwing = ['1L1'];
+		this.modData('Learnsets', 'pidgey').learnset.steelwing = ['1L1'];
+		this.modData('Learnsets', 'farfetchd').learnset.steelwing = ['1L1'];
+		this.modData('Learnsets', 'zubat').learnset.steelwing = ['1L1'];
+		this.modData('Learnsets', 'aerodactyl').learnset.steelwing = ['1L1'];
+		this.modData('Learnsets', 'moltres').learnset.steelwing = ['1L1'];
+		this.modData('Learnsets', 'articuno').learnset.steelwing = ['1L1'];
+		this.modData('Learnsets', 'dragonite').learnset.steelwing = ['1L1'];
+		this.modData('Learnsets', 'koffing').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'oddish').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'venusaur').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'tentacool').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'zubat').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'grimer').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'nidoking').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'nidoqueen').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'psyduck').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'magmar').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'horsea').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'victreebel').learnset.strangesteam = ['1L1'];
+	},
 };
