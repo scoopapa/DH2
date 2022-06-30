@@ -5090,7 +5090,7 @@ lifedrain: {
 				}
 			}
 			for (statName in boost) {
-				boost[statName]! *= -1;
+				boost[bestStat]! *= -1;
 			}
 		},
 		name: "Beastly Twist",
