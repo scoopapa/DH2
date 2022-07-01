@@ -27,7 +27,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "AG",
 	},
 	charizardmegay: {
-		tier: "AG",
+		tier: "OU",
 	},
 	charizardgmax: {
 		tier: "AG",

@@ -1074,7 +1074,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.445,
 		weightkg: 234.6,
 	},
-	drampaschrodinger: {
+	drampaschrödinger: {
 		num: 92,
 		name: "Drampa-Schrödinger",
 		baseSpecies: "Drampa",

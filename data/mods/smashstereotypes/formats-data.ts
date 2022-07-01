@@ -320,7 +320,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	heatloom: {
 		tier: "SSS",
 	},
-	drampaschrodinger: {
+	drampaschrödinger: {
 		tier: "SSS",
 	},
 	gigacrab: {

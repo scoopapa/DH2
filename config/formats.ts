@@ -3022,8 +3022,8 @@ export const Formats: FormatList = [
 				
 				//Items
 				'Blastoisinite', 'Blazikenite', 'Bright Powder', 'Charizardite X', 'Eviolite', 'Gengarite', 'Kangaskhanite', 
-				'King\'s Rock', 'Lax Incense', 'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 'Sablenite', 'Swampertite', 
-				'Thick Club',
+				'King\'s Rock', 'Lax Incense', 'Light Ball', 'Medichamite', 'Pidgeotite', 'Razor Fang', 'Red Orb', 'Sablenite', 
+				'Swampertite', 'Thick Club',
 				
 				//Moves
 				'Baton Pass', 'Quiver Dance',
@@ -3546,7 +3546,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause', 'Little Cup'],
 		banlist: [
 				//Pokemon
-				'NFE',
+				'Corsola-Galar', 'Gligar', 'Misdreavus', 'Scyther', 'Sneasel', 'Swirlix',
 				
 				//Abilities
 				'Moody',
@@ -3554,7 +3554,6 @@ export const Formats: FormatList = [
 				//Moves
 				'Baton Pass',
 		],
-		teambuilderFormat: 'LC',
 	},
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
