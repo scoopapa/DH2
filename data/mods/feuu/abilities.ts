@@ -5097,9 +5097,9 @@ lifedrain: {
 			if (statName === 'spa') {
 	     		 boost.spa *= -1;
 			}
-			if (statName === 'spd') {
-     			 boost.spd *= -1;
-			}
+//			if (statName === 'spd') {
+ //    		 boost.spd *= -1;
+//			}
 			if (statName === 'spe') {
       		 boost.spe *= -1;
 			}
