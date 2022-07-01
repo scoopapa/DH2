@@ -15,4 +15,9 @@ export const Formats: {[k: string]: FormatData} = {
 			this.makeRequest('teampreview');
 		},
 	},
+	woopquazamod: {
+		effectType: 'Rule',
+		name: 'Woopquaza Mod',
+		desc: 'Allows Woopquaza to Mega Evolve in FEUU',
+	},
 };
