@@ -5091,9 +5091,9 @@ lifedrain: {
 			if (statName === 'atk') {
       		 boost.atk *= -1;
 			}
-			if (statName === 'def') {
-      		 boost.def *= -1;
-			}
+	//		if (statName === 'def') {
+ //     		 boost.def *= -1;
+	//		}
 			if (statName === 'spa') {
 	     		 boost.spa *= -1;
 			}
@@ -5107,11 +5107,12 @@ lifedrain: {
 		name: "Beastly Twist",
 		shortDesc: "If this Pokemon's highest stat is raised, it is lowered instead, and vice versa.",
 	},
-
+/*
 	beastlytwist: {
 		shortDesc: "(Non-Functional Placeholder) If this Pokemon's highest stat is raised, it is lowered instead, and vice versa.",
 		name: "Beastly Twist",
 	},
+*/
 	waterlogged: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
