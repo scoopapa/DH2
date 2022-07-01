@@ -33,5 +33,6 @@ export const Scripts: BattleScriptsData = {
       this.modData('Learnsets', 'wishiwashi').learnset.recover = ['8L1'];
       this.modData('Learnsets', 'noctowl').learnset.flashcannon = ['8L1'];
       this.modData('Learnsets', 'scrafty').learnset.slackoff = ['8L1'];
+      this.modData('Learnsets', 'flygon').learnset.knockoff = ['8L1'];
    },
 };
