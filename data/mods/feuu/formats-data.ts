@@ -1700,7 +1700,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 81,
 	},
 	buzzvine: {
-		tier: "FENU",
+		tier: "Bugged",
 		doublesTier: "DUU",
 		randomBattleLevel: 81,
 	},
