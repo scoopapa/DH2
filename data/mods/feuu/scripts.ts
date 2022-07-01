@@ -162,11 +162,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Salamencite" && pokemon.baseSpecies.name === "Salasian-Alola") {
 			return "Salasian-Alola-Mega"; 
 		}
-		if ((this.gen <= 7 || this.ruleTable.has('standardnatdex') || this.ruleTable.has('woopquazamod')) &&
-			altForme?.isMega && altForme?.requiredMove &&
-			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove) {
-			return altForme.name;
-		}
 		
 		return item.megaStone;
 	},
