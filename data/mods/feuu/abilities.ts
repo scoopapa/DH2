@@ -1590,6 +1590,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "E-Copy",
 		shortDesc: "Sets Electric Terrain, and then copies the foe's Ability.",
 	},
+	trace: {
+		onStart(pokemon) {
+			if (pokemon.side.foe.active.some(
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+			)) {
+				this.effectData.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const ability = target.getAbility();
+				const additionalBannedAbilities = [
+					// Zen Mode included here for compatability with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'magicmissile', 'pillage', 'ecopy', 'lemegeton', 'modeshift', 
+				];
+				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
+				pokemon.setAbility(ability);
+				return;
+			}
+		},
+		name: "Trace",
+		rating: 2.5,
+		num: 36,
+	},
 	wetbugs: {
 		onStart(source) {
 			for (const action of this.queue) {
@@ -5013,6 +5048,194 @@ lifedrain: {
 		name: "Battle Trance",
 		shortDesc: "Upon attacking and KOing a foe, this Pokemon's status is healed.",
 	},
+	refocus: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'catastrophic') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Refocus');
+			}
+			if (effect.id === 'peckingorder') {
+				delete boost.def;
+				this.add('-immune', target, '[from] ability: Refocus');
+			}
+			if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Refocus');
+			}
+			if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				delete boost.spe;
+				this.add('-immune', target, '[from] ability: Refocus');
+			}
+		},
+		name: "Refocus",
+		shortDesc: "Regenerator + Inner Focus",
+	},
+/*
+	beastlytwist: {
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let statName = 'atk';
+			let bestStat = 0;
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (statName === 'atk') {
+      		 boost.atk *= -1;
+			}
+		if (statName === 'def') {
+      		 boost.def *= -1;
+			}
+			if (statName === 'spa') {
+	     		 boost.spa *= -1;
+			}
+			if (statName === 'spd') {
+     		 boost.spd *= -1;
+			}
+			if (statName === 'spe') {
+      		 boost.spe *= -1;
+			}
+		},
+		name: "Beastly Twist",
+		shortDesc: "(Mostly Non-Functional Placeholder) If this Pokemon's highest stat is raised, it is lowered instead, and vice versa.",
+	},
+*/
+	beastlytwist: {
+		shortDesc: "(Non-Functional Placeholder) If this Pokemon's highest stat is raised, it is lowered instead, and vice versa.",
+		name: "Beastly Twist",
+	},
+	waterlogged: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Waterlogged');
+				}
+				return null;
+			}
+		},
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// Air Lock does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			if (!this.effectData.switchingIn) return;
+			this.add('-ability', pokemon, 'Waterlogged');
+			this.effectData.switchingIn = false;
+		},
+		suppressWeather: true,
+		name: "Waterlogged",
+		shortDesc: "Water Absorb + Air Lock",
+	},
+	megawatt: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Megawatt');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: 1});
+			}
+		},
+		name: "Megawatt",
+		shortDesc: "Speed Boost + Pressure",
+	},
+	relentless: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			const boosts: SparseBoostsTable = {};
+			let i: BoostName;
+			for (i in defender.boosts) {
+				if (defender.boosts[i] < 0) {
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		name: "Relentless",
+		shortDesc: "This Pokemon’s attacks have 1.3x power against opponents with lowered stats.",
+	},
+	rainparade: {
+		onStart(source) {
+			this.field.setWeather('raindance');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'raindance' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('rainparade')) {
+					this.field.weatherData.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Rain Parade",
+		shortDesc: "While this Pokémon is active, Rain is active.",
+	},
+	vigilance: {
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({def: 1});
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'catastrophic') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Vigilance');
+			}
+			if (effect.id === 'peckingorder') {
+				delete boost.def;
+				this.add('-immune', target, '[from] ability: Vigilance');
+			}
+			if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Vigilance');
+			}
+			if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				delete boost.spe;
+				this.add('-immune', target, '[from] ability: Vigilance');
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['attract']) {
+				this.add('-activate', pokemon, 'ability: Vigilance');
+				pokemon.removeVolatile('attract');
+				this.add('-end', pokemon, 'move: Attract', '[from] ability: Vigilance');
+			}
+			if (pokemon.volatiles['taunt']) {
+				this.add('-activate', pokemon, 'ability: Vigilance');
+				pokemon.removeVolatile('taunt');
+				// Taunt's volatile already sends the -end message when removed
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'attract') return false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'attract' || move.id === 'captivate' || move.id === 'taunt') {
+				this.add('-immune', pokemon, '[from] ability: Vigilance');
+				return null;
+			}
+		},
+		name: "Vigilance",
+		shortDesc: "Stamina + Oblivious",
+	},
+
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
@@ -6093,6 +6316,19 @@ lifedrain: {
 		},
 		name: "Hydroforce",
 		shortDesc: "Moves with secondary effects have 1.3x power and heal this Pokemon's status.",
+	},
+	humidatmosphere: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status && ['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'sandstorm', 'deltastream'].includes(pokemon.effectiveWeather())) {
+				this.debug('humidatmosphere');
+				this.add('-activate', pokemon, 'ability: Humid Atmosphere');
+				pokemon.cureStatus();
+			}
+		},
+		name: "Humid Atmosphere",
+		shortDesc: "At the end of the turn, if any weather is active, this Pokémon has its status condition healed.",
 	},
 };
  

@@ -1694,8 +1694,52 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 		requiredItem: "Salamencite",
 	},
-
-	
+	solabat: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	buzzvine: {
+		tier: "Bugged",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	qwilsimian: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	woopquaza: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	woopquazamega: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+		requiredMove: "Dragon Ascent",
+	},
+	yandos: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	zaponawgalar: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	pelilicky: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	mudscash: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -2299,6 +2343,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "LC",
 	},
 	bagouthalola: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	lickigull: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	mudboach: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
