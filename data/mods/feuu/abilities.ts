@@ -5089,8 +5089,20 @@ lifedrain: {
 					bestStat = this.effectData.target.storedStats[s];
 				}
 			}
-			for (statName in boost) {
-				boost[bestStat]! *= -1;
+			if (statName === 'atk') {
+      		 boost.atk *= -1;
+			}
+			if (statName === 'def') {
+      		 boost.def *= -1;
+			}
+			if (statName === 'spa') {
+      		 boost.spa *= -1;
+			}
+			if (statName === 'spd') {
+      		 boost.def *= -1;
+			}
+			if (statName === 'spe') {
+      		 boost.spe *= -1;
 			}
 		},
 		name: "Beastly Twist",
