@@ -10693,6 +10693,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			metalburst: ["8L1"],
 			metalclaw: ["8L1"],
 			metalsound: ["8L1"],
+			naturalgift: ["8L1"],
 			nightslash: ["8L1"],
 			payback: ["8L1"],
 			poisonjab: ["8L1"],
