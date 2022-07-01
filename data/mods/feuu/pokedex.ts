@@ -3557,6 +3557,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 97, def: 75, spa: 87, spd: 74, spe: 55},
 		abilities: {0: "Waterlogged"},
 		weightkg: 107.5,
+		otherFormes: ["Woopquaza-Mega"],
+		formeOrder: ["Woopquaza", "Woopquaza-Mega"],
 	},
 	woopquazamega: {
 		fusion: ['Rayquaza', 'Wooper'],
