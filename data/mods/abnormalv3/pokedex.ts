@@ -430,11 +430,11 @@ kangaskhan: {
   },
   typenull: {
     inherit: true,
-    types: ["Null"],
+    types: ["???"],
   },
   silvally: {
     inherit: true,
-    types: ["Null"],
+    types: ["???"],
   },
   komala: {
     inherit: true,
