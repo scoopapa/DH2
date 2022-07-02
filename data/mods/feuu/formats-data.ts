@@ -1571,6 +1571,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
+	gigafini: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
 	herasir: {
 		tier: "FERU",
 		doublesTier: "DUU",
