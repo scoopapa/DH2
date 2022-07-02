@@ -1,10 +1,10 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	silvallyfood: {
-		tier: "PU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	silvallyferal: {
-		tier: "PU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	arceusfood: {
