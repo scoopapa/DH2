@@ -725,7 +725,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
   },
   "multiattack": {
     inherit: true,
-    type: "Null",
+    type: "???",
   },
   "revelationdance": {
     inherit: true,
@@ -749,7 +749,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
   },
   "breakneckblitz": {
     inherit: true,
-    type: "Null",
+    type: "???",
   },
   "veeveevolley": {
     inherit: true,
@@ -761,7 +761,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
   },
   "maxstrike": {
     inherit: true,
-    type: "Null",
+    type: "???",
   },
   "stuffcheeks": {
     inherit: true,
