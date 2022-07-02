@@ -2740,6 +2740,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	cowercorn: {
 		learnset: {
+			protect: ["8L1"],
 			agility: ["8L1"],
 			assurance: ["8L1"],
 			babydolleyes: ["8L1"],
@@ -2795,6 +2796,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	faunifiend: {
 		learnset: {
+			protect: ["8L1"],
 			agility: ["8L1"],
 			assurance: ["8L1"],
 			babydolleyes: ["8L1"],
@@ -2854,6 +2856,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	delioram: {
 		learnset: {
+			protect: ["8L1"],
 			agility: ["8L1"],
 			assurance: ["8L1"],
 			bounce: ["8L1"],
@@ -3854,6 +3857,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	axowattl: {
 		learnset: {
+			discharge: ["8L1"],
 			acidspray: ["8L1"],
 			aquatail: ["8L1"],
 			attract: ["8L1"],
@@ -3915,6 +3919,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	mholm: {
 		learnset: {
+			discharge: ["8L1"],
 			acidspray: ["8L1"],
 			aquatail: ["8L1"],
 			attract: ["8L1"],
@@ -4507,6 +4512,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	snarum: {
 		learnset: {
 			absorb: ["8L1"],
+			gigadrain: ["8L1"],
 			acid: ["8L1"],
 			acidspray: ["8L1"],
 			aromatherapy: ["8L1"],
@@ -4576,6 +4582,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	triarum: {
 		learnset: {
 			absorb: ["8L1"],
+			gigadrain: ["8L1"],
 			acid: ["8L1"],
 			acidspray: ["8L1"],
 			aromatherapy: ["8L1"],
@@ -4647,6 +4654,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	hydrarum: {
 		learnset: {
 			absorb: ["8L1"],
+			gigadrain: ["8L1"],
 			acid: ["8L1"],
 			acidspray: ["8L1"],
 			aromatherapy: ["8L1"],
