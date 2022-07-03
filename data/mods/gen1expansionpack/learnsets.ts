@@ -801,6 +801,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bide: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
+			hyperbeam: ["1M"],
 		},
 		encounters: [
 			{generation: 1, level: 18}, //no clue just validate the movepool and do what tajiri said
