@@ -337,7 +337,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
     inherit: true,
     type: "Flying",
   },
-  "vicegrip": {
+  "visegrip": {
     inherit: true,
     type: "Bug",
   },
@@ -798,6 +798,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
   "gmaxcuddle": {
     inherit: true,
     type: "Fairy",
+  },
+  "terrainpulse": {
+    inherit: true,
+    type: "Ground",
   },
   "roost": {
     inherit: true,
