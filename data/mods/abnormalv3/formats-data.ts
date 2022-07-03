@@ -1,20 +1,4 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	silvallyfood: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	silvallyferal: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	arceusfood: {
-		tier: "Uber",
-		doublesTier: "DUber",
-	},
-	arceusferal: {
-		tier: "Uber",
-		doublesTier: "DUber",
-	},
 	alakazammega: {
 		tier: "Uber",
 		doublesTier: "DOU",
