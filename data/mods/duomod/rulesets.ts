@@ -3,20 +3,28 @@ export const Formats: {[k: string]: FormatData} = {
 		effectType: 'Rule',
 		name: 'Subscribe For More Content',
 		desc: 'https://www.youtube.com/channel/UCvVihnVokWwZ4NpeMsBk48A',
+		onBegin() {
+			this.add(`raw|<img src="https://media.discordapp.net/attachments/575738724680204329/909632559036629022/talkinchu.png" height="454" width="411">`);
+			this.add('-message', "");		
+			this.add('-message', "Welcome to Duomod!");		
+			this.add('-message', "A lot of crazy stuff can happen in this meta. For more information, please check this spreadsheet - ");	
+			this.add('-message', "https://docs.google.com/spreadsheets/d/1FO4wuxSQnquV5vubEHNVwEwrzZWjtR6gCt4RZRXBqdM/edit#gid=768503844");	
+			this.add('-message', "");
+		},
+		
 		onResidual(pokemon) {
-       		var sideChoice: number;
+		var result: number;
 		const pickSide = this.random(2);
+
 		for (const allPokemon of this.getAllActive()) {
 			if (allPokemon.hasAbility('obtrusive')) {
 				return;
 			}
 		} 
 
+		this.add('-message', "Time for the Roulette Wheel!");
 		
-		var result: number;
-		this.hint("Time for the Roulette Wheel!");
-		result = this.random(40);	
-
+		result = this.random(50);
 		if (result === 0) {
 			this.hint("Roulette Wheel Result 1 - Fully heal every active Pokemon.");
 	            for (const pokemon of this.getAllActive()) {
@@ -84,7 +92,7 @@ export const Formats: {[k: string]: FormatData} = {
 			this.hint("Roulette Wheel Result 6 - Set hazards on both sides.");
 		    for (const pokemon of this.getAllActive()) {
 			this.useMove("Spikes", pokemon);
-			this.useMove("Charged Stone", pokemon);
+			this.useMove("Stealth Electric", pokemon);
 		    }
 		}
 		else if (result === 6) {
@@ -155,19 +163,25 @@ export const Formats: {[k: string]: FormatData} = {
 			this.hint("Roulette Wheel Result 9 - Minimize every stat of one Pokemon.");
 			if (pickSide === 0) {
 				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
+				if (target.isActive && target.hasAbility('contrary')) {
+					this.boost({atk: 12, def: 12, spa: 12, spd: 12, spe: 12}, target, target, null, true);
+				}
+				else if (target.isActive) {
 					this.boost({atk: -12, def: -12, spa: -12, spd: -12, spe: -12}, target, target, null, true);
 				}
 				}
 			}
 			else if (pickSide === 1) {
 				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
+				if (target.isActive && target.hasAbility('contrary')) {
+					this.boost({atk: 12, def: 12, spa: 12, spd: 12, spe: 12}, target, target, null, true);
+				}
+				else if (target.isActive) {
 					this.boost({atk: -12, def: -12, spa: -12, spd: -12, spe: -12}, target, target, null, true);
 				}
 				}
 			}
-	        } 
+	   } 
 
 		else if (result === 9) {
 			this.hint("Roulette Wheel Result 10 - Forcibly switch every Pokemon.");
@@ -230,7 +244,7 @@ export const Formats: {[k: string]: FormatData} = {
 		else if (result === 14) {
 			this.hint("Roulette Wheel Result 15 - heard you guys liked scald");
 			for (const pokemon of this.getAllActive()) {
-				this.useMove("Scald 2", pokemon);
+				this.useMove("Scald", pokemon);
 			}
 		}
 
@@ -331,7 +345,7 @@ export const Formats: {[k: string]: FormatData} = {
 		}
 
 		else if (result === 22) {
-			this.hint("Roulette Wheel Result 23 - Sand Attack go!");
+			this.hint("Roulette Wheel Result 23 - Pocket sand go");
 			if (pickSide === 0) {
 				for (const target of this.sides[0].pokemon) {
 				if (target.isActive) {
@@ -455,7 +469,7 @@ export const Formats: {[k: string]: FormatData} = {
 	        }
 
 		else if (result === 30) {
-			this.hint("Roulette Wheel Result 31 - Deactivates all abilities that are active within 5 turns.");
+			this.hint("Roulette Wheel Result 31 - Deactivates all abilities that are active within 2 turns.");
 			if (pickSide === 0) {
 				for (const target of this.sides[0].pokemon) {
 				if (target.isActive) {
@@ -498,9 +512,9 @@ export const Formats: {[k: string]: FormatData} = {
 		}
 
 		else if (result === 33) {
-			this.hint("Roulette Wheel Result 34 - Sets up Water Shield for both sides.");
+			this.hint("Roulette Wheel Result 34 - Sets up Aqua Ring for both sides.");
 			for (const pokemon of this.getAllActive()) {
-				this.useMove("Water Shield", pokemon);
+				this.useMove("Aqua Ring", pokemon);
 			}
 		}
 
@@ -550,7 +564,7 @@ export const Formats: {[k: string]: FormatData} = {
 		else if (result === 37) {
 			this.hint("Roulette Wheel Result 38 - uh oh");
 			for (const pokemon of this.getAllActive()) {
-				pokemon.addVolatile('trapped', pokemon, pokemon, 'trapper');
+				this.useMove("Octolock", pokemon);
 			}
 		}
 
@@ -560,13 +574,216 @@ export const Formats: {[k: string]: FormatData} = {
 				this.useMove("Metronome", pokemon);
 			}
 		}
-
+		
+		else if (result === 39) {
+			this.hint("Roulette Wheel Result 40 - get ready");
+			if (pickSide === 0) {
+				for (const target of this.sides[0].pokemon) {
+					const oldAbility = target.setAbility('Moody');
+					if (oldAbility) {
+						this.add('-ability', target, 'Moody', '[from] move: Roulette Spin');
+						return;
+					}
+				}
+			}
+			if (pickSide === 1) {
+				for (const target of this.sides[1].pokemon) {
+					const oldAbility = target.setAbility('Moody');
+					if (oldAbility) {
+						this.add('-ability', target, 'Moody', '[from] move: Roulette Spin');
+						return;
+					}
+				}
+			}
+		}
+		
+		else if (result === 40) {
+			this.hint("Roulette Wheel Result 41 - Both active Pokemon swap items.");
+			if (pickSide === 0) {
+				for (const target of this.sides[0].pokemon) {
+				if (target.isActive) {
+					this.useMove("Trick", target);
+				}
+				}
+			}
+			else if (pickSide === 1) {
+				for (const target of this.sides[1].pokemon) {
+				if (target.isActive) {
+					this.useMove("Switcheroo", target);
+				}
+				}
+			}	
+		}	
+		
+		else if (result === 41) {
+			this.hint("Roulette Wheel Result 42 - Both active Pokemon trade HP bars.");
+			if (pickSide === 0) {
+				for (const target of this.sides[0].pokemon) {
+				if (target.isActive) {
+					this.useMove("Sick Hacks", target);
+				}
+				}
+			}
+			else if (pickSide === 1) {
+				for (const target of this.sides[1].pokemon) {
+				if (target.isActive) {
+					this.useMove("Sick Hacks", target);
+				}
+				}
+			}
+		} 
+		
+		else if (result === 42) {
+			this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
+			for (const pokemon of this.getAllActive()) {
+				const frstMove = this.dex.getMove(pokemon.moveSlots[0].id);
+				this.useMove(frstMove, pokemon);
+			}
+		}
+			
+		else if (result === 43) {
+			this.hint("Roulette Wheel Result 44 - One active Pokemon gains a higher crit rate.");
+			if (pickSide === 0) {
+				for (const target of this.sides[0].pokemon) {
+				if (target.isActive) {
+					this.useMove("Focus Energy", target);
+				}
+				}
+			}
+			else if (pickSide === 1) {
+				for (const target of this.sides[1].pokemon) {
+				if (target.isActive) {
+					this.useMove("Focus Energy", target);
+				}
+				}
+			}
+		}	
+			
+		else if (result === 44) {
+			this.hint("Roulette Wheel Result 45 - One new spin for each active Pokemon!");
+			for (const pokemon of this.getAllActive()) {
+				this.useMove("Roulette Spin", pokemon);
+			}
+		}			
+		
+		else if (result === 45) {
+			this.hint("Roulette Wheel Result 46 - One active Pokemon becomes way faster than the other.");
+			for (const pokemon of this.sides[0].active) {
+				for (const target of this.sides[1].active) {
+					if (pickSide === 0) {
+						this.boost({spe: 12}, pokemon, pokemon, null, true);
+						this.boost({spe: -12}, target, target, null, true);
+					}
+					else if (pickSide === 1) {
+						this.boost({spe: 12}, target, target, null, true);
+						this.boost({spe: -12}, pokemon, pokemon, null, true);
+					}
+				}
+			}
+		}			
+			
+		else if (result === 46) {
+			this.hint("Roulette Wheel Result 47 - sussie");
+			if (pickSide === 0) {
+				for (const target of this.sides[0].pokemon) {
+				if (target.isActive) {
+					this.useMove("Vote Out", target);
+					return false;
+					}
+				}
+			}
+			else if (pickSide === 1) {
+				for (const target of this.sides[1].pokemon) {
+				if (target.isActive) {
+					this.useMove("Vote Out", target);
+					return false;
+					}
+				}
+			}
+		}	
+			
+		else if (result === 47) {
+			this.hint("Roulette Wheel Result 48 - Time for some good ol' Mario Kart Wii");
+			for (const pokemon of this.sides[0].active) {
+				for (const target of this.sides[1].active) {
+					if (target.storedStats.spe < pokemon.storedStats.spe) {
+						this.useMove("Flame Runner", pokemon);
+						const oldAbility = target.setAbility('Slow Start');
+						if (oldAbility) {
+							this.add('-ability', target, 'Slow Start', '[from] move: Flame Runner', '[silent]');
+							if (target.side !== pokemon.side) target.volatileStaleness = 'external';
+							return;
+						}
+					}
+					else if (target.storedStats.spe > pokemon.storedStats.spe) {
+						this.useMove("Flame Runner", target);
+						const oldAbility = pokemon.setAbility('Slow Start');
+						if (oldAbility) {
+							this.add('-ability', pokemon, 'Slow Start', '[from] move: Flame Runner', '[silent]');
+							if (target.side !== pokemon.side) pokemon.volatileStaleness = 'external';
+							return;
+						}
+					}
+					else {
+						for (const active of this.getAllActive()) {
+							this.useMove("Flame Runner", active);
+						}
+					}
+				}
+			}
+		}
+						
+		else if (result === 48) {
+			this.hint("Roulette Wheel Result 49 - Ad break.");
+			this.add('-message', "Hello Duomod v3 enjoyer!");
+			this.add('-message', "The fact that you're spending your time on Pokemon Showdown must mean you're really bored!");
+			this.add('-message', "Well today's your lucky day! Because I've got just the cure!");
+			this.add('-message', "Head on over to DuoM2's YouTube channel, featuring several videos from the one and only DuoM2!");
+			this.add('-message', "He's smart, funny, a gamer, handsome, and the best Mewtwo main in South Carolina Smash!");
+			this.add('-message', "With 4 hours of content right now and more to come, your boredom will soar off into space!");
+			this.add('-message', "Plus, as a special promotional bonus, if you subscribe now, you'll get to say you knew him before it was cool!");
+			this.add('-message', "Head on over to DuoM2's YouTube channel for the time of your life! Linked down below!");
+			this.add('-message', "https://www.youtube.com/channel/UCvVihnVokWwZ4NpeMsBk48A/");
+			this.add('-message', "https://www.youtube.com/channel/UCvVihnVokWwZ4NpeMsBk48A/");
+			this.add('-message', "https://www.youtube.com/channel/UCvVihnVokWwZ4NpeMsBk48A/");
+		}		
+		
 		else {
-			this.hint("Roulette Wheel Result 40 - THE ULTIMATE EFFECT");
+			this.hint("Roulette Wheel Result 50 - THE ULTIMATE EFFECT");
 			for (const pokemon of this.getAllActive()) {
 				this.useMove("Ultranome", pokemon);
 			}
 		}
+			
 		},
 	},		
+	
+	duomoddatamod: {
+		effectType: 'Rule',
+		name: 'Duomod Data Mod',
+		desc: 'Gives data on stats, Ability and types when a Pokémon switches in.',
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			const species = this.dex.getSpecies(pokemon.species.name);
+			const abilities = species.abilities;
+			const baseStats = species.baseStats;
+			const type = species.types[0];
+			if (species.types[1]) {
+				const type2 = species.types[1];
+				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+			} else {
+				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+			}
+			/* pokemon.moveSlots[4] = {
+				move: "Metronome",
+				id: "metronome",
+				pp: 5,
+				maxpp: 64,
+				target: "self",
+				disabled: false,
+				used: false,
+				virtual: true,
+			}; Maybe later, but for now, I'm not doing this. This would give each Pokemon 5 Metronomes in an additional moveslot.*/ 
+		},
+	},
 };
