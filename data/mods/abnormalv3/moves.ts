@@ -723,10 +723,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
     inherit: true,
     type: "Fighting",
   },
-  "multiattack": {
-    inherit: true,
-    type: "Null",
-  },
+	multiattack: {
+		num: 718,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Multi-Attack",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Memory', pokemon, null, move, 'Null');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Null",
+		zMove: {basePower: 185},
+		maxMove: {basePower: 95},
+		contestType: "Tough",
+	},
   "revelationdance": {
     inherit: true,
     type: "Flying",
