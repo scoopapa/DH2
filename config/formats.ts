@@ -3179,6 +3179,23 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 8] FE Imposter's Cut",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-8988462">Solomod Post</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1VlWGUuOnTRpWnZT4_rUttVhIlSw3LeogaFv6clwbnNs/edit#gid=0">Spreadsheet</a>`,
+		],
+		mod: "feimposter",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: [
+			'All Pokemon', 'Baton Pass',
+		],
+		unbanlist: [
+			'Butterchomp', 'Bascugly', 'Tapu Sawk', 'Wormaiclus', 'Nidoreena', 'Persaconda', 'Swalagross', 'Ramaparaptor', 'Dragasire', 'Slasle', 'Dubdos', 
+			'Toxtriceebel', 'Gliscremie', 'Spirisopod', 'Tornabeat', 'Weezking', 'Typhlobat', 'Chimerem', 'Duskcino', 'Kecletana', 'Xataskewda', 'Hoopiinotic', 
+			'Ariarados', 'Mimidactyl', 'Stantilego', 'Trevecuno', 'Calyrex-Amp-Rider', 'Leavo-o', 'Corsizor', 'Wigglytres',
+		],
+	},
+	{
 		name: "[Gen 8] GPT2mons",
 	   desc: '<b>GPT2mons</b>: A solomod featuring pokemon generated using a GPT2 neural network. It is currently unfinished',
 		threads: [
