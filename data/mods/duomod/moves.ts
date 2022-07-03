@@ -1436,13 +1436,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	frustration: {
 		num: 218,
 		accuracy: 100,
-		basePower: 0,
-		basePowerCallback(pokemon) {
-			return Math.floor(((255 - pokemon.happiness) * 10) / 25) || 1;
-		},
+		basePower: 102,
 		category: "Physical",
-		desc: "Power is equal to the greater of ((255 - user's Happiness) * 2/5), rounded down, or 1.",
-		shortDesc: "Max 102 power at minimum Happiness.",
+		desc: "Power is equal to 102.",
+		shortDesc: "Max 102 power.",
 		isNonstandard: "Past",
 		name: "Frustration",
 		pp: 20,
