@@ -3079,6 +3079,26 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 8] Blindstrictions",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9056974">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1hn_35rXKq6cNk1k4mg4g3IkgG4xTnX7JQT3wsvHRd4U/edit#gid=0">Spreadsheet</a>`,
+		],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod'],
+		banlist: ['Baton Pass'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if ( template.tier !== 'Blindstrictions') {
+					return [set.species + ' is not usable in Blindstrictions.'];
+				}
+			}
+		},
+		mod: 'blindstrictions',
+	},
+	{
 		name: "[Gen 8] Dex Reversal",
 		desc: `<b>Dex Reversal</b>.`,
 		mod: 'dexreversal',
