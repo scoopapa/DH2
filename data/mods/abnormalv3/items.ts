@@ -34,4 +34,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
     },
     desc: "Halves damage taken from an attack of the same type as the holder. Single use.",
   },
+	normaliumz: {
+		name: "Normalium Z",
+		spritenum: 631,
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Null",
+		num: 776,
+		gen: 7,
+	},
 };
