@@ -2595,4 +2595,57 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RUBL",
 		doublesTier: "DOU",
 	},
+	cresselia: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	doublade: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	magneton: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	scyther: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	beartic: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	cradily: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	cramorant: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	crustle: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	cryogonal: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	lurantis: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	relicanth: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	wobbuffet: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	sandshrewalola: {
+		tier: "LC",
+		doublesTier: "DOU",
+	},
+
 };
