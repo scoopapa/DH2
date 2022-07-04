@@ -431,10 +431,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Learnsets', this.toID(mon)).learnset[this.toID(move)] = ["8M"];
 			}
 		};
-		// these are from Legends: Arceus		newMoves("abomasnow", ["iciclecrash"]);
-		newMoves("aipom", ["doubleedge", "mudbomb"]);
-		newMoves("ambipom", ["doubleedge", "mudbomb"]);
-		newMoves("arceus", ["ancientpower", "confusion", "quickattack", "extrasensory", "dracometeor", "steelbeam"]);
+		// these are from Legends: Arceus
+		newMoves("abomasnow", ["iciclecrash"]);
+		newMoves("aipom", ["doubleedge", "mudbomb", "quickattack"]);
+		newMoves("ambipom", ["doubleedge", "mudbomb", "quickattack"]);
+		newMoves("arceus", ["ancientpower", "confusion", "quickattack", "extrasensory", "dazzlinggleam", "dracometeor", "mysticalfire", "steelbeam"]);
 		newMoves("azelf", ["doublehit", "mysticalpower", "powershift"]);
 		newMoves("barboach", ["zenheadbutt"]);
 		newMoves("bastiodon", ["powershift", "steelbeam"]);
@@ -586,7 +587,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("stunky", ["poisonjab"]);
 		newMoves("sudowoodo", ["tackle"]);
 		newMoves("swinub", ["highhorsepower", "babydolleyes"]);
-		newMoves("sylveon", ["mimic", "rocksmash"]);
+		newMoves("sylveon", ["magicalleaf", "mimic", "rocksmash"]);
 		newMoves("tangela", ["acidspray", "doublehit"]);
 		newMoves("tangrowth", ["acidspray", "doublehit"]);
 		newMoves("teddiursa", ["highhorsepower", "focusenergy"]);
