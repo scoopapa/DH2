@@ -1,4 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+// Outdated, scroll until you see another "//"
 	zacian: {
 		tier: "AG",
 		doublesTier: "DOU",
@@ -1547,10 +1548,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 		doublesTier: "DOU",
 	},
-	gliscor: {
+	aliscor: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	
+// Up-to-date
 	alakazammega: {
 		tier: "OU",
 		doublesTier: "DOU",
