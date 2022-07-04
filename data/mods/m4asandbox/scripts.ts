@@ -620,18 +620,21 @@ export const Scripts: ModdedBattleScriptsData = {
 		// then adding the new Pokémon in the most efficient way possible
 		for (const id in this.dataCache.Pokedex) {
 			const newMon = this.dataCache.Pokedex[id];
-			if (!newMon || (!newMon.copyData && !newMon.name.startsWith('Enamorus'))) continue; // weeding out Pokémon that aren't new
-			let copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
+			if (!newMon) continue; // weeding out Pokémon that aren't new
 
-			if (!newMon.types && copyData.types) newMon.types = copyData.types;
-			if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
-			if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
-			if (!newMon.num && copyData.num) newMon.num = copyData.num;
-			if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
-			if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
-			if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
-			if (!newMon.color && copyData.color) newMon.color = copyData.color;
-			if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
+			if (newMon.copyData) {
+				let copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
+				if (!newMon.types && copyData.types) newMon.types = copyData.types;
+				if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
+				if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
+				if (!newMon.num && copyData.num) newMon.num = copyData.num;
+				if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
+				if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
+				if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
+				if (!newMon.color && copyData.color) newMon.color = copyData.color;
+				if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
+			} else if (!newMon.name.startsWith('Enamorus')) continue;
+
 			if (!this.dataCache.Learnsets[id]) continue; // just in case
 			const movepoolAdditions = ["attract", "endure", "facade", "protect", "rest", "round", "sleeptalk", "snore", "substitute"];
 			for (const move of movepoolAdditions) {
