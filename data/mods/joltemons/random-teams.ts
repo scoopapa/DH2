@@ -1352,6 +1352,8 @@ export class RandomTeams {
 			item = 'Tart Apple';
 		} else if (species.baseSpecies === 'Appletun') {
 			item = 'Sweet Apple';
+		} else if (['Sneasel', 'Scyther', 'Kadabra', 'Magneton'].includes(species.baseSpecies)) {
+			item = 'Eviolith';
 		} else if (species.baseSpecies === 'Pikachu') {
 			if (species.name !== 'Pikachi-Starter') {
 				forme = 'Pikachu' + this.sample(['', '-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner', '-World']);
@@ -1385,6 +1387,8 @@ export class RandomTeams {
 			}
 		} else if (ability === 'Honey Gather') {
 			item = 'Red Card';
+		} else if (ability === 'Scavenge') {
+			item = 'Soul Blade';
 		} else if (species.name === 'Unown') {
 			item = 'Choice Specs';
 		} else if (species.evos.length && !hasMove['uturn'] && !hasMove['partingshot']) {
