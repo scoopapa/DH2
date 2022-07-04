@@ -1074,12 +1074,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.445,
 		weightkg: 234.6,
 	},
-	drampaschrödinger: {
+	drampaschroedinger: {
 		num: 92,
-		name: "Drampa-Schrödinger",
+		name: "Drampa-Schroedinger",
 		baseSpecies: "Drampa",
 		breedingVariant: "Dragapult",
-		forme: "Schrödinger",
+		forme: "Schroedinger",
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 78, atk: 60, def: 85, spa: 135, spd: 91, spe: 89},
 		abilities: {0: "Berserk", 1: "Sap Sipper", H: "Infiltrator"},
