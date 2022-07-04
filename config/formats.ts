@@ -3051,6 +3051,35 @@ export const Formats: FormatList = [
         ruleset: ['Standard NatDex'],
         banlist: [],
 	},
+	{
+		name: "[Gen 8] ADV Now",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
+		],
+		mod: 'advnow',
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: [
+				/*Pokemon*/'Uber',
+				/*Abilities*/'Arena Trap', 'Drizzle', 'Moody', 'Sand Veil',
+				/*Moves*/'Baton Pass',
+				/*Items*/'Bright Powder', 'King\'s Rock', 'Lax Incense', 'Quick Claw', 'Razor Fang',
+		],
+		teambuilderFormat: 'OU',
+	},
+	{
+		name: "[Gen 8] ADV Now Uber",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
+		],
+		mod: 'advnow',
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: [
+				/*Pokemon*/'AG',
+				/*Abilities*/'Moody',
+				/*Moves*/'Baton Pass',
+		],
+		teambuilderFormat: 'Uber',
+	},
 	{    
 		name: "[Gen 8] AsOnemons",
 		desc: 'AsOnemons is a Generation 8 based Solomod that revolves around creating new As One forms for official Pokémon.',
