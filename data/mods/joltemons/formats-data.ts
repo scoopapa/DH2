@@ -1852,7 +1852,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	urshifu: {
 		tier: "Uber",
 		doublesTier: "DOU",
-		randomBattleMoves: ["wickedblow", "closecombat", "uturn", "thunderpunch"],
+		randomBattleMoves: ["wickedblow", "closecombat", "uturn", "icepunch"],
 	},
 	xerneas: {
 		tier: "Uber",
@@ -2380,326 +2380,407 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	aegislash: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["shadowball", "closecombat", "ironhead", "kingsshield"],
 	},
 	altariamega: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["roost", "dragondance", "return", "earthquake"],
 	},
 	amoonguss: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["gigadrain", "spore", "venoshock", "hiddenpowerfire"],
 	},
 	azumarill: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["bellydrum", "aquajet", "enchantedpunch", "mudspike"],
 	},
 	beedrillmega: {
 		tier: "OU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["uturn", "knockoff", "mudspike", "toxicthread"],
 	},
 	breloom: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["swordsdance", "spore", "machpunch", "bulletseed"],
 	},
 	celesteela: {
 		tier: "OU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["autotomize", "fireblast", "airslash", "flashcannon"],
 	},
 	chandelure: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["shadowball", "fireblast", "energyball", "hex"],
 	},
 	donphan: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["earthquake", "knockoff", "rapidspin", "iceshard"],
 	},
 	dracozolt: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["boltbeak", "fireblast", "earthquake", "dracometeor"],
 	},
 	dragonite: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["dragondance", "dualwingbeat", "firepunch", "icepunch"],
 	},
 	feraligatr: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["swordsdance", "liquidation", "aggravate", "suckerpunch"],
 	},
 	gastrodon: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["recover", "scald", "earthpower", "toxic"],
 	},
 	hatterene: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["lifedew", "nuzzle", "mysticalfire", "dazzlinggleam"],
 	},
 	hippowdon: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["slackoff", "earthquake", "stealthrock", "stoneedge"],
 	},
 	infernape: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["overheat", "closecombat", "gunkshot", "uturn"],
 	},
 	keldeo: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["calmmind", "taunt", "scald", "secretsword"],
 	},
 	keldeoresolute: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["hydropump", "secretsword", "aurorabeam", "flipturn"],
 	},
 	krookodile: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["rapidspin", "earthquake", "knockoff", "aridabsorption"],
 	},
 	mamoswine: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["iceshard", "earthquake", "iciclecrash", "superpower"],
 	},
 	mandibuzz: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["foulplay", "roost", "defog", "uturn"],
 	},
 	manectricmega: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["thunderbolt", "overheat", "hiddenpowerice", "voltswitch"],
 	},
 	mienshao: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["closecombat", "icepunch", "knockoff", "uturn"],
 	},
 	moltres: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["roost", "fireblast", "hurricane", "hiddenpowergrass"],
 	},
 	nidoking: {
 		tier: "OU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["acidicfists", "mudspike", "poisondart", "icepunch"],
 	},
 	nidoqueen: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["acidicfists", "mudspike", "poisondart", "firepunch"],
 	},
 	nihilego: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["meteorbeam", "sludgewave", "grassknot", "powergem"],
 	},
 	quagsire: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["scald", "earthquake", "recover", "curse"],
 	},
 	regieleki: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["lightninglance", "voltswitch", "rapidspin", "explosion"],
 	},
 	ribombee: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["stickyweb", "moonblast", "uturn", "rashpowder"],
 	},
 	rotomheat: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["nastyplot", "overheat", "discharge", "painsplit"],
 	},
 	rotomwash: {
 		tier: "OU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["voltswitch", "hydropump", "defog", "willowisp"],
 	},
 	salamence: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["dracometeor", "hurricane", "flamethrower", "roost"],
 	},
 	scizor: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["swordsdance", "bulletpunch", "uturn", "knockoff"],
 	},
 	skarmory: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["bodypress", "roost", "spikes", "irondefense"],
 	},
 	slowking: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["scald", "futuresight", "slackoff", "teleport"],
 	},
 	swampert: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["flipturn", "earthquake", "toxic", "stealthrock"],
 	},
 	talonflame: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["bravebird", "roost", "flareblitz", "uturn"],
 	},
 	tangrowth: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["gigadrain", "knockoff", "focusblast", "smother"],
 	},
 	tornadus: {
 		tier: "RUBL",
 		doublesTier: "DOU",
+		randomBattleMoves: ["nastyplot", "hurricane", "focusblast", "darkpulse"],
 	},
 	umbreon: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["aggravate", "toxicthread", "teleport", "moonlight"],
 	},
 	urshifurapidstrike: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["closecombat", "surgingstrikes", "uturn", "thunderpunch"],
 	},
 	abomasnow: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["blizzard", "auroraveil", "leafstorm", "focusblast"],
 	},
 	abomasnowmega: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["rototiller", "grassyglide", "avalanche", "rockslide"],
 	},
 	absol: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["nightslash", "stoneedge", "suckerpunch", "psychocut"],
 	},
 	absolmega: {
 		tier: "RUBL",
 		doublesTier: "DOU",
+		randomBattleMoves: ["closecombat", "knockoff", "playrough", "suckerpunch"],
 	},
 	aerodactyl: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["dragondance", "stoneedge", "dualwingbeat", "icefang"],
 	},
 	accelgor: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["spikes", "bugbuzz", "focusblast", "sludgebomb"],
 	},
 	aggron: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["headsmash", "heavyslam", "earthquake", "icepunch"],
 	},
 	aggronmega: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["reconstruct", "stealthrock", "heavyslam", "earthquake"],
 	},
 	alcremie: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["dazzlinggleam", "mysticalfire", "rapidspin", "recover"],
 	},
 	alomomola: {
 		tier: "OU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["scald", "wish", "flipturn", "toxic"],
 	},
 	altaria: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["defog", "roost", "skysoiree", "flamethrower"],
 	},
 	ambipom: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["tailslap", "armthrust", "knockoff", "uturn"],
 	},
 	ampharos: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["slackoff", "discharge", "hiddenpowerice", "voltswitch"],
 	},
 	ampharosmega: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["slackoff", "dracometeor", "focusblast", "thunderbolt"],
 	},
 	appletun: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["recover", "appleacid", "bodypress", "leechseed"],
 	},
 	araquanid: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["substitute", "liquidation", "toxicthread", "leechlife"],
 	},
 	arbok: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["coil", "gunkshot", "earthquake", "suckerpunch"],
 	},
 	arcanine: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["flareblitz", "closecombat", "extremespeed", "morningsun"],
 	},
 	archeops: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["stoneedge", "bravebird", "uturn", "earthquake"],
 	},
 	arctovish: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["fishiousrend", "iciclecrash", "freezedry", "meltdown"],
 	},
 	arctozolt: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["boltbeak", "iciclecrash", "freezedry", "lowkick"],
 	},
 	ariados: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["stickyweb", "megahorn", "toxicthread", "suckerpunch"],
 	},
 	armaldo: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["rapidspin", "stoneedge", "knockoff", "aridabsorption"],
 	},
 	aromatisse: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["moonblast", "trickroom", "thunderbolt", "nastyplot"],
 	},
 	articuno: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["meltdown", "freezedry", "hurricane", "uturn"],
 	},
 	articunogalar: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["hurricane", "defog", "recover", "uturn"],
 	},
 	audino: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["lifedew", "toxic", "knockoff", "healbell"],
 	},
 	audinomega: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["calmmind", "lifedew", "moonblast", "flamethrower"],
 	},
 	aurorus: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["ancientpower", "blizzard", "earthpower", "freezedry", "stealthrock", "thunderwave"],
 	},
 	avalugg: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["avalanche", "recover", "bodypress", "rapidspin"],
 	},
 	azelf: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["psychic", "focusblast", "thunderbolt", "uturn"],
 	},
 	banette: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["swordsdance", "poltergeist", "gunkshot", "superpower"],
 	},
 	banettemega: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["shiftgear", "poltergeist", "ironhead", "superpower"],
 	},
 	barbaracle: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["shellsmash", "liquidation", "icepunch", "crosschop"],
 	},
 	barraskewda: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["liquidation", "closecombat", "poisonjab", "flipturn"],
 	},
 	basculin: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["flipturn", "liquidation", "superpower", "psychicfangs"],
 	},
 	basculinbluestriped: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["hydropump", "flipturn", "icebeam", "finalgambit"],
 	},
 	bastiodon: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["reconstruct", "rockslide", "metalburst", "stealthrock"],
 	},
 	beatric: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["swordsdance", "icepunch", "thunderpunch", "superpower"],
 	},
 	beautifly: {
 		tier: "RU",
