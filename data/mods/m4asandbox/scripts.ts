@@ -452,7 +452,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("chansey", ["babydolleyes", "drainingkiss", "fairywind", "tackle"]);
 		newMoves("chatot", ["airslash", "gust", "hurricane", "powershift", "playrough", "snarl"]);
 		newMoves("cherrim", ["absorb", "doubleedge", "sleeppowder", "stunspore"]);
-		newMoves("cherrimsunshine", ["absorb", "doubleedge", "sleeppowder", "stunspore"]);
 		newMoves("cherubi", ["absorb", "doubleedge", "petaldance", "sleeppowder", "stunspore"]);
 		newMoves("chimchar", ["doubleedge", "tackle"]);
 		newMoves("chimecho", ["doubleedge", "extrasensory", "ominouswind"]);
