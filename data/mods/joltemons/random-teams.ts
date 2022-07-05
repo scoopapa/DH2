@@ -1358,8 +1358,6 @@ export class RandomTeams {
 			item = 'Tart Apple';
 		} else if (species.baseSpecies === 'Appletun') {
 			item = 'Sweet Apple';
-		} else if (species.baseSpecies === 'Kyurem-Black') {
-			item = 'Boomerang';
 		} else if (['Clawitzer', 'Electrode'].includes(species.baseSpecies)) {
 			item = 'Chill Drive';
 		} else if (species.baseSpecies === 'Duraludon') {
@@ -1409,6 +1407,8 @@ export class RandomTeams {
 			item = (!!counter['priority'] || !hasMove['substitute']) ? 'Sitrus Berry' : 'Salac Berry';
 		} else if (hasMove['geomancy'] || hasMove['meteorbeam']) {
 			item = 'Power Herb';
+		} else if (hasMove['fling']) {
+			item = 'Boomerang';
 		} else if (hasMove['shellsmash']) {
 			item = (ability === 'Sturdy' && !isLead && !isDoubles) ? 'Heavy-Duty Boots' : 'White Herb';
 		} else if (ability === 'Guts' && counter.Physical >= 1 && hasMove['burnup'] || ability === 'Flare Boost') {
