@@ -1354,6 +1354,8 @@ export class RandomTeams {
 			item = 'Sweet Apple';
 		} else if (species.baseSpecies === 'Kyurem-Black') {
 			item = 'Boomerang';
+		} else if (species.baseSpecies === 'Clawitzer') {
+			item = 'Chill Drive';
 		} else if (['Sneasel', 'Scyther', 'Kadabra', 'Magneton'].includes(species.baseSpecies)) {
 			item = 'Eviolith';
 		} else if (species.baseSpecies === 'Pikachu') {
