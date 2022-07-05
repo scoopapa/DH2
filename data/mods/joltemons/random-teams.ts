@@ -1332,6 +1332,8 @@ export class RandomTeams {
 			item = 'Graduation Scale';
 		} else if (species.baseSpecies ==='Meloetta' && counter.Physical > 2) {
 			item = 'Relic Charm';
+		} else if (species.baseSpecies ==='Darmanitan' && counter.Special > 2) {
+			item = 'Chill Pill';
 		} else if (species.name === 'Farfetch\u2019d') {
 			item = 'Leek';
 		} else if (ability === 'Poison Heal' || ability === 'Toxic Boost') { //just for you bitio
