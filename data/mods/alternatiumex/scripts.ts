@@ -72,6 +72,74 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'urshifu').learnset.focusblast;
 		delete this.modData('Learnsets', 'urshifu').learnset.aurasphere;
 		delete this.modData('Learnsets', 'urshifu').learnset.thunderpunch;
+		
+		this.modData("Learnsets", "kommoo").learnset.headsmash = ["8L1"];
+		this.modData("Learnsets", "kommoo").learnset.stoneedge = ["8L1"];
+		this.modData("Learnsets", "kommoo").learnset.meteorbeam = ["8L1"];
+		this.modData("Learnsets", "kommoo").learnset.counter = ["8L1"];
+		this.modData("Learnsets", "kommoo").learnset.dragonbreath = ["8L1"];
+		this.modData("Learnsets", "kommoo").learnset.focuspunch = ["8L1"];
+		delete this.modData('Learnsets', 'kommoo').learnset.aurasphere;
+		delete this.modData('Learnsets', 'kommoo').learnset.closecombat;
+		
+		this.modData("Learnsets", "salazzle").learnset.outrage = ["8L1"];
+		this.modData("Learnsets", "salazzle").learnset.thunderwave = ["8L1"];
+		this.modData("Learnsets", "salazzle").learnset.bulkup = ["8L1"];
+		this.modData("Learnsets", "salazzle").learnset.firerenewal = ["8L1"];
+		this.modData("Learnsets", "salazzle").learnset.sandattack = ["8L1"];
+		this.modData("Learnsets", "salazzle").learnset.fakeout = ["8L1"];
+		this.modData("Learnsets", "salazzle").learnset.mudslap = ["8L1"];
+		delete this.modData('Learnsets', 'salazzle').learnset.unkshot;
+		delete this.modData('Learnsets', 'salazzle').learnset.poisonjab;
+		delete this.modData('Learnsets', 'salazzle').learnset.sludgebomb;
+		delete this.modData('Learnsets', 'salazzle').learnset.sludgewave;
+		delete this.modData('Learnsets', 'salazzle').learnset.belch;
+		delete this.modData('Learnsets', 'salazzle').learnset.corrosivegas;
+		delete this.modData('Learnsets', 'salazzle').learnset.crosspoison;
+		delete this.modData('Learnsets', 'salazzle').learnset.poisonfang;
+		delete this.modData('Learnsets', 'salazzle').learnset.poisongas;
+		delete this.modData('Learnsets', 'salazzle').learnset.smog;
+		delete this.modData('Learnsets', 'salazzle').learnset.venomdrench;
+		delete this.modData('Learnsets', 'salazzle').learnset.venoshock;
+		delete this.modData('Learnsets', 'salazzle').learnset.dragondance;
+		
+		this.modData("Learnsets", "lurantis").learnset.aromatherapy = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.defog = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.ghostbite = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.closecombat = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.drainpunch = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.highjumpkick = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.machpunch = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.firstimpression = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.lunge = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.attackorder = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.focusblast = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.aurasphere = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.bugbuzz = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.infestation = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.bulkup = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.healorder = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.defendorder = ["8L1"];
+		delete this.modData('Learnsets', 'lurantis').learnset.leafblade;
+		delete this.modData('Learnsets', 'lurantis').learnset.petalblizzard;
+		delete this.modData('Learnsets', 'lurantis').learnset.seedbomb;
+		delete this.modData('Learnsets', 'lurantis').learnset.bulletseed;
+		delete this.modData('Learnsets', 'lurantis').learnset.grassyglide;
+		delete this.modData('Learnsets', 'lurantis').learnset.leafage;
+		delete this.modData('Learnsets', 'lurantis').learnset.magicalleaf;
+		delete this.modData('Learnsets', 'lurantis').learnset.razorleaf;
+		delete this.modData('Learnsets', 'lurantis').learnset.solarblade;
+		delete this.modData('Learnsets', 'lurantis').learnset.energyball;
+		delete this.modData('Learnsets', 'lurantis').learnset.gigadrain;
+		delete this.modData('Learnsets', 'lurantis').learnset.grassknot;
+		delete this.modData('Learnsets', 'lurantis').learnset.leafstorm;
+		delete this.modData('Learnsets', 'lurantis').learnset.magicalleaf;
+		delete this.modData('Learnsets', 'lurantis').learnset.solarbeam;
+		delete this.modData('Learnsets', 'lurantis').learnset.synthesis;
+		delete this.modData('Learnsets', 'lurantis').learnset.grassyterrain;
+		delete this.modData('Learnsets', 'lurantis').learnset.ingrain;
+		delete this.modData('Learnsets', 'lurantis').learnset.worryseed;
 	},
 	
 	pokemon: {

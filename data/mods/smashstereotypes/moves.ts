@@ -1824,4 +1824,30 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMovePower: 120,
 		contestType: "Clever",
 	},
+	shocktail: {
+		num: -1000,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "The target gets paralyzed when they have positive stat changes.",
+		name: "Shock Tail",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Charge", target);
+			this.add('-anim', source, "Iron Tail", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (target.positiveBoosts()) {
+					target.trySetStatus('par', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
 };

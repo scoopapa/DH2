@@ -198,4 +198,58 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 265,
 	},
+	excavate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Rock';
+				move.excavateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.excavateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		name: "Excavate",
+		shortDesc: "This Pokemon's Normal-type moves become Rock type and have 1.2x power.",
+		rating: 4,
+		num: -8,
+	},
+	exoskelett: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Exoskelett boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Exoskelett boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Exoskelett weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Exoskelett weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Exoskelett",
+		shortDesc: "User gains STAB on Bug moves and also gains Bug-type resistances.",
+		rating: 4.5,
+		num: -9,
+	},
 };

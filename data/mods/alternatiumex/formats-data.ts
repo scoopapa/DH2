@@ -111,4 +111,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	kommoo: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	rockmoo: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	salazzle: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	salazzleruler: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	lurantis: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	lurantio: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };

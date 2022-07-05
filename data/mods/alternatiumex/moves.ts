@@ -268,4 +268,158 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
+	clangingscales: {
+		num: 691,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Physical if user's Atk > Sp. Atk. Cures user's status.",
+		name: "Clanging Scales",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		self: {
+			onHit(source) {
+				source.cureStatus();
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Dragon",
+	},
+	clangoroussoul: {
+		num: 775,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's Special Attack and Speed by 1.",
+		name: "Clangorous Soul",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, sound: 1, dance: 1},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Dragon",
+	},
+	rockyscales: {
+		num: -9,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Lowers the user's Special Attack by 1.",
+		name: "Rocky Scales",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Clanging Scales", target);
+		},
+		selfBoost: {
+			boosts: {
+				spa: -1,
+			},
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Rock",
+	},
+	shiftinggems: {
+		num: -10,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "At >1/2 max HP, +1 Def & 1 SpA. Else Heals 33% max HP.",
+		name: "Shifting Gems",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Geomancy", target);
+		},
+		self: {
+			onHit(pokemon) {
+				if (pokemon.hp > pokemon.maxhp / 2) {
+					this.boost({def: 1, spa: 1});
+				}
+				else if (pokemon.hp <= pokemon.maxhp / 2) {
+					this.heal(pokemon.baseMaxhp / 3);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Rock",
+	},
+	firerenewal: {
+		num: -11,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User heals 3/4 max HP and cures status. Removes Fire type. Trapped next turn.",
+		name: "Fire Renewal",
+		pp: 10,
+		priority: 0,
+		volatileStatus: 'firerenewal',
+		flags: {heal: 1, authentic: 1, mystery: 1},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Fire')) return;
+			this.add('-fail', pokemon, 'move: Burn Up');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.75));
+			return pokemon.cureStatus() || success;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Burn Up", target);
+		},
+		self: {
+			onHit(pokemon) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Fire Renewal');
+			},
+		},
+		condition: {
+			duration: 2,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Fire Renewal');
+			},
+			onTrapPokemon(pokemon) {
+				pokemon.tryTrap();
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Fire Renewal');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fire",
+	},
+	ghostbite: {
+		num: -12,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "Neutral on Ghost.",
+		name: "Ghost Bite",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Ghost') return 0;
+		},
+		target: "normal",
+		type: "Bug",
+	},
 };

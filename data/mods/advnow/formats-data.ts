@@ -816,6 +816,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	togetic: {
 		tier: "RU",
 	},
+	togekiss: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
 	natu: {
 		tier: "LC",
 	},
@@ -922,6 +926,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	sneasel: {
 		tier: "RU",
 	},
+	weavile: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
 	teddiursa: {
 		tier: "LC",
 	},
@@ -940,10 +948,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	piloswine: {
 		tier: "RU",
 	},
+	mamoswine: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
 	corsola: {
 		tier: "RU",
 	},
 	corsolagalar: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
+	cursola: {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
@@ -1045,7 +1061,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	mightyena: {
-		tier: "OU",
+		tier: "RU",
 	},
 	zigzagoon: {
 		tier: "LC",
@@ -1058,6 +1074,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	linoonegalar: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
+	obstagoon: {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
@@ -1114,6 +1134,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	gardevoir: {
 		tier: "OU",
+	},
+	gallade: {
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	surskit: {
 		tier: "LC",
@@ -1253,7 +1277,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	spinda: {
-		tier: "UU",
+		tier: "RU",
 	},
 	trapinch: {
 		tier: "LC",
@@ -1362,13 +1386,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	absol: {
-		tier: "RU",
+		tier: "UU",
 	},
 	snorunt: {
 		tier: "LC",
 	},
 	glalie: {
 		tier: "RU",
+	},
+	froslass: {
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	spheal: {
 		tier: "LC",
