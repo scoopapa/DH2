@@ -4500,14 +4500,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zarude: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["bulkup", "powerwhip", "aggravate", "junglehealing"],
 	},
 	zarudedada: {
 		tier: "OU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["powerwhip", "aggravate", "uturn", "closecombat"],
 	},
 	zeraora: {
 		tier: "OU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["electroball", "closecombat", "hiddenpowerice", "voltswitch"],
 	},
 	zoroark: {
 		tier: "RU",
@@ -4536,10 +4539,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	magneton: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["thunderbolt", "flashcannon", "hiddenpowerfire", "voltswitch"],
 	},
 	scyther: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["dualwingbeat", "uturn", "swordsdance", "knockoff"],
 	},
 	beartic: {
 		tier: "RU",
@@ -4580,6 +4585,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zebstrika: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["lightninglance", "hiddenpowerice", "overheat", "voltswitch"],
 	},
 	clamperl: {
 		tier: "LC",
@@ -4588,5 +4594,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	sableyemega: {
 		tier: "UUBL",
 		doublesTier: "DOU",
+	},
+	sneasel: {
+		tier: "RU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["knockoff", "tripleaxel", "iceshard", "pursuit"],
 	},
 };
