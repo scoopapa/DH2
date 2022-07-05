@@ -141,26 +141,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 207,
 	},
 	rubberarmor: {
-		beforeTurnCallback(pokemon) {
-			pokemon.addVolatile('rubberarmor');
-		},
-		condition: {
-			duration: 1,
-			onStart(pokemon) {
-				this.add('-singleturn', pokemon, 'Rubber Armor');
-			},
-			onBeforeMove(source, target, move) {
-				const action = this.queue.willMove(target);
-				if (action && action.move.category !== 'Status') {
-					target.addVolatile('gastroacid');
-				}
-			},
-			onAfterMove(source, target, move) {
-				target.removeVolatile('gastroacid');
-			},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Rubber Armor');
 		},
 		name: "Rubber Armor",
-		shortDesc: "(Bugged) Negates opponent's abilities when targeted by an attacking move.",
+		shortDesc: "Negates opponent's abilities when targeted by an attacking move.",
 		rating: 2,
 		num: -7,
 	},
