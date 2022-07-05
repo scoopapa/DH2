@@ -4756,7 +4756,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zoroark: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["nastyplot", "trashtalk", "moonlitzwaltz", "flamethrower"],
+		randomBattleMoves: ["nastyplot", "trashtalk", "moonlitwaltz", "flamethrower"],
 	},
 	zygarde10: {
 		tier: "UU",
