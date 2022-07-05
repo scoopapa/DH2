@@ -4364,7 +4364,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	smeargle: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["stickyweb", "stealthrock", "taunt", "rapidspin"],
+		randomBattleMoves: ["stickyweb", "stealthrock", "spore", "rapidspin"],
 	},
 	snorlax: {
 		tier: "RU",
