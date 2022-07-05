@@ -1358,6 +1358,8 @@ export class RandomTeams {
 			item = 'Boomerang';
 		} else if (species.baseSpecies === 'Clawitzer') {
 			item = 'Chill Drive';
+		} else if (species.baseSpecies === 'Duraludon') {
+			item = 'Burn Drive';
 		} else if (['Sneasel', 'Scyther', 'Kadabra', 'Magneton'].includes(species.baseSpecies)) {
 			item = 'Eviolith';
 		} else if (species.baseSpecies === 'Pikachu') {
