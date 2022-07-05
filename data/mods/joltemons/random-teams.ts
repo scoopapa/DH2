@@ -1276,7 +1276,7 @@ export class RandomTeams {
 		//Fixing certain Mega abilities goes HERE if you need to find it again
 		} else if (forme === 'Lopunny' && mega) {
 			ability = 'Limber';
-		} else if (forme === 'Gardevoir') && mega) {
+		} else if (forme === 'Gardevoir' && mega) {
 			ability = 'Trace';
 		} else if (forme === 'Salamence' && mega) {
 			ability = 'Intimidate';
