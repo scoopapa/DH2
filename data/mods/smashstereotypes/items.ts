@@ -298,4 +298,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 	},
+	latiasite: {
+		name: "Latiasite",
+		spritenum: 629,
+		megaStone: "Latias-Mega",
+		megaEvolves: "MissingNo",
+		itemUser: ["MissingNo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 684,
+		gen: 6,
+		shortDesc: "Incompatible with Latias.",
+	},
 };
