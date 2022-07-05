@@ -818,6 +818,10 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	pikachuhoenn: {
 		learnset: {
+			bulletpunch: ["8L1"],
+			closecombat: ["8L1"],
+			stoneedge: ["8L1"],
+			earthpower: ["8L1"],
 			agility: ["8L1"],
 			attract: ["8L1"],
 			bodyslam: ["8L1"],
@@ -981,6 +985,12 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	pikachuunova: {
 		learnset: {
+			waterfall: ["8L1"],
+			poisonjab: ["8L1"],
+			gunkshot: ["8L1"],
+			toxicspikes: ["8L1"],
+			flipturn: ["8L1"],
+			sludgebomb: ["8L1"],
 			acidspray: ["8L1"],
 			agility: ["8L1"],
 			attract: ["8L1"],
