@@ -1222,6 +1222,8 @@ export class RandomTeams {
 					rejectAbility = (this.dex.getEffectiveness('Electric', species) < -1);
 				} else if (ability === 'Water Absorb') {
 					rejectAbility = (hasMove['raindance'] || hasAbility['Drizzle'] || hasAbility['Strong Jaw'] || hasAbility['Unaware'] || hasAbility['Volt Absorb']);
+				} else if (ability === 'Pastel Veil') {
+					rejectAbility = (hasAbility['Optimistic']);
 				} else if (ability === 'Soul Link') {
 					rejectAbility = (hasAbility['Light Power'] && counter.Physical < 2);
 				} else if (ability === 'Frisk') {
