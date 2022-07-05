@@ -3060,9 +3060,9 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
 				/*Pokemon*/'Uber',
-				/*Abilities*/'Arena Trap', 'Drizzle', 'Moody', 'Sand Veil',
+				/*Abilities*/'Arena Trap', 'Drizzle', 'Drought', 'Moody', 'Sand Veil',
 				/*Moves*/'Baton Pass',
-				/*Items*/'Bright Powder', 'King\'s Rock', 'Lax Incense', 'Quick Claw', 'Razor Fang',
+				/*Items*/'Bright Powder', 'Damp Rock', 'King\'s Rock', 'Lax Incense', 'Light Clay', 'Quick Claw', 'Razor Fang',
 		],
 		teambuilderFormat: 'OU',
 	},

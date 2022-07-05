@@ -6,7 +6,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	venusaur: {
-		tier: "OU",
+		tier: "UU",
 	},
 	venusaurgmax: {
 		isNonstandard: "Past",
@@ -19,7 +19,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	charizard: {
-		tier: "OU",
+		tier: "UU",
 	},
 	charizardgmax: {
 		isNonstandard: "Past",
@@ -193,7 +193,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	ninetales: {
-		tier: "UUBL",
+		tier: "RU",
 	},
 	ninetalesalola: {
 		isNonstandard: "Past",
@@ -417,7 +417,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	dodrio: {
-		tier: "UUBL",
+		tier: "UU",
 	},
 	seel: {
 		tier: "LC",
@@ -435,7 +435,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	cloyster: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	gastly: {
 		tier: "LC",
@@ -444,7 +444,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	gengar: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	gengargmax: {
 		isNonstandard: "Past",
@@ -482,7 +482,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	exeggutor: {
-		tier: "UU",
+		tier: "RU",
 	},
 	exeggutoralola: {
 		isNonstandard: "Past",
@@ -769,7 +769,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	typhlosion: {
-		tier: "UU",
+		tier: "RU",
 	},
 	totodile: {
 		tier: "LC",
@@ -1055,7 +1055,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	swampert: {
-		tier: "OU",
+		tier: "UU",
 	},
 	poochyena: {
 		tier: "LC",
@@ -1249,7 +1249,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	sharpedo: {
-		tier: "UU",
+		tier: "OU",
 	},
 	wailmer: {
 		tier: "LC",
@@ -1268,7 +1268,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	torkoal: {
-		tier: "OU",
+		tier: "RU",
 	},
 	spoink: {
 		tier: "LC",
@@ -1441,7 +1441,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	regirock: {
-		tier: "UUBL",
+		tier: "UU",
 	},
 	regice: {
 		tier: "RU",
@@ -1450,7 +1450,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	latias: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	latios: {
 		tier: "Uber",
