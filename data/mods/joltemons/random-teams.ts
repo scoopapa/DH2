@@ -1104,6 +1104,8 @@ export class RandomTeams {
 					rejectAbility = (isDoubles && hasAbility['Solar Power']);
 				} else if (ability === 'Bulletproof' || ability === 'Overcoat') {
 					rejectAbility = (counter.setupType && hasAbility['Soundproof']);
+				} else if (ability === 'Shell Armor' || ability === 'Magma Armor') {
+					rejectAbility = (counter.setupType && hasAbility['Optimistic']);
 				} else if (ability === 'Chlorophyll') {
 					rejectAbility = (species.baseStats.spe > 100 || !counter['Fire'] && !hasMove['sunnyday'] && !teamDetails['sun']);
 				} else if (ability === 'Competitive') {
