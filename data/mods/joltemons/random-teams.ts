@@ -1125,7 +1125,7 @@ export class RandomTeams {
 				} else if (ability === 'Guts') {
 					rejectAbility = (!hasMove['facade'] && !hasMove['sleeptalk'] && !species.nfe);
 				} else if (ability === 'Harvest') {
-					rejectAbility = (hasAbility['Frisk'] && !isDoubles);
+					rejectAbility = (hasAbility['Frisk'] && !isDoubles || hasAbility['Optimistic']);
 				} else if (ability === 'Hustle' || ability === 'Inner Focus') {
 					rejectAbility = (counter.Physical < 2 || hasAbility['Iron Fist']);
 				} else if (ability === 'Infiltrator') {
@@ -1223,7 +1223,7 @@ export class RandomTeams {
 				} else if (ability === 'Soul Link') {
 					rejectAbility = (hasAbility['Light Power'] && counter.Physical < 2);
 				} else if (ability === 'Frisk') {
-					rejectAbility = (hasAbility['Light Power'] && counter.Physical < 2);
+					rejectAbility = (hasAbility['Light Power'] && counter.Physical < 2 || hasAbility['Optimistic']);
 				} else if (ability === 'Light Power') {
 					rejectAbility = (hasAbility['Beast Boost'] && counter.Special < 2);
 				}
