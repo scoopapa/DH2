@@ -3444,114 +3444,147 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	heatmor: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["curse", "firelash", "suckerpunch", "drainpunch"],
 	},
 	heliolisk: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["thunderbolt", "surf", "voltswitch", "hypervoice"],
 	},
 	heracross: {
 		tier: "RUBL",
 		doublesTier: "DOU",
+		randomBattleMoves: ["swordsdance", "megahorn", "closecombat", "knockoff"],
 	},
 	hitmonchan: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["drainpunch", "shadowpunch", "machpunch", "icepunch"],
 	},
 	hitmonlee: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["closecombat", "knockoff", "stoneedge", "poisonjab"],
 	},
 	hitmontop: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["rapidspin", "tripleaxel", "closecombat", "payback"],
 	},
 	honchkrow: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["suckerpunch", "aggravate", "bravebird", "superpower"],
 	},
 	hoopa: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["nastyplot", "psychic", "focusblast", "shadowball"],
 	},
 	houndoommega: {
 		tier: "OU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["darkpulse", "fireblast", "trashtalk", "nastyplot"],
 	},
 	houndoom: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["darkpulse", "fireblast", "trashtalk", "hiddenpowergrass"],
 	},
 	huntail: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["waterfall", "shellsmash", "suckerpunch", "icefang"],
 	},
 	hypno: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["bellydrum", "zenheadbutt", "hypnosis", "drainpunch"],
 	},
 	illumise: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["roost", "thunderwave", "uturn", "bugbuzz"],
 	},
 	incineroar: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["knockoff", "flareblitz", "rapidspin", "partingshot"],
 	},
 	indeedee: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["expandingforce", "hypervoice", "mysticalfire", "trick"],
 	},
 	indeedeef: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["expandingforce", "dazzlinggleam", "lifedew", "calmmind"],
 	},
 	inteleon: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["hydropump", "icebeam", "signalbeam", "uturn"],
 	},
 	jellicent: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["willowisp", "hex", "scald", "strengthsap"],
 	},
 	jolteon: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["thunderbolt", "buzzybuzz", "aurorabeam", "spikes", "voltswitch"],
 	},
 	jumpluff: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["skysoiree", "uturn", "strengthsap", "sleeppowder"],
 	},
 	jynx: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["lovelykiss", "snowmanjazz", "focusblast", "nastyplot"],
 	},
 	kabutops: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["swordsdance", "liquidation", "stoneedge", "superpower"],
 	},
 	kangaskhan: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["fakeout", "doubleedge", "suckerpunch", "poweruppunch"],
 	},
 	kecleon: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["knockoff", "mudspike", "suckerpunch", "drainpunch"],
 	},
 	kingdra: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["hydropump", "icebeam", "dracometeor", "flipturn"],
 	},
 	kingler: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["liquidation", "mudspike", "rockslide", "swordsdance"],
 	},
 	klefki: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["spikes", "dazzlinggleam", "thunderwave", "foulplay"],
 	},
 	klinklang: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["geargrind", "shiftgear", "electroball", "substitute"],
+	},
+	klang: {
+		tier: "NFE",
+		doublesTier: "DOU",
+		randomBattleMoves: ["geargrind", "rapidspin", "voltswitch", "toxic"],
 	},
 	komala: {
 		tier: "RU",
