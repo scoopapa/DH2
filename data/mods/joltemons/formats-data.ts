@@ -3050,7 +3050,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dhelmise: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["stealthrock", "flamethrower", "rapidspin", "aridabsorption"],
+		randomBattleMoves: ["rototiller", "poltergeist", "grassyglide", "rapidspin"],
 	},
 	diancie: {
 		tier: "RU",
@@ -3589,130 +3589,162 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	komala: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["return", "curse", "suckerpunch", "firepunch"],
 	},
 	kricketune: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["leechlife", "stickyweb", "taunt", "brickbreak"],
 	},
 	lanturn: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["scald", "voltswitch", "protect", "toxic", "discharge"],
 	},
 	lapras: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["meltdown", "icebeam", "thunderbolt", "lifedew"],
 	},
 	leafeon: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["sappyseed", "strengthsap", "teleport", "mudspike"],
 	},
 	leavanny: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["stickyweb", "xscissor", "knockoff", "leafblade"],
 	},
 	ledian: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["reflect", "lightscreen", "uturn", "skysoiree"],
 	},
 	lickilicky: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["wish", "rapidspin", "protect", "knockoff"],
 	},
 	liepard: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["nastyplot", "darkpulse", "trashtalk", "copycat"],
 	},
 	lilligant: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["quiverdance", "leafstorm", "hiddenpowerfire", "sleeppowder"],
 	},
 	linoone: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["quiverdance", "leafstorm", "hiddenpowerfire", "sleeppowder"],
 	},
 	lopunny: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["return", "closecombat", "switcheroo", "healingwish"],
 	},
 	lucario: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["swordsdance", "closecombat", "meteormash", "extremespeed"],
 	},
 	ludicolo: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["hydropump", "petaldance", "icebeam", "flipturn"],
 	},
 	lumineon: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["surf", "icebeam", "hiddenpowergrass", "uturn"],
 	},
 	lunatone: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["meteorbeam", "psyshock", "earthpower", "rockpolish"],
 	},
 	luranits: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["leafstorm", "superpower", "synthesis", "defog"],
 	},
 	luvdisc: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["scald", "icebeam", "mistyexplosion", "flipturn"],
 	},
 	luxray: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["lightninglance", "superpower", "voltswitch", "icefang"],
 	},
 	lycanroc: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["accelerock", "stoneedge", "closecombat", "stealthrock"],
 	},
 	lycanrocdusk: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["accelerock", "stoneedge", "closecombat", "swordsdance"],
 	},
 	lycanrocmidnight: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["bonemerang", "stoneedge", "closecombat", "swordsdance"],
 	},
 	machamp: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["dynamicpunch", "stoneedge", "bulletpunch", "knockoff"],
 	},
 	magcargo: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["lavaplume", "earthpower", "recover", "stealthrock"],
 	},
 	magmortar: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["fireblast", "focusblast", "recover", "thunderbolt"],
 	},
 	malamar: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["knockoff", "superpower", "flipturn", "psychocut"],
 	},
 	manectric: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["thunderbolt", "overheat", "voltswitch", "switcheroo"],
 	},
 	mantine: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["scald", "roost", "toxic", "defog"],
 	},
 	maractus: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["rototiller", "grassyglide", "knockoff", "drainpunch"],
 	},
 	marowak: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["bonemerang", "earthquake", "knockoff", "swordsdance"],
 	},
 	marowakalola: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["bonemerang", "poltergeist", "flareblitz", "swordsdance"],
 	},
 	masquerain: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["stickyweb", "skysoiree", "hydropump", "quiverdance"],
 	},
 	mawile: {
 		tier: "RU",
