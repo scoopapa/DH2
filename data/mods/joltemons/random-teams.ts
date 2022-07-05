@@ -1201,7 +1201,7 @@ export class RandomTeams {
 				} else if (ability === 'Sweet Veil') {
 					rejectAbility = hasType['Grass'];
 				} else if (ability === 'Levitate') {
-					rejectAbility = hasType['Flying'];
+					rejectAbility = (hasType['Flying'] || hasMove['leafstorm']);
 				} else if (ability === 'Swift Swim') {
 					rejectAbility = (!hasMove['raindance'] && (hasAbility['Intimidate'] || (hasAbility['Lightning Rod'] && !counter.setupType) || hasAbility['Rock Head'] || hasAbility['Slush Rush'] || hasAbility['Light Power'] || hasAbility['Water Absorb']));
 				} else if (ability === 'Synchronize') {
