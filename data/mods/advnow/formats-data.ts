@@ -1286,7 +1286,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	flygon: {
-		tier: "OU",
+		tier: "UU",
 	},
 	cacnea: {
 		tier: "LC",
