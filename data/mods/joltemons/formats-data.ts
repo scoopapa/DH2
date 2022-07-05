@@ -3155,7 +3155,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	eldegoss: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["dracometeor", "flashcannon", "technoblast", "stealthrock"],
+		randomBattleMoves: ["lifedew", "sleeppowder", "gigadrain", "leechseed"],
 	},
 	electivire: {
 		tier: "RU",
@@ -3749,18 +3749,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	mawile: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["stealthrock", "playrough", "superfang", "toxic"],
 	},
 	medicham: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["fakeout", "highjumpkick", "enchantedpunch", "icepunch"],
 	},
 	meganium: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["curse", "lifedew", "petalblizzard", "earthquake"],
 	},
 	meloetta: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["psychic", "fierydance", "moonlitwaltz", "uturn"],
 	},
 	meltan: {
 		tier: "RU",
@@ -3769,18 +3773,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	meowstic: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["lightscreen", "reflect", "thunderwave", "psyshock"],
 	},
 	meowsticf: {
 		tier: "RU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["psychic", "signalbeam", "thunderbolt", "nastyplot"],
 	},
 	mesprit: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["psychic", "moonblast", "hiddenpowerfire", "nastyplot"],
 	},
 	metagross: {
 		tier: "UU",
 		doublesTier: "DOU",
+		randomBattleMoves: ["meteormash", "icepunch", "thunderpunch", "bulletpunch"],
 	},
 	mightyena: {
 		tier: "RU",
