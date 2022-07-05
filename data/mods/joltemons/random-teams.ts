@@ -1153,7 +1153,7 @@ export class RandomTeams {
 				} else if (ability === 'Overgrow') {
 					rejectAbility = !counter['Grass'];
 				} else if (ability === 'Own Tempo') {
-					rejectAbility = !hasMove['petaldance'];
+					rejectAbility = (hasAbility['Swift Swim'] || !hasMove['petaldance']);
 				} else if (ability === 'Power Construct') {
 					rejectAbility = (species.forme === '10%' && !isDoubles);
 				} else if (ability === 'Prankster') {
