@@ -1360,7 +1360,7 @@ export class RandomTeams {
 			item = 'Tart Apple';
 		} else if (species.baseSpecies === 'Appletun') {
 			item = 'Sweet Apple';
-		} else if (['Clawitzer', 'Electrode'].includes(species.baseSpecies)) {
+		} else if (['Clawitzer', 'Electrode', 'Toxtricity'].includes(species.baseSpecies)) {
 			item = 'Chill Drive';
 		} else if (species.baseSpecies === 'Duraludon') {
 			item = 'Burn Drive';
