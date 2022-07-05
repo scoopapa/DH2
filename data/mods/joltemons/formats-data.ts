@@ -1955,7 +1955,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	charizardmegay: {
 		tier: "UUBL",
 		doublesTier: "DOU",
-		randomBattleMoves: ["weatherbeall", "focusblast", "solarbeam", "roost"],
+		randomBattleMoves: ["weatherball", "focusblast", "solarbeam", "roost"],
 	},
 	clefable: {
 		tier: "OU",
