@@ -396,7 +396,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	magneton: {
-		tier: "OU",
+		tier: "UU",
 	},
 	magnezone: {
 		isNonstandard: "Past",
