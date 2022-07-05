@@ -1133,7 +1133,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	gardevoir: {
-		tier: "OU",
+		tier: "UU",
 	},
 	gallade: {
 		isNonstandard: "Past",
