@@ -1162,6 +1162,8 @@ export class RandomTeams {
 					rejectAbility = (counter.setupType || counter.Status < 2 || isDoubles);
 				} else if (ability === 'Refrigerate') {
 					rejectAbility = !counter['Normal'];
+				} else if (ability === 'Buzz Off') {
+					rejectAbility = !counter['Bug'];
 				} else if (ability === 'Regenerator') {
 					rejectAbility = hasAbility['Magic Guard'];
 				} else if (ability === 'Reckless' || ability === 'Rock Head') {
