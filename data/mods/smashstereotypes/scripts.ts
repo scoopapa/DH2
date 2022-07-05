@@ -151,6 +151,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'drednaw').learnset.flipturn = ["8M"];
 		
 		
+		this.modData("Learnsets", "drampaschroedinger").learnset.scald = ["8L1"];
+		this.modData("Learnsets", "drampaschroedinger").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "drampaschroedinger").learnset.triattack = ["8L1"];
+		
+		
 		this.modData('Learnsets', 'latias').learnset.moonblast = ['8L1'];
 	},
 	
