@@ -1227,7 +1227,7 @@ export class RandomTeams {
 				} else if (ability === 'Frisk') {
 					rejectAbility = (hasAbility['Light Power'] && counter.Physical < 2 || hasAbility['Optimistic']);
 				} else if (ability === 'Light Power') {
-					rejectAbility = (hasAbility['Beast Boost'] && counter.Special < 2);
+					rejectAbility = (hasAbility['Beast Boost'] || counter.Special < 2);
 				}
 
 				if (rejectAbility) {
