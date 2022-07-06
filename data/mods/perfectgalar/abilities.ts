@@ -1,5 +1,5 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-	screencleaner: { 
+	screencleaner: {
 		desc: "On switch-in, this Pokémon ends the effects of screens, hazards, and terrain for both the user's and the opposing side.",
 		shortDesc: "Removes screens, hazards, and terrain on switch-in.",
 		onStart(pokemon) {

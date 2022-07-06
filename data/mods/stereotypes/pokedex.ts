@@ -527,6 +527,31 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Telepathy", 1: "Light Metal", H: "Magician"},
 		weightkg: 71,
 	},
+	//Slate 19: Rock/Water, Ground/Electric, Poison/Flying
+	groundingo: {
+		num: 1054,
+		name: "Groundingo",
+		types: ["Ground", "Electric"],
+		baseStats: {hp: 80, atk: 130, def: 80, spa: 75, spd: 80, spe: 91},
+		abilities: {0: "Static", H: "Unaware"},
+		weightkg: 19,
+	},
+	hadalith: {
+		num: 1055,
+		name: "Hadalith",
+		types: ["Water", "Rock"],
+		baseStats: {hp: 80, atk: 90, def: 135, spa: 105, spd: 95, spe: 50},
+		abilities: {0: "Drizzle", H: "Water Absorb"},
+		weightkg: 167,
+	},
+	toxeath: {
+		num: 1056,
+		name: "Toxeath",
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 80, atk: 80, def: 98, spa: 93, spd: 120, spe: 74},
+		abilities: {0: "Stamina", H: "Power of Alchemy"},
+		weightkg: 1,
+	},
 	/*
 	template: {
 		num: 1000,

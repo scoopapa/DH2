@@ -1132,4 +1132,45 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 84,
 		//prevo: "Loudred",
 	},
+
+	anklarmor: {
+		num: -172,
+		name: "Anklarmor",
+		types: ["Steel"],
+		baseStats: {hp: 79, atk: 65, def: 102, spa: 90, spd: 111, spe: 46},
+		abilities: {0: "Filter", 1: "Justified", H: "Overcoat"},
+		weightkg: 398,
+	},
+
+	drakabyssal: {
+		num: -173,
+		name: "Drakabyssal",
+		types: ["Water", "Dark"],
+		baseStats: {hp: 100, atk: 110, def: 85, spa: 65, spd: 105, spe: 65},
+		abilities: {0: "Mold Breaker", H: "Guts"},
+		weightkg: 95.2,
+	},
+
+	trobsidon: {
+		num: -174,
+		name: "Trobsidon",
+		types: ["Dragon", "Rock"],
+		baseStats: {hp: 80, atk: 85, def: 80, spa: 65, spd: 70, spe: 115},
+		abilities: {0: "Keen Eye", 1: "Merciless", H: "Technician"},
+		weightkg: 56.2,
+		otherFormes: ["Trobsidon-Mega"],
+		formeOrder: ["Trobsidon", "Trobsidon-Mega"],
+	},
+
+	trobsidonmega: {
+		num: -174,
+		name: "Trobsidon-Mega",
+		baseSpecies: "Trobsidon",
+		forme: "Mega",
+		types: ["Dragon", "Psychic"],
+		baseStats: {hp: 80, atk: 105, def: 60, spa: 130, spd: 100, spe: 120},
+		abilities: {0: "Solid Rock"},
+		weightkg: 33.8,
+		requiredItem: "Trobsidonite",
+	},
 };

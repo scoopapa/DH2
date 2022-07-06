@@ -1552,7 +1552,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	
 // Up-to-date
 	alakazammega: {
 		tier: "OU",
@@ -4856,4 +4855,5 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 		randomBattleMoves: ["knockoff", "tripleaxel", "iceshard", "pursuit"],
 	},
+
 };
