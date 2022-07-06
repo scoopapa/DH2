@@ -528,24 +528,5 @@ export const Moves: {[moveid: string]: MoveData} = {
 			} else
 		      return true;
 		},
-onHit() {},
-		condition: {
-			onStart(target) {
-				this.add('-start', target, 'move: Leech Seed');
-			},
-			onAfterMoveSelfPriority: 2,
-			onAfterMoveSelf(pokemon) {
-				if (!pokemon.hp) return;
-				const leecher = this.getAtSlot(pokemon.volatiles['leechseed'].sourceSlot);
-				if (!leecher || leecher.fainted || leecher.hp <= 0) {
-					return;
-				}
-				const toLeech = this.clampIntRange(pokemon.maxhp / 8, 1);
-				const damage = this.damage(toLeech, pokemon, leecher);
-				if (damage) {
-					this.heal(damage, leecher, pokemon);
-				}
-			},
-		},
 	},
 };
