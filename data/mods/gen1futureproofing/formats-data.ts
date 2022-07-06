@@ -65,7 +65,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	whimsicott: {
-		tier: "LC",
+		tier: "OU",
 		isNonstandard: null,
 		gen: 1,
 	},
