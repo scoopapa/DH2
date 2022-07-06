@@ -1527,7 +1527,7 @@ export class RandomTeams {
 			item = 'Choice Scarf';
 		} else if (hasMove['raindance'] || hasMove['sunnyday'] || (ability === 'Speed Boost' && !counter['hazards']) || ability === 'Stance Change' && counter.damagingMoves.length >= 3) {
 			item = 'Life Orb';
-		} else if (hasMove['nastyplot'] || hasMove['swordsdance']) {
+		} else if (hasMove['nastyplot'] && counter.Special >= 2 || hasMove['swordsdance'] && counter.Physical >= 3) {
 			item = 'Cursed Belt';
 		} else if (this.dex.getEffectiveness('Rock', species) >= 1 && (['Defeatist', 'Emergency Exit', 'Multiscale'].includes(ability) || hasMove['courtchange'] || hasMove['defog'] || hasMove['rapidspin']) && !isDoubles) {
 			item = 'Heavy-Duty Boots';
