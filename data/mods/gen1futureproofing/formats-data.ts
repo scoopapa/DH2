@@ -39,6 +39,36 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
+	scizor: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	deino: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 1,
+	},
+	zweilous: {
+		tier: "NFE",
+		isNonstandard: null,
+		gen: 1,
+	},
+	hydreigon: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	cottonee: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 1,
+	},
+	whimsicott: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 1,
+	},
 
 // don't touch
 	bulbasaur: {
