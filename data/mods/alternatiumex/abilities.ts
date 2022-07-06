@@ -141,26 +141,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 207,
 	},
 	rubberarmor: {
-		beforeTurnCallback(pokemon) {
-			pokemon.addVolatile('rubberarmor');
-		},
-		condition: {
-			duration: 1,
-			onStart(pokemon) {
-				this.add('-singleturn', pokemon, 'Rubber Armor');
-			},
-			onBeforeMove(source, target, move) {
-				const action = this.queue.willMove(target);
-				if (action && action.move.category !== 'Status') {
-					target.addVolatile('gastroacid');
-				}
-			},
-			onAfterMove(source, target, move) {
-				target.removeVolatile('gastroacid');
-			},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Rubber Armor');
 		},
 		name: "Rubber Armor",
-		shortDesc: "(Bugged) Negates opponent's abilities when targeted by an attacking move.",
+		shortDesc: "Negates opponent's abilities when targeted by an attacking move.",
 		rating: 2,
 		num: -7,
 	},
@@ -197,5 +182,59 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Upon fainting, all active Pokemon have their stat changes and non-volatile status cleared.",
 		rating: 3,
 		num: 265,
+	},
+	excavate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Rock';
+				move.excavateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.excavateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		name: "Excavate",
+		shortDesc: "This Pokemon's Normal-type moves become Rock type and have 1.2x power.",
+		rating: 4,
+		num: -8,
+	},
+	exoskelett: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Exoskelett boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Exoskelett boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Exoskelett weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Exoskelett weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Exoskelett",
+		shortDesc: "User gains STAB on Bug moves and also gains Bug-type resistances.",
+		rating: 4.5,
+		num: -9,
 	},
 };

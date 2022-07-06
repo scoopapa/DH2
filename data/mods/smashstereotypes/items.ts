@@ -285,4 +285,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1010,
 		gen: 7,
 	},
+	souldew: {
+		inherit: true,
+		shortDesc: "If held by a Latias/Latios, its STAB moves have 1.2x power.",
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (
+				move && ((user.baseSpecies.num === 380) && (move.type === 'Fairy' || move.type === 'Dragon')) 
+				|| ((user.baseSpecies.num === 381) && (move.type === 'Dragon' || move.type === 'Electric'))
+			) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+	},
+	latiasite: {
+		name: "Latiasite",
+		spritenum: 629,
+		megaStone: "Latias-Mega",
+		megaEvolves: "MissingNo",
+		itemUser: ["MissingNo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 684,
+		gen: 6,
+		shortDesc: "Incompatible with Latias.",
+	},
 };

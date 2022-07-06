@@ -1094,4 +1094,21 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Sand Bubbler"},
 		weightkg: 220,
 	},
+	cougaquil: {
+		num: 94,
+		name: "Cougaquil",
+		types: ["Ice", "Electric"],
+		baseStats: {hp: 70, atk: 112, def: 70, spa: 90, spd: 60, spe: 113},
+		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Moxie"},
+		weightkg: 60,
+	},
+	latias: {
+		num: 95,
+		inherit: true,
+		types: ["Dragon", "Fairy"],
+	},
+	landorustherian: {
+		num: 96,
+		inherit: true,
+	},
 };

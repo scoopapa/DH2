@@ -135,7 +135,7 @@ export const Formats: FormatList = [
 				'Decidueye-Hermit', 'Decidueye-Autumn', 'Typhlosion-Explosive', 'Typhlosion-Warlock', 'Samurott-Foamy', 'Samurott-Rogue', 'Oricorio', 'Oricorio-Cheerleader',
 				'Oricorio-Pa\u2019u', 'Horrorcorio', 'Pikachu-Kanto', 'Pikachu-Hoenn', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-Tactic', 'Pikachu-Alola', 'Pikachu-World',
 				'Ribombee', 'Ribombee-Totem', 'Araquanid', 'Araquanid-Totem', 'Vikavolt', 'Vikavolt-Totem', 'Urshifu', 'Urshifu-Erosion', 'Calyrex-Mythic', 'Calyrex-Glacier', 
-				'Calyrex-Midnight',
+				'Calyrex-Midnight', 'Kommo-o', 'Rockmo-o', 'Salazzle', 'Salazzle-Ruler', 'Lurantis', 'Lurantio',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -3060,9 +3060,9 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
 				/*Pokemon*/'Uber',
-				/*Abilities*/'Arena Trap', 'Drizzle', 'Moody', 'Sand Veil',
+				/*Abilities*/'Arena Trap', 'Drizzle', 'Drought', 'Moody', 'Sand Veil',
 				/*Moves*/'Baton Pass',
-				/*Items*/'Bright Powder', 'King\'s Rock', 'Lax Incense', 'Quick Claw', 'Razor Fang',
+				/*Items*/'Bright Powder', 'Damp Rock', 'King\'s Rock', 'Lax Incense', 'Light Clay', 'Quick Claw', 'Razor Fang',
 		],
 		teambuilderFormat: 'OU',
 	},

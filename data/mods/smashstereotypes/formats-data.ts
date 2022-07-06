@@ -326,4 +326,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gigacrab: {
 		tier: "SSS",
 	},
+	cougaquil: {
+		tier: "SSS",
+	},
+	latias: {
+		tier: "SSS",
+	},
+	landorustherian: {
+		tier: "SSS",
+	},
 };
