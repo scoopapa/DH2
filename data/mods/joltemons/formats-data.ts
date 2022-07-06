@@ -3174,12 +3174,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	empoleon: {
 		tier: "OU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["scald", "lifedew", "flipturn", "knockoff"],
+		randomBattleMoves: ["scald", "lifedew", "flipturn", "flashcannon"],
 	},
 	entei: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["sacredsword", "extremespeed", "stoneedge", "flareblitz"],
+		randomBattleMoves: ["sacredfire", "extremespeed", "stoneedge", "flareblitz"],
 	},
 	escavalier: {
 		tier: "RU",
