@@ -1164,7 +1164,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Fighting",
+		type: "Electric",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
@@ -1433,24 +1433,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Beautiful",
 	},
-	frustration: {
-		num: 218,
+	darkestlariat: {
+		num: 663,
 		accuracy: 100,
-		basePower: 102,
+		basePower: 100,
 		category: "Physical",
-		desc: "Power is equal to 102.",
-		shortDesc: "Max 102 power.",
-		isNonstandard: "Past",
-		name: "Frustration",
-		pp: 20,
+		name: "Darkest Lariat",
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		ignoreEvasion: true,
+		ignoreDefensive: true,
 		secondary: null,
 		target: "normal",
 		type: "Dark",
-		zMove: {basePower: 160},
-		maxMove: {basePower: 130},
-		contestType: "Cute",
+		contestType: "Cool",
 	},
 	bind: {
 		num: 20,
@@ -2329,7 +2326,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		noMetronome: [
-			"After You", "Apple Acid", "Assist", "Astral Barrage", "Aura Wheel", "Baneful Bunker", "Beak Blast", "Behemoth Bash", "Behemoth Blade", "Belch", "Bestow", "Body Press", "Branch Poke", "Breaking Swipe", "Celebrate", "Chatter", "Clangorous Soul", "Copycat", "Counter", "Covet", "Crafty Shield", "Decorate", "Destiny Bond", "Detect", "Diamond Storm", "Double Iron Bash", "Dragon Ascent", "Dragon Energy", "Drum Beating", "Dynamax Cannon", "Endure", "Eternabeam", "False Surrender", "Feint", "Fiery Wrath", "Fleur Cannon", "Focus Punch", "Follow Me", "Freeze Shock", "Freezing Glare", "Glacial Lance", "Grav Apple", "Helping Hand", "Hold Hands", "Hyperspace Fury", "Hyperspace Hole", "Ice Burn", "Instruct", "Jungle Healing", "King's Shield", "Life Dew", "Light of Ruin", "Mat Block", "Me First", "Meteor Assault", "Metronome", "Mimic", "Mind Blown", "Mirror Coat", "Mirror Move", "Moongeist Beam", "Nature Power", "Nature's Madness", "Obstruct", "Origin Pulse", "Overdrive", "Photon Geyser", "Plasma Fists", "Precipice Blades", "Protect", "Pyro Ball", "Quash", "Quick Guard", "Rage Powder", "Relic Song", "Secret Sword", "Shell Trap", "Sketch", "Sleep Talk", "Snap Trap", "Snarl", "Snatch", "Snore", "Spectral Thief", "Spiky Shield", "Spirit Break", "Spotlight", "Steam Eruption", "Steel Beam", "Strange Steam", "Struggle", "Sunsteel Strike", "Surging Strikes", "Switcheroo", "Techno Blast", "Thief", "Thousand Arrows", "Thousand Waves", "Thunder Cage", "Thunderous Kick", "Transform", "Trick", "V-create", "Wicked Blow", "Wide Guard", "Vote Out",
+			"After You", "Apple Acid", "Assist", "Astral Barrage", "Aura Wheel", "Baneful Bunker", "Beak Blast", "Behemoth Bash", "Behemoth Blade", "Belch", "Bestow", "Body Press", "Branch Poke", "Breaking Swipe", "Celebrate", "Chatter", "Clangorous Soul", "Copycat", "Counter", "Covet", "Crafty Shield", "Decorate", "Destiny Bond", "Detect", "Diamond Storm", "Double Iron Bash", "Dragon Ascent", "Dragon Energy", "Drum Beating", "Dynamax Cannon", "Endure", "Eternabeam", "False Surrender", "Feint", "Fiery Wrath", "Fleur Cannon", "Focus Punch", "Follow Me", "Freeze Shock", "Freezing Glare", "Glacial Lance", "Grav Apple", "Helping Hand", "Hold Hands", "Hyperspace Fury", "Hyperspace Hole", "Ice Burn", "Instruct", "Jungle Healing", "King's Shield", "Life Dew", "Light of Ruin", "Mat Block", "Me First", "Meteor Assault", "Metronome", "Mimic", "Mind Blown", "Mirror Coat", "Mirror Move", "Moongeist Beam", "Nature Power", "Nature's Madness", "Obstruct", "Origin Pulse", "Overdrive", "Photon Geyser", "Plasma Fists", "Precipice Blades", "Protect", "Pyro Ball", "Quash", "Quick Guard", "Rage Powder", "Relic Song", "Secret Sword", "Shell Trap", "Sketch", "Sleep Talk", "Snap Trap", "Snarl", "Snatch", "Snore", "Spectral Thief", "Spiky Shield", "Spirit Break", "Spotlight", "Steam Eruption", "Steel Beam", "Strange Steam", "Struggle", "Sunsteel Strike", "Surging Strikes", "Switcheroo", "Techno Blast", "Thief", "Thousand Arrows", "Thousand Waves", "Thunder Cage", "Thunderous Kick", "Transform", "Trick", "V-create", "Wicked Blow", "Wide Guard", "Vote Out", "Roulette Spin", "Ultranome",
 		],
 		onHit(target, source, effect) {
 			const moves: MoveData[] = [];
@@ -2652,5 +2649,95 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		zMove: {effect: 'heal'},
 		contestType: "Beautiful",
+	},
+	conversion: {
+		num: 160,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Conversion",
+		pp: 30,
+		priority: 0,
+		flags: {snatch: 1},
+		onHit(target) {
+			const type = this.dex.getMove(target.moveSlots[0].id).type;
+			if (target.hasType(type) || !target.setType(type)) return false;
+			this.add('-start', target, 'typechange', type);
+		},
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
+		contestType: "Beautiful",
+	},
+	slackoff: {
+		num: 303,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Slack Off",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		heal: [1, 2],
+		secondary: null,
+		target: "self",
+		type: "Fairy",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	shellsmash: {
+		num: 504,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Shell Smash",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			def: -1,
+			spd: -1,
+			atk: 2,
+			spa: 2,
+			spe: 2,
+		},
+		secondary: null,
+		target: "self",
+		type: "Water",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Tough",
+	},
+	acupressure: {
+		num: 367,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Acupressure",
+		pp: 30,
+		priority: 0,
+		flags: {},
+		onHit(target) {
+			const stats: BoostName[] = [];
+			let stat: BoostName;
+			for (stat in target.boosts) {
+				if (target.boosts[stat] < 6) {
+					stats.push(stat);
+				}
+			}
+			if (stats.length) {
+				const randomStat = this.sample(stats);
+				const boost: SparseBoostsTable = {};
+				boost[randomStat] = 2;
+				this.boost(boost);
+			} else {
+				return false;
+			}
+		},
+		secondary: null,
+		target: "adjacentAllyOrSelf",
+		type: "Fairy",
+		zMove: {effect: 'crit2'},
+		contestType: "Tough",
 	},
 };
