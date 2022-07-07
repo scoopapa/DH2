@@ -244,6 +244,36 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({[statName]: 1}, pokemon);
 			}
 		},	
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in target.storedStats) {
+					if (target.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = target.storedStats[s];
+					}
+				}
+				this.boost({[statName]: 1}, target);
+			}
+		},
+		onDamagingHit(damage, target, source, effect) {
+			let statName = 'atk';
+			let bestStat = 0;
+			let s: StatNameExceptHP;
+			for (s in target.storedStats) {
+				if (target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = target.storedStats[s];
+				}
+			}
+			this.boost({[statName]: 1}, target);
+		},
 		name: "Raging Beast",
 		rating: 1,
 		num: 3010,
@@ -437,9 +467,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},	
 	mixitup: {
 		shortDesc: "The user switches after using sound move.",
-		onAfterMove(pokemon, target, move) {
+		onModifyMove(move, pokemon) {
 			if (move.flags['sound']) {
-				pokemon.switchFlag = true;
+				move.selfSwitch = true;
 			}
 		},
 		name: "Mix it Up",
