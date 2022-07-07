@@ -150,7 +150,7 @@ fluxtape: {
 	species: "Fluxtape",
 	types: ["Fire"],
 	gender: "N",
-	baseStats: {hp: 90, atk: 99, def: 70, spa: 125, spd: 90, spe: 126},
+	baseStats: {hp: 90, atk: 109, def: 70, spa: 115, spd: 90, spe: 126},
 	abilities: {0: "Mix it Up"},
 	heightm: 1,
 	weightkg: 5,
