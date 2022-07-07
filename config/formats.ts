@@ -635,7 +635,7 @@ export const Formats: FormatList = [
 	   ],
       mod: 'gen1futureproofing',
       ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber', 'Scizor + Swords Dance'],
+		banlist: ['Uber'],
 		unbanlist: ['Tyranitar', 'Gardevoir', 'Escavalier', 'Karrablast', 'Ralts', 'Kirlia', 'Pupitar', 'Larvitar',
 					   'Snarl', 'Steel Wing', 'Strange Steam',
 					   'Deino', 'Zweilous', 'Hydreigon', 'Scizor', 'Cottonee', 'Whimsicott', 
