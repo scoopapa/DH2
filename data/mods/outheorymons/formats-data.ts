@@ -375,7 +375,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	crobat: {
-		randomBattleMoves: ["nastyplot", "sludgebomb", "hurricane, "heatwave"],
+		randomBattleMoves: ["heatwave", "hurricane", "nastyplot", "roost", "sludgebomb"],
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["bravebird", "defog", "roost", "superfang", "tailwind", "taunt"],
 		randomDoubleBattleLevel: 86,
@@ -969,7 +969,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	tangrowth: {
-		randomBattleMoves: ["focusblast", "gigadrain", "knockoff", "leechseed", "sleeppowder", "sludgebomb"],
+		randomBattleMoves: ["focusblast", "gigadrain", "knockoff", "leechseed", "sleeppowder", "sludgebomb", "spikes"],
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["focusblast", "knockoff", "powerwhip", "ragepowder", "sleeppowder"],
 		randomDoubleBattleLevel: 85,
