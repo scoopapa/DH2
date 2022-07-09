@@ -6305,7 +6305,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rockslide: ["8L1"],
 			bulletseed: ["8L1"],
 			rockblast: ["8L1"],
-			coconutthrow: ["8L1"],
+			coconutburst: ["8L1"],
 			workup: ["8L1"],
 			hiddenpower: ["8L1"],
 			protect: ["8L1"],
