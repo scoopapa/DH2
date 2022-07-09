@@ -520,7 +520,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	pyroarloria: {
-		tier: "Loria FE",
+		tier: "Loria NFE",
 		doublesTier: "DOU",
 	},
 	bagonloria: {
