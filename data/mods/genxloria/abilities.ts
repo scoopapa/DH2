@@ -531,7 +531,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Battle Tide",
 	},
 	solarcharge: {
-		shortDesc: "This Pokemon's Attack goes up by 1 stage when hit by a Water-type move; Water immunity.",
+		shortDesc: "If Sunny Day is active, this Pokemon's Atk is 1.5x; loses 1/8 max HP per turn.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
