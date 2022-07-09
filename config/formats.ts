@@ -2946,6 +2946,7 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+/*
 	{
       name: "[Gen 8] OU Theorymons Random Battle",
       threads: [ 
@@ -2956,6 +2957,7 @@ export const Formats: FormatList = [
 		mod: 'outheorymons', 
 		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
 	},
+*/
 	{
 		name: "[Gen 8] Roulettemons Random Doubles",
 		threads: [
