@@ -240,73 +240,45 @@ this.modData('Learnsets', 'stonjourner').learnset.crippleclobber = ['8L1'];
 this.modData('Learnsets', 'stantler').learnset.psyshieldbash = ['8L1'];
 
 // Dex Additions
-		// Spearow
-		this.modData("Learnsets", "spearow").learnset.payday = ["8L1"];
-		// Oranguru
-		this.modData("Learnsets", "oranguru").learnset.bushclaws = ["8L1"];
-		// Passimian
-		this.modData("Learnsets", "passimian").learnset.bushclaws = ["8L1"];
-		// Aipom
-		this.modData("Learnsets", "aipom").learnset.highjumpkick = ["8L1"];
-		this.modData("Learnsets", "aipom").learnset.bushclaws = ["8L1"];
-		this.modData("Learnsets", "aipom").learnset.clinch = ["8L1"];
-		this.modData("Learnsets", "aipom").learnset.revenge = ["8L1"];
-		// Ambipom
-		this.modData("Learnsets", "ambipom").learnset.highjumpkick = ["8L1"];
-		this.modData("Learnsets", "ambipom").learnset.bushclaws = ["8L1"];
-		this.modData("Learnsets", "ambipom").learnset.clinch = ["8L1"];
-		this.modData("Learnsets", "ambipom").learnset.revenge = ["8L1"];
-		// Eevee
-		this.modData("Learnsets", "eevee").learnset.drainfang = ["8L1"];
-		// Flareon
-		this.modData("Learnsets", "flareon").learnset.bulkup = ["8L1"];
-		// Glaceon
-		this.modData("Learnsets", "glaceon").learnset.surf = ["8L1"];
-		this.modData("Learnsets", "glaceon").learnset.hydropump = ["8L1"];
-		// Leafeon
-		this.modData("Learnsets", "leafeon").learnset.bushclaws = ["8L1"];
-		// Bronzor
-		this.modData("Learnsets", "bronzor").learnset.gravity = ["8L1"];
-		this.modData("Learnsets", "bronzor").learnset.imprison = ["8L1"];
-		// Cufant
-		this.modData("Learnsets", "cufant").learnset.gunkshot = ["8L1"];
-		// Poliwrath
-		this.modData("Learnsets", "poliwrath").learnset.bodypress = ["8L1"];
-		// Politoed
-		this.modData("Learnsets", "politoed").learnset.aquaballet = ["8L1"];
-		this.modData("Learnsets", "politoed").learnset.hurricane = ["8L1"];
-		// Hippopotas
-		this.modData("Learnsets", "hippopotas").learnset.terracharge = ["8L1"];
-		// Solosis
-		this.modData("Learnsets", "solosis").learnset.pressurecook = ["8L1"];
-		// Gastly
-		this.modData("Learnsets", "gastly").learnset.drainfang = ["8L1"];
-		// Mimikyu
-		this.modData("Learnsets", "mimikyu").learnset.bushclaws = ["8L1"];
-		// Luxray
-		this.modData("Learnsets", "luxray").learnset.thunderstrike = ["8L1"];
-		// Elekid
-		this.modData("Learnsets", "elekid").learnset.thunderstrike = ["8L1"];
-		// Klinklang
-		this.modData("Learnsets", "klinklang").learnset.thunderstrike = ["8L1"];
-		// Shroomish
-		this.modData("Learnsets", "shroomish").learnset.revenge = ["8L1"];
-		// Breloom
-		this.modData("Learnsets", "breloom").learnset.revenge = ["8L1"];
-		// Glameow
-		this.modData("Learnsets", "glameow").learnset.bushclaws = ["8L1"];
-		// Purugly
-		this.modData("Learnsets", "purugly").learnset.bushclaws = ["8L1"];
-		// Galliwatt
-		this.modData("Learnsets", "galliwatt").learnset.thunderstrike = ["8L1"];
-		// Basculin
-		this.modData("Learnsets", "basculin").learnset.drainfang = ["8L1"];
-		// Florges
-		this.modData("Learnsets", "florges").learnset.leechseed = ["8L1"];
-		// Spiritomb
-		this.modData("Learnsets", "spiritomb").learnset.recover = ["8L1"];
-		this.modData("Learnsets", "spiritomb").learnset.astonish = ["8L1"];
-		this.modData("Learnsets", "spiritomb").learnset.confuseray = ["8L1"];
+this.modData("Learnsets", "spearow").learnset.payday = ["8L1"];
+this.modData("Learnsets", "oranguru").learnset.bushclaws = ["8L1"];
+this.modData("Learnsets", "passimian").learnset.bushclaws = ["8L1"];
+this.modData("Learnsets", "aipom").learnset.highjumpkick = ["8L1"];
+this.modData("Learnsets", "aipom").learnset.bushclaws = ["8L1"];
+this.modData("Learnsets", "aipom").learnset.clinch = ["8L1"];
+this.modData("Learnsets", "aipom").learnset.revenge = ["8L1"];
+this.modData("Learnsets", "ambipom").learnset.highjumpkick = ["8L1"];
+this.modData("Learnsets", "ambipom").learnset.bushclaws = ["8L1"];
+this.modData("Learnsets", "ambipom").learnset.clinch = ["8L1"];
+this.modData("Learnsets", "ambipom").learnset.revenge = ["8L1"];
+this.modData("Learnsets", "eevee").learnset.drainfang = ["8L1"];
+this.modData("Learnsets", "flareon").learnset.bulkup = ["8L1"];
+this.modData("Learnsets", "glaceon").learnset.surf = ["8L1"];
+this.modData("Learnsets", "glaceon").learnset.hydropump = ["8L1"];
+this.modData("Learnsets", "leafeon").learnset.bushclaws = ["8L1"];
+this.modData("Learnsets", "bronzor").learnset.gravity = ["8L1"];
+this.modData("Learnsets", "bronzor").learnset.imprison = ["8L1"];
+this.modData("Learnsets", "cufant").learnset.gunkshot = ["8L1"];
+this.modData("Learnsets", "poliwrath").learnset.bodypress = ["8L1"];
+this.modData("Learnsets", "politoed").learnset.aquaballet = ["8L1"];
+this.modData("Learnsets", "politoed").learnset.hurricane = ["8L1"];
+this.modData("Learnsets", "hippopotas").learnset.terracharge = ["8L1"];
+this.modData("Learnsets", "solosis").learnset.pressurecook = ["8L1"];
+this.modData("Learnsets", "gastly").learnset.drainfang = ["8L1"];
+this.modData("Learnsets", "mimikyu").learnset.bushclaws = ["8L1"];
+this.modData("Learnsets", "luxray").learnset.thunderstrike = ["8L1"];
+this.modData("Learnsets", "elekid").learnset.thunderstrike = ["8L1"];
+this.modData("Learnsets", "klinklang").learnset.thunderstrike = ["8L1"];
+this.modData("Learnsets", "shroomish").learnset.revenge = ["8L1"];
+this.modData("Learnsets", "breloom").learnset.revenge = ["8L1"];
+this.modData("Learnsets", "glameow").learnset.bushclaws = ["8L1"];
+this.modData("Learnsets", "purugly").learnset.bushclaws = ["8L1"];
+this.modData("Learnsets", "galliwatt").learnset.thunderstrike = ["8L1"];
+this.modData("Learnsets", "basculin").learnset.drainfang = ["8L1"];
+this.modData("Learnsets", "florges").learnset.leechseed = ["8L1"];
+this.modData("Learnsets", "spiritomb").learnset.recover = ["8L1"];
+this.modData("Learnsets", "spiritomb").learnset.astonish = ["8L1"];
+this.modData("Learnsets", "spiritomb").learnset.confuseray = ["8L1"];
 
 // Hisuian Evolutions
 this.modData("Learnsets", "wyrdeer").learnset.expandingforce = ["8L1"];
@@ -330,6 +302,39 @@ this.modData("Learnsets", "samurotthisui").learnset.spikes = ["8L1"];
 this.modData("Learnsets", "samurotthisui").learnset.shadowclaw = ["8L1"];
 this.modData("Learnsets", "samurotthisui").learnset.snarl = ["8L1"];
 this.modData("Learnsets", "samurotthisui").learnset.knockoff = ["8L1"];
+
+// Megas
+this.modData("Learnsets", "esplada").learnset.calmmind = ["8L1"];
+this.modData("Learnsets", "esplada").learnset.aurasphere = ["8L1"];
+this.modData("Learnsets", "esplada").learnset.vacuumwave = ["8L1"];
+this.modData("Learnsets", "macawphony").learnset.flareblitz = ["8L1"];
+this.modData("Learnsets", "macawphony").learnset.dualwingbeat = ["8L1"];
+this.modData("Learnsets", "macawphony").learnset.quickshot = ["8L1"];
+this.modData("Learnsets", "arapaitan").learnset.crippleclobber = ["8L1"];
+this.modData("Learnsets", "luxray").learnset.closecombat = ["8L1"];
+this.modData("Learnsets", "luxray").learnset.morningsun = ["8L1"];
+this.modData("Learnsets", "luxray").learnset.bulkup = ["8L1"];
+this.modData("Learnsets", "woodensect").learnset.grassyglide = ["8L1"];
+this.modData("Learnsets", "woodensect").learnset.woodhammer = ["8L1"];
+this.modData("Learnsets", "woodensect").learnset.skittersmack = ["8L1"];
+this.modData("Learnsets", "frozuna").learnset.icebeam = ["8L1"];
+this.modData("Learnsets", "frozuna").learnset.freezedry = ["8L1"];
+this.modData("Learnsets", "frozuna").learnset.iciclecrash = ["8L1"];
+this.modData("Learnsets", "torkoal").learnset.painsplit = ["8L1"];
+this.modData("Learnsets", "torkool").learnset.hail = ["8L1"];
+this.modData("Learnsets", "zetztream").learnset.eerieimpulse = ["8L1"];
+this.modData("Learnsets", "arbok").learnset.scaleshot = ["8L1"];
+this.modData("Learnsets", "arbok").learnset.uturn = ["8L1"];
+this.modData("Learnsets", "arbok").learnset.dragonrush = ["8L1"];
+this.modData("Learnsets", "serperior").learnset.dragonhammer = ["8L1"];
+this.modData("Learnsets", "serperior").learnset.drillrun = ["8L1"];
+this.modData("Learnsets", "serperior").learnset.shocktail = ["8L1"];
+this.modData("Learnsets", "emboar").learnset.shocktail = ["8L1"];
+this.modData("Learnsets", "emboar").learnset.calmmind = ["8L1"];
+this.modData("Learnsets", "emboar").learnset.earthpower = ["8L1"];
+this.modData("Learnsets", "samurott").learnset.shadowball = ["8L1"];
+this.modData("Learnsets", "samurott").learnset.hypervoice = ["8L1"];
+this.modData("Learnsets", "samurott").learnset.focusblast = ["8L1"];
 	},
 	// BattlePokemon scripts. Commented out for safety but an implementation for Tree-Topper is there.
 	/*
