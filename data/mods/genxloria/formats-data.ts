@@ -624,7 +624,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	spiritomb: {
-		tier: "Loria LC",
+		tier: "Loria NFE",
 		doublesTier: "DOU",
 	},
 	pawniard: {
@@ -672,11 +672,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	eiscue: {
-		tier: "Loria LC",
+		tier: "Loria NFE",
 		doublesTier: "DOU",
 	},
 	stonjourner: {
-		tier: "Loria LC",
+		tier: "Loria NFE",
 		doublesTier: "DOU",
 	},
 	pansage: {
@@ -1697,6 +1697,86 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	pikachuworld: {
 		tier: "Loria NFE",
+		doublesTier: "DOU",
+	},
+	jaibastionmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	sulfurammega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	minkfinitmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	espladamega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	macawphonymega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	arapaitanmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	largottonmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	luxraymega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	woodensectmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	frozunamega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	torkoalmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	torkoolmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	zetztreammega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	arbokmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	fairysnalemega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	grumpigmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	grumpigloriamega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	serperiormega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	emboarmega: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	samurottmega: {
+		tier: "Loria FE",
 		doublesTier: "DOU",
 	},
 };
