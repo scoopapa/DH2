@@ -100,7 +100,7 @@ turbuluskairborne: {
 },
 baloonpopped: {
 	num: 1.5,
-	species: "Baloon",
+	species: "Baloon-Popped",
 	types: ["Ghost", "Fairy"],
 	gender: "N",
 	baseStats: {hp: 76, atk: 86, def: 104, spa: 104, spd: 104, spe: 96},
