@@ -5970,7 +5970,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			ominouswind: ["8L1"],
 		},
 	},
-	basculinstripedwhite: {
+	basculinwhitestriped: {
 		learnset: {
 			tackle: ["8L1"],
 			aquajet: ["8L1"],
