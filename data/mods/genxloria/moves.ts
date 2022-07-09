@@ -806,6 +806,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Beautiful",
 	},
+*/
 	shocktail: {
 		accuracy: 100,
 		basePower: 80,
@@ -910,7 +911,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
 	},
-*/
 	sparkingleap: {
 		accuracy: 100,
 		basePower: 80,
