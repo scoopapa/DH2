@@ -909,6 +909,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
 	},
+/*
 	sparkingleap: {
 		accuracy: 100,
 		basePower: 80,
@@ -1015,7 +1016,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Tough",
 	},
-/*
+*/
 	skylance: {
 		accuracy: 100,
 		basePower: 130,
@@ -1157,7 +1158,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Rock",
 		contestType: "Cool",
 	},
-*/
 	crippleclobber: {
 		accuracy: 100,
 		basePower: 80,
