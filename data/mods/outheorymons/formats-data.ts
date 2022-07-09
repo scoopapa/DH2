@@ -4848,7 +4848,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	wishiwashischool: {
-		randomBattleMoves: ["earthquake", "hydropump", "icebeam", "recover" "scald", "uturn"],
+		randomBattleMoves: ["earthquake", "hydropump", "icebeam", "recover", "scald", "uturn"],
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["earthquake", "helpinghand", "hydropump", "icebeam", "muddywater", "protect"],
 		randomDoubleBattleLevel: 88,
