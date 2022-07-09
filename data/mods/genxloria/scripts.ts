@@ -278,7 +278,7 @@ this.modData("Learnsets", "florges").learnset.leechseed = ["8L1"];
 this.modData("Learnsets", "spiritomb").learnset.recover = ["8L1"];
 this.modData("Learnsets", "spiritomb").learnset.astonish = ["8L1"];
 this.modData("Learnsets", "spiritomb").learnset.confuseray = ["8L1"];
-
+		/*
 // Hisuian Evolutions
 this.modData("Learnsets", "wyrdeer").learnset.expandingforce = ["8L1"];
 this.modData("Learnsets", "wyrdeer").learnset.hyperbeam = ["8L1"];
@@ -301,7 +301,7 @@ this.modData("Learnsets", "samurotthisui").learnset.spikes = ["8L1"];
 this.modData("Learnsets", "samurotthisui").learnset.shadowclaw = ["8L1"];
 this.modData("Learnsets", "samurotthisui").learnset.snarl = ["8L1"];
 this.modData("Learnsets", "samurotthisui").learnset.knockoff = ["8L1"];
-
+*/
 // Megas
 this.modData("Learnsets", "esplada").learnset.calmmind = ["8L1"];
 this.modData("Learnsets", "esplada").learnset.aurasphere = ["8L1"];
