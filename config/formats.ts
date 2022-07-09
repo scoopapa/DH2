@@ -755,6 +755,20 @@ export const Formats: FormatList = [
 	},
 	*/
 	{
+		name: "[Gen 8] MetaMons",
+		desc: [
+			"In this Pet Mod, we will aim to create a decently-sized micrometa that will expand in the unique niches of some Pokémon, giving them the spotlight after all the time they have been waiting.",
+		],
+		threads: [
+			'&bullet; <a href="https://www.smogon.com/forums/threads/eternal-pokemon-v2-slate-3-high-horse-power.3700796/">Eternal Pokemon V2</a>',
+			'&bullet; <a href="https://docs.google.com/spreadsheets/d/1o7QNbqIN85CWuLJm-MJJ0u7yoUXvOZGuJfL_08oI1b4/edit#gid=0">Spreadsheet</a>',
+		],
+		mod: 'metamons', 
+		ruleset:['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['All Pokemon', 'Baton Pass'],
+		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon'],
+	},
+	{
 	name: "[Gen 8] Micrometa Mafia",
 		desc: `<b>Micrometa Mafia</b>: A Clean Slate based Micrometa where randomly selected participants will attempt to have unhealthy additions to the meta added alongside normal submissions.`,
 		threads: [
