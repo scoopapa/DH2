@@ -606,7 +606,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Upon using a Psychic-type move, this Pokémon consumes its berry.",
 	  	onAfterMove(target, source, move){
 			const item = source.getItem();
-		   if (move.type === 'Psychic' && item.isBerry) target.eatItem(true));
+		   if (move.type === 'Psychic' && item.isBerry) target.eatItem(true);
 		},
 		name: "Potion Brewer",
 	},
