@@ -830,7 +830,7 @@ turbuluskairborne: {learnset: {
 	stoneedge: ["7L1"],
 	strugglebug: ["7L1"],
 }},
-	baloon: {learnset: {
+	baloonpopped: {learnset: {
 	afteryou: ["7L1"],
 	airslash: ["7L1"],
 	allyswitch: ["7L1"],
