@@ -1779,4 +1779,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Loria FE",
 		doublesTier: "DOU",
 	},
+	calaguaca: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	poruvia: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	calaguacarevered: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	poruviarevered: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	mudaracan: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
+	mudaracanengorged: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
 };
