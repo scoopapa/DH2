@@ -1258,6 +1258,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Steel",
 		contestType: "Cool",
 	},
+/*
 	genesiswave: {
 		accuracy: 100,
 		basePower: 80,
@@ -1402,7 +1403,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Tough",
 	},
-/*
+*/
 	ragingfury: {
 		accuracy: 100,
 		basePower: 120,
@@ -1503,5 +1504,4 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Tough",
 	},
-*/
 };
