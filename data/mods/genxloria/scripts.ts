@@ -414,5 +414,5 @@ this.modData("Learnsets", "samurott").learnset.focusblast = ["8L1"];
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
 		},
-// },
+	},
 };
