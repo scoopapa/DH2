@@ -828,7 +828,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return !!target.trySetStatus('par', source);
 					}
 				return false;
-				},
+				}
 			},
 		},
 		target: "normal",
