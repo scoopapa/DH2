@@ -1779,6 +1779,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Loria FE",
 		doublesTier: "DOU",
 	},
+	fortuigon: {
+		tier: "Loria FE",
+		doublesTier: "DOU",
+	},
 	calaguaca: {
 		tier: "Loria FE",
 		doublesTier: "DOU",
