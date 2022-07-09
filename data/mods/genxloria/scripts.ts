@@ -14,6 +14,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Salamencite" && pokemon.baseSpecies.name === "Salamence-Loria") {
 			return null;
 		}
+		if (item.name === "Samurite" && pokemon.baseSpecies.name === "Samurott-Hisui") {
+			return null;
+		}
+		if (item.name === "Grumpigite" && pokemon.baseSpecies.name === "Grumpig-Loria") {
+			return "Grumpig-Loria-Mega"; 
+		}
 		return item.megaStone;
 	},
 	teambuilderConfig: {
