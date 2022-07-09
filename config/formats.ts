@@ -2705,10 +2705,14 @@ export const Formats: FormatList = [
 	{
       name: "[Gen 8] OU Theorymons Random Battle",
       threads: [ 
-              `&bullet; <a href="https://www.smogon.com/forums/threads/ss-ou-theorymon.3695574/">OU Theorymons on Smogon Forums</a>`,
-              `&bullet; <a href="">Spreadsheet</a>`,
-              ],
-              team: random
+          `&bullet; <a href="https://www.smogon.com/forums/threads/ss-ou-theorymon.3695574/">OU Theorymons on Smogon Forums</a>`,
+          `&bullet; <a href="https://docs.google.com/spreadsheets/d/1AgqKo8IiXky8apuu0FUgx4MJRVtsVwtuhg_Wj_ACgao/edit#gid=0">Spreadsheet</a>`,
+      ],
+      team: 'random',
+		mod: 'outheorymons', 
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+	},
+	{
 		name: "[Gen 8] Roulettemons Random Doubles",
 		threads: [
 		   `&bullet; <a href="https://www.smogon.com/forums/threads/3649106/">Roulettemons on Smogon Forums</a>`,
