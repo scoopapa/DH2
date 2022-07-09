@@ -2939,7 +2939,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Water Veil", 1: "Moxie", H: "Battle Tide"},
 		heightm: 0.4,
 		weightkg: 15.2,
-		evos: ["Sandile-Loria"],
+		evos: ["Krokorok-Loria"],
 	},
 	krokorokloria: {
 		num: 552,
