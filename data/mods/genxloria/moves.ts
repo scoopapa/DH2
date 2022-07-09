@@ -800,6 +800,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return false;
 			},
+			},
 		},
 		target: "allAdjacent",
 		type: "Psychic",
@@ -822,12 +823,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 100,
-			self: {
 			onHit(target, source, move) {
 				if (target.positiveBoosts()) {
-					return !!target.trySetStatus('par', source);
-					}
-				return false;
+					target.trySetStatus('par', source, move);
 				}
 			},
 		},
