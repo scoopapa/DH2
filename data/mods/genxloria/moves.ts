@@ -1402,6 +1402,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Tough",
 	},
+/*
 	ragingfury: {
 		accuracy: 100,
 		basePower: 120,
@@ -1502,5 +1503,5 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Tough",
 	},
-	},
+*/
 };
