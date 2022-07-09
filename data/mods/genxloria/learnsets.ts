@@ -13498,7 +13498,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sludgebomb: ["8L1"],
 			gigadrain: ["8L1"],
 			solarbeam: ["8L1"],
-			scorchingsand: ["8L1"],
+			scorchingsands: ["8L1"],
 			lightscreen: ["8L1"],
 			reflect: ["8L1"],
 			flashcannon: ["8L1"],
