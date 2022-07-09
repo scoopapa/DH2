@@ -20,7 +20,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 		
-		console.log('init gen2crystalseviiislands');
 		for (const id in this.dataCache.Pokedex) {
 			const pokemon = this.dataCache.Pokedex[id];
 			if (this.modData('FormatsData', id)) {

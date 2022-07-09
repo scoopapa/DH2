@@ -1328,4 +1328,192 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Bug",
 		contestType: "Clever",
 	},
+	skyattack: {
+		num: 143,
+		accuracy: 90,
+		basePower: 90,
+		category: "Physical",
+		name: "Sky Attack",
+		shortDesc: "High critical hit ratio.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	skullbash: {
+		num: 130,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Skull Bash",
+		shortDesc: "Raises the user's Defense before it moves.",
+		pp: 15,
+		priority: -3,
+		flags: {contact: 1, protect: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('skullbash');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.boost({def: 1}, pokemon);
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('skullbash')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('skullbash');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	vitalthrow: {
+		num: 233,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Vital Throw",
+		shortDesc: "Raises the user's Attack before it moves.",
+		pp: 15,
+		priority: -3,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('vitalthrow');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.boost({atk: 1}, pokemon);
+			},
+		},
+		// FIXME: onMoveAborted(pokemon) {pokemon.removeVolatile('vitalthrow')},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('vitalthrow');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Cool",
+	},
+	flowershield: {
+		num: 579,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Flower Shield",
+		shortDesc: "Protects from moves. Contact: sets Leech Seed.",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'spikyshield',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					if (!target.hasType('Grass')) target.addVolatile('leechseed', source);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fairy",
+		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
+	},
+	matblock: {
+		num: 561,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Mat Block",
+		shortDesc: "Protects allies from damaging attacks. Raises the user's Defense and Sp. Def by 1. Turn 1 only.",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, nonsky: 1},
+		stallingMove: true,
+		sideCondition: 'matblock',
+		onTry(source) {
+			if (source.activeMoveActions > 1) {
+				this.hint("Mat Block only works on your first turn out.");
+				return false;
+			}
+			return !!this.queue.willAct();
+		},
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Mat Block');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move && (move.target === 'self' || move.category === 'Status')) return;
+				this.add('-activate', target, 'move: Mat Block', move.name);
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					def: 1,
+					spd: 1,
+				},
+			},
+		},
+		target: "allySide",
+		type: "Fighting",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
+	},
 };

@@ -25,5 +25,17 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'copperajah').learnset.liquidation = ['8L1'];
 		this.modData('Learnsets', 'zarude').learnset.swordsdance = ['8L1'];
       this.modData('Learnsets', 'glastrier').learnset.glaciallance = ['8L1']; 
+      this.modData('Learnsets', 'celebi').learnset.moonblast = ['8L1'];
+      this.modData('Learnsets', 'articunogalar').learnset.focusblast = ['8L1'];
+      this.modData('Learnsets', 'krookodile').learnset.uturn = ['8L1'];
+      this.modData('Learnsets', 'goodra').learnset.recover = ['8L1'];
+      this.modData('Learnsets', 'virizion').learnset.hornleech = ['8L1'];
+      this.modData('Learnsets', 'wishiwashi').learnset.recover = ['8L1'];
+      this.modData('Learnsets', 'noctowl').learnset.flashcannon = ['8L1'];
+      this.modData('Learnsets', 'scrafty').learnset.slackoff = ['8L1'];
+      this.modData('Learnsets', 'flygon').learnset.knockoff = ['8L1'];
+      this.modData('Learnsets', 'appletun').learnset.sludgebomb = ['8L1'];
+      this.modData('Learnsets', 'appletun').learnset.toxic = ['8L1'];
+      this.modData('Learnsets', 'tapubulu').learnset.spiritbreak = ['8L1'];
    },
 };
