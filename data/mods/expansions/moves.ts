@@ -56,6 +56,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.name === 'Turbulusk' || source.species.name === 'turbulusk') {
 				this.useMove("Liftoff", source);
 			}
+			if (source.species.name === 'Baloon' || source.species.name === 'baloon' || source.species.name === 'Baloon-popped' || source.species.name === 'baloon-popped') {
+				this.useMove("Confidence Rush", source);
+			}
+			if (source.species.name === 'Turbulusk' || source.species.name === 'turbulusk') {
+				this.useMove("Orbital Launch", source);
+			}
+			if (source.species.name === 'Turbulusk' || source.species.name === 'turbulusk') {
+				this.useMove("Tidal Force", source);
+			}
 		},
 		target: "self",
 		type: "Normal",
@@ -336,5 +345,91 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Clever",
 	},
+	
+	confidencerush: {
+		num: 3012,
+		accuracy: 100,
+		basePower: 120,
+		basePowerCallback(pokemon, target) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				this.boost({atk: 6, spatk: 6}, pokemon);
+			}
+		},
+		category: "Special",
+		name: "Confidence Rush",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		zMove: {basePower: 160},
+		contestType: "Cool",
+	},
+	
+	rapidspin: {
+		num: 3013,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Orbital Launch",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		basePowerCallback(pokemon, target, move) {
+			var hazards = 0;
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					hazards = hazards + 5;
+				}
+			}
+			return move.basePower + hazards;
+		},
+		onAfterHit(target, pokemon) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
 
+	tidalforce: {
+		num: 3014,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Tidal Force",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		weather: 'RainDance',
+		secondary: null,
+		target: "all",
+		type: "Water",
+		zMove: {boost: {spe: 1}},
+		contestType: "Beautiful",
+	},
 };
