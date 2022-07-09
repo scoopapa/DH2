@@ -610,5 +610,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Potion Brewer",
 	},
-
+	ancestorcall: {
+		shortDesc: "This Pokemon's Normal-type moves become Ghost-type and have 1.2x power.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Ghost';
+				move.ancestorcallBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.ancestorcallBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		name: "Ancestor Call",
+	},
 };
