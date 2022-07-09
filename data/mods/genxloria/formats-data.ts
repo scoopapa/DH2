@@ -295,7 +295,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Loria FE",
 		doublesTier: "DOU",
 	},
-	flambéngo: {
+	flambengo: {
 		tier: "Loria LC",
 		doublesTier: "DOU",
 	},
