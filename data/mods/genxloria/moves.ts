@@ -677,7 +677,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Cool",
 	},
-/*
 	coconutburst: {
 		accuracy: 100,
 		basePower: 25,
@@ -806,7 +805,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Beautiful",
 	},
-*/
 	shocktail: {
 		accuracy: 100,
 		basePower: 80,
@@ -828,8 +826,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onHit(target, source, move) {
 				if (target.positiveBoosts()) {
 					return !!target.trySetStatus('par', source);
-				}
+					}
 				return false;
+				},
 			},
 		},
 		target: "normal",
