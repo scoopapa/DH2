@@ -439,15 +439,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sudden Guard",
 	},
 	bewitch: {
-		shortDesc: "Moves that can inflict a status condition have their secondary chance doubled.",
+		shortDesc: "(Bugged) Moves that can inflict a status condition have their secondary chance doubled.",
 		onModifyMovePriority: -2,
 		onModifyMove(move) {
-			if (move.secondaries && !move.secondaries.chance.boosts) {
+			if (move.secondaries) {
 				this.debug('doubling secondary chance');
 				for (const secondary of move.secondaries) {
 					if (secondary.chance) secondary.chance *= 2;
 				}
 			}
+			if (move.self?.chance) move.self.chance *= 2;
 		},
 		name: "Bewitch",
 	},
@@ -475,7 +476,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ambitious",
 	},
 	surfsup: {
-		shortDesc: "Before using a Water-type move or if Rain is active, this Pokémon changes to its Surfing form. This Pokémon's Water-type moves deal 1.3x damage.",
+		shortDesc: "(Bugged) Before using a Water-type move or if Rain is active, this Pokémon changes to its Surfing form. This Pokémon's Water-type moves deal 1.3x damage.",
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Tsunamey' || attacker.transformed) return;
