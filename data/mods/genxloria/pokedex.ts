@@ -3169,7 +3169,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Samurott",
 		forme: "Mega",
 		types: ["Water", "Ghost"],
-		baseStats: {hp: 110, atk: 128, def: 85, spa: 125, spd: 125, spe: 55},
+		baseStats: {hp: 95, atk: 125, def: 125, spa: 128, spd: 85, spe: 70},
 		abilities: {0: "Ancestor Call"},
 		heightm: 1.5,
 		weightkg: 114.3,
