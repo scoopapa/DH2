@@ -210,7 +210,6 @@ this.modData('Learnsets', 'rotom').learnset.sparkingleap = ['8L1'];
 // Firework Leaf
 this.modData('Learnsets', 'firack').learnset.fireworkleaf = ['8L1'];
 this.modData('Learnsets', 'zarude').learnset.fireworkleaf = ['8L1'];
-this.modData('Learnsets', 'zarudedada').learnset.fireworkleaf = ['8L1'];
 this.modData('Learnsets', 'rowlet').learnset.fireworkleaf = ['8L1'];
 this.modData('Learnsets', 'cacnea').learnset.fireworkleaf = ['8L1'];
 this.modData('Learnsets', 'phantump').learnset.fireworkleaf = ['8L1'];
