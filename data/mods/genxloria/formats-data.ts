@@ -1590,7 +1590,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Loria FE",
 		doublesTier: "DOU",
 	},
-	basculinstripedwhite: {
+	basculinwhitestriped: {
 		tier: "Loria LC",
 		doublesTier: "DOU",
 	},
