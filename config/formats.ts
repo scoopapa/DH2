@@ -365,8 +365,8 @@ export const Formats: FormatList = [
 		teambuilderFormat: "OU",
 	},
 	
-		{
-        name: "[Gen 8] Expansions", // i hope nobody minds how ugly this looks LOL
+	{
+        name: "[Gen 8] Expansions",
         desc: `<b>Expansions</b>: A Fakemon meta where everything gets up to 3 active abilities and a new secret move.`,
         threads: [
             `&bullet; <a href="https://docs.google.com/spreadsheets/d/1lguyF31tjV8f-Gv3uLxmZXGAlg23k2fkF_nBqevJouM/edit?usp=sharing">Spreadsheet</a>`,
@@ -375,7 +375,7 @@ export const Formats: FormatList = [
         ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Fifth Move Additions'],
         banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',],
         unbanlist: [
-             'Threedy', 'Amvip', 'Capsaken', 'Shinamako', 'Abrakin', 'Avasterror', 'Dustrake', 'Eneryth', 'Skyrider', 'Tusquoka', 'Turbulusk',
+             'Threedy', 'Amvip', 'Capsaken', 'Shinamako', 'Abrakin', 'Avasterror', 'Dustrake', 'Eneryth', 'Skyrider', 'Tusquoka', 'Turbulusk', 'Baloon-Popped', 'Rapteroid', 'Lilyqueen',
 			],	
 				onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
@@ -397,18 +397,18 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onSwitchOut(pokemon) {
+		onEnd(pokemon) {
 			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
 				pokemon.removeVolatile(innate);
 			}
 		},
-		onFaint(pokemon) {
+/*		onFaint(pokemon) {
 			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
 				const innateEffect = this.dex.conditions.get(innate) as Effect;
 				this.singleEvent('End', innateEffect, null, pokemon);
 			}
 		},
-		onAfterMega(pokemon) {
+*/		onAfterMega(pokemon) {
 			for (const innate of Object.keys(pokemon.volatiles).filter(i => i.startsWith('ability:'))) {
 				pokemon.removeVolatile(innate);
 			}
@@ -3487,6 +3487,16 @@ export const Formats: FormatList = [
 		mod: 'gen1expansionpack',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber'],
+	},
+	{
+      name: "[Gen 8] Mememons",
+      desc: `<b>Mememons</b>: solomod`,
+      mod: 'mememons',
+      ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Realmon Clause'],
+      banlist: ['Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',],
+		onSwitchIn(pokemon) {
+      	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+      },	
 	},
 	{
 		name: "[Gen 8] National Dex VGC",

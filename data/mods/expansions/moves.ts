@@ -56,6 +56,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.name === 'Turbulusk' || source.species.name === 'turbulusk') {
 				this.useMove("Liftoff", source);
 			}
+			if (source.species.name === 'Baloonpopped' || source.species.name === 'baloonpopped' || source.species.name === 'Baloon-Popped' || source.species.name === 'baloon-popped') {
+				this.useMove("Confidence Rush", source);
+			}
+			if (source.species.name === 'Rapteroid' || source.species.name === 'rapteroid') {
+				this.useMove("Orbital Launch", source);
+			}
+			if (source.species.name === 'Lilyqueen' || source.species.name === 'lilyqueen') {
+				this.useMove("Tidal Force", source);
+			}
 		},
 		target: "self",
 		type: "Normal",
@@ -336,5 +345,68 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Clever",
 	},
+	
+	confidencerush: {
+		num: 3012,
+		accuracy: 100,
+		basePower: 120,
+		onAfterHit(target, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				this.boost({atk: 6, spa: 6}, pokemon);
+			}
+		},
+		category: "Special",
+		name: "Confidence Rush",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		zMove: {basePower: 160},
+		contestType: "Cool",
+	},
+	
+	orbitallaunch: {
+		num: 3013,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Orbital Launch",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		basePowerCallback(pokemon, target, move) {
+			var hazards = 0;
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Orbital Launch', '[of] ' + pokemon);
+					hazards = hazards + 5;
+				}
+			}
+			this.add('-message', hazards);
+			return move.basePower + hazards;
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
 
+	tidalforce: {
+		num: 3014,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Tidal Force",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		weather: 'RainDance',
+		secondary: null,
+		target: "all",
+		type: "Water",
+		zMove: {boost: {spe: 1}},
+		contestType: "Beautiful",
+	},
 };
