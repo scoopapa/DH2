@@ -3135,7 +3135,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Serperior",
 		forme: "Mega",
 		types: ["Grass", "Dragon"],
-		baseStats: {hp: 75, atk: 125, def: 110, spa: 75, spd: 110, spe: 128},
+		baseStats: {hp: 75, atk: 130, def: 110, spa: 75, spd: 110, spe: 128},
 		abilities: {0: "Dazzling"},
 		heightm: 4.3,
 		weightkg: 73,
