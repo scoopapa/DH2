@@ -47,4 +47,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Expand",
 		doublesTier: "Expand",
 	},
+	baloonpopped: {
+		tier: "Expand",
+		doublesTier: "Expand",
+	},
+	rapteroid: {
+		tier: "Expand",
+		doublesTier: "Expand",
+	},
+	lilyqueen: {
+		tier: "Expand",
+		doublesTier: "Expand",
+	},
+
 };
