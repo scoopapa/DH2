@@ -809,7 +809,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	shocktail: {
 		accuracy: 100,
 		basePower: 85,
-		category: "Special",
+		category: "Physical",
 		shortDesc: "If the opponent has any stat boosts, they are paralyzed.",
 		isViable: true,
 		name: "Shock Tail",
