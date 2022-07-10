@@ -1662,7 +1662,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Starly-Crown", "Starly-Crown-Cloud"],
 		formeOrder: ["Starly", "Starly-Crown", "Starly-Crown-Cloud"],
 	},
-	crownstarly: {
+	starlycrown: {
 		name: "Starly-Crown",
 		baseSpecies: "Starly",
 		forme: "Crown",
@@ -1674,10 +1674,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		creator: "KeroseneZanchu",
 	},
-	crownstarlycloud: {
-		name: "Starly-Crown-Flock",
+	starlycrowncloud: {
+		name: "Starly-Crown-Cloud",
 		baseSpecies: "Starly",
-		forme: "Crown-Flock",
+		forme: "Crown-Cloud",
 		copyData: "Starly",
 
 		baseStats: {hp: 40, atk: 120, def: 170, spa: 50, spd: 161, spe: 100},
