@@ -2034,7 +2034,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	magnezone: {
 		tier: "OU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["thunderbolt", "irondefense", "flashcannon", "bodypress"],
+		randomBattleMoves: ["thunderbolt", "hiddenpowerfire", "flashcannon", "voltswitch"],
 	},
 	mawilemega: {
 		tier: "OU",
