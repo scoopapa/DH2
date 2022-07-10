@@ -1772,7 +1772,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 
 	michu: {
-		name: "Mimikyu",
+		name: "Michu",
 		copyData: "Mimikyu",
 
 		types: ["Normal", "Fairy"],
@@ -1869,6 +1869,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Dragon"],
 		baseStats: {hp: 100, atk: 115, def: 85, spa: 75, spd: 90, spe: 45},
 		abilities: {0: "Regenerator", H: "Minus"},
+		movepoolAdditions: ["dracometeor"],
 
 		prevo: "Flaaffy",
 		evoType: "other",
