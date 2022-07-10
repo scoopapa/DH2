@@ -292,9 +292,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (pokemon.species.name.startsWith('Klefki-Galar')) targetForme = pokemon.species.name === 'Klefki-Galar' ? 'Klefki-Galar-Revealed' : 'Klefki-Galar';
 			if (targetForme) {
 				pokemon.formeChange(targetForme);
-				if (targetForme = 'Klefki-Galar') {
+				if (targetForme === 'Klefki-Galar') {
 					this.add('-message', `${pokemon.name} changed to Lure Mode!`);
-				} else if (targetForme = 'Klefki-Galar-Revealed') {
+				} else if (targetForme === 'Klefki-Galar-Revealed') {
 					this.add('-message', `${pokemon.name} changed to Revealed Mode!`);
 				}
 				if (!this.effectData.busted && pokemon.species.baseSpecies !== 'Morpeko') { // this is just to make a dt that only shows up once per Klefki
