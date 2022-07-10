@@ -1,4 +1,10 @@
 export const Scripts: ModdedBattleScriptsData = {
+		teambuilderConfig: {
+		// for micrometas to only show custom tiers
+		excludeStandardTiers: true,
+		// only to specify the order of custom tiers
+		customTiers: ['MetaMons'],
+		},
 		init: function () {
 			this.modData("Learnsets", "whimsicott").learnset.bodypress = ["8L1"];
 			this.modData("Learnsets", "whimsicott").learnset.synthesis = ["8L1"];
@@ -30,6 +36,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.modData("Learnsets", "ariados").learnset.skittersmack = ["8L1"];
 			this.modData("Learnsets", "ariados").learnset.taunt = ["8L1"];
 			this.modData("Learnsets", "ariados").learnset.uturn = ["8L1"];
+			this.modData("Learnsets", "ariados").learnset.megahorn = ["8L1"];
+			this.modData("Learnsets", "ariados").learnset.pursuit = ["8L1"];
+			this.modData("Learnsets", "ariados").learnset.refresh = ["8L1"];
 			this.modData("Learnsets", "salazzle").learnset.acidrain = ["8L1"];
 			this.modData("Learnsets", "salazzle").learnset.aerialace = ["8L1"];
 			this.modData("Learnsets", "salazzle").learnset.bounce = ["8L1"];

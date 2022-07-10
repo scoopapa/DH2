@@ -310,6 +310,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			venoshock: ["7M", "6M", "5M"],
 			xscissor: ["7M", "6M", "5M"],
 		},
+		encounters: [
+			{generation: 2, level: 7},
+			{generation: 4, level: 5},
+			{generation: 6, level: 19, maxEggMoves: 1},
+		],
 	},
 	sandslash: {
 		learnset: {

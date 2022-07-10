@@ -682,12 +682,12 @@ export const Formats: FormatList = [
 			"In this Pet Mod, we will aim to create a decently-sized micrometa that will expand in the unique niches of some Pokémon, giving them the spotlight after all the time they have been waiting.",
 		],
 		threads: [
-			'&bullet; <a href="https://www.smogon.com/forums/threads/eternal-pokemon-v2-slate-3-high-horse-power.3700796/">Eternal Pokemon V2</a>',
-			'&bullet; <a href="https://docs.google.com/spreadsheets/d/1o7QNbqIN85CWuLJm-MJJ0u7yoUXvOZGuJfL_08oI1b4/edit#gid=0">Spreadsheet</a>',
+			'&bullet; <a href="https://www.smogon.com/forums/threads/metamons-slate-3-galarian-slowbro-sableye-grapploct.3703361/">MetaMons</a>',
+			'&bullet; <a href="https://docs.google.com/spreadsheets/d/142lxuFtTgQCY56Wz_ZjAGaqlk7HgJj0CVKMChQcei1U/edit#gid=0">Spreadsheet</a>',
 		],
 		mod: 'metamons', 
-		ruleset:['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['All Pokemon', 'Baton Pass'],
+		ruleset:['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Z-Move Clause'],
+		banlist: ['All Pokemon', 'Baton Pass', 'Sablenite'],
 		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon'],
 	},
 	{
