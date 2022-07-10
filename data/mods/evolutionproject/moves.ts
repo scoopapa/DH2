@@ -46,6 +46,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				duration: 5,
 				move: 'flurry',
 				source: source,
+				position: target.position,
+				side: target.side,
 				moveData: {
 					id: 'flurry',
 					name: "Flurry",
@@ -65,20 +67,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		condition: {
 			// this is a slot condition
-			name: 'flurry',
 			duration: 5,
 			onResidualOrder: 3,
 			onResidual(target) {
+				// unlike a future move, Flurry activates each turn
+				this.effectData.target = this.effectData.side.active[this.effectData.position];
 				const data = this.effectData;
-				const move = this.dex.getMove(data.move);
-				if (target.fainted || target === data.source) {
-					this.hint(`${move.name} did not hit because the target is ${(data.target.fainted ? 'fainted' : 'the user')}.`);
+				const move = this.dex.getMove('flurry');
+				if (data.target.fainted || data.target === data.source) {
+					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 					return;
 				}
-		
+
 				this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
-				target.removeVolatile('Endure');
-				
+				data.target.removeVolatile('Endure');
+
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 					data.moveData.infiltrates = true;
 				}
@@ -88,9 +91,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 					data.moveData.stab = 2;
 				}
-				data.moveData.accuracy = true;
-				data.moveData.isFutureMove = true;
-				
+
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 				if (data.source.isActive) {
 					this.add('-anim', data.source, "Sky Attack", data.target);
@@ -98,16 +99,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.trySpreadMoveHit([data.target], data.source, hitMove);
 			},
 			onEnd(target) {
+				// unlike a future move, Flurry activates each turn
+				this.effectData.target = this.effectData.side.active[this.effectData.position];
 				const data = this.effectData;
-				const move = this.dex.getMove(data.move);
+				const move = this.dex.getMove('flurry');
 				if (data.target.fainted || data.target === data.source) {
-					this.hint(`${move.name} did not hit because the target is ${(data.target.fainted ? 'fainted' : 'the user')}.`);
+					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 					return;
 				}
-		
+
 				this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
-				target.removeVolatile('Endure');
-				
+				data.target.removeVolatile('Endure');
+
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
 					data.moveData.infiltrates = true;
 				}
@@ -117,9 +120,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (data.source.hasAbility('adaptability') && this.gen >= 6) {
 					data.moveData.stab = 2;
 				}
-				data.moveData.accuracy = true;
-				data.moveData.isFutureMove = true;
-				
+
 				const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 				if (data.source.isActive) {
 					this.add('-anim', data.source, "Sky Attack", data.target);
