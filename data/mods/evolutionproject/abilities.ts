@@ -212,17 +212,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			if (newtype) {
 				let typecombo = [newtype, pokemon.baseSpecies.types[1]];
-				if (pokemon.getTypes(true) === typecombo || !pokemon.setType(typecombo)) return;
+				if (pokemon.getTypes().join() === typecombo.join() || !pokemon.setType(typecombo)) return;
 				this.add('-ability', pokemon, 'Scale Shift');
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 			} else {
-				if (pokemon.getTypes(true) === pokemon.baseSpecies.types || !pokemon.setType(pokemon.baseSpecies.types)) return;
+				if (pokemon.getTypes().join() === pokemon.baseSpecies.types.join() || !pokemon.setType(pokemon.baseSpecies.types)) return;
 				this.add('-ability', pokemon, 'Scale Shift');
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 			}
 		},
 		onEnd(pokemon) {
-			if (pokemon.getTypes(true) === pokemon.baseSpecies.types || !pokemon.setType(pokemon.baseSpecies.types)) return;
+			if (pokemon.getTypes().join() === pokemon.baseSpecies.types.join() || !pokemon.setType(pokemon.baseSpecies.types)) return;
 			this.add('-ability', pokemon, 'Scale Shift');
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 		},
