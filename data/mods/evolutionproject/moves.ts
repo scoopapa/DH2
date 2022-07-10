@@ -71,7 +71,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidual(target) {
 				const data = this.effectData;
 				const move = this.dex.getMove(data.move);
-				if (data.target.fainted || data.target === data.source) {
+				if (target.fainted || target === data.source) {
 					this.hint(`${move.name} did not hit because the target is ${(data.target.fainted ? 'fainted' : 'the user')}.`);
 					return;
 				}
