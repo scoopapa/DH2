@@ -40,30 +40,39 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const result = this.random(10);
 			if (result === 0) {
 				this.hint("Hype Level: 1 out of 10...");
+				this.useMove("Rest", pokemon);
 			}
 			else if (result === 1) {
 				this.hint("Hype Level: 2 out of 10...");
+				this.useMove("Sleep Talk", pokemon);
 			}
 			else if (result === 2) {
 				this.hint("Hype Level: 3 out of 10...");
+				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 3) {
 				this.hint("Hype Level: 4 out of 10.");
+				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 4) {
 				this.hint("Hype Level: 5 out of 10.");
+				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 5) {
 				this.hint("Hype Level: 6 out of 10.");
+				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 6) {
 				this.hint("Hype Level: 7 out of 10!");
+				this.useMove("Focus Energy", pokemon);
 			}
 			else if (result === 7) {
 				this.hint("Hype Level: 8 out of 10!");
+				this.useMove("Agility", pokemon);
 			}
 			else if (result === 8) {
 				this.hint("Hype Level: 9 OUT OF 10!");
+				this.useMove("Spinning Web", pokemon);
 			}
 			else {
 				this.hint("Hype level: 10 OUT OF 10!!!!!");

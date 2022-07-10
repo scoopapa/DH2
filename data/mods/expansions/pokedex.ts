@@ -88,7 +88,7 @@ turbulusk: {
 	weightkg: 999,
 },
 turbuluskairborne: {
-	num: 12.5,
+	num: 11.5,
 	species: "Turbulusk-Airborne",
 	baseSpecies: "Turbulusk",
 	forme: "Airborne",
@@ -99,7 +99,7 @@ turbuluskairborne: {
 	battleOnly: "Turbulusk",
 },
 baloonpopped: {
-	num: 1.5,
+	num: 12.5,
 	species: "Baloon-Popped",
 	types: ["Ghost", "Fairy"],
 	gender: "N",
@@ -108,7 +108,7 @@ baloonpopped: {
 	weightkg: 7,
 },
 rapteroid: {
-	num: 2.5,
+	num: 13.5,
 	species: "Rapteroid",
 	types: ["Ice", "Dragon"],
 	gender: "N",
@@ -117,7 +117,7 @@ rapteroid: {
 	weightkg: 5,
 },
 lilyqueen: {
-	num: 3.5,
+	num: 14.5,
 	species: "Lilyqueen",
 	types: ["Water", "Grass"],
 	gender: "N",
