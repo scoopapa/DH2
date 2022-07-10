@@ -69,7 +69,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 5,
 			onResidualOrder: 3,
 			onResidual(target) {
-				this.effectData.target = this.effectData.side.active[this.effectData.position];
 				const data = this.effectData;
 				const move = this.dex.getMove(data.move);
 				if (data.target.fainted || data.target === data.source) {
@@ -99,7 +98,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.trySpreadMoveHit([data.target], data.source, hitMove);
 			},
 			onEnd(target) {
-				this.effectData.target = this.effectData.side.active[this.effectData.position];
 				const data = this.effectData;
 				const move = this.dex.getMove(data.move);
 				if (data.target.fainted || data.target === data.source) {
