@@ -18,7 +18,7 @@ wallace: {
 	species: "Wallace",
 	types: ["Normal"],
 	baseStats: {hp: 1, atk: 200, def: 200, spa: 200, spd: 100, spe: 50},
-	abilities: {0: "Wonder Gaurd"},
+	abilities: {0: "Wonder Guard"},
 },
 gromit: {
 	num: 1004.5,
