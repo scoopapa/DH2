@@ -1,4 +1,10 @@
 export const Scripts: ModdedBattleScriptsData = {
+		teambuilderConfig: {
+		// for micrometas to only show custom tiers
+		excludeStandardTiers: true,
+		// only to specify the order of custom tiers
+		customTiers: ['MetaMons'],
+		},
 		init: function () {
 			this.modData("Learnsets", "whimsicott").learnset.bodypress = ["8L1"];
 			this.modData("Learnsets", "whimsicott").learnset.synthesis = ["8L1"];
@@ -30,12 +36,31 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.modData("Learnsets", "ariados").learnset.skittersmack = ["8L1"];
 			this.modData("Learnsets", "ariados").learnset.taunt = ["8L1"];
 			this.modData("Learnsets", "ariados").learnset.uturn = ["8L1"];
+			this.modData("Learnsets", "ariados").learnset.megahorn = ["8L1"];
+			this.modData("Learnsets", "ariados").learnset.pursuit = ["8L1"];
+			this.modData("Learnsets", "ariados").learnset.refresh = ["8L1"];
 			this.modData("Learnsets", "salazzle").learnset.acidrain = ["8L1"];
 			this.modData("Learnsets", "salazzle").learnset.aerialace = ["8L1"];
 			this.modData("Learnsets", "salazzle").learnset.bounce = ["8L1"];
 			this.modData("Learnsets", "salazzle").learnset.defog = ["8L1"];
 			this.modData("Learnsets", "salazzle").learnset.hurricane = ["8L1"];
 			this.modData("Learnsets", "salazzle").learnset.uturn = ["8L1"];
+			this.modData("Learnsets", "slowbrogalar").learnset.crabhammer = ["8L1"];
+			this.modData("Learnsets", "slowbrogalar").learnset.gunkshot = ["8L1"];
+			this.modData("Learnsets", "sableye").learnset.healbell = ["8L1"];
+			this.modData("Learnsets", "sableye").learnset.spikes = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.aquajet = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.beatup = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.bite = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.crunch = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.darkestlariat = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.darkpulse = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.flipturn = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.knockoff = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.lifedew = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.machpunch = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.scald = ["8L1"];
+			this.modData("Learnsets", "grapploct").learnset.swordsdance = ["8L1"];
 			delete this.modData('Learnsets', 'kingler').learnset.rockslide;
 			delete this.modData('Learnsets', 'kingler').learnset.rocktomb;
 			delete this.modData('Learnsets', 'kingler').learnset.stompingtantrum;
