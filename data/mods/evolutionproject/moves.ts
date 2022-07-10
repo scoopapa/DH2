@@ -65,7 +65,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		condition: {
 			// this is a slot condition
-			name: 'futuremove',
+			name: 'flurry',
 			duration: 5,
 			onResidualOrder: 3,
 			onResidual(target) {
