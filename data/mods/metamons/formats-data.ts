@@ -17,4 +17,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	bastiodon: {
 		tier: "MetaMons",
 	},
+	slowbrogalar: {
+		tier: "MetaMons",
+	},
+	sableye: {
+		tier: "MetaMons",
+	},
+	grapploct: {
+		tier: "MetaMons",
+	},
 };
