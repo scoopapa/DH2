@@ -202,14 +202,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted) return; // should activate *after* Data Mod
 			let types = pokemon.baseSpecies.types;
+			let newtype = '???';
 			for (const ally of pokemon.side.active) {
 				if (ally !== pokemon && !ally.hasAbility('scaleshift') && !pokemon.hasType(ally.types[0])) {
-					types[0] = ally.types[0];
+					newtype = ally.types[0];
 				}
 			}
-			if (pokemon.types === types || !pokemon.setType(types)) return;
-			this.add('-ability', pokemon, 'Scale Shift');
-			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
+			if (newtype === '???') {
+				if (pokemon.types === types || !pokemon.setType(types)) return;
+				this.add('-ability', pokemon, 'Scale Shift');
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
+			} else {
+				let newcombo = pokemon.baseSpecies.types.map(type => type === pokemon.baseSpecies.types[0] ? newtype : type);
+				if (pokemon.types === newcombo || !pokemon.setType(newcombo)) return;
+				this.add('-ability', pokemon, 'Scale Shift');
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
+			}
 		},
 		onEnd(pokemon) {
 			if (!pokemon.setType(pokemon.baseSpecies.types)) return;
