@@ -23,7 +23,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Emergency Exit"},
 		weightkg: 100,
 	},
-		alohwo: {
+	alohwo: {
 		num: 1004,
 		name: "Alohwo",
 		types: ["Fire", "Dragon"],
