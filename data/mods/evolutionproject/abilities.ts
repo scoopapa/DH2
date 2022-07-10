@@ -207,7 +207,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					types[0] = ally.types[0];
 				}
 			}
-			if (!pokemon.setType(types)) return;
+			if (pokemon.types === types || !pokemon.setType(types)) return;
 			this.add('-ability', pokemon, 'Scale Shift');
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 		},
