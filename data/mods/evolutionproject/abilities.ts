@@ -201,20 +201,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "In a double battle, the Pokémon copies its partner's first type.",
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted) return; // should activate *after* Data Mod
-			let types = pokemon.baseSpecies.types;
-			let newtype = '???';
+			let newtype = null;
 			for (const ally of pokemon.side.active) {
-				if (ally !== pokemon && !ally.hasAbility('scaleshift') && !pokemon.hasType(ally.types[0])) {
+				if (
+					ally !== pokemon && !ally.hasAbility('scaleshift') && ally.types[0] !== pokemon.baseSpecies.types[0]
+					&& ally.types[0] !== pokemon.baseSpecies.types[1]
+				) {
 					newtype = ally.types[0];
 				}
 			}
-			if (newtype === '???') {
-				if (pokemon.types === types || !pokemon.setType(types)) return;
+			if (newtype) {
+				let typecombo = [newtype, pokemon.baseSpecies.types[1]];
+				if (pokemon.types === typecombo || !pokemon.setType(typecombo)) return;
 				this.add('-ability', pokemon, 'Scale Shift');
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 			} else {
-				let newcombo = pokemon.baseSpecies.types.map(type => type === pokemon.baseSpecies.types[0] ? newtype : type);
-				if (pokemon.types === newcombo || !pokemon.setType(newcombo)) return;
+				if (pokemon.types === pokemon.baseSpecies.types || !pokemon.setType(pokemon.baseSpecies.types)) return;
 				this.add('-ability', pokemon, 'Scale Shift');
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 			}
@@ -292,6 +294,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (pokemon.species.name.startsWith('Klefki-Galar')) targetForme = pokemon.species.name === 'Klefki-Galar' ? 'Klefki-Galar-Revealed' : 'Klefki-Galar';
 			if (targetForme) {
 				pokemon.formeChange(targetForme);
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				if (targetForme === 'Klefki-Galar') {
 					this.add('-message', `${pokemon.name} changed to Lure Mode!`);
 				} else if (targetForme === 'Klefki-Galar-Revealed') {
@@ -302,7 +305,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					const abilities = species.abilities;
 					const baseStats = species.baseStats;
 					const type = species.types[0];
-					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 					if (species.types[1]) {
 						const type2 = species.types[1];
 						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
