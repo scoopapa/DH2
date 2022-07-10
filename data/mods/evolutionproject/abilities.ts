@@ -212,17 +212,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			if (newtype) {
 				let typecombo = [newtype, pokemon.baseSpecies.types[1]];
-				if (pokemon.types === typecombo || !pokemon.setType(typecombo)) return;
+				if (pokemon.getTypes(true) === typecombo || !pokemon.setType(typecombo)) return;
 				this.add('-ability', pokemon, 'Scale Shift');
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 			} else {
-				if (pokemon.types === pokemon.baseSpecies.types || !pokemon.setType(pokemon.baseSpecies.types)) return;
+				if (pokemon.getTypes(true) === pokemon.baseSpecies.types || !pokemon.setType(pokemon.baseSpecies.types)) return;
 				this.add('-ability', pokemon, 'Scale Shift');
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 			}
 		},
 		onEnd(pokemon) {
-			if (!pokemon.setType(pokemon.baseSpecies.types)) return;
+			if (pokemon.getTypes(true) === pokemon.baseSpecies.types || !pokemon.setType(pokemon.baseSpecies.types)) return;
 			this.add('-ability', pokemon, 'Scale Shift');
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
 		},
