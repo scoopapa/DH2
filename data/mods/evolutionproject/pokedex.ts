@@ -1728,7 +1728,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		prevo: "Snom-Variant",
 		evoType: "levelFriendship",
 		evoCondition: "at night",
-		creator: "ausma",
+		creator: "BlueRay",
 	},
 
 	baltoy: {
@@ -2397,9 +2397,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "Albatross",
 	},
 	klefkigalarrevealed: {
-		name: "Klefki-Galar",
+		name: "Klefki-Galar-Revealed",
 		baseSpecies: "Klefki",
-		forme: "Galar",
+		forme: "Galar-Revealed",
 		copyData: "Klefki",
 
 		types: ["Fairy", "Dark"],
