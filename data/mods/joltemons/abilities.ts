@@ -495,7 +495,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const additionalBannedAbilities = [
 					// Zen Mode included here for compatability with Gen 5-6
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
-					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'concussion', 'gorillatactics',
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'concussion', 'gorillatactics', 'counterfeit',
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -635,6 +635,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counterfeit",
 		rating: 3.5,
 	},
+*/
 	counterfeit: {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -669,6 +670,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 	},
 
+/*
 	counterfeit: {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -684,7 +686,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counterfeit",
 		rating: 3.5,
 	},
-*/
+
 	counterfeit: {
 		shortDesc: "(Non-functional placeholder) On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -699,6 +701,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Counterfeit",
 		rating: 1.5,
 	},
+*/
 	optimistic: {
 		onBoost(boost, target, source, effect) {
 			if (source && target !== source) return;
@@ -1500,5 +1503,945 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Power of Alchemy (Sylveon)",
 		rating: 0,
+	},
+	
+// Counterfeit Stuff, never ask me for anything ever again
+	lifeorb: {
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.3);
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && source !== target && move && move.category !== 'Status') {
+				this.add('-ability', source, 'Life Orb');
+				this.damage(source.baseMaxhp / 10, source, source);
+			}
+		},
+		name: "Life Orb",
+	},
+	assaultvest: {
+		onModifySpDPriority: 1,
+		onModifySpD(spd) {
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.getMove(moveSlot.move).category === 'Status') {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		name: "Assault Vest",
+	},
+	choiceband: {
+		onStart(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.isZOrMaxPowered || move.id === 'struggle') return;
+			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
+				// Fails unless ability is being ignored (these events will not run), no PP lost.
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Choice Band");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityData.choiceLock = move.id;
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Choice Band Atk Boost');
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.abilityData.choiceLock) return;
+			if (pokemon.volatiles['dynamax']) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		name: "Choice Band",
+	},
+	choicespecs: {
+		name: "Choice Specs",
+		shortDesc: "This Pokemon's Sp. Atk is 1.5x, but it can only select the first move it executes.",
+		onStart(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.isZOrMaxPowered || move.id === 'struggle') return;
+			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
+				// Fails unless ability is being ignored (these events will not run), no PP lost.
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Choice Specs");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityData.choiceLock = move.id;
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon, move) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Choice Specs Sp. Atk Boost');
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.abilityData.choiceLock) return;
+			if (pokemon.volatiles['dynamax']) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+	},
+	choicescarf: {
+		onStart(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.isZOrMaxPowered || move.id === 'struggle') return;
+			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
+				// Fails unless ability is being ignored (these events will not run), no PP lost.
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Choice Scarf");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityData.choiceLock = move.id;
+		},
+		onModifySpe(spe, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Choice Scarf Spe Boost');
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.abilityData.choiceLock) return;
+			if (pokemon.volatiles['dynamax']) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		name: "Choice Scarf",
+	},
+	eviolite: {
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Eviolite",
+	},
+	eviolith: {
+		onModifyAtkPriority: 2,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 2,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Eviolith",
+	},
+	momentumarmor: {
+        onModifyAtkPriority: 1,
+        onModifyAtk(atk, pokemon) {
+          const def = pokemon.getStat('def', false, true);
+          const newAtk = atk + (def / 4);
+          return newAtk;
+        },
+		name: "Momentum Armor",
+	},
+	shellbell: {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category !== 'Status') {
+			this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		name: "Shell Bell",
+	},
+	cursedbelt: {
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (move.category === 'Status') {
+				target.addVolatile('disable');
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source.volatiles['disable']) {
+				return this.chainModify(1.2);
+			}
+		},
+		name: "Cursed Belt",
+	},
+/*
+	chilipepper: {
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] item: Chili Pepper');
+			}
+			return false;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'item: Chili Pepper');
+				pokemon.cureStatus();
+				pokemon.useItem();
+			}
+		},
+		name: "Chili Pepper",
+	},
+*/
+	focussash: {
+		onStart(pokemon) {
+			pokemon.addVolatile('focussash');
+		},
+		condition: {
+			onDamagePriority: -100,
+			onDamage(damage, target, source, effect) {
+				if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+					this.add('-ability', target, 'Focus Sash');
+					return target.hp - 1;
+					target.removeVolatile('focussash');
+				}
+			},
+		},
+		name: "Focus Sash",
+	},
+	leftovers: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return;
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+		onTerrain(pokemon) {
+			if (!this.field.isTerrain('grassyterrain')) return;
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+		name: "Leftovers",
+	},
+	rockyhelmet: {
+		onDamagingHitOrder: 2,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.damage(source.baseMaxhp / 6, source, target);
+			}
+		},
+		name: "Rocky Helmet",
+	},
+/*
+	mentalherb: {
+		onStart(pokemon) {
+			pokemon.addVolatile('mentalherb');
+		},
+		condition: {
+			onAllyTryAddVolatile(status, target, source, effect) {
+				if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
+					if (effect.effectType === 'Move') {
+						const effectHolder = this.effectData.target;
+						this.add('-block', target, 'ability: Mental Herb', '[of] ' + effectHolder);
+						target.removeVolatile('mentalherb');
+					}
+					return null;
+				}
+			},
+		name: "Mental Herb",
+	},
+*/
+	blacksludge: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return;
+			if (pokemon.hasType('Poison')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			} else {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+		},
+		onTerrain(pokemon) {
+			if (!this.field.isTerrain('grassyterrain')) return;
+			if (pokemon.hasType('Poison')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			} else {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+		},
+		name: "Black Sludge",
+	},
+	reapercloth: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return;
+			if (pokemon.hasType('Ghost')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			} 
+		},
+		onTerrain(pokemon) {
+			if (!this.field.isTerrain('grassyterrain')) return;
+			if (pokemon.hasType('Ghost')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+		onDisableMove: function(pokemon) {
+			if (!pokemon.hasType('Ghost') && pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		},
+		name: "Reaper Cloth",
+	},
+	flameorb: {
+		onResidualOrder: 26,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			pokemon.trySetStatus('brn', pokemon);
+		},
+		name: "Flame Orb",
+	},
+	toxicorb: {
+		onResidualOrder: 26,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			pokemon.trySetStatus('tox', pokemon);
+		},
+		name: "Toxic Orb",
+	},
+	widelens: {
+		onSourceModifyAccuracyPriority: 4,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy === 'number') {
+				return accuracy * 1.2;
+			}
+		},
+		name: "Wide Lens",
+	},
+	zoomlens: {
+		onSourceModifyAccuracyPriority: 4,
+		onSourceModifyAccuracy(accuracy, target) {
+			if (typeof accuracy === 'number' && (!this.queue.willMove(target) || target.newlySwitched)) {
+				this.debug('Zoom Lens boosting accuracy');
+				return accuracy * 1.5;
+			}
+		},
+		name: "Zoom Lens",
+	},
+	protector: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Protector neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Protector",
+	},
+	quickclaw: {
+		onFractionalPriorityPriority: -2,
+		onFractionalPriority(priority, pokemon) {
+			if (priority <= 0 && this.randomChance(1, 5)) {
+				this.add('-activate', pokemon, 'ability: Quick Claw');
+				return 0.1;
+			}
+		},
+		name: "Quick Claw",
+	},
+	shedshell: {
+		onTrapPokemonPriority: -10,
+		onTrapPokemon(pokemon) {
+			pokemon.trapped = pokemon.maybeTrapped = false;
+		},
+		name: "Shed Shell",
+	},
+	scopelens: {
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+		name: "Scope Lens",
+	},
+	razorclaw: {
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+		name: "Razor Claw",
+	},
+	whippeddream: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Whipped Dream",
+	},
+	pixieplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Pixie Plate",
+	},
+	blackbelt: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Black Belt",
+	},
+	blackglasses: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Dark') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Black Glasses",
+	},
+	charcoal: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fire') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Charcoal",
+	},
+	dragonfang: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Dragon') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Dragon Fang",
+	},
+	hardstone: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Rock') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Hard Stone",
+	},
+	magnet: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Electric') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Magnet",
+	},
+	metalcoat: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Steel') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Metal Coat",
+	},
+	miracleseed: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Grass') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Miracle Seed",
+	},
+	mysticwater: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Water') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Mystic Water",
+	},
+	nevermeltice: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ice') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Never-Melt Ice",
+	},
+	poisonbarb: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Poison') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Poison Barb",
+	},
+	sharpbeak: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Flying') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Sharp Beak",
+	},
+	silkscarf: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Normal') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Silk Scarf",
+	},
+	softsand: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ground') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Soft Sand",
+	},
+	spelltag: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ghost') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Spell Tag",
+	},
+	twistedspoon: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Psychic') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Twisted Spoon",
+	},
+	silverpowder: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Bug') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Silver Powder",
+	},
+	protectivepads: {
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		name: "Protective Pads",
+	},
+	safetygoggles: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
+		},
+		onTryHit(pokemon, source, move) {
+			if (move.flags['powder'] && pokemon !== source && this.dex.getImmunity('powder', pokemon)) {
+				this.add('-activate', pokemon, 'ability: Safety Goggles', move.name);
+				return null;
+			}
+		},
+		name: "Safety Goggles",
+	},
+	bigroot: {
+		onTryHealPriority: 1,
+		onTryHeal(damage, target, source, effect) {
+			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
+			if (heals.includes(effect.id)) {
+				return this.chainModify([0x14CC, 0x1000]);
+			}
+		},
+		name: "Big Root",
+	},
+	utilityumbrella: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail') return false;
+		},
+		onWeather(target, source, effect) {
+			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm'])) {
+				this.heal(target.baseMaxhp / 12);
+			}
+		},
+		name: "Utility Umbrella",
+	},
+	soulblade: {
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify([0x1199, 0x1000]);
+		},
+		/*
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setAbility('soulbladelvl2');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		*/
+		name: "Soul Blade",
+	},
+/*
+	soulbladelvl2: {
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify([0x14CC, 0x1000]);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setAbility('soulbladelvl3');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		name: "Soul Blade Lvl. 2",
+	},
+	soulbladelvl3: {
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.5);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setAbility('soulbladelvl4');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		name: "Soul Blade Lvl. 3",
+	},
+	soulbladelvl4: {
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.7);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setAbility('soulbladelvl5');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		name: "Soul Blade Lvl. 4",
+	},
+	soulbladelvl5: {
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(1.9);
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.add('-activate', source, 'item: Soul Blade'); 
+				source.setAbility('ultrasoulblade');
+				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
+			}
+		},
+		name: "Soul Blade Lvl. 5",
+	},
+	ultrasoulblade: {
+		onModifyDamage(damage, source, target, move) {
+				return this.chainModify(2.1);
+		},
+		name: "Ultra Soul Blade",
+	},
+*/
+	fistplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Fist Plate",
+	},
+	dreadplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Dark') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Dread Plate",
+	},
+	flameplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fire') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Flame Plate",
+	},
+	dracoplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Dragon') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Draco Plate",
+	},
+	stoneplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Rock') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Stone Plate",
+	},
+	rockincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Rock') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Rock Incense",
+	},
+	zapplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Electric') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Zap Plate",
+	},
+	ironplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Steel') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Iron Plate",
+	},
+	meadowplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Grass') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Meadow Plate",
+	},
+	roseincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Grass') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Rose Incense",
+	},
+	splashplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Water') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Splash Plate",
+	},
+	seaincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Water') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Sea Incense",
+	},
+	waveincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Water') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Wave Incense",
+	},
+	icicleplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ice') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Icicle Plate",
+	},
+	toxicplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Poison') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Toxic Plate",
+	},
+	skyplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Flying') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Sky Plate",
+	},
+	earthplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ground') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Earth Plate",
+	},
+	spookyplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Ghost') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Spooky Plate",
+	},
+	mindplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Psychic') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Mind Plate",
+	},
+	oddincense: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Psychic') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Odd Incense",
+	},
+	insectplate: {
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Bug') {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Insect Plate",
+	},
+	fullincense: {
+		onFractionalPriority: -0.1,
+		name: "Full Incense",
+	},
+	laggingtail: {
+		onFractionalPriority: -0.1,
+		name: "Lagging Tail",
+	},
+	muscleband: {
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category === 'Physical') {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		name: "Muscle Band",
+	},
+	wiseglasses: {
+		onBasePowerPriority: 16,
+		onBasePower(basePower, user, target, move) {
+			if (move.category === 'Special') {
+				return this.chainModify([0x1199, 0x1000]);
+			}
+		},
+		name: "Wise Glasses",
+	},
+	focusband: {
+		onDamage(damage, target, source, effect) {
+			if (this.randomChance(1, 10) && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add("-activate", target, "ability: Focus Band");
+				return target.hp - 1;
+			}
+		},
+		name: "Focus Band",
+	},
+	metronome: {
+		onStart(pokemon) {
+			pokemon.addVolatile('metronome');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.effectData.lastMove = '';
+				this.effectData.numConsecutive = 0;
+			},
+			onTryMovePriority: -2,
+			onTryMove(pokemon, target, move) {
+				if (!pokemon.hasItem('metronome')) {
+					pokemon.removeVolatile('metronome');
+					return;
+				}
+				if (this.effectData.lastMove === move.id && pokemon.moveLastTurnResult) {
+					this.effectData.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove'] && this.effectData.lastMove !== move.id) {
+					this.effectData.numConsecutive = 1;
+				} else {
+					this.effectData.numConsecutive = 0;
+				}
+				this.effectData.lastMove = move.id;
+			},
+			onModifyDamage(damage, source, target, move) {
+				const dmgMod = [0x1000, 0x1333, 0x1666, 0x1999, 0x1CCC, 0x2000];
+				const numConsecutive = this.effectData.numConsecutive > 5 ? 5 : this.effectData.numConsecutive;
+				return this.chainModify([dmgMod[numConsecutive], 0x1000]);
+			},
+		},
+		name: "Metronome",
 	},
 };
