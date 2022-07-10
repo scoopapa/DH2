@@ -1,29 +1,29 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	whimsicott: {
-		tier: "MetaMons",
+		tier: "metamons",
 	},
 	salazzle: {
-		tier: "MetaMons",
+		tier: "metamons",
 	},
 	kingler: {
-		tier: "MetaMons",
+		tier: "metamons",
 	},
 	ariados: {
-		tier: "MetaMons",
+		tier: "metamons",
 	},
 	sandslash: {
-		tier: "MetaMons",
+		tier: "metamons",
 	},
 	bastiodon: {
-		tier: "MetaMons",
+		tier: "metamons",
 	},
 	slowbrogalar: {
-		tier: "MetaMons",
+		tier: "metamons",
 	},
 	sableye: {
-		tier: "MetaMons",
+		tier: "metamons",
 	},
 	grapploct: {
-		tier: "MetaMons",
+		tier: "metamons",
 	},
 };
