@@ -23,15 +23,27 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Emergency Exit"},
 		weightkg: 100,
 	},
-	
-	/*
-	template: {
-		num: 1001,
-		name: "template",
-		types: ["type1", "type2"],
-		baseStats: {hp: 00, atk: 00, def: 00, spa: 00, spd: 00, spe: 00},
-		abilities: {0: "ability1", 1: "ability2", H: "abilityH"},
-		weightkg: 00,
+		alohwo: {
+		num: 1004,
+		name: "Alohwo",
+		types: ["Fire", "Dragon"],
+		baseStats: {hp: 111, atk: 112, def: 90, spa: 100, spd: 99, spe: 95},
+		abilities: {0: "Blaze", H: "Strong Jaw"},
 	},
-`	*/
+	alcejudo: {
+		num: 1005,
+		name: "Alcejudo",
+		types: ["Fighting"],
+		baseStats: {hp: 110, atk: 135, def: 100, spa: 65, spd: 90, spe: 55},
+		abilities: {0: "Stall"},
+		weightkg: 65,
+	},
+	spirachain: {
+		num: 1006,
+		name: "Spirachain",
+		types: ["Steel", "Psychic"],
+		baseStats: {hp: 67, atk: 127, def: 127, spa: 83, spd: 67, spe: 79},
+		abilities: {0: "Liquid Ooze"},
+		weightkg: 81,
+	},
 };
