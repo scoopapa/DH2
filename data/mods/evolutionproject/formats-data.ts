@@ -69,7 +69,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	baltoy: { tier: "Evo (NFE)" },
 	baltoyvariant: { tier: "Evo (NFE)" },
 	claydol: { tier: "Evo!" },
-	claydolvariant: { tier: "Evo!" },
+	playdol: { tier: "Evo!" },
 
 	michu: { tier: "Evo (NFE)" }, // the first new baby!
 	mimikyu: { tier: "Evo!" },
