@@ -2919,7 +2919,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	chesnaught: {
 		tier: "UU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["spikes", "leechseed", "woodhammer", "drainpunch"],
+		randomBattleMoves: ["spikes", "synthesis", "woodhammer", "drainpunch"],
 	},
 	chimecho: {
 		tier: "RU",
