@@ -1530,7 +1530,7 @@ export class RandomTeams {
 		return pokemonPool;
 	}
 
-	randomTeam() {
+	randomTeam(); {
 		const seed = this.prng.seed;
 		const ruleTable = this.dex.getRuleTable(this.format);
 		const pokemon = [];
