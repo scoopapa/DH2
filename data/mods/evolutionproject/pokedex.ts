@@ -325,7 +325,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Scrafiti",
 		copyData: "Scrafty",
 
-		baseStats: {hp: 70, atk: 100, def: 115, spa: 45, spd: 115, spe: 48},
+		baseStats: {hp: 65, atk: 100, def: 115, spa: 45, spd: 115, spe: 48},
 		abilities: {0: "Shed Skin", 1: "Moxie", H: "Prankster"},
 		movepoolAdditions: ["copycat"],
 
