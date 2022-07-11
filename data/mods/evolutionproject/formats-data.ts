@@ -69,7 +69,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	baltoy: { tier: "Evo (NFE)" },
 	baltoyvariant: { tier: "Evo (NFE)" },
 	claydol: { tier: "Evo!" },
-	claydolvariant: { tier: "Evo!" },
+	playdol: { tier: "Evo!" },
 
 	michu: { tier: "Evo (NFE)" }, // the first new baby!
 	mimikyu: { tier: "Evo!" },
@@ -421,7 +421,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	polteageistcoldbrew: { tier: "Evo!" },
 
 	scraggy: { tier: "Evo (NFE)" },
-	scrafty: { tier: "Evo (NFE)" }, // evolves into Scrafiti
+	scrafty: { tier: "Evo!" }, // no longer evolves into Scrafiti
 	scrafiti: { tier: "Evo!" },
 
 	horsea: { tier: "Evo (NFE)" },

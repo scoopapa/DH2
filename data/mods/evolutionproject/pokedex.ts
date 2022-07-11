@@ -325,7 +325,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Scrafiti",
 		copyData: "Scrafty",
 
-		baseStats: {hp: 70, atk: 100, def: 115, spa: 45, spd: 115, spe: 48},
+		baseStats: {hp: 65, atk: 100, def: 115, spa: 45, spd: 115, spe: 48},
 		abilities: {0: "Shed Skin", 1: "Moxie", H: "Prankster"},
 		movepoolAdditions: ["copycat"],
 
@@ -1394,7 +1394,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Vespiquen",
 
 		types: ["Bug", "Fairy"],
-		baseStats: {hp: 85, atk: 80, def: 110, spa: 100, spd: 110, spe: 60},
+		baseStats: {hp: 85, atk: 90, def: 110, spa: 100, spd: 110, spe: 60},
 		abilities: {0: "Pressure", 1: "Flash Fire", H: "Flare Boost"},
 		movepoolAdditions: ["dazzlinggleam", "drainingkiss", "heatwave", "psychoshift"],
 
@@ -1772,7 +1772,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 
 	michu: {
-		name: "Mimikyu",
+		name: "Michu",
 		copyData: "Mimikyu",
 
 		types: ["Normal", "Fairy"],
@@ -1869,6 +1869,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Dragon"],
 		baseStats: {hp: 100, atk: 115, def: 85, spa: 75, spd: 90, spe: 45},
 		abilities: {0: "Regenerator", H: "Minus"},
+		movepoolAdditions: ["dracometeor"],
 
 		prevo: "Flaaffy",
 		evoType: "other",
@@ -2038,7 +2039,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["jawlock", "partingshot", "taunt"],
 
 		requiredAbility: "Stance Change",
-		battleOnly: "Aegislash",
+		battleOnly: "Condana",
 		creator: "abismal",
 	},
 
