@@ -37,6 +37,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Light Power",
     shortDesc: "This Pokemon's Special Attack is doubled.",
+		rating: 5,
 	},
 	raindish: {
 		onResidualOrder: 5,
@@ -53,6 +54,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Rain Dish",
     shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Rain.",
 		num: 44,
+		rating: 3,
 	},
 	icebody: {
 		onResidualOrder: 5,
@@ -69,6 +71,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ice Body",
     shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Hail.",
 		num: 115,
+		rating: 3,
 	},
 	sweetveil: {
 		name: "Sweet Veil",
@@ -206,6 +209,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Overclock",
+		rating: 4,
 	},
 	pricklycoat: {
 		shortDesc: "This Pokemon sets a layer of Spikes when hit by a contact move, or Toxic Spikes if it's a Poison-type or hit by a Poison-type move.",
@@ -222,6 +226,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Prickly Coat",
+		rating: 4,
 	},
 	sandveil: {
 		desc: "If Sandstorm is active, this Pokemon's SpD is multiplied by 1.5. This Pokemon takes no damage from Sandstorm.",
@@ -293,7 +298,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Muk-Alola)",
-		rating: 0,
+		rating: 5,
 	},
 	merciless: {
 		shortDesc: "This Pokemon's attacks are critical hits if the target is statused.",
@@ -377,7 +382,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 	  },
 	  name: "Buzz Off",
-	  rating: 2.5,
+	  rating: 4.5,
     },
 	magmaarmor: {
 		onUpdate(pokemon) {
@@ -405,7 +410,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Magma Armor",
-		rating: 1,
+		rating: 2,
 		num: 40,
 		shortDesc: "Water/Ice-type moves against this Pokemon deal damage with a halved attacking stat. Hail & Freeze immunity.",
 	},
@@ -453,6 +458,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Soul Link",
 		shortDesc: "Pokémon that make contact with this Pokémon have the Ghost-type added to their existing typings until they switch out (Trick-or-Treat effect).",
+		rating: 2.5,
 	},
 /*
 	soullink: {
@@ -512,7 +518,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Wandering Spirit",
-		rating: 2.5,
+		rating: 4,
 		num: 254,
 	},
 	honeygather: {
@@ -535,7 +541,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.67);
 			}
 		},
-		rating: 0,
+		rating: 3,
 		num: 118,
 	},
 	hydration: {
@@ -719,7 +725,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "This Pokemon can't lower its own stats.",
 		name: "Optimistic",
-		rating: 2,
+		rating: 5,
 	},
 	rivalry: {
 		onBasePowerPriority: 24,
@@ -750,7 +756,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "If Sun is active, 1.5x power Water moves and sets Mist; Ignores Sun Water drop.",
 		name: "Vapor Control",
-		rating: 2,
+		rating: 3,
 	},
 
 // Edited by proxy
@@ -948,7 +954,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			 }
 		},
 		name: "Flare Boost",
-		rating: 2,
+		rating: 2.5,
 		num: 138,
 	},
 
@@ -985,7 +991,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Weezing)",
-		rating: 0,
+		rating: 5,
 	}, 
 		powerofalchemyalcremie: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1037,7 +1043,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Alcremie)",
-		rating: 0,
+		rating: 5,
 	}, 
 	powerofalchemymismagius: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1046,7 +1052,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Mismagius)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyslowkinggalar: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1066,7 +1072,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Slowking-Galar)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyditto: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1100,7 +1106,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Ditto)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyvanillite: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1133,7 +1139,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Vanillite)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyvanilluxe: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1156,7 +1162,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Vanilluxe)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemytypenull: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1173,7 +1179,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onCriticalHit: false,
 		isPermanent: true,
 		name: "Power of Alchemy (Type: Null)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemysilvally: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1196,7 +1202,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Silvally)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyvaporeon: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1223,7 +1229,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Vaporeon)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyjolteon: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1252,7 +1258,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Jolteon)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyflareon: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1276,7 +1282,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Flareon)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyespeon: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1324,7 +1330,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Espeon)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyumbreon: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1336,7 +1342,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Umbreon)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyleafeon: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1378,7 +1384,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Leafeon)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemyglaceon: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1402,7 +1408,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Glaceon)",
-		rating: 0,
+		rating: 5,
 	},
 	powerofalchemysylveon: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
@@ -1502,7 +1508,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Sylveon)",
-		rating: 0,
+		rating: 5,
 	},
 	
 // Counterfeit Stuff, never ask me for anything ever again
