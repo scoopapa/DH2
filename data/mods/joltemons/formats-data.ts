@@ -3313,7 +3313,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	glalie: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["spikes", "iciclecrash", "earthquake", "protect"],
+		randomBattleMoves: ["iceshard", "iciclecrash", "earthquake", "protect"],
 	},
 	glaliemega: {
 		tier: "RU",
