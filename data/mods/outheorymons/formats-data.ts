@@ -5234,7 +5234,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	kommoo: {
-		randomBattleMoves: ["clangingscales", "clangoroussoul", "closecombat", "drainpunch", "dragontail", "poisonjab", "stealthrock", "rapidspin"],
+		randomBattleMoves: ["clangingscales", "clangoroussoul", "closecombat", "drainpunch", "poisonjab", "stealthrock", "rapidspin"],
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["bodypress", "dracometeor", "irondefense", "protect"],
 		randomDoubleBattleLevel: 80,
@@ -5349,7 +5349,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	guzzlord: {
-		randomBattleMoves: ["dracometeor", "dragontail", "fireblast", "knockoff", "slackoff"],
+		randomBattleMoves: ["dracometeor", "sludgebomb", "fireblast", "knockoff", "slackoff"],
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["dracometeor", "fireblast", "knockoff", "protect", "sludgebomb"],
 		randomDoubleBattleLevel: 88,
