@@ -1397,6 +1397,8 @@ export class RandomTeams {
 			}
 		} else if (ability === 'Honey Gather') {
 			item = 'Red Card';
+		} else if (ability === 'Sweet Veil') {
+			item = 'Honey';
 		} else if (ability === 'Scavenge') {
 			item = 'Soul Blade';
 		} else if (species.name === 'Unown') {
