@@ -4617,7 +4617,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	vespiquen: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["attackorder", "toxicthread", "healorder", "uturn"],
+		randomBattleMoves: ["attackorder", "toxicthread", "healorder", "signalbeam"],
 	},
 	victreebel: {
 		tier: "RU",
