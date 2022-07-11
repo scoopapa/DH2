@@ -1512,7 +1512,7 @@ export class RandomTeams {
 		};
 	}
 
-	getPokemonPool(type: string, pokemon: RandomTeamsTypes.RandomSet[] = [], isMonotype = false); {
+	getPokemonPool(type: string, pokemon: RandomTeamsTypes.RandomSet[] = [], isMonotype = false) {
 		const exclude = pokemon.map(p => toID(p.species));
 		const pokemonPool = [];
 		for (const id in this.dex.data.FormatsData) {
@@ -1530,7 +1530,7 @@ export class RandomTeams {
 		return pokemonPool;
 	}
 
-	randomTeam(); {
+	randomTeam() {
 		const seed = this.prng.seed;
 		const ruleTable = this.dex.getRuleTable(this.format);
 		const pokemon = [];
