@@ -1616,17 +1616,14 @@ export class RandomTeams {
 
 		return pokemon;
 	}
-
+/*
 	randomCAP1v1Sets: AnyObject = require('./cap-1v1-sets.json');
-
 	randomCAP1v1Team() {
 		const pokemon = [];
 		const pokemonPool = Object.keys(this.randomCAP1v1Sets);
-
 		while (pokemonPool.length && pokemon.length < 3) {
 			const species = this.dex.getSpecies(this.sampleNoReplace(pokemonPool));
 			if (!species.exists) throw new Error(`Invalid Pokemon "${species}" in ${this.format}`);
-
 			const setData: AnyObject = this.sample(this.randomCAP1v1Sets[species.name]);
 			const set = {
 				name: species.baseSpecies,
@@ -1644,6 +1641,7 @@ export class RandomTeams {
 		}
 		return pokemon;
 	}
+   */
 }
 
 export default RandomTeams;
