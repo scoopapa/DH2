@@ -4855,5 +4855,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 		randomBattleMoves: ["knockoff", "tripleaxel", "iceshard", "pursuit"],
 	},
-
+	crobat: {
+		tier: "RU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["crosspoison", "curse", "bravebird", "aggravate"],
+	},
 };
