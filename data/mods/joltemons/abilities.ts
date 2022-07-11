@@ -226,7 +226,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Prickly Coat",
-		rating: 4,
+		rating: 3,
 	},
 	sandveil: {
 		desc: "If Sandstorm is active, this Pokemon's SpD is multiplied by 1.5. This Pokemon takes no damage from Sandstorm.",
