@@ -1,7 +1,8 @@
 /* eslint max-len: ["error", 240] */
 
-import {Dex, toID} from '../../sim/dex';
-import {PRNG, PRNGSeed} from '../../sim/prng';
+
+import {Dex, toID} from '../../../sim/dex';
+import {PRNG, PRNGSeed} from '../../../im/prng';
 
 export interface TeamData {
 	typeCount: {[k: string]: number};
