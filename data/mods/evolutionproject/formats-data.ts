@@ -421,7 +421,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	polteageistcoldbrew: { tier: "Evo!" },
 
 	scraggy: { tier: "Evo (NFE)" },
-	scrafty: { tier: "Evo (NFE)" }, // evolves into Scrafiti
+	scrafty: { tier: "Evo!" }, // no longer evolves into Scrafiti
 	scrafiti: { tier: "Evo!" },
 
 	horsea: { tier: "Evo (NFE)" },
