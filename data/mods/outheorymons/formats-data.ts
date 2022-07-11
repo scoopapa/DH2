@@ -5915,7 +5915,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	copperajah: {
-		randomBattleMoves: ["earthquake", "ironhead", "playrough", "rockslide", "stealthrock"],
+		randomBattleMoves: ["earthquake", "ironhead", "liquidation", "rockslide", "stealthrock"],
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["heatcrash", "highhorsepower", "ironhead", "playrough", "powerwhip", "protect", "stoneedge"],
 		randomDoubleBattleLevel: 88,
