@@ -2934,7 +2934,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	clawitzer: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["waterpulse", "aurasphere", "technoblast", "darkpulse"],
+		randomBattleMoves: ["octazooka", "aurasphere", "technoblast", "darkpulse"],
 	},
 	claydol: {
 		tier: "RU",
