@@ -2039,7 +2039,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["jawlock", "partingshot", "taunt"],
 
 		requiredAbility: "Stance Change",
-		battleOnly: "Aegislash",
+		battleOnly: "Condana",
 		creator: "abismal",
 	},
 
