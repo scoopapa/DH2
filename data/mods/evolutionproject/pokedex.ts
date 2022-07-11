@@ -1394,7 +1394,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Vespiquen",
 
 		types: ["Bug", "Fairy"],
-		baseStats: {hp: 85, atk: 80, def: 110, spa: 100, spd: 110, spe: 60},
+		baseStats: {hp: 85, atk: 90, def: 110, spa: 100, spd: 110, spe: 60},
 		abilities: {0: "Pressure", 1: "Flash Fire", H: "Flare Boost"},
 		movepoolAdditions: ["dazzlinggleam", "drainingkiss", "heatwave", "psychoshift"],
 
