@@ -1305,6 +1305,8 @@ export class RandomTeams {
 			item = 'Kommonium Z';
 		} else if (species.name === 'Lycanroc' && hasMove['stoneedge'] && counter.setupType && !teamDetails.zMove) {
 			item = 'Lycanium Z';
+		} else if (species.name === 'Mew' && hasMove['psychic'] && counter.setupType && !teamDetails.zMove) {
+			item = 'Mewnium Z';
 		} else if ((species.name === 'Necrozma-Dusk-Mane' || species.name === 'Necrozma-Dawn-Wings') && !teamDetails.zMove) {
 			if (hasMove['autotomize'] && hasMove['sunsteelstrike']) {
 				item = 'Solganium Z';
