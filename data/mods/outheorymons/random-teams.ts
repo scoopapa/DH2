@@ -2,7 +2,7 @@
 
 
 import {Dex, toID} from '../../../sim/dex';
-import {PRNG, PRNGSeed} from '../../../im/prng';
+import {PRNG, PRNGSeed} from '../../../sim/prng';
 
 export interface TeamData {
 	typeCount: {[k: string]: number};
