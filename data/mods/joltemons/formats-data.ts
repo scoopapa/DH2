@@ -2829,7 +2829,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	braviary: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["bravebird", "closecombat", "roost", "uturn"],
+		randomBattleMoves: ["bravebird", "closecombat", "roost", "curse"],
 	},
 	bronzong: {
 		tier: "RU",
