@@ -2057,8 +2057,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["discharge", "risingvoltage", "thunder", "voltswitch"],
 
 		prevo: "Marowak",
-		evoType: "other",
-		evoCondition: "A newly-discovered evolution",
+		evoLevel: 40,
+		evoType: "levelExtra",
+		evoCondition: "in a thunderstorm",
 		creator: "Hematite",
 	},
 
