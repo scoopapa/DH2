@@ -1,4 +1,10 @@
 export const Scripts: ModdedBattleScriptsData = {
+		teambuilderConfig: {
+		// for micrometas to only show custom tiers
+		excludeStandardTiers: true,
+		// only to specify the order of custom tiers
+		customTiers: ['MetaMons'],
+		},
 		init: function () {
 			this.modData("Learnsets", "whimsicott").learnset.bodypress = ["8L1"];
 			this.modData("Learnsets", "whimsicott").learnset.synthesis = ["8L1"];
