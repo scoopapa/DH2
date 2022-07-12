@@ -3546,6 +3546,13 @@ export const Formats: FormatList = [
 		restricted: ['Restricted Legendary'],
 	},
 	{
+		name: "[Gen 8] Native Moves",
+		mod: 'nativemoves',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Ghouldier', 'Neutrairy', 'Snoxious', 'Stockamel', 'Floriger', 'Bomboot', 'Mentagon', 'Pegasteel'],
+	},
+	{
 		name: "[Gen 8] PKMN YB OU",
 		desc: [
 			"PKMN YB",
