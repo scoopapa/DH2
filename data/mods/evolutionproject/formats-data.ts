@@ -142,7 +142,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	mareep: { tier: "Evo (NFE)" },
 	flaaffy: { tier: "Evo (NFE)" },
-	ampaharos: { tier: "Evo!" },
+	ampharos: { tier: "Evo!" },
 	voltangent: { tier: "Evo!" },
 
 	shinx: { tier: "Evo (NFE)" },
