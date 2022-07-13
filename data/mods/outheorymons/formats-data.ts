@@ -5234,7 +5234,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	kommoo: {
-		randomBattleMoves: ["clangingscales", "clangoroussoul", "closecombat", "drainpunch", "poisonjab", "stealthrock", "rapidspin"],
+		randomBattleMoves: ["clangingscales", "clangoroussoul", "closecombat", "dragontail", "drainpunch", "poisonjab", "stealthrock", "rapidspin"],
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["bodypress", "dracometeor", "irondefense", "protect"],
 		randomDoubleBattleLevel: 80,
