@@ -1056,7 +1056,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	smother: {
 		accuracy: 100,
-		basePower: 75,
+		basePower: 95,
 		category: "Physical",
     shortDesc: "The target must move last next turn.",
 		isViable: true,
