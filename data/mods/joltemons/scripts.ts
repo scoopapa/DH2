@@ -1785,7 +1785,9 @@ this.modData('Learnsets', 'kangaskhan').learnset.smother = ['8L1'];
 this.modData('Learnsets', 'lopunny').learnset.smother = ['8L1'];
 this.modData('Learnsets', 'mantine').learnset.smother = ['8L1'];
 this.modData('Learnsets', 'miltank').learnset.smother = ['8L1'];
+		/*
 this.modData('Learnsets', 'mimikyu').learnset.smother = ['8L1'];
+*/
 this.modData('Learnsets', 'muk').learnset.smother = ['8L1'];
 this.modData('Learnsets', 'mukalola').learnset.smother = ['8L1'];
 this.modData('Learnsets', 'nidoqueen').learnset.smother = ['8L1'];
