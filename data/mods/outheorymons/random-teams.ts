@@ -1552,6 +1552,14 @@ export class RandomTeams {
 
 					// Limit one of any type combination, two in Monotype
 					if (typeComboCount[typeCombo] >= (isMonotype ? 2 : 1)) continue;
+				   }
+				
+					//Require at least one modded Pokemon per team
+					if (modded) {
+						hasModded = true;
+					} else {
+						if (hasModded === false && pokemon.length === 5) continue;
+					}
 				}
 
 				// The Pokemon of the Day
