@@ -3393,7 +3393,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	granbull: {
 		tier: "RU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["playrough", "thunderwave", "earthquake", "healbell"],
+		randomBattleMoves: ["smother", "thunderwave", "earthquake", "healbell"],
 	},
 	grapploct: {
 		tier: "RU",
