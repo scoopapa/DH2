@@ -545,7 +545,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 118,
 	},
 	hydration: {
-		shortDesc: "This Pokemon has its status cured at the end of each turn if Rain Dance is active or it gets hit by a Water move; Water immunity.",
+		shortDesc: "This Pokemon has its status cured at the end of each turn if Rain Dance is active or it gets hit by a Water move; Water immunity. Heals 12.5% HP if hit by a Water move.",
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
@@ -558,7 +558,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!target.cureStatus()) {
+				if (!this.heal(target.baseMaxhp / 8) || !target.cureStatus()) {
 					this.add('-immune', target, '[from] ability: Hydration');
 				}
 				return null;
@@ -1221,7 +1221,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!this.heal(target.baseMaxhp / 4) || !target.cureStatus()) {
+				if (!this.heal(target.baseMaxhp / 2.667) || !target.cureStatus()) {
 					this.add('-immune', target, '[from] ability: Power of Alchemy (Vaporeon)');
 				}
 				return null;
