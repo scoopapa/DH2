@@ -384,7 +384,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		baseStats: {hp: 110, atk: 78, def: 78, spa: 116, spd: 81, spe: 70},
 		abilities: {0: "Oblivious", 1: "Cheek Pouch", H: "Hydration"},
-		movepoolAdditions: ["calmmind", "recycle"],
+		movepoolAdditions: ["recycle", "stealthrock"],
 
 		prevo: "Whiscash",
 		evoLevel: 55,
@@ -1299,7 +1299,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic"],
 		baseStats: {hp: 131, atk: 71, def: 31, spa: 71, spd: 37, spe: 59},
 		abilities: {0: "Illuminate", 1: "Oblivious", S: "Beast Boost"},
-		movepoolAdditions: ["cosmicpower", "futuresight", "gravity", "mirrorcoat", "storedpower", "trickroom", "wish"],
+		movepoolAdditions: ["calmmind", "futuresight", "gravity", "mirrorcoat", "storedpower", "trickroom", "wish"],
 		movepoolDeletions: ["bodypress", "soak", "waterfall", "waterspout"],
 
 		evos: ["Wailord-Ultra"],
@@ -2330,7 +2330,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 40, def: 65, spa: 20, spd: 65, spe: 20},
 		abilities: {0: "Hustle", 1: "Light Metal", H: "Super Luck"},
 		movepoolAdditions: ["flashcannon", "honeclaws", "irondefense", "steelbeam"],
-		movepoolDeletions: ["morningsun", "roost", "softboiled"],
+		movepoolDeletions: ["followme", "morningsun", "roost", "softboiled"],
 
 		evos: ["Togetic-Unidentified"],
 		creator: "quagsi",
@@ -2350,7 +2350,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 80, def: 85, spa: 50, spd: 85, spe: 50},
 		abilities: {0: "Hustle", 1: "Light Metal", H: "Super Luck"},
 		movepoolAdditions: ["flashcannon", "honeclaws", "irondefense", "steelbeam"],
-		movepoolDeletions: ["morningsun", "roost", "softboiled"],
+		movepoolDeletions: ["followme", "morningsun", "roost", "softboiled"],
 
 		evos: ["Togekiss-Unidentified"],
 		prevo: "Togepi-Unidentified",
@@ -2372,7 +2372,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 120, def: 95, spa: 60, spd: 95, spe: 90},
 		abilities: {0: "Hustle", 1: "Light Metal", H: "Super Luck"},
 		movepoolAdditions: ["flashcannon", "honeclaws", "irondefense", "steelbeam"],
-		movepoolDeletions: ["morningsun", "roost", "softboiled"],
+		movepoolDeletions: ["followme", "morningsun", "roost", "softboiled"],
 
 		prevo: "Togetic-Unidentified",
 		evoType: "useItem",
