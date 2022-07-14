@@ -639,6 +639,7 @@ export const Formats: FormatList = [
 		unbanlist: ['Tyranitar', 'Gardevoir', 'Escavalier', 'Karrablast', 'Ralts', 'Kirlia', 'Pupitar', 'Larvitar',
 					   'Snarl', 'Steel Wing', 'Strange Steam',
 					   'Deino', 'Zweilous', 'Hydreigon', 'Scizor', 'Cottonee', 'Whimsicott', 
+						'Nature\'s Madness', 'Fake Tears', 'Gear Up',
 					  ],
     },
    {
