@@ -1143,7 +1143,6 @@ this.modData('Learnsets', 'meowthgalar').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'krabby').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'zapdosgalar').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'totodile').learnset.crushclaw = ['8L1'];
-this.modData('Learnsets', 'scizor').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'ursaring').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'gligar').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'corphish').learnset.crushclaw = ['8L1'];
