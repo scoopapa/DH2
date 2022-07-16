@@ -211,7 +211,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by an Arbok, this item allows it to Mega Evolve in battle.",
 	},
 	fairysnalite: {
-		name: "Fairysnale",
+		name: "Fairysnalite",
 		spritenum: 578,
 		megaStone: "Fairysnale-Mega",
 		megaEvolves: "Fairysnale",
