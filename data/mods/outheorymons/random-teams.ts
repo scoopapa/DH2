@@ -1650,6 +1650,6 @@ export class RandomTeams {
 		return pokemon;
 	}
    */
-}
+},
 
 export default RandomTeams;
