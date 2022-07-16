@@ -19,27 +19,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
       inherit: true,
       abilities: {0: "Inner Focus", 1: "Tinted Lens", H: "Infiltrator"},
    },
-	articunogalar: {
-      inherit: true, 
-      abilities: {0: "Competitive", H: "Trace"},
-   }, 
-   noctowl: {
-      inherit: true, 
-      types: ["Steel", "Flying"],
-      baseStats: {hp: 100, atk: 50, def: 50, spa: 86, spd: 116, spe: 70},
-   }, 
 	raikou: {
       inherit: true,
       abilities: {0: "Pressure", 1: "Competitive", H: "Inner Focus"},
-	},
-	celebi: {
-		inherit: true,
-		types: ["Grass", "Fairy"],
-		abilities: {0: "Natural Cure", H: "Flower Veil"},
-	}, 
-   flygon: {
-      inherit: true, 
-      abilities: {0: "Levitate", H: "Poison Heal"},
    },
 	milotic: {
       inherit: true,
@@ -49,37 +31,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Dragon", "Fairy"],
 	},
-   latios: {
-		inherit: true,
-		types: ["Dragon", "Electric"],
-	},
 	mamoswine: {
 		inherit: true,
 		baseStats: {hp: 110, atk: 130, def: 80, spa: 70, spd: 60, spe: 100},
 	},
-	rotomfan: {
-		inherit: true, 
-		abilities: {0: "Levitate", H: "Magic Bounce"},
-   },
-   rotommow: {
-      inherit: true, 
-      abilities: {0: "Levitate", H: "Grassy Surge"},
-	},
 	scolipede: {
 		inherit: true,
 		types: ["Bug", "Ground"],
-   },
-   krookodile: {
-      inherit: true,
-      baseStats: {hp: 95, atk: 117, def: 80, spa: 65, spd: 70, spe: 103},
 	}, 
 	darmanitan: {
 		inherit: true,
 		types: ["Fire", "Fighting"],
-   }, 
-   scrafty: {
-      inherit: true, 
-      baseStats: {hp: 80, atk: 90, def: 115, spa: 45, spd: 115, spe: 58},
 	},
 	cofagrigus: {
 		inherit: true,
@@ -90,11 +52,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 60, atk: 105, def: 60, spa: 120, spd: 60, spe: 115},
 	},
-	vanilluxe: {
-		inherit: true,
-		types: ["Ice", "Ground"],
-		baseStats: {hp: 71, atk: 95, def: 85, spa: 110, spd: 95, spe: 99},
-	},
 	haxorus: {
 		inherit: true,
 		types: ["Dragon", "Steel"],
@@ -102,10 +59,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	cobalion: {
 		inherit: true,
 		baseStats: {hp: 91, atk: 90, def: 129, spa: 90, spd: 72, spe: 128},
-	},
-	virizion: {
-		inherit: true,
-		abilities: {0: "Justified", H: "Adaptability"},
 	},
 	keldeo: {
 		inherit: true,
@@ -123,19 +76,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 	   types: ["Fairy", "Ground"],
 		baseStats: {hp: 95, atk: 65, def: 80, spa: 110, spd: 130, spe: 60},
-   }, 
-   goodra: {
-      inherit: true,
-      abilities: {0: "Sap Sipper", 1: "Analytic", H: "Gooey"},
 	},
-	wishiwashi: {
+	golisopod: {
 		inherit: true,
-		baseStats: {hp: 65, atk: 20, def: 20, spa: 25, spd: 25, spe: 40},
-	},
-	wishiwashischool: {
-		inherit: true,
-		baseStats: {hp: 65, atk: 140, def: 130, spa: 140, spd: 135, spe: 30},
-	},
+		baseStats: {hp: 75, atk: 125, def: 140, spa: 60, spd: 110, spe: 40},
+	}, 
 	mudsdale: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 125, def: 110, spa: 55, spd: 85, spe: 35},
@@ -148,10 +93,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Fairy", "Flying"],
 	},
-	golisopod: {
-		inherit: true,
-		baseStats: {hp: 75, atk: 125, def: 140, spa: 60, spd: 110, spe: 40},
-	}, 
 	dhelmise: {
 		inherit: true,
 		types: ["Ghost", "Steel"],
@@ -160,10 +101,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 75, atk: 78, def: 135, spa: 91, spd: 85, spe: 36},
 		abilities: {0: "Shell Armor", H: "Regenerator"},
-   },
-   appletun: { 
-      inherit: true, 
-      types: ["Poison", "Dragon"],
 	},
 	obstagoon: {
 		inherit: true,
@@ -173,5 +110,59 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
       inherit: true,
 		types: ["Steel", "Water"],
 		baseStats: {hp: 122, atk: 130, def: 69, spa: 80, spd: 89, spe: 30},
+	},
+	latios: {
+		inherit: true,
+		types: ["Dragon", "Electric"],
+	},
+	virizion: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Adaptability"},
+	},
+	wishiwashi: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 20, def: 20, spa: 25, spd: 25, spe: 40},
+	},
+	wishiwashischool: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 140, def: 130, spa: 140, spd: 135, spe: 30},
+	},
+	celebi: {
+		inherit: true,
+		types: ["Grass", "Fairy"],
+		abilities: {0: "Natural Cure", H: "Flower Veil"},
+   },
+   articunogalar: {
+      inherit: true, 
+      abilities: {0: "Competitive", H: "Trace"},
+   }, 
+   krookodile: {
+      inherit: true,
+      baseStats: {hp: 95, atk: 117, def: 80, spa: 65, spd: 70, spe: 103},
+   }, 
+   goodra: {
+      inherit: true,
+      abilities: {0: "Sap Sipper", 1: "Analytic", H: "Gooey"},
+   }, 
+   noctowl: {
+      inherit: true, 
+      types: ["Steel", "Flying"],
+      baseStats: {hp: 100, atk: 50, def: 50, spa: 86, spd: 116, spe: 70},
+   }, 
+   scrafty: {
+      inherit: true, 
+      baseStats: {hp: 80, atk: 90, def: 115, spa: 45, spd: 115, spe: 58},
+   },
+   rotommow: {
+      inherit: true, 
+      abilities: {0: "Levitate", H: "Grassy Surge"},
+   }, 
+   flygon: {
+      inherit: true, 
+      abilities: {0: "Levitate", H: "Poison Heal"},
+   },
+   appletun: { 
+      inherit: true, 
+      types: ["Poison", "Dragon"],
 	}, 
 };

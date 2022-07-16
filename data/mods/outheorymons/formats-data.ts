@@ -3103,7 +3103,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["airslash", "darkpulse", "nastyplot", "protect", "thunderbolt"],
 		randomDoubleBattleLevel: 84,
-		tier: "OU",
+		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
 	rotommow: {
@@ -3768,7 +3768,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["auroraveil", "blizzard", "freezedry", "iceshard", "protect"],
 		randomDoubleBattleLevel: 82,
-		tier: "OU",
+		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
 	deerling: {
@@ -5234,7 +5234,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	kommoo: {
-		randomBattleMoves: ["bodypress", "clangingscales", "clangoroussoul", "closecombat", "dragontail", "poisonjab", "stealthrock", "rapidspin"],
+		randomBattleMoves: ["clangingscales", "clangoroussoul", "closecombat", "drainpunch", "poisonjab", "stealthrock", "rapidspin"],
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["bodypress", "dracometeor", "irondefense", "protect"],
 		randomDoubleBattleLevel: 80,
@@ -5915,7 +5915,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	copperajah: {
-		randomBattleMoves: ["earthquake", "ironhead", "liquidation", "rockslide", "stealthrock"],
+		randomBattleMoves: ["earthquake", "ironhead", "playrough", "rockslide", "stealthrock"],
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["heatcrash", "highhorsepower", "ironhead", "playrough", "powerwhip", "protect", "stoneedge"],
 		randomDoubleBattleLevel: 88,
