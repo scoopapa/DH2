@@ -157,6 +157,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		
 		this.modData('Learnsets', 'latias').learnset.moonblast = ['8L1'];
+		
+		
+		this.modData('Learnsets', 'golisopod').learnset.morningsun = ['8L1'];
+		
+		this.modData("Learnsets", "chatot").learnset.fierywrath = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.partingshot = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.flamethrower = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.firelash = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.willowisp = ["8L1"];
 	},
 	
 	teambuilderConfig: {

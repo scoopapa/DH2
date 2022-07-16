@@ -422,4 +422,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 	},
+	snaptrap: {
+		num: 779,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Snap Trap",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
 };

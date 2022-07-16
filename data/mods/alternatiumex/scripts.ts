@@ -140,6 +140,24 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'lurantis').learnset.grassyterrain;
 		delete this.modData('Learnsets', 'lurantis').learnset.ingrain;
 		delete this.modData('Learnsets', 'lurantis').learnset.worryseed;
+		
+		this.modData("Learnsets", "mrmime").learnset.fakeout = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.confuseray = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.powersplit = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.tickle = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.drainingkiss = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.playrough = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.vacuumwave = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.doublekick = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.frostbreath = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.slackoff = ["8L1"];
+		this.modData("Learnsets", "mrmime").learnset.uturn = ["8L1"];
+		
+		this.modData("Learnsets", "stunfisk").learnset.scorchingsands = ["8L1"];
+		this.modData("Learnsets", "stunfisk").learnset.recover = ["8L1"];
+		this.modData("Learnsets", "stunfisk").learnset.voltswitch = ["8L1"];
+		this.modData("Learnsets", "stunfisk").learnset.rapidspin = ["8L1"];
+
 	},
 	
 	pokemon: {
