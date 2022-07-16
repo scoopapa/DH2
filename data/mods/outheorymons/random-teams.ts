@@ -1062,7 +1062,7 @@ export class RandomTeams {
 			}
 		} while (moves.length < 4 && (movePool.length || rejectedPool.length));
 
-		// const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.getSpecies(species.battleOnly as string) : species;
+		const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.getSpecies(species.battleOnly as string) : species;
 		const abilities: string[] = Object.values(species.abilities);
 		abilities.sort((a, b) => this.dex.getAbility(b).rating - this.dex.getAbility(a).rating);
 		let ability0 = this.dex.getAbility(abilities[0]);
@@ -1552,6 +1552,14 @@ export class RandomTeams {
 
 					// Limit one of any type combination, two in Monotype
 					if (typeComboCount[typeCombo] >= (isMonotype ? 2 : 1)) continue;
+				   }
+				
+					//Require at least one modded Pokemon per team
+					if (modded) {
+						hasModded = true;
+					} else {
+						if (hasModded === false && pokemon.length === 5) continue;
+					}
 				}
 
 				// The Pokemon of the Day
