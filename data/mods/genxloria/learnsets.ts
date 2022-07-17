@@ -7001,7 +7001,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gunkshot: ["8L1"],
 			jawlock: ["8L1"],
 			superfang: ["8L1"],
-			psychicfang: ["8L1"],
+			psychicfangs: ["8L1"],
 			swordsdance: ["8L1"],
 		},
 	},
