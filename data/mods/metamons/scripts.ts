@@ -61,6 +61,15 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.modData("Learnsets", "grapploct").learnset.machpunch = ["8L1"];
 			this.modData("Learnsets", "grapploct").learnset.scald = ["8L1"];
 			this.modData("Learnsets", "grapploct").learnset.swordsdance = ["8L1"];
+			this.modData("Learnsets", "arcanine").learnset.stealthrock = ["8L1"];
+			this.modData("Learnsets", "arcanine").learnset.earthquake = ["8L1"];
+			this.modData("Learnsets", "tauros").learnset.headcharge = ["8L1"];
+			this.modData("Learnsets", "eelektross").learnset.zingzap = ["8L1"];
+			this.modData("Learnsets", "eelektross").learnset.recover = ["8L1"];
+			this.modData("Learnsets", "eelektross").learnset.copycatblast = ["8L1"];
+			delete this.modData('Learnsets', 'tauros').learnset.earthquake;
+			delete this.modData('Learnsets', 'tauros').learnset.highhorsepower;
+			delete this.modData('Learnsets', 'tauros').learnset.closecombat;
 			delete this.modData('Learnsets', 'kingler').learnset.rockslide;
 			delete this.modData('Learnsets', 'kingler').learnset.rocktomb;
 			delete this.modData('Learnsets', 'kingler').learnset.stompingtantrum;
