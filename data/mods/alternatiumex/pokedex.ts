@@ -234,7 +234,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Levitate", H: "Rough Skin"},
 		heightm: 1.5,
 		weightkg: 45,
-		prevo: "Dewpider",
 		otherFormes: null,
 		formeOrder: null,
 	},
