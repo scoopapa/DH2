@@ -193,7 +193,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		baseStats: {hp: 85, atk: 110, def: 80, spa: 70, spd: 80, spe: 90},
 		abilities: {0: "Swarm", 1: "Insomnia", H: "Prankster"},
-		movepoolAdditions: ["memento", "poisongas"],
+		movepoolAdditions: ["memento", "poisongas", "raindance"],
 
 		prevo: "Ariados",
 		evoType: "levelExtra",
@@ -424,7 +424,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Snow Warning", H: "Pressure"},
 
 		copyMoves: "Snover", // although its data is based on Abomasnow, it doesn't have all of Abomasnow's moves
-		movepoolAdditions: ["brickbreak", "earthpower", "gigaimpact", "hyperbeam", "outrage", "rapidspin", "rockslide", "uturn"],
+		movepoolAdditions: [
+			"brickbreak", "bulldoze", "earthpower", "focuspunch", "gigaimpact", "hyperbeam", "leafstorm", "outrage", "rapidspin", "rockclimb", "rockslide",
+			"rocktomb", "uturn"
+		],
 
 		prevo: "Snover",
 		evoType: "levelExtra",
@@ -446,7 +449,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fighting", "Rock"],
 		baseStats: {hp: 65, atk: 100, def: 100, spa: 60, spd: 60, spe: 85},
 		abilities: {0: "Solid Rock", 1: "Skill Link", H: "Defiant"},
-		movepoolAdditions: ["drainpunch", "rockblast", "stoneedge", "smackdown", "stealthrock"],
+		movepoolAdditions: ["drainpunch", "rockblast", "stoneedge", "smackdown", "stealthrock", "wideguard"],
 		movepoolDeletions: ["closecombat", "swordsdance"],
 
 		creator: "Hematite",
@@ -509,7 +512,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Shiinotic",
 
 		types: ["Poison", "Fairy"],
-		baseStats: {hp: 60, atk: 45, def: 60, spa: 90, spd: 80, spe: 70},
+		baseStats: {hp: 60, atk: 61, def: 60, spa: 90, spd: 80, spe: 54},
 		abilities: {0: "Illuminate", 1: "Effect Spore", H: "Technician"},
 		movepoolAdditions: ["acidspray", "nastyplot", "venoshock"],
 
@@ -1319,7 +1322,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic"],
 		baseStats: {hp: 173, atk: 89, def: 43, spa: 89, spd: 47, spe: 59},
 		abilities: {0: "Illuminate", 1: "Oblivious", S: "Beast Boost"},
-		movepoolAdditions: ["cosmicpower", "futuresight", "gravity", "mirrorcoat", "overheat", "storedpower", "trickroom", "wish"],
+		movepoolAdditions: ["calmmind", "futuresight", "gravity", "mirrorcoat", "overheat", "storedpower", "trickroom", "wish"],
 		movepoolDeletions: ["bodypress", "liquidation", "soak", "waterfall", "waterspout"],
 
 		prevo: "Wailmer-Ultra",
@@ -2052,9 +2055,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Marowak",
 
 		types: ["Ground", "Electric"],
-		baseStats: {hp: 80, atk: 60, def: 130, spa: 125, spd: 80, spe: 45},
+		baseStats: {hp: 80, atk: 50, def: 130, spa: 110, spd: 80, spe: 45},
 		abilities: {0: "Inner Focus", 1: "Lightning Rod", H: "Battle Armor"},
-		movepoolAdditions: ["discharge", "risingvoltage", "thunder", "voltswitch"],
+		movepoolAdditions: ["discharge", "healingwish", "risingvoltage", "thunder"],
 
 		prevo: "Marowak",
 		evoLevel: 40,
