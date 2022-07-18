@@ -17,4 +17,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	aggron: {
 		tier: "Abilitypos",
 	},
+	sableye: {
+		tier: "Abilitypos",
+	},
+	carbink: {
+		tier: "Abilitypos",
+	},
+	entei: {
+		tier: "Abilitypos",
+	},
 };
