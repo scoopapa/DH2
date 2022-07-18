@@ -7036,7 +7036,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			fly: ["8L1"],
 			furyattack: ["8L1"],
 			gigaimpact: ["8L1"],
-			gulpmissle: ["8L1"],
+			gulpmissile: ["8L1"],
 			hurricane: ["8L1"],
 			hydropump: ["8L1"],
 			hyperbeam: ["8L1"],
