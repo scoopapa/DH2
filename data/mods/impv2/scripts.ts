@@ -18,6 +18,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "corviknightzarude").learnset.roost = ['8L1'];
 		this.modData("Learnsets", "centiskorchhydreigon").learnset.knockoff = ['8L1'];
 		this.modData("Learnsets", "glaceondragapult").learnset.spectraldarts = ['8L1'];
+		this.modData("Learnsets", "fraxurevespiquen").learnset.healorder = ['8L1'];
+		this.modData("Learnsets", "fraxurevespiquen").learnset.defendorder = ['8L1'];
+		this.modData("Learnsets", "fraxurevespiquen").learnset.attackorder = ['8L1'];
+		
 		
 		
 	},

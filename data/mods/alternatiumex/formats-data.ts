@@ -135,4 +135,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	mrmime: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	mrmimeprance: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	stunfisk: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	stunfisktrap: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };

@@ -41,7 +41,28 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Unnerve",
+		shortDesc: "On switch-in, this Pokemon lowers the Special attack of adjacent opponents by 1 stage.",
 		rating: 1.5,
 		num: 127,
+	},
+	abyssalboost: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Abyssal boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Abyssal boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Abyssal Boost",
+		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Dark-type attack.",
+		rating: 3.5,
+		num: 300,
 	},
 };

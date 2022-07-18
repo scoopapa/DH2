@@ -74,4 +74,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	bibarelpolitoed: {
 		tier: "Imp V2",
 	},
+	fraxurevespiquen: {
+		tier: "Imp V2",
+	},
+	qwilfishkomala: {
+		tier: "Imp V2",
+	},
+	galladegogoat: {
+		tier: "Imp V2",
+	},
 };

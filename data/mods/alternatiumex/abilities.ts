@@ -237,4 +237,44 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: -9,
 	},
+	screencleaner: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+				if (pokemon.side.foe.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removeSideCondition(sideCondition);
+				}
+			}
+			for (const pseudoWeather of ['wonderroom', 'trickroom', 'magicroom']) {
+				if (pokemon.side.getPseudoWeather(pseudoWeather)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.removePseudoWeather(pseudoWeather);
+				}
+				if (pokemon.side.foe.getPseudoWeather(pseudoWeather)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removePseudoWeather(pseudoWeather);
+				}
+			}
+			this.field.clearTerrain();
+		},
+		shortDesc: "On switch-in, the effects of Screens, Terrains and Rooms end for both sides.",
+		inherit: true,
+	},
 };

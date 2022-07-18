@@ -1111,4 +1111,33 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 96,
 		inherit: true,
 	},
+	golisopod: {
+		num: 97,
+		inherit: true,
+		baseStats: {hp: 75, atk: 125, def: 140, spa: 60, spd: 110, spe: 40},
+	},
+	chatot: {
+		num: 98,
+		inherit: true,
+		types: ["Dark", "Fire"],
+		baseStats: {hp: 80, atk: 102, def: 75, spa: 100, spd: 72, spe: 101},
+		abilities: {0: "Soundproof", 1: "Prankster", H: "Debilitate"},
+	},
+	gastrodon: {
+		num: 99,
+		inherit: true,
+		otherFormes: ["Gastrodon-Entity-East"],
+		formeOrder: ["Gastrodon", "Gastrodon-East", "Gastrodon-Entity-East"],
+	},
+	gastrodonentityeast: {
+		num: 99,
+		name: "Gastrodon-Entity-East",
+		baseSpecies: "Gastrodon",
+		forme: "Entity-East",
+		types: ["Poison", "Psychic"],
+		baseStats: {hp: 100, atk: 55, def: 90, spa: 100, spd: 80, spe: 50},
+		abilities: {0: "Gooey", H: "Neuroforce"},
+		weightkg: 29.9,
+		prevo: "Shellos-Entity",
+	},
 };
