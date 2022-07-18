@@ -686,7 +686,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			captivate: ["8L1"],
 			confide: ["8L1"],
 			covet: ["8L1"],
-			deathlydance: ["8L1"],
+			deathlyskirt: ["8L1"],
 			defog: ["8L1"],
 			doubleslap: ["8L1"],
 			doubleteam: ["8L1"],

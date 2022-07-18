@@ -219,4 +219,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Duomod",
 		doublesTier: "DOUomod",
 	},
+	badgearth: {
+		randomBattleMoves: ["flipturn", "earthquake", "ironhead", "swordsdance", "dragondance", "firstimpression", "poisonjab", "dualwingbeat"],
+		randomBattleLevel: 100,
+		tier: "Duomod",
+		doublesTier: "DOUomod",
+	},
 };

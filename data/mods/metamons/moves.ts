@@ -44,4 +44,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 	target: "normal",
 	type: "Poison",
 	},
+	copycatblast: {
+		num: 686,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Copycat Blast",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+		const types = pokemon.getTypes();
+		let type = types[2] || types[0];
+		if (type === "Bird") type = "Normal";
+		move.type = type;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
 };

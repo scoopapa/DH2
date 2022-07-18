@@ -192,6 +192,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.effectData.busted = true;
 			}
 		},
+		onFaint(pokemon) {
+			if (pokemon.species.id !== 'starlycrowncloud' || pokemon.transformed) return;
+			pokemon.formeChange('Starly-Crown', this.effect, true);
+			this.add('-message', `${pokemon.name} changed to Solo Form...`);
+		},
 		isPermanent: true,
 		name: "Murmuration",
 		rating: 3,
