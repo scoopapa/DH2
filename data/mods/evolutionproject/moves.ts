@@ -126,6 +126,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.add('-anim', data.source, "Sky Attack", data.target);
 				}
 				this.trySpreadMoveHit([data.target], data.source, hitMove);
+				this.add('-message', `The flurry of Starly dispersed!`);
 			},
 		},
 		secondary: null,
