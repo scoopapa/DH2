@@ -114,7 +114,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	bide: {
 		inherit: true,
 		desc: "The user spends two turns locked into this move and then, on the second turn after using this move, the user attacks the last Pokemon that hit it, inflicting double the damage in HP it lost to attacks during the two turns. If the last Pokemon that hit it is no longer active, the user attacks a random opposing Pokemon instead. If the user is prevented from moving during this move's use, the effect ends. This move does not check accuracy and ignores type immunity.",
-		effect: {
+		condition: {
 			duration: 3,
 			onLockMove: 'bide',
 			onStart(pokemon) {

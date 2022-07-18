@@ -195,7 +195,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source) {
 			return source.status !== 'slp';
 		},
-		effect: {
+		condition: {
 			duration: 2,
 			onImmunity(type, pokemon) {
 				if (type === 'sandstorm') return false;
@@ -236,7 +236,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	encore: {
 		inherit: true,
 		desc: "For 3 to 6 turns, the target is forced to repeat its last move used. If the affected move runs out of PP, the effect ends. Fails if the target is already under this effect, if it has not made a move, if the move has 0 PP, or if the move is Encore, Metronome, Mimic, Mirror Move, Sketch, Sleep Talk, Struggle, or Transform.",
-		effect: {
+		condition: {
 			durationCallback() {
 				return this.random(3, 7);
 			},
@@ -307,7 +307,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source) {
 			return source.status !== 'slp';
 		},
-		effect: {
+		condition: {
 			duration: 2,
 			onInvulnerability(target, source, move) {
 				if (move.id === 'gust' || move.id === 'twister' || move.id === 'thunder' || move.id === 'whirlwind') {
@@ -457,7 +457,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "The next accuracy check against the target succeeds. The target will still avoid Earthquake, Fissure, and Magnitude if it is using Fly. If the target leaves the field using Baton Pass, the replacement remains under this effect. This effect ends when the target leaves the field or an accuracy check is done against it.",
 		shortDesc: "The next move will not miss the target.",
-		effect: {
+		condition: {
 			duration: 2,
 			onSourceAccuracy(accuracy, target, source, move) {
 				if (move && source === this.effectData.target && target === this.effectData.source) return true;
@@ -844,7 +844,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	substitute: {
 		inherit: true,
-		effect: {
+		condition: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
 				this.effectData.hp = Math.floor(target.maxhp / 4);
