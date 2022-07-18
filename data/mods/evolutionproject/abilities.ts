@@ -195,7 +195,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onFaint(pokemon) {
 			if (pokemon.species.id !== ('starlycrowncloud') || pokemon.transformed) return;
 			pokemon.formeChange('Starly-Crown', this.effect, true);
-			// doesn't have a message (I feel it should be silent in this case)
+			this.add('-message', `${pokemon.name} changed to Solo Form...`);
 		},
 		isPermanent: true,
 		name: "Murmuration",
