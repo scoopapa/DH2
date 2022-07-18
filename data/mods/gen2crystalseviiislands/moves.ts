@@ -318,7 +318,58 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Ghost",
-		contestType: "Cute",
+		contestType: "Cool",
+	},
+	expel: {
+		num: -9,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Expel",
+		pp: 20,
+		priority: 0,
+		flags: {defrost: 1},
+		sleepUsable: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", target);
+		},
+		onHit(source) {
+			source.cureStatus();
+			source.clearBoosts();
+			this.add('-clearboost', source);
+			// if (source?.volatiles['confusion']) {
+			// 	source.removeVolatile('confusion');
+			// }
+			// if (source?.volatiles['attract']) {
+			// 	source.removeVolatile('attract');
+			// }
+			if (source.hp && source.removeVolatile('confusion')) {
+				this.add('-end', source, 'Confusion', '[from] move: Expel', '[of] ' + source);
+			}
+			if (source.hp && source.removeVolatile('attract')) {
+				this.add('-end', source, 'Infatuation', '[from] move: Expel', '[of] ' + source);
+			}
+			if (source.hp && source.removeVolatile('leechseed')) {
+				this.add('-end', source, 'Leech Seed', '[from] move: Expel', '[of] ' + source);
+			}
+			if (source.hp && source.removeVolatile('trapped')) {
+				this.add('-end', source, 'Trap', '[from] move: Expel', '[of] ' + source);
+			}
+			if (source.hp && source.removeVolatile('curse')) {
+				this.add('-end', source, 'Curse', '[from] move: Expel', '[of] ' + source);
+			}
+			// if (source?.volatiles['trapped']) {
+			// 	source.removeVolatile('trapped');
+			// }
+			// if (source?.volatiles['curse']) {
+			// 	source.removeVolatile('curse');
+			// }
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		contestType: "Beautiful",
 	},
 	///////
 	spikes: {

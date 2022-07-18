@@ -77,5 +77,43 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'ursaring').learnset.hypeup = ['2L1'];
 
 		this.modData('Learnsets', 'horatekku').learnset.bytetorment = ['2L1'];
+
+		this.modData('Learnsets', 'chansey').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'blissey').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'cleffa').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'clefairy').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'clefable').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'slugma').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'magcargo').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'esscargoo').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'articuno').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'suicune').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'lapras').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'kamebi').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'venusaur').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'meganium').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'squirtle').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'wartortle').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'blastoise').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'natu').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'xatu').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'omanyte').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'omastar').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'cloyster').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'mewtwo').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'mew').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'hooh').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'ekans').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'arbok').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'paras').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'parasect').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'grimer').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'muk').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'koffing').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'weezing').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'skuntank').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'lickitung').learnset.expel = ['2L1'];
+		this.modData('Learnsets', 'tunguru').learnset.expel = ['2L1'];
+		
 	},
 };
