@@ -297,7 +297,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "Normal",
 		type: "Normal",
 	},
-	
+	bytetorment: {
+		num: -8,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Byte Torment",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Chatter", target);
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cute",
+	},
 	///////
 	spikes: {
 		inherit: true,
