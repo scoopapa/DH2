@@ -2752,7 +2752,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		selfdestruct: "always",
 		secondary: null,
 		target: "allAdjacent",
-		type: "Steel",
+		type: "Dark",
 		contestType: "Beautiful",
 	},
 };

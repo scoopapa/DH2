@@ -26,4 +26,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	grapploct: {
 		tier: "metamons",
 	},
+	arcanine: {
+		tier: "metamons",
+	},
+	eelektross: {
+		tier: "metamons",
+	},
+	tauros: {
+		tier: "metamons",
+	},
 };
