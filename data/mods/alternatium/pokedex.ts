@@ -968,9 +968,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	gourgeist: {
 		num: 711,
 		name: "Gourgeist",
-		types: ["Ghost", "Grass"],
+		types: ["Fire", "Grass"],
 		baseStats: {hp: 70, atk: 65, def: 115, spa: 135, spd: 105, spe: 85},
-		abilities: {0: "Poison Heal", 1: "Solar Power", H: "Flare Boost"},
+		abilities: {0: "Flash Fire", 1: "Solar Power", H: "Poison Heal"},
 		heightm: 0.9,
 		weightkg: 12.5,
 		eggGroups: ["Amorphous"],
