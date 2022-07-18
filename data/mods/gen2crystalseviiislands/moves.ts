@@ -338,12 +338,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			source.cureStatus();
 			source.clearBoosts();
 			this.add('-clearboost', source);
-			// if (source?.volatiles['confusion']) {
-			// 	source.removeVolatile('confusion');
-			// }
-			// if (source?.volatiles['attract']) {
-			// 	source.removeVolatile('attract');
-			// }
 			if (source.hp && source.removeVolatile('confusion')) {
 				this.add('-end', source, 'Confusion', '[from] move: Expel', '[of] ' + source);
 			}
@@ -359,12 +353,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (source.hp && source.removeVolatile('curse')) {
 				this.add('-end', source, 'Curse', '[from] move: Expel', '[of] ' + source);
 			}
-			// if (source?.volatiles['trapped']) {
-			// 	source.removeVolatile('trapped');
-			// }
-			// if (source?.volatiles['curse']) {
-			// 	source.removeVolatile('curse');
-			// }
 		},
 		secondary: null,
 		target: "self",
