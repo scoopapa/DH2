@@ -192,6 +192,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.effectData.busted = true;
 			}
 		},
+		onFaint(pokemon) {
+			if (pokemon.species.id !== ('starlycrowncloud') || pokemon.transformed) return;
+			pokemon.formeChange('Starly-Crown', this.effect, true);
+			// doesn't have a message (I feel it should be silent in this case)
+		},
 		isPermanent: true,
 		name: "Murmuration",
 		rating: 3,
