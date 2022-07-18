@@ -27,13 +27,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	batonpass: {
 		inherit: true,
-		onTryMove(pokemon) {
-            if (pokemon.positiveBoosts()) {
-				this.add('-fail', pokemon);
-				this.hint("Baton Pass can't pass Stat Boosts.");
-                return null;
-            }
-        },
+		self: {
+			onHit(source) {
+				if (source.positiveBoosts()) {
+					source.clearBoosts();
+					this.add('-clearboost', source);
+					this.hint("Baton Pass can't pass Stat Boosts.");
+				}
+			}
+		}
+
 	},
 	bodypress: {
 		num: 776,
