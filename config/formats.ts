@@ -669,6 +669,7 @@ export const Formats: FormatList = [
 			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang',
 			'Altarianite', 'Gengarite', 'Salamencite',
 			'Calaguaca-Revered', 'Poruvia-Revered',
+			'Pyraustragon', 'Darmanitan-Galar',
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
