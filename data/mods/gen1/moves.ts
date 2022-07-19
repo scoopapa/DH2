@@ -275,7 +275,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Bide, Swift, and Transform. If the user is fully paralyzed on the second turn, it continues avoiding attacks until it switches out or successfully executes the second turn of this move or Fly.",
 		basePower: 100,
-		effect: {
+		condition: {
 			duration: 2,
 			onLockMove: 'dig',
 			onInvulnerability(target, source, move) {
@@ -297,7 +297,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "For 0 to 7 turns, one of the target's known moves that has at least 1 PP remaining becomes disabled, at random. Fails if one of the target's moves is already disabled, or if none of the target's moves have PP remaining. If any Pokemon uses Haze, this effect ends. Whether or not this move was successful, it counts as a hit for the purposes of the opponent's use of Rage.",
 		shortDesc: "For 0-7 turns, disables one of the target's moves.",
-		effect: {
+		condition: {
 			duration: 4,
 			durationCallback(target, source, effect) {
 				const duration = this.random(1, 7);
@@ -412,7 +412,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	fly: {
 		inherit: true,
 		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Bide, Swift, and Transform. If the user is fully paralyzed on the second turn, it continues avoiding attacks until it switches out or successfully executes the second turn of this move or Dig.",
-		effect: {
+		condition: {
 			duration: 2,
 			onLockMove: 'fly',
 			onInvulnerability(target, source, move) {
@@ -434,7 +434,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "While the user remains active, its chance for a critical hit is quartered. Fails if the user already has the effect. If any Pokemon uses Haze, this effect ends.",
 		shortDesc: "Quarters the user's chance for a critical hit.",
-		effect: {
+		condition: {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'move: Focus Energy');
 			},

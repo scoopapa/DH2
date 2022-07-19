@@ -507,19 +507,29 @@ export class User extends Chat.MessageContext {
 			const lockedSymbol = (punishgroups.locked && punishgroups.locked.symbol || '\u203d');
 			return lockedSymbol + this.name;
 		}
-		const idName = toID(this.name);
-		idName.replace('0','o');//I know there are better ways but oh well
-		idName.replace('4','a');
-		idName.replace('3','e');
-		idName.replace('1','i');
-		idName.replace('5','s');
+		let idName = toID(this.name);
+		const knownAlts = ['JesusSlavery', 'AeonicIsABitch'];
+		idName = idName.replace(/0/g,'o');//I know there are better ways but oh well
+		idName = idName.replace(/4/g,'a');
+		idName = idName.replace(/3/g,'e');
+		idName = idName.replace(/1/g,'i');
+		idName = idName.replace(/5/g,'s');
 		if ((idName.includes("wobb")) ||
+			(idName.includes("fuck")) ||
+			(idName.includes("prostitute")) ||
+			(idName.includes("666")) ||
 			(idName.includes("wob") && (idName.includes("trol") || idName.includes("buf"))) ||
+			(idName.includes('scoopapa') && idName !== 'scoopapa') ||
+			(idName.includes('tkmof') && idName !== 'tkmofii2o9') ||
+			((idName.includes("scoop") || idName.includes("duo")) && idName.includes("kill")) ||
 			(idName.includes("buz") && idName.includes("car")) ||
+			(idName.includes("cat") && idName.includes("decap")) ||
 			(idName.includes("necro") && idName.includes("phili")) ||
-			(idName.includes("tkmof") && idName.includes("again"))
+			knownAlts.includes('idName')
 		) {
-			const names = ["12 years old", "Where Are My Parents?", "Moron Troll", "Loser Troll", "Wobbuffet Sucks", "Wasting my Time"];
+			const names = ["12 years old", "Idiot Wobb Guy", "Where Are My Parents?", "Loser Troll", "troll bc bad at game",
+				"mad bc no skill", "mad bc no friends", "mad bc no girls", "Wobbuffet Sucks", "Sexless Troll", "Sad Desperate", 
+				"Plz Someone Love Me", "Adults Failed Me", "crying under mask face", "troll bc bad at social"];
 			const newName = names[Math.floor(Math.random() * names.length)];
 			this.trackRename = this.name;
 			this.previousIDs.push(this.id);

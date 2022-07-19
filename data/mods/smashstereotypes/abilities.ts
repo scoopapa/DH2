@@ -525,4 +525,196 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	iceface: {
+		onStart(pokemon) {
+			if (this.field.isWeather('hail') && pokemon.species.id === 'escavaliereiscuenoice' && !pokemon.transformed) {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectData.busted = false;
+				pokemon.formeChange('Escavalier-Eiscue', this.effect, true);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
+				target.species.id === 'escavaliereiscue' && !target.transformed
+			) {
+				this.add('-activate', target, 'ability: Ice Face');
+				this.effectData.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || target.species.id !== 'escavaliereiscue' || target.transformed) return;
+			if (target.volatiles['substitute'] && !(move.flags['authentic'] || move.infiltrates)) return;
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || target.species.id !== 'escavaliereiscue' || target.transformed) return;
+			if (target.volatiles['substitute'] && !(move.flags['authentic'] || move.infiltrates)) return;
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.id === 'escavaliereiscue' && this.effectData.busted) {
+				pokemon.formeChange('Escavalier-Eiscue-Noice', this.effect, true);
+			}
+		},
+		onAnyWeatherStart() {
+			const pokemon = this.effectData.target;
+			if (this.field.isWeather('hail') && pokemon.species.id === 'escavaliereiscuenoice' && !pokemon.transformed) {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectData.busted = false;
+				pokemon.formeChange('Escavalier-Eiscue', this.effect, true);
+			}
+		},
+		isPermanent: true,
+		name: "Ice Face",
+		shortDesc: "If Escavalier-Eiscue, the first physical hit it takes deals 0 damage. This effect is restored in Hail.",
+		rating: 3,
+		num: 248,
+	},
+	flamingskin: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Flaming Skin');
+				}
+				return null;
+			}
+		},
+		onFoeBasePowerPriority: 17,
+		onFoeBasePower(basePower, attacker, defender, move) {
+			if (this.effectData.target !== defender) return;
+			if (move.type === 'Fire') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		name: "Flaming Skin",
+		shortDesc: "Dry Skin + Flame Body",
+	},
+	fromashes: {
+		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; ignores burn's effects.",
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				this.heal(target.maxhp / 8);
+				return false;
+			}
+		},
+		id: "fromashes",
+		name: "From Ashes",
+	},
+	sandbubbler: {
+		onStart(source) {
+			this.field.setWeather('sandstorm');
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Sand Bubbler boost');
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		name: "Sand Bubbler",
+		shortDesc: "Sand Stream + Iron Fist.",
+	},
+	debilitate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Debilitate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Debilitate",
+		shortDesc: "On switch-in, this Pokemon lowers the Sp. Atk of adjacent opponents by 1 stage.",
+		rating: 3.5,
+		num: 22,
+	},
+	oblivious: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Oblivious');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Oblivious');
+			}
+		},
+	},
+	innerfocus: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+		},
+	},
+	owntempo: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+		},
+	},
+	rattled: {
+		inherit: true,
+		onAfterBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'intimidate' || effect && effect.id === 'debilitate') {
+				this.boost({spe: 1});
+			}
+		},
+	},
+	scrappy: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+		},
+	},
 };

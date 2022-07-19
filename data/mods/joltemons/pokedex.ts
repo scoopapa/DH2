@@ -332,7 +332,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	samurott: {
 		inherit: true,
 		types: ["Water", "Fighting"],
-		abilities: {0: "Torrent", H: "No Guard"},
+		abilities: {0: "Torrent", H: "Shell Armor"},
 	},
 	dewott: {
 		inherit: true,
@@ -1204,7 +1204,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	weavile: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Scavenge", H: "Snow Cloak"},
+		abilities: {0: "Pressure", 1: "Pickpocket", H: "Snow Cloak"},
 	},
 	linoone: {
 		inherit: true,

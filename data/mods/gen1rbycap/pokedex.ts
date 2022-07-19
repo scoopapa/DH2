@@ -6,6 +6,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 60, def: 50, spa: 115, spd: 115, spe: 80},
 		abilities: {},
 	},
+	dracolilla: {
+		num: 1153,
+		name: "Dracolilla",
+		types: ["Bug", "Dragon"],
+		baseStats: {hp: 80, atk: 80, def: 95, spa: 100, spd: 100, spe: 100},
+		abilities: {},
+	},
 
 // don't touch
 	missingno: {
