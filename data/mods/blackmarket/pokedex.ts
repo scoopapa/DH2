@@ -223,7 +223,7 @@ bugmetlcratersmash: {
 	baseStats: {hp: 83, atk: 60, def: 75, spa: 60, spd: 80, spe: 60},
 	abilities: {0: "Flash Fire"},
 },
-missingno.cratersmash: {
+missingnocratersmash: {
 	num: 33.5,
 	species: "MissingNo.-cratersmash",
 	types: ["Dark", "Poison"],
