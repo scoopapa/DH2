@@ -59,5 +59,21 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Expand",
 		doublesTier: "Expand",
 	},
+	gladiarbor: {
+		tier: "Expand",
+		doublesTier: "Expand",
+	},
+	showmandril: {
+		tier: "Expand",
+		doublesTier: "Expand",
+	},
+	animeleon: {
+		tier: "Expand",
+		doublesTier: "Expand",
+	},
+	equivalor: {
+		tier: "Expand",
+		doublesTier: "Expand",
+	},
 
 };

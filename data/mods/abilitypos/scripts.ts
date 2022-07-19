@@ -15,7 +15,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lanturn").learnset.nuzzle = ['8L1'];
 		this.modData("Learnsets", "lanturn").learnset.flipturn = ['8L1'];
 		this.modData("Learnsets", "larvesta").learnset.defog = ['8L1'];
-		
+		this.modData("Learnsets", "carbink").learnset.painsplit = ['8L1'];
+		this.modData("Learnsets", "sableye").learnset.defog = ['8L1'];
+		this.modData("Learnsets", "sableye").learnset.teleport = ['8L1'];
+		this.modData("Learnsets", "sableye").learnset.thunderwave = ['8L1'];
+		delete this.modData('Learnsets', 'sableye').learnset.willowisp;
 		
 	},
 };

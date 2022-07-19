@@ -1745,6 +1745,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 81,
 	},
+	jellopod: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	jellopodf: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	espetops: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	regigoss: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},	
+	nihitrio: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -2356,6 +2381,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "LC",
 	},
 	mudboach: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	frillopod: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	frillopodf: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	eevuto: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},

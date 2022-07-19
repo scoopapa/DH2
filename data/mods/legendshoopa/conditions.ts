@@ -79,8 +79,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 	jaggedsplinters: {
 		name: 'jaggedsplinters',
-		onStart(side) {
+		onStart(side, target, source) {
 			this.add('-start', side, 'Jagged Splinters');
+			this.effectData.jaggedType = target.lastMove;
 		},
 
 		/*
@@ -90,17 +91,25 @@ export const Conditions: {[k: string]: ConditionData} = {
 		*/
 
 		onResidual(pokemon) {
-				let typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('Stealth Rock')), -6, 6);
-				if(this.effectData.isSpikes === true) {
-					typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('Spikes')), -6, 6);
-				} else if (this.effectData.isPin === true) {
-					typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('Pin Missile')), -6, 6);
-				} else if (this.effectData.isTephra === true) {
-					typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('Tephra Burst')), -6, 6);
-				}
-				const damage = this.getDamage(pokemon, pokemon, 25);
+				let type = this.dex.getActiveMove(this.effectData.jaggedType);
+				let typeMod = this.clampIntRange(pokemon.runEffectiveness(type));
+				const tr = this.trunc;
+				
+				let damage = this.getDamage(pokemon, pokemon, 25);
 				if (typeof damage !== 'number') throw new Error("Jagged Splinters damage not dealt");
-				this.damage(damage * typeMod);
+				pokemon.getMoveHitData(type).typeMod = typeMod;
+				if (typeMod > 0) {
+					for (let i = 0; i < typeMod; i++) {
+						damage *= 2;
+					}
+				}
+				if (typeMod < 0) {
+					for (let i = 0; i > typeMod; i--) {
+						damage = tr(damage / 2);
+					}
+				}
+				this.damage(damage);
+				this.add('-message', `Jagged Splinters dug into ${pokemon.name}!`);
 			},
 	},
 
@@ -181,22 +190,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.damage(pokemon.baseMaxhp / 16);
 			pokemon.statusData.time--;
 			if (pokemon.statusData.time <= 0) {
-				this.add('-curestatus', pokemon, 'brn');
+				this.add('-curestatus', pokemon, 'brn', '[Silent]');
 				pokemon.setStatus('');
 				return;
-			}
-		},
-
-		onAnyTryMove(this, source, target, move) {
-			if (move.secondaries && move.id !== 'secretpower') {
-				for (const secondary of move.secondaries) {
-					if (secondary.status !== ('brn' || 'par' || 'tox' || 'psn' || 'frz')) return;
-					this.add('-curestatus', target, 'brn', '[Silent');
-					target.setStatus('');
-				}
-			}	else if (move.status) {
-					this.add('-curestatus', target, 'brn', '[Silent]');
-					target.setStatus('');
 			}
 		},
 	},
@@ -224,24 +220,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return false;
 			}
 		},
-		onAnyTryMove(this, source, target, move) {
-			if (move.secondaries && move.id !== 'secretpower') {
-				for (const secondary of move.secondaries) {
-					if (secondary.status !== ('brn' || 'par' || 'tox' || 'psn' || 'frz')) return;
-
-					this.add('-curestatus', target, 'brn', '[Silent');
-					target.setStatus('');
-				}
-			}	else if (move.status) {
-					this.add('-curestatus', target, 'brn', '[Silent]');
-					target.setStatus('');
-			}
-		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
 			pokemon.statusData.time--;
 			if (pokemon.statusData.time <= 0) {
-				this.add('-curestatus', pokemon, 'par');
+				this.add('-curestatus', pokemon, 'par', '[Silent]');
 				pokemon.setStatus('');
 				return;
 			}
@@ -264,18 +247,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.effectData.startTime = 6;
 			this.effectData.time = this.effectData.startTime;
 		},
-		onAnyTryMove(this, source, target, move) {
-			if (move.secondaries && move.id !== 'secretpower') {
-				for (const secondary of move.secondaries) {
-					if (secondary.status !== ('brn' || 'par' || 'tox' || 'psn' || 'frz')) return;
-					this.add('-curestatus', target, 'brn', '[Silent');
-					target.setStatus('');
-				}
-			}	else if (move.status) {
-					this.add('-curestatus', target, 'brn', '[Silent]');
-					target.setStatus('');
-			}
-		},
 		onHit(target, source, move) {
 			if (move.thawsTarget || (move.id === 'flamewheel' || move.id === 'flareblitz') && move.category !== 'Status') {
 				target.cureStatus();
@@ -287,7 +258,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.damage(pokemon.baseMaxhp / 16);
 			pokemon.statusData.time--;
 			if (pokemon.statusData.time <= 0) {
-				this.add('-curestatus', pokemon, 'frz');
+				this.add('-curestatus', pokemon, 'frz', '[Silent]');
 				pokemon.setStatus('');
 				return;
 			}
@@ -323,18 +294,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				}
 			}
 		},
-		onAnyTryMove(this, source, target, move) {
-			if (move.secondaries && move.id !== 'secretpower') {
-				for (const secondary of move.secondaries) {
-					if (secondary.status !== ('brn' || 'par' || 'tox' || 'psn' || 'frz')) return;
-					this.add('-curestatus', target, 'brn', '[Silent');
-					target.setStatus('');
-				}
-			}	else if (move.status) {
-					this.add('-curestatus', target, 'brn', '[Silent]');
-					target.setStatus('');
-			}
-		},
 
 		onFoeBasePowerPriority: 17,
 		onFoeBasePower(basePower, attacker, defender, move) {
@@ -346,7 +305,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual(pokemon) {
 			pokemon.statusData.time--;
 			if (pokemon.statusData.time <= 0) {
-				this.add('-curestatus', pokemon, 'slp');
+				this.add('-curestatus', pokemon, 'slp', '[Silent]');
 				pokemon.setStatus('');
 
 				return;
@@ -370,20 +329,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 8);
 			if (pokemon.statusData.time <= 0) {
-				this.add('-curestatus', pokemon, 'psn');
+				this.add('-curestatus', pokemon, 'psn', '[Silent]');
 				pokemon.setStatus('');
 				return;
-			}
-		},
-		onAnyTryMove(this, source, target, move) {
-			if (move.secondaries && move.id !== 'secretpower') {
-				for (const secondary of move.secondaries) {
-					if (secondary.status !== ('brn' || 'par' || 'tox' || 'psn' || 'frz')) return;					this.add('-curestatus', target, 'brn', '[Silent');
-					target.setStatus('');
-				}
-			}	else if (move.status) {
-					this.add('-curestatus', target, 'brn', '[Silent]');
-					target.setStatus('');
 			}
 		},
 	},
@@ -412,21 +360,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
 			if (pokemon.statusData.time <= 0) {
-				this.add('-curestatus', pokemon, 'tox');
+				this.add('-curestatus', pokemon, 'tox', '[Silent]');
 				pokemon.setStatus('');
 				return;
-			}
-		},
-		onAnyTryMove(this, source, target, move) {
-			if (move.secondaries && move.id !== 'secretpower') {
-				for (const secondary of move.secondaries) {
-					if (secondary.status !== ('brn' || 'par' || 'tox' || 'psn' || 'frz')) return;
-					this.add('-curestatus', target, 'brn', '[Silent');
-					target.setStatus('');
-				}
-			}	else if (move.status) {
-					this.add('-curestatus', target, 'brn', '[Silent]');
-					target.setStatus('');
 			}
 		},
 	},
