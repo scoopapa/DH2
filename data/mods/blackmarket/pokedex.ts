@@ -10,7 +10,7 @@ bblueclisque: {
 	num: 2.5,
 	species: "B-blueclisque",
 	types: ["rock", "fire"],
-	baseStats: {hp: 61, atk: 60, def: 60, spa: 68, spd: 60, spe: 80},
+	baseStats: {hp: 74, atk: 60, def: 60, spa: 88, spd: 60, spe: 106},
 	abilities: {0: "Ball Fetch"},
 },
 cblueclisque: {
@@ -66,7 +66,7 @@ fakemon1mossysandwich: {
 	num: 10.5,
 	species: "Fakemon 1-mossysandwich",
 	types: ["Flying"],
-	baseStats: {hp: 90, atk: 60, def: 90, spa: 60, spd: 85, spe: 60},
+	baseStats: {hp: 90, atk: 60, def: 90, spa: 90, spd: 85, spe: 60},
 	abilities: {0: "Lightning Rod"},
 },
 fakemon2mossysandwich: {
