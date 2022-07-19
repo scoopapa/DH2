@@ -5317,6 +5317,7 @@ lifedrain: {
 						bestStat = source.storedStats[s];
 					}
 				}
+				this.add('-ability', target, 'Ultra Haircut');
 				this.boost({[statName]: -1}, source, target, null, true);
 		},
 	  name: "Ultra Haircut",
