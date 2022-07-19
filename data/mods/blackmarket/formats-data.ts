@@ -127,7 +127,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	missingno.cratersmash: {
+	missingnocratersmash: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
