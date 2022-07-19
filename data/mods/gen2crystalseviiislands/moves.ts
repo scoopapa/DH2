@@ -18,12 +18,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Attack Order", target);
 		},
-		secondary: {
-			chance: 10,
-			boosts: {
-				def: -1,
-			},
-		},
+		secondary: null,
 		target: "normal",
 		type: "Bug",
 	},
