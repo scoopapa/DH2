@@ -599,7 +599,7 @@ bugmetlcratersmash: {learnset: {
 	swagger: ["7L1"],
 	toxic: ["7L1"],
 }},
-missingno.cratersmash: {learnset: {
+missingnocratersmash: {learnset: {
 	darkpulse: ["7L1"],
 	poisonjab: ["7L1"],
 	throatchop: ["7L1"],
