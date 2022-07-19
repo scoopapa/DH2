@@ -55,7 +55,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onModifyType(move, pokemon) {
 		const types = pokemon.getTypes();
-		let type = types[2] || types[0];
+		let type = types[1] || types[0];
 		if (type === "Bird") type = "Normal";
 		move.type = type;
 		},
