@@ -1658,7 +1658,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["hypnosis", "moonlitwaltz", "focusblast", "nastyplot"],
 	},
 	darmanitangalar: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["icepunch", "flareblitz", "uturn", "earthquake"],
 	},
