@@ -2055,9 +2055,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Marowak",
 
 		types: ["Ground", "Electric"],
-		baseStats: {hp: 80, atk: 50, def: 130, spa: 110, spd: 80, spe: 45},
+		baseStats: {hp: 80, atk: 60, def: 130, spa: 90, spd: 80, spe: 45},
 		abilities: {0: "Inner Focus", 1: "Lightning Rod", H: "Battle Armor"},
-		movepoolAdditions: ["discharge", "healingwish", "risingvoltage", "thunder"],
+		movepoolAdditions: ["discharge", "healingwish", "risingvoltage", "thunder", "voltswitch"],
 
 		prevo: "Marowak",
 		evoLevel: 40,
