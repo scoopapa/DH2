@@ -5311,13 +5311,13 @@ lifedrain: {
 				let bestStat = 0;
 				/** @type {StatNameExceptHP} */
 				let s;
-				for (s in target.storedStats) {
-					if (target.storedStats[s] > bestStat) {
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
 						statName = s;
-						bestStat = target.storedStats[s];
+						bestStat = source.storedStats[s];
 					}
 				}
-				this.boost({[statName]: -1}, target);
+				this.boost({[statName]: -1}, source);
 		},
 	  name: "Ultra Haircut",
     },
