@@ -50,7 +50,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		accuracy: true,
 		ignoreEvasion: true,
-		effect: {
+		condition: {
 			duration: 2,
 			durationCallback(target, source, effect) {
 				return this.random(3, 4);
@@ -542,7 +542,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "At the end of each of the target's turns, The Pokemon at the user's position steals 1/16 of the target's maximum HP, rounded down and multiplied by the target's current Toxic counter if it has one, even if the target currently has less than that amount of HP remaining. If the target switches out or any Pokemon uses Haze, this effect ends. Grass-type Pokemon are immune to this move.",
 		onHit() {},
-		effect: {
+		condition: {
 			onStart(target) {
 				this.add('-start', target, 'move: Leech Seed');
 			},
@@ -587,7 +587,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 		},
-		effect: {
+		condition: {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Light Screen');
 			},
@@ -694,7 +694,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			volatileStatus: 'rage',
 		},
-		effect: {
+		condition: {
 			// Rage lock
 			duration: 255,
 			onStart(target, source, effect) {
@@ -755,7 +755,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 		},
-		effect: {
+		condition: {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Reflect');
 			},
@@ -919,7 +919,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.directDamage(target.maxhp / 4, target, target);
 			}
 		},
-		effect: {
+		condition: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
 				this.effectData.hp = Math.floor(target.maxhp / 4) + 1;
