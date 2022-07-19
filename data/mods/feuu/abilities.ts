@@ -5305,7 +5305,7 @@ lifedrain: {
     },
 	ultrahaircut: {
 	  shortDesc: "Pokémon making contact with this Pokémon have their highest stat lowered by 1 stage.",
-		onSourceHit(target, source, move) {
+		onDamagingHit(damage, target, source, move) {
 				if (!move || !move.flags['contact'] || target.volatiles['substitute']) return;
 				let statName = 'atk';
 				let bestStat = 0;
@@ -5317,7 +5317,7 @@ lifedrain: {
 						bestStat = source.storedStats[s];
 					}
 				}
-				this.boost({[statName]: -1}, source);
+				this.boost({[statName]: -1}, source, target, null, true);
 		},
 	  name: "Ultra Haircut",
     },
