@@ -3436,7 +3436,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 204,
 		name: "Igglycian-Crowned",
 		types: ["Fairy"],
-		baseStats: {hp: 111, atk: 100, def: 65, spa: 60, spd: 67, spe: 101},
+		baseStats: {hp: 111, atk: 100, def: 65, spa: 60, spd: 67, spe: 86},
 		abilities: {0: "Envious Sword"},
 		weightkg: 178,
 	},
