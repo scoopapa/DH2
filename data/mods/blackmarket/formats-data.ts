@@ -179,4 +179,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	thebossdoubleironbash: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	tbddoubleironbash: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	boomboxdoubleironbash: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
