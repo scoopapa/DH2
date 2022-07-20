@@ -1241,5 +1241,6 @@ badgearth: {learnset: {
 	thief: ["7L1"],
 	acupressure: ["7L1"],
 	darkestlariat: ["7L1"],
+	irontail: ["7L1"],
 }},
 };

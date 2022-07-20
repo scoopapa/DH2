@@ -173,10 +173,10 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'Baton Pass',
+			'Uber', 'Baton Pass',
 		],
 		unbanlist: [
-				 'A-blueclisque', 'B-blueclisque', 'C-blueclisque', 'perdemos 1-anaconja', 'perdemos 3-anaconja', 'perdemos 2-anaconja', 'Genesys-paulluxx', 'Conakash-paulluxx', 'Demudain-paulluxx', 'Fakemon 1-mossysandwich', 'Fakemon 2-mossysandwich', 'Fakemon 3-mossysandwich', 'Astrolol-beafcultist', 'Your Mother-beafcultist', 'Unfezant-beafcultist', 'Goldoboros-spiderpig', 'Aggresteus-spiderpig', 'Aerolt-spiderpig', 'Mojam-bobsican', 'Endurcho-bobsican', 'Aguacather-bobsican', 'Comite-keeganskymin', 'Galelilee-keeganskymin', 'Fillerunt-keeganskymin', 'Dukess-gekokeso', 'Namaraft-gekokeso', 'Chandlier-gekokeso', 'Solidina-lapzap', 'Inswamada-lapzap', 'Clionoros-lapzap', 'Cratersmash-cratersmash', 'Bugmetl-cratersmash', 'MissingNo.-cratersmash', 'Nimbux-squawkerz', 'Gladiolune-squawkerz', 'Molmga-squawkerz', 'Vailafly-gravitymonkey', 'Komodore-gravitymonkey', 'Cutternal-gravitymonkey', 'Wattack-xenonhero', 'Shail-xenonhero', 'Blustriage-xenonhero', 'Fakemon I-lavarina', 'Fakemon II-lavarina', 'Fakemon III-lavarina',
+				 'A-blueclisque', 'B-blueclisque', 'C-blueclisque', 'perdemos 1-anaconja', 'perdemos 3-anaconja', 'perdemos 2-anaconja', 'Genesys-paulluxx', 'Conakash-paulluxx', 'Demudain-paulluxx', 'Fakemon 1-mossysandwich', 'Fakemon 2-mossysandwich', 'Fakemon 3-mossysandwich', 'Astrolol-beafcultist', 'Your Mother-beafcultist', 'Unfezant-beafcultist', 'Goldoboros-spiderpig', 'Aggresteus-spiderpig', 'Aerolt-spiderpig', 'Mojam-bobsican', 'Endurcho-bobsican', 'Aguacather-bobsican', 'Comite-keeganskymin', 'Galelilee-keeganskymin', 'Fillerunt-keeganskymin', 'Dukess-gekokeso', 'Namaraft-gekokeso', 'Chandlier-gekokeso', 'Solidina-lapzap', 'Inswamada-lapzap', 'Clionoros-lapzap', 'Cratersmash-cratersmash', 'Bugmetl-cratersmash', 'MissingNo.-cratersmash', 'Nimbux-squawkerz', 'Gladiolune-squawkerz', 'Molmga-squawkerz', 'Vailafly-gravitymonkey', 'Komodore-gravitymonkey', 'Cutternal-gravitymonkey', 'Wattack-xenonhero', 'Shail-xenonhero', 'Blustriage-xenonhero', 'Fakemon I-lavarina', 'Fakemon II-lavarina', 'Fakemon III-lavarina', 'Boombox-doubleironbash', 'The Boss-doubleironbash', 'TBD-doubleironbash',
 		],
 	},
 	
