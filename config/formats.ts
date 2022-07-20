@@ -674,6 +674,7 @@ export const Formats: FormatList = [
 					   'Snarl', 'Steel Wing', 'Strange Steam',
 					   'Deino', 'Zweilous', 'Hydreigon', 'Scizor', 'Cottonee', 'Whimsicott', 
 						'Nature\'s Madness', 'Fake Tears', 'Gear Up',
+						'Steelix', 'Spiritomb', 'Swablu', 'Altaria',
 					  ],
     },
    {
