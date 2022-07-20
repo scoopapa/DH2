@@ -18,12 +18,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Attack Order", target);
 		},
-		secondary: {
-			chance: 10,
-			boosts: {
-				def: -1,
-			},
-		},
+		secondary: null,
 		target: "normal",
 		type: "Bug",
 	},
@@ -328,7 +323,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Expel",
 		pp: 20,
 		priority: 0,
-		flags: {defrost: 1},
+		flags: {defrost: 1, bypasssub: 1},
 		sleepUsable: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
@@ -358,6 +353,151 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 		contestType: "Beautiful",
+	},
+
+	preyingswipe: {
+		num: -10,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the pursuit succeeds
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('Pursuit damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Preying Swipe",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side === pokemon.side) continue;
+				side.addSideCondition('preyingswipe', pokemon);
+				const data = side.getSideConditionData('preyingswipe');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove() {},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('preyingswipe');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Preyingswipe start');
+				let alreadyAdded = false;
+				for (const source of this.effectData.sources) {
+					if (source.speed < pokemon.speed || (source.speed === pokemon.speed && this.random(2) === 0)) {
+						// Destiny Bond ends if the switch action "outspeeds" the attacker, regardless of host
+						pokemon.removeVolatile('destinybond');
+					}
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Preying Swipe');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.runMove('preyingswipe', source, this.getTargetLoc(pokemon, source));
+				}
+			},
+		},
+		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Slash", target);
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	draconicdrive: {
+		num: -11,
+		accuracy: 90,
+		basePower: 95,
+		category: "Special",
+		name: "Draconic Drive",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Pulse", target);
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+	
+	},
+	softshell: {
+		num: -12,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Soft Shell",
+		pp: 10,
+		priority: 1,
+		flags: {heal: 1, bypasssub: 1},
+		heal: [1, 2],
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Withdraw", target);
+		},
+		target: "self",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	essencesteal: {
+		num: -12,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Essence Steal",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dream Eater", target);
+		},
+		onHit(target, source) {
+			if (target.boosts.spa === -6) return false;
+			const success = this.boost({spa: -1}, target, source, null, false, true);
+			return !!(this.heal(source.level, source, target) || success);
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
 	},
 	///////
 	spikes: {
