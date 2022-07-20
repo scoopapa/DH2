@@ -65,6 +65,55 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 2,
 		shortDesc: "(Bugged) Not compatible with Animon."
 	},
+
+	// Malnourish
+
+	leftovers: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 16);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+	},
+	berry: {
+		inherit: true,
+		onEat(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(10);
+			}
+			else {
+				this.heal(30);
+			}
+		},
+	},
+	goldberry: {
+		inherit: true,
+		onEat(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(30);
+			}
+			else {
+				this.heal(30);
+			}
+		},
+	},
+	berryjuice: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.hp > pokemon.maxhp / 2) return;
+			if (!(this.runEvent('TryHeal', pokemon) && pokemon.useItem())) return;
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(20);
+			}
+			else {
+				this.heal(20);
+			}
+		}
+	},
 	
 	
 	/*reflect: {

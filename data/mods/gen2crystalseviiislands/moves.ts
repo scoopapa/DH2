@@ -93,18 +93,20 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
         condition: {
             duration: 1,
-				onSourceBasePower(basePower, target, source, move) {
-                    return this.chainModify(0.7);
-            },
             onStart(pokemon) {
                 this.add('-message', `${pokemon.name} is attempting to parry!`);
             },
             onHit(pokemon, source, move) {
                 if (move.category !== 'Status') {
                     pokemon.volatiles['parry'].untouched = true;
-               }
+                }
            },
-       },//
+		   onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target) {
+					return this.chainModify(0.7);
+				}
+			},
+       	},//
 		 onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mimic", target);
@@ -450,7 +452,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
-	
 	},
 	softshell: {
 		num: -12,
@@ -498,6 +499,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
+	},
+	malnourish: {
+		num: -13,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Malnourish",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'malnourish',
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Venoshock", target);
+		},
+		onHit(pokemon) {
+			if (pokemon.hasType('Poison')) return;
+			if (pokemon.hasType('Steel')) return;
+			pokemon.addVolatile('malnourish');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Smart",
 	},
 	///////
 	spikes: {

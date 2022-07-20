@@ -184,6 +184,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'koffing').learnset.softshell = ['2L1'];
 		this.modData('Learnsets', 'weezing').learnset.softshell = ['2L1'];
 		
+		this.modData('Learnsets', 'venusaur').learnset.malnourish = ['2L1'];
+		this.modData('Learnsets', 'muk').learnset.malnourish = ['2L1'];
+		this.modData('Learnsets', 'tentacruel').learnset.malnourish = ['2L1'];
+
 	},
 
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
