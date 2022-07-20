@@ -314,4 +314,25 @@ fakemoniiilavarina: {
 	baseStats: {hp: 70, atk: 60, def: 80, spa: 80, spd: 80, spe: 60},
 	abilities: {0: "Synchronize"},
 },
+thebossdoubleironbash: {
+	num: 1.5,
+	species: "The Boss-doubleironbash",
+	types: ["Dark", "Fighting"],
+	baseStats: {hp: 60, atk: 100, def: 60, spa: 60, spd: 60, spe: 100},
+	abilities: {0: "Iron Fist"},
+},
+tbddoubleironbash: {
+	num: 2.5,
+	species: "TBD-doubleironbash",
+	types: ["Dragon"],
+	baseStats: {hp: 60, atk: 100, def: 75, spa: 60, spd: 75, spe: 90},
+	abilities: {0: "Run Away"},
+},
+boomboxdoubleironbash: {
+	num: 3.5,
+	species: "Boombox-doubleironbash",
+	types: ["Normal"],
+	baseStats: {hp: 60, atk: 60, def: 60, spa: 100, spd: 60, spe: 60},
+	abilities: {0: "Illuminate"},
+},
 };
