@@ -4984,7 +4984,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	golisopod: {
-		randomBattleMoves: ["firstimpression", "knockoff", "leechlife", "liquidation", "spikes"],
+		randomBattleMoves: ["firstimpression", "knockoff", "leechlife", "liquidation", "morningsun", "spikes"],
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["aquajet", "closecombat", "firstimpression", "knockoff", "leechlife", "liquidation", "protect", "wideguard"],
 		randomDoubleBattleLevel: 88,
@@ -6075,7 +6075,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	zarudedada: {
-		randomBattleMoves: ["bulkup", "closecombat", "darkestlariat", "junglehealing", "powerwhip", "uturn"],
+		randomBattleMoves: ["swordsdance", "closecombat", "darkestlariat", "junglehealing", "powerwhip", "uturn"],
 		randomBattleLevel: 78,
 		randomDoubleBattleMoves: ["closecombat", "darkestlariat", "junglehealing", "powerwhip", "protect", "rockslide"],
 		randomDoubleBattleLevel: 80,
