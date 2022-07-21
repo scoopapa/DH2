@@ -1,5 +1,7 @@
+import BattleQueue from './battle-queue';
 import {BasicEffect} from './dex-data';
 import type {SecondaryEffect, MoveEventMethods} from './dex-moves';
+import { Pokemon } from './pokemon';
 
 export interface EventMethods {
 	onDamagingHit?: (this: Battle, damage: number, target: Pokemon, source: Pokemon, move: ActiveMove) => void;
@@ -96,6 +98,7 @@ export interface EventMethods {
 		((this: Battle, relayVar: number, target: Pokemon, source: Pokemon, effect: Effect) => number | boolean | void) |
 		((this: Battle, pokemon: Pokemon) => boolean | void) | boolean
 	);
+	onTryHealItem?: (this: Battle, relayVar: number, source: Pokemon, item: Item) => number | boolean | void;
 	onTryHit?: MoveEventMethods['onTryHit'];
 	onTryHitField?: MoveEventMethods['onTryHitField'];
 	onTryHitSide?: CommonHandlers['ResultMove'];

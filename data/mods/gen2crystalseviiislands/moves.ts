@@ -524,6 +524,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		contestType: "Smart",
 	},
+	boulderrush: {
+		num: -14,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Boulder Rush",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [50, 100],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Wrecker", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
 	rapidspin: {
 		inherit: true,
 		onAfterHit(target, pokemon) {
