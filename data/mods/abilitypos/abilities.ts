@@ -151,4 +151,59 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 305,
 	},
+	meaneye: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Mean Eye', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Mean Eye",
+		shortDesc: "On switch-in, this Pokemon lowers the Special attack of adjacent opponents by 1 stage.",
+		rating: 1.5,
+		num: 306,
+	},
+	cleftbody: {
+		onSwitchIn(pokemon) {
+			this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[of] ' + pokemon);
+			pokemon.side.removeSideCondition('stealthrock');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Cleft Body');
+				}
+				return null;
+			}
+		},
+		name: "Cleft Body",
+		rating: 3.5,
+		num: 11,
+	},
+	simmerfocus: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category !== 'Status') {
+				move.simmerfocusBoosted = true;
+				return priority - 3;
+			}
+		},
+		onBasePowerPriority: 19,
+		onBasePower(basePower, pokemon, target, move) {
+			if (!pokemon.hurtThisTurn) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Simmer Focus",
+		rating: 4,
+		num: 158,
+	},
 };

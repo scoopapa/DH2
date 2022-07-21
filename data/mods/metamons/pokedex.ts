@@ -124,7 +124,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Normal"],
 		gender: "M",
 		baseStats: {hp: 80, atk: 90, def: 70, spa: 90, spd: 70, spe: 100},
-		abilities: {0: "Sheer force", H: "Adaptability"},
+		abilities: {0: "Sheer Force", H: "Adaptability"},
 		heightm: 1.4,
 		weightkg: 88.4,
 		color: "Brown",

@@ -9,7 +9,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	*/
 
 	larvitar: {
-		tier: "ANL OU",
+		tier: "ANL LC",
 		isModded: true,
 	},
 
@@ -105,7 +105,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	torchic: {
-		tier: "ANL OU",
+		tier: "ANL LC",
 		isModded: true,
 	},
 
@@ -160,7 +160,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	silcoon: {
-		tier: "ANL NFe",
+		tier: "ANL NFE",
 		isModded: true,
 	},
 
@@ -625,16 +625,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ANL OU",
 		isModded: true,
 	},
-
+	
 	slugma: {
 		tier: "ANL LC",
 		isModded: true,
 	},
 
+	/*
 	magcargo: {
 		tier: "ANL OU",
 		isModded: true,
 	},
+	*/
 
 	torkoal: {
 		tier: "ANL OU",
@@ -699,7 +701,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	vibrava: {
-		tier: "ANL LC",
+		tier: "ANL NFE",
 		isModded: true,
 	},
 
@@ -854,12 +856,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	duskull: {
-		tier: "ANL OU",
+		tier: "ANL LC",
 		isModded: true,
 	},
 
 	dusclops: {
-		tier: "ANL OU",
+		tier: "ANL NFE",
 		isModded: true,
 	},
 
@@ -945,14 +947,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ANL OU",
 		isModded: true,
 	},
-	*/
 
 	girafarig: {
 		tier: "ANL OU",
 		isModded: true,
 	},
 
-	/*
 	phanpy: {
 		tier: "ANL LC",
 		isModded: true,
@@ -1219,7 +1219,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	gothorita: {
-		tier: "ANL NFe",
+		tier: "ANL NFE",
 		isModded: true,
 	},
 
@@ -1639,7 +1639,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	fraxure: {
-		tier: "ANL NFe",
+		tier: "ANL NFE",
 		isModded: true,
 	},
 
@@ -1693,7 +1693,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	beedril: {
+	beedrill: {
 		tier: "ANL OU",
 		isModded: true,
 	},
