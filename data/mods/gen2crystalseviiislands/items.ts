@@ -140,7 +140,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1010,
-		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae8: {
@@ -154,7 +153,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1011,
-		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae7: {
@@ -168,7 +166,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1012,
-		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae6: {
@@ -182,7 +179,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1013,
-		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae5: {
@@ -196,7 +192,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1014,
-		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae4: {
@@ -210,7 +205,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1014,
-		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae3: {
@@ -224,7 +218,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1015,
-		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae2: {
@@ -238,7 +231,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1016,
-		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae1: {
@@ -250,7 +242,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.add('-activate', pokemon, 'item: Sevii Sundae'); 
 		},
 		num: 1017,
-		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 
