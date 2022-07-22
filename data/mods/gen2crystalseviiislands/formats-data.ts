@@ -41,4 +41,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pierzer: {
 	gen: 2,
 	},
-}
+};
