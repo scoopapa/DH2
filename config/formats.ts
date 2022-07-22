@@ -3038,7 +3038,7 @@ export const Formats: FormatList = [
       ],
       team: 'random',
 		mod: 'outheorymons', 
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Dynamax Clause', 'Data Mod', 'Species Clause'],
 	},
 	{
 		name: "[Gen 8] Roulettemons Random Doubles",
