@@ -54,7 +54,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.cureStatus();
 			}
 		},
-		num: 1008,
+		num: 1004,
 		gen: 2,
 		shortDesc: "Prevents the holder from being poisoned.",
 	},
@@ -68,7 +68,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.cureStatus();
 			}
 		},
-		num: 1008,
+		num: 1005,
 		gen: 2,
 		shortDesc: "Prevents the holder from being put to sleep.",
 	},
@@ -82,7 +82,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.cureStatus();
 			}
 		},
-		num: 1008,
+		num: 1006,
 		gen: 2,
 		shortDesc: "Prevents the holder from being frozen.",
 	},
@@ -96,7 +96,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.cureStatus();
 			}
 		},
-		num: 1008,
+		num: 1007,
 		gen: 2,
 		shortDesc: "Prevents the holder from being burned.",
 	},
@@ -204,7 +204,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.setItem('seviisundae3');
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
-		num: 1014,
+		num: 1015,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae3: {
@@ -217,7 +217,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.setItem('seviisundae2');
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
-		num: 1015,
+		num: 1016,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae2: {
@@ -230,7 +230,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.setItem('seviisundae1');
 				this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
 		},
-		num: 1016,
+		num: 1017,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 	seviisundae1: {
@@ -242,7 +242,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.add('-activate', pokemon, 'item: Sevii Sundae'); 
 			pokemon.useItem();
 		},
-		num: 1017,
+		num: 1018,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 
