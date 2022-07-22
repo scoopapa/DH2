@@ -1135,7 +1135,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	gyarados: {
-		randomBattleMoves: ["dualwingbeat", "dragondance", "earthquake", "powerwhip", "waterfall"],
+		randomBattleMoves: ["dualwingbeat", "dragondance", "earthquake", "powerwhip", "roost", "waterfall"],
 		randomBattleLevel: 76,
 		randomDoubleBattleMoves: ["bounce", "dragondance", "icefang", "powerwhip", "protect", "waterfall"],
 		randomDoubleBattleLevel: 82,
@@ -4112,7 +4112,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	thundurus: {
-		randomBattleMoves: ["grassknot", "knockoff", "nastyplot", "sludgewave", "spikes", "superpower", "thunderbolt", "thunderwave"],
+		randomBattleMoves: ["grassknot", "hurricane",  "knockoff", "nastyplot", "sludgewave", "spikes", "superpower", "thunderbolt", "thunderwave"],
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["grassknot", "knockoff", "nastyplot", "protect", "sludgebomb", "thunderbolt", "thunderwave"],
 		randomDoubleBattleLevel: 82,
@@ -4120,7 +4120,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	thundurustherian: {
-		randomBattleMoves: ["grassknot", "focusblast", "nastyplot", "psychic", "spikes", "thunderbolt", "voltswitch"],
+		randomBattleMoves: ["grassknot", "hurricane", "focusblast", "nastyplot", "psychic", "spikes", "thunderbolt", "voltswitch"],
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["agility", "focusblast", "grassknot", "nastyplot", "sludgebomb", "thunderbolt", "voltswitch"],
 		randomDoubleBattleLevel: 82,
@@ -4984,7 +4984,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	golisopod: {
-		randomBattleMoves: ["firstimpression", "knockoff", "leechlife", "liquidation", "spikes"],
+		randomBattleMoves: ["firstimpression", "knockoff", "leechlife", "liquidation", "morningsun", "spikes"],
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["aquajet", "closecombat", "firstimpression", "knockoff", "leechlife", "liquidation", "protect", "wideguard"],
 		randomDoubleBattleLevel: 88,
@@ -6075,7 +6075,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	zarudedada: {
-		randomBattleMoves: ["bulkup", "closecombat", "darkestlariat", "junglehealing", "powerwhip", "uturn"],
+		randomBattleMoves: ["swordsdance", "closecombat", "darkestlariat", "junglehealing", "powerwhip", "uturn"],
 		randomBattleLevel: 78,
 		randomDoubleBattleMoves: ["closecombat", "darkestlariat", "junglehealing", "powerwhip", "protect", "rockslide"],
 		randomDoubleBattleLevel: 80,

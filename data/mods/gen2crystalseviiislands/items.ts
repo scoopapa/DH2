@@ -20,6 +20,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Hellfire Lantern",
 		onSourceTryHit(target, source, move) {
 			if (move.type === 'Fire') {
+				this.add('-enditem', target, 'Hellfire Lantern');
 				target.trySetStatus('brn', source);
 				source.useItem();
 			}
@@ -43,7 +44,77 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "If held by Sandshrew and Sandslash, summon Sandstorm for 5 turns on switch-in.",
 	},
 	
-	
+	airfilter: {
+		name: "Air Filter",
+		spritenum: 662,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				this.add('-item', pokemon, 'Air Filter');
+				this.add('-activate', pokemon, 'item: Air Filter');
+				pokemon.cureStatus();
+			}
+		},
+		num: 1008,
+		gen: 2,
+		shortDesc: "Prevents the holder from being poisoned.",
+	},
+	alarmclock: {
+		name: "Alarm Clock",
+		spritenum: 289,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.add('-item', pokemon, 'Alarm Clock');
+				this.add('-activate', pokemon, 'item: Alarm Clock');
+				pokemon.cureStatus();
+			}
+		},
+		num: 1008,
+		gen: 2,
+		shortDesc: "Prevents the holder from being put to sleep.",
+	},
+	heatpack: {
+		name: "Heat Pack",
+		spritenum: 145,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				this.add('-item', pokemon, 'Heat Pack');
+				this.add('-activate', pokemon, 'item: Heat Pack');
+				pokemon.cureStatus();
+			}
+		},
+		num: 1008,
+		gen: 2,
+		shortDesc: "Prevents the holder from being frozen.",
+	},
+	ointment: {
+		name: "Ointment",
+		spritenum: 713,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-item', pokemon, 'Ointment');
+				this.add('-activate', pokemon, 'item: Ointment');
+				pokemon.cureStatus();
+			}
+		},
+		num: 1008,
+		gen: 2,
+		shortDesc: "Prevents the holder from being burned.",
+	},
+	smellingsalts: {
+		name: "Smelling Salts",
+		spritenum: 123,
+		onUpdate(pokemon) {
+			if (pokemon.status === 'par') {
+				this.add('-item', pokemon, 'Smelling Salts');
+				this.add('-activate', pokemon, 'item: Smelling Salts');
+				pokemon.cureStatus();
+			}
+		},
+		num: 1008,
+		gen: 2,
+		shortDesc: "Prevents the holder from being paralyzed.",
+	},
+
 	// Vanilla Edits
 	
 	metalpowder: {
