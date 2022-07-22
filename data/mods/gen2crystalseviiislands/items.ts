@@ -240,6 +240,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onResidual(pokemon) {
 			this.heal(pokemon.baseMaxhp / 8);
 			this.add('-activate', pokemon, 'item: Sevii Sundae'); 
+			pokemon.useItem();
 		},
 		num: 1017,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
