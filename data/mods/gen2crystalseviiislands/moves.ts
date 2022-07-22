@@ -582,4 +582,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 	},
+	sleeptalk: {
+        inherit: true,
+        onHit(pokemon) {
+            const noSleepTalk = [
+                'bide', 'focuspunch', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'sketch', 'sleeptalk', 'hypeup',
+            ];
+            const moves = [];
+            for (const moveSlot of pokemon.moveSlots) {
+                const moveid = moveSlot.id;
+                if (!moveid) continue;
+                const move = this.dex.getMove(moveid);
+                if (noSleepTalk.includes(moveid) || move.flags['charge']) {
+                    continue;
+                }
+                moves.push(moveid);
+            }
+            let randomMove = '';
+            if (moves.length) randomMove = this.sample(moves);
+            if (!randomMove) {
+                return false;
+            }
+            this.useMove(randomMove, pokemon);
+        },
+    },
 };
