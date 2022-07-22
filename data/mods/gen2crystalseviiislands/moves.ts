@@ -524,38 +524,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		contestType: "Smart",
 	},
-	///////
-	spikes: {
-		inherit: true,
-		flags: {authentic: 1},
-		desc: "Sets up a hazard on the opposing side of the field, causing each opposing Pokemon that switches in to lose 1/8 of their maximum HP, rounded down, unless it is a Flying-type Pokemon. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin successfully.",
-		shortDesc: "Hurts grounded foes on switch-in. Max 1 layer.",
-		condition: {
-			// this is a side condition
-			onStart(side) {
-				if (!this.effectData.layers || this.effectData.layers === 0) {
-					this.add('-sidestart', side, 'Spikes');
-					this.effectData.layers = 1;
-				} else {
-					return false;
-				}
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.runImmunity('Ground')) return;
-				const damageAmounts = [0, 3];
-				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
-			},
-		},
-   },
-	rapidspin: {
-		num: 229,
+	boulderrush: {
+		num: -14,
 		accuracy: 100,
-		basePower: 20,
+		basePower: 100,
 		category: "Physical",
-		name: "Rapid Spin",
-		pp: 40,
+		name: "Boulder Rush",
+		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [50, 100],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Wrecker", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	rapidspin: {
+		inherit: true,
 		onAfterHit(target, pokemon) {
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
@@ -583,176 +572,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
 				pokemon.removeVolatile('partiallytrapped');
 			}
-		},
-		target: "normal",
-		type: "Normal",
-		contestType: "Cool",
-	},
-	sleeptalk: {
-		inherit: true,
-		desc: "One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Bide, Sleep Talk, or any two-turn move.",
-		onHit(pokemon) {
-			const noSleepTalk = [
-				'bide', 'focuspunch', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'sketch', 'sleeptalk', 'hypeup',
-			];
-			const moves = [];
-			for (const moveSlot of pokemon.moveSlots) {
-				const moveid = moveSlot.id;
-				if (!moveid) continue;
-				const move = this.dex.getMove(moveid);
-				if (noSleepTalk.includes(moveid) || move.flags['charge']) {
-					continue;
-				}
-				moves.push(moveid);
-			}
-			let randomMove = '';
-			if (moves.length) randomMove = this.sample(moves);
-			if (!randomMove) {
-				return false;
-			}
-			this.useMove(randomMove, pokemon);
-		},
-		noSketch: true,
-	},
-	swagger: {
-		flags: {authentic: 1},
-		inherit: true,
-		desc: "Raises the target's Attack by 2 stages and confuses it. This move will miss if the target's Attack cannot be raised.",
-		onTryHit(target, pokemon, move) {
-			if (target.boosts.atk >= 6 || target.getStat('atk', false, true) === 999) {
-				this.add('-miss', pokemon);
-				return null;
-			}
-			if (target.volatiles['substitute']) {
-				delete move.volatileStatus;
-			}
-		},
-	},
-	substitute: {
-		inherit: true,
-		effect: {
-			onStart(target) {
-				this.add('-start', target, 'Substitute');
-				this.effectData.hp = Math.floor(target.maxhp / 4);
-				delete target.volatiles['partiallytrapped'];
-			},
-			onTryPrimaryHitPriority: -1,
-			onTryPrimaryHit(target, source, move) {
-				if (move.stallingMove) {
-					this.add('-fail', source);
-					return null;
-				}
-				if (target === source) {
-					this.debug('sub bypass: self hit');
-					return;
-				}
-				if (move.id === 'twineedle') {
-					move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
-				}
-				if (move.drainingMove) {
-					this.add('-miss', source);
-					this.hint("In Gen 2, draining moves always miss against Substitute.");
-					return null;
-				}
-				if (move.category === 'Status') {
-					const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
-					if (move.id === 'swagger') {
-						// this is safe, move is a copy
-						delete move.volatileStatus;
-					}
-					if (
-						move.status || (move.boosts && move.id !== 'swagger') ||
-						move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)
-					) {
-						this.add('-activate', target, 'Substitute', '[block] ' + move.name);
-						return null;
-					}
-					return;
-				}
-				let damage = this.getDamage(source, target, move);
-				if (!damage) {
-					return null;
-				}
-				damage = this.runEvent('SubDamage', target, source, move, damage);
-				if (!damage) {
-					return damage;
-				}
-				if (damage > target.volatiles['substitute'].hp) {
-					damage = target.volatiles['substitute'].hp as number;
-				}
-				target.volatiles['substitute'].hp -= damage;
-				source.lastDamage = damage;
-				if (target.volatiles['substitute'].hp <= 0) {
-					target.removeVolatile('substitute');
-				} else {
-					this.add('-activate', target, 'Substitute', '[damage]');
-				}
-				if (move.recoil) {
-					this.damage(1, source, target, 'recoil');
-				}
-				this.runEvent('AfterSubDamage', target, source, move, damage);
-				return this.HIT_SUBSTITUTE;
-			},
-			/*onTryHit(target, source, move) {
-			if (move.drain) {
-				this.add('-miss', source);
-				return null;
-			} else
-		      return true;
-			},*/
-			onEnd(target) {
-				this.add('-end', target, 'Substitute');
-			},
-		},
-	},
-	absorb: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
-	megadrain: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
-	gigadrain: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
-	leechlife: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
-	leechseed: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
 		},
 	},
 };

@@ -188,6 +188,25 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'muk').learnset.malnourish = ['2L1'];
 		this.modData('Learnsets', 'tentacruel').learnset.malnourish = ['2L1'];
 
+		this.modData('Learnsets', 'aerodactyl').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'tyranitar').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'esscargoo').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'rhydon').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'geodude').learnset.boulderrush = ['2E'];
+		this.modData('Learnsets', 'graveler').learnset.boulderrush = ['2E'];
+		this.modData('Learnsets', 'golem').learnset.boulderrush = ['2E'];
+		this.modData('Learnsets', 'kabutops').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'omastar').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'sudowoodo').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'shuckle').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'onix').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'steelix').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'snorlax').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'tauros').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'arcanine').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'donphan').learnset.boulderrush = ['2L1'];
+		this.modData('Learnsets', 'kingler').learnset.boulderrush = ['2L1'];
+
 	},
 
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
