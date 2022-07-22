@@ -8,4 +8,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	retreamole: {
 		tier: "SigRes",
 	},
+	alohwo: {
+		tier: "SigRes",
+	},
+	alcejudo: {
+		tier: "SigRes",
+	},
+	spirachain: {
+		tier: "SigRes",
+	},
 };

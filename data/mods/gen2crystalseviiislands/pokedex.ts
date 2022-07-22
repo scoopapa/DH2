@@ -3,7 +3,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 252,
 		name: "Horatekku",
 		types: ["Steel", "Ghost"],
-		baseStats: {hp: 80, atk: 100, def: 100, spa: 60, spd: 70, spe: 60},
+		baseStats: {hp: 80, atk: 100, def: 120, spa: 60, spd: 70, spe: 50},
 		abilities: {0: "No Ability"},
 		heightm: 0.2,
 		weightkg: 0.5,

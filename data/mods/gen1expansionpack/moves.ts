@@ -409,6 +409,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		type: "Steel",
 		gen: 1,
+		secondary: {
+			chance: 10,
+			boosts: {
+				spa: -1,
+				spd: -1,
+			},
+		},
 	},
 	fly: {
 		inherit: true,
@@ -599,6 +606,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		type: "Steel",
 		gen: 1,
+		boosts: {
+			spd: -2,
+			spa: -2,
+		},
 	},
 	metronome: {
 		inherit: true,

@@ -40,30 +40,39 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const result = this.random(10);
 			if (result === 0) {
 				this.hint("Hype Level: 1 out of 10...");
+				this.useMove("Rest", pokemon);
 			}
 			else if (result === 1) {
 				this.hint("Hype Level: 2 out of 10...");
+				this.useMove("Sleep Talk", pokemon);
 			}
 			else if (result === 2) {
 				this.hint("Hype Level: 3 out of 10...");
+				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 3) {
 				this.hint("Hype Level: 4 out of 10.");
+				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 4) {
 				this.hint("Hype Level: 5 out of 10.");
+				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 5) {
 				this.hint("Hype Level: 6 out of 10.");
+				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 6) {
 				this.hint("Hype Level: 7 out of 10!");
+				this.useMove("Focus Energy", pokemon);
 			}
 			else if (result === 7) {
 				this.hint("Hype Level: 8 out of 10!");
+				this.useMove("Agility", pokemon);
 			}
 			else if (result === 8) {
 				this.hint("Hype Level: 9 OUT OF 10!");
+				this.useMove("Spinning Web", pokemon);
 			}
 			else {
 				this.hint("Hype level: 10 OUT OF 10!!!!!");
@@ -244,6 +253,36 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({[statName]: 1}, pokemon);
 			}
 		},	
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in target.storedStats) {
+					if (target.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = target.storedStats[s];
+					}
+				}
+				this.boost({[statName]: 1}, target);
+			}
+		},
+		onDamagingHit(damage, target, source, effect) {
+			let statName = 'atk';
+			let bestStat = 0;
+			let s: StatNameExceptHP;
+			for (s in target.storedStats) {
+				if (target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = target.storedStats[s];
+				}
+			}
+			this.boost({[statName]: 1}, target);
+		},
 		name: "Raging Beast",
 		rating: 1,
 		num: 3010,
@@ -437,9 +476,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},	
 	mixitup: {
 		shortDesc: "The user switches after using sound move.",
-		onAfterMove(pokemon, target, move) {
+		onModifyMove(move, pokemon) {
 			if (move.flags['sound']) {
-				pokemon.switchFlag = true;
+				move.selfSwitch = true;
 			}
 		},
 		name: "Mix it Up",

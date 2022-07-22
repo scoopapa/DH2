@@ -893,5 +893,23 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'magmar').learnset.strangesteam = ['1L1'];
 		this.modData('Learnsets', 'horsea').learnset.strangesteam = ['1L1'];
 		this.modData('Learnsets', 'victreebel').learnset.strangesteam = ['1L1'];
+		this.modData('Learnsets', 'clefairy').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'jigglypuff').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'onix').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'magmar').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'kabuto').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'horsea').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'meowth').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'mew').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'gastly').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'jynx').learnset.faketears = ['1L1'];
+		this.modData('Learnsets', 'pikachu').learnset.gearup = ['1L1'];
+		this.modData('Learnsets', 'electabuzz').learnset.gearup = ['1L1'];
+		this.modData('Learnsets', 'voltorb').learnset.gearup = ['1L1'];
+		this.modData('Learnsets', 'magnemite').learnset.gearup = ['1L1'];
+		this.modData('Learnsets', 'tangela').learnset.naturesmadness = ['1L1'];
+		this.modData('Learnsets', 'vileplume').learnset.naturesmadness = ['1L1'];
+		this.modData('Learnsets', 'parasect').learnset.naturesmadness = ['1L1'];
+		this.modData('Learnsets', 'mrmime').learnset.naturesmadness = ['1L1'];
 	},
 };

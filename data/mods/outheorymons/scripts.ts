@@ -34,5 +34,8 @@ export const Scripts: BattleScriptsData = {
       this.modData('Learnsets', 'noctowl').learnset.flashcannon = ['8L1'];
       this.modData('Learnsets', 'scrafty').learnset.slackoff = ['8L1'];
       this.modData('Learnsets', 'flygon').learnset.knockoff = ['8L1'];
+      this.modData('Learnsets', 'appletun').learnset.sludgebomb = ['8L1'];
+      this.modData('Learnsets', 'appletun').learnset.toxic = ['8L1'];
+      this.modData('Learnsets', 'tapubulu').learnset.spiritbreak = ['8L1'];
    },
 };

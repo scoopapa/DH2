@@ -206,7 +206,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	"Psychic": {
 		damageTaken: {
 			"Bug": 1,
-			"Dark": 2,
+			"Dark": 1,
 			"Dragon": 0,
 			"Electric": 0,
 			"Fairy": 0,

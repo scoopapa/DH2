@@ -86,7 +86,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			amnesia: ["2L23"],
 			attract: ["2M"],
-			bellydrum: ["2M"],
 			curse: ["2M"],
 			defensecurl: ["2M"],
 			dig: ["2M"],

@@ -7,6 +7,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.debug('power link - remove charge turn for ' + move.id);
 				this.attrLastMove('[still]');
 				this.addMove('-anim', target, move.name, target);
+				this.damage(target.baseMaxhp / 3, target, target, 'recoil');
 				return false; // skip charge turn
 			}
 		},
@@ -63,6 +64,55 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 257,
 		gen: 2,
 		shortDesc: "(Bugged) Not compatible with Animon."
+	},
+
+	// Malnourish
+
+	leftovers: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 16);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+	},
+	berry: {
+		inherit: true,
+		onEat(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(10);
+			}
+			else {
+				this.heal(30);
+			}
+		},
+	},
+	goldberry: {
+		inherit: true,
+		onEat(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(30);
+			}
+			else {
+				this.heal(30);
+			}
+		},
+	},
+	berryjuice: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.hp > pokemon.maxhp / 2) return;
+			if (!(this.runEvent('TryHeal', pokemon) && pokemon.useItem())) return;
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(20);
+			}
+			else {
+				this.heal(20);
+			}
+		}
 	},
 	
 	

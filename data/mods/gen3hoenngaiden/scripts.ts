@@ -63,7 +63,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'delibird').learnset.spikes = ['3L1'];
 		this.modData('Learnsets', 'delibird').learnset.surf = ['3L1'];
 		
-		this.modData('Learnsets', 'ledian').learnset.tailglow = ['3L1'];
 		this.modData('Learnsets', 'ledian').learnset.psychic = ['3L1'];
 		this.modData('Learnsets', 'ledian').learnset.firepunch = ['3L1'];
 		

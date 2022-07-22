@@ -636,4 +636,85 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Sand Bubbler",
 		shortDesc: "Sand Stream + Iron Fist.",
 	},
+	debilitate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Debilitate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Debilitate",
+		shortDesc: "On switch-in, this Pokemon lowers the Sp. Atk of adjacent opponents by 1 stage.",
+		rating: 3.5,
+		num: 22,
+	},
+	oblivious: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Oblivious');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Oblivious');
+			}
+		},
+	},
+	innerfocus: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+		},
+	},
+	owntempo: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+		},
+	},
+	rattled: {
+		inherit: true,
+		onAfterBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'intimidate' || effect && effect.id === 'debilitate') {
+				this.boost({spe: 1});
+			}
+		},
+	},
+	scrappy: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+		},
+	},
 };

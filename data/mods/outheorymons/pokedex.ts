@@ -160,5 +160,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
    flygon: {
       inherit: true, 
       abilities: {0: "Levitate", H: "Poison Heal"},
+   },
+   appletun: { 
+      inherit: true, 
+      types: ["Poison", "Dragon"],
 	}, 
 };
