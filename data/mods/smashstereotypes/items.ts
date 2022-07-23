@@ -344,4 +344,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If Stealth Rock is on the field, damage is ignored, and the user's Speed is raised by 1. Single use.",
 	},
+	seviisap: {	
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 24);
+		},
+		onTakeItem: false,
+		name: "Sevii Sap",
+		num: 1021,
+		gen: 8,
+		shortDesc: "At the end of every turn, holder restores 1/24 of its max HP. Cannot be removed.",
+    },
 };
