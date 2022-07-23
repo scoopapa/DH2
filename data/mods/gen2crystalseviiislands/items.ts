@@ -54,7 +54,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.cureStatus();
 			}
 		},
-		num: 1008,
+		num: 1004,
 		gen: 2,
 		shortDesc: "Prevents the holder from being poisoned.",
 	},
@@ -68,7 +68,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.cureStatus();
 			}
 		},
-		num: 1008,
+		num: 1005,
 		gen: 2,
 		shortDesc: "Prevents the holder from being put to sleep.",
 	},
@@ -82,7 +82,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.cureStatus();
 			}
 		},
-		num: 1008,
+		num: 1006,
 		gen: 2,
 		shortDesc: "Prevents the holder from being frozen.",
 	},
@@ -96,7 +96,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.cureStatus();
 			}
 		},
-		num: 1008,
+		num: 1007,
 		gen: 2,
 		shortDesc: "Prevents the holder from being burned.",
 	},
@@ -113,6 +113,176 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1008,
 		gen: 2,
 		shortDesc: "Prevents the holder from being paralyzed.",
+	},
+	seviisundae: {
+		name: "Sevii Sundae",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae9');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1009,
+		gen: 2,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae9: {
+		name: "Sevii Sundae (9)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae8');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1010,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae8: {
+		name: "Sevii Sundae (8)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae7');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1011,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae7: {
+		name: "Sevii Sundae (7)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae6');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1012,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae6: {
+		name: "Sevii Sundae (6)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae5');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1013,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae5: {
+		name: "Sevii Sundae (5)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae4');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1014,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae4: {
+		name: "Sevii Sundae (4)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae3');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1015,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae3: {
+		name: "Sevii Sundae (3)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae2');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1016,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae2: {
+		name: "Sevii Sundae (2)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae1');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1017,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae1: {
+		name: "Sevii Sundae (1)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.useItem();
+		},
+		num: 1018,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
 
 	// Vanilla Edits
