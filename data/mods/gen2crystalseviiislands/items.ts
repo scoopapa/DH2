@@ -284,7 +284,20 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1018,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
 	},
-
+    drainingrelic: {
+        name: "Draining Relic",
+        spritenum: 180,
+        onAfterMoveSelf(source, target) {
+            if (target.volatiles['substitute']) return;
+            if (move.totalDamage) {
+                return !!(this.heal((Math.floor(move.totalDamage)) / 3), source, target);
+            }
+        },
+        num: 1010,
+        gen: 2,
+        shortDesc: "Attacks drain as health 1/3 of damage dealt to the opponent.",
+    
+    },
 	// Vanilla Edits
 	
 	metalpowder: {
