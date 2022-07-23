@@ -383,7 +383,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	tacticschange: {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
-			if (attacker.species.baseSpecies !== 'Aegislash-Ancient' || attacker.transformed) return;
+			if ((attacker.species.baseSpecies !== 'Aegislash' && !attacker.species.name.includes('Ancient'))|| attacker.transformed) return;
 			if (move.category === 'Status' && move.id !== 'foragerspoise') return;
 			const targetForme = (move.id === 'foragerspoise' ? 'Aegislash-Ancient' : 'Aegislash-Ancient-Hunter');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
