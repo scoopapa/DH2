@@ -148,6 +148,7 @@ export const Formats: FormatList = [
 				'Oricorio-Pa\u2019u', 'Horrorcorio', 'Pikachu-Kanto', 'Pikachu-Hoenn', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-Tactic', 'Pikachu-Alola', 'Pikachu-World',
 				'Ribombee', 'Ribombee-Totem', 'Araquanid', 'Araquanid-Totem', 'Vikavolt', 'Vikavolt-Totem', 'Urshifu', 'Urshifu-Erosion', 'Calyrex-Mythic', 'Calyrex-Glacier', 
 				'Calyrex-Midnight', 'Kommo-o', 'Rockmo-o', 'Salazzle', 'Salazzle-Ruler', 'Lurantis', 'Lurantio', 'Mr. Mime', 'Mr. Mime-Prance', 'Stunfisk', 'Stunfisk-Trap',
+				'Necrozma', 'Necrozma-Lionheart', 'Necrozma-Batwing', 'Necrozma-Ultra',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -3845,46 +3846,6 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-	},
-	{
-		name: "[Gen 8] ViZar's 235 Metagame",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: '235metagame',
-		ruleset: ['Standard', 'Dynamax Clause'],
-		banlist: [
-				//Pokemon
-				'Uber',
-				
-				//Abilities
-				'Moody', 'Sand Rush', 'Sand Veil', 'Snow Cloak',
-				
-				//Moves
-				'Baton Pass',
-				
-				//Items
-				'King\s Rock', 'Lax Incense', 'Quick Claw', 'Razor Fang',
-		],
-		teambuilderFormat: 'OU',
-	},
-	{
-		name: "[Gen 8] ViZar's 235 Metagame Uber",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: '235metagame',
-		ruleset: ['Standard', 'Dynamax Clause'],
-		banlist: [
-				//Abilities
-				'Moody',
-				
-				//Moves
-				'Baton Pass',
-		],
-		teambuilderFormat: 'Uber',
 	},
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
