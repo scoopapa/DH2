@@ -598,4 +598,78 @@ export const Moves: {[moveid: string]: MoveData} = {
             this.useMove(randomMove, pokemon);
         },
     },
+	substitute: {
+        inherit: true,
+        condition: {
+            onStart(target) {
+                this.add('-start', target, 'Substitute');
+                if (target.item === 'wynaut') {
+                    this.add('-item', target, 'Wynaut');
+                    this.add('-activate', target, 'item: Wynaut');
+                }
+                this.effectData.hp = Math.floor(target.maxhp / 4);
+                delete target.volatiles['partiallytrapped'];
+            },
+            onTryPrimaryHitPriority: -1,
+            onTryPrimaryHit(target, source, move) {
+                if (move.stallingMove) {
+                    this.add('-fail', source);
+                    return null;
+                }
+                if (target === source) {
+                    this.debug('sub bypass: self hit');
+                    return;
+                }
+                if (move.id === 'twineedle') {
+                    move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
+                }
+                if (move.drain) {
+                    this.add('-miss', source);
+                    this.hint("In Gen 2, draining moves always miss against Substitute.");
+                    return null;
+                }
+                if (move.category === 'Status') {
+                    const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
+                    if (move.id === 'swagger') {
+                        // this is safe, move is a copy
+                        delete move.volatileStatus;
+                    }
+                    if (
+                        move.status || (move.boosts && move.id !== 'swagger') ||
+                        move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)
+                    ) {
+                        this.add('-activate', target, 'Substitute', '[block] ' + move.name);
+                        return null;
+                    }
+                    return;
+                }
+                let damage = this.getDamage(source, target, move);
+                if (!damage) {
+                    return null;
+                }
+                damage = this.runEvent('SubDamage', target, source, move, damage);
+                if (!damage) {
+                    return damage;
+                }
+                if (damage > target.volatiles['substitute'].hp) {
+                    damage = target.volatiles['substitute'].hp as number;
+                }
+                target.volatiles['substitute'].hp -= damage;
+                source.lastDamage = damage;
+                if (target.volatiles['substitute'].hp <= 0) {
+                    target.removeVolatile('substitute');
+                } else {
+                    this.add('-activate', target, 'Substitute', '[damage]');
+                }
+                if (move.recoil) {
+                    this.damage(1, source, target, 'recoil');
+                }
+                this.runEvent('AfterSubDamage', target, source, move, damage);
+                return this.HIT_SUBSTITUTE;
+            },
+            onEnd(target) {
+                this.add('-end', target, 'Substitute');
+            },
+        },
+    },
 };

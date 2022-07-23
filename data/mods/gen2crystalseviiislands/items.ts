@@ -293,10 +293,50 @@ export const Items: {[itemid: string]: ItemData} = {
                 return !!(this.heal((Math.floor(move.totalDamage)) / 3), source, target);
             }
         },
-        num: 1010,
+        num: 1019,
         gen: 2,
         shortDesc: "Attacks drain as health 1/3 of damage dealt to the opponent.",
     
+    },
+	wynaut: { // Wynaut item behavior under 'substitute' in gen2crystalseviiislands/moves.ts
+        name: "Wynaut",
+        //spritenum:
+        num: 1020,
+        gen: 2,
+        shortDesc: "Deals 1/8 damage to the opponent while behind a Substitute, for every turn the Substitute does not take damage.",
+        damage: "[POKEMON] was hurt by the Wynaut!",
+		onFoeAfterMoveSelf(target, source) {
+            if (!source) source = this.effectData.source;
+			if (target === source) source = this.effectData.target;
+            const lastAttackedBy = source.getLastAttackedBy();
+            if (lastAttackedBy?.move && lastAttackedBy.thisTurn) return;
+            if (source.volatiles['substitute']) {
+                this.add('-anim', source, 'Mirror Coat', target);
+                this.damage(target.baseMaxhp / 8, target, source, 'item: Wynaut');
+            }
+        },
+    },
+	seviisap: {
+        name: "Sevii Sap",
+        onResidualOrder: 5,
+        onResidualSubOrder: 5,
+        onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 24);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 24);
+			}
+        },
+        onTakeItem(item, pokemon, source) {
+            if ((source && source !== pokemon) || this.activeMove.id === 'thief') {
+                this.add('-message', 'Sevii Sap cannot be removed.');
+                return false;
+            }
+        },
+        num: 1021,
+        gen: 2,
+        shortDesc: "At the end of every turn, holder restores 1/24 of its max HP. Cannot be removed.",
     },
 	// Vanilla Edits
 	
