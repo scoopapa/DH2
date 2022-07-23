@@ -313,7 +313,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Chatter", target);
 		},
-		shortDesc: "100% chance to lower the target's Attack by 1.",
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
@@ -352,7 +351,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-end', source, 'Curse', '[from] move: Expel', '[of] ' + source);
 			}
 		},
-		shortDesc: "Cures the user's status. Resets the user's stat changes.",
 		secondary: null,
 		target: "self",
 		type: "Normal",
@@ -426,7 +424,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Slash", target);
 		},
-		shortDesc: "Power doubles if the foe is switching out.",
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
@@ -452,7 +449,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dragon Pulse", target);
 		},
-		shortDesc: "20% chance to raise the user's Sp. Atk by 1.",
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
@@ -478,7 +474,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Withdraw", target);
 		},
-		shortDesc: "Heals the user by 50% of their health. Lowers the user's defenses.",
 		target: "self",
 		type: "Normal",
 		contestType: "Cool",
@@ -501,7 +496,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			const success = this.boost({spa: -1}, target, source, null, false, true);
 			return !!(this.heal(source.level, source, target) || success);
 		},
-		shortDesc: "Lowers the target's Sp. Atk. Heals user equal to the opponent's level.",
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
@@ -525,7 +519,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.hasType('Steel')) return;
 			pokemon.addVolatile('malnourish');
 		},
-		shortDesc: "Inverts the healing effects of a target's item.",
 		secondary: null,
 		target: "normal",
 		type: "Poison",
@@ -545,7 +538,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Wrecker", target);
 		},
-		shortDesc: "Has 1/2 Recoil.",
 		secondary: null,
 		target: "normal",
 		type: "Rock",
