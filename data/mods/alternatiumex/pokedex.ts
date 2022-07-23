@@ -418,7 +418,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Necrozma-Lionheart",
 		types: ["Steel", "Fire"],
 		gender: "N",
-		baseStats: {hp: 97, atk: 109, def: 79, spa: 89, spd: 103, spe: 67},
+		baseStats: {hp: 97, atk: 109, def: 79, spa: 79, spd: 103, spe: 67},
 		abilities: {0: "Prism Armor"},
 		heightm: 3.8,
 		weightkg: 460,
