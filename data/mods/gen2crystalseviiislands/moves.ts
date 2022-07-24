@@ -8,7 +8,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		category: "Physical",
 		name: "Swarm Attack",
-		shortDesc: "Hits 3 times. Power rises per hit. 10% to lower Defense.",
+		shortDesc: "Hits 3 times. Power rises per hit.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
@@ -18,12 +18,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Attack Order", target);
 		},
-		secondary: {
-			chance: 10,
-			boosts: {
-				def: -1,
-			},
-		},
+		secondary: null,
 		target: "normal",
 		type: "Bug",
 	},
@@ -98,18 +93,20 @@ export const Moves: {[moveid: string]: MoveData} = {
         },
         condition: {
             duration: 1,
-				onSourceBasePower(basePower, target, source, move) {
-                    return this.chainModify(0.7);
-            },
             onStart(pokemon) {
                 this.add('-message', `${pokemon.name} is attempting to parry!`);
             },
             onHit(pokemon, source, move) {
                 if (move.category !== 'Status') {
                     pokemon.volatiles['parry'].untouched = true;
-               }
+                }
            },
-       },//
+		   onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && target.side === this.effectData.target) {
+					return this.chainModify(0.7);
+				}
+			},
+       	},//
 		 onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mimic", target);
@@ -170,7 +167,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				   }
 			   },
-			 onAfterMoveSecondarySelf(pokemon, source, move) {
+			 onAfterMoveSelf(pokemon, source, move) {
 					if ((!pokemon.hasType('Fire')) && (!pokemon.hasType('Flying')) && (move.id !== 'rapidspin')) {
 						pokemon.trySetStatus('brn', source);
 					}
@@ -297,39 +294,265 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "Normal",
 		type: "Normal",
 	},
-	
-	///////
-	spikes: {
-		inherit: true,
-		flags: {authentic: 1},
-		desc: "Sets up a hazard on the opposing side of the field, causing each opposing Pokemon that switches in to lose 1/8 of their maximum HP, rounded down, unless it is a Flying-type Pokemon. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin successfully.",
-		shortDesc: "Hurts grounded foes on switch-in. Max 1 layer.",
-		condition: {
-			// this is a side condition
-			onStart(side) {
-				if (!this.effectData.layers || this.effectData.layers === 0) {
-					this.add('-sidestart', side, 'Spikes');
-					this.effectData.layers = 1;
-				} else {
-					return false;
-				}
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.runImmunity('Ground')) return;
-				const damageAmounts = [0, 3];
-				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
-			},
-		},
-   },
-	rapidspin: {
-		num: 229,
+	bytetorment: {
+		num: -8,
 		accuracy: 100,
-		basePower: 20,
+		basePower: 80,
 		category: "Physical",
-		name: "Rapid Spin",
-		pp: 40,
+		name: "Byte Torment",
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Chatter", target);
+		},
+		shortDesc: "100% chance to lower the target's Attack by 1.",
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	expel: {
+		num: -9,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Expel",
+		pp: 20,
+		priority: 0,
+		flags: {defrost: 1, bypasssub: 1},
+		sleepUsable: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", target);
+		},
+		onHit(source) {
+			source.cureStatus();
+			source.clearBoosts();
+			this.add('-clearboost', source);
+			if (source.hp && source.removeVolatile('confusion')) {
+				this.add('-end', source, 'Confusion', '[from] move: Expel', '[of] ' + source);
+			}
+			if (source.hp && source.removeVolatile('attract')) {
+				this.add('-end', source, 'Infatuation', '[from] move: Expel', '[of] ' + source);
+			}
+			if (source.hp && source.removeVolatile('leechseed')) {
+				this.add('-end', source, 'Leech Seed', '[from] move: Expel', '[of] ' + source);
+			}
+			if (source.hp && source.removeVolatile('trapped')) {
+				this.add('-end', source, 'Trap', '[from] move: Expel', '[of] ' + source);
+			}
+			if (source.hp && source.removeVolatile('curse')) {
+				this.add('-end', source, 'Curse', '[from] move: Expel', '[of] ' + source);
+			}
+		},
+		shortDesc: "Cures the user's status. Resets the user's stat changes.",
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+
+	preyingswipe: {
+		num: -10,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			// You can't get here unless the pursuit succeeds
+			if (target.beingCalledBack || target.switchFlag) {
+				this.debug('Pursuit damage boost');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Preying Swipe",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side === pokemon.side) continue;
+				side.addSideCondition('preyingswipe', pokemon);
+				const data = side.getSideConditionData('preyingswipe');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onModifyMove() {},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('preyingswipe');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Preyingswipe start');
+				let alreadyAdded = false;
+				for (const source of this.effectData.sources) {
+					if (source.speed < pokemon.speed || (source.speed === pokemon.speed && this.random(2) === 0)) {
+						// Destiny Bond ends if the switch action "outspeeds" the attacker, regardless of host
+						pokemon.removeVolatile('destinybond');
+					}
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Preying Swipe');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.runMove('preyingswipe', source, this.getTargetLoc(pokemon, source));
+				}
+			},
+		},
+		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Slash", target);
+		},
+		shortDesc: "Power doubles if the foe is switching out.",
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	draconicdrive: {
+		num: -11,
+		accuracy: 90,
+		basePower: 95,
+		category: "Special",
+		name: "Draconic Drive",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Pulse", target);
+		},
+		shortDesc: "20% chance to raise the user's Sp. Atk by 1 stage.",
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+	},
+	softshell: {
+		num: -12,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Soft Shell",
+		pp: 10,
+		priority: 1,
+		flags: {heal: 1, bypasssub: 1},
+		heal: [1, 2],
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Withdraw", target);
+		},
+		shortDesc: "Heals the user by 50% of their health. Lowers the user's defenses. +1 Priority.",
+		target: "self",
+		type: "Normal",
+		contestType: "Cool",
+	},
+	essencesteal: {
+		num: -12,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Essence Steal",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dream Eater", target);
+		},
+		onHit(target, source) {
+			if (target.boosts.spa === -6) return false;
+			const success = this.boost({spa: -1}, target, source, null, false, true);
+			return !!(this.heal(source.level, source, target) || success);
+		},
+		shortDesc: "Lowers the target's Sp. Atk. Heals user equal to the opponent's level.",
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
+	},
+	malnourish: {
+		num: -13,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Malnourish",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'malnourish',
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Venoshock", target);
+		},
+		onHit(pokemon) {
+			if (pokemon.hasType('Poison')) return;
+			if (pokemon.hasType('Steel')) return;
+			pokemon.addVolatile('malnourish');
+		},
+		shortDesc: "Inverts the healing effects of a target's item.",
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Smart",
+	},
+	boulderrush: {
+		num: -14,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Boulder Rush",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [50, 100],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rock Wrecker", target);
+		},
+		shortDesc: "Has 1/2 Recoil.",
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	rapidspin: {
+		inherit: true,
 		onAfterHit(target, pokemon) {
 			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
 				this.add('-end', pokemon, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + pokemon);
@@ -358,175 +581,103 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.removeVolatile('partiallytrapped');
 			}
 		},
-		target: "normal",
-		type: "Normal",
-		contestType: "Cool",
 	},
 	sleeptalk: {
-		inherit: true,
-		desc: "One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Bide, Sleep Talk, or any two-turn move.",
-		onHit(pokemon) {
-			const noSleepTalk = [
-				'bide', 'focuspunch', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'sketch', 'sleeptalk', 'hypeup',
-			];
-			const moves = [];
-			for (const moveSlot of pokemon.moveSlots) {
-				const moveid = moveSlot.id;
-				if (!moveid) continue;
-				const move = this.dex.getMove(moveid);
-				if (noSleepTalk.includes(moveid) || move.flags['charge']) {
-					continue;
-				}
-				moves.push(moveid);
-			}
-			let randomMove = '';
-			if (moves.length) randomMove = this.sample(moves);
-			if (!randomMove) {
-				return false;
-			}
-			this.useMove(randomMove, pokemon);
-		},
-		noSketch: true,
-	},
-	swagger: {
-		flags: {authentic: 1},
-		inherit: true,
-		desc: "Raises the target's Attack by 2 stages and confuses it. This move will miss if the target's Attack cannot be raised.",
-		onTryHit(target, pokemon, move) {
-			if (target.boosts.atk >= 6 || target.getStat('atk', false, true) === 999) {
-				this.add('-miss', pokemon);
-				return null;
-			}
-			if (target.volatiles['substitute']) {
-				delete move.volatileStatus;
-			}
-		},
-	},
+        inherit: true,
+        onHit(pokemon) {
+            const noSleepTalk = [
+                'bide', 'focuspunch', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'sketch', 'sleeptalk', 'hypeup',
+            ];
+            const moves = [];
+            for (const moveSlot of pokemon.moveSlots) {
+                const moveid = moveSlot.id;
+                if (!moveid) continue;
+                const move = this.dex.getMove(moveid);
+                if (noSleepTalk.includes(moveid) || move.flags['charge']) {
+                    continue;
+                }
+                moves.push(moveid);
+            }
+            let randomMove = '';
+            if (moves.length) randomMove = this.sample(moves);
+            if (!randomMove) {
+                return false;
+            }
+            this.useMove(randomMove, pokemon);
+        },
+    },
 	substitute: {
-		inherit: true,
-		effect: {
-			onStart(target) {
-				this.add('-start', target, 'Substitute');
-				this.effectData.hp = Math.floor(target.maxhp / 4);
-				delete target.volatiles['partiallytrapped'];
-			},
-			onTryPrimaryHitPriority: -1,
-			onTryPrimaryHit(target, source, move) {
-				if (move.stallingMove) {
-					this.add('-fail', source);
-					return null;
-				}
-				if (target === source) {
-					this.debug('sub bypass: self hit');
-					return;
-				}
-				if (move.id === 'twineedle') {
-					move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
-				}
-				if (move.drainingMove) {
-					this.add('-miss', source);
-					this.hint("In Gen 2, draining moves always miss against Substitute.");
-					return null;
-				}
-				if (move.category === 'Status') {
-					const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
-					if (move.id === 'swagger') {
-						// this is safe, move is a copy
-						delete move.volatileStatus;
-					}
-					if (
-						move.status || (move.boosts && move.id !== 'swagger') ||
-						move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)
-					) {
-						this.add('-activate', target, 'Substitute', '[block] ' + move.name);
-						return null;
-					}
-					return;
-				}
-				let damage = this.getDamage(source, target, move);
-				if (!damage) {
-					return null;
-				}
-				damage = this.runEvent('SubDamage', target, source, move, damage);
-				if (!damage) {
-					return damage;
-				}
-				if (damage > target.volatiles['substitute'].hp) {
-					damage = target.volatiles['substitute'].hp as number;
-				}
-				target.volatiles['substitute'].hp -= damage;
-				source.lastDamage = damage;
-				if (target.volatiles['substitute'].hp <= 0) {
-					target.removeVolatile('substitute');
-				} else {
-					this.add('-activate', target, 'Substitute', '[damage]');
-				}
-				if (move.recoil) {
-					this.damage(1, source, target, 'recoil');
-				}
-				this.runEvent('AfterSubDamage', target, source, move, damage);
-				return this.HIT_SUBSTITUTE;
-			},
-			/*onTryHit(target, source, move) {
-			if (move.drain) {
-				this.add('-miss', source);
-				return null;
-			} else
-		      return true;
-			},*/
-			onEnd(target) {
-				this.add('-end', target, 'Substitute');
-			},
-		},
-	},
-	absorb: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
-	megadrain: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
-	gigadrain: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
-	leechlife: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
-	leechseed: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.volatiles['substitute']) {
-				this.add('-miss', target);
-				return null;
-			} else
-		      return true;
-		},
-	},
+        inherit: true,
+        condition: {
+            onStart(target) {
+                this.add('-start', target, 'Substitute');
+                if (target.item === 'wynaut') {
+                    this.add('-item', target, 'Wynaut');
+                    this.add('-activate', target, 'item: Wynaut');
+                }
+                this.effectData.hp = Math.floor(target.maxhp / 4);
+                delete target.volatiles['partiallytrapped'];
+            },
+            onTryPrimaryHitPriority: -1,
+            onTryPrimaryHit(target, source, move) {
+                if (move.stallingMove) {
+                    this.add('-fail', source);
+                    return null;
+                }
+                if (target === source) {
+                    this.debug('sub bypass: self hit');
+                    return;
+                }
+                if (move.id === 'twineedle') {
+                    move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
+                }
+                if (move.drain) {
+                    this.add('-miss', source);
+                    this.hint("In Gen 2, draining moves always miss against Substitute.");
+                    return null;
+                }
+                if (move.category === 'Status') {
+                    const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
+                    if (move.id === 'swagger') {
+                        // this is safe, move is a copy
+                        delete move.volatileStatus;
+                    }
+                    if (
+                        move.status || (move.boosts && move.id !== 'swagger') ||
+                        move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)
+                    ) {
+                        this.add('-activate', target, 'Substitute', '[block] ' + move.name);
+                        return null;
+                    }
+                    return;
+                }
+                let damage = this.getDamage(source, target, move);
+                if (!damage) {
+                    return null;
+                }
+                damage = this.runEvent('SubDamage', target, source, move, damage);
+                if (!damage) {
+                    return damage;
+                }
+                if (damage > target.volatiles['substitute'].hp) {
+                    damage = target.volatiles['substitute'].hp as number;
+                }
+                target.volatiles['substitute'].hp -= damage;
+                source.lastDamage = damage;
+                if (target.volatiles['substitute'].hp <= 0) {
+                    target.removeVolatile('substitute');
+                } else {
+                    this.add('-activate', target, 'Substitute', '[damage]');
+                }
+                if (move.recoil) {
+                    this.damage(1, source, target, 'recoil');
+                }
+                this.runEvent('AfterSubDamage', target, source, move, damage);
+                return this.HIT_SUBSTITUTE;
+            },
+            onEnd(target) {
+                this.add('-end', target, 'Substitute');
+            },
+        },
+    },
 };

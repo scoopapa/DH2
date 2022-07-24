@@ -520,7 +520,7 @@ export class User extends Chat.MessageContext {
 			(idName.includes("666")) ||
 			(idName.includes("wob") && (idName.includes("trol") || idName.includes("buf"))) ||
 			(idName.includes('scoopapa') && idName !== 'scoopapa') ||
-			(idName.includes('tkmof') && idName !== 'tkmof11209') ||
+			(idName.includes('tkmof') && idName !== 'tkmofii2o9') ||
 			((idName.includes("scoop") || idName.includes("duo")) && idName.includes("kill")) ||
 			(idName.includes("buz") && idName.includes("car")) ||
 			(idName.includes("cat") && idName.includes("decap")) ||

@@ -82,3 +82,4 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 };
+

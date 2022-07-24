@@ -317,4 +317,43 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toxicargo: {
 		tier: "SSS",
 	},
+	heatloom: {
+		tier: "SSS",
+	},
+	drampaschroedinger: {
+		tier: "SSS",
+	},
+	gigacrab: {
+		tier: "SSS",
+	},
+	cougaquil: {
+		tier: "SSS",
+	},
+	latias: {
+		tier: "SSS",
+	},
+	landorustherian: {
+		tier: "SSS",
+	},
+	golisopod: {
+		tier: "SSS",
+	},
+	chatot: {
+		tier: "SSS",
+	},
+	gastrodonentityeast: {
+		tier: "SSS",
+	},
+	lycanperiordusk: {
+        tier: "SSS",
+    },
+	yoshiblaze: {
+		tier: "SSS",
+	},
+	yoshiblazemega: {
+		tier: "SSS",
+	},
+	xataskewda: {
+		tier: "SSS",
+	},
 };

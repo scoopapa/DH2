@@ -91,4 +91,80 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	urshifu: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	urshifuerosion: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	calyrexmythic: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	calyrexglacier: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	calyrexmidnight: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	kommoo: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	rockmoo: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	salazzle: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	salazzleruler: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	lurantis: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	lurantio: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	mrmime: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	mrmimeprance: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	stunfisk: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	stunfisktrap: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozma: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozmalionheart: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozmabatwing: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozmaultra: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
