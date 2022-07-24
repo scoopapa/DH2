@@ -25,9 +25,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 	blackhole: {
 		num: -2,
 		accuracy: 100,
-		basePower: 100,
-		category: "Special",
-		shortDesc: "User loses 50% of its max HP. Damages with halved Sp. Def in 3 turns.",
+		basePower: 200,
+		category: "Status",
+		shortDesc: "Damages all Pokemon in 2 turns.",
 		name: "Black Hole",
 		pp: 5,
 		priority: 0,
@@ -35,32 +35,46 @@ export const Moves: {[moveid: string]: MoveData} = {
 		willCrit: false,
 		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
-			this.damage(source.baseMaxhp / 2, source);
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Black Hole Eclipse", target);
-			this.add('-message', `${source.name} summoned a Black Hole...`);
+			this.add('-anim', source, "Black hole Eclipse", source);
+			this.add('-message', `${source.name} summoned a Black Hole!`);
 		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 4,
-				move: 'blackhole',
-				source: source,
-				moveData: {
-					id: 'blackhole',
-					name: "Black Hole",
-					accuracy: 100,
-					basePower: 200,
-					category: "Special",
-					priority: 0,
-					flags: {},
-					target: "normal",
-					effectType: 'Move',
-					isFutureMove: true,
-					type: '???',
-				},
-			});
-			this.add('-start', source, 'Black Hole');
+			if (!source.side.addSlotCondition(source, 'futuremove')) return false;
+			const moveData = {
+				name: "Black Hole",
+				basePower: 200,
+				category: "Special",
+				flags: {},
+				willCrit: false,
+				type: '???',
+				isFutureMove: true,
+			} as unknown as ActiveMove;
+			const damage = this.getDamage(source, target, moveData, true);
+			for (const pokemon of this.getAllActive()) {
+				Object.assign(pokemon.side.slotConditions[pokemon.position]['futuremove'], {
+					duration: 3,
+					move: 'blackhole',
+					source: source,
+					moveData: {
+						id: 'blackhole',
+						name: "Black Hole",
+						accuracy: 100,
+						basePower: 0,
+						damage: damage,
+						category: "Special",
+						priority: 0,
+						flags: {},
+						target: "normal",
+						effectType: 'Move',
+						isFutureMove: true,
+						type: '???',
+					},
+				});
+			}
+			this.add('-start', source.side, 'Black Hole');
+			this.add('-start', target.side, 'Black Hole');
 			return null;
 		},
 		secondary: null,
