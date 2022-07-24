@@ -72,69 +72,57 @@ export const Moves: {[moveid: string]: MoveData} = {
         accuracy: true,
         basePower: 0,
         category: "Status",
-		  shortDesc: "Reduces damage of incoming attacks. Uses another known move.",
+		shortDesc: "Reduces damage of incoming attacks. Uses another known move.",
         pp: 5,
-        priority: -1,
+        priority: 1,
         flags: {contact: 1, protect: 1},
         volatileStatus: 'parry',
-        beforeTurnCallback(pokemon) {
-        pokemon.addVolatile('parry');
-        },
-        beforeMoveCallback(pokemon, move) {
-            if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) { 
-                return false;
-            }
-            else if (pokemon.volatiles['parry'] && !pokemon.volatiles['parry'].untouched) {
-					 this.add('-message', `${pokemon.name} was unable to parry...`);
-					 const ppDeducted = pokemon.deductPP(move, 1);
-                if (!ppDeducted) return false;
-                return true;
-            }
+		onPrepareHit(pokemon) {
+			if (pokemon.volatiles['substitute']) return false;
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+				pokemon.addVolatile('stall');
+				pokemon.addVolatile('parry');
+				this.add('-message', `${pokemon.name} is attempting to Parry!`);
+				this.attrLastMove('[still]');
+				this.add('-anim', pokemon, "Harden");
         },
         condition: {
             duration: 1,
             onStart(pokemon) {
-                this.add('-message', `${pokemon.name} is attempting to parry!`);
+                this.add('-singleturn', pokemon, 'move: Parry');
             },
-            onHit(pokemon, source, move) {
-                if (move.category !== 'Status') {
-                    pokemon.volatiles['parry'].untouched = true;
-                }
-           },
-		   onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
-					return this.chainModify(0.7);
+		   	onDamagePriority: -11,
+		   	onFoeAfterMoveSelf(target, source, attack) {
+				if (target === source) return;
+				if (attack.category === 'Status') return;
+
+				this.add('-message', `${source.name} parried the attack!`);
+				this.add('-anim', target, "Mimic", source);
+
+				const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect', 'endure'];
+				const moves = [];
+				for (const moveSlot of source.moveSlots) {
+					const move = moveSlot.id;
+					if (move && !NoParry.includes(move) && !this.dex.getMove(move).flags['charge']) {
+						moves.push(move);
+					}
+				}
+				let randomMove = '';
+				if (moves.length) randomMove = this.sample(moves);
+				if (!randomMove) return false;
+				this.useMove(randomMove, source);
+				if (randomMove == 'sleeptalk') {
+					source.deductPP(randomMove, 2);
+					return false;
+				}
+				else {
+					const ppDeducted = source.deductPP(randomMove, 1);
+					if (!ppDeducted) return false;
 				}
 			},
        	},//
-		 onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Mimic", target);
-		},
-		 onHit(pokemon) {
-            if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
-                const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect'];
-                const moves = [];
-                for (const moveSlot of pokemon.moveSlots) {
-                    const move = moveSlot.id;
-                    if (move && !NoParry.includes(move) && !this.dex.getMove(move).flags['charge']) {
-                        moves.push(move);
-                    }
-                }
-                let randomMove = '';
-                if (moves.length) randomMove = this.sample(moves);
-                if (!randomMove) return false;
-                this.useMove(randomMove, pokemon);
-                if (randomMove == 'sleeptalk') {
-                    const ppDeducted = pokemon.deductPP(randomMove, 2);
-                    if (!ppDeducted) return false;
-                }
-                else {
-                    const ppDeducted = pokemon.deductPP(randomMove, 1);
-                    if (!ppDeducted) return false;
-                }
-            }
-        },
         name: "Parry",
         secondary: null,
         target: "self",
