@@ -8,7 +8,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		category: "Physical",
 		name: "Swarm Attack",
-		shortDesc: "Hits 3 times. Power rises per hit. 10% to lower Defense.",
+		shortDesc: "Hits 3 times. Power rises per hit.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
@@ -313,6 +313,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Chatter", target);
 		},
+		shortDesc: "100% chance to lower the target's Attack by 1.",
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
@@ -351,6 +352,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-end', source, 'Curse', '[from] move: Expel', '[of] ' + source);
 			}
 		},
+		shortDesc: "Cures the user's status. Resets the user's stat changes.",
 		secondary: null,
 		target: "self",
 		type: "Normal",
@@ -424,6 +426,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Slash", target);
 		},
+		shortDesc: "Power doubles if the foe is switching out.",
 		target: "normal",
 		type: "Normal",
 		contestType: "Tough",
@@ -449,6 +452,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dragon Pulse", target);
 		},
+		shortDesc: "20% chance to raise the user's Sp. Atk by 1 stage.",
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
@@ -474,6 +478,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Withdraw", target);
 		},
+		shortDesc: "Heals the user by 50% of their health. Lowers the user's defenses. +1 Priority.",
 		target: "self",
 		type: "Normal",
 		contestType: "Cool",
@@ -496,6 +501,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			const success = this.boost({spa: -1}, target, source, null, false, true);
 			return !!(this.heal(source.level, source, target) || success);
 		},
+		shortDesc: "Lowers the target's Sp. Atk. Heals user equal to the opponent's level.",
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",
@@ -519,6 +525,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.hasType('Steel')) return;
 			pokemon.addVolatile('malnourish');
 		},
+		shortDesc: "Inverts the healing effects of a target's item.",
 		secondary: null,
 		target: "normal",
 		type: "Poison",
@@ -538,6 +545,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Wrecker", target);
 		},
+		shortDesc: "Has 1/2 Recoil.",
 		secondary: null,
 		target: "normal",
 		type: "Rock",
@@ -574,4 +582,102 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 	},
+	sleeptalk: {
+        inherit: true,
+        onHit(pokemon) {
+            const noSleepTalk = [
+                'bide', 'focuspunch', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'sketch', 'sleeptalk', 'hypeup',
+            ];
+            const moves = [];
+            for (const moveSlot of pokemon.moveSlots) {
+                const moveid = moveSlot.id;
+                if (!moveid) continue;
+                const move = this.dex.getMove(moveid);
+                if (noSleepTalk.includes(moveid) || move.flags['charge']) {
+                    continue;
+                }
+                moves.push(moveid);
+            }
+            let randomMove = '';
+            if (moves.length) randomMove = this.sample(moves);
+            if (!randomMove) {
+                return false;
+            }
+            this.useMove(randomMove, pokemon);
+        },
+    },
+	substitute: {
+        inherit: true,
+        condition: {
+            onStart(target) {
+                this.add('-start', target, 'Substitute');
+                if (target.item === 'wynaut') {
+                    this.add('-item', target, 'Wynaut');
+                    this.add('-activate', target, 'item: Wynaut');
+                }
+                this.effectData.hp = Math.floor(target.maxhp / 4);
+                delete target.volatiles['partiallytrapped'];
+            },
+            onTryPrimaryHitPriority: -1,
+            onTryPrimaryHit(target, source, move) {
+                if (move.stallingMove) {
+                    this.add('-fail', source);
+                    return null;
+                }
+                if (target === source) {
+                    this.debug('sub bypass: self hit');
+                    return;
+                }
+                if (move.id === 'twineedle') {
+                    move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
+                }
+                if (move.drain) {
+                    this.add('-miss', source);
+                    this.hint("In Gen 2, draining moves always miss against Substitute.");
+                    return null;
+                }
+                if (move.category === 'Status') {
+                    const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
+                    if (move.id === 'swagger') {
+                        // this is safe, move is a copy
+                        delete move.volatileStatus;
+                    }
+                    if (
+                        move.status || (move.boosts && move.id !== 'swagger') ||
+                        move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)
+                    ) {
+                        this.add('-activate', target, 'Substitute', '[block] ' + move.name);
+                        return null;
+                    }
+                    return;
+                }
+                let damage = this.getDamage(source, target, move);
+                if (!damage) {
+                    return null;
+                }
+                damage = this.runEvent('SubDamage', target, source, move, damage);
+                if (!damage) {
+                    return damage;
+                }
+                if (damage > target.volatiles['substitute'].hp) {
+                    damage = target.volatiles['substitute'].hp as number;
+                }
+                target.volatiles['substitute'].hp -= damage;
+                source.lastDamage = damage;
+                if (target.volatiles['substitute'].hp <= 0) {
+                    target.removeVolatile('substitute');
+                } else {
+                    this.add('-activate', target, 'Substitute', '[damage]');
+                }
+                if (move.recoil) {
+                    this.damage(1, source, target, 'recoil');
+                }
+                this.runEvent('AfterSubDamage', target, source, move, damage);
+                return this.HIT_SUBSTITUTE;
+            },
+            onEnd(target) {
+                this.add('-end', target, 'Substitute');
+            },
+        },
+    },
 };
