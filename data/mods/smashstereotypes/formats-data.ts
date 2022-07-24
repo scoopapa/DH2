@@ -344,4 +344,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gastrodonentityeast: {
 		tier: "SSS",
 	},
+	lycanperiordusk: {
+        tier: "SSS",
+    },
+	yoshiblaze: {
+		tier: "SSS",
+	},
+	yoshiblazemega: {
+		tier: "SSS",
+	},
+	xataskewda: {
+		tier: "SSS",
+	},
 };

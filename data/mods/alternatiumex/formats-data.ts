@@ -151,4 +151,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	necrozma: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozmalionheart: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozmabatwing: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozmaultra: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
