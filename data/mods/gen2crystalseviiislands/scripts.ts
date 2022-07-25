@@ -126,6 +126,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'sneasel').learnset.preyingswipe = ['2L1'];
 		this.modData('Learnsets', 'kabuto').learnset.preyingswipe = ['2L1'];
 		this.modData('Learnsets', 'kabutops').learnset.preyingswipe = ['2L1'];
+		this.modData('Learnsets', 'pierzer').learnset.preyingswipe = ['2L1'];
 		
 		this.modData('Learnsets', 'kingdra').learnset.draconicdrive = ['2L1'];
 		this.modData('Learnsets', 'dragonite').learnset.draconicdrive = ['2L1'];
