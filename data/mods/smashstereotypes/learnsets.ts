@@ -4041,7 +4041,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			{generation: 4, level: 20},
 		],
 	},
-	combusken: {
+	yoshiblaze: {
 		learnset: {
 			aerialace: ["8L20", "7M", "6M", "5M", "4M", "3M"],
 			agility: ["8M"],
