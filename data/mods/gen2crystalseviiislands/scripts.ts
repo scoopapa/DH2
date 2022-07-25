@@ -3,9 +3,7 @@ const csi = ["horatekku", "aroofaondo", "exoltol", "animon", "esscargoo", "tungu
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
 	gen: 2,
-	/*pokemon: {
-		inherit: true,
-	},*/
+
 	
 	init: function () {
 		
@@ -351,4 +349,73 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		return true;
 	},
+
+	pokemon: {
+		inherit: true,
+		getStat(statName, unboosted, unmodified, fastReturn) {
+			// @ts-ignore - type checking prevents 'hp' from being passed, but we're paranoid
+			if (statName === 'hp') throw new Error("Please read `maxhp` directly");
+
+			// base stat
+			let stat = this.storedStats[statName];
+
+			// Stat boosts.
+			if (!unboosted) {
+				let boost = this.boosts[statName];
+				if (boost > 6) boost = 6;
+				if (boost < -6) boost = -6;
+				if (boost >= 0) {
+					const boostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
+					stat = Math.floor(stat * boostTable[boost]);
+				} else {
+					const numerators = [100, 66, 50, 40, 33, 28, 25];
+					stat = Math.floor(stat * numerators[-boost] / 100);
+				}
+			}
+
+			if (this.status === 'par' && statName === 'spe') {
+				stat = Math.floor(stat / 4);
+			}
+
+			if (!unmodified) {
+				// Burn attack drop is checked when you get the attack stat upon switch in and used until switch out.
+				if (this.status === 'brn' && statName === 'atk') {
+					stat = Math.floor(stat / 2);
+				}
+			}
+
+			// Gen 2 caps stats at 999 and min is 1.
+			stat = this.battle.clampIntRange(stat, 1, 999);
+			if (fastReturn) return stat;
+
+			// Screens
+			if (!unboosted) {
+				if (
+					(statName === 'def' && this.side.sideConditions['reflect']) ||
+					(statName === 'spd' && this.side.sideConditions['lightscreen'])
+				) {
+					stat *= 2;
+				}
+			}
+
+			// Parry
+			if (this.volatiles['parry']) {
+				if (statName === 'def' || statName === 'spd') {
+					stat *= 1.5;
+				}
+			}
+
+			// Handle boosting items
+			if (
+				(['Cubone', 'Marowak'].includes(this.species.name) && this.item === 'thickclub' && statName === 'atk') ||
+				(this.species.name === 'Pikachu' && this.item === 'lightball' && statName === 'spa')
+			) {
+				stat *= 2;
+			} else if (this.species.name === 'Ditto' && this.item === 'metalpowder' && ['def', 'spd'].includes(statName)) {
+				stat *= 1.5;
+			}
+
+			return stat;
+		},
+	}
 };

@@ -25,9 +25,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 	blackhole: {
 		num: -2,
 		accuracy: 100,
-		basePower: 100,
-		category: "Special",
-		shortDesc: "User loses 50% of its max HP. Damages with halved Sp. Def in 3 turns.",
+		basePower: 200,
+		category: "Status",
+		shortDesc: "Damages all Pokemon in 2 turns.",
 		name: "Black Hole",
 		pp: 5,
 		priority: 0,
@@ -35,32 +35,46 @@ export const Moves: {[moveid: string]: MoveData} = {
 		willCrit: false,
 		isFutureMove: true,
 		onPrepareHit: function(target, source, move) {
-			this.damage(source.baseMaxhp / 2, source);
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Black Hole Eclipse", target);
-			this.add('-message', `${source.name} summoned a Black Hole...`);
+			this.add('-anim', source, "Black hole Eclipse", source);
+			this.add('-message', `${source.name} summoned a Black Hole!`);
 		},
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 4,
-				move: 'blackhole',
-				source: source,
-				moveData: {
-					id: 'blackhole',
-					name: "Black Hole",
-					accuracy: 100,
-					basePower: 200,
-					category: "Special",
-					priority: 0,
-					flags: {},
-					target: "normal",
-					effectType: 'Move',
-					isFutureMove: true,
-					type: '???',
-				},
-			});
-			this.add('-start', source, 'Black Hole');
+			if (!source.side.addSlotCondition(source, 'futuremove')) return false;
+			const moveData = {
+				name: "Black Hole",
+				basePower: 200,
+				category: "Special",
+				flags: {},
+				willCrit: false,
+				type: '???',
+				isFutureMove: true,
+			} as unknown as ActiveMove;
+			const damage = this.getDamage(source, target, moveData, true);
+			for (const pokemon of this.getAllActive()) {
+				Object.assign(pokemon.side.slotConditions[pokemon.position]['futuremove'], {
+					duration: 3,
+					move: 'blackhole',
+					source: source,
+					moveData: {
+						id: 'blackhole',
+						name: "Black Hole",
+						accuracy: 100,
+						basePower: 0,
+						damage: damage,
+						category: "Special",
+						priority: 0,
+						flags: {},
+						target: "normal",
+						effectType: 'Move',
+						isFutureMove: true,
+						type: '???',
+					},
+				});
+			}
+			this.add('-start', source.side, 'Black Hole');
+			this.add('-start', target.side, 'Black Hole');
 			return null;
 		},
 		secondary: null,
@@ -72,69 +86,57 @@ export const Moves: {[moveid: string]: MoveData} = {
         accuracy: true,
         basePower: 0,
         category: "Status",
-		  shortDesc: "Reduces damage of incoming attacks. Uses another known move.",
+		shortDesc: "Reduces damage of incoming attacks. Uses another known move.",
         pp: 5,
-        priority: -1,
+        priority: 1,
         flags: {contact: 1, protect: 1},
         volatileStatus: 'parry',
-        beforeTurnCallback(pokemon) {
-        pokemon.addVolatile('parry');
-        },
-        beforeMoveCallback(pokemon, move) {
-            if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) { 
-                return false;
-            }
-            else if (pokemon.volatiles['parry'] && !pokemon.volatiles['parry'].untouched) {
-					 this.add('-message', `${pokemon.name} was unable to parry...`);
-					 const ppDeducted = pokemon.deductPP(move, 1);
-                if (!ppDeducted) return false;
-                return true;
-            }
+		onPrepareHit(pokemon) {
+			if (pokemon.volatiles['substitute']) return false;
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+				pokemon.addVolatile('stall');
+				pokemon.addVolatile('parry');
+				this.add('-message', `${pokemon.name} is attempting to Parry!`);
+				this.attrLastMove('[still]');
+				this.add('-anim', pokemon, "Harden");
         },
         condition: {
             duration: 1,
             onStart(pokemon) {
-                this.add('-message', `${pokemon.name} is attempting to parry!`);
+                this.add('-singleturn', pokemon, 'move: Parry');
             },
-            onHit(pokemon, source, move) {
-                if (move.category !== 'Status') {
-                    pokemon.volatiles['parry'].untouched = true;
-                }
-           },
-		   onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
-					return this.chainModify(0.7);
+		   	onDamagePriority: -11,
+		   	onFoeAfterMoveSelf(target, source, attack) {
+				if (target === source) return;
+				if (attack.category === 'Status') return;
+
+				this.add('-message', `${source.name} parried the attack!`);
+				this.add('-anim', target, "Mimic", source);
+
+				const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect', 'endure'];
+				const moves = [];
+				for (const moveSlot of source.moveSlots) {
+					const move = moveSlot.id;
+					if (move && !NoParry.includes(move) && !this.dex.getMove(move).flags['charge']) {
+						moves.push(move);
+					}
+				}
+				let randomMove = '';
+				if (moves.length) randomMove = this.sample(moves);
+				if (!randomMove) return false;
+				this.useMove(randomMove, source);
+				if (randomMove == 'sleeptalk') {
+					source.deductPP(randomMove, 2);
+					return false;
+				}
+				else {
+					const ppDeducted = source.deductPP(randomMove, 1);
+					if (!ppDeducted) return false;
 				}
 			},
        	},//
-		 onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Mimic", target);
-		},
-		 onHit(pokemon) {
-            if (pokemon.volatiles['parry'] && pokemon.volatiles['parry'].untouched) {
-                const NoParry = ['assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'uproar', 'sketch', 'parry', 'protect', 'detect'];
-                const moves = [];
-                for (const moveSlot of pokemon.moveSlots) {
-                    const move = moveSlot.id;
-                    if (move && !NoParry.includes(move) && !this.dex.getMove(move).flags['charge']) {
-                        moves.push(move);
-                    }
-                }
-                let randomMove = '';
-                if (moves.length) randomMove = this.sample(moves);
-                if (!randomMove) return false;
-                this.useMove(randomMove, pokemon);
-                if (randomMove == 'sleeptalk') {
-                    const ppDeducted = pokemon.deductPP(randomMove, 2);
-                    if (!ppDeducted) return false;
-                }
-                else {
-                    const ppDeducted = pokemon.deductPP(randomMove, 1);
-                    if (!ppDeducted) return false;
-                }
-            }
-        },
         name: "Parry",
         secondary: null,
         target: "self",

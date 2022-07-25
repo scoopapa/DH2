@@ -973,7 +973,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Grass"],
 		baseStats: {hp: 41, atk: 31, def: 19, spa: 53, spd: 47, spe: 29},
 		abilities: {0: "Lava Flow", 1: "Vital Spirit", S: "Beast Boost"},
-		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "flamecharge", "petaldance", "scorchingsands", "willowisp"],
+		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "petaldance", "scorchingsands", "willowisp"],
 		movepoolDeletions: ["blizzard", "bubble", "bubblebeam", "dive", "hail", "hydropump", "icebeam", "icywind", "mist", "muddywater", "scald", "surf", "waterfall", "watergun", "waterpulse", "watersport", "whirlpool"],
 
 		evos: ["Lombre-Ultra"],
@@ -993,7 +993,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Grass"],
 		baseStats: {hp: 59, atk: 47, def: 41, spa: 73, spd: 67, spe: 53},
 		abilities: {0: "Lava Flow", 1: "Vital Spirit", S: "Beast Boost"},
-		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "flamecharge", "petaldance", "scorchingsands", "willowisp"],
+		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "petaldance", "scorchingsands", "willowisp"],
 		movepoolDeletions: ["blizzard", "bubble", "bubblebeam", "dive", "hail", "hydropump", "icebeam", "icywind", "mist", "muddywater", "scald", "surf", "waterfall", "watergun", "waterpulse", "watersport", "whirlpool"],
 
 		prevo: "Lotad-Ultra",
@@ -1016,7 +1016,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Grass"],
 		baseStats: {hp: 79, atk: 71, def: 53, spa: 107, spd: 97, spe: 73},
 		abilities: {0: "Lava Flow", 1: "Vital Spirit", S: "Beast Boost"},
-		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "fierydance", "flamecharge", "petaldance", "scorchingsands", "willowisp"],
+		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "fierydance", "petaldance", "scorchingsands", "willowisp"],
 		movepoolDeletions: ["blizzard", "bubble", "bubblebeam", "dive", "hail", "hydropump", "icebeam", "icywind", "mist", "muddywater", "scald", "surf", "waterfall", "watergun", "waterpulse", "watersport", "whirlpool"],
 
 		prevo: "Lombre-Ultra",
@@ -2312,6 +2312,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 60, def: 180, spa: 110, spd: 60, spe: 50},
 		abilities: {0: "Sturdy", 1: "Soundproof", H: "Heavy Metal"},
 		movepoolAdditions: ["coaching", "vacuumwave"],
+		movepoolDeletions: ["meteorbeam"],
 
 		prevo: "Lairon",
 		evoLevel: 42,
