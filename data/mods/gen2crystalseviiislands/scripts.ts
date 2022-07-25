@@ -26,6 +26,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'ledian').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'parasect').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'crobat').learnset.swarmattack = ['2L1'];
+		this.modData('Learnsets', 'pierzer').learnset.swarmattack = ['2L1'];
 		
 		this.modData('Learnsets', 'umbreon').learnset.blackhole = ['2L1'];
 		this.modData('Learnsets', 'houndoom').learnset.blackhole = ['2L1'];
