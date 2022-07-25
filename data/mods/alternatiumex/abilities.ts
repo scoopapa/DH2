@@ -277,4 +277,26 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "On switch-in, the effects of Screens, Terrains and Rooms end for both sides.",
 		inherit: true,
 	},
+	lightarmor: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (['Dark', 'Fairy', 'Ghost'].includes(move.type)) {
+				this.debug('Light Armor neutralize');
+				return this.chainModify(0.67);
+			}
+		},
+		isUnbreakable: true,
+		name: "Light Armor",
+		shortDesc: "This Pokemon takes 2/3 damage from Dark-, Fairy- and Ghost-moves.",
+		rating: 3,
+		num: -10,
+	},
+	neuroforce: {
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod === 0) {
+				return this.chainModify(1.1);
+			}
+		},
+		shortDesc: "This Pokemon does 1.1x damage on neutral targets.",
+		inherit: true,
+	},
 };

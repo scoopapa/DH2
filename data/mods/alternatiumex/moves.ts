@@ -436,4 +436,84 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
+	photongeyser: {
+		num: 722,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Goes off higher attacking stat. Does 1.2x damage in Psychic Terrain.",
+		name: "Photon Geyser",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				this.debug('terrain buff');
+				return this.chainModify(1.2);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+	},
+	sunsteelstrike: {
+		num: 713,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		name: "Sunsteel Strike",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	moongeistbeam: {
+		num: 714,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		shortDesc: "User switches out. Nullifies the foes Ability if the foes move first.",
+		name: "Moongeist Beam",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target) {
+			if (target.getAbility().isPermanent) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			target.addVolatile('gastroacid');
+		},
+		onAfterSubDamage(damage, target) {
+			if (target.getAbility().isPermanent) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			target.addVolatile('gastroacid');
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+	prismaticlaser: {
+		num: 711,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "This move ignores type based interactions.",
+		name: "Prismatic Laser",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, source, target) {
+			move.type = '???';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
 };
