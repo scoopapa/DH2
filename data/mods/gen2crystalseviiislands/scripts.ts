@@ -6,18 +6,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 	
 	init: function () {
-		
-		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
-		let newCategory = '';
-		for (const i in this.data.Moves) {
-			if (!this.data.Moves[i]) console.log(i);
-			if (this.data.Moves[i].category === 'Status') continue;
-			newCategory = specialTypes.includes(this.data.Moves[i].type) ? 'Special' : 'Physical';
-			if (newCategory !== this.data.Moves[i].category) {
-				this.modData('Moves', i).category = newCategory;
-			}
-		}
-		
+				
 		for (const id in this.dataCache.Pokedex) {
 			const pokemon = this.dataCache.Pokedex[id];
 			if (this.modData('FormatsData', id)) {
@@ -37,6 +26,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'ledian').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'parasect').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'crobat').learnset.swarmattack = ['2L1'];
+		this.modData('Learnsets', 'pierzer').learnset.swarmattack = ['2L1'];
 		
 		this.modData('Learnsets', 'umbreon').learnset.blackhole = ['2L1'];
 		this.modData('Learnsets', 'houndoom').learnset.blackhole = ['2L1'];
@@ -136,6 +126,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'sneasel').learnset.preyingswipe = ['2L1'];
 		this.modData('Learnsets', 'kabuto').learnset.preyingswipe = ['2L1'];
 		this.modData('Learnsets', 'kabutops').learnset.preyingswipe = ['2L1'];
+		this.modData('Learnsets', 'pierzer').learnset.preyingswipe = ['2L1'];
 		
 		this.modData('Learnsets', 'kingdra').learnset.draconicdrive = ['2L1'];
 		this.modData('Learnsets', 'dragonite').learnset.draconicdrive = ['2L1'];
