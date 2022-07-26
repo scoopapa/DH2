@@ -112,19 +112,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 
 	poweroftwo: {
-		shortDesc: "If this Pokemon has two moves or less, its power boosts by 1.5x",
+		shortDesc: "If this Pokemon has two moves or less, its power boosts by 1.3x",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (attacker.moveSlots.length < 3) {
 				this.debug('Power of Two boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (attacker.moveSlots.length < 3) {
 				this.debug('Power of Two boost');
-        return this.chainModify(1.5);
+        return this.chainModify(1.3);
 			}
 		},
 		name: "Power of Two",
