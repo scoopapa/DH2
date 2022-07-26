@@ -231,7 +231,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Duomod",
 		doublesTier: "DOUomod",
 	},
-	helivery: {
+	fleetle: {
 		randomBattleMoves: ["defog", "spikes", "roost", "uturn", "bravebird", "willowisp", "knockoff", "taunt", "whirlwind"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
