@@ -427,9 +427,9 @@ shroominesce: {
 	weightkg: 5,
 	eggGroups: ["Undiscovered"],
 },
-helivery: {
+fleetle: {
 	num: 103.5,
-	species: "Helivery",
+	species: "Fleetle",
 	types: ["Steel", "Flying"],
 	gender: "N",
 	baseStats: {hp: 85, atk: 85, def: 85, spa: 85, spd: 85, spe: 85},
