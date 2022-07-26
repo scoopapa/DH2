@@ -1937,4 +1937,42 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	svspoilers: {
+		num: -1024,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "SV SPOILERS",
+		shortDesc: "a move that I really wanted to try out",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Charge", target);
+		},
+		onTry(pokemon) {
+			if (pokemon.side.faintedLastTurn) {
+				return;
+			}
+			this.add('-fail', pokemon, 'move: SV Spoilers');
+			this.hint("There was nothing to revive!");
+			return null;
+		},
+		onHit(pokemon) {
+			let revived = pokemon.side.faintedLastTurn;
+			if (!revived) return false;
+			revived.fainted = null;
+			revived.faintQueued = null;
+			revived.hp = Math.floor(revived.maxhp / 2) || 1;
+			revived.status = '';
+			this.add('-message', `${revived.name} was revived!`);
+			revived.side.pokemonLeft++;
+		},
+		secondary: null,
+		target: "self",
+		type: "Electric",
+		contestType: "Clever",
+	},
 };

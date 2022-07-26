@@ -35,4 +35,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	tauros: {
 		tier: "metamons",
 	},
+	tsareena: {
+		tier: "metamons",
+	},
+	sylveon: {
+		tier: "metamons",
+	},
+	perrserker: {
+		tier: "metamons",
+	},
 };

@@ -10,7 +10,7 @@ bblueclisque: {
 	num: 2.5,
 	species: "B-blueclisque",
 	types: ["rock", "fire"],
-	baseStats: {hp: 61, atk: 60, def: 60, spa: 68, spd: 60, spe: 80},
+	baseStats: {hp: 74, atk: 60, def: 60, spa: 88, spd: 60, spe: 106},
 	abilities: {0: "Ball Fetch"},
 },
 cblueclisque: {
@@ -66,7 +66,7 @@ fakemon1mossysandwich: {
 	num: 10.5,
 	species: "Fakemon 1-mossysandwich",
 	types: ["Flying"],
-	baseStats: {hp: 90, atk: 60, def: 90, spa: 60, spd: 85, spe: 60},
+	baseStats: {hp: 90, atk: 60, def: 90, spa: 90, spd: 85, spe: 60},
 	abilities: {0: "Lightning Rod"},
 },
 fakemon2mossysandwich: {
@@ -313,5 +313,26 @@ fakemoniiilavarina: {
 	types: ["Ground"],
 	baseStats: {hp: 70, atk: 60, def: 80, spa: 80, spd: 80, spe: 60},
 	abilities: {0: "Synchronize"},
+},
+thebossdoubleironbash: {
+	num: 1.5,
+	species: "The Boss-doubleironbash",
+	types: ["Dark", "Fighting"],
+	baseStats: {hp: 60, atk: 100, def: 60, spa: 60, spd: 60, spe: 100},
+	abilities: {0: "Iron Fist"},
+},
+tbddoubleironbash: {
+	num: 2.5,
+	species: "TBD-doubleironbash",
+	types: ["Dragon"],
+	baseStats: {hp: 60, atk: 100, def: 75, spa: 60, spd: 75, spe: 90},
+	abilities: {0: "Run Away"},
+},
+boomboxdoubleironbash: {
+	num: 3.5,
+	species: "Boombox-doubleironbash",
+	types: ["Normal"],
+	baseStats: {hp: 60, atk: 60, def: 60, spa: 100, spd: 60, spe: 60},
+	abilities: {0: "Illuminate"},
 },
 };

@@ -1,7 +1,7 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	angler: {
 		desc: "If the user is hit by a Water-type move, they take 0.25x damage from it and the opponent recieves recoil equal to the damage dealt.",
-		shortDesc: "The damage from Water-type attacks against this Pokemon is partially reflected.",
+		shortDesc: "User takes quartered damage from water; attacker receives major recoil.",
 		onSourceBasePowerPriority: 18,
 		onSourceBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Water') {
@@ -40,39 +40,39 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const result = this.random(10);
 			if (result === 0) {
 				this.hint("Hype Level: 1 out of 10...");
-				this.useMove("Rest", pokemon);
+//				this.useMove("Rest", pokemon);
 			}
 			else if (result === 1) {
 				this.hint("Hype Level: 2 out of 10...");
-				this.useMove("Sleep Talk", pokemon);
+//				this.useMove("Sleep Talk", pokemon);
 			}
 			else if (result === 2) {
 				this.hint("Hype Level: 3 out of 10...");
-				this.useMove("Celebrate", pokemon);
+//				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 3) {
 				this.hint("Hype Level: 4 out of 10.");
-				this.useMove("Celebrate", pokemon);
+//				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 4) {
 				this.hint("Hype Level: 5 out of 10.");
-				this.useMove("Celebrate", pokemon);
+//				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 5) {
 				this.hint("Hype Level: 6 out of 10.");
-				this.useMove("Celebrate", pokemon);
+//				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 6) {
 				this.hint("Hype Level: 7 out of 10!");
-				this.useMove("Focus Energy", pokemon);
+//				this.useMove("Focus Energy", pokemon);
 			}
 			else if (result === 7) {
 				this.hint("Hype Level: 8 out of 10!");
-				this.useMove("Agility", pokemon);
+//				this.useMove("Agility", pokemon);
 			}
 			else if (result === 8) {
 				this.hint("Hype Level: 9 OUT OF 10!");
-				this.useMove("Spinning Web", pokemon);
+//				this.useMove("Spinning Web", pokemon);
 			}
 			else {
 				this.hint("Hype level: 10 OUT OF 10!!!!!");
@@ -85,6 +85,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 	deathscall: {
+		shortDesc: "All active Pokemon become trapped.",
 		onStart(pokemon) {
 			this.add('-fieldactivate', 'move: Fairy Lock');
 		},
@@ -111,19 +112,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 
 	poweroftwo: {
-		shortDesc: "If this Pokemon has two moves or less, its power boosts by 1.5x",
+		shortDesc: "If this Pokemon has two moves or less, its power boosts by 1.3x",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (attacker.moveSlots.length < 3) {
 				this.debug('Power of Two boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (attacker.moveSlots.length < 3) {
 				this.debug('Power of Two boost');
-        return this.chainModify(1.5);
+        return this.chainModify(1.3);
 			}
 		},
 		name: "Power of Two",
@@ -237,7 +238,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 3009,
 	},	
 	ragingbeast: {
-		shortDesc: "The user's highest stat rises under a ton of conditions.",
+		shortDesc: "The user's highest stat has a 20% chance to rise after each turn.",
 		onResidual (pokemon) {
 			const result = this.random(5);
 			if (result === 0) {
@@ -253,36 +254,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({[statName]: 1}, pokemon);
 			}
 		},	
-		onAfterMoveSecondary(target, source, move) {
-			if (!source || source === target || !target.hp || !move.totalDamage) return;
-			const lastAttackedBy = target.getLastAttackedBy();
-			if (!lastAttackedBy) return;
-			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
-			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in target.storedStats) {
-					if (target.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = target.storedStats[s];
-					}
-				}
-				this.boost({[statName]: 1}, target);
-			}
-		},
-		onDamagingHit(damage, target, source, effect) {
-			let statName = 'atk';
-			let bestStat = 0;
-			let s: StatNameExceptHP;
-			for (s in target.storedStats) {
-				if (target.storedStats[s] > bestStat) {
-					statName = s;
-					bestStat = target.storedStats[s];
-				}
-			}
-			this.boost({[statName]: 1}, target);
-		},
 		name: "Raging Beast",
 		rating: 1,
 		num: 3010,
@@ -443,7 +414,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 3013,
 	},	
 	dropheat: {
-		shortDesc: "User is immune to recoil + punishes opposing Sound moves.",
+		shortDesc: "User is immune to recoil, lowers all stats of opponents using Sound moves.",
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'recoil') {
 				if (!this.activeMove) throw new Error("Battle.activeMove is null");
@@ -486,6 +457,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 3016,
 	},
 	adaptation: {
+		shortDesc: "On switch-in, user gains a type matching its first move.",
 		onStart(pokemon) {
 			const type = this.dex.getMove(pokemon.moveSlots[0].id).type;
 			if (pokemon.hasType(type) || !pokemon.addType(type)) return false;

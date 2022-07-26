@@ -174,10 +174,10 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'Baton Pass',
+			'Uber', 'Baton Pass',
 		],
 		unbanlist: [
-				 'A-blueclisque', 'B-blueclisque', 'C-blueclisque', 'perdemos 1-anaconja', 'perdemos 3-anaconja', 'perdemos 2-anaconja', 'Genesys-paulluxx', 'Conakash-paulluxx', 'Demudain-paulluxx', 'Fakemon 1-mossysandwich', 'Fakemon 2-mossysandwich', 'Fakemon 3-mossysandwich', 'Astrolol-beafcultist', 'Your Mother-beafcultist', 'Unfezant-beafcultist', 'Goldoboros-spiderpig', 'Aggresteus-spiderpig', 'Aerolt-spiderpig', 'Mojam-bobsican', 'Endurcho-bobsican', 'Aguacather-bobsican', 'Comite-keeganskymin', 'Galelilee-keeganskymin', 'Fillerunt-keeganskymin', 'Dukess-gekokeso', 'Namaraft-gekokeso', 'Chandlier-gekokeso', 'Solidina-lapzap', 'Inswamada-lapzap', 'Clionoros-lapzap', 'Cratersmash-cratersmash', 'Bugmetl-cratersmash', 'MissingNo.-cratersmash', 'Nimbux-squawkerz', 'Gladiolune-squawkerz', 'Molmga-squawkerz', 'Vailafly-gravitymonkey', 'Komodore-gravitymonkey', 'Cutternal-gravitymonkey', 'Wattack-xenonhero', 'Shail-xenonhero', 'Blustriage-xenonhero', 'Fakemon I-lavarina', 'Fakemon II-lavarina', 'Fakemon III-lavarina',
+				 'A-blueclisque', 'B-blueclisque', 'C-blueclisque', 'perdemos 1-anaconja', 'perdemos 3-anaconja', 'perdemos 2-anaconja', 'Genesys-paulluxx', 'Conakash-paulluxx', 'Demudain-paulluxx', 'Fakemon 1-mossysandwich', 'Fakemon 2-mossysandwich', 'Fakemon 3-mossysandwich', 'Astrolol-beafcultist', 'Your Mother-beafcultist', 'Unfezant-beafcultist', 'Goldoboros-spiderpig', 'Aggresteus-spiderpig', 'Aerolt-spiderpig', 'Mojam-bobsican', 'Endurcho-bobsican', 'Aguacather-bobsican', 'Comite-keeganskymin', 'Galelilee-keeganskymin', 'Fillerunt-keeganskymin', 'Dukess-gekokeso', 'Namaraft-gekokeso', 'Chandlier-gekokeso', 'Solidina-lapzap', 'Inswamada-lapzap', 'Clionoros-lapzap', 'Cratersmash-cratersmash', 'Bugmetl-cratersmash', 'MissingNo.-cratersmash', 'Nimbux-squawkerz', 'Gladiolune-squawkerz', 'Molmga-squawkerz', 'Vailafly-gravitymonkey', 'Komodore-gravitymonkey', 'Cutternal-gravitymonkey', 'Wattack-xenonhero', 'Shail-xenonhero', 'Blustriage-xenonhero', 'Fakemon I-lavarina', 'Fakemon II-lavarina', 'Fakemon III-lavarina', 'Boombox-doubleironbash', 'The Boss-doubleironbash', 'TBD-doubleironbash',
 		],
 	},
 	
@@ -675,6 +675,7 @@ export const Formats: FormatList = [
 					   'Snarl', 'Steel Wing', 'Strange Steam',
 					   'Deino', 'Zweilous', 'Hydreigon', 'Scizor', 'Cottonee', 'Whimsicott', 
 						'Nature\'s Madness', 'Fake Tears', 'Gear Up',
+						'Steelix', 'Spiritomb', 'Swablu', 'Altaria',
 					  ],
     },
    {
@@ -835,7 +836,7 @@ export const Formats: FormatList = [
 		mod: 'metamons', 
 		ruleset:['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Z-Move Clause'],
 		banlist: ['All Pokemon', 'Baton Pass', 'Sablenite'],
-		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon', 'Slowbro-Galar', 'Sableye', 'Grapploct', 'Eelektross', 'Arcanine', 'Tauros'],
+		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon', 'Slowbro-Galar', 'Sableye', 'Grapploct', 'Eelektross', 'Arcanine', 'Tauros', 'Tsareena', 'Sylveon', 'Perrserker'],
 	},
 	{
 	name: "[Gen 8] Micrometa Mafia",
@@ -3038,7 +3039,7 @@ export const Formats: FormatList = [
       ],
       team: 'random',
 		mod: 'outheorymons', 
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Dynamax Clause', 'Data Mod', 'Species Clause'],
 	},
 	{
 		name: "[Gen 8] Roulettemons Random Doubles",
@@ -3372,9 +3373,9 @@ export const Formats: FormatList = [
         ],
         mod: 'duomod',
         ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Subscribe For More Content', 'Duomod Data Mod'],
-        banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',],
+        banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'King\'s Rock',],
         unbanlist: [
-             'Abysseil', 'Annelait', 'Azurolt', 'Baloon', 'BaloonPopped', 'BaloonWater', 'Catelax', 'Crypterid', 'Deliriophage', 'Detonuke', 'Draglow', 'Draxplosion', 'Fluidrake', 'Fluxtape', 'FluxtapeRadio', 'FluxtapeStereo', 'Gorilax', 'Grievenge', 'Hyperoach', 'Lemotic', 'Lumineel', 'Modolith', 'Monstratus', 'Mortemoth', 'Pokat', 'Spirox', 'SpiroxAncient', 'SpiroxRipped', 'Treemu', 'Valianch', 'Spisces', 'Pterrost', 'Jewelode', 'Jellyolk', 'Crazefly', 'Fairydisc', 'Badgearth',
+             'Abysseil', 'Annelait', 'Azurolt', 'Baloon', 'BaloonPopped', 'BaloonWater', 'Catelax', 'Crypterid', 'Deliriophage', 'Detonuke', 'Draglow', 'Draxplosion', 'Fluidrake', 'Fluxtape', 'FluxtapeRadio', 'FluxtapeStereo', 'Gorilax', 'Grievenge', 'Hyperoach', 'Lemotic', 'Lumineel', 'Modolith', 'Monstratus', 'Mortemoth', 'Pokat', 'Spirox', 'SpiroxAncient', 'SpiroxRipped', 'Treemu', 'Valianch', 'Spisces', 'Pterrost', 'Jewelode', 'Jellyolk', 'Crazefly', 'Fairydisc', 'Badgearth', 'Shroominesce', 'Fleetle',
 			],	
 			onSwitchIn(pokemon) {
         		this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');

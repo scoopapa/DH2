@@ -67,6 +67,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.modData("Learnsets", "eelektross").learnset.zingzap = ["8L1"];
 			this.modData("Learnsets", "eelektross").learnset.recover = ["8L1"];
 			this.modData("Learnsets", "eelektross").learnset.copycatblast = ["8L1"];
+			this.modData("Learnsets", "tsareena").learnset.poltergeist = ["8L1"];
+			this.modData("Learnsets", "tsareena").learnset.spiritshackle = ["8L1"];
+			this.modData("Learnsets", "perrserker").learnset.bulletpunch = ["8L1"];
+			this.modData("Learnsets", "perrserker").learnset.shadowsneak = ["8L1"];
+			this.modData("Learnsets", "perrserker").learnset.poltergeist = ["8L1"];
+			this.modData("Learnsets", "perrserker").learnset.knockoff = ["8L1"];
+			this.modData("Learnsets", "sylveon").learnset.rudeparting = ["8L1"];
+			this.modData("Learnsets", "sylveon").learnset.fakeout = ["8L1"];
+			this.modData("Learnsets", "sylveon").learnset.discharge = ["8L1"];
+			this.modData("Learnsets", "sylveon").learnset.risingvoltage = ["8L1"];
+			this.modData("Learnsets", "sylveon").learnset.nuzzle = ["8L1"];
+			this.modData("Learnsets", "sylveon").learnset.thunderwave = ["8L1"];
 			delete this.modData('Learnsets', 'tauros').learnset.earthquake;
 			delete this.modData('Learnsets', 'tauros').learnset.highhorsepower;
 			delete this.modData('Learnsets', 'tauros').learnset.closecombat;

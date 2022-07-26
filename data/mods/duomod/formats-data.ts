@@ -142,7 +142,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	mortemoth: {
-		randomBattleMoves: ["hurricane", "earthpower", "bugbuzz", "quiverdance"],
+		randomBattleMoves: ["hurricane", "earthpower", "bugbuzz", "quiverdance", "uturn"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -220,7 +220,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOUomod",
 	},
 	badgearth: {
-		randomBattleMoves: ["flipturn", "earthquake", "ironhead", "swordsdance", "dragondance", "firstimpression", "poisonjab", "dualwingbeat"],
+		randomBattleMoves: ["flipturn", "earthquake", "irontail", "swordsdance", "dragondance", "firstimpression", "poisonjab", "dualwingbeat"],
+		randomBattleLevel: 100,
+		tier: "Duomod",
+		doublesTier: "DOUomod",
+	},
+	shroominesce: {
+		randomBattleMoves: ["thunderbolt", "voltswitch", "energyball", "moonblast", "defog", "moonlight"],
+		randomBattleLevel: 100,
+		tier: "Duomod",
+		doublesTier: "DOUomod",
+	},
+	fleetle: {
+		randomBattleMoves: ["defog", "spikes", "roost", "uturn", "bravebird", "willowisp", "knockoff", "taunt", "whirlwind"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "DOUomod",
