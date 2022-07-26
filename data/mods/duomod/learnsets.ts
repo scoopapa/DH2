@@ -1274,7 +1274,7 @@ shroominesce: {learnset: {
 	extremebeam: ["8L1"],
 	metronome: ["8L1"],
 }},
-helivery: {learnset: {
+fleetle: {learnset: {
 	bravebird: ["8L1"],
 	ironhead: ["8L1"],
 	drillpeck: ["8L1"],
