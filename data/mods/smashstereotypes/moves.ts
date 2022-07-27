@@ -1824,4 +1824,91 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMovePower: 120,
 		contestType: "Clever",
 	},
+	shocktail: {
+		num: -1000,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "The target gets paralyzed when they have positive stat changes.",
+		name: "Shock Tail",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Charge", target);
+			this.add('-anim', source, "Iron Tail", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (target.positiveBoosts()) {
+					target.trySetStatus('par', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
+	yoshishield: {
+		num: 588,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Protects from damaging attacks. Contact: -1 Def, SpD, Spe.",
+		name: "Yoshi Shield",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'yoshishield',
+		onTryHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					this.boost({atk: -1}, source, target, this.dex.getActiveMove("Yoshi Shield"));
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.flags['contact']) {
+					this.boost({def: -1, spd: -1, spe: -1}, source, target, this.dex.getActiveMove("Yoshi Shield"));
+				}
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
+			this.add('-anim', source, "Burn Up", target);
+		},
+		secondary: null,
+		target: "self",
+		type: "Fire",
+	},
 };

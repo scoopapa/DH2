@@ -15,4 +15,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 256,
 		gen: 2,
 	},
+	thickclub: {
+		name: "Thick Club",
+		desc: "If held by a Cubone, Marowak or Resurrectric, its Attack is doubled.",
+		spritenum: 491,
+		fling: {
+			basePower: 90,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Cubone' || pokemon.baseSpecies.baseSpecies === 'Marowak' || pokemon.baseSpecies.baseSpecies === 'Resurrectric') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Resurrectric", "Marowak", "Cubone"],
+		num: 258,
+		gen: 2,
+	},
 };

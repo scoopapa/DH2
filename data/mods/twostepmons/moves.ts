@@ -14,8 +14,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		onHit(target) {
-			target.addVolatile('healblock');
-			target.volatiles['healblock'].duration === 5
+			if (target.hp) {
+				target.addVolatile('healblock');
+			}
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
@@ -122,20 +123,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1},
-		sideCondition: 'bindingvow',
+		volatileStatus: 'bindingvow',
 		condition: {
 			duration: 4,
 			durationCallback(target, source, effect) {
 				return 4;
 			},
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Binding Vow');
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Binding Vow');
 			},
 			onDamagingHit(damage, target, source, move) {
 				this.damage(damage, source, target);
 			},
-			onEnd(side) {
-				this.add('-sideend', side, 'move: Binding Vow');
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Binding Vow');
 			},
 		},
 		onPrepareHit: function(target, source, move) {
@@ -255,17 +256,66 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [33, 100],
-		secondary: {
-			chance: 10,
-			volatilestatus: 'torment',
+		onHit(target) {
+			if (target.hp) {
+				target.addVolatile('torment');
+			}
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Gravity", target);
+			this.add('-anim', source, "Steamroller", target);
 		},
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+	},
+	steamchute: {
+		num: 800,
+		accuracy: 90,
+		basePower: 130,
+		category: "Special",
+		name: "Steam Chute",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1, defrost: 1},
+		condition: {
+			duration: 2,
+			onHit(pokemon, source, move) {
+				if (move.flags['contact']) {
+					this.effectData.brn = true;
+					source.trySetStatus('brn', pokemon);
+				}
+			},
+		},
+		beforeTurnCallback(pokemon) {
+			if (pokemon.volatiles['steamchute']) return;
+			this.add('-singleturn', pokemon, 'move: Steam Chute');
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Work Up", pokemon);
+			pokemon.addVolatile('steamchute');
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Steam Eruption", target);
+		},
+		onTryMove(attacker, defender, move) {
+			if (attacker.status === 'frz') attacker.cureStatus();
+			if (attacker.removeVolatile('twoturnmove')){
+				if (attacker.volatiles['steamchute'] && attacker.volatiles['steamchute'].effectData && attacker.volatiles['steamchute'].effectData.brn){
+					attacker.side.setSideCondition('mist');
+				}					
+				attacker.removeVolatile('steamchute')
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water", 
 	},
 };
 

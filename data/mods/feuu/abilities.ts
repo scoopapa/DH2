@@ -594,7 +594,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Doggy\'s Maw');
 			}
@@ -1061,7 +1061,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Leviflame');
 				return null;
 			}
@@ -1102,7 +1102,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Feel No Pain');
 				return null;
 			}
@@ -1168,7 +1168,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.stab = 2;
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Levitability');
 				return null;
 			}
@@ -1285,7 +1285,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Sticky Float');
 				return null;
 			}
@@ -1590,6 +1590,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "E-Copy",
 		shortDesc: "Sets Electric Terrain, and then copies the foe's Ability.",
 	},
+	trace: {
+		onStart(pokemon) {
+			if (pokemon.side.foe.active.some(
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+			)) {
+				this.effectData.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const ability = target.getAbility();
+				const additionalBannedAbilities = [
+					// Zen Mode included here for compatability with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'magicmissile', 'pillage', 'ecopy', 'lemegeton', 'modeshift', 
+				];
+				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
+				pokemon.setAbility(ability);
+				return;
+			}
+		},
+		name: "Trace",
+		rating: 2.5,
+		num: 36,
+	},
 	wetbugs: {
 		onStart(source) {
 			for (const action of this.queue) {
@@ -1788,7 +1823,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Scrappy Armor');
 			}
@@ -2150,7 +2185,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (status.id === 'flinch') return null;
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Inner Focus');
 			}
@@ -2654,7 +2689,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.galvanizeBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Magnetic Waves');
 				return null;
 			}
@@ -2834,7 +2869,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			});
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Anatidaephobia');
 			}
@@ -3131,7 +3166,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Etativel');
 				return null;
 			}
@@ -3192,7 +3227,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Lighthearted');
 				return null;
 			}
@@ -3472,7 +3507,7 @@ lifedrain: {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Idiot Savant');
 			}
@@ -3666,7 +3701,7 @@ lifedrain: {
 	},
 	clearlyfloating: {
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Clearly Floating');
 				return null;
 			}
@@ -3913,7 +3948,7 @@ lifedrain: {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Float Guise');
 				return null;
 			}
@@ -3996,7 +4031,7 @@ lifedrain: {
 	},
 	aerialbreak: {
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Aerial Break');
 				return null;
 			}
@@ -4257,7 +4292,7 @@ lifedrain: {
 			return this.trunc(weighthg / 2);
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Levimetal');
 				return null;
 			}
@@ -4290,7 +4325,7 @@ lifedrain: {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Hoverboard');
 				return null;
 			}
@@ -4399,7 +4434,7 @@ lifedrain: {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Loveless Float');
 				return null;
 			}
@@ -4771,7 +4806,7 @@ lifedrain: {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.damage(source.baseMaxhp / 8, source, target);
 				this.add('-immune', target, '[from] ability: Iron Will');
@@ -4952,13 +4987,14 @@ lifedrain: {
 		name: "Water Break",
 		shortDesc: "This Pokemon heals its status every other turn.",
 	},
-	menacing: {
+	catastrophic: {
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
 			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
 			this.debug('Base Power: ' + basePowerAfterMultiplier);
 			if (basePowerAfterMultiplier <= 60) {
-				this.debug('Menacing boost');
+				this.debug('Catastrophic boost');
+	         move.catastrophic = true;
 				return this.chainModify(1.5);
 			}
 		},
@@ -4972,7 +5008,7 @@ lifedrain: {
 				for (const target of this.effectData.target.side.foe.active) {
 					if (!target || !this.isAdjacent(target, this.effectData.target)) continue;
 					if (!activated) {
-						this.add('-ability', this.effectData.target, 'Menacing', 'boost');
+						this.add('-ability', this.effectData.target, 'Catastrophic', 'boost');
 						activated = true;
 					}
 					if ((target.volatiles['substitute'] || target.hasType('Dark'))) {
@@ -4983,7 +5019,6 @@ lifedrain: {
 				}
 			}
 		},
-	*/
 		onModifyMove(move) {
 			if (!move || !move.basePower > 60 || move.target === 'self') return;
 			if (!move.secondaries) {
@@ -4994,12 +5029,299 @@ lifedrain: {
 				boosts: {
 					atk: -1,
 				},
-				ability: this.dex.getAbility('menacing'),
+				ability: this.dex.getAbility('catastrophic'),
 			});
 		},
-		name: "Menacing",
+	*/
+	  onAfterMove(target, source, move){
+		   if (move.catastrophic) this.boost({atk: -1}, source);
+		},
+		name: "Catastrophic",
 		shortDesc: "Moves with ≤60 BP have 1.5x power and lower the target's Attack by 1 stage.",
 	},
+	battletrance: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				source.cureStatus();
+			}
+		},
+		name: "Battle Trance",
+		shortDesc: "Upon attacking and KOing a foe, this Pokemon's status is healed.",
+	},
+	refocus: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'ragingrapids' || effect.id === 'catastrophic') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Refocus');
+			}
+			if (effect.id === 'peckingorder') {
+				delete boost.def;
+				this.add('-immune', target, '[from] ability: Refocus');
+			}
+			if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Refocus');
+			}
+			if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				delete boost.spe;
+				this.add('-immune', target, '[from] ability: Refocus');
+			}
+		},
+		name: "Refocus",
+		shortDesc: "Regenerator + Inner Focus",
+	},
+/*
+	beastlytwist: {
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let statName = 'atk';
+			let bestStat = 0;
+			let s;
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = this.effectData.target.storedStats[s];
+				}
+			}
+			if (statName === 'atk') {
+      		 boost.atk *= -1;
+			}
+		if (statName === 'def') {
+      		 boost.def *= -1;
+			}
+			if (statName === 'spa') {
+	     		 boost.spa *= -1;
+			}
+			if (statName === 'spd') {
+     		 boost.spd *= -1;
+			}
+			if (statName === 'spe') {
+      		 boost.spe *= -1;
+			}
+		},
+		name: "Beastly Twist",
+		shortDesc: "(Mostly Non-Functional Placeholder) If this Pokemon's highest stat is raised, it is lowered instead, and vice versa.",
+	},
+*/
+	beastlytwist: {
+		shortDesc: "(Non-Functional Placeholder) If this Pokemon's highest stat is raised, it is lowered instead, and vice versa.",
+		name: "Beastly Twist",
+	},
+	waterlogged: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Waterlogged');
+				}
+				return null;
+			}
+		},
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// Air Lock does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			if (!this.effectData.switchingIn) return;
+			this.add('-ability', pokemon, 'Waterlogged');
+			this.effectData.switchingIn = false;
+		},
+		suppressWeather: true,
+		name: "Waterlogged",
+		shortDesc: "Water Absorb + Air Lock",
+	},
+	megawatt: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Megawatt');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: 1});
+			}
+		},
+		name: "Megawatt",
+		shortDesc: "Speed Boost + Pressure",
+	},
+	relentless: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			const boosts: SparseBoostsTable = {};
+			let i: BoostName;
+			for (i in defender.boosts) {
+				if (defender.boosts[i] < 0) {
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			}
+		},
+		name: "Relentless",
+		shortDesc: "This Pokemon’s attacks have 1.3x power against opponents with lowered stats.",
+	},
+	rainparade: {
+		onStart(source) {
+			this.field.setWeather('raindance');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'raindance' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherData.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('rainparade')) {
+					this.field.weatherData.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Rain Parade",
+		shortDesc: "While this Pokémon is active, Rain is active.",
+	},
+	vigilance: {
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({def: 1});
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'catastrophic') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Vigilance');
+			}
+			if (effect.id === 'peckingorder') {
+				delete boost.def;
+				this.add('-immune', target, '[from] ability: Vigilance');
+			}
+			if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Vigilance');
+			}
+			if (effect.id === 'sinkorswim' || effect.id === 'scarilyadorable') {
+				delete boost.spe;
+				this.add('-immune', target, '[from] ability: Vigilance');
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['attract']) {
+				this.add('-activate', pokemon, 'ability: Vigilance');
+				pokemon.removeVolatile('attract');
+				this.add('-end', pokemon, 'move: Attract', '[from] ability: Vigilance');
+			}
+			if (pokemon.volatiles['taunt']) {
+				this.add('-activate', pokemon, 'ability: Vigilance');
+				pokemon.removeVolatile('taunt');
+				// Taunt's volatile already sends the -end message when removed
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'attract') return false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'attract' || move.id === 'captivate' || move.id === 'taunt') {
+				this.add('-immune', pokemon, '[from] ability: Vigilance');
+				return null;
+			}
+		},
+		name: "Vigilance",
+		shortDesc: "Stamina + Oblivious",
+	},
+	floodgates: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Floodgates');
+				}
+				return null;
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 4);
+		},
+		name: "Floodgates",
+		shortDesc: "Heals 25% of the user's max HP upon switching out or getting hit by a Water move; Water immunity.",
+	},
+	magicarmour: {
+		onBoost(boost, target, source, effect) {
+			// Don't bounce self stat changes, or boosts that have already bounced
+			if (target === source || !boost || effect.id === 'mirrorarmor' || effect.id === 'magicarmour') return;
+			let b: BoostName;
+			for (b in boost) {
+				if (boost[b]! < 0) {
+					if (target.boosts[b] === -6) continue;
+					const negativeBoost: SparseBoostsTable = {};
+					negativeBoost[b] = boost[b];
+					delete boost[b];
+					this.add('-ability', target, 'Magic Armour');
+					this.boost(negativeBoost, source, target, null, true);
+				}
+			}
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, this.effectData.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		name: "Magic Armour",
+		shortDesc: "Effects of Magic Bounce and Mirror Armor.",
+	},
+	drakonblood: {
+	  shortDesc: "Dragon moves used restore user's HP by 50% of the damage dealt.",
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.type === 'Dragon' && move.category !== 'Status') {
+				this.heal(pokemon.lastDamage / 2, pokemon);
+			}
+		},
+	  name: "Drakon Blood",
+    },
+	ultrahaircut: {
+	  shortDesc: "Pokémon making contact with this Pokémon have their highest stat lowered by 1 stage.",
+		onDamagingHit(damage, target, source, move) {
+				if (!move || !move.flags['contact'] || target.volatiles['substitute']) return;
+				let statName = 'atk';
+				let bestStat = 0;
+				/** @type {StatNameExceptHP} */
+				let s;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.add('-ability', target, 'Ultra Haircut');
+				this.boost({[statName]: -1}, source, target, null, true);
+		},
+	  name: "Ultra Haircut",
+    },
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
@@ -5253,7 +5575,7 @@ lifedrain: {
 	},	
 	noproprioception: {
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: No Proprioception');
 			}
@@ -5324,7 +5646,7 @@ lifedrain: {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Rough Time');
 			}
@@ -5401,7 +5723,7 @@ lifedrain: {
 			return false;
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Feel Some Pain');
 				return null;
 			}
@@ -5493,7 +5815,7 @@ lifedrain: {
 	},	
 	insidejob: {
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Inside Job');
 			}
@@ -5696,7 +6018,7 @@ lifedrain: {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'menacing') {
+			if (effect.id === 'intimidate' || effect.id === 'scarilyadorable' || effect.id === 'metalhead' || effect.id === 'creepy' || effect.id === 'catastrophic') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Cursed Duck');
 			}
@@ -5843,7 +6165,7 @@ lifedrain: {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
 				this.add('-immune', target, '[from] ability: Levistatic');
 				return null;
 			}
@@ -6059,6 +6381,62 @@ lifedrain: {
 		},
 		name: "Stone Age",
 		shortDesc: "Rock Head + Technician",
+	},
+	hydroforce: {
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
+		},
+	  onAfterMove(target, source, move){
+		   if (move.hasSheerForce) source.cureStatus();
+		},
+		name: "Hydroforce",
+		shortDesc: "Moves with secondary effects have 1.3x power and heal this Pokemon's status.",
+	},
+	humidatmosphere: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status && ['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'sandstorm', 'deltastream'].includes(pokemon.effectiveWeather())) {
+				this.debug('humidatmosphere');
+				this.add('-activate', pokemon, 'ability: Humid Atmosphere');
+				pokemon.cureStatus();
+			}
+		},
+		name: "Humid Atmosphere",
+		shortDesc: "At the end of the turn, if any weather is active, this Pokémon has its status condition healed.",
+	},
+	wimparmour: {
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.add('-ability', pokemon, 'Anticipation');
+						this.boost({spe: 2, def: -1}, pokemon);
+						return;
+					}
+				}
+			}
+		},
+		name: "Wimp Armour",
+		shortDesc: "On switch in, shrudders and gains -1 Def +2 Speed if foe has any Super-Effective or OHKO moves.",
 	},
 };
  

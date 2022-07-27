@@ -4,11 +4,11 @@ const uber = ["butterfreemega", "cinderacemega", "rillaboommega", "dragapultmega
 const newest = ["grapploctmega", "lickilickymega", "tsareenamega", "snorlaxmega", "swalotmega", "wailordmega"];
 const aprilfools = ["floetteeternalmega", "meltanmega", "pichuspikyearedmega", "porygodzmega"];
 const hisui = ["arcaninehisui", "avalugghisui", "basculegion", "basculegionf", "braviaryhisui", "decidueyehisui", "dialgaorigin", "electrodehisui", "enamorus", "enamorustherian", "goodrahisui", "kleavor", "lilliganthisui", "overqwil", "palkiaorigin", "samurotthisui", "sneasler", "typhlosionhisui", "ursaluna", "wyrdeer", "zoroarkhisui"]; // only fully-evolved Pokémon from Legends: Arceus
-const tourbanned = ["empoleonmega", "slowkinggalarmega", "tapulele"];
-const tier1mega = ["corviknightmega", "dhelmisemega", "mudsdalemega", "starmiemega"];
+const tourbanned = ["clefablemega", "dodriomega", "empoleonmega", "goodramega", "gourgeistsmallmega", "gourgeistmega", "hydreigonmega", "jolteonmega", "meowsticfmega", "slowkinggalarmega", "starmiemega", "tapulele", "tornadustherian", "toucannonmega", "toxtricitylowkeymega", "trevenantmega", "walreinmega"];
+const tier1mega = ["corviknightmega", "dhelmisemega", "mudsdalemega"];
 const tier1 = ["blissey", "clefable", "corviknight", "ferrothorn", "gliscor", "heatran", "landorustherian", "rillaboom", "slowbro", "tapufini", "toxapex"];
-const tier2mega = ["dragalgemega", "hydreigonmega", "latiasmega", "lopunnymega", "mawilemega", "medichammega", "raichumega", "reuniclusmega", "scizormega", "talonflamemega", "toxtricitylowkeymega", "vikavoltmega", "walreinmega"];
-const tier2 = ["garchomp", "greninjaash", "hippowdon", "kartana", "nidoqueen", "slowkinggalar", "tangrowth", "tapukoko", "tornadustherian", "volcarona", "weavile", "zapdos"];
+const tier2mega = ["dragalgemega", "latiasmega", "lopunnymega", "mawilemega", "medichammega", "raichumega", "reuniclusmega", "scizormega", "talonflamemega", "vikavoltmega"];
+const tier2 = ["garchomp", "greninjaash", "hippowdon", "kartana", "nidoqueen", "slowkinggalar", "tangrowth", "tapukoko", "volcarona", "weavile", "zapdos"];
 const tier3mega = ["bastiodonmega", "charizardmegax", "drapionmega", "exploudmega", "falinksmegalegion", "garchompmega", "garbodormega", "lycanrocmega", "nidoqueenmega", "noivernmega", "parasectmega", "sableyemega", "spiritombmega", "swampertmega", "wishiwashimega"];
 const tier3 = ["aegislash", "amoonguss", "buzzwole", "blacephalon", "chansey", "deoxysspeed", "greninja", "hydreigon", "keldeo", "kommoo", "magnezone", "melmetal", "terrakion", "thundurus"];
 const tier4mega = ["aurorusmega", "bibarelmega", "delphoxmega", "inteleonmega", "luxraymega", "typhlosionmega", "zoroarkmega"];
@@ -36,7 +36,7 @@ const c = ["aerodactyl", "marowakalola", "bronzong", "coalossal", "celesteela", 
 export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Tourbanned (Future Suspect)', 'Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
+		customTiers: ['Tourbanned', 'Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
@@ -53,7 +53,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				else if (uber.includes(id)) this.modData('FormatsData', id).tier = "Uber";
 				else if (aprilfools.includes(id)) this.modData('FormatsData', id).tier = "April Fools";
 				else if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
-				else if (tourbanned.includes(id)) this.modData('FormatsData', id).tier = "Tourbanned (Future Suspect)";
+				else if (tourbanned.includes(id)) this.modData('FormatsData', id).tier = "Tourbanned";
 				else if (newest.includes(id)) this.modData('FormatsData', id).tier = "Newest";
 				else if (tier1mega.includes(id)) this.modData('FormatsData', id).tier = "Tier 1 Mega";
 				else if (tier1.includes(id)) this.modData('FormatsData', id).tier = "Tier 1";
