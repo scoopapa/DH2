@@ -1358,7 +1358,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 	paindra: {
 		num: 9134,
 		name: "Paindra",
-		types: ["Dragon"],
+		types: ["Dragon", "Flying"],
 		baseStats: {hp: 70, atk: 93, def: 80, spa: 130, spd: 68, spe: 94},
 		abilities: {0: "Keen Eye", 1: "Unnerve", H: "Color Change"},
 		weightkg: 160,

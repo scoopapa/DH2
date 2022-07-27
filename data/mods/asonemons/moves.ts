@@ -56,7 +56,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 130,
 		category: "Special",
 		name: "Ice Scream",
-        shortDesc: "Lowers the user's Sp. Atk by 2.",
+      shortDesc: "Lowers the user's Sp. Atk by 2.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
@@ -72,12 +72,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	baitsplash: {
 		num: 831,
-		accuracy: 75,
-		basePower: 100,
+		accuracy: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Bait Splash",
-        shortDesc: "Traps and damages the target for 4-5 turns.",
-		pp: 5,
+      shortDesc: "Traps and damages the target for 4-5 turns.",
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'partiallytrapped',
@@ -88,26 +88,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	hamsterslam: {
         accuracy: 100,
-        basePower: 45,
+        basePower: 50,
         category: "Physical",
         name: "Hamster Slam",
+		  shortDesc: "Power doubles if the user has no held item.",
         pp: 10,
         priority: 0,
         flags: {contact: 1, protect: 1, mirror: 1},
-        onModifyType(move, source) {
-            move.type = source.getTypes()[0];
-        },
-        onHit(target, source, move) {
-            if (source.getTypes().length === 1) {
-                move.type = source.getTypes()[0];
-            } else {
-                move.type = source.getTypes()[1];
-            }
-        },
-        multihit: 2,
+        basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("Power doubled for no item");
+				return move.basePower * 2;
+		     }
+			   return move.basePower;
+	  	  },
         secondary: null,
         target: "normal",
-        type: "Normal",
+        type: "Electric",
         contestType: "Tough",
    },
 	shellstack: {
@@ -115,6 +112,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Shell Stack",
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -125,9 +123,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	biobelly: {
 		accuracy: 100,
-		basePower: 75,
+		basePower: 80,
 		category: "Physical",
 		name: "Bio Belly",
+		shortDesc: "User recovers 50% of the damage dealt, cures its own status.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, heal: 1},
@@ -149,6 +148,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Hard Work",
+		shortDesc: "Raises the user's Atk and Sp. Def by 1.",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
@@ -166,30 +166,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Physical",
 		name: "Excalibur Slash",
+		shortDesc: "High critical hit ratio.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
-		secondary: {
-			chance: 10,
-			self: {
-				boosts: {
-					atk: 1,
-				},
-			},
-		},
+		critRatio: 2,
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cool",
 	},
 	bubbleblades: {
-		accuracy: 90,
-		basePower: 18,
+		accuracy: 100,
+		basePower: 60,
 		category: "Physical",
 		name: "Bubble Blades",
-		pp: 15,
+		shortDesc: "+ 15 power for each of the user's stat boosts.",
+		pp: 10,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
-		multihit: [2, 5],
+		flags: {contact: 1, protect: 1, mirror: 1},
+		basePowerCallback(pokemon, target, move) {
+				return move.basePower + 15 * pokemon.positiveBoosts();
+		  },
 		secondary: null,
 		target: "normal",
 		type: "Water",
@@ -361,6 +358,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 75,
 		category: "Special",
 		name: "Balloon Burner",
+		shortDesc: "For 5 turns, the user has immunity to Ground.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1},
@@ -388,16 +386,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Extend Neck",
+		shortDesc: "If a foe is switching out, hits it at 2x power.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		beforeTurnCallback(pokemon) {
 			for (const side of this.sides) {
 				if (side === pokemon.side) continue;
-				side.addSideCondition('pursuit', pokemon);
-				const data = side.getSideConditionData('pursuit');
+				side.addSideCondition('extendneck', pokemon);
+				const data = side.getSideConditionData('extendneck');
 				if (!data.sources) {
 					data.sources = [];
 				}
@@ -406,20 +404,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, source, target) {
 			if (target?.beingCalledBack) move.accuracy = true;
+			if (target?.beingCalledBack) move.pp = true;
 		},
 		onTryHit(target, pokemon) {
-			target.side.removeSideCondition('pursuit');
+			target.side.removeSideCondition('extendneck');
 		},
 		condition: {
 			duration: 1,
 			onBeforeSwitchOut(pokemon) {
-				this.debug('Pursuit start');
+				this.debug('Extend Neck start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
 				for (const source of this.effectData.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
-						this.add('-activate', pokemon, 'move: Pursuit');
+						this.add('-activate', pokemon, 'move: Extend Neck');
 						alreadyAdded = true;
 					}
 					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
@@ -433,7 +432,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							}
 						}
 					}
-					this.runMove('pursuit', source, this.getTargetLoc(pokemon, source));
+					this.runMove('extendneck', source, this.getTargetLoc(pokemon, source));
 				}
 			},
 		},
@@ -447,11 +446,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Pungi Blow",
+		shortDesc: "10% chance to lower the target's Attack by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		useSourceDefensiveAsOffensive: true,
-		secondary: null,
+		secondary: {
+			chance: 20,
+			boosts: {
+				atk: -1,
+			},
+		},
 		target: "normal",
 		type: "Steel",
 	},
@@ -460,6 +464,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Special",
 		name: "Beam Up",
+		shortDesc: "Ignores Dark-type immunity.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -473,6 +478,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Dark Fractals",
+		shortDesc: "Hits two turns after being used.",
 		pp: 10,
 		priority: 0,
 		flags: {},
@@ -511,6 +517,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Sulfuric Flame",
+		shortDesc: "Deals 1.5x damage to statused opponents. Removes non-poison status conditions from opponent.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
@@ -537,6 +544,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Lush Soil",
+		shortDesc: "User on Grassy Terrain: 1.5x power. Ends Grassy Terrain.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -551,6 +559,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.target = 'allAdjacentFoes';
 			}
 		},
+		onHit(move, source, target) {
+			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
+			this.field.clearTerrain();
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ground",
@@ -560,6 +573,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Entrancing Sound",
+		shortDesc: "Prevents the target from switching out.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
@@ -577,6 +591,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Special",
 		name: "Paralyzing Goo",
+		shortDesc: "-1 Priority. 30% chance to Paralyze target.",
 		pp: 10,
 		priority: -1,
 		flags: {protect: 1, mirror: 1},
@@ -592,6 +607,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Neuro Drain",
+		shortDesc: "User recovers 75% of the damage dealt.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
@@ -605,6 +621,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Spike Burst",
+		shortDesc: "Sets a layer of Spikes.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -622,6 +639,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Physical",
 		name: "Aerial Assault",
+		shortDesc: "Inflicts Torment on the target after succesfully being used.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -651,6 +669,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Air Surveillance",
+		shortDesc: "Resets all of the target's stat stages to 0.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -669,6 +688,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Gourd Spirit",
+		shortDesc: "1.5x damage under any terrain. Ends active terrain.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -694,7 +714,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.basePower *= 1.5;
 			}
 		},
-        onHit() {
+      onHit() {
 			this.field.clearTerrain();
 		},
 		secondary: null,
@@ -706,6 +726,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Moon Ritual",
+		shortDesc: "For 5 turns, damage to allies is halved. (Light Clay extends duration to 8 turns.) 1/2 Recoil",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
@@ -755,6 +776,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Ill Omen",
+		shortDesc: "Sets Trick Room two turns after being used.",
 		pp: 10,
 		priority: 0,
 		flags: {},
@@ -813,6 +835,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Sour Aroma",
+		shortDesc: "Raises the user's SpA and Def by 1.",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
@@ -829,6 +852,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Special",
 		name: "Vengeful Spirit",
+		shortDesc: "Sets Safeguard.",
 		pp: 15,
 		priority: 0,
 		flags: {},
@@ -842,14 +866,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ghost",
 	},
    innerdeviation: {
-		accuracy: 100,
-		basePower: 90,
+		accuracy: 90,
+		basePower: 100,
 		category: "Special",
 		name: "Inner Deviation",
+		shortDesc: "Lowers the user's Speed by 1.",
 		pp: 10,
 		flags: {protect: 1, mirror: 1},
-		onEffectiveness(typeMod, target, type, move) {
-			return typeMod + this.dex.getEffectiveness('Psychic', type);
+		self: {
+			boosts: {
+				spe: -1,
+			},
 		},
 		priority: 0,
 		secondary: null,

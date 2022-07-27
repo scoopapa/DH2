@@ -119,5 +119,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Keen Eye", H: "Natural Cure"},
 		weightkg: 0.6,
 	},
+	metagross: {
+		inherit: true,
+		num: 1016,
+		name: "Metagross",
+		types: ["Steel", "Psychic"],
+		baseStats: {hp: 80, atk: 135, def: 130, spa: 95, spd: 90, spe: 70},
+		abilities: {0: "Clear Body", H: "Light Metal"},
+	},
+	zygarde: {
+		inherit: true,
+		num: 1017,
+		name: "Zygarde",
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 108, atk: 98, def: 121, spa: 98, spd: 95, spe: 80},
+		abilities: {0: "Squishy Body"},
+	},
+	groudon: {
+		inherit: true,
+		num: 1018,
+		name: "Groudon",
+		types: ["Water", "Ground"],
+		baseStats: {hp: 90, atk: 90, def: 70, spa: 110, spd: 100, spe: 70},
+		abilities: {0: "Sand Stream"},
+	},
+
 };
 

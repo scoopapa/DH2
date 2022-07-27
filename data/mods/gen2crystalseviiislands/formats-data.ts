@@ -35,4 +35,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pyronoir: {
 	gen: 2,
 	},
-}
+	kazappelin: {
+	gen: 2,
+	},
+	pierzer: {
+	gen: 2,
+	},
+};
