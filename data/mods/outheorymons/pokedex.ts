@@ -173,5 +173,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
    rotomfan: {
       inherit: true, 
       abilities: {0: "Levitate", H: "Magic Bounce"},
+   }, 
+   aromatisse: {
+      inherit: true, 
+      types: ["Steel", "Fairy"],
+   }, 
+   marowakalola: { 
+      inherit: true, 
+      abilities: {0: "Magic Guard", 1: "Lightning Rod", H: "Cursed Body"},
 	}, 
 };
