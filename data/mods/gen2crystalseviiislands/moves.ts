@@ -81,7 +81,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-	parry: {
+	parry: { // this move probably won't work correctly in double battles. Do not port blindly!
         num: -3,
         accuracy: true,
         basePower: 0,
