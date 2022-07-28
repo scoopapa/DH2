@@ -126,7 +126,94 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 		gen: 1,
 	},
-
+	taunt: {
+		num: 269,
+		shortDesc: "Target can't use status moves its next 3 turns.",
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Taunt",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		volatileStatus: 'taunt',
+		condition: {
+			duration: 3,
+			onStart(target) {
+				if (target.activeTurns && !this.queue.willMove(target)) {
+					this.effectData.duration++;
+				}
+				this.add('-start', target, 'move: Taunt');
+			},
+			onResidualOrder: 12,
+			onEnd(target) {
+				this.add('-end', target, 'move: Taunt');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.getMove(moveSlot.id);
+					if (move.category === 'Status' && move.id !== 'mefirst') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 5,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+					this.add('cant', attacker, 'move: Taunt', move);
+					return false;
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Clever",
+		gen: 1,
+	},
+	heavyslam: {
+		num: 484,
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Heavy Slam",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		useSourceDefensiveAsOffensive: true,
+		onBasePower(basePower, pokemon) {
+			if (pokemon.status === 'brn') {
+				return this.chainModify(0.5);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		gen: 1,
+	},
+	fleurcannon: {
+		num: 705,
+		shortDesc: "Lowers the user's Special by 2 stages after use.",
+		accuracy: 90,
+		basePower: 130,
+		category: "Physical",
+		name: "Fleur Cannon",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		self: {
+			boosts: {
+				spa: -2,
+				spd: -2,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Beautiful",
+		gen: 1,
+	},
 
 // don't touch
 	acid: {

@@ -676,6 +676,7 @@ export const Formats: FormatList = [
 					   'Deino', 'Zweilous', 'Hydreigon', 'Scizor', 'Cottonee', 'Whimsicott', 
 						'Nature\'s Madness', 'Fake Tears', 'Gear Up',
 						'Steelix', 'Spiritomb', 'Swablu', 'Altaria',
+						'Fleur Cannon', 'Taunt', 'Heavy Slam',
 					  ],
     },
    {
