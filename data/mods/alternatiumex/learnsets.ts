@@ -2179,7 +2179,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			xscissor: ["8L1"],
 		},
 	},
-	necrozmaultra: {
+	necrozmadragon: {
 		learnset: {
 			aerialace: ["8L1"],
 			allyswitch: ["8L1"],

@@ -433,21 +433,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 4.2,
 		weightkg: 350,
 	},
-	necrozmaultra: {
+	necrozmadragon: {
 		num: 800,
-		name: "Necrozma-Ultra",
+		name: "Necrozma-Dragon",
 		types: ["Dragon"],
 		gender: "N",
 		baseStats: {hp: 73, atk: 113, def: 83, spa: 97, spd: 83, spe: 101},
 		abilities: {0: "Neuroforce"},
 		heightm: 7.5,
 		weightkg: 230,
-		baseSpecies: null,
-		battleOnly: null,
-		changesFrom: null,
-		forme: null,
-		formeOrder: null,
-		otherFormes: null,
-		requiredItem: null,
 	},
 };
