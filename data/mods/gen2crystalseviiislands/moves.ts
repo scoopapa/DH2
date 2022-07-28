@@ -526,6 +526,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.hasType('Poison')) return;
 			if (pokemon.hasType('Steel')) return;
 			pokemon.addVolatile('malnourish');
+			this.add('-start', pokemon, 'move: Malnourish');
 		},
 		shortDesc: "Inverts the healing effects of a target's item.",
 		secondary: null,
