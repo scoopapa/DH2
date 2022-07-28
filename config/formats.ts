@@ -676,6 +676,7 @@ export const Formats: FormatList = [
 					   'Deino', 'Zweilous', 'Hydreigon', 'Scizor', 'Cottonee', 'Whimsicott', 
 						'Nature\'s Madness', 'Fake Tears', 'Gear Up',
 						'Steelix', 'Spiritomb', 'Swablu', 'Altaria',
+						'Fleur Cannon', 'Taunt', 'Heavy Slam',
 					  ],
     },
    {
@@ -3342,6 +3343,35 @@ export const Formats: FormatList = [
 			}
 		},
 		mod: 'blindstrictions',
+	},
+  {
+		name: "[Gen 8] Chaos Chaos Chaos",
+		desc: `Chaos Chaos Chaos`,
+  		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1MsqO579H1XzNJawNxL064ANjtPwyS4823882JTImnoU/edit?usp=sharing">Spreadsheet</a>`,
+		    `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9187061">Forum Post</a>`
+			],
+  		ruleset: ['Standard NatDex', 'Species Clause','!Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
+		banlist: ['Uber', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
+		mod: 'chaoschaoschaos',
+		banlist: ['Baton Pass', 'Stance Change', 'Aerodactylite', 'Eviolite', 'Cameruptite', 'Gulp Missile', 'Glalitite', 'Manectite', 'Mawilite', 'Aspear Berry'],
+		onSwitchIn: function (pokemon) {
+            this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
+        },
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (speciesTable[template.name]) {
+					return ["You are limited to one of each Pokémon by Species Clause. ", "You have more than one " + template.baseSpecies + "."];
+				}
+				speciesTable[template.name] = true;
+				if ( template.tier !== 'CCC' ) {
+					return [set.name + ' is not useable in Chaos Chaos Chaos.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 8] Dex Reversal",

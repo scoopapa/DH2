@@ -287,7 +287,7 @@ export const Items: {[itemid: string]: ItemData} = {
     drainingrelic: {
         name: "Draining Relic",
         spritenum: 180,
-        onAfterMoveSelf(source, target, move) {
+        onAfterMoveSecondarySelf(source, target, move) {
             if (target.volatiles['substitute']) return;
             if (move.totalDamage) {
                 return !!(this.heal((Math.floor(move.totalDamage)) / 3), source, target);

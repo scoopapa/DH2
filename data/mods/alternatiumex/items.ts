@@ -23,4 +23,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 236,
 		gen: 2,
 	},
+	ultranecroziumz: {
+		inherit: true,
+		zMove: null,
+		zMoveFrom: null,
+		itemUser: null,
+	},
 };

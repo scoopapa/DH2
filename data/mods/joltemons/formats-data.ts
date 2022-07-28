@@ -893,7 +893,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	shayminsky: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	starmie: {
@@ -1830,7 +1830,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	shayminsky: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["seedflare", "skysoiree", "earthpower", "healingwish"],
 	},

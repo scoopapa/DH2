@@ -645,7 +645,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
-		shortDesc: "10% chance to sleep. Hits Steel-types super effectively.",
+		shortDesc: "10% chance to sleep. Super effective on Steel.",
 		name: "Relic Song (Meloetta)",
 		pp: 10,
 		priority: 0,
