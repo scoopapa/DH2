@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		}
 	},
 
-	burnorb: {
+	flameorb: {
 	inherit: true,
 	onResidual(pokemon) {
 		if(pokemon.status) {

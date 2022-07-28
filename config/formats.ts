@@ -775,6 +775,7 @@ export const Formats: FormatList = [
 			'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
 			'Blue Orb', 'Red Orb',
 			'Dragon Ascent',
+			'Beedrill-Mega' //?????
 		],
 		mod: 'legendshoopa',
 		onValidateTeam(team, format) {
