@@ -163,7 +163,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
-	necrozmaultra: {
+	necrozmadragon: {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
