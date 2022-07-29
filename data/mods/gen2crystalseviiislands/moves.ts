@@ -81,7 +81,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-	parry: {
+	parry: { // this move probably won't work correctly in double battles. Do not port blindly!
         num: -3,
         accuracy: true,
         basePower: 0,
@@ -526,6 +526,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.hasType('Poison')) return;
 			if (pokemon.hasType('Steel')) return;
 			pokemon.addVolatile('malnourish');
+			this.add('-start', pokemon, 'move: Malnourish');
 		},
 		shortDesc: "Inverts the healing effects of a target's item.",
 		secondary: null,
