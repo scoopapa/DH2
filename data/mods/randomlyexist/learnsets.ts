@@ -252,3 +252,4 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			twister: ["8L1"],
 		},
 	},
+};
