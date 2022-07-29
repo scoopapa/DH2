@@ -191,3 +191,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 44, atk: 108, def: 95, spa: 62, spd: 114, spe: 77},
 		abilities: {0: "Unnerve", 1: "Contrary", H: "Oblivious"},
 	},
+};
