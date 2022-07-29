@@ -163,6 +163,52 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		return stat;
 	},
 
+	heal(damage: number, target?: Pokemon, source: Pokemon | null = null, effect: 'drain' | Effect | null = null) {
+		if (this.event) {
+			if (!target) target = this.event.target;
+			if (!source) source = this.event.source;
+			if (!effect) effect = this.effect;
+		}
+		if (effect === 'drain') effect = this.dex.getEffectByID(effect as ID);
+		if (damage && damage <= 1) damage = 1;
+		damage = this.trunc(damage);
+		// for things like Liquid Ooze, the Heal event still happens when nothing is healed.
+		damage = this.runEvent('TryHeal', target, source, effect, damage);
+		if (!damage) return damage;
+		if (!target || !target.hp) return false;
+		if (!target.isActive) return false;
+		if (target.hp >= target.maxhp) return false;
+		const finalDamage = target.heal(damage, source, effect);
+		switch (effect?.id) {
+		case 'leechseed':
+			/*
+		case 'rest':
+			this.add('-heal', target, target.getHealth, '[silent]');
+			break;
+		*/
+		case 'drain':
+			this.add('-heal', target, target.getHealth, '[from] drain', '[of] ' + source);
+			break;
+		case 'wish':
+			break;
+		case 'zpower':
+			this.add('-heal', target, target.getHealth, '[zeffect]');
+			break;
+		default:
+			if (!effect) break;
+			if (effect.effectType === 'Move') {
+				this.add('-heal', target, target.getHealth);
+			} else if (source && source !== target) {
+				this.add('-heal', target, target.getHealth, '[from] ' + effect.fullname, '[of] ' + source);
+			} else {
+				this.add('-heal', target, target.getHealth, '[from] ' + effect.fullname);
+			}
+			break;
+		}
+		this.runEvent('Heal', target, source, effect, finalDamage);
+		return finalDamage;
+	},
+
 	pokemon: {
 		boostBy(boosts: SparseBoostsTable) {
 			let delta = 0;
@@ -311,22 +357,4 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return tr(baseDamage, 16);
 		},
 	},
-
-
-/*
-	init(){ 
-		const addNewMoves = (pokemonid: string, moveids: string[]) => {
-			for (const moveid of moveids) {
-				this.modData('Learnsets', pokemonid).learnset[moveid] = [moveid === 'dracometeor' || moveid === 'steelbeam' ? '8T' : '8M'];
-			}
-		};
-		//addNewMoves('', ['']);
-
-		addNewMoves('pupitarhoenn', ['heatcrash', 'dazzlinggleam', 'flameburst', 'incinerate', 'powergem', 'shelltrap',])
-
-		addNewMoves('tyranitarhoenn', ['aerialace', 'breakingswipe', 'branchpoke', 'brutalswipe', 'bulletseed', 'counter', 'cut', 'dragonclaw', 'firefang', 'focuspunch', 'gigaimpact', 'heavyslam', 'highhorsepower', 'rockblast', 'tephraburst',
-		'dragonbreath', 'dragonpulse', 'eruption', 'fireblast', 'focusblast', 'lavaplume', 'overheat', 'solarbeam',
-		'block', 'grassyterrain', 'roar', 'rototiller', 'stockpile', 'spitup', 'swallow', 'willowisp',]);
-	},
-	*/
 };
