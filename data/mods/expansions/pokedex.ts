@@ -140,7 +140,7 @@ showmandril: {
 	types: ["Electric", "Grass"],
 	gender: "N",
 	baseStats: {hp: 80, atk: 110, def: 85, spa: 75, spd: 85, spe: 85},
-	abilities: {0: "Tangled Hair", 1: "Emergency Exit", H: "Reckless"},
+	abilities: {0: "Tangling Hair", 1: "Emergency Exit", H: "Reckless"},
 	weightkg: 5,
 },
 animeleon: {

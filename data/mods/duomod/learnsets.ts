@@ -1213,6 +1213,7 @@ fairydisc: {learnset: {
         metronome: ["8L1"],
 }},
 badgearth: {learnset: {
+	irontail: ["7L1"],
 	aquatail: ["7L1"],
 	dragonclaw: ["7L1"],
 	dragondance: ["7L1"],
