@@ -1911,4 +1911,80 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "self",
 		type: "Fire",
 	},
+	stinkbomb: {
+		accuracy: 75,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		isViable: true,
+		name: "Stink Bomb",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Toxic", target);
+			this.add('-anim', source, "Sludge Bomb", target);
+		},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	poisondart: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		shortDesc: "Usually goes first. 10% chance to poison",
+		isViable: true,
+		name: "Poison Dart",
+		pp: 30,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Sting", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	aridabsorption: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals by 33% of its max HP. +33% and +1 Atk for every active Water-type.",
+		name: "Arid Absorption",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Shore Up", target);
+		},
+		self: {
+			onHit(pokemon, source, move) {
+				this.heal(source.baseMaxhp / 3, source, pokemon);
+			}
+		},
+		onHitField(target, source) {
+			if (target.hasType('Water')) {
+				this.heal(source.baseMaxhp / 3, source, target);
+				this.boost({atk: 1}, source);
+			}
+			if (source.hasType('Water')) {
+				this.heal(source.baseMaxhp / 3, source, target);
+				this.boost({atk: 1}, source);
+				this.damage(source.baseMaxhp / 3, source, target);
+			}
+		},
+		secondary: null,
+		target: "all",
+		type: "Ground",
+	},	
 };

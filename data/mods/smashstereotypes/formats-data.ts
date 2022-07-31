@@ -356,4 +356,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	xataskewda: {
 		tier: "SSS",
 	},
+	skuntank: {
+		tier: "SSS",
+	},
+	garchomp: {
+		tier: "SSS",
+	},
+	munchlax: {
+		tier: "SSS",
+	},
 };
