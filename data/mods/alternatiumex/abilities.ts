@@ -68,7 +68,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	necrodancer: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				target.addVolatile('necrodancer');
+				source.addVolatile('necrodancer');
 			}
 		},
 		onEnd(pokemon) {
