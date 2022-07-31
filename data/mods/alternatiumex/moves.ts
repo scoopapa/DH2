@@ -161,7 +161,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Deathly Skirt",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
+		flags: {dance: 1, protect: 1, mirror: 1, heal: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Night Shade", target);

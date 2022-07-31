@@ -71,8 +71,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.addVolatile('necrodancer');
 			}
 		},
-		onEnd(pokemon) {
-			pokemon.removeVolatile('necrodancer');
+		onEnd(source) {
+			source.removeVolatile('necrodancer');
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
@@ -80,7 +80,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-start', target, 'ability: Necro Dancer');
 			},
 			onModifyPriority(priority, pokemon, target, move) {
-				if (move?.flags['dance'] && attacker.hasAbility('necrodancer')) return priority + 1;
+				if (move.flags['dance'] && attacker.hasAbility('necrodancer')) return priority + 1;
 			},
 			onEnd(target) {
 				this.add('-end', target, 'ability: Necro Dancer', '[silent]');
