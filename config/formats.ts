@@ -3782,12 +3782,11 @@ export const Formats: FormatList = [
 			'Baronglaiv', 'Thundra', 'Eruptil', 'Batakala', 'Batambu'
 		],
 	},
-/*
 	{
 		name: "[Gen 8] Randomly Exist",
 		desc: `<b>Randomly Exist</b>: A micrometa where randomly chosen Pokemon can only have their custom regional forms used. Stats are randomly determined.`,
 		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/page-7#post-9275823">Singature Restrictions on Smogon Forums</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/page-7#post-9275823">Randomly Exist on Smogon Forums</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1sl4Ds-vbd_ye4L_jJH6NC85uorT4riX3UxdwQuQEbzA/edit#gid=0">Spreadsheet</a>`,
 		],
 		mod: 'randomlyexist',
