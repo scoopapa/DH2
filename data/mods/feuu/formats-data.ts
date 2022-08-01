@@ -1571,6 +1571,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
+	gigafini: {
+		tier: "FERU",
+		doublesTier: "DUU",
+		randomBattleLevel: 79,
+	},
 	herasir: {
 		tier: "FERU",
 		doublesTier: "DUU",
@@ -1694,8 +1699,77 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 79,
 		requiredItem: "Salamencite",
 	},
-
-	
+	solabat: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	buzzvine: {
+		tier: "Bugged",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	qwilsimian: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	woopquaza: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	woopquazamega: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+		requiredMove: "Dragon Ascent",
+	},
+	yandos: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	zaponawgalar: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	pelilicky: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	mudscash: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	jellopod: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	jellopodf: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	espetops: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	regigoss: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},	
+	nihitrio: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
 	
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -2299,6 +2373,26 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "LC",
 	},
 	bagouthalola: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	lickigull: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	mudboach: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	frillopod: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	frillopodf: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	eevuto: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},

@@ -140,4 +140,163 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 207,
 	},
+	rubberarmor: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Rubber Armor');
+		},
+		name: "Rubber Armor",
+		shortDesc: "Negates opponent's abilities when targeted by an attacking move.",
+		rating: 2,
+		num: -7,
+	},
+	asoneglastrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+		},
+		onStart(source) {
+			this.field.setWeather('hail');
+		},
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		isPermanent: true,
+		name: "As One (Glastrier)",
+		shortDesc: "The combination of Ice Body and Snow Warning.",
+		rating: 3.5,
+		num: 266,
+	},
+	grimneigh: {
+		onFaint(source, target) {
+			for (const target of this.getAllActive()) {
+				target.clearBoosts();
+				this.add('-clearboost', target, '[from] ability: Grim Neigh', '[of] ' + source);
+				target.cureStatus();
+			}
+		},
+		name: "Grim Neigh",
+		shortDesc: "Upon fainting, all active Pokemon have their stat changes and non-volatile status cleared.",
+		rating: 3,
+		num: 265,
+	},
+	excavate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Rock';
+				move.excavateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.excavateBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		name: "Excavate",
+		shortDesc: "This Pokemon's Normal-type moves become Rock type and have 1.2x power.",
+		rating: 4,
+		num: -8,
+	},
+	exoskelett: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Exoskelett boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Exoskelett boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Exoskelett weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting' || move.type === 'Grass' || move.type === 'Ground') {
+				this.debug('Exoskelett weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Exoskelett",
+		shortDesc: "User gains STAB on Bug moves and also gains Bug-type resistances.",
+		rating: 4.5,
+		num: -9,
+	},
+	screencleaner: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+				if (pokemon.side.foe.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removeSideCondition(sideCondition);
+				}
+			}
+			for (const pseudoWeather of ['wonderroom', 'trickroom', 'magicroom']) {
+				if (pokemon.side.getPseudoWeather(pseudoWeather)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.removePseudoWeather(pseudoWeather);
+				}
+				if (pokemon.side.foe.getPseudoWeather(pseudoWeather)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removePseudoWeather(pseudoWeather);
+				}
+			}
+			this.field.clearTerrain();
+		},
+		shortDesc: "On switch-in, the effects of Screens, Terrains and Rooms end for both sides.",
+		inherit: true,
+	},
+	lightarmor: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (['Dark', 'Fairy', 'Ghost'].includes(move.type)) {
+				this.debug('Light Armor neutralize');
+				return this.chainModify(0.67);
+			}
+		},
+		isUnbreakable: true,
+		name: "Light Armor",
+		shortDesc: "This Pokemon takes 2/3 damage from Dark-, Fairy- and Ghost-moves.",
+		rating: 3,
+		num: -10,
+	},
+	neuroforce: {
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod === 0) {
+				return this.chainModify(1.1);
+			}
+		},
+		shortDesc: "This Pokemon does 1.1x damage on neutral targets.",
+		inherit: true,
+	},
 };

@@ -1,0 +1,58 @@
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+kermitthefrog: {
+	num: 1001.5,
+	species: "Kermit The Frog",
+	types: ["Water", "Normal"],
+	baseStats: {hp: 50, atk: 50, def: 100, spa: 200, spd: 50, spe: 50},
+	abilities: {0: "Drizzle"},
+},
+goku: {
+	num: 1002.5,
+	species: "Goku",
+	types: ["Fighting"],
+	baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 200, spe: 200},
+	abilities: {0: "Pressure"},
+},
+wallace: {
+	num: 1003.5,
+	species: "Wallace",
+	types: ["Normal"],
+	baseStats: {hp: 1, atk: 200, def: 200, spa: 200, spd: 100, spe: 50},
+	abilities: {0: "Wonder Guard"},
+},
+gromit: {
+	num: 1004.5,
+	species: "Gromit",
+	types: ["Normal"],
+	baseStats: {hp: 150, atk: 200, def: 100, spa: 100, spd: 16, spe: 20},
+	abilities: {0: "Ball Fetch"},
+},
+spongebob: {
+	num: 1005.5,
+	species: "SpongeBob",
+	types: ["Water"],
+	baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
+	abilities: {0: "Water Absorb"},
+},
+darthvader: {
+	num: 1006.5,
+	species: "Darth Vader",
+	types: ["Normal", "Dark"],
+	baseStats: {hp: 255, atk: 10, def: 200, spa: 70, spd: 100, spe: 10},
+	abilities: {0: "Magic Bounce"},
+},
+hotelmario: {
+	num: 1007.5,
+	species: "Hotel Mario",
+	types: ["Fire", "Fighting"],
+	baseStats: {hp: 100, atk: 110, def: 100, spa: 110, spd: 100, spe: 50},
+	abilities: {0: "Speed Boost"},
+},
+waluigi: {
+	num: 1008.5,
+	species: "Waluigi",
+	types: ["Normal"],
+	baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
+	abilities: {0: "Libero"},
+},
+};

@@ -392,14 +392,14 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	pikachuphd: {
 		learnset: {
+			gigadrain: ["8L1"],
+			energyball: ["8L1"],
+			leafstorm: ["8L1"],
 			calmmind: ["8L1"],
-			psychic: ["8L1"],
-			psyshock: ["8L1"],
 			teleport: ["8L1"],
 			aromatherapy: ["8L1"],
 			healingwish: ["8L1"],
 			trick: ["8L1"],
-			futuresight: ["8L1"],
 			shadowball: ["8L1"],
 			spikes: ["8L1"],
 			stealthrock: ["8L1"],
@@ -1182,6 +1182,8 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	mukoilslick: {
 		learnset: {
+			swordsdance: ["8L1"],
+			taunt: ["8L1"],
 			moonlight: ["8L1"],
 			imprison: ["8L1"],
 			spitup: ["8L1"],
@@ -1283,30 +1285,23 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	exeggutorlighthouse: {
 		learnset: {
+			growth: ["8L1"],
 			absorb: ["8L1"],
 			attract: ["8L1"],
 			barrage: ["8L1"],
 			block: ["8L1"],
-			breakingswipe: ["8L1"],
 			brickbreak: ["8L1"],
 			brutalswing: ["8L1"],
 			bulldoze: ["8L1"],
 			bulletseed: ["8L1"],
 			celebrate: ["8L1"],
 			confide: ["8L1"],
-			confusion: ["8L1"],
 			doubleteam: ["8L1"],
-			dracometeor: ["8L1"],
-			dragonhammer: ["8L1"],
-			dragonpulse: ["8L1"],
-			dragontail: ["8L1"],
-			dreameater: ["8L1"],
 			earthquake: ["8L1"],
 			eggbomb: ["8L1"],
 			endure: ["8L1"],
 			energyball: ["8L1"],
 			explosion: ["8L1"],
-			extrasensory: ["8L1"],
 			facade: ["8L1"],
 			flamethrower: ["8L1"],
 			frustration: ["8L1"],
@@ -1315,7 +1310,6 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			grassknot: ["8L1"],
 			grassyglide: ["8L1"],
 			grassyterrain: ["8L1"],
-			gravity: ["8L1"],
 			headbutt: ["8L1"],
 			hiddenpower: ["8L1"],
 			hyperbeam: ["8L1"],
@@ -1326,25 +1320,17 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			knockoff: ["8L1"],
 			leafstorm: ["8L1"],
 			leechseed: ["8L1"],
-			lightscreen: ["8L1"],
 			lowkick: ["8L1"],
 			magicalleaf: ["8L1"],
 			megadrain: ["8L1"],
 			naturepower: ["8L1"],
-			outrage: ["8L1"],
-			powerswap: ["8L1"],
 			powerwhip: ["8L1"],
 			protect: ["8L1"],
-			psychic: ["8L1"],
 			psychup: ["8L1"],
-			psyshock: ["8L1"],
-			reflect: ["8L1"],
-			rest: ["8L1"],
 			return: ["8L1"],
 			round: ["8L1"],
 			seedbomb: ["8L1"],
 			selfdestruct: ["8L1"],
-			skillswap: ["8L1"],
 			sleeptalk: ["8L1"],
 			sludgebomb: ["8L1"],
 			snore: ["8L1"],
@@ -1358,15 +1344,12 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			swordsdance: ["8L1"],
 			synthesis: ["8L1"],
 			telekinesis: ["8L1"],
-			teleport: ["8L1"],
 			terrainpulse: ["8L1"],
 			thief: ["8L1"],
 			toxic: ["8L1"],
-			trickroom: ["8L1"],
 			uproar: ["8L1"],
 			woodhammer: ["8L1"],
 			worryseed: ["8L1"],
-			zenheadbutt: ["8L1"],
 			thunder: ["8L1"],
 			thunderbolt: ["8L1"],
 			voltswitch: ["8L1"],
@@ -1725,6 +1708,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	castformsnowy: {
 		learnset: {
+			nastyplot: ["8L1"],
 			calmmind: ["8L1"],
 			rapidspin: ["8L1"],
 			spikes: ["8L1"],
@@ -1804,6 +1788,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	kyogreprimal: {
 		learnset: {
+			flipturn: ["8L1"],
 			ancientpower: ["8L1"],
 			aquaring: ["8L1"],
 			aquatail: ["8L1"],
@@ -2228,6 +2213,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	deoxystank: {
 		learnset: {
+			flamethrower: ["8L1"],
 			aerialace: ["8L1"],
 			agility: ["8L1"],
 			allyswitch: ["8L1"],
@@ -2775,6 +2761,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	rotomfrost: {
 		learnset: {
+			uturn: ["8L1"],
 			icebeam: ["8L1"],
 			freezyfrost: ["8L1"],
 			tripleaxel: ["8L1"],
@@ -2806,7 +2793,6 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			hypervoice: ["8L1"],
 			lightscreen: ["8L1"],
 			mudslap: ["8L1"],
-			nastyplot: ["8L1"],
 			naturalgift: ["8L1"],
 			ominouswind: ["8L1"],
 			painsplit: ["8L1"],
@@ -2922,7 +2908,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			thunderfang: ["8L1"],
 			uturn: ["8L1"],
 			crunch: ["8L1"],
-			highhorsepower: ["8L1"],
+			stompingtantrum: ["8L1"],
 			leafstorm: ["8L1"],
 			allyswitch: ["8L1"],
 			astonish: ["8L1"],
@@ -3418,6 +3404,8 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	thundurustherian: {
 		learnset: {
+			earthpower: ["8L1"],
+			roost: ["8L1"],
 			dragonpulse: ["8L1"],
 			dracometeor: ["8L1"],
 			dragonclaw: ["8L1"],
@@ -3933,6 +3921,8 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	genesectdouse: {
 		learnset: {
+			energyball: ["8L1"],
+			thunderbolt: ["8L1"],
 			steameruption: ["8L1"],
 			scald: ["8L1"],
 			flipturn: ["8L1"],
@@ -4118,6 +4108,10 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	vivillonspirit: {
 		learnset: {
+			junglehealing: ["8L1"],
+			earthquake: ["8L1"],
+			spectralthief: ["8L1"],
+			megahorn: ["8L1"],
 			acrobatics: ["8L1"],
 			aerialace: ["8L1"],
 			aromatherapy: ["8L1"],
@@ -4184,13 +4178,17 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	vivillonfancy: {
 		learnset: {
+			earthquake: ["8L1"],
+			icebeam: ["8L1"],
+			meteorbeam: ["8L1"],
+			thunder: ["8L1"],
+			spikes: ["8L1"],
 			acrobatics: ["8L1"],
 			aerialace: ["8L1"],
 			aromatherapy: ["8L1"],
 			attract: ["8L1"],
 			bugbite: ["8L1"],
 			bugbuzz: ["8L1"],
-			calmmind: ["8L1"],
 			confide: ["8L1"],
 			defog: ["8L1"],
 			doubleteam: ["8L1"],
@@ -4226,7 +4224,6 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			safeguard: ["8L1"],
 			secretpower: ["8L1"],
 			signalbeam: ["8L1"],
-			sleeppowder: ["8L1"],
 			sleeptalk: ["8L1"],
 			snore: ["8L1"],
 			solarbeam: ["8L1"],
@@ -4248,6 +4245,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	vivilloncombat: {
 		learnset: {
+			sleeppowder: ["8L1"],
 			acrobatics: ["8L1"],
 			aerialace: ["8L1"],
 			aromatherapy: ["8L1"],
@@ -4270,7 +4268,6 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			gigaimpact: ["8L1"],
 			gust: ["8L1"],
 			hiddenpower: ["8L1"],
-			hurricane: ["8L1"],
 			hyperbeam: ["8L1"],
 			infestation: ["8L1"],
 			laserfocus: ["8L1"],
@@ -4308,6 +4305,9 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	aegishield: {
 		learnset: {
+			stealthrock: ["8L1"],
+			teleport: ["8L1"],
+			spectralthief: ["8L1"],
 			nightshade: ["8L1"],
 			voltswitch: ["8L1"],
 			slackoff: ["8L1"],
@@ -4549,6 +4549,8 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	supergeist: {
 		learnset: {
+			spiritshackle: ["8L1"],
+			encore: ["8L1"],
 			firelash: ["8L1"],
 			leafstorm: ["8L1"],
 			spikes: ["8L1"],
@@ -4636,6 +4638,10 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	zygardewyrm: {
 		learnset: {
+			tailglow: ["8L1"],
+			coreenforcer: ["8L1"],
+			storedpower: ["8L1"],
+			healorder: ["8L1"],
 			bind: ["8L1"],
 			bite: ["8L1"],
 			block: ["8L1"],
@@ -4713,6 +4719,8 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	zygardecanid: {
 		learnset: {
+			swordsdance: ["8L1"],
+			gunkshot: ["8L1"],
 			bind: ["8L1"],
 			bite: ["8L1"],
 			block: ["8L1"],
@@ -6917,6 +6925,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 	},
 	mimikyusparkstone: {
 		learnset: {
+			headsmash: ["8L1"],
 			stoneedge: ["8L1"],
 			shoreup: ["8L1"],
 			volttackle: ["8L1"],
@@ -7027,7 +7036,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			fly: ["8L1"],
 			furyattack: ["8L1"],
 			gigaimpact: ["8L1"],
-			gulpmissle: ["8L1"],
+			gulpmissile: ["8L1"],
 			hurricane: ["8L1"],
 			hydropump: ["8L1"],
 			hyperbeam: ["8L1"],

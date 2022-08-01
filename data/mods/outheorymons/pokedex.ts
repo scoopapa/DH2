@@ -152,5 +152,26 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
    scrafty: {
       inherit: true, 
       baseStats: {hp: 80, atk: 90, def: 115, spa: 45, spd: 115, spe: 58},
+   },
+   rotommow: {
+      inherit: true, 
+      abilities: {0: "Levitate", H: "Grassy Surge"},
+   }, 
+   flygon: {
+      inherit: true, 
+      abilities: {0: "Levitate", H: "Poison Heal"},
+   },
+   appletun: { 
+      inherit: true, 
+      types: ["Poison", "Dragon"],
+   },
+   vanilluxe: {
+      inherit: true, 
+      types: ["Ice", "Ground"],
+      baseStats: {hp: 71, atk: 95, def: 85, spa: 110, spd: 95, spe: 99},
+   },
+   rotomfan: {
+      inherit: true, 
+      abilities: {0: "Levitate", H: "Magic Bounce"},
 	}, 
 };
