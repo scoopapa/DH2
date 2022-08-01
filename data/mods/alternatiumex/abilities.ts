@@ -68,11 +68,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	necrodancer: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				target.addVolatile('necrodancer');
+				source.addVolatile('necrodancer');
 			}
 		},
-		onEnd(pokemon) {
-			pokemon.removeVolatile('necrodancer');
+		onAfterMove(source) {
+			if (source.volatiles['necrodancer']) {
+				source.removeVolatile('necrodancer');
+			}
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
@@ -80,7 +82,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-start', target, 'ability: Necro Dancer');
 			},
 			onModifyPriority(priority, pokemon, target, move) {
-				if (move?.flags['dance'] && attacker.hasAbility('necrodancer')) return priority + 1;
+				if (move.flags['dance'] && pokemon.hasAbility('necrodancer')) return priority + 1;
 			},
 			onEnd(target) {
 				this.add('-end', target, 'ability: Necro Dancer', '[silent]');
@@ -298,5 +300,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		shortDesc: "This Pokemon does 1.1x damage on neutral targets.",
 		inherit: true,
+	},
+	battlescarred: {
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				this.boost({atk: 1});
+			}
+		},
+		name: "Battle-Scarred",
+		shortDesc: "This Pokemon's Attack is raised by 1 when it reaches 1/2 or less of its max HP.",
+		rating: 2,
+		num: -11,
 	},
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-let BattleScripts = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	init: function () {	
 	// Dragalge
 		this.modData("Learnsets", "dragalge").learnset.afteryou = ["8L1"];
