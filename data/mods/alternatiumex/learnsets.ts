@@ -2248,7 +2248,7 @@ export const Learnsets: {["8L1"]: LearnsetData} = {
 			wringout: ["8L1"],
 		},
 	},
-	braviarypariot: {
+	braviarypatriot: {
 		learnset: {
 			aerialace: ["8L1"],
 			agility: ["8L1"],
