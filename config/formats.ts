@@ -162,6 +162,7 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	
 	{
 		name: "[Gen 8] Black Market",
 		mod: "blackmarket",
@@ -172,12 +173,9 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/tournament-black-market-starting-phase.3704607/">Black Market on Smogon Forums</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/10BkMc61hCnfEc6XpjozDrQ20zMVAt5rArlvjsCENR7I/edit#gid=0">Spreadsheet</a>`,
 		],
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod',],
 		banlist: [
-			'Uber', 'Baton Pass',
-		],
-		unbanlist: [
-				 'Aeroltspiderpig', 'Aggresteusspiderpig', 'Aguacatherbobsican', 'Blustriagexenonhero', 'Boomboxdoubleironbash', 'Chandliergekokeso', 'Conakashpaulluxx', 'Cutternalgravitymonkey', 'Demudainpaulluxx', 'Dukessgekokeso', 'Endurchobobsican', 'Genesyspaulluxx', 'Goldoborosspiderpig', 'Komodoregravitymonkey', 'Mojambobsican', 'Namaraftgekokeso', 'perdemos1anaconja', 'perdemos2anaconja', 'perdemos3anaconja', 'Shailxenonhero', 'TBDdoubleironbash', 'TheBossdoubleironbash', 'Vailaflygravitymonkey', 'Wattackxenonhero',
+			'Uber', 'Baton Pass', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',
 		],
 	},
 	
