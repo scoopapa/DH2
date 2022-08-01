@@ -793,4 +793,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: -19,
 	},
+	sandveiljolte: {
+		desc: "If Sandstorm is active, this Pokemon's SpD is multiplied by 1.5. This Pokemon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm is active, this Pokemon's SpD is boosted 1.5x; immunity to Sandstorm.",
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifySpD(spd, pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				return this.chainModify(1.5);
+			}
+		},
+		id: "sandveiljolte",
+		name: "Sand Veil (Jolte)",
+		rating: 3,
+		num: 146,
+	},
 };
