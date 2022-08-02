@@ -356,4 +356,59 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		shortDesc: "At the end of every turn, holder restores 1/24 of its max HP. Cannot be removed.",
     },
+	zoomlens: {
+		name: "Zoom Lens",
+		spritenum: 574,
+		fling: {
+			basePower: 10,
+		},
+		onSourceModifyAccuracyPriority: 4,
+		onSourceModifyAccuracy(accuracy, target) {
+			if (typeof accuracy === 'number' && (!this.queue.willMove(target) || target.newlySwitched)) {
+				this.debug('Zoom Lens boosting accuracy');
+				return accuracy * 1.5;
+			}
+		},
+		num: 276,
+		gen: 4,
+		desc: "The accuracy of attacks by the holder is 1.5x if it moves lasts or the foe switches.",
+	},
+	laggingtail: {
+		name: "Lagging Tail",
+		spritenum: 237,
+		fling: {
+			basePower: 10,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Physical' && source.newlySwitched) {
+				return this.chainModify(0.67);
+			}
+		},
+		onFractionalPriorityPriority: -2,
+		onFractionalPriority(priority, pokemon) {
+			return -1;
+		},
+		num: 279,
+		gen: 4,
+		shortDesc: "Holder takes 33% less damage from physical moves upon entry. -1 priority.",
+	},
+	laxincense: {
+		name: "Lax Incense",
+		spritenum: 240,
+		fling: {
+			basePower: 10,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Special' && source.newlySwitched) {
+				return this.chainModify(0.67);
+			}
+		},
+		onFractionalPriorityPriority: -2,
+		onFractionalPriority(priority, pokemon) {
+			return -1;
+		},
+		num: 255,
+		gen: 3,
+		shortDesc: "Holder takes 33% less damage from special moves upon entry. -1 priority.",
+	},
 };

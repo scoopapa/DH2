@@ -163,7 +163,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
-	necrozmaultra: {
+	necrozmadragon: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	braviarypatriot: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	braviaryhisui: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	lilligantbard: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	mistlegant: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	electrodescrewball: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	electroderingo: {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
