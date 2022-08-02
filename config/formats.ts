@@ -3354,9 +3354,9 @@ export const Formats: FormatList = [
 		    `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9187061">Forum Post</a>`
 			],
   		ruleset: ['Standard NatDex', 'Species Clause','!Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
-		banlist: ['Uber', 'Power Construct', 'Shadow Tag', 'Baton Pass'],
+		banlist: ['Uber', 'Power Construct', 'Baton Pass'],
 		mod: 'chaoschaoschaos',
-		banlist: ['Baton Pass', 'Stance Change', 'Aerodactylite', 'Eviolite', 'Cameruptite', 'Gulp Missile', 'Glalitite', 'Manectite', 'Mawilite', 'Aspear Berry'],
+		banlist: ['Baton Pass', 'Stance Change', 'Aerodactylite', 'Eviolite', 'Cameruptite', 'Gulp Missile', 'Glalitite', 'Manectite', 'Mawilite', 'Aspear Berry', 'Sinistea-Antique'],
 		onSwitchIn: function (pokemon) {
             this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
         },
