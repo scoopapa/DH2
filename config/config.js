@@ -395,6 +395,7 @@ exports.autolockdown = true;
  */
 exports.customavatars = {
 	// 'userid': 'customavatar.png'
+	/*
 	'anaconja': '#cirno.png'
 	'zoomercide': '#cirno.png' // anaconja
 	'whathow': '#cirno.png' // anaconja
@@ -412,6 +413,7 @@ exports.customavatars = {
 	// end sice
 	'onyxonix7': '#cirno.png'
 	'xxbossaruxx': '#cirno.png'
+	*/
 };
 
 /**
