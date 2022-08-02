@@ -438,4 +438,15 @@ fleetle: {
 	weightkg: 5,
 	eggGroups: ["Undiscovered"],
 },
+sharmpedo: {
+	num: 104.5,
+	species: "Sharmpedo",
+	types: ["Water", "Dragon"],
+	gender: "N",
+	baseStats: {hp: 70, atk: 110, def: 70, spa: 90, spd: 65, spe: 105},
+	abilities: {0: "Stakeout"},
+	heightm: 1,
+	weightkg: 5,
+	eggGroups: ["Undiscovered"],
+},
 };
