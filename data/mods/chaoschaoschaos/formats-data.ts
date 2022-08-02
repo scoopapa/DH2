@@ -11,7 +11,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "CCC",
 		doublesTier: "DCCC",
 	},
-	blastoisegmax: {
+	blastoise: {
 		tier: "CCC",
 		doublesTier: "DCCC",
 	},
