@@ -16,7 +16,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	axew: {
 		name: "Axew",
 		types: ["Dragon", "Steel"],
-		baseStats: {hp: 95, atk: 140, def: 95, spa: 45, spd: 95, spe: 85},
+		baseStats: {hp: 95, atk: 140, def: 95, spa: 55, spd: 95, spe: 75},
 		abilities: {0: "Serene Grace", 1: "Mold Breaker", H: "Unnerve"},
 		weightkg: 18,
 	},
@@ -31,7 +31,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Butterfree",
 		types: ["Bug", "Grass"],
 		baseStats: {hp: 75, atk: 90, def: 90, spa: 90, spd: 110, spe: 100},
-		abilities: {0: "Arena Trap", 1: "Shadow Tag", H: "Magnet Pull"},
+		abilities: {0: "Compound Eyes", H: "Triage"},
 		weightkg: 32,
 	},
 	cameruptmega: {
@@ -48,17 +48,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Parental Bond", 1: "Clear Body", H: "Sturdy"},
 		weightkg: 5.7,
 	},
-	caterpie: {
-		name: "Caterpie",
-		types: ["Grass"],
-		baseStats: {hp: 100, atk: 5, def: 135, spa: 90, spd: 135, spe: 90},
-		abilities: {0: "Shield Dust", 1: "Huge Power", H: "Grassy Surge"},
-		weightkg: 2.9,
-	},
 	cleffa: {
 		name: "Cleffa",
 		types: ["Poison", "Dark"],
-		baseStats: {hp: 95, atk: 110, def: 105, spa: 60, spd: 105, spe: 80},
+		baseStats: {hp: 95, atk: 90, def: 105, spa: 80, spd: 105, spe: 80},
 		abilities: {0: "Poison Point", 1: "Unnerve", H: "Intimidate"},
 		weightkg: 3,
 	},
@@ -93,8 +86,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	emboar: {
 		name: "Emboar",
 		types: ["Fire"],
-		baseStats: {hp: 120, atk: 25, def: 120, spa: 65, spd: 120, spe: 105},
-		abilities: {0: "Simple", H: "Reckless"},
+		baseStats: {hp: 120, atk: 15, def: 120, spa: 75, spd: 120, spe: 105},
+		abilities: {0: "Simple", 1: "Rock Head", H: "Reckless"},
 		weightkg: 150,
 	},
 	glalie: {
@@ -121,16 +114,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	happiny: {
 		name: "Happiny",
 		types: ["Normal"],
-		baseStats: {hp: 250, atk: 10, def: 20, spa: 70, spd: 115, spe: 90},
+		baseStats: {hp: 250, atk: 10, def: 10, spa: 80, spd: 115, spe: 90},
 		abilities: {0: "Sheer Force", 1: "Anticipation", H: "Natural Cure"},
 		weightkg: 24.4,
-	},
-	honedge: {
-		name: "Honedge",
-		types: ["Ghost", "Dragon"],
-		baseStats: {hp: 60, atk: 30, def: 130, spa: 25, spd: 130, spe: 180},
-		abilities: {0: "Sturdy", H: "Aroma Veil"},
-		weightkg: 2,
 	},
 	indeedeef: {
 		name: "Indeedee-F",
@@ -145,6 +131,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 80, def: 95, spa: 90, spd: 100, spe: 90},
 		abilities: {0: "Unaware", 1: "Suction Cups", H: "Sturdy"},
 		weightkg: 3.5,
+	},
+	lairon: {
+		name: "Lairon",
+		types: ["Ghost", "Dragon"],
+		baseStats: {hp: 60, atk: 30, def: 130, spa: 25, spd: 130, spe: 180},
+		abilities: {0: "Sturdy", H: "Aroma Veil"},
+		weightkg: 120,
 	},
 	lickilicky: {
 		name: "Lickilicky",
@@ -206,13 +199,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Regieleki",
 		types: ["Electric", "Psychic"],
 		baseStats: {hp: 110, atk: 110, def: 110, spa: 110, spd: 110, spe: 5},
-		abilities: {0: "Wimp Out"},
+		abilities: {0: "Wimp Out", 1: "Filter", H: "Levitate"},
 		weightkg: 145,
 	},
 	seel: {
 		name: "Seel",
 		types: ["Ice", "Dark"],
-		baseStats: {hp: 70, atk: 110, def: 80, spa: 100, spd: 8, spe: 115},
+		baseStats: {hp: 70, atk: 110, def: 80, spa: 100, spd: 80, spe: 115},
 		abilities: {0: "Weak Armor", H: "Truant"},
 		weightkg: 90,
 	},
@@ -233,7 +226,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	skrelp: {
 		name: "Skrelp",
 		types: ["Electric"],
-		baseStats: {hp: 70, atk: 105, def: 95, spa: 105, spd: 95, spe: 85},
+		baseStats: {hp: 70, atk: 95, def: 95, spa: 115, spd: 95, spe: 85},
 		abilities: {0: "Clear Body", H: "Tough Claws"},
 		weightkg: 7.3,
 	},
@@ -269,7 +262,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Stunfisk-Galar",
 		types: ["Fire"],
 		baseStats: {hp: 91, atk: 129, def: 90, spa: 72, spd: 90, spe: 83},
-		abilities: {0: "Arena Trap", 1: "Shadow Tag", H: "Magnet Pull"},
+		abilities: {0: "Mimicry", H: "Poison Heal"},
 		weightkg: 20.5,
 	},
 	suicune: {
@@ -300,10 +293,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Drought", H: "Telepathy"},
 		weightkg: 0.3,
 	},
+	weedle: {
+		name: "Weedle",
+		types: ["Grass"],
+		baseStats: {hp: 100, atk: 5, def: 135, spa: 90, spd: 135, spe: 90},
+		abilities: {0: "Shield Dust", 1: "Huge Power", H: "Grassy Surge"},
+		weightkg: 3.2,
+	},
 	wooper: {
 		name: "Wooper",
 		types: ["Fairy"],
-		baseStats: {hp: 115, atk: 10, def: 100, spa: 10, spd: 110, spe: 220},
+		baseStats: {hp: 115, atk: 10, def: 100, spa: 10, spd: 100, spe: 220},
 		abilities: {0: "Damp", 1: "Pressure", H: "Speed Boost"},
 		weightkg: 8.5,
 	},
