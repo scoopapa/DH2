@@ -206,4 +206,44 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: 158,
 	},
+	feeler: {
+		desc: "On switch-in, this Pokémon's Defense or Special Defense is raised by 1 stage based on the weaker combined attacking stat of all opposing Pokémon. Special Defense is raised if their Special Attack is higher, and Defense is raised if their Attack is the same or higher.",
+		shortDesc: "On switch-in, Defense or Sp. Def is raised 1 stage based on the foes' weaker Attack.",
+		onStart(pokemon) {
+			let totalatk = 0;
+			let totalspa = 0;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				totalatk += target.getStat('atk', false, true);
+				totalspa += target.getStat('spa', false, true);
+			}
+			if (totalatk && totalatk >= totalspa) {
+				this.boost({def: 1});
+			} else if (totalspa) {
+				this.boost({spd: 1});
+			}
+		},
+		name: "Feeler",
+		rating: 4,
+		num: -35,
+	},
+	jellyarmor: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Physical') {
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Jelly Armor",
+		rating: 3,
+		num: 111,
+	},
+	trickyrat: {
+		onModifyMove(move) {
+			if (move) delete move.flags['protect'];
+			move.infiltrates = true;
+		},
+		name: "Tricky Rat",
+		rating: 2.5,
+		num: 151,
+	},
 };
