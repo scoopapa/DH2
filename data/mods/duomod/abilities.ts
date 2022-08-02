@@ -1,7 +1,7 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	angler: {
 		desc: "If the user is hit by a Water-type move, they take 0.25x damage from it and the opponent recieves recoil equal to the damage dealt.",
-		shortDesc: "The damage from Water-type attacks against this Pokemon is partially reflected.",
+		shortDesc: "User takes quartered damage from water; attacker receives major recoil.",
 		onSourceBasePowerPriority: 18,
 		onSourceBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Water') {
@@ -19,6 +19,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1.1,
 	},
 	deteriorate: {
+		desc: "This Pokemon loses 1/6th of its max HP each turn.",
 		shortDesc: "This Pokemon loses 1/6th of its max HP each turn.",
    		onResidualOrder: 26,
 		onResidualSubOrder: 1,
@@ -39,30 +40,39 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const result = this.random(10);
 			if (result === 0) {
 				this.hint("Hype Level: 1 out of 10...");
+//				this.useMove("Rest", pokemon);
 			}
 			else if (result === 1) {
 				this.hint("Hype Level: 2 out of 10...");
+//				this.useMove("Sleep Talk", pokemon);
 			}
 			else if (result === 2) {
 				this.hint("Hype Level: 3 out of 10...");
+//				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 3) {
 				this.hint("Hype Level: 4 out of 10.");
+//				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 4) {
 				this.hint("Hype Level: 5 out of 10.");
+//				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 5) {
 				this.hint("Hype Level: 6 out of 10.");
+//				this.useMove("Celebrate", pokemon);
 			}
 			else if (result === 6) {
 				this.hint("Hype Level: 7 out of 10!");
+//				this.useMove("Focus Energy", pokemon);
 			}
 			else if (result === 7) {
 				this.hint("Hype Level: 8 out of 10!");
+//				this.useMove("Agility", pokemon);
 			}
 			else if (result === 8) {
 				this.hint("Hype Level: 9 OUT OF 10!");
+//				this.useMove("Spinning Web", pokemon);
 			}
 			else {
 				this.hint("Hype level: 10 OUT OF 10!!!!!");
@@ -75,7 +85,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 	deathscall: {
-		shortDesc: "Traps both Pokemon.",
+		shortDesc: "All active Pokemon become trapped.",
 		onStart(pokemon) {
 			this.add('-fieldactivate', 'move: Fairy Lock');
 		},
@@ -123,7 +133,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 	fortification: {
-		shortdesc: "User's Atk, Def rise by 1 when hit below 50%.",
 		onAfterMoveSecondary(target, source, move) {
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
 			const lastAttackedBy = target.getLastAttackedBy();
@@ -133,16 +142,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({atk: 1, def: 1});
 			}
 		},
+		shortDesc: "If user is hit below half HP, boosts Atk + Def.",
 		name: "Fortification",
 		rating: 2,
 		num: 20121,
 	},
    
 	birdup: {
-		shortDesc: "The user becomes Bird-type (''''''all 12 types combined'''''').",
+		shortDesc: "The user is a Bird.",
 		onStart(pokemon) {
-			pokemon.setType(pokemon.getTypes(true).map(type => type === "Grass" ? "Bird" : type));
-			this.add('-start', pokemon, 'typechange', 'Bird');
+			pokemon.setType(pokemon.getTypes(true).map(type => type === "Grass" ? "Flying" : type));
+			this.add('-start', pokemon, 'typechange', 'Flying');
+			this.add('-start', pokemon, 'typeadd', 'Flying', '[from] ability: Bird Up');
 		},
 		name: "Bird Up",
 		rating: 4,
@@ -151,21 +162,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	bootlegregen: {
 		shortDesc: "This Pokemon restores a random amount of HP when it switches out.",
 		onSwitchOut(pokemon) {
-			const result = this.random(6);
-			pokemon.heal(pokemon.baseMaxhp / ((result + 5)), pokemon);
+			const result = this.random(10);
+			pokemon.heal(((result + 11) * pokemon.baseMaxhp) / 100, pokemon);
+		},
+		onResidual(pokemon) {
+			const result = this.random(10);
+			this.heal((result * pokemon.baseMaxhp) / 100, pokemon);
 		},
 		name: "Bootleg Regen",
 		rating: 4.5,
 		num: 3002,
 	},
 	lostmemory: {
-		shortDesc: "On switch, the user learns the last used move if it has empty moveslots.",
+		shortDesc: "On switch, the user learns the used move if it has empty moveslots.",
 		onStart(pokemon) {
 			const move = this.lastMove;
+			if (move === null) return;
 			if (pokemon.moveSlots.length < 4) {
-				const mimicIndex = pokemon.moves.indexOf('mimic');
-				if (mimicIndex < 0) return false;
-				pokemon.moveSlots[mimicIndex] = {
+				this.attrLastMove('[still]');
+				if (pokemon.moveSlots.length < 0) return false;
+				const learnedMove = {
 					move: move.name,
 					id: move.id,
 					pp: move.pp,
@@ -173,26 +189,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					target: move.target,
 					disabled: false,
 					used: false,
-					virtual: true,
 				};	
-			this.add('-start', pokemon, 'Lost Memory', move.name); // this isn't used on anything yet
+				pokemon.moveSlots[pokemon.moveSlots.length] = learnedMove;
+				pokemon.baseMoveSlots[pokemon.moveSlots.length - 1] = learnedMove;
+			this.add('-start', pokemon, 'Lost Memory', move.name);
 			}
 		},
 		name: "Lost Memory",
 		rating: 3,
 		num: 3004,
 	},
-	mixitup: {
-		shortDesc: "If the user's attack doesn't match its last move, it's 1.3x stronger.",
-		onBasePower (basePower, pokemon, target, move) {
-			if (move.id !== pokemon.lastMove.id) {
-				return this.chainModify(1.3);
-			}
-		},
-		name: "Mix it Up",
-		rating: 0.5,
-		num: 3006,
-	},	
 	obtrusive: {
 		shortDesc: "Prevents the Roulette Wheel from being spun while active.",
 		onAnyTryMove(target, source, effect) {
@@ -222,7 +228,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 100,
 	},	
 	queenofroulette: {
-		shortDesc: "Activates the Roulette Wheel two additional times.",
+		shortDesc: "Spins the Roulette Wheel two additional times.",
 		onResidual (pokemon) {
 			this.useMove("Roulette Spin", pokemon);
 			this.useMove("Roulette Spin", pokemon);
@@ -232,7 +238,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 3009,
 	},	
 	ragingbeast: {
-		shortDesc: "The user's highest stat rises under a ton of conditions.",
+		shortDesc: "The user's highest stat has a 20% chance to rise after each turn.",
 		onResidual (pokemon) {
 			const result = this.random(5);
 			if (result === 0) {
@@ -248,36 +254,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({[statName]: 1}, pokemon);
 			}
 		},	
-		onAfterMoveSecondary(target, source, move) {
-			if (!source || source === target || !target.hp || !move.totalDamage) return;
-			const lastAttackedBy = target.getLastAttackedBy();
-			if (!lastAttackedBy) return;
-			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
-			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
-				let statName = 'atk';
-				let bestStat = 0;
-				let s: StatNameExceptHP;
-				for (s in target.storedStats) {
-					if (target.storedStats[s] > bestStat) {
-						statName = s;
-						bestStat = target.storedStats[s];
-					}
-				}
-				this.boost({[statName]: 1}, target);
-			}
-		},
-		onDamagingHit(damage, target, source, effect) {
-			let statName = 'atk';
-			let bestStat = 0;
-			let s: StatNameExceptHP;
-			for (s in target.storedStats) {
-				if (target.storedStats[s] > bestStat) {
-					statName = s;
-					bestStat = target.storedStats[s];
-				}
-			}
-			this.boost({[statName]: 1}, target);
-		},
 		name: "Raging Beast",
 		rating: 1,
 		num: 3010,
@@ -347,14 +323,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 20,
 	},
 	toughout: {
-		shortDesc: "If the user has few moves and runs out of one, +1 all stats.",
-		onUpdate(pokemon) {
-			if (pokemon.moveSlots.some(move => move.pp === 0)) {
-				if (pokemon.moveSlots.length < 4) {
-					this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, pokemon, pokemon, null, true);
-					pokemon.addVolatile('gastroacid');
-				}
-			}
+		shortDesc: "If the user survives seven turns, +1 all stats.",
+		onStart(pokemon) {
+			pokemon.addVolatile('toughout');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['toughout'];
+			this.add('-end', pokemon, 'Tough Out', '[silent]');
+		},
+		condition: {
+			duration: 7,
+			onStart(target) {
+				this.add('-start', target, 'ability: Tough Out');
+			},
+			onEnd(target) {
+				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, target, target, null, true);
+				this.add('-end', target, 'Tough Out');
+			},
 		},
 		name: "Tough Out",
 		rating: 4,
@@ -395,8 +380,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					target.addVolatile('taunt');
 				}
 			}
-		},
-		volatileStatus: 'taunt',
+		},		volatileStatus: 'taunt',
 		condition: {
 			duration: 3,
 			onStart(target) {
@@ -429,4 +413,85 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 3013,
 	},	
+	dropheat: {
+		shortDesc: "User is immune to recoil, lowers all stats of opponents using Sound moves.",
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['sound']) {
+				this.add('-ability', target, 'Drop Heat');
+				this.boost({atk: -1, def: -1, spa: -1, spd: -1, spe: -1}, source, target, null, true);
+			}
+		},
+		name: "Drop Heat",
+		rating: 3,
+		num: 3014,
+	},
+	mentalnote: {
+		shortDesc: "User forewarns a random move.",
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (target.fainted) return;
+				const temp = this.sample(target.moveSlots);
+				//const move = target.moves.indexOf(temp.id);
+				this.add('-message', pokemon.name + "'s Mental Note revealed the move " + temp.move + "!");
+			}
+		},
+		name: "Mental Note",
+		rating: 0.5,
+		num: 3015,
+	},	
+	mixitup: {
+		shortDesc: "The user switches after using sound move.",
+		onModifyMove(move, pokemon) {
+			if (move.flags['sound']) {
+				move.selfSwitch = true;
+			}
+		},
+		name: "Mix it Up",
+		rating: 4,
+		num: 3016,
+	},
+	adaptation: {
+		shortDesc: "On switch-in, user gains a type matching its first move.",
+		onStart(pokemon) {
+			const type = this.dex.getMove(pokemon.moveSlots[0].id).type;
+			if (pokemon.hasType(type) || !pokemon.addType(type)) return false;
+			this.add('-start', pokemon, 'typeadd', type);
+		},
+		name: "Adaptation",
+		rating: 3.5,
+		num: 3017,
+	},
+	vent: {
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 10 && target.hp + damage > target.maxhp / 10) {
+				this.add('-message', target.name + " is gonna Vent!");
+				target.switchFlag = true;
+				this.heal(target.baseMaxhp);
+			}
+		},
+		name: "Vent",
+		rating: 5,
+		num: 3018,
+	},
+	magicbody: {
+		name: "Magic Body",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 16);
+		},
+		name: "Magic Body",
+		rating: 5,
+		num: 3019,
+	},
 };

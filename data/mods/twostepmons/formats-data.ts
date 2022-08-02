@@ -59,5 +59,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TSM",
 		DTSMblesTier: "DTSM",
 	},
+	metagross: {
+		tier: "TSM",
+		doublesTier: "DTSM",
+	},
+	zygarde: {
+		tier: "TSM",
+		doublesTier: "DTSM",
+	},
+	groudon: {
+		tier: "TSM",
+		doublesTier: "DTSM",
+	},
+
 };
 

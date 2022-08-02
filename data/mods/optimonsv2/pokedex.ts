@@ -289,5 +289,21 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 75, atk: 55, def: 115, spa: 105, spd: 125, spe: 45},
       abilities: {0: "Levitate", H: "Regenerator"},
-	},
+   },
+   persian : {
+      inherit: true,
+      baseStats: {hp: 85, atk: 110, def: 60, spa: 65, spd: 65, spe: 125},
+      abilities: {0: "Fur Coat", H: "Simple"},
+   },
+   furfrou: {
+      inherit: true,
+      types: ["Normal", "Ghost"],
+      baseStats: {hp: 95, atk: 80, def: 60, spa: 80, spd: 90, spe: 125},
+   }, 
+   furret: { 
+      inherit: true, 
+      types: ["Normal", "Fighting"],
+      baseStats: {hp: 85, atk: 115, def: 64, spa: 106, spd: 55, spe: 110}, 
+      abilities: {0: "Frisk", 1: "Keen Eye", H: "No Guard"},
+   }, 
 };

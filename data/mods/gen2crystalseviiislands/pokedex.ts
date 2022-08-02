@@ -3,7 +3,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 252,
 		name: "Horatekku",
 		types: ["Steel", "Ghost"],
-		baseStats: {hp: 80, atk: 100, def: 100, spa: 60, spd: 70, spe: 60},
+		baseStats: {hp: 80, atk: 100, def: 120, spa: 60, spd: 70, spe: 50},
 		abilities: {0: "No Ability"},
 		heightm: 0.2,
 		weightkg: 0.5,
@@ -114,6 +114,24 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 2.2,
 		weightkg: 106.6,
+	},
+	kazappelin: {
+		num: 264,
+		name: "Kazappelin",
+		types: ["Poison", "Electric"],
+		baseStats: {hp: 85, atk: 95, def: 95, spa: 85, spd: 75, spe: 75},
+		abilities: {0: "No Ability"},
+		heightm: 1.7,
+		weightkg: 62.3,
+	},
+	pierzer: {
+		num: 265,
+		name: "Pierzer",
+		types: ["Bug", "Flying"],
+		baseStats: {hp: 65, atk: 125, def: 120, spa: 75, spd: 70, spe: 45},
+		abilities: {0: "No Ability"},
+		heightm: 2.1,
+		weightkg: 175.8,
 	},
 	
 	

@@ -527,6 +527,56 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Telepathy", 1: "Light Metal", H: "Magician"},
 		weightkg: 71,
 	},
+	//Slate 19: Rock/Water, Ground/Electric, Poison/Flying
+	groundingo: {
+		num: 1054,
+		name: "Groundingo",
+		types: ["Ground", "Electric"],
+		baseStats: {hp: 80, atk: 130, def: 80, spa: 75, spd: 80, spe: 91},
+		abilities: {0: "Static", H: "Unaware"},
+		weightkg: 19,
+	},
+	hadalith: {
+		num: 1055,
+		name: "Hadalith",
+		types: ["Water", "Rock"],
+		baseStats: {hp: 80, atk: 90, def: 135, spa: 105, spd: 95, spe: 50},
+		abilities: {0: "Drizzle", H: "Water Absorb"},
+		weightkg: 167,
+	},
+	toxeath: {
+		num: 1056,
+		name: "Toxeath",
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 80, atk: 80, def: 98, spa: 93, spd: 120, spe: 74},
+		abilities: {0: "Stamina", H: "Power of Alchemy"},
+		weightkg: 1,
+	},
+	//Slate 20: Dragon/Fighting, Ice/Dark, Steel/Fairy
+	tinkixie: {
+		num: 1057,
+		name: "Tinkixie",
+		types: ["Steel", "Fairy"],
+		baseStats: {hp: 105, atk: 100, def: 85, spa: 95, spd: 85, spe: 30},
+		abilities: {0: "Technician", 1: "Sheild Dust", H: "Fairy Aura"},
+		weightkg: 10,
+	},
+	galldrake: {
+		num: 1058,
+		name: "Galldrake",
+		types: ["Dragon", "Fighting"],
+		baseStats: {hp: 120, atk: 130, def: 55, spa: 95, spd: 105, spe: 50},
+		abilities: {0: "Mega Launcher", H: "Water Veil"},
+		weightkg: 453.1,
+	},
+	smiledon: {
+		num: 1059,
+		name: "Smiledon",
+		types: ["Dark", "Ice"],
+		baseStats: {hp: 100, atk: 85, def: 100, spa: 60, spd: 75, spe: 110},
+		abilities: {0: "Strong Jaw", H: "Snow Warning"},
+		weightkg: 45,
+	},
 	/*
 	template: {
 		num: 1000,

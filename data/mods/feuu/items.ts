@@ -303,10 +303,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Swannamence-Mega",
 		megaEvolves: "Swannamence",
 		itemUser: ["Swannamence"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 769,
 		desc: "If held by a Swannamence or a Salasian-Alola, this item allows it to Mega Evolve in battle.",
 	},
