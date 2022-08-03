@@ -2,7 +2,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Bug: {
 		damageTaken: {
 			Bug: 0,
-      Cosmic: 2,
+      	Cosmic: 2,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 0,
@@ -26,7 +26,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
   Cosmic: {
 		damageTaken: {
 			Bug: 1,
-      Cosmic: 1,
+     	   Cosmic: 1,
 			Dark: 0,
 			Dragon: 1,
 			Electric: 2,
@@ -48,7 +48,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Dark: {
 		damageTaken: {
 			Bug: 1,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 2,
 			Dragon: 0,
 			Electric: 0,
@@ -71,7 +71,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Dragon: {
 		damageTaken: {
 			Bug: 0,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 0,
 			Dragon: 1,
 			Electric: 2,
@@ -96,7 +96,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 		damageTaken: {
 			Bug: 0,
 			Dark: 0,
-      Cosmic: 1,
+      	Cosmic: 1,
 			Dragon: 0,
 			Electric: 2,
 			Fighting: 0,
@@ -119,7 +119,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Fighting: {
 		damageTaken: {
 			Bug: 2,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 2,
 			Dragon: 0,
 			Electric: 0,
@@ -143,7 +143,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Fire: {
 		damageTaken: {
 			Bug: 2,
-      Cosmic: 1,
+      	Cosmic: 1,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 0,
@@ -167,7 +167,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Flying: {
 		damageTaken: {
 			Bug: 2,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 1,
@@ -191,7 +191,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Ghost: {
 		damageTaken: {
 			Bug: 2,
-      Cosmic: 1,
+      	Cosmic: 1,
 			Dark: 1,
 			Dragon: 0,
 			Electric: 0,
@@ -215,7 +215,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Grass: {
 		damageTaken: {
 			Bug: 1,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 2,
@@ -240,7 +240,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 		damageTaken: {
 			sandstorm: 3,
 			Bug: 0,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 3,
@@ -266,7 +266,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			hail: 3,
 			frz: 3,
 			Bug: 0,
-      Cosmic: 2,
+      	Cosmic: 2,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 0,
@@ -290,7 +290,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Normal: {
 		damageTaken: {
 			Bug: 0,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 0,
@@ -314,7 +314,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			psn: 3,
 			tox: 3,
 			Bug: 2,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 0,
@@ -338,7 +338,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Psychic: {
 		damageTaken: {
 			Bug: 1,
-      Cosmic: 2,
+     	   Cosmic: 2,
 			Dark: 1,
 			Dragon: 0,
 			Electric: 0,
@@ -363,7 +363,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 		damageTaken: {
 			sandstorm: 3,
 			Bug: 0,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 0,
@@ -390,7 +390,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			tox: 3,
 			sandstorm: 3,
 			Bug: 2,
-      Cosmic: 2,
+      	Cosmic: 2,
 			Dark: 0,
 			Dragon: 2,
 			Electric: 0,
@@ -414,7 +414,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	Water: {
 		damageTaken: {
 			Bug: 0,
-      Cosmic: 0,
+      	Cosmic: 0,
 			Dark: 0,
 			Dragon: 0,
 			Electric: 1,
