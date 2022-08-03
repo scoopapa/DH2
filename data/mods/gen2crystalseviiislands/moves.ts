@@ -79,7 +79,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Dark",
+		type: "Cosmic",
 	},
 	parry: { // this move probably won't work correctly in double battles. Do not port blindly!
         num: -3,
