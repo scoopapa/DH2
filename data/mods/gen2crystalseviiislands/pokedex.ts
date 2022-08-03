@@ -154,4 +154,26 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		evos: ["Tunguru"],
 	},
+	
+	
+	stantler: {
+		inherit: true,
+		types: ["Normal", "Cosmic"],
+	},
+	ampharos: {
+		inherit: true,
+		types: ["Electric", "Cosmic"],
+	},
+	starmie: {
+		inherit: true,
+		types: ["Water", "Cosmic"],
+	},
+	clefable: {
+		inherit: true,
+		types: ["Cosmic"],
+	},
+	tangela: {
+		inherit: true,
+		types: ["Grass", "Cosmic"],
+	},
 };
