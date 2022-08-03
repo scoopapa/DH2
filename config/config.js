@@ -403,7 +403,7 @@ exports.customavatars = {
 	'lrxc': 'cirno.png',
 	'dex': 'cirno.png',
 	'larp': 'cirno.png', // adem
-	'duom2': 'cirno.png',
+	'duom2': 'pikasprite.png',
 	// sice
 	'classclownthele': 'cirno.png',
 	'arbysroastbeef': 'cirno.png',
