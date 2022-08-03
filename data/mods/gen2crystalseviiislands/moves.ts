@@ -683,4 +683,25 @@ export const Moves: {[moveid: string]: MoveData} = {
             },
         },
     },
+	
+	moonlight: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	morningsun: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	cometpunch: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	triattack: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	swift: {
+		inherit: true,
+		type: "Cosmic",
+	},
 };
