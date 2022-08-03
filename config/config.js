@@ -411,6 +411,8 @@ exports.customavatars = {
 	'notime2beromeo': 'cirno.png',
 	// end sice
 	'onyxonix7': 'cirno.png',
+	'piikiki4': 'yoshiblaze.png', //yoshiblaze
+	'piikiki4butagain': 'yoshiblaze.png', //yoshiblaze
 };
 
 /**
