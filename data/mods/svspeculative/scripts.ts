@@ -14,9 +14,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
 		}
 		let species = this.dex.deepClone(pokemon.species);
-		let teraboost = null;
-		if (species.types[0] === pokemon.canMegaEvo || species.types[1] === pokemon.canMegaEvo) teraboost = true;
-		species.types = [pokemon.canMegaEvo];
+		if (species.types[0] === pokemon.canMegaEvo || species.types[1] === pokemon.canMegaEvo) species.teraBoost = true;
+		species.teraType = pokemon.canMegaEvo; // remember that the species is Terastal
+		species.types = [species.teraType];
 		
 		// Pokémon affected by Sky Drop cannot Terastallize
 		const side = pokemon.side;
@@ -30,8 +30,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.add('-anim', pokemon, "Cosmic Power", pokemon);
 		this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		this.add('-message', `${pokemon.name} Terastallized to become ${species.types[0]}-type!`);
-		pokemon.m.teraType = species.types;
-		pokemon.m.teraboost = teraboost;
 		pokemon.addVolatile('terastal');
 
 		// Limit one Terastal
@@ -39,8 +37,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		return true;
 	},
 	runSwitch(pokemon: Pokemon) { // modified for Terastal
-		if (pokemon.m.teraType) this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		pokemon.addVolatile('terastal');
+		if (pokemon.species.teraType) this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		this.runEvent('Swap', pokemon);
 		this.runEvent('SwitchIn', pokemon);
 		if (this.gen <= 2 && !pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.turn) {
@@ -65,13 +62,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		speciesId: string | Species, source: Effect = this.battle.effect,
 		isPermanent?: boolean, message?: string
 	) {
+		let baseForm = this.battle.dex.getSpecies(speciesId);
 		let teraSpecies = null;
-		if (this.m.teraType) {
-			console.log("teraType found to be " + this.m.teraType);
-			teraSpecies = this.dex.deepClone(this.battle.dex.getSpecies(speciesId));
-			teraSpecies.types = this.m.teraType;
+		if (this.species.teraType) {
+			teraSpecies = this.dex.deepClone(baseForm);
+			teraSpecies.teraType = this.species.teraType;
+			teraSpecies.types = [teraSpecies.teraType];
+			teraSpecies.teraBoost = this.species.teraBoost;
 		}
-		const rawSpecies = teraSpecies || this.battle.dex.getSpecies(speciesId);
+		const rawSpecies = teraSpecies || baseForm;
 		const species = this.setSpecies(rawSpecies, source);
 		if (!species) return false;
 
@@ -155,9 +154,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 	},
 
-	// modifyDamage added for frostbite for Hisuian Zoroark specifically
-	// I do not know restraint when I see this Pokémon I'm sorry
-	// it's not even mod-related what am I doing
+	// modifyDamage added for frostbite for Hisuian Zoroark specifically, and also the Terastal Adaptability boost
 
 	modifyDamage(
 		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
@@ -193,7 +190,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			// Not even if you Roost in Gen 4 and somehow manage to use
 			// Struggle in the same turn.
 			// (On second thought, it might be easier to get a MissingNo.)
-			baseDamage = this.modify(baseDamage, move.stab || 1.5);
+			let stabBoost = 1.5;
+			if (move.stab) stabBoost = move.stab;
+			if (pokemon.species.teraBoost) stabBoost = 2;
+			baseDamage = this.modify(baseDamage, stabBoost);
 		}
 		// types
 		let typeMod = target.runEffectiveness(move);
