@@ -62,6 +62,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		speciesId: string | Species, source: Effect = this.battle.effect,
 		isPermanent?: boolean, message?: string
 	) {
+		console.log("this: " + this);
+		console.log("species: " + this.species);
+		console.log("type: " + this.species.type);
+		if (this.species.teraType) console.log("teraType: " + this.species.teraType);
 		let baseForm = this.battle.dex.getSpecies(speciesId);
 		let teraSpecies = null;
 		if (this.species.teraType) {
@@ -70,8 +74,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			teraSpecies.types = [teraSpecies.teraType];
 			teraSpecies.teraBoost = this.species.teraBoost;
 		}
+		console.log("teraSpecies: " + teraSpecies);
 		const rawSpecies = teraSpecies || baseForm;
+		console.log("rawSpecies: " + rawSpecies);
 		const species = this.setSpecies(rawSpecies, source);
+		console.log("species: " + species);
 		if (!species) return false;
 
 		if (this.battle.gen <= 2) return true;
