@@ -30,7 +30,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.add('-anim', pokemon, "Cosmic Power", pokemon);
 		this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		this.add('-message', `${pokemon.name} Terastallized to become ${species.types[0]}-type!`);
-		pokemon.m.terastal = pokemon.canMegaEvo;
+		pokemon.m.teraType = species.types;
 		pokemon.m.teraboost = teraboost;
 		pokemon.addVolatile('terastal');
 
@@ -39,7 +39,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		return true;
 	},
 	runSwitch(pokemon: Pokemon) { // modified for Terastal
-		if (pokemon.m.terastal) this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		if (pokemon.m.teraType) this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		pokemon.addVolatile('terastal');
 		this.runEvent('Swap', pokemon);
 		this.runEvent('SwitchIn', pokemon);
@@ -67,7 +67,15 @@ export const Scripts: ModdedBattleScriptsData = {
 	) {
 		const rawSpecies = this.battle.dex.getSpecies(speciesId);
 
-		const species = this.setSpecies(rawSpecies, source);
+		let species = null;
+		if (this.m.teraType) {
+			console.log("teraType found");
+			let teraSpecies = this.dex.deepClone(rawSpecies);
+			teraSpecies.types = this.m.teraType;
+			species = this.setSpecies(teraSpecies, source);
+		} else {
+			species = this.setSpecies(rawSpecies, source);
+		}
 		if (!species) return false;
 
 		if (this.battle.gen <= 2) return true;
