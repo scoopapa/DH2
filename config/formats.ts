@@ -3131,7 +3131,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'Alakazam', 'Excadrill-Base', 'Lycanroc-Dusk', 'Naganadel-Base', 'Reuniclus-Base', 'Scizor', 'Scolipede-Base', 'Starmie-Base', 'Polteageist-Base',
+			'Alakazam', 'Excadrill-Base', 'Exploud', 'Lycanroc-Dusk', 'Naganadel-Base', 'Reuniclus-Base', 'Scizor', 'Scolipede-Base', 'Starmie-Base', 'Polteageist-Base',
 			'Polteageist-Antique', 'Baton Pass'
 		],
 		onValidateTeam(team, format) {
@@ -3162,6 +3162,7 @@ export const Formats: FormatList = [
 			validate: [4, 6],
 			battle: 4,
 		},
+		banlist: ['Scizor'],
 		ruleset: ['Standard GBU', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
