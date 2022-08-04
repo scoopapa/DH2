@@ -66,10 +66,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		isPermanent?: boolean, message?: string
 	) {
 		const rawSpecies = this.battle.dex.getSpecies(speciesId);
-		let teraSpecies = this.battle.dex.deepClone(this.battle.dex.getSpecies(speciesId));
-		teraSpecies.types = [this.hpType || "Normal"];
 
-		const species = this.volatiles['terastal'] ? this.setSpecies(teraSpecies, source) : this.setSpecies(rawSpecies, source);
+		const species = this.setSpecies(rawSpecies, source);
 		if (!species) return false;
 
 		if (this.battle.gen <= 2) return true;
@@ -116,6 +114,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			this.setAbility(species.abilities['0'], null, true);
 			this.baseAbility = this.ability;
+		}
+		if (this.m.terastal) {
+			this.setType(this.hpType);
+			this.add('-start', this, 'typechange', this.types.join('/'), '[silent]');
 		}
 		return true;
 	},
