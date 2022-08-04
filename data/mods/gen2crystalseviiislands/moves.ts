@@ -79,7 +79,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Dark",
+		type: "Cosmic",
 	},
 	parry: { // this move probably won't work correctly in double battles. Do not port blindly!
         num: -3,
@@ -683,4 +683,25 @@ export const Moves: {[moveid: string]: MoveData} = {
             },
         },
     },
+	
+	moonlight: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	morningsun: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	cometpunch: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	triattack: {
+		inherit: true,
+		type: "Cosmic",
+	},
+	swift: {
+		inherit: true,
+		type: "Cosmic",
+	},
 };
