@@ -131,9 +131,11 @@ export const Scripts: ModdedBattleScriptsData = {
 
 	init() {
 		for (const id in this.dataCache.Pokedex) {
-			if (this.dataCache.Learnsets[id]) {
-				this.modData('Learnsets', this.toID(id)).learnset.teraprism = ["8M"];
-			}
+			const newMon = this.dataCache.Pokedex[id];
+			if (!newMon || !this.dataCache.Learnsets[id]) continue; // just in case
+			this.modData('Learnsets', this.toID(id)).learnset.teraprism = ["8M"];
+		}
+		for (const id in this.dataCache.Pokedex) {
 			if (this.modData('FormatsData', id)) {
 				if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
 			}
