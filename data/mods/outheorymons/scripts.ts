@@ -41,5 +41,7 @@ export const Scripts: BattleScriptsData = {
       this.modData('Learnsets', 'rotomfan').learnset.recover = ['8L1'];
 		this.modData('Learnsets', 'thundurus').learnset.hurricane = ['8L1'];
 		this.modData('Learnsets', 'gyarados').learnset.roost = ['8L1'];
+		this.modData('Learnsets', 'aromatisse').learnset.flashcannon = ['8L1'];
+		this.modData('Learnsets', 'aromatisse').learnset.mysticalfire = ['8L1'];
    },
 };

@@ -26,4 +26,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	entei: {
 		tier: "Abilitypos",
 	},
+	hatterene: {
+		tier: "Abilitypos",
+	},
+	raticatealola: {
+		tier: "Abilitypos",
+	},
+	lapras: {
+		tier: "Abilitypos",
+	},
 };

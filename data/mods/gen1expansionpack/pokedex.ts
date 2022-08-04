@@ -381,7 +381,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	magmortar: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 95, def: 67, spa: 125, spd: 125, spe: 83}, //why do they have the same speed as their babies this is so mean
+		baseStats: {hp: 75, atk: 95, def: 67, spa: 95, spd: 95, spe: 83}, //why do they have the same speed as their babies this is so mean
 	},
 	munchlax: {
 		inherit: true,

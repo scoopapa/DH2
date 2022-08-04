@@ -19,7 +19,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "sableye").learnset.defog = ['8L1'];
 		this.modData("Learnsets", "sableye").learnset.teleport = ['8L1'];
 		this.modData("Learnsets", "sableye").learnset.thunderwave = ['8L1'];
+		this.modData("Learnsets", "hatterene").learnset.moonblast = ['8L1'];
+		this.modData("Learnsets", "hatterene").learnset.recover = ['8L1'];
+		this.modData("Learnsets", "hatterene").learnset.teleport = ['8L1'];
+		this.modData("Learnsets", "raticatealola").learnset.gunkshot = ['8L1'];
+		this.modData("Learnsets", "raticatealola").learnset.poisonjab = ['8L1'];
+		this.modData("Learnsets", "raticatealola").learnset.drillrun = ['8L1'];
+		this.modData("Learnsets", "lapras").learnset.teleport = ['8L1'];
+		this.modData("Learnsets", "lapras").learnset.flipturn = ['8L1'];
+		this.modData("Learnsets", "lapras").learnset.recover = ['8L1'];
 		delete this.modData('Learnsets', 'sableye').learnset.willowisp;
-		
 	},
 };

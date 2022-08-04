@@ -161,7 +161,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Deathly Skirt",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
+		flags: {dance: 1, protect: 1, mirror: 1, heal: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Night Shade", target);
@@ -419,6 +419,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Ghost') return 0;
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bug Bite", target);
+		},
 		target: "normal",
 		type: "Bug",
 	},
@@ -515,5 +519,56 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
+	},
+	esperwing: {
+		num: -13,
+		accuracy: 100,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.hasType('Psychic')) {
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "If used by a Psychic-type: 1.5x power. Super effective on Poison.",
+		name: "Esper Wing",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Poison') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Burn Up", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
+	chloroblast: {
+		num: -14,
+		accuracy: 100,
+		basePower: 150,
+		category: "Special",
+		shortDesc: "User loses 50% max HP. Hits adjacent Pokemon.",
+		name: "Chloro Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Chloro Blast'), true);
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Solar Beam", target);
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Grass",
 	},
 };

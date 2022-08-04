@@ -79,6 +79,17 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.modData("Learnsets", "sylveon").learnset.risingvoltage = ["8L1"];
 			this.modData("Learnsets", "sylveon").learnset.nuzzle = ["8L1"];
 			this.modData("Learnsets", "sylveon").learnset.thunderwave = ["8L1"];
+			this.modData("Learnsets", "persianalola").learnset.iceshard = ["8L1"];
+			this.modData("Learnsets", "persianalola").learnset.tripleaxel = ["8L1"];
+			this.modData("Learnsets", "mantine").learnset.moonblast = ["8L1"];
+			this.modData("Learnsets", "mantine").learnset.flipturn = ["8L1"];
+			this.modData("Learnsets", "druddigon").learnset.bodypress = ["8L1"];
+			this.modData("Learnsets", "druddigon").learnset.gyroball = ["8L1"];
+			this.modData("Learnsets", "druddigon").learnset.heavyslam = ["8L1"];
+			this.modData("Learnsets", "druddigon").learnset.irondefense = ["8L1"];
+			this.modData("Learnsets", "druddigon").learnset.metalburst = ["8L1"];
+			this.modData("Learnsets", "druddigon").learnset.spikes = ["8L1"];
+			delete this.modData('Learnsets', 'mantine').learnset.roost;
 			delete this.modData('Learnsets', 'tauros').learnset.earthquake;
 			delete this.modData('Learnsets', 'tauros').learnset.highhorsepower;
 			delete this.modData('Learnsets', 'tauros').learnset.closecombat;

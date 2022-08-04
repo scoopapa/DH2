@@ -1708,7 +1708,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	pigeot: {
+	pidgeot: {
 		tier: "ANL OU",
 		isModded: true,
 	},

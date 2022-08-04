@@ -3764,11 +3764,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	vanilluxe: {
-		randomBattleMoves: ["auroraveil", "blizzard", "explosion", "flashcannon", "freezedry"],
+		randomBattleMoves: ["auroraveil", "blizzard", "earthpower", "explosion", "flashcannon", "freezedry"],
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["auroraveil", "blizzard", "freezedry", "iceshard", "protect"],
 		randomDoubleBattleLevel: 82,
-		tier: "(PU)",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	deerling: {
@@ -4403,7 +4403,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	aromatisse: {
-		randomBattleMoves: ["calmmind", "moonblast", "protect", "toxic", "wish"],
+		randomBattleMoves: ["calmmind", "flashcannon", "moonblast", "mysticalfire", "protect", "wish"],
 		randomBattleLevel: 88,
 		randomDoubleBattleMoves: ["healpulse", "moonblast", "protect", "thunderbolt", "trickroom", "wish"],
 		randomDoubleBattleLevel: 86,

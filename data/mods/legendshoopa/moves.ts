@@ -14,8 +14,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			volatileStatus: 'jaggedsplinters',
 		},
-		onHit(this, target, source, move) {
-			this.effectData.isTephra = true;
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Eruption", target);
 		},
 		target: "normal",
 		type: "Fire",
@@ -38,6 +39,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				spa: -1,
 			},
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mirror Shot", target);
+		},
 		target: "allAdjacentFoes",
 		type: "Ghost",
 	},
@@ -58,6 +63,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				volatileStatus: 'fixated',
 			},
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hurricane", target);
+		},
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
@@ -69,12 +78,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		onHit(target, source, move) {
 			if (!target.setStatus('slp', source, move)) return false;
-			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
+			this.heal((target.maxhp * 3) / 4); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
 	},
 
 	outrage: {
 		inherit: true,
+		basePower: 90,
 			self: {
 				volatileStatus: 'fixated',
 			},
@@ -82,6 +92,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 
 	petaldance: {
 		inherit: true,
+		basePower: 90,
 		self: {
 			volatileStatus: 'fixated',
 		},
@@ -111,6 +122,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			volatileStatus: 'jaggedsplinters',
 		},
 		sideCondition: undefined,
+		shortDesc: "Sets Jagged Splinters.",
 	},
 
 	spikes: {
@@ -122,9 +134,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			volatileStatus: 'jaggedsplinters',
 		},
-		onHit(this, target, source, move) {
-			this.effectData.isSpikes = true;
-		},
+		shortDesc: "Sets Jagged Splinters.",
 	},
 
 	pinmissile: {
@@ -133,8 +143,52 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			volatileStatus: 'jaggedsplinters',
 		},
-		onHit(this, target, source, move) {
-			this.effectData.isPin = true;
+		shortDesc: "Sets Jagged Splinters.",
+	},
+
+	focusenergy: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			onStart(target, source, effect) {
+				if (effect?.id === 'zpower') {
+					this.add('-start', target, 'move: Focus Energy', '[zeffect]');
+				} else if (effect && (['imposter', 'psychup', 'transform'].includes(effect.id))) {
+					this.add('-start', target, 'move: Focus Energy', '[silent]');
+				} else {
+					this.add('-start', target, 'move: Focus Energy');
+				}
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + 2;
+			},
+		},
+	},
+
+	dragonclaw: {
+		inherit: true,
+		critRatio: 2,
+	},
+
+	xscissor: {
+		inherit: true,
+		critRatio: 2,
+	},
+
+	selfdestruct: {
+		inherit: true,
+		selfdestruct: '',
+		onModifyMove(move, target, source) {
+			this.damage((source.maxhp * 4) / 5);
+		},
+	},
+
+	venoshock: {
+		inherit: true,
+		onBasePower(basePower, pokemon, target) {
+			if (target.status) {
+				return this.chainModify(2);
+			}
 		},
 	},
 };

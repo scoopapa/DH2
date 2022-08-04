@@ -519,7 +519,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			firepunch: ["2L1"],
 			flamethrower: ["2L1"],
 			flash: ["2L1"],
-			focuspunch: ["2L1"],
 			foresight: ["2L1"],
 			frustration: ["2L1"],
 			futuresight: ["2L1"],

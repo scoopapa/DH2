@@ -1186,4 +1186,24 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Wet Reflection"},
 		weightkg: 22.5,
 	},
+	skuntank: {
+		num: 103,
+		inherit: true,
+		name: "Skuntank",
+		types: ["Poison", "Dark"],
+		baseStats: {hp: 103, atk: 93, def: 87, spa: 71, spd: 87, spe: 94},
+		abilities: {0: "Neutralizing Gas", 1: "Aftermath", H: "Merciless"},
+	},
+	garchomp: {
+		num: 104,
+		inherit: true,
+		abilities: {0: "Sand Veil (Jolte)", H: "Rough Skin"},
+	},
+	munchlax: {
+		num: 105,
+		inherit: true,
+		types: ["Normal", "Fairy"],
+		baseStats: {hp: 135, atk: 100, def: 80, spa: 60, spd: 100, spe: 65},
+		evos: null,
+	},
 };

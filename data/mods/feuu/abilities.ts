@@ -5322,6 +5322,79 @@ lifedrain: {
 		},
 	  name: "Ultra Haircut",
     },
+	barbedarmour: {
+	  shortDesc: "Iron Barbs + Battle Armor",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+	   	}
+	  },
+	  onCriticalHit: false,
+	  name: "Barbed Armour",
+    },
+	technocrat: {
+	  shortDesc: "Technician + Super Luck",
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technocrat boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+	  name: "Technocrat",
+    },
+	reload: {
+	  shortDesc: "33% chance to have its status cured and negative stats reset at the end of each turn.",
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.hp && pokemon.status && this.randomChance(1, 3)) {
+				this.debug('reload');
+				this.add('-activate', pokemon, 'ability: Reload');
+				pokemon.cureStatus();
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						boosts[i] = 0;
+					}
+				}
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
+			}
+		},
+	  name: "Reload",
+    },
+	heatweight: {
+	  shortDesc: "Blaze + Heavy Metal",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Heat Weight boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Heat Weight boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyWeightPriority: 1,
+		onModifyWeight(weighthg) {
+			return weighthg * 2;
+		},
+	  name: "Heat Weight",
+    },
+
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit

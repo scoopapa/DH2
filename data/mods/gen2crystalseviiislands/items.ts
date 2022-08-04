@@ -43,77 +43,86 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 2,
 		shortDesc: "If held by Sandshrew and Sandslash, summon Sandstorm for 5 turns on switch-in.",
 	},
-	
-	airfilter: {
-		name: "Air Filter",
-		spritenum: 662,
+	alarmclock: {
+		name: "Alarm Clock",
 		onUpdate(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
-				this.add('-item', pokemon, 'Air Filter');
-				this.add('-activate', pokemon, 'item: Air Filter');
+			if (pokemon.status === 'slp') {
 				pokemon.cureStatus();
 			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			this.add('-activate', source, 'item: Alarm Clock');
+			return false;
 		},
 		num: 1004,
 		gen: 2,
-		shortDesc: "Prevents the holder from being poisoned.",
-	},
-	alarmclock: {
-		name: "Alarm Clock",
-		spritenum: 289,
+		shortDesc: "Prevents Sleep status from being applied to the holder.",
+   },
+	heatpack: {
+		name: "Heat Pack",
 		onUpdate(pokemon) {
-			if (pokemon.status === 'slp') {
-				this.add('-item', pokemon, 'Alarm Clock');
-				this.add('-activate', pokemon, 'item: Alarm Clock');
+			if (pokemon.status === 'frz') {
 				pokemon.cureStatus();
 			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'frz') return;
+			this.add('-activate', source, 'item: Heat Pack');
+			return false;
 		},
 		num: 1005,
 		gen: 2,
-		shortDesc: "Prevents the holder from being put to sleep.",
-	},
-	heatpack: {
-		name: "Heat Pack",
-		spritenum: 145,
+		shortDesc: "Prevents Freeze status from being applied to the holder.",
+   },
+	smellingsalts: {
+		name: "Smelling Salts",
 		onUpdate(pokemon) {
-			if (pokemon.status === 'frz') {
-				this.add('-item', pokemon, 'Heat Pack');
-				this.add('-activate', pokemon, 'item: Heat Pack');
+			if (pokemon.status === 'par') {
 				pokemon.cureStatus();
 			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'par') return;
+			this.add('-activate', source, 'item: Smelling Salts');
+			return false;
 		},
 		num: 1006,
 		gen: 2,
-		shortDesc: "Prevents the holder from being frozen.",
-	},
-	ointment: {
+		shortDesc: "Prevents Paralysis status from being applied to the holder.",
+    },
+	 ointment: {
 		name: "Ointment",
-		spritenum: 713,
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
-				this.add('-item', pokemon, 'Ointment');
-				this.add('-activate', pokemon, 'item: Ointment');
 				pokemon.cureStatus();
 			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			this.add('-activate', source, 'item: Ointment');
+			return false;
 		},
 		num: 1007,
 		gen: 2,
-		shortDesc: "Prevents the holder from being burned.",
-	},
-	smellingsalts: {
-		name: "Smelling Salts",
-		spritenum: 123,
+		shortDesc: "Prevents Burn status from being applied to the holder.",
+    },
+	 airfilter: {
+		name: "Air Filter",
 		onUpdate(pokemon) {
-			if (pokemon.status === 'par') {
-				this.add('-item', pokemon, 'Smelling Salts');
-				this.add('-activate', pokemon, 'item: Smelling Salts');
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				pokemon.cureStatus();
 			}
 		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox') return;
+			this.add('-activate', source, 'item: Air Filter');
+			return false;
+		},
 		num: 1008,
 		gen: 2,
-		shortDesc: "Prevents the holder from being paralyzed.",
-	},
+		shortDesc: "Prevents Poison status from being applied to the holder.",
+   },
 	seviisundae: {
 		name: "Sevii Sundae",
 		onResidualOrder: 5,

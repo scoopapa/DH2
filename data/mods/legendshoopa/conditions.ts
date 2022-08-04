@@ -62,6 +62,20 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 
+		// this isnt a boost really its just so i dont have to make another volatile xx
+		onModifyMove(move) {
+            if (move.secondaries) {
+				if(move.id === 'powdersnow' || move.id === 'blizzard' || move.id === 'firepunch' || move.id === 'icepunch' || move.id === 'thunderpunch') return;
+                this.debug('doubling secondary chance');
+                for (const secondary of move.secondaries) {
+                    if (secondary.chance && secondary.chance === 10) secondary.chance *= 2;
+                }
+            }
+            if (move.self?.chance && move.self?.chance === 10) {
+				move.self.chance *= 2;
+			}
+        },
+
 		onResidual(pokemon) {
 			this.effectData.time -= 1;
 			//this.add("-message", `Current time is ${this.effectData.time}`);
@@ -77,18 +91,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 
+	confusion: {
+		name: 'confusion',
+	},
+
 	jaggedsplinters: {
 		name: 'jaggedsplinters',
 		onStart(side, target, source) {
 			this.add('-start', side, 'Jagged Splinters');
 			this.effectData.jaggedType = target.lastMove;
 		},
-
-		/*
-		onAfterMove(source, target, move) {
-			this.effectData.jaggedType = move.type;
-		},
-		*/
 
 		onResidual(pokemon) {
 				let type = this.dex.getActiveMove(this.effectData.jaggedType);
@@ -299,6 +311,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFoeBasePower(basePower, attacker, defender, move) {
 			if (this.effectData.target !== defender) return;
 			return this.chainModify(1.33);
+		},
+
+		
+		onBeforeMove(target, source, move) {
+			if ((move.id === 'wildcharge' || move.id === 'spark' || move.id === 'volttackle') && move.category !== 'Status') {
+				target.cureStatus();
+			}
 		},
 
 		onResidualOrder: 9,

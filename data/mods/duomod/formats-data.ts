@@ -237,4 +237,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Duomod",
 		doublesTier: "DOUomod",
 	},
+	sharmpedo: {
+		randomBattleMoves: ["flipturn", "liquidation", "dragonhammer", "thousandwaves", "scaleshot", "ironhead", "leechlife"],
+		randomBattleLevel: 100,
+		tier: "Duomod",
+		doublesTier: "DOUomod",
+	},
 };
