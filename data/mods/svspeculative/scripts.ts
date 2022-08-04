@@ -65,17 +65,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		speciesId: string | Species, source: Effect = this.battle.effect,
 		isPermanent?: boolean, message?: string
 	) {
-		const rawSpecies = this.battle.dex.getSpecies(speciesId);
-
-		let species = null;
+		let teraSpecies = null;
 		if (this.m.teraType) {
-			console.log("teraType found");
-			let teraSpecies = this.dex.deepClone(rawSpecies);
+			console.log("teraType found to be " + this.m.teraType);
+			teraSpecies = this.dex.deepClone(this.battle.dex.getSpecies(speciesId));
 			teraSpecies.types = this.m.teraType;
-			species = this.setSpecies(teraSpecies, source);
-		} else {
-			species = this.setSpecies(rawSpecies, source);
 		}
+		const rawSpecies = teraSpecies || this.battle.dex.getSpecies(speciesId);
+		const species = this.setSpecies(rawSpecies, source);
 		if (!species) return false;
 
 		if (this.battle.gen <= 2) return true;
