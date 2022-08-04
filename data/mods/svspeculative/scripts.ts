@@ -1,4 +1,9 @@
+const hisui = ["arcaninehisui", "avalugghisui", "basculegion", "basculegionf", "braviaryhisui", "decidueyehisui", "dialgaorigin", "electrodehisui", "enamorus", "enamorustherian", "goodrahisui", "kleavor", "lilliganthisui", "overqwil", "palkiaorigin", "samurotthisui", "sneasler", "typhlosionhisui", "ursaluna", "wyrdeer", "zoroarkhisui"]; // only fully-evolved Pokémon from Legends: Arceus
+
 export const Scripts: ModdedBattleScriptsData = {
+
+	// Terastal
+
 	canMegaEvo(pokemon) {
 		if (pokemon.species.isMega) return null;
 		return pokemon.hpType || "Normal";
@@ -110,5 +115,126 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.baseAbility = this.ability;
 		}
 		return true;
-	}
+	},
+
+	// Legends stuff + future speculative Fakemon
+
+	init: {
+		for (const id in this.dataCache.Pokedex) {
+			if (this.modData('FormatsData', id)) {
+				if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
+			}
+			const newMon = this.dataCache.Pokedex[id];
+			if (!newMon) continue; // weeding out Pokémon that aren't new
+
+			if (newMon.copyData) {
+				let copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
+				if (!newMon.types && copyData.types) newMon.types = copyData.types;
+				if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
+				if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
+				if (!newMon.num && copyData.num) newMon.num = copyData.num;
+				if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
+				if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
+				if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
+				if (!newMon.color && copyData.color) newMon.color = copyData.color;
+				if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
+			} else if (!newMon.name.startsWith('Enamorus')) continue;
+
+			if (!this.dataCache.Learnsets[id]) continue; // just in case
+			const movepoolAdditions = ["attract", "endure", "facade", "protect", "rest", "round", "sleeptalk", "snore", "substitute"];
+			for (const move of movepoolAdditions) {
+				this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
+			}
+		}
+	},
+
+	// modifyDamage added for frostbite for Hisuian Zoroark specifically
+	// I do not know restraint when I see this Pokémon I'm sorry
+	// it's not even mod-related what am I doing
+
+	modifyDamage(
+		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
+	) {
+		const tr = this.trunc;
+		if (!move.type) move.type = '???';
+		const type = move.type;
+
+		baseDamage += 2;
+
+		// multi-target modifier (doubles only)
+		if (move.spreadHit) {
+			const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
+			this.debug('Spread modifier: ' + spreadModifier);
+			baseDamage = this.modify(baseDamage, spreadModifier);
+		}
+
+		// weather modifier
+		baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+
+		// crit - not a modifier
+		const isCrit = target.getMoveHitData(move).crit;
+		if (isCrit) {
+			baseDamage = tr(baseDamage * (move.critModifier || (this.gen >= 6 ? 1.5 : 2)));
+		}
+
+		// random factor - also not a modifier
+		baseDamage = this.randomizer(baseDamage);
+
+		// STAB
+		if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
+			// The "???" type never gets STAB
+			// Not even if you Roost in Gen 4 and somehow manage to use
+			// Struggle in the same turn.
+			// (On second thought, it might be easier to get a MissingNo.)
+			baseDamage = this.modify(baseDamage, move.stab || 1.5);
+		}
+		// types
+		let typeMod = target.runEffectiveness(move);
+		typeMod = this.clampIntRange(typeMod, -6, 6);
+		target.getMoveHitData(move).typeMod = typeMod;
+		if (typeMod > 0) {
+			if (!suppressMessages) this.add('-supereffective', target);
+
+			for (let i = 0; i < typeMod; i++) {
+				baseDamage *= 2;
+			}
+		}
+		if (typeMod < 0) {
+			if (!suppressMessages) this.add('-resisted', target);
+
+			for (let i = 0; i > typeMod; i--) {
+				baseDamage = tr(baseDamage / 2);
+			}
+		}
+
+		if (isCrit && !suppressMessages) this.add('-crit', target);
+
+		if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
+			if (this.gen < 6 || move.id !== 'facade') {
+				baseDamage = this.modify(baseDamage, 0.5);
+			}
+		}
+
+		if (pokemon.status === 'frz' && pokemon.statusData.frostbite && move.category === 'Special') { // the only changed section
+			baseDamage = this.modify(baseDamage, 0.5);
+		}
+
+		// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
+		if (this.gen === 5 && !baseDamage) baseDamage = 1;
+
+		// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
+		baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+
+		if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
+			baseDamage = this.modify(baseDamage, 0.25);
+			this.add('-zbroken', target);
+		}
+
+		// Generation 6-7 moves the check for minimum 1 damage after the final modifier...
+		if (this.gen !== 5 && !baseDamage) return 1;
+
+		// ...but 16-bit truncation happens even later, and can truncate to 0
+		return tr(baseDamage, 16);
+	},
+
 };
