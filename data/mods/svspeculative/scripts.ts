@@ -32,6 +32,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.add('-message', `${pokemon.name} Terastallized to become ${species.types[0]}-type!`);
 		pokemon.m.terastal = true;
 		pokemon.m.teraboost = teraboost;
+		pokemon.addVolatile('terastal');
 
 		// Limit one Terastal
 		for (const ally of side.pokemon) ally.canMegaEvo = null;
@@ -65,8 +66,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		isPermanent?: boolean, message?: string
 	) {
 		const rawSpecies = this.battle.dex.getSpecies(speciesId);
+		let teraSpecies = this.battle.dex.deepClone(rawSpecies);
+		teraSpecies.types = [this.hpType || "Normal"];
 
-		const species = this.setSpecies(rawSpecies, source);
+		const species = this.m.terastal ? this.setSpecies(teraSpecies, source) || this.setSpecies(rawSpecies, source);
 		if (!species) return false;
 
 		if (this.battle.gen <= 2) return true;
