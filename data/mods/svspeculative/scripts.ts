@@ -115,10 +115,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.setAbility(species.abilities['0'], null, true);
 			this.baseAbility = this.ability;
 		}
-		if (this.m.terastal) {
-			this.setType(this.m.terastal);
-			this.battle.add('-start', this, 'typechange', this.types.join('/'), '[silent]');
-		}
 		return true;
 	},
 
