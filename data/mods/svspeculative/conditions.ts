@@ -5,6 +5,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifyMove(move) {
 			if (this.effectData.target.m.teraboost) move.stab = 2;
 		},
+		onUpdate(pokemon) {
+			if (!pokemon.getTypes().join() === pokemon.m.terastal) {
+				pokemon.setType(pokemon.m.terastal);
+				this.battle.add('-start', this, 'typechange', this.types.join('/'), '[silent]');
+			}
+		},
 	},
 	frz: {
 		name: 'frz',
