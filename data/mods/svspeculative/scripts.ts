@@ -69,7 +69,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		let teraSpecies = this.battle.dex.deepClone(rawSpecies);
 		teraSpecies.types = [this.hpType || "Normal"];
 
-		const species = this.m.terastal ? this.setSpecies(teraSpecies, source) || this.setSpecies(rawSpecies, source);
+		const species = this.m.terastal ? this.setSpecies(teraSpecies, source) : this.setSpecies(rawSpecies, source);
 		if (!species) return false;
 
 		if (this.battle.gen <= 2) return true;
