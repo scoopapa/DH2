@@ -68,7 +68,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let baseForm = this.battle.dex.getSpecies(speciesId);
 			let teraSpecies = null;
 			if (this.species.teraType) {
-				teraSpecies = this.dex.deepClone(baseForm);
+				teraSpecies = this.battle.dex.deepClone(baseForm);
 				teraSpecies.teraType = this.species.teraType;
 				teraSpecies.types = [teraSpecies.teraType];
 				teraSpecies.teraBoost = this.species.teraBoost;
