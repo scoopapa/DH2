@@ -61,15 +61,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		pokemon.draggedIn = null;
 		return true;
 	},
-	formeChange( // just modded for presentational reasons...
+	formeChange( // modded for Terastal
 		speciesId: string | Species, source: Effect = this.battle.effect,
 		isPermanent?: boolean, message?: string
 	) {
 		const rawSpecies = this.battle.dex.getSpecies(speciesId);
-		let teraSpecies = this.battle.dex.deepClone(rawSpecies);
+		let teraSpecies = this.battle.dex.deepClone(this.battle.dex.getSpecies(speciesId));
 		teraSpecies.types = [this.hpType || "Normal"];
 
-		const species = this.m.terastal ? this.setSpecies(teraSpecies, source) : this.setSpecies(rawSpecies, source);
+		const species = this.volatiles['terastal'] ? this.setSpecies(teraSpecies, source) : this.setSpecies(rawSpecies, source);
 		if (!species) return false;
 
 		if (this.battle.gen <= 2) return true;
