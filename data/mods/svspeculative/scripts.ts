@@ -119,7 +119,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 	// Legends stuff + future speculative Fakemon
 
-	init: {
+	init() {
 		for (const id in this.dataCache.Pokedex) {
 			if (this.modData('FormatsData', id)) {
 				if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
