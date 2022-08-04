@@ -58,40 +58,35 @@ export const Scripts: ModdedBattleScriptsData = {
 		pokemon.draggedIn = null;
 		return true;
 	},
-	formeChange( // modded for Terastal
+
+	pokemon: {
+		formeChange( // modded for Terastal
 		speciesId: string | Species, source: Effect = this.battle.effect,
-		isPermanent?: boolean, message?: string
-	) {
-		console.log("this: " + this);
-		console.log("species: " + this.species);
-		console.log("type: " + this.species.type);
-		if (this.species.teraType) console.log("teraType: " + this.species.teraType);
-		let baseForm = this.battle.dex.getSpecies(speciesId);
-		let teraSpecies = null;
-		if (this.species.teraType) {
-			teraSpecies = this.dex.deepClone(baseForm);
-			teraSpecies.teraType = this.species.teraType;
-			teraSpecies.types = [teraSpecies.teraType];
-			teraSpecies.teraBoost = this.species.teraBoost;
-		}
-		console.log("teraSpecies: " + teraSpecies);
-		const rawSpecies = teraSpecies || baseForm;
-		console.log("rawSpecies: " + rawSpecies);
-		const species = this.setSpecies(rawSpecies, source);
-		console.log("species: " + species);
-		if (!species) return false;
+		 isPermanent?: boolean, message?: string
+		) {
+			if (this.species.teraType) console.log("teraType: " + this.species.teraType);
+			let baseForm = this.battle.dex.getSpecies(speciesId);
+			let teraSpecies = null;
+			if (this.species.teraType) {
+				teraSpecies = this.dex.deepClone(baseForm);
+				teraSpecies.teraType = this.species.teraType;
+				teraSpecies.types = [teraSpecies.teraType];
+				teraSpecies.teraBoost = this.species.teraBoost;
+			}
+			const rawSpecies = teraSpecies || baseForm;
+			const species = this.setSpecies(rawSpecies, source);
+			if (!species) return false;
 
-		if (this.battle.gen <= 2) return true;
+			if (this.battle.gen <= 2) return true;
 
-		// The species the opponent sees
-		const apparentSpecies =
-			this.illusion ? this.illusion.species.name : species.baseSpecies;
-		if (isPermanent) {
-			this.baseSpecies = rawSpecies;
-			this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
-				(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
-			this.battle.add('detailschange', this, (this.illusion || this).details);
-			if (source && source !== "Terastal") {
+			// The species the opponent sees
+			const apparentSpecies =
+					this.illusion ? this.illusion.species.name : species.baseSpecies;
+			if (isPermanent) {
+				this.baseSpecies = rawSpecies;
+				this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
+					(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
+				this.battle.add('detailschange', this, (this.illusion || this).details);
 				if (source.effectType === 'Item') {
 					if (source.zMove) {
 						this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
@@ -118,16 +113,17 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
 				}
 			}
-		}
-		if (isPermanent && !['disguise', 'iceface'].includes(source.id)) {
-			if (this.illusion) {
-				this.ability = ''; // Don't allow Illusion to wear off
+			
+			if (isPermanent && !['disguise', 'iceface'].includes(source.id)) {
+				if (this.illusion) {
+					this.ability = ''; // Don't allow Illusion to wear off
+				}
+				this.setAbility(species.abilities['0'], null, true);
+				this.baseAbility = this.ability;
 			}
-			this.setAbility(species.abilities['0'], null, true);
-			this.baseAbility = this.ability;
+			if (teraSpecies) this.battle.add('-start', this, 'typechange', this.types.join('/'), '[silent]');
+			return true;
 		}
-		if (teraSpecies) this.battle.add('-start', this, 'typechange', this.types.join('/'), '[silent]');
-		return true;
 	},
 
 	// Legends stuff + future speculative Fakemon
