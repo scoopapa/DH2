@@ -30,7 +30,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.add('-anim', pokemon, "Cosmic Power", pokemon);
 		this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		this.add('-message', `${pokemon.name} Terastallized to become ${species.types[0]}-type!`);
-		pokemon.m.terastal = true;
+		pokemon.m.terastal = pokemon.canMegaEvo;
 		pokemon.m.teraboost = teraboost;
 		pokemon.addVolatile('terastal');
 
@@ -116,8 +116,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.baseAbility = this.ability;
 		}
 		if (this.m.terastal) {
-			this.setType(this.hpType);
-			this.add('-start', this, 'typechange', this.types.join('/'), '[silent]');
+			this.setType(this.m.terastal);
+			this.battle.add('-start', this, 'typechange', this.types.join('/'), '[silent]');
 		}
 		return true;
 	},
