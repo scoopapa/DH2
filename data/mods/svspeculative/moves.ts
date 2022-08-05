@@ -716,8 +716,37 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	defibrillator: {
+
+	// SV leaks
+
+	teraprism: { // placeholder name
 		num: -1024,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		desc: "This move's type depends on the user's primary type. If the user's primary type is typeless, this move's type is the user's secondary type if it has one, otherwise the added type from Forest's Curse or Trick-or-Treat. This move is typeless if the user's type is typeless alone. Additionally, this move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes.",
+		shortDesc: "In Terastal, type matches Tera Type; phys if Atk > SpA.",
+		name: "Tera Prism",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.teraType) move.type = pokemon.species.teraType;
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Power", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	defibrillator: {
+		num: -1025,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",

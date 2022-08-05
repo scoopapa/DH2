@@ -114,6 +114,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			
+			if (source === "Terastal") return true;
 			if (isPermanent && !['disguise', 'iceface'].includes(source.id)) {
 				if (this.illusion) {
 					this.ability = ''; // Don't allow Illusion to wear off
@@ -130,6 +131,9 @@ export const Scripts: ModdedBattleScriptsData = {
 
 	init() {
 		for (const id in this.dataCache.Pokedex) {
+			if (this.modData('Learnsets', this.toID(id)) && this.modData('Learnsets', this.toID(id)).learnset) {
+				this.modData('Learnsets', this.toID(id)).learnset.teraprism = ["8M"];
+			}
 			if (this.modData('FormatsData', id)) {
 				if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
 			}
