@@ -3931,6 +3931,46 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] Wild'mons",
+		desc: `<b>Wildmons</b>.`,
+		mod: 'wildmons',
+		teambuilderFormat: "National Dex",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Data Mod',],
+		banlist: [
+				//Abilities
+				'Arena Trap', 'Drizzle', 'Moody', 'Shadow Tag',
+				
+				//Items
+				'Abomasite', 'Absolite', 'Adamant Orb', 'Aerodactylite', 'Aggronite', 'Alakazite', 'Altarianite', 'Ampharosite', 
+				'Audinite', 'Banettite', 'Beedrillite', 'Blastoisinite', 'Blazikenite', 'Blue Orb', 'Cameruptite', 'Charizardite X', 
+				'Charizardite Y', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Griseous Orb', 'Gyaradosite', 'Heracronite', 
+				'Houndoominite', 'Kangaskhanite', 'Latiasite', 'Latiosite', 'Lopunnite', 'Lucarionite', 'Lustrous Orb', 'Manectite', 
+				'Mawilite', 'Medichamite', 'Metagrossite', 'Mewtwonite X', 'Mewtwonite Y', 'Pidgeotite', 'Pinsirite', 'Sablenite', 
+				'Salamencite', 'Sceptilite', 'Scizorite', 'Sharpedonite', 'Slowbronite', ' Soul Dew', 'Steelixite', 'Swampertite', 
+				'Tyranitarite', 'Venusaurite', 'Bright Powder', 'King\'s Rock', 'Red Orb',
+				
+				'Assault Vest', 'Choice Band', 'Choice Scarf', 'Choice Specs', 'Eviolite', 'Expert Belt', 'Focus Sash', 'Life Orb',
+				'Rocky Helmet', 'Absorb Bulb', 'Adrenaline Orb', 'Air Balloon', 'Black Sludge', 'Blunder Policy',
+				'Cell Battery', 'Damp Rock', 'Eject Button', 'Eject Pack', 'Electric Seed', 'Flame Orb', 'Full Incense', 'Grassy Seed',
+				'Grip Claw', 'Heat Rock', 'Icy Rock', 'Lagging Tail', 'Lax Incense', 'Light Clay', 'Luminous Moss',
+				'item:Metronome', 'Misty Seed', 'Muscle Band', 'Normal Gem', 'Odd Incense', 'Protective Pads', 'Quick Claw', 'Razor Claw',
+				'Red Card', 'Rock Incense', 'Room Service', 'Rose Incense', 'Safety Goggles', 'Scope Lens', 'Sea Incense', 'Shed Shell',
+				'Shell Bell', 'Smooth Rock', 'Snowball', 'Sticky Barb', 'Terrain Extender', 'Throat Spray', 'Toxic Orb', 'Utility Umbrella',
+				'Wave Incense', 'Weakness Policy', 'Wide Lens', 'Wise Glasses', 'Zoom Lens',
+
+				'Heavy-Duty Boots',
+
+				'Big Root', 'Binding Band', 'Destiny Knot', 'Float Stone', 'Focus Band', 'Iron Ball', 'Macho Brace', 'Power Anklet',
+				'Power Band', 'Power Belt', 'Power Bracer', 'Power Lens', 'Power Weight', 'Ring Target',
+
+				//Moves
+				'Baton Pass',
+				
+				//Pokemon
+				'AG',
+		],
+	},
+	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
 		desc: [
 			"Yoshiblaze's Greatest Hits",
