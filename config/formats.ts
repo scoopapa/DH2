@@ -685,6 +685,7 @@ export const Formats: FormatList = [
 						'Nature\'s Madness', 'Fake Tears', 'Gear Up',
 						'Steelix', 'Spiritomb', 'Swablu', 'Altaria',
 						'Fleur Cannon', 'Taunt', 'Heavy Slam',
+						'Yveltal', 'Skarmory', 'Tapu Koko',
 					  ],
     },
    {
