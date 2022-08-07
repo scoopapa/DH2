@@ -243,4 +243,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Duomod",
 		doublesTier: "DOUomod",
 	},
+	steroach: {
+		randomBattleMoves: ["swordsdance", "poisonjab", "knockoff", "leechlife"],
+		randomBattleLevel: 100,
+		tier: "Duomod",
+		doublesTier: "DOUomod",
+	},
 };
