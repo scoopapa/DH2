@@ -449,4 +449,15 @@ sharmpedo: {
 	weightkg: 5,
 	eggGroups: ["Undiscovered"],
 },
+steroach: {
+	num: 105.5,
+	species: "Steroach",
+	types: ["Bug", "Poison"],
+	gender: "N",
+	baseStats: {hp: 98, atk: 119, def: 111, spa: 47, spd: 89, spe: 71},
+	abilities: {0: "Guts"},
+	heightm: 1,
+	weightkg: 5,
+	eggGroups: ["Undiscovered"],
+},
 };
