@@ -3451,6 +3451,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["8L1"],
 			hyperbeam: ["8L1"],
 			gigaimpact: ["8L1"],
+			swordsdance: ["8L1"],
+			accelerock: ["8L1"],
 		},
 	},
 	vanillitepatratdex: {
