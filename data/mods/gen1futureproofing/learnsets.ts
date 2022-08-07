@@ -613,6 +613,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["1L1"],
 			taunt: ["1L1"],
 			withdraw: ["1L1"],
+			heavyslam: ["1L1"],
 		},
 	},
 };
