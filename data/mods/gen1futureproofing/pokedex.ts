@@ -233,7 +233,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Yveltal",
 		types: ["Poison", "Flying"],
 		gender: "N",
-		baseStats: {hp: 126, atk: 131, def: 95, spa: 131, spd: 131, spe: 99},
+		baseStats: {hp: 126, atk: 131, def: 99, spa: 131, spd: 131, spe: 99},
 		abilities: {},
 		heightm: 5.8,
 		weightkg: 203,
