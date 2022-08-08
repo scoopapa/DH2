@@ -24,7 +24,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	charizardmegay: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	squirtle: {
 		tier: "LC",
@@ -1437,16 +1437,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	latias: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	latiasmega: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	latios: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	latiosmega: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	kyogre: {
 		tier: "Uber",
@@ -1476,10 +1476,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	deoxysdefense: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	deoxysspeed: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	turtwig: {
 		tier: "LC",
@@ -2406,10 +2406,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	landorus: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	landorustherian: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	kyurem: {
 		tier: "Uber",
@@ -2475,7 +2475,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	greninjaash: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	bunnelby: {
 		tier: "LC",
@@ -3039,7 +3039,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	solgaleo: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	lunala: {
 		tier: "Uber",
@@ -3051,7 +3051,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	pheromosa: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	xurkitree: {
 		tier: "OU",
@@ -3078,7 +3078,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	magearna: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	magearnaoriginal: {
 		tier: "Uber",
@@ -3090,7 +3090,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	naganadel: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	stakataka: {
 		tier: "OU",
@@ -3123,7 +3123,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	cinderace: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	sobble: {
 		tier: "LC",
@@ -3351,7 +3351,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	dracovish: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	arctovish: {
 		tier: "OU",
@@ -3390,7 +3390,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	urshifu: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	urshifurapidstrike: {
 		tier: "OU",
@@ -3414,7 +3414,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	spectrier: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	calyrex: {
 		tier: "OU",
