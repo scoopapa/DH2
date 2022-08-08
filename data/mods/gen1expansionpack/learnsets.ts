@@ -444,7 +444,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["1M"],
 			thunder: ["1M"],
 			dig: ["1M"],
-			fireblast: ["1M"],
 			swift: ["1M"],
 			skullbash: ["1M"],
 			rockslide: ["1M"],
@@ -703,10 +702,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			smokescreen: ["1L1"],
 			bubble: ["1L8"],
 			wrap: ["1L13"],
-			poisongas: ["1L19"],
+			fairywind: ["1L19"],
 			hypnosis: ["1L23"],
 			supersonic: ["1L27"],
-			smog: ["1L39"],
+			dazzlinggleam: ["1L39"],
 			haze: ["1L43"],
 			hydropump: ["1L50"],
 			takedown: ["1M"],
@@ -726,6 +725,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bide: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
+			
+			poisongas: ["2L19"],
+			smog: ["2L39"],
 		},
 		encounters: [
 			{generation: 1, level: 5},
@@ -737,10 +739,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			smokescreen: ["1L1"],
 			bubble: ["1L8"],
 			wrap: ["1L13"],
-			poisongas: ["1L19"],
+			fairywind: ["2L19"],
 			hypnosis: ["1L23"],
 			supersonic: ["1L27"],
-			smog: ["1L39"],
+			dazzlinggleam: ["1L39"],
 			haze: ["1L43"],
 			hydropump: ["1L50"],
 			takedown: ["1M"],
@@ -765,6 +767,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bide: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
+			
+			poisongas: ["2L19"],
+			smog: ["2L39"],
 		},
 	},
 	deer: {
@@ -2151,6 +2156,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			flash: ["1M"],
 			
 			defensecurl: ["1L45"],
+			nastyplot: ["1L46"],
 		},
 	},
 	espeon: {

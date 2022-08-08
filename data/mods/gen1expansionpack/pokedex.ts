@@ -110,7 +110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1164,
 		name: "Crythian",
 		types: ["Water", "Dragon"],
-		baseStats: {hp: 102, atk: 83, def: 76, spa: 121, spd: 121, spe: 118},
+		baseStats: {hp: 92, atk: 83, def: 76, spa: 101, spd: 101, spe: 118},
 		abilities: {},
 		prevo: "Bawligua",
 		evoLevel: 50,
@@ -166,7 +166,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	blottle: {
 		num: 1171,
 		name: "Blottle",
-		types: ["Water"],
+		types: ["Water", "Fairy"],
 		baseStats: {hp: 60, atk: 35, def: 60, spa: 65, spd: 65, spe: 50},
 		abilities: {},
 		evos: ["Pendraken"],
@@ -174,7 +174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pendraken: {
 		num: 1172,
 		name: "Pendraken",
-		types: ["Water"],
+		types: ["Water", "Fairy"],
 		baseStats: {hp: 80, atk: 60, def: 85, spa: 95, spd: 95, spe: 90},
 		abilities: {},
 		prevo: "Blottle",
