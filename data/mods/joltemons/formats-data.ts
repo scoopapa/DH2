@@ -1768,7 +1768,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	metagrossmega: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["meteormash", "thunderpunch", "icepunch", "earthquake"],
 	},
