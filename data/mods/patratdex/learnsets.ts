@@ -2444,6 +2444,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["8L1"],
 			trickortreat: ["8L1"],
 			wonderroom: ["8L1"],
+			rest: ["8L1"],
+			sleeptalk: ["8L1"],
+			snore: ["8L1"],
+			sunnyday: ["8L1"],
 		},
 	},
 	commaery: {
@@ -2498,6 +2502,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			trickortreat: ["8L1"],
 			wonderroom: ["8L1"],
 			woodhammer: ["8L1"],
+			rest: ["8L1"],
+			sleeptalk: ["8L1"],
+			snore: ["8L1"],
+			sunnyday: ["8L1"],
 		},
 	},
 	symbaery: {
@@ -2556,6 +2564,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			gigaimpact: ["8L1"],
 			tropkick: ["8L1"],
 			hypervoice: ["8L1"],
+			rest: ["8L1"],
+			sleeptalk: ["8L1"],
+			snore: ["8L1"],
+			sunnyday: ["8L1"],
 		},
 	},
 	temperpup: {
