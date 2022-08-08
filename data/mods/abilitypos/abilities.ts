@@ -186,6 +186,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Cleft Body",
+		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Ground moves; Ground immunity. Absorbs Stealth Rock on switch in.",
 		rating: 3.5,
 		num: 11,
 	},
@@ -208,7 +209,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	feeler: {
 		desc: "On switch-in, this Pokémon's Defense or Special Defense is raised by 1 stage based on the weaker combined attacking stat of all opposing Pokémon. Special Defense is raised if their Special Attack is higher, and Defense is raised if their Attack is the same or higher.",
-		shortDesc: "On switch-in, Defense or Sp. Def is raised 1 stage based on the foes' weaker Attack.",
+		shortDesc: "On switch-in, Def or Sp. Def is raised 1 stage based on the foes' higher Attack.",
 		onStart(pokemon) {
 			let totalatk = 0;
 			let totalspa = 0;
@@ -235,6 +236,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Jelly Armor",
 		rating: 3,
+		shortDesc: "This Pokemon takes 3/4 damage from physical attacks.",
 		num: 111,
 	},
 	trickyrat: {
@@ -244,6 +246,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Tricky Rat",
 		rating: 2.5,
+		shortDesc: "This Pokemon's moves break protection and ignore substitutes and foe's Reflect/Light Screen/Safeguard/Mist/Aurora Veil.",
 		num: 151,
 	},
 };
