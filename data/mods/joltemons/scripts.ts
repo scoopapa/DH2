@@ -150,6 +150,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			  return true;
         }
     },
+/*
 		modifyDamage(
 			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 		) {
@@ -230,6 +231,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
+*/
 	getDamage(
 		pokemon: Pokemon, target: Pokemon, move: string | number | ActiveMove,
 		suppressMessages = false
