@@ -46,4 +46,29 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Liquid Ooze"},
 		weightkg: 81,
 	},
+	follygaster: {
+		num: 1007,
+		name: "Follygaster",
+		types: ["Normal"],
+		baseStats: {hp: 90, atk: 115, def: 100, spa: 90, spd: 70, spe: 55},
+		abilities: {0: "Sheer Force", 1: "Stamina", H: "Stench"},
+		weightkg: 126,
+	},
+	sequoither: {
+		num: 1008,
+		name: "Sequoither",
+		types: ["Ghost", "Grass"],
+		baseStats: {hp: 130, atk: 70, def: 50, spa: 100, spd: 80, spe: 60},
+		abilities: {0: "Ripen", 1: "Insomnia", H: "Triage"},
+		weightkg: 361.2,
+	},
+	souruffowz: {
+		num: 1009,
+		name: "Souruffowz",
+		types: ["Grass", "Fighting"],
+		baseStats: {hp: 70, atk: 60, def: 85, spa: 100, spd: 110, spe: 80},
+		abilities: {0: "Static", H: "Transistor"},
+		weightkg: 150,
+	},
+
 };

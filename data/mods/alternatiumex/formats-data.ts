@@ -191,4 +191,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	persianbandit: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	persianomen: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	meowsticuntethered: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	meowstictwotales: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };

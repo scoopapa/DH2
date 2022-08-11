@@ -316,4 +316,29 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: -11,
 	},
+	grounding: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Grounding');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Ground' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectData.target !== target) {
+					this.add('-activate', this.effectData.target, 'ability: Grounding');
+				}
+				return this.effectData.target;
+			}
+		},
+		name: "Grounding",
+		shortDesc: "This Pokemon draws Ground moves to itself to raise Sp. Atk by 1; Ground immunity.",
+		rating: 3,
+		num: -12,
+	},
 };
