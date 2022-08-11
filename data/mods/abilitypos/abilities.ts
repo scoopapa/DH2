@@ -205,6 +205,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Simmer Focus",
 		rating: 4,
+		shortDesc: "This Pokemon’s damaging moves have -3 Priority, if it isnt hit by a damaging move before it attacks, its attack does 1.5x damage.",							
 		num: 158,
 	},
 	feeler: {
