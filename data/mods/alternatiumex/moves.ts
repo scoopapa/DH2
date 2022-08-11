@@ -581,7 +581,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onHit(source, target) {
+		onAfterMove(source, target) {
 			if (target.newlySwitched || this.queue.willMove(target)) {
 				this.damage(target.baseMaxhp / 8, target, source, this.dex.getEffect('Pay Day'));
 			}
