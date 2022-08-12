@@ -157,7 +157,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "stunfisk").learnset.recover = ["8L1"];
 		this.modData("Learnsets", "stunfisk").learnset.voltswitch = ["8L1"];
 		this.modData("Learnsets", "stunfisk").learnset.rapidspin = ["8L1"];
-
+		
+		delete this.modData('Learnsets', 'espurr').learnset.shadowball;
 	},
 	
 	pokemon: {

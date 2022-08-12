@@ -571,4 +571,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Grass",
 	},
+	payday: {
+		num: 6,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "If user moves before the target, the target looses 1/8 of its max HP.",
+		name: "Pay Day",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onAfterMove(source, target) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.damage(target.baseMaxhp / 8, target, source, this.dex.getEffect('Pay Day'));
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
 };

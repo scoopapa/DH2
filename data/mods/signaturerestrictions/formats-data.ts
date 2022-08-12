@@ -17,4 +17,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	spirachain: {
 		tier: "SigRes",
 	},
+	follygaster: {
+		tier: "SigRes",
+	},
+	sequoither: {
+		tier: "SigRes",
+	},
+	souruffowz: {
+		tier: "SigRes",
+	},
 };
