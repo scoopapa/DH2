@@ -24,7 +24,7 @@ export const Formats: {[k: string]: FormatData} = {
 
 		this.add('-message', "Time for the Roulette Wheel!");
 		
-		result = this.random(48);
+		result = this.random(45);
 		if (result === 0) {
 			this.hint("Roulette Wheel Result 1 - Fully heal every active Pokemon.");
 	            for (const pokemon of this.getAllActive()) {
@@ -683,8 +683,7 @@ export const Formats: {[k: string]: FormatData} = {
 		}			
 			
 		else if (result === 46) {
-			result = 48;
-/*			this.hint("Roulette Wheel Result 47 - sussie");
+			this.hint("Roulette Wheel Result 47 - sussie");
 			if (pickSide === 0) {
 				for (const target of this.sides[0].pokemon) {
 				if (target.isActive) {
@@ -700,7 +699,7 @@ export const Formats: {[k: string]: FormatData} = {
 					return false;
 					}
 				}
-			} */
+			} 
 		}	
 			
 		else if (result === 47) {
