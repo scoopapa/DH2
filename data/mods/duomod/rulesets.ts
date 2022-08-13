@@ -24,7 +24,7 @@ export const Formats: {[k: string]: FormatData} = {
 
 		this.add('-message', "Time for the Roulette Wheel!");
 		
-		result = this.random(50);
+		result = this.random(48);
 		if (result === 0) {
 			this.hint("Roulette Wheel Result 1 - Fully heal every active Pokemon.");
 	            for (const pokemon of this.getAllActive()) {
@@ -683,7 +683,8 @@ export const Formats: {[k: string]: FormatData} = {
 		}			
 			
 		else if (result === 46) {
-			this.hint("Roulette Wheel Result 47 - sussie");
+			result = 48;
+/*			this.hint("Roulette Wheel Result 47 - sussie");
 			if (pickSide === 0) {
 				for (const target of this.sides[0].pokemon) {
 				if (target.isActive) {
@@ -699,7 +700,7 @@ export const Formats: {[k: string]: FormatData} = {
 					return false;
 					}
 				}
-			}
+			} */
 		}	
 			
 		else if (result === 47) {
@@ -742,7 +743,7 @@ export const Formats: {[k: string]: FormatData} = {
 			this.add('-message', "He's smart, funny, a gamer, handsome, and the best Mewtwo main in South Carolina Smash!");
 			this.add('-message', "With 4 hours of content right now and more to come, your boredom will soar off into space!");
 			this.add('-message', "Plus, as a special promotional bonus, if you subscribe now, you'll get to say you knew him before it was cool!");
-			this.add('-message', "Head on over to DuoM2's YouTube channel for the time of your life! Linked down below!");
+			this.add('-message', "Subscribe to DuoM2's YouTube channel for the time of your life! Linked down below!");
 			this.add('-message', "https://www.youtube.com/channel/UCvVihnVokWwZ4NpeMsBk48A/");
 			this.add('-message', "https://www.youtube.com/channel/UCvVihnVokWwZ4NpeMsBk48A/");
 			this.add('-message', "https://www.youtube.com/channel/UCvVihnVokWwZ4NpeMsBk48A/");
