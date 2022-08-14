@@ -3845,7 +3845,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["recover", "acidicfists", "mudspike", "curse"],
 	},
 	mukalola: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["knockoff", "recover", "acidicfists", "pursuit"],
 	},
