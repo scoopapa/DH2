@@ -223,28 +223,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-start', source, 'typechange', source.types.join('/'), '[from] move: Conversion', '[of] ' + target);
 		},
 	},
-	counter: {
-		inherit: true,
-		desc: "Deals damage to the opposing Pokemon equal to twice the damage dealt by the last move used in the battle. This move ignores type immunity. Fails if the user moves first, or if the opposing side's last move was Counter, had 0 power, or was not Normal or Fighting type. Fails if the last move used by either side did 0 damage and was not Confuse Ray, Conversion, Focus Energy, Glare, Haze, Leech Seed, Light Screen, Mimic, Mist, Poison Gas, Poison Powder, Recover, Reflect, Rest, Soft-Boiled, Splash, Stun Spore, Substitute, Supersonic, Teleport, Thunder Wave, Toxic, or Transform.",
-		ignoreImmunity: true,
-		willCrit: false,
-		damageCallback(pokemon, target) {
-			// Counter mechanics on gen 1 might be hard to understand.
-			// It will fail if the last move selected by the opponent has base power 0 or is not Normal or Fighting Type.
-			// If both are true, counter will deal twice the last damage dealt in battle, no matter what was the move.
-			// That means that, if opponent switches, counter will use last counter damage * 2.
-			const lastUsedMove = target.side.lastMove && this.dex.getMove(target.side.lastMove.id);
-			if (
-				lastUsedMove && lastUsedMove.basePower > 0 && ['Normal', 'Fighting'].includes(lastUsedMove.type) &&
-				this.lastDamage > 0 && !this.queue.willMove(target)
-			) {
-				return 2 * this.lastDamage;
-			}
-			this.debug("Gen 1 Counter failed due to conditions not met");
-			this.add('-fail', pokemon);
-			return false;
-		},
-	},
 	crabhammer: {
 		inherit: true,
 		category: "Special",
