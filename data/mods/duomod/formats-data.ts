@@ -1,12 +1,12 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	abysseil: {
-		randomBattleMoves: ["flipturn", "scald", "recover", "watershield", "haze"],
+		randomBattleMoves: ["flipturn", "scald", "moonblast", "hydropump"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
 	},
 	annelait: {
-		randomBattleMoves: ["scorchingsands", "recover", "spinningweb", "flipturn", "rancidrush", "watershield"],
+		randomBattleMoves: ["scorchingsands", "recover", "spinningweb", "flipturn"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -18,13 +18,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	baloon: {
-		randomBattleMoves: ["playrough", "substitute", "protect", "healorder", "roulettespin"],
+		randomBattleMoves: ["playrough", "substitute", "protect", "healorder"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
 	},
 	baloonpopped: {
-		randomBattleMoves: ["darkpulse", "moonblast", "dirtyscheme", "healorder", "firepunch"],
+		randomBattleMoves: ["darkestlariat", "playrough", "drumbeating", "healorder", "firepunch"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -48,7 +48,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	deliriophage: {
-		randomBattleMoves: ["knockoff", "recover", "rancidrush", "injection"],
+		randomBattleMoves: ["knockoff", "recover", "toxic", "stealthelectric"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -66,7 +66,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	draxplosion: {
-		randomBattleMoves: ["flareblitz", "flamerunner", "uturn", "destructiveblow", "dragonclaw"],
+		randomBattleMoves: ["flareblitz", "uturn", "destructiveblow", "dragonclaw"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -84,7 +84,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	fluxtaperadio: {
-		randomBattleMoves: ["lavaplume", "recover", "voltswitch", "snarl", "toxic"],
+		randomBattleMoves: ["lavaplume", "recover", "voltswitch", "toxic", "defog"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -96,19 +96,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	gorilax: {
-		randomBattleMoves: ["blueflare", "moonblast", "rancidrush", "shoreup", "sludgebomb", "earthpower"],
+		randomBattleMoves: ["blueflare", "moonblast", "shoreup", "sludgebomb", "earthpower"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
 	},
 	grievenge: {
-		randomBattleMoves: ["knockoff", "flamerunner", "dustknuckles", "destructiveblow"],
+		randomBattleMoves: ["knockoff", "flamerunner", "drillrun", "destructiveblow"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
 	},
 	hyperoach: {
-		randomBattleMoves: ["nastyplot", "darkpulse", "earthpower", "thunderbolt", "mindblown", "dirtyscheme"],
+		randomBattleMoves: ["nastyplot", "darkpulse", "earthpower", "thunderbolt", "mindblown", "bugbuzz"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -124,13 +124,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	lumineel: {
-		randomBattleMoves: ["voltswitch", "stealthelectric", "scald", "quadrupleaxel", "toxic", "watershield"],
+		randomBattleMoves: ["voltswitch", "stealthelectric", "scald", "toxic"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
 	},
 	modolith: {
-		randomBattleMoves: ["ironhead", "bulkup", "dragonclaw", "earthquake", "substitute", "flamerunner"],
+		randomBattleMoves: ["ironhead", "bulkup", "dragonclaw", "earthquake", "substitute"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -148,7 +148,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	pokat: {
-		randomBattleMoves: ["stupidcannon", "scorch", "toxic", "slackoff", "dewyflowers", "gigadrain"],
+		randomBattleMoves: ["willowisp", "toxic", "slackoff", "dewyflowers", "gigadrain"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -166,7 +166,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	spiroxripped: {
-		randomBattleMoves: ["darkpulse", "substitute", "protect", "vibrantlight"],
+		randomBattleMoves: ["darkpulse", "substitute", "recover", "calmmind"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",
@@ -196,13 +196,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOUomod",
 	},
 	pterrost: {
-		randomBattleMoves: ["dracometeor", "earthpower", "roost", "uturn", "defog"],
+		randomBattleMoves: ["dragonpulse", "earthpower", "flamethrower", "roost", "uturn", "defog"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "DOUomod",
 	},
 	jewelode: {
-		randomBattleMoves: ["earthpower", "moonblast", "defog", "uturn", "energyball", "watershield"],
+		randomBattleMoves: ["earthpower", "moonblast", "defog", "uturn"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "DOUomod",
@@ -238,7 +238,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOUomod",
 	},
 	sharmpedo: {
-		randomBattleMoves: ["flipturn", "liquidation", "dragonhammer", "thousandwaves", "scaleshot", "ironhead", "leechlife"],
+		randomBattleMoves: ["flipturn", "liquidation", "dragonhammer", "thousandwaves"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "DOUomod",
