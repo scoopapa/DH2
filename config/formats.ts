@@ -3531,6 +3531,16 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Arena Trap', 'Baton Pass', 'Sand Veil', 'Snow Cloak'],
 	},
 	{
+		name: "[Gen 1] Modern Gen 1",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9250110">Post in Solomods Megathread</a>`,
+		],
+		mod: 'gen1moderngen1',
+		ruleset: ['Standard Natdex', '!Obtainable', 'Sleep Moves Clause', 'Evasion Moves Clause', 'OHKO Clause', 'Species Clause', '!Team Preview'],
+		banlist: ['All Abilities', 'Bind', 'Clamp', 'Fire Spin', 'Infestation', 'Magma Storm', 'Sand Tomb', 'Snap Trap', 'Thunder Cage', 'Whirlpool', 'Wrap', 'Spikes', 'Toxic Spikes', 'Stealth Rock', 'Sticky Web', 'Fake Out', 'Wonder Room', 'Trick Room', 'Magic Room', 'Lucky Chant', 'Tailwind', 'Safeguard', 'Gravity', 'Mew', 'Inteleon', 'Regigigas', 'Regieleki', 'Slaking', 'Kyurem', 'Omastar', 'Cloyster', 'Gorebyss', 'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys', 'Deoxys-Attack', 'Deoxys-Speed', 'Dialga', 'Eternatus', 'Genesect', 'Giratina', 'Groudon', 'Ho-oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-Dusk-Mane', 'Necrozma-Dawn-Wings', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Solgaleo', 'Xerneas', 'Zacian', 'Zamazenta', 'Zekrom', 'Dragapult', 'Zygarde'],
+		unbanlist: ['No Ability'],
+	},
+	{
 		name: "[Gen 1] Kanto Expansion Pak OU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9233581">Post in Solomods Megathread</a>`,
