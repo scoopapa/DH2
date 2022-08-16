@@ -44,7 +44,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 		gen: 1,
 	},
-	croakazuna: {
+	croakozuna: {
 		tier: "New",
 		gen: 1,
 	},

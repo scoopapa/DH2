@@ -324,7 +324,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	croakazuna: {
+	croakozuna: {
 		learnset: {
 			doubleteam: ["1L1", "1M"],
 			tailwhip: ["1L1"],

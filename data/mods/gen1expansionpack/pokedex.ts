@@ -79,11 +79,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 94, atk: 55, def: 50, spa: 55, spd: 55, spe: 40},
 		abilities: {},
-		evos: ["Croakazuna"],
+		evos: ["Croakozuna"],
 	},
-	croakazuna: {
+	croakozuna: {
 		num: 1161,
-		name: "Croakazuna",
+		name: "Croakozuna",
 		types: ["Water", "Dark"],
 		baseStats: {hp: 134, atk: 75, def: 70, spa: 75, spd: 75, spe: 60},
 		abilities: {},
