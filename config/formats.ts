@@ -686,6 +686,7 @@ export const Formats: FormatList = [
 						'Steelix', 'Spiritomb', 'Swablu', 'Altaria',
 						'Fleur Cannon', 'Taunt', 'Heavy Slam',
 						'Yveltal', 'Skarmory', 'Tapu Koko',
+						'Lash Out', 'Crafty Shield', 'Sunsteel Strike',
 					  ],
     },
    {
