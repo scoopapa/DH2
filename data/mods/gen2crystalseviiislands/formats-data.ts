@@ -44,10 +44,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	oatu: {
 	gen: 2,
 	},
-	altocumulos: {
+	cumulos: {
 	gen: 2,
 	},
-	cumulos: {
+	altocumulos: {
 	gen: 2,
 	},
 };
