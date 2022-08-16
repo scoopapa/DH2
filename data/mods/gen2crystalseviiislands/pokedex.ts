@@ -141,6 +141,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 3.1,
 		weightkg: 136.1,
+		prevo: "Xatu",
 	},
 	lunaraknid: {
 		num: 267,
@@ -150,6 +151,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 1.4,
 		weightkg: 41.9,
+		prevo: "Ariados",
 	},
 	cumulos: {
 		num: 268,
@@ -159,6 +161,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 1.4,
 		weightkg: 55,
+		evos: ["Altocumulos"],
 	},
 	altocumulos: {
 		num: 269,
@@ -168,6 +171,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "No Ability"},
 		heightm: 3,
 		weightkg: 130,
+		prevo: "Cumulos",
 	},
 	
 	
