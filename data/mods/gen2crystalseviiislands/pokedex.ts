@@ -133,6 +133,42 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2.1,
 		weightkg: 175.8,
 	},
+	oatu: {
+		num: 266,
+		name: "Oatu",
+		types: ["Psychic", "Cosmic"],
+		baseStats: {hp: 85, atk: 85, def: 70, spa: 115, spd: 120, spe: 55},
+		abilities: {0: "No Ability"},
+		heightm: 3.1,
+		weightkg: 136.1,
+	},
+	lunaraknid: {
+		num: 267,
+		name: "Lunaraknid",
+		types: ["Bug", "Cosmic"],
+		baseStats: {hp: 80, atk: 90, def: 70, spa: 120, spd: 80, spe: 90},
+		abilities: {0: "No Ability"},
+		heightm: 1.4,
+		weightkg: 41.9,
+	},
+	cumulos: {
+		num: 268,
+		name: "Cumulos",
+		types: ["Dragon"],
+		baseStats: {hp: 65, atk: 55, def: 60, spa: 90, spd: 65, spe: 110},
+		abilities: {0: "No Ability"},
+		heightm: 1.4,
+		weightkg: 55,
+	},
+	altocumulos: {
+		num: 269,
+		name: "Altocumulos",
+		types: ["Dragon", "Cosmic"],
+		baseStats: {hp: 80, atk: 80, def: 75, spa: 100, spd: 110, spe: 55},
+		abilities: {0: "No Ability"},
+		heightm: 3,
+		weightkg: 130,
+	},
 	
 	
 // Vanilla Edits
