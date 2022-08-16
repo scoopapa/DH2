@@ -36,7 +36,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 		gen: 1,
 	},
-	zuduck: {
+	weirduck: {
 		tier: "NFE",
 		gen: 1,
 	},
@@ -48,7 +48,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "New",
 		gen: 1,
 	},
-	weepamid: {
+	skimper: {
 		tier: "LC",
 		gen: 1,
 	},
@@ -56,7 +56,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 		gen: 1,
 	},
-	crythian: {
+	cryithan: {
 		tier: "New",
 		gen: 1,
 	},

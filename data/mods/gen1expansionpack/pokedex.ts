@@ -63,9 +63,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evos: ["Magneton"],
 	},
-	zuduck: {
+	weirduck: {
 		num: 1159,
-		name: "Zuduck",
+		name: "Weirduck",
 		types: ["Water"],
 		baseStats: {hp: 65, atk: 67, def: 63, spa: 65, spd: 65, spe: 70},
 		abilities: {},
@@ -88,9 +88,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 134, atk: 75, def: 70, spa: 75, spd: 75, spe: 60},
 		abilities: {},
 	},
-	weepamid: {
+	skimper: {
 		num: 1162,
-		name: "Weepamid",
+		name: "Skimper",
 		types: ["Water"],
 		baseStats: {hp: 62, atk: 43, def: 36, spa: 71, spd: 71, spe: 88},
 		abilities: {},
@@ -102,13 +102,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 72, atk: 53, def: 46, spa: 81, spd: 81, spe: 98},
 		abilities: {},
-		prevo: "Weepamid",
+		prevo: "Skimper",
 		evoLevel: 30,
-		evos: ["Crythian"],
+		evos: ["Cryithan"],
 	},
-	crythian: {
+	cryithan: {
 		num: 1164,
-		name: "Crythian",
+		name: "Cryithan",
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 92, atk: 83, def: 76, spa: 101, spd: 101, spe: 118},
 		abilities: {},
@@ -851,7 +851,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	golduck: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 82, def: 78, spa: 80, spd: 80, spe: 85},
-		prevo: "Zuduck",
+		prevo: "Weirduck",
 		evoLevel: 41,
 	},
 	mankey: {

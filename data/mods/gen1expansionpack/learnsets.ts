@@ -242,7 +242,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 		},
 	},
-	zuduck: {
+	weirduck: {
 		learnset: {
 			scratch: ["1L1"],
 			tailwhip: ["1L1"],
@@ -362,7 +362,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 		},
 	},
-	weepamid: {
+	skimper: {
 		learnset: {
 			scratch: ["1L1"],
 			growl: ["1L1"],
@@ -427,7 +427,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 		},
 	},
-	crythian: {
+	cryithan: {
 		learnset: {
 			scratch: ["1L1"],
 			growl: ["1L1"],
