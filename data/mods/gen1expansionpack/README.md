@@ -37,7 +37,7 @@ Steel
 
 Credits
 ====
-* Plague von Karma / May - Director & Programmer
-* ausma - Programmer
-* Albatross - Sprites for Hitmontop, Tangrowth, Kleavor, Galarian Legendary Birds, and Hisuian formes
-* DuoM2 - Technical advice & assistance
+* [Plague von Karma / May](https://www.youtube.com/channel/UClX86_ilOzCCUBryPCFGiqA) - Director & Programmer
+* [ausma](https://ausma.carrd.co/) - Programmer
+* [Albatross](https://www.smogon.com/forums/threads/albatross-nest.3683217/) - Sprites for Hitmontop, Tangrowth, Kleavor, Galarian Legendary Birds, and Hisuian formes
+* [DuoM2](https://www.smogon.com/forums/members/duom2.364743/) - Technical advice & assistance
