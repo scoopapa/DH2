@@ -248,6 +248,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
+	//Slate 20: Dragon/Fighting, Ice/Dark, Steel/Fairy
+	tinkixie: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	galldrake: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	smiledon: {
+		tier: "ST",
+		doublesTier: "ST",
+	},
+	
 	
 	
 	//LC Slate 1

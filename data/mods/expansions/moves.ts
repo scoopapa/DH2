@@ -1,5 +1,4 @@
-export const Moves: {[moveid: string]: ModdedMoveData} = {
-	
+export const Moves: {[moveid: string]: ModdedMoveData} = {	
 	"gastroacid": {
 		inherit: true,
 		condition: {
@@ -10,6 +9,51 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (pokemon.m.innates) (pokemon.m.innates as string[]).forEach(innate => pokemon.removeVolatile("ability" + innate));
 			},
 		},
+	},
+	
+	taunt: {
+		num: 269,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Taunt",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
+		volatileStatus: 'taunt',
+		condition: {
+			duration: 3,
+			onStart(target) {
+				if (target.activeTurns && !this.queue.willMove(target)) {
+					this.effectData.duration++;
+				}
+				this.add('-start', target, 'move: Taunt');
+			},
+			onResidualOrder: 12,
+			onEnd(target) {
+				this.add('-end', target, 'move: Taunt');
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.getMove(moveSlot.id);
+					if (move.category === 'Status' && move.id !== 'mefirst' && move.id !== 'fifthmove') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+			onBeforeMovePriority: 5,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && !move.isMax && move.category === 'Status' && move.id !== 'mefirst') {
+					this.add('cant', attacker, 'move: Taunt', move);
+					return false;
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		zMove: {boost: {atk: 1}},
+		contestType: "Clever",
 	},
 	
 	fifthmove: {
@@ -65,6 +109,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (source.species.name === 'Lilyqueen' || source.species.name === 'lilyqueen') {
 				this.useMove("Tidal Force", source);
 			}
+			if (source.species.name === 'Gladiarbor' || source.species.name === 'gladiarbor') {
+				this.useMove("Old-Growth Strike", source);
+			}
+			if (source.species.name === 'Showmandril' || source.species.name === 'showmandril') {
+				this.useMove("Danger Stunt", source);
+			}
+			if (source.species.name === 'Animeleon' || source.species.name === 'animeleon') {
+				this.useMove("Corrosive Acid", source);
+			}
+			if (source.species.name === 'Equivalor' || source.species.name === 'equivalor') {
+				this.useMove("Transmutate", source);
+			}
 		},
 		target: "self",
 		type: "Normal",
@@ -108,7 +164,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			status: 'tox',
       boosts: {
         atk: -1,
-				def: -1,
+		  def: -1,
         spa: -1,
         spd: -1,
         spe: -1,
@@ -174,7 +230,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {mystery: 1},
 		onHit(target) {
-			this.add('-start', target, 'typechange', 'Ghost');
+			const type = ["Ghost", "Dark",];
+			target.setType(type);
+			this.add('-start', target, 'typechange', 'Ghost', '[from] move: Curse of the Moon');
 			this.add('-start', target, 'typeadd', 'Dark', '[from] move: Curse of the Moon');
 		},
     boosts: {
@@ -226,14 +284,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		num: 3007,
 		accuracy: 100,
 		basePower: 110,
-		category: "Status",
+		category: "Special",
 		name: "Duststorm Whip-Up",
 		pp: 1,
 		priority: 0,
-		flags: {protect: 1},
-		weather: 'Sandstorm',
+		flags: {protect: 1, mirror: 1},
+		weather: "Sandstorm",
 		secondary: null,
-		target: "all",
+		target: "normal",
 		type: "Ground",
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
@@ -303,7 +361,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		name: "Enforcer Punch",
 		pp: 1,
-		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, distance: 1, punch: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, distance: 1, punch: 1},
 		onEffectiveness(typeMod, target, type, move) {
 			return typeMod + this.dex.getEffectiveness('Fighting', type);
 		},
@@ -378,14 +436,30 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		basePowerCallback(pokemon, target, move) {
 			var hazards = 0;
-			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-			for (const condition of sideConditions) {
-				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Orbital Launch', '[of] ' + pokemon);
+			let success = false;
+			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
+			const removeTarget = [
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + pokemon);
+					success = true;
 					hazards = hazards + 5;
 				}
 			}
-			this.add('-message', hazards);
+			for (const sideCondition of removeAll) {
+				if (pokemon.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + pokemon);
+					success = true;
+					hazards = hazards + 5;
+				}
+			}
+			this.field.clearTerrain();
 			return move.basePower + hazards;
 		},
 		target: "normal",
@@ -404,9 +478,177 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		weather: 'RainDance',
 		secondary: null,
-		target: "all",
+		target: "normal",
 		type: "Water",
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
+	},
+	
+	oldgrowthstrike: {
+		num: 3015,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Old-Growth Strike",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		terrain: 'grassyterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				const weakenedMoves = ['earthquake', 'bulldoze', 'magnitude'];
+				if (weakenedMoves.includes(move.id)) {
+					this.debug('move weakened by grassy terrain');
+					return this.chainModify(0.5);
+				}
+				if (move.type === 'Grass' && attacker.isGrounded()) {
+					this.debug('grassy terrain boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			},
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Grassy Terrain');
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 3,
+			onResidual() {
+				this.eachEvent('Terrain');
+			},
+			onTerrain(pokemon) {
+				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
+					this.debug('Pokemon is grounded, healing through Grassy Terrain.');
+					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+				}
+			},
+			onEnd() {
+				if (!this.effectData.duration) this.eachEvent('Terrain');
+				this.add('-fieldend', 'move: Grassy Terrain');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
+	},
+	
+	dangerstunt: {
+		num: 3016,
+		accuracy: 100,
+		basePower: 150,
+		category: "Physical",
+		name: "Danger Stunt",
+		pp: 1,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Tough",
+	},
+	
+	corrosiveacid: {
+		num: 3017,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Corrosive Acid",
+		pp: 1,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, mystery: 1},
+		volatileStatus: 'gastroacid',
+		onTryHit(target) {
+			if (target.getAbility().isPermanent) {
+				return false;
+			}
+		},
+		condition: {
+			// Ability suppression implemented in Pokemon.ignoringAbility() within sim/pokemon.js
+			onStart(pokemon) {
+				this.add('-endability', pokemon);
+				this.singleEvent('End', pokemon.getAbility(), pokemon.abilityData, pokemon, pokemon, 'gastroacid');
+			},
+			onCopy(pokemon) {
+				if (pokemon.getAbility().isPermanent) pokemon.removeVolatile('gastroacid');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {boost: {spe: 1}},
+		contestType: "Tough",
+	},
+	
+	transmutate: {
+		num: 3018,
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		name: "Transmutate",
+		pp: 1,
+		priority: 0,
+		flags: {nonsky: 1},
+		terrain: 'electricterrain',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasItem('terrainextender')) {
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (status.id === 'slp' && target.isGrounded() && !target.isSemiInvulnerable()) {
+					if (effect.id === 'yawn' || (effect.effectType === 'Move' && !effect.secondaries)) {
+						this.add('-activate', target, 'move: Electric Terrain');
+					}
+					return false;
+				}
+			},
+			onTryAddVolatile(status, target) {
+				if (!target.isGrounded() || target.isSemiInvulnerable()) return;
+				if (status.id === 'yawn') {
+					this.add('-activate', target, 'move: Electric Terrain');
+					return null;
+				}
+			},
+			onBasePowerPriority: 6,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('electric terrain boost');
+					return this.chainModify([0x14CD, 0x1000]);
+				}
+			},
+			onStart(battle, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				} else {
+					this.add('-fieldstart', 'move: Electric Terrain');
+				}
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 2,
+			onEnd() {
+				this.add('-fieldend', 'move: Electric Terrain');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
 	},
 };

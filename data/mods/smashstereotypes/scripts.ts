@@ -157,6 +157,34 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		
 		this.modData('Learnsets', 'latias').learnset.moonblast = ['8L1'];
+		
+		
+		this.modData('Learnsets', 'golisopod').learnset.morningsun = ['8L1'];
+		
+		this.modData("Learnsets", "chatot").learnset.fierywrath = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.partingshot = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.flamethrower = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.firelash = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.willowisp = ["8L1"];
+		
+		
+		this.modData("Learnsets", "skuntank").learnset.stinkbomb = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.willowisp = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.thunderwave = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.gunkshot = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.blazekick = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.aromatherapy = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.bulkup = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.partingshot = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.poisondart = ["8L1"];
+		
+		this.modData('Learnsets', 'garchomp').learnset.aridabsorption = ['8L1'];
+		
+		this.modData('Learnsets', 'munchlax').learnset.playrough = ['8L1'];
+		this.modData('Learnsets', 'munchlax').learnset.bodypress = ['8L1'];
+		delete this.modData('Learnsets', 'munchlax').learnset.recycle;
 	},
 	
 	teambuilderConfig: {

@@ -233,7 +233,7 @@ export class RandomTeams {
 			const happiness = this.random(256);
 
 			// Random shininess
-			const shiny = this.randomChance(1, 1024);
+			const shiny = this.randomChance(1, 64);
 
 			team.push({
 				name: species.baseSpecies,

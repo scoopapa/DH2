@@ -68,11 +68,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	necrodancer: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				target.addVolatile('necrodancer');
+				source.addVolatile('necrodancer');
 			}
 		},
-		onEnd(pokemon) {
-			pokemon.removeVolatile('necrodancer');
+		onAfterMove(source) {
+			if (source.volatiles['necrodancer']) {
+				source.removeVolatile('necrodancer');
+			}
 		},
 		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
@@ -80,7 +82,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-start', target, 'ability: Necro Dancer');
 			},
 			onModifyPriority(priority, pokemon, target, move) {
-				if (move?.flags['dance'] && attacker.hasAbility('necrodancer')) return priority + 1;
+				if (move.flags['dance'] && pokemon.hasAbility('necrodancer')) return priority + 1;
 			},
 			onEnd(target) {
 				this.add('-end', target, 'ability: Necro Dancer', '[silent]');
@@ -236,5 +238,107 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "User gains STAB on Bug moves and also gains Bug-type resistances.",
 		rating: 4.5,
 		num: -9,
+	},
+	screencleaner: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+				if (pokemon.side.foe.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removeSideCondition(sideCondition);
+				}
+			}
+			for (const pseudoWeather of ['wonderroom', 'trickroom', 'magicroom']) {
+				if (pokemon.side.getPseudoWeather(pseudoWeather)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.removePseudoWeather(pseudoWeather);
+				}
+				if (pokemon.side.foe.getPseudoWeather(pseudoWeather)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removePseudoWeather(pseudoWeather);
+				}
+			}
+			this.field.clearTerrain();
+		},
+		shortDesc: "On switch-in, the effects of Screens, Terrains and Rooms end for both sides.",
+		inherit: true,
+	},
+	lightarmor: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (['Dark', 'Fairy', 'Ghost'].includes(move.type)) {
+				this.debug('Light Armor neutralize');
+				return this.chainModify(0.67);
+			}
+		},
+		isUnbreakable: true,
+		name: "Light Armor",
+		shortDesc: "This Pokemon takes 2/3 damage from Dark-, Fairy- and Ghost-moves.",
+		rating: 3,
+		num: -10,
+	},
+	neuroforce: {
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod === 0) {
+				return this.chainModify(1.1);
+			}
+		},
+		shortDesc: "This Pokemon does 1.1x damage on neutral targets.",
+		inherit: true,
+	},
+	battlescarred: {
+		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				this.boost({atk: 1});
+			}
+		},
+		name: "Battle-Scarred",
+		shortDesc: "This Pokemon's Attack is raised by 1 when it reaches 1/2 or less of its max HP.",
+		rating: 2,
+		num: -11,
+	},
+	grounding: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Grounding');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Ground' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectData.target !== target) {
+					this.add('-activate', this.effectData.target, 'ability: Grounding');
+				}
+				return this.effectData.target;
+			}
+		},
+		name: "Grounding",
+		shortDesc: "This Pokemon draws Ground moves to itself to raise Sp. Atk by 1; Ground immunity.",
+		rating: 3,
+		num: -12,
 	},
 };

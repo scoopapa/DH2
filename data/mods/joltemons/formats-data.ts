@@ -525,7 +525,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	mukalola: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	pelipper: {
@@ -893,7 +893,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	shayminsky: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	starmie: {
@@ -1658,7 +1658,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["hypnosis", "moonlitwaltz", "focusblast", "nastyplot"],
 	},
 	darmanitangalar: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["icepunch", "flareblitz", "uturn", "earthquake"],
 	},
@@ -1768,7 +1768,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	metagrossmega: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["meteormash", "thunderpunch", "icepunch", "earthquake"],
 	},
@@ -1830,7 +1830,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	shayminsky: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["seedflare", "skysoiree", "earthpower", "healingwish"],
 	},
@@ -1947,7 +1947,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["softboiled", "teleport", "toxic", "seismictoss"],
 	},
 	charizardmegax: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["dragondance", "flareblitz", "dragonclaw", "thunderpunch"],
 	},
@@ -2247,7 +2247,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["hypervoice", "rapidspin", "psyshock", "focusblast"],
 	},
 	gengar: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["shadowball", "sludgewave", "nastyplot", "focusblast"],
 	},
@@ -2277,7 +2277,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["hyperspacefury", "gunkshot", "firepunch", "enchantedpunch"],
 	},
 	hydreigon: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["dracometeor", "darkpulse", "trashtalk", "superpower"],
 	},
@@ -2297,7 +2297,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["calmmind", "psyshock", "mysticalfire", "roost"],
 	},
 	latios: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["calmmind", "agility", "psychic", "aurasphere"],
 	},
@@ -2307,7 +2307,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["psychic", "aurasphere", "icebeam", "recover"],
 	},
 	manaphy: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["tailglow", "surf", "psychic", "energyball"],
 	},
@@ -2632,7 +2632,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["dazzlinggleam", "mysticalfire", "rapidspin", "recover"],
 	},
 	alomomola: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["scald", "wish", "flipturn", "toxic"],
 	},
@@ -2687,7 +2687,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["fishiousrend", "iciclecrash", "freezedry", "meltdown"],
 	},
 	arctozolt: {
-		tier: "RU",
+		tier: "OU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["boltbeak", "iciclecrash", "freezedry", "lowkick"],
 	},
@@ -3172,7 +3172,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["electroball", "energyball", "voltswitch", "roost"],
 	},
 	empoleon: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["scald", "lifedew", "flipturn", "flashcannon"],
 	},
@@ -3845,7 +3845,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["recover", "acidicfists", "mudspike", "curse"],
 	},
 	mukalola: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["knockoff", "recover", "acidicfists", "pursuit"],
 	},
@@ -3865,7 +3865,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["nastyplot", "fireblast", "solarbeam", "scorchingsands"],
 	},
 	ninetalesalola: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["auroraveil", "blizzard", "moonblast", "freezedry"],
 	},

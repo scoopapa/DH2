@@ -395,6 +395,24 @@ exports.autolockdown = true;
  */
 exports.customavatars = {
 	// 'userid': 'customavatar.png'
+	'anaconja': 'cirno.png',
+	'zoomercide': 'cirno.png', // anaconja
+	'whathow': 'cirno.png', // anaconja
+	'cityscapes': 'cirno.png',
+	'squawkerz': 'cirno.png',
+	'lrxc': 'cirno.png',
+	'dex': 'cirno.png',
+	'larp': 'cirno.png', // adem
+	'duom2': 'pikasprite.png',
+	// sice
+	'classclownthele': 'cirno.png',
+	'arbysroastbeef': 'cirno.png',
+	'frowntoad': 'cirno.png',
+	'notime2beromeo': 'cirno.png',
+	// end sice
+	'onyxonix7': 'cirno.png',
+	'piikiki4': 'yoshiblaze.png', //yoshiblaze
+	'piikiki4butagain': 'yoshiblaze.png', //yoshiblaze
 };
 
 /**

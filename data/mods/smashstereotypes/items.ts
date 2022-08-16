@@ -312,4 +312,103 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 6,
 		shortDesc: "Incompatible with Latias.",
 	},
+	mulpberry: {
+		id: "mulpberry",
+		name: "Mulp Berry",
+		spritenum: 69,
+		fling: {
+			basePower: 10,
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(source) {
+			this.useMove('Stealth Rock', source);
+		},
+		shortDesc: "When at 1/4 HP or less, consumes Berry and sets Stealth Rock on the foe's side",
+	},
+	coalengine: {
+		name: "Coal Engine",
+		spritenum: 297,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			 if (pokemon.side.getSideCondition('stealthrock') && !pokemon.ignoringItem()) {
+				  pokemon.useItem();
+				  this.boost({spe: 1}, pokemon);
+			 }
+		},
+		gen: 8,
+		desc: "If Stealth Rock is on the field, damage is ignored, and the user's Speed is raised by 1. Single use.",
+	},
+	seviisap: {	
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			this.heal(pokemon.baseMaxhp / 24);
+		},
+		onTakeItem: false,
+		name: "Sevii Sap",
+		num: 1021,
+		gen: 8,
+		shortDesc: "At the end of every turn, holder restores 1/24 of its max HP. Cannot be removed.",
+    },
+	zoomlens: {
+		name: "Zoom Lens",
+		spritenum: 574,
+		fling: {
+			basePower: 10,
+		},
+		onSourceModifyAccuracyPriority: 4,
+		onSourceModifyAccuracy(accuracy, target) {
+			if (typeof accuracy === 'number' && (!this.queue.willMove(target) || target.newlySwitched)) {
+				this.debug('Zoom Lens boosting accuracy');
+				return accuracy * 1.5;
+			}
+		},
+		num: 276,
+		gen: 4,
+		desc: "The accuracy of attacks by the holder is 1.5x if it moves lasts or the foe switches.",
+	},
+	laggingtail: {
+		name: "Lagging Tail",
+		spritenum: 237,
+		fling: {
+			basePower: 10,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Physical' && source.newlySwitched) {
+				return this.chainModify(0.67);
+			}
+		},
+		onFractionalPriorityPriority: -2,
+		onFractionalPriority(priority, pokemon) {
+			return -1;
+		},
+		num: 279,
+		gen: 4,
+		shortDesc: "Holder takes 33% less damage from physical moves upon entry. -1 priority.",
+	},
+	laxincense: {
+		name: "Lax Incense",
+		spritenum: 240,
+		fling: {
+			basePower: 10,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Special' && source.newlySwitched) {
+				return this.chainModify(0.67);
+			}
+		},
+		onFractionalPriorityPriority: -2,
+		onFractionalPriority(priority, pokemon) {
+			return -1;
+		},
+		num: 255,
+		gen: 3,
+		shortDesc: "Holder takes 33% less damage from special moves upon entry. -1 priority.",
+	},
 };

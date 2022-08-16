@@ -198,7 +198,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'psn',
 		},
 		target: "normal",
-		type: "Poison",
+		type: "Water",
 	},
 	splishysplash: {
 		inherit: true,
@@ -346,20 +346,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 	primordialfrost: {
 		num: 1001,
 		accuracy: 90,
-		basePower: 160,
+		basePower: 130,
 		category: "Special",
-		shortDesc: "The user cannot move on the next turn. Summons Mist.",
+		shortDesc: "Lowers the user's Sp. Atk by 2.",
 		name: "Primordial Frost",
-		pp: 10,
+		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1, nonsky: 1},
-		sideCondition: 'mist',
+		flags: {protect: 1, mirror: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Max Hailstorm", target);
 		},
 		self: {
-			volatileStatus: 'mustrecharge',
+			boosts: {
+				spa: -2,
+			},
 		},
 		secondary: true,
 		target: "normal",
@@ -616,8 +617,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	coralcrash: {
 		num: 1006,
-		accuracy: 100,
-		basePower: 80,
+		accuracy: 90,
+		basePower: 110,
 		category: "Physical",
 		shortDesc: " Has 1/4 recoil. 10% chance to lower the target's Special Attack by 1.",
 		name: "Coral Crash",
@@ -644,14 +645,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
-		shortDesc: "10% chance to sleep. Hits Dark-types super effectively.",
+		shortDesc: "10% chance to sleep. Super effective on Steel.",
 		name: "Relic Song (Meloetta)",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		ignoreImmunity: {'Psychic': true},
 		onEffectiveness(typeMod, target, type) {
-			if (type === 'Dark') return 1;
+			if (type === 'Steel') return 1;
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -662,7 +662,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'slp',
 		},
 		target: "allAdjacentFoes",
-		type: "Psychic",
+		type: "Fairy",
 		contestType: "Beautiful",
 	},
 	rockyslash: {
@@ -854,14 +854,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 	lightblast: {
 		num: 1013,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 80,
 		category: "Special",
 		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
 		name: "Light Blast",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		overrideOffensiveStat: "spd",
+		useSourceDefensiveAsOffensive: true,
 		secondary: undefined,
 		target: "normal",
 		type: "Fairy",
@@ -935,12 +935,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "User recovers 25% of the damage dealt.",
+		shortDesc: "User recovers 50% of the damage dealt.",
 		name: "Land's Wrath",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1, heal: 1},
-		drain: [1, 4],
+		drain: [1, 2],
 		secondary: undefined,
 		target: "allAdjacentFoes",
 		type: "Ground",

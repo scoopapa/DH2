@@ -65,4 +65,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3.5,
 		num: 300,
 	},
+	typesuction: {
+		shortDesc: "On switch-in adds the foes type(s).",
+		onStart(source) {
+			let newTypes = [];
+			newTypes.push(source.types[0]);
+			if (source.types[1]) newTypes.push(source.types[1]);
+			for (const target of source.side.foe.active) {
+				for (const type of target.types) {
+				 if (newTypes.includes(type) || type === '???') continue;
+					newTypes.push(type);
+				}
+				if (target.addedType && !newTypes.includes(target.addedType)) {
+					newTypes.push(target.addedType);
+				}
+				this.add('-start', source, 'typeadd', '[from] ability: Type Suction', '[of] ' + source);
+				source.setType(newTypes);
+				source.knownType = target.side === source.side && target.knownType;
+			}
+		},
+		name: "Type Suction",
+		rating: 3.5,
+		num: 302,
+	},
 };

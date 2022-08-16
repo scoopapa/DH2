@@ -150,6 +150,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			  return true;
         }
     },
+/*
 		modifyDamage(
 			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 		) {
@@ -230,6 +231,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
+*/
 	getDamage(
 		pokemon: Pokemon, target: Pokemon, move: string | number | ActiveMove,
 		suppressMessages = false
@@ -1143,7 +1145,6 @@ this.modData('Learnsets', 'meowthgalar').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'krabby').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'zapdosgalar').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'totodile').learnset.crushclaw = ['8L1'];
-this.modData('Learnsets', 'scizor').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'ursaring').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'gligar').learnset.crushclaw = ['8L1'];
 this.modData('Learnsets', 'corphish').learnset.crushclaw = ['8L1'];

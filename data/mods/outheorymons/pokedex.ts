@@ -164,5 +164,22 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
    appletun: { 
       inherit: true, 
       types: ["Poison", "Dragon"],
+   },
+   vanilluxe: {
+      inherit: true, 
+      types: ["Ice", "Ground"],
+      baseStats: {hp: 71, atk: 95, def: 85, spa: 110, spd: 95, spe: 99},
+   },
+   rotomfan: {
+      inherit: true, 
+      abilities: {0: "Levitate", H: "Magic Bounce"},
+   }, 
+   aromatisse: {
+      inherit: true, 
+      types: ["Steel", "Fairy"],
+   }, 
+   marowakalola: { 
+      inherit: true, 
+      abilities: {0: "Magic Guard", 1: "Lightning Rod", H: "Cursed Body"},
 	}, 
 };

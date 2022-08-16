@@ -139,12 +139,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.species.id.startsWith('starlycrown') || pokemon.level < 34 || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'starlycrown') {
-					pokemon.formeChange('Starly-Crown-Cloud');
+					pokemon.formeChange('Starly-Crown-Cloud', this.effect, true);
 					this.add('-message', `${pokemon.name} changed to Cloud Form!`);
 				}
 			} else {
 				if (pokemon.species.id === 'starlycrowncloud') {
-					pokemon.formeChange('Starly-Crown');
+					pokemon.formeChange('Starly-Crown', this.effect, true);
 					this.add('-message', `${pokemon.name} changed to Solo Form...`);
 				}
 			}
@@ -168,12 +168,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.species.id.startsWith('starlycrown') || pokemon.level < 34 || pokemon.transformed || !pokemon.hp) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'starlycrown') {
-					pokemon.formeChange('Starly-Crown-Cloud');
+					pokemon.formeChange('Starly-Crown-Cloud', this.effect, true);
 					this.add('-message', `${pokemon.name} changed to Cloud Form!`);
 				}
 			} else {
 				if (pokemon.species.id === 'starlycrowncloud') {
-					pokemon.formeChange('Starly-Crown');
+					pokemon.formeChange('Starly-Crown', this.effect, true);
 					this.add('-message', `${pokemon.name} changed to Solo Form...`);
 				}
 			}
@@ -191,6 +191,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				this.effectData.busted = true;
 			}
+		},
+		onFaint(pokemon) {
+			if (pokemon.species.id !== 'starlycrowncloud' || pokemon.transformed) return;
+			pokemon.formeChange('Starly-Crown', this.effect, true);
+			this.add('-message', `${pokemon.name} changed to Solo Form...`);
 		},
 		isPermanent: true,
 		name: "Murmuration",

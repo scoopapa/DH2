@@ -2951,7 +2951,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Water Veil", 1: "Moxie", H: "Battle Tide"},
 		heightm: 1,
 		weightkg: 33.4,
-		prevo: "Sandlie-Loria",
+		prevo: "Sandile-Loria",
 		evos: ["Krokoasis"],
 	},
 	throhprehistoric: {

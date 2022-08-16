@@ -50,7 +50,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		accuracy: true,
 		ignoreEvasion: true,
-		effect: {
+		condition: {
 			duration: 2,
 			durationCallback(target, source, effect) {
 				return this.random(3, 4);
@@ -247,20 +247,37 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		ignoreImmunity: true,
 		willCrit: false,
 		damageCallback(pokemon, target) {
-			// Counter mechanics on gen 1 might be hard to understand.
-			// It will fail if the last move selected by the opponent has base power 0 or is not Normal or Fighting Type.
-			// If both are true, counter will deal twice the last damage dealt in battle, no matter what was the move.
-			// That means that, if opponent switches, counter will use last counter damage * 2.
-			const lastUsedMove = target.side.lastMove && this.dex.getMove(target.side.lastMove.id);
-			if (
-				lastUsedMove && lastUsedMove.basePower > 0 && ['Normal', 'Fighting'].includes(lastUsedMove.type) &&
-				this.lastDamage > 0 && !this.queue.willMove(target)
-			) {
-				return 2 * this.lastDamage;
+			// Counter mechanics in gen 1:
+			// - a move is Counterable if it is Normal or Fighting type, has nonzero Base Power, and is not Counter
+			// - if Counter is used by the player, it will succeed if the opponent's last used move is Counterable
+			// - if Counter is used by the opponent, it will succeed if the player's last selected move is Counterable
+			// - (Counter will thus desync if the target's last used move is not as counterable as the target's last selected move)
+			// - if Counter succeeds it will deal twice the last move damage dealt in battle (even if it's from a different pokemon because of a switch)
+			const lastMove = target.side.lastMove && this.dex.getMove(target.side.lastMove.id);
+			const lastMoveIsCounterable = lastMove && lastMove.basePower > 0 &&
+				['Normal', 'Fighting'].includes(lastMove.type) && lastMove.id !== 'counter';
+
+			const lastSelectedMove = target.side.lastSelectedMove && this.dex.getMove(target.side.lastSelectedMove);
+			const lastSelectedMoveIsCounterable = lastSelectedMove && lastSelectedMove.basePower > 0 &&
+				['Normal', 'Fighting'].includes(lastSelectedMove.type) && lastSelectedMove.id !== 'counter';
+
+			if (!lastMoveIsCounterable && !lastSelectedMoveIsCounterable) {
+				this.debug("Gen 1 Counter: last move was not Counterable");
+				this.add('-fail', pokemon);
+				return false;
 			}
-			this.debug("Gen 1 Counter failed due to conditions not met");
-			this.add('-fail', pokemon);
-			return false;
+			if (this.lastDamage <= 0) {
+				this.debug("Gen 1 Counter: no previous damage exists");
+				this.add('-fail', pokemon);
+				return false;
+			}
+			if (!lastMoveIsCounterable || !lastSelectedMoveIsCounterable) {
+				this.hint("Desync Clause Mod activated!");
+				this.add('-fail', pokemon);
+				return false;
+			}
+
+			return 2 * this.lastDamage;
 		},
 	},
 	crabhammer: {
@@ -275,7 +292,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Bide, Swift, and Transform. If the user is fully paralyzed on the second turn, it continues avoiding attacks until it switches out or successfully executes the second turn of this move or Fly.",
 		basePower: 100,
-		effect: {
+		condition: {
 			duration: 2,
 			onLockMove: 'dig',
 			onInvulnerability(target, source, move) {
@@ -297,7 +314,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "For 0 to 7 turns, one of the target's known moves that has at least 1 PP remaining becomes disabled, at random. Fails if one of the target's moves is already disabled, or if none of the target's moves have PP remaining. If any Pokemon uses Haze, this effect ends. Whether or not this move was successful, it counts as a hit for the purposes of the opponent's use of Rage.",
 		shortDesc: "For 0-7 turns, disables one of the target's moves.",
-		effect: {
+		condition: {
 			duration: 4,
 			durationCallback(target, source, effect) {
 				const duration = this.random(1, 7);
@@ -412,7 +429,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	fly: {
 		inherit: true,
 		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Bide, Swift, and Transform. If the user is fully paralyzed on the second turn, it continues avoiding attacks until it switches out or successfully executes the second turn of this move or Dig.",
-		effect: {
+		condition: {
 			duration: 2,
 			onLockMove: 'fly',
 			onInvulnerability(target, source, move) {
@@ -434,7 +451,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "While the user remains active, its chance for a critical hit is quartered. Fails if the user already has the effect. If any Pokemon uses Haze, this effect ends.",
 		shortDesc: "Quarters the user's chance for a critical hit.",
-		effect: {
+		condition: {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'move: Focus Energy');
 			},
@@ -542,7 +559,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "At the end of each of the target's turns, The Pokemon at the user's position steals 1/16 of the target's maximum HP, rounded down and multiplied by the target's current Toxic counter if it has one, even if the target currently has less than that amount of HP remaining. If the target switches out or any Pokemon uses Haze, this effect ends. Grass-type Pokemon are immune to this move.",
 		onHit() {},
-		effect: {
+		condition: {
 			onStart(target) {
 				this.add('-start', target, 'move: Leech Seed');
 			},
@@ -587,7 +604,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 		},
-		effect: {
+		condition: {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Light Screen');
 			},
@@ -694,7 +711,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			volatileStatus: 'rage',
 		},
-		effect: {
+		condition: {
 			// Rage lock
 			duration: 255,
 			onStart(target, source, effect) {
@@ -755,7 +772,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 		},
-		effect: {
+		condition: {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Reflect');
 			},
@@ -919,7 +936,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.directDamage(target.maxhp / 4, target, target);
 			}
 		},
-		effect: {
+		condition: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
 				this.effectData.hp = Math.floor(target.maxhp / 4) + 1;

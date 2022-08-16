@@ -193,7 +193,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		baseStats: {hp: 85, atk: 110, def: 80, spa: 70, spd: 80, spe: 90},
 		abilities: {0: "Swarm", 1: "Insomnia", H: "Prankster"},
-		movepoolAdditions: ["memento", "poisongas"],
+		movepoolAdditions: ["memento", "poisongas", "raindance"],
 
 		prevo: "Ariados",
 		evoType: "levelExtra",
@@ -384,7 +384,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 		baseStats: {hp: 110, atk: 78, def: 78, spa: 116, spd: 81, spe: 70},
 		abilities: {0: "Oblivious", 1: "Cheek Pouch", H: "Hydration"},
-		movepoolAdditions: ["calmmind", "recycle"],
+		movepoolAdditions: ["recycle", "stealthrock"],
 
 		prevo: "Whiscash",
 		evoLevel: 55,
@@ -424,7 +424,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Snow Warning", H: "Pressure"},
 
 		copyMoves: "Snover", // although its data is based on Abomasnow, it doesn't have all of Abomasnow's moves
-		movepoolAdditions: ["brickbreak", "earthpower", "gigaimpact", "hyperbeam", "outrage", "rapidspin", "rockslide", "uturn"],
+		movepoolAdditions: [
+			"brickbreak", "bulldoze", "earthpower", "focuspunch", "gigaimpact", "hyperbeam", "leafstorm", "outrage", "rapidspin", "rockclimb", "rockslide",
+			"rocktomb", "uturn"
+		],
 
 		prevo: "Snover",
 		evoType: "levelExtra",
@@ -446,7 +449,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fighting", "Rock"],
 		baseStats: {hp: 65, atk: 100, def: 100, spa: 60, spd: 60, spe: 85},
 		abilities: {0: "Solid Rock", 1: "Skill Link", H: "Defiant"},
-		movepoolAdditions: ["drainpunch", "rockblast", "stoneedge", "smackdown", "stealthrock"],
+		movepoolAdditions: ["drainpunch", "rockblast", "stoneedge", "smackdown", "stealthrock", "wideguard"],
 		movepoolDeletions: ["closecombat", "swordsdance"],
 
 		creator: "Hematite",
@@ -509,7 +512,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Shiinotic",
 
 		types: ["Poison", "Fairy"],
-		baseStats: {hp: 60, atk: 45, def: 60, spa: 90, spd: 80, spe: 70},
+		baseStats: {hp: 60, atk: 61, def: 60, spa: 90, spd: 80, spe: 54},
 		abilities: {0: "Illuminate", 1: "Effect Spore", H: "Technician"},
 		movepoolAdditions: ["acidspray", "nastyplot", "venoshock"],
 
@@ -970,7 +973,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Grass"],
 		baseStats: {hp: 41, atk: 31, def: 19, spa: 53, spd: 47, spe: 29},
 		abilities: {0: "Lava Flow", 1: "Vital Spirit", S: "Beast Boost"},
-		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "flamecharge", "petaldance", "scorchingsands", "willowisp"],
+		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "petaldance", "scorchingsands", "willowisp"],
 		movepoolDeletions: ["blizzard", "bubble", "bubblebeam", "dive", "hail", "hydropump", "icebeam", "icywind", "mist", "muddywater", "scald", "surf", "waterfall", "watergun", "waterpulse", "watersport", "whirlpool"],
 
 		evos: ["Lombre-Ultra"],
@@ -990,7 +993,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Grass"],
 		baseStats: {hp: 59, atk: 47, def: 41, spa: 73, spd: 67, spe: 53},
 		abilities: {0: "Lava Flow", 1: "Vital Spirit", S: "Beast Boost"},
-		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "flamecharge", "petaldance", "scorchingsands", "willowisp"],
+		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "petaldance", "scorchingsands", "willowisp"],
 		movepoolDeletions: ["blizzard", "bubble", "bubblebeam", "dive", "hail", "hydropump", "icebeam", "icywind", "mist", "muddywater", "scald", "surf", "waterfall", "watergun", "waterpulse", "watersport", "whirlpool"],
 
 		prevo: "Lotad-Ultra",
@@ -1013,7 +1016,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Grass"],
 		baseStats: {hp: 79, atk: 71, def: 53, spa: 107, spd: 97, spe: 73},
 		abilities: {0: "Lava Flow", 1: "Vital Spirit", S: "Beast Boost"},
-		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "fierydance", "flamecharge", "petaldance", "scorchingsands", "willowisp"],
+		movepoolAdditions: ["fireblast", "flamethrower", "heatwave", "overheat", "fierydance", "petaldance", "scorchingsands", "willowisp"],
 		movepoolDeletions: ["blizzard", "bubble", "bubblebeam", "dive", "hail", "hydropump", "icebeam", "icywind", "mist", "muddywater", "scald", "surf", "waterfall", "watergun", "waterpulse", "watersport", "whirlpool"],
 
 		prevo: "Lombre-Ultra",
@@ -1299,7 +1302,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic"],
 		baseStats: {hp: 131, atk: 71, def: 31, spa: 71, spd: 37, spe: 59},
 		abilities: {0: "Illuminate", 1: "Oblivious", S: "Beast Boost"},
-		movepoolAdditions: ["cosmicpower", "futuresight", "gravity", "mirrorcoat", "storedpower", "trickroom", "wish"],
+		movepoolAdditions: ["calmmind", "futuresight", "gravity", "mirrorcoat", "storedpower", "trickroom", "wish"],
 		movepoolDeletions: ["bodypress", "soak", "waterfall", "waterspout"],
 
 		evos: ["Wailord-Ultra"],
@@ -1319,7 +1322,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic"],
 		baseStats: {hp: 173, atk: 89, def: 43, spa: 89, spd: 47, spe: 59},
 		abilities: {0: "Illuminate", 1: "Oblivious", S: "Beast Boost"},
-		movepoolAdditions: ["cosmicpower", "futuresight", "gravity", "mirrorcoat", "overheat", "storedpower", "trickroom", "wish"],
+		movepoolAdditions: ["calmmind", "futuresight", "gravity", "mirrorcoat", "overheat", "storedpower", "trickroom", "wish"],
 		movepoolDeletions: ["bodypress", "liquidation", "soak", "waterfall", "waterspout"],
 
 		prevo: "Wailmer-Ultra",
@@ -2052,9 +2055,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Marowak",
 
 		types: ["Ground", "Electric"],
-		baseStats: {hp: 80, atk: 60, def: 130, spa: 125, spd: 80, spe: 45},
+		baseStats: {hp: 80, atk: 60, def: 130, spa: 90, spd: 80, spe: 45},
 		abilities: {0: "Inner Focus", 1: "Lightning Rod", H: "Battle Armor"},
-		movepoolAdditions: ["discharge", "risingvoltage", "thunder", "voltswitch"],
+		movepoolAdditions: ["discharge", "healingwish", "risingvoltage", "thunder", "voltswitch"],
 
 		prevo: "Marowak",
 		evoLevel: 40,
@@ -2309,6 +2312,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 60, def: 180, spa: 110, spd: 60, spe: 50},
 		abilities: {0: "Sturdy", 1: "Soundproof", H: "Heavy Metal"},
 		movepoolAdditions: ["coaching", "vacuumwave"],
+		movepoolDeletions: ["meteorbeam"],
 
 		prevo: "Lairon",
 		evoLevel: 42,
@@ -2330,7 +2334,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 40, def: 65, spa: 20, spd: 65, spe: 20},
 		abilities: {0: "Hustle", 1: "Light Metal", H: "Super Luck"},
 		movepoolAdditions: ["flashcannon", "honeclaws", "irondefense", "steelbeam"],
-		movepoolDeletions: ["morningsun", "roost", "softboiled"],
+		movepoolDeletions: ["followme", "morningsun", "roost", "softboiled"],
 
 		evos: ["Togetic-Unidentified"],
 		creator: "quagsi",
@@ -2350,7 +2354,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 80, def: 85, spa: 50, spd: 85, spe: 50},
 		abilities: {0: "Hustle", 1: "Light Metal", H: "Super Luck"},
 		movepoolAdditions: ["flashcannon", "honeclaws", "irondefense", "steelbeam"],
-		movepoolDeletions: ["morningsun", "roost", "softboiled"],
+		movepoolDeletions: ["followme", "morningsun", "roost", "softboiled"],
 
 		evos: ["Togekiss-Unidentified"],
 		prevo: "Togepi-Unidentified",
@@ -2372,7 +2376,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 120, def: 95, spa: 60, spd: 95, spe: 90},
 		abilities: {0: "Hustle", 1: "Light Metal", H: "Super Luck"},
 		movepoolAdditions: ["flashcannon", "honeclaws", "irondefense", "steelbeam"],
-		movepoolDeletions: ["morningsun", "roost", "softboiled"],
+		movepoolDeletions: ["followme", "morningsun", "roost", "softboiled"],
 
 		prevo: "Togetic-Unidentified",
 		evoType: "useItem",

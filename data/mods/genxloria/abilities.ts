@@ -422,18 +422,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Soaring Spirit",
 	},
 	suddenguard: {
-		shortDesc: "While switching-in, this Pokemon is immune to all non-Super Effective moves.",
-		onTryHit(target, source, move) {
-			if (target.activeTurns || target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
-			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
-			this.debug('Sudden Guard immunity: ' + move.id);
-			if (target.runEffectiveness(move) <= 0) {
-				if (move.smartTarget) {
-					move.smartTarget = false;
-				} else {
-					this.add('-immune', target, '[from] ability: Sudden Guard');
-				}
-				return null;
+		shortDesc: "While switching-in, this Pokemon takes 0.5x damage from non-Super Effective moves.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (!target.activeTurns && target.runEffectiveness(move) <= 0) {
+				this.debug('Sudden Guard weaken');
+				return this.chainModify(0.5);
 			}
 		},
 		name: "Sudden Guard",

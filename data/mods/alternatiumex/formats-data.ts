@@ -135,4 +135,76 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	mrmime: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	mrmimeprance: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	stunfisk: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	stunfisktrap: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozma: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozmalionheart: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozmabatwing: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	necrozmadragon: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	braviarypatriot: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	braviaryhisui: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	lilligantbard: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	mistlegant: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	electrodescrewball: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	electroderingo: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	persianbandit: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	persianomen: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	meowsticuntethered: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	meowstictwotales: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
