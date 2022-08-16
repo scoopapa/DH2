@@ -304,7 +304,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["1L1"],
 			sludge: ["1L1"],
 			strangesteam: ["1L1"],
-			recover: ["1L1"],
+			softboiled: ["1L1"],
 		},
 	},
 	zweilous: {
@@ -325,7 +325,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["1L1"],
 			sludge: ["1L1"],
 			strangesteam: ["1L1"],
-			recover: ["1L1"],
+			softboiled: ["1L1"],
 		},
 	},
 	hydreigon: {
@@ -357,7 +357,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			steelwing: ["1L1"],
 			sludge: ["1L1"],
 			strangesteam: ["1L1"],
-			recover: ["1L1"],
+			softboiled: ["1L1"],
 		},
 	},
 	cottonee: {
@@ -600,7 +600,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			naturesmadness: ["1L1"],
 			quickattack: ["1L1"],
 			reflect: ["1L1"],
-			recover: ["1L1"],
+			softboiled: ["1L1"],
 			rest: ["1L1"],
 			roar: ["1L1"],
 			screech: ["1L1"],

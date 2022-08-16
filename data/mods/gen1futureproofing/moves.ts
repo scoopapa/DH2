@@ -48,18 +48,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	strangesteam: {
 		num: 790,
-		shortDesc: "Clears the target's stat changes after dealing damage.",
+		shortDesc: "Deals damage using the user's Special stat.",
 		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
+		basePower: 70,
+		category: "Special",
+		defensiveCategory: "Physical",
 		name: "Strange Steam",
 		pp: 15,
 		priority: 0,
 		flags: {},
-		onHit(target) {
-			target.clearBoosts();
-			this.add('-clearboost', target);
-		},
 		secondary: null,
 		target: "normal",
 		type: "Poison",
@@ -74,7 +71,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Fake Tears",
 		pp: 20,
 		priority: 0,
-		flags: {},
+		flags: {reflectable: 1},
 		boosts: {
 			spa: -2,
 			spd: -2,
@@ -135,7 +132,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Taunt",
 		pp: 20,
 		priority: 0,
-		flags: {},
+		flags: {reflectable: 1},
 		volatileStatus: 'taunt',
 		condition: {
 			duration: 3,
@@ -212,6 +209,88 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Bug",
 		contestType: "Beautiful",
+		gen: 1,
+	},
+	lashout: {
+		num: 808,
+		shortDesc: "10% chance to lower the foe's Speed by 1 stage.",
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Lash Out",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		gen: 1,
+	},
+	sunsteelstrike: {
+		num: 713,
+		shortDesc: "Usually goes first.",
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Sunsteel Strike",
+		pp: 30,
+		priority: 1,
+		flags: {},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Cool",
+		gen: 1,
+	},
+	craftyshield: {
+		num: 578,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Crafty Shield",
+		pp: 15,
+		priority: 1,
+		flags: {},
+		volatileStatus: 'craftyshield',
+		condition: {
+			duration: 1,
+			onStart(target, source, effect) {
+				this.add('-singleturn', target, 'move: Crafty Shield');
+				if (effect?.effectType === 'Move') {
+					this.effectData.pranksterBoosted = effect.pranksterBoosted;
+				}
+			},
+			onTryHitPriority: 2,
+			onTryHit(target, source, move) {
+				if (target === source || move.hasBounced || !move.flags['reflectable']) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = this.effectData.pranksterBoosted;
+				this.useMove(newMove, target, source);
+				return null;
+			},
+			onAllyTryHitSide(target, source, move) {
+				if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.useMove(newMove, this.effectData.target, source);
+				return null;
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Psychic",
+		contestType: "Clever",
 		gen: 1,
 	},
 
