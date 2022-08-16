@@ -304,7 +304,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["1L1"],
 			sludge: ["1L1"],
 			strangesteam: ["1L1"],
-			recover: ["1L1"],
+			softboiled: ["1L1"],
 		},
 	},
 	zweilous: {
@@ -325,7 +325,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["1L1"],
 			sludge: ["1L1"],
 			strangesteam: ["1L1"],
-			recover: ["1L1"],
+			softboiled: ["1L1"],
 		},
 	},
 	hydreigon: {
