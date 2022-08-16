@@ -44,6 +44,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	oatu: {
 	gen: 2,
 	},
+	lunaraknid: {
+	gen: 2,
+	},
 	cumulos: {
 	gen: 2,
 	},
