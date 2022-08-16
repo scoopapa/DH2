@@ -161,7 +161,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Deathly Skirt",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
+		flags: {dance: 1, protect: 1, mirror: 1, heal: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Night Shade", target);
@@ -419,7 +419,176 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Ghost') return 0;
 		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bug Bite", target);
+		},
 		target: "normal",
 		type: "Bug",
+	},
+	snaptrap: {
+		num: 779,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Snap Trap",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	photongeyser: {
+		num: 722,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Goes off higher attacking stat. Does 1.2x damage in Psychic Terrain.",
+		name: "Photon Geyser",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, source) {
+			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+				this.debug('terrain buff');
+				return this.chainModify(1.2);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+	},
+	sunsteelstrike: {
+		num: 713,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		name: "Sunsteel Strike",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
+	moongeistbeam: {
+		num: 714,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		shortDesc: "User switches out. Nullifies the foes Ability if the foes move first.",
+		name: "Moongeist Beam",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target) {
+			if (target.getAbility().isPermanent) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			target.addVolatile('gastroacid');
+		},
+		onAfterSubDamage(damage, target) {
+			if (target.getAbility().isPermanent) return;
+			if (target.newlySwitched || this.queue.willMove(target)) return;
+			target.addVolatile('gastroacid');
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+	prismaticlaser: {
+		num: 711,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "This move ignores type based interactions.",
+		name: "Prismatic Laser",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, source, target) {
+			move.type = '???';
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
+	esperwing: {
+		num: -13,
+		accuracy: 100,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.hasType('Psychic')) {
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "If used by a Psychic-type: 1.5x power. Super effective on Poison.",
+		name: "Esper Wing",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Poison') return 1;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Burn Up", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
+	chloroblast: {
+		num: -14,
+		accuracy: 100,
+		basePower: 150,
+		category: "Special",
+		shortDesc: "User loses 50% max HP. Hits adjacent Pokemon.",
+		name: "Chloro Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Chloro Blast'), true);
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Solar Beam", target);
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Grass",
+	},
+	payday: {
+		num: 6,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "If user moves before the target, the target looses 1/8 of its max HP.",
+		name: "Pay Day",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onAfterMove(source, target) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.damage(target.baseMaxhp / 8, target, source, this.dex.getEffect('Pay Day'));
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
 	},
 };

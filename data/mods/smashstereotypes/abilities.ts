@@ -636,4 +636,177 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Sand Bubbler",
 		shortDesc: "Sand Stream + Iron Fist.",
 	},
+	debilitate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Debilitate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Debilitate",
+		shortDesc: "On switch-in, this Pokemon lowers the Sp. Atk of adjacent opponents by 1 stage.",
+		rating: 3.5,
+		num: 22,
+	},
+	oblivious: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Oblivious');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Oblivious');
+			}
+		},
+	},
+	innerfocus: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Inner Focus');
+			}
+		},
+	},
+	owntempo: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+		},
+	},
+	rattled: {
+		inherit: true,
+		onAfterBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'intimidate' || effect && effect.id === 'debilitate') {
+				this.boost({spe: 1});
+			}
+		},
+	},
+	scrappy: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+			else if (effect.id === 'debilitate') {
+				delete boost.spa;
+				this.add('-immune', target, '[from] ability: Scrappy');
+			}
+		},
+	},
+	lethalleafage: {
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact'] || move.type === 'Grass') {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Lethal Leafage",
+		shortDesc: "This Pokemon's contact and Grass-type moves are boost by 1.3x.",
+		num: -100000,
+	},
+	evolutionburst: {
+		onModifyAtkPriority: 2,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpAPriority: 2,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe) {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Evolution Burst",
+		shortDesc: "If pokemon's species can evolve, its Atk, Def, Sp. Atk and Sp. Def are 1.5x.",
+		rating: 4,
+		num: 23,
+	},
+	wetreflection: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, this.effectData.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		onModifySpe(spe, pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Wet Reflection",
+		shortDesc: "Magic Bounce + Swift Swim",
+		rating: 5,
+		num: -19,
+	},
+	sandveiljolte: {
+		desc: "If Sandstorm is active, this Pokemon's SpD is multiplied by 1.5. This Pokemon takes no damage from Sandstorm.",
+		shortDesc: "If Sandstorm is active, this Pokemon's SpD is boosted 1.5x; immunity to Sandstorm.",
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifySpD(spd, pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				return this.chainModify(1.5);
+			}
+		},
+		id: "sandveiljolte",
+		name: "Sand Veil (Jolte)",
+		rating: 3,
+		num: 146,
+	},
 };

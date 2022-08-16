@@ -359,6 +359,41 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -115,
 	},
+
+	boneyard: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				this.debug('I am going to steal your boens.');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				this.debug('I am going to steal your bones.');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Boneyard",
+		rating: 3.5,
+		num: -116,
+	},
+
+	tacticschange: {
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if ((attacker.species.baseSpecies !== 'Aegislash' && !attacker.species.name.includes('Ancient'))|| attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== 'foragerspoise') return;
+			const targetForme = (move.id === 'foragerspoise' ? 'Aegislash-Ancient' : 'Aegislash-Ancient-Hunter');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		isPermanent: true,
+		name: "Tactics Change",
+		rating: 5,
+		num: -117
+	},
+
 	
 	//
 	//

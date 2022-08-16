@@ -581,6 +581,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 673,
 		desc: "If held by a Ferrocario, this item allows it to Mega Evolve in battle.",
 	},
+	diancite: {
+		name: "Diancite",
+		spritenum: 624,
+		megaStone: "Dragancie-Mega",
+		megaEvolves: "Dragancie",
+		itemUser: ["Dragancie"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 673,
+		desc: "If held by a Dragancie, this item allows it to Mega Evolve in battle.",
+	},
 	
 // silvino moment :jokerification:
 	bugmemory: {

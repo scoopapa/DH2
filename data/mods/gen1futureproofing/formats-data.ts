@@ -69,6 +69,41 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
+	spiritomb: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	steelix: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	swablu: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 1,
+	},
+	altaria: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	yveltal: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	skarmory: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	tapukoko: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
 
 // don't touch
 	bulbasaur: {

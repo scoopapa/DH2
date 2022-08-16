@@ -44,4 +44,42 @@ export const Moves: {[moveid: string]: MoveData} = {
 	target: "normal",
 	type: "Poison",
 	},
+	copycatblast: {
+		num: 686,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Type varies based on the user's secondary type.",
+		name: "Copycat Blast",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+		const types = pokemon.getTypes();
+		let type = types[1] || types[0];
+		if (type === "Bird") type = "Normal";
+		move.type = type;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	rudeparting: {
+		num: 521,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		shortDesc: "User switches out after damaging the target.",
+		name: "Rude Parting",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
+	},
 };
+

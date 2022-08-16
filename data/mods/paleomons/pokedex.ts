@@ -1173,4 +1173,112 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 33.8,
 		requiredItem: "Trobsidonite",
 	},
+
+	dhelmise: {
+		inherit: true,
+		otherFormes: ["Dhelmise-Ancient"],
+		formeOrder: ["Dhelmise", "Dhelmise-Ancient"],
+	},
+
+	dhelmiseancient: {
+		num: -175,
+		name: "Dhelmise-Ancient",
+		baseSpecies: "Dhelmise",
+		forme: "Ancient",
+		types: ["Ghost", "Poison"],
+		baseStats: {hp: 70, atk: 131, def: 100, spa: 76, spd: 90, spe: 50},
+		abilities: {0: "Boneyard"},
+		weightkg: 210,
+	},
+
+	honedge: {
+		inherit: true,
+		otherFormes: ["Honedge-Ancient"],
+		formeOrder: ["Honedge", "Honedge-Ancient"],
+	},
+
+	honedgeancient: {
+		num: -176,
+		name: "Honedge-Ancient",
+		baseSpecies: "Honedge",
+		forme: "Ancient",
+		evos: ["Doublade-Ancient"],
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 50, atk: 80, def: 85, spa: 35, spd: 37, spe: 38},
+		abilities: {0: "Long Reach"},
+		weightkg: 2,
+	},
+
+	doublade: {
+		inherit: true,
+		otherFormes: ["Doublade-Ancient"],
+		formeOrder: ["Doublade", "Doublade-Ancient"],
+	},
+
+	doubladeancient: {
+		num: -177,
+		name: "Doublade-Ancient",
+		baseSpecies: "Doublade",
+		forme: "Ancient",
+		evos: ["Aegislash-Ancinet"],
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 69, atk: 100, def: 90, spa: 45, spd: 49, spe: 95},
+		abilities: {0: "Long Reach"},
+		weightkg: 4.5,
+		prevo: "Honedge-Ancient",
+	},
+
+	aegislash: {
+		inherit: true,
+		otherFormes: ["Aegislash-Blade", "Aegislash-Ancient", "Aegislash-Ancient-Hunter"],
+		formeOrder: ["Aegislash", "Aegislash-Blade", "Aegislash-Ancient", "Aegislash-Ancient-Hunter"],
+	},
+
+	aegislashancient: {
+		num: -178,
+		name: "Aegislash-Ancient",
+		baseSpecies: "Aegislash",
+		forme: "Ancient",
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 70, atk: 50, def: 110, spa: 50, spd: 110, spe: 110},
+		abilities: {0: "Tactics Change"},
+		weightkg: 53,
+		prevo: "Doublade-Ancient",
+	},
+
+	aegislashancienthunter: {
+		num: -178,
+		name: "Aegislash-Ancient-Hunter",
+		baseSpecies: "Aegislash",
+		forme: "Ancient-Hunter",
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 70, atk: 110, def: 50, spa: 110, spd: 50, spe: 110},
+		abilities: {0: "Tactics Change"},
+		weightkg: 53,
+		requiredAbility: "Tactics Change",
+		battleOnly: "Aegislash-Ancient",
+	},
+
+	baltoy: {
+		inherit: true,
+		evos: ["Claydol", "Claydol-Premade"],
+	},
+
+	claydol: {
+		inherit: true,
+		otherFormes: ["Claydol-Premade"],
+		formeOrder: ["Claydol", "Claydol-Premade"],
+	},
+
+	claydolpremade: {
+		num: -179,
+		name: "Claydol-Premade",
+		baseSpecies: "Claydol",
+		forme: "Premade",
+		types: ["Rock", "Psychic"],
+		baseStats: {hp: 60, atk: 120, def: 70, spa: 90, spd: 65, spe: 95},
+		abilities: {0: "Solid Rock", 1: "Trace", H: "Unaware"},
+		weightkg: 108,
+		prevo: "Baltoy",
+	},
 };

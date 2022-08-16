@@ -161,6 +161,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'blaziken').learnset.roost = ['8L1'];
 		
 		this.modData('Learnsets', 'lucario').learnset.triplekick = ['8L1'];
+		
+		delete this.modData('Learnsets', 'tornadus').learnset.hurricane;
 	},
 	
 	pokemon: {

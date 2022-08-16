@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+import {EventMethods} from './dex-conditions';
+
 type Battle = import('./battle').Battle;
 type BattleQueue = import('./battle-queue').BattleQueue;
 type Field = import('./field').Field;
@@ -154,6 +156,23 @@ interface BasicEffect extends EffectData {
 	gen: number;
 	sourceEffect: string;
 	toString: () => string;
+}
+
+interface PureEffectData extends EffectData, PureEffectEventMethods, EventMethods, EffectData {
+}
+
+interface PureEffectEventMethods {
+	onCopy?: (this: Battle, pokemon: Pokemon) => void
+	onEnd?: (this: Battle, target: Pokemon & Side & Field) => void
+	onRestart?: (this: Battle, target: Pokemon & Side & Field, source: Pokemon) => void
+	durationCallback?: (this: Battle, target: Pokemon, source: Pokemon, effect: Effect | null) => number
+	onStart?: (this: Battle, target: Pokemon & Side & Field, source: Pokemon, sourceEffect: Effect) => void
+}
+
+type ModdedPureEffectData = Partial<PureEffectData> | ModdedEffectData;
+
+interface PureEffect extends Readonly<BasicEffect & PureEffectData> {
+	readonly effectType: 'Status' | 'Condition' | 'Weather'
 }
 
 type ConditionData = import('./dex-conditions').ConditionData;

@@ -151,4 +151,103 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 305,
 	},
+	meaneye: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!activated) {
+					this.add('-ability', pokemon, 'Mean Eye', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spa: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Mean Eye",
+		shortDesc: "On switch-in, this Pokemon lowers the Special attack of adjacent opponents by 1 stage.",
+		rating: 1.5,
+		num: 306,
+	},
+	cleftbody: {
+		onSwitchIn(pokemon) {
+			this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[of] ' + pokemon);
+			pokemon.side.removeSideCondition('stealthrock');
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Cleft Body');
+				}
+				return null;
+			}
+		},
+		name: "Cleft Body",
+		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Ground moves; Ground immunity. Absorbs Stealth Rock on switch in.",
+		rating: 3.5,
+		num: 11,
+	},
+	simmerfocus: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (move?.category !== 'Status') {
+				move.simmerfocusBoosted = true;
+				return priority - 3;
+			}
+		},
+		onBasePowerPriority: 19,
+		onBasePower(basePower, pokemon, target, move) {
+			if (!pokemon.hurtThisTurn) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Simmer Focus",
+		rating: 4,
+		shortDesc: "This Pokemon’s damaging moves have -3 Priority, if it isnt hit by a damaging move before it attacks, its attack does 1.5x damage.",							
+		num: 158,
+	},
+	feeler: {
+		desc: "On switch-in, this Pokémon's Defense or Special Defense is raised by 1 stage based on the weaker combined attacking stat of all opposing Pokémon. Special Defense is raised if their Special Attack is higher, and Defense is raised if their Attack is the same or higher.",
+		shortDesc: "On switch-in, Def or Sp. Def is raised 1 stage based on the foes' higher Attack.",
+		onStart(pokemon) {
+			let totalatk = 0;
+			let totalspa = 0;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				totalatk += target.getStat('atk', false, true);
+				totalspa += target.getStat('spa', false, true);
+			}
+			if (totalatk && totalatk >= totalspa) {
+				this.boost({def: 1});
+			} else if (totalspa) {
+				this.boost({spd: 1});
+			}
+		},
+		name: "Feeler",
+		rating: 4,
+		num: -35,
+	},
+	jellyarmor: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Physical') {
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Jelly Armor",
+		rating: 3,
+		shortDesc: "This Pokemon takes 3/4 damage from physical attacks.",
+		num: 111,
+	},
+	trickyrat: {
+		onModifyMove(move) {
+			if (move) delete move.flags['protect'];
+			move.infiltrates = true;
+		},
+		name: "Tricky Rat",
+		rating: 2.5,
+		shortDesc: "This Pokemon's moves break protection and ignore substitutes and foe's Reflect/Light Screen/Safeguard/Mist/Aurora Veil.",
+		num: 151,
+	},
 };

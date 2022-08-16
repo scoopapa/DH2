@@ -281,6 +281,12 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify(2);
 			}
 		},
+		onTakeItem(item, pokemon, source) {
+			if (source && ["pikachu", "pikachuidol", "pikachulibre", "pikachupartner", "pikachubelle"].includes(this.toID(source.baseSpecies.baseSpecies))) {
+				return false;
+			}
+			return true;
+		},
 		itemUser: ["Pikachu", "Pikachu-Idol", "Pikachu-Libre", "Pikachu-Partner", "Pikachu-Belle"],
 		num: 236,
 		gen: 2,

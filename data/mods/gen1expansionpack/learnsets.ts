@@ -3028,6 +3028,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			reflect: ["1M"],
 			skullbash: ["1M"],
 			psywave: ["1M"],
+			hyperbeam: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],

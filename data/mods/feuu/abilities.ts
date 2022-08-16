@@ -5235,6 +5235,165 @@ lifedrain: {
 		name: "Vigilance",
 		shortDesc: "Stamina + Oblivious",
 	},
+	floodgates: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Floodgates');
+				}
+				return null;
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 4);
+		},
+		name: "Floodgates",
+		shortDesc: "Heals 25% of the user's max HP upon switching out or getting hit by a Water move; Water immunity.",
+	},
+	magicarmour: {
+		onBoost(boost, target, source, effect) {
+			// Don't bounce self stat changes, or boosts that have already bounced
+			if (target === source || !boost || effect.id === 'mirrorarmor' || effect.id === 'magicarmour') return;
+			let b: BoostName;
+			for (b in boost) {
+				if (boost[b]! < 0) {
+					if (target.boosts[b] === -6) continue;
+					const negativeBoost: SparseBoostsTable = {};
+					negativeBoost[b] = boost[b];
+					delete boost[b];
+					this.add('-ability', target, 'Magic Armour');
+					this.boost(negativeBoost, source, target, null, true);
+				}
+			}
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.useMove(newMove, this.effectData.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		name: "Magic Armour",
+		shortDesc: "Effects of Magic Bounce and Mirror Armor.",
+	},
+	drakonblood: {
+	  shortDesc: "Dragon moves used restore user's HP by 50% of the damage dealt.",
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.type === 'Dragon' && move.category !== 'Status') {
+				this.heal(pokemon.lastDamage / 2, pokemon);
+			}
+		},
+	  name: "Drakon Blood",
+    },
+	ultrahaircut: {
+	  shortDesc: "Pokémon making contact with this Pokémon have their highest stat lowered by 1 stage.",
+		onDamagingHit(damage, target, source, move) {
+				if (!move || !move.flags['contact'] || target.volatiles['substitute']) return;
+				let statName = 'atk';
+				let bestStat = 0;
+				/** @type {StatNameExceptHP} */
+				let s;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.add('-ability', target, 'Ultra Haircut');
+				this.boost({[statName]: -1}, source, target, null, true);
+		},
+	  name: "Ultra Haircut",
+    },
+	barbedarmour: {
+	  shortDesc: "Iron Barbs + Battle Armor",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+	   	}
+	  },
+	  onCriticalHit: false,
+	  name: "Barbed Armour",
+    },
+	technocrat: {
+	  shortDesc: "Technician + Super Luck",
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technocrat boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+	  name: "Technocrat",
+    },
+	reload: {
+	  shortDesc: "33% chance to have its status cured and negative stats reset at the end of each turn.",
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.hp && pokemon.status && this.randomChance(1, 3)) {
+				this.debug('reload');
+				this.add('-activate', pokemon, 'ability: Reload');
+				pokemon.cureStatus();
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						boosts[i] = 0;
+					}
+				}
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
+			}
+		},
+	  name: "Reload",
+    },
+	heatweight: {
+	  shortDesc: "Blaze + Heavy Metal",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Heat Weight boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Heat Weight boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyWeightPriority: 1,
+		onModifyWeight(weighthg) {
+			return weighthg * 2;
+		},
+	  name: "Heat Weight",
+    },
 
 
 // LC Only Abilities
@@ -6329,6 +6488,28 @@ lifedrain: {
 		},
 		name: "Humid Atmosphere",
 		shortDesc: "At the end of the turn, if any weather is active, this Pokémon has its status condition healed.",
+	},
+	wimparmour: {
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.add('-ability', pokemon, 'Anticipation');
+						this.boost({spe: 2, def: -1}, pokemon);
+						return;
+					}
+				}
+			}
+		},
+		name: "Wimp Armour",
+		shortDesc: "On switch in, shrudders and gains -1 Def +2 Speed if foe has any Super-Effective or OHKO moves.",
 	},
 };
  

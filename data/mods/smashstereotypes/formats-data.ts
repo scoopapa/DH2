@@ -335,4 +335,34 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	landorustherian: {
 		tier: "SSS",
 	},
+	golisopod: {
+		tier: "SSS",
+	},
+	chatot: {
+		tier: "SSS",
+	},
+	gastrodonentityeast: {
+		tier: "SSS",
+	},
+	lycanperiordusk: {
+        tier: "SSS",
+    },
+	yoshiblaze: {
+		tier: "SSS",
+	},
+	yoshiblazemega: {
+		tier: "SSS",
+	},
+	xataskewda: {
+		tier: "SSS",
+	},
+	skuntank: {
+		tier: "SSS",
+	},
+	garchomp: {
+		tier: "SSS",
+	},
+	munchlax: {
+		tier: "SSS",
+	},
 };

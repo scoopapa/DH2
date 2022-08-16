@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			return true;
 		},
 		num: -100,
-		shortDesc: "If held by a Trobsidon, this item allows it to Mega Evolve in battle.",
+		shortDesc: "If held by a Spinollina, this item allows it to Mega Evolve in battle.",
 		//isNonstandard: "Past",
 	},
 

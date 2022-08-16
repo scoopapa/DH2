@@ -26,4 +26,49 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	grapploct: {
 		tier: "metamons",
 	},
+	arcanine: {
+		tier: "metamons",
+	},
+	eelektross: {
+		tier: "metamons",
+	},
+	tauros: {
+		tier: "metamons",
+	},
+	tsareena: {
+		tier: "metamons",
+	},
+	sylveon: {
+		tier: "metamons",
+	},
+	perrserker: {
+		tier: "metamons",
+	},
+	mantine: {
+		tier: "metamons",
+	},
+	druddigon: {
+		tier: "metamons",
+	},
+	persianalola: {
+		tier: "metamons",
+	},
+	duraludon: {
+		tier: "metamons",
+	},
+	houndoom: {
+		tier: "metamons",
+	},
+	stunfisk: {
+		tier: "metamons",
+	},
+	emolga: {
+		tier: "metamons",
+	},
+	espeon: {
+		tier: "metamons",
+	},
+	toxicroak: {
+		tier: "metamons",
+	},
 };

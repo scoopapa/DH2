@@ -7,6 +7,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				this.debug('power link - remove charge turn for ' + move.id);
 				this.attrLastMove('[still]');
 				this.addMove('-anim', target, move.name, target);
+				this.damage(target.baseMaxhp / 3, target, target, 'recoil');
 				return false; // skip charge turn
 			}
 		},
@@ -19,6 +20,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Hellfire Lantern",
 		onSourceTryHit(target, source, move) {
 			if (move.type === 'Fire') {
+				this.add('-enditem', target, 'Hellfire Lantern');
 				target.trySetStatus('brn', source);
 				source.useItem();
 			}
@@ -41,8 +43,310 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 2,
 		shortDesc: "If held by Sandshrew and Sandslash, summon Sandstorm for 5 turns on switch-in.",
 	},
-	
-	
+	alarmclock: {
+		name: "Alarm Clock",
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			this.add('-activate', source, 'item: Alarm Clock');
+			return false;
+		},
+		num: 1004,
+		gen: 2,
+		shortDesc: "Prevents Sleep status from being applied to the holder.",
+   },
+	heatpack: {
+		name: "Heat Pack",
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'frz') return;
+			this.add('-activate', source, 'item: Heat Pack');
+			return false;
+		},
+		num: 1005,
+		gen: 2,
+		shortDesc: "Prevents Freeze status from being applied to the holder.",
+   },
+	smellingsalts: {
+		name: "Smelling Salts",
+		onUpdate(pokemon) {
+			if (pokemon.status === 'par') {
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'par') return;
+			this.add('-activate', source, 'item: Smelling Salts');
+			return false;
+		},
+		num: 1006,
+		gen: 2,
+		shortDesc: "Prevents Paralysis status from being applied to the holder.",
+    },
+	 ointment: {
+		name: "Ointment",
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			this.add('-activate', source, 'item: Ointment');
+			return false;
+		},
+		num: 1007,
+		gen: 2,
+		shortDesc: "Prevents Burn status from being applied to the holder.",
+    },
+	 airfilter: {
+		name: "Air Filter",
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox') return;
+			this.add('-activate', source, 'item: Air Filter');
+			return false;
+		},
+		num: 1008,
+		gen: 2,
+		shortDesc: "Prevents Poison status from being applied to the holder.",
+   },
+	seviisundae: {
+		name: "Sevii Sundae",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae9');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1009,
+		gen: 2,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
+	},
+	seviisundae9: {
+		name: "Sevii Sundae (9)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae8');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1010,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 9 turns.",
+	},
+	seviisundae8: {
+		name: "Sevii Sundae (8)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae7');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1011,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 8 turns.",
+	},
+	seviisundae7: {
+		name: "Sevii Sundae (7)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae6');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1012,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 7 turns.",
+	},
+	seviisundae6: {
+		name: "Sevii Sundae (6)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae5');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1013,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 6 turns.",
+	},
+	seviisundae5: {
+		name: "Sevii Sundae (5)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae4');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1014,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 5 turns.",
+	},
+	seviisundae4: {
+		name: "Sevii Sundae (4)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae3');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1015,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 4 turns.",
+	},
+	seviisundae3: {
+		name: "Sevii Sundae (3)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae2');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1016,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 3 turns.",
+	},
+	seviisundae2: {
+		name: "Sevii Sundae (2)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.setItem('seviisundae1');
+			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+		},
+		num: 1017,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 2 turns.",
+	},
+	seviisundae1: {
+		name: "Sevii Sundae (1)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 8);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+			pokemon.useItem();
+		},
+		num: 1018,
+		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 1 turns.",
+	},
+    drainingrelic: {
+        name: "Draining Relic",
+        spritenum: 180,
+        onAfterMoveSecondarySelf(source, target, move) {
+            if (target.volatiles['substitute']) return;
+            if (move.totalDamage) {
+                return !!(this.heal((Math.floor(move.totalDamage)) / 3), source, target);
+            }
+        },
+        num: 1019,
+        gen: 2,
+        shortDesc: "Attacks drain as health 1/3 of damage dealt to the opponent.",
+    
+    },
+	wynaut: { // Wynaut item behavior under 'substitute' in gen2crystalseviiislands/moves.ts
+        name: "Wynaut",
+        //spritenum:
+        num: 1020,
+        gen: 2,
+        shortDesc: "Deals 1/8 damage to the opponent while behind a Substitute, for every turn the Substitute does not take damage.",
+        damage: "[POKEMON] was hurt by the Wynaut!",
+		onFoeAfterMoveSelf(target, source) {
+            if (!source) source = this.effectData.source;
+			if (target === source) source = this.effectData.target;
+            const lastAttackedBy = source.getLastAttackedBy();
+            if (lastAttackedBy?.move && lastAttackedBy.thisTurn) return;
+            if (source.volatiles['substitute']) {
+                this.add('-anim', source, 'Mirror Coat', target);
+                this.damage(target.baseMaxhp / 8, target, source, 'item: Wynaut');
+            }
+        },
+    },
+	seviisap: {
+        name: "Sevii Sap",
+        onResidualOrder: 5,
+        onResidualSubOrder: 5,
+        onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 24);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 24);
+			}
+        },
+        onTakeItem(item, pokemon, source) {
+            if ((source && source !== pokemon) || this.activeMove.id === 'thief') {
+                this.add('-message', 'Sevii Sap cannot be removed.');
+                return false;
+            }
+        },
+        num: 1021,
+        gen: 2,
+        shortDesc: "At the end of every turn, holder restores 1/24 of its max HP. Cannot be removed.",
+    },
 	// Vanilla Edits
 	
 	metalpowder: {
@@ -63,6 +367,55 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 257,
 		gen: 2,
 		shortDesc: "(Bugged) Not compatible with Animon."
+	},
+
+	// Malnourish
+
+	leftovers: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(pokemon.baseMaxhp / 16);
+			}
+			else {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+	},
+	berry: {
+		inherit: true,
+		onEat(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(10);
+			}
+			else {
+				this.heal(30);
+			}
+		},
+	},
+	goldberry: {
+		inherit: true,
+		onEat(pokemon) {
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(30);
+			}
+			else {
+				this.heal(30);
+			}
+		},
+	},
+	berryjuice: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.hp > pokemon.maxhp / 2) return;
+			if (!(this.runEvent('TryHeal', pokemon) && pokemon.useItem())) return;
+			if (pokemon.volatiles['malnourish']) {
+				this.damage(20);
+			}
+			else {
+				this.heal(20);
+			}
+		}
 	},
 	
 	

@@ -130,7 +130,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
 		banlist: ['All Pokemon'],
-		unbanlist: ['Sceptile', 'Charizard', 'Inteleon', 'Lanturn', 'Larvesta', 'Aggron'],
+		unbanlist: ['Sceptile', 'Charizard', 'Inteleon', 'Lanturn', 'Larvesta', 'Aggron', 'Sableye', 'Carbink', 'Entei', 'Hatterene', 'Raticate-Alola', 'Lapras'],
 		mod: "abilitypos",
 	},
 	{
@@ -147,7 +147,9 @@ export const Formats: FormatList = [
 				'Decidueye-Hermit', 'Decidueye-Autumn', 'Typhlosion-Explosive', 'Typhlosion-Warlock', 'Samurott-Foamy', 'Samurott-Rogue', 'Oricorio', 'Oricorio-Cheerleader',
 				'Oricorio-Pa\u2019u', 'Horrorcorio', 'Pikachu-Kanto', 'Pikachu-Hoenn', 'Pikachu-Sinnoh', 'Pikachu-Unova', 'Pikachu-Tactic', 'Pikachu-Alola', 'Pikachu-World',
 				'Ribombee', 'Ribombee-Totem', 'Araquanid', 'Araquanid-Totem', 'Vikavolt', 'Vikavolt-Totem', 'Urshifu', 'Urshifu-Erosion', 'Calyrex-Mythic', 'Calyrex-Glacier', 
-				'Calyrex-Midnight', 'Kommo-o', 'Rockmo-o', 'Salazzle', 'Salazzle-Ruler', 'Lurantis', 'Lurantio',
+				'Calyrex-Midnight', 'Kommo-o', 'Rockmo-o', 'Salazzle', 'Salazzle-Ruler', 'Lurantis', 'Lurantio', 'Mr. Mime', 'Mr. Mime-Prance', 'Stunfisk', 'Stunfisk-Trap',
+				'Necrozma', 'Necrozma-Lionheart', 'Necrozma-Batwing', 'Necrozma-Dragon', 'Braviary-Patriot', 'Braviary-Hisui', 'Lilligant-Bard', 'Mistlegant', 'Electrode-Screwball', 
+				'Electrode-Ringo', 'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales',
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -161,6 +163,29 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	
+	{
+		name: "[Gen 8] Black Market",
+		mod: "blackmarket",
+		desc: [
+			`<b>Black Market</b>: A Pet Mod where users build Fakemon over the span of a tournament.`
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/tournament-black-market-starting-phase.3704607/">Black Market on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/10BkMc61hCnfEc6XpjozDrQ20zMVAt5rArlvjsCENR7I/edit#gid=0">Spreadsheet</a>`,
+		],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
+		unbanlist: ['Dragapult', 'Tornadus-Therian', 'Blaziken', 'Greninja-Ash', 'Kyurem'], 
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Darmanitan-Galar', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga',
+			'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre', 'Kyurem-Black', 'Kyurem-White',
+			'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Metagross-Mega', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane',
+			'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Tornadus-Therian', 'Urshifu-Base', 'Xerneas', 'Yveltal',
+			'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+			'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z'
+		],
+	},
+	
 	{
 		name: "[Gen 8] Blindsided",
 		mod: "blindsided",
@@ -182,6 +207,7 @@ export const Formats: FormatList = [
 			'Wendigoul', 'Vesuvenge', 'Vipier', 'Zawa'
 		],
 	},
+
 	{
 		name: "[Gen 8] Branched Potential",
 		desc: [
@@ -387,7 +413,7 @@ export const Formats: FormatList = [
         ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Fifth Move Additions'],
         banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',],
         unbanlist: [
-             'Threedy', 'Amvip', 'Capsaken', 'Shinamako', 'Abrakin', 'Avasterror', 'Dustrake', 'Eneryth', 'Skyrider', 'Tusquoka', 'Turbulusk', 'Baloon-Popped', 'Rapteroid', 'Lilyqueen',
+             'Threedy', 'Amvip', 'Capsaken', 'Shinamako', 'Abrakin', 'Avasterror', 'Dustrake', 'Eneryth', 'Skyrider', 'Tusquoka', 'Turbulusk', 'Baloon-Popped', 'Rapteroid', 'Lilyqueen', 'Gladiarbor', 'Showmandril', 'Animeleon', 'Equivalor',
 			],	
 				onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
@@ -539,16 +565,17 @@ export const Formats: FormatList = [
 			'Litleesect-Douse', 'Litleesect-Shock', 'Litleesect-Burn', 'Litleesect-Chill',
 			'Genebro-Galar-Douse', 'Genebro-Galar-Shock', 'Genebro-Galar-Burn', 'Genebro-Galar-Chill',
 			
-			/*
+			
 			'Appledam', 'Regidurr', 'Duskoma', 'Fraxblade', 'Igglycian-Crowned', 
 			'Eiscudile', 'Carcannon', 'Lapfisk', 'Whisdur', 'Emposerker', 'Salasian-Alola', 'Salasian-Alola-Mega', 
 			"Pelilicky", "Zaponaw-Galar", "Yandos", "Mudscash", "Woopquaza-Mega", "Woopquaza", "Qwilsimian", "Buzzvine", "Solabat",
-			*/
+			"Jellopod", "Jellopod-F", "Espetops", "Regigoss", "Nihitrio",
+			"Ferropion", "Scytic", "Dragancie", "Dragancie-Mega", "Yanturne", "Emberajah",
 
 			'Corveotto', 'Torraaffy', 'Rosadin', 'Mr. Boot-Galar', 'Palpitrik', 'Pikabat', 'Krokocroco', 'Ivycat', 'Tranquorino', 'Kadabeak', 'Vibrachu', 'Chokloom', 'Magmabuzz',
 			'Mariwick', 'Krabsweet', 'Slowmite', 'Eebat', 'Gibloon', 'Mieyu', 'Duspoke', 'Frillnub', 'Dreepig', 'Meowruff-Galar', 'Golidimp', 'Panchanpy', 'Shroolix', 'Noixel', 'Pidgeidee', 'Bronlin', 'Seedpoke-Galar', 'Glitoy', 'Munchyke', 'Venipawn', 'Krelpinch', 'Tirtipek', 'Grinamo', 'Cubodile', 'Snodew', 'Claunchiwag', 'Scymask', 'Fletchee', 'Farsola-Galar', 'Cottonas', 'Snipole', 'Maritten', 'Snogepi', 'Hippee', 'Dwepig', 'Parycoly', 'Charblu', 'Inkshrew-Alola', 'Chewkit', 'Duckgon', 'Larvaura', 'Crabrola', 'Chespew', 'Rowlipede', 'Scor Jr.', 'Porymask', 'Wimbuto', 'Larkiddo', 'Bergmel',
 			'Croagma', 'Inktoy', 'Sunkip', 'Sniloon', 'Rhyble', 'Goolts', 'Clobbgar', 'Sursfant', 'Hatamask-Galar', 'Tynapole', "Meowruff", "Carvipede", "Froakaboo", "Spritdoof", "Beldino", "Pibat", "Darumaka-Prime", "Totosand", "Bulbalit", 'Vullarogue', 'Grubbur', 'Purrlithe', 'Venoran-F', 'Zubnemite', 'Abripek', 'Nidove-M', 'Gooby', 'Pinchu', 'Buixew', 'Pawnrunt', 'Tyrunxel', 'Shellitite', 'Oddchop', 'Makuras', 'Litlokuda', 'Croagshrew-Alola', 'Tentatwig', 'Magkid', 'Elecoink', 'Ferrolu', 'Koffipoke-Galar', 'Shelbur', 'Grimcery',
-			/*'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull",*/
+			'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull", "Frillopod", "Frillopod-F", "Eevuto", "Yannea", "Cupig",
 			'Exeggcute',
 		],
 	},
@@ -564,7 +591,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Baton Pass', 'Gardevoirite', 'Mawilite', 'Cameruptite', 'Scizorite', 'Glalitite', 'Sablenite', 'Lopunnite', 'Garchompite', 'Venusaurite', 'Pinsirite', 'Medichamite', 'Alakazite', 'Beedrillite', 'Manectite', 'Herasir + Heracronite', 'Charizardite Y', 'Charizardite X', 'Lucarionite', 'Swannamence + Salamencite',
+			'All Pokemon', 'Baton Pass', 'Gardevoirite', 'Mawilite', 'Cameruptite', 'Scizorite', 'Glalitite', 'Sablenite', 'Lopunnite', 'Garchompite', 'Venusaurite', 'Pinsirite', 'Medichamite', 'Alakazite', 'Beedrillite', 'Manectite', 'Herasir + Heracronite', 'Charizardite Y', 'Charizardite X', 'Lucarionite', 'Swannamence + Salamencite', 'Diancite',
 		],
 		unbanlist: [
 			'Torranadus-Therian', 'Togetops', 'Toxicargo', 'Claylamar', 'Vishitomb', 'Swampflora', 'Swampflora-Mega', 'Swalurchin', 'Serpeblim',
@@ -596,11 +623,13 @@ export const Formats: FormatList = [
 			'Appledam', 'Regidurr', 'Duskoma', 'Fraxblade', 'Igglycian-Crowned', 
 			'Eiscudile', 'Carcannon', 'Lapfisk', 'Whisdur', 'Emposerker', 'Salasian-Alola', 'Salasian-Alola-Mega', 
 			"Pelilicky", "Zaponaw-Galar", "Yandos", "Mudscash", "Woopquaza-Mega", "Woopquaza", "Qwilsimian", "Buzzvine", "Solabat",
+			"Jellopod", "Jellopod-F", "Espetops", "Regigoss", "Nihitrio",
+			"Ferropion", "Scytic", "Dragancie", "Yanturne", "Emberajah",
 			
 			'Corveotto', 'Torraaffy', 'Rosadin', 'Mr. Boot-Galar', 'Palpitrik', 'Pikabat', 'Krokocroco', 'Ivycat', 'Tranquorino', 'Kadabeak', 'Vibrachu', 'Chokloom', 'Magmabuzz',
 			'Mariwick', 'Krabsweet', 'Slowmite', 'Eebat', 'Gibloon', 'Mieyu', 'Duspoke', 'Frillnub', 'Dreepig', 'Meowruff-Galar', 'Golidimp', 'Panchanpy', 'Shroolix', 'Noixel', 'Pidgeidee', 'Bronlin', 'Seedpoke-Galar', 'Glitoy', 'Munchyke', 'Venipawn', 'Krelpinch', 'Tirtipek', 'Grinamo', 'Cubodile', 'Snodew', 'Claunchiwag', 'Scymask', 'Fletchee', 'Farsola-Galar', 'Cottonas', 'Snipole', 'Maritten', 'Snogepi', 'Hippee', 'Dwepig', 'Parycoly', 'Charblu', 'Inkshrew-Alola', 'Chewkit', 'Duckgon', 'Larvaura', 'Crabrola', 'Chespew', 'Rowlipede', 'Scor Jr.', 'Porymask', 'Wimbuto', 'Larkiddo', 'Bergmel',
 			'Croagma', 'Inktoy', 'Sunkip', 'Sniloon', 'Rhyble', 'Goolts', 'Clobbgar', 'Sursfant', 'Hatamask-Galar', 'Tynapole', "Meowruff", "Carvipede", "Froakaboo", "Spritdoof", "Beldino", "Pibat", "Darumaka-Prime", "Totosand", "Bulbalit", 'Vullarogue', 'Grubbur', 'Purrlithe', 'Venoran-F', 'Zubnemite', 'Abripek', 'Nidove-M', 'Gooby', 'Pinchu', 'Buixew', 'Pawnrunt', 'Tyrunxel', 'Shellitite', 'Oddchop', 'Makuras', 'Litlokuda', 'Croagshrew-Alola', 'Tentatwig', 'Magkid', 'Elecoink', 'Ferrolu', 'Koffipoke-Galar', 'Shelbur', 'Grimcery',
-			'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull",
+			'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull", "Frillopod", "Frillopod-F", "Eevuto", "Yannea", "Cupig",
 			'Exeggcute',
 		],
 	},
@@ -616,13 +645,15 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'All Pokemon', 'Baton Pass', 'Salamencite', 'Abomasite', 'Absolite', 'Medichamite', 'Lopunnite',
+			'All Pokemon', 'Baton Pass', 'Salamencite', 'Abomasite', 'Absolite', 'Medichamite', 'Lopunnite', 'Diancite',
 		],
 		unbanlist: [
 	 		'Rhybite',
 			'Appledam', 'Regidurr', 'Duskoma', 'Fraxblade', 'Igglycian-Crowned', 
 			'Eiscudile', 'Carcannon', 'Lapfisk', 'Whisdur', 'Emposerker', 'Salasian-Alola',
 			"Pelilicky", "Zaponaw-Galar", "Yandos", "Mudscash", "Woopquaza-Mega", "Woopquaza", "Qwilsimian", "Buzzvine", "Solabat",
+			"Jellopod", "Jellopod-F", "Espetops", "Regigoss", "Nihitrio",
+			"Ferropion", "Scytic", "Dragancie", "Yanturne", "Emberajah",
 			
 			'Claylamar', 'Vishitomb', 'Swampflora', 'Swampflora-Mega', 'Azekrow', 'Trapeino', 'Bearyx', 'Fetchey', "Aromarel", 'Googersby', 'Harisect', 
 			'Absable', 'Tapu Lop', 'Hypnakart', 'Hawlazzle', 'Glasnow', 'Paracoal',
@@ -635,7 +666,7 @@ export const Formats: FormatList = [
 			'Corveotto', 'Torraaffy', 'Rosadin', 'Mr. Boot-Galar', 'Palpitrik', 'Pikabat', 'Krokocroco', 'Ivycat', 'Tranquorino', 'Kadabeak', 'Vibrachu', 'Chokloom', 'Magmabuzz',
 			'Mariwick', 'Krabsweet', 'Slowmite', 'Eebat', 'Gibloon', 'Mieyu', 'Duspoke', 'Frillnub', 'Dreepig', 'Meowruff-Galar', 'Golidimp', 'Panchanpy', 'Shroolix', 'Noixel', 'Pidgeidee', 'Bronlin', 'Seedpoke-Galar', 'Glitoy', 'Munchyke', 'Venipawn', 'Krelpinch', 'Tirtipek', 'Grinamo', 'Cubodile', 'Snodew', 'Claunchiwag', 'Scymask', 'Fletchee', 'Farsola-Galar', 'Cottonas', 'Snipole', 'Maritten', 'Snogepi', 'Hippee', 'Dwepig', 'Parycoly', 'Charblu', 'Inkshrew-Alola', 'Chewkit', 'Duckgon', 'Larvaura', 'Crabrola', 'Chespew', 'Rowlipede', 'Scor Jr.', 'Porymask', 'Wimbuto', 'Larkiddo', 'Bergmel',
 			'Croagma', 'Inktoy', 'Sunkip', 'Sniloon', 'Rhyble', 'Goolts', 'Clobbgar', 'Sursfant', 'Hatamask-Galar', 'Tynapole', "Meowruff", "Carvipede", "Froakaboo", "Spritdoof", "Beldino", "Pibat", "Darumaka-Prime", "Totosand", "Bulbalit", 'Vullarogue', 'Grubbur', 'Purrlithe', 'Venoran-F', 'Zubnemite', 'Abripek', 'Nidove-M', 'Gooby', 'Pinchu', 'Buixew', 'Pawnrunt', 'Tyrunxel', 'Shellitite', 'Oddchop', 'Makuras', 'Litlokuda', 'Croagshrew-Alola', 'Tentatwig', 'Magkid', 'Elecoink', 'Ferrolu', 'Koffipoke-Galar', 'Shelbur', 'Grimcery',
-			'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull",
+			'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull", "Frillopod", "Frillopod-F", "Eevuto", "Yannea", "Cupig",
 			'Exeggcute',
 		],
 	},
@@ -652,6 +683,10 @@ export const Formats: FormatList = [
 					   'Snarl', 'Steel Wing', 'Strange Steam',
 					   'Deino', 'Zweilous', 'Hydreigon', 'Scizor', 'Cottonee', 'Whimsicott', 
 						'Nature\'s Madness', 'Fake Tears', 'Gear Up',
+						'Steelix', 'Spiritomb', 'Swablu', 'Altaria',
+						'Fleur Cannon', 'Taunt', 'Heavy Slam',
+						'Yveltal', 'Skarmory', 'Tapu Koko',
+						'Lash Out', 'Crafty Shield', 'Sunsteel Strike',
 					  ],
     },
    {
@@ -669,6 +704,7 @@ export const Formats: FormatList = [
 			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang',
 			'Altarianite', 'Gengarite', 'Salamencite',
 			'Calaguaca-Revered', 'Poruvia-Revered',
+			'Pyraustragon', 'Darmanitan-Galar',
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -726,10 +762,43 @@ export const Formats: FormatList = [
 		mod: 'joltemons',	
 		teambuilderFormat: 'OU',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		unbanlist: ['Dragapult', 'Tornadus-Therian', 'Blaziken', 'Greninja-Ash', 'Moody', 'Shaymin-Sky', 'Kangaskhan-Mega', 'Darmanitan-Galar'],
-		banlist: ['Uber', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Arceus', 'Blazikenite', 'Blastoisinite', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Deoxys-Speed', 'Dialga', 'Genesect', 'Gengarite', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lugia', 'Lunala', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody', 'Magearna', 'Spectrier', 'Dracovish', 'Urshifu-Base',
+		unbanlist: ['Dragapult', 'Tornadus-Therian', 'Blaziken', 'Greninja-Ash', 'Moody', 'Shaymin-Sky', 'Kangaskhan-Mega', 'Darmanitan-Galar', 'Metagross-Mega'],
+		banlist: ['Uber', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Arceus', 'Blazikenite', 'Blastoisinite', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Deoxys-Speed', 'Dialga', 'Genesect', 'Gengarite', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody', 'Magearna', 'Spectrier', 'Dracovish', 'Urshifu-Base',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Decidium Z', 'Kommonium Z',
 					'Soul Blade Lvl. 2', 'Soul Blade Lvl. 3', 'Soul Blade Lvl. 4', 'Soul Blade Lvl. 5', 'Ultra Soul Blade'],
+	},
+	{
+		name: "[Gen 8] Legends: Hoopa",
+		desc: [
+			"<b>A New Legend</b>: A Pet Mod that aims to create a hypothetical new entry in a full Pokemon Legends subseries - Pokemon Legends Hoopa.",
+		],
+		threads: [
+			`&bullet: <a href="https://www.smogon.com/forums/threads/a-new-legend-hoopa.3703382/">Thread on Smogon.`,
+			`&bullet: <a href="https://docs.google.com/spreadsheets/d/1oBcQpXGar8CwoBpqbIa7Y1gVbx7HwtqtXMy_c017OoY/edit?usp=sharing">Spreadsheet.`,
+		],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Legends Boosts Mod'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+			'Sceptilite', 'Blazikenite', 'Swampertite', 'Gardevoirite', 'Galladite', 'Alakazite', 'Gyaradosite',
+			'Sablenite', 'Mawilite', 'Aggronite', 'Medichamite', 'Manectite', 'Sharpedonite', 'Cameruptite', 
+			'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite', 
+			'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
+			'Blue Orb', 'Red Orb',
+			'Dragon Ascent',
+			'Beedrill-Mega' //?????
+		],
+		mod: 'legendshoopa',
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			let allowedTiers = ['ANL OU', "ANL NFE", "ANL LC"];
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Pokemon Legends: Hoopa OU.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 8] Megas for All",
@@ -779,7 +848,7 @@ export const Formats: FormatList = [
 		mod: 'metamons', 
 		ruleset:['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Z-Move Clause'],
 		banlist: ['All Pokemon', 'Baton Pass', 'Sablenite'],
-		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon', 'Slowbro-Galar', 'Sableye', 'Grapploct'],
+		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon', 'Slowbro-Galar', 'Sableye', 'Grapploct', 'Eelektross', 'Arcanine', 'Tauros', 'Tsareena', 'Sylveon', 'Perrserker', 'Mantine', 'Persian-Alola', 'Druddigon', 'Duraludon', 'Houndoom', 'Stunfisk', 'Emolga', 'Espeon', 'Toxicroak'],
 	},
 	{
 	name: "[Gen 8] Micrometa Mafia",
@@ -1071,7 +1140,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			//Pokémon
-			'Darkrai', 'Eternatus', 'Naganadel',
+			'Eternatus', 'Naganadel',
 			//Abilities
 			'Moody',
 			//Items
@@ -2124,14 +2193,17 @@ export const Formats: FormatList = [
 			'Litleesect-Douse', 'Litleesect-Shock', 'Litleesect-Burn', 'Litleesect-Chill',
 			'Genebro-Galar-Douse', 'Genebro-Galar-Shock', 'Genebro-Galar-Burn', 'Genebro-Galar-Chill',
 			
+			
 			'Appledam', 'Regidurr', 'Duskoma', 'Fraxblade', 'Igglycian-Crowned', 
 			'Eiscudile', 'Carcannon', 'Lapfisk', 'Whisdur', 'Emposerker', 'Salasian-Alola', 'Salasian-Alola-Mega', 
 			"Pelilicky", "Zaponaw-Galar", "Yandos", "Mudscash", "Woopquaza-Mega", "Woopquaza", "Qwilsimian", "Buzzvine", "Solabat",
+			"Jellopod", "Jellopod-F", "Espetops", "Regigoss", "Nihitrio",
+			"Ferropion", "Scytic", "Dragancie", "Dragancie-Mega", "Yanturne", "Emberajah",
 
 			'Corveotto', 'Torraaffy', 'Rosadin', 'Mr. Boot-Galar', 'Palpitrik', 'Pikabat', 'Krokocroco', 'Ivycat', 'Tranquorino', 'Kadabeak', 'Vibrachu', 'Chokloom', 'Magmabuzz',
 			'Mariwick', 'Krabsweet', 'Slowmite', 'Eebat', 'Gibloon', 'Mieyu', 'Duspoke', 'Frillnub', 'Dreepig', 'Meowruff-Galar', 'Golidimp', 'Panchanpy', 'Shroolix', 'Noixel', 'Pidgeidee', 'Bronlin', 'Seedpoke-Galar', 'Glitoy', 'Munchyke', 'Venipawn', 'Krelpinch', 'Tirtipek', 'Grinamo', 'Cubodile', 'Snodew', 'Claunchiwag', 'Scymask', 'Fletchee', 'Farsola-Galar', 'Cottonas', 'Snipole', 'Maritten', 'Snogepi', 'Hippee', 'Dwepig', 'Parycoly', 'Charblu', 'Inkshrew-Alola', 'Chewkit', 'Duckgon', 'Larvaura', 'Crabrola', 'Chespew', 'Rowlipede', 'Scor Jr.', 'Porymask', 'Wimbuto', 'Larkiddo', 'Bergmel',
 			'Croagma', 'Inktoy', 'Sunkip', 'Sniloon', 'Rhyble', 'Goolts', 'Clobbgar', 'Sursfant', 'Hatamask-Galar', 'Tynapole', "Meowruff", "Carvipede", "Froakaboo", "Spritdoof", "Beldino", "Pibat", "Darumaka-Prime", "Totosand", "Bulbalit", 'Vullarogue', 'Grubbur', 'Purrlithe', 'Venoran-F', 'Zubnemite', 'Abripek', 'Nidove-M', 'Gooby', 'Pinchu', 'Buixew', 'Pawnrunt', 'Tyrunxel', 'Shellitite', 'Oddchop', 'Makuras', 'Litlokuda', 'Croagshrew-Alola', 'Tentatwig', 'Magkid', 'Elecoink', 'Ferrolu', 'Koffipoke-Galar', 'Shelbur', 'Grimcery',
-			'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull",
+			'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull", "Frillopod", "Frillopod-F", "Eevuto", "Yannea", "Cupig",
 			'Exeggcute',
 		],
     },
@@ -2155,7 +2227,7 @@ export const Formats: FormatList = [
 			'Mariwick', 'Krabsweet', 'Slowmite', 'Eebat', 'Gibloon', 'Mieyu', 'Duspoke', 'Frillnub', 'Dreepig', 'Meowruff-Galar', 'Golidimp', 'Panchanpy', 'Shroolix', 'Noixel', 'Pidgeidee', 'Bronlin', 'Seedpoke-Galar', 'Glitoy', 'Munchyke', 'Venipawn', 'Krelpinch', 'Tirtipek', 'Grinamo', 'Cubodile', 'Snodew', 'Claunchiwag', 'Scymask', 'Fletchee', 'Farsola-Galar', 'Cottonas', 'Snipole', 'Maritten', 'Snogepi', 'Hippee', 'Dwepig', 'Parycoly', 'Charblu', 'Inkshrew-Alola', 'Chewkit', 'Duckgon', 'Larvaura', 'Crabrola', 'Chespew', 'Rowlipede', 'Scor Jr.', 'Porymask', 'Wimbuto', 'Larkiddo', 'Bergmel',
 			'Croagma', 'Inktoy', 'Sunkip', 'Sniloon', 'Rhyble', 'Goolts', 'Clobbgar', 'Sursfant', 'Hatamask-Galar', 'Tynapole', "Meowruff", "Carvipede", "Froakaboo", "Spritdoof", "Beldino", "Pibat", "Darumaka-Prime", "Totosand", "Bulbalit", 'Vullarogue', 'Grubbur', 'Purrlithe', 'Venoran-F', 'Zubnemite', 'Abripek', 'Nidove-M', 'Gooby', 'Pinchu', 'Buixew', 'Pawnrunt', 'Tyrunxel', 'Shellitite', 'Oddchop', 'Makuras', 'Litlokuda', 'Croagshrew-Alola', 'Tentatwig', 'Magkid', 'Elecoink', 'Ferrolu', 'Koffipoke-Galar', 'Shelbur', 'Grimcery',
 			'Ferros', 'Trapeino', 'Exeggcute',
-			'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull",
+			'Burmlin', 'Axedge', 'Rolypek', 'Piplouth-Galar', 'Bagouth-Alola', "Mudboach", "Lickigull", "Frillopod", "Frillopod-F", "Eevuto", "Yannea", "Cupig",
 		],
 	},
 	{
@@ -2307,11 +2379,11 @@ export const Formats: FormatList = [
 		mod: 'joltemons',	
 		teambuilderFormat: 'UU',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		unbanlist: ['Moody', 'Shaymin-Sky', 'Kangaskhan-Mega', 'Darmanitan-Galar'],
+		unbanlist: ['Moody', 'Kangaskhan-Mega', 'Darmanitan-Galar'],
 		banlist: ['OU', 'UUBL', 'Uber', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Arceus', 'Blazikenite', 'Blastoisinite', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Deoxys-Speed', 'Dialga', 'Genesect', 'Gengarite', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucarionite', 'Lugia', 'Lunala', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody', 'Magearna', 'Spectrier', 'Dracovish', 'Urshifu-Base',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Decidium Z', 'Kommonium Z',
 					'Soul Blade Lvl. 2', 'Soul Blade Lvl. 3', 'Soul Blade Lvl. 4', 'Soul Blade Lvl. 5', 'Ultra Soul Blade',
-					'Chill Pill G', 'Lopunnite', 'Scizorite', 'Gyaradosite', 'Charizardite Y', 'Pinsirite', 'Heracronite', 'Aerodactylite', 'Alakazite', 'Galladite', 'Gardevoirite', 'Medichamite', 'Diancite', 'Mawilite', 'Beedrillite', 'Swampertite', 'Latiasite', 'Latiosite', 'Tyranitarite', 'Venusaurite', 'Graduation Scale'],
+					'Chill Pill G', 'Lopunnite', 'Scizorite', 'Gyaradosite', 'Charizardite Y', 'Charizardite X', 'Pinsirite', 'Heracronite', 'Aerodactylite', 'Alakazite', 'Galladite', 'Gardevoirite', 'Medichamite', 'Diancite', 'Mawilite', 'Beedrillite', 'Swampertite', 'Latiasite', 'Latiosite', 'Tyranitarite', 'Venusaurite', 'Graduation Scale', 'Sablenite'],
 	},
 /*
 	{
@@ -2326,8 +2398,8 @@ export const Formats: FormatList = [
 		mod: 'joltemons',	
 		teambuilderFormat: 'OU',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		unbanlist: ['Dragapult', 'Tornadus-Therian', 'Blaziken', 'Greninja-Ash', 'Moody', 'Shaymin-Sky', 'Kangaskhan-Mega', 'Darmanitan-Galar'],
-		banlist: ['Uber', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Arceus', 'Blazikenite', 'Blastoisinite', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Deoxys-Speed', 'Dialga', 'Genesect', 'Gengarite', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lugia', 'Lunala', 'Marshadow', 'Metagrossite', 'Mewtwo', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody', 'Magearna', 'Spectrier', 'Dracovish', 'Urshifu-Base',
+		unbanlist: ['Dragapult', 'Tornadus-Therian', 'Blaziken', 'Greninja-Ash', 'Moody', 'Shaymin-Sky', 'Kangaskhan-Mega', 'Darmanitan-Galar', 'Metagross-Mega'],
+		banlist: ['Uber', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass', 'Arceus', 'Blazikenite', 'Blastoisinite', 'Darkrai', 'Deoxys-Base', 'Deoxys-Attack', 'Deoxys-Speed', 'Dialga', 'Genesect', 'Gengarite', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamencite', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody', 'Magearna', 'Spectrier', 'Dracovish', 'Urshifu-Base',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Decidium Z', 'Kommonium Z',
 					'Soul Blade Lvl. 2', 'Soul Blade Lvl. 3', 'Soul Blade Lvl. 4', 'Soul Blade Lvl. 5', 'Ultra Soul Blade'],
 	},
@@ -2980,7 +3052,7 @@ export const Formats: FormatList = [
       ],
       team: 'random',
 		mod: 'outheorymons', 
-		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Dynamax Clause', 'Data Mod', 'Species Clause'],
 	},
 	{
 		name: "[Gen 8] Roulettemons Random Doubles",
@@ -3063,7 +3135,7 @@ export const Formats: FormatList = [
 		],
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
-			'Alakazam', 'Excadrill-Base', 'Lycanroc-Dusk', 'Naganadel-Base', 'Reuniclus-Base', 'Scizor', 'Scolipede-Base', 'Starmie-Base', 'Polteageist-Base',
+			'Alakazam', 'Excadrill-Base', 'Exploud', 'Lycanroc-Dusk', 'Naganadel-Base', 'Reuniclus-Base', 'Scizor', 'Scolipede-Base', 'Starmie-Base', 'Polteageist-Base',
 			'Polteageist-Antique', 'Baton Pass'
 		],
 		onValidateTeam(team, format) {
@@ -3094,6 +3166,7 @@ export const Formats: FormatList = [
 			validate: [4, 6],
 			battle: 4,
 		},
+		banlist: ['Scizor'],
 		ruleset: ['Standard GBU', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -3168,6 +3241,36 @@ export const Formats: FormatList = [
 		mod: "inksdynamaxadventure",
 		searchShow: false,
 		challengeShow: false,
+	},
+	{
+		name: "[Gen 8] SV Speculative (Prototype)",
+		desc: [
+			"Currently just a custom game format with Terastal implemented instead of Mega Evolution; will make a more specific speculative format for SV when we have a bit more to work with!",
+		],
+
+		mod: 'gen8',
+		searchShow: false,
+		battle: {trunc: Math.trunc},
+		ruleset: ['Team Preview', 'Cancel Mod', 'Dynamax Clause', 'Sleep Clause Mod'],
+		onValidateSet(set) {
+			const item = this.dex.getItem(set.item);
+			if (item.megaStone) return [`${set.name || set.species} is not allowed to Mega Evolve. (We have Terastal instead!)`];
+		},
+		validateSet(set, teamHas) {
+			const species = this.dex.getSpecies(set.species);
+			const ability = this.dex.getAbility(set.ability);
+			if (!set.hpType === 'Fairy' && !set.hpType === 'Normal') {
+				return this.validateSet(set, teamHas);
+			} else {
+				const terastal = set.hpType;
+				set.hpType = 'Fire';
+				const fakeValidation = this.validateSet(set, teamHas);
+				if (fakeValidation?.length) return fakeValidation;
+				set.hpType = terastal;
+				return null;
+			}
+		},
+		mod: 'svspeculative',
 	},
 	// Solo Mods
 	{
@@ -3284,6 +3387,35 @@ export const Formats: FormatList = [
 		},
 		mod: 'blindstrictions',
 	},
+  {
+		name: "[Gen 8] Chaos Chaos Chaos",
+		desc: `Chaos Chaos Chaos`,
+  		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1MsqO579H1XzNJawNxL064ANjtPwyS4823882JTImnoU/edit?usp=sharing">Spreadsheet</a>`,
+		    `&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9187061">Forum Post</a>`
+			],
+  		ruleset: ['Standard NatDex', 'Species Clause','!Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
+		banlist: ['Uber', 'Power Construct', 'Baton Pass'],
+		mod: 'chaoschaoschaos',
+		banlist: ['Baton Pass', 'Stance Change', 'Aerodactylite', 'Eviolite', 'Cameruptite', 'Gulp Missile', 'Glalitite', 'Manectite', 'Mawilite', 'Aspear Berry', 'Sinistea-Antique'],
+		onSwitchIn: function (pokemon) {
+            this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
+        },
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (speciesTable[template.name]) {
+					return ["You are limited to one of each Pokémon by Species Clause. ", "You have more than one " + template.baseSpecies + "."];
+				}
+				speciesTable[template.name] = true;
+				if ( template.tier !== 'CCC' ) {
+					return [set.name + ' is not useable in Chaos Chaos Chaos.'];
+				}
+			}
+		},
+	},
 	{
 		name: "[Gen 8] Dex Reversal",
 		desc: `<b>Dex Reversal</b>.`,
@@ -3314,9 +3446,10 @@ export const Formats: FormatList = [
         ],
         mod: 'duomod',
         ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Subscribe For More Content', 'Duomod Data Mod'],
-        banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',],
+        banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'King\'s Rock',],
         unbanlist: [
-             'Abysseil', 'Annelait', 'Azurolt', 'Baloon', 'BaloonPopped', 'BaloonWater', 'Catelax', 'Crypterid', 'Deliriophage', 'Detonuke', 'Draglow', 'Draxplosion', 'Fluidrake', 'Fluxtape', 'FluxtapeRadio', 'FluxtapeStereo', 'Gorilax', 'Grievenge', 'Hyperoach', 'Lemotic', 'Lumineel', 'Modolith', 'Monstratus', 'Mortemoth', 'Pokat', 'Spirox', 'SpiroxAncient', 'SpiroxRipped', 'Treemu', 'Valianch', 'Spisces', 'Pterrost', 'Jewelode', 'Jellyolk', 'Crazefly', 'Fairydisc',
+             'Abysseil', 'Annelait', 'Azurolt', 'Baloon', 'BaloonPopped', 'BaloonWater', 'Catelax', 'Crypterid', 'Deliriophage', 'Detonuke', 'Draglow', 'Draxplosion', 'Fluidrake', 'Fluxtape', 'FluxtapeRadio', 'FluxtapeStereo', 'Gorilax', 'Grievenge', 'Hyperoach', 'Lemotic', 'Lumineel', 'Modolith', 'Monstratus', 'Mortemoth', 'Pokat', 'Spirox', 'SpiroxAncient', 'SpiroxRipped', 'Treemu', 'Valianch', 'Spisces', 'Pterrost', 'Jewelode', 'Jellyolk', 'Crazefly', 'Fairydisc', 'Badgearth', 'Shroominesce', 'Fleetle', 'Sharmpedo', 'Steroach',
+			  
 			],	
 			onSwitchIn(pokemon) {
         		this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
@@ -3578,13 +3711,6 @@ export const Formats: FormatList = [
 		restricted: ['Restricted Legendary'],
 	},
 	{
-		name: "[Gen 8] Native Moves",
-		mod: 'nativemoves',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['All Pokemon'],
-		unbanlist: ['Ghouldier', 'Neutrairy', 'Snoxious', 'Stockamel', 'Floriger', 'Bomboot', 'Mentagon', 'Pegasteel'],
-	},
-	{
 		name: "[Gen 8] PKMN YB OU",
 		desc: [
 			"PKMN YB",
@@ -3711,6 +3837,18 @@ export const Formats: FormatList = [
 			'Baronglaiv', 'Thundra', 'Eruptil', 'Batakala', 'Batambu'
 		],
 	},
+	{
+		name: "[Gen 8] Randomly Exist",
+		desc: `<b>Randomly Exist</b>: A micrometa where randomly chosen Pokemon can only have their custom regional forms used. Stats are randomly determined.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/page-7#post-9275823">Randomly Exist on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1sl4Ds-vbd_ye4L_jJH6NC85uorT4riX3UxdwQuQEbzA/edit#gid=0">Spreadsheet</a>`,
+		],
+		mod: 'randomlyexist',
+		ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Dragalge', 'Rotom-Wash', 'Pyroar', 'Bronzong', 'Dragapult', 'Spheal', 'Octillery', 'Stakataka', 'Ralts', 'Corsola', 'Exeggcute', 'Regice', 'Vivillon', 'Zapdos', 'Giratina', 'Ninjask', 'Galvantula', 'Gyarados', 'Lunala', 'Reuniclus', 'Porygon-Z', 'Floette', 'Karrablast', 'Vanilluxe'],
+	},
 /*
 	{
 		name: "[Gen 8] Randommons",
@@ -3809,44 +3947,47 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] ViZar's 235 Metagame",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: '235metagame',
-		ruleset: ['Standard', 'Dynamax Clause'],
+		name: "[Gen 8] Wild'mons",
+		desc: `<b>Wildmons</b>.`,
+		mod: 'wildmons',
+		teambuilderFormat: "OU",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Moves Clause', 'Z-Move Clause', 'Mega Rayquaza Clause', 'Data Mod',],
 		banlist: [
-				//Pokemon
-				'Uber',
-				
 				//Abilities
-				'Moody', 'Sand Rush', 'Sand Veil', 'Snow Cloak',
-				
-				//Moves
-				'Baton Pass',
+				'Arena Trap', 'Power Construct', 'Moody', 'Shadow Tag',
 				
 				//Items
-				'King\s Rock', 'Lax Incense', 'Quick Claw', 'Razor Fang',
-		],
-		teambuilderFormat: 'OU',
-	},
-	{
-		name: "[Gen 8] ViZar's 235 Metagame Uber",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9099714">Post in Solomods Megathread</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1HZOBkIQFCHRT6_d928MBKb2n4R-p5G7RN9_dMKP73N4/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: '235metagame',
-		ruleset: ['Standard', 'Dynamax Clause'],
-		banlist: [
-				//Abilities
-				'Moody',
+				'Abomasite', 'Absolite', 'Aerodactylite', 'Aggronite', 'Alakazite', 'Altarianite', 'Ampharosite', 'Audinite', 
+				'Banettite', 'Beedrillite', 'Blastoisinite', 'Blazikenite', 'Blue Orb', 'Cameruptite', 'Charizardite X', 
+				'Charizardite Y', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Gyaradosite', 'Heracronite', 
+				'Houndoominite', 'Kangaskhanite', 'Latiasite', 'Latiosite', 'Lopunnite', 'Lucarionite', 'Manectite', 'Mawilite', 
+				'Medichamite', 'Metagrossite', 'Mewtwonite X', 'Mewtwonite Y', 'Pidgeotite', 'Pinsirite', 'Sablenite', 'Salamencite', 
+				'Sceptilite', 'Scizorite', 'Sharpedonite', 'Slowbronite', 'Steelixite', 'Swampertite', 'Tyranitarite', 'Venusaurite', 
+				'Bright Powder', 'King\'s Rock', 'Red Orb',
 				
+				'Assault Vest', 'Choice Band', 'Choice Scarf', 'Choice Specs', 'Eviolite', 'Expert Belt', 'Focus Sash', 'Life Orb',
+				'Rocky Helmet', 'Absorb Bulb', 'Adrenaline Orb', 'Air Balloon', 'Black Sludge', 'Blunder Policy', 'Cell Battery', 
+				'Damp Rock', 'Eject Button', 'Eject Pack', 'Electric Seed', 'Flame Orb', 'Full Incense', 'Grassy Seed', 'Grip Claw', 
+				'Heat Rock', 'Icy Rock', 'Lagging Tail', 'Lax Incense', 'Light Clay', 'Luminous Moss', 'item:Metronome', 'Misty Seed', 
+				'Muscle Band', 'Normal Gem', 'Odd Incense', 'Protective Pads', 'Quick Claw', 'Razor Claw', 'Red Card', 'Rock Incense', 
+				'Room Service', 'Rose Incense', 'Safety Goggles', 'Scope Lens', 'Sea Incense', 'Shed Shell', 'Shell Bell', 'Smooth Rock', 
+				'Snowball', 'Sticky Barb', 'Terrain Extender', 'Throat Spray', 'Toxic Orb', 'Utility Umbrella', 'Wave Incense', 
+				'Weakness Policy', 'Wide Lens', 'Wise Glasses', 'Zoom Lens',
+
+				'Heavy-Duty Boots',
+
+				'Big Root', 'Binding Band', 'Destiny Knot', 'Float Stone', 'Focus Band', 'Iron Ball', 'Macho Brace', 'Power Anklet',
+				'Power Band', 'Power Belt', 'Power Bracer', 'Power Lens', 'Power Weight', 'Ring Target',
+
+				//Legendary items
+				/*'Adamant Orb', 'Griseous Orb', 'Lustrous Orb', 'Soul Dew',*/
+
 				//Moves
 				'Baton Pass',
+				
+				//Pokemon
+				'AG', 'Uber',
 		],
-		teambuilderFormat: 'Uber',
 	},
 	{
 		name: "[Gen 8] Yoshiblaze's Greatest Hits",
