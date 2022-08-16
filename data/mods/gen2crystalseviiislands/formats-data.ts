@@ -41,4 +41,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pierzer: {
 	gen: 2,
 	},
+	oatu: {
+	gen: 2,
+	},
+	altocumulos: {
+	gen: 2,
+	},
+	cumulos: {
+	gen: 2,
+	},
 };
