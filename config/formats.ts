@@ -848,7 +848,7 @@ export const Formats: FormatList = [
 		mod: 'metamons', 
 		ruleset:['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Z-Move Clause'],
 		banlist: ['All Pokemon', 'Baton Pass', 'Sablenite'],
-		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon', 'Slowbro-Galar', 'Sableye', 'Grapploct', 'Eelektross', 'Arcanine', 'Tauros', 'Tsareena', 'Sylveon', 'Perrserker', 'Mantine', 'Persian-Alola', 'Druddigon', 'Duraludon', 'Houndoom', 'Stunfisk'],
+		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon', 'Slowbro-Galar', 'Sableye', 'Grapploct', 'Eelektross', 'Arcanine', 'Tauros', 'Tsareena', 'Sylveon', 'Perrserker', 'Mantine', 'Persian-Alola', 'Druddigon', 'Duraludon', 'Houndoom', 'Stunfisk', 'Emolga', 'Espeon', 'Toxicroak'],
 	},
 	{
 	name: "[Gen 8] Micrometa Mafia",
@@ -3662,6 +3662,16 @@ export const Formats: FormatList = [
 		mod: 'kantodex',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Uber', 'Arena Trap', 'Baton Pass', 'Sand Veil', 'Snow Cloak'],
+	},
+	{
+		name: "[Gen 1] Modern Gen 1",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9250110">Post in Solomods Megathread</a>`,
+		],
+		mod: 'gen1moderngen1',
+		ruleset: ['Standard Natdex', '!Obtainable', 'Sleep Moves Clause', 'Evasion Moves Clause', 'OHKO Clause', 'Species Clause'],
+		banlist: ['All Abilities', 'Bind', 'Clamp', 'Fire Spin', 'Infestation', 'Magma Storm', 'Sand Tomb', 'Snap Trap', 'Thunder Cage', 'Whirlpool', 'Wrap', 'Spikes', 'Toxic Spikes', 'Stealth Rock', 'Sticky Web', 'Fake Out', 'Wonder Room', 'Trick Room', 'Magic Room', 'Lucky Chant', 'Tailwind', 'Safeguard', 'Gravity', 'Mew', 'Inteleon', 'Regigigas', 'Regieleki', 'Slaking', 'Kyurem', 'Omastar', 'Cloyster', 'Gorebyss', 'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Deoxys', 'Deoxys-Attack', 'Deoxys-Speed', 'Dialga', 'Eternatus', 'Genesect', 'Giratina', 'Groudon', 'Ho-oh', 'Kyogre', 'Kyurem-White', 'Kyurem-Black', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Naganadel', 'Necrozma-Dusk-Mane', 'Necrozma-Dawn-Wings', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Solgaleo', 'Xerneas', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde'],
+		unbanlist: ['No Ability'],
 	},
 	{
 		name: "[Gen 1] Kanto Expansion Pak",

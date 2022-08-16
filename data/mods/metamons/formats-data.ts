@@ -62,4 +62,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	stunfisk: {
 		tier: "metamons",
 	},
+	emolga: {
+		tier: "metamons",
+	},
+	espeon: {
+		tier: "metamons",
+	},
+	toxicroak: {
+		tier: "metamons",
+	},
 };
