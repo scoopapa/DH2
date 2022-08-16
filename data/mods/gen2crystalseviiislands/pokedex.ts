@@ -190,6 +190,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		evos: ["Tunguru"],
 	},
+	xatu: {
+		inherit: true,
+		evos: ["Oatu"],
+	},
+	ariados: {
+		inherit: true,
+		evos: ["lunaraknid"],
+	},
 	
 	
 	stantler: {
