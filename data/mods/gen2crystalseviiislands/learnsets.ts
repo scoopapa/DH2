@@ -723,6 +723,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			moonlight: ["2L1"],
 			nightshade: ["2L17"],
 			poisonsting: ["2L1"],
+			preyingswipe: ["2L1"],
 			protect: ["2M"],
 			psychic: ["2M", "2L63"],
 			rest: ["2M"],
