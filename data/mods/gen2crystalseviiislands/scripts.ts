@@ -1,4 +1,4 @@
-const csi = ["horatekku", "aroofaondo", "exoltol", "animon", "esscargoo", "tunguru", "terricks", "skunkle", "skunking", "kipuro", "kamebi", "pyronoir", "kazappelin", "pierzer"];
+const csi = ["horatekku", "aroofaondo", "exoltol", "animon", "esscargoo", "tunguru", "terricks", "skunkle", "skunking", "kipuro", "kamebi", "pyronoir", "kazappelin", "pierzer", "oatu", "lunaraknid", "cumulos", "altocumulos"];
 
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
