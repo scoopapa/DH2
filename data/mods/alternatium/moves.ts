@@ -362,7 +362,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				spa: -2,
 			},
 		},
-		secondary: true,
+		secondary: null,
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
