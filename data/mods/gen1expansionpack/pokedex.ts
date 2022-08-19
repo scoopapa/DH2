@@ -287,6 +287,75 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 93, def: 57, spa: 85, spd: 85, spe: 95},
 		abilities: {},
 	},
+	purakkusu: {
+		num: 1186,
+		name: "Purakkusu",
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 65, atk: 125, def: 140, spa: 55, spd: 55, spe: 85},
+		abilities: {},
+		prevo: "Pinsir",
+		evoLevel: 42,
+	},
+	madaamu: {
+		num: 1187,
+		name: "Madaamu",
+		types: ["Normal", "Flying"],
+		baseStats: {hp: 72, atk: 105, def: 75, spa: 63, spd: 63, spe: 70},
+		abilities: {},
+		prevo: "Farfetch'd",
+		evoLevel: 24,
+	},
+	tsubomitto: {
+		num: 1188,
+		name: "Tsubomitto",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 80, atk: 120, def: 60, spa: 85, spd: 85, spe: 70},
+		abilities: {},
+		prevo: "Weepinbell",
+		evoType: "trade", // sun/poison stone does not exist so let's just do this
+	},
+	animon: {
+		num: 1187,
+		name: "Animon",
+		types: ["Steel"],
+		baseStats: {hp: 100, atk: 55, def: 50, spa: 50, spd: 50, spe: 150},
+		abilities: {},
+		prevo: "Ditto",
+		evoType: "useItem", // it's sort of a metal coat
+		evoItem: "Moon Stone",
+	},
+	monja: {
+		num: 1188,
+		name: "Monja",
+		types: ["Grass"],
+		baseStats: {hp: 45, atk: 35, def: 85, spa: 80, spd: 80, spe: 40},
+		abilities: {},
+		evos: ["Tangela"],
+	},
+	para: {
+		num: 1189,
+		name: "Para",
+		types: ["Bug"],
+		baseStats: {hp: 15, atk: 50, def: 35, spa: 35, spd: 35, spe: 5},
+		abilities: {},
+		evos: ["Paras"],
+	},
+	hinaazu: {
+		num: 1190,
+		name: "Hinaazu",
+		types: ["Normal", "Flying"],
+		baseStats: {hp: 15, atk: 65, def: 25, spa: 15, spd: 15, spe: 55},
+		abilities: {},
+		evos: ["Doduo"],
+	},
+	pudi: {
+		num: 1191,
+		name: "Pudi",
+		types: ["Fire"],
+		baseStats: {hp: 35, atk: 50, def: 25, spa: 30, spd: 30, spe: 40},
+		abilities: {},
+		evos: ["Growlithe"],
+	},
 	/// 
 	/// .o88b. d8888b.  .d88b.  .d8888. .d8888.         d888b  d88888b d8b   db   d88888b db    db  .d88b.  .d8888. 
 	///d8P  Y8 88  `8D .8P  Y8. 88'  YP 88'  YP        88' Y8b 88'     888o  88   88'     88    88 .8P  Y8. 88'  YP 
@@ -812,6 +881,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	paras: {
 		inherit: true,
 		baseStats: {hp: 35, atk: 70, def: 55, spa: 55, spd: 55, spe: 25},
+		prevo: "Para",
+		evoLevel: 12,
 	},
 	parasect: {
 		inherit: true,
@@ -865,6 +936,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	growlithe: {
 		inherit: true,
 		baseStats: {hp: 55, atk: 70, def: 45, spa: 50, spd: 50, spe: 60},
+		prevo: "Pudi",
+		evoLevel: 13,
 	},
 	arcanine: {
 		inherit: true,
@@ -914,6 +987,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	weepinbell: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 90, def: 50, spa: 85, spd: 85, spe: 55},
+		evos: ["Victreebel", "Tsubomitto"],
 	},
 	victreebel: {
 		inherit: true,
@@ -975,10 +1049,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	farfetchd: {
 		inherit: true,
 		baseStats: {hp: 52, atk: 65, def: 55, spa: 58, spd: 58, spe: 60},
+		evos: ["Madaamu"],
 	},
 	doduo: {
 		inherit: true,
 		baseStats: {hp: 35, atk: 85, def: 45, spa: 35, spd: 35, spe: 75},
+		prevo: "Hinaazu",
+		evoLevel: 16,
 	},
 	dodrio: {
 		inherit: true,
@@ -995,6 +1072,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	grimer: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 80, def: 50, spa: 40, spd: 40, spe: 25},
+		prevo: "Betobebii",
+		evoLevel: 19,
 	},
 	muk: {
 		inherit: true,
@@ -1109,6 +1188,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 65, atk: 55, def: 115, spa: 100, spd: 100, spe: 60},
 		evos: ["Tangrowth"],
+		prevo: "Monja",
+		evoLevel: 13,
 	},
 	kangaskhan: {
 		inherit: true,
@@ -1174,6 +1255,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pinsir: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 125, def: 100, spa: 55, spd: 55, spe: 85},
+		evos: ["Purakkusu"],
 	},
 	tauros: {
 		inherit: true,
@@ -1194,6 +1276,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ditto: {
 		inherit: true,
 		baseStats: {hp: 48, atk: 48, def: 48, spa: 48, spd: 48, spe: 48},
+		evos: ["Animon"],
 	},
 	eevee: {
 		inherit: true,
