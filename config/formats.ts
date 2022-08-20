@@ -317,7 +317,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://placeholder">Derivative Unova spreadsheet spreadsheet</a>`,
 		],
 		ruleset: ['Standard', 'Derivative Unova Mod'],
-		banlist: ['Uber'],
+		banlist: ['Uber', 'King\'s Rock', 'Razor Fang', 'Bright Powder'],
 		unbanlist: [],
 	},
 	{
