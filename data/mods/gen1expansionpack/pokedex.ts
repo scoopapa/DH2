@@ -356,6 +356,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		evos: ["Growlithe"],
 	},
+	betobebii: {
+		num: 1191,
+		name: "Betobebii",
+		types: ["Poison"],
+		baseStats: {hp: 60, atk: 60, def: 30, spa: 20, spd: 20, spe: 5},
+		abilities: {},
+		evos: ["Grimer"],
+	},
 	/// 
 	/// .o88b. d8888b.  .d88b.  .d8888. .d8888.         d888b  d88888b d8b   db   d88888b db    db  .d88b.  .d8888. 
 	///d8P  Y8 88  `8D .8P  Y8. 88'  YP 88'  YP        88' Y8b 88'     888o  88   88'     88    88 .8P  Y8. 88'  YP 
