@@ -694,14 +694,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	cometpunch: {
 		inherit: true,
+		category: "Special",
 		type: "Cosmic",
 	},
 	triattack: {
 		inherit: true,
+		category: "Special",
 		type: "Cosmic",
 	},
 	swift: {
 		inherit: true,
+		category: "Special",
 		type: "Cosmic",
 	},
 };

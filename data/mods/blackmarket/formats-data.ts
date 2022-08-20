@@ -11,30 +11,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	genesyspaulluxx: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	conakashpaulluxx: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	demudainpaulluxx: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	goldoborosspiderpig: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	aggresteusspiderpig: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	aeroltspiderpig: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
 	mojambobsican: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -68,30 +44,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	cutternalgravitymonkey: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	sorcewattxenonhero: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	shailxenonhero: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	blustriagexenonhero: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	thebossdoubleironbash: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	tbddoubleironbash: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	boomboxdoubleironbash: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
