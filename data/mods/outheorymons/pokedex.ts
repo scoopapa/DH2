@@ -187,9 +187,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
       abilities: {0: "Run Away", 1: "Flash Fire", H: "Contrary"},
 		baseStats: {hp: 65, atk: 100, def: 70, spa: 80, spd: 80, spe: 113},
 	}, 
-   moltres: { 
+   tornadus: { 
       inherit: true, 
-      abilities: {0: "Pressure", 1: "Regenerator", H: "Flame Body"},
+      types: ["Flying", "Fighting"],
+      abilities: {0: "Prankster", 1: "Victory Star", H: "Defiant"},
 	}, 
    toxicroak: { 
       inherit: true, 
