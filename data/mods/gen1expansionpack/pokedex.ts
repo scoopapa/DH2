@@ -336,7 +336,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1189,
 		name: "Para",
 		types: ["Bug"],
-		baseStats: {hp: 15, atk: 50, def: 35, spa: 35, spd: 35, spe: 5},
+		baseStats: {hp: 20, atk: 55, def: 40, spa: 40, spd: 40, spe: 10},
 		abilities: {},
 		evos: ["Paras"],
 	},
