@@ -1354,7 +1354,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["bravebird", "fireblast", "heatwave", "protect", "roost", "tailwind"],
 		randomDoubleBattleLevel: 84,
 		randomBattleNoDynamaxMoves: ["defog", "fireblast", "hurricane", "roost", "uturn"],
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	moltresgalar: {
@@ -4096,11 +4096,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	tornadus: {
-		randomBattleMoves: ["defog", "grassknot", "heatwave", "hurricane", "nastyplot"],
+		randomBattleMoves: ["defog", "focusblast", "sludgewave", "hurricane", "nastyplot"],
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["heatwave", "hurricane", "nastyplot", "superpower", "tailwind", "taunt"],
 		randomDoubleBattleLevel: 80,
-		tier: "NUBL",
+		tier: "OU",
 		doublesTier: "DUU",
 	},
 	tornadustherian: {
