@@ -127,15 +127,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.setItem('seviisundae9');
-			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+			source.setItem('seviisundae9');
+			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1009,
 		gen: 2,
@@ -145,15 +145,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae (9)",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.setItem('seviisundae8');
-			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+			source.setItem('seviisundae8');
+			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1010,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 9 turns.",
@@ -162,15 +162,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae (8)",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.setItem('seviisundae7');
-			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+			source.setItem('seviisundae7');
+			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1011,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 8 turns.",
@@ -179,15 +179,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae (7)",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.setItem('seviisundae6');
-			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+			source.setItem('seviisundae6');
+			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1012,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 7 turns.",
@@ -196,15 +196,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae (6)",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.setItem('seviisundae5');
-			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+			source.setItem('seviisundae5');
+			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1013,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 6 turns.",
@@ -213,15 +213,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae (5)",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.setItem('seviisundae4');
-			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+			source.setItem('seviisundae4');
+			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1014,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 5 turns.",
@@ -230,15 +230,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae (4)",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.setItem('seviisundae3');
-			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+			source.setItem('seviisundae3');
+			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1015,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 4 turns.",
@@ -247,15 +247,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae (3)",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.setItem('seviisundae2');
-			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+			source.setItem('seviisundae2');
+			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1016,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 3 turns.",
@@ -264,15 +264,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae (2)",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.setItem('seviisundae1');
-			this.add('-item', pokemon, pokemon.getItem(), '[from] item: Sevii Sundae');
+			source.setItem('seviisundae1');
+			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1017,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 2 turns.",
@@ -281,14 +281,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sevii Sundae (1)",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
-		onResidual(pokemon) {
-			if (pokemon.volatiles['malnourish']) {
-				this.damage(pokemon.baseMaxhp / 8);
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.damage(source.baseMaxhp / 8);
 			}
 			else {
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(source.baseMaxhp / 8);
 			}
-			pokemon.useItem();
+			source.useItem();
 		},
 		num: 1018,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 1 turns.",
@@ -299,12 +299,12 @@ export const Items: {[itemid: string]: ItemData} = {
         onAfterMoveSecondarySelf(source, target, move) {
             if (target.volatiles['substitute']) return;
             if (move.totalDamage) {
-                return !!(this.heal((Math.floor(move.totalDamage)) / 3), source, target);
+                return !!(this.heal((Math.floor(move.totalDamage)) / 4), source, target);
             }
         },
         num: 1019,
         gen: 2,
-        shortDesc: "Attacks drain as health 1/3 of damage dealt to the opponent.",
+        shortDesc: "Attacks drain as health 1/4 of damage dealt to the opponent.",
     
     },
 	wynaut: { // Wynaut item behavior under 'substitute' in gen2crystalseviiislands/moves.ts
