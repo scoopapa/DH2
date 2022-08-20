@@ -1,4 +1,4 @@
-export const Items: {[itemid: string]: ItemData} = {
+export const Items: {[itemid: string]: ModdedItemData} = {
 	powerlink: {
 		name: "Power Link",
 		onChargeMove(target, move) {
