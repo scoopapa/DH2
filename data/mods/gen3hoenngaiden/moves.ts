@@ -3,6 +3,33 @@
  */
 
 export const Moves: {[k: string]: ModdedMoveData} = {
+	weatherball: {
+		inherit: true,
+		shortDesc: "Damage doubles and type varies during weather.",
+		onModifyMove(move) {
+			switch (this.field.effectiveWeather()) {
+			case 'sunnyday':
+				move.type = 'Fire';
+				move.category = 'Special';
+				break;
+			case 'desolateland':
+				move.type = 'Fire';
+				move.category = 'Special';
+				break;
+			case 'raindance':
+				move.type = 'Water';
+				move.category = 'Special';
+				break;
+			case 'sandstorm':
+				move.type = 'Rock';
+				break;
+			case 'hail':
+				move.type = 'Ice';
+				move.category = 'Special';
+				break;
+			}
+		},
+	},
 	acrobatics: {
 		num: 512,
 		accuracy: 100,
@@ -81,6 +108,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		gen: 3,
+	},
+	fierywrath: {
+		num: 822,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Fiery Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		target: "allAdjacentFoes",
+		type: "Dark",
 		gen: 3,
 	},
 	foulplay: {
