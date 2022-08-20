@@ -309,6 +309,18 @@ export const Formats: FormatList = [
 		banlist: ['Uber'],
 	},
 	{
+		mod: 'gen5derivativeunova',
+		name: "[Gen 5] Derivative Unova",
+		desc: ["<b>Derivative Unova</b> - A Gen 5 based pet mod that explores a systematic overlook and retiering of BW OU."],
+		threads: [
+			`&bullet; <a href="https://placeholder">Derivative Unova (BW Retiered) thread on Smogon Forums</a>`,
+			`&bullet; <a href="https://placeholder">Derivative Unova spreadsheet spreadsheet</a>`,
+		],
+		ruleset: ['Standard', 'Derivative Unova Mod'],
+		banlist: ['Uber'],
+		unbanlist: [],
+	},
+	{
 		name: "[Gen 7] DLCmons",
 		desc: [
 			"<b>[Gen 7] DLCmons</b>: This Pet Mod aims to add an aditional (set of) island(s) to the Alola region. This will include new abilities, moves, items, regional variants and new Pokemon.",
