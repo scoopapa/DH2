@@ -132,7 +132,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	init() {
 		for (const id in this.dataCache.Pokedex) {
 			if (this.modData('Learnsets', this.toID(id)) && this.modData('Learnsets', this.toID(id)).learnset) {
-				this.modData('Learnsets', this.toID(id)).learnset.teraprism = ["8M"];
+				this.modData('Learnsets', this.toID(id)).learnset.terablast = ["8M"];
 			}
 			if (this.modData('FormatsData', id)) {
 				if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
