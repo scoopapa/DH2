@@ -111,6 +111,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		   	onFoeAfterMoveSelf(target, source, attack) {
 				if (target === source) return;
 				if (attack.category === 'Status') return;
+				if (target.lastDamage === 0) return;
 
 				this.add('-message', `${source.name} parried the attack!`);
 				this.add('-anim', target, "Mimic", source);
