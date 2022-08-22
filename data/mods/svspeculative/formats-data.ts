@@ -164,6 +164,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sunkern: { tier: "SV (NFE)" },
 	sunflora: { tier: "SV" },
 
+	wooper: { tier: "SV (NFE)" },
+	quagsire: { tier: "SV" },
+
 	murkrow: { tier: "SV (NFE)" },
 	honchkrow: { tier: "SV" },
 
