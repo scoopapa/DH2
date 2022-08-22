@@ -555,6 +555,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 		contestType: "Tough",
 	},
+	hiddenpowercosmic: {
+		num: -15,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		realMove: "Hidden Power",
+		isNonstandard: "Past",
+		name: "Hidden Power Cosmic",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Cosmic",
+		contestType: "Clever",
+	},
 	rapidspin: {
 		inherit: true,
 		onAfterHit(target, pokemon) {
