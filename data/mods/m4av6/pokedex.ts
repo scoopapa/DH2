@@ -1600,6 +1600,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "Hematite",
 	},
 	sawsbuck: {
+		inherit: true,
 		otherFormes: ["Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		movepoolAdditions: ["growth", "heatwave", "highhorsepower", "iceshard", "shadowsneak", "playrough", "poltergeist", "tripleaxel"],
