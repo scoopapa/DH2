@@ -4491,7 +4491,7 @@ export const Formats: FormatList = [
 			"<b>Littlest Cup</b>: A National Dex metagame where only Baby Pokemon are allowed."
 		],
 		threads: [
-			`&bullet; <a href="https://pastebin.com/gXZvcLSG">Littlest Cup VR and Sample Sets</a>`,
+			`&bullet; <a href="https://pastebin.com/PtqmRUhG">Littlest Cup VR and Sample Sets</a>`,
 		],
 		mod: 'littleestcup',
 		maxLevel: 1,
