@@ -17,8 +17,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!pokemon || !pokemon.mega) continue; // weeding out Pokémon that aren't new Megas
 			const newMega = this.dataCache.Pokedex[pokemon.mega] = { name: pokemon.megaName };
 
-			pokemon.otherFormes = pokemon.otherFormes.concat([newMega.name]);
-			pokemon.formeOrder = pokemon.formeOrder.concat([newMega.name]);
+			pokemon.otherFormes = pokemon.otherFormes ? pokemon.otherFormes.concat([newMega.name]) : [pokemon.megaName];
+			pokemon.formeOrder = pokemon.formeOrder ? pokemon.formeOrder.concat([newMega.name]) : [pokemon.name, pokemon.megaName];;
 
 			newMega.num = pokemon.num;
 			newMega.baseSpecies = pokemon.name;
