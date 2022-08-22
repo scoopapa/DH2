@@ -31,6 +31,21 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			newMega.evoCondition = null;
 
 			if (newMega.megaStone) newMega.requiredItem = newMega.megaStone;
+			const newMegaStone = {
+				name: newMega.megaStone,
+				spritenum: 586,
+				megaStone: newMega.name,
+				megaEvolves: newMega.baseSpecies,
+				itemUser: [newMega.baseSpecies],
+				onTakeItem(item, source) {
+					if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+					return true;
+				},
+				num: -1000 - newMega.num,
+				gen: 8,
+				desc: "Allows the holder to Mega Evolve in battle.",
+			};
+			if (this.data.Items[newMega.megaStone]) this.data.Items[newMega.megaStone] = newMegaStone;
 
 			if (newMega.megaType) newMega.types = newMega.megaType;
 			if (newMega.megaAbility) newMega.abilities = newMega.megaAbility;
