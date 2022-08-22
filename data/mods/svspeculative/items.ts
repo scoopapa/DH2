@@ -47,6 +47,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	mirrorherb: {
 		name: "Mirror Herb",
+		shortDesc: "Copies any one stat boost by another Pokémon; consumed.",
 		spritenum: 358,
 		fling: {
 			basePower: 10,
@@ -64,7 +65,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 			if (activate && this.effectData.target.useItem()) {
-				this.boost(mirrorBoost);
+				this.boost(mirrorBoost, this.effectData.target, this.effectData.target);
 			}
 		},
 		num: -1001,
@@ -72,6 +73,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	covertcloak: {
 		name: "Covert Cloak",
+		shortDesc: "The holder is immune to additional effects of moves.",
 		spritenum: 358,
 		fling: {
 			basePower: 30,
@@ -85,6 +87,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	loadeddice: {
 		name: "Loaded Dice",
+		shortDesc: "Multi-strike moves more often land more hits.",
 		spritenum: 358,
 		fling: {
 			basePower: 30,
