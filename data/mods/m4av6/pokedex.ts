@@ -1600,22 +1600,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "Hematite",
 	},
 	sawsbuck: {
-		inherit: true,
 		otherFormes: ["Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
-		movepoolAdditions: ["highhorsepower", "playrough"],
-	},
-	sawsbucksummer: {
-		inherit: true,
-		movepoolAdditions: ["growth", "heatwave", "highhorsepower"],
-	},
-	sawsbuckautumn: {
-		inherit: true,
-		movepoolAdditions: ["highhorsepower", "shadowsneak", "poltergeist"],
-	},
-	sawsbuckwinter: {
-		inherit: true,
-		movepoolAdditions: ["highhorsepower", "iceshard", "tripleaxel"],
+		movepoolAdditions: ["growth", "heatwave", "highhorsepower", "iceshard", "shadowsneak", "playrough" "poltergeist", "tripleaxel"],
+		// move legality is hard-coded into the validator because Sawsbuck is unwilling to have functionally distinct forms
+		// movepoolAdditions: ["highhorsepower", "playrough"],
+		// movepoolAdditions: ["growth", "heatwave", "highhorsepower"],
+		// movepoolAdditions: ["highhorsepower", "shadowsneak", "poltergeist"],
+		// movepoolAdditions: ["highhorsepower", "iceshard", "tripleaxel"],
 	},
 	sawsbuckmega: {
 		num: 586,
