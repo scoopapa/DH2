@@ -53,7 +53,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (this.data.Items[newMega.megaStone]) this.data.Items[newMega.megaStone] = newMegaStone;
 			}
 
-			if (!this.modData('FormatsData', pokemon.mega)) this.modData('FormatsData', pokemon.mega) = { tier: "Mega" };
+			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { tier: "Mega" };
 		}
 	},
 };
