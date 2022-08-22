@@ -3263,10 +3263,11 @@ export const Formats: FormatList = [
 		mod: 'gen8',
 		searchShow: false,
 		battle: {trunc: Math.trunc},
-		ruleset: ['Team Preview', 'Cancel Mod', 'Dynamax Clause', 'Sleep Clause Mod'],
+		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Sleep Clause Mod'],
 		onValidateSet(set) {
 			const item = this.dex.getItem(set.item);
 			if (item.megaStone) return [`${set.name || set.species} is not allowed to Mega Evolve. (We have Terastal instead!)`];
+			if (item.zMove) return [`${set.name || set.species} is not allowed to hold a Z-Crystal. (We have Terastal instead!)`];
 		},
 		validateSet(set, teamHas) {
 			const species = this.dex.getSpecies(set.species);
