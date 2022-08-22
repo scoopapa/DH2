@@ -1,6 +1,11 @@
 const hisui = ["arcaninehisui", "avalugghisui", "basculegion", "basculegionf", "braviaryhisui", "decidueyehisui", "dialgaorigin", "electrodehisui", "enamorus", "enamorustherian", "goodrahisui", "kleavor", "lilliganthisui", "overqwil", "palkiaorigin", "samurotthisui", "sneasler", "typhlosionhisui", "ursaluna", "wyrdeer", "zoroarkhisui"]; // only fully-evolved Pokémon from Legends: Arceus
 
 export const Scripts: ModdedBattleScriptsData = {
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['SV', 'SV (NFE)'],
+		customDoublesTiers: ['SV', 'SV (NFE)'],
+	},
 
 	// Terastal
 
