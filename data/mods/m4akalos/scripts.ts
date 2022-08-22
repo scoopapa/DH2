@@ -15,44 +15,43 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			if (!pokemon || !pokemon.mega) continue; // weeding out Pokémon that aren't new Megas
-			const newMega = this.dataCache.Pokedex[pokemon.mega] = this.dex.deepClone(pokemon);
-
-			if (newMega.megaName) newMega.name = newMega.megaName;
-			newMega.baseSpecies = pokemon.name;
-			newMega.forme = "Mega";
+			const newMega = this.dataCache.Pokedex[pokemon.mega] = { name: pokemon.megaName };
 
 			pokemon.otherFormes = pokemon.otherFormes.concat([newMega.name]);
 			pokemon.formeOrder = pokemon.formeOrder.concat([newMega.name]);
 
-			newMega.prevo = null;
-			newMega.evoLevel = null;
-			newMega.evoType = null;
-			newMega.evoItem = null;
-			newMega.evoCondition = null;
+			newMega.num = pokemon.num;
+			newMega.baseSpecies = pokemon.name;
+			newMega.forme = "Mega";
 
-			if (newMega.megaStone) newMega.requiredItem = newMega.megaStone;
-			const newMegaStone = {
-				name: newMega.megaStone,
-				spritenum: 586,
-				megaStone: newMega.name,
-				megaEvolves: newMega.baseSpecies,
-				itemUser: [newMega.baseSpecies],
-				onTakeItem(item, source) {
-					if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-					return true;
-				},
-				num: -1000 - newMega.num,
-				gen: 8,
-				desc: "Allows the holder to Mega Evolve in battle.",
-			};
-			if (this.data.Items[newMega.megaStone]) this.data.Items[newMega.megaStone] = newMegaStone;
+			newMega.type = pokemon.megaType || pokemon.types;
+			newMega.abilities = pokemon.megaAbility || pokemon.abilities;
+			newMega.baseStats = pokemon.megaStats || pokemon.baseStats;
+			newMega.heightm = pokemon.megaHeightm || pokemon.heightm;
+			newMega.weightkg = pokemon.megaWeightkg || pokemon.weightkg;
+			newMega.eggGroups = pokemon.eggGroups;
+			newMega.color = pokemon.megaColor || pokemon.color;
 
-			if (newMega.megaType) newMega.types = newMega.megaType;
-			if (newMega.megaAbility) newMega.abilities = newMega.megaAbility;
-			if (newMega.megaStats) newMega.baseStats = newMega.megaStats;
-			if (newMega.megaHeightm) newMega.heightm = newMega.megaHeightm;
-			if (newMega.megaWeightkg) newMega.weightkg = newMega.megaWeightkg;
-			if (newMega.megaColor) newMega.color = newMega.megaColor;
+			newMega.creator = pokemon.megaCreator || null;
+
+			if (pokemon.megaStone) {
+				newMega.requiredItem = pokemon.megaStone;
+				const newMegaStone = {
+					name: newMega.megaStone,
+					spritenum: 586,
+					megaStone: newMega.name,
+					megaEvolves: newMega.baseSpecies,
+					itemUser: [newMega.baseSpecies],
+					onTakeItem(item, source) {
+						if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+						return true;
+					},
+					num: -1000 - newMega.num,
+					gen: 8,
+					desc: "Allows the holder to Mega Evolve in battle.",
+				};
+				if (this.data.Items[newMega.megaStone]) this.data.Items[newMega.megaStone] = newMegaStone;
+			},
 
 			if (!this.modData('FormatsData', pokemon.mega)) this.modData('FormatsData', pokemon.mega) = { tier: "Mega" };
 		}
