@@ -1604,7 +1604,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	sawsbuck: {
 		otherFormes: ["Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
-		movepoolAdditions: ["growth", "heatwave", "highhorsepower", "iceshard", "shadowsneak", "playrough" "poltergeist", "tripleaxel"],
+		movepoolAdditions: ["growth", "heatwave", "highhorsepower", "iceshard", "shadowsneak", "playrough", "poltergeist", "tripleaxel"],
 		// move legality is hard-coded into the validator because Sawsbuck is unwilling to have functionally distinct forms
 		// movepoolAdditions: ["highhorsepower", "playrough"],
 		// movepoolAdditions: ["growth", "heatwave", "highhorsepower"],
