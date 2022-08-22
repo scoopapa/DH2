@@ -1601,7 +1601,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	sawsbuck: {
 		inherit: true,
-		cosmeticFormes: null,
 		otherFormes: ["Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		movepoolAdditions: ["highhorsepower", "playrough"],
