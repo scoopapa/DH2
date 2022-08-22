@@ -43,5 +43,9 @@ export const Scripts: BattleScriptsData = {
 		this.modData('Learnsets', 'gyarados').learnset.roost = ['8L1'];
 		this.modData('Learnsets', 'aromatisse').learnset.flashcannon = ['8L1'];
 		this.modData('Learnsets', 'aromatisse').learnset.mysticalfire = ['8L1'];
+		this.modData("Learnsets", "toxicroak").learnset.closecombat = ["8L1"];
+		this.modData("Learnsets", "musharna").learnset.lavaplume = ["8L1"];
+		this.modData("Learnsets", "unfezant").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "unfezant").learnset.tripleaxel = ["8L1"];
    },
 };

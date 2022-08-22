@@ -828,7 +828,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	delibird: {
 		randomBattleMoves: ["aerialace", "focuspunch", "hiddenpowerground", "icebeam", "quickattack"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	mantine: {
 		randomBattleMoves: ["haze", "hiddenpowergrass", "icebeam", "surf", "raindance", "rest", "sleeptalk", "toxic"],
@@ -1742,21 +1742,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
-	mamoswine: {
+	/*mamoswine: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UUBL",
-	},
+	},*/
 	roserade: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "OU",
 	},
-	dusknoir: {
+	/*dusknoir: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UUBL",
-	},
+	},*/
 	leafeon: {
 		isNonstandard: null,
 		gen: 3,
@@ -1772,11 +1772,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "UU",
 	},
-	honchkrow: {
+	/*honchkrow: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
-	},
+	},*/
 	budew: {
 		isNonstandard: null,
 		gen: 3,
@@ -1802,7 +1802,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "LC",
 	},
-	ambipom: {
+	/*ambipom: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
@@ -1831,13 +1831,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 3,
 		tier: "Uber",
-	},
+	},*/
 	tangrowth: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
 	},
-	probopass: {
+	/*probopass: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
@@ -1846,13 +1846,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 3,
 		tier: "Uber",
-	},
+	},*/
 	magmortar: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UUBL",
 	},
-	togekiss: {
+	/*togekiss: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
@@ -1881,13 +1881,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 3,
 		tier: "LC",
-	},
+	},*/
 	raichualola: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "OU",
 	},
-	sandshrewalola: {
+	/*sandshrewalola: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "LC",
@@ -1906,7 +1906,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
-	},
+	},*/
 	diglettalola: {
 		isNonstandard: null,
 		gen: 3,
@@ -1917,7 +1917,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
-	persianalola: {
+	/*persianalola: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
@@ -1926,7 +1926,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 3,
 		tier: "LC",
-	},
+	},*/
 	meowthgalar: {
 		isNonstandard: null,
 		gen: 3,
@@ -1937,7 +1937,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "UU",
 	},
-	mukalola: {
+	/*mukalola: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
@@ -1961,7 +1961,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
-	},	
+	},*/
 	farfetchdgalar: {
 		isNonstandard: null,
 		gen: 3,
@@ -1972,7 +1972,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
-	cursola: {
+	/*cursola: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
@@ -1981,7 +1981,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 3,
 		tier: "NUBL",
-	},
+	},*/
 	weezinggalar: {
 		isNonstandard: null,
 		gen: 3,
@@ -2092,17 +2092,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
-	wyrdeer: {
+	/*wyrdeer: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
-	},
+	},*/
 	kleavor: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
 	},
-	ursaluna: {
+	/*ursaluna: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "Uber",
@@ -2126,7 +2126,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 3,
 		tier: "UU",
-	},
+	},*/
 	voltorbhisui: {
 		isNonstandard: null,
 		gen: 3,
@@ -2137,7 +2137,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
-	growlithehisui: {
+	/*growlithehisui: {
 		isNonstandard: null,
 		gen: 3,
 		tier: "LC",
@@ -2146,5 +2146,5 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 3,
 		tier: "OU",
-	},
+	},*/
 };
