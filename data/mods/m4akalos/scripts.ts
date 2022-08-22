@@ -24,7 +24,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			newMega.baseSpecies = pokemon.name;
 			newMega.forme = "Mega";
 
-			newMega.type = pokemon.megaType || pokemon.types;
+			newMega.types = pokemon.megaType || pokemon.types;
 			newMega.abilities = pokemon.megaAbility || pokemon.abilities;
 			newMega.baseStats = pokemon.megaStats || pokemon.baseStats;
 			newMega.heightm = pokemon.megaHeightm || pokemon.heightm;
@@ -37,11 +37,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (pokemon.megaStone) {
 				newMega.requiredItem = pokemon.megaStone;
 				const newMegaStone = {
-					name: newMega.megaStone,
+					name: pokemon.megaStone,
 					spritenum: 586,
-					megaStone: newMega.name,
-					megaEvolves: newMega.baseSpecies,
-					itemUser: [newMega.baseSpecies],
+					megaStone: pokemon.megaName,
+					megaEvolves: pokemon.name,
+					itemUser: [pokemon.name],
 					onTakeItem(item, source) {
 						if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 						return true;
@@ -50,7 +50,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					gen: 8,
 					desc: "Allows the holder to Mega Evolve in battle.",
 				};
-				if (this.data.Items[newMega.megaStone]) this.data.Items[newMega.megaStone] = newMegaStone;
+				if (this.data.Items[pokemon.megaStone]) this.data.Items[pokemon.megaStone] = newMegaStone;
 			}
 
 			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { tier: "Mega" };
