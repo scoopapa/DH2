@@ -813,17 +813,37 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Megas for All",
-		desc: ["<b>Megas for All</b>: A Pet Mod that aims to create unique Mega Evolutions for every fully evolved Pokémon. Plays like National Dex, just with more Megas.",
+		name: "[Gen 8] Megas for All: Kalos",
+		desc: ["<b>Megas for All</b>: A Pet Mod that aims to create unique Mega Evolutions for every fully evolved Pokémon. Current season is focused on the Kalos dex!",
 		      ],
 		threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
+				`&bullet; <a href="https://www.smogon.com/forums/threads/3671140/">Megas for All v7 on Smogon Forums</a>`,
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
-		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		mod: 'm4av6',
-		// teambuilderFormat: 'OU',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		banlist: [
+			'AG', 'Uber',
+			'Aegislash', 'Hoopa-Unbound', 'Greninja',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
+			'Baton Pass',
+			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
+					return [set.species + ' is not a part of the Kalos Pokédex.'];
+				}
+			}
+		},
+		onValidateSet(set) {
+			const item = this.dex.getItem(set.item);
+			if (item.megaStone && item.megaStone.season && item.megaStone.season !== 'Kalos') return [`${item.name} is not a legal Mega Stone.`];
+		},
+		mod: 'm4akalos', // will be adjusted further
 	},
 	/*
 	{
@@ -2417,7 +2437,7 @@ export const Formats: FormatList = [
 	},
 */
 	{
-		name: "[Gen 8] M4A Next Season Prelim",
+		name: "[Gen 8] M4A OU (Natdex)",
 		desc: ["<b>Megas for All</b>: A Pet Mod that aims to create unique Mega Evolutions for every fully evolved Pokémon. Plays like National Dex, just with more Megas.",
 		      ],
 		threads: [
@@ -2425,19 +2445,24 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
-		onValidateSet(set) { // limited Mega Evolution format
-			const item = this.dex.getItem(set.item);
-			if (item.megaStone) return [`${set.name || set.species} is not currently allowed to Mega Evolve.`];
+		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
+		mod: 'm4av6',
+		onValidateSet(set) {
+			// Sawsbuck requires special exceptions for its movepool
+			const sawsbuck = [
+				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Autumn', 'Sawsbuck-Winter',
+			];
+			const species = this.dex.getSpecies(set.species);
+			if (sawsbuck.includes(species.name)) {
+				if (set.moves.includes("Play Rough") && species.name !== 'Sawsbuck') return [`Only Sawsbuck-Spring can learn Play Rough!`];
+				if (set.moves.includes("Growth") && species.name !== 'Sawsbuck-Summer') return [`Only Sawsbuck-Summer can learn Growth!`];
+				if (set.moves.includes("Heat Wave") && species.name !== 'Sawsbuck-Summer') return [`Only Sawsbuck-Summer can learn Heat Wave!`];
+				if (set.moves.includes("Shadow Sneak") && species.name !== 'Sawsbuck-Autumn') return [`Only Sawsbuck-Autumn can learn Shadow Sneak!`];
+				if (set.moves.includes("Poltergeist") && species.name !== 'Sawsbuck-Autumn') return [`Only Sawsbuck-Autumn can learn Poltergeist!`];
+				if (set.moves.includes("Ice Shard") && species.name !== 'Sawsbuck-Winter') return [`Only Sawsbuck-Winter can learn Ice Shard!`];
+				if (set.moves.includes("Triple Axel") && species.name !== 'Sawsbuck-Winter') return [`Only Sawsbuck-Winter can learn Triple Axel!`];
+			}
 		},
-		ruleset: ['Standard NatDex', 'Kalos Pokedex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
-		banlist: [
-			'AG', 'Uber',
-			'Aegislash', 'Hoopa-Unbound', 'Greninja',
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Baton Pass',
-			'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Quick Claw',
-		],
-		mod: 'gen8', // will be adjusted further
 		// teambuilderFormat: 'OU',
 	},
 	{
@@ -2459,12 +2484,25 @@ export const Formats: FormatList = [
 		mod: 'm4av6',
 		// teambuilderFormat: 'S',
 		onValidateSet(set) {
+			// Sawsbuck requires special exceptions for its movepool
+			const sawsbuck = [
+				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Autumn', 'Sawsbuck-Winter',
+			];
+			const species = this.dex.getSpecies(set.species);
+			if (sawsbuck.includes(species.name)) {
+				if (set.moves.includes("Play Rough") && species.name !== 'Sawsbuck') return [`Only Sawsbuck-Spring can learn Play Rough!`];
+				if (set.moves.includes("Growth") && species.name !== 'Sawsbuck-Summer') return [`Only Sawsbuck-Summer can learn Growth!`];
+				if (set.moves.includes("Heat Wave") && species.name !== 'Sawsbuck-Summer') return [`Only Sawsbuck-Summer can learn Heat Wave!`];
+				if (set.moves.includes("Shadow Sneak") && species.name !== 'Sawsbuck-Autumn') return [`Only Sawsbuck-Autumn can learn Shadow Sneak!`];
+				if (set.moves.includes("Poltergeist") && species.name !== 'Sawsbuck-Autumn') return [`Only Sawsbuck-Autumn can learn Poltergeist!`];
+				if (set.moves.includes("Ice Shard") && species.name !== 'Sawsbuck-Winter') return [`Only Sawsbuck-Winter can learn Ice Shard!`];
+				if (set.moves.includes("Triple Axel") && species.name !== 'Sawsbuck-Winter') return [`Only Sawsbuck-Winter can learn Triple Axel!`];
+			}
 			// These Pokemon are still unobtainable
 			const unobtainables = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
 				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
-			const species = this.dex.getSpecies(set.species);
 			if (unobtainables.includes(species.name)) {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];
@@ -2518,12 +2556,25 @@ export const Formats: FormatList = [
 			}
 		},
 		onValidateSet(set) {
+			// Sawsbuck requires special exceptions for its movepool
+			const sawsbuck = [
+				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Autumn', 'Sawsbuck-Winter',
+			];
+			const species = this.dex.getSpecies(set.species);
+			if (sawsbuck.includes(species.name)) {
+				if (set.moves.includes("Play Rough") && species.name !== 'Sawsbuck') return [`Only Sawsbuck-Spring can learn Play Rough!`];
+				if (set.moves.includes("Growth") && species.name !== 'Sawsbuck-Summer') return [`Only Sawsbuck-Summer can learn Growth!`];
+				if (set.moves.includes("Heat Wave") && species.name !== 'Sawsbuck-Summer') return [`Only Sawsbuck-Summer can learn Heat Wave!`];
+				if (set.moves.includes("Shadow Sneak") && species.name !== 'Sawsbuck-Autumn') return [`Only Sawsbuck-Autumn can learn Shadow Sneak!`];
+				if (set.moves.includes("Poltergeist") && species.name !== 'Sawsbuck-Autumn') return [`Only Sawsbuck-Autumn can learn Poltergeist!`];
+				if (set.moves.includes("Ice Shard") && species.name !== 'Sawsbuck-Winter') return [`Only Sawsbuck-Winter can learn Ice Shard!`];
+				if (set.moves.includes("Triple Axel") && species.name !== 'Sawsbuck-Winter') return [`Only Sawsbuck-Winter can learn Triple Axel!`];
+			}
 			// These Pokemon are still unobtainable
 			const unobtainables = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
 				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
-			const species = this.dex.getSpecies(set.species);
 			if (unobtainables.includes(species.name)) {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];
@@ -2577,12 +2628,25 @@ export const Formats: FormatList = [
 		],
 		mod: 'm4asandbox',
 		onValidateSet(set) {
+			// Sawsbuck requires special exceptions for its movepool
+			const sawsbuck = [
+				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Autumn', 'Sawsbuck-Winter',
+			];
+			const species = this.dex.getSpecies(set.species);
+			if (sawsbuck.includes(species.name)) {
+				if (set.moves.includes("Play Rough") && species.name !== 'Sawsbuck') return [`Only Sawsbuck-Spring can learn Play Rough!`];
+				if (set.moves.includes("Growth") && species.name !== 'Sawsbuck-Summer') return [`Only Sawsbuck-Summer can learn Growth!`];
+				if (set.moves.includes("Heat Wave") && species.name !== 'Sawsbuck-Summer') return [`Only Sawsbuck-Summer can learn Heat Wave!`];
+				if (set.moves.includes("Shadow Sneak") && species.name !== 'Sawsbuck-Autumn') return [`Only Sawsbuck-Autumn can learn Shadow Sneak!`];
+				if (set.moves.includes("Poltergeist") && species.name !== 'Sawsbuck-Autumn') return [`Only Sawsbuck-Autumn can learn Poltergeist!`];
+				if (set.moves.includes("Ice Shard") && species.name !== 'Sawsbuck-Winter') return [`Only Sawsbuck-Winter can learn Ice Shard!`];
+				if (set.moves.includes("Triple Axel") && species.name !== 'Sawsbuck-Winter') return [`Only Sawsbuck-Winter can learn Triple Axel!`];
+			}
 			// These Pokemon are still unobtainable
 			const unobtainables = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
 				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
-			const species = this.dex.getSpecies(set.species);
 			if (unobtainables.includes(species.name)) {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];
