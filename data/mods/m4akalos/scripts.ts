@@ -54,7 +54,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (newMega.megaWeightkg) newMega.weightkg = newMega.megaWeightkg;
 			if (newMega.megaColor) newMega.color = newMega.megaColor;
 
-			if (!this.modData('FormatsData', pokemon.mega)) this.modData('FormatsData', pokemon.mega) = { tier: "Mega" },
+			if (!this.modData('FormatsData', pokemon.mega)) this.modData('FormatsData', pokemon.mega) = { tier: "Mega" };
 		}
 	},
 };
