@@ -139,9 +139,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.modData('Learnsets', this.toID(id)) && this.modData('Learnsets', this.toID(id)).learnset) {
 				this.modData('Learnsets', this.toID(id)).learnset.terablast = ["8M"];
 			}
-			if (this.modData('FormatsData', id)) {
-				if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
-			}
 			const newMon = this.dataCache.Pokedex[id];
 			if (!newMon) continue; // weeding out Pokémon that aren't new
 
