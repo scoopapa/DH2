@@ -775,9 +775,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			revived.faintQueued = null;
 			revived.hp = revived.maxhp;
 			revived.status = '';
+			this.damage(Math.round(revived.maxhp / 2), pokemon, pokemon);
 			this.add('-message', `${revived.name} was revived!`);
 			revived.side.pokemonLeft++;
-			this.damage(Math.round(revived.maxhp / 2), pokemon, pokemon);
 		},
 		secondary: null,
 		target: "self",
@@ -818,7 +818,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					if (target.addVolatile('substitute')) {
 						target.volatiles['substitute'].hp = this.effectData.hp;
 						this.add('-anim', target, "Substitute", target);
-						this.add('-message', `${target.illusion ? target.illusion.name : target.name} received a decoy!`);
 					}
 				}
 			},
