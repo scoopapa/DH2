@@ -19,7 +19,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaName: "Pyroar-Mega",
 		megaType: ["Fire", "Normal"],
 		megaAbility: {0: "Pounce"},
-		megaStats: {hp: 86, atk: 68, def: 119, spa: 139, spd: 66, spe: 119},
+		megaStats: {hp: 86, atk: 78, def: 119, spa: 139, spd: 66, spe: 119},
 		megaWeightkg: 40.8,
 		megaStone: "Pyroarite",
 		movepoolAdditions: ["courtchange"],
