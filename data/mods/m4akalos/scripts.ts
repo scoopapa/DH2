@@ -51,7 +51,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					desc: "Allows the holder to Mega Evolve in battle.",
 				};
 				if (this.data.Items[newMega.megaStone]) this.data.Items[newMega.megaStone] = newMegaStone;
-			},
+			}
 
 			if (!this.modData('FormatsData', pokemon.mega)) this.modData('FormatsData', pokemon.mega) = { tier: "Mega" };
 		}
