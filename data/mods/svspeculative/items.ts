@@ -45,4 +45,63 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 136,
 		gen: 4,
 	},
+	mirrorherb: {
+		name: "Mirror Herb",
+		spritenum: 358,
+		fling: {
+			basePower: 10,
+		},
+		onAnyBoost(boost, target, source, effect) {
+			if (target === this.effectData.target || !boost || effect.id === 'mirrorherb') return;
+			let activate = false;
+			const mirrorBoost: SparseBoostsTable = {};
+			let b: BoostName;
+			for (b in boost) {
+				if (boost[b]! > 0) {
+					if (target.boosts[b] === 6) continue;
+					mirrorBoost[b] = boost[b];
+					activate = true;
+				}
+			}
+			if (activate && this.effectData.target.useItem()) {
+				this.boost(mirrorBoost);
+			}
+		},
+		num: -1001,
+		gen: 9,
+	},
+	covertcloak: {
+		name: "Covert Cloak",
+		spritenum: 358,
+		fling: {
+			basePower: 30,
+		},
+		onModifySecondaries(secondaries) {
+			this.debug('Covert Cloak prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		num: -1002,
+		gen: 9,
+	},
+	loadeddice: {
+		name: "Loaded Dice",
+		spritenum: 358,
+		fling: {
+			basePower: 30,
+		},
+		onModifyMove(move) {
+			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
+				if (this.randomChance(2, 3)) {
+					move.multihit = move.multihit[1];
+				}
+			}
+			if (move.multiaccuracy) {
+				if (this.randomChance(2, 3)) {
+					delete move.multiaccuracy;
+				}
+			}
+		},
+		num: -1003,
+		gen: 9,
+	},
 };
