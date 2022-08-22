@@ -71,4 +71,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	toxicroak: {
 		tier: "metamons",
 	},
+	eldegoss: {
+		tier: "metamons",
+	},
+	abomasnow: {
+		tier: "metamons",
+	},
+	granbull: {
+		tier: "metamons",
+	},
 };
