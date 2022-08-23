@@ -155,7 +155,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			else {
 				this.heal(source.baseMaxhp / 8);
 			}
-			if (!source.hp) return;
+			for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+			}
 			source.setItem('seviisundae2');
 			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
@@ -173,7 +175,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			else {
 				this.heal(source.baseMaxhp / 8);
 			}
-			if (!source.hp) return;
+			for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+			}
 			source.setItem('seviisundae1');
 			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
@@ -191,7 +195,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			else {
 				this.heal(source.baseMaxhp / 8);
 			}
-			if (!source.hp) return;
+			for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+			}
 			source.useItem();
 		},
 		num: 1018,
