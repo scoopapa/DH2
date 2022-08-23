@@ -351,7 +351,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	granbull: {
 		num: 210,
 		name: "Granbull",
-		types: ["Fairy"],
+		types: ["Fairy", "Normal"],
 		genderRatio: {M: 0.25, F: 0.75},
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 60, spd: 100, spe: 65},
 		abilities: {0: "Intimidate", H: "Poison Heal"},
