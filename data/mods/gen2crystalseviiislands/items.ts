@@ -134,114 +134,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			else {
 				this.heal(source.baseMaxhp / 8);
 			}
-			source.setItem('seviisundae9');
+			source.setItem('seviisundae3');
 			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
 		},
 		num: 1009,
 		gen: 2,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 10 turns.",
-	},
-	seviisundae9: {
-		name: "Sevii Sundae (9)",
-		onResidualOrder: 5,
-		onResidualSubOrder: 5,
-		onResidual(source) {
-			if (source.volatiles['malnourish']) {
-				this.damage(source.baseMaxhp / 8);
-			}
-			else {
-				this.heal(source.baseMaxhp / 8);
-			}
-			source.setItem('seviisundae8');
-			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
-		},
-		num: 1010,
-		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 9 turns.",
-	},
-	seviisundae8: {
-		name: "Sevii Sundae (8)",
-		onResidualOrder: 5,
-		onResidualSubOrder: 5,
-		onResidual(source) {
-			if (source.volatiles['malnourish']) {
-				this.damage(source.baseMaxhp / 8);
-			}
-			else {
-				this.heal(source.baseMaxhp / 8);
-			}
-			source.setItem('seviisundae7');
-			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
-		},
-		num: 1011,
-		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 8 turns.",
-	},
-	seviisundae7: {
-		name: "Sevii Sundae (7)",
-		onResidualOrder: 5,
-		onResidualSubOrder: 5,
-		onResidual(source) {
-			if (source.volatiles['malnourish']) {
-				this.damage(source.baseMaxhp / 8);
-			}
-			else {
-				this.heal(source.baseMaxhp / 8);
-			}
-			source.setItem('seviisundae6');
-			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
-		},
-		num: 1012,
-		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 7 turns.",
-	},
-	seviisundae6: {
-		name: "Sevii Sundae (6)",
-		onResidualOrder: 5,
-		onResidualSubOrder: 5,
-		onResidual(source) {
-			if (source.volatiles['malnourish']) {
-				this.damage(source.baseMaxhp / 8);
-			}
-			else {
-				this.heal(source.baseMaxhp / 8);
-			}
-			source.setItem('seviisundae5');
-			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
-		},
-		num: 1013,
-		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 6 turns.",
-	},
-	seviisundae5: {
-		name: "Sevii Sundae (5)",
-		onResidualOrder: 5,
-		onResidualSubOrder: 5,
-		onResidual(source) {
-			if (source.volatiles['malnourish']) {
-				this.damage(source.baseMaxhp / 8);
-			}
-			else {
-				this.heal(source.baseMaxhp / 8);
-			}
-			source.setItem('seviisundae4');
-			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
-		},
-		num: 1014,
-		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 5 turns.",
-	},
-	seviisundae4: {
-		name: "Sevii Sundae (4)",
-		onResidualOrder: 5,
-		onResidualSubOrder: 5,
-		onResidual(source) {
-			if (source.volatiles['malnourish']) {
-				this.damage(source.baseMaxhp / 8);
-			}
-			else {
-				this.heal(source.baseMaxhp / 8);
-			}
-			source.setItem('seviisundae3');
-			this.add('-item', source, source.getItem(), '[from] item: Sevii Sundae');
-		},
-		num: 1015,
-		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 4 turns.",
 	},
 	seviisundae3: {
 		name: "Sevii Sundae (3)",
@@ -293,7 +191,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1018,
 		shortDesc: "At the end of every turn, holder restores 1/8 of its max HP. Lasts 1 turns.",
 	},
-    drainingrelic: {
+   drainingrelic: {
         name: "Draining Relic",
         spritenum: 180,
         onAfterMoveSecondarySelf(source, target, move) {
@@ -306,7 +204,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         gen: 2,
         shortDesc: "Attacks drain as health 1/4 of damage dealt to the opponent.",
     
-    },
+   },
 	wynaut: { // Wynaut item behavior under 'substitute' in gen2crystalseviiislands/moves.ts
         name: "Wynaut",
         //spritenum:
