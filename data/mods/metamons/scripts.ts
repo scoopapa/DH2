@@ -112,7 +112,13 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.modData("Learnsets", "toxicroak").learnset.refresh = ["8L1"];
 			this.modData("Learnsets", "toxicroak").learnset.liquidation = ["8L1"];	
 			this.modData("Learnsets", "toxicroak").learnset.aquajet = ["8L1"];
-			this.modData("Learnsets", "toxicroak").learnset.closecombat = ["8L1"];					
+			this.modData("Learnsets", "toxicroak").learnset.closecombat = ["8L1"];
+			this.modData("Learnsets", "granbull").learnset.wish = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.wish = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.teleport = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.bodypress = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.aurasphere = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.focusblast = ["8L1"];				
 			delete this.modData('Learnsets', 'mantine').learnset.roost;
 			delete this.modData('Learnsets', 'tauros').learnset.earthquake;
 			delete this.modData('Learnsets', 'tauros').learnset.highhorsepower;
@@ -136,6 +142,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			delete this.modData('Learnsets', 'ariados').learnset.venomdrench;
 			delete this.modData('Learnsets', 'ariados').learnset.venoshock;
 			delete this.modData('Learnsets', 'ariados').learnset.toxicthread;
+			delete this.modData('Learnsets', 'abomasnow').learnset.swordsdance;
 			},
 			
 			

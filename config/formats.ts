@@ -309,6 +309,18 @@ export const Formats: FormatList = [
 		banlist: ['Uber'],
 	},
 	{
+		mod: 'gen5derivativeunova',
+		name: "[Gen 5] Derivative Unova",
+		desc: ["<b>Derivative Unova</b> - A Gen 5 based pet mod that explores a systematic overlook and retiering of BW OU."],
+		threads: [
+			`&bullet; <a href="https://placeholder">Derivative Unova (BW Retiered) thread on Smogon Forums</a>`,
+			`&bullet; <a href="https://placeholder">Derivative Unova spreadsheet spreadsheet</a>`,
+		],
+		ruleset: ['Standard', 'Derivative Unova Mod'],
+		banlist: ['Uber', 'King\'s Rock', 'Razor Fang', 'Bright Powder'],
+		unbanlist: [],
+	},
+	{
 		name: "[Gen 7] DLCmons",
 		desc: [
 			"<b>[Gen 7] DLCmons</b>: This Pet Mod aims to add an aditional (set of) island(s) to the Alola region. This will include new abilities, moves, items, regional variants and new Pokemon.",
@@ -848,7 +860,7 @@ export const Formats: FormatList = [
 		mod: 'metamons', 
 		ruleset:['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Z-Move Clause'],
 		banlist: ['All Pokemon', 'Baton Pass', 'Sablenite'],
-		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon', 'Slowbro-Galar', 'Sableye', 'Grapploct', 'Eelektross', 'Arcanine', 'Tauros', 'Tsareena', 'Sylveon', 'Perrserker', 'Mantine', 'Persian-Alola', 'Druddigon', 'Duraludon', 'Houndoom', 'Stunfisk', 'Emolga', 'Espeon', 'Toxicroak'],
+		unbanlist: ['Whimsicott', 'Salazzle', 'Kingler', 'Ariados', 'Sandslash', 'Bastiodon', 'Slowbro-Galar', 'Sableye', 'Grapploct', 'Eelektross', 'Arcanine', 'Tauros', 'Tsareena', 'Sylveon', 'Perrserker', 'Mantine', 'Persian-Alola', 'Druddigon', 'Duraludon', 'Houndoom', 'Stunfisk', 'Emolga', 'Espeon', 'Toxicroak', 'Granbull', 'Abomasnow', 'Eldegoss'],
 	},
 	{
 	name: "[Gen 8] Micrometa Mafia",
@@ -4484,7 +4496,7 @@ export const Formats: FormatList = [
 		mod: 'littleestcup',
 		maxLevel: 1,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod'],
-		banlist: ['All Pokemon'],
+		banlist: ['All Pokemon', 'Belly Drum', 'Huge Power'],
 		unbanlist: ['Shadow Tag', 'Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Riolu', 'Mantyke', 'Toxel'],
 	},
 ];

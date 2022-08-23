@@ -768,6 +768,22 @@ export class ModdedDex {
 		];
 		const tr = this.trunc;
 		const stats = {hp: 31, atk: 31, def: 31, spe: 31, spa: 31, spd: 31};
+
+		// Crystal: Sevii Islands Hidden Power sub-function
+		if (this.currentMod === 'gen2crystalseviiislands') {
+			hpTypes.push('Cosmic');
+			const atkDV = tr(ivs.atk / 2);
+			const defDV = tr(ivs.def / 2);
+			const speDV = tr(ivs.spe / 2);
+			const spcDV = tr(ivs.spa / 2);
+			return {
+				type: hpTypes[4 * (atkDV % 4) + (defDV % 4) + ((speDV + 1) % 2)],
+				power: tr(
+					(5 * ((spcDV >> 3) + (2 * (speDV >> 3)) + (4 * (defDV >> 3)) + (8 * (atkDV >> 3))) + (spcDV % 4)) / 2 + 31
+				),
+			};
+		}
+
 		if (this.gen <= 2) {
 			// Gen 2 specific Hidden Power check. IVs are still treated 0-31 so we get them 0-15
 			const atkDV = tr(ivs.atk / 2);
@@ -775,7 +791,7 @@ export class ModdedDex {
 			const speDV = tr(ivs.spe / 2);
 			const spcDV = tr(ivs.spa / 2);
 			return {
-				type: hpTypes[4 * (atkDV % 4) + (defDV % 4)],
+				type: hpTypes[4 * (atkDV % 4) + (defDV % 4) + ((1 + speDV) % 2)],
 				power: tr(
 					(5 * ((spcDV >> 3) + (2 * (speDV >> 3)) + (4 * (defDV >> 3)) + (8 * (atkDV >> 3))) + (spcDV % 4)) / 2 + 31
 				),

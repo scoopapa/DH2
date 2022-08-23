@@ -13,4 +13,18 @@ export const Formats: {[k: string]: ModdedFormatsData} = {
 			'Huntail + Shell Smash + Sucker Punch',
 		],
 	},
+	teampreview: {
+		inherit: true,
+		onTeamPreview() {
+			this.add('clearpoke');
+			for (const pokemon of this.getAllPokemon()) {
+				const details = pokemon.details.replace(', shiny', '')
+					.replace(/(Arceus|Gourgeist|Pumpkaboo|Xerneas|Silvally|Urshifu)(-[a-zA-Z?-]+)?/g, '$1-*')
+					.replace(/(Zacian|Zamazenta)(?!-Crowned)/g, '$1-*'); // Hacked-in Crowned formes will be revealed
+				const item = pokemon.item.includes('mail') ? 'mail' : pokemon.item ? 'item' : '';
+				this.add('poke', pokemon.side.id, details, item);
+			}
+			this.makeRequest('teampreview');
+		},
+	},
 };
