@@ -571,7 +571,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			doubleedge: ["2S0"],
 			doubleteam: ["2M"],
 			endure: ["2M"],
-			explosion: ["2L1"],
 			flail: ["2E"],
 			frustration: ["2M"],
 			harden: ["2L10"],
