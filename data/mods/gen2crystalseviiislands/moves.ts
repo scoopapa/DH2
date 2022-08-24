@@ -562,7 +562,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 70,
 		category: "Special",
 		realMove: "Hidden Power",
-		isNonstandard: "Past",
 		name: "Hidden Power Cosmic",
 		pp: 15,
 		priority: 0,
