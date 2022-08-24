@@ -118,7 +118,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	kazappelin: {
 		num: 264,
 		name: "Kazappelin",
-		types: ["Poison", "Electric"],
+		types: ["Poison"],
 		baseStats: {hp: 85, atk: 95, def: 95, spa: 85, spd: 75, spe: 75},
 		abilities: {0: "No Ability"},
 		heightm: 1.7,
