@@ -556,6 +556,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	hiddenpowercosmic: {
+		gen: 2,
 		num: -15,
 		accuracy: 100,
 		basePower: 70,
