@@ -24,7 +24,7 @@ export const Formats: {[k: string]: FormatData} = {
 
 		this.add('-message', "Time for the Roulette Wheel!");
 		
-		result = this.random(45);
+		result = this.random(50);
 		if (result === 0) {
 			this.hint("Roulette Wheel Result 1 - Fully heal every active Pokemon.");
 	            for (const pokemon of this.getAllActive()) {
