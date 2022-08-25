@@ -349,6 +349,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crabrawler: { tier: "SV (NFE)" },
 	crabominable: { tier: "SV" },
 
+	oricoriopompom: { tier: "SV" },
+	oricorio: { tier: "SV" },
+	oricoriopau: { tier: "SV" },
+	oricoriosensu: { tier: "SV" },
+
 	rockruff: { tier: "SV (NFE)" },
 	lycanroc: { tier: "SV" },
 	lycanrocmidnight: { tier: "SV" },
@@ -403,5 +408,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	cufant: { tier: "SV (NFE)" },
 	copperajah: { tier: "SV" },
+
+	dreepy: { tier: "SV (NFE)" },
+	drakloak: { tier: "SV (NFE)" },
+	dragapult: { tier: "SV" },
 
 };
