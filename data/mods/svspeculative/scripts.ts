@@ -288,7 +288,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (pokemon.hasItem('loadeddice')) {
 					// average base power of 100
 					targetHits = this.sample([2, 3, 3, 4, 4, 4, 5, 5, 5, 5]);
-				} else if this.gen >= 5) {
+				} else if (this.gen >= 5) {
 					// 35-35-15-15 out of 100 for 2-3-4-5 hits
 					targetHits = this.sample([2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5]);
 				} else {
