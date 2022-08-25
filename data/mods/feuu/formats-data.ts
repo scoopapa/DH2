@@ -1802,6 +1802,54 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 81,
 	},
+	tornettalola: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	togelot: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	aegix: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	dugflame: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	mrgar: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	mrgarmega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+		randomBattleLevel: 75,
+		requiredItem: "Gengarite",
+	},
+	spewtwo: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	spewtwomegax: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+		requiredItem: "Mewtwonite X",
+	},
+	spewtwomegay: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+		requiredItem: "Mewtwonite Y",
+	},
 							
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -2440,6 +2488,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	digling: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	gasjr: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -2489,6 +2545,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "NFE",
 	},
 	magmabuzz: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	mrhauntgalar: {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},
