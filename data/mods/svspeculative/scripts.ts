@@ -19,7 +19,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
 		}
 		let species = this.dex.deepClone(pokemon.species);
-		if (species.types[0] === pokemon.canMegaEvo || species.types[1] === pokemon.canMegaEvo) species.teraBoost = true;
+		species.teraBoost = pokemon.species.types;
 		species.teraType = pokemon.canMegaEvo; // remember that the species is Terastal
 		species.types = [species.teraType];
 		
@@ -76,7 +76,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				teraSpecies = this.battle.dex.deepClone(baseForm);
 				teraSpecies.teraType = this.species.teraType;
 				teraSpecies.types = [teraSpecies.teraType];
-				teraSpecies.teraBoost = this.species.teraBoost;
+				teraSpecies.teraBoost = this.battle.dex.getSpecies(speciesId).types;
 			}
 			const rawSpecies = teraSpecies || baseForm;
 			const species = this.setSpecies(rawSpecies, source);
@@ -201,7 +201,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			// (On second thought, it might be easier to get a MissingNo.)
 			let stabBoost = 1.5;
 			if (move.stab) stabBoost = move.stab;
-			if (pokemon.species.teraBoost) stabBoost = 2;
+			if (pokemon.species.teraBoost && pokemon.species.teraBoost.includes(type)) {
+				if (!suppressMessages) this.add('-message', `Terastal boosts moves of the ${type} type!`);
+				stabBoost = 2;
+			}
 			baseDamage = this.modify(baseDamage, stabBoost);
 		}
 		// types
