@@ -530,7 +530,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Meowstic-Untethered",
 		types: ["Psychic", "Ground"],
 		gender: "M",
-		baseStats: {hp: 104, atk: 78, def: 86, spa: 118, spd: 81, spe: 74},
+		baseStats: {hp: 84, atk: 78, def: 91, spa: 118, spd: 81, spe: 89},
 		abilities: {0: "Grounding"},
 		heightm: 0.6,
 		weightkg: 8.5,
