@@ -65,6 +65,23 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 
 	pokemon: {
+		setType(newType: string | string[], enforce = false) { // modded for Terastal
+			// First type of Arceus, Silvally cannot be normally changed
+			if (!enforce) {
+				if (this.species.teraType || (this.battle.gen >= 5 && (this.species.num === 493 || this.species.num === 773)) ||
+					 (this.battle.gen === 4 && this.hasAbility('multitype'))) {
+					return false;
+				}
+			}
+
+			if (!newType) throw new Error("Must pass type to setType");
+			this.types = (typeof newType === 'string' ? [newType] : newType);
+			this.addedType = '';
+			this.knownType = true;
+			this.apparentType = this.types.join('/');
+
+			return true;
+		},
 		formeChange( // modded for Terastal
 		speciesId: string | Species, source: Effect = this.battle.effect,
 		 isPermanent?: boolean, message?: string
