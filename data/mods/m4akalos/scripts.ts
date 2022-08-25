@@ -33,25 +33,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			newMega.color = pokemon.megaColor || pokemon.color;
 
 			newMega.creator = pokemon.megaCreator || null;
-
-			if (pokemon.megaStone) {
-				newMega.requiredItem = pokemon.megaStone;
-				this.data.Items[pokemon.megaStone] = {
-					name: pokemon.megaStone,
-					spritenum: 586,
-					megaStone: pokemon.megaName,
-					megaEvolves: pokemon.name,
-					itemUser: [pokemon.name],
-					onTakeItem(item, source) {
-						if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-						return true;
-					},
-					num: -1000 - newMega.num,
-					gen: 8,
-					desc: "Allows the holder to Mega Evolve in battle.",
-				};
-			}
-
+			newMega.requiredItem = pokemon.megaStone || null;
 			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { tier: "Mega" };
 		}
 	},
