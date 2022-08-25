@@ -2447,22 +2447,6 @@ export const Formats: FormatList = [
 		      ],
 		ruleset: ['Standard NatDex', 'Standard M4A', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod'],
 		mod: 'm4av6',
-		onValidateSet(set) {
-			// Sawsbuck requires special exceptions for its movepool
-			const sawsbuck = [
-				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Autumn', 'Sawsbuck-Winter',
-			];
-			const species = this.dex.getSpecies(set.species);
-			if (sawsbuck.includes(species.name)) {
-				if (set.moves.includes("Play Rough") && species.name !== "Sawsbuck") return [`Only Sawsbuck-Spring can learn Play Rough!`];
-				if (set.moves.includes("Growth") && species.name !== "Sawsbuck-Summer") return [`Only Sawsbuck-Summer can learn Growth!`];
-				if (set.moves.includes("Heat Wave") && species.name !== "Sawsbuck-Summer") return [`Only Sawsbuck-Summer can learn Heat Wave!`];
-				if (set.moves.includes("Shadow Sneak") && species.name !== "Sawsbuck-Autumn") return [`Only Sawsbuck-Autumn can learn Shadow Sneak!`];
-				if (set.moves.includes("Poltergeist") && species.name !== "Sawsbuck-Autumn") return [`Only Sawsbuck-Autumn can learn Poltergeist!`];
-				if (set.moves.includes("Ice Shard") && species.name !== "Sawsbuck-Winter") return [`Only Sawsbuck-Winter can learn Ice Shard!`];
-				if (set.moves.includes("Triple Axel") && species.name !== "Sawsbuck-Winter") return [`Only Sawsbuck-Winter can learn Triple Axel!`];
-			}
-		},
 		// teambuilderFormat: 'OU',
 	},
 	{
@@ -2484,20 +2468,6 @@ export const Formats: FormatList = [
 		mod: 'm4av6',
 		// teambuilderFormat: 'S',
 		onValidateSet(set) {
-			// Sawsbuck requires special exceptions for its movepool
-			const sawsbuck = [
-				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Autumn', 'Sawsbuck-Winter',
-			];
-			const species = this.dex.getSpecies(set.species);
-			if (sawsbuck.includes(species.name)) {
-				if (set.moves.includes("Play Rough") && species.name !== "Sawsbuck") return [`Only Sawsbuck-Spring can learn Play Rough!`];
-				if (set.moves.includes("Growth") && species.name !== "Sawsbuck-Summer") return [`Only Sawsbuck-Summer can learn Growth!`];
-				if (set.moves.includes("Heat Wave") && species.name !== "Sawsbuck-Summer") return [`Only Sawsbuck-Summer can learn Heat Wave!`];
-				if (set.moves.includes("Shadow Sneak") && species.name !== "Sawsbuck-Autumn") return [`Only Sawsbuck-Autumn can learn Shadow Sneak!`];
-				if (set.moves.includes("Poltergeist") && species.name !== "Sawsbuck-Autumn") return [`Only Sawsbuck-Autumn can learn Poltergeist!`];
-				if (set.moves.includes("Ice Shard") && species.name !== "Sawsbuck-Winter") return [`Only Sawsbuck-Winter can learn Ice Shard!`];
-				if (set.moves.includes("Triple Axel") && species.name !== "Sawsbuck-Winter") return [`Only Sawsbuck-Winter can learn Triple Axel!`];
-			}
 			// These Pokemon are still unobtainable
 			const unobtainables = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
@@ -2556,20 +2526,6 @@ export const Formats: FormatList = [
 			}
 		},
 		onValidateSet(set) {
-			// Sawsbuck requires special exceptions for its movepool
-			const sawsbuck = [
-				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Autumn', 'Sawsbuck-Winter',
-			];
-			const species = this.dex.getSpecies(set.species);
-			if (sawsbuck.includes(species.name)) {
-				if (set.moves.includes("Play Rough") && species.name !== "Sawsbuck") return [`Only Sawsbuck-Spring can learn Play Rough!`];
-				if (set.moves.includes("Growth") && species.name !== "Sawsbuck-Summer") return [`Only Sawsbuck-Summer can learn Growth!`];
-				if (set.moves.includes("Heat Wave") && species.name !== "Sawsbuck-Summer") return [`Only Sawsbuck-Summer can learn Heat Wave!`];
-				if (set.moves.includes("Shadow Sneak") && species.name !== "Sawsbuck-Autumn") return [`Only Sawsbuck-Autumn can learn Shadow Sneak!`];
-				if (set.moves.includes("Poltergeist") && species.name !== "Sawsbuck-Autumn") return [`Only Sawsbuck-Autumn can learn Poltergeist!`];
-				if (set.moves.includes("Ice Shard") && species.name !== "Sawsbuck-Winter") return [`Only Sawsbuck-Winter can learn Ice Shard!`];
-				if (set.moves.includes("Triple Axel") && species.name !== "Sawsbuck-Winter") return [`Only Sawsbuck-Winter can learn Triple Axel!`];
-			}
 			// These Pokemon are still unobtainable
 			const unobtainables = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
@@ -2628,20 +2584,6 @@ export const Formats: FormatList = [
 		],
 		mod: 'm4asandbox',
 		onValidateSet(set) {
-			// Sawsbuck requires special exceptions for its movepool
-			const sawsbuck = [
-				'Sawsbuck', 'Sawsbuck-Summer', 'Sawsbuck-Autumn', 'Sawsbuck-Winter',
-			];
-			const species = this.dex.getSpecies(set.species);
-			if (sawsbuck.includes(species.name)) {
-				if (set.moves.includes("Play Rough") && species.name !== "Sawsbuck") return [`Only Sawsbuck-Spring can learn Play Rough!`];
-				if (set.moves.includes("Growth") && species.name !== "Sawsbuck-Summer") return [`Only Sawsbuck-Summer can learn Growth!`];
-				if (set.moves.includes("Heat Wave") && species.name !== "Sawsbuck-Summer") return [`Only Sawsbuck-Summer can learn Heat Wave!`];
-				if (set.moves.includes("Shadow Sneak") && species.name !== "Sawsbuck-Autumn") return [`Only Sawsbuck-Autumn can learn Shadow Sneak!`];
-				if (set.moves.includes("Poltergeist") && species.name !== "Sawsbuck-Autumn") return [`Only Sawsbuck-Autumn can learn Poltergeist!`];
-				if (set.moves.includes("Ice Shard") && species.name !== "Sawsbuck-Winter") return [`Only Sawsbuck-Winter can learn Ice Shard!`];
-				if (set.moves.includes("Triple Axel") && species.name !== "Sawsbuck-Winter") return [`Only Sawsbuck-Winter can learn Triple Axel!`];
-			}
 			// These Pokemon are still unobtainable
 			const unobtainables = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
