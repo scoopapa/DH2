@@ -2858,8 +2858,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -77,
 	},
 	queensgambit: {
-		desc: "If this Pokémon switched in on the same turn, priority moves from opposing Pokémon targeted at itself or at allies are prevented from having an effect. If this Ability is activated, its own first move then has increased priority.",
-		shortDesc: "Only while switching in, protects the team from priority; gains +1 priority on its next move if it does.",
+		desc: "If this Pokémon switched in on the same turn, priority moves from opposing Pokémon targeted at itself or at allies are prevented from having an effect. If this Ability is activated, its own first move then has +3 priority.",
+		shortDesc: "Only while switching in, protects the team from priority; gains +3 priority on its next move if it does.",
 		onFoeTryMove(target, source, move) {
 			if (this.effectData.target.activeTurns) return;
 			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
@@ -2881,7 +2881,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-message', `${pokemon.name} is ready to strike back!`);
 			},
 			onModifyPriority(priority, pokemon, target, move) {
-				return priority + 1;
+				return priority + 3;
 			},
 		},
 		name: "Queen's Gambit",
