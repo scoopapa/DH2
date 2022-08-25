@@ -36,7 +36,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (pokemon.megaStone) {
 				newMega.requiredItem = pokemon.megaStone;
-				const newMegaStone = {
+				this.data.Items[pokemon.megaStone] = {
 					name: pokemon.megaStone,
 					spritenum: 586,
 					megaStone: pokemon.megaName,
@@ -50,7 +50,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					gen: 8,
 					desc: "Allows the holder to Mega Evolve in battle.",
 				};
-				if (!this.data.Items[pokemon.megaStone]) this.data.Items[pokemon.megaStone] = newMegaStone;
 			}
 
 			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { tier: "Mega" };
