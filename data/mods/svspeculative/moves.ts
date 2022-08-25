@@ -751,7 +751,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Defibrillator",
-		shortDesc: "Revives a Pokémon that fainted last turn, but half of its HP is taken from the user.",
+		shortDesc: "Revives the last fainted Pokémon, but half of its HP is taken from the user.",
 		pp: 1,
 		noPPBoosts: true,
 		priority: 0,
@@ -761,15 +761,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Charge", target);
 		},
 		onTry(pokemon) {
-			if (pokemon.side.faintedThisTurn || pokemon.side.faintedLastTurn) {
-				return;
-			}
+			if (pokemon.side.mostRecentKO && pokemon.side.mostRecentKO.fainted) return;
 			this.add('-fail', pokemon, 'move: Defibrillator');
 			this.hint("There was nothing to revive!");
 			return null;
 		},
 		onHit(pokemon) {
-			let revived = pokemon.side.faintedThisTurn || pokemon.side.faintedLastTurn;
+			let revived = pokemon.side.mostRecentKO;
 			if (!revived) return false;
 			revived.fainted = null;
 			revived.faintQueued = null;
