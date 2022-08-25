@@ -5488,6 +5488,21 @@ lifedrain: {
 		},
 	  name: "Exorcist",
     },
+	peerpressure: {
+	  shortDesc: "When this Pokemon is targeted by a move, it takes 3/4th damage from it and that move loses 2 PP.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Peer Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			this.debug('Peer Pressure neutralize');
+			return this.chainModify(0.75);
+		},
+	  name: "Peer Pressure",
+    },
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
