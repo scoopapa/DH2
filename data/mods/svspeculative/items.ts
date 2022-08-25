@@ -92,17 +92,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onModifyMove(move) {
-			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
-				if (this.randomChance(2, 3)) {
-					move.multihit = move.multihit[1];
-				}
-			}
-			if (move.multiaccuracy) {
-				if (this.randomChance(2, 3)) {
-					delete move.multiaccuracy;
-				}
-			}
+		onModifyMove(move) { // mostly done in scripts.ts now!
+			if (move.multiaccuracy) move.multiaccuracy = 95; // for Triple Axel and stuff
 		},
 		num: -1003,
 		gen: 9,
