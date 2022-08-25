@@ -1602,7 +1602,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "Hematite",
 	},
 	sawsbuck: {
-		otherFormes: ["Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
+		inherit: true,
+		otherFormes: ["Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		movepoolAdditions: ["growth", "heatwave", "highhorsepower", "iceshard", "shadowsneak", "playrough", "poltergeist", "tripleaxel"],
 		// move legality is hard-coded into the validator because Sawsbuck is unwilling to have functionally distinct forms
