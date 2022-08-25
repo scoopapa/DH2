@@ -27,6 +27,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pidgey: { tier: "Kalos (NFE)" },
 	pidgeotto: { tier: "Kalos (NFE)" },
 	pidgeot: { tier: "Kalos" },
+	pidgeotmega: { tier: "Illegal" },
 
 	scatterbug: { tier: "Kalos (NFE)" },
 	spewpa: { tier: "Kalos (NFE)" },
@@ -39,6 +40,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	weedle: { tier: "Kalos (NFE)" },
 	kakuna: { tier: "Kalos (NFE)" },
 	beedrill: { tier: "Kalos" },
+	beedrillmega: { tier: "Illegal" },
 
 	pansage: { tier: "Kalos (NFE)" },
 	simisage: { tier: "Kalos" },
