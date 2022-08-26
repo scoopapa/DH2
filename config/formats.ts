@@ -21,6 +21,23 @@ export const Formats: FormatList = [
 	{
 		section: "Sw/Sh Singles",
 	},
+	
+	{
+        name: "[Gen 8] leif",
+        desc: `<b>leif</b>: This is your mod!`,
+        mod: 'leif',
+        desc: `<b>bobolieffakemon</b>: This is your mod!`,
+        mod: 'bobolieffakemon',
+        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Subscribe For More Content'],
+        unbanlist: [
+             'breroot', 'furnostrich', 'sholossus', 'espopod', 'croissansect', 'piedraderm', 'kakavo', 'pelli', 'dripig', 'harmoth', 'formagia', 'sodia', 'dripig', 'woosher', 'gurso', 'phelpinch', 'shiah', 'gillomen', 'uriotl', 'cuzima', 'themon', 'shocbrute', 'lightnimbus', 'cephalethal', 'malizor', 'lunheron', 'erverena', 'siltmanya', 'tudek', 'glypdorsa', 'voraciousect', 'pichiri', 'wooliba', 'olfacrid', 'rodiche', 'mowisp', 'cephalopath', 'vambyss', 'mamicky', 'sklea', 'corazone', 'folivora', 'galena', 'grumplet', 'marlion', 'androsmos', 'dustoph', 'aeromo', 'peekoceros', 'aquimanna', 'apparicious', 'quetzadrakon', 'trybas', 'raiga', 'frogaloft',
+			],
+            
+		onSwitchIn(pokemon) {
+            this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+        },    
+    },
+	
 	{
 		name: "[Gen 8] OU",
 		threads: [
