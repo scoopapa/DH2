@@ -3602,14 +3602,9 @@ export const Formats: FormatList = [
 	},
     {
 		name: "[Gen 3] Hoennification",
-        desc: 'This is a Solomod that adds Gen 4-8 Pokemon to the Gen 3 format. It takes away their Gen 4-8 abilities and replaces them with Illuminate (I will be changing them later). As for existing Gen 1-3 Pokemon, I have updated their stats, typing and learnsets to match National Dex (minus Gen 4-8 moves). Megas do not require a Mega Stone, and they have been nerfed to 50% of their original stats (for example, if a Mega usually gains +20 in a stat, it now only gains +10). If a Pokemon has Fairy type, I have converted that to Normal. I have also given them their Hidden Abilities if they have no ability in their second ability slot. Pokemon who were Ubers in [Gen 8] OU are Ubers here, while Pokemon who were OU in [Gen 8] OU are OU here, meaning some Pokemon may deserve a quickban',
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/page-6#post-9240115">Post in Solomods Megathread</a>`,
-		],
-
-		mod: 'gen3hoennification',
-		ruleset: ['Standard', '3 Baton Pass Clause'],
-		banlist: ['Uber', 'Smeargle + Baton Pass'],
+        mod: 'gen3hoennification',
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod', 'Data Mod'],
+		banlist: ['Uber', 'Soundproof', 'Assist', 'Baton Pass + Block', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web', 'Smeargle + Ingrain'],
 	},
 	{    
        name: "[Gen 8] i forgor OU",
