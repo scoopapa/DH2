@@ -1,4 +1,9 @@
 export const Moves: {[moveid: string]: MoveData} = {
+	shoreup: {
+		inherit: true,
+		isViable: true,
+	},
+	
 	triplearrows: {
 		num: -1,
 		accuracy: 100,
