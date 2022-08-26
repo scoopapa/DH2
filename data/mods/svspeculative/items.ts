@@ -69,7 +69,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: -1001,
-		gen: 9,
+		gen: 8,
 	},
 	covertcloak: {
 		name: "Covert Cloak",
@@ -83,7 +83,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 		},
 		num: -1002,
-		gen: 9,
+		gen: 8,
 	},
 	loadeddice: {
 		name: "Loaded Dice",
@@ -96,6 +96,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.multiaccuracy) move.multiaccuracy = 95; // for Triple Axel and stuff
 		},
 		num: -1003,
-		gen: 9,
+		gen: 8,
 	},
 };

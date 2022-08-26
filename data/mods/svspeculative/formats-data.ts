@@ -400,6 +400,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hattrem: { tier: "SV (NFE)" },
 	hatterene: { tier: "SV" },
 
+	impidimp: { tier: "SV (NFE)" },
+	morgrem: { tier: "SV (NFE)" },
+	grimmsnarl: { tier: "SV" },
+
 	pincurchin: { tier: "SV" },
 
 	stonjourner: { tier: "SV" },

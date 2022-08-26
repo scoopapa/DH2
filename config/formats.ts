@@ -834,16 +834,23 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
+				if (template.tier !== 'Mega' && template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
 					return [set.species + ' is not a part of the Kalos Pokédex.'];
 				}
 			}
 		},
 		onValidateSet(set) {
-			const item = this.dex.getItem(set.item);
-			if (item.megaStone && item.megaStone.season && item.megaStone.season !== 'Kalos') return [`${item.name} is not a legal Mega Stone.`];
+			const problems: string[] = [];
+			const setHas: {[k: string]: true} = {};
+			let species = this.dex.getSpecies(set.species);
+			let item = this.dex.getItem(set.item);
+			let tierSpecies = species;
+
+			if (item.megaEvolves === species.name) {
+				if (item.megaStone && this.dex.getSpecies(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
+			}
 		},
-		mod: 'm4akalos', // will be adjusted further
+		mod: 'm4akalos',
 	},
 	/*
 	{
@@ -3261,14 +3268,12 @@ export const Formats: FormatList = [
 		challengeShow: false,
 	},
 	{
-		name: "[Gen 8] SV Speculative (Prototype)",
+		name: "[Gen 8] SV Speculative",
 		desc: [
 			"Currently just a custom game format with Terastal implemented instead of Mega Evolution; will make a more specific speculative format for SV when we have a bit more to work with!",
 		],
 
-		mod: 'gen8',
 		searchShow: false,
-		battle: {trunc: Math.trunc},
 		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Sleep Clause Mod'],
 		onValidateSet(set) {
 			const item = this.dex.getItem(set.item);

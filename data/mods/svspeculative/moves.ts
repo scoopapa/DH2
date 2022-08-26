@@ -782,12 +782,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Clever",
 	},
-	tailshed: {
+	shedtail: {
 		num: -1026,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Tail Shed",
+		name: "Shed Tail",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1},
@@ -805,13 +805,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(target) {
 			this.directDamage(target.maxhp / 2);
 		},
-		slotCondition: 'tailshed',
+		slotCondition: 'shedtail',
 		condition: {
 			onStart(pokemon, source) {
 				this.effectData.hp = Math.floor(source.maxhp / 4);
 			},
 			onSwap(target) {
-				target.side.removeSlotCondition(target, 'tailshed');
+				target.side.removeSlotCondition(target, 'shedtail');
 				if (!target.fainted) {
 					if (target.addVolatile('substitute')) {
 						target.volatiles['substitute'].hp = this.effectData.hp;
