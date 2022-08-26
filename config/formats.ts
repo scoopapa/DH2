@@ -834,16 +834,23 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.getSpecies(set.species);
-				if (template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
+				if (template.tier !== 'Mega' && template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
 					return [set.species + ' is not a part of the Kalos Pokédex.'];
 				}
 			}
 		},
 		onValidateSet(set) {
-			const item = this.dex.getItem(set.item);
-			if (item.megaStone && item.megaStone.season && item.megaStone.season !== 'Kalos') return [`${item.name} is not a legal Mega Stone.`];
+			const problems: string[] = [];
+			const setHas: {[k: string]: true} = {};
+			let species = this.dex.getSpecies(set.species);
+			let item = this.dex.getItem(set.item);
+			let tierSpecies = species;
+
+			if (item.megaEvolves === species.name) {
+				if (item.megaStone && this.dex.getSpecies(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
+			}
 		},
-		mod: 'm4akalos', // will be adjusted further
+		mod: 'm4akalos',
 	},
 	/*
 	{
