@@ -21,6 +21,7 @@ export const Formats: FormatList = [
 	{
 		section: "Sw/Sh Singles",
 	},
+	
 	{
 		name: "[Gen 8] OU",
 		threads: [
