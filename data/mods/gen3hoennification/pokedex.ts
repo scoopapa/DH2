@@ -4439,7 +4439,7 @@ gengar: {
 		"spe": 110
 	},
 	"abilities": {
-		"0": "Illuminate"
+		"0": "Levitate"
 	},
 	"weightkg": 40.5,
 	"prevo": "Haunter",
