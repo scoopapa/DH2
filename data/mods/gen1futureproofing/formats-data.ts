@@ -104,6 +104,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
+	milcery: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	alcremie: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	duraludon: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	cacnea: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	cacturne: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
 
 // don't touch
 	bulbasaur: {
