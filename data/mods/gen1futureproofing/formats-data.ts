@@ -105,7 +105,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	milcery: {
-		tier: "OU",
+		tier: "LC",
 		isNonstandard: null,
 		gen: 1,
 	},
@@ -120,7 +120,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	cacnea: {
-		tier: "OU",
+		tier: "LC",
 		isNonstandard: null,
 		gen: 1,
 	},
