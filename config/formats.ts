@@ -703,6 +703,7 @@ export const Formats: FormatList = [
 						'Fleur Cannon', 'Taunt', 'Heavy Slam',
 						'Yveltal', 'Skarmory', 'Tapu Koko',
 						'Lash Out', 'Crafty Shield', 'Sunsteel Strike',
+						'Cacnea', 'Cacturne', 'Duraludon', 'Milcery', 'Alcremie', 
 					  ],
     },
    {
