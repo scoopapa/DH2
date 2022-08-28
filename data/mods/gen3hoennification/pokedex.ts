@@ -2175,8 +2175,7 @@ jigglypuff: {
 	"num": 39,
 	"name": "Jigglypuff",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -2208,8 +2207,7 @@ wigglytuff: {
 	"num": 40,
 	"name": "Wigglytuff",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -7496,8 +7494,7 @@ igglybuff: {
 	"num": 174,
 	"name": "Igglybuff",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -11538,8 +11535,7 @@ azurill: {
 	"num": 298,
 	"name": "Azurill",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -19810,8 +19806,7 @@ audinomega: {
 	"baseSpecies": "Audino",
 	"forme": "Mega",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 103,
