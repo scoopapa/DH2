@@ -63,9 +63,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoLevel: 20,
 		evos: ["Magneton"],
 	},
-	zuduck: {
+	weirduck: {
 		num: 1159,
-		name: "Zuduck",
+		name: "Weirduck",
 		types: ["Water"],
 		baseStats: {hp: 65, atk: 67, def: 63, spa: 65, spd: 65, spe: 70},
 		abilities: {},
@@ -79,18 +79,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 94, atk: 55, def: 50, spa: 55, spd: 55, spe: 40},
 		abilities: {},
-		evos: ["Croakazuna"],
+		evos: ["Croakozuna"],
 	},
-	croakazuna: {
+	croakozuna: {
 		num: 1161,
-		name: "Croakazuna",
+		name: "Croakozuna",
 		types: ["Water", "Dark"],
 		baseStats: {hp: 134, atk: 75, def: 70, spa: 75, spd: 75, spe: 60},
 		abilities: {},
 	},
-	weepamid: {
+	skimper: {
 		num: 1162,
-		name: "Weepamid",
+		name: "Skimper",
 		types: ["Water"],
 		baseStats: {hp: 62, atk: 43, def: 36, spa: 71, spd: 71, spe: 88},
 		abilities: {},
@@ -102,15 +102,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 72, atk: 53, def: 46, spa: 81, spd: 81, spe: 98},
 		abilities: {},
-		prevo: "Weepamid",
+		prevo: "Skimper",
 		evoLevel: 30,
-		evos: ["Crythian"],
+		evos: ["Cryithan"],
 	},
-	crythian: {
+	cryithan: {
 		num: 1164,
-		name: "Crythian",
+		name: "Cryithan",
 		types: ["Water", "Dragon"],
-		baseStats: {hp: 102, atk: 83, def: 76, spa: 121, spd: 121, spe: 118},
+		baseStats: {hp: 92, atk: 83, def: 76, spa: 101, spd: 101, spe: 118},
 		abilities: {},
 		prevo: "Bawligua",
 		evoLevel: 50,
@@ -166,7 +166,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	blottle: {
 		num: 1171,
 		name: "Blottle",
-		types: ["Water"],
+		types: ["Water", "Fairy"],
 		baseStats: {hp: 60, atk: 35, def: 60, spa: 65, spd: 65, spe: 50},
 		abilities: {},
 		evos: ["Pendraken"],
@@ -174,7 +174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pendraken: {
 		num: 1172,
 		name: "Pendraken",
-		types: ["Water"],
+		types: ["Water", "Fairy"],
 		baseStats: {hp: 80, atk: 60, def: 85, spa: 95, spd: 95, spe: 90},
 		abilities: {},
 		prevo: "Blottle",
@@ -286,6 +286,83 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ice"],
 		baseStats: {hp: 65, atk: 93, def: 57, spa: 85, spd: 85, spe: 95},
 		abilities: {},
+	},
+	purakkusu: {
+		num: 1186,
+		name: "Purakkusu",
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 65, atk: 125, def: 140, spa: 55, spd: 55, spe: 85},
+		abilities: {},
+		prevo: "Pinsir",
+		evoLevel: 42,
+	},
+	madaamu: {
+		num: 1187,
+		name: "Madaamu",
+		types: ["Normal", "Flying"],
+		baseStats: {hp: 72, atk: 105, def: 75, spa: 63, spd: 63, spe: 70},
+		abilities: {},
+		prevo: "Farfetch'd",
+		evoLevel: 24,
+	},
+	tsubomitto: {
+		num: 1188,
+		name: "Tsubomitto",
+		types: ["Grass", "Poison"],
+		baseStats: {hp: 80, atk: 120, def: 60, spa: 85, spd: 85, spe: 70},
+		abilities: {},
+		prevo: "Weepinbell",
+		evoType: "trade", // sun/poison stone does not exist so let's just do this
+	},
+	animon: {
+		num: 1187,
+		name: "Animon",
+		types: ["Steel"],
+		baseStats: {hp: 100, atk: 55, def: 50, spa: 50, spd: 50, spe: 150},
+		abilities: {},
+		prevo: "Ditto",
+		evoType: "useItem", // it's sort of a metal coat
+		evoItem: "Moon Stone",
+	},
+	monja: {
+		num: 1188,
+		name: "Monja",
+		types: ["Grass"],
+		baseStats: {hp: 45, atk: 35, def: 85, spa: 80, spd: 80, spe: 40},
+		abilities: {},
+		evos: ["Tangela"],
+	},
+	para: {
+		num: 1189,
+		name: "Para",
+		types: ["Bug"],
+		baseStats: {hp: 20, atk: 55, def: 40, spa: 40, spd: 40, spe: 10},
+		abilities: {},
+		evos: ["Paras"],
+	},
+	hinaazu: {
+		num: 1190,
+		name: "Hinaazu",
+		types: ["Normal", "Flying"],
+		baseStats: {hp: 15, atk: 65, def: 25, spa: 15, spd: 15, spe: 55},
+		abilities: {},
+		evos: ["Doduo"],
+	},
+	pudi: {
+		num: 1191,
+		name: "Pudi",
+		types: ["Fire"],
+		baseStats: {hp: 35, atk: 50, def: 25, spa: 30, spd: 30, spe: 40},
+		abilities: {},
+		evos: ["Growlithe"],
+	},
+	betobebii: {
+		num: 1191,
+		name: "Betobebii",
+		types: ["Poison"],
+		baseStats: {hp: 60, atk: 60, def: 30, spa: 20, spd: 20, spe: 5},
+		abilities: {},
+		evos: ["Grimer"],
 	},
 	/// 
 	/// .o88b. d8888b.  .d88b.  .d8888. .d8888.         d888b  d88888b d8b   db   d88888b db    db  .d88b.  .d8888. 
@@ -812,6 +889,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	paras: {
 		inherit: true,
 		baseStats: {hp: 35, atk: 70, def: 55, spa: 55, spd: 55, spe: 25},
+		prevo: "Para",
+		evoLevel: 12,
 	},
 	parasect: {
 		inherit: true,
@@ -851,7 +930,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	golduck: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 82, def: 78, spa: 80, spd: 80, spe: 85},
-		prevo: "Zuduck",
+		prevo: "Weirduck",
 		evoLevel: 41,
 	},
 	mankey: {
@@ -865,6 +944,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	growlithe: {
 		inherit: true,
 		baseStats: {hp: 55, atk: 70, def: 45, spa: 50, spd: 50, spe: 60},
+		prevo: "Pudi",
+		evoLevel: 13,
 	},
 	arcanine: {
 		inherit: true,
@@ -914,6 +995,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	weepinbell: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 90, def: 50, spa: 85, spd: 85, spe: 55},
+		evos: ["Victreebel", "Tsubomitto"],
 	},
 	victreebel: {
 		inherit: true,
@@ -975,10 +1057,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	farfetchd: {
 		inherit: true,
 		baseStats: {hp: 52, atk: 65, def: 55, spa: 58, spd: 58, spe: 60},
+		evos: ["Madaamu"],
 	},
 	doduo: {
 		inherit: true,
 		baseStats: {hp: 35, atk: 85, def: 45, spa: 35, spd: 35, spe: 75},
+		prevo: "Hinaazu",
+		evoLevel: 16,
 	},
 	dodrio: {
 		inherit: true,
@@ -995,6 +1080,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	grimer: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 80, def: 50, spa: 40, spd: 40, spe: 25},
+		prevo: "Betobebii",
+		evoLevel: 19,
 	},
 	muk: {
 		inherit: true,
@@ -1109,6 +1196,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 65, atk: 55, def: 115, spa: 100, spd: 100, spe: 60},
 		evos: ["Tangrowth"],
+		prevo: "Monja",
+		evoLevel: 13,
 	},
 	kangaskhan: {
 		inherit: true,
@@ -1174,6 +1263,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pinsir: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 125, def: 100, spa: 55, spd: 55, spe: 85},
+		evos: ["Purakkusu"],
 	},
 	tauros: {
 		inherit: true,
@@ -1194,6 +1284,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ditto: {
 		inherit: true,
 		baseStats: {hp: 48, atk: 48, def: 48, spa: 48, spd: 48, spe: 48},
+		evos: ["Animon"],
 	},
 	eevee: {
 		inherit: true,

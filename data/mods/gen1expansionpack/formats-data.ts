@@ -36,7 +36,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 		gen: 1,
 	},
-	zuduck: {
+	weirduck: {
 		tier: "NFE",
 		gen: 1,
 	},
@@ -44,11 +44,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 		gen: 1,
 	},
-	croakazuna: {
+	croakozuna: {
 		tier: "New",
 		gen: 1,
 	},
-	weepamid: {
+	skimper: {
 		tier: "LC",
 		gen: 1,
 	},
@@ -56,7 +56,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 		gen: 1,
 	},
-	crythian: {
+	cryithan: {
 		tier: "New",
 		gen: 1,
 	},
@@ -142,6 +142,42 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	buu: {
 		tier: "New",
+		gen: 1,
+	},
+	purakkusu: { //1.1 SW97 additions begin here
+		tier: "New",
+		gen: 1,
+	},
+	madaamu: {
+		tier: "New",
+		gen: 1,
+	},
+	tsubomitto: {
+		tier: "New",
+		gen: 1,
+	},
+	animon: {
+		tier: "New",
+		gen: 1,
+	},
+	monja: {
+		tier: "LC",
+		gen: 1,
+	},
+	para: {
+		tier: "LC",
+		gen: 1,
+	},
+	hinaazu: {
+		tier: "LC",
+		gen: 1,
+	},
+	pudi: {
+		tier: "LC",
+		gen: 1,
+	},
+	betobebii: {
+		tier: "LC",
 		gen: 1,
 	},
 		/// 
