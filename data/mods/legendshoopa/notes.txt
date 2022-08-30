@@ -1,3 +1,10 @@
+Current To-Do List:
+- Intimidate bug
+- Ripen makes Berry effects last 6 turns (later, not important rn)
+- Stockpile should last for 3 turns when used the first time, 4 turns the second and 5 the third (who cares lol)
+
+
+
 This is just a .txt to document how the PLA mechanics work coding-wise, in case I need a reminder or someone else
 makes changes and needs a quick runthrough on how everything works. It's not *that* complicated, I just think
 it's nice to have these things documented
