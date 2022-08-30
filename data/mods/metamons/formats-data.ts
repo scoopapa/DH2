@@ -80,4 +80,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	granbull: {
 		tier: "metamons",
 	},
+	guzzlord: {
+		tier: "metamons",
+	},
+	necrozma: {
+		tier: "metamons",
+	},
+	entei: {
+		tier: "metamons",
+	},
 };
