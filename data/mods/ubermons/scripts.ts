@@ -162,7 +162,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'lucario').learnset.triplekick = ['8L1'];
 		
-		delete this.modData('Learnsets', 'tornadus').learnset.hurricane;
+		delete this.modData('Learnsets', 'tornadus').learnset.nastyplot;
+		
+		delete this.modData('Learnsets', 'tornadus').learnset.sludgebomb;
+		delete this.modData('Learnsets', 'tornadus').learnset.nastyplot;
 	},
 	
 	pokemon: {
