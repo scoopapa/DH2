@@ -139,6 +139,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Liquidation", target);
 		},
+		target: "normal",
+		type: "Water",
 	},
 
 
