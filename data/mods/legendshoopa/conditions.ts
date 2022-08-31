@@ -50,7 +50,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if(this.effectData.speBoosted) {
 					this.effectData.startTime -= 1;
 				}
-				if(effect.effectType === 'Move' && !effect.status) {
+				if((effect.effectType === 'Move' && !effect.status) || effect.effectType === 'Ability' || effect.effectType === 'Item') {
 					this.effectData.startTime = 3;
 				}
 
@@ -128,9 +128,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 	fixated: {
 		name: 'fixated',
 		onStart(target, source, effect) {
-			this.add('-start', source, 'fixated', '[silent]');
+			this.add('-start', target, 'fixated', '[silent]');
 			this.effectData.move = effect.id;
-			this.add('-message', `${source.name} is fixated on ${this.effectData.move}!`);
+			this.add('-message', `${target.name} is fixated on ${this.effectData.move}!`);
 		},
 
 		onTryMovePriority: -2,
@@ -162,12 +162,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 5,
 
 		onStart(target, source, effect) {
-			this.add('-start', source, 'primed', '[silent]');
-			this.add('-message', `${source.name} is primed!`);
+			if(effect.effectType === 'Item') this.duration = 4;
+			if(effect.effectType === 'Ability') this.duration = 5;
+			this.add('-start', target, 'primed', '[silent]');
+			this.add('-message', `${target.name} is primed!`);
 		},
 
 		onModifyDamage(damage, source, target, move) {
-			this.add('-message', 'primed boost !');
 			return this.chainModify(1.5);
 		},
 
@@ -194,6 +195,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'brn');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		// Damage reduction is handled directly in the sim/battle.js damage function
@@ -218,6 +222,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'par');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		onModifySpe(spe, pokemon) {
@@ -257,6 +264,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				target.formeChange('Shaymin', this.effect, true);
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		onHit(target, source, move) {
@@ -289,6 +299,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'slp');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 
@@ -342,6 +355,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'psn');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		onResidualOrder: 9,
@@ -367,6 +383,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'tox');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		onSwitchIn() {

@@ -801,7 +801,7 @@ export const Formats: FormatList = [
 			'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite', 
 			'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
 			'Blue Orb', 'Red Orb',
-			'Dragon Ascent',
+			'Dragon Ascent', 'Hidden Power', //fuck Unown I'm not coding this sorry
 			'Beedrill-Mega' //?????
 		],
 		mod: 'legendshoopa',

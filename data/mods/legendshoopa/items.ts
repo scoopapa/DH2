@@ -20,4 +20,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		pokemon.trySetStatus('brn', pokemon);
 	}
 	},
+
+	weaknesspolicy: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
+				target.useItem();
+				target.addVolatile('primed');
+			}
+		}
+	},
 };
