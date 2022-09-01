@@ -452,4 +452,46 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3.5,
 		num: 235,
 	},
+	baddreams: {
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.side.foe.active) {
+				if (!activated) {
+					this.add('-ability', source, 'Bad Dreams');
+				}
+				activated = true;
+				if (!pokemon.volatiles['baddreams']) {
+					pokemon.addVolatile('baddreams');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['baddreams']) {
+					target.addVolatile('baddreams');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			const source = this.effectData.target;
+			for (const target of source.side.foe.active) {
+				target.removeVolatile('baddreams');
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status && source.volatiles['baddreams']) {
+				this.add('-immune', source, '[from] ability: Bad Dreams');
+			}
+			return false;
+		},
+		// Permanent sleep "status" implemented in the relevant sleep-checking effects
+		isPermanent: true,
+		isUnbreakable: true,
+		name: "Bad Dreams",
+		shortDesc: "The foes cannot be statused, and are considered to be asleep.",
+		rating: 4,
+		num: 123,
+	},
 };

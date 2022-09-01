@@ -1184,7 +1184,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			//Pokémon
-			'Eternatus', 'Naganadel',
+			'Eternatus',
 			//Abilities
 			'Moody',
 			//Items
@@ -1192,7 +1192,7 @@ export const Formats: FormatList = [
 			//Moves
 			'Baton Pass',
 		],
-		teambuilderFormat: 'National Dex',
+		teambuilderFormat: 'OU',
 	},
 	{
 		section: "Recent Smogon Mods",

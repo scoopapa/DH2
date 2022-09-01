@@ -3370,4 +3370,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	darkrai: {
 		tier: "OU",
 	},
+	naganadel: {
+		tier: "OU",
+	},
 };
