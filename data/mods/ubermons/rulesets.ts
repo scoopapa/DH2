@@ -34,6 +34,14 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 	},
+	standarddoubles: {
+		effectType: 'ValidatorRule',
+		name: 'Standard Doubles',
+		desc: "The standard ruleset for all official Smogon doubles tiers",
+		ruleset: [
+			'Obtainable', '+Unobtainable', '+Past', 'Sketch Gen 8 Moves', 'Team Preview', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+		],
+	},
 	megadatamod: {
 		effectType: 'Rule',
 		name: 'Mega Data Mod',
