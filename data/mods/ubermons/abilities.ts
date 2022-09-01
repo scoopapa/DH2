@@ -486,6 +486,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			return false;
 		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Bad Dreams');
+			},
+			onResidualOrder: 18,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Bad Dreams');
+			},
+		},
 		// Permanent sleep "status" implemented in the relevant sleep-checking effects
 		isPermanent: true,
 		isUnbreakable: true,
