@@ -802,7 +802,7 @@ export const Formats: FormatList = [
 			'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
 			'Blue Orb', 'Red Orb',
 			'Dragon Ascent', 'Hidden Power', //fuck Unown I'm not coding this sorry
-			'Beedrill-Mega' //?????
+			'Beedrill-Mega', 'Pidgeot-Mega', //?????
 		],
 		mod: 'legendshoopa',
 		onValidateTeam(team, format) {
