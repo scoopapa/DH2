@@ -366,6 +366,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 	},
 	bugmemory: {
+		name: "Bug Memory",
 		onMemory: 'Bug',
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
