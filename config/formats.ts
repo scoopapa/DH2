@@ -2844,7 +2844,30 @@ export const Formats: FormatList = [
 		mod: 'sylvemonstest',
 		teambuilderFormat: 'AG',
 		ruleset: ['Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Data Mod', 'Mega Data Mod', 'SylveMons Intro Mod'],
-	},		
+	},
+	{
+		name: "[Gen 8] Ubermons Doubles",
+		mod: 'ubermons',
+		desc: [
+			"<b>Ubermons</b>: A Pet Mod that aims to rebalance Ubers for OU. The goal is to make every single ban into a viable and healthy part of the metagame.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
+		],
+		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [
+			//Pokémon
+			'Eternatus',
+			//Abilities
+			'Moody',
+			//Items
+			'King\'s Rock', 'Quick Claw', 'Razor Fang',
+			//Moves
+			'Baton Pass',
+		],
+		gameType: 'doubles',
+		teambuilderFormat: 'OU',
+	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	
 	{
