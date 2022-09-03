@@ -577,7 +577,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') || !pokemon.volatiles['baddreams']) {
+				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') && !pokemon.volatiles['baddreams']) {
 					return false;
 				}
 				this.add('-start', pokemon, 'Nightmare');
@@ -610,7 +610,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	snore: {
 		inherit: true,
 		onTryHit(target, source) {
-			if (source.status !== 'slp' && !source.hasAbility('comatose') || !source.volatiles['baddreams']) return false;
+			if (source.status !== 'slp' && !source.hasAbility('comatose') && !source.volatiles['baddreams']) return false;
 		},
 	},
 	wakeupslap: {
