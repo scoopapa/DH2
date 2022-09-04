@@ -786,8 +786,7 @@ rattataalola: {
 	"baseSpecies": "Rattata",
 	"forme": "Alola",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 30,
@@ -851,8 +850,7 @@ raticatealola: {
 	"baseSpecies": "Raticate",
 	"forme": "Alola",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 75,
@@ -2022,8 +2020,7 @@ jigglypuff: {
 	"num": 39,
 	"name": "Jigglypuff",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -2056,8 +2053,7 @@ wigglytuff: {
 	"num": 40,
 	"name": "Wigglytuff",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -7227,8 +7223,7 @@ igglybuff: {
 	"num": 174,
 	"name": "Igglybuff",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -10295,8 +10290,7 @@ zigzagoongalar: {
 	"baseSpecies": "Zigzagoon",
 	"forme": "Galar",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 38,
@@ -10358,8 +10352,7 @@ linoonegalar: {
 	"baseSpecies": "Linoone",
 	"forme": "Galar",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 78,
@@ -11341,8 +11334,7 @@ azurill: {
 	"num": 298,
 	"name": "Azurill",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -11583,8 +11575,7 @@ aron: {
 	"num": 304,
 	"name": "Aron",
 	"types": [
-		"Rock",
-		null
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 50,
@@ -11611,8 +11602,7 @@ lairon: {
 	"num": 305,
 	"name": "Lairon",
 	"types": [
-		"Rock",
-		null
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 60,
@@ -11641,8 +11631,7 @@ aggron: {
 	"num": 306,
 	"name": "Aggron",
 	"types": [
-		"Rock",
-		null
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 70,
@@ -15206,8 +15195,7 @@ shieldon: {
 	"num": 410,
 	"name": "Shieldon",
 	"types": [
-		"Rock",
-		null
+		"Rock"
 	],
 	"genderRatio": {
 		"M": 0.875,
@@ -15237,8 +15225,7 @@ bastiodon: {
 	"num": 411,
 	"name": "Bastiodon",
 	"types": [
-		"Rock",
-		null
+		"Rock"
 	],
 	"genderRatio": {
 		"M": 0.875,
@@ -17360,8 +17347,7 @@ probopass: {
 	"num": 476,
 	"name": "Probopass",
 	"types": [
-		"Rock",
-		null
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 60,
@@ -19813,8 +19799,7 @@ audinomega: {
 	"baseSpecies": "Audino",
 	"forme": "Mega",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 103,
@@ -30272,8 +30257,7 @@ stakataka: {
 	"num": 805,
 	"name": "Stakataka",
 	"types": [
-		"Rock",
-		null
+		"Rock"
 	],
 	"gender": "N",
 	"baseStats": {
@@ -32000,8 +31984,7 @@ impidimp: {
 	"num": 859,
 	"name": "Impidimp",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"gender": "M",
 	"baseStats": {
@@ -32030,8 +32013,7 @@ morgrem: {
 	"num": 860,
 	"name": "Morgrem",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"gender": "M",
 	"baseStats": {
@@ -32062,8 +32044,7 @@ grimmsnarl: {
 	"num": 861,
 	"name": "Grimmsnarl",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"gender": "M",
 	"baseStats": {
@@ -32092,8 +32073,7 @@ obstagoon: {
 	"num": 862,
 	"name": "Obstagoon",
 	"types": [
-		"Normal",
-		null
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 93,
