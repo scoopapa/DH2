@@ -30,7 +30,7 @@ bulbasaur: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 ivysaur: {
 	"num": 2,
 	"name": "Ivysaur",
@@ -64,7 +64,7 @@ ivysaur: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 venusaur: {
 	"num": 3,
 	"name": "Venusaur",
@@ -103,7 +103,7 @@ venusaur: {
 		"Venusaur-Mega"
 	],
 	"canGigantamax": "G-Max Vine Lash"
-}
+},
 venusaurmega: {
 	"num": 3,
 	"name": "Venusaur-Mega",
@@ -134,7 +134,7 @@ venusaurmega: {
 		"Grass"
 	],
 	"requiredItem": "Venusaurite"
-}
+},
 charmander: {
 	"num": 4,
 	"name": "Charmander",
@@ -165,7 +165,7 @@ charmander: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 charmeleon: {
 	"num": 5,
 	"name": "Charmeleon",
@@ -198,7 +198,7 @@ charmeleon: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 charizard: {
 	"num": 6,
 	"name": "Charizard",
@@ -239,7 +239,7 @@ charizard: {
 		"Charizard-Mega-Y"
 	],
 	"canGigantamax": "G-Max Wildfire"
-}
+},
 charizardmegax: {
 	"num": 6,
 	"name": "Charizard-Mega-X",
@@ -270,7 +270,7 @@ charizardmegax: {
 		"Dragon"
 	],
 	"requiredItem": "Charizardite X"
-}
+},
 charizardmegay: {
 	"num": 6,
 	"name": "Charizard-Mega-Y",
@@ -301,7 +301,7 @@ charizardmegay: {
 		"Dragon"
 	],
 	"requiredItem": "Charizardite Y"
-}
+},
 squirtle: {
 	"num": 7,
 	"name": "Squirtle",
@@ -332,7 +332,7 @@ squirtle: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 wartortle: {
 	"num": 8,
 	"name": "Wartortle",
@@ -365,7 +365,7 @@ wartortle: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 blastoise: {
 	"num": 9,
 	"name": "Blastoise",
@@ -403,7 +403,7 @@ blastoise: {
 		"Blastoise-Mega"
 	],
 	"canGigantamax": "G-Max Cannonade"
-}
+},
 blastoisemega: {
 	"num": 9,
 	"name": "Blastoise-Mega",
@@ -433,7 +433,7 @@ blastoisemega: {
 		"Water 1"
 	],
 	"requiredItem": "Blastoisinite"
-}
+},
 caterpie: {
 	"num": 10,
 	"name": "Caterpie",
@@ -459,7 +459,7 @@ caterpie: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 metapod: {
 	"num": 11,
 	"name": "Metapod",
@@ -486,7 +486,7 @@ metapod: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 butterfree: {
 	"num": 12,
 	"name": "Butterfree",
@@ -513,7 +513,7 @@ butterfree: {
 		"Bug"
 	],
 	"canGigantamax": "G-Max Befuddle"
-}
+},
 weedle: {
 	"num": 13,
 	"name": "Weedle",
@@ -540,7 +540,7 @@ weedle: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 kakuna: {
 	"num": 14,
 	"name": "Kakuna",
@@ -568,7 +568,7 @@ kakuna: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 beedrill: {
 	"num": 15,
 	"name": "Beedrill",
@@ -601,7 +601,7 @@ beedrill: {
 		"Beedrill",
 		"Beedrill-Mega"
 	]
-}
+},
 beedrillmega: {
 	"num": 15,
 	"name": "Beedrill-Mega",
@@ -627,7 +627,7 @@ beedrillmega: {
 		"Bug"
 	],
 	"requiredItem": "Beedrillite"
-}
+},
 pidgey: {
 	"num": 16,
 	"name": "Pidgey",
@@ -655,7 +655,7 @@ pidgey: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 pidgeotto: {
 	"num": 17,
 	"name": "Pidgeotto",
@@ -685,7 +685,7 @@ pidgeotto: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 pidgeot: {
 	"num": 18,
 	"name": "Pidgeot",
@@ -719,7 +719,7 @@ pidgeot: {
 		"Pidgeot",
 		"Pidgeot-Mega"
 	]
-}
+},
 pidgeotmega: {
 	"num": 18,
 	"name": "Pidgeot-Mega",
@@ -745,7 +745,7 @@ pidgeotmega: {
 		"Flying"
 	],
 	"requiredItem": "Pidgeotite"
-}
+},
 rattata: {
 	"num": 19,
 	"name": "Rattata",
@@ -779,14 +779,15 @@ rattata: {
 		"Rattata",
 		"Rattata-Alola"
 	]
-}
+},
 rattataalola: {
 	"num": 19,
 	"name": "Rattata-Alola",
 	"baseSpecies": "Rattata",
 	"forme": "Alola",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"baseStats": {
 		"hp": 30,
@@ -808,7 +809,7 @@ rattataalola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 raticate: {
 	"num": 20,
 	"name": "Raticate",
@@ -843,14 +844,15 @@ raticate: {
 		"Raticate-Alola",
 		"Raticate-Alola-Totem"
 	]
-}
+},
 raticatealola: {
 	"num": 20,
 	"name": "Raticate-Alola",
 	"baseSpecies": "Raticate",
 	"forme": "Alola",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"baseStats": {
 		"hp": 75,
@@ -872,7 +874,7 @@ raticatealola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 spearow: {
 	"num": 21,
 	"name": "Spearow",
@@ -899,7 +901,7 @@ spearow: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 fearow: {
 	"num": 22,
 	"name": "Fearow",
@@ -925,7 +927,7 @@ fearow: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 ekans: {
 	"num": 23,
 	"name": "Ekans",
@@ -953,7 +955,7 @@ ekans: {
 		"Field",
 		"Dragon"
 	]
-}
+},
 arbok: {
 	"num": 24,
 	"name": "Arbok",
@@ -980,7 +982,7 @@ arbok: {
 		"Field",
 		"Dragon"
 	]
-}
+},
 pikachu: {
 	"num": 25,
 	"name": "Pikachu",
@@ -1046,7 +1048,7 @@ pikachu: {
 		"Pikachu-Cosplay"
 	],
 	"canGigantamax": "G-Max Volt Crash"
-}
+},
 pikachucosplay: {
 	"num": 25,
 	"name": "Pikachu-Cosplay",
@@ -1072,7 +1074,7 @@ pikachucosplay: {
 		"Undiscovered"
 	],
 	"gen": 6
-}
+},
 pikachurockstar: {
 	"num": 25,
 	"name": "Pikachu-Rock-Star",
@@ -1099,7 +1101,7 @@ pikachurockstar: {
 	],
 	"changesFrom": "Pikachu-Cosplay",
 	"gen": 6
-}
+},
 pikachubelle: {
 	"num": 25,
 	"name": "Pikachu-Belle",
@@ -1126,7 +1128,7 @@ pikachubelle: {
 	],
 	"changesFrom": "Pikachu-Cosplay",
 	"gen": 6
-}
+},
 pikachupopstar: {
 	"num": 25,
 	"name": "Pikachu-Pop-Star",
@@ -1153,7 +1155,7 @@ pikachupopstar: {
 	],
 	"changesFrom": "Pikachu-Cosplay",
 	"gen": 6
-}
+},
 pikachuphd: {
 	"num": 25,
 	"name": "Pikachu-PhD",
@@ -1180,7 +1182,7 @@ pikachuphd: {
 	],
 	"changesFrom": "Pikachu-Cosplay",
 	"gen": 6
-}
+},
 pikachulibre: {
 	"num": 25,
 	"name": "Pikachu-Libre",
@@ -1207,7 +1209,7 @@ pikachulibre: {
 	],
 	"changesFrom": "Pikachu-Cosplay",
 	"gen": 6
-}
+},
 pikachuoriginal: {
 	"num": 25,
 	"name": "Pikachu-Original",
@@ -1234,7 +1236,7 @@ pikachuoriginal: {
 		"Undiscovered"
 	],
 	"gen": 7
-}
+},
 pikachuhoenn: {
 	"num": 25,
 	"name": "Pikachu-Hoenn",
@@ -1261,7 +1263,7 @@ pikachuhoenn: {
 		"Undiscovered"
 	],
 	"gen": 7
-}
+},
 pikachusinnoh: {
 	"num": 25,
 	"name": "Pikachu-Sinnoh",
@@ -1288,7 +1290,7 @@ pikachusinnoh: {
 		"Undiscovered"
 	],
 	"gen": 7
-}
+},
 pikachuunova: {
 	"num": 25,
 	"name": "Pikachu-Unova",
@@ -1315,7 +1317,7 @@ pikachuunova: {
 		"Undiscovered"
 	],
 	"gen": 7
-}
+},
 pikachukalos: {
 	"num": 25,
 	"name": "Pikachu-Kalos",
@@ -1342,7 +1344,7 @@ pikachukalos: {
 		"Undiscovered"
 	],
 	"gen": 7
-}
+},
 pikachualola: {
 	"num": 25,
 	"name": "Pikachu-Alola",
@@ -1369,7 +1371,7 @@ pikachualola: {
 		"Undiscovered"
 	],
 	"gen": 7
-}
+},
 pikachupartner: {
 	"num": 25,
 	"name": "Pikachu-Partner",
@@ -1396,7 +1398,7 @@ pikachupartner: {
 		"Undiscovered"
 	],
 	"gen": 7
-}
+},
 pikachustarter: {
 	"num": 25,
 	"name": "Pikachu-Starter",
@@ -1421,7 +1423,7 @@ pikachustarter: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 pikachuworld: {
 	"num": 25,
 	"name": "Pikachu-World",
@@ -1448,7 +1450,7 @@ pikachuworld: {
 		"Undiscovered"
 	],
 	"gen": 8
-}
+},
 raichu: {
 	"num": 26,
 	"name": "Raichu",
@@ -1482,7 +1484,7 @@ raichu: {
 		"Raichu",
 		"Raichu-Alola"
 	]
-}
+},
 raichualola: {
 	"num": 26,
 	"name": "Raichu-Alola",
@@ -1511,7 +1513,7 @@ raichualola: {
 		"Field",
 		"Fairy"
 	]
-}
+},
 sandshrew: {
 	"num": 27,
 	"name": "Sandshrew",
@@ -1544,7 +1546,7 @@ sandshrew: {
 		"Sandshrew",
 		"Sandshrew-Alola"
 	]
-}
+},
 sandshrewalola: {
 	"num": 27,
 	"name": "Sandshrew-Alola",
@@ -1573,7 +1575,7 @@ sandshrewalola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 sandslash: {
 	"num": 28,
 	"name": "Sandslash",
@@ -1605,7 +1607,7 @@ sandslash: {
 		"Sandslash",
 		"Sandslash-Alola"
 	]
-}
+},
 sandslashalola: {
 	"num": 28,
 	"name": "Sandslash-Alola",
@@ -1634,7 +1636,7 @@ sandslashalola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 nidoranf: {
 	"num": 29,
 	"name": "Nidoran-F",
@@ -1663,7 +1665,7 @@ nidoranf: {
 		"Monster",
 		"Field"
 	]
-}
+},
 nidorina: {
 	"num": 30,
 	"name": "Nidorina",
@@ -1693,7 +1695,7 @@ nidorina: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 nidoqueen: {
 	"num": 31,
 	"name": "Nidoqueen",
@@ -1722,7 +1724,7 @@ nidoqueen: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 nidoranm: {
 	"num": 32,
 	"name": "Nidoran-M",
@@ -1751,7 +1753,7 @@ nidoranm: {
 		"Monster",
 		"Field"
 	]
-}
+},
 nidorino: {
 	"num": 33,
 	"name": "Nidorino",
@@ -1782,7 +1784,7 @@ nidorino: {
 		"Monster",
 		"Field"
 	]
-}
+},
 nidoking: {
 	"num": 34,
 	"name": "Nidoking",
@@ -1812,7 +1814,7 @@ nidoking: {
 		"Monster",
 		"Field"
 	]
-}
+},
 clefairy: {
 	"num": 35,
 	"name": "Clefairy",
@@ -1845,7 +1847,7 @@ clefairy: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 clefable: {
 	"num": 36,
 	"name": "Clefable",
@@ -1876,7 +1878,7 @@ clefable: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 vulpix: {
 	"num": 37,
 	"name": "Vulpix",
@@ -1913,7 +1915,7 @@ vulpix: {
 		"Vulpix",
 		"Vulpix-Alola"
 	]
-}
+},
 vulpixalola: {
 	"num": 37,
 	"name": "Vulpix-Alola",
@@ -1945,7 +1947,7 @@ vulpixalola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 ninetales: {
 	"num": 38,
 	"name": "Ninetales",
@@ -1982,7 +1984,7 @@ ninetales: {
 		"Ninetales",
 		"Ninetales-Alola"
 	]
-}
+},
 ninetalesalola: {
 	"num": 38,
 	"name": "Ninetales-Alola",
@@ -2015,12 +2017,13 @@ ninetalesalola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 jigglypuff: {
 	"num": 39,
 	"name": "Jigglypuff",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -2048,12 +2051,13 @@ jigglypuff: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 wigglytuff: {
 	"num": 40,
 	"name": "Wigglytuff",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -2079,7 +2083,7 @@ wigglytuff: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 zubat: {
 	"num": 41,
 	"name": "Zubat",
@@ -2106,7 +2110,7 @@ zubat: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 golbat: {
 	"num": 42,
 	"name": "Golbat",
@@ -2135,7 +2139,7 @@ golbat: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 oddish: {
 	"num": 43,
 	"name": "Oddish",
@@ -2162,7 +2166,7 @@ oddish: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 gloom: {
 	"num": 44,
 	"name": "Gloom",
@@ -2192,7 +2196,7 @@ gloom: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 vileplume: {
 	"num": 45,
 	"name": "Vileplume",
@@ -2219,7 +2223,7 @@ vileplume: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 paras: {
 	"num": 46,
 	"name": "Paras",
@@ -2248,7 +2252,7 @@ paras: {
 		"Bug",
 		"Grass"
 	]
-}
+},
 parasect: {
 	"num": 47,
 	"name": "Parasect",
@@ -2276,7 +2280,7 @@ parasect: {
 		"Bug",
 		"Grass"
 	]
-}
+},
 venonat: {
 	"num": 48,
 	"name": "Venonat",
@@ -2304,7 +2308,7 @@ venonat: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 venomoth: {
 	"num": 49,
 	"name": "Venomoth",
@@ -2331,7 +2335,7 @@ venomoth: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 diglett: {
 	"num": 50,
 	"name": "Diglett",
@@ -2365,7 +2369,7 @@ diglett: {
 		"Diglett",
 		"Diglett-Alola"
 	]
-}
+},
 diglettalola: {
 	"num": 50,
 	"name": "Diglett-Alola",
@@ -2395,7 +2399,7 @@ diglettalola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 dugtrio: {
 	"num": 51,
 	"name": "Dugtrio",
@@ -2428,7 +2432,7 @@ dugtrio: {
 		"Dugtrio",
 		"Dugtrio-Alola"
 	]
-}
+},
 dugtrioalola: {
 	"num": 51,
 	"name": "Dugtrio-Alola",
@@ -2457,7 +2461,7 @@ dugtrioalola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 meowth: {
 	"num": 52,
 	"name": "Meowth",
@@ -2494,7 +2498,7 @@ meowth: {
 		"Meowth-Galar"
 	],
 	"canGigantamax": "G-Max Gold Rush"
-}
+},
 meowthalola: {
 	"num": 52,
 	"name": "Meowth-Alola",
@@ -2523,7 +2527,7 @@ meowthalola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 meowthgalar: {
 	"num": 52,
 	"name": "Meowth-Galar",
@@ -2552,7 +2556,7 @@ meowthgalar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 persian: {
 	"num": 53,
 	"name": "Persian",
@@ -2585,7 +2589,7 @@ persian: {
 		"Persian",
 		"Persian-Alola"
 	]
-}
+},
 persianalola: {
 	"num": 53,
 	"name": "Persian-Alola",
@@ -2613,7 +2617,7 @@ persianalola: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 psyduck: {
 	"num": 54,
 	"name": "Psyduck",
@@ -2641,7 +2645,7 @@ psyduck: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 golduck: {
 	"num": 55,
 	"name": "Golduck",
@@ -2668,7 +2672,7 @@ golduck: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 mankey: {
 	"num": 56,
 	"name": "Mankey",
@@ -2695,7 +2699,7 @@ mankey: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 primeape: {
 	"num": 57,
 	"name": "Primeape",
@@ -2721,7 +2725,7 @@ primeape: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 growlithe: {
 	"num": 58,
 	"name": "Growlithe",
@@ -2759,7 +2763,7 @@ growlithe: {
 		"Growlithe",
 		"Growlithe-Hisui"
 	]
-}
+},
 growlithehisui: {
 	"num": 58,
 	"name": "Growlithe-Hisui",
@@ -2793,7 +2797,7 @@ growlithehisui: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 arcanine: {
 	"num": 59,
 	"name": "Arcanine",
@@ -2831,7 +2835,7 @@ arcanine: {
 		"Arcanine",
 		"Arcanine-Hisui"
 	]
-}
+},
 arcaninehisui: {
 	"num": 59,
 	"name": "Arcanine-Hisui",
@@ -2865,7 +2869,7 @@ arcaninehisui: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 poliwag: {
 	"num": 60,
 	"name": "Poliwag",
@@ -2892,7 +2896,7 @@ poliwag: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 poliwhirl: {
 	"num": 61,
 	"name": "Poliwhirl",
@@ -2922,7 +2926,7 @@ poliwhirl: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 poliwrath: {
 	"num": 62,
 	"name": "Poliwrath",
@@ -2950,7 +2954,7 @@ poliwrath: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 abra: {
 	"num": 63,
 	"name": "Abra",
@@ -2981,7 +2985,7 @@ abra: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 kadabra: {
 	"num": 64,
 	"name": "Kadabra",
@@ -3014,7 +3018,7 @@ kadabra: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 alakazam: {
 	"num": 65,
 	"name": "Alakazam",
@@ -3051,7 +3055,7 @@ alakazam: {
 		"Alakazam",
 		"Alakazam-Mega"
 	]
-}
+},
 alakazammega: {
 	"num": 65,
 	"name": "Alakazam-Mega",
@@ -3080,7 +3084,7 @@ alakazammega: {
 		"Human-Like"
 	],
 	"requiredItem": "Alakazite"
-}
+},
 machop: {
 	"num": 66,
 	"name": "Machop",
@@ -3111,7 +3115,7 @@ machop: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 machoke: {
 	"num": 67,
 	"name": "Machoke",
@@ -3144,7 +3148,7 @@ machoke: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 machamp: {
 	"num": 68,
 	"name": "Machamp",
@@ -3175,7 +3179,7 @@ machamp: {
 		"Human-Like"
 	],
 	"canGigantamax": "G-Max Chi Strike"
-}
+},
 bellsprout: {
 	"num": 69,
 	"name": "Bellsprout",
@@ -3202,7 +3206,7 @@ bellsprout: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 weepinbell: {
 	"num": 70,
 	"name": "Weepinbell",
@@ -3231,7 +3235,7 @@ weepinbell: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 victreebel: {
 	"num": 71,
 	"name": "Victreebel",
@@ -3258,7 +3262,7 @@ victreebel: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 tentacool: {
 	"num": 72,
 	"name": "Tentacool",
@@ -3286,7 +3290,7 @@ tentacool: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 tentacruel: {
 	"num": 73,
 	"name": "Tentacruel",
@@ -3313,7 +3317,7 @@ tentacruel: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 geodude: {
 	"num": 74,
 	"name": "Geodude",
@@ -3348,7 +3352,7 @@ geodude: {
 		"Geodude",
 		"Geodude-Alola"
 	]
-}
+},
 geodudealola: {
 	"num": 74,
 	"name": "Geodude-Alola",
@@ -3378,7 +3382,7 @@ geodudealola: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 graveler: {
 	"num": 75,
 	"name": "Graveler",
@@ -3415,7 +3419,7 @@ graveler: {
 		"Graveler",
 		"Graveler-Alola"
 	]
-}
+},
 graveleralola: {
 	"num": 75,
 	"name": "Graveler-Alola",
@@ -3447,7 +3451,7 @@ graveleralola: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 golem: {
 	"num": 76,
 	"name": "Golem",
@@ -3481,7 +3485,7 @@ golem: {
 		"Golem",
 		"Golem-Alola"
 	]
-}
+},
 golemalola: {
 	"num": 76,
 	"name": "Golem-Alola",
@@ -3510,7 +3514,7 @@ golemalola: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 ponyta: {
 	"num": 77,
 	"name": "Ponyta",
@@ -3544,7 +3548,7 @@ ponyta: {
 		"Ponyta",
 		"Ponyta-Galar"
 	]
-}
+},
 ponytagalar: {
 	"num": 77,
 	"name": "Ponyta-Galar",
@@ -3573,7 +3577,7 @@ ponytagalar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 rapidash: {
 	"num": 78,
 	"name": "Rapidash",
@@ -3606,7 +3610,7 @@ rapidash: {
 		"Rapidash",
 		"Rapidash-Galar"
 	]
-}
+},
 rapidashgalar: {
 	"num": 78,
 	"name": "Rapidash-Galar",
@@ -3635,7 +3639,7 @@ rapidashgalar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 slowpoke: {
 	"num": 79,
 	"name": "Slowpoke",
@@ -3672,7 +3676,7 @@ slowpoke: {
 		"Slowpoke",
 		"Slowpoke-Galar"
 	]
-}
+},
 slowpokegalar: {
 	"num": 79,
 	"name": "Slowpoke-Galar",
@@ -3703,7 +3707,7 @@ slowpokegalar: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 slowbro: {
 	"num": 80,
 	"name": "Slowbro",
@@ -3740,7 +3744,7 @@ slowbro: {
 		"Slowbro-Mega",
 		"Slowbro-Galar"
 	]
-}
+},
 slowbromega: {
 	"num": 80,
 	"name": "Slowbro-Mega",
@@ -3767,7 +3771,7 @@ slowbromega: {
 		"Water 1"
 	],
 	"requiredItem": "Slowbronite"
-}
+},
 slowbrogalar: {
 	"num": 80,
 	"name": "Slowbro-Galar",
@@ -3798,7 +3802,7 @@ slowbrogalar: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 magnemite: {
 	"num": 81,
 	"name": "Magnemite",
@@ -3827,7 +3831,7 @@ magnemite: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 magneton: {
 	"num": 82,
 	"name": "Magneton",
@@ -3858,7 +3862,7 @@ magneton: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 farfetchd: {
 	"num": 83,
 	"name": "Farfetch’d",
@@ -3891,7 +3895,7 @@ farfetchd: {
 		"Farfetch’d",
 		"Farfetch’d-Galar"
 	]
-}
+},
 farfetchdgalar: {
 	"num": 83,
 	"name": "Farfetch’d-Galar",
@@ -3920,7 +3924,7 @@ farfetchdgalar: {
 		"Flying",
 		"Field"
 	]
-}
+},
 doduo: {
 	"num": 84,
 	"name": "Doduo",
@@ -3948,7 +3952,7 @@ doduo: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 dodrio: {
 	"num": 85,
 	"name": "Dodrio",
@@ -3975,7 +3979,7 @@ dodrio: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 seel: {
 	"num": 86,
 	"name": "Seel",
@@ -4003,7 +4007,7 @@ seel: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 dewgong: {
 	"num": 87,
 	"name": "Dewgong",
@@ -4031,7 +4035,7 @@ dewgong: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 grimer: {
 	"num": 88,
 	"name": "Grimer",
@@ -4065,7 +4069,7 @@ grimer: {
 		"Grimer",
 		"Grimer-Alola"
 	]
-}
+},
 grimeralola: {
 	"num": 88,
 	"name": "Grimer-Alola",
@@ -4095,7 +4099,7 @@ grimeralola: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 muk: {
 	"num": 89,
 	"name": "Muk",
@@ -4128,7 +4132,7 @@ muk: {
 		"Muk",
 		"Muk-Alola"
 	]
-}
+},
 mukalola: {
 	"num": 89,
 	"name": "Muk-Alola",
@@ -4157,7 +4161,7 @@ mukalola: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 shellder: {
 	"num": 90,
 	"name": "Shellder",
@@ -4184,7 +4188,7 @@ shellder: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 cloyster: {
 	"num": 91,
 	"name": "Cloyster",
@@ -4212,7 +4216,7 @@ cloyster: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 gastly: {
 	"num": 92,
 	"name": "Gastly",
@@ -4238,7 +4242,7 @@ gastly: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 haunter: {
 	"num": 93,
 	"name": "Haunter",
@@ -4266,7 +4270,7 @@ haunter: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 gengar: {
 	"num": 94,
 	"name": "Gengar",
@@ -4299,7 +4303,7 @@ gengar: {
 		"Gengar-Mega"
 	],
 	"canGigantamax": "G-Max Terror"
-}
+},
 gengarmega: {
 	"num": 94,
 	"name": "Gengar-Mega",
@@ -4325,7 +4329,7 @@ gengarmega: {
 		"Amorphous"
 	],
 	"requiredItem": "Gengarite"
-}
+},
 onix: {
 	"num": 95,
 	"name": "Onix",
@@ -4353,7 +4357,7 @@ onix: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 drowzee: {
 	"num": 96,
 	"name": "Drowzee",
@@ -4380,7 +4384,7 @@ drowzee: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 hypno: {
 	"num": 97,
 	"name": "Hypno",
@@ -4406,7 +4410,7 @@ hypno: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 krabby: {
 	"num": 98,
 	"name": "Krabby",
@@ -4433,7 +4437,7 @@ krabby: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 kingler: {
 	"num": 99,
 	"name": "Kingler",
@@ -4460,7 +4464,7 @@ kingler: {
 		"Water 3"
 	],
 	"canGigantamax": "G-Max Foam Burst"
-}
+},
 voltorb: {
 	"num": 100,
 	"name": "Voltorb",
@@ -4495,7 +4499,7 @@ voltorb: {
 		"Voltorb",
 		"Voltorb-Hisui"
 	]
-}
+},
 voltorbhisui: {
 	"num": 100,
 	"name": "Voltorb-Hisui",
@@ -4526,7 +4530,7 @@ voltorbhisui: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 electrode: {
 	"num": 101,
 	"name": "Electrode",
@@ -4560,7 +4564,7 @@ electrode: {
 		"Electrode",
 		"Electrode-Hisui"
 	]
-}
+},
 electrodehisui: {
 	"num": 101,
 	"name": "Electrode-Hisui",
@@ -4591,7 +4595,7 @@ electrodehisui: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 exeggcute: {
 	"num": 102,
 	"name": "Exeggcute",
@@ -4619,7 +4623,7 @@ exeggcute: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 exeggutor: {
 	"num": 103,
 	"name": "Exeggutor",
@@ -4653,7 +4657,7 @@ exeggutor: {
 		"Exeggutor",
 		"Exeggutor-Alola"
 	]
-}
+},
 exeggutoralola: {
 	"num": 103,
 	"name": "Exeggutor-Alola",
@@ -4682,7 +4686,7 @@ exeggutoralola: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 cubone: {
 	"num": 104,
 	"name": "Cubone",
@@ -4710,7 +4714,7 @@ cubone: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 marowak: {
 	"num": 105,
 	"name": "Marowak",
@@ -4745,7 +4749,7 @@ marowak: {
 		"Marowak-Alola",
 		"Marowak-Alola-Totem"
 	]
-}
+},
 marowakalola: {
 	"num": 105,
 	"name": "Marowak-Alola",
@@ -4775,7 +4779,7 @@ marowakalola: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 hitmonlee: {
 	"num": 106,
 	"name": "Hitmonlee",
@@ -4803,7 +4807,7 @@ hitmonlee: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 hitmonchan: {
 	"num": 107,
 	"name": "Hitmonchan",
@@ -4831,7 +4835,7 @@ hitmonchan: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 lickitung: {
 	"num": 108,
 	"name": "Lickitung",
@@ -4858,7 +4862,7 @@ lickitung: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 koffing: {
 	"num": 109,
 	"name": "Koffing",
@@ -4886,7 +4890,7 @@ koffing: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 weezing: {
 	"num": 110,
 	"name": "Weezing",
@@ -4919,7 +4923,7 @@ weezing: {
 		"Weezing",
 		"Weezing-Galar"
 	]
-}
+},
 weezinggalar: {
 	"num": 110,
 	"name": "Weezing-Galar",
@@ -4948,7 +4952,7 @@ weezinggalar: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 rhyhorn: {
 	"num": 111,
 	"name": "Rhyhorn",
@@ -4977,7 +4981,7 @@ rhyhorn: {
 		"Monster",
 		"Field"
 	]
-}
+},
 rhydon: {
 	"num": 112,
 	"name": "Rhydon",
@@ -5008,7 +5012,7 @@ rhydon: {
 		"Monster",
 		"Field"
 	]
-}
+},
 chansey: {
 	"num": 113,
 	"name": "Chansey",
@@ -5041,7 +5045,7 @@ chansey: {
 		"Fairy"
 	],
 	"canHatch": true
-}
+},
 tangela: {
 	"num": 114,
 	"name": "Tangela",
@@ -5068,7 +5072,7 @@ tangela: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 kangaskhan: {
 	"num": 115,
 	"name": "Kangaskhan",
@@ -5100,7 +5104,7 @@ kangaskhan: {
 		"Kangaskhan",
 		"Kangaskhan-Mega"
 	]
-}
+},
 kangaskhanmega: {
 	"num": 115,
 	"name": "Kangaskhan-Mega",
@@ -5126,7 +5130,7 @@ kangaskhanmega: {
 		"Monster"
 	],
 	"requiredItem": "Kangaskhanite"
-}
+},
 horsea: {
 	"num": 116,
 	"name": "Horsea",
@@ -5154,7 +5158,7 @@ horsea: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 seadra: {
 	"num": 117,
 	"name": "Seadra",
@@ -5184,7 +5188,7 @@ seadra: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 goldeen: {
 	"num": 118,
 	"name": "Goldeen",
@@ -5211,7 +5215,7 @@ goldeen: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 seaking: {
 	"num": 119,
 	"name": "Seaking",
@@ -5237,7 +5241,7 @@ seaking: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 staryu: {
 	"num": 120,
 	"name": "Staryu",
@@ -5265,7 +5269,7 @@ staryu: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 starmie: {
 	"num": 121,
 	"name": "Starmie",
@@ -5294,7 +5298,7 @@ starmie: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 mrmime: {
 	"num": 122,
 	"name": "Mr. Mime",
@@ -5330,7 +5334,7 @@ mrmime: {
 		"Mr. Mime",
 		"Mr. Mime-Galar"
 	]
-}
+},
 mrmimegalar: {
 	"num": 122,
 	"name": "Mr. Mime-Galar",
@@ -5364,7 +5368,7 @@ mrmimegalar: {
 		"Human-Like"
 	],
 	"canHatch": true
-}
+},
 scyther: {
 	"num": 123,
 	"name": "Scyther",
@@ -5393,7 +5397,7 @@ scyther: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 jynx: {
 	"num": 124,
 	"name": "Jynx",
@@ -5421,7 +5425,7 @@ jynx: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 electabuzz: {
 	"num": 125,
 	"name": "Electabuzz",
@@ -5453,7 +5457,7 @@ electabuzz: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 magmar: {
 	"num": 126,
 	"name": "Magmar",
@@ -5485,7 +5489,7 @@ magmar: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 pinsir: {
 	"num": 127,
 	"name": "Pinsir",
@@ -5516,7 +5520,7 @@ pinsir: {
 		"Pinsir",
 		"Pinsir-Mega"
 	]
-}
+},
 pinsirmega: {
 	"num": 127,
 	"name": "Pinsir-Mega",
@@ -5542,7 +5546,7 @@ pinsirmega: {
 		"Bug"
 	],
 	"requiredItem": "Pinsirite"
-}
+},
 tauros: {
 	"num": 128,
 	"name": "Tauros",
@@ -5567,7 +5571,7 @@ tauros: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 magikarp: {
 	"num": 129,
 	"name": "Magikarp",
@@ -5594,7 +5598,7 @@ magikarp: {
 		"Water 2",
 		"Dragon"
 	]
-}
+},
 gyarados: {
 	"num": 130,
 	"name": "Gyarados",
@@ -5628,7 +5632,7 @@ gyarados: {
 		"Gyarados",
 		"Gyarados-Mega"
 	]
-}
+},
 gyaradosmega: {
 	"num": 130,
 	"name": "Gyarados-Mega",
@@ -5655,7 +5659,7 @@ gyaradosmega: {
 		"Dragon"
 	],
 	"requiredItem": "Gyaradosite"
-}
+},
 lapras: {
 	"num": 131,
 	"name": "Lapras",
@@ -5682,7 +5686,7 @@ lapras: {
 		"Water 1"
 	],
 	"canGigantamax": "G-Max Resonance"
-}
+},
 ditto: {
 	"num": 132,
 	"name": "Ditto",
@@ -5706,7 +5710,7 @@ ditto: {
 	"eggGroups": [
 		"Ditto"
 	]
-}
+},
 eevee: {
 	"num": 133,
 	"name": "Eevee",
@@ -5752,7 +5756,7 @@ eevee: {
 		"Eevee-Starter"
 	],
 	"canGigantamax": "G-Max Cuddle"
-}
+},
 eeveestarter: {
 	"num": 133,
 	"name": "Eevee-Starter",
@@ -5782,7 +5786,7 @@ eeveestarter: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 vaporeon: {
 	"num": 134,
 	"name": "Vaporeon",
@@ -5812,7 +5816,7 @@ vaporeon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 jolteon: {
 	"num": 135,
 	"name": "Jolteon",
@@ -5842,7 +5846,7 @@ jolteon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 flareon: {
 	"num": 136,
 	"name": "Flareon",
@@ -5872,7 +5876,7 @@ flareon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 porygon: {
 	"num": 137,
 	"name": "Porygon",
@@ -5900,7 +5904,7 @@ porygon: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 omanyte: {
 	"num": 138,
 	"name": "Omanyte",
@@ -5933,7 +5937,7 @@ omanyte: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 omastar: {
 	"num": 139,
 	"name": "Omastar",
@@ -5965,7 +5969,7 @@ omastar: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 kabuto: {
 	"num": 140,
 	"name": "Kabuto",
@@ -5998,7 +6002,7 @@ kabuto: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 kabutops: {
 	"num": 141,
 	"name": "Kabutops",
@@ -6030,7 +6034,7 @@ kabutops: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 aerodactyl: {
 	"num": 142,
 	"name": "Aerodactyl",
@@ -6066,7 +6070,7 @@ aerodactyl: {
 		"Aerodactyl",
 		"Aerodactyl-Mega"
 	]
-}
+},
 aerodactylmega: {
 	"num": 142,
 	"name": "Aerodactyl-Mega",
@@ -6096,7 +6100,7 @@ aerodactylmega: {
 		"Flying"
 	],
 	"requiredItem": "Aerodactylite"
-}
+},
 snorlax: {
 	"num": 143,
 	"name": "Snorlax",
@@ -6128,7 +6132,7 @@ snorlax: {
 	],
 	"canHatch": true,
 	"canGigantamax": "G-Max Replenish"
-}
+},
 articuno: {
 	"num": 144,
 	"name": "Articuno",
@@ -6163,7 +6167,7 @@ articuno: {
 		"Articuno",
 		"Articuno-Galar"
 	]
-}
+},
 articunogalar: {
 	"num": 144,
 	"name": "Articuno-Galar",
@@ -6189,7 +6193,7 @@ articunogalar: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 zapdos: {
 	"num": 145,
 	"name": "Zapdos",
@@ -6224,7 +6228,7 @@ zapdos: {
 		"Zapdos",
 		"Zapdos-Galar"
 	]
-}
+},
 zapdosgalar: {
 	"num": 145,
 	"name": "Zapdos-Galar",
@@ -6250,7 +6254,7 @@ zapdosgalar: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 moltres: {
 	"num": 146,
 	"name": "Moltres",
@@ -6285,7 +6289,7 @@ moltres: {
 		"Moltres",
 		"Moltres-Galar"
 	]
-}
+},
 moltresgalar: {
 	"num": 146,
 	"name": "Moltres-Galar",
@@ -6311,7 +6315,7 @@ moltresgalar: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 dratini: {
 	"num": 147,
 	"name": "Dratini",
@@ -6338,7 +6342,7 @@ dratini: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 dragonair: {
 	"num": 148,
 	"name": "Dragonair",
@@ -6367,7 +6371,7 @@ dragonair: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 dragonite: {
 	"num": 149,
 	"name": "Dragonite",
@@ -6394,7 +6398,7 @@ dragonite: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 mewtwo: {
 	"num": 150,
 	"name": "Mewtwo",
@@ -6430,7 +6434,7 @@ mewtwo: {
 		"Mewtwo-Mega-X",
 		"Mewtwo-Mega-Y"
 	]
-}
+},
 mewtwomegax: {
 	"num": 150,
 	"name": "Mewtwo-Mega-X",
@@ -6457,7 +6461,7 @@ mewtwomegax: {
 		"Undiscovered"
 	],
 	"requiredItem": "Mewtwonite X"
-}
+},
 mewtwomegay: {
 	"num": 150,
 	"name": "Mewtwo-Mega-Y",
@@ -6483,7 +6487,7 @@ mewtwomegay: {
 		"Undiscovered"
 	],
 	"requiredItem": "Mewtwonite Y"
-}
+},
 mew: {
 	"num": 151,
 	"name": "Mew",
@@ -6509,7 +6513,7 @@ mew: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 chikorita: {
 	"num": 152,
 	"name": "Chikorita",
@@ -6540,7 +6544,7 @@ chikorita: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 bayleef: {
 	"num": 153,
 	"name": "Bayleef",
@@ -6573,7 +6577,7 @@ bayleef: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 meganium: {
 	"num": 154,
 	"name": "Meganium",
@@ -6603,7 +6607,7 @@ meganium: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 cyndaquil: {
 	"num": 155,
 	"name": "Cyndaquil",
@@ -6633,7 +6637,7 @@ cyndaquil: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 quilava: {
 	"num": 156,
 	"name": "Quilava",
@@ -6666,7 +6670,7 @@ quilava: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 typhlosion: {
 	"num": 157,
 	"name": "Typhlosion",
@@ -6702,7 +6706,7 @@ typhlosion: {
 		"Typhlosion",
 		"Typhlosion-Hisui"
 	]
-}
+},
 typhlosionhisui: {
 	"num": 157,
 	"name": "Typhlosion-Hisui",
@@ -6734,7 +6738,7 @@ typhlosionhisui: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 totodile: {
 	"num": 158,
 	"name": "Totodile",
@@ -6765,7 +6769,7 @@ totodile: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 croconaw: {
 	"num": 159,
 	"name": "Croconaw",
@@ -6798,7 +6802,7 @@ croconaw: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 feraligatr: {
 	"num": 160,
 	"name": "Feraligatr",
@@ -6828,7 +6832,7 @@ feraligatr: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 sentret: {
 	"num": 161,
 	"name": "Sentret",
@@ -6855,7 +6859,7 @@ sentret: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 furret: {
 	"num": 162,
 	"name": "Furret",
@@ -6881,7 +6885,7 @@ furret: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 hoothoot: {
 	"num": 163,
 	"name": "Hoothoot",
@@ -6909,7 +6913,7 @@ hoothoot: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 noctowl: {
 	"num": 164,
 	"name": "Noctowl",
@@ -6936,7 +6940,7 @@ noctowl: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 ledyba: {
 	"num": 165,
 	"name": "Ledyba",
@@ -6964,7 +6968,7 @@ ledyba: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 ledian: {
 	"num": 166,
 	"name": "Ledian",
@@ -6991,7 +6995,7 @@ ledian: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 spinarak: {
 	"num": 167,
 	"name": "Spinarak",
@@ -7019,7 +7023,7 @@ spinarak: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 ariados: {
 	"num": 168,
 	"name": "Ariados",
@@ -7046,7 +7050,7 @@ ariados: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 crobat: {
 	"num": 169,
 	"name": "Crobat",
@@ -7072,7 +7076,7 @@ crobat: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 chinchou: {
 	"num": 170,
 	"name": "Chinchou",
@@ -7100,7 +7104,7 @@ chinchou: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 lanturn: {
 	"num": 171,
 	"name": "Lanturn",
@@ -7127,7 +7131,7 @@ lanturn: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 pichu: {
 	"num": 172,
 	"name": "Pichu",
@@ -7161,7 +7165,7 @@ pichu: {
 		"Pichu",
 		"Pichu-Spiky-eared"
 	]
-}
+},
 pichuspikyeared: {
 	"num": 172,
 	"name": "Pichu-Spiky-eared",
@@ -7186,7 +7190,7 @@ pichuspikyeared: {
 		"Undiscovered"
 	],
 	"gen": 4
-}
+},
 cleffa: {
 	"num": 173,
 	"name": "Cleffa",
@@ -7218,12 +7222,13 @@ cleffa: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 igglybuff: {
 	"num": 174,
 	"name": "Igglybuff",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -7250,7 +7255,7 @@ igglybuff: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 togepi: {
 	"num": 175,
 	"name": "Togepi",
@@ -7282,7 +7287,7 @@ togepi: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 togetic: {
 	"num": 176,
 	"name": "Togetic",
@@ -7317,7 +7322,7 @@ togetic: {
 		"Flying",
 		"Fairy"
 	]
-}
+},
 natu: {
 	"num": 177,
 	"name": "Natu",
@@ -7345,7 +7350,7 @@ natu: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 xatu: {
 	"num": 178,
 	"name": "Xatu",
@@ -7372,7 +7377,7 @@ xatu: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 mareep: {
 	"num": 179,
 	"name": "Mareep",
@@ -7399,7 +7404,7 @@ mareep: {
 		"Monster",
 		"Field"
 	]
-}
+},
 flaaffy: {
 	"num": 180,
 	"name": "Flaaffy",
@@ -7428,7 +7433,7 @@ flaaffy: {
 		"Monster",
 		"Field"
 	]
-}
+},
 ampharos: {
 	"num": 181,
 	"name": "Ampharos",
@@ -7461,7 +7466,7 @@ ampharos: {
 		"Ampharos",
 		"Ampharos-Mega"
 	]
-}
+},
 ampharosmega: {
 	"num": 181,
 	"name": "Ampharos-Mega",
@@ -7488,7 +7493,7 @@ ampharosmega: {
 		"Field"
 	],
 	"requiredItem": "Ampharosite"
-}
+},
 bellossom: {
 	"num": 182,
 	"name": "Bellossom",
@@ -7514,7 +7519,7 @@ bellossom: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 marill: {
 	"num": 183,
 	"name": "Marill",
@@ -7546,7 +7551,7 @@ marill: {
 		"Fairy"
 	],
 	"canHatch": true
-}
+},
 azumarill: {
 	"num": 184,
 	"name": "Azumarill",
@@ -7574,7 +7579,7 @@ azumarill: {
 		"Water 1",
 		"Fairy"
 	]
-}
+},
 sudowoodo: {
 	"num": 185,
 	"name": "Sudowoodo",
@@ -7602,7 +7607,7 @@ sudowoodo: {
 		"Mineral"
 	],
 	"canHatch": true
-}
+},
 politoed: {
 	"num": 186,
 	"name": "Politoed",
@@ -7629,7 +7634,7 @@ politoed: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 hoppip: {
 	"num": 187,
 	"name": "Hoppip",
@@ -7658,7 +7663,7 @@ hoppip: {
 		"Fairy",
 		"Grass"
 	]
-}
+},
 skiploom: {
 	"num": 188,
 	"name": "Skiploom",
@@ -7689,7 +7694,7 @@ skiploom: {
 		"Fairy",
 		"Grass"
 	]
-}
+},
 jumpluff: {
 	"num": 189,
 	"name": "Jumpluff",
@@ -7717,7 +7722,7 @@ jumpluff: {
 		"Fairy",
 		"Grass"
 	]
-}
+},
 aipom: {
 	"num": 190,
 	"name": "Aipom",
@@ -7744,7 +7749,7 @@ aipom: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 sunkern: {
 	"num": 191,
 	"name": "Sunkern",
@@ -7771,7 +7776,7 @@ sunkern: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 sunflora: {
 	"num": 192,
 	"name": "Sunflora",
@@ -7798,7 +7803,7 @@ sunflora: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 yanma: {
 	"num": 193,
 	"name": "Yanma",
@@ -7826,7 +7831,7 @@ yanma: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 wooper: {
 	"num": 194,
 	"name": "Wooper",
@@ -7855,7 +7860,7 @@ wooper: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 quagsire: {
 	"num": 195,
 	"name": "Quagsire",
@@ -7883,7 +7888,7 @@ quagsire: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 espeon: {
 	"num": 196,
 	"name": "Espeon",
@@ -7913,7 +7918,7 @@ espeon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 umbreon: {
 	"num": 197,
 	"name": "Umbreon",
@@ -7943,7 +7948,7 @@ umbreon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 murkrow: {
 	"num": 198,
 	"name": "Murkrow",
@@ -7971,7 +7976,7 @@ murkrow: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 slowking: {
 	"num": 199,
 	"name": "Slowking",
@@ -8007,7 +8012,7 @@ slowking: {
 		"Slowking",
 		"Slowking-Galar"
 	]
-}
+},
 slowkinggalar: {
 	"num": 199,
 	"name": "Slowking-Galar",
@@ -8038,7 +8043,7 @@ slowkinggalar: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 misdreavus: {
 	"num": 200,
 	"name": "Misdreavus",
@@ -8063,7 +8068,7 @@ misdreavus: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 unown: {
 	"num": 201,
 	"name": "Unown",
@@ -8146,7 +8151,7 @@ unown: {
 		"Unown-Exclamation",
 		"Unown-Question"
 	]
-}
+},
 wobbuffet: {
 	"num": 202,
 	"name": "Wobbuffet",
@@ -8172,7 +8177,7 @@ wobbuffet: {
 		"Amorphous"
 	],
 	"canHatch": true
-}
+},
 girafarig: {
 	"num": 203,
 	"name": "Girafarig",
@@ -8197,7 +8202,7 @@ girafarig: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 pineco: {
 	"num": 204,
 	"name": "Pineco",
@@ -8223,7 +8228,7 @@ pineco: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 forretress: {
 	"num": 205,
 	"name": "Forretress",
@@ -8249,7 +8254,7 @@ forretress: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 dunsparce: {
 	"num": 206,
 	"name": "Dunsparce",
@@ -8273,7 +8278,7 @@ dunsparce: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 gligar: {
 	"num": 207,
 	"name": "Gligar",
@@ -8301,7 +8306,7 @@ gligar: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 steelix: {
 	"num": 208,
 	"name": "Steelix",
@@ -8336,7 +8341,7 @@ steelix: {
 		"Steelix",
 		"Steelix-Mega"
 	]
-}
+},
 steelixmega: {
 	"num": 208,
 	"name": "Steelix-Mega",
@@ -8362,7 +8367,7 @@ steelixmega: {
 		"Mineral"
 	],
 	"requiredItem": "Steelixite"
-}
+},
 snubbull: {
 	"num": 209,
 	"name": "Snubbull",
@@ -8394,7 +8399,7 @@ snubbull: {
 		"Field",
 		"Fairy"
 	]
-}
+},
 granbull: {
 	"num": 210,
 	"name": "Granbull",
@@ -8425,7 +8430,7 @@ granbull: {
 		"Field",
 		"Fairy"
 	]
-}
+},
 qwilfish: {
 	"num": 211,
 	"name": "Qwilfish",
@@ -8457,7 +8462,7 @@ qwilfish: {
 		"Qwilfish",
 		"Qwilfish-Hisui"
 	]
-}
+},
 qwilfishhisui: {
 	"num": 211,
 	"name": "Qwilfish-Hisui",
@@ -8487,7 +8492,7 @@ qwilfishhisui: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 scizor: {
 	"num": 212,
 	"name": "Scizor",
@@ -8522,7 +8527,7 @@ scizor: {
 		"Scizor",
 		"Scizor-Mega"
 	]
-}
+},
 scizormega: {
 	"num": 212,
 	"name": "Scizor-Mega",
@@ -8548,7 +8553,7 @@ scizormega: {
 		"Bug"
 	],
 	"requiredItem": "Scizorite"
-}
+},
 shuckle: {
 	"num": 213,
 	"name": "Shuckle",
@@ -8573,7 +8578,7 @@ shuckle: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 heracross: {
 	"num": 214,
 	"name": "Heracross",
@@ -8605,7 +8610,7 @@ heracross: {
 		"Heracross",
 		"Heracross-Mega"
 	]
-}
+},
 heracrossmega: {
 	"num": 214,
 	"name": "Heracross-Mega",
@@ -8631,7 +8636,7 @@ heracrossmega: {
 		"Bug"
 	],
 	"requiredItem": "Heracronite"
-}
+},
 sneasel: {
 	"num": 215,
 	"name": "Sneasel",
@@ -8666,7 +8671,7 @@ sneasel: {
 		"Sneasel",
 		"Sneasel-Hisui"
 	]
-}
+},
 sneaselhisui: {
 	"num": 215,
 	"name": "Sneasel-Hisui",
@@ -8696,7 +8701,7 @@ sneaselhisui: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 teddiursa: {
 	"num": 216,
 	"name": "Teddiursa",
@@ -8723,7 +8728,7 @@ teddiursa: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 ursaring: {
 	"num": 217,
 	"name": "Ursaring",
@@ -8752,7 +8757,7 @@ ursaring: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 slugma: {
 	"num": 218,
 	"name": "Slugma",
@@ -8779,7 +8784,7 @@ slugma: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 magcargo: {
 	"num": 219,
 	"name": "Magcargo",
@@ -8806,7 +8811,7 @@ magcargo: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 swinub: {
 	"num": 220,
 	"name": "Swinub",
@@ -8834,7 +8839,7 @@ swinub: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 piloswine: {
 	"num": 221,
 	"name": "Piloswine",
@@ -8864,7 +8869,7 @@ piloswine: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 corsola: {
 	"num": 222,
 	"name": "Corsola",
@@ -8901,7 +8906,7 @@ corsola: {
 		"Corsola",
 		"Corsola-Galar"
 	]
-}
+},
 corsolagalar: {
 	"num": 222,
 	"name": "Corsola-Galar",
@@ -8934,7 +8939,7 @@ corsolagalar: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 remoraid: {
 	"num": 223,
 	"name": "Remoraid",
@@ -8962,7 +8967,7 @@ remoraid: {
 		"Water 1",
 		"Water 2"
 	]
-}
+},
 octillery: {
 	"num": 224,
 	"name": "Octillery",
@@ -8989,7 +8994,7 @@ octillery: {
 		"Water 1",
 		"Water 2"
 	]
-}
+},
 delibird: {
 	"num": 225,
 	"name": "Delibird",
@@ -9015,7 +9020,7 @@ delibird: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 mantine: {
 	"num": 226,
 	"name": "Mantine",
@@ -9044,7 +9049,7 @@ mantine: {
 		"Water 1"
 	],
 	"canHatch": true
-}
+},
 skarmory: {
 	"num": 227,
 	"name": "Skarmory",
@@ -9069,7 +9074,7 @@ skarmory: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 houndour: {
 	"num": 228,
 	"name": "Houndour",
@@ -9097,7 +9102,7 @@ houndour: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 houndoom: {
 	"num": 229,
 	"name": "Houndoom",
@@ -9131,7 +9136,7 @@ houndoom: {
 		"Houndoom",
 		"Houndoom-Mega"
 	]
-}
+},
 houndoommega: {
 	"num": 229,
 	"name": "Houndoom-Mega",
@@ -9157,7 +9162,7 @@ houndoommega: {
 		"Field"
 	],
 	"requiredItem": "Houndoominite"
-}
+},
 kingdra: {
 	"num": 230,
 	"name": "Kingdra",
@@ -9186,7 +9191,7 @@ kingdra: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 phanpy: {
 	"num": 231,
 	"name": "Phanpy",
@@ -9212,7 +9217,7 @@ phanpy: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 donphan: {
 	"num": 232,
 	"name": "Donphan",
@@ -9237,7 +9242,7 @@ donphan: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 porygon2: {
 	"num": 233,
 	"name": "Porygon2",
@@ -9268,7 +9273,7 @@ porygon2: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 stantler: {
 	"num": 234,
 	"name": "Stantler",
@@ -9295,7 +9300,7 @@ stantler: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 smeargle: {
 	"num": 235,
 	"name": "Smeargle",
@@ -9319,7 +9324,7 @@ smeargle: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 tyrogue: {
 	"num": 236,
 	"name": "Tyrogue",
@@ -9350,7 +9355,7 @@ tyrogue: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 hitmontop: {
 	"num": 237,
 	"name": "Hitmontop",
@@ -9378,7 +9383,7 @@ hitmontop: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 smoochum: {
 	"num": 238,
 	"name": "Smoochum",
@@ -9408,7 +9413,7 @@ smoochum: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 elekid: {
 	"num": 239,
 	"name": "Elekid",
@@ -9439,7 +9444,7 @@ elekid: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 magby: {
 	"num": 240,
 	"name": "Magby",
@@ -9470,7 +9475,7 @@ magby: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 miltank: {
 	"num": 241,
 	"name": "Miltank",
@@ -9495,7 +9500,7 @@ miltank: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 blissey: {
 	"num": 242,
 	"name": "Blissey",
@@ -9522,7 +9527,7 @@ blissey: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 raikou: {
 	"num": 243,
 	"name": "Raikou",
@@ -9549,7 +9554,7 @@ raikou: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 entei: {
 	"num": 244,
 	"name": "Entei",
@@ -9576,7 +9581,7 @@ entei: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 suicune: {
 	"num": 245,
 	"name": "Suicune",
@@ -9603,7 +9608,7 @@ suicune: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 larvitar: {
 	"num": 246,
 	"name": "Larvitar",
@@ -9630,7 +9635,7 @@ larvitar: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 pupitar: {
 	"num": 247,
 	"name": "Pupitar",
@@ -9658,7 +9663,7 @@ pupitar: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 tyranitar: {
 	"num": 248,
 	"name": "Tyranitar",
@@ -9691,7 +9696,7 @@ tyranitar: {
 		"Tyranitar",
 		"Tyranitar-Mega"
 	]
-}
+},
 tyranitarmega: {
 	"num": 248,
 	"name": "Tyranitar-Mega",
@@ -9717,7 +9722,7 @@ tyranitarmega: {
 		"Monster"
 	],
 	"requiredItem": "Tyranitarite"
-}
+},
 lugia: {
 	"num": 249,
 	"name": "Lugia",
@@ -9745,7 +9750,7 @@ lugia: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 hooh: {
 	"num": 250,
 	"name": "Ho-Oh",
@@ -9773,7 +9778,7 @@ hooh: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 celebi: {
 	"num": 251,
 	"name": "Celebi",
@@ -9800,7 +9805,7 @@ celebi: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 treecko: {
 	"num": 252,
 	"name": "Treecko",
@@ -9831,7 +9836,7 @@ treecko: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 grovyle: {
 	"num": 253,
 	"name": "Grovyle",
@@ -9864,7 +9869,7 @@ grovyle: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 sceptile: {
 	"num": 254,
 	"name": "Sceptile",
@@ -9901,7 +9906,7 @@ sceptile: {
 		"Sceptile",
 		"Sceptile-Mega"
 	]
-}
+},
 sceptilemega: {
 	"num": 254,
 	"name": "Sceptile-Mega",
@@ -9932,7 +9937,7 @@ sceptilemega: {
 		"Dragon"
 	],
 	"requiredItem": "Sceptilite"
-}
+},
 torchic: {
 	"num": 255,
 	"name": "Torchic",
@@ -9962,7 +9967,7 @@ torchic: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 combusken: {
 	"num": 256,
 	"name": "Combusken",
@@ -9995,7 +10000,7 @@ combusken: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 blaziken: {
 	"num": 257,
 	"name": "Blaziken",
@@ -10032,7 +10037,7 @@ blaziken: {
 		"Blaziken",
 		"Blaziken-Mega"
 	]
-}
+},
 blazikenmega: {
 	"num": 257,
 	"name": "Blaziken-Mega",
@@ -10062,7 +10067,7 @@ blazikenmega: {
 		"Field"
 	],
 	"requiredItem": "Blazikenite"
-}
+},
 mudkip: {
 	"num": 258,
 	"name": "Mudkip",
@@ -10093,7 +10098,7 @@ mudkip: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 marshtomp: {
 	"num": 259,
 	"name": "Marshtomp",
@@ -10127,7 +10132,7 @@ marshtomp: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 swampert: {
 	"num": 260,
 	"name": "Swampert",
@@ -10165,7 +10170,7 @@ swampert: {
 		"Swampert",
 		"Swampert-Mega"
 	]
-}
+},
 swampertmega: {
 	"num": 260,
 	"name": "Swampert-Mega",
@@ -10196,7 +10201,7 @@ swampertmega: {
 		"Water 1"
 	],
 	"requiredItem": "Swampertite"
-}
+},
 poochyena: {
 	"num": 261,
 	"name": "Poochyena",
@@ -10223,7 +10228,7 @@ poochyena: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 mightyena: {
 	"num": 262,
 	"name": "Mightyena",
@@ -10249,7 +10254,7 @@ mightyena: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 zigzagoon: {
 	"num": 263,
 	"name": "Zigzagoon",
@@ -10283,14 +10288,15 @@ zigzagoon: {
 		"Zigzagoon",
 		"Zigzagoon-Galar"
 	]
-}
+},
 zigzagoongalar: {
 	"num": 263,
 	"name": "Zigzagoon-Galar",
 	"baseSpecies": "Zigzagoon",
 	"forme": "Galar",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"baseStats": {
 		"hp": 38,
@@ -10312,7 +10318,7 @@ zigzagoongalar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 linoone: {
 	"num": 264,
 	"name": "Linoone",
@@ -10345,14 +10351,15 @@ linoone: {
 		"Linoone",
 		"Linoone-Galar"
 	]
-}
+},
 linoonegalar: {
 	"num": 264,
 	"name": "Linoone-Galar",
 	"baseSpecies": "Linoone",
 	"forme": "Galar",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"baseStats": {
 		"hp": 78,
@@ -10376,7 +10383,7 @@ linoonegalar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 wurmple: {
 	"num": 265,
 	"name": "Wurmple",
@@ -10403,7 +10410,7 @@ wurmple: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 silcoon: {
 	"num": 266,
 	"name": "Silcoon",
@@ -10430,7 +10437,7 @@ silcoon: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 beautifly: {
 	"num": 267,
 	"name": "Beautifly",
@@ -10456,7 +10463,7 @@ beautifly: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 cascoon: {
 	"num": 268,
 	"name": "Cascoon",
@@ -10483,7 +10490,7 @@ cascoon: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 dustox: {
 	"num": 269,
 	"name": "Dustox",
@@ -10509,7 +10516,7 @@ dustox: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 lotad: {
 	"num": 270,
 	"name": "Lotad",
@@ -10538,7 +10545,7 @@ lotad: {
 		"Water 1",
 		"Grass"
 	]
-}
+},
 lombre: {
 	"num": 271,
 	"name": "Lombre",
@@ -10569,7 +10576,7 @@ lombre: {
 		"Water 1",
 		"Grass"
 	]
-}
+},
 ludicolo: {
 	"num": 272,
 	"name": "Ludicolo",
@@ -10598,7 +10605,7 @@ ludicolo: {
 		"Water 1",
 		"Grass"
 	]
-}
+},
 seedot: {
 	"num": 273,
 	"name": "Seedot",
@@ -10626,7 +10633,7 @@ seedot: {
 		"Field",
 		"Grass"
 	]
-}
+},
 nuzleaf: {
 	"num": 274,
 	"name": "Nuzleaf",
@@ -10657,7 +10664,7 @@ nuzleaf: {
 		"Field",
 		"Grass"
 	]
-}
+},
 shiftry: {
 	"num": 275,
 	"name": "Shiftry",
@@ -10686,7 +10693,7 @@ shiftry: {
 		"Field",
 		"Grass"
 	]
-}
+},
 taillow: {
 	"num": 276,
 	"name": "Taillow",
@@ -10713,7 +10720,7 @@ taillow: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 swellow: {
 	"num": 277,
 	"name": "Swellow",
@@ -10739,7 +10746,7 @@ swellow: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 wingull: {
 	"num": 278,
 	"name": "Wingull",
@@ -10768,7 +10775,7 @@ wingull: {
 		"Water 1",
 		"Flying"
 	]
-}
+},
 pelipper: {
 	"num": 279,
 	"name": "Pelipper",
@@ -10796,7 +10803,7 @@ pelipper: {
 		"Water 1",
 		"Flying"
 	]
-}
+},
 ralts: {
 	"num": 280,
 	"name": "Ralts",
@@ -10825,7 +10832,7 @@ ralts: {
 		"Human-Like",
 		"Amorphous"
 	]
-}
+},
 kirlia: {
 	"num": 281,
 	"name": "Kirlia",
@@ -10857,7 +10864,7 @@ kirlia: {
 		"Human-Like",
 		"Amorphous"
 	]
-}
+},
 gardevoir: {
 	"num": 282,
 	"name": "Gardevoir",
@@ -10892,7 +10899,7 @@ gardevoir: {
 		"Gardevoir",
 		"Gardevoir-Mega"
 	]
-}
+},
 gardevoirmega: {
 	"num": 282,
 	"name": "Gardevoir-Mega",
@@ -10918,7 +10925,7 @@ gardevoirmega: {
 		"Amorphous"
 	],
 	"requiredItem": "Gardevoirite"
-}
+},
 surskit: {
 	"num": 283,
 	"name": "Surskit",
@@ -10946,7 +10953,7 @@ surskit: {
 		"Water 1",
 		"Bug"
 	]
-}
+},
 masquerain: {
 	"num": 284,
 	"name": "Masquerain",
@@ -10973,7 +10980,7 @@ masquerain: {
 		"Water 1",
 		"Bug"
 	]
-}
+},
 shroomish: {
 	"num": 285,
 	"name": "Shroomish",
@@ -11001,7 +11008,7 @@ shroomish: {
 		"Fairy",
 		"Grass"
 	]
-}
+},
 breloom: {
 	"num": 286,
 	"name": "Breloom",
@@ -11029,7 +11036,7 @@ breloom: {
 		"Fairy",
 		"Grass"
 	]
-}
+},
 slakoth: {
 	"num": 287,
 	"name": "Slakoth",
@@ -11054,7 +11061,7 @@ slakoth: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 vigoroth: {
 	"num": 288,
 	"name": "Vigoroth",
@@ -11081,7 +11088,7 @@ vigoroth: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 slaking: {
 	"num": 289,
 	"name": "Slaking",
@@ -11105,7 +11112,7 @@ slaking: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 nincada: {
 	"num": 290,
 	"name": "Nincada",
@@ -11133,7 +11140,7 @@ nincada: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 ninjask: {
 	"num": 291,
 	"name": "Ninjask",
@@ -11159,7 +11166,7 @@ ninjask: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 shedinja: {
 	"num": 292,
 	"name": "Shedinja",
@@ -11186,7 +11193,7 @@ shedinja: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 whismur: {
 	"num": 293,
 	"name": "Whismur",
@@ -11213,7 +11220,7 @@ whismur: {
 		"Monster",
 		"Field"
 	]
-}
+},
 loudred: {
 	"num": 294,
 	"name": "Loudred",
@@ -11242,7 +11249,7 @@ loudred: {
 		"Monster",
 		"Field"
 	]
-}
+},
 exploud: {
 	"num": 295,
 	"name": "Exploud",
@@ -11268,7 +11275,7 @@ exploud: {
 		"Monster",
 		"Field"
 	]
-}
+},
 makuhita: {
 	"num": 296,
 	"name": "Makuhita",
@@ -11299,7 +11306,7 @@ makuhita: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 hariyama: {
 	"num": 297,
 	"name": "Hariyama",
@@ -11329,12 +11336,13 @@ hariyama: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 azurill: {
 	"num": 298,
 	"name": "Azurill",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"genderRatio": {
 		"M": 0.25,
@@ -11361,7 +11369,7 @@ azurill: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 nosepass: {
 	"num": 299,
 	"name": "Nosepass",
@@ -11388,7 +11396,7 @@ nosepass: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 skitty: {
 	"num": 300,
 	"name": "Skitty",
@@ -11420,7 +11428,7 @@ skitty: {
 		"Field",
 		"Fairy"
 	]
-}
+},
 delcatty: {
 	"num": 301,
 	"name": "Delcatty",
@@ -11452,7 +11460,7 @@ delcatty: {
 		"Field",
 		"Fairy"
 	]
-}
+},
 sableye: {
 	"num": 302,
 	"name": "Sableye",
@@ -11484,7 +11492,7 @@ sableye: {
 		"Sableye",
 		"Sableye-Mega"
 	]
-}
+},
 sableyemega: {
 	"num": 302,
 	"name": "Sableye-Mega",
@@ -11510,7 +11518,7 @@ sableyemega: {
 		"Human-Like"
 	],
 	"requiredItem": "Sablenite"
-}
+},
 mawile: {
 	"num": 303,
 	"name": "Mawile",
@@ -11543,7 +11551,7 @@ mawile: {
 		"Mawile",
 		"Mawile-Mega"
 	]
-}
+},
 mawilemega: {
 	"num": 303,
 	"name": "Mawile-Mega",
@@ -11570,12 +11578,13 @@ mawilemega: {
 		"Fairy"
 	],
 	"requiredItem": "Mawilite"
-}
+},
 aron: {
 	"num": 304,
 	"name": "Aron",
 	"types": [
-		"Rock"
+		"Rock",
+		null
 	],
 	"baseStats": {
 		"hp": 50,
@@ -11597,12 +11606,13 @@ aron: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 lairon: {
 	"num": 305,
 	"name": "Lairon",
 	"types": [
-		"Rock"
+		"Rock",
+		null
 	],
 	"baseStats": {
 		"hp": 60,
@@ -11626,12 +11636,13 @@ lairon: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 aggron: {
 	"num": 306,
 	"name": "Aggron",
 	"types": [
-		"Rock"
+		"Rock",
+		null
 	],
 	"baseStats": {
 		"hp": 70,
@@ -11659,7 +11670,7 @@ aggron: {
 		"Aggron",
 		"Aggron-Mega"
 	]
-}
+},
 aggronmega: {
 	"num": 306,
 	"name": "Aggron-Mega",
@@ -11684,7 +11695,7 @@ aggronmega: {
 		"Monster"
 	],
 	"requiredItem": "Aggronite"
-}
+},
 meditite: {
 	"num": 307,
 	"name": "Meditite",
@@ -11711,7 +11722,7 @@ meditite: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 medicham: {
 	"num": 308,
 	"name": "Medicham",
@@ -11744,7 +11755,7 @@ medicham: {
 		"Medicham",
 		"Medicham-Mega"
 	]
-}
+},
 medichammega: {
 	"num": 308,
 	"name": "Medicham-Mega",
@@ -11770,7 +11781,7 @@ medichammega: {
 		"Human-Like"
 	],
 	"requiredItem": "Medichamite"
-}
+},
 electrike: {
 	"num": 309,
 	"name": "Electrike",
@@ -11797,7 +11808,7 @@ electrike: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 manectric: {
 	"num": 310,
 	"name": "Manectric",
@@ -11830,7 +11841,7 @@ manectric: {
 		"Manectric",
 		"Manectric-Mega"
 	]
-}
+},
 manectricmega: {
 	"num": 310,
 	"name": "Manectric-Mega",
@@ -11855,7 +11866,7 @@ manectricmega: {
 		"Field"
 	],
 	"requiredItem": "Manectite"
-}
+},
 plusle: {
 	"num": 311,
 	"name": "Plusle",
@@ -11878,7 +11889,7 @@ plusle: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 minun: {
 	"num": 312,
 	"name": "Minun",
@@ -11901,7 +11912,7 @@ minun: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 volbeat: {
 	"num": 313,
 	"name": "Volbeat",
@@ -11927,7 +11938,7 @@ volbeat: {
 		"Bug",
 		"Human-Like"
 	]
-}
+},
 illumise: {
 	"num": 314,
 	"name": "Illumise",
@@ -11953,7 +11964,7 @@ illumise: {
 		"Bug",
 		"Human-Like"
 	]
-}
+},
 roselia: {
 	"num": 315,
 	"name": "Roselia",
@@ -11986,7 +11997,7 @@ roselia: {
 		"Grass"
 	],
 	"canHatch": true
-}
+},
 gulpin: {
 	"num": 316,
 	"name": "Gulpin",
@@ -12013,7 +12024,7 @@ gulpin: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 swalot: {
 	"num": 317,
 	"name": "Swalot",
@@ -12039,7 +12050,7 @@ swalot: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 carvanha: {
 	"num": 318,
 	"name": "Carvanha",
@@ -12066,7 +12077,7 @@ carvanha: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 sharpedo: {
 	"num": 319,
 	"name": "Sharpedo",
@@ -12099,7 +12110,7 @@ sharpedo: {
 		"Sharpedo",
 		"Sharpedo-Mega"
 	]
-}
+},
 sharpedomega: {
 	"num": 319,
 	"name": "Sharpedo-Mega",
@@ -12125,7 +12136,7 @@ sharpedomega: {
 		"Water 2"
 	],
 	"requiredItem": "Sharpedonite"
-}
+},
 wailmer: {
 	"num": 320,
 	"name": "Wailmer",
@@ -12153,7 +12164,7 @@ wailmer: {
 		"Field",
 		"Water 2"
 	]
-}
+},
 wailord: {
 	"num": 321,
 	"name": "Wailord",
@@ -12180,7 +12191,7 @@ wailord: {
 		"Field",
 		"Water 2"
 	]
-}
+},
 numel: {
 	"num": 322,
 	"name": "Numel",
@@ -12208,7 +12219,7 @@ numel: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 camerupt: {
 	"num": 323,
 	"name": "Camerupt",
@@ -12242,7 +12253,7 @@ camerupt: {
 		"Camerupt",
 		"Camerupt-Mega"
 	]
-}
+},
 cameruptmega: {
 	"num": 323,
 	"name": "Camerupt-Mega",
@@ -12268,7 +12279,7 @@ cameruptmega: {
 		"Field"
 	],
 	"requiredItem": "Cameruptite"
-}
+},
 torkoal: {
 	"num": 324,
 	"name": "Torkoal",
@@ -12292,7 +12303,7 @@ torkoal: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 spoink: {
 	"num": 325,
 	"name": "Spoink",
@@ -12319,7 +12330,7 @@ spoink: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 grumpig: {
 	"num": 326,
 	"name": "Grumpig",
@@ -12345,7 +12356,7 @@ grumpig: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 spinda: {
 	"num": 327,
 	"name": "Spinda",
@@ -12370,7 +12381,7 @@ spinda: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 trapinch: {
 	"num": 328,
 	"name": "Trapinch",
@@ -12398,7 +12409,7 @@ trapinch: {
 		"Bug",
 		"Dragon"
 	]
-}
+},
 vibrava: {
 	"num": 329,
 	"name": "Vibrava",
@@ -12427,7 +12438,7 @@ vibrava: {
 		"Bug",
 		"Dragon"
 	]
-}
+},
 flygon: {
 	"num": 330,
 	"name": "Flygon",
@@ -12453,7 +12464,7 @@ flygon: {
 		"Bug",
 		"Dragon"
 	]
-}
+},
 cacnea: {
 	"num": 331,
 	"name": "Cacnea",
@@ -12480,7 +12491,7 @@ cacnea: {
 		"Grass",
 		"Human-Like"
 	]
-}
+},
 cacturne: {
 	"num": 332,
 	"name": "Cacturne",
@@ -12507,7 +12518,7 @@ cacturne: {
 		"Grass",
 		"Human-Like"
 	]
-}
+},
 swablu: {
 	"num": 333,
 	"name": "Swablu",
@@ -12535,7 +12546,7 @@ swablu: {
 		"Flying",
 		"Dragon"
 	]
-}
+},
 altaria: {
 	"num": 334,
 	"name": "Altaria",
@@ -12569,7 +12580,7 @@ altaria: {
 		"Altaria",
 		"Altaria-Mega"
 	]
-}
+},
 altariamega: {
 	"num": 334,
 	"name": "Altaria-Mega",
@@ -12596,7 +12607,7 @@ altariamega: {
 		"Dragon"
 	],
 	"requiredItem": "Altarianite"
-}
+},
 zangoose: {
 	"num": 335,
 	"name": "Zangoose",
@@ -12619,7 +12630,7 @@ zangoose: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 seviper: {
 	"num": 336,
 	"name": "Seviper",
@@ -12643,7 +12654,7 @@ seviper: {
 		"Field",
 		"Dragon"
 	]
-}
+},
 lunatone: {
 	"num": 337,
 	"name": "Lunatone",
@@ -12667,7 +12678,7 @@ lunatone: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 solrock: {
 	"num": 338,
 	"name": "Solrock",
@@ -12691,7 +12702,7 @@ solrock: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 barboach: {
 	"num": 339,
 	"name": "Barboach",
@@ -12719,7 +12730,7 @@ barboach: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 whiscash: {
 	"num": 340,
 	"name": "Whiscash",
@@ -12746,7 +12757,7 @@ whiscash: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 corphish: {
 	"num": 341,
 	"name": "Corphish",
@@ -12774,7 +12785,7 @@ corphish: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 crawdaunt: {
 	"num": 342,
 	"name": "Crawdaunt",
@@ -12802,7 +12813,7 @@ crawdaunt: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 baltoy: {
 	"num": 343,
 	"name": "Baltoy",
@@ -12829,7 +12840,7 @@ baltoy: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 claydol: {
 	"num": 344,
 	"name": "Claydol",
@@ -12855,7 +12866,7 @@ claydol: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 lileep: {
 	"num": 345,
 	"name": "Lileep",
@@ -12886,7 +12897,7 @@ lileep: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 cradily: {
 	"num": 346,
 	"name": "Cradily",
@@ -12916,7 +12927,7 @@ cradily: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 anorith: {
 	"num": 347,
 	"name": "Anorith",
@@ -12947,7 +12958,7 @@ anorith: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 armaldo: {
 	"num": 348,
 	"name": "Armaldo",
@@ -12977,7 +12988,7 @@ armaldo: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 feebas: {
 	"num": 349,
 	"name": "Feebas",
@@ -13005,7 +13016,7 @@ feebas: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 milotic: {
 	"num": 350,
 	"name": "Milotic",
@@ -13033,7 +13044,7 @@ milotic: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 castform: {
 	"num": 351,
 	"name": "Castform",
@@ -13067,7 +13078,7 @@ castform: {
 		"Castform-Rainy",
 		"Castform-Snowy"
 	]
-}
+},
 castformsunny: {
 	"num": 351,
 	"name": "Castform-Sunny",
@@ -13094,7 +13105,7 @@ castformsunny: {
 	],
 	"requiredAbility": "Forecast",
 	"battleOnly": "Castform"
-}
+},
 castformrainy: {
 	"num": 351,
 	"name": "Castform-Rainy",
@@ -13121,7 +13132,7 @@ castformrainy: {
 	],
 	"requiredAbility": "Forecast",
 	"battleOnly": "Castform"
-}
+},
 castformsnowy: {
 	"num": 351,
 	"name": "Castform-Snowy",
@@ -13148,7 +13159,7 @@ castformsnowy: {
 	],
 	"requiredAbility": "Forecast",
 	"battleOnly": "Castform"
-}
+},
 kecleon: {
 	"num": 352,
 	"name": "Kecleon",
@@ -13171,7 +13182,7 @@ kecleon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 shuppet: {
 	"num": 353,
 	"name": "Shuppet",
@@ -13198,7 +13209,7 @@ shuppet: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 banette: {
 	"num": 354,
 	"name": "Banette",
@@ -13231,7 +13242,7 @@ banette: {
 		"Banette",
 		"Banette-Mega"
 	]
-}
+},
 banettemega: {
 	"num": 354,
 	"name": "Banette-Mega",
@@ -13256,7 +13267,7 @@ banettemega: {
 		"Amorphous"
 	],
 	"requiredItem": "Banettite"
-}
+},
 duskull: {
 	"num": 355,
 	"name": "Duskull",
@@ -13282,7 +13293,7 @@ duskull: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 dusclops: {
 	"num": 356,
 	"name": "Dusclops",
@@ -13310,7 +13321,7 @@ dusclops: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 tropius: {
 	"num": 357,
 	"name": "Tropius",
@@ -13336,7 +13347,7 @@ tropius: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 chimecho: {
 	"num": 358,
 	"name": "Chimecho",
@@ -13362,7 +13373,7 @@ chimecho: {
 		"Amorphous"
 	],
 	"canHatch": true
-}
+},
 absol: {
 	"num": 359,
 	"name": "Absol",
@@ -13393,7 +13404,7 @@ absol: {
 		"Absol",
 		"Absol-Mega"
 	]
-}
+},
 absolmega: {
 	"num": 359,
 	"name": "Absol-Mega",
@@ -13418,7 +13429,7 @@ absolmega: {
 		"Field"
 	],
 	"requiredItem": "Absolite"
-}
+},
 wynaut: {
 	"num": 360,
 	"name": "Wynaut",
@@ -13445,7 +13456,7 @@ wynaut: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 snorunt: {
 	"num": 361,
 	"name": "Snorunt",
@@ -13474,7 +13485,7 @@ snorunt: {
 		"Fairy",
 		"Mineral"
 	]
-}
+},
 glalie: {
 	"num": 362,
 	"name": "Glalie",
@@ -13508,7 +13519,7 @@ glalie: {
 		"Glalie",
 		"Glalie-Mega"
 	]
-}
+},
 glaliemega: {
 	"num": 362,
 	"name": "Glalie-Mega",
@@ -13534,7 +13545,7 @@ glaliemega: {
 		"Mineral"
 	],
 	"requiredItem": "Glalitite"
-}
+},
 spheal: {
 	"num": 363,
 	"name": "Spheal",
@@ -13563,7 +13574,7 @@ spheal: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 sealeo: {
 	"num": 364,
 	"name": "Sealeo",
@@ -13594,7 +13605,7 @@ sealeo: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 walrein: {
 	"num": 365,
 	"name": "Walrein",
@@ -13622,7 +13633,7 @@ walrein: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 clamperl: {
 	"num": 366,
 	"name": "Clamperl",
@@ -13649,7 +13660,7 @@ clamperl: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 huntail: {
 	"num": 367,
 	"name": "Huntail",
@@ -13675,7 +13686,7 @@ huntail: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 gorebyss: {
 	"num": 368,
 	"name": "Gorebyss",
@@ -13701,7 +13712,7 @@ gorebyss: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 relicanth: {
 	"num": 369,
 	"name": "Relicanth",
@@ -13731,7 +13742,7 @@ relicanth: {
 		"Water 1",
 		"Water 2"
 	]
-}
+},
 luvdisc: {
 	"num": 370,
 	"name": "Luvdisc",
@@ -13758,7 +13769,7 @@ luvdisc: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 bagon: {
 	"num": 371,
 	"name": "Bagon",
@@ -13784,7 +13795,7 @@ bagon: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 shelgon: {
 	"num": 372,
 	"name": "Shelgon",
@@ -13812,7 +13823,7 @@ shelgon: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 salamence: {
 	"num": 373,
 	"name": "Salamence",
@@ -13845,7 +13856,7 @@ salamence: {
 		"Salamence",
 		"Salamence-Mega"
 	]
-}
+},
 salamencemega: {
 	"num": 373,
 	"name": "Salamence-Mega",
@@ -13871,7 +13882,7 @@ salamencemega: {
 		"Dragon"
 	],
 	"requiredItem": "Salamencite"
-}
+},
 beldum: {
 	"num": 374,
 	"name": "Beldum",
@@ -13899,7 +13910,7 @@ beldum: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 metang: {
 	"num": 375,
 	"name": "Metang",
@@ -13929,7 +13940,7 @@ metang: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 metagross: {
 	"num": 376,
 	"name": "Metagross",
@@ -13963,7 +13974,7 @@ metagross: {
 		"Metagross",
 		"Metagross-Mega"
 	]
-}
+},
 metagrossmega: {
 	"num": 376,
 	"name": "Metagross-Mega",
@@ -13990,7 +14001,7 @@ metagrossmega: {
 		"Mineral"
 	],
 	"requiredItem": "Metagrossite"
-}
+},
 regirock: {
 	"num": 377,
 	"name": "Regirock",
@@ -14017,7 +14028,7 @@ regirock: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 regice: {
 	"num": 378,
 	"name": "Regice",
@@ -14044,7 +14055,7 @@ regice: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 registeel: {
 	"num": 379,
 	"name": "Registeel",
@@ -14071,7 +14082,7 @@ registeel: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 latias: {
 	"num": 380,
 	"name": "Latias",
@@ -14105,7 +14116,7 @@ latias: {
 		"Latias",
 		"Latias-Mega"
 	]
-}
+},
 latiasmega: {
 	"num": 380,
 	"name": "Latias-Mega",
@@ -14132,7 +14143,7 @@ latiasmega: {
 		"Undiscovered"
 	],
 	"requiredItem": "Latiasite"
-}
+},
 latios: {
 	"num": 381,
 	"name": "Latios",
@@ -14166,7 +14177,7 @@ latios: {
 		"Latios",
 		"Latios-Mega"
 	]
-}
+},
 latiosmega: {
 	"num": 381,
 	"name": "Latios-Mega",
@@ -14193,7 +14204,7 @@ latiosmega: {
 		"Undiscovered"
 	],
 	"requiredItem": "Latiosite"
-}
+},
 kyogre: {
 	"num": 382,
 	"name": "Kyogre",
@@ -14226,7 +14237,7 @@ kyogre: {
 		"Kyogre",
 		"Kyogre-Primal"
 	]
-}
+},
 kyogreprimal: {
 	"num": 382,
 	"name": "Kyogre-Primal",
@@ -14252,7 +14263,7 @@ kyogreprimal: {
 		"Undiscovered"
 	],
 	"requiredItem": "Blue Orb"
-}
+},
 groudon: {
 	"num": 383,
 	"name": "Groudon",
@@ -14285,7 +14296,7 @@ groudon: {
 		"Groudon",
 		"Groudon-Primal"
 	]
-}
+},
 groudonprimal: {
 	"num": 383,
 	"name": "Groudon-Primal",
@@ -14312,7 +14323,7 @@ groudonprimal: {
 		"Undiscovered"
 	],
 	"requiredItem": "Red Orb"
-}
+},
 rayquaza: {
 	"num": 384,
 	"name": "Rayquaza",
@@ -14346,7 +14357,7 @@ rayquaza: {
 		"Rayquaza",
 		"Rayquaza-Mega"
 	]
-}
+},
 rayquazamega: {
 	"num": 384,
 	"name": "Rayquaza-Mega",
@@ -14373,7 +14384,7 @@ rayquazamega: {
 		"Undiscovered"
 	],
 	"requiredMove": "Dragon Ascent"
-}
+},
 jirachi: {
 	"num": 385,
 	"name": "Jirachi",
@@ -14400,7 +14411,7 @@ jirachi: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 deoxys: {
 	"num": 386,
 	"name": "Deoxys",
@@ -14438,7 +14449,7 @@ deoxys: {
 		"Deoxys-Defense",
 		"Deoxys-Speed"
 	]
-}
+},
 deoxysattack: {
 	"num": 386,
 	"name": "Deoxys-Attack",
@@ -14464,7 +14475,7 @@ deoxysattack: {
 		"Undiscovered"
 	],
 	"changesFrom": "Deoxys"
-}
+},
 deoxysdefense: {
 	"num": 386,
 	"name": "Deoxys-Defense",
@@ -14490,7 +14501,7 @@ deoxysdefense: {
 		"Undiscovered"
 	],
 	"changesFrom": "Deoxys"
-}
+},
 deoxysspeed: {
 	"num": 386,
 	"name": "Deoxys-Speed",
@@ -14516,7 +14527,7 @@ deoxysspeed: {
 		"Undiscovered"
 	],
 	"changesFrom": "Deoxys"
-}
+},
 turtwig: {
 	"num": 387,
 	"name": "Turtwig",
@@ -14547,7 +14558,7 @@ turtwig: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 grotle: {
 	"num": 388,
 	"name": "Grotle",
@@ -14580,7 +14591,7 @@ grotle: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 torterra: {
 	"num": 389,
 	"name": "Torterra",
@@ -14611,7 +14622,7 @@ torterra: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 chimchar: {
 	"num": 390,
 	"name": "Chimchar",
@@ -14642,7 +14653,7 @@ chimchar: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 monferno: {
 	"num": 391,
 	"name": "Monferno",
@@ -14676,7 +14687,7 @@ monferno: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 infernape: {
 	"num": 392,
 	"name": "Infernape",
@@ -14707,7 +14718,7 @@ infernape: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 piplup: {
 	"num": 393,
 	"name": "Piplup",
@@ -14738,7 +14749,7 @@ piplup: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 prinplup: {
 	"num": 394,
 	"name": "Prinplup",
@@ -14771,7 +14782,7 @@ prinplup: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 empoleon: {
 	"num": 395,
 	"name": "Empoleon",
@@ -14802,7 +14813,7 @@ empoleon: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 starly: {
 	"num": 396,
 	"name": "Starly",
@@ -14829,7 +14840,7 @@ starly: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 staravia: {
 	"num": 397,
 	"name": "Staravia",
@@ -14858,7 +14869,7 @@ staravia: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 staraptor: {
 	"num": 398,
 	"name": "Staraptor",
@@ -14884,7 +14895,7 @@ staraptor: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 bidoof: {
 	"num": 399,
 	"name": "Bidoof",
@@ -14912,7 +14923,7 @@ bidoof: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 bibarel: {
 	"num": 400,
 	"name": "Bibarel",
@@ -14940,7 +14951,7 @@ bibarel: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 kricketot: {
 	"num": 401,
 	"name": "Kricketot",
@@ -14966,7 +14977,7 @@ kricketot: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 kricketune: {
 	"num": 402,
 	"name": "Kricketune",
@@ -14991,7 +15002,7 @@ kricketune: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 shinx: {
 	"num": 403,
 	"name": "Shinx",
@@ -15018,7 +15029,7 @@ shinx: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 luxio: {
 	"num": 404,
 	"name": "Luxio",
@@ -15047,7 +15058,7 @@ luxio: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 luxray: {
 	"num": 405,
 	"name": "Luxray",
@@ -15073,7 +15084,7 @@ luxray: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 budew: {
 	"num": 406,
 	"name": "Budew",
@@ -15102,7 +15113,7 @@ budew: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 roserade: {
 	"num": 407,
 	"name": "Roserade",
@@ -15131,7 +15142,7 @@ roserade: {
 		"Fairy",
 		"Grass"
 	]
-}
+},
 cranidos: {
 	"num": 408,
 	"name": "Cranidos",
@@ -15161,7 +15172,7 @@ cranidos: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 rampardos: {
 	"num": 409,
 	"name": "Rampardos",
@@ -15190,12 +15201,13 @@ rampardos: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 shieldon: {
 	"num": 410,
 	"name": "Shieldon",
 	"types": [
-		"Rock"
+		"Rock",
+		null
 	],
 	"genderRatio": {
 		"M": 0.875,
@@ -15220,12 +15232,13 @@ shieldon: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 bastiodon: {
 	"num": 411,
 	"name": "Bastiodon",
 	"types": [
-		"Rock"
+		"Rock",
+		null
 	],
 	"genderRatio": {
 		"M": 0.875,
@@ -15249,7 +15262,7 @@ bastiodon: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 burmy: {
 	"num": 412,
 	"name": "Burmy",
@@ -15288,7 +15301,7 @@ burmy: {
 		"Burmy-Sandy",
 		"Burmy-Trash"
 	]
-}
+},
 wormadam: {
 	"num": 413,
 	"name": "Wormadam",
@@ -15325,7 +15338,7 @@ wormadam: {
 		"Wormadam-Sandy",
 		"Wormadam-Trash"
 	]
-}
+},
 wormadamsandy: {
 	"num": 413,
 	"name": "Wormadam-Sandy",
@@ -15354,7 +15367,7 @@ wormadamsandy: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 wormadamtrash: {
 	"num": 413,
 	"name": "Wormadam-Trash",
@@ -15383,7 +15396,7 @@ wormadamtrash: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 mothim: {
 	"num": 414,
 	"name": "Mothim",
@@ -15410,7 +15423,7 @@ mothim: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 combee: {
 	"num": 415,
 	"name": "Combee",
@@ -15441,7 +15454,7 @@ combee: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 vespiquen: {
 	"num": 416,
 	"name": "Vespiquen",
@@ -15468,7 +15481,7 @@ vespiquen: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 pachirisu: {
 	"num": 417,
 	"name": "Pachirisu",
@@ -15493,7 +15506,7 @@ pachirisu: {
 		"Field",
 		"Fairy"
 	]
-}
+},
 buizel: {
 	"num": 418,
 	"name": "Buizel",
@@ -15520,7 +15533,7 @@ buizel: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 floatzel: {
 	"num": 419,
 	"name": "Floatzel",
@@ -15546,7 +15559,7 @@ floatzel: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 cherubi: {
 	"num": 420,
 	"name": "Cherubi",
@@ -15572,7 +15585,7 @@ cherubi: {
 		"Fairy",
 		"Grass"
 	]
-}
+},
 cherrim: {
 	"num": 421,
 	"name": "Cherrim",
@@ -15605,7 +15618,7 @@ cherrim: {
 		"Cherrim",
 		"Cherrim-Sunshine"
 	]
-}
+},
 cherrimsunshine: {
 	"num": 421,
 	"name": "Cherrim-Sunshine",
@@ -15632,7 +15645,7 @@ cherrimsunshine: {
 	],
 	"requiredAbility": "Flower Gift",
 	"battleOnly": "Cherrim"
-}
+},
 shellos: {
 	"num": 422,
 	"name": "Shellos",
@@ -15668,7 +15681,7 @@ shellos: {
 		"Shellos",
 		"Shellos-East"
 	]
-}
+},
 gastrodon: {
 	"num": 423,
 	"name": "Gastrodon",
@@ -15704,7 +15717,7 @@ gastrodon: {
 		"Gastrodon",
 		"Gastrodon-East"
 	]
-}
+},
 ambipom: {
 	"num": 424,
 	"name": "Ambipom",
@@ -15731,7 +15744,7 @@ ambipom: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 drifloon: {
 	"num": 425,
 	"name": "Drifloon",
@@ -15759,7 +15772,7 @@ drifloon: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 drifblim: {
 	"num": 426,
 	"name": "Drifblim",
@@ -15786,7 +15799,7 @@ drifblim: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 buneary: {
 	"num": 427,
 	"name": "Buneary",
@@ -15814,7 +15827,7 @@ buneary: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 lopunny: {
 	"num": 428,
 	"name": "Lopunny",
@@ -15848,7 +15861,7 @@ lopunny: {
 		"Lopunny",
 		"Lopunny-Mega"
 	]
-}
+},
 lopunnymega: {
 	"num": 428,
 	"name": "Lopunny-Mega",
@@ -15875,7 +15888,7 @@ lopunnymega: {
 		"Human-Like"
 	],
 	"requiredItem": "Lopunnite"
-}
+},
 mismagius: {
 	"num": 429,
 	"name": "Mismagius",
@@ -15900,7 +15913,7 @@ mismagius: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 honchkrow: {
 	"num": 430,
 	"name": "Honchkrow",
@@ -15928,7 +15941,7 @@ honchkrow: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 glameow: {
 	"num": 431,
 	"name": "Glameow",
@@ -15959,7 +15972,7 @@ glameow: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 purugly: {
 	"num": 432,
 	"name": "Purugly",
@@ -15989,7 +16002,7 @@ purugly: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 chingling: {
 	"num": 433,
 	"name": "Chingling",
@@ -16015,7 +16028,7 @@ chingling: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 stunky: {
 	"num": 434,
 	"name": "Stunky",
@@ -16043,7 +16056,7 @@ stunky: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 skuntank: {
 	"num": 435,
 	"name": "Skuntank",
@@ -16070,7 +16083,7 @@ skuntank: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 bronzor: {
 	"num": 436,
 	"name": "Bronzor",
@@ -16099,7 +16112,7 @@ bronzor: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 bronzong: {
 	"num": 437,
 	"name": "Bronzong",
@@ -16127,7 +16140,7 @@ bronzong: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 bonsly: {
 	"num": 438,
 	"name": "Bonsly",
@@ -16155,7 +16168,7 @@ bonsly: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 mimejr: {
 	"num": 439,
 	"name": "Mime Jr.",
@@ -16185,7 +16198,7 @@ mimejr: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 happiny: {
 	"num": 440,
 	"name": "Happiny",
@@ -16214,7 +16227,7 @@ happiny: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 chatot: {
 	"num": 441,
 	"name": "Chatot",
@@ -16239,7 +16252,7 @@ chatot: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 spiritomb: {
 	"num": 442,
 	"name": "Spiritomb",
@@ -16263,7 +16276,7 @@ spiritomb: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 gible: {
 	"num": 443,
 	"name": "Gible",
@@ -16291,7 +16304,7 @@ gible: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 gabite: {
 	"num": 444,
 	"name": "Gabite",
@@ -16321,7 +16334,7 @@ gabite: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 garchomp: {
 	"num": 445,
 	"name": "Garchomp",
@@ -16355,7 +16368,7 @@ garchomp: {
 		"Garchomp",
 		"Garchomp-Mega"
 	]
-}
+},
 garchompmega: {
 	"num": 445,
 	"name": "Garchomp-Mega",
@@ -16382,7 +16395,7 @@ garchompmega: {
 		"Dragon"
 	],
 	"requiredItem": "Garchompite"
-}
+},
 munchlax: {
 	"num": 446,
 	"name": "Munchlax",
@@ -16414,7 +16427,7 @@ munchlax: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 riolu: {
 	"num": 447,
 	"name": "Riolu",
@@ -16446,7 +16459,7 @@ riolu: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 lucario: {
 	"num": 448,
 	"name": "Lucario",
@@ -16486,7 +16499,7 @@ lucario: {
 		"Lucario",
 		"Lucario-Mega"
 	]
-}
+},
 lucariomega: {
 	"num": 448,
 	"name": "Lucario-Mega",
@@ -16517,7 +16530,7 @@ lucariomega: {
 		"Human-Like"
 	],
 	"requiredItem": "Lucarionite"
-}
+},
 hippopotas: {
 	"num": 449,
 	"name": "Hippopotas",
@@ -16543,7 +16556,7 @@ hippopotas: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 hippowdon: {
 	"num": 450,
 	"name": "Hippowdon",
@@ -16568,7 +16581,7 @@ hippowdon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 skorupi: {
 	"num": 451,
 	"name": "Skorupi",
@@ -16597,7 +16610,7 @@ skorupi: {
 		"Bug",
 		"Water 3"
 	]
-}
+},
 drapion: {
 	"num": 452,
 	"name": "Drapion",
@@ -16625,7 +16638,7 @@ drapion: {
 		"Bug",
 		"Water 3"
 	]
-}
+},
 croagunk: {
 	"num": 453,
 	"name": "Croagunk",
@@ -16653,7 +16666,7 @@ croagunk: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 toxicroak: {
 	"num": 454,
 	"name": "Toxicroak",
@@ -16680,7 +16693,7 @@ toxicroak: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 carnivine: {
 	"num": 455,
 	"name": "Carnivine",
@@ -16702,7 +16715,7 @@ carnivine: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 finneon: {
 	"num": 456,
 	"name": "Finneon",
@@ -16729,7 +16742,7 @@ finneon: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 lumineon: {
 	"num": 457,
 	"name": "Lumineon",
@@ -16755,7 +16768,7 @@ lumineon: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 mantyke: {
 	"num": 458,
 	"name": "Mantyke",
@@ -16784,7 +16797,7 @@ mantyke: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 snover: {
 	"num": 459,
 	"name": "Snover",
@@ -16812,7 +16825,7 @@ snover: {
 		"Monster",
 		"Grass"
 	]
-}
+},
 abomasnow: {
 	"num": 460,
 	"name": "Abomasnow",
@@ -16846,7 +16859,7 @@ abomasnow: {
 		"Abomasnow",
 		"Abomasnow-Mega"
 	]
-}
+},
 abomasnowmega: {
 	"num": 460,
 	"name": "Abomasnow-Mega",
@@ -16873,7 +16886,7 @@ abomasnowmega: {
 		"Grass"
 	],
 	"requiredItem": "Abomasite"
-}
+},
 weavile: {
 	"num": 461,
 	"name": "Weavile",
@@ -16901,7 +16914,7 @@ weavile: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 magnezone: {
 	"num": 462,
 	"name": "Magnezone",
@@ -16930,7 +16943,7 @@ magnezone: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 lickilicky: {
 	"num": 463,
 	"name": "Lickilicky",
@@ -16957,7 +16970,7 @@ lickilicky: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 rhyperior: {
 	"num": 464,
 	"name": "Rhyperior",
@@ -16986,7 +16999,7 @@ rhyperior: {
 		"Monster",
 		"Field"
 	]
-}
+},
 tangrowth: {
 	"num": 465,
 	"name": "Tangrowth",
@@ -17013,7 +17026,7 @@ tangrowth: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 electivire: {
 	"num": 466,
 	"name": "Electivire",
@@ -17043,7 +17056,7 @@ electivire: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 magmortar: {
 	"num": 467,
 	"name": "Magmortar",
@@ -17073,7 +17086,7 @@ magmortar: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 togekiss: {
 	"num": 468,
 	"name": "Togekiss",
@@ -17106,7 +17119,7 @@ togekiss: {
 		"Flying",
 		"Fairy"
 	]
-}
+},
 yanmega: {
 	"num": 469,
 	"name": "Yanmega",
@@ -17134,7 +17147,7 @@ yanmega: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 leafeon: {
 	"num": 470,
 	"name": "Leafeon",
@@ -17164,7 +17177,7 @@ leafeon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 glaceon: {
 	"num": 471,
 	"name": "Glaceon",
@@ -17194,7 +17207,7 @@ glaceon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 gliscor: {
 	"num": 472,
 	"name": "Gliscor",
@@ -17223,7 +17236,7 @@ gliscor: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 mamoswine: {
 	"num": 473,
 	"name": "Mamoswine",
@@ -17251,7 +17264,7 @@ mamoswine: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 porygonz: {
 	"num": 474,
 	"name": "Porygon-Z",
@@ -17279,7 +17292,7 @@ porygonz: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 gallade: {
 	"num": 475,
 	"name": "Gallade",
@@ -17315,7 +17328,7 @@ gallade: {
 		"Gallade",
 		"Gallade-Mega"
 	]
-}
+},
 gallademega: {
 	"num": 475,
 	"name": "Gallade-Mega",
@@ -17342,12 +17355,13 @@ gallademega: {
 		"Amorphous"
 	],
 	"requiredItem": "Galladite"
-}
+},
 probopass: {
 	"num": 476,
 	"name": "Probopass",
 	"types": [
-		"Rock"
+		"Rock",
+		null
 	],
 	"baseStats": {
 		"hp": 60,
@@ -17369,7 +17383,7 @@ probopass: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 dusknoir: {
 	"num": 477,
 	"name": "Dusknoir",
@@ -17395,7 +17409,7 @@ dusknoir: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 froslass: {
 	"num": 478,
 	"name": "Froslass",
@@ -17424,7 +17438,7 @@ froslass: {
 		"Fairy",
 		"Mineral"
 	]
-}
+},
 rotom: {
 	"num": 479,
 	"name": "Rotom",
@@ -17463,7 +17477,7 @@ rotom: {
 		"Rotom-Fan",
 		"Rotom-Mow"
 	]
-}
+},
 rotomheat: {
 	"num": 479,
 	"name": "Rotom-Heat",
@@ -17490,7 +17504,7 @@ rotomheat: {
 		"Amorphous"
 	],
 	"changesFrom": "Rotom"
-}
+},
 rotomwash: {
 	"num": 479,
 	"name": "Rotom-Wash",
@@ -17517,7 +17531,7 @@ rotomwash: {
 		"Amorphous"
 	],
 	"changesFrom": "Rotom"
-}
+},
 rotomfrost: {
 	"num": 479,
 	"name": "Rotom-Frost",
@@ -17544,7 +17558,7 @@ rotomfrost: {
 		"Amorphous"
 	],
 	"changesFrom": "Rotom"
-}
+},
 rotomfan: {
 	"num": 479,
 	"name": "Rotom-Fan",
@@ -17571,7 +17585,7 @@ rotomfan: {
 		"Amorphous"
 	],
 	"changesFrom": "Rotom"
-}
+},
 rotommow: {
 	"num": 479,
 	"name": "Rotom-Mow",
@@ -17598,7 +17612,7 @@ rotommow: {
 		"Amorphous"
 	],
 	"changesFrom": "Rotom"
-}
+},
 uxie: {
 	"num": 480,
 	"name": "Uxie",
@@ -17624,7 +17638,7 @@ uxie: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 mesprit: {
 	"num": 481,
 	"name": "Mesprit",
@@ -17650,7 +17664,7 @@ mesprit: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 azelf: {
 	"num": 482,
 	"name": "Azelf",
@@ -17676,7 +17690,7 @@ azelf: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 dialga: {
 	"num": 483,
 	"name": "Dialga",
@@ -17711,7 +17725,7 @@ dialga: {
 		"Dialga",
 		"Dialga-Origin"
 	]
-}
+},
 dialgaorigin: {
 	"num": 483,
 	"name": "Dialga-Origin",
@@ -17739,7 +17753,7 @@ dialgaorigin: {
 		"Undiscovered"
 	],
 	"gen": 8
-}
+},
 palkia: {
 	"num": 484,
 	"name": "Palkia",
@@ -17774,7 +17788,7 @@ palkia: {
 		"Palkia",
 		"Palkia-Origin"
 	]
-}
+},
 palkiaorigin: {
 	"num": 484,
 	"name": "Palkia-Origin",
@@ -17802,7 +17816,7 @@ palkiaorigin: {
 		"Undiscovered"
 	],
 	"gen": 8
-}
+},
 heatran: {
 	"num": 485,
 	"name": "Heatran",
@@ -17829,7 +17843,7 @@ heatran: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 regigigas: {
 	"num": 486,
 	"name": "Regigigas",
@@ -17855,7 +17869,7 @@ regigigas: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 giratina: {
 	"num": 487,
 	"name": "Giratina",
@@ -17891,7 +17905,7 @@ giratina: {
 		"Giratina",
 		"Giratina-Origin"
 	]
-}
+},
 giratinaorigin: {
 	"num": 487,
 	"name": "Giratina-Origin",
@@ -17919,7 +17933,7 @@ giratinaorigin: {
 	],
 	"requiredItem": "Griseous Orb",
 	"changesFrom": "Giratina"
-}
+},
 cresselia: {
 	"num": 488,
 	"name": "Cresselia",
@@ -17945,7 +17959,7 @@ cresselia: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 phione: {
 	"num": 489,
 	"name": "Phione",
@@ -17972,7 +17986,7 @@ phione: {
 		"Water 1",
 		"Fairy"
 	]
-}
+},
 manaphy: {
 	"num": 490,
 	"name": "Manaphy",
@@ -17999,7 +18013,7 @@ manaphy: {
 		"Water 1",
 		"Fairy"
 	]
-}
+},
 darkrai: {
 	"num": 491,
 	"name": "Darkrai",
@@ -18025,7 +18039,7 @@ darkrai: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 shaymin: {
 	"num": 492,
 	"name": "Shaymin",
@@ -18059,7 +18073,7 @@ shaymin: {
 		"Shaymin",
 		"Shaymin-Sky"
 	]
-}
+},
 shayminsky: {
 	"num": 492,
 	"name": "Shaymin-Sky",
@@ -18086,7 +18100,7 @@ shayminsky: {
 		"Undiscovered"
 	],
 	"changesFrom": "Shaymin"
-}
+},
 arceus: {
 	"num": 493,
 	"name": "Arceus",
@@ -18152,7 +18166,7 @@ arceus: {
 		"Arceus-Dark",
 		"Arceus-Fairy"
 	]
-}
+},
 arceusbug: {
 	"num": 493,
 	"name": "Arceus-Bug",
@@ -18182,7 +18196,7 @@ arceusbug: {
 		"Buginium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusdark: {
 	"num": 493,
 	"name": "Arceus-Dark",
@@ -18212,7 +18226,7 @@ arceusdark: {
 		"Darkinium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusdragon: {
 	"num": 493,
 	"name": "Arceus-Dragon",
@@ -18242,7 +18256,7 @@ arceusdragon: {
 		"Dragonium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceuselectric: {
 	"num": 493,
 	"name": "Arceus-Electric",
@@ -18272,7 +18286,7 @@ arceuselectric: {
 		"Electrium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusfairy: {
 	"num": 493,
 	"name": "Arceus-Fairy",
@@ -18303,7 +18317,7 @@ arceusfairy: {
 	],
 	"changesFrom": "Arceus",
 	"gen": 6
-}
+},
 arceusfighting: {
 	"num": 493,
 	"name": "Arceus-Fighting",
@@ -18333,7 +18347,7 @@ arceusfighting: {
 		"Fightinium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusfire: {
 	"num": 493,
 	"name": "Arceus-Fire",
@@ -18363,7 +18377,7 @@ arceusfire: {
 		"Firium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusflying: {
 	"num": 493,
 	"name": "Arceus-Flying",
@@ -18393,7 +18407,7 @@ arceusflying: {
 		"Flyinium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusghost: {
 	"num": 493,
 	"name": "Arceus-Ghost",
@@ -18423,7 +18437,7 @@ arceusghost: {
 		"Ghostium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusgrass: {
 	"num": 493,
 	"name": "Arceus-Grass",
@@ -18453,7 +18467,7 @@ arceusgrass: {
 		"Grassium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusground: {
 	"num": 493,
 	"name": "Arceus-Ground",
@@ -18483,7 +18497,7 @@ arceusground: {
 		"Groundium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusice: {
 	"num": 493,
 	"name": "Arceus-Ice",
@@ -18513,7 +18527,7 @@ arceusice: {
 		"Icium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceuspoison: {
 	"num": 493,
 	"name": "Arceus-Poison",
@@ -18543,7 +18557,7 @@ arceuspoison: {
 		"Poisonium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceuspsychic: {
 	"num": 493,
 	"name": "Arceus-Psychic",
@@ -18573,7 +18587,7 @@ arceuspsychic: {
 		"Psychium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceusrock: {
 	"num": 493,
 	"name": "Arceus-Rock",
@@ -18603,7 +18617,7 @@ arceusrock: {
 		"Rockium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceussteel: {
 	"num": 493,
 	"name": "Arceus-Steel",
@@ -18633,7 +18647,7 @@ arceussteel: {
 		"Steelium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 arceuswater: {
 	"num": 493,
 	"name": "Arceus-Water",
@@ -18663,7 +18677,7 @@ arceuswater: {
 		"Waterium Z"
 	],
 	"changesFrom": "Arceus"
-}
+},
 victini: {
 	"num": 494,
 	"name": "Victini",
@@ -18690,7 +18704,7 @@ victini: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 snivy: {
 	"num": 495,
 	"name": "Snivy",
@@ -18721,7 +18735,7 @@ snivy: {
 		"Field",
 		"Grass"
 	]
-}
+},
 servine: {
 	"num": 496,
 	"name": "Servine",
@@ -18754,7 +18768,7 @@ servine: {
 		"Field",
 		"Grass"
 	]
-}
+},
 serperior: {
 	"num": 497,
 	"name": "Serperior",
@@ -18784,7 +18798,7 @@ serperior: {
 		"Field",
 		"Grass"
 	]
-}
+},
 tepig: {
 	"num": 498,
 	"name": "Tepig",
@@ -18814,7 +18828,7 @@ tepig: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 pignite: {
 	"num": 499,
 	"name": "Pignite",
@@ -18847,7 +18861,7 @@ pignite: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 emboar: {
 	"num": 500,
 	"name": "Emboar",
@@ -18877,7 +18891,7 @@ emboar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 oshawott: {
 	"num": 501,
 	"name": "Oshawott",
@@ -18907,7 +18921,7 @@ oshawott: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 dewott: {
 	"num": 502,
 	"name": "Dewott",
@@ -18940,7 +18954,7 @@ dewott: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 samurott: {
 	"num": 503,
 	"name": "Samurott",
@@ -18976,7 +18990,7 @@ samurott: {
 		"Samurott",
 		"Samurott-Hisui"
 	]
-}
+},
 samurotthisui: {
 	"num": 503,
 	"name": "Samurott-Hisui",
@@ -19008,7 +19022,7 @@ samurotthisui: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 patrat: {
 	"num": 504,
 	"name": "Patrat",
@@ -19035,7 +19049,7 @@ patrat: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 watchog: {
 	"num": 505,
 	"name": "Watchog",
@@ -19061,7 +19075,7 @@ watchog: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 lillipup: {
 	"num": 506,
 	"name": "Lillipup",
@@ -19088,7 +19102,7 @@ lillipup: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 herdier: {
 	"num": 507,
 	"name": "Herdier",
@@ -19117,7 +19131,7 @@ herdier: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 stoutland: {
 	"num": 508,
 	"name": "Stoutland",
@@ -19143,7 +19157,7 @@ stoutland: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 purrloin: {
 	"num": 509,
 	"name": "Purrloin",
@@ -19170,7 +19184,7 @@ purrloin: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 liepard: {
 	"num": 510,
 	"name": "Liepard",
@@ -19196,7 +19210,7 @@ liepard: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 pansage: {
 	"num": 511,
 	"name": "Pansage",
@@ -19226,7 +19240,7 @@ pansage: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 simisage: {
 	"num": 512,
 	"name": "Simisage",
@@ -19256,7 +19270,7 @@ simisage: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 pansear: {
 	"num": 513,
 	"name": "Pansear",
@@ -19286,7 +19300,7 @@ pansear: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 simisear: {
 	"num": 514,
 	"name": "Simisear",
@@ -19316,7 +19330,7 @@ simisear: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 panpour: {
 	"num": 515,
 	"name": "Panpour",
@@ -19346,7 +19360,7 @@ panpour: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 simipour: {
 	"num": 516,
 	"name": "Simipour",
@@ -19376,7 +19390,7 @@ simipour: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 munna: {
 	"num": 517,
 	"name": "Munna",
@@ -19403,7 +19417,7 @@ munna: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 musharna: {
 	"num": 518,
 	"name": "Musharna",
@@ -19430,7 +19444,7 @@ musharna: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 pidove: {
 	"num": 519,
 	"name": "Pidove",
@@ -19458,7 +19472,7 @@ pidove: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 tranquill: {
 	"num": 520,
 	"name": "Tranquill",
@@ -19488,7 +19502,7 @@ tranquill: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 unfezant: {
 	"num": 521,
 	"name": "Unfezant",
@@ -19515,7 +19529,7 @@ unfezant: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 blitzle: {
 	"num": 522,
 	"name": "Blitzle",
@@ -19542,7 +19556,7 @@ blitzle: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 zebstrika: {
 	"num": 523,
 	"name": "Zebstrika",
@@ -19568,7 +19582,7 @@ zebstrika: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 roggenrola: {
 	"num": 524,
 	"name": "Roggenrola",
@@ -19595,7 +19609,7 @@ roggenrola: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 boldore: {
 	"num": 525,
 	"name": "Boldore",
@@ -19624,7 +19638,7 @@ boldore: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 gigalith: {
 	"num": 526,
 	"name": "Gigalith",
@@ -19650,7 +19664,7 @@ gigalith: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 woobat: {
 	"num": 527,
 	"name": "Woobat",
@@ -19679,7 +19693,7 @@ woobat: {
 		"Flying",
 		"Field"
 	]
-}
+},
 swoobat: {
 	"num": 528,
 	"name": "Swoobat",
@@ -19707,7 +19721,7 @@ swoobat: {
 		"Flying",
 		"Field"
 	]
-}
+},
 drilbur: {
 	"num": 529,
 	"name": "Drilbur",
@@ -19734,7 +19748,7 @@ drilbur: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 excadrill: {
 	"num": 530,
 	"name": "Excadrill",
@@ -19761,7 +19775,7 @@ excadrill: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 audino: {
 	"num": 531,
 	"name": "Audino",
@@ -19792,14 +19806,15 @@ audino: {
 		"Audino",
 		"Audino-Mega"
 	]
-}
+},
 audinomega: {
 	"num": 531,
 	"name": "Audino-Mega",
 	"baseSpecies": "Audino",
 	"forme": "Mega",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"baseStats": {
 		"hp": 103,
@@ -19817,7 +19832,7 @@ audinomega: {
 		"Fairy"
 	],
 	"requiredItem": "Audinite"
-}
+},
 timburr: {
 	"num": 532,
 	"name": "Timburr",
@@ -19848,7 +19863,7 @@ timburr: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 gurdurr: {
 	"num": 533,
 	"name": "Gurdurr",
@@ -19881,7 +19896,7 @@ gurdurr: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 conkeldurr: {
 	"num": 534,
 	"name": "Conkeldurr",
@@ -19911,7 +19926,7 @@ conkeldurr: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 tympole: {
 	"num": 535,
 	"name": "Tympole",
@@ -19938,7 +19953,7 @@ tympole: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 palpitoad: {
 	"num": 536,
 	"name": "Palpitoad",
@@ -19968,7 +19983,7 @@ palpitoad: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 seismitoad: {
 	"num": 537,
 	"name": "Seismitoad",
@@ -19995,7 +20010,7 @@ seismitoad: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 throh: {
 	"num": 538,
 	"name": "Throh",
@@ -20020,7 +20035,7 @@ throh: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 sawk: {
 	"num": 539,
 	"name": "Sawk",
@@ -20045,7 +20060,7 @@ sawk: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 sewaddle: {
 	"num": 540,
 	"name": "Sewaddle",
@@ -20073,7 +20088,7 @@ sewaddle: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 swadloon: {
 	"num": 541,
 	"name": "Swadloon",
@@ -20103,7 +20118,7 @@ swadloon: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 leavanny: {
 	"num": 542,
 	"name": "Leavanny",
@@ -20130,7 +20145,7 @@ leavanny: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 venipede: {
 	"num": 543,
 	"name": "Venipede",
@@ -20158,7 +20173,7 @@ venipede: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 whirlipede: {
 	"num": 544,
 	"name": "Whirlipede",
@@ -20188,7 +20203,7 @@ whirlipede: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 scolipede: {
 	"num": 545,
 	"name": "Scolipede",
@@ -20215,7 +20230,7 @@ scolipede: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 cottonee: {
 	"num": 546,
 	"name": "Cottonee",
@@ -20244,7 +20259,7 @@ cottonee: {
 		"Fairy",
 		"Grass"
 	]
-}
+},
 whimsicott: {
 	"num": 547,
 	"name": "Whimsicott",
@@ -20273,7 +20288,7 @@ whimsicott: {
 		"Fairy",
 		"Grass"
 	]
-}
+},
 petilil: {
 	"num": 548,
 	"name": "Petilil",
@@ -20302,7 +20317,7 @@ petilil: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 lilligant: {
 	"num": 549,
 	"name": "Lilligant",
@@ -20337,7 +20352,7 @@ lilligant: {
 		"Lilligant",
 		"Lilligant-Hisui"
 	]
-}
+},
 lilliganthisui: {
 	"num": 549,
 	"name": "Lilligant-Hisui",
@@ -20368,7 +20383,7 @@ lilliganthisui: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 basculin: {
 	"num": 550,
 	"name": "Basculin",
@@ -20402,7 +20417,7 @@ basculin: {
 		"Basculin-Blue-Striped",
 		"Basculin-White-Striped"
 	]
-}
+},
 basculinbluestriped: {
 	"num": 550,
 	"name": "Basculin-Blue-Striped",
@@ -20428,7 +20443,7 @@ basculinbluestriped: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 basculinwhitestriped: {
 	"num": 550,
 	"name": "Basculin-White-Striped",
@@ -20459,7 +20474,7 @@ basculinwhitestriped: {
 		"Water 2"
 	],
 	"gen": 8
-}
+},
 sandile: {
 	"num": 551,
 	"name": "Sandile",
@@ -20487,7 +20502,7 @@ sandile: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 krokorok: {
 	"num": 552,
 	"name": "Krokorok",
@@ -20517,7 +20532,7 @@ krokorok: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 krookodile: {
 	"num": 553,
 	"name": "Krookodile",
@@ -20544,7 +20559,7 @@ krookodile: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 darumaka: {
 	"num": 554,
 	"name": "Darumaka",
@@ -20577,7 +20592,7 @@ darumaka: {
 		"Darumaka",
 		"Darumaka-Galar"
 	]
-}
+},
 darumakagalar: {
 	"num": 554,
 	"name": "Darumaka-Galar",
@@ -20605,7 +20620,7 @@ darumakagalar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 darmanitan: {
 	"num": 555,
 	"name": "Darmanitan",
@@ -20642,7 +20657,7 @@ darmanitan: {
 		"Darmanitan-Galar",
 		"Darmanitan-Galar-Zen"
 	]
-}
+},
 darmanitanzen: {
 	"num": 555,
 	"name": "Darmanitan-Zen",
@@ -20669,7 +20684,7 @@ darmanitanzen: {
 	],
 	"requiredAbility": "Zen Mode",
 	"battleOnly": "Darmanitan"
-}
+},
 darmanitangalar: {
 	"num": 555,
 	"name": "Darmanitan-Galar",
@@ -20697,7 +20712,7 @@ darmanitangalar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 darmanitangalarzen: {
 	"num": 555,
 	"name": "Darmanitan-Galar-Zen",
@@ -20724,7 +20739,7 @@ darmanitangalarzen: {
 	],
 	"requiredAbility": "Zen Mode",
 	"battleOnly": "Darmanitan-Galar"
-}
+},
 maractus: {
 	"num": 556,
 	"name": "Maractus",
@@ -20748,7 +20763,7 @@ maractus: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 dwebble: {
 	"num": 557,
 	"name": "Dwebble",
@@ -20777,7 +20792,7 @@ dwebble: {
 		"Bug",
 		"Mineral"
 	]
-}
+},
 crustle: {
 	"num": 558,
 	"name": "Crustle",
@@ -20805,7 +20820,7 @@ crustle: {
 		"Bug",
 		"Mineral"
 	]
-}
+},
 scraggy: {
 	"num": 559,
 	"name": "Scraggy",
@@ -20834,7 +20849,7 @@ scraggy: {
 		"Field",
 		"Dragon"
 	]
-}
+},
 scrafty: {
 	"num": 560,
 	"name": "Scrafty",
@@ -20862,7 +20877,7 @@ scrafty: {
 		"Field",
 		"Dragon"
 	]
-}
+},
 sigilyph: {
 	"num": 561,
 	"name": "Sigilyph",
@@ -20887,7 +20902,7 @@ sigilyph: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 yamask: {
 	"num": 562,
 	"name": "Yamask",
@@ -20920,7 +20935,7 @@ yamask: {
 		"Yamask",
 		"Yamask-Galar"
 	]
-}
+},
 yamaskgalar: {
 	"num": 562,
 	"name": "Yamask-Galar",
@@ -20949,7 +20964,7 @@ yamaskgalar: {
 		"Mineral",
 		"Amorphous"
 	]
-}
+},
 cofagrigus: {
 	"num": 563,
 	"name": "Cofagrigus",
@@ -20974,7 +20989,7 @@ cofagrigus: {
 		"Mineral",
 		"Amorphous"
 	]
-}
+},
 tirtouga: {
 	"num": 564,
 	"name": "Tirtouga",
@@ -21007,7 +21022,7 @@ tirtouga: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 carracosta: {
 	"num": 565,
 	"name": "Carracosta",
@@ -21039,7 +21054,7 @@ carracosta: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 archen: {
 	"num": 566,
 	"name": "Archen",
@@ -21070,7 +21085,7 @@ archen: {
 		"Flying",
 		"Water 3"
 	]
-}
+},
 archeops: {
 	"num": 567,
 	"name": "Archeops",
@@ -21100,7 +21115,7 @@ archeops: {
 		"Flying",
 		"Water 3"
 	]
-}
+},
 trubbish: {
 	"num": 568,
 	"name": "Trubbish",
@@ -21127,7 +21142,7 @@ trubbish: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 garbodor: {
 	"num": 569,
 	"name": "Garbodor",
@@ -21154,7 +21169,7 @@ garbodor: {
 		"Mineral"
 	],
 	"canGigantamax": "G-Max Malodor"
-}
+},
 zorua: {
 	"num": 570,
 	"name": "Zorua",
@@ -21190,7 +21205,7 @@ zorua: {
 		"Zorua",
 		"Zorua-Hisui"
 	]
-}
+},
 zoruahisui: {
 	"num": 570,
 	"name": "Zorua-Hisui",
@@ -21222,7 +21237,7 @@ zoruahisui: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 zoroark: {
 	"num": 571,
 	"name": "Zoroark",
@@ -21257,7 +21272,7 @@ zoroark: {
 		"Zoroark",
 		"Zoroark-Hisui"
 	]
-}
+},
 zoroarkhisui: {
 	"num": 571,
 	"name": "Zoroark-Hisui",
@@ -21288,7 +21303,7 @@ zoroarkhisui: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 minccino: {
 	"num": 572,
 	"name": "Minccino",
@@ -21319,7 +21334,7 @@ minccino: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 cinccino: {
 	"num": 573,
 	"name": "Cinccino",
@@ -21350,7 +21365,7 @@ cinccino: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 gothita: {
 	"num": 574,
 	"name": "Gothita",
@@ -21381,7 +21396,7 @@ gothita: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 gothorita: {
 	"num": 575,
 	"name": "Gothorita",
@@ -21414,7 +21429,7 @@ gothorita: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 gothitelle: {
 	"num": 576,
 	"name": "Gothitelle",
@@ -21444,7 +21459,7 @@ gothitelle: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 solosis: {
 	"num": 577,
 	"name": "Solosis",
@@ -21471,7 +21486,7 @@ solosis: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 duosion: {
 	"num": 578,
 	"name": "Duosion",
@@ -21500,7 +21515,7 @@ duosion: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 reuniclus: {
 	"num": 579,
 	"name": "Reuniclus",
@@ -21526,7 +21541,7 @@ reuniclus: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 ducklett: {
 	"num": 580,
 	"name": "Ducklett",
@@ -21555,7 +21570,7 @@ ducklett: {
 		"Water 1",
 		"Flying"
 	]
-}
+},
 swanna: {
 	"num": 581,
 	"name": "Swanna",
@@ -21583,7 +21598,7 @@ swanna: {
 		"Water 1",
 		"Flying"
 	]
-}
+},
 vanillite: {
 	"num": 582,
 	"name": "Vanillite",
@@ -21610,7 +21625,7 @@ vanillite: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 vanillish: {
 	"num": 583,
 	"name": "Vanillish",
@@ -21639,7 +21654,7 @@ vanillish: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 vanilluxe: {
 	"num": 584,
 	"name": "Vanilluxe",
@@ -21665,7 +21680,7 @@ vanilluxe: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 deerling: {
 	"num": 585,
 	"name": "Deerling",
@@ -21705,7 +21720,7 @@ deerling: {
 		"Deerling-Autumn",
 		"Deerling-Winter"
 	]
-}
+},
 sawsbuck: {
 	"num": 586,
 	"name": "Sawsbuck",
@@ -21744,7 +21759,7 @@ sawsbuck: {
 		"Sawsbuck-Autumn",
 		"Sawsbuck-Winter"
 	]
-}
+},
 emolga: {
 	"num": 587,
 	"name": "Emolga",
@@ -21768,7 +21783,7 @@ emolga: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 karrablast: {
 	"num": 588,
 	"name": "Karrablast",
@@ -21795,7 +21810,7 @@ karrablast: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 escavalier: {
 	"num": 589,
 	"name": "Escavalier",
@@ -21823,7 +21838,7 @@ escavalier: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 foongus: {
 	"num": 590,
 	"name": "Foongus",
@@ -21850,7 +21865,7 @@ foongus: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 amoonguss: {
 	"num": 591,
 	"name": "Amoonguss",
@@ -21876,7 +21891,7 @@ amoonguss: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 frillish: {
 	"num": 592,
 	"name": "Frillish",
@@ -21904,7 +21919,7 @@ frillish: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 jellicent: {
 	"num": 593,
 	"name": "Jellicent",
@@ -21931,7 +21946,7 @@ jellicent: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 alomomola: {
 	"num": 594,
 	"name": "Alomomola",
@@ -21956,7 +21971,7 @@ alomomola: {
 		"Water 1",
 		"Water 2"
 	]
-}
+},
 joltik: {
 	"num": 595,
 	"name": "Joltik",
@@ -21984,7 +21999,7 @@ joltik: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 galvantula: {
 	"num": 596,
 	"name": "Galvantula",
@@ -22011,7 +22026,7 @@ galvantula: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 ferroseed: {
 	"num": 597,
 	"name": "Ferroseed",
@@ -22038,7 +22053,7 @@ ferroseed: {
 		"Grass",
 		"Mineral"
 	]
-}
+},
 ferrothorn: {
 	"num": 598,
 	"name": "Ferrothorn",
@@ -22065,7 +22080,7 @@ ferrothorn: {
 		"Grass",
 		"Mineral"
 	]
-}
+},
 klink: {
 	"num": 599,
 	"name": "Klink",
@@ -22093,7 +22108,7 @@ klink: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 klang: {
 	"num": 600,
 	"name": "Klang",
@@ -22123,7 +22138,7 @@ klang: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 klinklang: {
 	"num": 601,
 	"name": "Klinklang",
@@ -22150,7 +22165,7 @@ klinklang: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 tynamo: {
 	"num": 602,
 	"name": "Tynamo",
@@ -22175,7 +22190,7 @@ tynamo: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 eelektrik: {
 	"num": 603,
 	"name": "Eelektrik",
@@ -22202,7 +22217,7 @@ eelektrik: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 eelektross: {
 	"num": 604,
 	"name": "Eelektross",
@@ -22227,7 +22242,7 @@ eelektross: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 elgyem: {
 	"num": 605,
 	"name": "Elgyem",
@@ -22254,7 +22269,7 @@ elgyem: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 beheeyem: {
 	"num": 606,
 	"name": "Beheeyem",
@@ -22280,7 +22295,7 @@ beheeyem: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 litwick: {
 	"num": 607,
 	"name": "Litwick",
@@ -22308,7 +22323,7 @@ litwick: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 lampent: {
 	"num": 608,
 	"name": "Lampent",
@@ -22338,7 +22353,7 @@ lampent: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 chandelure: {
 	"num": 609,
 	"name": "Chandelure",
@@ -22366,7 +22381,7 @@ chandelure: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 axew: {
 	"num": 610,
 	"name": "Axew",
@@ -22394,7 +22409,7 @@ axew: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 fraxure: {
 	"num": 611,
 	"name": "Fraxure",
@@ -22424,7 +22439,7 @@ fraxure: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 haxorus: {
 	"num": 612,
 	"name": "Haxorus",
@@ -22451,7 +22466,7 @@ haxorus: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 cubchoo: {
 	"num": 613,
 	"name": "Cubchoo",
@@ -22478,7 +22493,7 @@ cubchoo: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 beartic: {
 	"num": 614,
 	"name": "Beartic",
@@ -22504,7 +22519,7 @@ beartic: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 cryogonal: {
 	"num": 615,
 	"name": "Cryogonal",
@@ -22527,7 +22542,7 @@ cryogonal: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 shelmet: {
 	"num": 616,
 	"name": "Shelmet",
@@ -22554,7 +22569,7 @@ shelmet: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 accelgor: {
 	"num": 617,
 	"name": "Accelgor",
@@ -22581,7 +22596,7 @@ accelgor: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 stunfisk: {
 	"num": 618,
 	"name": "Stunfisk",
@@ -22614,7 +22629,7 @@ stunfisk: {
 		"Stunfisk",
 		"Stunfisk-Galar"
 	]
-}
+},
 stunfiskgalar: {
 	"num": 618,
 	"name": "Stunfisk-Galar",
@@ -22640,7 +22655,7 @@ stunfiskgalar: {
 		"Water 1",
 		"Amorphous"
 	]
-}
+},
 mienfoo: {
 	"num": 619,
 	"name": "Mienfoo",
@@ -22668,7 +22683,7 @@ mienfoo: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 mienshao: {
 	"num": 620,
 	"name": "Mienshao",
@@ -22695,7 +22710,7 @@ mienshao: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 druddigon: {
 	"num": 621,
 	"name": "Druddigon",
@@ -22720,7 +22735,7 @@ druddigon: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 golett: {
 	"num": 622,
 	"name": "Golett",
@@ -22749,7 +22764,7 @@ golett: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 golurk: {
 	"num": 623,
 	"name": "Golurk",
@@ -22777,7 +22792,7 @@ golurk: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 pawniard: {
 	"num": 624,
 	"name": "Pawniard",
@@ -22805,7 +22820,7 @@ pawniard: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 bisharp: {
 	"num": 625,
 	"name": "Bisharp",
@@ -22832,7 +22847,7 @@ bisharp: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 bouffalant: {
 	"num": 626,
 	"name": "Bouffalant",
@@ -22856,7 +22871,7 @@ bouffalant: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 rufflet: {
 	"num": 627,
 	"name": "Rufflet",
@@ -22886,7 +22901,7 @@ rufflet: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 braviary: {
 	"num": 628,
 	"name": "Braviary",
@@ -22921,7 +22936,7 @@ braviary: {
 		"Braviary",
 		"Braviary-Hisui"
 	]
-}
+},
 braviaryhisui: {
 	"num": 628,
 	"name": "Braviary-Hisui",
@@ -22951,7 +22966,7 @@ braviaryhisui: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 vullaby: {
 	"num": 629,
 	"name": "Vullaby",
@@ -22980,7 +22995,7 @@ vullaby: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 mandibuzz: {
 	"num": 630,
 	"name": "Mandibuzz",
@@ -23008,7 +23023,7 @@ mandibuzz: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 heatmor: {
 	"num": 631,
 	"name": "Heatmor",
@@ -23032,7 +23047,7 @@ heatmor: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 durant: {
 	"num": 632,
 	"name": "Durant",
@@ -23057,7 +23072,7 @@ durant: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 deino: {
 	"num": 633,
 	"name": "Deino",
@@ -23083,7 +23098,7 @@ deino: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 zweilous: {
 	"num": 634,
 	"name": "Zweilous",
@@ -23111,7 +23126,7 @@ zweilous: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 hydreigon: {
 	"num": 635,
 	"name": "Hydreigon",
@@ -23136,7 +23151,7 @@ hydreigon: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 larvesta: {
 	"num": 636,
 	"name": "Larvesta",
@@ -23163,7 +23178,7 @@ larvesta: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 volcarona: {
 	"num": 637,
 	"name": "Volcarona",
@@ -23189,7 +23204,7 @@ volcarona: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 cobalion: {
 	"num": 638,
 	"name": "Cobalion",
@@ -23216,7 +23231,7 @@ cobalion: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 terrakion: {
 	"num": 639,
 	"name": "Terrakion",
@@ -23243,7 +23258,7 @@ terrakion: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 virizion: {
 	"num": 640,
 	"name": "Virizion",
@@ -23270,7 +23285,7 @@ virizion: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 tornadus: {
 	"num": 641,
 	"name": "Tornadus",
@@ -23305,7 +23320,7 @@ tornadus: {
 		"Tornadus",
 		"Tornadus-Therian"
 	]
-}
+},
 tornadustherian: {
 	"num": 641,
 	"name": "Tornadus-Therian",
@@ -23331,7 +23346,7 @@ tornadustherian: {
 		"Undiscovered"
 	],
 	"changesFrom": "Tornadus"
-}
+},
 thundurus: {
 	"num": 642,
 	"name": "Thundurus",
@@ -23367,7 +23382,7 @@ thundurus: {
 		"Thundurus",
 		"Thundurus-Therian"
 	]
-}
+},
 thundurustherian: {
 	"num": 642,
 	"name": "Thundurus-Therian",
@@ -23394,7 +23409,7 @@ thundurustherian: {
 		"Undiscovered"
 	],
 	"changesFrom": "Thundurus"
-}
+},
 reshiram: {
 	"num": 643,
 	"name": "Reshiram",
@@ -23421,7 +23436,7 @@ reshiram: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 zekrom: {
 	"num": 644,
 	"name": "Zekrom",
@@ -23448,7 +23463,7 @@ zekrom: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 landorus: {
 	"num": 645,
 	"name": "Landorus",
@@ -23484,7 +23499,7 @@ landorus: {
 		"Landorus",
 		"Landorus-Therian"
 	]
-}
+},
 landorustherian: {
 	"num": 645,
 	"name": "Landorus-Therian",
@@ -23511,7 +23526,7 @@ landorustherian: {
 		"Undiscovered"
 	],
 	"changesFrom": "Landorus"
-}
+},
 kyurem: {
 	"num": 646,
 	"name": "Kyurem",
@@ -23547,7 +23562,7 @@ kyurem: {
 		"Kyurem-White",
 		"Kyurem-Black"
 	]
-}
+},
 kyuremblack: {
 	"num": 646,
 	"name": "Kyurem-Black",
@@ -23574,7 +23589,7 @@ kyuremblack: {
 		"Undiscovered"
 	],
 	"changesFrom": "Kyurem"
-}
+},
 kyuremwhite: {
 	"num": 646,
 	"name": "Kyurem-White",
@@ -23601,7 +23616,7 @@ kyuremwhite: {
 		"Undiscovered"
 	],
 	"changesFrom": "Kyurem"
-}
+},
 keldeo: {
 	"num": 647,
 	"name": "Keldeo",
@@ -23636,7 +23651,7 @@ keldeo: {
 		"Keldeo",
 		"Keldeo-Resolute"
 	]
-}
+},
 keldeoresolute: {
 	"num": 647,
 	"name": "Keldeo-Resolute",
@@ -23664,7 +23679,7 @@ keldeoresolute: {
 	],
 	"requiredMove": "Secret Sword",
 	"changesFrom": "Keldeo"
-}
+},
 meloetta: {
 	"num": 648,
 	"name": "Meloetta",
@@ -23699,7 +23714,7 @@ meloetta: {
 		"Meloetta",
 		"Meloetta-Pirouette"
 	]
-}
+},
 meloettapirouette: {
 	"num": 648,
 	"name": "Meloetta-Pirouette",
@@ -23727,7 +23742,7 @@ meloettapirouette: {
 	],
 	"requiredMove": "Relic Song",
 	"battleOnly": "Meloetta"
-}
+},
 genesect: {
 	"num": 649,
 	"name": "Genesect",
@@ -23767,7 +23782,7 @@ genesect: {
 		"Genesect-Burn",
 		"Genesect-Chill"
 	]
-}
+},
 genesectdouse: {
 	"num": 649,
 	"name": "Genesect-Douse",
@@ -23795,7 +23810,7 @@ genesectdouse: {
 	],
 	"requiredItem": "Douse Drive",
 	"changesFrom": "Genesect"
-}
+},
 genesectshock: {
 	"num": 649,
 	"name": "Genesect-Shock",
@@ -23823,7 +23838,7 @@ genesectshock: {
 	],
 	"requiredItem": "Shock Drive",
 	"changesFrom": "Genesect"
-}
+},
 genesectburn: {
 	"num": 649,
 	"name": "Genesect-Burn",
@@ -23851,7 +23866,7 @@ genesectburn: {
 	],
 	"requiredItem": "Burn Drive",
 	"changesFrom": "Genesect"
-}
+},
 genesectchill: {
 	"num": 649,
 	"name": "Genesect-Chill",
@@ -23879,7 +23894,7 @@ genesectchill: {
 	],
 	"requiredItem": "Chill Drive",
 	"changesFrom": "Genesect"
-}
+},
 chespin: {
 	"num": 650,
 	"name": "Chespin",
@@ -23909,7 +23924,7 @@ chespin: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 quilladin: {
 	"num": 651,
 	"name": "Quilladin",
@@ -23941,7 +23956,7 @@ quilladin: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 chesnaught: {
 	"num": 652,
 	"name": "Chesnaught",
@@ -23971,7 +23986,7 @@ chesnaught: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 fennekin: {
 	"num": 653,
 	"name": "Fennekin",
@@ -24001,7 +24016,7 @@ fennekin: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 braixen: {
 	"num": 654,
 	"name": "Braixen",
@@ -24033,7 +24048,7 @@ braixen: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 delphox: {
 	"num": 655,
 	"name": "Delphox",
@@ -24063,7 +24078,7 @@ delphox: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 froakie: {
 	"num": 656,
 	"name": "Froakie",
@@ -24093,7 +24108,7 @@ froakie: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 frogadier: {
 	"num": 657,
 	"name": "Frogadier",
@@ -24125,7 +24140,7 @@ frogadier: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 greninja: {
 	"num": 658,
 	"name": "Greninja",
@@ -24164,7 +24179,7 @@ greninja: {
 		"Greninja",
 		"Greninja-Ash"
 	]
-}
+},
 greninjaash: {
 	"num": 658,
 	"name": "Greninja-Ash",
@@ -24193,7 +24208,7 @@ greninjaash: {
 	"requiredAbility": "Battle Bond",
 	"battleOnly": "Greninja",
 	"gen": 7
-}
+},
 bunnelby: {
 	"num": 659,
 	"name": "Bunnelby",
@@ -24220,7 +24235,7 @@ bunnelby: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 diggersby: {
 	"num": 660,
 	"name": "Diggersby",
@@ -24247,7 +24262,7 @@ diggersby: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 fletchling: {
 	"num": 661,
 	"name": "Fletchling",
@@ -24274,7 +24289,7 @@ fletchling: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 fletchinder: {
 	"num": 662,
 	"name": "Fletchinder",
@@ -24303,7 +24318,7 @@ fletchinder: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 talonflame: {
 	"num": 663,
 	"name": "Talonflame",
@@ -24329,7 +24344,7 @@ talonflame: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 scatterbug: {
 	"num": 664,
 	"name": "Scatterbug",
@@ -24356,7 +24371,7 @@ scatterbug: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 spewpa: {
 	"num": 665,
 	"name": "Spewpa",
@@ -24384,7 +24399,7 @@ spewpa: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 vivillon: {
 	"num": 666,
 	"name": "Vivillon",
@@ -24457,7 +24472,7 @@ vivillon: {
 		"Vivillon-Fancy",
 		"Vivillon-Pokeball"
 	]
-}
+},
 vivillonfancy: {
 	"num": 666,
 	"name": "Vivillon-Fancy",
@@ -24483,7 +24498,7 @@ vivillonfancy: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 vivillonpokeball: {
 	"num": 666,
 	"name": "Vivillon-Pokeball",
@@ -24509,7 +24524,7 @@ vivillonpokeball: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 litleo: {
 	"num": 667,
 	"name": "Litleo",
@@ -24541,7 +24556,7 @@ litleo: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 pyroar: {
 	"num": 668,
 	"name": "Pyroar",
@@ -24572,7 +24587,7 @@ pyroar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 flabebe: {
 	"num": 669,
 	"name": "Flabébé",
@@ -24613,7 +24628,7 @@ flabebe: {
 		"Flabébé-White",
 		"Flabébé-Yellow"
 	]
-}
+},
 floette: {
 	"num": 670,
 	"name": "Floette",
@@ -24660,7 +24675,7 @@ floette: {
 		"Floette-Yellow",
 		"Floette-Eternal"
 	]
-}
+},
 floetteeternal: {
 	"num": 670,
 	"name": "Floette-Eternal",
@@ -24685,7 +24700,7 @@ floetteeternal: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 florges: {
 	"num": 671,
 	"name": "Florges",
@@ -24726,7 +24741,7 @@ florges: {
 		"Florges-White",
 		"Florges-Yellow"
 	]
-}
+},
 skiddo: {
 	"num": 672,
 	"name": "Skiddo",
@@ -24752,7 +24767,7 @@ skiddo: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 gogoat: {
 	"num": 673,
 	"name": "Gogoat",
@@ -24777,7 +24792,7 @@ gogoat: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 pancham: {
 	"num": 674,
 	"name": "Pancham",
@@ -24805,7 +24820,7 @@ pancham: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 pangoro: {
 	"num": 675,
 	"name": "Pangoro",
@@ -24834,7 +24849,7 @@ pangoro: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 furfrou: {
 	"num": 676,
 	"name": "Furfrou",
@@ -24880,7 +24895,7 @@ furfrou: {
 		"Furfrou-Kabuki",
 		"Furfrou-Pharaoh"
 	]
-}
+},
 espurr: {
 	"num": 677,
 	"name": "Espurr",
@@ -24908,7 +24923,7 @@ espurr: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 meowstic: {
 	"num": 678,
 	"name": "Meowstic",
@@ -24943,7 +24958,7 @@ meowstic: {
 		"Meowstic",
 		"Meowstic-F"
 	]
-}
+},
 meowsticf: {
 	"num": 678,
 	"name": "Meowstic-F",
@@ -24972,7 +24987,7 @@ meowsticf: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 honedge: {
 	"num": 679,
 	"name": "Honedge",
@@ -24998,7 +25013,7 @@ honedge: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 doublade: {
 	"num": 680,
 	"name": "Doublade",
@@ -25026,7 +25041,7 @@ doublade: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 aegislash: {
 	"num": 681,
 	"name": "Aegislash",
@@ -25060,7 +25075,7 @@ aegislash: {
 		"Aegislash",
 		"Aegislash-Blade"
 	]
-}
+},
 aegislashblade: {
 	"num": 681,
 	"name": "Aegislash-Blade",
@@ -25087,7 +25102,7 @@ aegislashblade: {
 	],
 	"requiredAbility": "Stance Change",
 	"battleOnly": "Aegislash"
-}
+},
 spritzee: {
 	"num": 682,
 	"name": "Spritzee",
@@ -25113,7 +25128,7 @@ spritzee: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 aromatisse: {
 	"num": 683,
 	"name": "Aromatisse",
@@ -25139,7 +25154,7 @@ aromatisse: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 swirlix: {
 	"num": 684,
 	"name": "Swirlix",
@@ -25165,7 +25180,7 @@ swirlix: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 slurpuff: {
 	"num": 685,
 	"name": "Slurpuff",
@@ -25191,7 +25206,7 @@ slurpuff: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 inkay: {
 	"num": 686,
 	"name": "Inkay",
@@ -25220,7 +25235,7 @@ inkay: {
 		"Water 1",
 		"Water 2"
 	]
-}
+},
 malamar: {
 	"num": 687,
 	"name": "Malamar",
@@ -25249,7 +25264,7 @@ malamar: {
 		"Water 1",
 		"Water 2"
 	]
-}
+},
 binacle: {
 	"num": 688,
 	"name": "Binacle",
@@ -25277,7 +25292,7 @@ binacle: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 barbaracle: {
 	"num": 689,
 	"name": "Barbaracle",
@@ -25304,7 +25319,7 @@ barbaracle: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 skrelp: {
 	"num": 690,
 	"name": "Skrelp",
@@ -25333,7 +25348,7 @@ skrelp: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 dragalge: {
 	"num": 691,
 	"name": "Dragalge",
@@ -25361,7 +25376,7 @@ dragalge: {
 		"Water 1",
 		"Dragon"
 	]
-}
+},
 clauncher: {
 	"num": 692,
 	"name": "Clauncher",
@@ -25387,7 +25402,7 @@ clauncher: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 clawitzer: {
 	"num": 693,
 	"name": "Clawitzer",
@@ -25412,7 +25427,7 @@ clawitzer: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 helioptile: {
 	"num": 694,
 	"name": "Helioptile",
@@ -25441,7 +25456,7 @@ helioptile: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 heliolisk: {
 	"num": 695,
 	"name": "Heliolisk",
@@ -25470,7 +25485,7 @@ heliolisk: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 tyrunt: {
 	"num": 696,
 	"name": "Tyrunt",
@@ -25502,7 +25517,7 @@ tyrunt: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 tyrantrum: {
 	"num": 697,
 	"name": "Tyrantrum",
@@ -25534,7 +25549,7 @@ tyrantrum: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 amaura: {
 	"num": 698,
 	"name": "Amaura",
@@ -25565,7 +25580,7 @@ amaura: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 aurorus: {
 	"num": 699,
 	"name": "Aurorus",
@@ -25596,7 +25611,7 @@ aurorus: {
 	"eggGroups": [
 		"Monster"
 	]
-}
+},
 sylveon: {
 	"num": 700,
 	"name": "Sylveon",
@@ -25626,7 +25641,7 @@ sylveon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 hawlucha: {
 	"num": 701,
 	"name": "Hawlucha",
@@ -25652,7 +25667,7 @@ hawlucha: {
 		"Flying",
 		"Human-Like"
 	]
-}
+},
 dedenne: {
 	"num": 702,
 	"name": "Dedenne",
@@ -25678,7 +25693,7 @@ dedenne: {
 		"Field",
 		"Fairy"
 	]
-}
+},
 carbink: {
 	"num": 703,
 	"name": "Carbink",
@@ -25704,7 +25719,7 @@ carbink: {
 		"Fairy",
 		"Mineral"
 	]
-}
+},
 goomy: {
 	"num": 704,
 	"name": "Goomy",
@@ -25732,7 +25747,7 @@ goomy: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 sliggoo: {
 	"num": 705,
 	"name": "Sliggoo",
@@ -25768,7 +25783,7 @@ sliggoo: {
 		"Sliggoo",
 		"Sliggoo-Hisui"
 	]
-}
+},
 sliggoohisui: {
 	"num": 705,
 	"name": "Sliggoo-Hisui",
@@ -25800,7 +25815,7 @@ sliggoohisui: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 goodra: {
 	"num": 706,
 	"name": "Goodra",
@@ -25833,7 +25848,7 @@ goodra: {
 		"Goodra",
 		"Goodra-Hisui"
 	]
-}
+},
 goodrahisui: {
 	"num": 706,
 	"name": "Goodra-Hisui",
@@ -25862,7 +25877,7 @@ goodrahisui: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 klefki: {
 	"num": 707,
 	"name": "Klefki",
@@ -25886,7 +25901,7 @@ klefki: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 phantump: {
 	"num": 708,
 	"name": "Phantump",
@@ -25915,7 +25930,7 @@ phantump: {
 		"Grass",
 		"Amorphous"
 	]
-}
+},
 trevenant: {
 	"num": 709,
 	"name": "Trevenant",
@@ -25943,7 +25958,7 @@ trevenant: {
 		"Grass",
 		"Amorphous"
 	]
-}
+},
 pumpkaboo: {
 	"num": 710,
 	"name": "Pumpkaboo",
@@ -25983,7 +25998,7 @@ pumpkaboo: {
 		"Pumpkaboo-Large",
 		"Pumpkaboo-Super"
 	]
-}
+},
 pumpkaboosmall: {
 	"num": 710,
 	"name": "Pumpkaboo-Small",
@@ -26013,7 +26028,7 @@ pumpkaboosmall: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 pumpkaboolarge: {
 	"num": 710,
 	"name": "Pumpkaboo-Large",
@@ -26043,7 +26058,7 @@ pumpkaboolarge: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 pumpkaboosuper: {
 	"num": 710,
 	"name": "Pumpkaboo-Super",
@@ -26073,7 +26088,7 @@ pumpkaboosuper: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 gourgeist: {
 	"num": 711,
 	"name": "Gourgeist",
@@ -26112,7 +26127,7 @@ gourgeist: {
 		"Gourgeist-Large",
 		"Gourgeist-Super"
 	]
-}
+},
 gourgeistsmall: {
 	"num": 711,
 	"name": "Gourgeist-Small",
@@ -26141,7 +26156,7 @@ gourgeistsmall: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 gourgeistlarge: {
 	"num": 711,
 	"name": "Gourgeist-Large",
@@ -26170,7 +26185,7 @@ gourgeistlarge: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 gourgeistsuper: {
 	"num": 711,
 	"name": "Gourgeist-Super",
@@ -26199,7 +26214,7 @@ gourgeistsuper: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 bergmite: {
 	"num": 712,
 	"name": "Bergmite",
@@ -26228,7 +26243,7 @@ bergmite: {
 		"Monster",
 		"Mineral"
 	]
-}
+},
 avalugg: {
 	"num": 713,
 	"name": "Avalugg",
@@ -26262,7 +26277,7 @@ avalugg: {
 		"Avalugg",
 		"Avalugg-Hisui"
 	]
-}
+},
 avalugghisui: {
 	"num": 713,
 	"name": "Avalugg-Hisui",
@@ -26292,7 +26307,7 @@ avalugghisui: {
 		"Monster",
 		"Mineral"
 	]
-}
+},
 noibat: {
 	"num": 714,
 	"name": "Noibat",
@@ -26321,7 +26336,7 @@ noibat: {
 		"Flying",
 		"Dragon"
 	]
-}
+},
 noivern: {
 	"num": 715,
 	"name": "Noivern",
@@ -26349,7 +26364,7 @@ noivern: {
 		"Flying",
 		"Dragon"
 	]
-}
+},
 xerneas: {
 	"num": 716,
 	"name": "Xerneas",
@@ -26383,7 +26398,7 @@ xerneas: {
 		"Xerneas-Neutral",
 		"Xerneas"
 	]
-}
+},
 xerneasneutral: {
 	"num": 716,
 	"name": "Xerneas-Neutral",
@@ -26408,7 +26423,7 @@ xerneasneutral: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 yveltal: {
 	"num": 717,
 	"name": "Yveltal",
@@ -26435,7 +26450,7 @@ yveltal: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 zygarde: {
 	"num": 718,
 	"name": "Zygarde",
@@ -26475,7 +26490,7 @@ zygarde: {
 		"Zygarde",
 		"Zygarde-Complete"
 	]
-}
+},
 zygarde10: {
 	"num": 718,
 	"name": "Zygarde-10%",
@@ -26504,7 +26519,7 @@ zygarde10: {
 	],
 	"changesFrom": "Zygarde",
 	"gen": 7
-}
+},
 zygardecomplete: {
 	"num": 718,
 	"name": "Zygarde-Complete",
@@ -26536,7 +26551,7 @@ zygardecomplete: {
 		"Zygarde-10%"
 	],
 	"gen": 7
-}
+},
 diancie: {
 	"num": 719,
 	"name": "Diancie",
@@ -26570,7 +26585,7 @@ diancie: {
 		"Diancie",
 		"Diancie-Mega"
 	]
-}
+},
 dianciemega: {
 	"num": 719,
 	"name": "Diancie-Mega",
@@ -26597,7 +26612,7 @@ dianciemega: {
 		"Undiscovered"
 	],
 	"requiredItem": "Diancite"
-}
+},
 hoopa: {
 	"num": 720,
 	"name": "Hoopa",
@@ -26632,7 +26647,7 @@ hoopa: {
 		"Hoopa",
 		"Hoopa-Unbound"
 	]
-}
+},
 hoopaunbound: {
 	"num": 720,
 	"name": "Hoopa-Unbound",
@@ -26659,7 +26674,7 @@ hoopaunbound: {
 		"Undiscovered"
 	],
 	"changesFrom": "Hoopa"
-}
+},
 volcanion: {
 	"num": 721,
 	"name": "Volcanion",
@@ -26686,7 +26701,7 @@ volcanion: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 rowlet: {
 	"num": 722,
 	"name": "Rowlet",
@@ -26717,7 +26732,7 @@ rowlet: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 dartrix: {
 	"num": 723,
 	"name": "Dartrix",
@@ -26751,7 +26766,7 @@ dartrix: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 decidueye: {
 	"num": 724,
 	"name": "Decidueye",
@@ -26788,7 +26803,7 @@ decidueye: {
 		"Decidueye",
 		"Decidueye-Hisui"
 	]
-}
+},
 decidueyehisui: {
 	"num": 724,
 	"name": "Decidueye-Hisui",
@@ -26820,7 +26835,7 @@ decidueyehisui: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 litten: {
 	"num": 725,
 	"name": "Litten",
@@ -26850,7 +26865,7 @@ litten: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 torracat: {
 	"num": 726,
 	"name": "Torracat",
@@ -26882,7 +26897,7 @@ torracat: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 incineroar: {
 	"num": 727,
 	"name": "Incineroar",
@@ -26912,7 +26927,7 @@ incineroar: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 popplio: {
 	"num": 728,
 	"name": "Popplio",
@@ -26943,7 +26958,7 @@ popplio: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 brionne: {
 	"num": 729,
 	"name": "Brionne",
@@ -26976,7 +26991,7 @@ brionne: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 primarina: {
 	"num": 730,
 	"name": "Primarina",
@@ -27007,7 +27022,7 @@ primarina: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 pikipek: {
 	"num": 731,
 	"name": "Pikipek",
@@ -27035,7 +27050,7 @@ pikipek: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 trumbeak: {
 	"num": 732,
 	"name": "Trumbeak",
@@ -27065,7 +27080,7 @@ trumbeak: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 toucannon: {
 	"num": 733,
 	"name": "Toucannon",
@@ -27092,7 +27107,7 @@ toucannon: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 yungoos: {
 	"num": 734,
 	"name": "Yungoos",
@@ -27119,7 +27134,7 @@ yungoos: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 gumshoos: {
 	"num": 735,
 	"name": "Gumshoos",
@@ -27153,7 +27168,7 @@ gumshoos: {
 		"Gumshoos",
 		"Gumshoos-Totem"
 	]
-}
+},
 gumshoostotem: {
 	"num": 735,
 	"name": "Gumshoos-Totem",
@@ -27177,7 +27192,7 @@ gumshoostotem: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 grubbin: {
 	"num": 736,
 	"name": "Grubbin",
@@ -27202,7 +27217,7 @@ grubbin: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 charjabug: {
 	"num": 737,
 	"name": "Charjabug",
@@ -27230,7 +27245,7 @@ charjabug: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 vikavolt: {
 	"num": 738,
 	"name": "Vikavolt",
@@ -27263,7 +27278,7 @@ vikavolt: {
 		"Vikavolt",
 		"Vikavolt-Totem"
 	]
-}
+},
 vikavolttotem: {
 	"num": 738,
 	"name": "Vikavolt-Totem",
@@ -27288,7 +27303,7 @@ vikavolttotem: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 crabrawler: {
 	"num": 739,
 	"name": "Crabrawler",
@@ -27315,7 +27330,7 @@ crabrawler: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 crabominable: {
 	"num": 740,
 	"name": "Crabominable",
@@ -27343,7 +27358,7 @@ crabominable: {
 	"eggGroups": [
 		"Water 3"
 	]
-}
+},
 oricorio: {
 	"num": 741,
 	"name": "Oricorio",
@@ -27382,7 +27397,7 @@ oricorio: {
 		"Oricorio-Pa'u",
 		"Oricorio-Sensu"
 	]
-}
+},
 oricoriopompom: {
 	"num": 741,
 	"name": "Oricorio-Pom-Pom",
@@ -27412,7 +27427,7 @@ oricoriopompom: {
 		"Flying"
 	],
 	"changesFrom": "Oricorio"
-}
+},
 oricoriopau: {
 	"num": 741,
 	"name": "Oricorio-Pa'u",
@@ -27442,7 +27457,7 @@ oricoriopau: {
 		"Flying"
 	],
 	"changesFrom": "Oricorio"
-}
+},
 oricoriosensu: {
 	"num": 741,
 	"name": "Oricorio-Sensu",
@@ -27472,7 +27487,7 @@ oricoriosensu: {
 		"Flying"
 	],
 	"changesFrom": "Oricorio"
-}
+},
 cutiefly: {
 	"num": 742,
 	"name": "Cutiefly",
@@ -27501,7 +27516,7 @@ cutiefly: {
 		"Bug",
 		"Fairy"
 	]
-}
+},
 ribombee: {
 	"num": 743,
 	"name": "Ribombee",
@@ -27536,7 +27551,7 @@ ribombee: {
 		"Ribombee",
 		"Ribombee-Totem"
 	]
-}
+},
 ribombeetotem: {
 	"num": 743,
 	"name": "Ribombee-Totem",
@@ -27562,7 +27577,7 @@ ribombeetotem: {
 		"Bug",
 		"Fairy"
 	]
-}
+},
 rockruff: {
 	"num": 744,
 	"name": "Rockruff",
@@ -27597,7 +27612,7 @@ rockruff: {
 		"Rockruff",
 		"Rockruff"
 	]
-}
+},
 lycanroc: {
 	"num": 745,
 	"name": "Lycanroc",
@@ -27634,7 +27649,7 @@ lycanroc: {
 		"Lycanroc-Midnight",
 		"Lycanroc-Dusk"
 	]
-}
+},
 lycanrocmidnight: {
 	"num": 745,
 	"name": "Lycanroc-Midnight",
@@ -27663,7 +27678,7 @@ lycanrocmidnight: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 lycanrocdusk: {
 	"num": 745,
 	"name": "Lycanroc-Dusk",
@@ -27690,7 +27705,7 @@ lycanrocdusk: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 wishiwashi: {
 	"num": 746,
 	"name": "Wishiwashi",
@@ -27720,7 +27735,7 @@ wishiwashi: {
 		"Wishiwashi",
 		"Wishiwashi-School"
 	]
-}
+},
 wishiwashischool: {
 	"num": 746,
 	"name": "Wishiwashi-School",
@@ -27746,7 +27761,7 @@ wishiwashischool: {
 	],
 	"requiredAbility": "Schooling",
 	"battleOnly": "Wishiwashi"
-}
+},
 mareanie: {
 	"num": 747,
 	"name": "Mareanie",
@@ -27774,7 +27789,7 @@ mareanie: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 toxapex: {
 	"num": 748,
 	"name": "Toxapex",
@@ -27801,7 +27816,7 @@ toxapex: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 mudbray: {
 	"num": 749,
 	"name": "Mudbray",
@@ -27828,7 +27843,7 @@ mudbray: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 mudsdale: {
 	"num": 750,
 	"name": "Mudsdale",
@@ -27854,7 +27869,7 @@ mudsdale: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 dewpider: {
 	"num": 751,
 	"name": "Dewpider",
@@ -27882,7 +27897,7 @@ dewpider: {
 		"Water 1",
 		"Bug"
 	]
-}
+},
 araquanid: {
 	"num": 752,
 	"name": "Araquanid",
@@ -27916,7 +27931,7 @@ araquanid: {
 		"Araquanid",
 		"Araquanid-Totem"
 	]
-}
+},
 araquanidtotem: {
 	"num": 752,
 	"name": "Araquanid-Totem",
@@ -27942,7 +27957,7 @@ araquanidtotem: {
 		"Water 1",
 		"Bug"
 	]
-}
+},
 fomantis: {
 	"num": 753,
 	"name": "Fomantis",
@@ -27968,7 +27983,7 @@ fomantis: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 lurantis: {
 	"num": 754,
 	"name": "Lurantis",
@@ -28001,7 +28016,7 @@ lurantis: {
 		"Lurantis",
 		"Lurantis-Totem"
 	]
-}
+},
 lurantistotem: {
 	"num": 754,
 	"name": "Lurantis-Totem",
@@ -28025,7 +28040,7 @@ lurantistotem: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 morelull: {
 	"num": 755,
 	"name": "Morelull",
@@ -28053,7 +28068,7 @@ morelull: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 shiinotic: {
 	"num": 756,
 	"name": "Shiinotic",
@@ -28080,7 +28095,7 @@ shiinotic: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 salandit: {
 	"num": 757,
 	"name": "Salandit",
@@ -28112,7 +28127,7 @@ salandit: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 salazzle: {
 	"num": 758,
 	"name": "Salazzle",
@@ -28147,7 +28162,7 @@ salazzle: {
 		"Salazzle",
 		"Salazzle-Totem"
 	]
-}
+},
 salazzletotem: {
 	"num": 758,
 	"name": "Salazzle-Totem",
@@ -28174,7 +28189,7 @@ salazzletotem: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 stufful: {
 	"num": 759,
 	"name": "Stufful",
@@ -28202,7 +28217,7 @@ stufful: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 bewear: {
 	"num": 760,
 	"name": "Bewear",
@@ -28229,7 +28244,7 @@ bewear: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 bounsweet: {
 	"num": 761,
 	"name": "Bounsweet",
@@ -28257,7 +28272,7 @@ bounsweet: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 steenee: {
 	"num": 762,
 	"name": "Steenee",
@@ -28287,7 +28302,7 @@ steenee: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 tsareena: {
 	"num": 763,
 	"name": "Tsareena",
@@ -28315,7 +28330,7 @@ tsareena: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 comfey: {
 	"num": 764,
 	"name": "Comfey",
@@ -28343,7 +28358,7 @@ comfey: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 oranguru: {
 	"num": 765,
 	"name": "Oranguru",
@@ -28368,7 +28383,7 @@ oranguru: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 passimian: {
 	"num": 766,
 	"name": "Passimian",
@@ -28391,7 +28406,7 @@ passimian: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 wimpod: {
 	"num": 767,
 	"name": "Wimpod",
@@ -28418,7 +28433,7 @@ wimpod: {
 		"Bug",
 		"Water 3"
 	]
-}
+},
 golisopod: {
 	"num": 768,
 	"name": "Golisopod",
@@ -28444,7 +28459,7 @@ golisopod: {
 		"Bug",
 		"Water 3"
 	]
-}
+},
 sandygast: {
 	"num": 769,
 	"name": "Sandygast",
@@ -28471,7 +28486,7 @@ sandygast: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 palossand: {
 	"num": 770,
 	"name": "Palossand",
@@ -28497,7 +28512,7 @@ palossand: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 pyukumuku: {
 	"num": 771,
 	"name": "Pyukumuku",
@@ -28520,7 +28535,7 @@ pyukumuku: {
 	"eggGroups": [
 		"Water 1"
 	]
-}
+},
 typenull: {
 	"num": 772,
 	"name": "Type: Null",
@@ -28549,7 +28564,7 @@ typenull: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 silvally: {
 	"num": 773,
 	"name": "Silvally",
@@ -28616,7 +28631,7 @@ silvally: {
 		"Silvally-Dark",
 		"Silvally-Fairy"
 	]
-}
+},
 silvallybug: {
 	"num": 773,
 	"name": "Silvally-Bug",
@@ -28643,7 +28658,7 @@ silvallybug: {
 	],
 	"requiredItem": "Bug Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallydark: {
 	"num": 773,
 	"name": "Silvally-Dark",
@@ -28670,7 +28685,7 @@ silvallydark: {
 	],
 	"requiredItem": "Dark Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallydragon: {
 	"num": 773,
 	"name": "Silvally-Dragon",
@@ -28697,7 +28712,7 @@ silvallydragon: {
 	],
 	"requiredItem": "Dragon Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallyelectric: {
 	"num": 773,
 	"name": "Silvally-Electric",
@@ -28724,7 +28739,7 @@ silvallyelectric: {
 	],
 	"requiredItem": "Electric Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallyfairy: {
 	"num": 773,
 	"name": "Silvally-Fairy",
@@ -28751,7 +28766,7 @@ silvallyfairy: {
 	],
 	"requiredItem": "Fairy Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallyfighting: {
 	"num": 773,
 	"name": "Silvally-Fighting",
@@ -28778,7 +28793,7 @@ silvallyfighting: {
 	],
 	"requiredItem": "Fighting Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallyfire: {
 	"num": 773,
 	"name": "Silvally-Fire",
@@ -28805,7 +28820,7 @@ silvallyfire: {
 	],
 	"requiredItem": "Fire Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallyflying: {
 	"num": 773,
 	"name": "Silvally-Flying",
@@ -28832,7 +28847,7 @@ silvallyflying: {
 	],
 	"requiredItem": "Flying Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallyghost: {
 	"num": 773,
 	"name": "Silvally-Ghost",
@@ -28859,7 +28874,7 @@ silvallyghost: {
 	],
 	"requiredItem": "Ghost Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallygrass: {
 	"num": 773,
 	"name": "Silvally-Grass",
@@ -28886,7 +28901,7 @@ silvallygrass: {
 	],
 	"requiredItem": "Grass Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallyground: {
 	"num": 773,
 	"name": "Silvally-Ground",
@@ -28913,7 +28928,7 @@ silvallyground: {
 	],
 	"requiredItem": "Ground Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallyice: {
 	"num": 773,
 	"name": "Silvally-Ice",
@@ -28940,7 +28955,7 @@ silvallyice: {
 	],
 	"requiredItem": "Ice Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallypoison: {
 	"num": 773,
 	"name": "Silvally-Poison",
@@ -28967,7 +28982,7 @@ silvallypoison: {
 	],
 	"requiredItem": "Poison Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallypsychic: {
 	"num": 773,
 	"name": "Silvally-Psychic",
@@ -28994,7 +29009,7 @@ silvallypsychic: {
 	],
 	"requiredItem": "Psychic Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallyrock: {
 	"num": 773,
 	"name": "Silvally-Rock",
@@ -29021,7 +29036,7 @@ silvallyrock: {
 	],
 	"requiredItem": "Rock Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallysteel: {
 	"num": 773,
 	"name": "Silvally-Steel",
@@ -29048,7 +29063,7 @@ silvallysteel: {
 	],
 	"requiredItem": "Steel Memory",
 	"changesFrom": "Silvally"
-}
+},
 silvallywater: {
 	"num": 773,
 	"name": "Silvally-Water",
@@ -29075,7 +29090,7 @@ silvallywater: {
 	],
 	"requiredItem": "Water Memory",
 	"changesFrom": "Silvally"
-}
+},
 minior: {
 	"num": 774,
 	"name": "Minior",
@@ -29127,7 +29142,7 @@ minior: {
 		"Minior-Indigo",
 		"Minior-Violet"
 	]
-}
+},
 miniormeteor: {
 	"num": 774,
 	"name": "Minior-Meteor",
@@ -29155,7 +29170,7 @@ miniormeteor: {
 	],
 	"requiredAbility": "Shields Down",
 	"battleOnly": "Minior"
-}
+},
 komala: {
 	"num": 775,
 	"name": "Komala",
@@ -29177,7 +29192,7 @@ komala: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 turtonator: {
 	"num": 776,
 	"name": "Turtonator",
@@ -29201,7 +29216,7 @@ turtonator: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 togedemaru: {
 	"num": 777,
 	"name": "Togedemaru",
@@ -29234,7 +29249,7 @@ togedemaru: {
 		"Togedemaru",
 		"Togedemaru-Totem"
 	]
-}
+},
 togedemarutotem: {
 	"num": 777,
 	"name": "Togedemaru-Totem",
@@ -29260,7 +29275,7 @@ togedemarutotem: {
 		"Field",
 		"Fairy"
 	]
-}
+},
 mimikyu: {
 	"num": 778,
 	"name": "Mimikyu",
@@ -29295,7 +29310,7 @@ mimikyu: {
 		"Mimikyu-Totem",
 		"Mimikyu-Busted-Totem"
 	]
-}
+},
 mimikyubusted: {
 	"num": 778,
 	"name": "Mimikyu-Busted",
@@ -29322,7 +29337,7 @@ mimikyubusted: {
 	],
 	"requiredAbility": "Disguise",
 	"battleOnly": "Mimikyu"
-}
+},
 mimikyutotem: {
 	"num": 778,
 	"name": "Mimikyu-Totem",
@@ -29347,7 +29362,7 @@ mimikyutotem: {
 	"eggGroups": [
 		"Amorphous"
 	]
-}
+},
 mimikyubustedtotem: {
 	"num": 778,
 	"name": "Mimikyu-Busted-Totem",
@@ -29374,7 +29389,7 @@ mimikyubustedtotem: {
 	],
 	"requiredAbility": "Disguise",
 	"battleOnly": "Mimikyu-Totem"
-}
+},
 bruxish: {
 	"num": 779,
 	"name": "Bruxish",
@@ -29399,7 +29414,7 @@ bruxish: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 drampa: {
 	"num": 780,
 	"name": "Drampa",
@@ -29425,7 +29440,7 @@ drampa: {
 		"Monster",
 		"Dragon"
 	]
-}
+},
 dhelmise: {
 	"num": 781,
 	"name": "Dhelmise",
@@ -29449,7 +29464,7 @@ dhelmise: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 jangmoo: {
 	"num": 782,
 	"name": "Jangmo-o",
@@ -29476,7 +29491,7 @@ jangmoo: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 hakamoo: {
 	"num": 783,
 	"name": "Hakamo-o",
@@ -29506,7 +29521,7 @@ hakamoo: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 kommoo: {
 	"num": 784,
 	"name": "Kommo-o",
@@ -29540,7 +29555,7 @@ kommoo: {
 		"Kommo-o",
 		"Kommo-o-Totem"
 	]
-}
+},
 kommoototem: {
 	"num": 784,
 	"name": "Kommo-o-Totem",
@@ -29565,7 +29580,7 @@ kommoototem: {
 	"eggGroups": [
 		"Dragon"
 	]
-}
+},
 tapukoko: {
 	"num": 785,
 	"name": "Tapu Koko",
@@ -29593,7 +29608,7 @@ tapukoko: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 tapulele: {
 	"num": 786,
 	"name": "Tapu Lele",
@@ -29621,7 +29636,7 @@ tapulele: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 tapubulu: {
 	"num": 787,
 	"name": "Tapu Bulu",
@@ -29649,7 +29664,7 @@ tapubulu: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 tapufini: {
 	"num": 788,
 	"name": "Tapu Fini",
@@ -29677,7 +29692,7 @@ tapufini: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 cosmog: {
 	"num": 789,
 	"name": "Cosmog",
@@ -29706,7 +29721,7 @@ cosmog: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 cosmoem: {
 	"num": 790,
 	"name": "Cosmoem",
@@ -29738,7 +29753,7 @@ cosmoem: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 solgaleo: {
 	"num": 791,
 	"name": "Solgaleo",
@@ -29767,7 +29782,7 @@ solgaleo: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 lunala: {
 	"num": 792,
 	"name": "Lunala",
@@ -29796,7 +29811,7 @@ lunala: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 nihilego: {
 	"num": 793,
 	"name": "Nihilego",
@@ -29823,7 +29838,7 @@ nihilego: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 buzzwole: {
 	"num": 794,
 	"name": "Buzzwole",
@@ -29850,7 +29865,7 @@ buzzwole: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 pheromosa: {
 	"num": 795,
 	"name": "Pheromosa",
@@ -29877,7 +29892,7 @@ pheromosa: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 xurkitree: {
 	"num": 796,
 	"name": "Xurkitree",
@@ -29903,7 +29918,7 @@ xurkitree: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 celesteela: {
 	"num": 797,
 	"name": "Celesteela",
@@ -29930,7 +29945,7 @@ celesteela: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 kartana: {
 	"num": 798,
 	"name": "Kartana",
@@ -29957,7 +29972,7 @@ kartana: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 guzzlord: {
 	"num": 799,
 	"name": "Guzzlord",
@@ -29984,7 +29999,7 @@ guzzlord: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 necrozma: {
 	"num": 800,
 	"name": "Necrozma",
@@ -30021,7 +30036,7 @@ necrozma: {
 		"Necrozma-Dawn-Wings",
 		"Necrozma-Ultra"
 	]
-}
+},
 necrozmaduskmane: {
 	"num": 800,
 	"name": "Necrozma-Dusk-Mane",
@@ -30048,7 +30063,7 @@ necrozmaduskmane: {
 		"Undiscovered"
 	],
 	"changesFrom": "Necrozma"
-}
+},
 necrozmadawnwings: {
 	"num": 800,
 	"name": "Necrozma-Dawn-Wings",
@@ -30075,7 +30090,7 @@ necrozmadawnwings: {
 		"Undiscovered"
 	],
 	"changesFrom": "Necrozma"
-}
+},
 necrozmaultra: {
 	"num": 800,
 	"name": "Necrozma-Ultra",
@@ -30106,7 +30121,7 @@ necrozmaultra: {
 		"Necrozma-Dawn-Wings",
 		"Necrozma-Dusk-Mane"
 	]
-}
+},
 magearna: {
 	"num": 801,
 	"name": "Magearna",
@@ -30140,7 +30155,7 @@ magearna: {
 		"Magearna",
 		"Magearna-Original"
 	]
-}
+},
 magearnaoriginal: {
 	"num": 801,
 	"name": "Magearna-Original",
@@ -30166,7 +30181,7 @@ magearnaoriginal: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 marshadow: {
 	"num": 802,
 	"name": "Marshadow",
@@ -30193,7 +30208,7 @@ marshadow: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 poipole: {
 	"num": 803,
 	"name": "Poipole",
@@ -30222,7 +30237,7 @@ poipole: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 naganadel: {
 	"num": 804,
 	"name": "Naganadel",
@@ -30252,12 +30267,13 @@ naganadel: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 stakataka: {
 	"num": 805,
 	"name": "Stakataka",
 	"types": [
-		"Rock"
+		"Rock",
+		null
 	],
 	"gender": "N",
 	"baseStats": {
@@ -30278,7 +30294,7 @@ stakataka: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 blacephalon: {
 	"num": 806,
 	"name": "Blacephalon",
@@ -30305,7 +30321,7 @@ blacephalon: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 zeraora: {
 	"num": 807,
 	"name": "Zeraora",
@@ -30331,7 +30347,7 @@ zeraora: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 meltan: {
 	"num": 808,
 	"name": "Meltan",
@@ -30357,7 +30373,7 @@ meltan: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 melmetal: {
 	"num": 809,
 	"name": "Melmetal",
@@ -30384,7 +30400,7 @@ melmetal: {
 		"Undiscovered"
 	],
 	"canGigantamax": "G-Max Meltdown"
-}
+},
 grookey: {
 	"num": 810,
 	"name": "Grookey",
@@ -30415,7 +30431,7 @@ grookey: {
 		"Field",
 		"Grass"
 	]
-}
+},
 thwackey: {
 	"num": 811,
 	"name": "Thwackey",
@@ -30448,7 +30464,7 @@ thwackey: {
 		"Field",
 		"Grass"
 	]
-}
+},
 rillaboom: {
 	"num": 812,
 	"name": "Rillaboom",
@@ -30479,7 +30495,7 @@ rillaboom: {
 		"Grass"
 	],
 	"canGigantamax": "G-Max Drum Solo"
-}
+},
 scorbunny: {
 	"num": 813,
 	"name": "Scorbunny",
@@ -30510,7 +30526,7 @@ scorbunny: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 raboot: {
 	"num": 814,
 	"name": "Raboot",
@@ -30543,7 +30559,7 @@ raboot: {
 		"Field",
 		"Human-Like"
 	]
-}
+},
 cinderace: {
 	"num": 815,
 	"name": "Cinderace",
@@ -30574,7 +30590,7 @@ cinderace: {
 		"Human-Like"
 	],
 	"canGigantamax": "G-Max Fireball"
-}
+},
 sobble: {
 	"num": 816,
 	"name": "Sobble",
@@ -30605,7 +30621,7 @@ sobble: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 drizzile: {
 	"num": 817,
 	"name": "Drizzile",
@@ -30638,7 +30654,7 @@ drizzile: {
 		"Water 1",
 		"Field"
 	]
-}
+},
 inteleon: {
 	"num": 818,
 	"name": "Inteleon",
@@ -30669,7 +30685,7 @@ inteleon: {
 		"Field"
 	],
 	"canGigantamax": "G-Max Hydrosnipe"
-}
+},
 skwovet: {
 	"num": 819,
 	"name": "Skwovet",
@@ -30695,7 +30711,7 @@ skwovet: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 greedent: {
 	"num": 820,
 	"name": "Greedent",
@@ -30720,7 +30736,7 @@ greedent: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 rookidee: {
 	"num": 821,
 	"name": "Rookidee",
@@ -30747,7 +30763,7 @@ rookidee: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 corvisquire: {
 	"num": 822,
 	"name": "Corvisquire",
@@ -30776,7 +30792,7 @@ corvisquire: {
 	"eggGroups": [
 		"Flying"
 	]
-}
+},
 corviknight: {
 	"num": 823,
 	"name": "Corviknight",
@@ -30804,7 +30820,7 @@ corviknight: {
 		"Flying"
 	],
 	"canGigantamax": "G-Max Wind Rage"
-}
+},
 blipbug: {
 	"num": 824,
 	"name": "Blipbug",
@@ -30831,7 +30847,7 @@ blipbug: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 dottler: {
 	"num": 825,
 	"name": "Dottler",
@@ -30861,7 +30877,7 @@ dottler: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 orbeetle: {
 	"num": 826,
 	"name": "Orbeetle",
@@ -30889,7 +30905,7 @@ orbeetle: {
 		"Bug"
 	],
 	"canGigantamax": "G-Max Gravitas"
-}
+},
 nickit: {
 	"num": 827,
 	"name": "Nickit",
@@ -30916,7 +30932,7 @@ nickit: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 thievul: {
 	"num": 828,
 	"name": "Thievul",
@@ -30942,7 +30958,7 @@ thievul: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 gossifleur: {
 	"num": 829,
 	"name": "Gossifleur",
@@ -30969,7 +30985,7 @@ gossifleur: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 eldegoss: {
 	"num": 830,
 	"name": "Eldegoss",
@@ -30995,7 +31011,7 @@ eldegoss: {
 	"eggGroups": [
 		"Grass"
 	]
-}
+},
 wooloo: {
 	"num": 831,
 	"name": "Wooloo",
@@ -31022,7 +31038,7 @@ wooloo: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 dubwool: {
 	"num": 832,
 	"name": "Dubwool",
@@ -31048,7 +31064,7 @@ dubwool: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 chewtle: {
 	"num": 833,
 	"name": "Chewtle",
@@ -31076,7 +31092,7 @@ chewtle: {
 		"Monster",
 		"Water 1"
 	]
-}
+},
 drednaw: {
 	"num": 834,
 	"name": "Drednaw",
@@ -31105,7 +31121,7 @@ drednaw: {
 		"Water 1"
 	],
 	"canGigantamax": "G-Max Stonesurge"
-}
+},
 yamper: {
 	"num": 835,
 	"name": "Yamper",
@@ -31131,7 +31147,7 @@ yamper: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 boltund: {
 	"num": 836,
 	"name": "Boltund",
@@ -31156,7 +31172,7 @@ boltund: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 rolycoly: {
 	"num": 837,
 	"name": "Rolycoly",
@@ -31183,7 +31199,7 @@ rolycoly: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 carkol: {
 	"num": 838,
 	"name": "Carkol",
@@ -31213,7 +31229,7 @@ carkol: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 coalossal: {
 	"num": 839,
 	"name": "Coalossal",
@@ -31241,7 +31257,7 @@ coalossal: {
 		"Mineral"
 	],
 	"canGigantamax": "G-Max Volcalith"
-}
+},
 applin: {
 	"num": 840,
 	"name": "Applin",
@@ -31271,7 +31287,7 @@ applin: {
 		"Grass",
 		"Dragon"
 	]
-}
+},
 flapple: {
 	"num": 841,
 	"name": "Flapple",
@@ -31301,7 +31317,7 @@ flapple: {
 		"Dragon"
 	],
 	"canGigantamax": "G-Max Tartness"
-}
+},
 appletun: {
 	"num": 842,
 	"name": "Appletun",
@@ -31331,7 +31347,7 @@ appletun: {
 		"Dragon"
 	],
 	"canGigantamax": "G-Max Sweetness"
-}
+},
 silicobra: {
 	"num": 843,
 	"name": "Silicobra",
@@ -31359,7 +31375,7 @@ silicobra: {
 		"Field",
 		"Dragon"
 	]
-}
+},
 sandaconda: {
 	"num": 844,
 	"name": "Sandaconda",
@@ -31387,7 +31403,7 @@ sandaconda: {
 		"Dragon"
 	],
 	"canGigantamax": "G-Max Sandblast"
-}
+},
 cramorant: {
 	"num": 845,
 	"name": "Cramorant",
@@ -31420,7 +31436,7 @@ cramorant: {
 		"Cramorant-Gulping",
 		"Cramorant-Gorging"
 	]
-}
+},
 cramorantgulping: {
 	"num": 845,
 	"name": "Cramorant-Gulping",
@@ -31448,7 +31464,7 @@ cramorantgulping: {
 	],
 	"requiredAbility": "Gulp Missile",
 	"battleOnly": "Cramorant"
-}
+},
 cramorantgorging: {
 	"num": 845,
 	"name": "Cramorant-Gorging",
@@ -31476,7 +31492,7 @@ cramorantgorging: {
 	],
 	"requiredAbility": "Gulp Missile",
 	"battleOnly": "Cramorant"
-}
+},
 arrokuda: {
 	"num": 846,
 	"name": "Arrokuda",
@@ -31502,7 +31518,7 @@ arrokuda: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 barraskewda: {
 	"num": 847,
 	"name": "Barraskewda",
@@ -31527,7 +31543,7 @@ barraskewda: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 toxel: {
 	"num": 848,
 	"name": "Toxel",
@@ -31557,7 +31573,7 @@ toxel: {
 		"Undiscovered"
 	],
 	"canHatch": true
-}
+},
 toxtricity: {
 	"num": 849,
 	"name": "Toxtricity",
@@ -31593,7 +31609,7 @@ toxtricity: {
 		"Toxtricity-Low-Key"
 	],
 	"canGigantamax": "G-Max Stun Shock"
-}
+},
 toxtricitylowkey: {
 	"num": 849,
 	"name": "Toxtricity-Low-Key",
@@ -31623,7 +31639,7 @@ toxtricitylowkey: {
 		"Human-Like"
 	],
 	"canGigantamax": "G-Max Stun Shock"
-}
+},
 toxtricitylowkeygmax: {
 	"num": 849,
 	"name": "Toxtricity-Low-Key-Gmax",
@@ -31652,7 +31668,7 @@ toxtricitylowkeygmax: {
 	],
 	"battleOnly": "Toxtricity-Low-Key",
 	"changesFrom": "Toxtricity-Low-Key"
-}
+},
 sizzlipede: {
 	"num": 850,
 	"name": "Sizzlipede",
@@ -31680,7 +31696,7 @@ sizzlipede: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 centiskorch: {
 	"num": 851,
 	"name": "Centiskorch",
@@ -31708,7 +31724,7 @@ centiskorch: {
 		"Bug"
 	],
 	"canGigantamax": "G-Max Centiferno"
-}
+},
 clobbopus: {
 	"num": 852,
 	"name": "Clobbopus",
@@ -31735,7 +31751,7 @@ clobbopus: {
 		"Water 1",
 		"Human-Like"
 	]
-}
+},
 grapploct: {
 	"num": 853,
 	"name": "Grapploct",
@@ -31762,7 +31778,7 @@ grapploct: {
 		"Water 1",
 		"Human-Like"
 	]
-}
+},
 sinistea: {
 	"num": 854,
 	"name": "Sinistea",
@@ -31798,7 +31814,7 @@ sinistea: {
 		"Sinistea",
 		"Sinistea-Antique"
 	]
-}
+},
 sinisteaantique: {
 	"num": 854,
 	"name": "Sinistea-Antique",
@@ -31827,7 +31843,7 @@ sinisteaantique: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 polteageist: {
 	"num": 855,
 	"name": "Polteageist",
@@ -31863,7 +31879,7 @@ polteageist: {
 		"Polteageist",
 		"Polteageist-Antique"
 	]
-}
+},
 polteageistantique: {
 	"num": 855,
 	"name": "Polteageist-Antique",
@@ -31892,7 +31908,7 @@ polteageistantique: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 hatenna: {
 	"num": 856,
 	"name": "Hatenna",
@@ -31920,7 +31936,7 @@ hatenna: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 hattrem: {
 	"num": 857,
 	"name": "Hattrem",
@@ -31950,7 +31966,7 @@ hattrem: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 hatterene: {
 	"num": 858,
 	"name": "Hatterene",
@@ -31979,12 +31995,13 @@ hatterene: {
 		"Fairy"
 	],
 	"canGigantamax": "G-Max Smite"
-}
+},
 impidimp: {
 	"num": 859,
 	"name": "Impidimp",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"gender": "M",
 	"baseStats": {
@@ -32008,12 +32025,13 @@ impidimp: {
 		"Fairy",
 		"Human-Like"
 	]
-}
+},
 morgrem: {
 	"num": 860,
 	"name": "Morgrem",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"gender": "M",
 	"baseStats": {
@@ -32039,12 +32057,13 @@ morgrem: {
 		"Fairy",
 		"Human-Like"
 	]
-}
+},
 grimmsnarl: {
 	"num": 861,
 	"name": "Grimmsnarl",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"gender": "M",
 	"baseStats": {
@@ -32068,12 +32087,13 @@ grimmsnarl: {
 		"Human-Like"
 	],
 	"canGigantamax": "G-Max Snooze"
-}
+},
 obstagoon: {
 	"num": 862,
 	"name": "Obstagoon",
 	"types": [
-		"Normal"
+		"Normal",
+		null
 	],
 	"baseStats": {
 		"hp": 93,
@@ -32095,7 +32115,7 @@ obstagoon: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 perrserker: {
 	"num": 863,
 	"name": "Perrserker",
@@ -32121,7 +32141,7 @@ perrserker: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 cursola: {
 	"num": 864,
 	"name": "Cursola",
@@ -32151,7 +32171,7 @@ cursola: {
 		"Water 1",
 		"Water 3"
 	]
-}
+},
 sirfetchd: {
 	"num": 865,
 	"name": "Sirfetch’d",
@@ -32178,7 +32198,7 @@ sirfetchd: {
 		"Flying",
 		"Field"
 	]
-}
+},
 mrrime: {
 	"num": 866,
 	"name": "Mr. Rime",
@@ -32205,7 +32225,7 @@ mrrime: {
 	"eggGroups": [
 		"Human-Like"
 	]
-}
+},
 runerigus: {
 	"num": 867,
 	"name": "Runerigus",
@@ -32232,7 +32252,7 @@ runerigus: {
 		"Mineral",
 		"Amorphous"
 	]
-}
+},
 milcery: {
 	"num": 868,
 	"name": "Milcery",
@@ -32260,7 +32280,7 @@ milcery: {
 		"Fairy",
 		"Amorphous"
 	]
-}
+},
 alcremie: {
 	"num": 869,
 	"name": "Alcremie",
@@ -32311,7 +32331,7 @@ alcremie: {
 		"Alcremie-Rainbow-Swirl"
 	],
 	"canGigantamax": "G-Max Finale"
-}
+},
 falinks: {
 	"num": 870,
 	"name": "Falinks",
@@ -32336,7 +32356,7 @@ falinks: {
 		"Fairy",
 		"Mineral"
 	]
-}
+},
 pincurchin: {
 	"num": 871,
 	"name": "Pincurchin",
@@ -32360,7 +32380,7 @@ pincurchin: {
 		"Water 1",
 		"Amorphous"
 	]
-}
+},
 snom: {
 	"num": 872,
 	"name": "Snom",
@@ -32387,7 +32407,7 @@ snom: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 frosmoth: {
 	"num": 873,
 	"name": "Frosmoth",
@@ -32414,7 +32434,7 @@ frosmoth: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 stonjourner: {
 	"num": 874,
 	"name": "Stonjourner",
@@ -32436,7 +32456,7 @@ stonjourner: {
 	"eggGroups": [
 		"Mineral"
 	]
-}
+},
 eiscue: {
 	"num": 875,
 	"name": "Eiscue",
@@ -32466,7 +32486,7 @@ eiscue: {
 		"Eiscue",
 		"Eiscue-Noice"
 	]
-}
+},
 eiscuenoice: {
 	"num": 875,
 	"name": "Eiscue-Noice",
@@ -32493,7 +32513,7 @@ eiscuenoice: {
 	],
 	"requiredAbility": "Ice Face",
 	"battleOnly": "Eiscue"
-}
+},
 indeedee: {
 	"num": 876,
 	"name": "Indeedee",
@@ -32527,7 +32547,7 @@ indeedee: {
 		"Indeedee",
 		"Indeedee-F"
 	]
-}
+},
 indeedeef: {
 	"num": 876,
 	"name": "Indeedee-F",
@@ -32555,7 +32575,7 @@ indeedeef: {
 	"eggGroups": [
 		"Fairy"
 	]
-}
+},
 morpeko: {
 	"num": 877,
 	"name": "Morpeko",
@@ -32586,7 +32606,7 @@ morpeko: {
 		"Morpeko",
 		"Morpeko-Hangry"
 	]
-}
+},
 morpekohangry: {
 	"num": 877,
 	"name": "Morpeko-Hangry",
@@ -32614,7 +32634,7 @@ morpekohangry: {
 	],
 	"requiredAbility": "Hunger Switch",
 	"battleOnly": "Morpeko"
-}
+},
 cufant: {
 	"num": 878,
 	"name": "Cufant",
@@ -32641,7 +32661,7 @@ cufant: {
 		"Field",
 		"Mineral"
 	]
-}
+},
 copperajah: {
 	"num": 879,
 	"name": "Copperajah",
@@ -32668,7 +32688,7 @@ copperajah: {
 		"Mineral"
 	],
 	"canGigantamax": "G-Max Steelsurge"
-}
+},
 dracozolt: {
 	"num": 880,
 	"name": "Dracozolt",
@@ -32694,7 +32714,7 @@ dracozolt: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 arctozolt: {
 	"num": 881,
 	"name": "Arctozolt",
@@ -32720,7 +32740,7 @@ arctozolt: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 dracovish: {
 	"num": 882,
 	"name": "Dracovish",
@@ -32746,7 +32766,7 @@ dracovish: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 arctovish: {
 	"num": 883,
 	"name": "Arctovish",
@@ -32772,7 +32792,7 @@ arctovish: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 duraludon: {
 	"num": 884,
 	"name": "Duraludon",
@@ -32799,7 +32819,7 @@ duraludon: {
 		"Dragon"
 	],
 	"canGigantamax": "G-Max Depletion"
-}
+},
 dreepy: {
 	"num": 885,
 	"name": "Dreepy",
@@ -32828,7 +32848,7 @@ dreepy: {
 		"Amorphous",
 		"Dragon"
 	]
-}
+},
 drakloak: {
 	"num": 886,
 	"name": "Drakloak",
@@ -32859,7 +32879,7 @@ drakloak: {
 		"Amorphous",
 		"Dragon"
 	]
-}
+},
 dragapult: {
 	"num": 887,
 	"name": "Dragapult",
@@ -32887,7 +32907,7 @@ dragapult: {
 		"Amorphous",
 		"Dragon"
 	]
-}
+},
 zacian: {
 	"num": 888,
 	"name": "Zacian",
@@ -32922,7 +32942,7 @@ zacian: {
 		"Zacian-Crowned"
 	],
 	"cannotDynamax": true
-}
+},
 zaciancrowned: {
 	"num": 888,
 	"name": "Zacian-Crowned",
@@ -32951,7 +32971,7 @@ zaciancrowned: {
 	"requiredItem": "Rusted Sword",
 	"battleOnly": "Zacian",
 	"cannotDynamax": true
-}
+},
 zamazenta: {
 	"num": 889,
 	"name": "Zamazenta",
@@ -32986,7 +33006,7 @@ zamazenta: {
 		"Zamazenta-Crowned"
 	],
 	"cannotDynamax": true
-}
+},
 zamazentacrowned: {
 	"num": 889,
 	"name": "Zamazenta-Crowned",
@@ -33015,7 +33035,7 @@ zamazentacrowned: {
 	"requiredItem": "Rusted Shield",
 	"battleOnly": "Zamazenta",
 	"cannotDynamax": true
-}
+},
 eternatus: {
 	"num": 890,
 	"name": "Eternatus",
@@ -33050,7 +33070,7 @@ eternatus: {
 		"Eternatus-Eternamax"
 	],
 	"cannotDynamax": true
-}
+},
 eternatuseternamax: {
 	"num": 890,
 	"name": "Eternatus-Eternamax",
@@ -33077,7 +33097,7 @@ eternatuseternamax: {
 		"Undiscovered"
 	],
 	"cannotDynamax": true
-}
+},
 kubfu: {
 	"num": 891,
 	"name": "Kubfu",
@@ -33110,7 +33130,7 @@ kubfu: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 urshifu: {
 	"num": 892,
 	"name": "Urshifu",
@@ -33152,7 +33172,7 @@ urshifu: {
 		"Urshifu-Rapid-Strike"
 	],
 	"canGigantamax": "G-Max One Blow"
-}
+},
 urshifurapidstrike: {
 	"num": 892,
 	"name": "Urshifu-Rapid-Strike",
@@ -33185,7 +33205,7 @@ urshifurapidstrike: {
 		"Undiscovered"
 	],
 	"canGigantamax": "G-Max Rapid Flow"
-}
+},
 urshifurapidstrikegmax: {
 	"num": 892,
 	"name": "Urshifu-Rapid-Strike-Gmax",
@@ -33216,7 +33236,7 @@ urshifurapidstrikegmax: {
 	],
 	"battleOnly": "Urshifu-Rapid-Strike",
 	"changesFrom": "Urshifu-Rapid-Strike"
-}
+},
 zarude: {
 	"num": 893,
 	"name": "Zarude",
@@ -33250,7 +33270,7 @@ zarude: {
 		"Zarude",
 		"Zarude-Dada"
 	]
-}
+},
 zarudedada: {
 	"num": 893,
 	"name": "Zarude-Dada",
@@ -33276,7 +33296,7 @@ zarudedada: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 regieleki: {
 	"num": 894,
 	"name": "Regieleki",
@@ -33302,7 +33322,7 @@ regieleki: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 regidrago: {
 	"num": 895,
 	"name": "Regidrago",
@@ -33328,7 +33348,7 @@ regidrago: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 glastrier: {
 	"num": 896,
 	"name": "Glastrier",
@@ -33354,7 +33374,7 @@ glastrier: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 spectrier: {
 	"num": 897,
 	"name": "Spectrier",
@@ -33380,7 +33400,7 @@ spectrier: {
 	"eggGroups": [
 		"Undiscovered"
 	]
-}
+},
 calyrex: {
 	"num": 898,
 	"name": "Calyrex",
@@ -33416,7 +33436,7 @@ calyrex: {
 		"Calyrex-Ice",
 		"Calyrex-Shadow"
 	]
-}
+},
 calyrexice: {
 	"num": 898,
 	"name": "Calyrex-Ice",
@@ -33443,7 +33463,7 @@ calyrexice: {
 		"Undiscovered"
 	],
 	"changesFrom": "Calyrex"
-}
+},
 calyrexshadow: {
 	"num": 898,
 	"name": "Calyrex-Shadow",
@@ -33470,7 +33490,7 @@ calyrexshadow: {
 		"Undiscovered"
 	],
 	"changesFrom": "Calyrex"
-}
+},
 wyrdeer: {
 	"num": 899,
 	"name": "Wyrdeer",
@@ -33498,7 +33518,7 @@ wyrdeer: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 kleavor: {
 	"num": 900,
 	"name": "Kleavor",
@@ -33526,7 +33546,7 @@ kleavor: {
 	"eggGroups": [
 		"Bug"
 	]
-}
+},
 ursaluna: {
 	"num": 901,
 	"name": "Ursaluna",
@@ -33554,7 +33574,7 @@ ursaluna: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 basculegion: {
 	"num": 902,
 	"name": "Basculegion",
@@ -33591,7 +33611,7 @@ basculegion: {
 		"Basculegion",
 		"Basculegion-F"
 	]
-}
+},
 basculegionf: {
 	"num": 902,
 	"name": "Basculegion-F",
@@ -33622,7 +33642,7 @@ basculegionf: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 sneasler: {
 	"num": 903,
 	"name": "Sneasler",
@@ -33650,7 +33670,7 @@ sneasler: {
 	"eggGroups": [
 		"Field"
 	]
-}
+},
 overqwil: {
 	"num": 904,
 	"name": "Overqwil",
@@ -33678,7 +33698,7 @@ overqwil: {
 	"eggGroups": [
 		"Water 2"
 	]
-}
+},
 enamorus: {
 	"num": 905,
 	"name": "Enamorus",
@@ -33714,7 +33734,7 @@ enamorus: {
 		"Enamorus",
 		"Enamorus-Therian"
 	]
-}
+},
 enamorustherian: {
 	"num": 905,
 	"name": "Enamorus-Therian",
@@ -33741,7 +33761,7 @@ enamorustherian: {
 		"Undiscovered"
 	],
 	"changesFrom": "Enamorus"
-}
+},
 puchikoon: {
 	"num": 1152,
 	"name": "Puchikoon",
@@ -33760,7 +33780,7 @@ puchikoon: {
 	"evos": [
 		"Ponyta"
 	]
-}
+},
 mikon: {
 	"num": 1153,
 	"name": "Mikon",
@@ -33779,7 +33799,7 @@ mikon: {
 	"evos": [
 		"Vulpix"
 	]
-}
+},
 konya: {
 	"num": 1154,
 	"name": "Konya",
@@ -33798,7 +33818,7 @@ konya: {
 	"evos": [
 		"Meowth"
 	]
-}
+},
 gyopin: {
 	"num": 1155,
 	"name": "Gyopin",
@@ -33817,7 +33837,7 @@ gyopin: {
 	"evos": [
 		"Goldeen"
 	]
-}
+},
 bittybat: {
 	"num": 1156,
 	"name": "Bittybat",
@@ -33837,7 +33857,7 @@ bittybat: {
 	"evos": [
 		"Zubat"
 	]
-}
+},
 blastyke: {
 	"num": 1157,
 	"name": "Blastyke",
@@ -33856,7 +33876,7 @@ blastyke: {
 	"evos": [
 		"Blastoise"
 	]
-}
+},
 magnetite: {
 	"num": 1158,
 	"name": "Magnetite",
@@ -33877,7 +33897,7 @@ magnetite: {
 	"evos": [
 		"Magneton"
 	]
-}
+},
 weirduck: {
 	"num": 1159,
 	"name": "Weirduck",
@@ -33898,7 +33918,7 @@ weirduck: {
 	"evos": [
 		"Golduck"
 	]
-}
+},
 ribbito: {
 	"num": 1160,
 	"name": "Ribbito",
@@ -33917,7 +33937,7 @@ ribbito: {
 	"evos": [
 		"Croakozuna"
 	]
-}
+},
 croakozuna: {
 	"num": 1161,
 	"name": "Croakozuna",
@@ -33934,7 +33954,7 @@ croakozuna: {
 		"spe": 60
 	},
 	"abilities": {}
-}
+},
 skimper: {
 	"num": 1162,
 	"name": "Skimper",
@@ -33953,7 +33973,7 @@ skimper: {
 	"evos": [
 		"Bawligua"
 	]
-}
+},
 bawligua: {
 	"num": 1163,
 	"name": "Bawligua",
@@ -33974,7 +33994,7 @@ bawligua: {
 	"evos": [
 		"Cryithan"
 	]
-}
+},
 cryithan: {
 	"num": 1164,
 	"name": "Cryithan",
@@ -33993,7 +34013,7 @@ cryithan: {
 	"abilities": {},
 	"prevo": "Bawligua",
 	"evoLevel": 50
-}
+},
 nidoreign: {
 	"num": 1165,
 	"name": "Nidoreign",
@@ -34013,7 +34033,7 @@ nidoreign: {
 	"prevo": "Nidorino",
 	"evoType": "useItem",
 	"evoItem": "Moon Stone"
-}
+},
 decilla: {
 	"num": 1166,
 	"name": "Decilla",
@@ -34032,7 +34052,7 @@ decilla: {
 	"evos": [
 		"Gyaoon"
 	]
-}
+},
 gyaoon: {
 	"num": 1167,
 	"name": "Gyaoon",
@@ -34050,7 +34070,7 @@ gyaoon: {
 	"abilities": {},
 	"prevo": "Decilla",
 	"evoLevel": 50
-}
+},
 omega: {
 	"num": 1168,
 	"name": "Omega",
@@ -34066,7 +34086,7 @@ omega: {
 		"spe": 25
 	},
 	"abilities": {}
-}
+},
 trampel: {
 	"num": 1169,
 	"name": "Trampel",
@@ -34083,7 +34103,7 @@ trampel: {
 		"spe": 56
 	},
 	"abilities": {}
-}
+},
 jagg: {
 	"num": 1170,
 	"name": "Jagg",
@@ -34100,7 +34120,7 @@ jagg: {
 		"spe": 60
 	},
 	"abilities": {}
-}
+},
 blottle: {
 	"num": 1171,
 	"name": "Blottle",
@@ -34120,7 +34140,7 @@ blottle: {
 	"evos": [
 		"Pendraken"
 	]
-}
+},
 pendraken: {
 	"num": 1172,
 	"name": "Pendraken",
@@ -34139,7 +34159,7 @@ pendraken: {
 	"abilities": {},
 	"prevo": "Blottle",
 	"evoLevel": 30
-}
+},
 deer: {
 	"num": 1173,
 	"name": "Deer",
@@ -34156,7 +34176,7 @@ deer: {
 		"spe": 60
 	},
 	"abilities": {}
-}
+},
 barunda: {
 	"num": 1174,
 	"name": "Barunda",
@@ -34173,7 +34193,7 @@ barunda: {
 		"spe": 125
 	},
 	"abilities": {}
-}
+},
 cheep: {
 	"num": 1175,
 	"name": "Cheep",
@@ -34192,7 +34212,7 @@ cheep: {
 	"evos": [
 		"Jabetta"
 	]
-}
+},
 jabetta: {
 	"num": 1176,
 	"name": "Jabetta",
@@ -34211,7 +34231,7 @@ jabetta: {
 	"abilities": {},
 	"prevo": "Cheep",
 	"evoLevel": 30
-}
+},
 cactus: {
 	"num": 1177,
 	"name": "Cactus",
@@ -34228,7 +34248,7 @@ cactus: {
 		"spe": 90
 	},
 	"abilities": {}
-}
+},
 kotora: {
 	"num": 1178,
 	"name": "Kotora",
@@ -34247,7 +34267,7 @@ kotora: {
 	"evos": [
 		"Gaotora"
 	]
-}
+},
 gaotora: {
 	"num": 1179,
 	"name": "Gaotora",
@@ -34268,7 +34288,7 @@ gaotora: {
 	"evos": [
 		"Gorotora"
 	]
-}
+},
 gorotora: {
 	"num": 1180,
 	"name": "Gorotora",
@@ -34286,7 +34306,7 @@ gorotora: {
 	"abilities": {},
 	"prevo": "Gaotora",
 	"evoLevel": 36
-}
+},
 crocky: {
 	"num": 1181,
 	"name": "Crocky",
@@ -34302,7 +34322,7 @@ crocky: {
 		"spe": 95
 	},
 	"abilities": {}
-}
+},
 gorochu: {
 	"num": 1182,
 	"name": "Gorochu",
@@ -34320,7 +34340,7 @@ gorochu: {
 	"abilities": {},
 	"prevo": "Raichu",
 	"evoType": "trade"
-}
+},
 guardia: {
 	"num": 1183,
 	"name": "Guardia",
@@ -34339,7 +34359,7 @@ guardia: {
 	"prevo": "Marowak",
 	"evoType": "trade",
 	"evoCondition": "with a Kangaskhan"
-}
+},
 totartle: {
 	"num": 1184,
 	"name": "Totartle",
@@ -34358,7 +34378,7 @@ totartle: {
 	"abilities": {},
 	"prevo": "Wartortle",
 	"evoLevel": 43
-}
+},
 buu: {
 	"num": 1185,
 	"name": "Buu",
@@ -34374,7 +34394,7 @@ buu: {
 		"spe": 95
 	},
 	"abilities": {}
-}
+},
 purakkusu: {
 	"num": 1186,
 	"name": "Purakkusu",
@@ -34393,7 +34413,7 @@ purakkusu: {
 	"abilities": {},
 	"prevo": "Pinsir",
 	"evoLevel": 42
-}
+},
 madaamu: {
 	"num": 1187,
 	"name": "Madaamu",
@@ -34412,7 +34432,7 @@ madaamu: {
 	"abilities": {},
 	"prevo": "Farfetch'd",
 	"evoLevel": 24
-}
+},
 tsubomitto: {
 	"num": 1188,
 	"name": "Tsubomitto",
@@ -34431,7 +34451,7 @@ tsubomitto: {
 	"abilities": {},
 	"prevo": "Weepinbell",
 	"evoType": "trade"
-}
+},
 animon: {
 	"num": 1187,
 	"name": "Animon",
@@ -34450,7 +34470,7 @@ animon: {
 	"prevo": "Ditto",
 	"evoType": "useItem",
 	"evoItem": "Moon Stone"
-}
+},
 monja: {
 	"num": 1188,
 	"name": "Monja",
@@ -34469,7 +34489,7 @@ monja: {
 	"evos": [
 		"Tangela"
 	]
-}
+},
 para: {
 	"num": 1189,
 	"name": "Para",
@@ -34488,7 +34508,7 @@ para: {
 	"evos": [
 		"Paras"
 	]
-}
+},
 hinaazu: {
 	"num": 1190,
 	"name": "Hinaazu",
@@ -34508,7 +34528,7 @@ hinaazu: {
 	"evos": [
 		"Doduo"
 	]
-}
+},
 pudi: {
 	"num": 1191,
 	"name": "Pudi",
@@ -34527,7 +34547,7 @@ pudi: {
 	"evos": [
 		"Growlithe"
 	]
-}
+},
 betobebii: {
 	"num": 1191,
 	"name": "Betobebii",
@@ -34546,5 +34566,5 @@ betobebii: {
 	"evos": [
 		"Grimer"
 	]
-}
+},
 };

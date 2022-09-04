@@ -360,7 +360,7 @@ bulbasaur: {
 			"level": 5
 		}
 	]
-}
+},
 ivysaur: {
 	"learnset": {
 		"amnesia": [
@@ -595,7 +595,7 @@ ivysaur: {
 			"1L10"
 		]
 	}
-}
+},
 venusaur: {
 	"learnset": {
 		"amnesia": [
@@ -881,7 +881,7 @@ venusaur: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 charmander: {
 	"learnset": {
 		"bide": [
@@ -1311,7 +1311,7 @@ charmander: {
 			"level": 5
 		}
 	]
-}
+},
 charmeleon: {
 	"learnset": {
 		"bide": [
@@ -1580,7 +1580,7 @@ charmeleon: {
 			"1M"
 		]
 	}
-}
+},
 charizard: {
 	"learnset": {
 		"bide": [
@@ -2067,7 +2067,7 @@ charizard: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 squirtle: {
 	"learnset": {
 		"bide": [
@@ -2422,7 +2422,7 @@ squirtle: {
 			"level": 5
 		}
 	]
-}
+},
 wartortle: {
 	"learnset": {
 		"bide": [
@@ -2673,7 +2673,7 @@ wartortle: {
 			"1L10"
 		]
 	}
-}
+},
 blastoise: {
 	"learnset": {
 		"bide": [
@@ -2988,7 +2988,7 @@ blastoise: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 caterpie: {
 	"learnset": {
 		"stringshot": [
@@ -3027,7 +3027,7 @@ caterpie: {
 			"level": 3
 		}
 	]
-}
+},
 metapod: {
 	"learnset": {
 		"harden": [
@@ -3070,7 +3070,7 @@ metapod: {
 			"level": 3
 		}
 	]
-}
+},
 butterfree: {
 	"learnset": {
 		"bide": [
@@ -3319,7 +3319,7 @@ butterfree: {
 			"level": 9
 		}
 	]
-}
+},
 weedle: {
 	"learnset": {
 		"poisonsting": [
@@ -3356,7 +3356,7 @@ weedle: {
 			"level": 3
 		}
 	]
-}
+},
 kakuna: {
 	"learnset": {
 		"harden": [
@@ -3398,7 +3398,7 @@ kakuna: {
 			"level": 3
 		}
 	]
-}
+},
 beedrill: {
 	"learnset": {
 		"agility": [
@@ -3592,7 +3592,7 @@ beedrill: {
 			"level": 6
 		}
 	]
-}
+},
 pidgey: {
 	"learnset": {
 		"agility": [
@@ -3766,7 +3766,7 @@ pidgey: {
 			"level": 2
 		}
 	]
-}
+},
 pidgeotto: {
 	"learnset": {
 		"agility": [
@@ -3959,7 +3959,7 @@ pidgeotto: {
 			"level": 7
 		}
 	]
-}
+},
 pidgeot: {
 	"learnset": {
 		"agility": [
@@ -4166,7 +4166,7 @@ pidgeot: {
 			"level": 29
 		}
 	]
-}
+},
 rattata: {
 	"learnset": {
 		"bide": [
@@ -4422,7 +4422,7 @@ rattata: {
 			"level": 2
 		}
 	]
-}
+},
 rattataalola: {
 	"learnset": {
 		"bite": [
@@ -4494,7 +4494,7 @@ rattataalola: {
 			"1M"
 		]
 	}
-}
+},
 raticate: {
 	"learnset": {
 		"bide": [
@@ -4775,7 +4775,7 @@ raticate: {
 			"level": 13
 		}
 	]
-}
+},
 raticatealola: {
 	"learnset": {
 		"bite": [
@@ -4865,7 +4865,7 @@ raticatealola: {
 			"level": 17
 		}
 	]
-}
+},
 raticatealolatotem: {
 	"learnset": {
 		"bite": [
@@ -4939,7 +4939,7 @@ raticatealolatotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 spearow: {
 	"learnset": {
 		"agility": [
@@ -5149,7 +5149,7 @@ spearow: {
 			"level": 3
 		}
 	]
-}
+},
 fearow: {
 	"learnset": {
 		"agility": [
@@ -5333,7 +5333,7 @@ fearow: {
 			"level": 7
 		}
 	]
-}
+},
 ekans: {
 	"learnset": {
 		"acid": [
@@ -5588,7 +5588,7 @@ ekans: {
 			"level": 4
 		}
 	]
-}
+},
 arbok: {
 	"learnset": {
 		"acid": [
@@ -5809,7 +5809,7 @@ arbok: {
 			"level": 10
 		}
 	]
-}
+},
 pichu: {
 	"learnset": {
 		"bide": [
@@ -6056,7 +6056,7 @@ pichu: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 pichuspikyeared: {
 	"learnset": {
 		"doubleteam": [
@@ -6116,7 +6116,7 @@ pichuspikyeared: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachu: {
 	"learnset": {
 		"agility": [
@@ -7182,7 +7182,7 @@ pikachu: {
 			"level": 3
 		}
 	]
-}
+},
 pikachucosplay: {
 	"learnset": {
 		"agility": [
@@ -7263,27 +7263,27 @@ pikachucosplay: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachurockstar: {
 	"learnset": {},
 	"eventOnly": true
-}
+},
 pikachubelle: {
 	"learnset": {},
 	"eventOnly": true
-}
+},
 pikachupopstar: {
 	"learnset": {},
 	"eventOnly": true
-}
+},
 pikachuphd: {
 	"learnset": {},
 	"eventOnly": true
-}
+},
 pikachulibre: {
 	"learnset": {},
 	"eventOnly": true
-}
+},
 pikachuoriginal: {
 	"learnset": {
 		"agility": [
@@ -7415,7 +7415,7 @@ pikachuoriginal: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachuhoenn: {
 	"learnset": {
 		"agility": [
@@ -7546,7 +7546,7 @@ pikachuhoenn: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachusinnoh: {
 	"learnset": {
 		"agility": [
@@ -7676,7 +7676,7 @@ pikachusinnoh: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachuunova: {
 	"learnset": {
 		"agility": [
@@ -7806,7 +7806,7 @@ pikachuunova: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachukalos: {
 	"learnset": {
 		"agility": [
@@ -7936,7 +7936,7 @@ pikachukalos: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachualola: {
 	"learnset": {
 		"agility": [
@@ -8066,7 +8066,7 @@ pikachualola: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachupartner: {
 	"learnset": {
 		"agility": [
@@ -8198,7 +8198,7 @@ pikachupartner: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachustarter: {
 	"learnset": {
 		"agility": [
@@ -8307,7 +8307,7 @@ pikachustarter: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pikachuworld: {
 	"learnset": {
 		"agility": [
@@ -8422,7 +8422,7 @@ pikachuworld: {
 		}
 	],
 	"eventOnly": true
-}
+},
 raichu: {
 	"learnset": {
 		"agility": [
@@ -8671,7 +8671,7 @@ raichu: {
 			"1M"
 		]
 	}
-}
+},
 raichualola: {
 	"learnset": {
 		"agility": [
@@ -8798,7 +8798,7 @@ raichualola: {
 			"1M"
 		]
 	}
-}
+},
 sandshrew: {
 	"learnset": {
 		"agility": [
@@ -9085,7 +9085,7 @@ sandshrew: {
 			"level": 6
 		}
 	]
-}
+},
 sandshrewalola: {
 	"learnset": {
 		"amnesia": [
@@ -9213,7 +9213,7 @@ sandshrewalola: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 sandslash: {
 	"learnset": {
 		"agility": [
@@ -9476,7 +9476,7 @@ sandslash: {
 			"level": 10
 		}
 	]
-}
+},
 sandslashalola: {
 	"learnset": {
 		"agility": [
@@ -9589,7 +9589,7 @@ sandslashalola: {
 			"1M"
 		]
 	}
-}
+},
 nidoranf: {
 	"learnset": {
 		"bide": [
@@ -9864,7 +9864,7 @@ nidoranf: {
 			"level": 2
 		}
 	]
-}
+},
 nidorina: {
 	"learnset": {
 		"bide": [
@@ -10107,7 +10107,7 @@ nidorina: {
 			"pokeball": "safariball"
 		}
 	]
-}
+},
 nidoqueen: {
 	"learnset": {
 		"bide": [
@@ -10476,7 +10476,7 @@ nidoqueen: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 nidoranm: {
 	"learnset": {
 		"amnesia": [
@@ -10768,7 +10768,7 @@ nidoranm: {
 			"level": 2
 		}
 	]
-}
+},
 nidorino: {
 	"learnset": {
 		"amnesia": [
@@ -11016,7 +11016,7 @@ nidorino: {
 			"pokeball": "safariball"
 		}
 	]
-}
+},
 nidoking: {
 	"learnset": {
 		"amnesia": [
@@ -11384,7 +11384,7 @@ nidoking: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 cleffa: {
 	"learnset": {
 		"amnesia": [
@@ -11591,7 +11591,7 @@ cleffa: {
 			"1M"
 		]
 	}
-}
+},
 clefairy: {
 	"learnset": {
 		"amnesia": [
@@ -11992,7 +11992,7 @@ clefairy: {
 			"level": 8
 		}
 	]
-}
+},
 clefable: {
 	"learnset": {
 		"amnesia": [
@@ -12344,7 +12344,7 @@ clefable: {
 			"1V"
 		]
 	}
-}
+},
 vulpix: {
 	"learnset": {
 		"agility": [
@@ -12600,7 +12600,7 @@ vulpix: {
 			"level": 18
 		}
 	]
-}
+},
 vulpixalola: {
 	"learnset": {
 		"agility": [
@@ -12716,7 +12716,7 @@ vulpixalola: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 ninetales: {
 	"learnset": {
 		"agility": [
@@ -12932,7 +12932,7 @@ ninetales: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 ninetalesalola: {
 	"learnset": {
 		"agility": [
@@ -13024,7 +13024,7 @@ ninetalesalola: {
 			"1M"
 		]
 	}
-}
+},
 igglybuff: {
 	"learnset": {
 		"bodyslam": [
@@ -13224,7 +13224,7 @@ igglybuff: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 jigglypuff: {
 	"learnset": {
 		"bide": [
@@ -13602,7 +13602,7 @@ jigglypuff: {
 			"level": 3
 		}
 	]
-}
+},
 wigglytuff: {
 	"learnset": {
 		"bide": [
@@ -13955,7 +13955,7 @@ wigglytuff: {
 			"level": 22
 		}
 	]
-}
+},
 zubat: {
 	"learnset": {
 		"absorb": [
@@ -14164,7 +14164,7 @@ zubat: {
 			"level": 2
 		}
 	]
-}
+},
 golbat: {
 	"learnset": {
 		"absorb": [
@@ -14375,7 +14375,7 @@ golbat: {
 			"level": 20
 		}
 	]
-}
+},
 crobat: {
 	"learnset": {
 		"absorb": [
@@ -14559,7 +14559,7 @@ crobat: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 oddish: {
 	"learnset": {
 		"absorb": [
@@ -14793,7 +14793,7 @@ oddish: {
 			"level": 12
 		}
 	]
-}
+},
 gloom: {
 	"learnset": {
 		"absorb": [
@@ -15001,7 +15001,7 @@ gloom: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 vileplume: {
 	"learnset": {
 		"absorb": [
@@ -15176,7 +15176,7 @@ vileplume: {
 			"1M"
 		]
 	}
-}
+},
 bellossom: {
 	"learnset": {
 		"absorb": [
@@ -15300,7 +15300,7 @@ bellossom: {
 			"1M"
 		]
 	}
-}
+},
 paras: {
 	"learnset": {
 		"absorb": [
@@ -15558,7 +15558,7 @@ paras: {
 			"level": 8
 		}
 	]
-}
+},
 parasect: {
 	"learnset": {
 		"absorb": [
@@ -15781,7 +15781,7 @@ parasect: {
 			"level": 5
 		}
 	]
-}
+},
 venonat: {
 	"learnset": {
 		"agility": [
@@ -15992,7 +15992,7 @@ venonat: {
 			"level": 13
 		}
 	]
-}
+},
 venomoth: {
 	"learnset": {
 		"agility": [
@@ -16254,7 +16254,7 @@ venomoth: {
 			"level": 30
 		}
 	]
-}
+},
 diglett: {
 	"learnset": {
 		"agility": [
@@ -16452,7 +16452,7 @@ diglett: {
 			"level": 2
 		}
 	]
-}
+},
 diglettalola: {
 	"learnset": {
 		"agility": [
@@ -16551,7 +16551,7 @@ diglettalola: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 dugtrio: {
 	"learnset": {
 		"agility": [
@@ -16776,7 +16776,7 @@ dugtrio: {
 			"level": 19
 		}
 	]
-}
+},
 dugtrioalola: {
 	"learnset": {
 		"agility": [
@@ -16864,7 +16864,7 @@ dugtrioalola: {
 			"1L1"
 		]
 	}
-}
+},
 meowth: {
 	"learnset": {
 		"amnesia": [
@@ -17251,7 +17251,7 @@ meowth: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 meowthalola: {
 	"learnset": {
 		"amnesia": [
@@ -17342,7 +17342,7 @@ meowthalola: {
 			"1M"
 		]
 	}
-}
+},
 meowthgalar: {
 	"learnset": {
 		"amnesia": [
@@ -17412,7 +17412,7 @@ meowthgalar: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 persian: {
 	"learnset": {
 		"amnesia": [
@@ -17655,7 +17655,7 @@ persian: {
 			"level": 19
 		}
 	]
-}
+},
 persianalola: {
 	"learnset": {
 		"amnesia": [
@@ -17754,7 +17754,7 @@ persianalola: {
 			"1M"
 		]
 	}
-}
+},
 perrserker: {
 	"learnset": {
 		"amnesia": [
@@ -17808,7 +17808,7 @@ perrserker: {
 			"1M"
 		]
 	}
-}
+},
 psyduck: {
 	"learnset": {
 		"amnesia": [
@@ -18175,7 +18175,7 @@ psyduck: {
 			"level": 15
 		}
 	]
-}
+},
 golduck: {
 	"learnset": {
 		"amnesia": [
@@ -18535,7 +18535,7 @@ golduck: {
 			"level": 10
 		}
 	]
-}
+},
 mankey: {
 	"learnset": {
 		"bide": [
@@ -18825,7 +18825,7 @@ mankey: {
 			"level": 2
 		}
 	]
-}
+},
 primeape: {
 	"learnset": {
 		"bide": [
@@ -19130,7 +19130,7 @@ primeape: {
 			"level": 15
 		}
 	]
-}
+},
 growlithe: {
 	"learnset": {
 		"agility": [
@@ -19416,7 +19416,7 @@ growlithe: {
 			"level": 15
 		}
 	]
-}
+},
 arcanine: {
 	"learnset": {
 		"agility": [
@@ -19631,7 +19631,7 @@ arcanine: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 poliwag: {
 	"learnset": {
 		"amnesia": [
@@ -19900,7 +19900,7 @@ poliwag: {
 			"level": 3
 		}
 	]
-}
+},
 poliwhirl: {
 	"learnset": {
 		"amnesia": [
@@ -20201,7 +20201,7 @@ poliwhirl: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 poliwrath: {
 	"learnset": {
 		"bide": [
@@ -20483,7 +20483,7 @@ poliwrath: {
 			]
 		}
 	]
-}
+},
 politoed: {
 	"learnset": {
 		"blizzard": [
@@ -20705,7 +20705,7 @@ politoed: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 abra: {
 	"learnset": {
 		"barrier": [
@@ -20943,7 +20943,7 @@ abra: {
 			"level": 6
 		}
 	]
-}
+},
 kadabra: {
 	"learnset": {
 		"bide": [
@@ -21232,7 +21232,7 @@ kadabra: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 alakazam: {
 	"learnset": {
 		"barrier": [
@@ -21533,7 +21533,7 @@ alakazam: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 machop: {
 	"learnset": {
 		"bide": [
@@ -21833,7 +21833,7 @@ machop: {
 			"level": 15
 		}
 	]
-}
+},
 machoke: {
 	"learnset": {
 		"bide": [
@@ -22110,7 +22110,7 @@ machoke: {
 			"level": 14
 		}
 	]
-}
+},
 machamp: {
 	"learnset": {
 		"bide": [
@@ -22478,7 +22478,7 @@ machamp: {
 			"level": 5
 		}
 	]
-}
+},
 bellsprout: {
 	"learnset": {
 		"acid": [
@@ -22713,7 +22713,7 @@ bellsprout: {
 			"level": 3
 		}
 	]
-}
+},
 weepinbell: {
 	"learnset": {
 		"acid": [
@@ -22922,7 +22922,7 @@ weepinbell: {
 			"level": 10
 		}
 	]
-}
+},
 victreebel: {
 	"learnset": {
 		"acid": [
@@ -23087,7 +23087,7 @@ victreebel: {
 			"1V"
 		]
 	}
-}
+},
 tentacool: {
 	"learnset": {
 		"acid": [
@@ -23355,7 +23355,7 @@ tentacool: {
 			"level": 5
 		}
 	]
-}
+},
 tentacruel: {
 	"learnset": {
 		"acid": [
@@ -23621,7 +23621,7 @@ tentacruel: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 geodude: {
 	"learnset": {
 		"bide": [
@@ -23864,7 +23864,7 @@ geodude: {
 			"level": 2
 		}
 	]
-}
+},
 geodudealola: {
 	"learnset": {
 		"bide": [
@@ -23968,7 +23968,7 @@ geodudealola: {
 			"1M"
 		]
 	}
-}
+},
 graveler: {
 	"learnset": {
 		"bide": [
@@ -24208,7 +24208,7 @@ graveler: {
 			"level": 24
 		}
 	]
-}
+},
 graveleralola: {
 	"learnset": {
 		"bide": [
@@ -24306,7 +24306,7 @@ graveleralola: {
 			"1M"
 		]
 	}
-}
+},
 golem: {
 	"learnset": {
 		"bide": [
@@ -24553,7 +24553,7 @@ golem: {
 			"1M"
 		]
 	}
-}
+},
 golemalola: {
 	"learnset": {
 		"bide": [
@@ -24661,7 +24661,7 @@ golemalola: {
 			"1M"
 		]
 	}
-}
+},
 ponyta: {
 	"learnset": {
 		"agility": [
@@ -24925,7 +24925,7 @@ ponyta: {
 			"level": 28
 		}
 	]
-}
+},
 ponytagalar: {
 	"learnset": {
 		"agility": [
@@ -25005,7 +25005,7 @@ ponytagalar: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 rapidash: {
 	"learnset": {
 		"agility": [
@@ -25276,7 +25276,7 @@ rapidash: {
 			"level": 37
 		}
 	]
-}
+},
 rapidashgalar: {
 	"learnset": {
 		"agility": [
@@ -25336,7 +25336,7 @@ rapidashgalar: {
 			"1L43"
 		]
 	}
-}
+},
 slowpoke: {
 	"learnset": {
 		"amnesia": [
@@ -25709,7 +25709,7 @@ slowpoke: {
 			"level": 15
 		}
 	]
-}
+},
 slowpokegalar: {
 	"learnset": {
 		"acid": [
@@ -25791,7 +25791,7 @@ slowpokegalar: {
 			"1M"
 		]
 	}
-}
+},
 slowbro: {
 	"learnset": {
 		"amnesia": [
@@ -26193,7 +26193,7 @@ slowbro: {
 			"level": 15
 		}
 	]
-}
+},
 slowbrogalar: {
 	"learnset": {
 		"acid": [
@@ -26290,7 +26290,7 @@ slowbrogalar: {
 			"1L1"
 		]
 	}
-}
+},
 slowking: {
 	"learnset": {
 		"amnesia": [
@@ -26556,7 +26556,7 @@ slowking: {
 			"1L13"
 		]
 	}
-}
+},
 slowkinggalar: {
 	"learnset": {
 		"acid": [
@@ -26647,7 +26647,7 @@ slowkinggalar: {
 			"1M"
 		]
 	}
-}
+},
 magnemite: {
 	"learnset": {
 		"bide": [
@@ -26845,7 +26845,7 @@ magnemite: {
 			"level": 16
 		}
 	]
-}
+},
 magneton: {
 	"learnset": {
 		"bide": [
@@ -27085,7 +27085,7 @@ magneton: {
 			"pokeball": "safariball"
 		}
 	]
-}
+},
 magnezone: {
 	"learnset": {
 		"barrier": [
@@ -27228,7 +27228,7 @@ magnezone: {
 			"1L1"
 		]
 	}
-}
+},
 farfetchd: {
 	"learnset": {
 		"agility": [
@@ -27500,7 +27500,7 @@ farfetchd: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 farfetchdgalar: {
 	"learnset": {
 		"bodyslam": [
@@ -27544,7 +27544,7 @@ farfetchdgalar: {
 			"1L45"
 		]
 	}
-}
+},
 sirfetchd: {
 	"learnset": {
 		"bodyslam": [
@@ -27576,7 +27576,7 @@ sirfetchd: {
 			"1L45"
 		]
 	}
-}
+},
 doduo: {
 	"learnset": {
 		"agility": [
@@ -27783,7 +27783,7 @@ doduo: {
 			"level": 4
 		}
 	]
-}
+},
 dodrio: {
 	"learnset": {
 		"agility": [
@@ -28028,7 +28028,7 @@ dodrio: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 seel: {
 	"learnset": {
 		"aurorabeam": [
@@ -28244,7 +28244,7 @@ seel: {
 			"level": 22
 		}
 	]
-}
+},
 dewgong: {
 	"learnset": {
 		"aurorabeam": [
@@ -28437,7 +28437,7 @@ dewgong: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 grimer: {
 	"learnset": {
 		"acidarmor": [
@@ -28702,7 +28702,7 @@ grimer: {
 			"level": 23
 		}
 	]
-}
+},
 grimeralola: {
 	"learnset": {
 		"acidarmor": [
@@ -28812,7 +28812,7 @@ grimeralola: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 muk: {
 	"learnset": {
 		"acidarmor": [
@@ -29082,7 +29082,7 @@ muk: {
 			"level": 30
 		}
 	]
-}
+},
 mukalola: {
 	"learnset": {
 		"acidarmor": [
@@ -29179,7 +29179,7 @@ mukalola: {
 			"1M"
 		]
 	}
-}
+},
 shellder: {
 	"learnset": {
 		"aurorabeam": [
@@ -29487,7 +29487,7 @@ shellder: {
 			"level": 10
 		}
 	]
-}
+},
 cloyster: {
 	"learnset": {
 		"aurorabeam": [
@@ -29717,7 +29717,7 @@ cloyster: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 gastly: {
 	"learnset": {
 		"bide": [
@@ -29949,7 +29949,7 @@ gastly: {
 			"level": 18
 		}
 	]
-}
+},
 haunter: {
 	"learnset": {
 		"bide": [
@@ -30165,7 +30165,7 @@ haunter: {
 			"level": 16
 		}
 	]
-}
+},
 gengar: {
 	"learnset": {
 		"bide": [
@@ -30534,7 +30534,7 @@ gengar: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 onix: {
 	"learnset": {
 		"bide": [
@@ -30769,7 +30769,7 @@ onix: {
 			"level": 13
 		}
 	]
-}
+},
 steelix: {
 	"learnset": {
 		"bind": [
@@ -30971,7 +30971,7 @@ steelix: {
 			"1M"
 		]
 	}
-}
+},
 drowzee: {
 	"learnset": {
 		"barrier": [
@@ -31275,7 +31275,7 @@ drowzee: {
 			"level": 9
 		}
 	]
-}
+},
 hypno: {
 	"learnset": {
 		"barrier": [
@@ -31572,7 +31572,7 @@ hypno: {
 			"level": 16
 		}
 	]
-}
+},
 krabby: {
 	"learnset": {
 		"agility": [
@@ -31846,7 +31846,7 @@ krabby: {
 			"level": 10
 		}
 	]
-}
+},
 kingler: {
 	"learnset": {
 		"agility": [
@@ -32106,7 +32106,7 @@ kingler: {
 			"level": 22
 		}
 	]
-}
+},
 voltorb: {
 	"learnset": {
 		"bide": [
@@ -32307,7 +32307,7 @@ voltorb: {
 			"level": 40
 		}
 	]
-}
+},
 electrode: {
 	"learnset": {
 		"bide": [
@@ -32528,7 +32528,7 @@ electrode: {
 			"level": 23
 		}
 	]
-}
+},
 exeggcute: {
 	"learnset": {
 		"absorb": [
@@ -32797,7 +32797,7 @@ exeggcute: {
 			"level": 20
 		}
 	]
-}
+},
 exeggutor: {
 	"learnset": {
 		"absorb": [
@@ -33045,7 +33045,7 @@ exeggutor: {
 			]
 		}
 	]
-}
+},
 exeggutoralola: {
 	"learnset": {
 		"absorb": [
@@ -33175,7 +33175,7 @@ exeggutoralola: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 cubone: {
 	"learnset": {
 		"bide": [
@@ -33514,7 +33514,7 @@ cubone: {
 			"level": 16
 		}
 	]
-}
+},
 marowak: {
 	"learnset": {
 		"bide": [
@@ -33863,7 +33863,7 @@ marowak: {
 			"level": 14
 		}
 	]
-}
+},
 marowakalola: {
 	"learnset": {
 		"blizzard": [
@@ -34022,7 +34022,7 @@ marowakalola: {
 			"1M"
 		]
 	}
-}
+},
 marowakalolatotem: {
 	"learnset": {
 		"blizzard": [
@@ -34115,7 +34115,7 @@ marowakalolatotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 tyrogue: {
 	"learnset": {
 		"bodyslam": [
@@ -34242,7 +34242,7 @@ tyrogue: {
 			"1M"
 		]
 	}
-}
+},
 hitmonlee: {
 	"learnset": {
 		"bide": [
@@ -34470,7 +34470,7 @@ hitmonlee: {
 			"level": 30
 		}
 	]
-}
+},
 hitmonchan: {
 	"learnset": {
 		"agility": [
@@ -34725,7 +34725,7 @@ hitmonchan: {
 			"level": 30
 		}
 	]
-}
+},
 hitmontop: {
 	"learnset": {
 		"agility": [
@@ -34898,7 +34898,7 @@ hitmontop: {
 			]
 		}
 	]
-}
+},
 lickitung: {
 	"learnset": {
 		"acid": [
@@ -35319,7 +35319,7 @@ lickitung: {
 			"level": 15
 		}
 	]
-}
+},
 lickilicky: {
 	"learnset": {
 		"amnesia": [
@@ -35565,7 +35565,7 @@ lickilicky: {
 			"1L17"
 		]
 	}
-}
+},
 koffing: {
 	"learnset": {
 		"bide": [
@@ -35784,7 +35784,7 @@ koffing: {
 			"level": 30
 		}
 	]
-}
+},
 weezing: {
 	"learnset": {
 		"bide": [
@@ -36002,7 +36002,7 @@ weezing: {
 			"pokeball": "safariball"
 		}
 	]
-}
+},
 weezinggalar: {
 	"learnset": {
 		"explosion": [
@@ -36058,7 +36058,7 @@ weezinggalar: {
 			"1L38"
 		]
 	}
-}
+},
 rhyhorn: {
 	"learnset": {
 		"bide": [
@@ -36347,7 +36347,7 @@ rhyhorn: {
 			"level": 20
 		}
 	]
-}
+},
 rhydon: {
 	"learnset": {
 		"bide": [
@@ -36728,7 +36728,7 @@ rhydon: {
 			"level": 30
 		}
 	]
-}
+},
 rhyperior: {
 	"learnset": {
 		"blizzard": [
@@ -36945,7 +36945,7 @@ rhyperior: {
 			"1M"
 		]
 	}
-}
+},
 happiny: {
 	"learnset": {
 		"counter": [
@@ -37061,7 +37061,7 @@ happiny: {
 			"1M"
 		]
 	}
-}
+},
 chansey: {
 	"learnset": {
 		"bide": [
@@ -37533,7 +37533,7 @@ chansey: {
 			"level": 7
 		}
 	]
-}
+},
 blissey: {
 	"learnset": {
 		"blizzard": [
@@ -37873,7 +37873,7 @@ blissey: {
 			]
 		}
 	]
-}
+},
 tangela: {
 	"learnset": {
 		"absorb": [
@@ -38158,7 +38158,7 @@ tangela: {
 			"level": 13
 		}
 	]
-}
+},
 tangrowth: {
 	"learnset": {
 		"absorb": [
@@ -38341,7 +38341,7 @@ tangrowth: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 kangaskhan: {
 	"learnset": {
 		"bide": [
@@ -38799,7 +38799,7 @@ kangaskhan: {
 			"level": 25
 		}
 	]
-}
+},
 horsea: {
 	"learnset": {
 		"agility": [
@@ -39050,7 +39050,7 @@ horsea: {
 			"level": 5
 		}
 	]
-}
+},
 seadra: {
 	"learnset": {
 		"agility": [
@@ -39291,7 +39291,7 @@ seadra: {
 			"level": 15
 		}
 	]
-}
+},
 kingdra: {
 	"learnset": {
 		"agility": [
@@ -39505,7 +39505,7 @@ kingdra: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 goldeen: {
 	"learnset": {
 		"agility": [
@@ -39748,7 +39748,7 @@ goldeen: {
 			"level": 5
 		}
 	]
-}
+},
 seaking: {
 	"learnset": {
 		"agility": [
@@ -39993,7 +39993,7 @@ seaking: {
 			"level": 10
 		}
 	]
-}
+},
 staryu: {
 	"learnset": {
 		"bide": [
@@ -40330,7 +40330,7 @@ staryu: {
 			"level": 5
 		}
 	]
-}
+},
 starmie: {
 	"learnset": {
 		"agility": [
@@ -40618,7 +40618,7 @@ starmie: {
 			]
 		}
 	]
-}
+},
 mimejr: {
 	"learnset": {
 		"barrier": [
@@ -40791,7 +40791,7 @@ mimejr: {
 			"1M"
 		]
 	}
-}
+},
 mrmime: {
 	"learnset": {
 		"barrier": [
@@ -41152,7 +41152,7 @@ mrmime: {
 			"level": 6
 		}
 	]
-}
+},
 mrmimegalar: {
 	"learnset": {
 		"blizzard": [
@@ -41249,7 +41249,7 @@ mrmimegalar: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 mrrime: {
 	"learnset": {
 		"blizzard": [
@@ -41328,7 +41328,7 @@ mrrime: {
 			"1M"
 		]
 	}
-}
+},
 scyther: {
 	"learnset": {
 		"agility": [
@@ -41594,7 +41594,7 @@ scyther: {
 			"level": 25
 		}
 	]
-}
+},
 scizor: {
 	"learnset": {
 		"agility": [
@@ -41874,7 +41874,7 @@ scizor: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 smoochum: {
 	"learnset": {
 		"blizzard": [
@@ -42066,7 +42066,7 @@ smoochum: {
 			"1M"
 		]
 	}
-}
+},
 jynx: {
 	"learnset": {
 		"bide": [
@@ -42367,7 +42367,7 @@ jynx: {
 			"level": 9
 		}
 	]
-}
+},
 elekid: {
 	"learnset": {
 		"barrier": [
@@ -42656,7 +42656,7 @@ elekid: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 electabuzz: {
 	"learnset": {
 		"bide": [
@@ -43053,7 +43053,7 @@ electabuzz: {
 			"level": 25
 		}
 	]
-}
+},
 electivire: {
 	"learnset": {
 		"bodyslam": [
@@ -43307,7 +43307,7 @@ electivire: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 magby: {
 	"learnset": {
 		"barrier": [
@@ -43535,7 +43535,7 @@ magby: {
 			"1M"
 		]
 	}
-}
+},
 magmar: {
 	"learnset": {
 		"bide": [
@@ -43893,7 +43893,7 @@ magmar: {
 			"level": 16
 		}
 	]
-}
+},
 magmortar: {
 	"learnset": {
 		"bodyslam": [
@@ -44125,7 +44125,7 @@ magmortar: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 pinsir: {
 	"learnset": {
 		"bide": [
@@ -44423,7 +44423,7 @@ pinsir: {
 			"level": 20
 		}
 	]
-}
+},
 tauros: {
 	"learnset": {
 		"bide": [
@@ -44753,7 +44753,7 @@ tauros: {
 			"level": 21
 		}
 	]
-}
+},
 magikarp: {
 	"learnset": {
 		"hydropump": [
@@ -44882,7 +44882,7 @@ magikarp: {
 			"level": 5
 		}
 	]
-}
+},
 gyarados: {
 	"learnset": {
 		"bide": [
@@ -45208,7 +45208,7 @@ gyarados: {
 			"level": 10
 		}
 	]
-}
+},
 lapras: {
 	"learnset": {
 		"aurorabeam": [
@@ -45515,7 +45515,7 @@ lapras: {
 			"level": 15
 		}
 	]
-}
+},
 ditto: {
 	"learnset": {
 		"transform": [
@@ -45570,7 +45570,7 @@ ditto: {
 			"level": 25
 		}
 	]
-}
+},
 eevee: {
 	"learnset": {
 		"bide": [
@@ -45868,7 +45868,7 @@ eevee: {
 			"level": 25
 		}
 	]
-}
+},
 eeveestarter: {
 	"learnset": {
 		"bite": [
@@ -45957,7 +45957,7 @@ eeveestarter: {
 		}
 	],
 	"eventOnly": true
-}
+},
 vaporeon: {
 	"learnset": {
 		"acidarmor": [
@@ -46276,7 +46276,7 @@ vaporeon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 jolteon: {
 	"learnset": {
 		"agility": [
@@ -46589,7 +46589,7 @@ jolteon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 flareon: {
 	"learnset": {
 		"bide": [
@@ -46871,7 +46871,7 @@ flareon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 espeon: {
 	"learnset": {
 		"bite": [
@@ -47132,7 +47132,7 @@ espeon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 umbreon: {
 	"learnset": {
 		"bite": [
@@ -47363,7 +47363,7 @@ umbreon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 leafeon: {
 	"learnset": {
 		"bite": [
@@ -47553,7 +47553,7 @@ leafeon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 glaceon: {
 	"learnset": {
 		"barrier": [
@@ -47736,7 +47736,7 @@ glaceon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 porygon: {
 	"learnset": {
 		"agility": [
@@ -48029,7 +48029,7 @@ porygon: {
 			"level": 18
 		}
 	]
-}
+},
 porygon2: {
 	"learnset": {
 		"agility": [
@@ -48259,7 +48259,7 @@ porygon2: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 porygonz: {
 	"learnset": {
 		"agility": [
@@ -48415,7 +48415,7 @@ porygonz: {
 			"1L51"
 		]
 	}
-}
+},
 omanyte: {
 	"learnset": {
 		"aurorabeam": [
@@ -48692,7 +48692,7 @@ omanyte: {
 			"level": 30
 		}
 	]
-}
+},
 omastar: {
 	"learnset": {
 		"bide": [
@@ -48930,7 +48930,7 @@ omastar: {
 			"1L1"
 		]
 	}
-}
+},
 kabuto: {
 	"learnset": {
 		"absorb": [
@@ -49201,7 +49201,7 @@ kabuto: {
 			"level": 30
 		}
 	]
-}
+},
 kabutops: {
 	"learnset": {
 		"absorb": [
@@ -49476,7 +49476,7 @@ kabutops: {
 			"1V"
 		]
 	}
-}
+},
 aerodactyl: {
 	"learnset": {
 		"agility": [
@@ -49748,7 +49748,7 @@ aerodactyl: {
 			"level": 30
 		}
 	]
-}
+},
 munchlax: {
 	"learnset": {
 		"amnesia": [
@@ -50036,7 +50036,7 @@ munchlax: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 snorlax: {
 	"learnset": {
 		"amnesia": [
@@ -50455,7 +50455,7 @@ snorlax: {
 			"level": 30
 		}
 	]
-}
+},
 articuno: {
 	"learnset": {
 		"agility": [
@@ -50786,7 +50786,7 @@ articuno: {
 		}
 	],
 	"eventOnly": true
-}
+},
 articunogalar: {
 	"learnset": {
 		"agility": [
@@ -50859,7 +50859,7 @@ articunogalar: {
 		}
 	],
 	"eventOnly": true
-}
+},
 zapdos: {
 	"learnset": {
 		"agility": [
@@ -51206,7 +51206,7 @@ zapdos: {
 		}
 	],
 	"eventOnly": true
-}
+},
 zapdosgalar: {
 	"learnset": {
 		"agility": [
@@ -51284,7 +51284,7 @@ zapdosgalar: {
 		}
 	],
 	"eventOnly": true
-}
+},
 moltres: {
 	"learnset": {
 		"agility": [
@@ -51615,7 +51615,7 @@ moltres: {
 		}
 	],
 	"eventOnly": true
-}
+},
 moltresgalar: {
 	"learnset": {
 		"agility": [
@@ -51675,7 +51675,7 @@ moltresgalar: {
 		}
 	],
 	"eventOnly": true
-}
+},
 dratini: {
 	"learnset": {
 		"agility": [
@@ -51977,7 +51977,7 @@ dratini: {
 			"level": 10
 		}
 	]
-}
+},
 dragonair: {
 	"learnset": {
 		"agility": [
@@ -52269,7 +52269,7 @@ dragonair: {
 			"level": 10
 		}
 	]
-}
+},
 dragonite: {
 	"learnset": {
 		"agility": [
@@ -52823,7 +52823,7 @@ dragonite: {
 			"level": 10
 		}
 	]
-}
+},
 mewtwo: {
 	"learnset": {
 		"agility": [
@@ -53357,7 +53357,7 @@ mewtwo: {
 		}
 	],
 	"eventOnly": true
-}
+},
 mew: {
 	"learnset": {
 		"agility": [
@@ -54175,7 +54175,7 @@ mew: {
 		}
 	],
 	"eventOnly": true
-}
+},
 chikorita: {
 	"learnset": {
 		"bodyslam": [
@@ -54391,7 +54391,7 @@ chikorita: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 bayleef: {
 	"learnset": {
 		"bodyslam": [
@@ -54547,7 +54547,7 @@ bayleef: {
 			"1M"
 		]
 	}
-}
+},
 meganium: {
 	"learnset": {
 		"bodyslam": [
@@ -54741,7 +54741,7 @@ meganium: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 cyndaquil: {
 	"learnset": {
 		"bodyslam": [
@@ -54960,7 +54960,7 @@ cyndaquil: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 quilava: {
 	"learnset": {
 		"bodyslam": [
@@ -55120,7 +55120,7 @@ quilava: {
 			"1M"
 		]
 	}
-}
+},
 typhlosion: {
 	"learnset": {
 		"bodyslam": [
@@ -55372,7 +55372,7 @@ typhlosion: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 totodile: {
 	"learnset": {
 		"bite": [
@@ -55635,7 +55635,7 @@ totodile: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 croconaw: {
 	"learnset": {
 		"bite": [
@@ -55852,7 +55852,7 @@ croconaw: {
 			"1L13"
 		]
 	}
-}
+},
 feraligatr: {
 	"learnset": {
 		"agility": [
@@ -56108,7 +56108,7 @@ feraligatr: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 sentret: {
 	"learnset": {
 		"amnesia": [
@@ -56328,7 +56328,7 @@ sentret: {
 			"level": 2
 		}
 	]
-}
+},
 furret: {
 	"learnset": {
 		"agility": [
@@ -56557,7 +56557,7 @@ furret: {
 			"level": 6
 		}
 	]
-}
+},
 hoothoot: {
 	"learnset": {
 		"agility": [
@@ -56799,7 +56799,7 @@ hoothoot: {
 			"level": 2
 		}
 	]
-}
+},
 noctowl: {
 	"learnset": {
 		"agility": [
@@ -56996,7 +56996,7 @@ noctowl: {
 			"level": 19
 		}
 	]
-}
+},
 ledyba: {
 	"learnset": {
 		"agility": [
@@ -57218,7 +57218,7 @@ ledyba: {
 			"level": 3
 		}
 	]
-}
+},
 ledian: {
 	"learnset": {
 		"agility": [
@@ -57411,7 +57411,7 @@ ledian: {
 			"level": 5
 		}
 	]
-}
+},
 spinarak: {
 	"learnset": {
 		"absorb": [
@@ -57609,7 +57609,7 @@ spinarak: {
 			"level": 3
 		}
 	]
-}
+},
 ariados: {
 	"learnset": {
 		"absorb": [
@@ -57787,7 +57787,7 @@ ariados: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 chinchou: {
 	"learnset": {
 		"agility": [
@@ -58004,7 +58004,7 @@ chinchou: {
 			"1L17"
 		]
 	}
-}
+},
 lanturn: {
 	"learnset": {
 		"agility": [
@@ -58214,7 +58214,7 @@ lanturn: {
 			"level": 10
 		}
 	]
-}
+},
 togepi: {
 	"learnset": {
 		"bodyslam": [
@@ -58448,7 +58448,7 @@ togepi: {
 			]
 		}
 	]
-}
+},
 togetic: {
 	"learnset": {
 		"bodyslam": [
@@ -58654,7 +58654,7 @@ togetic: {
 			"1M"
 		]
 	}
-}
+},
 togekiss: {
 	"learnset": {
 		"amnesia": [
@@ -58819,7 +58819,7 @@ togekiss: {
 			]
 		}
 	]
-}
+},
 natu: {
 	"learnset": {
 		"confuseray": [
@@ -59021,7 +59021,7 @@ natu: {
 			]
 		}
 	]
-}
+},
 xatu: {
 	"learnset": {
 		"confuseray": [
@@ -59236,7 +59236,7 @@ xatu: {
 			"level": 21
 		}
 	]
-}
+},
 mareep: {
 	"learnset": {
 		"agility": [
@@ -59477,7 +59477,7 @@ mareep: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 flaaffy: {
 	"learnset": {
 		"bodyslam": [
@@ -59663,7 +59663,7 @@ flaaffy: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 ampharos: {
 	"learnset": {
 		"bodyslam": [
@@ -59859,7 +59859,7 @@ ampharos: {
 			"1M"
 		]
 	}
-}
+},
 azurill: {
 	"learnset": {
 		"blizzard": [
@@ -60016,7 +60016,7 @@ azurill: {
 			"1L21"
 		]
 	}
-}
+},
 marill: {
 	"learnset": {
 		"amnesia": [
@@ -60249,7 +60249,7 @@ marill: {
 			"1L10"
 		]
 	}
-}
+},
 azumarill: {
 	"learnset": {
 		"amnesia": [
@@ -60474,7 +60474,7 @@ azumarill: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 bonsly: {
 	"learnset": {
 		"counter": [
@@ -60599,7 +60599,7 @@ bonsly: {
 			"1M"
 		]
 	}
-}
+},
 sudowoodo: {
 	"learnset": {
 		"bodyslam": [
@@ -60817,7 +60817,7 @@ sudowoodo: {
 			"1M"
 		]
 	}
-}
+},
 hoppip: {
 	"learnset": {
 		"absorb": [
@@ -60997,7 +60997,7 @@ hoppip: {
 			"level": 3
 		}
 	]
-}
+},
 skiploom: {
 	"learnset": {
 		"absorb": [
@@ -61146,7 +61146,7 @@ skiploom: {
 			"level": 12
 		}
 	]
-}
+},
 jumpluff: {
 	"learnset": {
 		"absorb": [
@@ -61313,7 +61313,7 @@ jumpluff: {
 			]
 		}
 	]
-}
+},
 aipom: {
 	"learnset": {
 		"agility": [
@@ -61575,7 +61575,7 @@ aipom: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 ambipom: {
 	"learnset": {
 		"agility": [
@@ -61724,7 +61724,7 @@ ambipom: {
 			"1M"
 		]
 	}
-}
+},
 sunkern: {
 	"learnset": {
 		"absorb": [
@@ -61871,7 +61871,7 @@ sunkern: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 sunflora: {
 	"learnset": {
 		"absorb": [
@@ -62016,7 +62016,7 @@ sunflora: {
 			"1M"
 		]
 	}
-}
+},
 yanma: {
 	"learnset": {
 		"doubleedge": [
@@ -62178,7 +62178,7 @@ yanma: {
 			"1L39"
 		]
 	}
-}
+},
 yanmega: {
 	"learnset": {
 		"doubleteam": [
@@ -62287,7 +62287,7 @@ yanmega: {
 			"1M"
 		]
 	}
-}
+},
 wooper: {
 	"learnset": {
 		"amnesia": [
@@ -62508,7 +62508,7 @@ wooper: {
 			"level": 4
 		}
 	]
-}
+},
 quagsire: {
 	"learnset": {
 		"amnesia": [
@@ -62741,7 +62741,7 @@ quagsire: {
 			"level": 10
 		}
 	]
-}
+},
 murkrow: {
 	"learnset": {
 		"confuseray": [
@@ -62922,7 +62922,7 @@ murkrow: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 honchkrow: {
 	"learnset": {
 		"doubleteam": [
@@ -63019,7 +63019,7 @@ honchkrow: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 misdreavus: {
 	"learnset": {
 		"confuseray": [
@@ -63174,7 +63174,7 @@ misdreavus: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 mismagius: {
 	"learnset": {
 		"doubleteam": [
@@ -63261,7 +63261,7 @@ mismagius: {
 			"1M"
 		]
 	}
-}
+},
 unown: {
 	"learnset": {},
 	"encounters": [
@@ -63282,7 +63282,7 @@ unown: {
 			"level": 32
 		}
 	]
-}
+},
 wynaut: {
 	"learnset": {
 		"amnesia": [
@@ -63321,7 +63321,7 @@ wynaut: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 wobbuffet: {
 	"learnset": {
 		"amnesia": [
@@ -63399,7 +63399,7 @@ wobbuffet: {
 			"level": 3
 		}
 	]
-}
+},
 girafarig: {
 	"learnset": {
 		"agility": [
@@ -63606,7 +63606,7 @@ girafarig: {
 			"1M"
 		]
 	}
-}
+},
 pineco: {
 	"learnset": {
 		"bide": [
@@ -63821,7 +63821,7 @@ pineco: {
 			]
 		}
 	]
-}
+},
 forretress: {
 	"learnset": {
 		"bide": [
@@ -63994,7 +63994,7 @@ forretress: {
 			"level": 30
 		}
 	]
-}
+},
 dunsparce: {
 	"learnset": {
 		"agility": [
@@ -64251,7 +64251,7 @@ dunsparce: {
 			"1M"
 		]
 	}
-}
+},
 gligar: {
 	"learnset": {
 		"agility": [
@@ -64455,7 +64455,7 @@ gligar: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 gliscor: {
 	"learnset": {
 		"cut": [
@@ -64568,7 +64568,7 @@ gliscor: {
 			"1M"
 		]
 	}
-}
+},
 snubbull: {
 	"learnset": {
 		"bite": [
@@ -64837,7 +64837,7 @@ snubbull: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 granbull: {
 	"learnset": {
 		"bite": [
@@ -65092,7 +65092,7 @@ granbull: {
 			"level": 15
 		}
 	]
-}
+},
 qwilfish: {
 	"learnset": {
 		"blizzard": [
@@ -65330,7 +65330,7 @@ qwilfish: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 shuckle: {
 	"learnset": {
 		"acid": [
@@ -65525,7 +65525,7 @@ shuckle: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 heracross: {
 	"learnset": {
 		"bide": [
@@ -65765,7 +65765,7 @@ heracross: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 sneasel: {
 	"learnset": {
 		"agility": [
@@ -66024,7 +66024,7 @@ sneasel: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 weavile: {
 	"learnset": {
 		"agility": [
@@ -66216,7 +66216,7 @@ weavile: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 teddiursa: {
 	"learnset": {
 		"bodyslam": [
@@ -66479,7 +66479,7 @@ teddiursa: {
 			"level": 2
 		}
 	]
-}
+},
 ursaring: {
 	"learnset": {
 		"bodyslam": [
@@ -66699,7 +66699,7 @@ ursaring: {
 			"level": 25
 		}
 	]
-}
+},
 slugma: {
 	"learnset": {
 		"acidarmor": [
@@ -66865,7 +66865,7 @@ slugma: {
 			"1M"
 		]
 	}
-}
+},
 magcargo: {
 	"learnset": {
 		"amnesia": [
@@ -67075,7 +67075,7 @@ magcargo: {
 			"level": 30
 		}
 	]
-}
+},
 swinub: {
 	"learnset": {
 		"amnesia": [
@@ -67302,7 +67302,7 @@ swinub: {
 			]
 		}
 	]
-}
+},
 piloswine: {
 	"learnset": {
 		"amnesia": [
@@ -67509,7 +67509,7 @@ piloswine: {
 			"level": 30
 		}
 	]
-}
+},
 mamoswine: {
 	"learnset": {
 		"amnesia": [
@@ -67689,7 +67689,7 @@ mamoswine: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 corsola: {
 	"learnset": {
 		"amnesia": [
@@ -67974,7 +67974,7 @@ corsola: {
 			"pokeball": "ultraball"
 		}
 	]
-}
+},
 corsolagalar: {
 	"learnset": {
 		"amnesia": [
@@ -68060,7 +68060,7 @@ corsolagalar: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 cursola: {
 	"learnset": {
 		"amnesia": [
@@ -68133,7 +68133,7 @@ cursola: {
 			"1L1"
 		]
 	}
-}
+},
 remoraid: {
 	"learnset": {
 		"aurorabeam": [
@@ -68366,7 +68366,7 @@ remoraid: {
 			"1L1"
 		]
 	}
-}
+},
 octillery: {
 	"learnset": {
 		"aurorabeam": [
@@ -68614,7 +68614,7 @@ octillery: {
 			"level": 10
 		}
 	]
-}
+},
 delibird: {
 	"learnset": {
 		"agility": [
@@ -68787,7 +68787,7 @@ delibird: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 mantyke: {
 	"learnset": {
 		"agility": [
@@ -68969,7 +68969,7 @@ mantyke: {
 			"1L22"
 		]
 	}
-}
+},
 mantine: {
 	"learnset": {
 		"agility": [
@@ -69237,7 +69237,7 @@ mantine: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 skarmory: {
 	"learnset": {
 		"agility": [
@@ -69427,7 +69427,7 @@ skarmory: {
 			"1L20"
 		]
 	}
-}
+},
 houndour: {
 	"learnset": {
 		"bite": [
@@ -69620,7 +69620,7 @@ houndour: {
 			]
 		}
 	]
-}
+},
 houndoom: {
 	"learnset": {
 		"bite": [
@@ -69804,7 +69804,7 @@ houndoom: {
 			"level": 20
 		}
 	]
-}
+},
 phanpy: {
 	"learnset": {
 		"bodyslam": [
@@ -69964,7 +69964,7 @@ phanpy: {
 			"level": 2
 		}
 	]
-}
+},
 donphan: {
 	"learnset": {
 		"bodyslam": [
@@ -70104,7 +70104,7 @@ donphan: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 stantler: {
 	"learnset": {
 		"bite": [
@@ -70353,7 +70353,7 @@ stantler: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 smeargle: {
 	"learnset": {
 		"flamethrower": [
@@ -70419,7 +70419,7 @@ smeargle: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 miltank: {
 	"learnset": {
 		"bide": [
@@ -70697,7 +70697,7 @@ miltank: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 raikou: {
 	"learnset": {
 		"agility": [
@@ -71025,7 +71025,7 @@ raikou: {
 		}
 	],
 	"eventOnly": true
-}
+},
 entei: {
 	"learnset": {
 		"agility": [
@@ -71363,7 +71363,7 @@ entei: {
 		}
 	],
 	"eventOnly": true
-}
+},
 suicune: {
 	"learnset": {
 		"agility": [
@@ -71677,7 +71677,7 @@ suicune: {
 		}
 	],
 	"eventOnly": true
-}
+},
 larvitar: {
 	"learnset": {
 		"bite": [
@@ -71872,7 +71872,7 @@ larvitar: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 pupitar: {
 	"learnset": {
 		"bite": [
@@ -72022,7 +72022,7 @@ pupitar: {
 			"1M"
 		]
 	}
-}
+},
 tyranitar: {
 	"learnset": {
 		"bite": [
@@ -72420,7 +72420,7 @@ tyranitar: {
 			"level": 50
 		}
 	]
-}
+},
 lugia: {
 	"learnset": {
 		"blizzard": [
@@ -72822,7 +72822,7 @@ lugia: {
 		}
 	],
 	"eventOnly": true
-}
+},
 hooh: {
 	"learnset": {
 		"doubleedge": [
@@ -73193,7 +73193,7 @@ hooh: {
 		}
 	],
 	"eventOnly": true
-}
+},
 celebi: {
 	"learnset": {
 		"confusion": [
@@ -73474,7 +73474,7 @@ celebi: {
 		}
 	],
 	"eventOnly": true
-}
+},
 treecko: {
 	"learnset": {
 		"absorb": [
@@ -73723,7 +73723,7 @@ treecko: {
 			]
 		}
 	]
-}
+},
 grovyle: {
 	"learnset": {
 		"absorb": [
@@ -73914,7 +73914,7 @@ grovyle: {
 			"1M"
 		]
 	}
-}
+},
 sceptile: {
 	"learnset": {
 		"absorb": [
@@ -74143,7 +74143,7 @@ sceptile: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 torchic: {
 	"learnset": {
 		"agility": [
@@ -74424,7 +74424,7 @@ torchic: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 combusken: {
 	"learnset": {
 		"agility": [
@@ -74650,7 +74650,7 @@ combusken: {
 			"1M"
 		]
 	}
-}
+},
 blaziken: {
 	"learnset": {
 		"agility": [
@@ -74942,7 +74942,7 @@ blaziken: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 mudkip: {
 	"learnset": {
 		"amnesia": [
@@ -75187,7 +75187,7 @@ mudkip: {
 			]
 		}
 	]
-}
+},
 marshtomp: {
 	"learnset": {
 		"amnesia": [
@@ -75394,7 +75394,7 @@ marshtomp: {
 			"1L1"
 		]
 	}
-}
+},
 swampert: {
 	"learnset": {
 		"amnesia": [
@@ -75633,7 +75633,7 @@ swampert: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 poochyena: {
 	"learnset": {
 		"bite": [
@@ -75761,7 +75761,7 @@ poochyena: {
 			"level": 2
 		}
 	]
-}
+},
 mightyena: {
 	"learnset": {
 		"bite": [
@@ -75890,7 +75890,7 @@ mightyena: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 zigzagoon: {
 	"learnset": {
 		"blizzard": [
@@ -76117,7 +76117,7 @@ zigzagoon: {
 			"level": 2
 		}
 	]
-}
+},
 zigzagoongalar: {
 	"learnset": {
 		"blizzard": [
@@ -76186,7 +76186,7 @@ zigzagoongalar: {
 			"1M"
 		]
 	}
-}
+},
 linoone: {
 	"learnset": {
 		"blizzard": [
@@ -76423,7 +76423,7 @@ linoone: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 linoonegalar: {
 	"learnset": {
 		"blizzard": [
@@ -76498,7 +76498,7 @@ linoonegalar: {
 			"1M"
 		]
 	}
-}
+},
 obstagoon: {
 	"learnset": {
 		"blizzard": [
@@ -76597,7 +76597,7 @@ obstagoon: {
 			"1M"
 		]
 	}
-}
+},
 wurmple: {
 	"learnset": {
 		"poisonsting": [
@@ -76630,7 +76630,7 @@ wurmple: {
 			"level": 2
 		}
 	]
-}
+},
 silcoon: {
 	"learnset": {
 		"harden": [
@@ -76659,7 +76659,7 @@ silcoon: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 beautifly: {
 	"learnset": {
 		"absorb": [
@@ -76770,7 +76770,7 @@ beautifly: {
 			"1L27"
 		]
 	}
-}
+},
 cascoon: {
 	"learnset": {
 		"harden": [
@@ -76799,7 +76799,7 @@ cascoon: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 dustox: {
 	"learnset": {
 		"confusion": [
@@ -76920,7 +76920,7 @@ dustox: {
 			"1L27"
 		]
 	}
-}
+},
 lotad: {
 	"learnset": {
 		"absorb": [
@@ -77110,7 +77110,7 @@ lotad: {
 			"level": 3
 		}
 	]
-}
+},
 lombre: {
 	"learnset": {
 		"absorb": [
@@ -77307,7 +77307,7 @@ lombre: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 ludicolo: {
 	"learnset": {
 		"absorb": [
@@ -77538,7 +77538,7 @@ ludicolo: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 seedot: {
 	"learnset": {
 		"absorb": [
@@ -77738,7 +77738,7 @@ seedot: {
 			"level": 3
 		}
 	]
-}
+},
 nuzleaf: {
 	"learnset": {
 		"absorb": [
@@ -77928,7 +77928,7 @@ nuzleaf: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 shiftry: {
 	"learnset": {
 		"absorb": [
@@ -78102,7 +78102,7 @@ shiftry: {
 			"1L1"
 		]
 	}
-}
+},
 taillow: {
 	"learnset": {
 		"agility": [
@@ -78263,7 +78263,7 @@ taillow: {
 			"level": 4
 		}
 	]
-}
+},
 swellow: {
 	"learnset": {
 		"agility": [
@@ -78396,7 +78396,7 @@ swellow: {
 			"level": 20
 		}
 	]
-}
+},
 wingull: {
 	"learnset": {
 		"agility": [
@@ -78552,7 +78552,7 @@ wingull: {
 			"level": 2
 		}
 	]
-}
+},
 pelipper: {
 	"learnset": {
 		"agility": [
@@ -78711,7 +78711,7 @@ pelipper: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 ralts: {
 	"learnset": {
 		"bodyslam": [
@@ -78973,7 +78973,7 @@ ralts: {
 			"level": 4
 		}
 	]
-}
+},
 kirlia: {
 	"learnset": {
 		"bodyslam": [
@@ -79169,7 +79169,7 @@ kirlia: {
 			"level": 6
 		}
 	]
-}
+},
 gardevoir: {
 	"learnset": {
 		"bodyslam": [
@@ -79403,7 +79403,7 @@ gardevoir: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 gallade: {
 	"learnset": {
 		"bodyslam": [
@@ -79610,7 +79610,7 @@ gallade: {
 			"1M"
 		]
 	}
-}
+},
 surskit: {
 	"learnset": {
 		"agility": [
@@ -79771,7 +79771,7 @@ surskit: {
 			"level": 3
 		}
 	]
-}
+},
 masquerain: {
 	"learnset": {
 		"blizzard": [
@@ -79892,7 +79892,7 @@ masquerain: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 shroomish: {
 	"learnset": {
 		"absorb": [
@@ -80037,7 +80037,7 @@ shroomish: {
 			]
 		}
 	]
-}
+},
 breloom: {
 	"learnset": {
 		"absorb": [
@@ -80190,7 +80190,7 @@ breloom: {
 			"1M"
 		]
 	}
-}
+},
 slakoth: {
 	"learnset": {
 		"amnesia": [
@@ -80366,7 +80366,7 @@ slakoth: {
 			"1M"
 		]
 	}
-}
+},
 vigoroth: {
 	"learnset": {
 		"blizzard": [
@@ -80564,7 +80564,7 @@ vigoroth: {
 			"1M"
 		]
 	}
-}
+},
 slaking: {
 	"learnset": {
 		"amnesia": [
@@ -80770,7 +80770,7 @@ slaking: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 nincada: {
 	"learnset": {
 		"absorb": [
@@ -80903,7 +80903,7 @@ nincada: {
 			"1M"
 		]
 	}
-}
+},
 ninjask: {
 	"learnset": {
 		"absorb": [
@@ -81077,7 +81077,7 @@ ninjask: {
 			"1M"
 		]
 	}
-}
+},
 shedinja: {
 	"learnset": {
 		"absorb": [
@@ -81246,7 +81246,7 @@ shedinja: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 whismur: {
 	"learnset": {
 		"blizzard": [
@@ -81459,7 +81459,7 @@ whismur: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 loudred: {
 	"learnset": {
 		"bite": [
@@ -81682,7 +81682,7 @@ loudred: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 exploud: {
 	"learnset": {
 		"bite": [
@@ -81952,7 +81952,7 @@ exploud: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 makuhita: {
 	"learnset": {
 		"bodyslam": [
@@ -82122,7 +82122,7 @@ makuhita: {
 			]
 		}
 	]
-}
+},
 hariyama: {
 	"learnset": {
 		"bodyslam": [
@@ -82287,7 +82287,7 @@ hariyama: {
 			"level": 22
 		}
 	]
-}
+},
 nosepass: {
 	"learnset": {
 		"bodyslam": [
@@ -82464,7 +82464,7 @@ nosepass: {
 			]
 		}
 	]
-}
+},
 probopass: {
 	"learnset": {
 		"doubleteam": [
@@ -82581,7 +82581,7 @@ probopass: {
 			"1L1"
 		]
 	}
-}
+},
 skitty: {
 	"learnset": {
 		"blizzard": [
@@ -82813,7 +82813,7 @@ skitty: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 delcatty: {
 	"learnset": {
 		"blizzard": [
@@ -82970,7 +82970,7 @@ delcatty: {
 			]
 		}
 	]
-}
+},
 sableye: {
 	"learnset": {
 		"bodyslam": [
@@ -83230,7 +83230,7 @@ sableye: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 mawile: {
 	"learnset": {
 		"bite": [
@@ -83461,7 +83461,7 @@ mawile: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 aron: {
 	"learnset": {
 		"bodyslam": [
@@ -83619,7 +83619,7 @@ aron: {
 			"1M"
 		]
 	}
-}
+},
 lairon: {
 	"learnset": {
 		"bodyslam": [
@@ -83759,7 +83759,7 @@ lairon: {
 			"1M"
 		]
 	}
-}
+},
 aggron: {
 	"learnset": {
 		"blizzard": [
@@ -84070,7 +84070,7 @@ aggron: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 meditite: {
 	"learnset": {
 		"bide": [
@@ -84287,7 +84287,7 @@ meditite: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 medicham: {
 	"learnset": {
 		"bide": [
@@ -84494,7 +84494,7 @@ medicham: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 electrike: {
 	"learnset": {
 		"agility": [
@@ -84668,7 +84668,7 @@ electrike: {
 			"1M"
 		]
 	}
-}
+},
 manectric: {
 	"learnset": {
 		"agility": [
@@ -84868,7 +84868,7 @@ manectric: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 plusle: {
 	"learnset": {
 		"agility": [
@@ -85048,7 +85048,7 @@ plusle: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 minun: {
 	"learnset": {
 		"agility": [
@@ -85228,7 +85228,7 @@ minun: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 volbeat: {
 	"learnset": {
 		"bodyslam": [
@@ -85390,7 +85390,7 @@ volbeat: {
 			"1M"
 		]
 	}
-}
+},
 illumise: {
 	"learnset": {
 		"bodyslam": [
@@ -85534,7 +85534,7 @@ illumise: {
 			"1M"
 		]
 	}
-}
+},
 budew: {
 	"learnset": {
 		"absorb": [
@@ -85640,7 +85640,7 @@ budew: {
 			"1M"
 		]
 	}
-}
+},
 roselia: {
 	"learnset": {
 		"absorb": [
@@ -85831,7 +85831,7 @@ roselia: {
 			]
 		}
 	]
-}
+},
 roserade: {
 	"learnset": {
 		"absorb": [
@@ -85932,7 +85932,7 @@ roserade: {
 			"1M"
 		]
 	}
-}
+},
 gulpin: {
 	"learnset": {
 		"acidarmor": [
@@ -86108,7 +86108,7 @@ gulpin: {
 			]
 		}
 	]
-}
+},
 swalot: {
 	"learnset": {
 		"amnesia": [
@@ -86267,7 +86267,7 @@ swalot: {
 			"1L31"
 		]
 	}
-}
+},
 carvanha: {
 	"learnset": {
 		"agility": [
@@ -86462,7 +86462,7 @@ carvanha: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 sharpedo: {
 	"learnset": {
 		"agility": [
@@ -86680,7 +86680,7 @@ sharpedo: {
 			"level": 10
 		}
 	]
-}
+},
 wailmer: {
 	"learnset": {
 		"amnesia": [
@@ -86876,7 +86876,7 @@ wailmer: {
 			"1L10"
 		]
 	}
-}
+},
 wailord: {
 	"learnset": {
 		"amnesia": [
@@ -87095,7 +87095,7 @@ wailord: {
 			"level": 10
 		}
 	]
-}
+},
 numel: {
 	"learnset": {
 		"amnesia": [
@@ -87292,7 +87292,7 @@ numel: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 camerupt: {
 	"learnset": {
 		"amnesia": [
@@ -87494,7 +87494,7 @@ camerupt: {
 			"level": 30
 		}
 	]
-}
+},
 torkoal: {
 	"learnset": {
 		"amnesia": [
@@ -87706,7 +87706,7 @@ torkoal: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 spoink: {
 	"learnset": {
 		"amnesia": [
@@ -87862,7 +87862,7 @@ spoink: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 grumpig: {
 	"learnset": {
 		"bodyslam": [
@@ -88034,7 +88034,7 @@ grumpig: {
 			"level": 30
 		}
 	]
-}
+},
 spinda: {
 	"learnset": {
 		"bodyslam": [
@@ -88232,7 +88232,7 @@ spinda: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 trapinch: {
 	"learnset": {
 		"bide": [
@@ -88408,7 +88408,7 @@ trapinch: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 vibrava: {
 	"learnset": {
 		"bide": [
@@ -88570,7 +88570,7 @@ vibrava: {
 			"1M"
 		]
 	}
-}
+},
 flygon: {
 	"learnset": {
 		"bide": [
@@ -88800,7 +88800,7 @@ flygon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 cacnea: {
 	"learnset": {
 		"absorb": [
@@ -88981,7 +88981,7 @@ cacnea: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 cacturne: {
 	"learnset": {
 		"absorb": [
@@ -89157,7 +89157,7 @@ cacturne: {
 			"level": 30
 		}
 	]
-}
+},
 swablu: {
 	"learnset": {
 		"agility": [
@@ -89361,7 +89361,7 @@ swablu: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 altaria: {
 	"learnset": {
 		"agility": [
@@ -89600,7 +89600,7 @@ altaria: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 zangoose: {
 	"learnset": {
 		"blizzard": [
@@ -89886,7 +89886,7 @@ zangoose: {
 			]
 		}
 	]
-}
+},
 seviper: {
 	"learnset": {
 		"bind": [
@@ -90061,7 +90061,7 @@ seviper: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 lunatone: {
 	"learnset": {
 		"blizzard": [
@@ -90301,7 +90301,7 @@ lunatone: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 solrock: {
 	"learnset": {
 		"bodyslam": [
@@ -90563,7 +90563,7 @@ solrock: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 barboach: {
 	"learnset": {
 		"amnesia": [
@@ -90705,7 +90705,7 @@ barboach: {
 			"1L11"
 		]
 	}
-}
+},
 whiscash: {
 	"learnset": {
 		"amnesia": [
@@ -90883,7 +90883,7 @@ whiscash: {
 			"level": 10
 		}
 	]
-}
+},
 corphish: {
 	"learnset": {
 		"blizzard": [
@@ -91088,7 +91088,7 @@ corphish: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 crawdaunt: {
 	"learnset": {
 		"blizzard": [
@@ -91320,7 +91320,7 @@ crawdaunt: {
 			"level": 10
 		}
 	]
-}
+},
 baltoy: {
 	"learnset": {
 		"confusion": [
@@ -91499,7 +91499,7 @@ baltoy: {
 			]
 		}
 	]
-}
+},
 claydol: {
 	"learnset": {
 		"confusion": [
@@ -91693,7 +91693,7 @@ claydol: {
 			"1M"
 		]
 	}
-}
+},
 lileep: {
 	"learnset": {
 		"acid": [
@@ -91851,7 +91851,7 @@ lileep: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 cradily: {
 	"learnset": {
 		"acid": [
@@ -92000,7 +92000,7 @@ cradily: {
 			"1L1"
 		]
 	}
-}
+},
 anorith: {
 	"learnset": {
 		"bodyslam": [
@@ -92145,7 +92145,7 @@ anorith: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 armaldo: {
 	"learnset": {
 		"bodyslam": [
@@ -92290,7 +92290,7 @@ armaldo: {
 			"1L1"
 		]
 	}
-}
+},
 feebas: {
 	"learnset": {
 		"blizzard": [
@@ -92436,7 +92436,7 @@ feebas: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 milotic: {
 	"learnset": {
 		"bind": [
@@ -92662,7 +92662,7 @@ milotic: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 castform: {
 	"learnset": {
 		"amnesia": [
@@ -92822,7 +92822,7 @@ castform: {
 			"1L10"
 		]
 	}
-}
+},
 kecleon: {
 	"learnset": {
 		"bind": [
@@ -93085,7 +93085,7 @@ kecleon: {
 			"1M"
 		]
 	}
-}
+},
 shuppet: {
 	"learnset": {
 		"bodyslam": [
@@ -93214,7 +93214,7 @@ shuppet: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 banette: {
 	"learnset": {
 		"bodyslam": [
@@ -93356,7 +93356,7 @@ banette: {
 			"level": 32
 		}
 	]
-}
+},
 duskull: {
 	"learnset": {
 		"blizzard": [
@@ -93502,7 +93502,7 @@ duskull: {
 			]
 		}
 	]
-}
+},
 dusclops: {
 	"learnset": {
 		"bind": [
@@ -93726,7 +93726,7 @@ dusclops: {
 			"level": 30
 		}
 	]
-}
+},
 dusknoir: {
 	"learnset": {
 		"bind": [
@@ -93903,7 +93903,7 @@ dusknoir: {
 			"1M"
 		]
 	}
-}
+},
 tropius: {
 	"learnset": {
 		"bodyslam": [
@@ -94106,7 +94106,7 @@ tropius: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 chingling: {
 	"learnset": {
 		"bind": [
@@ -94214,7 +94214,7 @@ chingling: {
 			"1L1"
 		]
 	}
-}
+},
 chimecho: {
 	"learnset": {
 		"bind": [
@@ -94378,7 +94378,7 @@ chimecho: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 absol: {
 	"learnset": {
 		"bite": [
@@ -94675,7 +94675,7 @@ absol: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 snorunt: {
 	"learnset": {
 		"bide": [
@@ -94819,7 +94819,7 @@ snorunt: {
 			]
 		}
 	]
-}
+},
 glalie: {
 	"learnset": {
 		"bite": [
@@ -94970,7 +94970,7 @@ glalie: {
 			"1M"
 		]
 	}
-}
+},
 froslass: {
 	"learnset": {
 		"bite": [
@@ -95111,7 +95111,7 @@ froslass: {
 			"1M"
 		]
 	}
-}
+},
 spheal: {
 	"learnset": {
 		"aurorabeam": [
@@ -95298,7 +95298,7 @@ spheal: {
 			]
 		}
 	]
-}
+},
 sealeo: {
 	"learnset": {
 		"aurorabeam": [
@@ -95473,7 +95473,7 @@ sealeo: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 walrein: {
 	"learnset": {
 		"aurorabeam": [
@@ -95674,7 +95674,7 @@ walrein: {
 			"level": 30
 		}
 	]
-}
+},
 clamperl: {
 	"learnset": {
 		"barrier": [
@@ -95783,7 +95783,7 @@ clamperl: {
 			"1L1"
 		]
 	}
-}
+},
 huntail: {
 	"learnset": {
 		"bind": [
@@ -95895,7 +95895,7 @@ huntail: {
 			"1M"
 		]
 	}
-}
+},
 gorebyss: {
 	"learnset": {
 		"agility": [
@@ -96020,7 +96020,7 @@ gorebyss: {
 			"1M"
 		]
 	}
-}
+},
 relicanth: {
 	"learnset": {
 		"amnesia": [
@@ -96195,7 +96195,7 @@ relicanth: {
 			"1L8"
 		]
 	}
-}
+},
 luvdisc: {
 	"learnset": {
 		"agility": [
@@ -96312,7 +96312,7 @@ luvdisc: {
 			"1L12"
 		]
 	}
-}
+},
 bagon: {
 	"learnset": {
 		"bite": [
@@ -96536,7 +96536,7 @@ bagon: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 shelgon: {
 	"learnset": {
 		"bite": [
@@ -96693,7 +96693,7 @@ shelgon: {
 			"level": 15
 		}
 	]
-}
+},
 salamence: {
 	"learnset": {
 		"bite": [
@@ -96936,7 +96936,7 @@ salamence: {
 			"level": 9
 		}
 	]
-}
+},
 beldum: {
 	"learnset": {
 		"headbutt": [
@@ -96968,7 +96968,7 @@ beldum: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 metang: {
 	"learnset": {
 		"agility": [
@@ -97171,7 +97171,7 @@ metang: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 metagross: {
 	"learnset": {
 		"agility": [
@@ -97481,7 +97481,7 @@ metagross: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 regirock: {
 	"learnset": {
 		"bodyslam": [
@@ -97767,7 +97767,7 @@ regirock: {
 		}
 	],
 	"eventOnly": true
-}
+},
 regice: {
 	"learnset": {
 		"amnesia": [
@@ -98064,7 +98064,7 @@ regice: {
 		}
 	],
 	"eventOnly": true
-}
+},
 registeel: {
 	"learnset": {
 		"amnesia": [
@@ -98334,7 +98334,7 @@ registeel: {
 		}
 	],
 	"eventOnly": true
-}
+},
 latias: {
 	"learnset": {
 		"agility": [
@@ -98687,7 +98687,7 @@ latias: {
 		}
 	],
 	"eventOnly": true
-}
+},
 latios: {
 	"learnset": {
 		"agility": [
@@ -99040,7 +99040,7 @@ latios: {
 		}
 	],
 	"eventOnly": true
-}
+},
 kyogre: {
 	"learnset": {
 		"blizzard": [
@@ -99375,7 +99375,7 @@ kyogre: {
 		}
 	],
 	"eventOnly": true
-}
+},
 groudon: {
 	"learnset": {
 		"bodyslam": [
@@ -99764,7 +99764,7 @@ groudon: {
 		}
 	],
 	"eventOnly": true
-}
+},
 rayquaza: {
 	"learnset": {
 		"bind": [
@@ -100097,7 +100097,7 @@ rayquaza: {
 		}
 	],
 	"eventOnly": true
-}
+},
 jirachi: {
 	"learnset": {
 		"amnesia": [
@@ -100678,7 +100678,7 @@ jirachi: {
 		}
 	],
 	"eventOnly": true
-}
+},
 deoxys: {
 	"learnset": {
 		"agility": [
@@ -101078,16 +101078,16 @@ deoxys: {
 		}
 	],
 	"eventOnly": true
-}
+},
 deoxysattack: {
 	"eventOnly": true
-}
+},
 deoxysdefense: {
 	"eventOnly": true
-}
+},
 deoxysspeed: {
 	"eventOnly": true
-}
+},
 turtwig: {
 	"learnset": {
 		"absorb": [
@@ -101260,7 +101260,7 @@ turtwig: {
 			]
 		}
 	]
-}
+},
 grotle: {
 	"learnset": {
 		"absorb": [
@@ -101372,7 +101372,7 @@ grotle: {
 			"1L1"
 		]
 	}
-}
+},
 torterra: {
 	"learnset": {
 		"absorb": [
@@ -101527,7 +101527,7 @@ torterra: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 chimchar: {
 	"learnset": {
 		"counter": [
@@ -101738,7 +101738,7 @@ chimchar: {
 			]
 		}
 	]
-}
+},
 monferno: {
 	"learnset": {
 		"cut": [
@@ -101859,7 +101859,7 @@ monferno: {
 			"1M"
 		]
 	}
-}
+},
 infernape: {
 	"learnset": {
 		"cut": [
@@ -102033,7 +102033,7 @@ infernape: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 piplup: {
 	"learnset": {
 		"agility": [
@@ -102266,7 +102266,7 @@ piplup: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 prinplup: {
 	"learnset": {
 		"bide": [
@@ -102396,7 +102396,7 @@ prinplup: {
 			"1M"
 		]
 	}
-}
+},
 empoleon: {
 	"learnset": {
 		"blizzard": [
@@ -102570,7 +102570,7 @@ empoleon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 starly: {
 	"learnset": {
 		"agility": [
@@ -102690,7 +102690,7 @@ starly: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 staravia: {
 	"learnset": {
 		"agility": [
@@ -102780,7 +102780,7 @@ staravia: {
 			"level": 4
 		}
 	]
-}
+},
 staraptor: {
 	"learnset": {
 		"agility": [
@@ -102875,7 +102875,7 @@ staraptor: {
 			"1L1"
 		]
 	}
-}
+},
 bidoof: {
 	"learnset": {
 		"amnesia": [
@@ -103047,7 +103047,7 @@ bidoof: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 bibarel: {
 	"learnset": {
 		"amnesia": [
@@ -103210,7 +103210,7 @@ bibarel: {
 			"level": 4
 		}
 	]
-}
+},
 kricketot: {
 	"learnset": {
 		"bide": [
@@ -103229,7 +103229,7 @@ kricketot: {
 			"1T"
 		]
 	}
-}
+},
 kricketune: {
 	"learnset": {
 		"absorb": [
@@ -103332,7 +103332,7 @@ kricketune: {
 			"1M"
 		]
 	}
-}
+},
 shinx: {
 	"learnset": {
 		"bite": [
@@ -103466,7 +103466,7 @@ shinx: {
 			"1M"
 		]
 	}
-}
+},
 luxio: {
 	"learnset": {
 		"bite": [
@@ -103577,7 +103577,7 @@ luxio: {
 			"1M"
 		]
 	}
-}
+},
 luxray: {
 	"learnset": {
 		"agility": [
@@ -103698,7 +103698,7 @@ luxray: {
 			"1M"
 		]
 	}
-}
+},
 cranidos: {
 	"learnset": {
 		"blizzard": [
@@ -103891,7 +103891,7 @@ cranidos: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 rampardos: {
 	"learnset": {
 		"blizzard": [
@@ -104049,7 +104049,7 @@ rampardos: {
 			"1M"
 		]
 	}
-}
+},
 shieldon: {
 	"learnset": {
 		"blizzard": [
@@ -104214,7 +104214,7 @@ shieldon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 bastiodon: {
 	"learnset": {
 		"blizzard": [
@@ -104327,7 +104327,7 @@ bastiodon: {
 			"1M"
 		]
 	}
-}
+},
 burmy: {
 	"learnset": {
 		"stringshot": [
@@ -104340,7 +104340,7 @@ burmy: {
 			"1L10"
 		]
 	}
-}
+},
 wormadam: {
 	"learnset": {
 		"confusion": [
@@ -104434,7 +104434,7 @@ wormadam: {
 			"1M"
 		]
 	}
-}
+},
 wormadamsandy: {
 	"learnset": {
 		"confusion": [
@@ -104533,7 +104533,7 @@ wormadamsandy: {
 			"1M"
 		]
 	}
-}
+},
 wormadamtrash: {
 	"learnset": {
 		"confusion": [
@@ -104609,7 +104609,7 @@ wormadamtrash: {
 			"1M"
 		]
 	}
-}
+},
 mothim: {
 	"learnset": {
 		"confusion": [
@@ -104706,7 +104706,7 @@ mothim: {
 			"1M"
 		]
 	}
-}
+},
 combee: {
 	"learnset": {
 		"gust": [
@@ -104724,7 +104724,7 @@ combee: {
 			"1T"
 		]
 	}
-}
+},
 vespiquen: {
 	"learnset": {
 		"confuseray": [
@@ -104824,7 +104824,7 @@ vespiquen: {
 			"1L27"
 		]
 	}
-}
+},
 pachirisu: {
 	"learnset": {
 		"bide": [
@@ -104985,7 +104985,7 @@ pachirisu: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 buizel: {
 	"learnset": {
 		"agility": [
@@ -105128,7 +105128,7 @@ buizel: {
 			"1L6"
 		]
 	}
-}
+},
 floatzel: {
 	"learnset": {
 		"agility": [
@@ -105275,7 +105275,7 @@ floatzel: {
 			"level": 10
 		}
 	]
-}
+},
 cherubi: {
 	"learnset": {
 		"defensecurl": [
@@ -105371,7 +105371,7 @@ cherubi: {
 			"1M"
 		]
 	}
-}
+},
 cherrim: {
 	"learnset": {
 		"doubleteam": [
@@ -105467,7 +105467,7 @@ cherrim: {
 			"1M"
 		]
 	}
-}
+},
 shellos: {
 	"learnset": {
 		"acidarmor": [
@@ -105590,7 +105590,7 @@ shellos: {
 			"1L1"
 		]
 	}
-}
+},
 gastrodon: {
 	"learnset": {
 		"amnesia": [
@@ -105756,7 +105756,7 @@ gastrodon: {
 			"level": 20
 		}
 	]
-}
+},
 drifloon: {
 	"learnset": {
 		"amnesia": [
@@ -105918,7 +105918,7 @@ drifloon: {
 			"1M"
 		]
 	}
-}
+},
 drifblim: {
 	"learnset": {
 		"amnesia": [
@@ -106074,7 +106074,7 @@ drifblim: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 buneary: {
 	"learnset": {
 		"agility": [
@@ -106249,7 +106249,7 @@ buneary: {
 			"1M"
 		]
 	}
-}
+},
 lopunny: {
 	"learnset": {
 		"agility": [
@@ -106442,7 +106442,7 @@ lopunny: {
 			"1M"
 		]
 	}
-}
+},
 glameow: {
 	"learnset": {
 		"bite": [
@@ -106569,7 +106569,7 @@ glameow: {
 			"1M"
 		]
 	}
-}
+},
 purugly: {
 	"learnset": {
 		"bodyslam": [
@@ -106697,7 +106697,7 @@ purugly: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 stunky: {
 	"learnset": {
 		"bite": [
@@ -106865,7 +106865,7 @@ stunky: {
 			"1L20"
 		]
 	}
-}
+},
 skuntank: {
 	"learnset": {
 		"bite": [
@@ -107029,7 +107029,7 @@ skuntank: {
 			"level": 29
 		}
 	]
-}
+},
 bronzor: {
 	"learnset": {
 		"confuseray": [
@@ -107146,7 +107146,7 @@ bronzor: {
 			"1M"
 		]
 	}
-}
+},
 bronzong: {
 	"learnset": {
 		"confuseray": [
@@ -107286,7 +107286,7 @@ bronzong: {
 			"level": 30
 		}
 	]
-}
+},
 chatot: {
 	"learnset": {
 		"agility": [
@@ -107403,7 +107403,7 @@ chatot: {
 			]
 		}
 	]
-}
+},
 spiritomb: {
 	"learnset": {
 		"confuseray": [
@@ -107515,7 +107515,7 @@ spiritomb: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 gible: {
 	"learnset": {
 		"bite": [
@@ -107666,7 +107666,7 @@ gible: {
 			"1M"
 		]
 	}
-}
+},
 gabite: {
 	"learnset": {
 		"bite": [
@@ -107798,7 +107798,7 @@ gabite: {
 			"1M"
 		]
 	}
-}
+},
 garchomp: {
 	"learnset": {
 		"bite": [
@@ -108021,7 +108021,7 @@ garchomp: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 riolu: {
 	"learnset": {
 		"agility": [
@@ -108189,7 +108189,7 @@ riolu: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 lucario: {
 	"learnset": {
 		"agility": [
@@ -108433,7 +108433,7 @@ lucario: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 hippopotas: {
 	"learnset": {
 		"amnesia": [
@@ -108568,7 +108568,7 @@ hippopotas: {
 			"1E"
 		]
 	}
-}
+},
 hippowdon: {
 	"learnset": {
 		"amnesia": [
@@ -108699,7 +108699,7 @@ hippowdon: {
 			"1M"
 		]
 	}
-}
+},
 skorupi: {
 	"learnset": {
 		"agility": [
@@ -108839,7 +108839,7 @@ skorupi: {
 			"1E"
 		]
 	}
-}
+},
 drapion: {
 	"learnset": {
 		"agility": [
@@ -108977,7 +108977,7 @@ drapion: {
 			"level": 30
 		}
 	]
-}
+},
 croagunk: {
 	"learnset": {
 		"counter": [
@@ -109126,7 +109126,7 @@ croagunk: {
 			]
 		}
 	]
-}
+},
 toxicroak: {
 	"learnset": {
 		"cut": [
@@ -109258,7 +109258,7 @@ toxicroak: {
 			"level": 30
 		}
 	]
-}
+},
 carnivine: {
 	"learnset": {
 		"bind": [
@@ -109372,7 +109372,7 @@ carnivine: {
 			"1L11"
 		]
 	}
-}
+},
 finneon: {
 	"learnset": {
 		"agility": [
@@ -109476,7 +109476,7 @@ finneon: {
 			"1L6"
 		]
 	}
-}
+},
 lumineon: {
 	"learnset": {
 		"blizzard": [
@@ -109566,7 +109566,7 @@ lumineon: {
 			"level": 20
 		}
 	]
-}
+},
 snover: {
 	"learnset": {
 		"blizzard": [
@@ -109715,7 +109715,7 @@ snover: {
 			"1M"
 		]
 	}
-}
+},
 abomasnow: {
 	"learnset": {
 		"blizzard": [
@@ -109864,7 +109864,7 @@ abomasnow: {
 			"level": 38
 		}
 	]
-}
+},
 rotom: {
 	"learnset": {
 		"confuseray": [
@@ -110014,10 +110014,10 @@ rotom: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 rotomheat: {
 	"learnset": {}
-}
+},
 rotomwash: {
 	"learnset": {
 		"hydropump": [
@@ -110028,7 +110028,7 @@ rotomwash: {
 			"1R"
 		]
 	}
-}
+},
 rotomfrost: {
 	"learnset": {
 		"blizzard": [
@@ -110039,13 +110039,13 @@ rotomfrost: {
 			"1R"
 		]
 	}
-}
+},
 rotomfan: {
 	"learnset": {}
-}
+},
 rotommow: {
 	"learnset": {}
-}
+},
 uxie: {
 	"learnset": {
 		"amnesia": [
@@ -110283,7 +110283,7 @@ uxie: {
 		}
 	],
 	"eventOnly": true
-}
+},
 mesprit: {
 	"learnset": {
 		"blizzard": [
@@ -110516,7 +110516,7 @@ mesprit: {
 		}
 	],
 	"eventOnly": true
-}
+},
 azelf: {
 	"learnset": {
 		"confusion": [
@@ -110762,7 +110762,7 @@ azelf: {
 		}
 	],
 	"eventOnly": true
-}
+},
 dialga: {
 	"learnset": {
 		"blizzard": [
@@ -111050,7 +111050,7 @@ dialga: {
 		}
 	],
 	"eventOnly": true
-}
+},
 palkia: {
 	"learnset": {
 		"blizzard": [
@@ -111357,7 +111357,7 @@ palkia: {
 		}
 	],
 	"eventOnly": true
-}
+},
 heatran: {
 	"learnset": {
 		"bodyslam": [
@@ -111584,7 +111584,7 @@ heatran: {
 		}
 	],
 	"eventOnly": true
-}
+},
 regigigas: {
 	"learnset": {
 		"bodyslam": [
@@ -111835,7 +111835,7 @@ regigigas: {
 		}
 	],
 	"eventOnly": true
-}
+},
 giratina: {
 	"learnset": {
 		"bodyslam": [
@@ -112056,10 +112056,10 @@ giratina: {
 		}
 	],
 	"eventOnly": true
-}
+},
 giratinaorigin: {
 	"eventOnly": true
-}
+},
 cresselia: {
 	"learnset": {
 		"aurorabeam": [
@@ -112276,7 +112276,7 @@ cresselia: {
 		}
 	],
 	"eventOnly": true
-}
+},
 phione: {
 	"learnset": {
 		"acidarmor": [
@@ -112370,7 +112370,7 @@ phione: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 manaphy: {
 	"learnset": {
 		"acidarmor": [
@@ -112561,7 +112561,7 @@ manaphy: {
 		}
 	],
 	"eventOnly": true
-}
+},
 darkrai: {
 	"learnset": {
 		"blizzard": [
@@ -112803,7 +112803,7 @@ darkrai: {
 		}
 	],
 	"eventOnly": true
-}
+},
 shaymin: {
 	"learnset": {
 		"defensecurl": [
@@ -112964,10 +112964,10 @@ shaymin: {
 		}
 	],
 	"eventOnly": true
-}
+},
 shayminsky: {
 	"eventOnly": true
-}
+},
 arceus: {
 	"learnset": {
 		"blizzard": [
@@ -113216,58 +113216,58 @@ arceus: {
 		}
 	],
 	"eventOnly": true
-}
+},
 arceusbug: {
 	"eventOnly": true
-}
+},
 arceusdark: {
 	"eventOnly": true
-}
+},
 arceusdragon: {
 	"eventOnly": true
-}
+},
 arceuselectric: {
 	"eventOnly": true
-}
+},
 arceusfairy: {
 	"eventOnly": true
-}
+},
 arceusfighting: {
 	"eventOnly": true
-}
+},
 arceusfire: {
 	"eventOnly": true
-}
+},
 arceusflying: {
 	"eventOnly": true
-}
+},
 arceusghost: {
 	"eventOnly": true
-}
+},
 arceusgrass: {
 	"eventOnly": true
-}
+},
 arceusground: {
 	"eventOnly": true
-}
+},
 arceusice: {
 	"eventOnly": true
-}
+},
 arceuspoison: {
 	"eventOnly": true
-}
+},
 arceuspsychic: {
 	"eventOnly": true
-}
+},
 arceusrock: {
 	"eventOnly": true
-}
+},
 arceussteel: {
 	"eventOnly": true
-}
+},
 arceuswater: {
 	"eventOnly": true
-}
+},
 victini: {
 	"learnset": {
 		"confusion": [
@@ -113504,7 +113504,7 @@ victini: {
 		}
 	],
 	"eventOnly": true
-}
+},
 snivy: {
 	"learnset": {
 		"bind": [
@@ -113622,7 +113622,7 @@ snivy: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 servine: {
 	"learnset": {
 		"bind": [
@@ -113719,7 +113719,7 @@ servine: {
 			"1L1"
 		]
 	}
-}
+},
 serperior: {
 	"learnset": {
 		"bind": [
@@ -113853,7 +113853,7 @@ serperior: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 tepig: {
 	"learnset": {
 		"bodyslam": [
@@ -113947,7 +113947,7 @@ tepig: {
 			"1M"
 		]
 	}
-}
+},
 pignite: {
 	"learnset": {
 		"defensecurl": [
@@ -114051,7 +114051,7 @@ pignite: {
 			"1M"
 		]
 	}
-}
+},
 emboar: {
 	"learnset": {
 		"defensecurl": [
@@ -114192,7 +114192,7 @@ emboar: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 oshawott: {
 	"learnset": {
 		"blizzard": [
@@ -114282,7 +114282,7 @@ oshawott: {
 			"1L7"
 		]
 	}
-}
+},
 dewott: {
 	"learnset": {
 		"blizzard": [
@@ -114367,7 +114367,7 @@ dewott: {
 			"1L1"
 		]
 	}
-}
+},
 samurott: {
 	"learnset": {
 		"blizzard": [
@@ -114495,7 +114495,7 @@ samurott: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 patrat: {
 	"learnset": {
 		"bide": [
@@ -114598,7 +114598,7 @@ patrat: {
 			"1M"
 		]
 	}
-}
+},
 watchog: {
 	"learnset": {
 		"bide": [
@@ -114757,7 +114757,7 @@ watchog: {
 			"1M"
 		]
 	}
-}
+},
 lillipup: {
 	"learnset": {
 		"bite": [
@@ -114844,7 +114844,7 @@ lillipup: {
 			"1M"
 		]
 	}
-}
+},
 herdier: {
 	"learnset": {
 		"bite": [
@@ -114937,7 +114937,7 @@ herdier: {
 			"isHidden": true
 		}
 	]
-}
+},
 stoutland: {
 	"learnset": {
 		"bite": [
@@ -115041,7 +115041,7 @@ stoutland: {
 			"level": 23
 		}
 	]
-}
+},
 purrloin: {
 	"learnset": {
 		"cut": [
@@ -115128,7 +115128,7 @@ purrloin: {
 			"1M"
 		]
 	}
-}
+},
 liepard: {
 	"learnset": {
 		"cut": [
@@ -115228,7 +115228,7 @@ liepard: {
 			]
 		}
 	]
-}
+},
 pansage: {
 	"learnset": {
 		"bite": [
@@ -115364,7 +115364,7 @@ pansage: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 simisage: {
 	"learnset": {
 		"cut": [
@@ -115435,7 +115435,7 @@ simisage: {
 			"1M"
 		]
 	}
-}
+},
 pansear: {
 	"learnset": {
 		"amnesia": [
@@ -115552,7 +115552,7 @@ pansear: {
 			]
 		}
 	]
-}
+},
 simisear: {
 	"learnset": {
 		"cut": [
@@ -115648,7 +115648,7 @@ simisear: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 panpour: {
 	"learnset": {
 		"bite": [
@@ -115766,7 +115766,7 @@ panpour: {
 			]
 		}
 	]
-}
+},
 simipour: {
 	"learnset": {
 		"blizzard": [
@@ -115853,7 +115853,7 @@ simipour: {
 			"1M"
 		]
 	}
-}
+},
 munna: {
 	"learnset": {
 		"amnesia": [
@@ -115986,7 +115986,7 @@ munna: {
 			"pokeball": "dreamball"
 		}
 	]
-}
+},
 musharna: {
 	"learnset": {
 		"amnesia": [
@@ -116099,7 +116099,7 @@ musharna: {
 			]
 		}
 	]
-}
+},
 pidove: {
 	"learnset": {
 		"agility": [
@@ -116209,7 +116209,7 @@ pidove: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 tranquill: {
 	"learnset": {
 		"agility": [
@@ -116288,7 +116288,7 @@ tranquill: {
 			"1M"
 		]
 	}
-}
+},
 unfezant: {
 	"learnset": {
 		"agility": [
@@ -116379,7 +116379,7 @@ unfezant: {
 			"level": 22
 		}
 	]
-}
+},
 blitzle: {
 	"learnset": {
 		"agility": [
@@ -116488,7 +116488,7 @@ blitzle: {
 			"1M"
 		]
 	}
-}
+},
 zebstrika: {
 	"learnset": {
 		"agility": [
@@ -116572,7 +116572,7 @@ zebstrika: {
 			"1M"
 		]
 	}
-}
+},
 roggenrola: {
 	"learnset": {
 		"doubleteam": [
@@ -116657,7 +116657,7 @@ roggenrola: {
 			"1M"
 		]
 	}
-}
+},
 boldore: {
 	"learnset": {
 		"doubleteam": [
@@ -116742,7 +116742,7 @@ boldore: {
 			"level": 24
 		}
 	]
-}
+},
 gigalith: {
 	"learnset": {
 		"doubleteam": [
@@ -116836,7 +116836,7 @@ gigalith: {
 			"1M"
 		]
 	}
-}
+},
 woobat: {
 	"learnset": {
 		"amnesia": [
@@ -116938,7 +116938,7 @@ woobat: {
 			"1M"
 		]
 	}
-}
+},
 swoobat: {
 	"learnset": {
 		"amnesia": [
@@ -117045,7 +117045,7 @@ swoobat: {
 			"1M"
 		]
 	}
-}
+},
 drilbur: {
 	"learnset": {
 		"cut": [
@@ -117153,7 +117153,7 @@ drilbur: {
 			"1M"
 		]
 	}
-}
+},
 excadrill: {
 	"learnset": {
 		"cut": [
@@ -117267,7 +117267,7 @@ excadrill: {
 			"level": 30
 		}
 	]
-}
+},
 audino: {
 	"learnset": {
 		"amnesia": [
@@ -117520,7 +117520,7 @@ audino: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 timburr: {
 	"learnset": {
 		"bide": [
@@ -117643,7 +117643,7 @@ timburr: {
 			"1M"
 		]
 	}
-}
+},
 gurdurr: {
 	"learnset": {
 		"bide": [
@@ -117756,7 +117756,7 @@ gurdurr: {
 			"1M"
 		]
 	}
-}
+},
 conkeldurr: {
 	"learnset": {
 		"bide": [
@@ -117880,7 +117880,7 @@ conkeldurr: {
 			"1M"
 		]
 	}
-}
+},
 tympole: {
 	"learnset": {
 		"acid": [
@@ -117955,7 +117955,7 @@ tympole: {
 			"1M"
 		]
 	}
-}
+},
 palpitoad: {
 	"learnset": {
 		"acid": [
@@ -118023,7 +118023,7 @@ palpitoad: {
 			"1M"
 		]
 	}
-}
+},
 seismitoad: {
 	"learnset": {
 		"acid": [
@@ -118145,7 +118145,7 @@ seismitoad: {
 			"level": 15
 		}
 	]
-}
+},
 throh: {
 	"learnset": {
 		"bide": [
@@ -118263,7 +118263,7 @@ throh: {
 			"1M"
 		]
 	}
-}
+},
 sawk: {
 	"learnset": {
 		"bide": [
@@ -118376,7 +118376,7 @@ sawk: {
 			"1M"
 		]
 	}
-}
+},
 sewaddle: {
 	"learnset": {
 		"agility": [
@@ -118453,7 +118453,7 @@ sewaddle: {
 			"1M"
 		]
 	}
-}
+},
 swadloon: {
 	"learnset": {
 		"cut": [
@@ -118521,7 +118521,7 @@ swadloon: {
 			"level": 19
 		}
 	]
-}
+},
 leavanny: {
 	"learnset": {
 		"cut": [
@@ -118613,7 +118613,7 @@ leavanny: {
 			"isHidden": true
 		}
 	]
-}
+},
 venipede: {
 	"learnset": {
 		"agility": [
@@ -118701,7 +118701,7 @@ venipede: {
 			"1E"
 		]
 	}
-}
+},
 whirlipede: {
 	"learnset": {
 		"agility": [
@@ -118775,7 +118775,7 @@ whirlipede: {
 			"1L41"
 		]
 	}
-}
+},
 scolipede: {
 	"learnset": {
 		"agility": [
@@ -118886,7 +118886,7 @@ scolipede: {
 			"1L44"
 		]
 	}
-}
+},
 cottonee: {
 	"learnset": {
 		"absorb": [
@@ -118977,7 +118977,7 @@ cottonee: {
 			"1M"
 		]
 	}
-}
+},
 whimsicott: {
 	"learnset": {
 		"absorb": [
@@ -119097,7 +119097,7 @@ whimsicott: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 petilil: {
 	"learnset": {
 		"absorb": [
@@ -119184,7 +119184,7 @@ petilil: {
 			"1M"
 		]
 	}
-}
+},
 lilligant: {
 	"learnset": {
 		"absorb": [
@@ -119280,7 +119280,7 @@ lilligant: {
 			"1M"
 		]
 	}
-}
+},
 basculin: {
 	"learnset": {
 		"agility": [
@@ -119403,7 +119403,7 @@ basculin: {
 			"1L1"
 		]
 	}
-}
+},
 sandile: {
 	"learnset": {
 		"bite": [
@@ -119510,7 +119510,7 @@ sandile: {
 			"1M"
 		]
 	}
-}
+},
 krokorok: {
 	"learnset": {
 		"bite": [
@@ -119618,7 +119618,7 @@ krokorok: {
 			"1M"
 		]
 	}
-}
+},
 krookodile: {
 	"learnset": {
 		"bite": [
@@ -119735,7 +119735,7 @@ krookodile: {
 			"1M"
 		]
 	}
-}
+},
 darumaka: {
 	"learnset": {
 		"bite": [
@@ -119859,7 +119859,7 @@ darumaka: {
 			"1M"
 		]
 	}
-}
+},
 darumakagalar: {
 	"learnset": {
 		"bite": [
@@ -119925,7 +119925,7 @@ darumakagalar: {
 			"1L44"
 		]
 	}
-}
+},
 darmanitan: {
 	"learnset": {
 		"bite": [
@@ -120105,7 +120105,7 @@ darmanitan: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 darmanitangalar: {
 	"learnset": {
 		"bite": [
@@ -120180,7 +120180,7 @@ darmanitangalar: {
 			"1L50"
 		]
 	}
-}
+},
 maractus: {
 	"learnset": {
 		"absorb": [
@@ -120264,7 +120264,7 @@ maractus: {
 			"1M"
 		]
 	}
-}
+},
 dwebble: {
 	"learnset": {
 		"counter": [
@@ -120355,7 +120355,7 @@ dwebble: {
 			"1L7"
 		]
 	}
-}
+},
 crustle: {
 	"learnset": {
 		"counter": [
@@ -120457,7 +120457,7 @@ crustle: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 scraggy: {
 	"learnset": {
 		"amnesia": [
@@ -120610,7 +120610,7 @@ scraggy: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 scrafty: {
 	"learnset": {
 		"amnesia": [
@@ -120748,7 +120748,7 @@ scrafty: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 sigilyph: {
 	"learnset": {
 		"confusion": [
@@ -120893,7 +120893,7 @@ sigilyph: {
 			"1L14"
 		]
 	}
-}
+},
 yamask: {
 	"learnset": {
 		"disable": [
@@ -120955,7 +120955,7 @@ yamask: {
 			"1M"
 		]
 	}
-}
+},
 yamaskgalar: {
 	"learnset": {
 		"disable": [
@@ -120987,7 +120987,7 @@ yamaskgalar: {
 			"1M"
 		]
 	}
-}
+},
 cofagrigus: {
 	"learnset": {
 		"disable": [
@@ -121073,7 +121073,7 @@ cofagrigus: {
 			"maxEggMoves": 1
 		}
 	]
-}
+},
 runerigus: {
 	"learnset": {
 		"amnesia": [
@@ -121111,7 +121111,7 @@ runerigus: {
 			"1M"
 		]
 	}
-}
+},
 tirtouga: {
 	"learnset": {
 		"bide": [
@@ -121256,7 +121256,7 @@ tirtouga: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 carracosta: {
 	"learnset": {
 		"bide": [
@@ -121376,7 +121376,7 @@ carracosta: {
 			"1L1"
 		]
 	}
-}
+},
 archen: {
 	"learnset": {
 		"agility": [
@@ -121498,7 +121498,7 @@ archen: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 archeops: {
 	"learnset": {
 		"agility": [
@@ -121614,7 +121614,7 @@ archeops: {
 			"1L1"
 		]
 	}
-}
+},
 trubbish: {
 	"learnset": {
 		"amnesia": [
@@ -121707,7 +121707,7 @@ trubbish: {
 			"1L36"
 		]
 	}
-}
+},
 garbodor: {
 	"learnset": {
 		"amnesia": [
@@ -121830,7 +121830,7 @@ garbodor: {
 			"level": 24
 		}
 	]
-}
+},
 zorua: {
 	"learnset": {
 		"agility": [
@@ -121910,7 +121910,7 @@ zorua: {
 			"1M"
 		]
 	}
-}
+},
 zoroark: {
 	"learnset": {
 		"agility": [
@@ -122056,7 +122056,7 @@ zoroark: {
 			"level": 25
 		}
 	]
-}
+},
 minccino: {
 	"learnset": {
 		"dig": [
@@ -122138,7 +122138,7 @@ minccino: {
 			"1M"
 		]
 	}
-}
+},
 cinccino: {
 	"learnset": {
 		"dig": [
@@ -122215,7 +122215,7 @@ cinccino: {
 			"1M"
 		]
 	}
-}
+},
 gothita: {
 	"learnset": {
 		"confusion": [
@@ -122316,7 +122316,7 @@ gothita: {
 			"1M"
 		]
 	}
-}
+},
 gothorita: {
 	"learnset": {
 		"confusion": [
@@ -122449,7 +122449,7 @@ gothorita: {
 			"level": 31
 		}
 	]
-}
+},
 gothitelle: {
 	"learnset": {
 		"confusion": [
@@ -122562,7 +122562,7 @@ gothitelle: {
 			"level": 34
 		}
 	]
-}
+},
 solosis: {
 	"learnset": {
 		"acidarmor": [
@@ -122684,7 +122684,7 @@ solosis: {
 			"1M"
 		]
 	}
-}
+},
 duosion: {
 	"learnset": {
 		"confusion": [
@@ -122796,7 +122796,7 @@ duosion: {
 			"level": 31
 		}
 	]
-}
+},
 reuniclus: {
 	"learnset": {
 		"confusion": [
@@ -122943,7 +122943,7 @@ reuniclus: {
 			"level": 34
 		}
 	]
-}
+},
 ducklett: {
 	"learnset": {
 		"bubblebeam": [
@@ -123007,7 +123007,7 @@ ducklett: {
 			"1L9"
 		]
 	}
-}
+},
 swanna: {
 	"learnset": {
 		"bubblebeam": [
@@ -123077,7 +123077,7 @@ swanna: {
 			"level": 30
 		}
 	]
-}
+},
 vanillite: {
 	"learnset": {
 		"acidarmor": [
@@ -123156,7 +123156,7 @@ vanillite: {
 			"1M"
 		]
 	}
-}
+},
 vanillish: {
 	"learnset": {
 		"acidarmor": [
@@ -123234,7 +123234,7 @@ vanillish: {
 			"1M"
 		]
 	}
-}
+},
 vanilluxe: {
 	"learnset": {
 		"acidarmor": [
@@ -123318,7 +123318,7 @@ vanilluxe: {
 			"1M"
 		]
 	}
-}
+},
 deerling: {
 	"learnset": {
 		"agility": [
@@ -123428,7 +123428,7 @@ deerling: {
 			]
 		}
 	]
-}
+},
 sawsbuck: {
 	"learnset": {
 		"cut": [
@@ -123534,7 +123534,7 @@ sawsbuck: {
 			"level": 30
 		}
 	]
-}
+},
 emolga: {
 	"learnset": {
 		"agility": [
@@ -123632,7 +123632,7 @@ emolga: {
 			"1M"
 		]
 	}
-}
+},
 karrablast: {
 	"learnset": {
 		"counter": [
@@ -123757,7 +123757,7 @@ karrablast: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 escavalier: {
 	"learnset": {
 		"agility": [
@@ -123850,7 +123850,7 @@ escavalier: {
 			"1L1"
 		]
 	}
-}
+},
 foongus: {
 	"learnset": {
 		"absorb": [
@@ -123950,7 +123950,7 @@ foongus: {
 			"1L32"
 		]
 	}
-}
+},
 amoonguss: {
 	"learnset": {
 		"absorb": [
@@ -124072,7 +124072,7 @@ amoonguss: {
 			"isHidden": true
 		}
 	]
-}
+},
 frillish: {
 	"learnset": {
 		"absorb": [
@@ -124210,7 +124210,7 @@ frillish: {
 			"1L1"
 		]
 	}
-}
+},
 jellicent: {
 	"learnset": {
 		"absorb": [
@@ -124349,7 +124349,7 @@ jellicent: {
 			"level": 5
 		}
 	]
-}
+},
 alomomola: {
 	"learnset": {
 		"blizzard": [
@@ -124423,7 +124423,7 @@ alomomola: {
 			"1M"
 		]
 	}
-}
+},
 joltik: {
 	"learnset": {
 		"absorb": [
@@ -124536,7 +124536,7 @@ joltik: {
 			"1M"
 		]
 	}
-}
+},
 galvantula: {
 	"learnset": {
 		"absorb": [
@@ -124655,7 +124655,7 @@ galvantula: {
 			"level": 30
 		}
 	]
-}
+},
 ferroseed: {
 	"learnset": {
 		"doubleteam": [
@@ -124745,7 +124745,7 @@ ferroseed: {
 			"1M"
 		]
 	}
-}
+},
 ferrothorn: {
 	"learnset": {
 		"cut": [
@@ -124854,7 +124854,7 @@ ferrothorn: {
 			"1M"
 		]
 	}
-}
+},
 klink: {
 	"learnset": {
 		"bind": [
@@ -124930,7 +124930,7 @@ klink: {
 			"1L1"
 		]
 	}
-}
+},
 klang: {
 	"learnset": {
 		"bind": [
@@ -125012,7 +125012,7 @@ klang: {
 			"level": 30
 		}
 	]
-}
+},
 klinklang: {
 	"learnset": {
 		"bind": [
@@ -125094,7 +125094,7 @@ klinklang: {
 			"1L1"
 		]
 	}
-}
+},
 tynamo: {
 	"learnset": {
 		"tackle": [
@@ -125110,7 +125110,7 @@ tynamo: {
 			"1L1"
 		]
 	}
-}
+},
 eelektrik: {
 	"learnset": {
 		"acid": [
@@ -125192,7 +125192,7 @@ eelektrik: {
 			"1M"
 		]
 	}
-}
+},
 eelektross: {
 	"learnset": {
 		"acid": [
@@ -125302,7 +125302,7 @@ eelektross: {
 			"1M"
 		]
 	}
-}
+},
 elgyem: {
 	"learnset": {
 		"agility": [
@@ -125431,7 +125431,7 @@ elgyem: {
 			"1M"
 		]
 	}
-}
+},
 beheeyem: {
 	"learnset": {
 		"agility": [
@@ -125554,7 +125554,7 @@ beheeyem: {
 			"1M"
 		]
 	}
-}
+},
 litwick: {
 	"learnset": {
 		"acid": [
@@ -125667,7 +125667,7 @@ litwick: {
 			"1M"
 		]
 	}
-}
+},
 lampent: {
 	"learnset": {
 		"confuseray": [
@@ -125769,7 +125769,7 @@ lampent: {
 			"level": 30
 		}
 	]
-}
+},
 chandelure: {
 	"learnset": {
 		"confuseray": [
@@ -125881,7 +125881,7 @@ chandelure: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 axew: {
 	"learnset": {
 		"bite": [
@@ -126051,7 +126051,7 @@ axew: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 fraxure: {
 	"learnset": {
 		"bite": [
@@ -126155,7 +126155,7 @@ fraxure: {
 			"level": 30
 		}
 	]
-}
+},
 haxorus: {
 	"learnset": {
 		"bite": [
@@ -126304,7 +126304,7 @@ haxorus: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 cubchoo: {
 	"learnset": {
 		"bide": [
@@ -126434,7 +126434,7 @@ cubchoo: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 beartic: {
 	"learnset": {
 		"bide": [
@@ -126575,7 +126575,7 @@ beartic: {
 			"level": 30
 		}
 	]
-}
+},
 cryogonal: {
 	"learnset": {
 		"acidarmor": [
@@ -126717,7 +126717,7 @@ cryogonal: {
 			"1M"
 		]
 	}
-}
+},
 shelmet: {
 	"learnset": {
 		"absorb": [
@@ -126822,7 +126822,7 @@ shelmet: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 accelgor: {
 	"learnset": {
 		"absorb": [
@@ -126911,7 +126911,7 @@ accelgor: {
 			"1M"
 		]
 	}
-}
+},
 stunfisk: {
 	"learnset": {
 		"bide": [
@@ -127012,7 +127012,7 @@ stunfisk: {
 			"1L1"
 		]
 	}
-}
+},
 stunfiskgalar: {
 	"learnset": {
 		"bind": [
@@ -127055,7 +127055,7 @@ stunfiskgalar: {
 			"1L1"
 		]
 	}
-}
+},
 mienfoo: {
 	"learnset": {
 		"agility": [
@@ -127165,7 +127165,7 @@ mienfoo: {
 			"1M"
 		]
 	}
-}
+},
 mienshao: {
 	"learnset": {
 		"agility": [
@@ -127296,7 +127296,7 @@ mienshao: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 druddigon: {
 	"learnset": {
 		"bite": [
@@ -127438,7 +127438,7 @@ druddigon: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 golett: {
 	"learnset": {
 		"defensecurl": [
@@ -127560,7 +127560,7 @@ golett: {
 			"1M"
 		]
 	}
-}
+},
 golurk: {
 	"learnset": {
 		"bodyslam": [
@@ -127731,7 +127731,7 @@ golurk: {
 			"level": 30
 		}
 	]
-}
+},
 pawniard: {
 	"learnset": {
 		"cut": [
@@ -127821,7 +127821,7 @@ pawniard: {
 			"1M"
 		]
 	}
-}
+},
 bisharp: {
 	"learnset": {
 		"cut": [
@@ -127917,7 +127917,7 @@ bisharp: {
 			"level": 33
 		}
 	]
-}
+},
 bouffalant: {
 	"learnset": {
 		"amnesia": [
@@ -128065,7 +128065,7 @@ bouffalant: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 rufflet: {
 	"learnset": {
 		"agility": [
@@ -128158,7 +128158,7 @@ rufflet: {
 			"1L10"
 		]
 	}
-}
+},
 braviary: {
 	"learnset": {
 		"agility": [
@@ -128284,7 +128284,7 @@ braviary: {
 			"level": 45
 		}
 	]
-}
+},
 vullaby: {
 	"learnset": {
 		"cut": [
@@ -128352,7 +128352,7 @@ vullaby: {
 			"1L55"
 		]
 	}
-}
+},
 mandibuzz: {
 	"learnset": {
 		"cut": [
@@ -128446,7 +128446,7 @@ mandibuzz: {
 			]
 		}
 	]
-}
+},
 heatmor: {
 	"learnset": {
 		"amnesia": [
@@ -128577,7 +128577,7 @@ heatmor: {
 			"1E"
 		]
 	}
-}
+},
 durant: {
 	"learnset": {
 		"agility": [
@@ -128669,7 +128669,7 @@ durant: {
 			"1L1"
 		]
 	}
-}
+},
 deino: {
 	"learnset": {
 		"bite": [
@@ -128777,7 +128777,7 @@ deino: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 zweilous: {
 	"learnset": {
 		"bite": [
@@ -128871,7 +128871,7 @@ zweilous: {
 			"level": 49
 		}
 	]
-}
+},
 hydreigon: {
 	"learnset": {
 		"bite": [
@@ -129057,7 +129057,7 @@ hydreigon: {
 			"level": 59
 		}
 	]
-}
+},
 larvesta: {
 	"learnset": {
 		"absorb": [
@@ -129174,7 +129174,7 @@ larvesta: {
 			"1M"
 		]
 	}
-}
+},
 volcarona: {
 	"learnset": {
 		"absorb": [
@@ -129348,7 +129348,7 @@ volcarona: {
 			"level": 41
 		}
 	]
-}
+},
 cobalion: {
 	"learnset": {
 		"cut": [
@@ -129516,7 +129516,7 @@ cobalion: {
 		}
 	],
 	"eventOnly": true
-}
+},
 terrakion: {
 	"learnset": {
 		"cut": [
@@ -129697,7 +129697,7 @@ terrakion: {
 		}
 	],
 	"eventOnly": true
-}
+},
 virizion: {
 	"learnset": {
 		"cut": [
@@ -129874,7 +129874,7 @@ virizion: {
 		}
 	],
 	"eventOnly": true
-}
+},
 tornadus: {
 	"learnset": {
 		"agility": [
@@ -130048,10 +130048,10 @@ tornadus: {
 		}
 	],
 	"eventOnly": true
-}
+},
 tornadustherian: {
 	"eventOnly": true
-}
+},
 thundurus: {
 	"learnset": {
 		"agility": [
@@ -130255,10 +130255,10 @@ thundurus: {
 		}
 	],
 	"eventOnly": true
-}
+},
 thundurustherian: {
 	"eventOnly": true
-}
+},
 reshiram: {
 	"learnset": {
 		"cut": [
@@ -130464,7 +130464,7 @@ reshiram: {
 		}
 	],
 	"eventOnly": true
-}
+},
 zekrom: {
 	"learnset": {
 		"cut": [
@@ -130681,7 +130681,7 @@ zekrom: {
 		}
 	],
 	"eventOnly": true
-}
+},
 landorus: {
 	"learnset": {
 		"bodyslam": [
@@ -130877,10 +130877,10 @@ landorus: {
 		}
 	],
 	"eventOnly": true
-}
+},
 landorustherian: {
 	"eventOnly": true
-}
+},
 kyurem: {
 	"learnset": {
 		"blizzard": [
@@ -131056,7 +131056,7 @@ kyurem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 kyuremblack: {
 	"learnset": {
 		"blizzard": [
@@ -131232,7 +131232,7 @@ kyuremblack: {
 		}
 	],
 	"eventOnly": true
-}
+},
 kyuremwhite: {
 	"learnset": {
 		"blizzard": [
@@ -131408,7 +131408,7 @@ kyuremwhite: {
 		}
 	],
 	"eventOnly": true
-}
+},
 keldeo: {
 	"learnset": {
 		"bubblebeam": [
@@ -131583,10 +131583,10 @@ keldeo: {
 		}
 	],
 	"eventOnly": true
-}
+},
 keldeoresolute: {
 	"eventOnly": true
-}
+},
 meloetta: {
 	"learnset": {
 		"confusion": [
@@ -131747,7 +131747,7 @@ meloetta: {
 		}
 	],
 	"eventOnly": true
-}
+},
 genesect: {
 	"learnset": {
 		"blizzard": [
@@ -131961,19 +131961,19 @@ genesect: {
 		}
 	],
 	"eventOnly": true
-}
+},
 genesectburn: {
 	"eventOnly": true
-}
+},
 genesectchill: {
 	"eventOnly": true
-}
+},
 genesectdouse: {
 	"eventOnly": true
-}
+},
 genesectshock: {
 	"eventOnly": true
-}
+},
 chespin: {
 	"learnset": {
 		"bite": [
@@ -132072,7 +132072,7 @@ chespin: {
 			"1L5"
 		]
 	}
-}
+},
 quilladin: {
 	"learnset": {
 		"bite": [
@@ -132167,7 +132167,7 @@ quilladin: {
 			"1L5"
 		]
 	}
-}
+},
 chesnaught: {
 	"learnset": {
 		"bite": [
@@ -132271,7 +132271,7 @@ chesnaught: {
 			"1L5"
 		]
 	}
-}
+},
 fennekin: {
 	"learnset": {
 		"cut": [
@@ -132366,7 +132366,7 @@ fennekin: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 braixen: {
 	"learnset": {
 		"cut": [
@@ -132453,7 +132453,7 @@ braixen: {
 			"1M"
 		]
 	}
-}
+},
 delphox: {
 	"learnset": {
 		"cut": [
@@ -132544,7 +132544,7 @@ delphox: {
 			"1M"
 		]
 	}
-}
+},
 froakie: {
 	"learnset": {
 		"blizzard": [
@@ -132641,7 +132641,7 @@ froakie: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 frogadier: {
 	"learnset": {
 		"blizzard": [
@@ -132730,7 +132730,7 @@ frogadier: {
 			"1M"
 		]
 	}
-}
+},
 greninja: {
 	"learnset": {
 		"blizzard": [
@@ -132858,7 +132858,7 @@ greninja: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 greninjaash: {
 	"learnset": {
 		"blizzard": [
@@ -132947,7 +132947,7 @@ greninjaash: {
 		}
 	],
 	"eventOnly": true
-}
+},
 bunnelby: {
 	"learnset": {
 		"agility": [
@@ -133050,7 +133050,7 @@ bunnelby: {
 			"1M"
 		]
 	}
-}
+},
 diggersby: {
 	"learnset": {
 		"agility": [
@@ -133185,7 +133185,7 @@ diggersby: {
 			"1M"
 		]
 	}
-}
+},
 fletchling: {
 	"learnset": {
 		"agility": [
@@ -133253,7 +133253,7 @@ fletchling: {
 			"1M"
 		]
 	}
-}
+},
 fletchinder: {
 	"learnset": {
 		"agility": [
@@ -133342,7 +133342,7 @@ fletchinder: {
 			"level": 16
 		}
 	]
-}
+},
 talonflame: {
 	"learnset": {
 		"agility": [
@@ -133435,7 +133435,7 @@ talonflame: {
 			"1M"
 		]
 	}
-}
+},
 scatterbug: {
 	"learnset": {
 		"poisonpowder": [
@@ -133457,7 +133457,7 @@ scatterbug: {
 			"1L1"
 		]
 	}
-}
+},
 spewpa: {
 	"learnset": {
 		"harden": [
@@ -133465,7 +133465,7 @@ spewpa: {
 			"1L1"
 		]
 	}
-}
+},
 vivillon: {
 	"learnset": {
 		"doubleteam": [
@@ -133534,7 +133534,7 @@ vivillon: {
 			"1M"
 		]
 	}
-}
+},
 vivillonfancy: {
 	"learnset": {
 		"doubleteam": [
@@ -133619,7 +133619,7 @@ vivillonfancy: {
 		}
 	],
 	"eventOnly": true
-}
+},
 vivillonpokeball: {
 	"learnset": {
 		"doubleteam": [
@@ -133705,7 +133705,7 @@ vivillonpokeball: {
 		}
 	],
 	"eventOnly": true
-}
+},
 litleo: {
 	"learnset": {
 		"dig": [
@@ -133773,7 +133773,7 @@ litleo: {
 			"1M"
 		]
 	}
-}
+},
 pyroar: {
 	"learnset": {
 		"dig": [
@@ -133867,7 +133867,7 @@ pyroar: {
 			"level": 30
 		}
 	]
-}
+},
 flabebe: {
 	"learnset": {
 		"doubleteam": [
@@ -133916,7 +133916,7 @@ flabebe: {
 			"1L1"
 		]
 	}
-}
+},
 floette: {
 	"learnset": {
 		"doubleteam": [
@@ -133965,7 +133965,7 @@ floette: {
 			"1L1"
 		]
 	}
-}
+},
 floetteeternal: {
 	"learnset": {
 		"doubleteam": [
@@ -134003,7 +134003,7 @@ floetteeternal: {
 			"1L1"
 		]
 	}
-}
+},
 florges: {
 	"learnset": {
 		"doubleteam": [
@@ -134046,7 +134046,7 @@ florges: {
 			"1M"
 		]
 	}
-}
+},
 skiddo: {
 	"learnset": {
 		"defensecurl": [
@@ -134124,7 +134124,7 @@ skiddo: {
 			"1L7"
 		]
 	}
-}
+},
 gogoat: {
 	"learnset": {
 		"dig": [
@@ -134214,7 +134214,7 @@ gogoat: {
 			"level": 30
 		}
 	]
-}
+},
 pancham: {
 	"learnset": {
 		"bodyslam": [
@@ -134340,7 +134340,7 @@ pancham: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 pangoro: {
 	"learnset": {
 		"bodyslam": [
@@ -134465,7 +134465,7 @@ pangoro: {
 			"level": 24
 		}
 	]
-}
+},
 furfrou: {
 	"learnset": {
 		"bite": [
@@ -134535,7 +134535,7 @@ furfrou: {
 			"1M"
 		]
 	}
-}
+},
 espurr: {
 	"learnset": {
 		"barrier": [
@@ -134626,7 +134626,7 @@ espurr: {
 			"1M"
 		]
 	}
-}
+},
 meowstic: {
 	"learnset": {
 		"confusion": [
@@ -134727,7 +134727,7 @@ meowstic: {
 			"1M"
 		]
 	}
-}
+},
 meowsticf: {
 	"learnset": {
 		"confusion": [
@@ -134826,7 +134826,7 @@ meowsticf: {
 			"1M"
 		]
 	}
-}
+},
 honedge: {
 	"learnset": {
 		"cut": [
@@ -134882,7 +134882,7 @@ honedge: {
 			"1M"
 		]
 	}
-}
+},
 doublade: {
 	"learnset": {
 		"cut": [
@@ -134938,7 +134938,7 @@ doublade: {
 			"1M"
 		]
 	}
-}
+},
 aegislash: {
 	"learnset": {
 		"cut": [
@@ -135012,7 +135012,7 @@ aegislash: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 spritzee: {
 	"learnset": {
 		"disable": [
@@ -135069,7 +135069,7 @@ spritzee: {
 			"1M"
 		]
 	}
-}
+},
 aromatisse: {
 	"learnset": {
 		"disable": [
@@ -135154,7 +135154,7 @@ aromatisse: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 swirlix: {
 	"learnset": {
 		"amnesia": [
@@ -135221,7 +135221,7 @@ swirlix: {
 			"1M"
 		]
 	}
-}
+},
 slurpuff: {
 	"learnset": {
 		"amnesia": [
@@ -135299,7 +135299,7 @@ slurpuff: {
 			"1M"
 		]
 	}
-}
+},
 inkay: {
 	"learnset": {
 		"bind": [
@@ -135418,7 +135418,7 @@ inkay: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 malamar: {
 	"learnset": {
 		"bind": [
@@ -135547,7 +135547,7 @@ malamar: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 binacle: {
 	"learnset": {
 		"blizzard": [
@@ -135646,7 +135646,7 @@ binacle: {
 			"1L7"
 		]
 	}
-}
+},
 barbaracle: {
 	"learnset": {
 		"blizzard": [
@@ -135765,7 +135765,7 @@ barbaracle: {
 			"level": 30
 		}
 	]
-}
+},
 skrelp: {
 	"learnset": {
 		"acid": [
@@ -135853,7 +135853,7 @@ skrelp: {
 			"1L1"
 		]
 	}
-}
+},
 dragalge: {
 	"learnset": {
 		"acid": [
@@ -135947,7 +135947,7 @@ dragalge: {
 			"level": 35
 		}
 	]
-}
+},
 clauncher: {
 	"learnset": {
 		"bubble": [
@@ -136031,7 +136031,7 @@ clauncher: {
 			"1L1"
 		]
 	}
-}
+},
 clawitzer: {
 	"learnset": {
 		"bubble": [
@@ -136123,7 +136123,7 @@ clawitzer: {
 			"level": 35
 		}
 	]
-}
+},
 helioptile: {
 	"learnset": {
 		"agility": [
@@ -136229,7 +136229,7 @@ helioptile: {
 			"1M"
 		]
 	}
-}
+},
 heliolisk: {
 	"learnset": {
 		"agility": [
@@ -136349,7 +136349,7 @@ heliolisk: {
 			"1M"
 		]
 	}
-}
+},
 tyrunt: {
 	"learnset": {
 		"bide": [
@@ -136457,7 +136457,7 @@ tyrunt: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 tyrantrum: {
 	"learnset": {
 		"bide": [
@@ -136551,7 +136551,7 @@ tyrantrum: {
 			"1M"
 		]
 	}
-}
+},
 amaura: {
 	"learnset": {
 		"aurorabeam": [
@@ -136693,7 +136693,7 @@ amaura: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 aurorus: {
 	"learnset": {
 		"aurorabeam": [
@@ -136822,7 +136822,7 @@ aurorus: {
 			"1M"
 		]
 	}
-}
+},
 sylveon: {
 	"learnset": {
 		"bite": [
@@ -136960,7 +136960,7 @@ sylveon: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 hawlucha: {
 	"learnset": {
 		"agility": [
@@ -137068,7 +137068,7 @@ hawlucha: {
 			"1L8"
 		]
 	}
-}
+},
 dedenne: {
 	"learnset": {
 		"cut": [
@@ -137148,7 +137148,7 @@ dedenne: {
 			"1M"
 		]
 	}
-}
+},
 carbink: {
 	"learnset": {
 		"doubleteam": [
@@ -137221,7 +137221,7 @@ carbink: {
 			"1M"
 		]
 	}
-}
+},
 goomy: {
 	"learnset": {
 		"absorb": [
@@ -137305,7 +137305,7 @@ goomy: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 sliggoo: {
 	"learnset": {
 		"absorb": [
@@ -137380,7 +137380,7 @@ sliggoo: {
 			"level": 30
 		}
 	]
-}
+},
 goodra: {
 	"learnset": {
 		"absorb": [
@@ -137499,7 +137499,7 @@ goodra: {
 			"1L1"
 		]
 	}
-}
+},
 klefki: {
 	"learnset": {
 		"cut": [
@@ -137554,7 +137554,7 @@ klefki: {
 			"1M"
 		]
 	}
-}
+},
 phantump: {
 	"learnset": {
 		"confuseray": [
@@ -137633,7 +137633,7 @@ phantump: {
 			"1M"
 		]
 	}
-}
+},
 trevenant: {
 	"learnset": {
 		"confuseray": [
@@ -137719,7 +137719,7 @@ trevenant: {
 			"1M"
 		]
 	}
-}
+},
 pumpkaboo: {
 	"learnset": {
 		"confuseray": [
@@ -137802,7 +137802,7 @@ pumpkaboo: {
 			"1M"
 		]
 	}
-}
+},
 pumpkaboosuper: {
 	"learnset": {},
 	"eventData": [
@@ -137818,7 +137818,7 @@ pumpkaboosuper: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 gourgeist: {
 	"learnset": {
 		"confuseray": [
@@ -137904,7 +137904,7 @@ gourgeist: {
 			"1M"
 		]
 	}
-}
+},
 bergmite: {
 	"learnset": {
 		"barrier": [
@@ -138000,7 +138000,7 @@ bergmite: {
 			"1M"
 		]
 	}
-}
+},
 avalugg: {
 	"learnset": {
 		"bite": [
@@ -138112,7 +138112,7 @@ avalugg: {
 			"1M"
 		]
 	}
-}
+},
 noibat: {
 	"learnset": {
 		"absorb": [
@@ -138225,7 +138225,7 @@ noibat: {
 			"1L16"
 		]
 	}
-}
+},
 noivern: {
 	"learnset": {
 		"absorb": [
@@ -138348,7 +138348,7 @@ noivern: {
 			"1L16"
 		]
 	}
-}
+},
 xerneas: {
 	"learnset": {
 		"aurorabeam": [
@@ -138511,7 +138511,7 @@ xerneas: {
 		}
 	],
 	"eventOnly": true
-}
+},
 yveltal: {
 	"learnset": {
 		"bodyslam": [
@@ -138666,7 +138666,7 @@ yveltal: {
 		}
 	],
 	"eventOnly": true
-}
+},
 zygarde: {
 	"learnset": {
 		"bind": [
@@ -138872,7 +138872,7 @@ zygarde: {
 		}
 	],
 	"eventOnly": true
-}
+},
 zygarde10: {
 	"learnset": {
 		"bind": [
@@ -138965,7 +138965,7 @@ zygarde10: {
 		}
 	],
 	"eventOnly": true
-}
+},
 diancie: {
 	"learnset": {
 		"amnesia": [
@@ -139077,7 +139077,7 @@ diancie: {
 		}
 	],
 	"eventOnly": true
-}
+},
 hoopa: {
 	"learnset": {
 		"confusion": [
@@ -139179,10 +139179,10 @@ hoopa: {
 		}
 	],
 	"eventOnly": true
-}
+},
 hoopaunbound: {
 	"eventOnly": true
-}
+},
 volcanion: {
 	"learnset": {
 		"bodyslam": [
@@ -139340,7 +139340,7 @@ volcanion: {
 		}
 	],
 	"eventOnly": true
-}
+},
 rowlet: {
 	"learnset": {
 		"confuseray": [
@@ -139403,7 +139403,7 @@ rowlet: {
 			"1M"
 		]
 	}
-}
+},
 dartrix: {
 	"learnset": {
 		"doubleteam": [
@@ -139458,7 +139458,7 @@ dartrix: {
 			"1M"
 		]
 	}
-}
+},
 decidueye: {
 	"learnset": {
 		"doubleteam": [
@@ -139530,7 +139530,7 @@ decidueye: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 litten: {
 	"learnset": {
 		"bite": [
@@ -139616,7 +139616,7 @@ litten: {
 			"1M"
 		]
 	}
-}
+},
 torracat: {
 	"learnset": {
 		"bite": [
@@ -139701,7 +139701,7 @@ torracat: {
 			"1M"
 		]
 	}
-}
+},
 incineroar: {
 	"learnset": {
 		"bind": [
@@ -139829,7 +139829,7 @@ incineroar: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 popplio: {
 	"learnset": {
 		"amnesia": [
@@ -139895,7 +139895,7 @@ popplio: {
 			"1L1"
 		]
 	}
-}
+},
 brionne: {
 	"learnset": {
 		"amnesia": [
@@ -139960,7 +139960,7 @@ brionne: {
 			"1L1"
 		]
 	}
-}
+},
 primarina: {
 	"learnset": {
 		"amnesia": [
@@ -140054,7 +140054,7 @@ primarina: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 pikipek: {
 	"learnset": {
 		"doubleteam": [
@@ -140100,7 +140100,7 @@ pikipek: {
 			"1M"
 		]
 	}
-}
+},
 trumbeak: {
 	"learnset": {
 		"doubleteam": [
@@ -140143,7 +140143,7 @@ trumbeak: {
 			"1M"
 		]
 	}
-}
+},
 toucannon: {
 	"learnset": {
 		"doubleteam": [
@@ -140192,7 +140192,7 @@ toucannon: {
 			"level": 26
 		}
 	]
-}
+},
 yungoos: {
 	"learnset": {
 		"bide": [
@@ -140240,7 +140240,7 @@ yungoos: {
 			"1M"
 		]
 	}
-}
+},
 gumshoos: {
 	"learnset": {
 		"bide": [
@@ -140306,7 +140306,7 @@ gumshoos: {
 			"level": 17
 		}
 	]
-}
+},
 gumshoostotem: {
 	"learnset": {
 		"bide": [
@@ -140384,7 +140384,7 @@ gumshoostotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 grubbin: {
 	"learnset": {
 		"bite": [
@@ -140438,7 +140438,7 @@ grubbin: {
 			"1L1"
 		]
 	}
-}
+},
 charjabug: {
 	"learnset": {
 		"bite": [
@@ -140488,7 +140488,7 @@ charjabug: {
 			"1L1"
 		]
 	}
-}
+},
 vikavolt: {
 	"learnset": {
 		"agility": [
@@ -140565,7 +140565,7 @@ vikavolt: {
 			"1L1"
 		]
 	}
-}
+},
 vikavolttotem: {
 	"learnset": {
 		"agility": [
@@ -140634,7 +140634,7 @@ vikavolttotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 crabrawler: {
 	"learnset": {
 		"amnesia": [
@@ -140680,7 +140680,7 @@ crabrawler: {
 			"1M"
 		]
 	}
-}
+},
 crabominable: {
 	"learnset": {
 		"blizzard": [
@@ -140727,7 +140727,7 @@ crabominable: {
 			"1M"
 		]
 	}
-}
+},
 oricorio: {
 	"learnset": {
 		"agility": [
@@ -140770,7 +140770,7 @@ oricorio: {
 			"1M"
 		]
 	}
-}
+},
 cutiefly: {
 	"learnset": {
 		"absorb": [
@@ -140818,7 +140818,7 @@ cutiefly: {
 			"1M"
 		]
 	}
-}
+},
 ribombee: {
 	"learnset": {
 		"absorb": [
@@ -140873,7 +140873,7 @@ ribombee: {
 			"1M"
 		]
 	}
-}
+},
 ribombeetotem: {
 	"learnset": {
 		"absorb": [
@@ -140928,7 +140928,7 @@ ribombeetotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 rockruff: {
 	"learnset": {
 		"bite": [
@@ -140985,7 +140985,7 @@ rockruff: {
 			"1M"
 		]
 	}
-}
+},
 lycanroc: {
 	"learnset": {
 		"agility": [
@@ -141049,7 +141049,7 @@ lycanroc: {
 			"1M"
 		]
 	}
-}
+},
 lycanrocmidnight: {
 	"learnset": {
 		"bite": [
@@ -141136,7 +141136,7 @@ lycanrocmidnight: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 lycanrocdusk: {
 	"learnset": {
 		"bite": [
@@ -141203,7 +141203,7 @@ lycanrocdusk: {
 			"1M"
 		]
 	}
-}
+},
 wishiwashi: {
 	"learnset": {
 		"doubleedge": [
@@ -141262,7 +141262,7 @@ wishiwashi: {
 			"1L1"
 		]
 	}
-}
+},
 mareanie: {
 	"learnset": {
 		"bite": [
@@ -141340,7 +141340,7 @@ mareanie: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 toxapex: {
 	"learnset": {
 		"bite": [
@@ -141403,7 +141403,7 @@ toxapex: {
 			"1L21"
 		]
 	}
-}
+},
 mudbray: {
 	"learnset": {
 		"bide": [
@@ -141473,7 +141473,7 @@ mudbray: {
 			"1M"
 		]
 	}
-}
+},
 mudsdale: {
 	"learnset": {
 		"bide": [
@@ -141543,7 +141543,7 @@ mudsdale: {
 			"level": 29
 		}
 	]
-}
+},
 dewpider: {
 	"learnset": {
 		"aurorabeam": [
@@ -141603,7 +141603,7 @@ dewpider: {
 			"1L1"
 		]
 	}
-}
+},
 araquanid: {
 	"learnset": {
 		"bite": [
@@ -141667,7 +141667,7 @@ araquanid: {
 			"1L1"
 		]
 	}
-}
+},
 araquanidtotem: {
 	"learnset": {
 		"bite": [
@@ -141728,7 +141728,7 @@ araquanidtotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 fomantis: {
 	"learnset": {
 		"doubleteam": [
@@ -141772,7 +141772,7 @@ fomantis: {
 			"1M"
 		]
 	}
-}
+},
 lurantis: {
 	"learnset": {
 		"doubleteam": [
@@ -141819,7 +141819,7 @@ lurantis: {
 			"1M"
 		]
 	}
-}
+},
 lurantistotem: {
 	"learnset": {
 		"doubleteam": [
@@ -141872,7 +141872,7 @@ lurantistotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 morelull: {
 	"learnset": {
 		"absorb": [
@@ -141950,7 +141950,7 @@ morelull: {
 			"1M"
 		]
 	}
-}
+},
 shiinotic: {
 	"learnset": {
 		"absorb": [
@@ -142014,7 +142014,7 @@ shiinotic: {
 			"1M"
 		]
 	}
-}
+},
 salandit: {
 	"learnset": {
 		"doubleslap": [
@@ -142080,7 +142080,7 @@ salandit: {
 			"1L29"
 		]
 	}
-}
+},
 salazzle: {
 	"learnset": {
 		"disable": [
@@ -142170,7 +142170,7 @@ salazzle: {
 			"level": 16
 		}
 	]
-}
+},
 salazzletotem: {
 	"learnset": {
 		"disable": [
@@ -142236,7 +142236,7 @@ salazzletotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 stufful: {
 	"learnset": {
 		"bide": [
@@ -142321,7 +142321,7 @@ stufful: {
 			"1M"
 		]
 	}
-}
+},
 bewear: {
 	"learnset": {
 		"bide": [
@@ -142426,7 +142426,7 @@ bewear: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 bounsweet: {
 	"learnset": {
 		"doubleteam": [
@@ -142464,7 +142464,7 @@ bounsweet: {
 			"1M"
 		]
 	}
-}
+},
 steenee: {
 	"learnset": {
 		"doubleslap": [
@@ -142526,7 +142526,7 @@ steenee: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 tsareena: {
 	"learnset": {
 		"doubleslap": [
@@ -142585,7 +142585,7 @@ tsareena: {
 			"1M"
 		]
 	}
-}
+},
 comfey: {
 	"learnset": {
 		"amnesia": [
@@ -142657,7 +142657,7 @@ comfey: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 oranguru: {
 	"learnset": {
 		"confusion": [
@@ -142751,7 +142751,7 @@ oranguru: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 passimian: {
 	"learnset": {
 		"counter": [
@@ -142848,7 +142848,7 @@ passimian: {
 			"pokeball": "pokeball"
 		}
 	]
-}
+},
 wimpod: {
 	"learnset": {
 		"defensecurl": [
@@ -142895,7 +142895,7 @@ wimpod: {
 			"1M"
 		]
 	}
-}
+},
 golisopod: {
 	"learnset": {
 		"blizzard": [
@@ -142968,7 +142968,7 @@ golisopod: {
 			"1M"
 		]
 	}
-}
+},
 sandygast: {
 	"learnset": {
 		"absorb": [
@@ -143022,7 +143022,7 @@ sandygast: {
 			"1M"
 		]
 	}
-}
+},
 palossand: {
 	"learnset": {
 		"absorb": [
@@ -143075,7 +143075,7 @@ palossand: {
 			"1M"
 		]
 	}
-}
+},
 pyukumuku: {
 	"learnset": {
 		"bide": [
@@ -143121,7 +143121,7 @@ pyukumuku: {
 			"1L45"
 		]
 	}
-}
+},
 typenull: {
 	"learnset": {
 		"doubleedge": [
@@ -143228,7 +143228,7 @@ typenull: {
 		}
 	],
 	"eventOnly": true
-}
+},
 silvally: {
 	"learnset": {
 		"bite": [
@@ -143332,7 +143332,7 @@ silvally: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 minior: {
 	"learnset": {
 		"confuseray": [
@@ -143394,7 +143394,7 @@ minior: {
 			"1M"
 		]
 	}
-}
+},
 komala: {
 	"learnset": {
 		"defensecurl": [
@@ -143428,7 +143428,7 @@ komala: {
 			"1M"
 		]
 	}
-}
+},
 turtonator: {
 	"learnset": {
 		"bodyslam": [
@@ -143531,7 +143531,7 @@ turtonator: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 togedemaru: {
 	"learnset": {
 		"agility": [
@@ -143597,7 +143597,7 @@ togedemaru: {
 			"1E"
 		]
 	}
-}
+},
 togedemarutotem: {
 	"learnset": {
 		"defensecurl": [
@@ -143655,7 +143655,7 @@ togedemarutotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 mimikyu: {
 	"learnset": {
 		"doubleteam": [
@@ -143769,7 +143769,7 @@ mimikyu: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 mimikyutotem: {
 	"learnset": {
 		"doubleteam": [
@@ -143841,7 +143841,7 @@ mimikyutotem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 bruxish: {
 	"learnset": {
 		"bite": [
@@ -143905,7 +143905,7 @@ bruxish: {
 			"1L1"
 		]
 	}
-}
+},
 drampa: {
 	"learnset": {
 		"amnesia": [
@@ -144023,7 +144023,7 @@ drampa: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 dhelmise: {
 	"learnset": {
 		"absorb": [
@@ -144088,7 +144088,7 @@ dhelmise: {
 			"1L9"
 		]
 	}
-}
+},
 jangmoo: {
 	"learnset": {
 		"bide": [
@@ -144149,7 +144149,7 @@ jangmoo: {
 			"1M"
 		]
 	}
-}
+},
 hakamoo: {
 	"learnset": {
 		"bide": [
@@ -144212,7 +144212,7 @@ hakamoo: {
 			"1M"
 		]
 	}
-}
+},
 kommoo: {
 	"learnset": {
 		"bide": [
@@ -144301,7 +144301,7 @@ kommoo: {
 			"level": 41
 		}
 	]
-}
+},
 kommoototem: {
 	"learnset": {
 		"bide": [
@@ -144378,7 +144378,7 @@ kommoototem: {
 		}
 	],
 	"eventOnly": true
-}
+},
 tapukoko: {
 	"learnset": {
 		"agility": [
@@ -144515,7 +144515,7 @@ tapukoko: {
 		}
 	],
 	"eventOnly": true
-}
+},
 tapulele: {
 	"learnset": {
 		"confusion": [
@@ -144608,7 +144608,7 @@ tapulele: {
 		}
 	],
 	"eventOnly": true
-}
+},
 tapubulu: {
 	"learnset": {
 		"disable": [
@@ -144717,7 +144717,7 @@ tapubulu: {
 		}
 	],
 	"eventOnly": true
-}
+},
 tapufini: {
 	"learnset": {
 		"blizzard": [
@@ -144826,7 +144826,7 @@ tapufini: {
 		}
 	],
 	"eventOnly": true
-}
+},
 cosmog: {
 	"learnset": {
 		"splash": [
@@ -144860,7 +144860,7 @@ cosmog: {
 		}
 	],
 	"eventOnly": true
-}
+},
 cosmoem: {
 	"learnset": {
 		"teleport": [
@@ -144868,7 +144868,7 @@ cosmoem: {
 			"1L1"
 		]
 	}
-}
+},
 solgaleo: {
 	"learnset": {
 		"agility": [
@@ -144998,7 +144998,7 @@ solgaleo: {
 			]
 		}
 	]
-}
+},
 lunala: {
 	"learnset": {
 		"agility": [
@@ -145145,7 +145145,7 @@ lunala: {
 			]
 		}
 	]
-}
+},
 nihilego: {
 	"learnset": {
 		"acid": [
@@ -145251,7 +145251,7 @@ nihilego: {
 		}
 	],
 	"eventOnly": true
-}
+},
 buzzwole: {
 	"learnset": {
 		"bodyslam": [
@@ -145354,7 +145354,7 @@ buzzwole: {
 		}
 	],
 	"eventOnly": true
-}
+},
 pheromosa: {
 	"learnset": {
 		"agility": [
@@ -145455,7 +145455,7 @@ pheromosa: {
 		}
 	],
 	"eventOnly": true
-}
+},
 xurkitree: {
 	"learnset": {
 		"bind": [
@@ -145563,7 +145563,7 @@ xurkitree: {
 		}
 	],
 	"eventOnly": true
-}
+},
 celesteela: {
 	"learnset": {
 		"absorb": [
@@ -145685,7 +145685,7 @@ celesteela: {
 		}
 	],
 	"eventOnly": true
-}
+},
 kartana: {
 	"learnset": {
 		"cut": [
@@ -145760,7 +145760,7 @@ kartana: {
 		}
 	],
 	"eventOnly": true
-}
+},
 guzzlord: {
 	"learnset": {
 		"amnesia": [
@@ -145864,7 +145864,7 @@ guzzlord: {
 		}
 	],
 	"eventOnly": true
-}
+},
 necrozma: {
 	"learnset": {
 		"confusion": [
@@ -145973,18 +145973,18 @@ necrozma: {
 		}
 	],
 	"eventOnly": true
-}
+},
 necrozmaduskmane: {
 	"learnset": {},
 	"eventOnly": true
-}
+},
 necrozmadawnwings: {
 	"learnset": {},
 	"eventOnly": true
-}
+},
 necrozmaultra: {
 	"learnset": {}
-}
+},
 magearna: {
 	"learnset": {
 		"agility": [
@@ -146067,7 +146067,7 @@ magearna: {
 		}
 	],
 	"eventOnly": true
-}
+},
 magearnaoriginal: {
 	"learnset": {
 		"agility": [
@@ -146141,7 +146141,7 @@ magearnaoriginal: {
 		}
 	],
 	"eventOnly": true
-}
+},
 marshadow: {
 	"learnset": {
 		"agility": [
@@ -146235,7 +146235,7 @@ marshadow: {
 		}
 	],
 	"eventOnly": true
-}
+},
 poipole: {
 	"learnset": {
 		"acid": [
@@ -146314,7 +146314,7 @@ poipole: {
 		}
 	],
 	"eventOnly": true
-}
+},
 naganadel: {
 	"learnset": {
 		"acid": [
@@ -146383,7 +146383,7 @@ naganadel: {
 			"1L41"
 		]
 	}
-}
+},
 stakataka: {
 	"learnset": {
 		"bide": [
@@ -146477,7 +146477,7 @@ stakataka: {
 		}
 	],
 	"eventOnly": true
-}
+},
 blacephalon: {
 	"learnset": {
 		"confuseray": [
@@ -146576,7 +146576,7 @@ blacephalon: {
 		}
 	],
 	"eventOnly": true
-}
+},
 zeraora: {
 	"learnset": {
 		"agility": [
@@ -146692,7 +146692,7 @@ zeraora: {
 		}
 	],
 	"eventOnly": true
-}
+},
 meltan: {
 	"learnset": {
 		"acidarmor": [
@@ -146748,7 +146748,7 @@ meltan: {
 			"1M"
 		]
 	}
-}
+},
 melmetal: {
 	"learnset": {
 		"acidarmor": [
@@ -146889,7 +146889,7 @@ melmetal: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 grookey: {
 	"learnset": {
 		"focusenergy": [
@@ -146945,7 +146945,7 @@ grookey: {
 			"1M"
 		]
 	}
-}
+},
 thwackey: {
 	"learnset": {
 		"focusenergy": [
@@ -146992,7 +146992,7 @@ thwackey: {
 			"1M"
 		]
 	}
-}
+},
 rillaboom: {
 	"learnset": {
 		"bodyslam": [
@@ -147048,7 +147048,7 @@ rillaboom: {
 			"1M"
 		]
 	}
-}
+},
 scorbunny: {
 	"learnset": {
 		"agility": [
@@ -147113,7 +147113,7 @@ scorbunny: {
 			"1L1"
 		]
 	}
-}
+},
 raboot: {
 	"learnset": {
 		"agility": [
@@ -147169,7 +147169,7 @@ raboot: {
 			"1L1"
 		]
 	}
-}
+},
 cinderace: {
 	"learnset": {
 		"agility": [
@@ -147234,7 +147234,7 @@ cinderace: {
 			"1L1"
 		]
 	}
-}
+},
 sobble: {
 	"learnset": {
 		"bind": [
@@ -147277,7 +147277,7 @@ sobble: {
 			"1L6"
 		]
 	}
-}
+},
 drizzile: {
 	"learnset": {
 		"bind": [
@@ -147311,7 +147311,7 @@ drizzile: {
 			"1L1"
 		]
 	}
-}
+},
 inteleon: {
 	"learnset": {
 		"agility": [
@@ -147373,7 +147373,7 @@ inteleon: {
 			"1L1"
 		]
 	}
-}
+},
 skwovet: {
 	"learnset": {
 		"amnesia": [
@@ -147412,7 +147412,7 @@ skwovet: {
 			"1L1"
 		]
 	}
-}
+},
 greedent: {
 	"learnset": {
 		"amnesia": [
@@ -147457,7 +147457,7 @@ greedent: {
 			"1L1"
 		]
 	}
-}
+},
 rookidee: {
 	"learnset": {
 		"agility": [
@@ -147497,7 +147497,7 @@ rookidee: {
 			"1M"
 		]
 	}
-}
+},
 corvisquire: {
 	"learnset": {
 		"agility": [
@@ -147531,7 +147531,7 @@ corvisquire: {
 			"1M"
 		]
 	}
-}
+},
 corviknight: {
 	"learnset": {
 		"agility": [
@@ -147580,7 +147580,7 @@ corviknight: {
 			"1M"
 		]
 	}
-}
+},
 blipbug: {
 	"learnset": {
 		"recover": [
@@ -147590,7 +147590,7 @@ blipbug: {
 			"1E"
 		]
 	}
-}
+},
 dottler: {
 	"learnset": {
 		"confusion": [
@@ -147620,7 +147620,7 @@ dottler: {
 			"1M"
 		]
 	}
-}
+},
 orbeetle: {
 	"learnset": {
 		"agility": [
@@ -147667,7 +147667,7 @@ orbeetle: {
 			"1M"
 		]
 	}
-}
+},
 nickit: {
 	"learnset": {
 		"agility": [
@@ -147695,7 +147695,7 @@ nickit: {
 			"1L1"
 		]
 	}
-}
+},
 thievul: {
 	"learnset": {
 		"agility": [
@@ -147729,7 +147729,7 @@ thievul: {
 			"1L1"
 		]
 	}
-}
+},
 gossifleur: {
 	"learnset": {
 		"growth": [
@@ -147766,7 +147766,7 @@ gossifleur: {
 			"1M"
 		]
 	}
-}
+},
 eldegoss: {
 	"learnset": {
 		"hyperbeam": [
@@ -147791,7 +147791,7 @@ eldegoss: {
 			"1M"
 		]
 	}
-}
+},
 wooloo: {
 	"learnset": {
 		"agility": [
@@ -147834,7 +147834,7 @@ wooloo: {
 			"1M"
 		]
 	}
-}
+},
 dubwool: {
 	"learnset": {
 		"agility": [
@@ -147883,7 +147883,7 @@ dubwool: {
 			"1M"
 		]
 	}
-}
+},
 chewtle: {
 	"learnset": {
 		"bite": [
@@ -147921,7 +147921,7 @@ chewtle: {
 			"1L1"
 		]
 	}
-}
+},
 drednaw: {
 	"learnset": {
 		"bite": [
@@ -147980,7 +147980,7 @@ drednaw: {
 			"1L1"
 		]
 	}
-}
+},
 yamper: {
 	"learnset": {
 		"bite": [
@@ -148023,7 +148023,7 @@ yamper: {
 			"1M"
 		]
 	}
-}
+},
 boltund: {
 	"learnset": {
 		"agility": [
@@ -148069,7 +148069,7 @@ boltund: {
 			"1M"
 		]
 	}
-}
+},
 rolycoly: {
 	"learnset": {
 		"dig": [
@@ -148100,7 +148100,7 @@ rolycoly: {
 			"1L1"
 		]
 	}
-}
+},
 carkol: {
 	"learnset": {
 		"dig": [
@@ -148137,7 +148137,7 @@ carkol: {
 			"1L1"
 		]
 	}
-}
+},
 coalossal: {
 	"learnset": {
 		"bodyslam": [
@@ -148195,7 +148195,7 @@ coalossal: {
 			"1L1"
 		]
 	}
-}
+},
 applin: {
 	"learnset": {
 		"defensecurl": [
@@ -148205,7 +148205,7 @@ applin: {
 			"1L1"
 		]
 	}
-}
+},
 flapple: {
 	"learnset": {
 		"fly": [
@@ -148240,7 +148240,7 @@ flapple: {
 			"1L1"
 		]
 	}
-}
+},
 appletun: {
 	"learnset": {
 		"amnesia": [
@@ -148290,7 +148290,7 @@ appletun: {
 			"1L1"
 		]
 	}
-}
+},
 silicobra: {
 	"learnset": {
 		"dig": [
@@ -148328,7 +148328,7 @@ silicobra: {
 			"1L1"
 		]
 	}
-}
+},
 sandaconda: {
 	"learnset": {
 		"dig": [
@@ -148375,7 +148375,7 @@ sandaconda: {
 			"1L1"
 		]
 	}
-}
+},
 cramorant: {
 	"learnset": {
 		"agility": [
@@ -148426,7 +148426,7 @@ cramorant: {
 			"1L7"
 		]
 	}
-}
+},
 arrokuda: {
 	"learnset": {
 		"agility": [
@@ -148467,7 +148467,7 @@ arrokuda: {
 			"1M"
 		]
 	}
-}
+},
 barraskewda: {
 	"learnset": {
 		"agility": [
@@ -148511,7 +148511,7 @@ barraskewda: {
 			"1M"
 		]
 	}
-}
+},
 toxel: {
 	"learnset": {
 		"acid": [
@@ -148543,7 +148543,7 @@ toxel: {
 			"pokeball": "luxuryball"
 		}
 	]
-}
+},
 toxtricity: {
 	"learnset": {
 		"acid": [
@@ -148617,7 +148617,7 @@ toxtricity: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 toxtricitylowkey: {
 	"learnset": {
 		"acid": [
@@ -148673,7 +148673,7 @@ toxtricitylowkey: {
 			"1L32"
 		]
 	}
-}
+},
 sizzlipede: {
 	"learnset": {
 		"bite": [
@@ -148708,7 +148708,7 @@ sizzlipede: {
 			"1L5"
 		]
 	}
-}
+},
 centiskorch: {
 	"learnset": {
 		"bite": [
@@ -148752,7 +148752,7 @@ centiskorch: {
 			"1L1"
 		]
 	}
-}
+},
 clobbopus: {
 	"learnset": {
 		"bind": [
@@ -148786,7 +148786,7 @@ clobbopus: {
 			"1M"
 		]
 	}
-}
+},
 grapploct: {
 	"learnset": {
 		"bind": [
@@ -148829,7 +148829,7 @@ grapploct: {
 			"1M"
 		]
 	}
-}
+},
 sinistea: {
 	"learnset": {
 		"megadrain": [
@@ -148851,7 +148851,7 @@ sinistea: {
 			"1L1"
 		]
 	}
-}
+},
 sinisteaantique: {
 	"learnset": {
 		"metronome": [
@@ -148872,7 +148872,7 @@ sinisteaantique: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 polteageist: {
 	"learnset": {
 		"hyperbeam": [
@@ -148906,7 +148906,7 @@ polteageist: {
 			"1L1"
 		]
 	}
-}
+},
 hatenna: {
 	"learnset": {
 		"confusion": [
@@ -148932,7 +148932,7 @@ hatenna: {
 			"1M"
 		]
 	}
-}
+},
 hattrem: {
 	"learnset": {
 		"confusion": [
@@ -148958,7 +148958,7 @@ hattrem: {
 			"1M"
 		]
 	}
-}
+},
 hatterene: {
 	"learnset": {
 		"confusion": [
@@ -148990,7 +148990,7 @@ hatterene: {
 			"1M"
 		]
 	}
-}
+},
 impidimp: {
 	"learnset": {
 		"bite": [
@@ -149021,7 +149021,7 @@ impidimp: {
 			"1M"
 		]
 	}
-}
+},
 morgrem: {
 	"learnset": {
 		"bite": [
@@ -149058,7 +149058,7 @@ morgrem: {
 			"1M"
 		]
 	}
-}
+},
 grimmsnarl: {
 	"learnset": {
 		"bite": [
@@ -149113,7 +149113,7 @@ grimmsnarl: {
 			"1M"
 		]
 	}
-}
+},
 milcery: {
 	"learnset": {
 		"acidarmor": [
@@ -149147,7 +149147,7 @@ milcery: {
 			"pokeball": "cherishball"
 		}
 	]
-}
+},
 alcremie: {
 	"learnset": {
 		"acidarmor": [
@@ -149184,7 +149184,7 @@ alcremie: {
 			"1M"
 		]
 	}
-}
+},
 falinks: {
 	"learnset": {
 		"agility": [
@@ -149222,7 +149222,7 @@ falinks: {
 			"1L1"
 		]
 	}
-}
+},
 pincurchin: {
 	"learnset": {
 		"bubblebeam": [
@@ -149271,7 +149271,7 @@ pincurchin: {
 			"1L5"
 		]
 	}
-}
+},
 snom: {
 	"learnset": {
 		"rest": [
@@ -149281,7 +149281,7 @@ snom: {
 			"1M"
 		]
 	}
-}
+},
 frosmoth: {
 	"learnset": {
 		"aurorabeam": [
@@ -149319,7 +149319,7 @@ frosmoth: {
 			"1M"
 		]
 	}
-}
+},
 stonjourner: {
 	"learnset": {
 		"bodyslam": [
@@ -149356,7 +149356,7 @@ stonjourner: {
 			"1M"
 		]
 	}
-}
+},
 eiscue: {
 	"learnset": {
 		"agility": [
@@ -149408,7 +149408,7 @@ eiscue: {
 			"1M"
 		]
 	}
-}
+},
 indeedee: {
 	"learnset": {
 		"metronome": [
@@ -149437,7 +149437,7 @@ indeedee: {
 			"1M"
 		]
 	}
-}
+},
 indeedeef: {
 	"learnset": {
 		"lightscreen": [
@@ -149469,7 +149469,7 @@ indeedeef: {
 			"1M"
 		]
 	}
-}
+},
 morpeko: {
 	"learnset": {
 		"agility": [
@@ -149519,7 +149519,7 @@ morpeko: {
 			"1M"
 		]
 	}
-}
+},
 cufant: {
 	"learnset": {
 		"bodyslam": [
@@ -149572,7 +149572,7 @@ cufant: {
 			"1E"
 		]
 	}
-}
+},
 copperajah: {
 	"learnset": {
 		"bodyslam": [
@@ -149616,7 +149616,7 @@ copperajah: {
 			"1L1"
 		]
 	}
-}
+},
 dracozolt: {
 	"learnset": {
 		"bodyslam": [
@@ -149697,7 +149697,7 @@ dracozolt: {
 		}
 	],
 	"eventOnly": true
-}
+},
 arctozolt: {
 	"learnset": {
 		"blizzard": [
@@ -149772,7 +149772,7 @@ arctozolt: {
 		}
 	],
 	"eventOnly": true
-}
+},
 dracovish: {
 	"learnset": {
 		"bite": [
@@ -149868,7 +149868,7 @@ dracovish: {
 		}
 	],
 	"eventOnly": true
-}
+},
 arctovish: {
 	"learnset": {
 		"bite": [
@@ -149928,7 +149928,7 @@ arctovish: {
 		}
 	],
 	"eventOnly": true
-}
+},
 duraludon: {
 	"learnset": {
 		"bodyslam": [
@@ -149978,7 +149978,7 @@ duraludon: {
 			"1M"
 		]
 	}
-}
+},
 dreepy: {
 	"learnset": {
 		"bite": [
@@ -150009,7 +150009,7 @@ dreepy: {
 			"1M"
 		]
 	}
-}
+},
 drakloak: {
 	"learnset": {
 		"agility": [
@@ -150059,7 +150059,7 @@ drakloak: {
 			"1M"
 		]
 	}
-}
+},
 dragapult: {
 	"learnset": {
 		"agility": [
@@ -150130,7 +150130,7 @@ dragapult: {
 			"1M"
 		]
 	}
-}
+},
 zacian: {
 	"learnset": {
 		"agility": [
@@ -150205,11 +150205,11 @@ zacian: {
 		}
 	],
 	"eventOnly": true
-}
+},
 zaciancrowned: {
 	"learnset": {},
 	"eventOnly": true
-}
+},
 zamazenta: {
 	"learnset": {
 		"agility": [
@@ -150288,11 +150288,11 @@ zamazenta: {
 		}
 	],
 	"eventOnly": true
-}
+},
 zamazentacrowned: {
 	"learnset": {},
 	"eventOnly": true
-}
+},
 eternatus: {
 	"learnset": {
 		"agility": [
@@ -150353,7 +150353,7 @@ eternatus: {
 		}
 	],
 	"eventOnly": true
-}
+},
 kubfu: {
 	"learnset": {
 		"bodyslam": [
@@ -150416,7 +150416,7 @@ kubfu: {
 		}
 	],
 	"eventOnly": true
-}
+},
 urshifu: {
 	"learnset": {
 		"bodyslam": [
@@ -150469,7 +150469,7 @@ urshifu: {
 			"1M"
 		]
 	}
-}
+},
 urshifurapidstrike: {
 	"learnset": {
 		"bodyslam": [
@@ -150525,7 +150525,7 @@ urshifurapidstrike: {
 			"1M"
 		]
 	}
-}
+},
 zarude: {
 	"learnset": {
 		"bind": [
@@ -150601,7 +150601,7 @@ zarude: {
 		}
 	],
 	"eventOnly": true
-}
+},
 zarudedada: {
 	"learnset": {
 		"bind": [
@@ -150677,7 +150677,7 @@ zarudedada: {
 		}
 	],
 	"eventOnly": true
-}
+},
 regieleki: {
 	"learnset": {
 		"agility": [
@@ -150747,7 +150747,7 @@ regieleki: {
 		}
 	],
 	"eventOnly": true
-}
+},
 regidrago: {
 	"learnset": {
 		"bite": [
@@ -150803,7 +150803,7 @@ regidrago: {
 		}
 	],
 	"eventOnly": true
-}
+},
 glastrier: {
 	"learnset": {
 		"blizzard": [
@@ -150868,7 +150868,7 @@ glastrier: {
 		}
 	],
 	"eventOnly": true
-}
+},
 spectrier: {
 	"learnset": {
 		"agility": [
@@ -150937,7 +150937,7 @@ spectrier: {
 		}
 	],
 	"eventOnly": true
-}
+},
 calyrex: {
 	"learnset": {
 		"agility": [
@@ -151006,7 +151006,7 @@ calyrex: {
 		}
 	],
 	"eventOnly": true
-}
+},
 calyrexice: {
 	"learnset": {
 		"agility": [
@@ -151114,7 +151114,7 @@ calyrexice: {
 		}
 	],
 	"eventOnly": true
-}
+},
 calyrexshadow: {
 	"learnset": {
 		"agility": [
@@ -151220,7 +151220,7 @@ calyrexshadow: {
 		}
 	],
 	"eventOnly": true
-}
+},
 puchikoon: {
 	"learnset": {
 		"tailwhip": [
@@ -151297,7 +151297,7 @@ puchikoon: {
 			"level": 5
 		}
 	]
-}
+},
 mikon: {
 	"learnset": {
 		"tailwhip": [
@@ -151374,7 +151374,7 @@ mikon: {
 			"level": 5
 		}
 	]
-}
+},
 konya: {
 	"learnset": {
 		"scratch": [
@@ -151460,7 +151460,7 @@ konya: {
 			"level": 5
 		}
 	]
-}
+},
 gyopin: {
 	"learnset": {
 		"peck": [
@@ -151543,7 +151543,7 @@ gyopin: {
 			"level": 5
 		}
 	]
-}
+},
 bittybat: {
 	"learnset": {
 		"leechlife": [
@@ -151619,7 +151619,7 @@ bittybat: {
 			"level": 5
 		}
 	]
-}
+},
 blastyke: {
 	"learnset": {
 		"tackle": [
@@ -151721,7 +151721,7 @@ blastyke: {
 			"level": 5
 		}
 	]
-}
+},
 magnetite: {
 	"learnset": {
 		"tackle": [
@@ -151789,7 +151789,7 @@ magnetite: {
 			"1M"
 		]
 	}
-}
+},
 weirduck: {
 	"learnset": {
 		"scratch": [
@@ -151895,7 +151895,7 @@ weirduck: {
 			"level": 15
 		}
 	]
-}
+},
 ribbito: {
 	"learnset": {
 		"doubleteam": [
@@ -152004,7 +152004,7 @@ ribbito: {
 			"level": 5
 		}
 	]
-}
+},
 croakozuna: {
 	"learnset": {
 		"doubleteam": [
@@ -152110,7 +152110,7 @@ croakozuna: {
 			"1M"
 		]
 	}
-}
+},
 skimper: {
 	"learnset": {
 		"scratch": [
@@ -152196,7 +152196,7 @@ skimper: {
 			"level": 5
 		}
 	]
-}
+},
 bawligua: {
 	"learnset": {
 		"scratch": [
@@ -152276,7 +152276,7 @@ bawligua: {
 			"1M"
 		]
 	}
-}
+},
 cryithan: {
 	"learnset": {
 		"scratch": [
@@ -152362,7 +152362,7 @@ cryithan: {
 			"1M"
 		]
 	}
-}
+},
 nidoreign: {
 	"learnset": {
 		"scratch": [
@@ -152485,7 +152485,7 @@ nidoreign: {
 			"1M"
 		]
 	}
-}
+},
 decilla: {
 	"learnset": {
 		"substitute": [
@@ -152575,7 +152575,7 @@ decilla: {
 			"level": 30
 		}
 	]
-}
+},
 gyaoon: {
 	"learnset": {
 		"substitute": [
@@ -152668,7 +152668,7 @@ gyaoon: {
 			"1M"
 		]
 	}
-}
+},
 omega: {
 	"learnset": {
 		"tackle": [
@@ -152786,7 +152786,7 @@ omega: {
 			"level": 45
 		}
 	]
-}
+},
 trampel: {
 	"learnset": {
 		"tackle": [
@@ -152907,7 +152907,7 @@ trampel: {
 			"level": 21
 		}
 	]
-}
+},
 jagg: {
 	"learnset": {
 		"bite": [
@@ -153005,7 +153005,7 @@ jagg: {
 			"level": 20
 		}
 	]
-}
+},
 blottle: {
 	"learnset": {
 		"constrict": [
@@ -153099,7 +153099,7 @@ blottle: {
 			"level": 5
 		}
 	]
-}
+},
 pendraken: {
 	"learnset": {
 		"constrict": [
@@ -153202,7 +153202,7 @@ pendraken: {
 			"2L39"
 		]
 	}
-}
+},
 deer: {
 	"learnset": {
 		"tackle": [
@@ -153310,7 +153310,7 @@ deer: {
 			"level": 18
 		}
 	]
-}
+},
 barunda: {
 	"learnset": {
 		"fairywind": [
@@ -153419,7 +153419,7 @@ barunda: {
 			"level": 30
 		}
 	]
-}
+},
 cheep: {
 	"learnset": {
 		"bubble": [
@@ -153515,7 +153515,7 @@ cheep: {
 			"level": 15
 		}
 	]
-}
+},
 jabetta: {
 	"learnset": {
 		"bubble": [
@@ -153608,7 +153608,7 @@ jabetta: {
 			"1M"
 		]
 	}
-}
+},
 cactus: {
 	"learnset": {
 		"tackle": [
@@ -153712,7 +153712,7 @@ cactus: {
 			"level": 17
 		}
 	]
-}
+},
 kotora: {
 	"learnset": {
 		"thundershock": [
@@ -153785,7 +153785,7 @@ kotora: {
 			"level": 12
 		}
 	]
-}
+},
 gaotora: {
 	"learnset": {
 		"thundershock": [
@@ -153852,7 +153852,7 @@ gaotora: {
 			"1M"
 		]
 	}
-}
+},
 gorotora: {
 	"learnset": {
 		"thundershock": [
@@ -153928,7 +153928,7 @@ gorotora: {
 			"1M"
 		]
 	}
-}
+},
 crocky: {
 	"learnset": {
 		"scratch": [
@@ -154047,7 +154047,7 @@ crocky: {
 			"level": 17
 		}
 	]
-}
+},
 gorochu: {
 	"learnset": {
 		"thundershock": [
@@ -154137,7 +154137,7 @@ gorochu: {
 			"1S0"
 		]
 	}
-}
+},
 guardia: {
 	"learnset": {
 		"boneclub": [
@@ -154244,7 +154244,7 @@ guardia: {
 			"1M"
 		]
 	}
-}
+},
 totartle: {
 	"learnset": {
 		"tackle": [
@@ -154364,7 +154364,7 @@ totartle: {
 			"1M"
 		]
 	}
-}
+},
 buu: {
 	"learnset": {
 		"aurorabeam": [
@@ -154468,7 +154468,7 @@ buu: {
 			"level": 32
 		}
 	]
-}
+},
 purakkusu: {
 	"learnset": {
 		"harden": [
@@ -154557,7 +154557,7 @@ purakkusu: {
 			"level": 15
 		}
 	]
-}
+},
 madaamu: {
 	"learnset": {
 		"peck": [
@@ -154658,7 +154658,7 @@ madaamu: {
 			"level": 24
 		}
 	]
-}
+},
 tsubomitto: {
 	"learnset": {
 		"vinewhip": [
@@ -154686,7 +154686,7 @@ tsubomitto: {
 			"level": 30
 		}
 	]
-}
+},
 animon: {
 	"learnset": {
 		"transform": [
@@ -154708,7 +154708,7 @@ animon: {
 			"level": 50
 		}
 	]
-}
+},
 monja: {
 	"learnset": {
 		"constrict": [
@@ -154793,7 +154793,7 @@ monja: {
 			"level": 5
 		}
 	]
-}
+},
 para: {
 	"learnset": {
 		"scratch": [
@@ -154881,7 +154881,7 @@ para: {
 			"level": 2
 		}
 	]
-}
+},
 hinaazu: {
 	"learnset": {
 		"peck": [
@@ -154958,7 +154958,7 @@ hinaazu: {
 			"level": 5
 		}
 	]
-}
+},
 pudi: {
 	"learnset": {
 		"bite": [
@@ -155035,7 +155035,7 @@ pudi: {
 			"level": 5
 		}
 	]
-}
+},
 betobebii: {
 	"learnset": {
 		"pound": [
@@ -155117,7 +155117,7 @@ betobebii: {
 			"level": 5
 		}
 	]
-}
+},
 cleffa: {
 	"learnset": {
 		"pound": [
@@ -155229,7 +155229,7 @@ cleffa: {
 			"1M"
 		]
 	}
-}
+},
 igglybuff: {
 	"learnset": {
 		"pound": [
@@ -155338,7 +155338,7 @@ igglybuff: {
 			"1M"
 		]
 	}
-}
+},
 crobat: {
 	"learnset": {
 		"leechlife": [
@@ -155424,7 +155424,7 @@ crobat: {
 			"1M"
 		]
 	}
-}
+},
 bellossom: {
 	"learnset": {
 		"absorb": [
@@ -155497,7 +155497,7 @@ bellossom: {
 			"1M"
 		]
 	}
-}
+},
 politoed: {
 	"learnset": {
 		"bubble": [
@@ -155592,7 +155592,7 @@ politoed: {
 			"1M"
 		]
 	}
-}
+},
 slowking: {
 	"learnset": {
 		"confusion": [
@@ -155718,7 +155718,7 @@ slowking: {
 			"1M"
 		]
 	}
-}
+},
 magnezone: {
 	"learnset": {
 		"tackle": [
@@ -155802,7 +155802,7 @@ magnezone: {
 			"1M"
 		]
 	}
-}
+},
 hitmontop: {
 	"learnset": {
 		"rollingkick": [
@@ -155885,7 +155885,7 @@ hitmontop: {
 			"1M"
 		]
 	}
-}
+},
 lickilicky: {
 	"learnset": {
 		"wrap": [
@@ -156000,7 +156000,7 @@ lickilicky: {
 			"1M"
 		]
 	}
-}
+},
 steelix: {
 	"learnset": {
 		"tackle": [
@@ -156089,7 +156089,7 @@ steelix: {
 			"1L1"
 		]
 	}
-}
+},
 rhyperior: {
 	"learnset": {
 		"hornattack": [
@@ -156188,7 +156188,7 @@ rhyperior: {
 			"1M"
 		]
 	}
-}
+},
 happiny: {
 	"learnset": {
 		"pound": [
@@ -156306,7 +156306,7 @@ happiny: {
 			"1M"
 		]
 	}
-}
+},
 blissey: {
 	"learnset": {
 		"pound": [
@@ -156443,7 +156443,7 @@ blissey: {
 			"1M"
 		]
 	}
-}
+},
 tangrowth: {
 	"learnset": {
 		"constrict": [
@@ -156546,7 +156546,7 @@ tangrowth: {
 			"1M"
 		]
 	}
-}
+},
 kingdra: {
 	"learnset": {
 		"bubble": [
@@ -156627,7 +156627,7 @@ kingdra: {
 			"1M"
 		]
 	}
-}
+},
 scizor: {
 	"learnset": {
 		"quickattack": [
@@ -156695,7 +156695,7 @@ scizor: {
 			"1M"
 		]
 	}
-}
+},
 smoochum: {
 	"learnset": {
 		"pound": [
@@ -156799,7 +156799,7 @@ smoochum: {
 			"1M"
 		]
 	}
-}
+},
 munchlax: {
 	"learnset": {
 		"headbutt": [
@@ -156916,7 +156916,7 @@ munchlax: {
 			"1M"
 		]
 	}
-}
+},
 elekid: {
 	"learnset": {
 		"quickattack": [
@@ -157017,7 +157017,7 @@ elekid: {
 			"1M"
 		]
 	}
-}
+},
 electivire: {
 	"learnset": {
 		"quickattack": [
@@ -157130,7 +157130,7 @@ electivire: {
 			"1M"
 		]
 	}
-}
+},
 magby: {
 	"learnset": {
 		"ember": [
@@ -157218,7 +157218,7 @@ magby: {
 			"1M"
 		]
 	}
-}
+},
 magmortar: {
 	"learnset": {
 		"ember": [
@@ -157321,7 +157321,7 @@ magmortar: {
 			"1M"
 		]
 	}
-}
+},
 mimejr: {
 	"learnset": {
 		"confusion": [
@@ -157419,7 +157419,7 @@ mimejr: {
 			"1M"
 		]
 	}
-}
+},
 porygon2: {
 	"learnset": {
 		"tackle": [
@@ -157513,7 +157513,7 @@ porygon2: {
 			"1L45"
 		]
 	}
-}
+},
 porygonz: {
 	"learnset": {
 		"tackle": [
@@ -157610,7 +157610,7 @@ porygonz: {
 			"1L46"
 		]
 	}
-}
+},
 espeon: {
 	"learnset": {
 		"tackle": [
@@ -157691,7 +157691,7 @@ espeon: {
 			"1M"
 		]
 	}
-}
+},
 umbreon: {
 	"learnset": {
 		"tackle": [
@@ -157765,7 +157765,7 @@ umbreon: {
 			"1L52"
 		]
 	}
-}
+},
 leafeon: {
 	"learnset": {
 		"tackle": [
@@ -157842,7 +157842,7 @@ leafeon: {
 			"1M"
 		]
 	}
-}
+},
 glaceon: {
 	"learnset": {
 		"tackle": [
@@ -157924,7 +157924,7 @@ glaceon: {
 			"1L52"
 		]
 	}
-}
+},
 sylveon: {
 	"learnset": {
 		"tackle": [
@@ -157995,7 +157995,7 @@ sylveon: {
 			"1L36"
 		]
 	}
-}
+},
 kleavor: {
 	"learnset": {
 		"quickattack": [
@@ -158070,7 +158070,7 @@ kleavor: {
 			"1M"
 		]
 	}
-}
+},
 sirfetchd: {
 	"learnset": {
 		"peck": [
@@ -158159,7 +158159,7 @@ sirfetchd: {
 			"1M"
 		]
 	}
-}
+},
 mrrime: {
 	"learnset": {
 		"confusion": [
@@ -158274,7 +158274,7 @@ mrrime: {
 			"level": 23
 		}
 	]
-}
+},
 rattataalola: {
 	"learnset": {
 		"tackle": [
@@ -158357,7 +158357,7 @@ rattataalola: {
 			"level": 5
 		}
 	]
-}
+},
 raticatealola: {
 	"learnset": {
 		"tackle": [
@@ -158443,7 +158443,7 @@ raticatealola: {
 			"level": 20
 		}
 	]
-}
+},
 raichualola: {
 	"learnset": {
 		"thundershock": [
@@ -158541,7 +158541,7 @@ raichualola: {
 			"1M"
 		]
 	}
-}
+},
 sandshrewalola: {
 	"learnset": {
 		"scratch": [
@@ -158623,7 +158623,7 @@ sandshrewalola: {
 			"level": 5
 		}
 	]
-}
+},
 sandslashalola: {
 	"learnset": {
 		"scratch": [
@@ -158702,7 +158702,7 @@ sandslashalola: {
 			"1M"
 		]
 	}
-}
+},
 vulpixalola: {
 	"learnset": {
 		"fairywind": [
@@ -158777,7 +158777,7 @@ vulpixalola: {
 			"level": 5
 		}
 	]
-}
+},
 ninetalesalola: {
 	"learnset": {
 		"fairywind": [
@@ -158849,7 +158849,7 @@ ninetalesalola: {
 			"1M"
 		]
 	}
-}
+},
 diglettalola: {
 	"learnset": {
 		"scratch": [
@@ -158922,7 +158922,7 @@ diglettalola: {
 			"level": 5
 		}
 	]
-}
+},
 dugtrioalola: {
 	"learnset": {
 		"scratch": [
@@ -158998,7 +158998,7 @@ dugtrioalola: {
 			"level": 30
 		}
 	]
-}
+},
 meowthalola: {
 	"learnset": {
 		"scratch": [
@@ -159090,7 +159090,7 @@ meowthalola: {
 			"level": 5
 		}
 	]
-}
+},
 meowthgalar: {
 	"learnset": {
 		"scratch": [
@@ -159182,7 +159182,7 @@ meowthgalar: {
 			"level": 5
 		}
 	]
-}
+},
 persianalola: {
 	"learnset": {
 		"scratch": [
@@ -159271,7 +159271,7 @@ persianalola: {
 			"1M"
 		]
 	}
-}
+},
 growlithehisui: {
 	"learnset": {
 		"bite": [
@@ -159358,7 +159358,7 @@ growlithehisui: {
 			"level": 5
 		}
 	]
-}
+},
 arcaninehisui: {
 	"learnset": {
 		"bite": [
@@ -159434,7 +159434,7 @@ arcaninehisui: {
 			"1M"
 		]
 	}
-}
+},
 geodudealola: {
 	"learnset": {
 		"tackle": [
@@ -159543,7 +159543,7 @@ geodudealola: {
 			"level": 5
 		}
 	]
-}
+},
 graveleralola: {
 	"learnset": {
 		"tackle": [
@@ -159652,7 +159652,7 @@ graveleralola: {
 			"level": 22
 		}
 	]
-}
+},
 golemalola: {
 	"learnset": {
 		"tackle": [
@@ -159758,7 +159758,7 @@ golemalola: {
 			"1M"
 		]
 	}
-}
+},
 ponytagalar: {
 	"learnset": {
 		"tackle": [
@@ -159848,7 +159848,7 @@ ponytagalar: {
 			"level": 5
 		}
 	]
-}
+},
 rapidashgalar: {
 	"learnset": {
 		"tackle": [
@@ -159935,7 +159935,7 @@ rapidashgalar: {
 			"1M"
 		]
 	}
-}
+},
 slowpokegalar: {
 	"learnset": {
 		"tackle": [
@@ -160060,7 +160060,7 @@ slowpokegalar: {
 			"level": 5
 		}
 	]
-}
+},
 slowbrogalar: {
 	"learnset": {
 		"tackle": [
@@ -160185,7 +160185,7 @@ slowbrogalar: {
 			"1M"
 		]
 	}
-}
+},
 farfetchdgalar: {
 	"learnset": {
 		"peck": [
@@ -160277,7 +160277,7 @@ farfetchdgalar: {
 			"level": 5
 		}
 	]
-}
+},
 grimeralola: {
 	"learnset": {
 		"pound": [
@@ -160359,7 +160359,7 @@ grimeralola: {
 			"level": 5
 		}
 	]
-}
+},
 mukalola: {
 	"learnset": {
 		"pound": [
@@ -160441,7 +160441,7 @@ mukalola: {
 			"1M"
 		]
 	}
-}
+},
 voltorbhisui: {
 	"learnset": {
 		"tackle": [
@@ -160523,7 +160523,7 @@ voltorbhisui: {
 			"level": 5
 		}
 	]
-}
+},
 electrodehisui: {
 	"learnset": {
 		"tackle": [
@@ -160596,7 +160596,7 @@ electrodehisui: {
 			"1M"
 		]
 	}
-}
+},
 exeggutoralola: {
 	"learnset": {
 		"stomp": [
@@ -160669,7 +160669,7 @@ exeggutoralola: {
 			"1M"
 		]
 	}
-}
+},
 marowakalola: {
 	"learnset": {
 		"boneclub": [
@@ -160775,7 +160775,7 @@ marowakalola: {
 			"1M"
 		]
 	}
-}
+},
 weezinggalar: {
 	"learnset": {
 		"tackle": [
@@ -160838,7 +160838,7 @@ weezinggalar: {
 			"1M"
 		]
 	}
-}
+},
 mrmimegalar: {
 	"learnset": {
 		"confusion": [
@@ -160950,7 +160950,7 @@ mrmimegalar: {
 			"level": 23
 		}
 	]
-}
+},
 articunogalar: {
 	"learnset": {
 		"gust": [
@@ -161042,7 +161042,7 @@ articunogalar: {
 			"level": 50
 		}
 	]
-}
+},
 zapdosgalar: {
 	"learnset": {
 		"peck": [
@@ -161131,7 +161131,7 @@ zapdosgalar: {
 			"level": 50
 		}
 	]
-}
+},
 moltresgalar: {
 	"learnset": {
 		"gust": [
@@ -161208,5 +161208,5 @@ moltresgalar: {
 			"level": 50
 		}
 	]
-}
+},
 };
