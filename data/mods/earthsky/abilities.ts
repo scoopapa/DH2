@@ -1778,8 +1778,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	//Sheer Force changes made in scripts.ts as edits to useMoveInner and hitStepMoveHitLoop.
 	shieldsdown: {
-		onStart(pokemon) {
+		onSwitchIn(pokemon) {
 			if (!['Minior','Prominoid'].includes(pokemon.baseSpecies.baseSpecies) || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (pokemon.species.forme !== 'Meteor') {
+					if(pokemon.baseSpecies.baseSpecies === 'Minior') {
+						pokemon.formeChange('Minior-Meteor');
+					} else {
+						pokemon.formeChange('Prominoid-Meteor');
+					}
+				}
+			} else {
+				if (pokemon.species.forme === 'Meteor') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onStart(pokemon) {
+			if (!['Minior','Prominoid'].includes(pokemon.baseSpecies.baseSpecies) || pokemon.transformed || !pokemon.activeTurns) return;
 			if (pokemon.hp > pokemon.maxhp / 2) {
 				if (pokemon.species.forme !== 'Meteor') {
 					if(pokemon.baseSpecies.baseSpecies === 'Minior') {
@@ -2215,6 +2231,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 230,
 		desc: "Prevents other Pokemon from lowering this Pokemon's stat stages. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
+		shortDesc: "Prevents other Pokemon from lowering this Pokemon's stat stages.",
 	},
 	imposter: {
 		onSwitchIn(pokemon) {
@@ -2250,6 +2267,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 232,
 		desc: "This Pokemon receives 3/4 damage from supereffective attacks. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
+		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
 	},
 	shadowshield: {
 		onModifyMovePriority: -100,
@@ -2263,6 +2281,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 231,
 		desc: "If this Pokemon is at full HP, damage taken from attacks is halved. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
+		shortDesc: "If this Pokemon is at full HP, damage taken from attacks is halved.",
 	},
 	stickyhold: {
 		onTakeItem(item, pokemon, source) {

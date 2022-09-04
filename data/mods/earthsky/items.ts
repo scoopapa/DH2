@@ -7,6 +7,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Holder's use of Midnight lasts 8 turns instead of 5.",
 		num: 1001,
+		rating: 3,
 	},
 	koknuberry: {
 		name: "Koknu Berry",
@@ -26,6 +27,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Cures flinching. Single use.",
 		num: 1002,
+		rating: 3,
 	},
 	meteorite: {
 		name: "Meteorite",
@@ -161,15 +163,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1012,
 	},
 	//Edited items
-	adamantorb: {
-		inherit: true,
-		fling: {
-			basePower: 60,
-			flags: {bullet: 1},
-		},
-		desc: "If held by a Dialga, its Steel- and Dragon-type attacks have 1.2x power. When Flung, counts as a projectile move.",
-		shortDesc: "If held by a Dialga, its Steel- and Dragon-type attacks have 1.2x power.",
-	},
 	brightpowder: {
 		name: "Bright Powder",
 		spritenum: 51,
@@ -193,6 +186,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 213,
+		rating: 3,
 		gen: 2,
 		desc: "Causes a priority move that targets the holder to fail, which consumes the item. The effect fails if the attacker is immune to powder moves, but the item is still consumed. When Flung, the target's accuracy is lowered 2 stages.",
 		shortDesc: "Protects from a priority move. When Flung, -2 accuracy.",
@@ -204,6 +198,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyDef(def, pokemon) {
 			return this.chainModify([0x1199, 0x1000]);
 		},
+		rating: 3,
 		desc: "Holder's Defense is multiplied by 1.1x. Evolves Seadra into Kingdra and Burrorm into Burryrm when traded.",
 		shortDesc: "Holder Defense is multiplied by 1.1x.",
 	},
@@ -215,18 +210,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
+		rating: 1,
 		desc: "Holder and allies' Electric-type moves have 1.1x power. Evolves Electabuzz into Electivire when traded.",
 		shortDesc: "Holder and allies' Electric-type moves have 1.1x power.",
-	},
-	flameorb: {
-		inherit: true,
-		fling: {
-			basePower: 30,
-			status: 'brn',
-			flags: {bullet: 1},
-		},
-		desc: "At the end of every turn, this item attempts to burn the holder. When Flung, burns the target and counts as a projectile move.",
-		shortDesc: "At the end of every turn, this item attempts to burn the holder.",
 	},
 	fullincense: {
 		name: "Full Incense",
@@ -240,15 +226,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 316,
 		gen: 4,
 		desc: "Halves all allies' speed.",
-	},
-	griseousorb: {
-		inherit: true,
-		fling: {
-			basePower: 60,
-			flags: {bullet: 1},
-		},
-		desc: "If held by a Giratina, its Ghost- and Dragon-type attacks have 1.2x power, and it becomes its Origin Forme. When Flung, counts as a projectile move.",
-		shortDesc: "If held by a Giratina, its Ghost- and Dragon-type attacks have 1.2x power.",
 	},
 	ironball: {
 		inherit: true,
@@ -272,36 +249,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 20,
 		},
 		num: 255,
+		rating: 0,
 		gen: 3,
 		desc: "No competitive use.",
-	},
-	lifeorb: {
-		inherit: true,
-		fling: {
-			basePower: 30,
-			flags: {bullet: 1},
-		},
-		desc: "Holder's attacks have their power boosted by 1.3x, but it loses 10% its max HP after each attack. When Flung, counts as a projectile move.",
-		shortDesc: "Holder's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
-	},
-	lightball: {
-		inherit: true,
-		fling: {
-			basePower: 30,
-			status: 'par',
-			flags: {bullet: 1},
-		},
-		desc: "If held by a Pikachu, its Attack and Sp. Attack stats are doubled. When Flung, paralyzes the target and counts as a projectile move.",
-		shortDesc: "If held by a Pikachu, its Attack and Sp. Atk are doubled.",
-	},
-	lustrousorb: {
-		inherit: true,
-		fling: {
-			basePower: 60,
-			flags: {bullet: 1},
-		},
-		desc: "If held by a Palkia, its Water- and Dragon-type attacks have 1.2x power. When Flung, counts as a projectile move.",
-		shortDesc: "If held by a Palkia, its Water- and Dragon-type attacks have 1.2x power.",
 	},
 	magmarizer: {
 		inherit: true,
@@ -311,6 +261,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
+		rating: 1,
 		desc: "Holder and allies' Fire-type moves have 1.1x power. Evolves Magmar into Magmortar when traded.",
 		shortDesc: "Holder and allies' Fire-type moves have 1.1x power.",
 	},
@@ -324,6 +275,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 287,
 		num: 257,
 		gen: 2,
+		rating: 3,
 		desc: "When Flung, increases the target's Defense and Sp. Def stats by 1 stage. Fails if target is immune to powder.",
 		shortDesc: "When Flung, +1 Def and Sp. Def. Counts as a powder move.",
 	},
@@ -338,6 +290,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return this.chainModify([0x1199, 0x1000]);
 		},
 		num: 266,
+		rating: 3,
 		gen: 4,
 		desc: "Holder's Attack is multiplied by 1.1x.",
 	},
@@ -355,6 +308,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 314,
 		gen: 4,
+		rating: 1,
 		desc: "Holder and allies' Psychic-type moves have 1.1x power.",
 	},
 	prismscale: {
@@ -363,6 +317,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifySpD(spd, pokemon) {
 			return this.chainModify([0x1199, 0x1000]);
 		},
+		rating: 3,
 		desc: "Holder's Sp. Defense is multiplied by 1.1x. Evolves Feebas into Milotic when traded.",
 		shortDesc: "Holder Special Defense is multiplied by 1.1x.",
 	},
@@ -374,6 +329,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (this.activeMove.id !== 'struggle') return null;
 			}
 		},
+		rating: 3,
 		desc: "This Pokemon does not take recoil damage besides Struggle and crash damage. Evolves Rhydon into Rhyperior when traded.",
 		shortDesc: "This Pokemon does not take recoil damage besides Struggle/crash damage.",
 	},
@@ -387,6 +343,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 274,
 		gen: 4,
+		rating: 3,
 		desc: "When Flung, increases the target's Speed by 1 stage. Fails if target is immune to powder.",
 		shortDesc: "When Flung, +1 Speed. Counts as a powder move.",
 	},
@@ -398,6 +355,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
+		rating: 1,
 		desc: "Holder and allies' Ghost-type moves have 1.1x power. Evolves Dusclops into Dusknoir when traded.",
 		shortDesc: "Holder and allies' Ghost-type moves have 1.1x power.",
 	},
@@ -414,6 +372,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 315,
+		rating: 1,
 		gen: 4,
 		desc: "Holder and allies' Rock-type moves have 1.1x power.",
 	},
@@ -430,6 +389,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 318,
+		rating: 1,
 		gen: 4,
 		desc: "Holder and allies' Grass-type moves have 1.1x power.",
 	},
@@ -444,6 +404,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
+		rating: 1,
 		desc: "Holder and allies' Fairy-type moves have 1.1x power. Evolves Spritzee into Aromatisse when traded.",
 		shortDesc: "Holder and allies' Fairy-type moves have 1.1x power.",
 	},
@@ -460,6 +421,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 254,
+		rating: 1,
 		gen: 3,
 		desc: "Holder and allies' Water-type moves have 1.1x power.",
 	},
@@ -493,16 +455,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			this.boost({[statName]: 2}, pokemon);
 		},
-	},
-	toxicorb: {
-		inherit: true,
-		fling: {
-			basePower: 30,
-			status: 'tox',
-			flags: {bullet: 1},
-		},
-		desc: "At the end of every turn, this item attempts to badly poison the holder. When Flung, badly poisons the target and counts as a projectile move.",
-		shortDesc: "At the end of every turn, this item attempts to badly poison the holder.",
+		shortDesc: "Raises the lowest stat by 2 when at 1/4 max HP or less (not acc/eva). Single-use.",
+		desc:
 	},
 	ultranecroziumz: {
 		name: "Ultranecrozium Z",
@@ -550,6 +504,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
+		rating: 3,
 		desc: "Holder's Fairy-type attacks have 1.2x power. Evolves Swirlix into Slurpuff when traded.",
 		shortDesc: "Holder's Fairy-type attacks have 1.2x power.",
 	},
@@ -564,6 +519,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return this.chainModify([0x1199, 0x1000]);
 		},
 		num: 267,
+		rating: 3,
 		gen: 4,
 		desc: "Holder's Sp. Attack is multiplied by 1.1x.",
 	},
@@ -695,6 +651,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 540,
+		rating: 4,
 		gen: 5,
 	},
 	
@@ -1207,6 +1164,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 541,
+		rating: 3,
 		gen: 5,
 	},
 	heavydutyboots: {
@@ -1852,6 +1810,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 	},
 	/* Fling adjustments */
+	adamantorb: {
+		inherit: true,
+		fling: {
+			basePower: 60,
+			flags: {bullet: 1},
+		},
+		desc: "If held by a Dialga, its Steel- and Dragon-type attacks have 1.2x power. When Flung, counts as a projectile move.",
+		shortDesc: "If held by a Dialga, its Steel- and Dragon-type attacks have 1.2x power.",
+	},
 	blunderpolicy: {
 		inherit: true,
 		consumable: true,
@@ -1859,10 +1826,76 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 	},
+	everstone: {
+		inherit: true,
+		fling: {
+			basePower: 40,
+		},
+	},
+	flameorb: {
+		inherit: true,
+		fling: {
+			basePower: 30,
+			status: 'brn',
+			flags: {bullet: 1},
+		},
+		desc: "At the end of every turn, this item attempts to burn the holder. When Flung, burns the target and counts as a projectile move.",
+		shortDesc: "At the end of every turn, this item attempts to burn the holder.",
+	},
+	griseousorb: {
+		inherit: true,
+		fling: {
+			basePower: 60,
+			flags: {bullet: 1},
+		},
+		desc: "If held by a Giratina, its Ghost- and Dragon-type attacks have 1.2x power, and it becomes its Origin Forme. When Flung, counts as a projectile move.",
+		shortDesc: "If held by a Giratina, its Ghost- and Dragon-type attacks have 1.2x power.",
+	},
+	honey: {
+		inherit: true,
+		fling: {
+			basePower: 30,
+			boosts: {spe: -2},
+		},
+	},
 	laggingtail: {
 		inherit: true,
 		fling: {
 			basePower: 70,
+		},
+	},
+	lifeorb: {
+		inherit: true,
+		fling: {
+			basePower: 30,
+			flags: {bullet: 1},
+		},
+		desc: "Holder's attacks have their power boosted by 1.3x, but it loses 10% its max HP after each attack. When Flung, counts as a projectile move.",
+		shortDesc: "Holder's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
+	},
+	lightball: {
+		inherit: true,
+		fling: {
+			basePower: 30,
+			status: 'par',
+			flags: {bullet: 1},
+		},
+		desc: "If held by a Pikachu, its Attack and Sp. Attack stats are doubled. When Flung, paralyzes the target and counts as a projectile move.",
+		shortDesc: "If held by a Pikachu, its Attack and Sp. Atk are doubled.",
+	},
+	lustrousorb: {
+		inherit: true,
+		fling: {
+			basePower: 60,
+			flags: {bullet: 1},
+		},
+		desc: "If held by a Palkia, its Water- and Dragon-type attacks have 1.2x power. When Flung, counts as a projectile move.",
+		shortDesc: "If held by a Palkia, its Water- and Dragon-type attacks have 1.2x power.",
+	},
+	ovalstone: {
+		inherit: true,
+		fling: {
+			basePower: 40,
 		},
 	},
 	relicstatue: {
@@ -1873,12 +1906,37 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		spritenum: 590,
+		rating: 0,
+		gen: 5,
+	},
+	smokeball: {
+		num: 228,
+		name: "Smoke Ball"
+		desc: "When Flung, sharply lowers accuracy and counts as a projectile move."
+		fling: {
+			basePower: 30,
+			boosts: {accuracy: -2},
+			flags: {bullet: 1},
+		},
+		spritenum: 0,
+		rating: 0,
+		gen: 3,
 	},
 	smoothrock: {
 		inherit: true,
 		fling: {
 			basePower: 40,
 		},
+	},
+	toxicorb: {
+		inherit: true,
+		fling: {
+			basePower: 30,
+			status: 'tox',
+			flags: {bullet: 1},
+		},
+		desc: "At the end of every turn, this item attempts to badly poison the holder. When Flung, badly poisons the target and counts as a projectile move.",
+		shortDesc: "At the end of every turn, this item attempts to badly poison the holder.",
 	},
 	weaknesspolicy: {
 		inherit: true,
@@ -1947,5 +2005,42 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	whiteherb: {
 		inherit: true,
 		consumable: true,
+	},
+	/* idk why Poke Balls are coded, but they're changed too! */
+	diveball: {
+		inherit: true,
+		desc: "A Poke Ball that makes it easier to catch Pokemon underwater.",
+	},
+	duskball: {
+		inherit: true,
+		desc: "A Poke Ball that makes it easier to catch Pokemon in dark places.",
+	},
+	levelball: {
+		inherit: true,
+		desc: "A Poke Ball that works especially well on stronger Pokemon in the wild.",
+	},
+	lureball: {
+		inherit: true,
+		desc: "A Poke Ball for catching Pokemon that have been attracted to a Lure.",
+	},
+	luxuryball: {
+		inherit: true,
+		desc: "A comfortable Poke Ball that makes a wild caught Pokemon increase Condition more quickly.",
+	},
+	moonball: {
+		inherit: true,
+		desc: "A Poke Ball that makes it easier to catch Pokemon at nighttime.",
+	},
+	parkball: {
+		inherit: true,
+		desc: "A special Poke Ball for catching events that never fails.",
+	},
+	safariball: {
+		inherit: true,
+		desc: "A Poke Ball that works especially well on Pokemon who haven't been damaged.",
+	},
+	sportball: {
+		inherit: true,
+		desc: "A comfortable Poke Ball that makes a wild caught Pokemon increase its stats more quickly.",
 	},
 };
