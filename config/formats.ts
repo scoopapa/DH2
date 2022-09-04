@@ -3714,6 +3714,12 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Uber', 'Arena Trap', 'Baton Pass', 'Sand Veil', 'Snow Cloak'],
 	},
+    {
+		name: "[Gen 1] Kantoification",
+		mod: 'gen1kantoification',
+		ruleset: ['Standard'],
+		banlist: ['Uber'],
+	},
 	{
 		name: "[Gen 1] Modern Gen 1",
 		threads: [
