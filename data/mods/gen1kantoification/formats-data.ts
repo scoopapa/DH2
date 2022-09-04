@@ -83,9 +83,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	raticatealola: {
 		tier: "LC",
 	},
-	raticatealolatotem: {
-		tier: "OU",
-	},
 	spearow: {
 		tier: "OU",
 	},
@@ -472,9 +469,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	marowakalola: {
 		tier: "LC",
-	},
-	marowakalolatotem: {
-		tier: "OU",
 	},
 	hitmonlee: {
 		tier: "LC",
