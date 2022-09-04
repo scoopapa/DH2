@@ -567,10 +567,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+	/*
 	bellossom: {
 		tier: "ANL OU",
 		isModded: true,
 	},
+	*/
 
 	doduo: {
 		tier: "ANL LC",
