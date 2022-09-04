@@ -255,10 +255,10 @@ charizardmegax: {
 	},
 	"baseStats": {
 		"hp": 78,
-		"atk": 130,
-		"def": 111,
-		"spa": 107,
-		"spd": 107,
+		"atk": 107,
+		"def": 94,
+		"spa": 102,
+		"spd": 102,
 		"spe": 100
 	},
 	"abilities": {
@@ -286,10 +286,10 @@ charizardmegay: {
 	},
 	"baseStats": {
 		"hp": 78,
-		"atk": 104,
+		"atk": 94,
 		"def": 78,
-		"spa": 137,
-		"spd": 137,
+		"spa": 117,
+		"spd": 117,
 		"spe": 100
 	},
 	"abilities": {
@@ -6443,10 +6443,10 @@ mewtwomegax: {
 	"gender": "N",
 	"baseStats": {
 		"hp": 106,
-		"atk": 190,
-		"def": 100,
-		"spa": 127,
-		"spd": 127,
+		"atk": 150,
+		"def": 95,
+		"spa": 124,
+		"spd": 124,
 		"spe": 130
 	},
 	"abilities": {
@@ -6469,11 +6469,11 @@ mewtwomegay: {
 	"gender": "N",
 	"baseStats": {
 		"hp": 106,
-		"atk": 150,
-		"def": 70,
-		"spa": 157,
-		"spd": 157,
-		"spe": 140
+		"atk": 130,
+		"def": 80,
+		"spa": 139,
+		"spd": 139,
+		"spe": 135
 	},
 	"abilities": {
 		"0": "Insomnia"
