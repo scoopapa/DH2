@@ -22,11 +22,6 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 
 	/** just controls location on the item spritesheet */
 	readonly num!: number;
-	
-	/**
-	 * Rating from 0 (useless) to 4 (great) or -1 for undefined; used for sorting items in the teambuilder
-	**/
-	readonly rating: number;
 
 	/**
 	 * A Move-like object depicting what happens when Fling is used on
@@ -44,43 +39,43 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 	 */
 	readonly onMemory?: string;
 	/**
-	 * If this is a Mega Stone: The name (e.g. Charizard-Mega-X) of the
+	 * If this is a mega stone: The name (e.g. Charizard-Mega-X) of the
 	 * forme this allows transformation into.
-	 * undefined, if not a Mega Stone.
+	 * undefined, if not a mega stone.
 	 */
 	readonly megaStone?: string;
 	/**
-	 * If this is a Mega Stone: The name (e.g. Charizard) of the
+	 * If this is a mega stone: The name (e.g. Charizard) of the
 	 * forme this allows transformation from.
-	 * undefined, if not a Mega Stone.
+	 * undefined, if not a mega stone.
 	 */
 	readonly megaEvolves?: string;
 	/**
-	 * If this is a Z Crystal: true if the Z Crystal is generic
+	 * If this is a Z crystal: true if the Z Crystal is generic
 	 * (e.g. Firium Z). If species-specific, the name
 	 * (e.g. Inferno Overdrive) of the Z Move this crystal allows
 	 * the use of.
-	 * undefined, if not a Z Crystal.
+	 * undefined, if not a Z crystal.
 	 */
 	readonly zMove?: true | string;
 	/**
-	 * If this is a generic Z Crystal: The type (e.g. Fire) of the
+	 * If this is a generic Z crystal: The type (e.g. Fire) of the
 	 * Z Move this crystal allows the use of (e.g. Fire)
-	 * undefined, if not a generic Z Crystal
+	 * undefined, if not a generic Z crystal
 	 */
 	readonly zMoveType?: string;
 	/**
-	 * If this is a species-specific Z Crystal: The name
+	 * If this is a species-specific Z crystal: The name
 	 * (e.g. Play Rough) of the move this crystal requires its
 	 * holder to know to use its Z move.
-	 * undefined, if not a species-specific Z Crystal
+	 * undefined, if not a species-specific Z crystal
 	 */
 	readonly zMoveFrom?: string;
 	/**
-	 * If this is a species-specific Z Crystal: An array of the
+	 * If this is a species-specific Z crystal: An array of the
 	 * species of Pokemon that can use this crystal's Z move.
 	 * Note that these are the full names, e.g. 'Mimikyu-Busted'
-	 * undefined, if not a species-specific Z Crystal
+	 * undefined, if not a species-specific Z crystal
 	 */
 	readonly itemUser?: string[];
 	/** Is this item a Berry? */
@@ -111,7 +106,6 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 
 		this.fullname = `item: ${this.name}`;
 		this.effectType = 'Item';
-		this.rating = data.rating || -1;
 		this.fling = data.fling || undefined;
 		this.onDrive = data.onDrive || undefined;
 		this.onMemory = data.onMemory || undefined;

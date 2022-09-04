@@ -13,7 +13,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				pokemon.addVolatile('confusion');
 			}
 		},
-		rating: 1,
 	},
 	belueberry: {
 		inherit: true,
@@ -55,7 +54,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				pokemon.addVolatile('confusion');
 			}
 		},
-		rating: 1,
 	},
 	iapapaberry: {
 		inherit: true,
@@ -71,7 +69,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				pokemon.addVolatile('confusion');
 			}
 		},
-		rating: 1,
 	},
 	jabocaberry: {
 		inherit: true,
@@ -95,10 +92,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		desc: "Holder's use of Light Screen or Reflect lasts 8 turns instead of 5.",
 	},
-	lumberry:{
-		inherit: true,
-		rating: 4,
-	},
 	machobrace: {
 		inherit: true,
 		isNonstandard: null,
@@ -117,7 +110,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				pokemon.addVolatile('confusion');
 			}
 		},
-		rating: 1,
 	},
 	magostberry: {
 		inherit: true,
@@ -209,5 +201,4 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 	},
-		rating: 1,
 };

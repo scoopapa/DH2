@@ -317,7 +317,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onEat(pokemon) {
 			this.heal(30);
 		},
-		rating: 1,
 	},
 	softsand: {
 		inherit: true,

@@ -42,7 +42,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			spa: 1,
 		},
 		num: 545,
-		rating: 3,
 		gen: 5,
 	},
 	adamantorb: {
@@ -129,7 +128,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 162,
-		rating: 4,
 		gen: 3,
 	},
 	airballoon: {
@@ -160,7 +158,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 541,
-		rating: 3,
 		gen: 5,
 	},
 	alakazite: {
@@ -233,7 +230,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.boost({spd: 1});
 		},
 		num: 205,
-		rating: 3,
 		gen: 3,
 	},
 	armorfossil: {
@@ -265,7 +261,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 153,
-		rating: 1,
 		gen: 3,
 	},
 	assaultvest: {
@@ -286,7 +281,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 640,
-		rating: 4,
 		gen: 6,
 	},
 	audinite: {
@@ -325,7 +319,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 199,
-		rating: 3,
 		gen: 4,
 	},
 	banettite: {
@@ -390,7 +383,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 43,
-		rating: 3,
 		gen: 2,
 	},
 	berrysweet: {
@@ -416,7 +408,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 296,
-		rating: 1,
 		gen: 4,
 	},
 	bindingband: {
@@ -427,7 +418,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		// implemented in statuses
 		num: 544,
-		rating: 1,
 		gen: 5,
 	},
 	blackbelt: {
@@ -443,7 +433,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 241,
-		rating: 3,
 		gen: 2,
 	},
 	blacksludge: {
@@ -471,7 +460,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 281,
-		rating: 3,
 		gen: 4,
 	},
 	blackglasses: {
@@ -487,7 +475,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 240,
-		rating: 3,
 		gen: 2,
 	},
 	blastoisinite: {
@@ -558,7 +545,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		// Item activation located in scripts.js
 		num: 1121,
-		rating: 3,
 		gen: 8,
 	},
 	bottlecap: {
@@ -583,7 +569,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return accuracy * 0.9;
 		},
 		num: 213,
-		rating: 3,
 		gen: 2,
 	},
 	buggem: {
@@ -671,7 +656,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			atk: 1,
 		},
 		num: 546,
-		rating: 3,
 		gen: 5,
 	},
 	charcoal: {
@@ -687,7 +671,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 249,
-		rating: 3,
 		gen: 2,
 	},
 	charizarditex: {
@@ -740,7 +723,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 195,
-		rating: 3,
 		gen: 4,
 	},
 	cheriberry: {
@@ -790,7 +772,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 150,
-		rating: 3,
 		gen: 3,
 	},
 	chilanberry: {
@@ -815,7 +796,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 200,
-		rating: 3,
 		gen: 4,
 	},
 	chilldrive: {
@@ -864,7 +844,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		isChoice: true,
 		num: 220,
-		rating: 4,
 		gen: 3,
 	},
 	choicescarf: {
@@ -888,7 +867,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		isChoice: true,
 		num: 287,
-		rating: 4,
 		gen: 4,
 	},
 	choicespecs: {
@@ -913,7 +891,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		isChoice: true,
 		num: 297,
-		rating: 4,
 		gen: 4,
 	},
 	chopleberry: {
@@ -938,7 +915,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 189,
-		rating: 3,
 		gen: 4,
 	},
 	clawfossil: {
@@ -982,7 +958,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 192,
-		rating: 3,
 		gen: 4,
 	},
 	colburberry: {
@@ -1007,7 +982,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 198,
-		rating: 3,
 		gen: 4,
 	},
 	cornnberry: {
@@ -1064,7 +1038,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 210,
-		rating: 3,
 		gen: 4,
 	},
 	damprock: {
@@ -1074,7 +1047,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 60,
 		},
 		num: 285,
-		rating: 3,
 		gen: 4,
 	},
 	darkgem: {
@@ -1265,7 +1237,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 250,
-		rating: 3,
 		gen: 2,
 	},
 	dragongem: {
@@ -1438,7 +1409,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 547,
-		rating: 3,
 		gen: 5,
 	},
 	ejectpack: {
@@ -1467,7 +1437,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 1119,
-		rating: 3,
 		gen: 8,
 	},
 	electirizer: {
@@ -1530,7 +1499,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			def: 1,
 		},
 		num: 881,
-		rating: 3,
 		gen: 7,
 	},
 	electriumz: {
@@ -1574,7 +1542,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 208,
-		rating: 1,
 		gen: 3,
 	},
 	eviolite: {
@@ -1596,7 +1563,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 538,
-		rating: 4,
 		gen: 5,
 	},
 	expertbelt: {
@@ -1611,7 +1577,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 268,
-		rating: 4,
 		gen: 4,
 	},
 	fairiumz: {
@@ -1726,7 +1691,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 159,
-		rating: 4,
 		gen: 3,
 	},
 	firegem: {
@@ -1814,7 +1778,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			pokemon.trySetStatus('brn', pokemon);
 		},
 		num: 273,
-		rating: 3,
 		gen: 4,
 	},
 	flameplate: {
@@ -1848,7 +1811,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return this.trunc(weighthg / 2);
 		},
 		num: 539,
-		rating: 1,
 		gen: 5,
 	},
 	flowersweet: {
@@ -1914,7 +1876,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 230,
-		rating: 1,
 		gen: 2,
 	},
 	focussash: {
@@ -1931,7 +1892,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 275,
-		rating: 4,
 		gen: 4,
 	},
 	fossilizedbird: {
@@ -2036,7 +1996,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.boost({def: 1});
 		},
 		num: 202,
-		rating: 3,
 		gen: 3,
 	},
 	garchompite: {
@@ -2208,7 +2167,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			def: 1,
 		},
 		num: 884,
-		rating: 3,
 		gen: 7,
 	},
 	greatball: {
@@ -2238,7 +2196,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		// implemented in statuses
 		num: 286,
-		rating: 3,
 		gen: 4,
 	},
 	griseousorb: {
@@ -2341,7 +2298,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 197,
-		rating: 3,
 		gen: 4,
 	},
 	hardstone: {
@@ -2357,7 +2313,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 238,
-		rating: 3,
 		gen: 2,
 	},
 	healball: {
@@ -2373,7 +2328,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		rating: 3,
 		num: 284,
 		gen: 4,
 	},
@@ -2391,7 +2345,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 80,
 		},
 		num: 1120,
-		rating: 4,
 		gen: 8,
 		// Hazard Immunity implemented in moves.js
 	},
@@ -2468,7 +2421,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 163,
-		rating: 3,
 		gen: 3,
 	},
 	icegem: {
@@ -2549,7 +2501,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 40,
 		},
 		num: 282,
-		rating: 3,
 		gen: 4,
 	},
 	inciniumz: {
@@ -2600,7 +2551,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return this.chainModify(0.5);
 		},
 		num: 278,
-		rating: 1,
 		gen: 4,
 	},
 	ironplate: {
@@ -2641,7 +2591,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 211,
-		rating: 1,
 		gen: 4,
 	},
 	jawfossil: {
@@ -2676,7 +2625,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 196,
-		rating: 3,
 		gen: 4,
 	},
 	kebiaberry: {
@@ -2701,7 +2649,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 190,
-		rating: 3,
 		gen: 4,
 	},
 	keeberry: {
@@ -2722,7 +2669,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.boost({def: 1});
 		},
 		num: 687,
-		rating: 3,
 		gen: 6,
 	},
 	kelpsyberry: {
@@ -2772,7 +2718,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 221,
-		rating: 3,
 		gen: 2,
 	},
 	kommoniumz: {
@@ -2813,7 +2758,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			pokemon.addVolatile('focusenergy');
 		},
 		num: 206,
-		rating: 3,
 		gen: 3,
 	},
 	latiasite: {
@@ -2857,7 +2801,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return accuracy * 0.9;
 		},
 		num: 255,
-		rating: 3,
 		gen: 3,
 	},
 	leafstone: {
@@ -2901,7 +2844,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.heal(pokemon.baseMaxhp / 16);
 		},
 		num: 234,
-		rating: 4,
 		gen: 2,
 	},
 	leppaberry: {
@@ -2927,7 +2869,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.add('-activate', pokemon, 'item: Leppa Berry', moveSlot.move, '[consumed]');
 		},
 		num: 154,
-		rating: 3,
 		gen: 3,
 	},
 	levelball: {
@@ -2954,7 +2895,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.boost({atk: 1});
 		},
 		num: 201,
-		rating: 3,
 		gen: 3,
 	},
 	lifeorb: {
@@ -2972,7 +2912,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 270,
-		rating: 4,
 		gen: 4,
 	},
 	lightball: {
@@ -3006,7 +2945,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		// implemented in the corresponding thing
 		num: 269,
-		rating: 3,
 		gen: 4,
 	},
 	lopunnite: {
@@ -3090,7 +3028,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			pokemon.removeVolatile('confusion');
 		},
 		num: 157,
-		rating: 3,
 		gen: 3,
 	},
 	luminousmoss: {
@@ -3108,7 +3045,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			spd: 1,
 		},
 		num: 648,
-		rating: 3,
 		gen: 6,
 	},
 	lunaliumz: {
@@ -3198,7 +3134,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 242,
-		rating: 3,
 		gen: 2,
 	},
 	magoberry: {
@@ -3224,7 +3159,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 161,
-		rating: 3,
 		gen: 3,
 	},
 	magostberry: {
@@ -3249,7 +3183,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 0,
 		gen: 2,
-		rating: 3,
 		isNonstandard: "Past",
 	},
 	manectite: {
@@ -3283,7 +3216,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.boost({spd: 1});
 		},
 		num: 688,
-		rating: 3,
 		gen: 6,
 	},
 	marshadiumz: {
@@ -3389,7 +3321,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 219,
-		rating: 3,
 		gen: 3,
 	},
 	metagrossite: {
@@ -3419,7 +3350,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 233,
-		rating: 3,
 		gen: 2,
 	},
 	metalpowder: {
@@ -3474,7 +3404,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			},
 		},
 		num: 277,
-		rating: 3,
 		gen: 4,
 	},
 	mewniumz: {
@@ -3544,7 +3473,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			},
 		},
 		num: 209,
-		rating: 3,
 		gen: 4,
 	},
 	mimikiumz: {
@@ -3592,7 +3520,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 239,
-		rating: 3,
 		gen: 2,
 	},
 	mistyseed: {
@@ -3616,7 +3543,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			spd: 1,
 		},
 		num: 883,
-		rating: 3,
 		gen: 7,
 	},
 	moonball: {
@@ -3648,7 +3574,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 266,
-		rating: 3,
 		gen: 4,
 	},
 	mysticwater: {
@@ -3664,7 +3589,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 243,
-		rating: 3,
 		gen: 2,
 	},
 	nanabberry: {
@@ -3707,7 +3631,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 246,
-		rating: 3,
 		gen: 2,
 	},
 	nomelberry: {
@@ -3769,7 +3692,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 184,
-		rating: 3,
 		gen: 4,
 	},
 	oddincense: {
@@ -3785,7 +3707,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 314,
-		rating: 3,
 		gen: 4,
 	},
 	oldamber: {
@@ -3818,7 +3739,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.heal(10);
 		},
 		num: 155,
-		rating: 1,
 		gen: 3,
 	},
 	ovalstone: {
@@ -3872,7 +3792,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 185,
-		rating: 3,
 		gen: 4,
 	},
 	payapaberry: {
@@ -3897,7 +3816,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 193,
-		rating: 3,
 		gen: 4,
 	},
 	pechaberry: {
@@ -3919,7 +3837,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 151,
-		rating: 1,
 		gen: 3,
 	},
 	persimberry: {
@@ -3939,7 +3856,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			pokemon.removeVolatile('confusion');
 		},
 		num: 156,
-		rating: 1,
 		gen: 3,
 	},
 	petayaberry: {
@@ -3959,7 +3875,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.boost({spa: 1});
 		},
 		num: 204,
-		rating: 3,
 		gen: 3,
 	},
 	pidgeotite: {
@@ -4068,7 +3983,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 245,
-		rating: 3,
 		gen: 2,
 	},
 	poisongem: {
@@ -4143,7 +4057,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 293,
 		gen: 4,
-		rating: 1,
 	},
 	powerband: {
 		name: "Power Band",
@@ -4156,7 +4069,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return this.chainModify(0.5);
 		},
 		num: 292,
-		rating: 1,
 		gen: 4,
 	},
 	powerbelt: {
@@ -4170,7 +4082,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return this.chainModify(0.5);
 		},
 		num: 290,
-		rating: 1,
 		gen: 4,
 	},
 	powerbracer: {
@@ -4184,7 +4095,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return this.chainModify(0.5);
 		},
 		num: 289,
-		rating: 1,
 		gen: 4,
 	},
 	powerherb: {
@@ -4202,7 +4112,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 10,
 		},
 		num: 271,
-		rating: 4,
 		gen: 4,
 	},
 	powerlens: {
@@ -4216,7 +4125,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return this.chainModify(0.5);
 		},
 		num: 291,
-		rating: 1,
 		gen: 4,
 	},
 	powerweight: {
@@ -4230,7 +4138,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return this.chainModify(0.5);
 		},
 		num: 294,
-		rating: 1,
 		gen: 4,
 	},
 	premierball: {
@@ -4309,7 +4216,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			) return false;
 		},
 		num: 880,
-		rating: 3,
 		gen: 7,
 	},
 	protector: {
@@ -4371,7 +4277,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			spd: 1,
 		},
 		num: 882,
-		rating: 3,
 		gen: 7,
 	},
 	psychiumz: {
@@ -4419,7 +4324,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 80,
 		},
 		num: 217,
-		rating: 3,
 		gen: 2,
 	},
 	quickpowder: {
@@ -4478,7 +4382,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 152,
-		rating: 1,
 		gen: 3,
 	},
 	razorclaw: {
@@ -4491,7 +4394,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return critRatio + 1;
 		},
 		num: 326,
-		rating: 3,
 		gen: 4,
 	},
 	razorfang: {
@@ -4516,7 +4418,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 327,
 		gen: 4,
-		rating: 3,
 		isNonstandard: "Past",
 	},
 	razzberry: {
@@ -4561,7 +4462,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 542,
-		rating: 3,
 		gen: 5,
 	},
 	redorb: {
@@ -4622,7 +4522,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 187,
-		rating: 3,
 		gen: 4,
 	},
 	ringtarget: {
@@ -4633,7 +4532,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onNegateImmunity: false,
 		num: 543,
-		rating: 1,
 		gen: 5,
 	},
 	rockgem: {
@@ -4663,7 +4561,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 315,
-		rating: 3,
 		gen: 4,
 	},
 	rockmemory: {
@@ -4706,7 +4603,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 540,
-		rating: 4,
 		gen: 5,
 	},
 	roomservice: {
@@ -4724,7 +4620,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			spe: -1,
 		},
 		num: 1122,
-		rating: 3,
 		gen: 8,
 	},
 	rootfossil: {
@@ -4750,7 +4645,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 318,
-		rating: 3,
 		gen: 4,
 	},
 	roseliberry: {
@@ -4775,7 +4669,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 686,
-		rating: 3,
 		gen: 6,
 	},
 	rowapberry: {
@@ -4795,7 +4688,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 212,
-		rating: 1,
 		gen: 4,
 	},
 	rustedshield: {
@@ -4872,7 +4764,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 650,
-		rating: 3,
 		gen: 6,
 	},
 	sailfossil: {
@@ -4902,7 +4793,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.boost({spe: 1});
 		},
 		num: 203,
-		rating: 4,
 		gen: 3,
 	},
 	salamencite: {
@@ -4957,7 +4847,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			return critRatio + 1;
 		},
 		num: 232,
-		rating: 3,
 		gen: 2,
 	},
 	seaincense: {
@@ -4973,7 +4862,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 254,
-		rating: 3,
 		gen: 3,
 	},
 	sharpbeak: {
@@ -4989,7 +4877,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 244,
-		rating: 3,
 		gen: 2,
 	},
 	sharpedonite: {
@@ -5017,7 +4904,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			pokemon.trapped = pokemon.maybeTrapped = false;
 		},
 		num: 295,
-		rating: 3,
 		gen: 4,
 	},
 	shellbell: {
@@ -5033,7 +4919,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 253,
-		rating: 3,
 		gen: 3,
 	},
 	shinystone: {
@@ -5082,7 +4967,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 191,
-		rating: 3,
 		gen: 4,
 	},
 	silkscarf: {
@@ -5098,7 +4982,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 251,
-		rating: 3,
 		gen: 3,
 	},
 	silverpowder: {
@@ -5114,7 +4997,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 222,
-		rating: 3,
 		gen: 2,
 	},
 	sitrusberry: {
@@ -5137,7 +5019,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.heal(pokemon.baseMaxhp / 4);
 		},
 		num: 158,
-		rating: 3,
 		gen: 3,
 	},
 	skullfossil: {
@@ -5192,7 +5073,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 10,
 		},
 		num: 283,
-		rating: 3,
 		gen: 4,
 	},
 	snorliumz: {
@@ -5221,7 +5101,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			atk: 1,
 		},
 		num: 649,
-		rating: 3,
 		gen: 6,
 	},
 	softsand: {
@@ -5237,7 +5116,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 237,
-		rating: 3,
 		gen: 2,
 	},
 	solganiumz: {
@@ -5283,7 +5161,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 247,
-		rating: 3,
 		gen: 2,
 	},
 	spelonberry: {
@@ -5377,7 +5254,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 207,
-		rating: 3,
 		gen: 3,
 	},
 	starsweet: {
@@ -5578,7 +5454,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 194,
-		rating: 3,
 		gen: 4,
 	},
 	tapuniumz: {
@@ -5608,7 +5483,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 60,
 		},
 		num: 879,
-		rating: 3,
 		gen: 7,
 	},
 	thickclub: {
@@ -5642,7 +5516,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			spa: 1,
 		},
 		num: 1118,
-		rating: 3,
 		gen: 8,
 	},
 	thunderstone: {
@@ -5674,7 +5547,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			pokemon.trySetStatus('tox', pokemon);
 		},
 		num: 272,
-		rating: 3,
 		gen: 4,
 	},
 	toxicplate: {
@@ -6611,7 +6483,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 248,
-		rating: 3,
 		gen: 2,
 	},
 	tyranitarite: {
@@ -6663,7 +6534,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		// Implemented in statuses.js, moves.js, and abilities.js
 		num: 1123,
-		rating: 3,
 		gen: 8,
 	},
 	venusaurite: {
@@ -6701,7 +6571,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 186,
-		rating: 3,
 		gen: 4,
 	},
 	watergem: {
@@ -6781,7 +6650,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 317,
-		rating: 3,
 		gen: 4,
 	},
 	weaknesspolicy: {
@@ -6800,7 +6668,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			spa: 2,
 		},
 		num: 639,
-		rating: 3,
 		gen: 6,
 	},
 	wepearberry: {
@@ -6862,7 +6729,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 214,
-		rating: 3,
 		gen: 3,
 	},
 	widelens: {
@@ -6878,7 +6744,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 265,
-		rating: 3,
 		gen: 4,
 	},
 	wikiberry: {
@@ -6919,7 +6784,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 267,
-		rating: 3,
 		gen: 4,
 	},
 	yacheberry: {
@@ -6944,7 +6808,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onEat() { },
 		num: 188,
-		rating: 3,
 		gen: 4,
 	},
 	zapplate: {
@@ -6982,7 +6845,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 276,
-		rating: 3,
 		gen: 4,
 	},
 
@@ -6997,7 +6859,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			pokemon.setItem('');
 		},
 		num: 0,
-		rating: 3,
 		gen: 2,
 		isNonstandard: "Past",
 	},
@@ -7022,7 +6883,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.heal(10);
 		},
 		num: 155,
-		rating: 1,
 		gen: 2,
 		isNonstandard: "Past",
 	},
@@ -7043,7 +6903,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			pokemon.removeVolatile('confusion');
 		},
 		num: 156,
-		rating: 1,
 		gen: 2,
 		isNonstandard: "Past",
 	},
@@ -7066,7 +6925,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 153,
-		rating: 1,
 		gen: 2,
 		isNonstandard: "Past",
 	},
@@ -7113,7 +6971,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 152,
-		rating: 1,
 		gen: 2,
 		isNonstandard: "Past",
 	},
@@ -7242,7 +7099,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 149,
-		rating: 1,
 		gen: 2,
 		isNonstandard: "Past",
 	},
@@ -7265,7 +7121,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 151,
-		rating: 1,
 		gen: 2,
 		isNonstandard: "Past",
 	},

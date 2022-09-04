@@ -208,7 +208,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 				this.add('-end', pokemon, 'move: Attract', '[from] item: Mental Herb');
 			}
 		},
-		rating: 1,
 	},
 	metronome: {
 		inherit: true,

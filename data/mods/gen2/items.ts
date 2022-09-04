@@ -2,7 +2,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 	berryjuice: {
 		inherit: true,
 		isNonstandard: null,
-		rating: 1,
 	},
 	brightpowder: {
 		inherit: true,
@@ -17,7 +16,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		desc: "No competitive use.",
 		onBasePower() {},
-		rating: 0,
 	},
 	dragonscale: {
 		inherit: true,
