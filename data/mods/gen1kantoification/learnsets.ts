@@ -151918,18 +151918,12 @@ ribbito: {
 		"swift": [
 			"1L27, 1M"
 		],
-		"feintattack": [
-			"1L32"
-		],
 		"substitute": [
 			"1L42",
 			"1M"
 		],
 		"hydropump": [
 			"1L49"
-		],
-		"nightslash": [
-			"1L53"
 		],
 		"megapunch": [
 			"1M"
@@ -152027,18 +152021,12 @@ croakozuna: {
 		"swift": [
 			"1L31, 1M"
 		],
-		"feintattack": [
-			"1L35"
-		],
 		"substitute": [
 			"1L46",
 			"1M"
 		],
 		"hydropump": [
 			"1L53"
-		],
-		"nightslash": [
-			"1L58"
 		],
 		"megapunch": [
 			"1M"
@@ -152677,20 +152665,8 @@ omega: {
 		"supersonic": [
 			"1L1"
 		],
-		"metalsound": [
-			"1L1"
-		],
-		"magnetbomb": [
-			"1L1"
-		],
 		"slam": [
 			"1L48"
-		],
-		"ironhead": [
-			"1L50"
-		],
-		"irondefense": [
-			"1L55"
 		],
 		"megapunch": [
 			"1M"
@@ -152923,20 +152899,11 @@ jagg: {
 		"screech": [
 			"1L19"
 		],
-		"mirrorshot": [
-			"1L24"
-		],
 		"hornattack": [
 			"1L29"
 		],
 		"furyattack": [
 			"1L36"
-		],
-		"brutalswing": [
-			"1L42"
-		],
-		"ironhead": [
-			"1L49"
 		],
 		"hydropump": [
 			"1L55"
@@ -153020,17 +152987,11 @@ blottle: {
 		"wrap": [
 			"1L13"
 		],
-		"fairywind": [
-			"1L19"
-		],
 		"hypnosis": [
 			"1L23"
 		],
 		"supersonic": [
 			"1L27"
-		],
-		"dazzlinggleam": [
-			"1L39"
 		],
 		"haze": [
 			"1L43"
@@ -153114,17 +153075,11 @@ pendraken: {
 		"wrap": [
 			"1L13"
 		],
-		"fairywind": [
-			"2L19"
-		],
 		"hypnosis": [
 			"1L23"
 		],
 		"supersonic": [
 			"1L27"
-		],
-		"dazzlinggleam": [
-			"1L39"
 		],
 		"haze": [
 			"1L43"
@@ -153313,26 +153268,11 @@ deer: {
 },
 barunda: {
 	"learnset": {
-		"fairywind": [
-			"1L1"
-		],
 		"growl": [
 			"1L1"
 		],
-		"drainingkiss": [
-			"1L1"
-		],
-		"sweetkiss": [
-			"1L25"
-		],
 		"confuseray": [
 			"1L31"
-		],
-		"charm": [
-			"1L37"
-		],
-		"dazzlinggleam": [
-			"1L43"
 		],
 		"razorwind": [
 			"1M"
@@ -153631,9 +153571,6 @@ cactus: {
 		],
 		"furyattack": [
 			"1L31"
-		],
-		"feintattack": [
-			"1L39"
 		],
 		"spikecannon": [
 			"1L45"
@@ -155123,14 +155060,8 @@ cleffa: {
 		"pound": [
 			"1L1"
 		],
-		"charm": [
-			"1L1"
-		],
 		"sing": [
 			"1L8"
-		],
-		"sweetkiss": [
-			"1L14"
 		],
 		"megapunch": [
 			"1M"
@@ -155235,14 +155166,8 @@ igglybuff: {
 		"pound": [
 			"1L1"
 		],
-		"charm": [
-			"1L1"
-		],
 		"sing": [
 			"1L8"
-		],
-		"sweetkiss": [
-			"1L14"
 		],
 		"megapunch": [
 			"1M"
@@ -155733,28 +155658,16 @@ magnezone: {
 		"supersonic": [
 			"1L29"
 		],
-		"metalsound": [
-			"1L31"
-		],
 		"thunderwave": [
 			"1L38",
 			"1M"
-		],
-		"mirrorshot": [
-			"1L41"
 		],
 		"swift": [
 			"1L46",
 			"1M"
 		],
-		"magnetbomb": [
-			"1L50"
-		],
 		"screech": [
 			"1L54"
-		],
-		"ironhead": [
-			"1L58"
 		],
 		"toxic": [
 			"1M"
@@ -156009,9 +155922,6 @@ steelix: {
 		"screech": [
 			"1L1"
 		],
-		"irondefense": [
-			"1L8"
-		],
 		"bind": [
 			"1L15"
 		],
@@ -156024,9 +155934,6 @@ steelix: {
 		],
 		"slam": [
 			"1L33"
-		],
-		"ironhead": [
-			"1L38"
 		],
 		"harden": [
 			"1L43"
@@ -156193,12 +156100,6 @@ happiny: {
 	"learnset": {
 		"pound": [
 			"1L1"
-		],
-		"charm": [
-			"1L8"
-		],
-		"sweetkiss": [
-			"1L12"
 		],
 		"toxic": [
 			"1M"
@@ -156639,9 +156540,6 @@ scizor: {
 		"focusenergy": [
 			"1L20"
 		],
-		"ironhead": [
-			"1L24"
-		],
 		"slash": [
 			"1L29"
 		],
@@ -156651,9 +156549,6 @@ scizor: {
 		],
 		"agility": [
 			"1L42"
-		],
-		"bulletpunch": [
-			"1L50"
 		],
 		"doubleteam": [
 			"1M"
@@ -156703,9 +156598,6 @@ smoochum: {
 		],
 		"lick": [
 			"1L1"
-		],
-		"sweetkiss": [
-			"1L8"
 		],
 		"aurorabeam": [
 			"1L13"
@@ -157605,9 +157497,6 @@ porygonz: {
 		],
 		"defensecurl": [
 			"1L45"
-		],
-		"nastyplot": [
-			"1L46"
 		]
 	}
 },
@@ -157751,18 +157640,6 @@ umbreon: {
 		],
 		"hyperbeam": [
 			"1M"
-		],
-		"brutalswing": [
-			"1L16"
-		],
-		"feintattack": [
-			"1L30"
-		],
-		"faketears": [
-			"1L36"
-		],
-		"falsesurrender": [
-			"1L52"
 		]
 	}
 },
@@ -157984,15 +157861,6 @@ sylveon: {
 		],
 		"hyperbeam": [
 			"1M"
-		],
-		"disarmingvoice": [
-			"1L16"
-		],
-		"drainingkiss": [
-			"1L30"
-		],
-		"dazzlinggleam": [
-			"1L36"
 		]
 	}
 },
@@ -158084,9 +157952,6 @@ sirfetchd: {
 		],
 		"doublekick": [
 			"1L15"
-		],
-		"brutalswing": [
-			"1L23"
 		],
 		"lowkick": [
 			"1L31"
@@ -158185,9 +158050,6 @@ mrrime: {
 		"psychic": [
 			"1L48",
 			"1M"
-		],
-		"feintattack": [
-			"1L50"
 		],
 		"megapunch": [
 			"1M"
@@ -158295,18 +158157,12 @@ rattataalola: {
 		"hyperfang": [
 			"1L16"
 		],
-		"brutalswing": [
-			"1L20"
-		],
 		"superfang": [
 			"1L28"
 		],
 		"doubleedge": [
 			"1L31",
 			"1M"
-		],
-		"nightslash": [
-			"1L40"
 		],
 		"icebeam": [
 			"1M"
@@ -158373,13 +158229,10 @@ raticatealola: {
 			"1L7"
 		],
 		"bite": [
-			"1L10"
+			"1L20"
 		],
 		"hyperfang": [
 			"1L16"
-		],
-		"brutalswingbite": [
-			"1L20"
 		],
 		"superfang": [
 			"1L28"
@@ -158387,9 +158240,6 @@ raticatealola: {
 		"doubleedge": [
 			"1L31",
 			"1M"
-		],
-		"nightslash": [
-			"1L40"
 		],
 		"icebeam": [
 			"1M"
@@ -158557,14 +158407,8 @@ sandshrewalola: {
 		"furyswipes": [
 			"1L24"
 		],
-		"irondefense": [
-			"1L27"
-		],
 		"slash": [
 			"1L30"
-		],
-		"ironhead": [
-			"1L33"
 		],
 		"swordsdance": [
 			"1L36",
@@ -158639,14 +158483,8 @@ sandslashalola: {
 		"furyswipes": [
 			"1L24"
 		],
-		"irondefense": [
-			"1L27"
-		],
 		"slash": [
 			"1L30"
-		],
-		"ironhead": [
-			"1L33"
 		],
 		"swordsdance": [
 			"1L36",
@@ -158705,9 +158543,6 @@ sandslashalola: {
 },
 vulpixalola: {
 	"learnset": {
-		"fairywind": [
-			"1L1"
-		],
 		"tailwhip": [
 			"1L1"
 		],
@@ -158717,9 +158552,6 @@ vulpixalola: {
 		"confuseray": [
 			"1L12"
 		],
-		"feintattack": [
-			"1L23"
-		],
 		"aurorabeam": [
 			"1L28"
 		],
@@ -158727,15 +158559,9 @@ vulpixalola: {
 			"1L36",
 			"1M"
 		],
-		"dazzlinggleam": [
-			"1L38"
-		],
 		"blizzard": [
 			"1L42",
 			"1M"
-		],
-		"charm": [
-			"1L46"
 		],
 		"takedown": [
 			"1M"
@@ -158780,9 +158606,6 @@ vulpixalola: {
 },
 ninetalesalola: {
 	"learnset": {
-		"fairywind": [
-			"1L1"
-		],
 		"tailwhip": [
 			"1L1"
 		],
@@ -158792,9 +158615,6 @@ ninetalesalola: {
 		"confuseray": [
 			"1L12"
 		],
-		"feintattack": [
-			"1L23"
-		],
 		"aurorabeam": [
 			"1L28"
 		],
@@ -158802,15 +158622,9 @@ ninetalesalola: {
 			"1L36",
 			"1M"
 		],
-		"dazzlinggleam": [
-			"1L38"
-		],
 		"blizzard": [
 			"1L42",
 			"1M"
-		],
-		"charm": [
-			"1L46"
 		],
 		"takedown": [
 			"1M"
@@ -158867,9 +158681,6 @@ diglettalola: {
 		"dig": [
 			"1L31",
 			"1M"
-		],
-		"ironhead": [
-			"1L35"
 		],
 		"earthquake": [
 			"1L39",
@@ -158940,9 +158751,6 @@ dugtrioalola: {
 		"dig": [
 			"1L31",
 			"1M"
-		],
-		"ironhead": [
-			"1L35"
 		],
 		"earthquake": [
 			"1L39",
@@ -159016,21 +158824,12 @@ meowthalola: {
 		"screech": [
 			"1L17"
 		],
-		"feintattack": [
-			"1L22"
-		],
 		"payday": [
 			"1L30",
 			"1M"
 		],
 		"slash": [
 			"1L33"
-		],
-		"nastyplot": [
-			"1L38"
-		],
-		"nightslash": [
-			"1L49"
 		],
 		"thunderbolt": [
 			"1M"
@@ -159103,9 +158902,6 @@ meowthgalar: {
 			"1L12",
 			"1M"
 		],
-		"smartstrike": [
-			"1L25"
-		],
 		"furyswipes": [
 			"1L29"
 		],
@@ -159114,9 +158910,6 @@ meowthgalar: {
 		],
 		"slash": [
 			"1L36"
-		],
-		"metalsound": [
-			"1L40"
 		],
 		"swordsdance": [
 			"1M"
@@ -159200,21 +158993,12 @@ persianalola: {
 		"screech": [
 			"1L17"
 		],
-		"feintattack": [
-			"1L22"
-		],
 		"payday": [
 			"1L30",
 			"1M"
 		],
 		"slash": [
 			"1L33"
-		],
-		"nastyplot": [
-			"1L38"
-		],
-		"nightslash": [
-			"1L49"
 		],
 		"thunderbolt": [
 			"1M"
@@ -159773,9 +159557,6 @@ ponytagalar: {
 		"confusion": [
 			"1L10"
 		],
-		"fairywind": [
-			"1L15"
-		],
 		"agility": [
 			"1L20"
 		],
@@ -159788,9 +159569,6 @@ ponytagalar: {
 		"takedown": [
 			"1L41",
 			"1M"
-		],
-		"dazlinggleam": [
-			"1L45"
 		],
 		"psychic": [
 			"1L50",
@@ -159863,9 +159641,6 @@ rapidashgalar: {
 		"confusion": [
 			"1L10"
 		],
-		"fairywind": [
-			"1L15"
-		],
 		"agility": [
 			"1L20"
 		],
@@ -159878,9 +159653,6 @@ rapidashgalar: {
 		"takedown": [
 			"1L41",
 			"1M"
-		],
-		"dazzlinggleam": [
-			"1L45"
 		],
 		"psychic": [
 			"1L50",
@@ -160200,9 +159972,6 @@ farfetchdgalar: {
 		"doublekick": [
 			"1L15"
 		],
-		"brutalswing": [
-			"1L23"
-		],
 		"lowkick": [
 			"1L31"
 		],
@@ -160295,14 +160064,8 @@ grimeralola: {
 		"disable": [
 			"1L18"
 		],
-		"brutalswing": [
-			"1L24"
-		],
 		"screech": [
 			"1L30"
-		],
-		"nightslash": [
-			"1L36"
 		],
 		"acidarmor": [
 			"1L42"
@@ -160377,14 +160140,8 @@ mukalola: {
 		"disable": [
 			"1L18"
 		],
-		"brutalswing": [
-			"1L24"
-		],
 		"screech": [
 			"1L30"
-		],
-		"nightslash": [
-			"1L36"
 		],
 		"acidarmor": [
 			"1L42"
@@ -160794,9 +160551,6 @@ weezinggalar: {
 			"1L40",
 			"1M"
 		],
-		"dazzlinggleam": [
-			"1L43"
-		],
 		"haze": [
 			"1L45"
 		],
@@ -161140,26 +160894,11 @@ moltresgalar: {
 		"leer": [
 			"1L1"
 		],
-		"faketears": [
-			"1L10"
-		],
 		"wingattack": [
 			"1L15"
 		],
 		"agility": [
 			"1L20"
-		],
-		"brutalswing": [
-			"1L30"
-		],
-		"feintattack": [
-			"1L40"
-		],
-		"nastyplot": [
-			"1L50"
-		],
-		"falsesurrender": [
-			"1L60"
 		],
 		"skyattack": [
 			"1L70",
