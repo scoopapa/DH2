@@ -284,10 +284,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			volatileStatus: 'fixated',
 		},
 		basePowerCallback() {
-			return;
+			return 80;
 		},
-		onTry() {
-			return;
+		onTry() {},
+		condition: {
+			duration: null,
 		},
 	},
 
@@ -346,61 +347,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			volatileStatus: 'jaggedsplinters',
 		},
 		shortDesc: "Sets Jagged Splinters",
-	},
-
-	toxicspikes: {
-		inherit: true,
-		condition: {
-			duration: 4,
-			// this is a side condition
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Toxic Spikes');
-			},
-			onRestart(side) {
-				if (this.effectData.layers >= 2) return false;
-				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers++;
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasType('Poison')) {
-					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
-					return;
-				} else if (this.effectData.layers >= 2) {
-					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
-				} else {
-					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
-				}
-			},
-			onEnd(targetSide) {
-				for (const pokemon of targetSide.active) {
-					this.add('-sideend', targetSide, 'Toxic Spikes');
-				}
-		  	},
-		},
-	},
-
-	stickyweb: {
-		inherit: true,
-		condition: {
-			duration: 4,
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Sticky Web');
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots')) return;
-				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
-			},
-			onEnd(targetSide) {
-				for (const pokemon of targetSide.active) {
-					this.add('-sideend', targetSide, 'Toxic Spikes');
-				}
-		  	},
-		},
 	},
 
 	rollout: {

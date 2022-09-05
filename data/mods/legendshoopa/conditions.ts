@@ -2,6 +2,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 	legendsboost: {
 		name: 'legendsboost',
 		onBoost(boost, target, source, effect) {
+			this.effectData.startTime = 0;
+			this.add('-message', `stat has been boosted`);
 			if (!boost || effect.id === 'legendsboost') return;
 			let activated = false;
 			let boostName: BoostName;
@@ -32,14 +34,18 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			if(boost.spe) {
 				this.effectData.speBoosted = true;
+				activated = true;
+
 			}
+			this.add('-message', `Activated = ${activated}`);
 			if (activated === true) {
 				this.boost(LegendsBoost, target, target, null, true);
 				/*
 				5 turns for single-stat boosters
 				4 turns for double-stat boosters
-				3 turns for omniboosts or stat boosts gained by an offensive move's effect
+				3 turns for omniboosts or stat boosts gained by an offensive move's effect / ability / item
 				*/
+				
 				this.effectData.startTime = 6;
 				if(this.effectData.atkBoosted) {
 					this.effectData.startTime -= 1;
@@ -64,17 +70,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 		// this isnt a boost really its just so i dont have to make another volatile xx
 		onModifyMove(move) {
-            if (move.secondaries) {
-				if(move.id === 'powdersnow' || move.id === 'blizzard' || move.id === 'firepunch' || move.id === 'icepunch' || move.id === 'thunderpunch') return;
-                this.debug('doubling secondary chance');
-                for (const secondary of move.secondaries) {
-                    if (secondary.chance && secondary.chance === 10) secondary.chance *= 2;
-                }
-            }
-            if (move.self?.chance && move.self?.chance === 10) {
-				move.self.chance *= 2;
+			if (move.secondaries) {
+			 if(move.id === 'powdersnow' || move.id === 'blizzard' || move.id === 'firepunch' || move.id === 'icepunch' || move.id === 'thunderpunch') return;
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance && secondary.chance === 10) secondary.chance *= 2;
+				}
 			}
-        },
+			if (move.self?.chance && move.self?.chance === 10) {
+			 move.self.chance *= 2;
+			}
+		},
 
 		onResidual(pokemon) {
 			this.effectData.time -= 1;
@@ -89,6 +95,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'legendsboost', '[silent]');
 		},
+	},
+
+	altboost: {
+		name: 'altboost',
 	},
 
 	confusion: {
