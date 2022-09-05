@@ -3378,7 +3378,7 @@ export const Formats: FormatList = [
 				//Pokemon
 				'Uber',
 				//Abilities
-				'Arena Trap', 'Drizzle', 'Drought', 'Moody', 'Sand Veil',
+				'Arena Trap', 'Drizzle', 'Drought', 'Moody', 'Sand Veil', 'Shadow Tag',
 				//Moves
 				'Baton Pass',
 				//Items
