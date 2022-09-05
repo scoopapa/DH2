@@ -4004,6 +4004,24 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] Waght",
+		desc: 'A giant memepost. Abismons 2 electric boogaloo',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Chansey', 'Rhydon', 'Ivysaur', 'Blaziken', 'Megaracross', 'Barboach', 'Nickit', 'Chandelure'],
+		mod: "waght",
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Waght' && template.tier !== 'DoublesWaght') {
+					return [set.species + ' is not legal in the [Gen 8] Waght format.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 8] Wild'mons",
 		desc: `<b>Wildmons</b>.`,
 		mod: 'wildmons',
