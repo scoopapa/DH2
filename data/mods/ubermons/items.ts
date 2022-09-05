@@ -181,19 +181,19 @@ export const Items: {[itemid: string]: ItemData} = {
 	blueorb: {
 		name: "Blue Orb",
 		spritenum: 41,
-		onStart(pokemon) {
-			if (pokemon.baseSpecies.name !== 'Kyogre') return;
-			for (const target of pokemon.side.foe.active) {
-				if (!target || target.fainted) continue;
-				for (const moveSlot of target.moveSlots) {
+		onStart(source) {
+			if (source.baseSpecies.name !== 'Kyogre') return;
+			for (const pokemon of source.side.foe.active) {
+				if (!pokemon || pokemon.fainted) continue;
+				for (const moveSlot of pokemon.moveSlots) {
 					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
-					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
 					if (
-						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
 						move.ohko
 					) {
-						pokemon.formeChange('Kyogre-Primal', this.effect, true);
+						source.formeChange('Kyogre-Primal', this.effect, true);
 						return;
 					}
 				}
@@ -917,19 +917,19 @@ export const Items: {[itemid: string]: ItemData} = {
 	redorb: {
 		name: "Red Orb",
 		spritenum: 390,
-		onStart(pokemon) {
-			if (pokemon.baseSpecies.name !== 'Groudon') return;
-			for (const target of pokemon.side.foe.active) {
-				if (!target || target.fainted) continue;
-				for (const moveSlot of target.moveSlots) {
+		onStart(source) {
+			if (source.baseSpecies.name !== 'Groudon') return;
+			for (const pokemon of source.side.foe.active) {
+				if (!pokemon || pokemon.fainted) continue;
+				for (const moveSlot of pokemon.moveSlots) {
 					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
-					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
 					if (
-						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
 						move.ohko
 					) {
-						pokemon.formeChange('Groudon-Primal', this.effect, true);
+						source.formeChange('Groudon-Primal', this.effect, true);
 						return;
 					}
 				}

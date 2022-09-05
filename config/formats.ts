@@ -2866,7 +2866,7 @@ export const Formats: FormatList = [
 			'Baton Pass',
 		],
 		gameType: 'doubles',
-		teambuilderFormat: 'OU',
+		teambuilderFormat: 'DOU',
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	
