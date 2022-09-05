@@ -36,6 +36,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		species: "Barboach",
 		types: ["Water", "Ground"],
 		baseStats: {hp: 1, atk: 78, def: 1, spa: 78, spd: 1, spe: 80},
+		maxHP: 1,
 		abilities: {0: "Wonder Guard", H: "Sand Stream"},
 		weightkg: 1.9,
 	},
