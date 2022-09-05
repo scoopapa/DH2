@@ -1495,6 +1495,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
+	budew: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
+	roserade: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
 	combee: {
 		isNonstandard: "Past",
 		tier: "Illegal",
