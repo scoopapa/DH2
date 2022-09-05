@@ -3375,14 +3375,18 @@ export const Formats: FormatList = [
 		mod: 'advnow',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
-				/*Pokemon*/'Uber',
-				/*Abilities*/'Arena Trap', 'Drizzle', 'Drought', 'Moody', 'Sand Veil',
-				/*Moves*/'Baton Pass',
-				/*Items*/'Bright Powder', 'Damp Rock', 'King\'s Rock', 'Lax Incense', 'Light Clay', 'Quick Claw', 'Razor Fang',
+				//Pokemon
+				'Uber',
+				//Abilities
+				'Arena Trap', 'Drizzle', 'Drought', 'Moody', 'Sand Veil',
+				//Moves
+				'Baton Pass',
+				//Items
+				'Bright Powder', 'Damp Rock', 'King\'s Rock', 'Lax Incense', 'Light Clay', 'Quick Claw', 'Razor Fang',
 		],
 		teambuilderFormat: 'OU',
 	},
-	{
+	/*{
 		name: "[Gen 8] ADV Now Uber",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
@@ -3390,11 +3394,37 @@ export const Formats: FormatList = [
 		mod: 'advnow',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
-				/*Pokemon*/'AG',
-				/*Abilities*/'Moody',
-				/*Moves*/'Baton Pass',
+				//Pokemon
+				'AG',
+				//Abilities
+				'Moody',
+				//Moves
+				'Baton Pass',
 		],
 		teambuilderFormat: 'Uber',
+	},*/
+	{
+		name: "[Gen 8] ADV Now ZU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
+		],
+		mod: 'advnow',
+		ruleset: ['[Gen 8] ADV Now'],
+		banlist: [
+				//Pokemon
+				'OU', 'UUBL',
+				'UU', 'RUBL',
+				'RU', 'NUBL',
+				'NU', 'PUBL',
+				'PU',
+		],
+		unbanlist: [
+				'Aipom', 'Ampharos', 'Arbok', 'Ariados', 'Beautifly', 'Beedrill', 'Castform', 'Corsola', 'Delcatty', 'Delibird', 'Dewgong', 
+				'Ditto', 'Dunsparce', 'Dustox', 'Farfetch\u2019d', 'Flareon', 'Furret', 'Glalie', 'Illumise', 'Ledian', 'Lickitung', 'Luvdisc', 
+				'Magcargo', 'Mightyena', 'Minun', 'Nosepass', 'Octillery', 'Parasect', 'Plusle', 'Politoed', 'Seaking', 'Shedinja', 'Shuckle', 
+				'Smeargle', 'Spinda', 'Sunflora', 'Swalot', 'Tropius', 'Unown', 'Volbeat', 'Wailord', 'Wobbuffet', 'Yanma',
+		],
+		teambuilderFormat: '(PU)',
 	},
 	{    
 		name: "[Gen 8] AsOnemons",
