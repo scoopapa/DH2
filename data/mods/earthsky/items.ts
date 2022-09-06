@@ -455,8 +455,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			this.boost({[statName]: 2}, pokemon);
 		},
-		shortDesc: "Raises the lowest stat by 2 when at 1/4 max HP or less (not acc/eva). Single-use.",
-		desc:
+		desc: "Raises the lowest stat by 2 when at 1/4 max HP or less (not acc/eva). Single-use.",
 	},
 	ultranecroziumz: {
 		name: "Ultranecrozium Z",
