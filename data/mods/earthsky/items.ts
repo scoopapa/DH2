@@ -1910,8 +1910,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	smokeball: {
 		num: 228,
-		name: "Smoke Ball"
-		desc: "When Flung, sharply lowers accuracy and counts as a projectile move."
+		name: "Smoke Ball",
+		desc: "When Flung, sharply lowers accuracy and counts as a projectile move.",
 		fling: {
 			basePower: 30,
 			boosts: {accuracy: -2},
@@ -2005,7 +2005,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		consumable: true,
 	},
-	/* idk why Poke Balls are coded, but they're changed too! */
+	/* idk why these items are coded, but they're changed too! */
 	diveball: {
 		inherit: true,
 		desc: "A Poke Ball that makes it easier to catch Pokemon underwater.",
@@ -2041,5 +2041,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	sportball: {
 		inherit: true,
 		desc: "A comfortable Poke Ball that makes a wild caught Pokemon increase its stats more quickly.",
+	},
+	berrysweet: {
+		inherit: true,
+		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
+	},
+	cloversweet: {
+		inherit: true,
+		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
+	},
+	flowersweet: {
+		inherit: true,
+		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
+	},
+	lovesweet: {
+		inherit: true,
+		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
+	},
+	ribbonsweet: {
+		inherit: true,
+		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
+	},
+	starsweet: {
+		inherit: true,
+		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
+	},
+	strawberrysweet: {
+		inherit: true,
+		desc: "Evolves Milcery into Acremie when held and brought to the Berrimakaron Bakery.",
 	},
 };
