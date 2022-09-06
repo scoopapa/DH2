@@ -378,7 +378,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["1M"],
 			thunder: ["1M"],
 			dig: ["1M"],
-			fireblast: ["1M"],
 			swift: ["1M"],
 			skullbash: ["1M"],
 			rockslide: ["1M"],
@@ -412,7 +411,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["1M"],
 			thunder: ["1M"],
 			dig: ["1M"],
-			fireblast: ["1M"],
 			swift: ["1M"],
 			skullbash: ["1M"],
 			rockslide: ["1M"],
@@ -449,7 +447,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rockslide: ["1M"],
 			surf: ["1M"],
 			strength: ["1M"],
-			
 			toxic: ["1M"],
 			rage: ["1M"],
 			mimic: ["1M"],
@@ -2430,7 +2427,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			skullbash: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
-			
+			hyperbeam: ["1M"],
 			confusion: ["1L16"],
 			psybeam: ["1L36"],
 			psychic: ["1L52", "1M"],
@@ -2459,7 +2456,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			skullbash: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
-			
+			hyperbeam: ["1M"],			
 			brutalswing: ["1L16"],
 			feintattack: ["1L30"],
 			faketears: ["1L36"],
@@ -2486,7 +2483,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			skullbash: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
-			
+			hyperbeam: ["1M"],
 			absorb: ["1L16"],
 			razorleaf: ["1L36"],
 			growth: ["1L30"],
@@ -2514,7 +2511,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			skullbash: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
-			
+			hyperbeam: ["1M"],
 			aurorabeam: ["1L16"],
 			mist: ["1L30"],
 			haze: ["1L30"],
@@ -2543,7 +2540,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			skullbash: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
-			
+			hyperbeam: ["1M"],
 			disarmingvoice: ["1L16"],
 			drainingkiss: ["1L30"],
 			dazzlinggleam: ["1L36"],

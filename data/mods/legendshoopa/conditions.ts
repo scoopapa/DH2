@@ -2,6 +2,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 	legendsboost: {
 		name: 'legendsboost',
 		onBoost(boost, target, source, effect) {
+			this.effectData.startTime = 0;
+			this.add('-message', `stat has been boosted`);
 			if (!boost || effect.id === 'legendsboost') return;
 			let activated = false;
 			let boostName: BoostName;
@@ -32,14 +34,18 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			if(boost.spe) {
 				this.effectData.speBoosted = true;
+				activated = true;
+
 			}
+			this.add('-message', `Activated = ${activated}`);
 			if (activated === true) {
 				this.boost(LegendsBoost, target, target, null, true);
 				/*
 				5 turns for single-stat boosters
 				4 turns for double-stat boosters
-				3 turns for omniboosts or stat boosts gained by an offensive move's effect
+				3 turns for omniboosts or stat boosts gained by an offensive move's effect / ability / item
 				*/
+				
 				this.effectData.startTime = 6;
 				if(this.effectData.atkBoosted) {
 					this.effectData.startTime -= 1;
@@ -50,7 +56,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if(this.effectData.speBoosted) {
 					this.effectData.startTime -= 1;
 				}
-				if(effect.effectType === 'Move' && !effect.status) {
+				if((effect.effectType === 'Move' && !effect.status) || effect.effectType === 'Ability' || effect.effectType === 'Item') {
 					this.effectData.startTime = 3;
 				}
 
@@ -64,17 +70,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 		// this isnt a boost really its just so i dont have to make another volatile xx
 		onModifyMove(move) {
-            if (move.secondaries) {
-				if(move.id === 'powdersnow' || move.id === 'blizzard' || move.id === 'firepunch' || move.id === 'icepunch' || move.id === 'thunderpunch') return;
-                this.debug('doubling secondary chance');
-                for (const secondary of move.secondaries) {
-                    if (secondary.chance && secondary.chance === 10) secondary.chance *= 2;
-                }
-            }
-            if (move.self?.chance && move.self?.chance === 10) {
-				move.self.chance *= 2;
+			if (move.secondaries) {
+			 if(move.id === 'powdersnow' || move.id === 'blizzard' || move.id === 'firepunch' || move.id === 'icepunch' || move.id === 'thunderpunch') return;
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance && secondary.chance === 10) secondary.chance *= 2;
+				}
 			}
-        },
+			if (move.self?.chance && move.self?.chance === 10) {
+			 move.self.chance *= 2;
+			}
+		},
 
 		onResidual(pokemon) {
 			this.effectData.time -= 1;
@@ -89,6 +95,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnd(pokemon) {
 			this.add('-end', pokemon, 'legendsboost', '[silent]');
 		},
+	},
+
+	altboost: {
+		name: 'altboost',
 	},
 
 	confusion: {
@@ -128,9 +138,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 	fixated: {
 		name: 'fixated',
 		onStart(target, source, effect) {
-			this.add('-start', source, 'fixated', '[silent]');
+			this.add('-start', target, 'fixated', '[silent]');
 			this.effectData.move = effect.id;
-			this.add('-message', `${source.name} is fixated on ${this.effectData.move}!`);
+			this.add('-message', `${target.name} is fixated on ${this.effectData.move}!`);
 		},
 
 		onTryMovePriority: -2,
@@ -162,12 +172,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 5,
 
 		onStart(target, source, effect) {
-			this.add('-start', source, 'primed', '[silent]');
-			this.add('-message', `${source.name} is primed!`);
+			if(effect.effectType === 'Item') this.duration = 4;
+			if(effect.effectType === 'Ability') this.duration = 5;
+			this.add('-start', target, 'primed', '[silent]');
+			this.add('-message', `${target.name} is primed!`);
 		},
 
 		onModifyDamage(damage, source, target, move) {
-			this.add('-message', 'primed boost !');
 			return this.chainModify(1.5);
 		},
 
@@ -194,6 +205,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'brn');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		// Damage reduction is handled directly in the sim/battle.js damage function
@@ -218,6 +232,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'par');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		onModifySpe(spe, pokemon) {
@@ -257,6 +274,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				target.formeChange('Shaymin', this.effect, true);
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		onHit(target, source, move) {
@@ -289,6 +309,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'slp');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 
@@ -342,6 +365,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'psn');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		onResidualOrder: 9,
@@ -367,6 +393,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'tox');
 			}
 			this.effectData.startTime = 6;
+			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+				this.effectData.startTime = 3;
+			}
 			this.effectData.time = this.effectData.startTime;
 		},
 		onSwitchIn() {

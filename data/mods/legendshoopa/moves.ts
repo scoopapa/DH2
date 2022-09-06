@@ -72,7 +72,84 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 
+	florasomnia: {
+		num: -103,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Florasomnia",
+		shortDesc: "Deals double damage if target has a status condition. 30% to inflict Drowsy.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			status: 'slp',
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aromatherapy", target);
+		},
+		target: "normal",
+		type: "Psychic",
+	},
+
+	sacredjewel: {
+		num: -104,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Sacred Jewel",
+		shortDesc: "Lowers target's SpDef by 1 stage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Power Gem", target);
+		},
+		target: "normal",
+		type: "Rock",
+	},
+
+	royalbanquet: {
+		num: -105,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Royal Banquet",
+		shortDesc: "Sets Aqua Ring on the user",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1},
+		self: {
+			volatileStatus: 'aquaring',
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Liquidation", target);
+		},
+		target: "normal",
+		type: "Water",
+	},
+
+
+
 	/// canon moves ///
+
+
+
+
 
 	rest: {
 		inherit: true,
@@ -189,6 +266,114 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.status) {
 				return this.chainModify(2);
 			}
+		},
+	},
+
+	chatter: {
+		inherit: true,
+		basePower: 80,
+		self: {
+			volatileStatus: 'fixated',
+		},
+	},
+
+	echoedvoice: {
+		inherit: true,
+		basePower: 80,
+		self: {
+			volatileStatus: 'fixated',
+		},
+		basePowerCallback() {
+			return 80;
+		},
+		onTry() {},
+		condition: {
+			duration: null,
+		},
+	},
+
+	explosion: {
+		inherit: true,
+		selfdestruct: '',
+		onModifyMove(move, target, source) {
+			this.damage((source.maxhp * 4) / 5);
+		},
+	},
+
+	mistyexplosion: {
+		inherit: true,
+		selfdestruct: '',
+		onModifyMove(move, target, source) {
+			this.damage((source.maxhp * 4) / 5);
+		},
+	},
+
+	fellstinger: {
+		inherit: true,
+		basePower: 80,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) {
+				this.boost({atk: 3}, pokemon, pokemon, move);
+				pokemon.addVolatile('primed');
+			}
+		},
+	},
+
+	thrash: {
+		inherit: true,
+		basePower: 90,
+		self: {
+			volatileStatus: 'fixated',
+		},
+	},
+
+	furycutter: {
+		inherit: true,
+		self: {
+			volatileStatus: 'fixated',
+		}
+	},
+
+	sing: {
+		inherit: true,
+		accuracy: 70,
+	},
+
+	iciclespear: {
+		inherit: true,
+		multihit: 1,
+		secondary: {
+			chance: 100,
+			volatileStatus: 'jaggedsplinters',
+		},
+		shortDesc: "Sets Jagged Splinters",
+	},
+
+	rollout: {
+		inherit: true,
+		self: {
+			volatileStatus: 'fixated',
+		}
+	},
+
+	iceball: {
+		inherit: true,
+		self: {
+			volatileStatus: 'fixated,'
+		}
+	},
+
+	bellydrum: {
+		inherit: true,
+		onHit(target) {
+			if (target.hp <= target.maxhp / 4 || target.boosts.atk >= 6 || target.maxhp === 1) { // Shedinja clause
+				return false;
+			}
+			this.directDamage(target.maxhp / 4);
+			this.boost({atk: 1}, target);
+		},
+		self: {
+			volatileStatus: 'primed',
 		},
 	},
 };
