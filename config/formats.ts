@@ -3434,17 +3434,25 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
 		],
 		mod: 'advnow',
-		ruleset: ['[Gen 8] ADV Now ZU'],
+		ruleset: ['[Gen 8] ADV Now'],
 		banlist: [
+				//Pokemon
+				'OU', 'UUBL',
+				'UU', 'RUBL',
+				'RU', 'NUBL',
+				'NU', 'PUBL',
+				'PU',
+				//ZUBL
+				'Ampharos', 'Dunsparce', 'Flareon', 'Porygon',
 				//ZU
 				'Anorith', 'Baltoy', 'Carvanha', 'Charmeleon', 'Clamperl', 'Dratini', 'Gastly', 'Grovyle', 'Ivysaur', 'Larvitar', 'Machop', 
 				'Mankey', 'Marill', 'Meditite', 'Natu', 'Ponyta', 'Rhyhorn', 'Slowpoke', 'Snubbull', 'Vibrava', 'Wartortle', 
 		],
-		/*unbanlist: [
+		unbanlist: [
 				'Aipom', 'Arbok', 'Ariados', 'Beautifly', 'Castform', 'Delcatty', 'Delibird', 'Dewgong', 'Ditto', 'Dustox', 'Ledian', 'Luvdisc', 
 				'Magcargo', 'Minun', 'Nosepass', 'Parasect', 'Seaking', 'Shedinja', 'Shuckle', 'Smeargle', 'Spinda', 'Sunflora', 'Swalot', 'Tropius', 
 				'Unown', 'Wobbuffet', 'Yanma',
-		],*/
+		],
 		teambuilderFormat: '(PU)',
 	},
 	{    
