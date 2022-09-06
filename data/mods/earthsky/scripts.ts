@@ -3754,6 +3754,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "armaldo").learnset.liquidation = ["8D"];
 		this.modData("Learnsets", "armaldo").learnset.fullcollide = ["8M"];
 		delete this.modData('Learnsets', 'armaldo').learnset.toxic;
+		// Feebas
+		delete this.modData('Learnsets', 'feebas').learnset.toxic;
 		// Milotic
 		this.modData("Learnsets", "milotic").learnset.lifedew = ["8D"];
 		this.modData("Learnsets", "milotic").learnset.bind = ["8L1"];
