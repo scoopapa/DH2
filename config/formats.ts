@@ -3445,8 +3445,9 @@ export const Formats: FormatList = [
 				//ZUBL
 				'Ampharos', 'Dunsparce', 'Flareon', 'Porygon',
 				//ZU
-				'Anorith', 'Baltoy', 'Carvanha', 'Charmeleon', 'Clamperl', 'Dratini', 'Gastly', 'Grovyle', 'Ivysaur', 'Larvitar', 'Machop', 
-				'Mankey', 'Marill', 'Meditite', 'Natu', 'Ponyta', 'Rhyhorn', 'Slowpoke', 'Snubbull', 'Vibrava', 'Wartortle', 
+				'Anorith', 'Baltoy', 'Beedrill', 'Carvanha', 'Charmeleon', 'Clamperl', 'Dratini', 'Farfetch\u2019d', 'Furret', 'Gastly', 'Glalie', 
+				'Grovyle', 'Illumise', 'Ivysaur', 'Larvitar', 'Lickitung', 'Machop', 'Mankey', 'Marill', 'Meditite', 'Mightyena', 'Natu', 'Ponyta', 
+				'Octillery', 'Plusle', 'Politoed', 'Rhyhorn', 'Slowpoke', 'Snubbull', 'Vibrava', 'Volbeat', 'Wailord', 'Wartortle', 
 		],
 		unbanlist: [
 				'Aipom', 'Arbok', 'Ariados', 'Beautifly', 'Castform', 'Delcatty', 'Delibird', 'Dewgong', 'Ditto', 'Dustox', 'Ledian', 'Luvdisc', 
