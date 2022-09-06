@@ -1904,7 +1904,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 100,
 		},
-		spritenum: 590,
+		spritenum: 399,
 		rating: 0,
 		gen: 5,
 	},
@@ -1917,7 +1917,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			boosts: {accuracy: -2},
 			flags: {bullet: 1},
 		},
-		spritenum: 0,
+		spritenum: 452,
 		rating: 0,
 		gen: 3,
 	},

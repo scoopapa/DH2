@@ -1730,6 +1730,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if(item.isBerry || item === "airballoon") continue;
 				item.fling.basePower = 20;
 			}
+			if(itemID.startsWith('tr')) delete item.fling; //TRs can't be Flung anymore.
 		}
 		
 		/* individual Pokemon moveset edits */
