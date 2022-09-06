@@ -3417,12 +3417,14 @@ export const Formats: FormatList = [
 				'RU', 'NUBL',
 				'NU', 'PUBL',
 				'PU',
+				//ZUBL
+				'Ampharos', 'Dunsparce', 'Flareon', 'Porygon',
 		],
 		unbanlist: [
-				'Aipom', 'Ampharos', 'Arbok', 'Ariados', 'Beautifly', 'Beedrill', 'Castform', 'Corsola', 'Delcatty', 'Delibird', 'Dewgong', 
-				'Ditto', 'Dunsparce', 'Dustox', 'Farfetch\u2019d', 'Flareon', 'Furret', 'Glalie', 'Illumise', 'Ledian', 'Lickitung', 'Luvdisc', 
-				'Magcargo', 'Mightyena', 'Minun', 'Nosepass', 'Octillery', 'Parasect', 'Plusle', 'Politoed', 'Seaking', 'Shedinja', 'Shuckle', 
-				'Smeargle', 'Spinda', 'Sunflora', 'Swalot', 'Tropius', 'Unown', 'Volbeat', 'Wailord', 'Wobbuffet', 'Yanma',
+				'Aipom', 'Arbok', 'Ariados', 'Beautifly', 'Beedrill', 'Castform', 'Corsola', 'Delcatty', 'Delibird', 'Dewgong', 'Ditto', 
+				'Dustox', 'Farfetch\u2019d', 'Furret', 'Glalie', 'Illumise', 'Ledian', 'Lickitung', 'Luvdisc', 'Magcargo', 'Mightyena', 
+				'Minun', 'Nosepass', 'Octillery', 'Parasect', 'Plusle', 'Politoed', 'Seaking', 'Shedinja', 'Shuckle', 'Smeargle', 'Spinda', 
+				'Sunflora', 'Swalot', 'Tropius', 'Unown', 'Volbeat', 'Wailord', 'Wobbuffet', 'Yanma',
 		],
 		teambuilderFormat: '(PU)',
 	},
