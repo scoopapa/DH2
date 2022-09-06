@@ -802,7 +802,7 @@ export const Formats: FormatList = [
 			'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
 			'Blue Orb', 'Red Orb',
 			'Dragon Ascent', 'Hidden Power', //fuck Unown I'm not coding this sorry
-			'Beedrill-Mega' //?????
+			'Beedrill-Mega', 'Pidgeot-Mega', //?????
 		],
 		mod: 'legendshoopa',
 		onValidateTeam(team, format) {
@@ -3746,6 +3746,12 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Uber', 'Arena Trap', 'Baton Pass', 'Sand Veil', 'Snow Cloak'],
 	},
+    {
+		name: "[Gen 1] Kantoification",
+		mod: 'gen1kantoification',
+		ruleset: ['Standard'],
+		banlist: ['Uber'],
+	},
 	{
 		name: "[Gen 1] Modern Gen 1",
 		threads: [
@@ -4025,6 +4031,24 @@ export const Formats: FormatList = [
 				let template = this.dex.getSpecies(set.species);
 				if (template.tier !== 'Sun' && template.tier !== 'Rain' && template.tier !== 'Sand' && template.tier !== 'Hail' && template.tier !== 'NFE') {
 					return [set.species + ' is not legal in the Under The Weather format.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 8] Waght",
+		desc: 'A giant memepost. Abismons 2 electric boogaloo',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Chansey', 'Rhydon', 'Ivysaur', 'Blaziken', 'Megaracross', 'Barboach', 'Nickit', 'Chandelure'],
+		mod: "waght",
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Waght' && template.tier !== 'DoublesWaght') {
+					return [set.species + ' is not legal in the [Gen 8] Waght format.'];
 				}
 			}
 		},

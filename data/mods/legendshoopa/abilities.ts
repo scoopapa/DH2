@@ -258,4 +258,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+
+
+	// debugging
+	speedboost: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.add('-message', 'Speed Boost has activated!');
+				this.boost({spe: 1});
+			}
+		},
+	},
 };
