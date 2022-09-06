@@ -327,6 +327,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Levistatic');
 						} else if (this.hasAbility('lovelessfloat')) {
 							this.battle.add('-immune', this, '[from] ability: Loveless Float');
+						} else if (this.hasAbility('ghoulaway')) {
+							this.battle.add('-immune', this, '[from] ability: Ghoul Away');
+						} else if (this.hasAbility('spiritascent')) {
+							this.battle.add('-immune', this, '[from] ability: Spirit Ascent');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -367,6 +371,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.hasAbility('levimetal') || 
 				this.hasAbility('hoverboard') || 
 				this.hasAbility('levistatic') || 
+				this.hasAbility('ghoulaway') || 
+				this.hasAbility('spiritascent') || 
 				this.hasAbility('lovelessfloat')) &&
 				
 				!this.battle.suppressingAttackEvents()

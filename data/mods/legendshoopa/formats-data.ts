@@ -83,9 +83,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	
+	venusaurhoenn: {
+		tier: "ANL OU",
+		isModded: true,
+	},
 
+	delphoxhoenn: {
+		tier: "ANL OU",
+		isModded: true,
+	},
 
+	feraligatrhoenn: {
+		tier: "ANL OU",
+		isModded: true,
+	},
 
 	/////////////canon mons////////////
 
@@ -309,7 +320,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	shedninja: {
+	shedinja: {
 		tier: "ANL OU",
 		isModded: true,
 	},
@@ -556,10 +567,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+	/*
 	bellossom: {
 		tier: "ANL OU",
 		isModded: true,
 	},
+	*/
 
 	doduo: {
 		tier: "ANL LC",
@@ -1084,10 +1097,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+	/*
 	salamence: {
 		tier: "ANL OU",
 		isModded: true,
 	},
+	*/
 
 	beldum: {
 		tier: "ANL LC",
@@ -1119,6 +1134,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+	/*
 	latias: {
 		tier: "ANL OU",
 		isModded: true,
@@ -1129,7 +1145,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	/*
 	kyogre: {
 		tier: "ANL Uber",
 		isModded: true,
@@ -1308,10 +1323,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+	/*
 	garchomp: {
 		tier: "ANL OU",
 		isModded: true,
 	},
+	*/
 
 	sandile: {
 		tier: "ANL LC",
@@ -1618,7 +1635,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	tumburr: {
+	timburr: {
 		tier: "ANL LC",
 		isModded: true,
 	},
@@ -1678,7 +1695,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	primape: {
+	primeape: {
 		tier: "ANL OU",
 		isModded: true,
 	},

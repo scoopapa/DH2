@@ -375,4 +375,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Psychic", "Dark"],
 		baseStats: {hp: 97, atk: 139, def: 91, spa: 139, spd: 91, spe: 127},
 	},
+	darkrai: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 110, def: 75, spa: 135, spd: 100, spe: 105},
+	},
 };

@@ -90,7 +90,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Clefable-Mega"],
 		formeOrder: ["Clefable", "Clefable-Mega"],
-		movepoolAdditions: ["hex", "nastyplot", "shadowsneak"],
+		movepoolAdditions: ["hex", "nastyplot"],
 	},
 	clefablemega: {
 		num: 36,
@@ -134,7 +134,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Parasect-Mega"],
 		formeOrder: ["Parasect", "Parasect-Mega"],
-		movepoolAdditions: ["junglehealing", "taunt"],
 	},
 	parasectmega: {
 		num: 47,
@@ -175,7 +174,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Golduck-Mega"],
 		formeOrder: ["Golduck", "Golduck-Mega"],
-		movepoolAdditions: ["expandingforce", "psychicterrain", "recover", "shadowball"],
+		movepoolAdditions: ["expandingforce", "psychicterrain", "recover"],
 	},
 	golduckmega: {
 		num: 55,
@@ -196,7 +195,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Victreebel-Mega"],
 		formeOrder: ["Victreebel", "Victreebel-Mega"],
-		movepoolAdditions: ["snaptrap", "soak"],
+		movepoolAdditions: ["soak"],
 	},
 	victreebelmega: {
 		num: 71,
@@ -433,7 +432,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Dragonite-Mega"],
 		formeOrder: ["Dragonite", "Dragonite-Mega"],
-		movepoolAdditions: ["playrough"],
 	},
 	dragonitemega: {
 		num: 149,
@@ -753,7 +751,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Flygon-Mega"],
 		formeOrder: ["Flygon", "Flygon-Mega"],
-		movepoolAdditions: ["extremespeed", "flashcannon", "ironhead"],
 	},
 	flygonmega: {
 		num: 330,
@@ -795,7 +792,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Walrein-Mega"],
 		formeOrder: ["Walrein", "Walrein-Mega"],
-		movepoolAdditions: ["darkpulse", "flipturn", "freezedry", "slackoff"],
+		movepoolAdditions: ["flipturn", "freezedry", "slackoff"],
 	},
 	walreinmega: {
 		num: 365,
@@ -880,7 +877,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Torterra-Mega"],
 		formeOrder: ["Torterra", "Torterra-Mega"],
-		movepoolAdditions: ["bodypress", "gravapple", "meteorbeam"],
+		movepoolAdditions: ["bodypress", "gravapple"],
 	},
 	torterramega: {
 		num: 389,
@@ -945,7 +942,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Staraptor-Mega"],
 		formeOrder: ["Staraptor", "Staraptor-Mega"],
-		movepoolAdditions: ["roleplay", "superfang"],
+		movepoolAdditions: ["superfang"],
 	},
 	staraptormega: {
 		num: 398,
@@ -1071,7 +1068,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Mismagius-Mega"],
 		formeOrder: ["Mismagius", "Mismagius-Mega"],
-		movepoolAdditions: ["partingshot", "poisonfang", "poisongas", "sludgebomb", "sludgewave", "toxicspikes"],
+		movepoolAdditions: ["partingshot", "poisongas", "sludgebomb", "sludgewave", "toxicspikes"],
 	},
 	mismagiusmega: {
 		num: 429,
@@ -1138,7 +1135,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Drapion-Mega"],
 		formeOrder: ["Drapion", "Drapion-Mega"],
-		movepoolAdditions: ["shoreup"],
+		movepoolAdditions: ["recover"],
 	},
 	drapionmega: {
 		num: 452,
@@ -1159,7 +1156,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Lickilicky-Mega"],
 		formeOrder: ["Lickilicky", "Lickilicky-Mega"],
-		movepoolAdditions: ["drainingkiss", "playrough"],
+		movepoolAdditions: ["playrough"],
 	},
 	lickilickymega: {
 		num: 463,
@@ -1373,7 +1370,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Gigalith-Mega"],
 		formeOrder: ["Gigalith", "Gigalith-Mega"],
-		movepoolAdditions: ["skullbash", "sunnyday", "synthesis", "trickroom"],
+		movepoolAdditions: ["sunnyday", "synthesis", "trickroom"],
 	},
 	gigalithmega: {
 		num: 526,
@@ -1416,7 +1413,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Leavanny-Mega"],
 		formeOrder: ["Leavanny", "Leavanny-Mega"],
-		movepoolAdditions: ["appleacid", "lunge", "thunderouskick", "quiverdance"],
+		movepoolAdditions: ["appleacid", "lowkick", "lunge", "quiverdance"],
 	},
 	leavannymega: {
 		num: 542,
@@ -1437,7 +1434,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Krookodile-Mega"],
 		formeOrder: ["Krookodile", "Krookodile-Mega"],
-		movepoolAdditions: ["memento", "topsyturvy"],
+		movepoolAdditions: ["memento"],
 	},
 	krookodilemega: {
 		num: 553,
@@ -1480,7 +1477,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Garbodor-Gmax", "Garbodor-Mega"],
 		formeOrder: ["Garbodor", "Garbodor-Gmax", "Garbodor-Mega"],
-		movepoolAdditions: ["knockoff", "stealthrock"],
+		movepoolAdditions: ["stealthrock"],
 	},
 	garbodormega: {
 		num: 569,
@@ -1608,7 +1605,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter", "Sawsbuck-Mega", "Sawsbuck-Summer-Mega", "Sawsbuck-Autumn-Mega", "Sawsbuck-Winter-Mega"],
-		movepoolAdditions: ["moonblast", "petalblizzard", "playrough", "flameburst", "flamethrower", "growth", "leafstorm", "overheat", "poltergeist", "shadowsneak", "strengthsap", "trickortreat", "highhorsepower", "iceshard", "iciclecrash", "tripleaxel"],
+		movepoolAdditions: ["growth", "heatwave", "highhorsepower", "iceshard", "shadowsneak", "playrough", "poltergeist", "tripleaxel"],
+		// move legality is hard-coded into the validator because Sawsbuck is unwilling to have functionally distinct forms
+		// movepoolAdditions: ["highhorsepower", "playrough"],
+		// movepoolAdditions: ["growth", "heatwave", "highhorsepower"],
+		// movepoolAdditions: ["highhorsepower", "shadowsneak", "poltergeist"],
+		// movepoolAdditions: ["highhorsepower", "iceshard", "tripleaxel"],
 	},
 	sawsbuckmega: {
 		num: 586,
@@ -1892,7 +1894,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	meowsticf: {
 		inherit: true,
-		movepoolAdditions: ["dazzlinggleam", "drainingkiss", "moonblast"],
+		movepoolAdditions: ["drainingkiss", "moonblast"],
 	},
 	meowsticmega: {
 		num: 678,
@@ -1973,7 +1975,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Aurorus-Mega"],
 		formeOrder: ["Aurorus", "Aurorus-Mega"],
-		movepoolAdditions: ["paraboliccharge", "rapidspin", "voltswitch"],
+		movepoolAdditions: ["paraboliccharge", "voltswitch"],
 	},
 	aurorusmega: {
 		num: 699,
@@ -2016,7 +2018,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Goodra-Mega"],
 		formeOrder: ["Goodra", "Goodra-Mega"],
-		movepoolAdditions: ["drainpunch", "gigadrain", "moonlight"],
+		movepoolAdditions: ["moonlight"],
 	},
 	goodramega: {
 		num: 706,
@@ -2037,7 +2039,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Trevenant-Mega"],
 		formeOrder: ["Trevenant", "Trevenant-Mega"],
-		movepoolAdditions: ["floralhealing", "synthesis"],
 	},
 	trevenantmega: {
 		num: 709,
@@ -2058,7 +2059,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Gourgeist-Small", "Gourgeist-Large", "Gourgeist-Super", "Gourgeist-Mega", "Gourgeist-Small-Mega", "Gourgeist-Large-Mega", "Gourgeist-Super-Mega"],
 		formeOrder: ["Gourgeist", "Gourgeist-Small", "Gourgeist-Large", "Gourgeist-Super"],
-		movepoolAdditions: ["bodypress", "encore", "flareblitz", "partingshot", "strengthsap"],
+		movepoolAdditions: ["bodypress", "flareblitz", "partingshot"],
 	},
 	gourgeistmega: {
 		num: 711,
@@ -2127,7 +2128,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Noivern-Mega"],
 		formeOrder: ["Noivern", "Noivern-Mega"],
-		movepoolAdditions: ["encore", "psyshock"],
+		movepoolAdditions: ["psyshock"],
 	},
 	noivernmega: {
 		num: 715,
@@ -2169,7 +2170,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Incineroar-Mega"],
 		formeOrder: ["Incineroar", "Incineroar-Mega"],
-		movepoolAdditions: ["focusenergy", "nightslash", "punishment", "rapidspin", "stormthrow"],
+		movepoolAdditions: ["focusenergy", "nightslash", "stormthrow"],
 	},
 	incineroarmega: {
 		num: 727,
@@ -2213,7 +2214,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Toucannon-Mega"],
 		formeOrder: ["Toucannon", "Toucannon-Mega"],
-		movepoolAdditions: ["appleacid", "hurricane", "nastyplot"],
+		movepoolAdditions: ["appleacid", "hurricane"],
 	},
 	toucannonmega: {
 		num: 733,
@@ -2234,7 +2235,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Gumshoos-Totem", "Gumshoos-Mega"],
 		formeOrder: ["Gumshoos", "Gumshoos-Totem", "Gumshoos-Mega"],
-		movepoolAdditions: ["bodyslam", "coil", "drainpunch"],
+		movepoolAdditions: ["coil", "drainpunch"],
 	},
 	gumshoosmega: {
 		num: 735,
@@ -2255,7 +2256,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Vikavolt-Totem", "Vikavolt-Mega"],
 		formeOrder: ["Vikavolt", "Vikavolt-Totem", "Vikavolt-Mega"],
-		movepoolAdditions: ["darkpulse", "leafblade", "thundercage", "uturn"],
+		movepoolAdditions: ["thundercage", "uturn"],
 	},
 	vikavoltmega: {
 		num: 738,
@@ -2337,7 +2338,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: [
 			"Wishiwashi", "Wishiwashi-School", "Wishiwashi-Mega", "Wishiwashi-Mega-1", "Wishiwashi-Mega-2", "Wishiwashi-Mega-3", "Wishiwashi-Mega-4", "Wishiwashi-Mega-School",
 		],
-		movepoolAdditions: ["lifedew", "wish"],
+		movepoolAdditions: ["wish"],
 	},
 	wishiwashimega: {
 		num: 746,
@@ -2460,7 +2461,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Araquanid-Totem", "Araquanid-Mega"],
 		formeOrder: ["Araquanid", "Araquanid-Totem", "Araquanid-Mega"],
-		movepoolAdditions: ["hypnosis", "lifedew", "painsplit", "purify"],
+		movepoolAdditions: ["lifedew"],
 	},
 	araquanidmega: {
 		num: 752,
@@ -2502,7 +2503,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Tsareena-Mega"],
 		formeOrder: ["Tsareena", "Tsareena-Mega"],
-		movepoolAdditions: ["firstimpression"],
 	},
 	tsareenamega: {
 		num: 763,
@@ -2656,7 +2656,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Dhelmise-Mega"],
 		formeOrder: ["Dhelmise", "Dhelmise-Mega"],
-		movepoolAdditions: ["flipturn", "superpower"],
+		movepoolAdditions: ["flipturn"],
 	},
 	dhelmisemega: {
 		num: 781,
@@ -2720,7 +2720,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Rillaboom-Gmax", "Rillaboom-Mega"],
 		formeOrder: ["Rillaboom", "Rillaboom-Gmax", "Rillaboom-Mega"],
-		movepoolAdditions: ["toxic"],
 	},
 	rillaboommega: {
 		num: 812,
@@ -2763,7 +2762,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Inteleon-Gmax", "Inteleon-Mega"],
 		formeOrder: ["Inteleon", "Inteleon-Gmax", "Inteleon-Mega"],
-		movepoolAdditions: ["encore", "firstimpression", "pursuit", "taunt"],
+		movepoolAdditions: ["encore", "firstimpression", "pursuit"],
 	},
 	inteleonmega: {
 		num: 818,
@@ -2826,7 +2825,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Thievul-Mega"],
 		formeOrder: ["Thievul", "Thievul-Mega"],
-		movepoolAdditions: ["aurasphere", "hiddenpower", "focusblast", "moonlight", "spiritbreak"],
+		movepoolAdditions: ["spiritbreak"],
 	},
 	thievulmega: {
 		num: 828,
@@ -2847,7 +2846,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Boltund-Mega"],
 		formeOrder: ["Boltund", "Boltund-Mega"],
-		movepoolAdditions: ["dazzlinggleam", "hiddenpower", "pursuit"],
+		movepoolAdditions: ["dazzlinggleam", "hiddenpower"],
 	},
 	boltundmega: {
 		num: 836,
@@ -2872,11 +2871,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: [
 			"Toxtricity", "Toxtricity-Low-Key", "Toxtricity-Mega", "Toxtricity-Low-Key-Mega",
 		],
-		movepoolAdditions: ["frustration", "gearup", "hiddenpower", "return"],
+		movepoolAdditions: ["hiddenpower"],
 	},
 	toxtricitylowkey: {
 		inherit: true,
-		movepoolAdditions: ["frustration", "slackoff", "hiddenpower", "return"],
+		movepoolAdditions: ["slackoff", "hiddenpower"],
 	},
 	toxtricitymega: {
 		num: 849,
@@ -2934,7 +2933,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Obstagoon-Mega"],
 		formeOrder: ["Obstagoon", "Obstagoon-Mega"],
-		movepoolAdditions: ["foulplay", "frustration", "hiddenpower", "return", "stealthrock", "toxic", "wish"],
+		movepoolAdditions: ["foulplay", "frustration", "return", "stealthrock", "toxic", "wish"],
 	},
 	obstagoonmega: {
 		num: 862,
@@ -2976,7 +2975,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Falinks-Mega-Legion", "Falinks-Mega-Combat"],
 		formeOrder: ["Falinks", "Falinks-Mega-Legion", "Falinks-Mega-Combat"],
-		movepoolAdditions: ["aurasphere", "flameburst", "flashcannon", "kingsshield", "thunder"],
+		movepoolAdditions: ["aurasphere", "flashcannon", "kingsshield", "thunder"],
 	},
 	falinksmegalegion: {
 		num: 870,
@@ -3016,7 +3015,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Dragapult-Mega"],
 		formeOrder: ["Dragapult", "Dragapult-Mega"],
-		movepoolAdditions: ["icebeam"],
 	},
 	dragapultmega: {
 		num: 887,

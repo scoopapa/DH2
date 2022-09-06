@@ -791,7 +791,7 @@ export class ModdedDex {
 			const speDV = tr(ivs.spe / 2);
 			const spcDV = tr(ivs.spa / 2);
 			return {
-				type: hpTypes[4 * (atkDV % 4) + (defDV % 4) + ((1 + speDV) % 2)],
+				type: hpTypes[4 * (atkDV % 4) + (defDV % 4)],
 				power: tr(
 					(5 * ((spcDV >> 3) + (2 * (speDV >> 3)) + (4 * (defDV >> 3)) + (8 * (atkDV >> 3))) + (spcDV % 4)) / 2 + 31
 				),

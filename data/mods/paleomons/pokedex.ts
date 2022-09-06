@@ -1281,4 +1281,108 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 108,
 		prevo: "Baltoy",
 	},
+
+	parasect: {
+		inherit: true,
+		otherFormes: ["Parasect-Ancient"],
+		formeOrder: ["Parasect", "Parasect-Ancient"],
+	},
+
+	parasectancient: {
+		num: -180,
+		name: "Parasect-Ancient",
+		baseSpecies: "Parasect",
+		forme: "Ancient",
+		evos: ["Parasinensis"],
+		types: ["Bug", "Fighting"],
+		baseStats: {hp: 60, atk: 80, def: 95, spa: 60, spd: 80, spe: 30},
+		abilities: {0: "Vital Spirit", 1: "Dry Skin", H: "Magic Bounce"},
+		weightkg: 29.5,
+		//prevo: "Paras", (so it won't inherit Paras's movepool)
+	},
+
+	parasinensis: {
+		num: -181,
+		name: "Parasinensis",
+		types: ["Bug", "Fighting"],
+		baseStats: {hp: 70, atk: 100, def: 125, spa: 80, spd: 90, spe: 10},
+		abilities: {0: "Vital Spirit", 1: "Dry Skin", H: "Magic Bounce"},
+		weightkg:  42,
+		prevo: "Parasect-Ancient",
+	},
+
+	girafarig: {
+		inherit: true,
+		otherFormes: ["Girafarig-Ancient"],
+		formeOrder: ["Girafarig", "Girafarig-Ancient"],
+	},
+
+	girafarigancient: {
+		num: -182,
+		name: "Girafarig-Ancient",
+		baseSpecies: "Girafarig",
+		forme: "Ancient",
+		evos: ["Oligosogilo"],
+		types: ["Normal", "Ground"],
+		baseStats: {hp: 70, atk: 90, def: 75, spa: 70, spd: 75, spe: 75},
+		abilities: {0: "Oblivious", 1: "Early Bird", H: "Sap Sipper"},
+		weightkg: 41.5,
+	},
+
+	oligosogilo: {
+		num: -183,
+		name: "Oligosogilo",
+		types: ["Normal", "Ground"],
+		baseStats: {hp: 100, atk: 120, def: 90, spa: 75, spd: 85, spe: 65},
+		abilities: {0: "Oblivious", 1: "Early Bird", H: "Sap Sipper"},
+		weightkg: 87,
+		prevo: "Girafarig-Ancient",
+	},
+
+	poochyena: {
+		inherit: true,
+		otherFormes: ["Poochyena-Ancient"],
+		formeOrder: ["Poochyena", "Poochyena-Ancient"],
+	},
+
+	poochyenaancient: {
+		num: -184,
+		name: "Poochyena-Ancient",
+		baseSpecies: "Poochyena",
+		forme: "Ancient",
+		evos: ["Mightyena-Ancient"],
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 35, atk: 55, def: 35, spa: 30, spd: 30, spe: 35},
+		abilities: {0: "Run Away", 1: "Quick Feet", H: "Rattled"},
+		weightkg: 13.6,
+	},
+
+	mightyena: {
+		inherit: true,
+		otherFormes: ["Mightyena-Ancient"],
+		formeOrder: ["Mightyena", "Mightyena-Ancient"],
+	},
+
+	mightyenaancient: {
+		num: -185,
+		name: "Mightyena-Ancient",
+		baseSpecies: "Mightyena",
+		forme: "Ancient",
+		evos: ["Matriaryena"],
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 70, atk: 90, def: 70, spa: 60, spd: 60, spe: 70},
+		abilities: {0: "Intimidate", 1: "Quick Feet", H: "Pressure"},
+		weightkg: 37,
+		prevo: "Poochyena-Ancient",
+	},
+
+	matriaryena: {
+		num: -186,
+		name: "Matriaryena",
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 85, atk: 110, def: 85, spa: 65, spd: 65, spe: 110},
+		abilities: {0: "Intimidate", 1: "Quick Feet", H: "Pressure"},
+		weightkg: 53,
+		prevo: "Mightyena-Ancient",
+	},
 };

@@ -41,6 +41,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Damaging moves hit twice. The second hit deals 0.25x damage."
 	},
 
+	
+
+	dreamtherapy: {
+		/*
+		onModifyMove(move, source, target) {
+			if(target.status === 'slp' && move.category !== 'Status') {
+				move.drain = [1,2];
+				return;
+			}
+		},
+		*/
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.category !== 'Status' && target.status == 'slp' && target) {
+				this.heal(pokemon.lastDamage / 2, pokemon);
+			}
+		},
+
+		name: "Dream Therapy",
+		shortDesc: "Moves used against sleeping targets heal 50%",
+	},
+
 
 
 
@@ -200,5 +221,53 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		rating: 2,
 		num: 152,
+	},
+
+	tangledfeet: {
+		onModifySpePriority: 6,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.volatiles['fixated']) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Tangled Feet",
+		rating: 1,
+		num: 77,
+	},
+
+	guts: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status) {
+				this.add('-message', "Guts boost");
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Guts",
+		rating: 3,
+		num: 62,
+	},
+
+	angerpoint: {
+		inherit: true,
+		onHit(target, source, move) {
+			if (!target.hp) return;
+			if (move?.effectType === 'Move' && target.getMoveHitData(move).crit) {
+				target.setBoost({atk: 1});
+				target.addVolatile('primed');
+			}
+		},
+	},
+
+
+	// debugging
+	speedboost: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.add('-message', 'Speed Boost has activated!');
+				this.boost({spe: 1});
+			}
+		},
 	},
 };

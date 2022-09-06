@@ -382,7 +382,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	flashcannon: {
+	/*flashcannon: {
 		inherit: true,
 		category: "Physical",
 		type: "Steel",
@@ -394,7 +394,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				spd: -1,
 			},
 		},
-	},
+	},*/
 	fly: {
 		inherit: true,
 		condition: {

@@ -594,6 +594,45 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 673,
 		desc: "If held by a Dragancie, this item allows it to Mega Evolve in battle.",
 	},
+	mewtwonitex: {
+		name: "Mewtwonite X",
+		spritenum: 600,
+		megaStone: "Spewtwo-Mega-X",
+		megaEvolves: "Spewtwo",
+		itemUser: ["Spewtwo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 662,
+		desc: "If held by a Spewtwo, this item allows it to Mega Evolve in battle.",
+	},
+	mewtwonitey: {
+		name: "Mewtwonite Y",
+		spritenum: 601,
+		megaStone: "Spewtwo-Mega-Y",
+		megaEvolves: "Spewtwo",
+		itemUser: ["Spewtwo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 663,
+		desc: "If held by a Spewtwo, this item allows it to Mega Evolve in battle.",
+	},
+	gengarite: {
+		name: "Gengarite",
+		spritenum: 588,
+		megaStone: "Mr. Gar-Mega",
+		megaEvolves: "Mr. Gar",
+		itemUser: ["Mr. Gar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 656,
+		desc: "If held by a Mr. Gar, this item allows it to Mega Evolve in battle.",
+	},
 	
 // silvino moment :jokerification:
 	bugmemory: {

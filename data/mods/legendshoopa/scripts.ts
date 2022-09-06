@@ -335,7 +335,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 
-			if (pokemon.status === 'frz' && move.category === 'Special') {
+			if (pokemon.status === 'frz' && move.category === 'Special' && pokemon.hasAbility('guts')) {
 				baseDamage = this.modify(baseDamage, 0.5);
 			}
 	
