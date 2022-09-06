@@ -6,7 +6,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Duomod",
 	},
 	annelait: {
-		randomBattleMoves: ["scorchingsands", "recover", "spinningweb", "flipturn"],
+		randomBattleMoves: ["scorchingsands", "recover", "spinningweb", "flipturn", "rancidrush"],
 		randomBattleLevel: 100,
 		tier: "Duomod",
 		doublesTier: "Duomod",

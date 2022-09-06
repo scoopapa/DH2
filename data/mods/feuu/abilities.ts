@@ -5354,7 +5354,7 @@ lifedrain: {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.hp && pokemon.status && this.randomChance(1, 3)) {
+			if (pokemon.hp && this.randomChance(1, 3)) {
 				this.debug('reload');
 				this.add('-activate', pokemon, 'ability: Reload');
 				pokemon.cureStatus();
@@ -5394,7 +5394,115 @@ lifedrain: {
 		},
 	  name: "Heat Weight",
     },
-
+	hairlotion: {
+	  shortDesc: "Regenerator + Tangling Hair",
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.add('-ability', target, 'Hair Lotion');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+	  name: "Hair Lotion",
+    },
+	ironmaiden: {
+	  shortDesc: "Iron Barbs + Sticky Hold",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Iron Maiden');
+				return false;
+			}
+		},
+	  name: "Iron Maiden",
+    },
+	metamorphic: {
+	  shortDesc: "Stance Change + Sturdy",
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Aegix' || attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== 'kingsshield') return;
+			const targetForme = (move.id === 'kingsshield' ? 'Aegix' : 'Aegix-Blade');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Sturdy');
+				return null;
+			}
+		},
+		onDamagePriority: -100,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Metamorphic');
+				return target.hp - 1;
+			}
+		},
+	  isPermanent: true,
+	  name: "Metamorphic",
+    },
+	galingsands: {
+	  shortDesc: "In Sandstorm, this Pokemon's Ground/Steel/Rock type moves have +1 priority.",
+		onModifyPriority(priority, pokemon, target, move) {
+			if ((move?.type === 'Ground' || move?.type === 'Steel' || move?.type === 'Rock') && this.field.isWeather('sandstorm')) return priority + 1;
+		},
+	  name: "Galing Sands",
+    },
+	exorcist: {
+	  shortDesc: "Screen Cleaner + Cursed Body",
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Exorcist');
+						activated = true;
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+				if (pokemon.side.foe.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Exorcist');
+						activated = true;
+					}
+					pokemon.side.foe.removeSideCondition(sideCondition);
+				}
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['disable']) return;
+			if (!move.isFutureMove) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectData.target);
+				}
+			}
+		},
+	  name: "Exorcist",
+    },
+	peerpressure: {
+	  shortDesc: "When this Pokemon is targeted by a move, it takes 3/4th damage from it and that move loses 2 PP.",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Peer Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 1;
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			this.debug('Peer Pressure neutralize');
+			return this.chainModify(0.75);
+		},
+	  name: "Peer Pressure",
+    },
 
 // LC Only Abilities
 	"aurevoir": { //this one looks like EXACTLY the character limit
@@ -6511,5 +6619,50 @@ lifedrain: {
 		name: "Wimp Armour",
 		shortDesc: "On switch in, shrudders and gains -1 Def +2 Speed if foe has any Super-Effective or OHKO moves.",
 	},
+	spiritascent: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
+				if (pokemon.side.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Spirit Ascent');
+						activated = true;
+					}
+					pokemon.side.removeSideCondition(sideCondition);
+				}
+				if (pokemon.side.foe.getSideCondition(sideCondition)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Spirit Ascent');
+						activated = true;
+					}
+					pokemon.side.foe.removeSideCondition(sideCondition);
+				}
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
+				this.add('-immune', target, '[from] ability: Spirit Ascent');
+				return null;
+			}
+		},
+		name: "Spirit Ascent",
+		shortDesc: "Screen Cleaner + Levitate",
+	},	
+	ghoulaway: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Ghoul Away neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground' && !source.hasAbility('aerialbreak') && !target.volatiles['smackdown'] && !this.field.getPseudoWeather('gravity')) {
+				this.add('-immune', target, '[from] ability: Spirit Ascent');
+				return null;
+			}
+		},
+		name: "Ghoul Away",
+		shortDesc: "Filter + Levitate",
+	},	
 };
  

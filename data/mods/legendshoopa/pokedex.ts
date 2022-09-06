@@ -102,7 +102,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Bellossom",
 		forme: "Hoenn",
 		types: ["Grass", "Fire"],
-		baseStats: {hp: 85, atk: 50, def: 75, spa: 100, spd: 90, spe: 80},
+		baseStats: {hp: 85, atk: 60, def: 75, spa: 100, spd: 90, spe: 80},
 		abilities: {0: "Chlorophyll", H: "Remaining Hope"},
 		weightkg: 5.8,
 		prevo: "Gloom",
@@ -204,5 +204,59 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Strong Jaw", 1: "Inner Focus", H: "Two Headded"},
 		weightkg: 51.51,
 		prevo: "Girafarig-Hoenn",
+	},
+
+	venusaur: {
+		inherit: true,
+		otherFormes: ["Venusaur-Hoenn"],
+		formeOrder: ["Venusaur", "Venusaur-Hoenn"],
+	},
+
+	venusaurhoenn: {
+		num: 3,
+		name: "Venusaur-Hoenn",
+		baseSpecies: "Venusaur",
+		forme: "Hoenn",
+		types: ["Grass", "Psychic"],
+		baseStats: {hp: 80, atk: 72, def: 78, spa: 90, spd: 95, spe: 110},
+		abilities: {0: "Overgrow", H: "Dream Therapy"},
+		weightkg: 90,
+		prevo: "Ivysaur",
+	},
+
+	delphox: {
+		inherit: true,
+		otherFormes: ["Delphox-Hoenn"],
+		formeOrder: ["Delphox", "Delphox-Hoenn"],
+	},
+
+	delphoxhoenn: {
+		num: 655,
+		name: "Delphox-Hoenn",
+		baseSpecies: "Delphox",
+		forme: "Hoenn",
+		types: ["Fire", "Rock"],
+		baseStats: {hp: 81, atk: 64, def: 100, spa: 110, spd: 78, spe: 101},
+		abilities: {0: "Blaze", H: "Magician"},
+		weightkg: 80,
+		prevo: "Braixen",
+	},
+
+	feraligatr: {
+		inherit: true,
+		otherFormes: ["Feraligatr-Hoenn"],
+		formeOrder: ["Feraligatr", "Feraligatr-Hoenn"],
+	},
+
+	feraligatrhoenn: {
+		num: 160,
+		name: "Feraligatr-Hoenn",
+		baseSpecies: "Feraligatr",
+		forme: "Hoenn",
+		types: ["Water", "Steel"],
+		baseStats: {hp: 95, atk: 110, def: 105, spa: 69, spd: 93, spe: 58},
+		abilities: {0: "Torrent", H: "Water Veil"},
+		weightkg: 888.8,
+		prevo: "Croconaw",
 	},
 };

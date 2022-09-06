@@ -162,7 +162,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'lucario').learnset.triplekick = ['8L1'];
 		
-		delete this.modData('Learnsets', 'tornadus').learnset.hurricane;
+		delete this.modData('Learnsets', 'tornadus').learnset.nastyplot;
+		
+		delete this.modData('Learnsets', 'tornadus').learnset.sludgebomb;
+		delete this.modData('Learnsets', 'tornadus').learnset.nastyplot;
 	},
 	
 	pokemon: {
@@ -172,6 +175,24 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
             this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
 		}
 	},
+	
+	canMegaEvo(pokemon) {
+		const species = pokemon.baseSpecies;
+		const altForme = species.otherFormes && this.dex.getSpecies(species.otherFormes[0]);
+		const item = pokemon.getItem();
+		// Mega Rayquaza
+		if ((this.gen <= 7 || this.ruleTable.has('standardnatdex') || this.ruleTable.has('standarddoubles')) &&
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove) {
+			return altForme.name;
+		}
+		// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
+		if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
+			return item.megaStone;
+		}
+		return null;
+	},
+	
 /*
 		for (const id in this.dataCache.Pokedex) {
 			const poke = this.dataCache.Pokedex[id];

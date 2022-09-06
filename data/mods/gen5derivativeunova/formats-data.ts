@@ -8,7 +8,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	landorus: {
 		tier: "(OU)",
 	},
-	landorustherian: {
+	tornadustherian: {
 		tier: "(OU)",
 	},
 	manaphy: {

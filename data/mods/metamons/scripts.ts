@@ -112,7 +112,38 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.modData("Learnsets", "toxicroak").learnset.refresh = ["8L1"];
 			this.modData("Learnsets", "toxicroak").learnset.liquidation = ["8L1"];	
 			this.modData("Learnsets", "toxicroak").learnset.aquajet = ["8L1"];
-			this.modData("Learnsets", "toxicroak").learnset.closecombat = ["8L1"];					
+			this.modData("Learnsets", "toxicroak").learnset.closecombat = ["8L1"];
+			this.modData("Learnsets", "granbull").learnset.wish = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.wish = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.teleport = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.bodypress = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.aurasphere = ["8L1"];
+			this.modData("Learnsets", "eldegoss").learnset.focusblast = ["8L1"];
+			this.modData("Learnsets", "guzzlord").learnset.gunkshot = ["8L1"];
+			this.modData("Learnsets", "guzzlord").learnset.toxicspikes = ["8L1"];
+			this.modData("Learnsets", "guzzlord").learnset.bulkup = ["8L1"];
+			this.modData("Learnsets", "guzzlord").learnset.nastyplot = ["8L1"];
+			this.modData("Learnsets", "guzzlord").learnset.stuffcheeks = ["8L1"];
+			this.modData("Learnsets", "guzzlord").learnset.recycle = ["8L1"];
+			this.modData("Learnsets", "necrozma").learnset.ironhead = ["8L1"];
+			this.modData("Learnsets", "necrozma").learnset.flashcannon = ["8L1"];
+			this.modData("Learnsets", "necrozma").learnset.steelbeem = ["8L1"];	
+			this.modData("Learnsets", "entei").learnset.bravebird = ["8L1"];
+			this.modData("Learnsets", "entei").learnset.hurricane = ["8L1"];
+			this.modData("Learnsets", "entei").learnset.airslash = ["8L1"];
+			this.modData("Learnsets", "entei").learnset.defog = ["8L1"];
+			delete this.modData('Learnsets', 'necrozma').learnset.moonlight;
+			delete this.modData('Learnsets', 'necrozma').learnset.morningsun;
+			delete this.modData('Learnsets', 'entei').learnset.calmmind;
+			delete this.modData('Learnsets', 'guzzlord').learnset.crunch;
+			delete this.modData('Learnsets', 'guzzlord').learnset.bite;
+			delete this.modData('Learnsets', 'guzzlord').learnset.darkpulse;	
+			delete this.modData('Learnsets', 'guzzlord').learnset.lashout;
+			delete this.modData('Learnsets', 'guzzlord').learnset.brutalswing;
+			delete this.modData('Learnsets', 'guzzlord').learnset.fling;	
+			delete this.modData('Learnsets', 'guzzlord').learnset.payback;	
+			delete this.modData('Learnsets', 'guzzlord').learnset.snarl;
+			delete this.modData('Learnsets', 'guzzlord').learnset.thief;						
 			delete this.modData('Learnsets', 'mantine').learnset.roost;
 			delete this.modData('Learnsets', 'tauros').learnset.earthquake;
 			delete this.modData('Learnsets', 'tauros').learnset.highhorsepower;
@@ -136,6 +167,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			delete this.modData('Learnsets', 'ariados').learnset.venomdrench;
 			delete this.modData('Learnsets', 'ariados').learnset.venoshock;
 			delete this.modData('Learnsets', 'ariados').learnset.toxicthread;
+			delete this.modData('Learnsets', 'abomasnow').learnset.swordsdance;
 			},
 			
 			

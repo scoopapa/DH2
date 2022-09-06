@@ -1,4 +1,4 @@
-const unbanned = ["genesect", "thundurus", "landorus", "landorustherian", "manaphy"];
+const unbanned = ["genesect", "thundurus", "landorus", "tornadustherian", "manaphy"];
 
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen5',

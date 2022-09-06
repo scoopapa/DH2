@@ -1,6 +1,124 @@
 const hisui = ["arcaninehisui", "avalugghisui", "basculegion", "basculegionf", "braviaryhisui", "decidueyehisui", "dialgaorigin", "electrodehisui", "enamorus", "enamorustherian", "goodrahisui", "kleavor", "lilliganthisui", "overqwil", "palkiaorigin", "samurotthisui", "sneasler", "typhlosionhisui", "ursaluna", "wyrdeer", "zoroarkhisui"]; // only fully-evolved Pokémon from Legends: Arceus
 
 export const Scripts: ModdedBattleScriptsData = {
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['SV', 'SV (NFE)'],
+		customDoublesTiers: ['SV', 'SV (NFE)'],
+	},
+
+	// Legends stuff + future speculative Fakemon
+
+	init() {
+		for (const id in this.dataCache.Pokedex) {
+			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
+				this.modData('Learnsets', this.toID(id)).learnset.terablast = ["8M"];
+			}
+			const newMon = this.dataCache.Pokedex[id];
+			if (!newMon) continue; // weeding out Pokémon that aren't new
+
+			if (newMon.copyData) {
+				let copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
+				if (!newMon.types && copyData.types) newMon.types = copyData.types;
+				if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
+				if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
+				if (!newMon.num && copyData.num) newMon.num = copyData.num;
+				if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
+				if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
+				if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
+				if (!newMon.color && copyData.color) newMon.color = copyData.color;
+				if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
+			} else if (!newMon.name.startsWith('Enamorus')) continue;
+
+			if (!this.dataCache.Learnsets[id]) continue; // just in case
+			const movepoolAdditions = ["attract", "endure", "facade", "protect", "rest", "round", "sleeptalk", "snore", "substitute", "terablast"];
+			for (const move of movepoolAdditions) {
+				this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
+			}
+		}
+	},
+
+	// Pawmi
+
+	faintMessages(lastFirst = false) {
+		if (this.ended) return;
+		const length = this.faintQueue.length;
+		if (!length) return false;
+		if (lastFirst) {
+			this.faintQueue.unshift(this.faintQueue[this.faintQueue.length - 1]);
+			this.faintQueue.pop();
+		}
+		let faintData;
+		while (this.faintQueue.length) {
+			faintData = this.faintQueue.shift()!;
+			const pokemon: Pokemon = faintData.target;
+			if (!pokemon.fainted &&
+					this.runEvent('BeforeFaint', pokemon, faintData.source, faintData.effect)) {
+				this.add('faint', pokemon);
+				pokemon.side.pokemonLeft--;
+				this.runEvent('Faint', pokemon, faintData.source, faintData.effect);
+				this.singleEvent('End', pokemon.getAbility(), pokemon.abilityData, pokemon);
+				pokemon.clearVolatile(false);
+				pokemon.fainted = true;
+				pokemon.illusion = null;
+				pokemon.isActive = false;
+				pokemon.isStarted = false;
+				pokemon.side.faintedThisTurn = pokemon;
+				pokemon.side.mostRecentKO = pokemon; // only change
+			}
+		}
+
+		if (this.gen <= 1) {
+			// in gen 1, fainting skips the rest of the turn
+			// residuals don't exist in gen 1
+			this.queue.clear();
+		} else if (this.gen <= 3 && this.gameType === 'singles') {
+			// in gen 3 or earlier, fainting in singles skips to residuals
+			for (const pokemon of this.getAllActive()) {
+				if (this.gen <= 2) {
+					// in gen 2, fainting skips moves only
+					this.queue.cancelMove(pokemon);
+				} else {
+					// in gen 3, fainting skips all moves and switches
+					this.queue.cancelAction(pokemon);
+				}
+			}
+		}
+
+		let team1PokemonLeft = this.sides[0].pokemonLeft;
+		let team2PokemonLeft = this.sides[1].pokemonLeft;
+		const team3PokemonLeft = this.gameType === 'free-for-all' && this.sides[2]!.pokemonLeft;
+		const team4PokemonLeft = this.gameType === 'free-for-all' && this.sides[3]!.pokemonLeft;
+		if (this.gameType === 'multi') {
+			team1PokemonLeft = this.sides.reduce((total, side) => total + (side.n % 2 === 0 ? side.pokemonLeft : 0), 0);
+			team2PokemonLeft = this.sides.reduce((total, side) => total + (side.n % 2 === 1 ? side.pokemonLeft : 0), 0);
+		}
+		if (!team1PokemonLeft && !team2PokemonLeft && !team3PokemonLeft && !team4PokemonLeft) {
+			this.win(faintData && this.gen > 4 ? faintData.target.side : null);
+			return true;
+		}
+		if (!team2PokemonLeft && !team3PokemonLeft && !team4PokemonLeft) {
+			this.win(this.sides[0]);
+			return true;
+		}
+		if (!team1PokemonLeft && !team3PokemonLeft && !team4PokemonLeft) {
+			this.win(this.sides[1]);
+			return true;
+		}
+		if (!team1PokemonLeft && !team2PokemonLeft && !team4PokemonLeft) {
+			this.win(this.sides[2]);
+			return true;
+		}
+		if (!team1PokemonLeft && !team2PokemonLeft && !team3PokemonLeft) {
+			this.win(this.sides[3]);
+			return true;
+		}
+
+		if (faintData) {
+			this.runEvent('AfterFaint', faintData.target, faintData.source, faintData.effect, length);
+		}
+		return false;
+	},
 
 	// Terastal
 
@@ -14,9 +132,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
 		}
 		let species = this.dex.deepClone(pokemon.species);
-		if (species.types[0] === pokemon.canMegaEvo || species.types[1] === pokemon.canMegaEvo) species.teraBoost = true;
+		species.teraBoost = pokemon.species.types;
 		species.teraType = pokemon.canMegaEvo; // remember that the species is Terastal
 		species.types = [species.teraType];
+		species.nonTeraForm = pokemon.species;
 		
 		// Pokémon affected by Sky Drop cannot Terastallize
 		const side = pokemon.side;
@@ -37,7 +156,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		return true;
 	},
 	runSwitch(pokemon: Pokemon) { // modified for Terastal
-		if (pokemon.species.teraType) this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		if (pokemon.illusion ? pokemon.illusion.species.teraType : pokemon.species.teraType) this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		this.runEvent('Swap', pokemon);
 		this.runEvent('SwitchIn', pokemon);
 		if (this.gen <= 2 && !pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.turn) {
@@ -60,6 +179,25 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 
 	pokemon: {
+
+		setType(newType: string | string[], enforce = false) { // modded for Terastal
+			// First type of Arceus, Silvally cannot be normally changed
+			if (!enforce) {
+				if (this.species.teraType || (this.battle.gen >= 5 && (this.species.num === 493 || this.species.num === 773)) ||
+					 (this.battle.gen === 4 && this.hasAbility('multitype'))) {
+					return false;
+				}
+			}
+
+			if (!newType) throw new Error("Must pass type to setType");
+			this.types = (typeof newType === 'string' ? [newType] : newType);
+			this.addedType = '';
+			this.knownType = true;
+			this.apparentType = this.types.join('/');
+
+			return true;
+		},
+
 		formeChange( // modded for Terastal
 		speciesId: string | Species, source: Effect = this.battle.effect,
 		 isPermanent?: boolean, message?: string
@@ -71,7 +209,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				teraSpecies = this.battle.dex.deepClone(baseForm);
 				teraSpecies.teraType = this.species.teraType;
 				teraSpecies.types = [teraSpecies.teraType];
-				teraSpecies.teraBoost = this.species.teraBoost;
+				teraSpecies.teraBoost = this.battle.dex.getSpecies(speciesId).types;
+				teraSpecies.nonTeraForm = baseForm;
 			}
 			const rawSpecies = teraSpecies || baseForm;
 			const species = this.setSpecies(rawSpecies, source);
@@ -127,40 +266,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 	},
 
-	// Legends stuff + future speculative Fakemon
-
-	init() {
-		for (const id in this.dataCache.Pokedex) {
-			if (this.modData('Learnsets', this.toID(id)) && this.modData('Learnsets', this.toID(id)).learnset) {
-				this.modData('Learnsets', this.toID(id)).learnset.teraprism = ["8M"];
-			}
-			if (this.modData('FormatsData', id)) {
-				if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
-			}
-			const newMon = this.dataCache.Pokedex[id];
-			if (!newMon) continue; // weeding out Pokémon that aren't new
-
-			if (newMon.copyData) {
-				let copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
-				if (!newMon.types && copyData.types) newMon.types = copyData.types;
-				if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
-				if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
-				if (!newMon.num && copyData.num) newMon.num = copyData.num;
-				if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
-				if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
-				if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
-				if (!newMon.color && copyData.color) newMon.color = copyData.color;
-				if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
-			} else if (!newMon.name.startsWith('Enamorus')) continue;
-
-			if (!this.dataCache.Learnsets[id]) continue; // just in case
-			const movepoolAdditions = ["attract", "endure", "facade", "protect", "rest", "round", "sleeptalk", "snore", "substitute"];
-			for (const move of movepoolAdditions) {
-				this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
-			}
-		}
-	},
-
 	// modifyDamage added for frostbite for Hisuian Zoroark specifically, and also the Terastal Adaptability boost
 
 	modifyDamage(
@@ -199,7 +304,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			// (On second thought, it might be easier to get a MissingNo.)
 			let stabBoost = 1.5;
 			if (move.stab) stabBoost = move.stab;
-			if (pokemon.species.teraBoost) stabBoost = 2;
+			if (pokemon.species.teraBoost && pokemon.species.teraBoost.includes(type)) {
+				if (!suppressMessages) this.add('-message', `Terastal boosts moves of the ${type} type!`);
+				stabBoost = 2;
+			}
 			baseDamage = this.modify(baseDamage, stabBoost);
 		}
 		// types
@@ -249,6 +357,170 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		// ...but 16-bit truncation happens even later, and can truncate to 0
 		return tr(baseDamage, 16);
+	},
+
+	// hitStepMoveHitLoop added for Loaded Dice specifically
+	hitStepMoveHitLoop(targets, pokemon, move) { // Temporary name
+		const damage: (number | boolean | undefined)[] = [];
+		for (const i of targets.keys()) {
+			damage[i] = 0;
+		}
+		move.totalDamage = 0;
+		pokemon.lastDamage = 0;
+		let targetHits = move.multihit || 1;
+		if (Array.isArray(targetHits)) {
+			// yes, it's hardcoded... meh
+			if (targetHits[0] === 2 && targetHits[1] === 5) {
+				if (pokemon.hasItem('loadeddice')) {
+					// average base power of 100
+					targetHits = this.sample([2, 3, 3, 4, 4, 4, 5, 5, 5, 5]);
+				} else if (this.gen >= 5) {
+					// 35-35-15-15 out of 100 for 2-3-4-5 hits
+					targetHits = this.sample([2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5]);
+				} else {
+					targetHits = this.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+				}
+			} else {
+				targetHits = this.random(targetHits[0], targetHits[1] + 1);
+			}
+		}
+		targetHits = Math.floor(targetHits);
+		let nullDamage = true;
+		let moveDamage: (number | boolean | undefined)[];
+		// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
+		const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+
+		let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
+		let hit: number;
+		for (hit = 1; hit <= targetHits; hit++) {
+			if (damage.includes(false)) break;
+			if (hit > 1 && pokemon.status === 'slp' && !isSleepUsable) break;
+			if (targets.every(target => !target || !target.hp)) break;
+			move.hit = hit;
+			if (move.smartTarget && targets.length > 1) {
+				targetsCopy = [targets[hit - 1]];
+			} else {
+				targetsCopy = targets.slice(0);
+			}
+			const target = targetsCopy[0]; // some relevant-to-single-target-moves-only things are hardcoded
+			if (target && typeof move.smartTarget === 'boolean') {
+				if (hit > 1) {
+					this.addMove('-anim', pokemon, move.name, target);
+				} else {
+					this.retargetLastMove(target);
+				}
+			}
+
+			// like this (Triple Kick)
+			if (target && move.multiaccuracy && hit > 1) {
+				let accuracy = move.accuracy;
+				const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
+				if (accuracy !== true) {
+					if (!move.ignoreAccuracy) {
+						const boosts = this.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
+						const boost = this.clampIntRange(boosts['accuracy'], -6, 6);
+						if (boost > 0) {
+							accuracy *= boostTable[boost];
+						} else {
+							accuracy /= boostTable[-boost];
+						}
+					}
+					if (!move.ignoreEvasion) {
+						const boosts = this.runEvent('ModifyBoost', target, null, null, {...target.boosts});
+						const boost = this.clampIntRange(boosts['evasion'], -6, 6);
+						if (boost > 0) {
+							accuracy /= boostTable[boost];
+						} else if (boost < 0) {
+							accuracy *= boostTable[-boost];
+						}
+					}
+				}
+				accuracy = this.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
+				if (!move.alwaysHit) {
+					accuracy = this.runEvent('Accuracy', target, pokemon, move, accuracy);
+					if (accuracy !== true && !this.randomChance(accuracy, 100)) break;
+				}
+			}
+
+			const moveData = move;
+			if (!moveData.flags) moveData.flags = {};
+
+			// Modifies targetsCopy (which is why it's a copy)
+			[moveDamage, targetsCopy] = this.spreadMoveHit(targetsCopy, pokemon, move, moveData);
+
+			if (!moveDamage.some(val => val !== false)) break;
+			nullDamage = false;
+
+			for (const [i, md] of moveDamage.entries()) {
+				// Damage from each hit is individually counted for the
+				// purposes of Counter, Metal Burst, and Mirror Coat.
+				damage[i] = md === true || !md ? 0 : md;
+				// Total damage dealt is accumulated for the purposes of recoil (Parental Bond).
+				move.totalDamage += damage[i] as number;
+			}
+			if (move.mindBlownRecoil) {
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
+				move.mindBlownRecoil = false;
+			}
+			this.eachEvent('Update');
+			if (!pokemon.hp && targets.length === 1) {
+				hit++; // report the correct number of hits for multihit moves
+				break;
+			}
+		}
+		// hit is 1 higher than the actual hit count
+		if (hit === 1) return damage.fill(false);
+		if (nullDamage) damage.fill(false);
+		if (move.multihit && typeof move.smartTarget !== 'boolean') {
+			this.add('-hitcount', targets[0], hit - 1);
+		}
+
+		if (move.recoil && move.totalDamage) {
+			this.damage(this.calcRecoilDamage(move.totalDamage, move), pokemon, pokemon, 'recoil');
+		}
+
+		if (move.struggleRecoil) {
+			let recoilDamage;
+			if (this.dex.gen >= 5) {
+				recoilDamage = this.clampIntRange(Math.round(pokemon.baseMaxhp / 4), 1);
+			} else {
+				recoilDamage = this.trunc(pokemon.maxhp / 4);
+			}
+			this.directDamage(recoilDamage, pokemon, pokemon, {id: 'strugglerecoil'} as Condition);
+		}
+
+		// smartTarget messes up targetsCopy, but smartTarget should in theory ensure that targets will never fail, anyway
+		if (move.smartTarget) targetsCopy = targets.slice(0);
+
+		for (const [i, target] of targetsCopy.entries()) {
+			if (target && pokemon !== target) {
+				target.gotAttacked(move, damage[i] as number | false | undefined, pokemon);
+			}
+		}
+
+		if (move.ohko && !targets[0].hp) this.add('-ohko');
+
+		if (!damage.some(val => !!val || val === 0)) return damage;
+
+		this.eachEvent('Update');
+
+		this.afterMoveSecondaryEvent(targetsCopy.filter(val => !!val) as Pokemon[], pokemon, move);
+
+		if (!move.negateSecondary && !(move.hasSheerForce && pokemon.hasAbility('sheerforce'))) {
+			for (const [i, d] of damage.entries()) {
+				// There are no multihit spread moves, so it's safe to use move.totalDamage for multihit moves
+				// The previous check was for `move.multihit`, but that fails for Dragon Darts
+				const curDamage = targets.length === 1 ? move.totalDamage : d;
+				if (typeof curDamage === 'number' && targets[i].hp) {
+					const targetHPBeforeDamage = (targets[i].hurtThisTurn || 0) + curDamage;
+					if (targets[i].hp <= targets[i].maxhp / 2 && targetHPBeforeDamage > targets[i].maxhp / 2) {
+						this.runEvent('EmergencyExit', targets[i], pokemon);
+					}
+				}
+			}
+		}
+
+		return damage;
 	},
 
 };
