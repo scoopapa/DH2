@@ -3428,6 +3428,25 @@ export const Formats: FormatList = [
 		],
 		teambuilderFormat: '(PU)',
 	},
+	{
+		name: "[Gen 8] ADV Now SU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
+		],
+		mod: 'advnow',
+		ruleset: ['[Gen 8] ADV Now ZU'],
+		banlist: [
+				//ZU
+				'Anorith', 'Baltoy', 'Carvanha', 'Charmeleon', 'Clamperl', 'Dratini', 'Gastly', 'Grovyle', 'Ivysaur', 'Larvitar', 'Machop', 
+				'Mankey', 'Marill', 'Meditite', 'Natu', 'Ponyta', 'Rhyhorn', 'Slowpoke', 'Snubbull', 'Vibrava', 'Wartortle', 
+		],
+		unbanlist: [
+				'Aipom', 'Arbok', 'Ariados', 'Beautifly', 'Castform', 'Delcatty', 'Delibird', 'Dewgong', 'Ditto', 'Dustox', 'Ledian', 'Luvdisc', 
+				'Magcargo', 'Minun', 'Nosepass', 'Parasect', 'Seaking', 'Shedinja', 'Shuckle', 'Smeargle', 'Spinda', 'Sunflora', 'Swalot', 'Tropius', 
+				'Unown', 'Wobbuffet', 'Yanma',
+		],
+		teambuilderFormat: '(PU)',
+	},
 	{    
 		name: "[Gen 8] AsOnemons",
 		desc: 'AsOnemons is a Generation 8 based Solomod that revolves around creating new As One forms for official Pokémon.',
