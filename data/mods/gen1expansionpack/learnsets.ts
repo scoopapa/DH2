@@ -3780,7 +3780,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	// These are alternate formes of RBY Pokemon that exist but were never playable.
 	// Namely, the Gastly, Haunter, Cubone, and Marowak ghosts, as well as the Aerodactyl and Kabutops fossils.
 	// These were mainly added for fun and have no impact on gameplay. The important details are simply cloned as a result.
-	gastly-ghost: {
+	gastlyghost: {
 		learnset: {
 			attract: ["2M"],
 			bide: ["1M"],
@@ -3826,7 +3826,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["2M"],
 		},
 	},
-	haunter-ghost: {
+	haunterghost: {
 		learnset: {
 			attract: ["2M"],
 			bide: ["1M"],
@@ -3870,7 +3870,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["2M"],
 		},
 	},
-	cubone-ghost: {
+	cuboneghost: {
 		learnset: {
 			ancientpower: ["2E"],
 			attract: ["2M"],
@@ -3941,7 +3941,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 2, level: 5, shiny: 1, moves: ["growl", "tailwhip", "furyattack"]},
 		],
 	},
-	marowak-ghost: {
+	marowakghost: {
 		learnset: {
 			attract: ["2M"],
 			bide: ["1M"],
@@ -4003,7 +4003,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["1M"],
 		},
 	},
-	kabutops-fossil: {
+	kabutopsfossil: {
 		learnset: {
 			absorb: ["2L10", "2L1", "1L34", "1L1"],
 			ancientpower: ["2L65"],
@@ -4060,7 +4060,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["2M"],
 		},
 	},
-	aerodactyl-fossil: {
+	aerodactylfossil: {
 		learnset: {
 			agility: ["2L8", "1L1"],
 			ancientpower: ["2L29"],

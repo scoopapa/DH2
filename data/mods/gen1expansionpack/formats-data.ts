@@ -957,7 +957,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		exclusiveMoves: ["confuseray", "hypnosis", "hypnosis"],
 		tier: "LC",
 	},
-	gastly-ghost: {
+	gastlyghost: {
 		randomBattleMoves: ["explosion", "megadrain", "nightshade", "psychic"],
 		essentialMove: "thunderbolt",
 		exclusiveMoves: ["confuseray", "hypnosis", "hypnosis"],
@@ -969,7 +969,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		exclusiveMoves: ["confuseray", "hypnosis", "hypnosis"],
 		tier: "UU",
 	},
-	haunter-ghost: {
+	haunterghost: {
 		randomBattleMoves: ["explosion", "megadrain", "nightshade", "psychic"],
 		essentialMove: "thunderbolt",
 		exclusiveMoves: ["confuseray", "hypnosis", "hypnosis"],
@@ -1028,7 +1028,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["blizzard", "bodyslam", "earthquake", "seismictoss"],
 		tier: "LC",
 	},
-	cubone-ghost: {
+	cuboneghost: {
 		randomBattleMoves: ["blizzard", "bodyslam", "earthquake", "seismictoss"],
 		tier: "LC",
 	},
@@ -1036,7 +1036,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["blizzard", "bodyslam", "earthquake", "seismictoss"],
 		tier: "NFE",
 	},
-	marowak-ghost: {
+	marowakghost: {
 		randomBattleMoves: ["blizzard", "bodyslam", "earthquake", "seismictoss"],
 		tier: "NFE",
 	},
@@ -1220,7 +1220,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		exclusiveMoves: ["bodyslam", "slash"],
 		tier: "NU",
 	},
-	kabutops-fossil: {
+	kabutopsfossil: {
 		randomBattleMoves: ["hyperbeam", "surf", "swordsdance"],
 		exclusiveMoves: ["bodyslam", "slash"],
 		tier: "NU",
@@ -1229,7 +1229,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["doubleedge", "fireblast", "hyperbeam", "skyattack"],
 		tier: "UU",
 	},
-	aerodactyl-fossil: {
+	aerodactylfossil: {
 		randomBattleMoves: ["doubleedge", "fireblast", "hyperbeam", "skyattack"],
 		tier: "UU",
 	},

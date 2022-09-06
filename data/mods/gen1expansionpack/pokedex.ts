@@ -685,7 +685,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	// These are alternate formes of RBY Pokemon that exist but were never playable.
 	// Namely, the Gastly, Haunter, Cubone, and Marowak ghosts, as well as the Aerodactyl and Kabutops fossils.
 	// These were mainly added for fun and have no impact on gameplay. The important details are simply cloned as a result.
-	gastly-ghost: {
+	gastlyghost: {
 		inherit: true,
 		num: -9000,
 		name: "Gastly-Ghost",
@@ -693,7 +693,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		baseStats: {hp: 30, atk: 35, def: 30, spa: 100, spd: 100, spe: 80},
 	},
-	haunter-ghost: {
+	haunterghost: {
 		inherit: true,
 		num: -9001,
 		name: "Haunter-Ghost",
@@ -701,7 +701,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		baseStats: {hp: 45, atk: 50, def: 45, spa: 115, spd: 115, spe: 95},
 	},
-	cubone-ghost: {
+	cuboneghost: {
 		inherit: true,
 		num: -9002,
 		name: "Cubone-Ghost",
@@ -709,7 +709,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		baseStats: {hp: 50, atk: 50, def: 95, spa: 40, spd: 40, spe: 35},
 	},
-	marowak-ghost: {
+	marowakghost: {
 		inherit: true,
 		num: -9003,
 		name: "Marowak-Ghost",
@@ -717,7 +717,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		baseStats: {hp: 60, atk: 80, def: 110, spa: 50, spd: 50, spe: 45},
 	},
-	kabutops-fossil: {
+	kabutopsfossil: {
 		inherit: true,
 		num: -9004,
 		name: "Kabutops-Fossil",
@@ -725,7 +725,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		baseStats: {hp: 60, atk: 115, def: 105, spa: 70, spd: 70, spe: 80},
 	},
-	aerodactyl-fossil: {
+	aerodactylfossil: {
 		inherit: true,
 		num: -9005,
 		name: "Aerodactyl-Fossil",
