@@ -3440,11 +3440,11 @@ export const Formats: FormatList = [
 				'Anorith', 'Baltoy', 'Carvanha', 'Charmeleon', 'Clamperl', 'Dratini', 'Gastly', 'Grovyle', 'Ivysaur', 'Larvitar', 'Machop', 
 				'Mankey', 'Marill', 'Meditite', 'Natu', 'Ponyta', 'Rhyhorn', 'Slowpoke', 'Snubbull', 'Vibrava', 'Wartortle', 
 		],
-		unbanlist: [
+		/*unbanlist: [
 				'Aipom', 'Arbok', 'Ariados', 'Beautifly', 'Castform', 'Delcatty', 'Delibird', 'Dewgong', 'Ditto', 'Dustox', 'Ledian', 'Luvdisc', 
 				'Magcargo', 'Minun', 'Nosepass', 'Parasect', 'Seaking', 'Shedinja', 'Shuckle', 'Smeargle', 'Spinda', 'Sunflora', 'Swalot', 'Tropius', 
 				'Unown', 'Wobbuffet', 'Yanma',
-		],
+		],*/
 		teambuilderFormat: '(PU)',
 	},
 	{    
