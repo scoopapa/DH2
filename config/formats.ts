@@ -704,6 +704,7 @@ export const Formats: FormatList = [
 						'Yveltal', 'Skarmory', 'Tapu Koko',
 						'Lash Out', 'Crafty Shield', 'Sunsteel Strike',
 						'Cacnea', 'Cacturne', 'Duraludon', 'Milcery', 'Alcremie', 
+						'Zigzagoon-Galar', 'Linoone-Galar', 'Obstagoon', 'Stunfisk-Galar', 'Mimikyu', 'Mimikyu-Busted', 
 					  ],
     },
    {
