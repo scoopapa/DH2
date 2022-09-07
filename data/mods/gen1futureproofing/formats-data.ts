@@ -129,6 +129,36 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
+	obstagoon: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	mimikyu: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	mimikyubusted: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	stunfiskgalar: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 1,
+	},
+	linoonegalar: {
+		tier: "NFE",
+		isNonstandard: null,
+		gen: 1,
+	},
+	zigzagoongalar: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 1,
+	},
 
 // don't touch
 	bulbasaur: {
