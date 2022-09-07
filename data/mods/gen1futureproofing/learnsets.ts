@@ -763,6 +763,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["1L1"],
 			bide: ["1L1"],
 			rage: ["1L1"],
+			taunt: ["1L1"],
+			faketears: ["1L1"],
+			snarl: ["1L1"],
+			lashout: ["1L1"],
 		},
 	},
 	linoonegalar: {
@@ -795,6 +799,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["1L1"],
 			bide: ["1L1"],
 			rage: ["1L1"],
+			taunt: ["1L1"],
+			faketears: ["1L1"],
+			snarl: ["1L1"],
+			lashout: ["1L1"],
 		},
 	},
 	obstagoon: {
@@ -827,6 +835,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunder: ["1L1"],
 			thunderwave: ["1L1"],
 			thunderbolt: ["1L1"],
+			taunt: ["1L1"],
+			faketears: ["1L1"],
+			snarl: ["1L1"],
+			lashout: ["1L1"],
 		},
 	},
 	stunfiskgalar: {
@@ -847,6 +859,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunder: ["1L1"],
 			thunderpunch: ["1L1"],
 			conversion: ["1L1"],
+			lashout: ["1L1"],
 		},
 	},
 	mimikyu: {
