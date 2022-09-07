@@ -935,7 +935,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	moltres: {
 		randomBattleMoves: ["agility", "fireblast", "hyperbeam"],
-		exclusiveMoves: ["steelwing", "reflect", "skyattack"],
+		exclusiveMoves: ["steelwing", "reflect", "sunsteelstrike"],
 		tier: "NU",
 	},
 	dratini: {
