@@ -820,7 +820,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NU",
 	},
 	scyther: {
-		randomBattleMoves: ["agility", "hyperbeam", "slash", "swordsdance"],
+		randomBattleMoves: ["steelwing", "hyperbeam", "slash", "swordsdance"],
 		tier: "PU",
 	},
 	jynx: {
