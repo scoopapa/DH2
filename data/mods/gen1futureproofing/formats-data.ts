@@ -913,7 +913,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NU",
 	},
 	aerodactyl: {
-		randomBattleMoves: ["doubleedge", "fireblast", "hyperbeam", "skyattack"],
+		randomBattleMoves: ["snarl", "fireblast", "hyperbeam", "steelwing"],
 		tier: "UU",
 	},
 	snorlax: {
