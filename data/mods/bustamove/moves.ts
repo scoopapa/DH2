@@ -27,6 +27,56 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
+
+	armthrust: {
+		num: 292,
+		accuracy: 100,
+		basePower: 15,
+		category: "Physical",
+		name: "Arm Thrust",
+		pp: 20,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	aurorabeam: {
+		num: 62,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "Lowers target's SpD by one stage.",
+		name: "Aurora Beam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+	},
+	armthrust: {
+		num: 292,
+		accuracy: 100,
+		basePower: 15,
+		category: "Physical",
+		name: "Arm Thrust",
+		pp: 20,
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
 	beakblast: {
 		num: 690,
 		accuracy: 100,
@@ -49,6 +99,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Flying",
+		contestType: "Tough",
+	},
+	brine: {
+		num: 362,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "Power doubles if the target has a status ailment.",
+		name: "Brine",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Water",
 		contestType: "Tough",
 	},
 	burningjealousy: {
@@ -96,6 +165,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Fighting",
+	},
+	cometpunch: {
+		num: 4,
+		accuracy: 85,
+		basePower: 25,
+		category: "Physical",
+      shortDesc: "Hits 2-5 times. Inflicts torment.",
+		name: "Comet Punch",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Tough",
 	},
 	//not finished
 	/*corrosivegas: {
@@ -205,7 +290,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-	},*/
+   },*/
+	dragonhammer: {
+		num: 692,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Has 33% recoil.",
+		name: "Dragon Hammer",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [33, 100],
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Tough",
+	},
 	dreameater: {
 		num: 138,
 		accuracy: 100,
@@ -243,6 +344,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		target: "normal",
 		type: "Psychic",
+	},
+	eggbomb: {
+		num: 121,
+		accuracy: 90,
+		basePower: 0,
+		damage: 'level',
+		category: "Physical",
+		shortDesc: "Deals damage equal to the user's level. The user regains 1/2 damage dealt.",
+		name: "Egg Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, heal: 1},
+    drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+		
 	},
 	fairywind: {
 		num: 263,
@@ -332,6 +451,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
 	},
+	gearup: {
+		num: 674,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's Atk, SpA and Spe by 1 stage.",
+		name: "Gear Up",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		boosts: {
+			atk: 1,
+			spa: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		contestType: "Clever",
+	},
 	glaciate: {
 		num: 549,
 		accuracy: 100,
@@ -350,6 +489,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+   },
+   horndrill: {
+      num: 32,
+      accuracy: 85,
+      basePower: 130,
+      category: "Physical",
+		  shortDesc: "20% chance to lower the target's Def by one stage.",
+      name: "Horn Drill",
+      pp: 5,
+      priority: 0,
+      flags: {contact: 1, protect: 1, mirror: 1},
+      secondary: {
+         chance: 20,
+         boosts: {
+           def: -1,
+         },
+      },
+      target: "normal",
+      type: "Normal",
+      contestType: "Cool",
 	},
 	iceball: {
 		num: 301,
@@ -415,6 +574,41 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Water",
 	},*/
+ 	lowsweep: {
+		num: 490,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Low Sweep",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+		contestType: "Clever",
+	},
+	mirrorshot: {
+    num: 429,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+      shortDesc: "Damage is calculated using the target's SpA stat, including any stat changes.",
+		name: "Mirror Shot",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		useTargetOffensive: true,
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+	},
 	octazooka: {
 		num: 190,
 		accuracy: 85,
@@ -571,6 +765,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		contestType: "Tough",
 	},
+	selfdestruct: {
+		num: 120,
+		accuracy: 100,
+		basePower: 175,
+		category: "Physical",
+		shortDesc: "User loses 1/2 max HP.",
+		name: "Self-Destruct",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Self-Destruct'), true);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
 	sing: {
 		num: 47,
 		accuracy: 60,
@@ -707,7 +921,42 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacent",
 		type: "Water",
 		contestType: "Tough",
+	},
+	steamroller: {
+		num: 537,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Steamroller",
+		pp: 10,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Ground', type);
+		},
+		priority: 0,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
 	},*/
+	steamroller: {
+		num: 537,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Combines Ground in its type effectiveness.",
+		name: "Steamroller",
+		pp: 10,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Ground', type);
+		},
+		priority: 0,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+	},
 	steelroller: {
 		num: 798,
 		accuracy: 100,
@@ -827,6 +1076,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
+	},
+	technoblast: {
+		num: 546,
+		accuracy: 85,
+		basePower: 120,
+		category: "Special",
+      shortDesc: "The move's type changes depending on the held Drive. Gains 1.5x power if holding a Drive.",
+		name: "Techno Blast",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1, bullet: 1, sound: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, null, move, 'Normal');
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.hasItem('burndrive') || pokemon.hasItem('dousedrive') || pokemon.hasItem('chilldrive') || pokemon.hasItem('shockdrive')) {
+				move.basePower *= 1.5;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cool",
 	},
 	//not finished
 	/*trickortreat: {

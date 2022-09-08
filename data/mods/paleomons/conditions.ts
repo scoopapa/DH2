@@ -56,4 +56,61 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-activate', target, 'trapped');
 		},
 	},
+
+	absorption: {
+		name: 'absorption',
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) { //i have 0 idea if this will activate when i want it to but whatever lol
+			if (this.field.isTerrain('')) {
+				return;
+			}
+			let type;
+				switch (this.field.terrain) {
+				case 'electricterrain':
+					this.effectData.type = 'Electric';
+					break;
+				case 'grassyterrain':
+					this.effectData.type = 'Grass';
+					break;
+				case 'mistyterrain':
+					this.effectData.type = 'Fairy';
+					break;
+				case 'psychicterrain':
+					this.effectData.type = 'Psychic';
+					break;
+				case 'tarterrain':
+					this.effectData.type = 'Poison';
+					break;
+				default:
+					this.effectData.type = '';
+					break;
+				}
+			return type;
+		},
+		onTryHit(target, source, move) {
+			if (target.volatiles['absorption'].type === '') return;
+			if (target !== source && move.type === target.volatiles['absorption'].type) {
+				this.add('-immune', target, '[from] ability: Absorption');
+				this.add('-hint', "Absorption gives Tangrowth-A an immunity to the terrain's type!");
+				return null;
+			}
+		},
+	},
+
+	foragercrit: {
+		name: 'foragercrit',
+
+		onModifyCritRatio(critRatio) {
+			this.effectData.usedMove = true;
+			return 5;
+		},
+
+		onAfterMove(source, target, move) {
+			if(this.effectData.usedMove) {
+				delete source.volatiles['foragercrit'];
+			}
+		}
+	}
 };

@@ -31,18 +31,23 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'yaciancrowned').learnset.behemothblade = ['7L1'];
 		this.modData('Learnsets', 'igglyzentacrowned').learnset.behemothbash = ['7L1'];
 		this.modData('Learnsets', 'nozedawnwings').learnset.moongeistbeam = ['7L1'];
+		this.modData('Learnsets', 'phancrozmadawnwings').learnset.moongeistbeam = ['7L1'];
 		this.modData('Learnsets', 'tyranetteeternal').learnset.lightofruin = ['7L1'];
 		this.modData('Learnsets', 'monferpaunbound').learnset.hyperspacefury = ['7L1'];
 		this.modData('Learnsets', 'hoopagigasunbound').learnset.hyperspacefury = ['7L1'];
+		this.modData('Learnsets', 'rotofable').learnset.overheat = ['7L1'];
+		this.modData('Learnsets', 'appletomwash').learnset.hydropump = ['7L1'];
+		this.modData('Learnsets', 'igglyciancrowned').learnset.behemothblade = ['7L1'];
 		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
 		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
+		delete this.modData('Learnsets', 'igglyciancrowned').learnset.ironhead;
 	},
 	
 	teambuilderConfig: {
         // for micrometas to only show custom tiers
         excludeStandardTiers: true,
         // only to specify the order of custom tiers
-        customTiers: ['FEUU', 'FERUBL', 'FERU', 'Bugged', 'FENFE', 'FELC', 'Forms', 'FEUUber'],
+        customTiers: ['FEUU', 'FERUBL', 'FERU', 'FENU', 'Bugged', 'FENFE', 'FELC', 'Forms', 'FEUUber'],
 	},
 	
 	canMegaEvo(pokemon) {
@@ -111,6 +116,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return "Absable-Mega-Y"; 
 		}
 		
+		if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Sableior-Meteor") {
+			return "Sableior-Meteor-Mega"; 
+		}
+		
 		if (item.name === "Tyranitarite" && pokemon.baseSpecies.name === "Goatitar") {
 			return "Goatitar-Mega"; 
 		}
@@ -134,6 +143,24 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 		if (item.name === "Medichamite" && pokemon.baseSpecies.name === "Gastrocham") {
 			return "Gastrocham-Mega"; 
+		}
+		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Herasir") {
+			return "Herasir-Mega-X"; 
+		}
+		if (item.name === "Pinsirite" && pokemon.baseSpecies.name === "Herasir") {
+			return "Herasir-Mega-Y"; 
+		}
+		if (item.name === "Cameruptite" && pokemon.baseSpecies.name === "Wishirupti") {
+			return "Wishirupti-Mega"; 
+		}
+		if (item.name === "Cameruptite" && pokemon.baseSpecies.name === "Wishirupti-School") {
+			return "Wishirupti-School-Mega"; 
+		}
+		if (item.name === "Swampertite" && pokemon.baseSpecies.name === "Impert-Female") {
+			return "Impert-Female-Mega"; 
+		}
+		if (item.name === "Salamencite" && pokemon.baseSpecies.name === "Salasian-Alola") {
+			return "Salasian-Alola-Mega"; 
 		}
 		
 		return item.megaStone;
@@ -298,6 +325,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Hoverboard');
 						} else if (this.hasAbility('levistatic')) {
 							this.battle.add('-immune', this, '[from] ability: Levistatic');
+						} else if (this.hasAbility('lovelessfloat')) {
+							this.battle.add('-immune', this, '[from] ability: Loveless Float');
+						} else if (this.hasAbility('ghoulaway')) {
+							this.battle.add('-immune', this, '[from] ability: Ghoul Away');
+						} else if (this.hasAbility('spiritascent')) {
+							this.battle.add('-immune', this, '[from] ability: Spirit Ascent');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -329,7 +362,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.hasAbility('magneticwaves') ||
 				this.hasAbility('leviflame') ||
 				this.hasAbility('levitability') || 
-				this.hasAbility('stickyfloat')) &&
+				this.hasAbility('stickyfloat') || 
+				this.hasAbility('etativel') || 
+				this.hasAbility('lighthearted') || 
+				this.hasAbility('clearlyfloating') || 
+				this.hasAbility('floatguise') || 
+				this.hasAbility('aerialbreak') || 
+				this.hasAbility('levimetal') || 
+				this.hasAbility('hoverboard') || 
+				this.hasAbility('levistatic') || 
+				this.hasAbility('ghoulaway') || 
+				this.hasAbility('spiritascent') || 
+				this.hasAbility('lovelessfloat')) &&
 				
 				!this.battle.suppressingAttackEvents()
 			) return null;
@@ -385,7 +429,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			  }
 
 			  if (!ignoreImmunities && status.id &&
-						 !(source?.hasAbility(['corrosion', 'toxicplay']) && ['tox', 'psn'].includes(status.id))) {
+						 !(source?.hasAbility(['corrosion', 'toxicplay', 'deadlydeft']) && ['tox', 'psn'].includes(status.id))) {
 					// the game currently never ignores immunities
 					if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 						 this.battle.debug('immune to status');
@@ -488,7 +532,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			if (isCrit && !suppressMessages) this.add('-crit', target);
 
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard') || pokemon.hasAbility('courageous') || pokemon.hasAbility('ultraimpulse'))) {
+			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard') || pokemon.hasAbility('courageous') || pokemon.hasAbility('ultraimpulse') || pokemon.hasAbility('phoenicoid'))) {
 				if (this.gen < 6 || move.id !== 'facade') {
 					baseDamage = this.modify(baseDamage, 0.5);
 				}
@@ -662,7 +706,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		}
 		//Right here
-		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull') || pokemon.hasAbility('sheerluck'))) && !(pokemon.hasAbility('sheerluck') && move.critRatio > 1)) {
+		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull') || pokemon.hasAbility('sheerluck') || pokemon.hasAbility('hydroforce'))) && !(pokemon.hasAbility('sheerluck') && move.critRatio > 1)) {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
@@ -850,6 +894,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (['Noze-Dawn-Wings'].includes(pokemon.baseSpecies.name) &&
 			pokemon.getItem().id === 'depletedultranecroziumz') {
 			return "Noze-Ultra";
+		}
+		if (['Phancrozma-Dawn-Wings'].includes(pokemon.baseSpecies.name) &&
+			pokemon.getItem().id === 'depletedultranecroziumz') {
+			return "Phancrozma-Ultra";
 		}
 		return null;
 	},

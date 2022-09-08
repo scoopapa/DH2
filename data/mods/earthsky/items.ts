@@ -204,7 +204,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyDef(def, pokemon) {
 			return this.chainModify([0x1199, 0x1000]);
 		},
-		desc: "Holder's Sp. Defense is multiplied by 1.1x. Evolves Seadra into Kingdra and Burrorm into Burryrm when traded.",
+		desc: "Holder's Defense is multiplied by 1.1x. Evolves Seadra into Kingdra and Burrorm into Burryrm when traded.",
 		shortDesc: "Holder Defense is multiplied by 1.1x.",
 	},
 	electirizer: {
@@ -517,19 +517,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by Dusk Mane or Dawn Wings Necrozma, this item allows it to Ultra Burst in battle.",
 	},
 	waveincense: {
-		inherit: true,
-		onAllySetStatus(status, target, source, effect) {
-			if (status.id === 'brn') {
-				this.debug('Wave Incense prevents burns');
-				const effectHolder = this.effectData.target;
-				this.add('-block', target, 'item: Wave Incense', '[of] ' + effectHolder);
-				return null;
-			}
-		},
+		name: "Wave Incense",
+		spritenum: 531,
 		fling: {
 			basePower: 20,
 		},
-		desc: "Prevents holder and allies from receiving burns.",
+		onAnyTryMove(target, source, effect) {
+			if (['eggbomb', 'explosion', 'mindblown', 'napalm', 'searingshot', 'selfdestruct', 'shelltrap'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', target, 'item: Wave Incense', effect, '[of] ' + source);
+				return false;
+			}
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'aftermath') {
+				return false;
+			}
+		},
+		num: 317,
+		gen: 4,
+		desc: "Prevents Egg Bomb, Explosion, Mind Blown, Napalm, Searing Shot, Self-Destruct, Shell Trap, and the Aftermath Ability from having an effect.",
+		shortDesc: "Prevents explosion-based moves and Abilities.",
 	},
 	whippeddream: {
 		inherit: true,
@@ -960,6 +968,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Onix into Steelix, Scyther into Scizor, and Plecuum into Vorplec when traded.",
+		shortDesc: "Holder's Steel-type attacks have 1.2x power.",
 	},
 	mindplate: {
 		inherit: true,
@@ -1019,7 +1028,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "Holder's Poison-type attacks have 1.2x power. Evolves Monutra into Twintura when held and leveled up.",
-		shortDesc: "Holder's Dragon-type attacks have 1.2x power.",
+		shortDesc: "Holder's Poison-type attacks have 1.2x power.",
 	},
 	poisongem: {
 		inherit: true,

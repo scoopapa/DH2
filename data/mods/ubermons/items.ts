@@ -181,13 +181,23 @@ export const Items: {[itemid: string]: ItemData} = {
 	blueorb: {
 		name: "Blue Orb",
 		spritenum: 41,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Kyogre') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name !== 'Kyogre') return;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						pokemon.formeChange('Kyogre-Primal', this.effect, true);
+						return;
+					}
+				}
 			}
-		},
-		onPrimal(pokemon) {
-			pokemon.formeChange('Kyogre-Primal', this.effect, true);
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Kyogre') return false;
@@ -197,6 +207,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 535,
 		gen: 6,
 		isNonstandard: null,
+		shortDesc: "This item triggers Kyogre's Primal Reversion when switching into a Pokemon with a SE move.",
 	},
 	buginiumz: {
 		name: "Buginium Z",
@@ -906,13 +917,23 @@ export const Items: {[itemid: string]: ItemData} = {
 	redorb: {
 		name: "Red Orb",
 		spritenum: 390,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Groudon') {
-				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.name !== 'Groudon') return;
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						pokemon.formeChange('Groudon-Primal', this.effect, true);
+						return;
+					}
+				}
 			}
-		},
-		onPrimal(pokemon) {
-			pokemon.formeChange('Groudon-Primal', this.effect, true);
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Groudon') return false;
@@ -922,6 +943,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 534,
 		gen: 6,
 		isNonstandard: null,
+		shortDesc: "This item triggers Groudon's Primal Reversion when switching into a Pokemon with a SE move.",
 	},
 	rockiumz: {
 		name: "Rockium Z",
@@ -934,6 +956,52 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 788,
 		gen: 7,
 		isNonstandard: null,
+	},
+	rustedshield: {
+		name: "Rusted Shield",
+		spritenum: 699,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 889) || pokemon.baseSpecies.num === 889) {
+				return false;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if ((target && target.baseSpecies.num !== 889) || target.baseSpecies.num !== 889) return;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 4 && target.hp + damage > target.maxhp / 4) {
+				this.boost({def: 1});
+			}
+		},
+		forcedForme: "Zamazenta-Crowned",
+		itemUser: ["Zamazenta-Crowned"],
+		num: 1104,
+		gen: 8,
+		shortDesc: "If Zamazenta-Crowned: Defense is raised by 1 when it reaches 1/4 or less of its max HP.",
+	},
+	rustedsword: {
+		name: "Rusted Sword",
+		spritenum: 698,
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 888) || pokemon.baseSpecies.num === 888) {
+				return false;
+			}
+			return true;
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if ((source && source.baseSpecies.num !== 888) || source.baseSpecies.num !== 888) return;
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		forcedForme: "Zacian-Crowned",
+		itemUser: ["Zacian-Crowned"],
+		num: 1103,
+		gen: 8,
+		shortDesc: "If Zacian-Crowned: Attack is raised by 1 stage if it attacks and KOes another Pokemon.",
 	},
 	sablenite: {
 		name: "Sablenite",

@@ -332,7 +332,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	samurott: {
 		inherit: true,
 		types: ["Water", "Fighting"],
-		abilities: {0: "Torrent", H: "No Guard"},
+		abilities: {0: "Torrent", H: "Shell Armor"},
 	},
 	dewott: {
 		inherit: true,
@@ -771,7 +771,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	cresselia: {
 		inherit: true,
-		types: ["Fairy"],
+		types: ["Psychic", "Fairy"],
 		abilities: {0: "Levitate", 1: "Cloud Nine", H: "Gravitas"},
 	},
 	giratina: {
@@ -1204,7 +1204,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	weavile: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Scavenge", H: "Snow Cloak"},
+		abilities: {0: "Pressure", 1: "Pickpocket", H: "Snow Cloak"},
 	},
 	linoone: {
 		inherit: true,
@@ -1220,7 +1220,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	empoleon: {
 		inherit: true,
-		abilities: {0: "Torrent", H: "Unimpressed"},
+		abilities: {0: "Torrent", H: "Competitive"},
 	},
 	espurr: {
 		inherit: true,
@@ -1382,7 +1382,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Clear Body", 1: "Sturdy", H: "Sand Veil"},
 	},
-	carbink: {
+	shuckle: {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Sand Veil", H: "Contrary"},
 	},

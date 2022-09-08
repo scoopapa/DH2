@@ -145,6 +145,46 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData("Learnsets", "mothim").learnset.firelash = ["8L1"];
 		this.modData("Learnsets", "mothim").learnset.zingzap = ["8L1"];
+		
+		
+		this.modData('Learnsets', 'drednaw').learnset.closecombat = ["8M"];
+		this.modData('Learnsets', 'drednaw').learnset.flipturn = ["8M"];
+		
+		
+		this.modData("Learnsets", "drampaschroedinger").learnset.scald = ["8L1"];
+		this.modData("Learnsets", "drampaschroedinger").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "drampaschroedinger").learnset.triattack = ["8L1"];
+		
+		
+		this.modData('Learnsets', 'latias').learnset.moonblast = ['8L1'];
+		
+		
+		this.modData('Learnsets', 'golisopod').learnset.morningsun = ['8L1'];
+		
+		this.modData("Learnsets", "chatot").learnset.fierywrath = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.partingshot = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.flamethrower = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.firelash = ["8L1"];
+		this.modData("Learnsets", "chatot").learnset.willowisp = ["8L1"];
+		
+		
+		this.modData("Learnsets", "skuntank").learnset.stinkbomb = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.willowisp = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.thunderwave = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.gunkshot = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.blazekick = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.aromatherapy = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.bulkup = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.partingshot = ["8L1"];
+		this.modData("Learnsets", "skuntank").learnset.poisondart = ["8L1"];
+		
+		this.modData('Learnsets', 'garchomp').learnset.aridabsorption = ['8L1'];
+		
+		this.modData('Learnsets', 'munchlax').learnset.playrough = ['8L1'];
+		this.modData('Learnsets', 'munchlax').learnset.bodypress = ['8L1'];
+		delete this.modData('Learnsets', 'munchlax').learnset.recycle;
 	},
 	
 	teambuilderConfig: {
@@ -200,5 +240,138 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		this.runEvent('AfterMega', pokemon);
 		return true;
+	},
+	pokemon: {
+		//Included for abilities that make the user non-grounded:
+		//Levitate is checked for when running groundedness (ground immunity, iron ball, etc)
+		//So we manually add a check for Magnetic Waves here as well,
+		//Including a diffrent activation message 
+		//so that the game doesn't report it as having Levitate when it procs.
+		//AFFECTED ABILITIES: Leviflame
+		runImmunity(type: string, message?: string | boolean) {
+			if (!type || type === '???') return true;
+			if (!(type in this.battle.dex.data.TypeChart)) {
+				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+				throw new Error("Use runStatusImmunity for " + type);
+			}
+			if (this.fainted) return false;
+			const negateResult = this.battle.runEvent('NegateImmunity', this, type);
+			let isGrounded;
+			if (type === 'Ground') {
+				isGrounded = this.isGrounded(!negateResult);
+				if (isGrounded === null) {
+					if (message) {
+						if (this.battle.hasAbility('leviflame')) {
+							this.battle.add('-immune', this, '[from] ability: Leviflame');
+						} else if (this.battle.hasAbility('levitate')) {
+							this.battle.add('-immune', this, '[from] ability: Levitate');
+						}
+					}
+					return false;
+				}
+			}
+			if (!negateResult) return true;
+			if ((isGrounded === undefined && !this.battle.dex.getImmunity(type, this)) || isGrounded === false) {
+				if (message) {
+					this.battle.add('-immune', this);
+				}
+				return false;
+			}
+			return true;
+		},
+		
+		isGrounded(negateImmunity = false) {
+			if ('gravity' in this.battle.field.pseudoWeather) return true;
+			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
+			if ('smackdown' in this.volatiles) return true;
+			const item = (this.ignoringItem() ? '' : this.item);
+			if (item === 'ironball') return true;
+			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
+			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
+			if ((this.hasAbility('levitate') || this.hasAbility('leviflame'))&& !this.battle.suppressingAttackEvents()) return null;
+			if ('magnetrise' in this.volatiles) return false;
+			if ('telekinesis' in this.volatiles) return false;
+			return item !== 'airballoon';
+		},
+    },
+	modifyDamage(
+		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
+	) {
+		const tr = this.trunc;
+		if (!move.type) move.type = '???';
+		const type = move.type;
+
+		baseDamage += 2;
+
+		// multi-target modifier (doubles only)
+		if (move.spreadHit) {
+			const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
+			this.debug('Spread modifier: ' + spreadModifier);
+			baseDamage = this.modify(baseDamage, spreadModifier);
+		}
+
+		// weather modifier
+		baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+
+		// crit - not a modifier
+		const isCrit = target.getMoveHitData(move).crit;
+		if (isCrit) {
+			baseDamage = tr(baseDamage * (move.critModifier || (this.gen >= 6 ? 1.5 : 2)));
+		}
+
+		// random factor - also not a modifier
+		baseDamage = this.randomizer(baseDamage);
+
+		// STAB
+		if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
+			// The "???" type never gets STAB
+			// Not even if you Roost in Gen 4 and somehow manage to use
+			// Struggle in the same turn.
+			// (On second thought, it might be easier to get a MissingNo.)
+			baseDamage = this.modify(baseDamage, move.stab || 1.5);
+		}
+		// types
+		let typeMod = target.runEffectiveness(move);
+		typeMod = this.clampIntRange(typeMod, -6, 6);
+		target.getMoveHitData(move).typeMod = typeMod;
+		if (typeMod > 0) {
+			if (!suppressMessages) this.add('-supereffective', target);
+
+			for (let i = 0; i < typeMod; i++) {
+				baseDamage *= 2;
+			}
+		}
+		if (typeMod < 0) {
+			if (!suppressMessages) this.add('-resisted', target);
+
+			for (let i = 0; i > typeMod; i--) {
+				baseDamage = tr(baseDamage / 2);
+			}
+		}
+
+		if (isCrit && !suppressMessages) this.add('-crit', target);
+
+		if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts') && !pokemon.hasAbility('fromashes')) {
+			if (this.gen < 6 || move.id !== 'facade') {
+				baseDamage = this.modify(baseDamage, 0.5);
+			}
+		}
+		
+		// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
+		if (this.gen === 5 && !baseDamage) baseDamage = 1;
+
+		// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
+		baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+
+		if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
+			baseDamage = this.modify(baseDamage, 0.25);
+			this.add('-zbroken', target);
+		}
+
+		// Generation 6-7 moves the check for minimum 1 damage after the final modifier...
+		if (this.gen !== 5 && !baseDamage) return 1;
+
+		// ...but 16-bit truncation happens even later, and can truncate to 0
+		return tr(baseDamage, 16);
 	},
 };

@@ -1849,4 +1849,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Grapploct, this item allows it to Mega Evolve in battle.",
 	},
+	snorlaxite: {
+		name: "Snorlaxite",
+		spritenum: 578,
+		megaStone: "Snorlax-Mega",
+		megaEvolves: "Snorlax",
+		itemUser: ["Snorlax"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1121,
+		gen: 8,
+		desc: "If held by a Snorlax, this item allows it to Mega Evolve in battle.",
+	},
+	swalonite: {
+		name: "Swalonite",
+		spritenum: 578,
+		megaStone: "Swalot-Mega",
+		megaEvolves: "Swalot",
+		itemUser: ["Swalot"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1122,
+		gen: 8,
+		desc: "If held by a Swalot, this item allows it to Mega Evolve in battle.",
+	},
+	wailordite: {
+		name: "Wailordite",
+		spritenum: 578,
+		megaStone: "Wailord-Mega",
+		megaEvolves: "Wailord",
+		itemUser: ["Wailord"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1123,
+		gen: 8,
+		desc: "If held by a Wailord, this item allows it to Mega Evolve in battle.",
+	},
 };

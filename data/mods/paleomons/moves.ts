@@ -28,6 +28,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Brave Bird", target);
+        },
 		secondary: {
 			chance: 30,
 			volatileStatus: 'flinch',
@@ -49,6 +53,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
 		drain: [1, 2],
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Draining Kiss", target);
+        },
 		secondary: null,
 		target: "normal",
 		type: "Poison",
@@ -115,6 +123,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.addVolatile('tarshot');
 				},
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Stealth Rock", target);
+        },
 		secondary: null,
 		target: "foeSide",
 		type: "Fire",
@@ -133,6 +145,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Energy Ball", target);
+        },
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -177,6 +193,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Echoed Voice", target);
+        },
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -204,6 +224,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return priority +1;
 			}
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Crunch", target);
+        },
 		target: "normal",
 		type: "Dragon",
 	},
@@ -248,6 +272,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move) {
 			if (this.field.isWeather('hail')) move.accuracy = true;
 		},
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Blizzard", target);
+        },
 		secondary: {
 			chance: 10,
 			status: 'frz',
@@ -255,6 +283,244 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Flying",
 	},
+
+	luminousdarts: {
+		num: -108,
+		accuracy: 100,
+		basePower: 45,
+		category: "Physical",
+		name: "Luminous Darts",
+		desc: "Hits the target twice. Each hit bypasses Substitute, Reflect, etc.",
+		shortDesc: "Hits twice. Bypasses Substitute, Reflect, etc.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, authentic: 1},
+		onHit(pokemon, source, move) {
+			move.infiltrates = true;
+		},
+		multihit: 2,
+		onPrepareHit(target, source, move) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Dragon Darts", target);
+        },
+		smartTarget: true,
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		maxMove: {basePower: 130},
+	},
+
+	superdrill: {
+		num: -109,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Super Drill",
+		desc: "If this move is successful, removes all hazards from the user's side of the field. If this move fails, sets one layer of Spikes on the opponent's side of the field..",
+		shortDesc: "Frees user from hazards. If this move fails, sets Spikes on the opponent's side.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onAfterHit(target, pokemon) {
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Super Drill', '[of] ' + pokemon);
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, pokemon) {
+			if (pokemon.hp && pokemon.removeVolatile('leechseed')) {
+				this.add('-end', pokemon, 'Leech Seed', '[from] move: Super Drill', '[of] ' + pokemon);
+			}
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Super Drill', '[of] ' + pokemon);
+				}
+			}
+			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
+				pokemon.removeVolatile('partiallytrapped');
+			}
+		},
+		onMoveFail(target, source, move) {
+			source.side.foe.addSideCondition('spikes');
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+
+	stickkick: {
+		num: -110,
+		accuracy: 90, 
+		basePower: 130,
+		category: "Physical",
+		name: "Stick Kick",
+		desc: "If this attack is not successful, the user loses half of its maximum HP, rounded down, as crash damage. Pokemon with the Magic Guard Ability are unaffected by crash damage.",
+		shortDesc: "User is hurt by 50% of its max HP if it misses.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1},
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		maxMove: {basePower: 130},
+	},
+
+	photonball: {
+		num: -111,
+		accuracy: 100,
+		basePower: 110,
+		category: "Physical",
+		name: "Photon Ball",
+		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "100% chance to raise the user's Speed by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spe: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
+
+	furioustusks: {
+		num: -112,
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		name: "Furious Tusks",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Fighting",
+		maxMove: {basePower: 100},
+		contestType: "Cool",
+	},
+	
+	primevalrock: {
+		num: -113,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Primeval Rock",
+		pp: 5,
+		priority: 0,
+		flags: {authentic: 1, mirror: 1, protect: 1, sound: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+	},
+
+	flintspear: {
+		num: -114,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Flint Spear",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'flintspear',
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Flint Spear');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Fire') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
+
+	foragerspoise: {
+		num: 588,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Forager's Poise",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'foragerspoise',
+		onTryHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					target.addVolatile('foragercrit');
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.flags['contact']) {
+					this.boost({atk: -1}, source, target, this.dex.getActiveMove("Forager's Poise"));
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
+
 
 	//
 	//
@@ -636,5 +902,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
+	},
+
+	naturalgift: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return;
+			move.type = item.naturalGift.type;
+		},
+		onPrepareHit(target, pokemon, move) {
+			if (pokemon.ignoringItem()) return false;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return false;
+			move.basePower = item.naturalGift.basePower;
+			if (!pokemon.hasAbility('natureprowess')) {
+				pokemon.setItem('');
+				pokemon.lastItem = item.id;
+				pokemon.usedItemThisTurn = true;
+				this.runEvent('AfterUseItem', pokemon, null, null, item);
+			}
+		},
 	},
 };

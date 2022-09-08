@@ -375,6 +375,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Bug",
 		itemUser: ["Silvally-Bug"],
+		gen: 3,
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -387,6 +388,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Dark",
 		itemUser: ["Silvally-Dark"],
+		gen: 3,
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
@@ -399,6 +401,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Dragon",
 		itemUser: ["Silvally-Dragon"],
+		gen: 3,
 	},
 	electricmemory: {
 		name: "Electric Memory",
@@ -411,6 +414,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Electric",
 		itemUser: ["Silvally-Electric"],
+		gen: 3,
 	},
 	fightingmemory: {
 		name: "Fighting Memory",
@@ -423,6 +427,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Fighting",
 		itemUser: ["Silvally-Fighting"],
+		gen: 3,
 	},
 	firememory: {
 		name: "Fire Memory",
@@ -435,6 +440,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Fire",
 		itemUser: ["Silvally-Fire"],
+		gen: 3,
 	},
 	flyingmemory: {
 		name: "Flying Memory",
@@ -447,6 +453,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Flying",
 		itemUser: ["Silvally-Flying"],
+		gen: 3,
 	},
 	ghostmemory: {
 		name: "Ghost Memory",
@@ -459,6 +466,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Ghost",
 		itemUser: ["Silvally-Ghost"],
+		gen: 3,
 	},
 	grassmemory: {
 		name: "Grass Memory",
@@ -471,6 +479,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Grass",
 		itemUser: ["Silvally-Grass"],
+		gen: 3,
 	},
 	groundmemory: {
 		name: "Ground Memory",
@@ -483,6 +492,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Ground",
 		itemUser: ["Silvally-Ground"],
+		gen: 3,
 	},
 	icememory: {
 		name: "Ice Memory",
@@ -495,6 +505,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Ice",
 		itemUser: ["Silvally-Ice"],
+		gen: 3,
 	},
 	poisonmemory: {
 		name: "Poison Memory",
@@ -508,6 +519,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Poison",
 		itemUser: ["Silvally-Poison"],
+		gen: 3,
 	},
 	psychicmemory: {
 		name: "Psychic Memory",
@@ -520,6 +532,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Psychic",
 		itemUser: ["Silvally-Psychic"],
+		gen: 3,
 	},
 	rockmemory: {
 		name: "Rock Memory",
@@ -532,6 +545,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Rock",
 		itemUser: ["Silvally-Rock"],
+		gen: 3,
 	},
 	steelmemory: {
 		name: "Steel Memory",
@@ -544,6 +558,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Steel",
 		itemUser: ["Silvally-Steel"],
+		gen: 3,
 	},
 	watermemory: {
 		name: "Water Memory",
@@ -556,98 +571,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		forcedForme: "Silvally-Water",
 		itemUser: ["Silvally-Water"],
-	},
-	assaultvest: {
-		name: "Assault Vest",
-		spritenum: 581,
-		fling: {
-			basePower: 80,
-		},
-		onModifySpDPriority: 1,
-		onModifySpD(spd) {
-			return this.chainModify(1.5);
-		},
-		onDisableMove(pokemon) {
-			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.getMove(moveSlot.move).category === 'Status') {
-					pokemon.disableMove(moveSlot.id);
-				}
-			}
-		},
-		num: 640,
-		gen: 6,
-		isNonstandard: "Past",
-	},
-	choicescarf: {
-		name: "Choice Scarf",
-		spritenum: 69,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock']) {
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
-			}
-			pokemon.removeVolatile('choicelock');
-		},
-		onModifyMove(move, pokemon) {
-			pokemon.addVolatile('choicelock');
-		},
-		onModifySpe(spe, pokemon) {
-			if (pokemon.volatiles['dynamax']) return;
-			return this.chainModify(1.5);
-		},
-		isChoice: true,
-		num: 287,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	choicespecs: {
-		name: "Choice Specs",
-		spritenum: 70,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock']) {
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
-			}
-			pokemon.removeVolatile('choicelock');
-		},
-		onModifyMove(move, pokemon) {
-			pokemon.addVolatile('choicelock');
-		},
-		onModifySpAPriority: 1,
-		onModifySpA(spa, pokemon) {
-			if (pokemon.volatiles['dynamax']) return;
-			return this.chainModify(1.5);
-		},
-		isChoice: true,
-		num: 297,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	eviolite: {
-		name: "Eviolite",
-		spritenum: 130,
-		fling: {
-			basePower: 40,
-		},
-		onModifyDefPriority: 2,
-		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe) {
-				return this.chainModify(1.5);
-			}
-		},
-		onModifySpDPriority: 2,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe) {
-				return this.chainModify(1.5);
-			}
-		},
-		num: 538,
-		gen: 5,
-		isNonstandard: "Past",
+		gen: 3,
 	},
 	expertbelt: {
 		name: "Expert Belt",
@@ -661,101 +585,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		num: 268,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	focussash: {
-		name: "Focus Sash",
-		spritenum: 151,
-		fling: {
-			basePower: 10,
-		},
-		onDamage(damage, target, source, effect) {
-			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
-				if (target.useItem()) {
-					return target.hp - 1;
-				}
-			}
-		},
-		num: 275,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	heavydutyboots: {
-		name: "Heavy-Duty Boots",
-		spritenum: 715,
-		fling: {
-			basePower: 80,
-		},
-		num: 1120,
-		gen: 8,
-		isNonstandard: "Past",
-	},
-	lifeorb: {
-		name: "Life Orb",
-		spritenum: 249,
-		fling: {
-			basePower: 30,
-		},
-		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([0x14CC, 0x1000]);
-		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (source && source !== target && move && move.category !== 'Status') {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('lifeorb'));
-			}
-		},
-		num: 270,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	powerherb: {
-		onChargeMove(pokemon, target, move) {
-			if (pokemon.useItem()) {
-				this.debug('power herb - remove charge turn for ' + move.id);
-				this.attrLastMove('[still]');
-				this.addMove('-anim', pokemon, move.name, target);
-				return false; // skip charge turn
-			}
-		},
-		name: "Power Herb",
-		spritenum: 358,
-		fling: {
-			basePower: 10,
-		},
-		num: 271,
-		gen: 4,
-		isNonstandard: "Past",
-	},
-	rockyhelmet: {
-		name: "Rocky Helmet",
-		spritenum: 417,
-		fling: {
-			basePower: 60,
-		},
-		onDamagingHitOrder: 2,
-		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact']) {
-				this.damage(source.baseMaxhp / 6, source, target);
-			}
-		},
-		num: 540,
-		gen: 5,
-		isNonstandard: "Past",
-	},
-	expertbelt: {
-		name: "Expert Belt",
-		spritenum: 132,
-		fling: {
-			basePower: 10,
-		},
-		onModifyDamage(damage, source, target, move) {
-			if (move && target.getMoveHitData(move).typeMod > 0) {
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		num: 268,
-		gen: 4,
+		gen: 3,
 	},
 	thickclub: {
 		name: "Thick Club",
@@ -790,78 +620,112 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	occaberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	passhoberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	wacanberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	rindoberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	yacheberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	chopleberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	kebiaberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	shucaberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	cobaberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	payapaberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	tangaberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	chartiberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	kasibberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	habanberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	colburberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	babiriberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	chilanberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	custapberry: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
 	},
 	airballoon: {
 		inherit: true,
-		isNonstandard: null,
+		gen: 3,
+	},
+	
+	
+	assaultvest: {
+		inherit: true,
+		isViable: false,
+	},
+	choicescarf: {
+		inherit: true,
+		isViable: false,
+	},
+	choicespecs: {
+		inherit: true,
+		isViable: false,
+	},
+	eviolite: {
+		inherit: true,
+		isViable: false,
+	},
+	focussash: {
+		inherit: true,
+		isViable: false,
+	},
+	heavydutyboots: {
+		inherit: true,
+		isViable: false,
+	},
+	lifeorb: {
+		inherit: true,
+		isViable: false,
+	},
+	rockyhelmet: {
+		inherit: true,
+		isViable: false,
 	},
 };

@@ -303,12 +303,12 @@ exports.chatmodchat = '+';
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | AuthLevel}
  */
-exports.battlemodchat = '+';
+exports.battlemodchat = false;
 /**
  * PM modchat - minimum group for sending private messages or challenges to other users
  * @type {false | AuthLevel}
  */
-exports.pmmodchat = '+';
+exports.pmmodchat = false;
 /**
  * ladder modchat - minimum group for laddering
  * @type {false | GroupSymbol}

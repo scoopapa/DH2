@@ -1,31 +1,3 @@
-/*
-
-List of flags and their descriptions:
-
-authentic: Ignores a target's substitute.
-bite: Power is multiplied by 1.5 when used by a Pokemon with the Strong Jaw Ability.
-bullet: Has no effect on Pokemon with the Bulletproof Ability.
-charge: The user is unable to make a move between turns.
-contact: Makes contact.
-dance: When used by a Pokemon, other Pokemon with the Dancer Ability can attempt to execute the same move.
-defrost: Thaws the user if executed successfully while the user is frozen.
-distance: Can target a Pokemon positioned anywhere in a Triple Battle.
-gravity: Prevented from being executed or selected during Gravity's effect.
-heal: Prevented from being executed or selected during Heal Block's effect.
-mirror: Can be copied by Mirror Move.
-mystery: Unknown effect.
-nonsky: Prevented from being executed or selected in a Sky Battle.
-powder: Has no effect on Grass-type Pokemon, Pokemon with the Overcoat Ability, and Pokemon holding Safety Goggles.
-protect: Blocked by Detect, Protect, Spiky Shield, and if not a Status move, King's Shield.
-pulse: Power is multiplied by 1.5 when used by a Pokemon with the Mega Launcher Ability.
-punch: Power is multiplied by 1.2 when used by a Pokemon with the Iron Fist Ability.
-recharge: If this move is successful, the user must recharge on the following turn and cannot make a move.
-reflectable: Bounced back to the original user by Magic Coat or the Magic Bounce Ability.
-snatch: Can be stolen from the original user and instead used by another Pokemon using Snatch.
-sound: Has no effect on Pokemon with the Soundproof Ability.
-
-*/
-
 export const Moves: {[moveid: string]: MoveData} = {
 	baddybad: {
 		inherit: true,
@@ -226,7 +198,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'psn',
 		},
 		target: "normal",
-		type: "Poison",
+		type: "Water",
 	},
 	splishysplash: {
 		inherit: true,
@@ -374,22 +346,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 	primordialfrost: {
 		num: 1001,
 		accuracy: 90,
-		basePower: 160,
+		basePower: 130,
 		category: "Special",
-		shortDesc: "The user cannot move on the next turn. Summons Mist.",
+		shortDesc: "Lowers the user's Sp. Atk by 2.",
 		name: "Primordial Frost",
-		pp: 10,
+		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1, nonsky: 1},
-		sideCondition: 'mist',
+		flags: {protect: 1, mirror: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Max Hailstorm", target);
 		},
 		self: {
-			volatileStatus: 'mustrecharge',
+			boosts: {
+				spa: -2,
+			},
 		},
-		secondary: true,
+		secondary: null,
 		target: "normal",
 		type: "Ice",
 		contestType: "Cool",
@@ -416,7 +389,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onResidualOrder: 5,
 			onResidualSubOrder: 1.1,
-			onResidual(target) {
+			onResidual(targetSide) {
 				for (const pokemon of targetSide.active) {
 					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 16, pokemon);
 				}
@@ -521,10 +494,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onHit(source) {
 				if (this.randomChance(1, 1)) {
 					for (const pokemon of source.side.active) {
-						if (!pokemon.item && pokemon.lastItem && this.dex.items.get(pokemon.lastItem).isBerry) {
+						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
 							const item = pokemon.lastItem;
 							pokemon.lastItem = '';
-							this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Egg Bomb');
+							this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
 							pokemon.setItem(item);
 						}
 					}
@@ -644,8 +617,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	coralcrash: {
 		num: 1006,
-		accuracy: 100,
-		basePower: 80,
+		accuracy: 90,
+		basePower: 110,
 		category: "Physical",
 		shortDesc: " Has 1/4 recoil. 10% chance to lower the target's Special Attack by 1.",
 		name: "Coral Crash",
@@ -672,14 +645,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
-		shortDesc: "10% chance to sleep. Hits Dark-types super effectively.",
+		shortDesc: "10% chance to sleep. Super effective on Steel.",
 		name: "Relic Song (Meloetta)",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		ignoreImmunity: {'Psychic': true},
 		onEffectiveness(typeMod, target, type) {
-			if (type === 'Dark') return 1;
+			if (type === 'Steel') return 1;
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -690,7 +662,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			status: 'slp',
 		},
 		target: "allAdjacentFoes",
-		type: "Psychic",
+		type: "Fairy",
 		contestType: "Beautiful",
 	},
 	rockyslash: {
@@ -836,7 +808,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 	},
-	gulpmissle: {
+	gulpmissile: {
 		num: 1011,
 		accuracy: 100,
 		basePower: 90,
@@ -847,8 +819,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 		category: "Special",
-		shortDesc: "If Cramorant: 1.5x power; if Swimmer: Summons rain, when moves last.",
-		name: "Gulp Missle",
+		shortDesc: "Cramorant: 1.5x power; Swimmer: Summons rain, when moves last.",
+		name: "Gulp Missile",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
@@ -882,14 +854,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 	lightblast: {
 		num: 1013,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 80,
 		category: "Special",
 		shortDesc: "Uses user's SpD stat as SpA in damage calculation.",
 		name: "Light Blast",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		overrideOffensiveStat: "spd",
+		useSourceDefensiveAsOffensive: true,
 		secondary: undefined,
 		target: "normal",
 		type: "Fairy",
@@ -920,7 +892,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
-		shortDesc: "Hits 3-6 times in one turn. Grounds adjacent foes. First hit neutral on Flying.",
+		shortDesc: "Hits 3-6 times in one turn. Grounds adjacent foes.",
 		name: "Thousand Arrows",
 		pp: 10,
 		priority: 0,
@@ -963,7 +935,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "User recovers 25% of the damage dealt.",
+		shortDesc: "User recovers 50% of the damage dealt.",
 		name: "Land's Wrath",
 		pp: 10,
 		priority: 0,

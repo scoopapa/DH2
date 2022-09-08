@@ -6,7 +6,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePower(basePower, user, target, move) {
 			if (
 				move && ((user.baseSpecies.num === 380) && (move.type === 'Fairy' || move.type === 'Dragon')) 
-				|| ((user.baseSpecies.num === 381) && (move.type === 'Dragon' || move.type === 'Psychic'))
+				|| ((user.baseSpecies.num === 381) && (move.type === 'Dragon' || move.type === 'Electric'))
 			) {
 				return this.chainModify([0x1333, 0x1000]);
 			}

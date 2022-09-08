@@ -1,26 +1,5 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
-	glameow: { tier: "Evo (NFE)" },
-	purugly: { tier: "Evo!" },
-
-	skwovet: { tier: "Evo (NFE)" },
-	greedent: { tier: "Evo (NFE)" }, // evolves into Farmunk
-	farmunk: { tier: "Evo!" },
-
-	rattata: { tier: "Evo (NFE)" },
-	rattataalola: { tier: "Evo (NFE)" },
-	raticate: { tier: "Evo (NFE)" }, // evolves into Plaguicate
-	raticatealola: { tier: "Evo!" }, // does not have an evolution as of now
-	plaguicate: { tier: "Evo!" },
-
-	meowth: { tier: "Evo (NFE)" },
-	meowthalola: { tier: "Evo (NFE)" },
-	meowthgalar: { tier: "Evo (NFE)" },
-	persian: { tier: "Evo (NFE)" }, // evolves into Carnelion
-	persianalola: { tier: "Evo!" },
-	carnelion: { tier: "Evo!" },
-	perrserker: { tier: "Evo!" },
-
 	eevee: { tier: "Evo (NFE)" },
 	vaporeon: { tier: "Evo!" },
 	jolteon: { tier: "Evo!" },
@@ -30,10 +9,70 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	leafeon: { tier: "Evo!" },
 	glaceon: { tier: "Evo!" },
 	sylveon: { tier: "Evo!" },
+	aleon: { tier: "Evo!" },
+
+	patrat: { tier: "Evo (NFE)" },
+	watchog: { tier: "Evo (NFE)" },
+	chukaurd: { tier: "Evo!" }, // evolves into Chukaurd
+
+	glameow: { tier: "Evo (NFE)" },
+	purugly: { tier: "Evo!" },
+
+	skwovet: { tier: "Evo (NFE)" },
+	greedent: { tier: "Evo (NFE)" }, // evolves into Farmunk
+	farmunk: { tier: "Evo!" },
+
+	seel: { tier: "Evo (NFE)" },
+	seelvariant: { tier: "Evo (NFE)" },
+	dewgong: { tier: "Evo!" },
+	dewgongvariant: { tier: "Evo!" },
+
+	spinda: { tier: "Evo (NFE)" }, // evolves into Trippan
+	trippan: { tier: "Evo!" },
+
+	whismur: { tier: "Evo (NFE)" },
+	whismurvariant: { tier: "Evo (NFE)" },
+	loudred: { tier: "Evo (NFE)" },
+	loudredvariant: { tier: "Evo (NFE)" },
+	exploud: { tier: "Evo!" },
+	boomblare: { tier: "Evo!" },
+
+	rattata: { tier: "Evo (NFE)" },
+	rattataalola: { tier: "Evo (NFE)" },
+	raticate: { tier: "Evo (NFE)" }, // evolves into Plaguicate
+	raticatealola: { tier: "Evo!" }, // does not have an evolution as of now
+	plaguicate: { tier: "Evo!" },
 
 	hoothoot: { tier: "Evo (NFE)" },
 	noctowl: { tier: "Evo (NFE)" }, // evolves into Hoobarn
 	hoobarn: { tier: "Evo!" },
+
+	starly: { tier: "Evo (NFE)" },
+	starlycrown: { tier: "Evo!" },
+	starlycrowncloud: { tier: "Evo!" },
+	staravia: { tier: "Evo (NFE)" },
+	staraptor: { tier: "Evo!" },
+
+	snom: { tier: "Evo (NFE)" },
+	snomvariant: { tier: "Evo (NFE)" },
+	frosmoth: { tier: "Evo!" },
+	frosmothvariant: { tier: "Evo!" },
+
+	meowth: { tier: "Evo (NFE)" },
+	meowthalola: { tier: "Evo (NFE)" },
+	meowthgalar: { tier: "Evo (NFE)" },
+	persian: { tier: "Evo (NFE)" }, // evolves into Carnelion
+	persianalola: { tier: "Evo!" },
+	carnelion: { tier: "Evo!" },
+	perrserker: { tier: "Evo!" },
+
+	baltoy: { tier: "Evo (NFE)" },
+	baltoyvariant: { tier: "Evo (NFE)" },
+	claydol: { tier: "Evo!" },
+	playdol: { tier: "Evo!" },
+
+	michu: { tier: "Evo (NFE)" }, // the first new baby!
+	mimikyu: { tier: "Evo!" },
 
 	igglybuff: { tier: "Evo (NFE)" },
 	jigglypuff: { tier: "Evo (NFE)" },
@@ -82,9 +121,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	whiscash: { tier: "Evo (NFE)" }, // evolves into Whiscazu
 	whiscazu: { tier: "Evo!" },
 
+	luvdisc: { tier: "Evo (NFE)" }, // evolves into Adourami
+	adourami: { tier: "Evo!" },
+
 	voltorb: { tier: "Evo (NFE)" },
 	electrode: { tier: "Evo (NFE)" }, // evolves into Ballistic
 	ballistic: { tier: "Evo!" },
+
+	sizzlipede: { tier: "Evo (NFE)" },
+	sizzlipedekanto: { tier: "Evo (NFE)" },
+	centiskorch: { tier: "Evo!" },
+	centiskorchkanto: { tier: "Evo!" },
 
 	rotom: { tier: "Evo!" },
 	rotomheat: { tier: "Evo!" },
@@ -92,6 +139,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rotommow: { tier: "Evo!" },
 	rotomfrost: { tier: "Evo!" },
 	rotomfan: { tier: "Evo!" },
+
+	mareep: { tier: "Evo (NFE)" },
+	flaaffy: { tier: "Evo (NFE)" },
+	ampharos: { tier: "Evo!" },
+	voltangent: { tier: "Evo!" },
+
+	shinx: { tier: "Evo (NFE)" },
+	luxio: { tier: "Evo (NFE)" },
+	luxray: { tier: "Evo!" },
+	luxrayjohto: { tier: "Evo!" },
 
 	dedenne: { tier: "Evo!" },
 
@@ -120,6 +177,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tropius: { tier: "Evo (NFE)" }, // evolves into Musasoar
 	musasoar: { tier: "Evo!" },
 
+	onix: { tier: "Evo (NFE)" },
+	onixcrystal: { tier: "Evo (NFE)" },
+	steelix: { tier: "Evo!" },
+	steelixcrystal: { tier: "Evo!" },
+
 	snover: { tier: "Evo (NFE)" },
 	abomasnow: { tier: "Evo!" },
 	skiversnow: { tier: "Evo!" },
@@ -134,6 +196,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	swablu: { tier: "Evo (NFE)" },
 	altaria: { tier: "Evo!" },
 	tenoris: { tier: "Evo!" },
+
+	solosis: { tier: "Evo (NFE)" },
+	solosisneural: { tier: "Evo (NFE)" },
+	duosion: { tier: "Evo (NFE)" },
+	duosionneural: { tier: "Evo (NFE)" },
+	reuniclus: { tier: "Evo!" }, // this is banned, but it's part of the dex (relevant for VGC too)
+	reuniclusneural: { tier: "Evo!" },
 
 	falinks: { tier: "Evo!" },
 	falinksterracotta: { tier: "Evo!" },
@@ -151,6 +220,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	slurpuff: { tier: "Evo!" },
 	slurpuffvariant: { tier: "Evo!" },
 
+	ekans: { tier: "Evo (NFE)" },
+	arbok: { tier: "Evo (NFE)" }, // evolves into Condana
+	condana: { tier: "Evo!" },
+	condanacoiled: { tier: "Evo!" },
+
 	morelull: { tier: "Evo (NFE)" },
 	shiinotic: { tier: "Evo!" },
 	shiinotickalos: { tier: "Evo!" },
@@ -162,8 +236,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	drilbur: { tier: "Evo (NFE)" },
 	drilburhisui: { tier: "Evo (NFE)" },
-	excadrill: { tier: "Evo!" },
+	excadrill: { tier: "Evo!" }, // this is banned, but it's part of the dex (relevant for VGC too)
 	excadrillhisui: { tier: "Evo!" },
+
+	cubone: { tier: "Evo (NFE)" },
+	marowak: { tier: "Evo (NFE)" }, // evolves into Resurrectric
+	marowakalola: { tier: "Evo!" },
+	resurrectric: { tier: "Evo!" },
 
 	silicobra: { tier: "Evo (NFE)" },
 	sandaconda: { tier: "Evo (NFE)" }, // evolves into Coilrig
@@ -206,8 +285,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vivillonpokeball: { tier: "Evo!" },
 	coconfetti: { tier: "Evo!" },
 
+	wimpod: { tier: "Evo (NFE)" },
+	golisopod: { tier: "Evo!" },
+	narcissopod: { tier: "Evo!" },
+
+	blipbug: { tier: "Evo (NFE)" },
+	dottler: { tier: "Evo (NFE)" },
+	orbeetle: { tier: "Evo!" },
+	orbeetlevariant: { tier: "Evo!" },
+
 	joltik: { tier: "Evo (NFE)" },
 	galvantula: { tier: "Evo!" },
+
+	scyther: { tier: "Evo (NFE)" },
+	scizor: { tier: "Evo!" }, // this is banned, but it's part of the dex (relevant for VGC too)
+	sundor: { tier: "Evo!" },
+	// just you wait and see this line next slate...
 
 	venipede: { tier: "Evo (NFE)" },
 	venipedevariant: { tier: "Evo (NFE)" },
@@ -228,6 +321,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	accelgor: { tier: "Evo (NFE)" }, // evolves into Velocinobi
 	velocinobi: { tier: "Evo!" },
 
+	poipole: { tier: "Evo (NFE)" },
+	poipoleterrestrial: { tier: "Evo (NFE)" },
+	naganadel: { tier: "Evo!" }, // this is banned, but it's part of the dex (relevant for VGC too)
+	naganadelvariant: { tier: "Evo!" },
+
 	burmy: { tier: "Evo (NFE)" },
 	wormadam: { tier: "Evo!" },
 	wormadamsandy: { tier: "Evo!" },
@@ -240,8 +338,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	oonabee: { tier: "Evo!" },
 
 	staryu: { tier: "Evo (NFE)" },
-	starmie: { tier: "Evo!" },
+	starmie: { tier: "Evo!" }, // this is banned, but it's part of the dex (relevant for VGC too)
 	starmievariant: { tier: "Evo!" },
+
+	golett: { tier: "Evo (NFE)" },
+	golettvariant: { tier: "Evo (NFE)" },
+	golurk: { tier: "Evo!" },
+	golurkvariant: { tier: "Evo!" },
 
 	rolycoly: { tier: "Evo (NFE)" },
 	carkol: { tier: "Evo (NFE)" },
@@ -301,6 +404,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	// it was going to be a flavorfully unconventional "line" either way!
 	// and hey, it even has a signature LGPE move!!
 
+	yamask: { tier: "Evo (NFE)" },
+	yamaskgalar: { tier: "Evo (NFE)" },
+	cofagrigus: { tier: "Evo!" },
+	cofagrigusunbound: { tier: "Evo!" },
+	runerigus: { tier: "Evo!" },
+
 	inkay: { tier: "Evo (NFE)" },
 	inkayalola: { tier: "Evo (NFE)" },
 	malamar: { tier: "Evo!" },
@@ -308,23 +417,43 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	sinistea: { tier: "Evo (NFE)" },
 	sinisteadarkroast: { tier: "Evo (NFE)" },
-	polteageist: { tier: "Evo!" },
+	polteageist: { tier: "Evo!" }, // this is banned, but it's part of the dex (relevant for VGC too)
 	polteageistcoldbrew: { tier: "Evo!" },
 
 	scraggy: { tier: "Evo (NFE)" },
-	scrafty: { tier: "Evo (NFE)" }, // evolves into Scrafiti
+	scrafty: { tier: "Evo!" }, // no longer evolves into Scrafiti
 	scrafiti: { tier: "Evo!" },
+
+	horsea: { tier: "Evo (NFE)" },
+	horseavariant: { tier: "Evo (NFE)" },
+	seadra: { tier: "Evo (NFE)" },
+	seadravariant: { tier: "Evo (NFE)" },
+	kingdra: { tier: "Evo!" },
+	tyrandra: { tier: "Evo!" },
+
+	aron: { tier: "Evo (NFE)" },
+	lairon: { tier: "Evo (NFE)" },
+	aggron: { tier: "Evo!" },
+	aggronhisui: { tier: "Evo!" },
 
 	slugma: { tier: "Evo (NFE)" },
 	slugmagalar: { tier: "Evo (NFE)" },
 	magcargo: { tier: "Evo!" },
 	magcargogalar: { tier: "Evo!" },
 
-	onix: { tier: "Evo (NFE)" },
-	steelix: { tier: "Evo!" },
+	togepi: { tier: "Evo (NFE)" },
+	togepiunidentified: { tier: "Evo (NFE)" },
+	togetic: { tier: "Evo (NFE)" },
+	togeticunidentified: { tier: "Evo (NFE)" },
+	togekiss: { tier: "Evo!" },
+	togekissunidentified: { tier: "Evo!" },
 
 	bronzor: { tier: "Evo (NFE)" },
 	bronzong: { tier: "Evo!" },
+
+	klefki: { tier: "Evo!" },
+	klefkigalar: { tier: "Evo!" },
+	klefkigalarrevealed: { tier: "Evo!" },
 
 	spritzee: { tier: "Evo (NFE)" },
 	aromatisse: { tier: "Evo!" },

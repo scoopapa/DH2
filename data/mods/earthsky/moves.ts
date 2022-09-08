@@ -221,30 +221,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1},
 		beforeTurnCallback(pokemon) {
-			/*let this.effectData.execInfo = [ //stores start-of-turn state of anything that could disrupt the move.
-				pokemon.status, pokemon.volatiles, pokemon.getMoveData(('fullcollide' as ID)).pp
-			];*/
 			if(!['slp', 'frz'].includes(pokemon.status)) pokemon.addVolatile('fullcollide');
 		},
-		/*onBeforeMovePriority: 100,
-		onBeforeMove(pokemon, target, move) {
-			const execInfo = this.effectData.execInfo;
-			if(
-				//Sleep or freeze inflicted this turn
-				(!(execInfo[0] === 'slp' || execInfo[0] === 'frz') && (pokemon.status === 'slp' || pokemon.status === 'frz')) ||
-				//Stops full paralysis, confusion, and attraction
-				(execInfo[0] === 'prz' || execInfo[1].includes('confusion') || execInfo[1].includes('attract')) ||
-				//Disable/Torment/Encore inflicted this turn
-				(!(execInfo[1].includes('flinch') || execInfo[1].includes('disable') || execInfo[1].includes('encore')) &&
-					(pokemon.volatiles('flinch') || pokemon.volatiles('disable') || pokemon.volatiles.includes('encore')))
-			) return;
-			//Removes obtained choice lock - it re-adds itself later
-			if (!(execInfo[1].includes('choicelock')) && pokemon.volatiles['choicelock']) pokemon.removeVolatile('choicelock');
-			//If move had PP but doesn't now (because it was drained), give it a temp PP to use this turn.
-			if(execInfo[2] > 0 && move.pp === 0) move.pp = 1;
-		},*/
 		secondary: null,
-		condition:{
+		condition: {
 			duration: 1,
 			//All other implementation done in the other statuses
 			onEnd(pokemon) {
@@ -1087,14 +1067,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	bonemerang: {
 		inherit: true,
 		basePower: 40,
-		onEffectiveness(typeMod, target, type, move) {
-			if (move.type !== 'Ground') return;
-			if (!target) return; // avoid crashing when called from a chat plugin
-			// ignore effectiveness if the target is Flying type and immune to Ground
-			if (!target.runImmunity('Ground')) {
-				return 0;
-			}
-		},
+		ignoreImmunity: {'Ground': true},
 		shortDesc: "Hits two times in one turn. Can hit floating foe.",
 		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. This move ignores immunity to Ground moves, treating the Flying-type as neutrally effective.",
 	},
@@ -2406,11 +2379,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: 100,
 	},
-	metalsound: {
-		inherit: true,
-		target: "allAdjacentFoes",
-		shortDesc: "Lowers the target(s)' Sp. Def by 2.",
-	},
 	mindreader: {
 		num: 170,
 		accuracy: true,
@@ -3701,9 +3669,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1},
 	},
 	thousandarrows: {
-		inherit: true,
-		volatileStatus: '',
-		desc: "This move can hit airborne Pokemon, which includes Flying-type Pokemon, Pokemon with the Levitate Ability, Pokemon holding an Air Balloon, and Pokemon under the effect of Magnet Rise, Telekinesis, or Rising Chorus. This move can hit a target using Bounce, Fly, or Sky Drop.",
+		num: 614,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thousand Arrows",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		ignoreImmunity: {'Ground': true},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Beautiful",
+		desc: "This move ignores immunity to Ground moves, treating the Flying-type as neutrally effective.",
 		shortDesc: "Hits adjacent foes. Can hit floating foes.",
 	},
 	thunderfang: {
@@ -4305,28 +4284,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			source.addVolatile('fling');
 		},
 	},
-	followme: {
-		inherit: true,
-		condition: {
-			duration: 1,
-			onStart(target, source, effect) {
-				if (effect?.id === 'zpower') {
-					this.add('-singleturn', target, 'move: Follow Me', '[zeffect]');
-				} else {
-					this.add('-singleturn', target, 'move: Follow Me');
-				}
-			},
-			onFoeRedirectTargetPriority: 1,
-			onFoeRedirectTarget(target, source, source2, move) {
-				if(source.hasAbility('innerfocus')) return target;
-				if (!this.effectData.target.isSkyDropped() && this.validTarget(this.effectData.target, source, move.target)) {
-					if (move.smartTarget) move.smartTarget = false;
-					this.debug("Follow Me redirected target of move");
-					return this.effectData.target;
-				}
-			},
-		},
-	},
 	geomancy: {
 		inherit: true,
 		flags: {charge: 1, nonsky: 1, snatch: 1},
@@ -4505,27 +4462,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		desc: "The user copies all of the target's current stat stage changes. This move fails if the target has the Ability Own Tempo.",
 	},
-	ragepowder: {
-		inherit: true,
-		condition: {
-			duration: 1,
-			onStart(pokemon) {
-				this.add('-singleturn', pokemon, 'move: Rage Powder');
-			},
-			onFoeRedirectTargetPriority: 1,
-			onFoeRedirectTarget(target, source, source2, move) {
-				if(source.hasAbility('innerfocus')) return target;
-				const ragePowderUser = this.effectData.target;
-				if (ragePowderUser.isSkyDropped()) return;
-
-				if (source.runStatusImmunity('powder') && this.validTarget(ragePowderUser, source, move.target)) {
-					if (move.smartTarget) move.smartTarget = false;
-					this.debug("Rage Powder redirected target of move");
-					return ragePowderUser;
-				}
-			},
-		},
-	},
 	reflecttype: {
 		inherit: true,
 		onTryHit(target, source) {
@@ -4582,23 +4518,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		//Spectral Thief getting blocked by Own Tempo implemented in scripts.ts because that's where stat-stealing is implemented
 		desc: "The target's stat stages greater than 0 are stolen from it and applied to the user before dealing damage. The theft does not occur if the target has the Ability Own Tempo.",
 		contestType: "Clever",
-	},
-	spotlight: {
-		inherit: true,
-		condition: {
-			duration: 1,
-			onStart(pokemon) {
-				this.add('-singleturn', pokemon, 'move: Spotlight');
-			},
-			onFoeRedirectTargetPriority: 2,
-			onFoeRedirectTarget(target, source, source2, move) {
-				if(source.hasAbility('innerfocus')) return target;
-				if (this.validTarget(this.effectData.target, source, move.target)) {
-					this.debug("Spotlight redirected target of move");
-					return this.effectData.target;
-				}
-			},
-		},
 	},
 	substitute: {
 		inherit: true,
@@ -4800,7 +4719,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Stomping Tantrum", target);
 		},
-		desc: "Power doubles if the user's last move on the previous turn, including moves called by other moves or those used through Instruct, Magic Coat, Snatch, or the Dancer or Magic Bounce Abilities, failed to do any of its normal effects, not including damage from an unsuccessful High Jump Kick, Jump Kick, or Mind Blown, or if the user was prevented from moving by any effect other than recharging or Sky Drop. A move that was blocked by Baneful Bunker, Detect, King's Shield, Protect, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, or Wide Guard will not double this move's power, nor will Bounce or Fly ending early due to the effect of Gravity, Smack Down, or Thousand Arrows.",
+		desc: "Power doubles if the user's last move on the previous turn, including moves called by other moves or those used through Instruct, Magic Coat, Snatch, or the Dancer or Magic Bounce Abilities, failed to do any of its normal effects, not including damage from an unsuccessful High Jump Kick, Jump Kick, or Mind Blown, or if the user was prevented from moving by any effect other than recharging or Sky Drop. A move that was blocked by Baneful Bunker, Detect, King's Shield, Protect, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, or Wide Guard will not double this move's power, nor will Bounce or Fly ending early due to the effect of Gravity or Smack Down.",
 		shortDesc: "Power doubles if the user's last move failed.",
 	},
 	stompingtantrum: {

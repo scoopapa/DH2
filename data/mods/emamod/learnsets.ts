@@ -599,7 +599,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	kleavor: {
 		learnset: {
-			accelrock: ["8L1"],
+			accelerock: ["8L1"],
 			aerialace: ["8M"],
 			airslash: ["8L18"],
 			calmmind: ["8M"],

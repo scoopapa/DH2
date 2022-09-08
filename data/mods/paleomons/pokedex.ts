@@ -51,7 +51,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Kabutops",
 		forme: "Ancient",
 		types: ["Water", "Fairy"],
-		baseStats: {hp: 75, atk: 115, def: 75, spa: 95, spd: 75, spe: 90},
+		baseStats: {hp: 85, atk: 115, def: 95, spa: 80, spd: 75, spe: 85},
 		abilities: {0: "Swift Swim", 1:"Battle Armor", H: "Poison Heal"},
 		weightkg: 40.5,
 		prevo: "Kabuto-Ancient",
@@ -176,8 +176,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Cradily",
 		forme: "Ancient",
 		types: ["Grass", "Ground"],
-		baseStats: {hp: 85, atk: 100, def: 100, spa: 80, spd: 90, spe: 60},
-		abilities: {0: "Regenerator"},
+		baseStats: {hp: 95, atk: 100, def: 100, spa: 80, spd: 90, spe: 60},
+		abilities: {0: "Regenerator", H: "Water Absorb"},
 		weightkg: 60,
 		prevo: "Lileep-Ancient",
 	},
@@ -275,7 +275,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -113,
 		name: "Dodrumb",
 		types: ["Normal", "Psychic"],
-		baseStats: {hp: 84, atk: 74, def: 104, spa: 74, spd: 54, spe: 64},
+		baseStats: {hp: 84, atk: 74, def: 104, spa: 84, spd: 64, spe: 64},
 		abilities: {0: "Unaware", 1: "Own Tempo", H: "Simple"},
 		weightkg: 19,
 	},
@@ -284,7 +284,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -114,
 		name: "Blossobite",
 		types: ["Grass", "Electric"],
-		baseStats: {hp: 81, atk: 113, def: 100, spa: 70, spd: 60, spe: 71},
+		baseStats: {hp: 81, atk: 113, def: 100, spa: 70, spd: 70, spe: 81},
 		abilities: {0: "Chlorophyll", 1: "Lightning Rod", H: "Underbrush Tactics"},
 		weightkg: 223,
 	},
@@ -340,8 +340,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Bastiodon",
 		forme: "Overgrown",
 		types: ["Steel", "Grass"],
-		baseStats: {hp: 80, atk: 70, def: 101, spa: 101, spd: 131, spe: 20},
-		abilities: {0: "Bulletproof", 1: "Leaf Guard", H: "Grassy Surge"},
+		baseStats: {hp: 80, atk: 75, def: 101, spa: 111, spd: 116, spe: 20},
+		abilities: {0: "Grassy Surge"},
 		weightkg: 149.5,
 		prevo: "Shieldon-Overgrown",
 	},
@@ -561,7 +561,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Gastrodon",
 		baseForme: "Entity",
 		types: ["Poison", "Dragon"],
-		baseStats: {hp: 120, atk: 95, def: 60, spa: 100, spd: 50, spe: 50},
+		baseStats: {hp: 120, atk: 55, def: 90, spa: 110, spd: 50, spe: 50},
 		abilities: {0: "Gooey", H: "Damp"},
 		weightkg: 29.9,
 		prevo: "Shellos-Entity",
@@ -573,7 +573,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Gastrodon",
 		forme: "Entity-East",
 		types: ["Poison", "Psychic"],
-		baseStats: {hp: 100, atk: 75, def: 80, spa: 80, spd: 70, spe: 70},
+		baseStats: {hp: 100, atk: 55, def: 90, spa: 100, spd: 80, spe: 50},
 		abilities: {0: "Gooey", H: "Neuroforce"},
 		weightkg: 29.9,
 		prevo: "Shellos-Entity",
@@ -646,7 +646,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Tangrowth",
 		forme: "Ancient",
 		types: ["Grass", "Fire"],
-		baseStats: {hp: 100, atk: 100, def: 50, spa: 110, spd: 125, spe: 50},
+		baseStats: {hp: 100, atk: 105, def: 75, spa: 90, spd: 115, spe: 50},
 		abilities: {0: "Mold Breaker", 1: "Grass Pelt", H: "Absorption"},
 		weightkg: 128.6,
 		prevo: "Tangela-Ancient",
@@ -707,7 +707,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -140,
 		name: "Robusteel",
 		types: ["Steel", "Flying"],
-		baseStats: {hp: 83, atk: 67, def: 94, spa: 110, spd: 95, spe: 70},
+		baseStats: {hp: 75, atk: 67, def: 94, spa: 110, spd: 95, spe: 70},
 		abilities: {0: "Mirror Armor", H: "Flare Boost"},
 		weightkg: 100,
 	},
@@ -757,5 +757,528 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Slush Rush", 1: "Frigid Landing", H: "Snow Warning"},
 		weightkg: 150,
 		prevo: "Gorlifross",
+	},
+
+	dreepy: {
+		inherit: true,
+		otherFormes: ["Dreepy-Luminous"],
+		formeOrder: ["Dreepy", "Dreepy-Luminous"],
+	},
+
+	dreepyluminous: {
+		num: -146,
+		name: "Dreepy-Luminous",
+		baseSpecies: "Dreepy",
+		forme: "Luminous",
+		evos: ["Drakloak-Luminous"],
+		types: ["Poison"],
+		baseStats: {hp: 89, atk: 60, def: 65, spa: 70, spd: 85, spe: 71},
+		abilities: {0: "Clear Body", 1: "Illuminate", H: "Dazzling"},
+		weightkg: 1,
+	},
+
+	drakloak: {
+		inherit: true,
+		otherFormes: ["Drakloak-Luminous"],
+		formeOrder: ["Drakloak", "Drakloak-Luminous"],
+	},
+
+	drakloakluminous: {
+		num: -147,
+		name: "Drakloak-Luminous",
+		baseSpecies: "Drakloak",
+		forme: "Luminous",
+		evos: ["Dragapult-Luminous"],
+		types: ["Poison"],
+		baseStats: {hp: 89, atk: 60, def: 65, spa: 70, spd: 85, spe: 71},
+		abilities: {0: "Clear Body", 1: "Illuminate", H: "Dazzling"},
+		weightkg: 9,
+		prevo: "Dreepy-Luminous",
+	},
+
+	dragapult: {
+		inherit: true,
+		otherFormes: ["Dragapult-Luminous"],
+		formeOrder: ["Dragapult", "Dragapult-Luminous"],
+	},
+
+	dragapultluminous: {
+		num: -148,
+		name: "Dragapult-Luminous",
+		baseSpecies: "Dragapult",
+		forme: "Luminous",
+		types: ["Poison", "Electric"],
+		baseStats: {hp: 109, atk: 90, def: 75, spa: 100, spd: 105, spe: 121},
+		abilities: {0: "Clear Body", 1: "Illuminate", H: "Dazzling"},
+		weightkg: 46,
+		prevo: "Drakloak-Luminous",
+	},
+
+	larvitar: {
+		inherit: true,
+		otherFormes: ["Larvitar-Nature"],
+		formeOrder: ["Larvitar", "Larvitar-Nature"],
+	},
+
+	larvitarnature: {
+		num: -149,
+		name: "Larvitar-Nature",
+		baseSpecies: "Larvitar",
+		forme: "Nature",
+		evos: ["Pupitar-Nature"],
+		types: ["Grass"],
+		baseStats: {hp: 60, atk: 70, def: 45, spa: 35, spd: 45, spe: 45},
+		abilities: {0: "Natural Cure", H: "Tough Claws"},
+		weightkg: 72,
+	},
+
+	pupitar: {
+		inherit: true,
+		otherFormes: ["Pupitar-Nature"],
+		formeOrder: ["Pupitar", "Pupitar-Nature"],
+	},
+
+	pupitarnature: {
+		num: -150,
+		name: "Pupitar-Nature",
+		baseSpecies: "Pupitar",
+		forme: "Nature",
+		evos: ["Tyranitar-Nature"],
+		types: ["Grass"],
+		baseStats: {hp: 85, atk: 50, def: 90, spa: 60, spd: 85, spe: 45},
+		abilities: {0: "Natural Cure", H: "Flower Veil"},
+		weightkg: 152,
+		prevo: "Larvitar-Nature",
+	},
+
+	tyranitar: {
+		inherit: true,
+		otherFormes: ["Tyranitar-Nature"],
+		formeOrder: ["Tyranitar", "Tyranitar-Nature"],
+	},
+
+	tyranitarnature: {
+		num: -151, //just in case we get prevos in the future
+		name: "Tyranitar-Nature",
+		baseSpecies: "Tyranitar",
+		forme: "Nature",
+		types: ["Grass"],
+		baseStats: {hp: 110, atk: 100, def: 90, spa: 100, spd: 110, spe: 90},
+		abilities: {0: "Natural Cure", H: "Nature Prowess"},
+		weightkg: 202,
+		prevo: "Pupitar-Nature",
+	},
+
+	gible: {
+		inherit: true,
+		otherFormes: ["Gible-Persistent"],
+		formeOrder: ["Gible", "Gible-Persistent"],
+	},
+
+	giblepersistent: {
+		num: -152,
+		name: "Gible-Persistent",
+		baseSpecies: "Gible",
+		forme: "Persistent",
+		evos: ["Gabite-Persistent"],
+		types: ["Ground", "Ghost"],
+		baseStats: {hp: 55, atk: 53, def: 49, spa: 55, spd: 55, spe: 33},
+		abilities: {0: "Persistence", H: "Dragon's Maw"},
+		weightkg: 20.5,
+	},
+
+	gabite: {
+		inherit: true,
+		otherFormes: ["Gabite-Persistent"],
+		formeOrder: ["Gabite", "Gabite-Persistent"],
+	},
+
+	gabitepersistent: {
+		num: -153,
+		name: "Gabite-Persistent",
+		baseSpecies: "Gabite",
+		forme: "Persistent",
+		evos: ["Garchomp-Persistent"],
+		types: ["Ground", "Ghost"],
+		baseStats: {hp: 63, atk: 83, def: 59, spa: 75, spd: 75, spe: 53},
+		abilities: {0: "Persistence", H: "Dragon's Maw"},
+		weightkg: 56,
+		prevo: "Gible-Persistent",
+	},
+
+	garchomp: {
+		inherit: true,
+		otherFormes: ["Garchomp-Persistent"],
+		formeOrder: ["Garchomp", "Garchomp-Persistent"],
+	},
+
+	garchomppersistent: {
+		num: -154,
+		name: "Garchomp-Persistent",
+		baseSpecies: "Garchomp",
+		forme: "Persistent",
+		types: ["Ground", "Ghost"],
+		baseStats: {hp: 95, atk: 113, def: 89, spa: 115, spd: 115, spe: 73},
+		abilities: {0: "Persistence", H: "Dragon's Maw"},
+		weightkg: 95,
+		prevo: "Gabite-Persistent",
+	},
+
+	scorcharnia: {
+		num: -155,
+		name: "Scorcharnia",
+		baseForme: "Average",
+		types: ["Water", "Fire"],
+		baseStats: {hp: 90, atk: 114, def: 85, spa: 70, spd: 80, spe: 76},
+		abilities: {0: "Flame Body", H: "Regenerator"},
+		weightkg: 40,
+		otherFormes: ["Scorcharnia-Short", "Scorcharnia-Long"],
+		formeOrder: ["Scorcharnia-Average", "Scorcharnia-Short", "Scorcharnia-Long"],
+	},
+
+	scorcharniashort: {
+		num: -155,
+		name: "Scorcharnia-Short",
+		baseSpecies: "Scorcharnia",
+		forme: "Short",
+		types: ["Water", "Fire"],
+		baseStats: {hp: 75, atk: 94, def: 85, spa: 85, spd: 70, spe: 106},
+		abilities: {0: "Flame Body", H: "Regenerator"},
+		weightkg: 20,
+	},
+
+	scorcharnialong: { //longe boye
+		num: -155,
+		name: "Scorcharnia-Long",
+		baseSpecies: "Scorcharnia",
+		types: ["Water", "Fire"],
+		baseStats: {hp: 105, atk: 134, def: 85, spa: 55, spd: 90, spe: 46},
+		abilities: {0: "Flame Body", H: "Regenerator"},
+		weightkg: 60,
+	},
+
+	listoxina: {
+		num: -156,
+		name: "Listoxina",
+		types: ["Water", "Poison"],
+		baseStats: {hp: 125, atk: 60, def: 75, spa: 80, spd: 90, spe: 85},
+		abilities: {0: "Sticky Hold", H: "Levitate"},
+		weightkg: 8,
+	},
+
+	spinollina: {
+		num: -157,
+		name: "Spinollina",
+		types: ["Ground", "Electric"],
+		baseStats: {hp: 106, atk: 90, def: 95, spa: 69, spd: 92, spe: 10},
+		abilities: {0: "Water Absorb", H: "Rough Skin"},
+		weightkg: 24,
+		otherFormes: ["Spinollina-Mega"],
+		formeOrder: ["Spinollina", "Spinollina-Mega"],
+	},
+
+	spinollinamega: {
+		num: -157,
+		name: "Spinollina-Mega",
+		baseSpecies: "Spinollina",
+		forme: "Mega",
+		types: ["Ground", "Electric"],
+		baseStats: {hp: 106, atk: 110, def: 95, spa: 69, spd: 92, spe: 90},
+		abilities: {0: "Thunder Thighs"},
+		weightkg: 35,
+		requiredItem: "Spinollite",
+	},
+
+	plusle: {
+		inherit: true,
+		otherFormes: ["Plusle-Primal"],
+		formeOrder: ["Pluse", "Plusle-Primal"],
+	},
+
+	plusleprimal: {
+		num: -158,
+		name: "Plusle-Primal",
+		baseSpecies: "Plusle",
+		forme: "Primal",
+		types: ["Electric", "Ghost"],
+		baseStats: {hp: 60, atk: 60, def: 70, spa: 95, spd: 115, spe: 105},
+		abilities: {0: "Shadow Shield"},
+		weightkg: 4.0,
+		requiredItem: "Spectral Orb",
+	},
+
+	minun: {
+		inherit: true,
+		otherFormes: ["Minun-Primal"],
+		formeOrder: ["Minun", "Minun-Primal"],
+	},
+
+	minunprimal: {
+		num: -159,
+		name: "Minun-Primal",
+		baseSpecies: "Minun",
+		forme: "Primal",
+		types: ["Electric", "Steel"],
+		baseStats: {hp: 60, atk: 65, def: 80, spa: 75, spd: 130, spe: 95},
+		abilities: {0: "Huge Power"},
+		weightkg: 4.2,
+		requiredItem: "Blue Orb",
+	},
+
+	swalot: {
+		inherit: true,
+		otherFormes: ["Swalot-Primal"],
+		formeOrder: ["Swalot", "Swalot-Primal"],
+	},
+
+	swalotprimal: {
+		num: -160,
+		name: "Swalot-Primal",
+		baseSpecies: "Swalot",
+		forme: "Primal",
+		types: ["Poison", "Fire"],
+		baseStats: {hp: 100, atk: 73, def: 83, spa: 113, spd: 83, spe: 115},
+		abilities: {0: "Storm Drain"},
+		weightkg: 90,
+		requiredItem: "Petrol Orb",
+	},
+
+	hariyama: {
+		inherit: true,
+		otherFormes: ["Hariyama-Primal"],
+		formeOrder: ["Hariyama", "Hariyama-Primal"],
+	},
+
+	hariyamaprimal: {
+		num: -161,
+		name: "Hariyama-Primal",
+		baseSpecies: "Hariyama",
+		forme: "Primal",
+		types: ["Fighting", "Fairy"],
+		baseStats: {hp: 144, atk: 140, def: 80, spa: 40, spd: 100, spe: 70},
+		abilities: {0: "Misty Surge"},
+		weightkg: 253.8,
+		requiredItem: "Crystal Orb",
+	},
+	
+	grumpig: {
+		inherit: true,
+		otherFormes: ["Grumpig-Primal"],
+		formeOrder: ["Grumpig", "Grumpig-Primal"],
+	},
+
+	grumpigprimal: {
+		num: -162,
+		name: "Grumpig-Primal",
+		baseSpecies: "Grumpig",
+		forme: "Primal",
+		types: ["Psychic", "Steel"],
+		baseStats: {hp: 80, atk: 60, def: 90, spa: 130, spd: 125, spe: 85},
+		abilities: {0: "Magic Surge"},
+		weightkg: 71.5,
+		requiredItem: "Black Orb",
+	},
+
+	flygon: {
+		inherit: true,
+		otherFormes: ["Flygon-Classical"],
+		formeOrder: ["Flygon", "Flygon-Classical"],
+	},
+
+	flygonclassical: {
+		num: -165, // accounting for future prevos
+		name: "Flygon-Classical",
+		baseSpecies: "Flygon",
+		forme: "Classical",
+		types: ["Ground", "Fighting"],
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 100, spd: 80, spe: 100},
+		abilities: {0: "Levitate", H: "Vibrato"},
+		weightkg: 82,
+		//prevo: "Vibrava",
+	},
+
+	walrein: {
+		inherit: true,
+		otherFormes: ["Walrein-Ancient"],
+		formeOrder: ["Walrein-Ancient"],
+	},
+
+	walreinancient: {
+		num: -168, // accounting for future prevos
+		name: "Walrein-Ancient",
+		baseSpecies: "Walrein",
+		forme: "Ancient",
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 90, atk: 110, def: 65, spa: 90, spd: 95, spe: 80},
+		abilities: {0: "Fur Coat", 1: "Ice Body", H: "Oblivious"},
+		weightkg: 105.6,
+		//prevo: "Sealeo",
+	},
+
+	exploud: {
+		inherit: true,
+		otherFormes: ["Exploud-Ancient"],
+		formeOrder: ["Exploud", "Exploud-Ancient"],
+	},
+
+	exploudancient: {
+		num: -171, // accounting for future evos
+		name: "Exploud-Ancient",
+		baseSpecies: "Exploud",
+		forme: "Ancient",
+		types: ["Rock"],
+		baseStats: {hp: 104, atk: 81, def: 73, spa: 86, spd: 53, spe: 93},
+		abilities: {0: "Vital Spirit", H: "Audio Rupture"},
+		weightkg: 84,
+		//prevo: "Loudred",
+	},
+
+	anklarmor: {
+		num: -172,
+		name: "Anklarmor",
+		types: ["Steel"],
+		baseStats: {hp: 79, atk: 65, def: 102, spa: 90, spd: 111, spe: 46},
+		abilities: {0: "Filter", 1: "Justified", H: "Overcoat"},
+		weightkg: 398,
+	},
+
+	drakabyssal: {
+		num: -173,
+		name: "Drakabyssal",
+		types: ["Water", "Dark"],
+		baseStats: {hp: 100, atk: 110, def: 85, spa: 65, spd: 105, spe: 65},
+		abilities: {0: "Mold Breaker", H: "Guts"},
+		weightkg: 95.2,
+	},
+
+	trobsidon: {
+		num: -174,
+		name: "Trobsidon",
+		types: ["Dragon", "Rock"],
+		baseStats: {hp: 80, atk: 85, def: 80, spa: 65, spd: 70, spe: 115},
+		abilities: {0: "Keen Eye", 1: "Merciless", H: "Technician"},
+		weightkg: 56.2,
+		otherFormes: ["Trobsidon-Mega"],
+		formeOrder: ["Trobsidon", "Trobsidon-Mega"],
+	},
+
+	trobsidonmega: {
+		num: -174,
+		name: "Trobsidon-Mega",
+		baseSpecies: "Trobsidon",
+		forme: "Mega",
+		types: ["Dragon", "Psychic"],
+		baseStats: {hp: 80, atk: 105, def: 60, spa: 130, spd: 100, spe: 120},
+		abilities: {0: "Solid Rock"},
+		weightkg: 33.8,
+		requiredItem: "Trobsidonite",
+	},
+
+	dhelmise: {
+		inherit: true,
+		otherFormes: ["Dhelmise-Ancient"],
+		formeOrder: ["Dhelmise", "Dhelmise-Ancient"],
+	},
+
+	dhelmiseancient: {
+		num: -175,
+		name: "Dhelmise-Ancient",
+		baseSpecies: "Dhelmise",
+		forme: "Ancient",
+		types: ["Ghost", "Poison"],
+		baseStats: {hp: 70, atk: 131, def: 100, spa: 76, spd: 90, spe: 50},
+		abilities: {0: "Boneyard"},
+		weightkg: 210,
+	},
+
+	honedge: {
+		inherit: true,
+		otherFormes: ["Honedge-Ancient"],
+		formeOrder: ["Honedge", "Honedge-Ancient"],
+	},
+
+	honedgeancient: {
+		num: -176,
+		name: "Honedge-Ancient",
+		baseSpecies: "Honedge",
+		forme: "Ancient",
+		evos: ["Doublade-Ancient"],
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 50, atk: 80, def: 85, spa: 35, spd: 37, spe: 38},
+		abilities: {0: "Long Reach"},
+		weightkg: 2,
+	},
+
+	doublade: {
+		inherit: true,
+		otherFormes: ["Doublade-Ancient"],
+		formeOrder: ["Doublade", "Doublade-Ancient"],
+	},
+
+	doubladeancient: {
+		num: -177,
+		name: "Doublade-Ancient",
+		baseSpecies: "Doublade",
+		forme: "Ancient",
+		evos: ["Aegislash-Ancinet"],
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 69, atk: 100, def: 90, spa: 45, spd: 49, spe: 95},
+		abilities: {0: "Long Reach"},
+		weightkg: 4.5,
+		prevo: "Honedge-Ancient",
+	},
+
+	aegislash: {
+		inherit: true,
+		otherFormes: ["Aegislash-Blade", "Aegislash-Ancient", "Aegislash-Ancient-Hunter"],
+		formeOrder: ["Aegislash", "Aegislash-Blade", "Aegislash-Ancient", "Aegislash-Ancient-Hunter"],
+	},
+
+	aegislashancient: {
+		num: -178,
+		name: "Aegislash-Ancient",
+		baseSpecies: "Aegislash",
+		forme: "Ancient",
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 70, atk: 50, def: 110, spa: 50, spd: 110, spe: 110},
+		abilities: {0: "Tactics Change"},
+		weightkg: 53,
+		prevo: "Doublade-Ancient",
+	},
+
+	aegislashancienthunter: {
+		num: -178,
+		name: "Aegislash-Ancient-Hunter",
+		baseSpecies: "Aegislash",
+		forme: "Ancient-Hunter",
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 70, atk: 110, def: 50, spa: 110, spd: 50, spe: 110},
+		abilities: {0: "Tactics Change"},
+		weightkg: 53,
+		requiredAbility: "Tactics Change",
+		battleOnly: "Aegislash-Ancient",
+	},
+
+	baltoy: {
+		inherit: true,
+		evos: ["Claydol", "Claydol-Premade"],
+	},
+
+	claydol: {
+		inherit: true,
+		otherFormes: ["Claydol-Premade"],
+		formeOrder: ["Claydol", "Claydol-Premade"],
+	},
+
+	claydolpremade: {
+		num: -179,
+		name: "Claydol-Premade",
+		baseSpecies: "Claydol",
+		forme: "Premade",
+		types: ["Rock", "Psychic"],
+		baseStats: {hp: 60, atk: 120, def: 70, spa: 90, spd: 65, spe: 95},
+		abilities: {0: "Solid Rock", 1: "Trace", H: "Unaware"},
+		weightkg: 108,
+		prevo: "Baltoy",
 	},
 };

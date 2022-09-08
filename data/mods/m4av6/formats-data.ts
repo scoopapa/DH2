@@ -129,14 +129,14 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	wishiwashimegaschool: { tier: "Tier 3 Mega" },
 	mimikyubustedmega: { tier: "Undecided" },
 	falinksmegacombat: { tier: "Tier 3 Mega" },
-	darmanitanzen: { tier: "Heat" },
-	mimikyubusted: { tier: "Heat" },
-	cramorantgulping: { tier: "Heat" },
-	cramorantgorging: { tier: "Heat" },
-	sinisteaantique: { tier: "Heat" },
-	polteageistantique: { tier: "Heat" },
-	eiscuenoice: { tier: "Heat" },
-	morpekohangry: { tier: "Heat" },
+	darmanitanzen: { tier: "Underrated" },
+	mimikyubusted: { tier: "Underrated" },
+	cramorantgulping: { tier: "Underrated" },
+	cramorantgorging: { tier: "Underrated" },
+	sinisteaantique: { tier: "Underrated" },
+	polteageistantique: { tier: "Underrated" },
+	eiscuenoice: { tier: "Underrated" },
+	morpekohangry: { tier: "Underrated" },
 	// slate 39
 	slowkinggalarmega: {},
 	galvantulamega: {},
@@ -149,6 +149,10 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	lickilickymega: {},
 	tsareenamega: {},
 	grapploctmega: {},
+	// slate 42
+	snorlaxmega: {},
+	swalotmega: {},
+	wailordmega: {},
 };
 
 const randomMoves = (mon: string, moves: string) => {

@@ -1,37 +1,3 @@
-/*
-
-Ratings and how they work:
-
--1: Detrimental
-	  An ability that severely harms the user.
-	ex. Defeatist, Slow Start
-
- 0: Useless
-	  An ability with no overall benefit in a singles battle.
-	ex. Color Change, Plus
-
- 1: Ineffective
-	  An ability that has minimal effect or is only useful in niche situations.
-	ex. Light Metal, Suction Cups
-
- 2: Useful
-	  An ability that can be generally useful.
-	ex. Flame Body, Overcoat
-
- 3: Effective
-	  An ability with a strong effect on the user or foe.
-	ex. Chlorophyll, Sturdy
-
- 4: Very useful
-	  One of the more popular abilities. It requires minimal support to be effective.
-	ex. Adaptability, Magic Bounce
-
- 5: Essential
-	  The sort of ability that defines metagames.
-	ex. Imposter, Shadow Tag
-
-*/
-
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
@@ -50,6 +16,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Prevents adjacent Ground-type foes from choosing to switch.",
 		rating: 5,
 		num: 71,
+	},
+	deltastream: {
+		onStart(source) {
+			this.field.setWeather('deltastream');
+			const item = source.getItem();
+			if (source.species.id === 'rayquazamega') {
+				source.useItem();
+			}
+		},
+		inherit: true,
 	},
 	moody: {
 		onResidualOrder: 26,
@@ -83,26 +59,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Moody",
 		rating: 5,
 		num: 141,
-	},
-	powerconstruct: {
-		onResidualOrder: 27,
-		onResidual(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Zygarde' || pokemon.transformed || !pokemon.hp) return;
-			if (pokemon.species.id === 'zygardecomplete' || pokemon.hp > pokemon.maxhp / 2) return;
-			this.add('-activate', pokemon, 'ability: Power Construct');
-			pokemon.formeChange('Zygarde-Complete', this.effect, true);
-			pokemon.baseMaxhp = Math.floor(Math.floor(
-				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
-			) * pokemon.level / 100 + 10);
-			const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
-			pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
-			pokemon.maxhp = newMaxHP;
-			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-		},
-		isPermanent: true,
-		name: "Power Construct",
-		rating: 5,
-		num: 211,
 	},
 	shadowtag: {
 		onFoeSwitchOut(source, target) {
@@ -145,6 +101,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
 			pokemon.abilityData.choiceLock = move.id;
 		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Gorilla Tactics Atk Boost');
+			return this.chainModify(1.5);
+		},
 		onDisableMove(pokemon) {
 			if (!pokemon.abilityData.choiceLock) return;
 			if (pokemon.volatiles['dynamax']) return;
@@ -158,7 +121,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			pokemon.abilityData.choiceLock = "";
 		},
 		name: "Gorilla Tactics",
-		shortDesc: "This Pokemon's held item has no effect, except Macho Brace, and it can only select the first move it executes. Fling cannot be used.",
+		shortDesc: "User's Atk. is 1.5x, but it's locked into first move it uses. Held items have no effect.",
 		rating: 4.5,
 		num: 255,
 	},
@@ -374,8 +337,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerconstruct: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (source.species.id === 'zygardecomplete') return;
-			this.add('-activate', source, 'ability: Power Construct');
-			if (source.species.id === 'zygarde10') {
+			if (source.species.id === 'zygarde10' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Power Construct');
 				source.formeChange('Zygarde', this.effect, true);
 				source.baseMaxhp = Math.floor(Math.floor(
 					2 * source.species.baseStats['hp'] + source.set.ivs['hp'] + Math.floor(source.set.evs['hp'] / 4) + 100
@@ -384,9 +347,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
 				this.add('-heal', source, source.getHealth, '[silent]');
-				source.setAbility('powerconstruct');
 			}
-			else if (source.species.id === 'zygarde') {
+			else if (source.species.id === 'zygarde' && source.hp && source.side.foe.pokemonLeft) {
+				this.add('-activate', source, 'ability: Power Construct');
 				source.formeChange('Zygarde-Complete', this.effect, true);
 			}
 		},
@@ -447,5 +410,46 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "The combination of Harvest and Grim Neigh.",
 		rating: 3.5,
 		num: 267,
+	},
+	intrepidsword: {
+		onModifyMove(pokemon, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zacian') {
+				move.basePower *= 0.8;
+			}
+			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zaciancrowned') {
+				move.basePower *= 1.2;
+			}
+		},
+		onModifyPriority(priority, source, target, move) {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zacian') {
+				return priority + 1;
+			}
+			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
+			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zaciancrowned') {
+				return priority - 1;
+			}
+		},
+		name: "Intrepid Sword",
+		shortDesc: "If Hero: Blade/Slash/Cut moves have +1 priority & 20% less power. Reverse for Crowned.",
+		rating: 3.5,
+		num: 234,
+	},
+	dauntlessshield: {
+		onAnyModifyBoost(boosts, pokemon) {
+			const dauntlessshieldUser = this.effectData.target;
+			if (pokemon === this.activePokemon && dauntlessshieldUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		name: "Dauntless Shield",
+		shortDesc: "This Pokemon ignores other Pokemon's stat stages when taking damage.",
+		rating: 3.5,
+		num: 235,
 	},
 };

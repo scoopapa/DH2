@@ -8,8 +8,8 @@
 .sim-dist
 .translations-dist
 node_modules
-logs
 build.exe
 logs/lastbattle.txt
 config/chat-plugins/mafia-logs.json
 logs/errors.txt
+logs

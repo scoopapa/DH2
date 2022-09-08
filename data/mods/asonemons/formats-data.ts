@@ -1,3 +1,4 @@
+
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	yanmegashell: {
 		tier: "AsOUne",
@@ -5,66 +6,119 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	pelipperink: {
 		tier: "AsOUne",
-		doublesTier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
 	excadrillboulder: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
 	vanilluxefur: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
 	butterfreeangler: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
 	dedenneluchador: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
 	shucklebrick: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},
 	munchlaxforest: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
 	bunnelbyworker: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},
 	sirfetchdfantasy: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},
 	frogadierbeetle: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
 	chandelureballoon: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},
-	infernapeclimber: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+   infernapeclimber: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
-    ribombeecharmer: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+   ribombeecharmer: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
-    beheeyemufo: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+   beheeyemufo: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
 	sableyedoom: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
-    mareaniemagma: {
-		tier: "As OUne",
-		doublesTier: "As OUne",
+   mareaniemagma: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+	thwackeydune: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   sphealsiren: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   pincurchingoo: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   nihilegopsychosis: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   stunfiskjagged: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   pawniardaviation: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   watchogscout: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   mothimgourd: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   clefairyselene: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   hoothootperch: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   swoobataroma: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   blacephalonborealis: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
+	},	
+   malamarparallel: {
+		tier: "AsOUne",
+		doublesTier: "AsDOUne",
 	},	
 };
+

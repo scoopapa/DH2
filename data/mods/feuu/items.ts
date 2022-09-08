@@ -133,7 +133,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Ninjacross"],
 		onTakeItem: false,
 		num: 680,
-		desc: "If held by a Ninjacross or Cleracross, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Ninjacross, Cleracross, or Herasir, this item allows it to Mega Evolve in battle.",
 	},
 	houndoominite: {
 		name: "Houndoominite",
@@ -239,7 +239,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Noze-Dawn-Wings"],
 		onTakeItem: false,
 		num: -1001,
-		desc: "If held by a Noze-Dawn-Wings, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
+		desc: "If held by a Noze-Dawn-Wings or a Phancrozma-Dawn-Wings, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
 	},
 	charizarditex: {
 		name: "Charizardite X",
@@ -303,12 +303,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaStone: "Swannamence-Mega",
 		megaEvolves: "Swannamence",
 		itemUser: ["Swannamence"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: 769,
-		desc: "If held by a Swannamence, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Swannamence or a Salasian-Alola, this item allows it to Mega Evolve in battle.",
 	},
 	aerodactylite: {
 		name: "Aerodactylite",
@@ -360,7 +357,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 752,
-		desc: "If held by a Swampflora, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Swampflora or Impert-Female, this item allows it to Mega Evolve in battle.",
 	},
 	mawilite: {
 		name: "Mawilite",
@@ -495,7 +492,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 671,
-		desc: "If held by a Pingar, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Pingar or Herasir, this item allows it to Mega Evolve in battle.",
 	},
 	stick: {
 		name: "Stick",
@@ -557,6 +554,84 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 679,
 		desc: "If held by an Alakannon, this item allows it to Mega Evolve in battle.",
+	},
+	manectite: {
+		name: "Manectite",
+		spritenum: 596,
+		megaStone: "Manecpig-Mega",
+		megaEvolves: "Manecpig",
+		itemUser: ["Manecpig"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 682,
+		desc: "If held by a Manecpig, this item allows it to Mega Evolve in battle.",
+	},
+	lucarionite: {
+		name: "Lucarionite",
+		spritenum: 594,
+		megaStone: "Ferrocario-Mega",
+		megaEvolves: "Ferrocario",
+		itemUser: ["Ferrocario"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 673,
+		desc: "If held by a Ferrocario, this item allows it to Mega Evolve in battle.",
+	},
+	diancite: {
+		name: "Diancite",
+		spritenum: 624,
+		megaStone: "Dragancie-Mega",
+		megaEvolves: "Dragancie",
+		itemUser: ["Dragancie"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 673,
+		desc: "If held by a Dragancie, this item allows it to Mega Evolve in battle.",
+	},
+	mewtwonitex: {
+		name: "Mewtwonite X",
+		spritenum: 600,
+		megaStone: "Spewtwo-Mega-X",
+		megaEvolves: "Spewtwo",
+		itemUser: ["Spewtwo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 662,
+		desc: "If held by a Spewtwo, this item allows it to Mega Evolve in battle.",
+	},
+	mewtwonitey: {
+		name: "Mewtwonite Y",
+		spritenum: 601,
+		megaStone: "Spewtwo-Mega-Y",
+		megaEvolves: "Spewtwo",
+		itemUser: ["Spewtwo"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 663,
+		desc: "If held by a Spewtwo, this item allows it to Mega Evolve in battle.",
+	},
+	gengarite: {
+		name: "Gengarite",
+		spritenum: 588,
+		megaStone: "Mr. Gar-Mega",
+		megaEvolves: "Mr. Gar",
+		itemUser: ["Mr. Gar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 656,
+		desc: "If held by a Mr. Gar, this item allows it to Mega Evolve in battle.",
 	},
 	
 // silvino moment :jokerification:

@@ -1713,4 +1713,278 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
+	cocoonfeeding: {
+		num: 262,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Cocoon Feeding",
+		shortDesc: "User faints. Incoming Pokemon gains +1 Def and +1 SpDef.",
+		pp: 10,
+		priority: 0,
+		flags: {mirror: 1},
+		onTryHit(pokemon, target, move) {
+			if (!this.canSwitch(pokemon.side)) {
+				delete move.selfdestruct;
+				return false;
+			}
+		},
+		slotCondition: 'cocoonfeeding',
+		condition: {
+			onSwap(target) {
+				this.boost({def: 1});
+				this.boost({spd: 1});
+				target.side.removeSlotCondition(target, 'cocoonfeeding');
+			},
+		},
+		selfdestruct: "ifHit",
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {effect: 'healreplacement'},
+		contestType: "Tough",
+	},
+	feudalharpoon: {
+		num: 830,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		name: "Feudal Harpoon",
+		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Tough",
+	},
+	banefulbladedance: {
+		num: 1014,
+		accuracy: true,
+		basePower: 160,
+		category: "Special",
+		name: "Baneful Blade Dance",
+		shortDesc: "Guarantees critical hits.",
+		pp: 1,
+		priority: 0,
+		flags: {},
+		isZ: "odonagiumz",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.active) {
+					pokemon.addVolatile('banefulbladedance');
+				}
+			},
+		},
+		condition: {
+			noCopy: true,
+			onStart(target, source, effect) {
+				if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
+					this.add('-start', target, 'move: Baneful Blade Dance');
+				}
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + 3;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Cool",
+	},
+	breegullblaster: {
+		num: 40054,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Varies in type based on the user's Sp. Atk IV. (Ice if odd, Fire if even)",
+		id: "breegullblaster",
+		name: "Breegull Blaster",
+		pp: 15,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (!(pokemon.set.ivs['spa'] % 2)){
+				move.type = 'Fire';
+			} else {
+				move.type = 'Ice';
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMovePower: 120,
+		contestType: "Clever",
+	},
+	shocktail: {
+		num: -1000,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "The target gets paralyzed when they have positive stat changes.",
+		name: "Shock Tail",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Charge", target);
+			this.add('-anim', source, "Iron Tail", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source) {
+				if (target.positiveBoosts()) {
+					target.trySetStatus('par', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Electric",
+	},
+	yoshishield: {
+		num: 588,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Protects from damaging attacks. Contact: -1 Def, SpD, Spe.",
+		name: "Yoshi Shield",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'yoshishield',
+		onTryHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					this.boost({atk: -1}, source, target, this.dex.getActiveMove("Yoshi Shield"));
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.flags['contact']) {
+					this.boost({def: -1, spd: -1, spe: -1}, source, target, this.dex.getActiveMove("Yoshi Shield"));
+				}
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
+			this.add('-anim', source, "Burn Up", target);
+		},
+		secondary: null,
+		target: "self",
+		type: "Fire",
+	},
+	stinkbomb: {
+		accuracy: 75,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		isViable: true,
+		name: "Stink Bomb",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Toxic", target);
+			this.add('-anim', source, "Sludge Bomb", target);
+		},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	poisondart: {
+		accuracy: 100,
+		basePower: 40,
+		category: "Physical",
+		shortDesc: "Usually goes first. 10% chance to poison",
+		isViable: true,
+		name: "Poison Dart",
+		pp: 30,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Sting", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
+	aridabsorption: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals by 33% of its max HP. +33% and +1 Atk for every active Water-type.",
+		name: "Arid Absorption",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Shore Up", target);
+		},
+		self: {
+			onHit(pokemon, source, move) {
+				this.heal(source.baseMaxhp / 3, source, pokemon);
+			}
+		},
+		onHitField(target, source) {
+			if (target.hasType('Water')) {
+				this.heal(source.baseMaxhp / 3, source, target);
+				this.boost({atk: 1}, source);
+			}
+			if (source.hasType('Water')) {
+				this.heal(source.baseMaxhp / 3, source, target);
+				this.boost({atk: 1}, source);
+				this.damage(source.baseMaxhp / 3, source, target);
+			}
+		},
+		secondary: null,
+		target: "all",
+		type: "Ground",
+	},	
 };

@@ -468,7 +468,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	deafeningshriek: {
 		accuracy: 100,
-		basePower: 130,
+		basePower: 100,
 		category: "Special",
     shortDesc: "Target becomes immune to sound moves after being hit.",
 		name: "Deafening Shriek",
@@ -1056,9 +1056,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	smother: {
 		accuracy: 100,
-		basePower: 75,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Smother damage boost');
+				return move.basePower * 1.5;
+			}
+			this.debug('Smother NOT boosted');
+			return move.basePower;
+		},
 		category: "Physical",
-    shortDesc: "The target must move last next turn.",
+    shortDesc: "The target must move last next turn. 1.5x if the user moves first.",
 		isViable: true,
 		name: "Smother",
 		pp: 10,

@@ -1,0 +1,83 @@
+Current To-Do List:
+- Intimidate bug
+- Ripen makes Berry effects last 6 turns (later, not important rn)
+- Stockpile should last for 3 turns when used the first time, 4 turns the second and 5 the third (who cares lol)
+
+
+
+This is just a .txt to document how the PLA mechanics work coding-wise, in case I need a reminder or someone else
+makes changes and needs a quick runthrough on how everything works. It's not *that* complicated, I just think
+it's nice to have these things documented
+
+Status Changes:
+
+- Non-volatile statuses can be overwritten, and they are also removed after a set amount of turns
+
+- All changes to statuses are made in conditions.ts. 
+
+- Statuses overwriting each other is done by editing each individual status, adding the following code to each one:
+
+	onAnyTryMove(this, source, target, move) {
+				if (move.secondaries && move.id !== 'secretpower') {
+					for (const secondary of move.secondaries) {
+						if (secondary.status !== ('brn' || 'par' || 'tox' || 'psn' || 'frz')) return;
+						this.add('-message', 'cleared Status');
+						this.add('-curestatus', target, '*insert status*', '[Silent');
+						target.setStatus('');
+					}
+				}	else if (move.status) {
+						this.add('-message', 'cleared Status');
+						this.add('-curestatus', target, '*insert status*', '[Silent]');
+						target.setStatus('');
+				}
+			},
+This isn't ideal of course, but it was the easiest way I could find since I couldn't figure out exactly what code
+to edit at the time. In the future I'll possibly try and clean this all up, likely moving this all into scripts in
+in the process, but until then everythings up there
+
+- The duration for statuses is implemented similarly; with every individual status being edited:
+
+	onStart() {
+			this.effectData.startTime = 6;
+			this.effectData.time = this.effectData.startTime;
+		},
+	onResidual(pokemon) {
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time <= 0) {
+				this.add('-curestatus', pokemon, 'brn');
+				pokemon.setStatus('');
+				return;
+			}
+		},
+Again, this isn't ideal, but y'know. 
+
+
+Boost Changes:
+
+- Atk/SpA and Def/SpD are boosted simultaneously. Boosts are now cleared after a set amount of time, depending on
+how many stats were boosted/if the stat boost was due to a secondary effect
+
+- All boost changes are implemented in conditions.ts, under legendsboost. legendsboost itself is added to every
+pokemon on switch-in thanks to legendsboostmod in rulesets.ts
+
+- The code is a lil long so I won't copy/paste it here, but I essentially just stole Two-Minded's code (ty Hema x)
+and made some minor changes. Checking if the boost came from legendsboost via if(effect.id === 'legendsboost') is 
+crucial, since without it legendsboost would go into an endless feedback loop where it keeps activating its own
+onBoost. Attempted to make it slightly less disgusting to look at via conditional operators,
+but didn't work sadly
+
+- atkBoost, defBoost, and speBoost are all used for the time calculation; if any of these variables are true, we
+subtract 1 from the starting duration of the boost. That's basically it for now, I'll almost certainly come 
+back and clean this code up, but until then it's pretty simple
+
+- Quiver Dance is now an omniboost and I don't know how to feel about that
+
+
+Jagged Splinters:
+
+- I fucking hate runEffectiveness so much I swear nothing makes me feel so much pure rage than working with that
+piece of shit method
+
+- Atm it's pretty sloppy. It's just a block of if/else if statements. Not ideal by any means, but attempted to make
+it less hard coded have so far been fruitless (again, fuck runEffectiveness). I have 0 idea if the damage
+calculation works properly but whatever lol

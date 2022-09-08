@@ -35,9 +35,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		delete this.modData('Learnsets', 'kyogre').learnset.waterspout;
 		this.modData('Learnsets', 'kyogre').learnset.flipturn = ['8L1'];
+		this.modData('Learnsets', 'kyogre').learnset.earthpower = ['8L1'];
 		
 		delete this.modData('Learnsets', 'rayquaza').learnset.vcreate;
-		delete this.modData('Learnsets', 'rayquaza').learnset.extremespeed;
 		
 		this.modData('Learnsets', 'deoxys').learnset.topsyturvy = ['8L1'];
 		
@@ -107,6 +107,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'frosmoth').learnset.sheercold = ['8L1'];
 		this.modData('Learnsets', 'glaceon').learnset.sheercold = ['8L1'];
 		
+		this.modData('Learnsets', 'necrozma').learnset.crunch = ['8L1'];
 		delete this.modData('Learnsets', 'necrozma').learnset.knockoff;
 		delete this.modData('Learnsets', 'necrozma').learnset.dragondance;
 		
@@ -146,6 +147,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'calyrexice').learnset.calmmind;
 		delete this.modData('Learnsets', 'calyrexshadow').learnset.calmmind;
 		delete this.modData('Learnsets', 'calyrexshadow').learnset.nastyplot;
+		
+		delete this.modData('Learnsets', 'zacian').learnset.closecombat;
+		this.modData('Learnsets', 'zacian').learnset.secretsword = ['8L1'];
+		
+		this.modData('Learnsets', 'zamazenta').learnset.toxic = ['8L1'];
+		this.modData('Learnsets', 'zamazenta').learnset.bodypress = ['8L1'];
+		this.modData('Learnsets', 'zamazenta').learnset.knockoff = ['8L1'];
+		
+		this.modData('Learnsets', 'arceus').learnset.storedpower = ['8L1'];
+		this.modData('Learnsets', 'arceus').learnset.leechseed = ['8L1'];
+		
+		this.modData('Learnsets', 'blaziken').learnset.roost = ['8L1'];
+		
+		this.modData('Learnsets', 'lucario').learnset.triplekick = ['8L1'];
+		
+		delete this.modData('Learnsets', 'tornadus').learnset.hurricane;
 	},
 	
 	pokemon: {

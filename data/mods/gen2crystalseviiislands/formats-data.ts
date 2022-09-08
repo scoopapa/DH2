@@ -1,37 +1,56 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	horatekku: {
-		isNonstandard: null,
-		gen: 2,
-		tier: "OU",
+	gen: 2,
 	},
 	aroofaondo: {
-		isNonstandard: null,
-		gen: 2,
-		tier: "OU",
+	gen: 2,
 	},
 	exoltol: {
-		isNonstandard: null,
-		gen: 2,
-		tier: "OU",
+	gen: 2,
 	},
 	animon: {
-		isNonstandard: null,
-		gen: 2,
-		tier: "OU",
+	gen: 2,
 	},
 	esscargoo: {
-		isNonstandard: null,
-		gen: 2,
-		tier: "OU",
+	gen: 2,
 	},
 	tunguru: {
-		isNonstandard: null,
-		gen: 2,
-		tier: "OU",
+	gen: 2,
 	},
 	terricks: {
-		isNonstandard: null,
-		gen: 2,
-		tier: "OU",
+	gen: 2,
 	},
-}
+	skunkle: {
+	gen: 2,
+	},
+	skunking: {
+	gen: 2,
+	},
+	kipuro: {
+	gen: 2,
+	},
+	kamebi: {
+	gen: 2,
+	},
+	pyronoir: {
+	gen: 2,
+	},
+	kazappelin: {
+	gen: 2,
+	},
+	pierzer: {
+	gen: 2,
+	},
+	oatu: {
+	gen: 2,
+	},
+	lunaraknid: {
+	gen: 2,
+	},
+	cumulos: {
+	gen: 2,
+	},
+	altocumulos: {
+	gen: 2,
+	},
+};

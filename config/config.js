@@ -291,12 +291,12 @@ exports.chatmodchat = '+',
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | string}
  */
-exports.battlemodchat = '+',
+exports.battlemodchat = false,
 /**
  * pm modchat - minimum group for PMing other users, challenging other users
  * @type {false | string}
  */
-exports.pmmodchat = '+',
+exports.pmmodchat = false,
 /**
  * ladder modchat - minimum group for laddering
  * @type {false | GroupSymbol}
@@ -395,23 +395,24 @@ exports.autolockdown = true;
  */
 exports.customavatars = {
 	// 'userid': 'customavatar.png'
-	'anaconja': '#cirno.png',
-	'zoomercide': '#cirno.png', // anaconja
-	'whathow': '#cirno.png', // anaconja
-	'cityscapes': '#cirno.png',
-	'squawkerz': '#cirno.png',
-	'lrxc': '#cirno.png',
-	'dex': '#cirno.png',
-	'larp': '#cirno.png', // adem
-	'duom2': '#cirno.png',
+	'anaconja': 'cirno.png',
+	'zoomercide': 'cirno.png', // anaconja
+	'whathow': 'cirno.png', // anaconja
+	'cityscapes': 'cirno.png',
+	'squawkerz': 'cirno.png',
+	'lrxc': 'cirno.png',
+	'dex': 'cirno.png',
+	'larp': 'cirno.png', // adem
+	'duom2': 'pikasprite.png',
 	// sice
-	'classclownthele': '#cirno.png',
-	'arbysroastbeef': '#cirno.png',
-	'frowntoad': '#cirno.png',
-	'notime2beromeo': '#cirno.png',
+	'classclownthele': 'cirno.png',
+	'arbysroastbeef': 'cirno.png',
+	'frowntoad': 'cirno.png',
+	'notime2beromeo': 'cirno.png',
 	// end sice
-	'onyxonix7': '#cirno.png',
-	'xxbossaruxx': '#cirno.png',
+	'onyxonix7': 'cirno.png',
+	'piikiki4': 'yoshiblaze.png', //yoshiblaze
+	'piikiki4butagain': 'yoshiblaze.png', //yoshiblaze
 };
 
 /**

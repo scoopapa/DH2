@@ -40,7 +40,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					|| pokemon.hasAbility('levitability') || pokemon.hasAbility('stickyfloat') 
 					|| pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') 
 					|| pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('floatguise') 
-					|| pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard')
+					|| pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent')
 				) applies = true;
 				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
 					this.field.getPseudoWeather('gravity')) applies = false;
@@ -95,7 +95,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					|| target.hasAbility('levitability') || target.hasAbility('stickyfloat') 
 					|| target.hasAbility('etativel') || target.hasAbility('lighthearted') 
 					|| target.hasAbility('clearlyfloating') || target.hasAbility('floatguise') 
-					|| target.hasAbility('aerialbreak') || target.hasAbility('levimetal') || target.hasAbility('hoverboard')) {
+					|| target.hasAbility('aerialbreak') || target.hasAbility('levimetal') || target.hasAbility('hoverboard') || target.hasAbility('levistatic') || target.hasAbility('lovelessfloat') || target.hasAbility('ghoulaway') || target.hasAbility('spiritascent')) {
 				move.ignoreAbility = true;
 			}
 		},
@@ -338,7 +338,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
-				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard')) return;
+				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -373,7 +373,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
-				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard')) return;
+				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
@@ -410,7 +410,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('etativel') || pokemon.hasAbility('leviflame') || pokemon.hasAbility('magneticwaves') || pokemon.hasAbility('stickyfloat') || pokemon.hasAbility('levitability') || pokemon.hasAbility('feelnopain') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('etativel') || pokemon.hasAbility('leviflame') || pokemon.hasAbility('magneticwaves') || pokemon.hasAbility('stickyfloat') || pokemon.hasAbility('levitability') || pokemon.hasAbility('feelnopain') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent')) {
 					return;
 				} else if (this.effectData.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -496,5 +496,186 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
+	},
+	dreameater: {
+		num: 138,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Dream Eater",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		onTryImmunity(target) {
+			return target.status === 'slp' || target.hasAbility('comatose') || target.hasAbility('shadowydreams');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	hex: {
+		num: 506,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose') || target.hasAbility('shadowydreams')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Hex",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {basePower: 160},
+		contestType: "Clever",
+	},
+	nightmare: {
+		num: 171,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		isNonstandard: "Past",
+		name: "Nightmare",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'nightmare',
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				if (pokemon.status !== 'slp' && (!pokemon.hasAbility('comatose') || !pokemon.hasAbility('shadowydreams'))) {
+					return false;
+				}
+				this.add('-start', pokemon, 'Nightmare');
+			},
+			onResidualOrder: 9,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 4);
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	rest: {
+		num: 156,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Rest",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onTryMove(pokemon) {
+			if (pokemon.hp === pokemon.maxhp) {
+				this.add('-fail', pokemon, 'heal');
+				return null;
+			}
+			if (pokemon.status === 'slp' || pokemon.hasAbility('comatose') || pokemon.hasAbility('shadowydreams')) {
+				this.add('-fail', pokemon);
+				return null;
+			}
+		},
+		onHit(target, source, move) {
+			if (!target.setStatus('slp', source, move)) return false;
+			target.statusData.time = 3;
+			target.statusData.startTime = 3;
+			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	sleeptalk: {
+		num: 214,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Sleep Talk",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		sleepUsable: true,
+		onTryHit(pokemon) {
+			if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') && !pokemon.hasAbility('shadowydreams')) return false;
+		},
+		onHit(pokemon) {
+			const noSleepTalk = [
+				'assist', 'beakblast', 'belch', 'bide', 'celebrate', 'chatter', 'copycat', 'dynamaxcannon', 'focuspunch', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'shelltrap', 'sketch', 'sleeptalk', 'uproar',
+			];
+			const moves = [];
+			for (const moveSlot of pokemon.moveSlots) {
+				const moveid = moveSlot.id;
+				if (!moveid) continue;
+				const move = this.dex.getMove(moveid);
+				if (noSleepTalk.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
+					continue;
+				}
+				moves.push(moveid);
+			}
+			let randomMove = '';
+			if (moves.length) randomMove = this.sample(moves);
+			if (!randomMove) {
+				return false;
+			}
+			this.useMove(randomMove, pokemon);
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'crit2'},
+		contestType: "Cute",
+	},
+	snore: {
+		num: 173,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Snore",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
+		sleepUsable: true,
+		onTryHit(target, source) {
+			if (source.status !== 'slp' && !source.hasAbility('comatose') && !source.hasAbility('shadowydreams')) return false;
+		},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+	},
+	wakeupslap: {
+		num: 358,
+		accuracy: 100,
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'slp' || target.hasAbility('comatose') || target.hasAbility('shadowydreams')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Wake-Up Slap",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onHit(target) {
+			if (target.status === 'slp') target.cureStatus();
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
 	},
 };

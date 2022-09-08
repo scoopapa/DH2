@@ -179,7 +179,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SSS",
 	},
 	bisharpmega: {
-		tier: "SSS",
+		tier: "SSS Uber",
 	},
 	undangoose: {
 		tier: "SSS",
@@ -251,6 +251,118 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SSS",
 	},
 	rampardoscretaceous: {
+		tier: "SSS",
+	},
+	borassa: {
+		tier: "SSS",
+	},
+	panthee: {
+		tier: "SSS",
+	},
+	abomasnow: {
+		tier: "SSS",
+	},
+	cramorantalola: {
+		tier: "SSS",
+	},
+	cramorantalolagulping: {
+	},
+	cramorantalolagorging: {
+	},
+	drednaw: {
+		tier: "SSS",
+	},
+	drednawgmax: {
+		tier: "SSS",
+	},
+	xurkirat: {
+		tier: "SSS",
+	},
+	mesflame: {
+		tier: "SSS",
+	},
+	gourgeistfae: {
+		tier: "SSS",
+	},
+	odonaga: {
+		tier: "SSS",
+	},
+	swampertanti: {
+		tier: "SSS",
+	},
+	banjoandkazooie: {
+		tier: "SSS",
+	},
+	polbearab: {
+		tier: "SSS",
+	},
+	stalagmitar: {
+		tier: "SSS",
+	},
+	psychicdragon: {
+		tier: "SSS",
+	},
+	elichric: {
+		tier: "SSS",
+	},
+	escavaliereiscue: {
+		tier: "SSS",
+	},
+	escavaliereiscuenoice: {
+		tier: "Illegal",
+	},
+	waterghost: {
+		tier: "SSS",
+	},
+	toxicargo: {
+		tier: "SSS",
+	},
+	heatloom: {
+		tier: "SSS",
+	},
+	drampaschroedinger: {
+		tier: "SSS",
+	},
+	gigacrab: {
+		tier: "SSS",
+	},
+	cougaquil: {
+		tier: "SSS",
+	},
+	latias: {
+		tier: "SSS",
+	},
+	landorustherian: {
+		tier: "SSS",
+	},
+	golisopod: {
+		tier: "SSS",
+	},
+	chatot: {
+		tier: "SSS",
+	},
+	gastrodonentityeast: {
+		tier: "SSS",
+	},
+	lycanperiordusk: {
+        tier: "SSS",
+    },
+	yoshiblaze: {
+		tier: "SSS",
+	},
+	yoshiblazemega: {
+		tier: "SSS",
+	},
+	xataskewda: {
+		tier: "SSS",
+	},
+	skuntank: {
+		tier: "SSS",
+	},
+	garchomp: {
+		tier: "SSS",
+	},
+	munchlax: {
 		tier: "SSS",
 	},
 };

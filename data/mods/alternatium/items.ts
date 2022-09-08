@@ -42,16 +42,14 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		/*onBeforeMove(attacker, defender) {
-			const action = this.queue.willMove(attacker);
-			const move = action?.choice === 'move' ? action.move : null;
-			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || attacker.volatiles['mustrecharge']) return;
-			if (defender && defender.baseSpecies.num === 649) {
-				defender.useItem();
+		/*beforeMoveCallback(target, source, move) {
+			if (target && target.baseSpecies.num === 649) {
+				const move = source.lastMove;
+				if (move.category !== 'Status') {
+					this.boost({def: 1}, target);
+					target.useItem();
+				}
 			}
-		},
-		boosts: {
-			def: 1,
 		},*/
 		onDrive: 'Ice',
 		num: 119,
@@ -282,6 +280,12 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (pokemon.species.id === 'pikachubelle' || pokemon.species.id === 'pikachupartner') {
 				return this.chainModify(2);
 			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source && ["pikachu", "pikachuidol", "pikachulibre", "pikachupartner", "pikachubelle"].includes(this.toID(source.baseSpecies.baseSpecies))) {
+				return false;
+			}
+			return true;
 		},
 		itemUser: ["Pikachu", "Pikachu-Idol", "Pikachu-Libre", "Pikachu-Partner", "Pikachu-Belle"],
 		num: 236,

@@ -93,7 +93,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'stoutland').learnset.bringsticks = ['8L1'];
 		
 		this.modData('Learnsets', 'musharna').learnset.teleport = ['8L1'];
-		this.modData('Learnsets', 'musharna').learnset.abstractdreams = ['8L1'];
 		
 		this.modData('Learnsets', 'whimsicott').learnset.growth = ['8L1'];
 		this.modData('Learnsets', 'whimsicott').learnset.thunderwave = ['8L1'];
