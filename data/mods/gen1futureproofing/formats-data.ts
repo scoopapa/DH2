@@ -327,7 +327,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	raichu: {
 		randomBattleMoves: ["surf", "thunderwave"],
 		essentialMove: "thunderbolt",
-		exclusiveMoves: ["agility", "bodyslam", "hyperbeam", "seismictoss", "thunder", "gearup"],
+		exclusiveMoves: ["agility", "bodyslam", "hyperbeam", "submission", "gearup"],
 		tier: "NUBL",
 	},
 	sandshrew: {
