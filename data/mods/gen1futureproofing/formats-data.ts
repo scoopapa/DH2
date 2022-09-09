@@ -493,7 +493,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "PU",
 	},
 	growlithe: {
-		randomBattleMoves: ["bodyslam", "fireblast", "flamethrower", "reflect"],
+		randomBattleMoves: ["bodyslam", "fireblast", "snarl", "reflect"],
 		tier: "LC",
 	},
 	arcanine: {
@@ -521,7 +521,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	abra: {
 		randomBattleMoves: ["psychic", "seismictoss", "thunderwave"],
-		exclusiveMoves: ["counter", "reflect"],
+		exclusiveMoves: ["metronome", "reflect"],
 		tier: "LC",
 	},
 	kadabra: {
@@ -567,14 +567,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	tentacool: {
 		randomBattleMoves: ["barrier", "hydropump", "surf"],
-		essentialMove: "blizzard",
+		essentialMove: "strangesteam",
 		exclusiveMoves: ["megadrain", "megadrain"],
 		comboMoves: ["hydropump", "surf"],
 		tier: "LC",
 	},
 	tentacruel: {
 		randomBattleMoves: ["blizzard", "hydropump", "hyperbeam", "strangesteam"],
-		essentialMove: "swordsdance",
 		tier: "UU",
 	},
 	geodude: {
@@ -610,13 +609,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	magnemite: {
-		randomBattleMoves: ["thunder", "thunderbolt", "thunderwave"],
-		exclusiveMoves: ["doubleedge", "gearup"],
+		randomBattleMoves: ["doubleedge", "thunderbolt", "thunderwave"],
+		exclusiveMoves: ["craftyshield", "gearup"],
 		tier: "LC",
 	},
 	magneton: {
-		randomBattleMoves: ["thunder", "thunderbolt", "thunderwave"],
-		exclusiveMoves: ["doubleedge", "gearup"],
+		randomBattleMoves: ["doubleedge", "thunderbolt", "thunderwave"],
+		exclusiveMoves: ["craftyshield", "gearup"],
 		tier: "PU",
 	},
 	farfetchd: {
@@ -645,7 +644,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	grimer: {
 		randomBattleMoves: ["bodyslam", "sludge"],
 		essentialMove: "explosion",
-		exclusiveMoves: ["fireblast", "megadrain", "megadrain", "screech"],
+		exclusiveMoves: ["fireblast", "megadrain", "megadrain", "taunt"],
 		tier: "LC",
 	},
 	muk: {
@@ -705,7 +704,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	voltorb: {
 		randomBattleMoves: ["explosion", "thunderbolt", "thunderwave"],
-		exclusiveMoves: ["screech", "thunder", "toxic"],
+		exclusiveMoves: ["screech", "taunt", "toxic"],
 		tier: "LC",
 	},
 	electrode: {
@@ -749,7 +748,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "PU",
 	},
 	koffing: {
-		randomBattleMoves: ["explosion", "fireblast", "sludge", "thunderbolt"],
+		randomBattleMoves: ["explosion", "fireblast", "strangesteam", "thunderbolt"],
 		tier: "LC",
 	},
 	weezing: {
@@ -833,8 +832,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	magmar: {
-		randomBattleMoves: ["bodyslam", "confuseray", "fireblast"],
-		exclusiveMoves: ["hyperbeam", "psychic"],
+		randomBattleMoves: ["bodyslam", "faketears", "fireblast"],
+		exclusiveMoves: ["hyperbeam", "psychic", "sunsteelstrike"],
 		tier: "PU",
 	},
 	pinsir: {
@@ -848,7 +847,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	magikarp: {
-		randomBattleMoves: ["splash", "tackle"],
+		randomBattleMoves: ["splash", "tackle", "dragonrage"],
 		tier: "LC",
 	},
 	gyarados: {
