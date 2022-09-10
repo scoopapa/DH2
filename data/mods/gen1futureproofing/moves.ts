@@ -829,12 +829,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	mirrormove: {
 		inherit: true,
+		desc: "The user uses the last move used by the target. Fails if the target has not made a move, or if the last move used was Mirror Move.",
 		onHit(pokemon) {
 			const foe = pokemon.side.foe.active[0];
-			if (!foe?.lastMove || foe.lastMove.id === 'mirrormove') {
+			if (!foe || !foe.lastMove || foe.lastMove.id === 'mirrormove') {
 				return false;
 			}
-			this.actions.useMove(foe.lastMove.id, pokemon);
+			this.useMove(foe.lastMove.id, pokemon);
 		},
 	},
 	mist: {
