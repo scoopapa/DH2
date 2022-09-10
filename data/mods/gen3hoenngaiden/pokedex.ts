@@ -75,7 +75,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	camerupt: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 100, def: 70, spa: 105, spd: 75, spe: 65},
+		// baseStats: {hp: 85, atk: 100, def: 70, spa: 105, spd: 75, spe: 65},
 		abilities: {0: "Magma Armor", 1: "Mold Breaker"},
 	},
 	horsea: {
