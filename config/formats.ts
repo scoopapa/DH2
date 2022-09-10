@@ -3317,6 +3317,7 @@ export const Formats: FormatList = [
 		],
 
 		searchShow: false,
+		
 		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Sleep Clause Mod'],
 		onValidateSet(set) {
 			const item = this.dex.getItem(set.item);
