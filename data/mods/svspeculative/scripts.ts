@@ -42,7 +42,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		];
 		for (const id in this.dataCache.Pokedex) {
 			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
-				const learnset = this.dataCache.Learnsets[id].learnset;
+				const learnset = this.modData('Learnsets', this.toID(id)).learnset;
 				for (const moveid in learnset) {
 					if (cutMoves.includes(moveid)) {
 						delete learnset[moveid];
