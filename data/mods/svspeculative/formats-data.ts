@@ -91,8 +91,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	arcaninehisui: { tier: "SV" },
 
 	slowpoke: { tier: "SV (NFE)" },
+	slowpokegalar: { tier: "SV (NFE)" },
 	slowbro: { tier: "SV" },
+	slowbrogalar: { tier: "SV" },
 	slowking: { tier: "SV" },
+	slowkinggalar: { tier: "SV" },
 
 	magnemite: { tier: "SV (NFE)" },
 	magneton: { tier: "SV (NFE)" },
