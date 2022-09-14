@@ -239,10 +239,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
-	articunotsunami: {
-		tier: "Alternatium EX",
-		doublesTier: "Alternatium EX",
-	},
 	zapdos: {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
