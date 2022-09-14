@@ -596,4 +596,85 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Clever",
 	},
+	freezingglare: {
+		num: 821,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "100% chance to lower the target's Speed by 1.",
+		name: "Freezing Glare",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Flying",
+	},
+	lifedew: {
+		num: 791,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals the user for 1/3 max HP. If afflicted with a status, heals the user for 1/6 max HP and cures the status.",
+		name: "Life Dew",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onHit(pokemon) {
+			let factor = 0.333;
+			if (pokemon.status) {
+				factor = 0.167;
+				pokemon.cureStatus();
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Water",
+	},
+	skyattack: {
+		num: 143,
+		accuracy: 70,
+		basePower: 140,
+		category: "Physical",
+		shortDesc: "20% chance to make the target flinch.",
+		name: "Sky Attack",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, distance: 1},
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		target: "any",
+		type: "Flying",
+		contestType: "Cool",
+	},
+	fierywrath: {
+		num: 822,
+		accuracy: 100,
+		basePower: 105,
+		category: "Physical",
+		shortDesc: "Combines Fire in its type effectiveness.",
+		name: "Fiery Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			return typeMod + this.dex.getEffectiveness('Fire', type);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Dark",
+	},
 };

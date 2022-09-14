@@ -150,7 +150,8 @@ export const Formats: FormatList = [
 				'Ribombee', 'Ribombee-Totem', 'Araquanid', 'Araquanid-Totem', 'Vikavolt', 'Vikavolt-Totem', 'Urshifu', 'Urshifu-Erosion', 'Calyrex-Mythic', 'Calyrex-Glacier', 
 				'Calyrex-Midnight', 'Kommo-o', 'Rockmo-o', 'Salazzle', 'Salazzle-Ruler', 'Lurantis', 'Lurantio', 'Mr. Mime', 'Mr. Mime-Prance', 'Stunfisk', 'Stunfisk-Trap',
 				'Necrozma', 'Necrozma-Lionheart', 'Necrozma-Batwing', 'Necrozma-Dragon', 'Braviary-Patriot', 'Braviary-Hisui', 'Lilligant-Bard', 'Mistlegant', 'Electrode-Screwball', 
-				'Electrode-Ringo', 'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales',
+				'Electrode-Ringo', 'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales', "Indeedee-Devil", "Indeedee-Angel", "Polteageist", "Polteageist-Antique",
+				"Toxtricity", "Toxtricity-Low-Key", "Articuno-Mistral", "Articuno-Tsunami", "Articuno-Tsunami", "Zapdos", "Charpados", "Moltres", "Bennutres",
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -704,6 +705,7 @@ export const Formats: FormatList = [
 						'Yveltal', 'Skarmory', 'Tapu Koko',
 						'Lash Out', 'Crafty Shield', 'Sunsteel Strike',
 						'Cacnea', 'Cacturne', 'Duraludon', 'Milcery', 'Alcremie', 
+						'Zigzagoon-Galar', 'Linoone-Galar', 'Obstagoon', 'Stunfisk-Galar', 'Mimikyu', 'Mimikyu-Busted', 
 					  ],
     },
    {
@@ -2866,7 +2868,7 @@ export const Formats: FormatList = [
 			'Baton Pass',
 		],
 		gameType: 'doubles',
-		teambuilderFormat: 'OU',
+		teambuilderFormat: 'DOU',
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	
@@ -3056,6 +3058,16 @@ export const Formats: FormatList = [
 		mod: 'feuu',
 		team: 'random',
 		ruleset: ['OHKO Clause', 'Obtainable', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 1] FutureProofing Random Battle",
+	   desc: `<b>[Gen 1] FutureProofing</b>: Adapting Dark, Steel, and Fairy-type moves and Pokemon to the Gen 1 OU metagame.`,
+	   threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-futureproofing-slate-1-discussion.3703375/">FutureProofing on Smogon Forums</a>`,
+	   ],
+		mod: 'gen1futureproofing',
+		team: 'random',
+		ruleset: ['Standard', 'Data Mod'],
 	},
 	{
 		name: "[Gen 8] JolteMons Random Battle",
@@ -3306,6 +3318,7 @@ export const Formats: FormatList = [
 		],
 
 		searchShow: false,
+		
 		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Sleep Clause Mod'],
 		onValidateSet(set) {
 			const item = this.dex.getItem(set.item);
@@ -3375,14 +3388,18 @@ export const Formats: FormatList = [
 		mod: 'advnow',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
-				/*Pokemon*/'Uber',
-				/*Abilities*/'Arena Trap', 'Drizzle', 'Drought', 'Moody', 'Sand Veil',
-				/*Moves*/'Baton Pass',
-				/*Items*/'Bright Powder', 'Damp Rock', 'King\'s Rock', 'Lax Incense', 'Light Clay', 'Quick Claw', 'Razor Fang',
+				//Pokemon
+				'Uber',
+				//Abilities
+				'Arena Trap', 'Drizzle', 'Drought', 'Moody', 'Sand Veil', 'Shadow Tag',
+				//Moves
+				'Baton Pass',
+				//Items
+				'Bright Powder', 'Damp Rock', 'King\'s Rock', 'Lax Incense', 'Light Clay', 'Quick Claw', 'Razor Fang',
 		],
 		teambuilderFormat: 'OU',
 	},
-	{
+	/*{
 		name: "[Gen 8] ADV Now Uber",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
@@ -3390,11 +3407,37 @@ export const Formats: FormatList = [
 		mod: 'advnow',
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: [
-				/*Pokemon*/'AG',
-				/*Abilities*/'Moody',
-				/*Moves*/'Baton Pass',
+				//Pokemon
+				'AG',
+				//Abilities
+				'Moody',
+				//Moves
+				'Baton Pass',
 		],
 		teambuilderFormat: 'Uber',
+	},*/
+	{
+		name: "[Gen 8] ADV Now ZU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
+		],
+		mod: 'advnow',
+		ruleset: ['[Gen 8] ADV Now'],
+		banlist: [
+				//Pokemon
+				'OU', 'UUBL',
+				'UU', 'RUBL',
+				'RU', 'NUBL',
+				'NU', 'PUBL',
+				'PU',
+		],
+		unbanlist: [
+				'Aipom', 'Ampharos', 'Arbok', 'Ariados', 'Beautifly', 'Beedrill', 'Castform', 'Corsola', 'Delcatty', 'Delibird', 'Dewgong', 
+				'Ditto', 'Dunsparce', 'Dustox', 'Farfetch\u2019d', 'Flareon', 'Furret', 'Glalie', 'Illumise', 'Ledian', 'Lickitung', 'Luvdisc', 
+				'Magcargo', 'Mightyena', 'Minun', 'Nosepass', 'Octillery', 'Parasect', 'Plusle', 'Politoed', 'Seaking', 'Shedinja', 'Shuckle', 
+				'Smeargle', 'Spinda', 'Sunflora', 'Swalot', 'Tropius', 'Unown', 'Volbeat', 'Wailord', 'Wobbuffet', 'Yanma',
+		],
+		teambuilderFormat: '(PU)',
 	},
 	{    
 		name: "[Gen 8] AsOnemons",
@@ -3714,6 +3757,12 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause'],
 		banlist: ['Uber', 'Arena Trap', 'Baton Pass', 'Sand Veil', 'Snow Cloak'],
 	},
+    {
+		name: "[Gen 1] Kantoification",
+		mod: 'gen1kantoification',
+		ruleset: ['Standard'],
+		banlist: ['Uber'],
+	},
 	{
 		name: "[Gen 1] Modern Gen 1",
 		threads: [
@@ -3993,6 +4042,24 @@ export const Formats: FormatList = [
 				let template = this.dex.getSpecies(set.species);
 				if (template.tier !== 'Sun' && template.tier !== 'Rain' && template.tier !== 'Sand' && template.tier !== 'Hail' && template.tier !== 'NFE') {
 					return [set.species + ' is not legal in the Under The Weather format.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 8] Waght",
+		desc: 'A giant memepost. Abismons 2 electric boogaloo',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Z-Move Clause'],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Chansey', 'Rhydon', 'Ivysaur', 'Blaziken', 'Megaracross', 'Barboach', 'Nickit', 'Chandelure'],
+		mod: "waght",
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'Waght' && template.tier !== 'DoublesWaght') {
+					return [set.species + ' is not legal in the [Gen 8] Waght format.'];
 				}
 			}
 		},

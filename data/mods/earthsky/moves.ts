@@ -1859,14 +1859,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	forestscurse: {
 		inherit: true,
 		onHit(target) {
+			let succeeded = false;
 			const targetTypes = target.getTypes();
 			if ((targetTypes.length > 1 && targetTypes[1] === "Grass") || targetTypes.join() === "Grass") return false;
 			if (targetTypes[0] === "Grass"){ //Due to above line, this is true only if the target is dual-typed
-				target.setType("Grass");
+				if (target.setType("Grass")) succeeded = true;
 			} else {
-				target.setType([targetTypes[0],"Grass"]);
+				if (target.setType([targetTypes[0],"Grass"])) succeeded = true;
 			}
-			this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
+			if (succeeded) this.add('-start', target, 'typeadd', 'Grass', '[from] move: Forest\'s Curse');
+			else {
+				this.add('-fail', target);
+				return null;
+			}
 		},
 		shortDesc: "Changes the target's secondary type to Grass.",
 		desc: "The target's second typing is replaced with the Grass type. If the target's first typing is Grass and it has a second typing, it will become pure Grass. If the target is already a pure Grass-type, the move fails.",
@@ -2259,16 +2264,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	magicpowder: {
 		inherit: true,
 		onHit(target) {
+			let succeeded = false;
 			const targetTypes = target.getTypes();
-			console.log(targetTypes);
-			console.log("Joined: " + targetTypes.join());
 			if ((targetTypes.length > 1 && targetTypes[1] === "Psychic") || targetTypes.join() === "Psychic") return false;
 			if (targetTypes[0] === "Psychic"){ //Due to above line, this is true only if the target is dual-typed
-				target.setType("Psychic");
+				if (target.setType("Psychic")) succeeded = true;
 			} else {
-				target.setType([targetTypes[0],"Psychic"]);
+				if (target.setType([targetTypes[0],"Psychic"])) succeeded = true;
 			}
-			this.add('-start', target, 'typeadd', 'Psychic', '[from] move: Magic Powder');
+			if (succeeded) this.add('-start', target, 'typeadd', 'Psychic', '[from] move: Magic Powder');
+			else {
+				this.add('-fail', target);
+				return null;
+			}
 		},
 		desc: "The target's second typing is replaced with the Psychic type. If the target's first typing is Psychic and it has a second typing, it will become pure Psychic. If the target is already a pure Psychic-type, the move fails.",
 		shortDesc: "Changes the target's secondary typing to Psychic.",
@@ -2778,7 +2786,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (!item.fling) return false;
 			move.basePower = 80 + item.fling.basePower;
 		},
-		desc: "The power of this move is based on the target's held item. Fails if the target has no held item, if the target is under the effect of Magic Room, or if the target has the Klutz Ability.",
+		desc: "The power of this move is based on the target's held item. Fails if the target has no held item, if the target is under the effect of Magic Room, or if the target has the Klutz or Sticky Hold Abilities.",
 		shortDesc: "Target's item attacks it. Power varies.",
 		contestType: "Cool",
 	},
@@ -3335,13 +3343,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onHit(target) {
 			const targetTypes = target.getTypes();
+			let succeeded = false;
 			if ((targetTypes.length > 1 && targetTypes[1] === "Water") || targetTypes.join() === "Water") return false;
 			if (targetTypes[0] === "Water"){ //Due to above line, this is true only if the target is dual-typed
-				target.setType("Water");
+				if (target.setType("Water")) succeeded = true;
 			} else {
-				target.setType([targetTypes[0],"Water"]);
+				if (target.setType([targetTypes[0],"Water"])) succeeded = true;
 			}
-			this.add('-start', target, 'typeadd', 'Water', '[from] move: Soak');
+			if(succeeded) this.add('-start', target, 'typeadd', 'Water', '[from] move: Soak');
+			else {
+				this.add('-fail', target);
+				return null;
+			}
 		},
 		shortDesc: "Changes the target's secondary typing to Water.",
 		desc: "The target's second typing is replaced with the Water type. If the target's first typing is Water and it has a second typing, it will become pure Water. If the target is already a pure Water-type, the move fails.",
@@ -3751,14 +3764,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	trickortreat: {
 		inherit: true,
 		onHit(target) {
+			let succeeded = false;
 			const targetTypes = target.getTypes();
 			if ((targetTypes.length > 1 && targetTypes[1] === "Ghost") || targetTypes.join() === "Ghost") return false;
 			if (targetTypes[0] === "Ghost"){ //Due to above line, this is true only if the target is dual-typed
-				target.setType("Ghost");
+				if (target.setType("Ghost")) succeeded = true;
 			} else {
-				target.setType([targetTypes[0],"Ghost"]);
+				if (target.setType([targetTypes[0],"Ghost"])) succeeded = true;
 			}
-			this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+			if(succeeded) this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
+			else {
+				this.add('-fail', target);
+				return null;
+			}
 		},
 		shortDesc: "Changes the target's secondary typing to Ghost.",
 		desc: "The target's second typing is replaced with the Ghost type. If the target's first typing is Ghost and it has a second typing, it will become pure Ghost. If the target is already a pure Ghost-type, the move fails.",
@@ -4190,12 +4208,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				this.effectData.move = move.id;
 				this.add('-start', target, 'Encore');
-				if (!this.queue.willMove(target)) {
+				if (this.queue.willMove(target)) { //Replaces move in the queue, updating priority
+					if(!pokemon.volatiles['fullcollide']){
+						this.queue.cancelMove(target);
+						this.queue.insertChoice({choice: 'move', pokemon: pokemon, move: this.effectData.move}, true);
+					}
+				} else {
 					this.effectData.duration++;
 				}
-			},
-			onOverrideAction(pokemon, target, move) {
-				if (move.id !== this.effectData.move && !pokemon.volatiles['fullcollide']) return this.effectData.move;
 			},
 			onResidualOrder: 13,
 			onResidual(target) {

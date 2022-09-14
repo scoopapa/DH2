@@ -39,8 +39,31 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'Standard Doubles',
 		desc: "The standard ruleset for all official Smogon doubles tiers",
 		ruleset: [
-			'Obtainable', '+Unobtainable', '+Past', 'Sketch Gen 8 Moves', 'Team Preview', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Obtainable', '+Unobtainable', '+Past', 'Sketch Gen 8 Moves', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
 		],
+	},
+	sleepclausemod: {
+		effectType: 'Rule',
+		name: 'Sleep Clause Mod',
+		desc: "Prevents players from putting more than one of their opponent's Pok&eacute;mon to sleep at a time, and bans Mega Gengar from using Hypnosis",
+		onBegin() {
+			this.add('rule', 'Sleep Clause Mod: Limit one foe put to sleep');
+		},
+		onSetStatus(status, target, source) {
+			if (source && source.side === target.side) {
+				return;
+			}
+			if (status.id === 'slp') {
+				for (const pokemon of target.side.pokemon) {
+					if (pokemon.hp && pokemon.status === 'slp') {
+						if (!pokemon.statusData.source || pokemon.statusData.source.side !== pokemon.side) {
+							this.add('-message', 'Sleep Clause Mod activated.');
+							return false;
+						}
+					}
+				}
+			}
+		},
 	},
 	megadatamod: {
 		effectType: 'Rule',

@@ -22,7 +22,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.field.setWeather('deltastream');
 			const item = source.getItem();
 			if (source.species.id === 'rayquazamega') {
-				source.useItem();
+				source.setItem('');
 			}
 		},
 		inherit: true,
