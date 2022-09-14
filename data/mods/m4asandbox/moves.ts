@@ -1379,7 +1379,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	victorydance: {
-		shortDesc: "Raises the user's Attack by 2 and Defense by 1.",
+		shortDesc: "Raises the user's and ally's Attack and Defense by 1.",
 		num: -1007,
 		accuracy: true,
 		basePower: 0,
@@ -1393,11 +1393,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Quiver Dance", target);
 		},
 		boosts: {
-			atk: 2,
+			atk: 1,
 			def: 1,
 		},
 		secondary: null,
-		target: "self",
+		target: "allies",
 		type: "Fighting",
 		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
@@ -1470,7 +1470,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	shelter: {
-		shortDesc: "Raises the user's Defense by 2.",
+		shortDesc: "Raises the user's and ally's Defense by 2.",
 		num: -1011,
 		accuracy: true,
 		basePower: 0,
@@ -1487,7 +1487,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			def: 2,
 		},
 		secondary: null,
-		target: "self",
+		target: "allies",
 		type: "Steel",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
@@ -1850,7 +1850,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	lunarblessing: {
-		shortDesc: "User cures its burn, poison, or paralysis and recovers 1/16 max HP per turn.",
+		shortDesc: "User and allies: healed 1/4 max HP, status cured.",
 		num: -1022,
 		accuracy: true,
 		basePower: 0,

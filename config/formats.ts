@@ -150,7 +150,8 @@ export const Formats: FormatList = [
 				'Ribombee', 'Ribombee-Totem', 'Araquanid', 'Araquanid-Totem', 'Vikavolt', 'Vikavolt-Totem', 'Urshifu', 'Urshifu-Erosion', 'Calyrex-Mythic', 'Calyrex-Glacier', 
 				'Calyrex-Midnight', 'Kommo-o', 'Rockmo-o', 'Salazzle', 'Salazzle-Ruler', 'Lurantis', 'Lurantio', 'Mr. Mime', 'Mr. Mime-Prance', 'Stunfisk', 'Stunfisk-Trap',
 				'Necrozma', 'Necrozma-Lionheart', 'Necrozma-Batwing', 'Necrozma-Dragon', 'Braviary-Patriot', 'Braviary-Hisui', 'Lilligant-Bard', 'Mistlegant', 'Electrode-Screwball', 
-				'Electrode-Ringo', 'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales',
+				'Electrode-Ringo', 'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales', "Indeedee-Devil", "Indeedee-Angel", "Polteageist", "Polteageist-Antique",
+				"Toxtricity", "Toxtricity-Low-Key", "Articuno-Mistral", "Articuno-Tsunami", "Articuno-Tsunami", "Zapdos", "Charpados", "Moltres", "Bennutres",
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -704,6 +705,7 @@ export const Formats: FormatList = [
 						'Yveltal', 'Skarmory', 'Tapu Koko',
 						'Lash Out', 'Crafty Shield', 'Sunsteel Strike',
 						'Cacnea', 'Cacturne', 'Duraludon', 'Milcery', 'Alcremie', 
+						'Zigzagoon-Galar', 'Linoone-Galar', 'Obstagoon', 'Stunfisk-Galar', 'Mimikyu', 'Mimikyu-Busted', 
 					  ],
     },
    {
@@ -3058,6 +3060,16 @@ export const Formats: FormatList = [
 		ruleset: ['OHKO Clause', 'Obtainable', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Cancel Mod'],
 	},
 	{
+		name: "[Gen 1] FutureProofing Random Battle",
+	   desc: `<b>[Gen 1] FutureProofing</b>: Adapting Dark, Steel, and Fairy-type moves and Pokemon to the Gen 1 OU metagame.`,
+	   threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-futureproofing-slate-1-discussion.3703375/">FutureProofing on Smogon Forums</a>`,
+	   ],
+		mod: 'gen1futureproofing',
+		team: 'random',
+		ruleset: ['Standard', 'Data Mod'],
+	},
+	{
 		name: "[Gen 8] JolteMons Random Battle",
 		desc: [
 			"<b>JolteMons</b>: A sequel to SylveMons where Pokemon, items, abilities and moves are redesigned for OU (and new items, abilities and moves are added) without changing base stats.",
@@ -3306,6 +3318,7 @@ export const Formats: FormatList = [
 		],
 
 		searchShow: false,
+		
 		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Sleep Clause Mod'],
 		onValidateSet(set) {
 			const item = this.dex.getItem(set.item);
