@@ -11,30 +11,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	mojambobsican: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	endurchobobsican: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	aguacatherbobsican: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	dukessgekokeso: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	namaraftgekokeso: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	chandliergekokeso: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
 	vailaflygravitymonkey: {
 		tier: "OU",
 		doublesTier: "DOU",
