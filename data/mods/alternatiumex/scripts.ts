@@ -161,6 +161,67 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'meowth').learnset.hypnosis;
 		
 		delete this.modData('Learnsets', 'espurr').learnset.shadowball;
+		
+		this.modData("Learnsets", "polteageist").learnset.belch = ["8L1"];
+		this.modData("Learnsets", "polteageist").learnset.toxic = ["8L1"];
+		this.modData("Learnsets", "polteageist").learnset.focusblast = ["8L1"];
+		this.modData("Learnsets", "polteageist").learnset.venoshock = ["8L1"];
+		this.modData("Learnsets", "polteageist").learnset.toxicspikes = ["8L1"];
+		this.modData("Learnsets", "polteageist").learnset.calmmind = ["8L1"];
+		delete this.modData('Learnsets', 'polteageist').learnset.shellsmash;
+		delete this.modData('Learnsets', 'polteageist').learnset.nastyplot;
+		delete this.modData('Learnsets', 'polteageist').learnset.storedpower;
+
+		
+		this.modData("Learnsets", "zapdos").learnset.closecombat = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.brickbreak = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.vacuumwave = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.focusblast = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.scald = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.waterfall = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.hydropump = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.surf = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.lifedew = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.drainpunch = ["8L1"];
+		delete this.modData('Learnsets', 'zapdos').learnset.discharge;
+		delete this.modData('Learnsets', 'zapdos').learnset.thunderbolt;
+		delete this.modData('Learnsets', 'zapdos').learnset.voltswitch;
+		delete this.modData('Learnsets', 'zapdos').learnset.wildcharge;
+		delete this.modData('Learnsets', 'zapdos').learnset.charge;
+		delete this.modData('Learnsets', 'zapdos').learnset.chargebeam;
+		delete this.modData('Learnsets', 'zapdos').learnset.eerieimpulse;
+		delete this.modData('Learnsets', 'zapdos').learnset.magneticflux;
+		delete this.modData('Learnsets', 'zapdos').learnset.risingvoltage;
+		delete this.modData('Learnsets', 'zapdos').learnset.shockwave;
+		delete this.modData('Learnsets', 'zapdos').learnset.thundershock;
+		delete this.modData('Learnsets', 'zapdos').learnset.zapcanon;
+		delete this.modData('Learnsets', 'zapdos').learnset.bravebird;
+		delete this.modData('Learnsets', 'zapdos').learnset.hurricane;
+		delete this.modData('Learnsets', 'zapdos').learnset.roost;
+		delete this.modData('Learnsets', 'zapdos').learnset.tailwind;
+		delete this.modData('Learnsets', 'zapdos').learnset.aerialace;
+		delete this.modData('Learnsets', 'zapdos').learnset.aircutter;
+		delete this.modData('Learnsets', 'zapdos').learnset.dualwingbeat;
+		delete this.modData('Learnsets', 'zapdos').learnset.fly;
+		delete this.modData('Learnsets', 'zapdos').learnset.peck;
+		delete this.modData('Learnsets', 'zapdos').learnset.pluck;
+		delete this.modData('Learnsets', 'zapdos').learnset.skyattack;
+		delete this.modData('Learnsets', 'zapdos').learnset.heatwave;
+		
+		this.modData("Learnsets", "moltres").learnset.beakblast = ["8L1"];
+		this.modData("Learnsets", "moltres").learnset.superpower = ["8L1"];
+		delete this.modData('Learnsets', 'moltres').learnset.fireblast;
+		delete this.modData('Learnsets', 'moltres').learnset.flamecharge;
+		delete this.modData('Learnsets', 'moltres').learnset.flamethrower;
+		delete this.modData('Learnsets', 'moltres').learnset.overheat;
+		delete this.modData('Learnsets', 'moltres').learnset.willowisp;
+		delete this.modData('Learnsets', 'moltres').learnset.burningjealousy;
+		delete this.modData('Learnsets', 'moltres').learnset.burnup;
+		delete this.modData('Learnsets', 'moltres').learnset.ember;
+		delete this.modData('Learnsets', 'moltres').learnset.firespin;
+		delete this.modData('Learnsets', 'moltres').learnset.incinerate;
+		delete this.modData('Learnsets', 'moltres').learnset.mysticalfire;
+		delete this.modData('Learnsets', 'moltres').learnset.sunnyday;
 	},
 	
 	pokemon: {

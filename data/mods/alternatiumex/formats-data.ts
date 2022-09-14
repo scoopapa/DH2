@@ -207,4 +207,56 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	indeedeedevil: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	indeedeeangel: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	polteageist: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	polteageistantique: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	toxtricityrockstar: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	toxtricitylowkey: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	articunomistral: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	articunotsunami: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	articunotsunami: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	zapdos: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	charpados: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	moltres: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	bennutres: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
