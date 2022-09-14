@@ -3245,6 +3245,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wildcharge: ["8L1"],
 			zapcannon: ["8L1"],
 			seedbomb: ["8L1"],
+			seismictoss: ["8L1"],
 		},
 	},
 	wizliz: {
@@ -4998,7 +4999,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			playnice: ["8L1"],
 			protect: ["8L1"],
 			raindance: ["8L1"],
-			recover: ["8L1"],
 			rest: ["8L1"],
 			round: ["8L1"],
 			sandattack: ["8L1"],
@@ -5049,7 +5049,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			playnice: ["8L1"],
 			protect: ["8L1"],
 			raindance: ["8L1"],
-			recover: ["8L1"],
 			rest: ["8L1"],
 			round: ["8L1"],
 			sandattack: ["8L1"],
@@ -7482,7 +7481,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	secusteel: {
 		learnset: {
-			bodypress: ["8L1"],
+			voltswitch: ["8L1"],
 			breakingswipe: ["8L1"],
 			brickbreak: ["8L1"],
 			bulkup: ["8L1"],
@@ -8521,6 +8520,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tailwhip: ["8L1"],
 			tickle: ["8L1"],
 			toxic: ["8L1"],
+			stealthrock: ["8L1"],
 		},
 	},
 	galliguile: {
