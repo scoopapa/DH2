@@ -341,4 +341,44 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -12,
 	},
+	snowcloak: {
+		onBoost(boost, target, source, effect) {
+			if(!this.field.isWeather('hail')) return;
+			let showMsg = false;
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Snow Cloak", "[of] " + target);
+			}
+		},
+		shortDesc: "If Hail is active, this Pokemon cannot have its stats lowered or lower its own stats.",
+		name: "Snow Cloak",
+		rating: 3,
+		num: 81,
+	},
+	plus: {
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({spa: 1});
+		},
+		name: "Plus",
+		shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage after it is damaged by a move.",
+		rating: 3.5,
+		num: 57,
+	},
+	energyloop: {
+		onPrepareHit(source, target, move) {
+			if(move?.category !== 'Status') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		name: "Energy Loop",
+		shortDesc: "This Pokemon heals 1/16 of its max HP before using an attacking move.",
+		rating: 3.5,
+		num: -13,
+	},
 };
