@@ -163,6 +163,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1012,
 	},
 	//Edited items
+	aguavberry: {
+		inherit: true,
+		consumable: true,
+		naturalGift: {
+			basePower: 70,
+			type: "Dragon",
+		},
+		onEat(pokemon) {
+			if (pokemon.getNature().minus === 'spd') {
+				this.heal(pokemon.baseMaxhp * 0.5);
+				pokemon.addVolatile('confusion');
+			} else {
+				this.heal(pokemon.baseMaxhp * 0.125);
+			}
+		},
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Bitter food (-Sp. Defense Nature), it restores 50% instead, but confuses. Single use.",
+		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpD Nature, it's 50%, but confuses. Single use.",
+	},
 	brightpowder: {
 		name: "Bright Powder",
 		spritenum: 51,
@@ -189,7 +207,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 3,
 		gen: 2,
 		desc: "Causes a priority move that targets the holder to fail, which consumes the item. The effect fails if the attacker is immune to powder moves, but the item is still consumed. When Flung, the target's accuracy is lowered 2 stages.",
-		shortDesc: "Protects from a priority move. When Flung, -2 accuracy.",
+		shortDesc: "Protects from an increased priority move. When Flung, -2 accuracy. Single use.",
 		block: '#damp',
 	},
 	dragonscale: {
@@ -214,6 +232,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder and allies' Electric-type moves have 1.1x power. Evolves Electabuzz into Electivire when traded.",
 		shortDesc: "Holder and allies' Electric-type moves have 1.1x power.",
 	},
+	figyberry: {
+		inherit: true,
+		consumable: true,
+		naturalGift: {
+			basePower: 70,
+			type: "Bug",
+		},
+		onEat(pokemon) {
+			if (pokemon.getNature().minus === 'atk') {
+				this.heal(pokemon.baseMaxhp * 0.5);
+				pokemon.addVolatile('confusion');
+			} else {
+				this.heal(pokemon.baseMaxhp * 0.125);
+			}
+		},
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Spicy food (-Attack Nature), it restores 50% instead, but confuses. Single use.",
+		shortDesc: "Heals 12.5% at 1/4 max HP; if -Atk Nature, it's 50%, but confuses. Single use.",
+	},
 	fullincense: {
 		name: "Full Incense",
 		spritenum: 155,
@@ -225,22 +261,59 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 316,
 		gen: 4,
-		desc: "Halves all allies' speed.",
+		desc: "Reduces all allies' speed by 25%.",
+	},
+	iapapaberry: {
+		inherit: true,
+		consumable: true,
+		naturalGift: {
+			basePower: 70,
+			type: "Dark",
+		},
+		onEat(pokemon) {
+			if (pokemon.getNature().minus === 'spa') {
+				this.heal(pokemon.baseMaxhp * 0.5);
+				pokemon.addVolatile('confusion');
+			} else {
+				this.heal(pokemon.baseMaxhp * 0.125);
+			}
+		},
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Dry food (-Sp. Attack Nature), it restores 50% instead, but confuses. Single use.",
+		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpA Nature, it's 50%, but confuses. Single use.",
 	},
 	ironball: {
-		inherit: true,
-		onStart(pokemon){
-			pokemon.removeVolatile('magnetrise');
-			pokemon.removeVolatile('telekinesis');
-			pokemon.removeVolatile('risingchorus');
-		},
+		name: "Iron Ball",
+		spritenum: 224,
 		fling: {
 			basePower: 130,
 			volatileStatus: 'smackdown',
 			flags: {bullet: 1},
 		},
+		onStart(pokemon){
+			pokemon.removeVolatile('magnetrise');
+			pokemon.removeVolatile('telekinesis');
+			pokemon.removeVolatile('risingchorus');
+		},
+		// other airborneness negation implemented in sim/pokemon.js:Pokemon#isGrounded and Pokemon#canFloat
+		onModifySpe(spe) {
+			return this.chainModify(0.5);
+		},
+		num: 278,
+		gen: 4,
 		desc: "The holder is grounded and cannot be made to float. The holder's Speed is halved. When Flung, grounds the target and counts as a projectile move.",
-		shortDesc: "Holder is grounded, Speed halved. If Flying type, takes neutral Ground damage.",
+		shortDesc: "Holder is grounded, Speed halved. Grounds the target when Flung.",
+	},
+	jabocaberry: {
+		inherit: true,
+		consumable: true,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				if (target.eatItem()) {
+					this.damage(source.baseMaxhp / 4, source, target);
+				}
+			}
+		},
+		desc: "If holder is hit by a physical move, attacker loses 1/4 of its max HP. Single use.",
 	},
 	laxincense: {
 		name: "Lax Incense",
@@ -265,6 +338,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder and allies' Fire-type moves have 1.1x power. Evolves Magmar into Magmortar when traded.",
 		shortDesc: "Holder and allies' Fire-type moves have 1.1x power.",
 	},
+	magoberry: {
+		inherit: true,
+		consumable: true,
+		naturalGift: {
+			basePower: 70,
+			type: "Ghost",
+		},
+		onEat(pokemon) {
+			if (pokemon.getNature().minus === 'spe') {
+				this.heal(pokemon.baseMaxhp * 0.5);
+				pokemon.addVolatile('confusion');
+			} else {
+				this.heal(pokemon.baseMaxhp * 0.125);
+			}
+		},
+		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sweet food (-Speed Nature), it restores 50% instead, but confuses. Single use.",
+		shortDesc: "Heals 12.5% at 1/4 max HP; if -Spe Nature, it's 50%, but confuses. Single use.",
+	},
 	metalpowder: {
 		name: "Metal Powder",
 		fling: {
@@ -278,6 +369,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 3,
 		desc: "When Flung, increases the target's Defense and Sp. Def stats by 1 stage. Fails if target is immune to powder.",
 		shortDesc: "When Flung, +1 Def and Sp. Def. Counts as a powder move.",
+	},
+	micleberry: {
+		inherit: true,
+		consumable: true,
+		condition: {
+			duration: 2,
+			onAccuracyPriority: -1,
+			onAccuracy(accuracy, target, source, move) {
+				this.add('-enditem', source, 'Micle Berry');
+				source.removeVolatile('micleberry');
+				if (typeof accuracy === 'number' && !move.ohko) {
+					return true;
+				}
+			},
+		},
+		desc: "Holder's next non-OHKO move never misses when at 1/4 max HP or less. Single use.",
 	},
 	muscleband: {
 		name: "Muscle Band",
@@ -393,6 +500,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Holder and allies' Grass-type moves have 1.1x power.",
 	},
+	rowapberry: {
+		inherit: true,
+		consumable: true,
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special') {
+				if (target.eatItem()) {
+					this.damage(source.baseMaxhp / 4, source, target);
+				}
+			}
+		},
+		desc: "If holder is hit by a special move, attacker loses 1/4 of its max HP. Single use.",
+	},
 	sachet: {
 		inherit: true,
 		fling: {
@@ -507,93 +626,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder's Fairy-type attacks have 1.2x power. Evolves Swirlix into Slurpuff when traded.",
 		shortDesc: "Holder's Fairy-type attacks have 1.2x power.",
 	},
-	wiseglasses: {
-		name: "Wise Glasses",
-		spritenum: 539,
-		fling: {
-			basePower: 10,
-		},
-		onModifySpAPriority: 2,
-		onModifySpA(spa, pokemon) {
-			return this.chainModify([0x1199, 0x1000]);
-		},
-		num: 267,
-		rating: 3,
-		gen: 4,
-		desc: "Holder's Sp. Attack is multiplied by 1.1x.",
-	},
-	aguavberry: {
-		inherit: true,
-		consumable: true,
-		naturalGift: {
-			basePower: 70,
-			type: "Dragon",
-		},
-		onEat(pokemon) {
-			if (pokemon.getNature().minus === 'spd') {
-				this.heal(pokemon.baseMaxhp * 0.5);
-				pokemon.addVolatile('confusion');
-			} else {
-				this.heal(pokemon.baseMaxhp * 0.125);
-			}
-		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Bitter food (-Sp. Defense Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpD Nature, it's 50%, but confuses. Single use.",
-	},
-	figyberry: {
-		inherit: true,
-		consumable: true,
-		naturalGift: {
-			basePower: 70,
-			type: "Bug",
-		},
-		onEat(pokemon) {
-			if (pokemon.getNature().minus === 'atk') {
-				this.heal(pokemon.baseMaxhp * 0.5);
-				pokemon.addVolatile('confusion');
-			} else {
-				this.heal(pokemon.baseMaxhp * 0.125);
-			}
-		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Spicy food (-Attack Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -Atk Nature, it's 50%, but confuses. Single use.",
-	},
-	iapapaberry: {
-		inherit: true,
-		consumable: true,
-		naturalGift: {
-			basePower: 70,
-			type: "Dark",
-		},
-		onEat(pokemon) {
-			if (pokemon.getNature().minus === 'spa') {
-				this.heal(pokemon.baseMaxhp * 0.5);
-				pokemon.addVolatile('confusion');
-			} else {
-				this.heal(pokemon.baseMaxhp * 0.125);
-			}
-		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Dry food (-Sp. Attack Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpA Nature, it's 50%, but confuses. Single use.",
-	},
-	magoberry: {
-		inherit: true,
-		consumable: true,
-		naturalGift: {
-			basePower: 70,
-			type: "Ghost",
-		},
-		onEat(pokemon) {
-			if (pokemon.getNature().minus === 'spe') {
-				this.heal(pokemon.baseMaxhp * 0.5);
-				pokemon.addVolatile('confusion');
-			} else {
-				this.heal(pokemon.baseMaxhp * 0.125);
-			}
-		},
-		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sweet food (-Speed Nature), it restores 50% instead, but confuses. Single use.",
-		shortDesc: "Heals 12.5% at 1/4 max HP; if -Spe Nature, it's 50%, but confuses. Single use.",
-	},
 	wikiberry: {
 		inherit: true,
 		consumable: true,
@@ -611,6 +643,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sour food (-Defense Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -Def Nature, it's 50%, but confuses. Single use.",
+	},
+	wiseglasses: {
+		name: "Wise Glasses",
+		spritenum: 539,
+		fling: {
+			basePower: 10,
+		},
+		onModifySpAPriority: 2,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify([0x1199, 0x1000]);
+		},
+		num: 267,
+		rating: 3,
+		gen: 4,
+		desc: "Holder's Sp. Attack is multiplied by 1.1x.",
 	},
 	/* Items edited as part of other elements */
 	blueorb: {
@@ -1162,9 +1209,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.runEvent('AfterUseItem', target, null, null, this.dex.getItem('airballoon'));
 			}
 		},
-		num: 541,
-		rating: 3,
-		gen: 5,
+		shortDesc: "Holder gains floating status. Pops when hit.",
+		desc: "The holder becomes immune to Ground-type attacks, Arena Trap, and entry hazards other than Stealth Rock. The holder will not benefit from Terrain, and the moves Dig, Dive, Roost, and Ingrain will fail. The balloon pops when hit. This item has no effect when held by Diglett, Dugtrio, Sandygast, Palossand, Burrorm, or Burryrm.",
+	},
+	bindingband: {
+		inherit: true,
+		desc: "Holder's partial-trapping moves deal 1/6 or 1/3 max HP per turn instead of 1/8 or 1/4.",
 	},
 	heavydutyboots: {
 		inherit: true,
@@ -1198,30 +1248,37 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	machobrace: {
 		inherit: true,
 		ignoreKlutz: false,
+		desc: "Holder's Speed is halved.",
 	},
 	poweranklet: {
 		inherit: true,
 		ignoreKlutz: false,
+		desc: "Holder's Speed is halved.",
 	},
 	powerband: {
 		inherit: true,
 		ignoreKlutz: false,
+		desc: "Holder's Speed is halved.",
 	},
 	powerbelt: {
 		inherit: true,
 		ignoreKlutz: false,
+		desc: "Holder's Speed is halved.",
 	},
 	powerbracer: {
 		inherit: true,
 		ignoreKlutz: false,
+		desc: "Holder's Speed is halved.",
 	},
 	powerlens: {
 		inherit: true,
 		ignoreKlutz: false,
+		desc: "Holder's Speed is halved.",
 	},
 	powerweight: {
 		inherit: true,
 		ignoreKlutz: false,
+		desc: "Holder's Speed is halved.",
 	},
 	/* Natural Gift adjustments (also type-reduction edits for dual-type moves) */
 	cheriberry: {
@@ -1825,12 +1882,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 	},
-	everstone: {
-		inherit: true,
-		fling: {
-			basePower: 40,
-		},
-	},
 	flameorb: {
 		inherit: true,
 		fling: {
@@ -1851,11 +1902,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "If held by a Giratina, its Ghost- and Dragon-type attacks have 1.2x power.",
 	},
 	honey: {
-		inherit: true,
+		num: 94,
+		name: "Honey",
 		fling: {
 			basePower: 30,
 			boosts: {spe: -2},
 		},
+		desc: "When Flung, sharply lowers Speed.",
+		rating: 0,
+		gen: 4,
 	},
 	laggingtail: {
 		inherit: true,
@@ -2024,7 +2079,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	luxuryball: {
 		inherit: true,
-		desc: "A comfortable Poke Ball that makes a wild caught Pokemon increase Condition more quickly.",
+		desc: "A Poke Ball that makes a wild caught Pokemon increase Condition more quickly.",
 	},
 	moonball: {
 		inherit: true,
@@ -2040,7 +2095,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	sportball: {
 		inherit: true,
-		desc: "A comfortable Poke Ball that makes a wild caught Pokemon increase its stats more quickly.",
+		desc: "A Poke Ball that makes a wild caught Pokemon increase its stats more quickly.",
 	},
 	berrysweet: {
 		inherit: true,

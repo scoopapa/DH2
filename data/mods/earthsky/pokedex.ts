@@ -1297,7 +1297,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Durant",
 		forme: "Egelas",
 		types: ["Bug", "Fire"],
-		baseStats: {hp: 58, atk: 109, def: 92, spa: 68, spd: 48, spe: 109},
+		baseStats: {hp: 58, atk: 109, def: 72, spa: 88, spd: 48, spe: 109},
 		abilities: {0: "Symbiosis", 1: "Hustle", H: "Truant"},
 		heightm: 0.3,
 		weightkg: 16.5,

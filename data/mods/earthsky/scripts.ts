@@ -276,7 +276,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return true;
 		},
 		ignoringAbility() { //Added Glyphic Spell's Negate to this.
-			// Check if any active pokemon have the ability Neutralizing Gas (MODDED: or Glyphic Spell's Negate
+			// Check if any active pokemon have the ability Neutralizing Gas (MODDED: or Glyphic Spell's Negate)
 			let neutralizinggas = false;
 			for (const pokemon of this.battle.getAllActive()) {
 				// can't use hasAbility because it would lead to infinite recursion
