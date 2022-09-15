@@ -1,17 +1,5 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
-	/*
-	name: {
-		fusion: ['P1', 'P2'],
-		num: x.5,
-		name: "Name",
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		weightkg: ,
-	},
-	
-	*/
-	//Set 1
+	// FELT START ///
 	volquag: {
 		fusion: ['Volcanion', 'Quagsire'],
 		num: 1,
@@ -5204,10 +5192,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 28.5,
 		evos: ["Mr. Gar"],
 	},
+// FELT END //
+	
+// DUOMOD START //
 abysseil: {
 	num: 1.5,
 	species: "Abysseil",
-	types: ["Water", "Fairy"],
+	types: ["Water", "Psychic"],
 	gender: "N",
 	baseStats: {hp: 80, atk: 54, def: 85, spa: 73, spd: 85, spe: 148},
 	abilities: {0: "Drizzle"},
@@ -5229,7 +5220,7 @@ annelait: {
 azurolt: {
 	num: 3.5,
 	species: "Azurolt",
-	types: ["Ground", "Electric"],
+	types: ["Rock", "Electric"],
 	gender: "N",
 	baseStats: {hp: 90, atk: 115, def: 110, spa: 115, spd: 100, spe: 70},
 	abilities: {0: "Electric Surge"},
@@ -5252,7 +5243,7 @@ baloon: {
 baloonpopped: {
 	num: 4.5,
 	species: "Baloon-Popped",
-	types: ["Fairy", "Dark"],
+	types: ["Fairy", "Ghost"],
 	gender: "N",
 	baseStats: {hp: 77, atk: 124, def: 122, spa: 122, spd: 12, spe: 143},
 	abilities: {0: "Steadfast"},
@@ -5287,7 +5278,7 @@ catelax: {
 crypterid: {
 	num: 8.5,
 	species: "Crypterid",
-	types: ["Ground", "Poison"],
+	types: ["Rock", "Poison"],
 	gender: "N",
 	baseStats: {hp: 81, atk: 100, def: 93, spa: 75, spd: 101, spe: 60},
 	abilities: {0: "Fortification"},
@@ -5298,7 +5289,7 @@ crypterid: {
 deliriophage: {
 	num: 9.5,
 	species: "Deliriophage",
-	types: ["Steel", "Poison"],
+	types: ["Dark", "Poison"],
 	gender: "N",
 	baseStats: {hp: 80, atk: 65, def: 70, spa: 100, spd: 120, spe: 60},
 	abilities: {0: "Unaware"},
@@ -5389,7 +5380,7 @@ fluxtapestereo: {
 gorilax: {
 	num: 17.5,
 	species: "Gorilax",
-	types: ["Dark", "Fairy"],
+	types: ["Psychic", "Fighting"],
 	gender: "N",
 	baseStats: {hp: 116, atk: 61, def: 91, spa: 93, spd: 117, spe: 122},
 	abilities: {0: "Mental Note"},
@@ -5400,7 +5391,7 @@ gorilax: {
 grievenge: {
 	num: 18.5,
 	species: "Grievenge",
-	types: ["Dark"],
+	types: ["Ghost"],
 	gender: "N",
 	baseStats: {hp: 57, atk: 93, def: 57, spa: 57, spd: 57, spe: 136},
 	abilities: {0: "Deaths Call"},
@@ -5411,7 +5402,7 @@ grievenge: {
 hyperoach: {
 	num: 19.5,
 	species: "Hyperoach",
-	types: ["Bug", "Dark"],
+	types: ["Bug", "Normal"],
 	gender: "N",
 	baseStats: {hp: 68, atk: 119, def: 41, spa: 107, spd: 89, spe: 111},
 	abilities: {0: "Hype Overload"},
@@ -5424,7 +5415,7 @@ impsaustor: {
 	species: "Impsaustor",
 	types: ["Dark", "Poison"],
 	gender: "N",
-	baseStats: {hp: 100, atk: 120, def: 80, spa: 80, spd: 120, spe: 100}, // i'm so freaking tired i did this to be funny lmao
+	baseStats: {hp: 100, atk: 120, def: 80, spa: 80, spd: 120, spe: 100}, 
 	abilities: {0: "Vent"},
 	heightm: 1,
 	weightkg: 5,
@@ -5477,7 +5468,7 @@ monstratus: {
 mortemoth: {
 	num: 24.5,
 	species: "Mortemoth",
-	types: ["Bug", "Flying"],
+	types: ["Bug", "Ghost"],
 	gender: "N",
 	baseStats: {hp: 70, atk: 43, def: 43, spa: 130, spd: 120, spe: 123},
 	abilities: {0: "Deteriorate"},
@@ -5499,7 +5490,7 @@ pokat: {
 spirox: {
 	num: 26.5,
 	species: "Spirox",
-	types: ["Dark", "Steel"],
+	types: ["Ghost", "Steel"],
 	gender: "N",
 	baseStats: {hp: 60, atk: 90, def: 130, spa: 90, spd: 130, spe: 100},
 	abilities: {0: "Power of Two"},
@@ -5511,7 +5502,7 @@ spirox: {
 spiroxancient: {
 	num: 26.5,
 	species: "Spirox-Ancient",
-	types: ["Dark", "Grass"],
+	types: ["Ghost", "Grass"],
 	gender: "N",
 	baseStats: {hp: 60, atk: 100, def: 110, spa: 100, spd: 110, spe: 120},
 	abilities: {0: "Lost Memory"},
@@ -5523,7 +5514,7 @@ spiroxancient: {
 spiroxripped: {
 	num: 26.5,
 	species: "Spirox-Ripped",
-	types: ["Dark"],
+	types: ["Ghost"],
 	gender: "N",
 	baseStats: {hp: 60, atk: 120, def: 100, spa: 130, spd: 100, spe: 90},
 	abilities: {0: "Tough Out"},
@@ -5546,7 +5537,7 @@ treemu: {
 valianch: {
 	num: 30.5,
 	species: "Valianch",
-	types: ["Grass"],
+	types: ["Grass", "Fighting"],
 	gender: "N",
 	baseStats: {hp: 110, atk: 130, def: 70, spa: 60, spd: 70, spe: 80},
 	abilities: {0: "Patience"},
@@ -5566,7 +5557,7 @@ spisces: {
 crazefly: {
 	num: 32.5,
 	species: "Crazefly",
-	types: ["Bug"],
+	types: ["Bug", "Psychic"],
 	gender: "N",
 	baseStats: {hp: 99, atk: 79, def: 85, spa: 86, spd: 101, spe: 54},
 	abilities: {0: "Gooey"},
@@ -5584,7 +5575,7 @@ pterrost: {
 jewelode: {
 	num: 34.5,
 	species: "Jewelode",
-	types: ["Ground", "Fairy"],
+	types: ["Rock", "Fairy"],
 	gender: "N",
 	baseStats: {hp: 80, atk: 61, def: 80, spa: 101, spd: 80, spe: 101},
 	abilities: {0: "Neutralizing Gas"},
@@ -5665,4 +5656,5 @@ steroach: {
 	weightkg: 5,
 	eggGroups: ["Undiscovered"],
 },
+// DUOMOD END //
 };
