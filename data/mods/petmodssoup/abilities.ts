@@ -1,5 +1,5 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-	//Set 1
+	// FELT START //
 	porous: {//Feel like this might be wrong
 		id: "porous",
 		name: "Porous",
@@ -6664,6 +6664,9 @@ lifedrain: {
 		name: "Ghoul Away",
 		shortDesc: "Filter + Levitate",
 	},
+	// FELT END //
+	
+	// DUOMOD START //
   	angler: {
 		desc: "If the user is hit by a Water-type move, they take 0.25x damage from it and the opponent recieves recoil equal to the damage dealt.",
 		shortDesc: "User takes quartered damage from water; attacker receives major recoil.",
@@ -7159,4 +7162,5 @@ lifedrain: {
 		rating: 5,
 		num: 3019,
 	},
+	// DUOMOD END //
 };
