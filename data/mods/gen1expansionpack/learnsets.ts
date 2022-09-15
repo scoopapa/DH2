@@ -2696,7 +2696,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			focusenergy: ["1L7"],
 			bite: ["1L10"],
 			hyperfang: ["1L16"],
-			brutalswingbite: ["1L20"],
+			brutalswing: ["1L20"],
 			superfang: ["1L28"],
 			doubleedge: ["1L31", "1M"],
 			nightslash: ["1L40"],
