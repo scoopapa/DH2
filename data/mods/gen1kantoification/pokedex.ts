@@ -133,7 +133,7 @@ venusaurmega: {
 		"Monster",
 		"Grass"
 	],
-	"requiredItem": "Venusaurite"
+	// "requiredItem": "Venusaurite"
 },
 charmander: {
 	"num": -4,
@@ -269,7 +269,7 @@ charizardmegax: {
 		"Monster",
 		"Dragon"
 	],
-	"requiredItem": "Charizardite X"
+	// "requiredItem": "Charizardite X"
 },
 charizardmegay: {
 	"num": -6,
@@ -300,7 +300,7 @@ charizardmegay: {
 		"Monster",
 		"Dragon"
 	],
-	"requiredItem": "Charizardite Y"
+	// "requiredItem": "Charizardite Y"
 },
 squirtle: {
 	"num": -7,
@@ -432,7 +432,7 @@ blastoisemega: {
 		"Monster",
 		"Water 1"
 	],
-	"requiredItem": "Blastoisinite"
+	// "requiredItem": "Blastoisinite"
 },
 caterpie: {
 	"num": -10,
@@ -626,7 +626,7 @@ beedrillmega: {
 	"eggGroups": [
 		"Bug"
 	],
-	"requiredItem": "Beedrillite"
+	// "requiredItem": "Beedrillite"
 },
 pidgey: {
 	"num": -16,
@@ -744,7 +744,7 @@ pidgeotmega: {
 	"eggGroups": [
 		"Flying"
 	],
-	"requiredItem": "Pidgeotite"
+	// "requiredItem": "Pidgeotite"
 },
 rattata: {
 	"num": -19,
@@ -3079,7 +3079,7 @@ alakazammega: {
 	"eggGroups": [
 		"Human-Like"
 	],
-	"requiredItem": "Alakazite"
+	// "requiredItem": "Alakazite"
 },
 machop: {
 	"num": -66,
@@ -3766,7 +3766,7 @@ slowbromega: {
 		"Monster",
 		"Water 1"
 	],
-	"requiredItem": "Slowbronite"
+	// "requiredItem": "Slowbronite"
 },
 slowbrogalar: {
 	"num": -80,
@@ -4324,7 +4324,7 @@ gengarmega: {
 	"eggGroups": [
 		"Amorphous"
 	],
-	"requiredItem": "Gengarite"
+	// "requiredItem": "Gengarite"
 },
 onix: {
 	"num": -95,
@@ -5125,7 +5125,7 @@ kangaskhanmega: {
 	"eggGroups": [
 		"Monster"
 	],
-	"requiredItem": "Kangaskhanite"
+	// "requiredItem": "Kangaskhanite"
 },
 horsea: {
 	"num": -116,
@@ -5541,7 +5541,7 @@ pinsirmega: {
 	"eggGroups": [
 		"Bug"
 	],
-	"requiredItem": "Pinsirite"
+	// "requiredItem": "Pinsirite"
 },
 tauros: {
 	"num": -128,
@@ -5654,7 +5654,7 @@ gyaradosmega: {
 		"Water 2",
 		"Dragon"
 	],
-	"requiredItem": "Gyaradosite"
+	// "requiredItem": "Gyaradosite"
 },
 lapras: {
 	"num": -131,
@@ -6095,7 +6095,7 @@ aerodactylmega: {
 	"eggGroups": [
 		"Flying"
 	],
-	"requiredItem": "Aerodactylite"
+	// "requiredItem": "Aerodactylite"
 },
 snorlax: {
 	"num": -143,
@@ -6456,7 +6456,7 @@ mewtwomegax: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Mewtwonite X"
+	// "requiredItem": "Mewtwonite X"
 },
 mewtwomegay: {
 	"num": -150,
@@ -6482,7 +6482,7 @@ mewtwomegay: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Mewtwonite Y"
+	// "requiredItem": "Mewtwonite Y"
 },
 mew: {
 	"num": -151,
@@ -7487,7 +7487,7 @@ ampharosmega: {
 		"Monster",
 		"Field"
 	],
-	"requiredItem": "Ampharosite"
+	// "requiredItem": "Ampharosite"
 },
 bellossom: {
 	"num": -182,
@@ -8361,7 +8361,7 @@ steelixmega: {
 	"eggGroups": [
 		"Mineral"
 	],
-	"requiredItem": "Steelixite"
+	// "requiredItem": "Steelixite"
 },
 snubbull: {
 	"num": -209,
@@ -8547,7 +8547,7 @@ scizormega: {
 	"eggGroups": [
 		"Bug"
 	],
-	"requiredItem": "Scizorite"
+	// "requiredItem": "Scizorite"
 },
 shuckle: {
 	"num": -213,
@@ -8630,7 +8630,7 @@ heracrossmega: {
 	"eggGroups": [
 		"Bug"
 	],
-	"requiredItem": "Heracronite"
+	// "requiredItem": "Heracronite"
 },
 sneasel: {
 	"num": -215,
@@ -9156,7 +9156,7 @@ houndoommega: {
 	"eggGroups": [
 		"Field"
 	],
-	"requiredItem": "Houndoominite"
+	// "requiredItem": "Houndoominite"
 },
 kingdra: {
 	"num": -230,
@@ -9716,7 +9716,7 @@ tyranitarmega: {
 	"eggGroups": [
 		"Monster"
 	],
-	"requiredItem": "Tyranitarite"
+	// "requiredItem": "Tyranitarite"
 },
 lugia: {
 	"num": -249,
@@ -9931,7 +9931,7 @@ sceptilemega: {
 		"Monster",
 		"Dragon"
 	],
-	"requiredItem": "Sceptilite"
+	// "requiredItem": "Sceptilite"
 },
 torchic: {
 	"num": -255,
@@ -10061,7 +10061,7 @@ blazikenmega: {
 	"eggGroups": [
 		"Field"
 	],
-	"requiredItem": "Blazikenite"
+	// "requiredItem": "Blazikenite"
 },
 mudkip: {
 	"num": -258,
@@ -10195,7 +10195,7 @@ swampertmega: {
 		"Monster",
 		"Water 1"
 	],
-	"requiredItem": "Swampertite"
+	// "requiredItem": "Swampertite"
 },
 poochyena: {
 	"num": -261,
@@ -10917,7 +10917,7 @@ gardevoirmega: {
 	"eggGroups": [
 		"Amorphous"
 	],
-	"requiredItem": "Gardevoirite"
+	// "requiredItem": "Gardevoirite"
 },
 surskit: {
 	"num": -283,
@@ -11509,7 +11509,7 @@ sableyemega: {
 	"eggGroups": [
 		"Human-Like"
 	],
-	"requiredItem": "Sablenite"
+	// "requiredItem": "Sablenite"
 },
 mawile: {
 	"num": -303,
@@ -11569,7 +11569,7 @@ mawilemega: {
 		"Field",
 		"Fairy"
 	],
-	"requiredItem": "Mawilite"
+	// "requiredItem": "Mawilite"
 },
 aron: {
 	"num": -304,
@@ -11683,7 +11683,7 @@ aggronmega: {
 	"eggGroups": [
 		"Monster"
 	],
-	"requiredItem": "Aggronite"
+	// "requiredItem": "Aggronite"
 },
 meditite: {
 	"num": -307,
@@ -11769,7 +11769,7 @@ medichammega: {
 	"eggGroups": [
 		"Human-Like"
 	],
-	"requiredItem": "Medichamite"
+	// "requiredItem": "Medichamite"
 },
 electrike: {
 	"num": -309,
@@ -11854,7 +11854,7 @@ manectricmega: {
 	"eggGroups": [
 		"Field"
 	],
-	"requiredItem": "Manectite"
+	// "requiredItem": "Manectite"
 },
 plusle: {
 	"num": -311,
@@ -12124,7 +12124,7 @@ sharpedomega: {
 	"eggGroups": [
 		"Water 2"
 	],
-	"requiredItem": "Sharpedonite"
+	// "requiredItem": "Sharpedonite"
 },
 wailmer: {
 	"num": -320,
@@ -12267,7 +12267,7 @@ cameruptmega: {
 	"eggGroups": [
 		"Field"
 	],
-	"requiredItem": "Cameruptite"
+	// "requiredItem": "Cameruptite"
 },
 torkoal: {
 	"num": -324,
@@ -12595,7 +12595,7 @@ altariamega: {
 		"Flying",
 		"Dragon"
 	],
-	"requiredItem": "Altarianite"
+	// "requiredItem": "Altarianite"
 },
 zangoose: {
 	"num": -335,
@@ -13092,7 +13092,7 @@ castformsunny: {
 		"Fairy",
 		"Amorphous"
 	],
-	"requiredAbility": "Forecast",
+	// "requiredAbility": "Forecast",
 	"battleOnly": "Castform"
 },
 castformrainy: {
@@ -13119,7 +13119,7 @@ castformrainy: {
 		"Fairy",
 		"Amorphous"
 	],
-	"requiredAbility": "Forecast",
+	// "requiredAbility": "Forecast",
 	"battleOnly": "Castform"
 },
 castformsnowy: {
@@ -13146,7 +13146,7 @@ castformsnowy: {
 		"Fairy",
 		"Amorphous"
 	],
-	"requiredAbility": "Forecast",
+	// "requiredAbility": "Forecast",
 	"battleOnly": "Castform"
 },
 kecleon: {
@@ -13255,7 +13255,7 @@ banettemega: {
 	"eggGroups": [
 		"Amorphous"
 	],
-	"requiredItem": "Banettite"
+	// "requiredItem": "Banettite"
 },
 duskull: {
 	"num": -355,
@@ -13417,7 +13417,7 @@ absolmega: {
 	"eggGroups": [
 		"Field"
 	],
-	"requiredItem": "Absolite"
+	// "requiredItem": "Absolite"
 },
 wynaut: {
 	"num": -360,
@@ -13533,7 +13533,7 @@ glaliemega: {
 		"Fairy",
 		"Mineral"
 	],
-	"requiredItem": "Glalitite"
+	// "requiredItem": "Glalitite"
 },
 spheal: {
 	"num": -363,
@@ -13870,7 +13870,7 @@ salamencemega: {
 	"eggGroups": [
 		"Dragon"
 	],
-	"requiredItem": "Salamencite"
+	// "requiredItem": "Salamencite"
 },
 beldum: {
 	"num": -374,
@@ -13989,7 +13989,7 @@ metagrossmega: {
 	"eggGroups": [
 		"Mineral"
 	],
-	"requiredItem": "Metagrossite"
+	// "requiredItem": "Metagrossite"
 },
 regirock: {
 	"num": -377,
@@ -14131,7 +14131,7 @@ latiasmega: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Latiasite"
+	// "requiredItem": "Latiasite"
 },
 latios: {
 	"num": -381,
@@ -14192,7 +14192,7 @@ latiosmega: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Latiosite"
+	// "requiredItem": "Latiosite"
 },
 kyogre: {
 	"num": -382,
@@ -14251,7 +14251,7 @@ kyogreprimal: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Blue Orb"
+	// "requiredItem": "Blue Orb"
 },
 groudon: {
 	"num": -383,
@@ -14311,7 +14311,7 @@ groudonprimal: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Red Orb"
+	// "requiredItem": "Red Orb"
 },
 rayquaza: {
 	"num": -384,
@@ -14372,7 +14372,7 @@ rayquazamega: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredMove": "Dragon Ascent"
+	// "requiredMove": "Dragon Ascent"
 },
 jirachi: {
 	"num": -385,
@@ -15630,7 +15630,7 @@ cherrimsunshine: {
 		"Fairy",
 		"Grass"
 	],
-	"requiredAbility": "Flower Gift",
+	// "requiredAbility": "Flower Gift",
 	"battleOnly": "Cherrim"
 },
 shellos: {
@@ -15874,7 +15874,7 @@ lopunnymega: {
 		"Field",
 		"Human-Like"
 	],
-	"requiredItem": "Lopunnite"
+	// "requiredItem": "Lopunnite"
 },
 mismagius: {
 	"num": -429,
@@ -16381,7 +16381,7 @@ garchompmega: {
 		"Monster",
 		"Dragon"
 	],
-	"requiredItem": "Garchompite"
+	// "requiredItem": "Garchompite"
 },
 munchlax: {
 	"num": -446,
@@ -16516,7 +16516,7 @@ lucariomega: {
 		"Field",
 		"Human-Like"
 	],
-	"requiredItem": "Lucarionite"
+	// "requiredItem": "Lucarionite"
 },
 hippopotas: {
 	"num": -449,
@@ -16872,7 +16872,7 @@ abomasnowmega: {
 		"Monster",
 		"Grass"
 	],
-	"requiredItem": "Abomasite"
+	// "requiredItem": "Abomasite"
 },
 weavile: {
 	"num": -461,
@@ -17341,7 +17341,7 @@ gallademega: {
 	"eggGroups": [
 		"Amorphous"
 	],
-	"requiredItem": "Galladite"
+	// "requiredItem": "Galladite"
 },
 probopass: {
 	"num": -476,
@@ -17917,7 +17917,7 @@ giratinaorigin: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Griseous Orb",
+	// "requiredItem": "Griseous Orb",
 	"changesFrom": "Giratina"
 },
 cresselia: {
@@ -18177,7 +18177,7 @@ arceusbug: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Insect Plate",
 		"Buginium Z"
 	],
@@ -18207,7 +18207,7 @@ arceusdark: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Dread Plate",
 		"Darkinium Z"
 	],
@@ -18237,7 +18237,7 @@ arceusdragon: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Draco Plate",
 		"Dragonium Z"
 	],
@@ -18267,7 +18267,7 @@ arceuselectric: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Zap Plate",
 		"Electrium Z"
 	],
@@ -18297,7 +18297,7 @@ arceusfairy: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Pixie Plate",
 		"Fairium Z"
 	],
@@ -18328,7 +18328,7 @@ arceusfighting: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Fist Plate",
 		"Fightinium Z"
 	],
@@ -18358,7 +18358,7 @@ arceusfire: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Flame Plate",
 		"Firium Z"
 	],
@@ -18388,7 +18388,7 @@ arceusflying: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Sky Plate",
 		"Flyinium Z"
 	],
@@ -18418,7 +18418,7 @@ arceusghost: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Spooky Plate",
 		"Ghostium Z"
 	],
@@ -18448,7 +18448,7 @@ arceusgrass: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Meadow Plate",
 		"Grassium Z"
 	],
@@ -18478,7 +18478,7 @@ arceusground: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Earth Plate",
 		"Groundium Z"
 	],
@@ -18508,7 +18508,7 @@ arceusice: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Icicle Plate",
 		"Icium Z"
 	],
@@ -18538,7 +18538,7 @@ arceuspoison: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Toxic Plate",
 		"Poisonium Z"
 	],
@@ -18568,7 +18568,7 @@ arceuspsychic: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Mind Plate",
 		"Psychium Z"
 	],
@@ -18598,7 +18598,7 @@ arceusrock: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Stone Plate",
 		"Rockium Z"
 	],
@@ -18628,7 +18628,7 @@ arceussteel: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Iron Plate",
 		"Steelium Z"
 	],
@@ -18658,7 +18658,7 @@ arceuswater: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItems": [
+	// "requiredItems": [
 		"Splash Plate",
 		"Waterium Z"
 	],
@@ -19816,7 +19816,7 @@ audinomega: {
 	"eggGroups": [
 		"Fairy"
 	],
-	"requiredItem": "Audinite"
+	// "requiredItem": "Audinite"
 },
 timburr: {
 	"num": -532,
@@ -20667,7 +20667,7 @@ darmanitanzen: {
 	"eggGroups": [
 		"Field"
 	],
-	"requiredAbility": "Zen Mode",
+	// "requiredAbility": "Zen Mode",
 	"battleOnly": "Darmanitan"
 },
 darmanitangalar: {
@@ -20722,7 +20722,7 @@ darmanitangalarzen: {
 	"eggGroups": [
 		"Field"
 	],
-	"requiredAbility": "Zen Mode",
+	// "requiredAbility": "Zen Mode",
 	"battleOnly": "Darmanitan-Galar"
 },
 maractus: {
@@ -23662,7 +23662,7 @@ keldeoresolute: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredMove": "Secret Sword",
+	// "requiredMove": "Secret Sword",
 	"changesFrom": "Keldeo"
 },
 meloetta: {
@@ -23725,7 +23725,7 @@ meloettapirouette: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredMove": "Relic Song",
+	// "requiredMove": "Relic Song",
 	"battleOnly": "Meloetta"
 },
 genesect: {
@@ -23793,7 +23793,7 @@ genesectdouse: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Douse Drive",
+	// "requiredItem": "Douse Drive",
 	"changesFrom": "Genesect"
 },
 genesectshock: {
@@ -23821,7 +23821,7 @@ genesectshock: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Shock Drive",
+	// "requiredItem": "Shock Drive",
 	"changesFrom": "Genesect"
 },
 genesectburn: {
@@ -23849,7 +23849,7 @@ genesectburn: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Burn Drive",
+	// "requiredItem": "Burn Drive",
 	"changesFrom": "Genesect"
 },
 genesectchill: {
@@ -23877,7 +23877,7 @@ genesectchill: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Chill Drive",
+	// "requiredItem": "Chill Drive",
 	"changesFrom": "Genesect"
 },
 chespin: {
@@ -24190,7 +24190,7 @@ greninjaash: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredAbility": "Battle Bond",
+	// "requiredAbility": "Battle Bond",
 	"battleOnly": "Greninja",
 	"gen": 7
 },
@@ -25085,7 +25085,7 @@ aegislashblade: {
 	"eggGroups": [
 		"Mineral"
 	],
-	"requiredAbility": "Stance Change",
+	// "requiredAbility": "Stance Change",
 	"battleOnly": "Aegislash"
 },
 spritzee: {
@@ -26530,7 +26530,7 @@ zygardecomplete: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredAbility": "Power Construct",
+	// "requiredAbility": "Power Construct",
 	"battleOnly": [
 		"Zygarde",
 		"Zygarde-10%"
@@ -26596,7 +26596,7 @@ dianciemega: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Diancite"
+	// "requiredItem": "Diancite"
 },
 hoopa: {
 	"num": -720,
@@ -27744,7 +27744,7 @@ wishiwashischool: {
 	"eggGroups": [
 		"Water 2"
 	],
-	"requiredAbility": "Schooling",
+	// "requiredAbility": "Schooling",
 	"battleOnly": "Wishiwashi"
 },
 mareanie: {
@@ -28641,7 +28641,7 @@ silvallybug: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Bug Memory",
+	// "requiredItem": "Bug Memory",
 	"changesFrom": "Silvally"
 },
 silvallydark: {
@@ -28668,7 +28668,7 @@ silvallydark: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Dark Memory",
+	// "requiredItem": "Dark Memory",
 	"changesFrom": "Silvally"
 },
 silvallydragon: {
@@ -28695,7 +28695,7 @@ silvallydragon: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Dragon Memory",
+	// "requiredItem": "Dragon Memory",
 	"changesFrom": "Silvally"
 },
 silvallyelectric: {
@@ -28722,7 +28722,7 @@ silvallyelectric: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Electric Memory",
+	// "requiredItem": "Electric Memory",
 	"changesFrom": "Silvally"
 },
 silvallyfairy: {
@@ -28749,7 +28749,7 @@ silvallyfairy: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Fairy Memory",
+	// "requiredItem": "Fairy Memory",
 	"changesFrom": "Silvally"
 },
 silvallyfighting: {
@@ -28776,7 +28776,7 @@ silvallyfighting: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Fighting Memory",
+	// "requiredItem": "Fighting Memory",
 	"changesFrom": "Silvally"
 },
 silvallyfire: {
@@ -28803,7 +28803,7 @@ silvallyfire: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Fire Memory",
+	// "requiredItem": "Fire Memory",
 	"changesFrom": "Silvally"
 },
 silvallyflying: {
@@ -28830,7 +28830,7 @@ silvallyflying: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Flying Memory",
+	// "requiredItem": "Flying Memory",
 	"changesFrom": "Silvally"
 },
 silvallyghost: {
@@ -28857,7 +28857,7 @@ silvallyghost: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Ghost Memory",
+	// "requiredItem": "Ghost Memory",
 	"changesFrom": "Silvally"
 },
 silvallygrass: {
@@ -28884,7 +28884,7 @@ silvallygrass: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Grass Memory",
+	// "requiredItem": "Grass Memory",
 	"changesFrom": "Silvally"
 },
 silvallyground: {
@@ -28911,7 +28911,7 @@ silvallyground: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Ground Memory",
+	// "requiredItem": "Ground Memory",
 	"changesFrom": "Silvally"
 },
 silvallyice: {
@@ -28938,7 +28938,7 @@ silvallyice: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Ice Memory",
+	// "requiredItem": "Ice Memory",
 	"changesFrom": "Silvally"
 },
 silvallypoison: {
@@ -28965,7 +28965,7 @@ silvallypoison: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Poison Memory",
+	// "requiredItem": "Poison Memory",
 	"changesFrom": "Silvally"
 },
 silvallypsychic: {
@@ -28992,7 +28992,7 @@ silvallypsychic: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Psychic Memory",
+	// "requiredItem": "Psychic Memory",
 	"changesFrom": "Silvally"
 },
 silvallyrock: {
@@ -29019,7 +29019,7 @@ silvallyrock: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Rock Memory",
+	// "requiredItem": "Rock Memory",
 	"changesFrom": "Silvally"
 },
 silvallysteel: {
@@ -29046,7 +29046,7 @@ silvallysteel: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Steel Memory",
+	// "requiredItem": "Steel Memory",
 	"changesFrom": "Silvally"
 },
 silvallywater: {
@@ -29073,7 +29073,7 @@ silvallywater: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Water Memory",
+	// "requiredItem": "Water Memory",
 	"changesFrom": "Silvally"
 },
 minior: {
@@ -29153,7 +29153,7 @@ miniormeteor: {
 	"eggGroups": [
 		"Mineral"
 	],
-	"requiredAbility": "Shields Down",
+	// "requiredAbility": "Shields Down",
 	"battleOnly": "Minior"
 },
 komala: {
@@ -29320,7 +29320,7 @@ mimikyubusted: {
 	"eggGroups": [
 		"Amorphous"
 	],
-	"requiredAbility": "Disguise",
+	// "requiredAbility": "Disguise",
 	"battleOnly": "Mimikyu"
 },
 mimikyutotem: {
@@ -29372,7 +29372,7 @@ mimikyubustedtotem: {
 	"eggGroups": [
 		"Amorphous"
 	],
-	"requiredAbility": "Disguise",
+	// "requiredAbility": "Disguise",
 	"battleOnly": "Mimikyu-Totem"
 },
 bruxish: {
@@ -30101,7 +30101,7 @@ necrozmaultra: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Ultranecrozium Z",
+	// "requiredItem": "Ultranecrozium Z",
 	"battleOnly": [
 		"Necrozma-Dawn-Wings",
 		"Necrozma-Dusk-Mane"
@@ -31446,7 +31446,7 @@ cramorantgulping: {
 		"Water 1",
 		"Flying"
 	],
-	"requiredAbility": "Gulp Missile",
+	// "requiredAbility": "Gulp Missile",
 	"battleOnly": "Cramorant"
 },
 cramorantgorging: {
@@ -31474,7 +31474,7 @@ cramorantgorging: {
 		"Water 1",
 		"Flying"
 	],
-	"requiredAbility": "Gulp Missile",
+	// "requiredAbility": "Gulp Missile",
 	"battleOnly": "Cramorant"
 },
 arrokuda: {
@@ -32491,7 +32491,7 @@ eiscuenoice: {
 		"Water 1",
 		"Field"
 	],
-	"requiredAbility": "Ice Face",
+	// "requiredAbility": "Ice Face",
 	"battleOnly": "Eiscue"
 },
 indeedee: {
@@ -32612,7 +32612,7 @@ morpekohangry: {
 		"Field",
 		"Fairy"
 	],
-	"requiredAbility": "Hunger Switch",
+	// "requiredAbility": "Hunger Switch",
 	"battleOnly": "Morpeko"
 },
 cufant: {
@@ -32948,7 +32948,7 @@ zaciancrowned: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Rusted Sword",
+	// "requiredItem": "Rusted Sword",
 	"battleOnly": "Zacian",
 	"cannotDynamax": true
 },
@@ -33012,7 +33012,7 @@ zamazentacrowned: {
 	"eggGroups": [
 		"Undiscovered"
 	],
-	"requiredItem": "Rusted Shield",
+	// "requiredItem": "Rusted Shield",
 	"battleOnly": "Zamazenta",
 	"cannotDynamax": true
 },
