@@ -356,8 +356,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add("-fail", target, "unboost", "[from] ability: Snow Cloak", "[of] " + target);
 			}
 		},
-		shortDesc: "If Hail is active, this Pokemon cannot have its stats lowered or lower its own stats.",
 		name: "Snow Cloak",
+		shortDesc: "If Hail is active, this Pokemon cannot have its stats lowered or lower its own stats.",
 		rating: 3,
 		num: 81,
 	},
@@ -366,7 +366,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.boost({spa: 1});
 		},
 		name: "Plus",
-		shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage after it is damaged by a move.",
+		shortDesc: "This Pokemon's SpA is raised by 1 stage when hit by an attack.",
 		rating: 3.5,
 		num: 57,
 	},

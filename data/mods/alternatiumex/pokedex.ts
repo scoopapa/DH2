@@ -573,6 +573,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Levitate", H: "Unburden"},
 		heightm: 0.2,
 		weightkg: 0.4,
+		otherFormes: null,
+		formeOrder: null,
 	},
 	polteageistantique: {
 		num: 855,
@@ -582,10 +584,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Solid Rock", 1: "Slush Rush", H: "Snow Cloak"},
 		heightm: 0.2,
 		weightkg: 0.4,
+		otherFormes: null,
+		formeOrder: null,
+		baseSpecies: null,
+		changesFrom: null,
 	},
-	toxtricity: {
+	toxtricityrockstar: {
 		num: 849,
-		name: "Toxtricity",
+		name: "Toxtricity-Rock-Star",
 		types: ["Electric", "Fighting"],
 		baseStats: {hp: 100, atk: 103, def: 80, spa: 88, spd: 80, spe: 75},
 		abilities: {0: "Technician", 1: "Plus", H: "Volt Absorb"},
@@ -609,15 +615,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Pressure", H: "Regenerator"},
 		heightm: 1.7,
 		weightkg: 55.4,
-	},
-	articunotsunami: {
-		num: 144,
-		name: "Articuno-Tsunami",
-		types: ["Water", "Flying"],
-		baseStats: {hp: 90, atk: 70, def: 100, spa: 90, spd: 70, spe: 110},
-		abilities: {0: "Competitive", H: "Natural Cure"},
-		heightm: 1.7,
-		weightkg: 50.4,
 	},
 	articunotsunami: {
 		num: 144,

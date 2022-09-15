@@ -1,9 +1,4 @@
 export const Moves: {[moveid: string]: MoveData} = {
-	shoreup: {
-		inherit: true,
-		isViable: true,
-	},
-	
 	triplearrows: {
 		num: -1,
 		accuracy: 100,
@@ -596,6 +591,49 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Clever",
 	},
+	overdrive: {
+		inherit: true,
+		basePower: 100,
+	},
+	teatime: {
+		inherit: true,
+		priority: 1,
+	},
+	teatimeantique: {
+		num: 752,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "All active Pokemon consume held Berries.",
+		name: "Teatime (Antique)",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		onHitField(target, source, move) {
+			let result = false;
+			for (const active of this.getAllActive()) {
+				if (this.runEvent('Invulnerability', active, source, move) === false) {
+					this.add('-miss', source, active);
+					result = true;
+				} else {
+					const item = active.getItem();
+					if (active.hp && item.isBerry) {
+						// bypasses Unnerve
+						active.eatItem(true);
+						result = true;
+					}
+				}
+			}
+			return result;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Teatime", target);
+		},
+		secondary: null,
+		target: "all",
+		type: "Normal",
+	},
 	freezingglare: {
 		num: 821,
 		accuracy: 100,
@@ -620,7 +658,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Heals the user for 1/3 max HP. If afflicted with a status, heals the user for 1/6 max HP and cures the status.",
+		shortDesc: "Heals 1/3 of max HP. If statused: Heals 1/6 and cures status.",
 		name: "Life Dew",
 		pp: 10,
 		priority: 0,

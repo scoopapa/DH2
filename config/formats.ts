@@ -151,7 +151,7 @@ export const Formats: FormatList = [
 				'Calyrex-Midnight', 'Kommo-o', 'Rockmo-o', 'Salazzle', 'Salazzle-Ruler', 'Lurantis', 'Lurantio', 'Mr. Mime', 'Mr. Mime-Prance', 'Stunfisk', 'Stunfisk-Trap',
 				'Necrozma', 'Necrozma-Lionheart', 'Necrozma-Batwing', 'Necrozma-Dragon', 'Braviary-Patriot', 'Braviary-Hisui', 'Lilligant-Bard', 'Mistlegant', 'Electrode-Screwball', 
 				'Electrode-Ringo', 'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales', "Indeedee-Devil", "Indeedee-Angel", "Polteageist", "Polteageist-Antique",
-				"Toxtricity", "Toxtricity-Low-Key", "Articuno-Mistral", "Articuno-Tsunami", "Articuno-Tsunami", "Zapdos", "Charpados", "Moltres", "Bennutres",
+				"Toxtricity-Rock-Star", "Toxtricity-Low-Key", "Articuno-Mistral", "Articuno-Tsunami", "Zapdos", "Charpados", "Moltres", "Bennutres",
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -3430,15 +3430,45 @@ export const Formats: FormatList = [
 				'RU', 'NUBL',
 				'NU', 'PUBL',
 				'PU',
+				//ZUBL
+				'Ampharos', 'Dunsparce', 'Flareon', 'Porygon',
 		],
 		unbanlist: [
-				'Aipom', 'Ampharos', 'Arbok', 'Ariados', 'Beautifly', 'Beedrill', 'Castform', 'Corsola', 'Delcatty', 'Delibird', 'Dewgong', 
-				'Ditto', 'Dunsparce', 'Dustox', 'Farfetch\u2019d', 'Flareon', 'Furret', 'Glalie', 'Illumise', 'Ledian', 'Lickitung', 'Luvdisc', 
-				'Magcargo', 'Mightyena', 'Minun', 'Nosepass', 'Octillery', 'Parasect', 'Plusle', 'Politoed', 'Seaking', 'Shedinja', 'Shuckle', 
-				'Smeargle', 'Spinda', 'Sunflora', 'Swalot', 'Tropius', 'Unown', 'Volbeat', 'Wailord', 'Wobbuffet', 'Yanma',
+				'Aipom', 'Arbok', 'Ariados', 'Beautifly', 'Beedrill', 'Castform', 'Corsola', 'Delcatty', 'Delibird', 'Dewgong', 'Ditto', 
+				'Dustox', 'Farfetch\u2019d', 'Furret', 'Glalie', 'Illumise', 'Ledian', 'Lickitung', 'Luvdisc', 'Magcargo', 'Mightyena', 
+				'Minun', 'Nosepass', 'Octillery', 'Parasect', 'Plusle', 'Politoed', 'Seaking', 'Shedinja', 'Shuckle', 'Smeargle', 'Spinda', 
+				'Sunflora', 'Swalot', 'Tropius', 'Unown', 'Volbeat', 'Wailord', 'Wobbuffet', 'Yanma',
 		],
 		teambuilderFormat: '(PU)',
 	},
+	/*{
+		name: "[Gen 8] ADV Now SU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9213138">Post in Solomods Megathread</a>`,
+		],
+		mod: 'advnow',
+		ruleset: ['[Gen 8] ADV Now'],
+		banlist: [
+				//Pokemon
+				'OU', 'UUBL',
+				'UU', 'RUBL',
+				'RU', 'NUBL',
+				'NU', 'PUBL',
+				'PU',
+				//ZUBL
+				'Ampharos', 'Dunsparce', 'Flareon', 'Porygon',
+				//ZU
+				'Anorith', 'Baltoy', 'Beedrill', 'Carvanha', 'Charmeleon', 'Clamperl', 'Dratini', 'Farfetch\u2019d', 'Furret', 'Gastly', 'Glalie', 
+				'Grovyle', 'Illumise', 'Ivysaur', 'Larvitar', 'Lickitung', 'Machop', 'Mankey', 'Marill', 'Meditite', 'Mightyena', 'Natu', 'Ponyta', 
+				'Octillery', 'Plusle', 'Politoed', 'Rhyhorn', 'Slowpoke', 'Snubbull', 'Vibrava', 'Volbeat', 'Wailord', 'Wartortle', 
+		],
+		unbanlist: [
+				'Aipom', 'Arbok', 'Ariados', 'Beautifly', 'Castform', 'Delcatty', 'Delibird', 'Dewgong', 'Ditto', 'Dustox', 'Ledian', 'Luvdisc', 
+				'Magcargo', 'Minun', 'Nosepass', 'Parasect', 'Seaking', 'Shedinja', 'Shuckle', 'Smeargle', 'Spinda', 'Sunflora', 'Swalot', 'Tropius', 
+				'Unown', 'Wobbuffet', 'Yanma',
+		],
+		teambuilderFormat: '(PU)',
+	},*/
 	{    
 		name: "[Gen 8] AsOnemons",
 		desc: 'AsOnemons is a Generation 8 based Solomod that revolves around creating new As One forms for official Pokémon.',
