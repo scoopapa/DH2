@@ -18178,9 +18178,9 @@ arceusbug: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Insect Plate",
-		"Buginium Z"
-	],
+//		"Insect Plate",
+	//	"Buginium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusdark: {
@@ -18208,9 +18208,9 @@ arceusdark: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Dread Plate",
-		"Darkinium Z"
-	],
+//		"Dread Plate",
+//		"Darkinium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusdragon: {
@@ -18238,9 +18238,9 @@ arceusdragon: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Draco Plate",
-		"Dragonium Z"
-	],
+//		"Draco Plate",
+//		"Dragonium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceuselectric: {
@@ -18268,9 +18268,9 @@ arceuselectric: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Zap Plate",
-		"Electrium Z"
-	],
+//		"Zap Plate",
+//		"Electrium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusfairy: {
@@ -18298,9 +18298,9 @@ arceusfairy: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Pixie Plate",
-		"Fairium Z"
-	],
+//		"Pixie Plate",
+//		"Fairium Z"
+//	],
 	"changesFrom": "Arceus",
 	"gen": 6
 },
@@ -18329,9 +18329,9 @@ arceusfighting: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Fist Plate",
-		"Fightinium Z"
-	],
+//		"Fist Plate",
+//		"Fightinium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusfire: {
@@ -18359,9 +18359,9 @@ arceusfire: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Flame Plate",
-		"Firium Z"
-	],
+	//	"Flame Plate",
+//		"Firium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusflying: {
@@ -18389,9 +18389,9 @@ arceusflying: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Sky Plate",
-		"Flyinium Z"
-	],
+	//	"Sky Plate",
+//		"Flyinium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusghost: {
@@ -18419,9 +18419,9 @@ arceusghost: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Spooky Plate",
-		"Ghostium Z"
-	],
+	//	"Spooky Plate",
+	//	"Ghostium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusgrass: {
@@ -18449,9 +18449,9 @@ arceusgrass: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Meadow Plate",
-		"Grassium Z"
-	],
+	//	"Meadow Plate",
+	//	"Grassium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusground: {
@@ -18479,9 +18479,9 @@ arceusground: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Earth Plate",
-		"Groundium Z"
-	],
+//		"Earth Plate",
+//		"Groundium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusice: {
@@ -18509,9 +18509,9 @@ arceusice: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Icicle Plate",
-		"Icium Z"
-	],
+//		"Icicle Plate",
+//		"Icium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceuspoison: {
@@ -18539,9 +18539,9 @@ arceuspoison: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Toxic Plate",
-		"Poisonium Z"
-	],
+//		"Toxic Plate",
+//		"Poisonium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceuspsychic: {
@@ -18569,9 +18569,9 @@ arceuspsychic: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Mind Plate",
-		"Psychium Z"
-	],
+//		"Mind Plate",
+//		"Psychium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceusrock: {
@@ -18599,9 +18599,9 @@ arceusrock: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Stone Plate",
-		"Rockium Z"
-	],
+//		"Stone Plate",
+//		"Rockium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceussteel: {
@@ -18629,9 +18629,9 @@ arceussteel: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Iron Plate",
-		"Steelium Z"
-	],
+//		"Iron Plate",
+//		"Steelium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 arceuswater: {
@@ -18659,9 +18659,9 @@ arceuswater: {
 		"Undiscovered"
 	],
 	// "requiredItems": [
-		"Splash Plate",
-		"Waterium Z"
-	],
+//		"Splash Plate",
+//		"Waterium Z"
+//	],
 	"changesFrom": "Arceus"
 },
 victini: {
