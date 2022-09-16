@@ -164,8 +164,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		delete this.modData('Learnsets', 'tornadus').learnset.nastyplot;
 		
-		delete this.modData('Learnsets', 'tornadus').learnset.sludgebomb;
-		delete this.modData('Learnsets', 'tornadus').learnset.nastyplot;
+		delete this.modData('Learnsets', 'darkrai').learnset.sludgebomb;
+		delete this.modData('Learnsets', 'darkrai').learnset.nastyplot;
+		
+		delete this.modData('Learnsets', 'poipole').learnset.nastyplot;
+		delete this.modData('Learnsets', 'naganadel').learnset.nastyplot;
+		delete this.modData('Learnsets', 'naganadel').learnset.dragondance;
+		this.modData('Learnsets', 'naganadel').learnset.earthquake = ['8L1'];
+		this.modData('Learnsets', 'naganadel').learnset.firstimpression = ['8L1'];
 	},
 	
 	pokemon: {
