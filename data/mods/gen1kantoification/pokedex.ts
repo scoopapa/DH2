@@ -18187,7 +18187,7 @@ arceusdark: {
 	"num": -493,
 	"name": "Arceus-Dark",
 	"baseSpecies": "Arceus",
-	"forme": "Dark",
+	"forme": "Normal",
 	"types": [
 		"Normal"
 	],
@@ -18608,7 +18608,7 @@ arceussteel: {
 	"num": -493,
 	"name": "Arceus-Steel",
 	"baseSpecies": "Arceus",
-	"forme": "Steel",
+	"forme": "Rock",
 	"types": [
 		"Rock"
 	],
@@ -28648,7 +28648,7 @@ silvallydark: {
 	"num": -773,
 	"name": "Silvally-Dark",
 	"baseSpecies": "Silvally",
-	"forme": "Dark",
+	"forme": "Normal",
 	"types": [
 		"Normal"
 	],
@@ -29026,7 +29026,7 @@ silvallysteel: {
 	"num": -773,
 	"name": "Silvally-Steel",
 	"baseSpecies": "Silvally",
-	"forme": "Steel",
+	"forme": "Rock",
 	"types": [
 		"Rock"
 	],
@@ -33923,7 +33923,7 @@ croakozuna: {
 	"name": "Croakozuna",
 	"types": [
 		"Water",
-		"Dark"
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 134,
@@ -34055,7 +34055,7 @@ omega: {
 	"num": -1168,
 	"name": "Omega",
 	"types": [
-		"Steel"
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 101,
@@ -34089,7 +34089,7 @@ jagg: {
 	"name": "Jagg",
 	"types": [
 		"Water",
-		"Steel"
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 80,
@@ -34126,7 +34126,7 @@ pendraken: {
 	"name": "Pendraken",
 	"types": [
 		"Water",
-		"Fairy"
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 80,
@@ -34380,7 +34380,7 @@ purakkusu: {
 	"name": "Purakkusu",
 	"types": [
 		"Bug",
-		"Steel"
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 65,
@@ -34436,7 +34436,7 @@ animon: {
 	"num": -1187,
 	"name": "Animon",
 	"types": [
-		"Steel"
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 100,
