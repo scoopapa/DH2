@@ -633,7 +633,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	mewtwo: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	mewtwomegax: {
 		tier: "Uber",
@@ -1110,7 +1110,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	slaking: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	nincada: {
 		tier: "LC",
@@ -1464,16 +1464,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	deoxys: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	deoxysattack: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	deoxysdefense: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	deoxysspeed: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	turtwig: {
 		tier: "LC",
@@ -1818,7 +1818,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	regigigas: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	giratina: {
 		tier: "OU",
@@ -3363,7 +3363,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	zacian: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	zaciancrowned: {
 		tier: "Uber",
