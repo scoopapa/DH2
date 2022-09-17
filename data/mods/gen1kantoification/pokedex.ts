@@ -18187,7 +18187,7 @@ arceusdark: {
 	"num": -493,
 	"name": "Arceus-Dark",
 	"baseSpecies": "Arceus",
-	"forme": "Normal",
+	"forme": "Dark",
 	"types": [
 		"Normal"
 	],
@@ -18608,7 +18608,7 @@ arceussteel: {
 	"num": -493,
 	"name": "Arceus-Steel",
 	"baseSpecies": "Arceus",
-	"forme": "Rock",
+	"forme": "Steel",
 	"types": [
 		"Rock"
 	],
@@ -28648,7 +28648,7 @@ silvallydark: {
 	"num": -773,
 	"name": "Silvally-Dark",
 	"baseSpecies": "Silvally",
-	"forme": "Normal",
+	"forme": "Dark",
 	"types": [
 		"Normal"
 	],
@@ -29026,7 +29026,7 @@ silvallysteel: {
 	"num": -773,
 	"name": "Silvally-Steel",
 	"baseSpecies": "Silvally",
-	"forme": "Rock",
+	"forme": "Steel",
 	"types": [
 		"Rock"
 	],
