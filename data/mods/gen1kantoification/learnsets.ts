@@ -4938,7 +4938,7 @@ raticatealolatotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 spearow: {
 	"learnset": {
@@ -6115,7 +6115,7 @@ pichuspikyeared: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachu: {
 	"learnset": {
@@ -7262,27 +7262,27 @@ pikachucosplay: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachurockstar: {
 	"learnset": {},
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachubelle: {
 	"learnset": {},
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachupopstar: {
 	"learnset": {},
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachuphd: {
 	"learnset": {},
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachulibre: {
 	"learnset": {},
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachuoriginal: {
 	"learnset": {
@@ -7414,7 +7414,7 @@ pikachuoriginal: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachuhoenn: {
 	"learnset": {
@@ -7545,7 +7545,7 @@ pikachuhoenn: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachusinnoh: {
 	"learnset": {
@@ -7675,7 +7675,7 @@ pikachusinnoh: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachuunova: {
 	"learnset": {
@@ -7805,7 +7805,7 @@ pikachuunova: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachukalos: {
 	"learnset": {
@@ -7935,7 +7935,7 @@ pikachukalos: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachualola: {
 	"learnset": {
@@ -8065,7 +8065,7 @@ pikachualola: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachupartner: {
 	"learnset": {
@@ -8197,7 +8197,7 @@ pikachupartner: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachustarter: {
 	"learnset": {
@@ -8306,7 +8306,7 @@ pikachustarter: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pikachuworld: {
 	"learnset": {
@@ -8421,7 +8421,7 @@ pikachuworld: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 raichu: {
 	"learnset": {
@@ -34114,7 +34114,7 @@ marowakalolatotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 tyrogue: {
 	"learnset": {
@@ -45956,7 +45956,7 @@ eeveestarter: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 vaporeon: {
 	"learnset": {
@@ -50785,7 +50785,7 @@ articuno: {
 			"level": 50
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 articunogalar: {
 	"learnset": {
@@ -50858,7 +50858,7 @@ articunogalar: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 zapdos: {
 	"learnset": {
@@ -51205,7 +51205,7 @@ zapdos: {
 			"level": 50
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 zapdosgalar: {
 	"learnset": {
@@ -51283,7 +51283,7 @@ zapdosgalar: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 moltres: {
 	"learnset": {
@@ -51614,7 +51614,7 @@ moltres: {
 			"level": 50
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 moltresgalar: {
 	"learnset": {
@@ -51674,7 +51674,7 @@ moltresgalar: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 dratini: {
 	"learnset": {
@@ -53356,7 +53356,7 @@ mewtwo: {
 			"level": 70
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 mew: {
 	"learnset": {
@@ -54174,7 +54174,7 @@ mew: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 chikorita: {
 	"learnset": {
@@ -71024,7 +71024,7 @@ raikou: {
 			"level": 40
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 entei: {
 	"learnset": {
@@ -71362,7 +71362,7 @@ entei: {
 			"level": 40
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 suicune: {
 	"learnset": {
@@ -71676,7 +71676,7 @@ suicune: {
 			"level": 40
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 larvitar: {
 	"learnset": {
@@ -72821,7 +72821,7 @@ lugia: {
 			"level": 40
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 hooh: {
 	"learnset": {
@@ -73192,7 +73192,7 @@ hooh: {
 			"level": 40
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 celebi: {
 	"learnset": {
@@ -73473,7 +73473,7 @@ celebi: {
 			"level": 30
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 treecko: {
 	"learnset": {
@@ -97766,7 +97766,7 @@ regirock: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 regice: {
 	"learnset": {
@@ -98063,7 +98063,7 @@ regice: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 registeel: {
 	"learnset": {
@@ -98333,7 +98333,7 @@ registeel: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 latias: {
 	"learnset": {
@@ -98686,7 +98686,7 @@ latias: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 latios: {
 	"learnset": {
@@ -99039,7 +99039,7 @@ latios: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 kyogre: {
 	"learnset": {
@@ -99374,7 +99374,7 @@ kyogre: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 groudon: {
 	"learnset": {
@@ -99763,7 +99763,7 @@ groudon: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 rayquaza: {
 	"learnset": {
@@ -100096,7 +100096,7 @@ rayquaza: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 jirachi: {
 	"learnset": {
@@ -100677,7 +100677,7 @@ jirachi: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 deoxys: {
 	"learnset": {
@@ -101077,16 +101077,16 @@ deoxys: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 deoxysattack: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 deoxysdefense: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 deoxysspeed: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 turtwig: {
 	"learnset": {
@@ -110282,7 +110282,7 @@ uxie: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 mesprit: {
 	"learnset": {
@@ -110515,7 +110515,7 @@ mesprit: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 azelf: {
 	"learnset": {
@@ -110761,7 +110761,7 @@ azelf: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 dialga: {
 	"learnset": {
@@ -111049,7 +111049,7 @@ dialga: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 palkia: {
 	"learnset": {
@@ -111356,7 +111356,7 @@ palkia: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 heatran: {
 	"learnset": {
@@ -111583,7 +111583,7 @@ heatran: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 regigigas: {
 	"learnset": {
@@ -111834,7 +111834,7 @@ regigigas: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 giratina: {
 	"learnset": {
@@ -112055,10 +112055,10 @@ giratina: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 giratinaorigin: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 cresselia: {
 	"learnset": {
@@ -112275,7 +112275,7 @@ cresselia: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 phione: {
 	"learnset": {
@@ -112560,7 +112560,7 @@ manaphy: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 darkrai: {
 	"learnset": {
@@ -112802,7 +112802,7 @@ darkrai: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 shaymin: {
 	"learnset": {
@@ -112963,10 +112963,10 @@ shaymin: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 shayminsky: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceus: {
 	"learnset": {
@@ -113215,58 +113215,58 @@ arceus: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusbug: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusdark: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusdragon: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceuselectric: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusfairy: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusfighting: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusfire: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusflying: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusghost: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusgrass: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusground: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusice: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceuspoison: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceuspsychic: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceusrock: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceussteel: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 arceuswater: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 victini: {
 	"learnset": {
@@ -113503,7 +113503,7 @@ victini: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 snivy: {
 	"learnset": {
@@ -129515,7 +129515,7 @@ cobalion: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 terrakion: {
 	"learnset": {
@@ -129696,7 +129696,7 @@ terrakion: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 virizion: {
 	"learnset": {
@@ -129873,7 +129873,7 @@ virizion: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 tornadus: {
 	"learnset": {
@@ -130047,10 +130047,10 @@ tornadus: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 tornadustherian: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 thundurus: {
 	"learnset": {
@@ -130254,10 +130254,10 @@ thundurus: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 thundurustherian: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 reshiram: {
 	"learnset": {
@@ -130463,7 +130463,7 @@ reshiram: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 zekrom: {
 	"learnset": {
@@ -130680,7 +130680,7 @@ zekrom: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 landorus: {
 	"learnset": {
@@ -130876,10 +130876,10 @@ landorus: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 landorustherian: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 kyurem: {
 	"learnset": {
@@ -131055,7 +131055,7 @@ kyurem: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 kyuremblack: {
 	"learnset": {
@@ -131231,7 +131231,7 @@ kyuremblack: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 kyuremwhite: {
 	"learnset": {
@@ -131407,7 +131407,7 @@ kyuremwhite: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 keldeo: {
 	"learnset": {
@@ -131582,10 +131582,10 @@ keldeo: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 keldeoresolute: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 meloetta: {
 	"learnset": {
@@ -131746,7 +131746,7 @@ meloetta: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 genesect: {
 	"learnset": {
@@ -131960,19 +131960,19 @@ genesect: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 genesectburn: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 genesectchill: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 genesectdouse: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 genesectshock: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 chespin: {
 	"learnset": {
@@ -132946,7 +132946,7 @@ greninjaash: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 bunnelby: {
 	"learnset": {
@@ -133618,7 +133618,7 @@ vivillonfancy: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 vivillonpokeball: {
 	"learnset": {
@@ -133704,7 +133704,7 @@ vivillonpokeball: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 litleo: {
 	"learnset": {
@@ -138510,7 +138510,7 @@ xerneas: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 yveltal: {
 	"learnset": {
@@ -138665,7 +138665,7 @@ yveltal: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 zygarde: {
 	"learnset": {
@@ -138871,7 +138871,7 @@ zygarde: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 zygarde10: {
 	"learnset": {
@@ -138964,7 +138964,7 @@ zygarde10: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 diancie: {
 	"learnset": {
@@ -139076,7 +139076,7 @@ diancie: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 hoopa: {
 	"learnset": {
@@ -139178,10 +139178,10 @@ hoopa: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 hoopaunbound: {
-	"eventOnly": true
+	// "eventOnly": true
 },
 volcanion: {
 	"learnset": {
@@ -139339,7 +139339,7 @@ volcanion: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 rowlet: {
 	"learnset": {
@@ -140383,7 +140383,7 @@ gumshoostotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 grubbin: {
 	"learnset": {
@@ -140633,7 +140633,7 @@ vikavolttotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 crabrawler: {
 	"learnset": {
@@ -140927,7 +140927,7 @@ ribombeetotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 rockruff: {
 	"learnset": {
@@ -141727,7 +141727,7 @@ araquanidtotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 fomantis: {
 	"learnset": {
@@ -141871,7 +141871,7 @@ lurantistotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 morelull: {
 	"learnset": {
@@ -142235,7 +142235,7 @@ salazzletotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 stufful: {
 	"learnset": {
@@ -143227,7 +143227,7 @@ typenull: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 silvally: {
 	"learnset": {
@@ -143654,7 +143654,7 @@ togedemarutotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 mimikyu: {
 	"learnset": {
@@ -143840,7 +143840,7 @@ mimikyutotem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 bruxish: {
 	"learnset": {
@@ -144377,7 +144377,7 @@ kommoototem: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 tapukoko: {
 	"learnset": {
@@ -144514,7 +144514,7 @@ tapukoko: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 tapulele: {
 	"learnset": {
@@ -144607,7 +144607,7 @@ tapulele: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 tapubulu: {
 	"learnset": {
@@ -144716,7 +144716,7 @@ tapubulu: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 tapufini: {
 	"learnset": {
@@ -144825,7 +144825,7 @@ tapufini: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 cosmog: {
 	"learnset": {
@@ -144859,7 +144859,7 @@ cosmog: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 cosmoem: {
 	"learnset": {
@@ -145250,7 +145250,7 @@ nihilego: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 buzzwole: {
 	"learnset": {
@@ -145353,7 +145353,7 @@ buzzwole: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 pheromosa: {
 	"learnset": {
@@ -145454,7 +145454,7 @@ pheromosa: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 xurkitree: {
 	"learnset": {
@@ -145562,7 +145562,7 @@ xurkitree: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 celesteela: {
 	"learnset": {
@@ -145684,7 +145684,7 @@ celesteela: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 kartana: {
 	"learnset": {
@@ -145759,7 +145759,7 @@ kartana: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 guzzlord: {
 	"learnset": {
@@ -145863,7 +145863,7 @@ guzzlord: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 necrozma: {
 	"learnset": {
@@ -145972,15 +145972,15 @@ necrozma: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 necrozmaduskmane: {
 	"learnset": {},
-	"eventOnly": true
+	// "eventOnly": true
 },
 necrozmadawnwings: {
 	"learnset": {},
-	"eventOnly": true
+	// "eventOnly": true
 },
 necrozmaultra: {
 	"learnset": {}
@@ -146066,7 +146066,7 @@ magearna: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 magearnaoriginal: {
 	"learnset": {
@@ -146140,7 +146140,7 @@ magearnaoriginal: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 marshadow: {
 	"learnset": {
@@ -146234,7 +146234,7 @@ marshadow: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 poipole: {
 	"learnset": {
@@ -146313,7 +146313,7 @@ poipole: {
 			"pokeball": "beastball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 naganadel: {
 	"learnset": {
@@ -146476,7 +146476,7 @@ stakataka: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 blacephalon: {
 	"learnset": {
@@ -146575,7 +146575,7 @@ blacephalon: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 zeraora: {
 	"learnset": {
@@ -146691,7 +146691,7 @@ zeraora: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 meltan: {
 	"learnset": {
@@ -149696,7 +149696,7 @@ dracozolt: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 arctozolt: {
 	"learnset": {
@@ -149771,7 +149771,7 @@ arctozolt: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 dracovish: {
 	"learnset": {
@@ -149867,7 +149867,7 @@ dracovish: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 arctovish: {
 	"learnset": {
@@ -149927,7 +149927,7 @@ arctovish: {
 			"pokeball": "pokeball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 duraludon: {
 	"learnset": {
@@ -150204,11 +150204,11 @@ zacian: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 zaciancrowned: {
 	"learnset": {},
-	"eventOnly": true
+	// "eventOnly": true
 },
 zamazenta: {
 	"learnset": {
@@ -150287,11 +150287,11 @@ zamazenta: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 zamazentacrowned: {
 	"learnset": {},
-	"eventOnly": true
+	// "eventOnly": true
 },
 eternatus: {
 	"learnset": {
@@ -150352,7 +150352,7 @@ eternatus: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 kubfu: {
 	"learnset": {
@@ -150415,7 +150415,7 @@ kubfu: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 urshifu: {
 	"learnset": {
@@ -150600,7 +150600,7 @@ zarude: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 zarudedada: {
 	"learnset": {
@@ -150676,7 +150676,7 @@ zarudedada: {
 			"pokeball": "cherishball"
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 regieleki: {
 	"learnset": {
@@ -150746,7 +150746,7 @@ regieleki: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 regidrago: {
 	"learnset": {
@@ -150802,7 +150802,7 @@ regidrago: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 glastrier: {
 	"learnset": {
@@ -150867,7 +150867,7 @@ glastrier: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 spectrier: {
 	"learnset": {
@@ -150936,7 +150936,7 @@ spectrier: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 calyrex: {
 	"learnset": {
@@ -151005,7 +151005,7 @@ calyrex: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 calyrexice: {
 	"learnset": {
@@ -151113,7 +151113,7 @@ calyrexice: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 calyrexshadow: {
 	"learnset": {
@@ -151219,7 +151219,7 @@ calyrexshadow: {
 			]
 		}
 	],
-	"eventOnly": true
+	// "eventOnly": true
 },
 puchikoon: {
 	"learnset": {

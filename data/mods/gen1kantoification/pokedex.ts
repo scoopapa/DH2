@@ -33923,7 +33923,7 @@ croakozuna: {
 	"name": "Croakozuna",
 	"types": [
 		"Water",
-		"Dark"
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 134,
@@ -34055,7 +34055,7 @@ omega: {
 	"num": -1168,
 	"name": "Omega",
 	"types": [
-		"Steel"
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 101,
@@ -34089,7 +34089,7 @@ jagg: {
 	"name": "Jagg",
 	"types": [
 		"Water",
-		"Steel"
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 80,
@@ -34126,7 +34126,7 @@ pendraken: {
 	"name": "Pendraken",
 	"types": [
 		"Water",
-		"Fairy"
+		"Normal"
 	],
 	"baseStats": {
 		"hp": 80,
@@ -34380,7 +34380,7 @@ purakkusu: {
 	"name": "Purakkusu",
 	"types": [
 		"Bug",
-		"Steel"
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 65,
@@ -34436,7 +34436,7 @@ animon: {
 	"num": -1187,
 	"name": "Animon",
 	"types": [
-		"Steel"
+		"Rock"
 	],
 	"baseStats": {
 		"hp": 100,
