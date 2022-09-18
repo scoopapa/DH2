@@ -1850,6 +1850,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 81,
 		requiredItem: "Mewtwonite Y",
 	},
+	krowtom: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	spewtwo: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	lycakingdusk: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	sablemimemega: {
+		tier: "FEUUber",
+		doublesTier: "DUUber",
+		randomBattleLevel: 75,
+		requiredItem: "Sablenite",
+	},
 							
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -2493,6 +2514,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "LC",
 	},
 	gasjr: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	rockoranm: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
