@@ -1855,7 +1855,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 81,
 	},
-	spewtwo: {
+	sablemime: {
 		tier: "FENU",
 		doublesTier: "DUU",
 		randomBattleLevel: 81,
