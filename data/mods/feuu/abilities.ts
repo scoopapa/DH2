@@ -5523,7 +5523,7 @@ lifedrain: {
 			if (this.queue.willMove(target)) {
 				this.debug('Slow and Steady neutralize');
 				return this.chainModify(0.75);
-			},
+			}
 		},
 	  name: "Slow and Steady",
     },
