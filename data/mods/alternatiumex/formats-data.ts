@@ -255,4 +255,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	marowak: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	alolawak: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	marowaktotem: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
