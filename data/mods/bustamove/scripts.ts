@@ -210,7 +210,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'grotle').learnset.leaftornado = ['8L1'];
 		this.modData('Learnsets', 'torterra').learnset.leaftornado = ['8L1'];
 		this.modData('Learnsets', 'virizion').learnset.leaftornado = ['8L1'];
-		this.modData('Learnsets', 'undefined').learnset.leaftornado = ['8L1'];
 		
 		this.modData('Learnsets', 'dewpider').learnset.lifedew = ['8L1'];
 		this.modData('Learnsets', 'araquanid').learnset.lifedew = ['8L1'];
