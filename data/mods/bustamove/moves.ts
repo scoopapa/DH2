@@ -1764,7 +1764,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
-	/* Sparkling Aria Currently Crashes the Battle
 	sparklingaria: {
 		num: 664,
 		accuracy: 100,
@@ -1779,8 +1778,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 100,
 			onHit(target, source) {
 				this.add('-activate', source, 'move: Sparkling Aria');
-				const side = source.side;
-				for (const ally of allies) {
+				for (const ally of source.side.pokemon) {
 					if (ally !== source && ally.hasAbility('soundproof')) continue;
 					if (ally.status && ally.status === 'brn') {
 						ally.cureStatus();
@@ -1793,7 +1791,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},
-	*/
 	steamroller: {
 		num: 537,
 		accuracy: 100,
