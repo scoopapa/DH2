@@ -3,7 +3,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'legendsboost',
 		onBoost(boost, target, source, effect) {
 			this.effectData.startTime = 0;
-			this.add('-message', `stat has been boosted`);
 			if (!boost || effect.id === 'legendsboost') return;
 			let activated = false;
 			let boostName: BoostName;
@@ -37,7 +36,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				activated = true;
 
 			}
-			this.add('-message', `Activated = ${activated}`);
 			if (activated === true) {
 				this.boost(LegendsBoost, target, target, null, true);
 				/*
@@ -84,7 +82,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 		onResidual(pokemon) {
 			this.effectData.time -= 1;
-			//this.add("-message", `Current time is ${this.effectData.time}`);
 			if (this.effectData.time <= 0) {
 				this.add('-clearboost', pokemon);
 				pokemon.clearBoosts();
@@ -175,7 +172,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if(effect.effectType === 'Item') this.duration = 4;
 			if(effect.effectType === 'Ability') this.duration = 5;
 			this.add('-start', target, 'primed', '[silent]');
-			this.add('-message', `${target.name} is primed!`);
+			this.add('-message', `${target.name} adopted a hard-hitting stance!`);
 		},
 
 		onModifyDamage(damage, source, target, move) {
