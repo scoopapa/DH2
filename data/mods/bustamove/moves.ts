@@ -1764,6 +1764,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
+	/* Sparkling Aria Currently Crashes the Battle
 	sparklingaria: {
 		num: 664,
 		accuracy: 100,
@@ -1792,6 +1793,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Tough",
 	},
+	*/
 	steamroller: {
 		num: 537,
 		accuracy: 100,
