@@ -379,4 +379,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 75, spa: 135, spd: 100, spe: 105},
 	},
+	naganadel: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 113, def: 73, spa: 113, spd: 73, spe: 127},
+	},
 };

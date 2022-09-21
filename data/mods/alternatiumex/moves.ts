@@ -152,13 +152,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 	},
-	deathlyskirt: {
+	deathlydance: {
 		num: -7,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
 		shortDesc: "User recovers 50% of the damage dealt.",
-		name: "Deathly Skirt",
+		name: "Deathly Dance",
 		pp: 15,
 		priority: 0,
 		flags: {dance: 1, protect: 1, mirror: 1, heal: 1},
@@ -680,16 +680,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Water",
 	},
-	skyattack: {
+	turkeybarrage: {
 		num: 143,
 		accuracy: 70,
 		basePower: 140,
 		category: "Physical",
 		shortDesc: "20% chance to make the target flinch.",
-		name: "Sky Attack",
+		name: "Turkey Barrage",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sky Attack", target);
+		},
 		secondary: {
 			chance: 20,
 			volatileStatus: 'flinch',
@@ -714,5 +718,49 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Dark",
+	},
+	boneclub: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 70,
+		shortDesc: "The target takes hazard damage after being hit by this move.",
+		pp: 15,
+		onAfterHit(target, source) {
+			const targetSide = source.side.foe;
+			if (targetSide.getSideCondition('stealthrock')) {
+				if (target.hasItem('heavydutyboots')) return;
+				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
+				this.add('-message', `Pointed stones dug into ${target.name}!`);
+			}
+			if (targetSide.getSideCondition('spikes')) {
+				//if (!target.isGrounded()) return;
+				if (target.hasItem('heavydutyboots')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectData.layers] * target.maxhp / 24);
+				this.add('-message', `${target.name} was hurt by the spikes!`);
+			}
+		},
+		secondary: {},
+	},
+	bonemerang: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 35,
+		shortDesc: "Hits twice. User switches out.",
+		pp: 20,
+		selfSwitch: true,
+	},
+	shadowbone: {
+		inherit: true,
+		basePower: 90,
+		shortDesc: "30% chance to lower target's Attack by 1.",
+		pp: 15,
+		secondary: {
+			chance: 30,
+			boosts: {
+				atk: -1,
+			},
+		},
 	},
 };
