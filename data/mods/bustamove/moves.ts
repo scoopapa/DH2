@@ -602,7 +602,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		condition: {
-			onStart(target, source, move) {
+			onBeforeMove(pokemon, target, move) {
 				this.add('-message', target.name + " let it's guard down!");
 				this.boost({def: -1}, target, source, move);
 			}
