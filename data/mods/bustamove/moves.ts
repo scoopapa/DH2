@@ -730,7 +730,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-		target: "all",
+		target: "self",
 		type: "Fairy",
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
