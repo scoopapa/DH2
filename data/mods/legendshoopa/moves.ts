@@ -287,13 +287,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (move.type === 'Fire') {
 					this.add('-activate', pokemon, 'move: Powder');
 					this.damage(this.clampIntRange(Math.round(pokemon.maxhp / 4), 1));
-					pokemon.removeVolatile('pixiedust'); // because it needs to be removed now
+					this.effectData.activated = true; // because it needs to be removed now
 					return false;
 				}
 			},
 		},
 		basePowerCallback(pokemon, target, move) {
-			if (!target.volatiles['pixiedust']) {
+			if (target.volatiles['pixiedust'] && target.volatiles['pixiedust'].activated) {
 				this.debug("Power halved for no Pixie Dust");
 				return move.basePower * 0.5;
 			}
