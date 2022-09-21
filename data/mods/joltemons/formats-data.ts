@@ -3676,7 +3676,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["accelerock", "stoneedge", "closecombat", "stealthrock"],
 	},
 	lycanrocdusk: {
-		tier: "rU",
+		tier: "RU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["accelerock", "stoneedge", "closecombat", "swordsdance"],
 	},
@@ -3696,7 +3696,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["lavaplume", "earthpower", "recover", "stealthrock"],
 	},
 	magmortar: {
-		tier: "rU",
+		tier: "RU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["fireblast", "focusblast", "recover", "thunderbolt"],
 	},
