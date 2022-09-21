@@ -952,7 +952,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Hyperspace Hole",
 		pp: 15,
 		priority: 0,
-		flags: {mirror: 1, authentic: 1},
+		flags: {protect: 1, mirror: 1, authentic: 1},
 		self: {
 			onHit(source) {
 				this.field.addPseudoWeather('gravity', source);
