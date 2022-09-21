@@ -1079,7 +1079,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwap(target) {
 				if (!target.fainted) {
 					target.heal(target.baseMaxhp / 4);
-					this.add('-heal', target, target.getHealth, '[from] move: Life Dew');
+					// this.add('-heal', target, target.getHealth, '[from] move: Life Dew'); Redundant message, and I prefer the flavor text over the generic
 					this.add('-message', target.name + " was revitalized by the Life Dew!");
 					target.side.removeSlotCondition(target, 'lifedew');
 				}
