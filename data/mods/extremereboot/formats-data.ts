@@ -3,7 +3,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-		baobloss: {
+	baobloss: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
