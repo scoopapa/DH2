@@ -1353,7 +1353,7 @@ export const Learnsets = {
 			turbulence: ["8L1"],
 			uproot: ["8L1"],
 			zephyr: ["8L1"],
-			25recorders: ["8L1"],
+			"25recorders" ["8L1"],
 			decoy: ["8L1"],
 			energyfield: ["8L1"],
 			extremereboot: ["8L1"],
