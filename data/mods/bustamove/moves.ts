@@ -603,7 +603,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		beforeTurnCallback(pokemon) {
 			pokemon.addVolatile('falsesurrender');
-			this.add('-message', pokemon.name + " bows its head!")
+			this.add('-message', pokemon.name + " bows its head!");
 		},
 		condition: {
 			duration: 1
