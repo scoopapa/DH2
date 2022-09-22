@@ -367,7 +367,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Ubers",
 		doublesTier: "DUbers",
 	},
-	darkirabase: {
+	darkira: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -375,7 +375,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Ubers",
 		doublesTier: "DUbers",
 	},
-	lakerabase: {
+	lakera: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
