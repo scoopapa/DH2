@@ -1782,7 +1782,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					if (ally !== source && ally.hasAbility('soundproof')) continue;
 					if (ally.status && ally.status === 'brn') {
 						ally.cureStatus();
-						this.add('-message', ally.name + " was cured of it's burn!");
 					}
 				}
 			},
