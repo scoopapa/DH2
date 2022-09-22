@@ -2186,7 +2186,7 @@ export const Learnsets = {
 			inhumanshriek: ["8L1"],
 			witheringbreeze: ["8L1"],
 			underworldspring: ["8L1"],
-			timebomb+universalmoves: ["8L1"],
+			timebomb: ["8L1"],
 		},
 	},
 	pontiac: {
@@ -2220,7 +2220,7 @@ export const Learnsets = {
 			supercharge: ["8L1"],
 			tailwind: ["8L1"],
 			toxiccloud: ["8L1"],
-			winddrift+universalmoves: ["8L1"],
+			winddrift: ["8L1"],
 		},
 	},
 	sclam: {
