@@ -845,8 +845,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	darkira: {
 		num: 1129,
-		name: "Darkira-Base",
-		baseSpecies: "Darkira",
+		name: "Darkira",
 		baseForme: "Base",
 		types: ["Night", "Storm"],
 		baseStats: {hp: 150, atk: 100, def: 70, spa: 100, spd: 70, spe: 75},
@@ -867,8 +866,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lakera: {
 		num: 1130,
-		name: "Lakera-Base",
-		baseSpecies: "Lakera",
+		name: "Lakera",
 		baseForme: "Base",
 		types: ["Serenity"],
 		baseStats: {hp: 75, atk: 95, def: 80, spa: 75, spd: 125, spe: 115},
@@ -909,7 +907,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1133,
 		name: "Jirachi-Extreme",
 		baseSpecies: "Jirachi",
-		baseForme: "Extreme",
+		forme: "Extreme",
 		types: ["Serenity", "Night"],
 		baseStats: {hp: 101, atk: 89, def: 101, spa: 89, spd: 101, spe: 89},
 		abilities: {0: "Beast Boost"},
