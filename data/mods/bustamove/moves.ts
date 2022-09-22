@@ -464,24 +464,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 65,
 		accuracy: 100,
 		basePower: 80,
-		basePowerCallback(pokemon, target, move) {
-			const targetSide = target.side;
-			const sideConditions = [
-				'lightscreen', 'reflect', 'auroraveil',
-			];
-			for (const id of sideConditions) {
-				if(targetSide.sideConditions[id]) {
-					return move.basePower * 1.5;
-				}
-			}
-			return move.basePower;
-		},
 		category: "Physical",
 		shortDesc: "Destroys screens, unless the target is immune.",
 		name: "Drill Peck",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
+		onBasePower(basePower, pokemon, target) {
+			const sideConditions = [
+				'lightscreen', 'reflect', 'auroraveil',
+			];
+			for (const id of sideConditions) {
+				if(target.side.sideConditions[id]) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
 		onTryHit(pokemon) {
 			// will shatter screens through sub, before you hit
 			if (pokemon.runImmunity('Flying')) {
