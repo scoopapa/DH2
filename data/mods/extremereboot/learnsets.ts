@@ -2168,7 +2168,7 @@ export const Learnsets = {
 			creepclaw: ["8L1"],
 			dawneve: ["8L1"],
 			gloomfangs: ["8L1"],
-			cricket’stune: ["8L1"],
+			cricketstune: ["8L1"],
 			lunacy: ["8L1"],
 			lurkerlash: ["8L1"],
 			moonbeam: ["8L1"],
