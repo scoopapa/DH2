@@ -610,7 +610,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onBeforeMove(pokemon, target, move) {
 				this.add('-message', target.name + " let it's guard down!");
 				this.boost({def: -1}, target, source, move);
-			}
+			},
 		},
 		onMoveAborted(pokemon) {
 				pokemon.removeVolatile('falsesurrender');
