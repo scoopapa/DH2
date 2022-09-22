@@ -609,7 +609,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			duration: 1,
 			onBeforeMove(pokemon, target, move) {
 				this.add('-message', target.name + " let it's guard down!");
-				this.boost({def: -1}, target, source, move);
+				this.boost({def: -1}, target, pokemon, move);
 			},
 		},
 		onMoveAborted(pokemon) {
