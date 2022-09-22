@@ -2953,7 +2953,7 @@ export const Learnsets = {
 			drillpiercer: ["8L1"],
 		},
 	},
-	darkirabase: {
+	darkira: {
 		learnset: {
 			abyssalslash: ["8L1"],
 			creepclaw: ["8L1"],
@@ -3001,7 +3001,7 @@ export const Learnsets = {
 			spectresmash: ["8L1"],
 		},
 	},
-	lakerabase: {
+	lakera: {
 		learnset: {
 			sereneslice: ["8L1"],
 			soothingstrike: ["8L1"],

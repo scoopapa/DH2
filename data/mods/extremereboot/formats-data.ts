@@ -344,16 +344,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	galaxeacomplete: {
-		tier: "Ubers",
-		doublesTier: "DUbers",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	pegathemum: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	pegathemumcomplete: {
-		tier: "Ubers",
-		doublesTier: "DUbers",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	cyromebook: {
 		tier: "OU",
@@ -364,24 +364,24 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	cyromeauthor: {
-		tier: "Ubers",
-		doublesTier: "DUbers",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	darkira: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	darkiraancient: {
-		tier: "Ubers",
-		doublesTier: "DUbers",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	lakera: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	lakeraancient: {
-		tier: "Ubers",
-		doublesTier: "DUbers",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	mew30: {
 		tier: "OU",
