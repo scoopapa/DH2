@@ -1580,7 +1580,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 1,
 			onStart(pokemon) {
-				this.add('-singleturn', pokemon, 'move: Shadow Force');
+				//this.add('-singleturn', pokemon, 'move: Shadow Force'); Redundant Text
 				this.add('-message', pokemon.name + " has entered the shadows!");
 			},
 			onSourceModifyDamage(damage, source, target, move) {
