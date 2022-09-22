@@ -5,7 +5,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Spring", "Serenity"],
 		baseStats: {hp: 85, atk: 90, def: 85, spa: 95, spd: 110, spe: 60},
 		abilities: {0: "Blossom", H: "Petal Body"},
-		weightkg: H,
+		weightkg: 300,
 		eggGroups: ["Spook"],
 	},
 	tenquarrel: {
@@ -14,7 +14,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Summer", "Sky"],
 		baseStats: {hp: 85, atk: 60, def: 85, spa: 110, spd: 95, spe: 90},
 		abilities: {0: "Shine", H: "Blight Boost"},
-		weightkg: L,
+		weightkg: 100,
 		eggGroups: ["Spook"],
 	},
 	tradituki: {
@@ -23,7 +23,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Autumn", "Folklore"],
 		baseStats: {hp: 85, atk: 95, def: 110, spa: 90, spd: 85, spe: 60},
 		abilities: {0: "Decay", H: "Ignorance"},
-		weightkg: M,
+		weightkg: 50,
 		eggGroups: ["Spook"],
 	},
 	hibarrage: {
@@ -32,7 +32,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Winter", "Storm"],
 		baseStats: {hp: 85, atk: 110, def: 95, spa: 60, spd: 85, spe: 90},
 		abilities: {0: "Linger", H: "Chill"},
-		weightkg: M,
+		weightkg: 50,
 		eggGroups: ["Spook"],
 	},
 	pumking: {
@@ -397,7 +397,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Storm", "Spring"],
 		baseStats: {hp: 160, atk: 110, def: 85, spa: 65, spd: 70, spe: 35},
 		abilities: {0: "Big Bellied", H: "Arbiter"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["zxgzxg"],
 	},
 	gyozumosummer: {
@@ -408,7 +408,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Storm", "Summer"],
 		baseStats: {hp: 160, atk: 110, def: 70, spa: 35, spd: 85, spe: 65},
 		abilities: {0: "Big Bellied", H: "Petal Body"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["zxgzxg"],
 	},
 	onlaxy: {
@@ -453,7 +453,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Earth", "Spring"],
 		baseStats: {hp: 70, atk: 100, def: 110, spa: 80, spd: 80, spe: 65},
 		abilities: {0: "Fluffy Float", H: "Big Bellied"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	ruinne: {
@@ -462,7 +462,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Night", "Spring"],
 		baseStats: {hp: 70, atk: 80, def: 60, spa: 110, spd: 80, spe: 105},
 		abilities: {0: "Fluffy Float", H: "Ignorance"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	tantton: {
@@ -480,7 +480,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Earth", "Summer"],
 		baseStats: {hp: 60, atk: 30, def: 100, spa: 40, spd: 200, spe: 20},
 		abilities: {0: "Reality", 1: "Shatter", H: "Sunbringer"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	stakstok: {
@@ -489,7 +489,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Earth", "Winter"],
 		baseStats: {hp: 60, atk: 40, def: 200, spa: 30, spd: 100, spe: 20},
 		abilities: {0: "Reality", 1: "Internet Rage", H: "Infinite Scaling"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	lychy: {
@@ -498,7 +498,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Folklore"],
 		baseStats: {hp: 75, atk: 125, def: 60, spa: 60, spd: 95, spe: 75},
 		abilities: {0: "Sacrificer", 1: "Necromancer", H: "Spectral Shifter"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	onigashiba: {
@@ -507,7 +507,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Autumn", "Summer"],
 		baseStats: {hp: 85, atk: 75, def: 75, spa: 110, spd: 105, spe: 40},
 		abilities: {0: "Prudent Plow", 1: "Strategic Retreat", H: "Wave Crasher"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	lunsura: {
@@ -516,7 +516,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Sea", "Night"],
 		baseStats: {hp: 75, atk: 115, def: 70, spa: 95, spd: 70, spe: 95},
 		abilities: {0: "Far Reach", H: "Contrary"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
 	galactagon: {
@@ -525,7 +525,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Manmade", "Storm"],
 		baseStats: {hp: 80, atk: 130, def: 70, spa: 95, spd: 125, spe: 100},
 		abilities: {0: "Starlite", 1: "Data Upgrade", H: "Regenerator"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
 	axolacred: {
@@ -534,7 +534,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Serenity", "Sea"],
 		baseStats: {hp: 65, atk: 75, def: 100, spa: 95, spd: 115, spe: 110},
 		abilities: {0: "Regenerator", H: "Lesspell"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
 	dimetrogem: {
@@ -543,7 +543,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Earth"],
 		baseStats: {hp: 100, atk: 110, def: 115, spa: 95, spd: 65, spe: 75},
 		abilities: {0: "Blind Rage", H: "Acrid"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
 	anhaflara: {
@@ -552,7 +552,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Summer", "Sky"],
 		baseStats: {hp: 110, atk: 80, def: 70, spa: 105, spd: 70, spe: 115},
 		abilities: {0: "Infinite Scaling", H: "Arbiter"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
 	stormanos: {
@@ -561,7 +561,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Night", "Storm"],
 		baseStats: {hp: 80, atk: 110, def: 100, spa: 85, spd: 90, spe: 100},
 		abilities: {0: "Sacrificer", H: "Checkmate"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
 	alchemeel: {
@@ -571,7 +571,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Folklore", "Winter"],
 		baseStats: {hp: 75, atk: 60, def: 90, spa: 60, spd: 90, spe: 110},
 		abilities: {0: "Alchemy", H: "Snowbringer"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
 	alchemeeloffense: {
@@ -582,7 +582,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Folklore", "Winter"],
 		baseStats: {hp: 75, atk: 100, def: 60, spa: 110, spd: 60, spe: 90},
 		abilities: {0: "Alchemy", H: "Snowbringer"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
 	rasteal: {
@@ -591,7 +591,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Night"],
 		baseStats: {hp: 55, atk: 84, def: 70, spa: 60, spd: 65, spe: 100},
 		abilities: {0: "Modern Adapt", H: "Nocturnal"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
 	nailberg: {
@@ -775,7 +775,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Sky", "Sea"],
 		baseStats: {hp: 100, atk: 85, def: 95, spa: 90, spd: 95, spe: 105},
 		abilities: {0: "Hot Feet", H: "Wave Crasher"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	galaxeacomplete: {
@@ -786,7 +786,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Sky", "Sea"],
 		baseStats: {hp: 110, atk: 95, def: 125, spa: 120, spd: 135, spe: 85},
 		abilities: {0: "Thick Skin"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	pegathemum: {
@@ -796,7 +796,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Sky", "Spring"],
 		baseStats: {hp: 100, atk: 90, def: 105, spa: 85, spd: 95, spe: 95},
 		abilities: {0: "Sub Rosa", H: "Tropical Spirit"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	pegathemumcomplete: {
@@ -807,7 +807,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Sky", "Spring"],
 		baseStats: {hp: 145, atk: 110, def: 115, spa: 90, spd: 105, spe: 105},
 		abilities: {0: "Sub Rosa"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	cyromebook: {
@@ -818,7 +818,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Manmade", "Folklore"],
 		baseStats: {hp: 78, atk: 34, def: 82, spa: 117, spd: 96, spe: 28},
 		abilities: {0: "Critique"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Scoopapa"],
 	},
 	cyromescribe: {
@@ -829,7 +829,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Manmade", "Folklore"],
 		baseStats: {hp: 78, atk: 79, def: 82, spa: 117, spd: 86, spe: 93},
 		abilities: {0: "Critique"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Scoopapa"],
 	},
 	cyromeauthor: {
@@ -840,7 +840,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Manmade", "Folklore"],
 		baseStats: {hp: 98, atk: 114, def: 91, spa: 142, spd: 114, spe: 121},
 		abilities: {0: "Critique"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Scoopapa"],
 	},
 	darkira: {
@@ -851,7 +851,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Night", "Storm"],
 		baseStats: {hp: 150, atk: 100, def: 70, spa: 100, spd: 70, spe: 75},
 		abilities: {0: "Burning Rage"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Scoopapa"],
 	},
 	darkiraancient: {
@@ -862,7 +862,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Night", "Storm"],
 		baseStats: {hp: 150, atk: 130, def: 90, spa: 130, spd: 90, spe: 90},
 		abilities: {0: "Burning Rage"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Scoopapa"],
 	},
 	lakera: {
@@ -873,7 +873,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Serenity"],
 		baseStats: {hp: 75, atk: 95, def: 80, spa: 75, spd: 125, spe: 115},
 		abilities: {0: "Ataraxia"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Scoopapa"],
 	},
 	lakeraancient: {
@@ -884,7 +884,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Serenity"],
 		baseStats: {hp: 75, atk: 105, def: 130, spa: 125, spd: 130, spe: 115},
 		abilities: {0: "Ataraxia"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Scoopapa"],
 	},
 	mew30: {
@@ -893,7 +893,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Manmade"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 		abilities: {0: "Nanobarrier"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["AquaticPanic"],
 	},
 	solamateru: {
@@ -913,7 +913,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Serenity", "Night"],
 		baseStats: {hp: 101, atk: 89, def: 101, spa: 89, spd: 101, spe: 89},
 		abilities: {0: "Beast Boost"},
-		weightkg: E,
+		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
 	},
 	extremeribbit: {
