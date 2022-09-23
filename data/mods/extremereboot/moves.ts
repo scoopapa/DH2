@@ -4008,7 +4008,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const stats: BoostName[] = [];
 			let stat: BoostName;
 			for (stat in target.boosts) {
-				if (target.boosts[stat] < 6 && stat !== 'acc' && stat !== 'eva') {
+				if (target.boosts[stat] < 6 && stat !== 'accuracy' && stat !== 'evasion') {
 					stats.push(stat);
 				}
 			}
@@ -4084,7 +4084,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	squidink: {
 		name: "Squid Ink",
 		accuracy: 100,
@@ -4092,8 +4092,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 15,
 		type: "Sea",
-		// shortDesc: "Lowers the opponent's accuracy by 1.",
+		shortDesc: "Lowers the opponent's accuracy by 1.",
 		priority: 0,
+		boosts: {
+			accuracy: -1,
+		},
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
@@ -4112,7 +4115,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	starlightcrash: {
 		name: "Starlight Crash",
 		accuracy: 100,
@@ -4121,8 +4124,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		type: "Night",
 		// shortDesc: "User is immune to priority from slower opponents on the turn it selects this move",
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('starlightcrash');
+		},
+		condition: {
+			duration: 1,
+			onFoeTryHit(target, source, move) {
+				if (move.priority > 0 && target.getStat('spe', false, true) > source.getStat('spe', false, true)) {
+					return false
+				}
+			},
+		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
