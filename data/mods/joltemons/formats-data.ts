@@ -1942,7 +1942,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["lifedew", "teleport", "stealthrock", "counterspell"],
 	},
 	chansey: {
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["softboiled", "teleport", "toxic", "seismictoss"],
 	},
@@ -2677,7 +2677,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["flareblitz", "closecombat", "extremespeed", "morningsun"],
 	},
 	archeops: {
-		tier: "RUBL",
+		tier: "RU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["stoneedge", "bravebird", "uturn", "earthquake"],
 	},
@@ -4286,7 +4286,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["liquidation", "aggravate", "closecombat", "protect"],
 	},
 	sharpedomega: {
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["icefang", "crunch", "closecombat", "protect"],
 	},
