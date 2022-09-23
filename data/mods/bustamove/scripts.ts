@@ -381,6 +381,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'dracozolt').learnset.twister = ['8L1'];
 		this.modData('Learnsets', 'sceptile').learnset.twister = ['8L1'];
 		
+		this.modData('Learnsets', 'ferrothorn').learnset.vinewhip = ['8L1'];
+		this.modData('Learnsets', 'tsareena').learnset.vinewhip = ['8L1'];
+		
+		this.modData('Learnsets', 'keldeo').learnset.watergun = ['8L1'];
+		this.modData('Learnsets', 'tympole').learnset.watergun = ['8L1'];
+		this.modData('Learnsets', 'palpitoad').learnset.watergun = ['8L1'];
+		this.modData('Learnsets', 'seismitoad').learnset.watergun = ['8L1'];
+		this.modData('Learnsets', 'wimpod').learnset.watergun = ['8L1'];
+		this.modData('Learnsets', 'golisopod').learnset.watergun = ['8L1'];
+		
 		this.modData('Learnsets', 'boltund').learnset.zapcannon = ['8L1'];
 		this.modData('Learnsets', 'pincurchin').learnset.zapcannon = ['8L1'];
 		this.modData('Learnsets', 'rotom').learnset.zapcannon = ['8L1'];
