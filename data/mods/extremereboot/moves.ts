@@ -3906,7 +3906,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	soothingstrike: {
 		name: "Soothing Strike",
 		accuracy: 100,
@@ -3914,7 +3914,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Serenity",
-		// shortDesc: "Cures the user of Fear. (Contact)",
+		shortDesc: "Cures the user of Fear. (Contact)",
+		onHit(target, pokemon) {
+			if (pokemon.status === "fer") pokemon.cureStatus();
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",

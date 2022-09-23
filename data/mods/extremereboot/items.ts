@@ -223,7 +223,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1008,
 		desc: "Recover 12.5% HP when using a Serenity-type move. Unremovable. Lakera only",
 		onAfterMoveSecondarySelf(source, target, move) {
-			if (source && move && move.type !== 'Serenity') {
+			if (source && move && move.type === 'Serenity') {
 				this.heal(source.baseMaxhp / 8);
 			}
 		},
