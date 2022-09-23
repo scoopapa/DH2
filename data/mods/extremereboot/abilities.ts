@@ -125,7 +125,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	arbiter: {
 		num: 1007,
 		name: "Arbiter",
-		desc: "Extends the duration of Rules Rewrite by 2 turns when used by this pokemon.",
+		// desc: "Extends the duration of Rules Rewrite by 2 turns when used by this pokemon.",
 	},
 	// Coded
 	ataraxia: {
@@ -138,7 +138,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 	},
 	// Coded
-	berserk: {
+	berserker: {
 		num: 1009,
 		name: "Berserker",
 		desc: "This pokemon's attack is raised by 1 if it falls below 50% HP.",
@@ -320,13 +320,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	celestial: {
 		num: 1019,
 		name: "Celestial",
-		desc: "Status conditions are cured after 2 active turns. 1 for sleep.",
+		// desc: "Status conditions are cured after 2 active turns. 1 for sleep.",
 	},
 	// Not Fully Implemented
 	checkmate: {
 		num: 1020,
 		name: "Checkmate",
-		desc: "If the enemy has 33% health or less, it is trapped and cannot escape.",
+		// desc: "If the enemy has 33% health or less, it is trapped and cannot escape.",
 	},
 	// Coded
 	chill: {
@@ -345,7 +345,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	climaticchange: {
 		num: 1022,
 		name: "Climatic Change",
-		desc: "Every Season type attack became the next one.(Spring become summer,summer become autumn,autumn become winter and winter become spring)",
+		// desc: "Every Season type attack became the next one.(Spring become summer,summer become autumn,autumn become winter and winter become spring)",
 	},
 	// Coded
 	contagious: {
@@ -377,7 +377,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	conversion: {
 		num: 1025,
 		name: "Conversion",
-		desc: "This pokemon's typeless moves change to match its primary type and deal 1.2x damage.",
+		// desc: "This pokemon's typeless moves change to match its primary type and deal 1.2x damage.",
 	},
 	// Coded
 	counterswirl: {
@@ -392,7 +392,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	courageous: {
 		num: 1027,
 		name: "Courageous",
@@ -416,14 +416,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.status === 'fer' || pokemon.status === 'fer') {
-				this.add('-activate', pokemon, 'ability: Immunity');
+				this.add('-activate', pokemon, 'ability: Courageous');
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'fer' && status.id !== 'fer') return;
 			if ((effect as Move)?.status) {
-				this.add('-immune', target, '[from] ability: Immunity');
+				this.add('-immune', target, '[from] ability: Courageous');
 			}
 			return false;
 		},
@@ -432,9 +432,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	dataupgrade: {
 		num: 1028,
 		name: "Data Upgrade",
-		desc: "When hit by a Special move, raises SpD by 1, but lowers Def by 1. When hit by a Physical move, raises Def by 1, but lowers SpD by 1.",
+		// desc: "When hit by a Special move, raises SpD by 1, but lowers Def by 1. When hit by a Physical move, raises Def by 1, but lowers SpD by 1.",
 	},
-	// Not Fully Implemented
+	// Coded
 	decay: {
 		num: 1029,
 		name: "Decay",
@@ -471,15 +471,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	equivalentexchange: {
 		num: 1030,
 		name: "Equivalent Exchange",
-		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
+		// desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
 	},
 	// Not Fully Implemented
 	farreach: {
 		num: 1031,
 		name: "Far Reach",
-		desc: "This pokemon's non-contact moves to 1.2x damage.",
+		// desc: "This pokemon's non-contact moves to 1.2x damage.",
 	},
-	// Not Fully Implemented
+	// Coded
 	fluffyfloat: {
 		num: 1032,
 		name: "Fluffy Float",
@@ -524,19 +524,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	ignorance: {
 		num: 1035,
 		name: "Ignorance",
-		desc: "All Pokemon on the field ignore each others' stat changes.",
+		// desc: "All Pokemon on the field ignore each others' stat changes.",
 	},
 	// Not Fully Implemented
 	infinitescaling: {
 		num: 1036,
 		name: "Infinite Scaling",
-		desc: "The damage of this Pokémon increases infinitely. (Turn 1: 0.8x, Turn 2: 0.9x, Turn 3: 1x, Turn 4: 1.1x, etc.) Resets upon switching out.",
+		// desc: "The damage of this Pokémon increases infinitely. (Turn 1: 0.8x, Turn 2: 0.9x, Turn 3: 1x, Turn 4: 1.1x, etc.) Resets upon switching out.",
 	},
 	// Not Fully Implemented
 	internetrage: {
 		num: 1037,
 		name: "Internet Rage",
-		desc: "This Pokemon's Manmade-type moves become Storm-type, and Storm-type moves become Manmade-type.",
+		// desc: "This Pokemon's Manmade-type moves become Storm-type, and Storm-type moves become Manmade-type.",
 	},
 	// Coded
 	jacko: {
@@ -611,25 +611,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	metalcoat: {
 		num: 1042,
 		name: "Metal Coat",
-		desc: "This pokemon is immune to moves that are 60 bp or lower.",
+		// desc: "This pokemon is immune to moves that are 60 bp or lower.",
 	},
 	// Not Fully Implemented
 	modernadaptation: {
 		num: 1043,
 		name: "Modern Adaptation",
-		desc: "Transform any Folklore type move used by the pokemon into Manmade type.",
+		// desc: "Transform any Folklore type move used by the pokemon into Manmade type.",
 	},
 	// Not Fully Implemented
 	nanobarrier: {
 		num: 1044,
 		name: "Nanobarrier",
-		desc: "This pokemon receives 3/4 damage from neutrally effective attacks.",
+		// desc: "This pokemon receives 3/4 damage from neutrally effective attacks.",
 	},
 	// Not Fully Implemented
 	necromancer: {
 		num: 1045,
 		name: "Necromancer",
-		desc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Folklore-type attack.",
+		// desc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Folklore-type attack.",
 	},
 	// Coded
 	nocturnal: {
@@ -656,7 +656,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	nonbeliever: {
 		num: 1047,
 		name: "Non-Believer",
-		desc: "This Pokemon is immune to Folklore-type moves (yes i'm planning to give this another effect like flash fire and -absorb clones)",
+		// desc: "This Pokemon is immune to Folklore-type moves (yes i'm planning to give this another effect like flash fire and -absorb clones)",
 	},
 	// Coded
 	petalbody: {
@@ -700,13 +700,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	ragingsea: {
 		num: 1050,
 		name: "Raging Sea",
-		desc: "Increases the power of Sea-type moves by up to 40% the lower its HP gets.",
+		// desc: "Increases the power of Sea-type moves by up to 40% the lower its HP gets.",
 	},
 	// Not Fully Implemented
 	rainbringer: {
 		num: 1051,
 		name: "Rainbringer",
-		desc: "Sets weather to Rain for the next 5 turns. Spring and Sea deals 1.3x damage.",
+		// desc: "Sets weather to Rain for the next 5 turns. Spring and Sea deals 1.3x damage.",
 		onStart(source) {
 			this.field.setWeather('rainyseason');
 		},
@@ -736,7 +736,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	reaper: {
 		num: 1053,
 		name: "Reaper",
-		desc: "This Pokemon's Autumn-type moves do 1.2x damage and restore the user 50% of the damage dealt.",
+		// desc: "This Pokemon's Autumn-type moves do 1.2x damage and restore the user 50% of the damage dealt.",
 	},
 	// Coded
 	regenerator: {
@@ -751,25 +751,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	rigormortis: {
 		num: 1055,
 		name: "Rigor Mortis",
-		desc: "If the user takes a physical hit, it gains +1 defense stage.",
+		// desc: "If the user takes a physical hit, it gains +1 defense stage.",
 	},
 	// Not Fully Implemented
 	sacrificer: {
 		num: 1056,
 		name: "Sacrificer",
-		desc: "This Pokemon loses 1/3 of its max HP when it switches out. Next Pokemon gets those HP.",
+		// desc: "This Pokemon loses 1/3 of its max HP when it switches out. Next Pokemon gets those HP.",
 	},
 	// Not Fully Implemented
 	scavenge: {
 		num: 1057,
 		name: "Scavenge",
-		desc: "This Pokemon restores 1/3 of its max health if another Pokemon on the field faints.",
+		// desc: "This Pokemon restores 1/3 of its max health if another Pokemon on the field faints.",
 	},
 	// Not Fully Implemented
 	shatter: {
 		num: 1058,
 		name: "Shatter",
-		desc: "This pokemon's attacks are guaranteed to be critical hits if the opponent is statused.",
+		// desc: "This pokemon's attacks are guaranteed to be critical hits if the opponent is statused.",
 	},
 	// Coded
 	shine: {
@@ -808,7 +808,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	smite: {
 		num: 1060,
 		name: "Smite",
-		desc: "Moves' power is boosted by 1.3x if the target is below half health",
+		// desc: "Moves' power is boosted by 1.3x if the target is below half health",
 	},
 	// Coded
 	snowbringer: {
@@ -823,7 +823,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	spectralshifter: {
 		num: 1062,
 		name: "Spectral Shifter",
-		desc: "While this Pokemon is active, opposing Pokemons' stat raises will be lowers instead, and vice versa.",
+		// desc: "While this Pokemon is active, opposing Pokemons' stat raises will be lowers instead, and vice versa.",
 	},
 	// Coded
 	steadfast: { // implemented in conditions.ts

@@ -202,6 +202,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Platinum Orb",
 		spritenum: 180,
 		onBasePowerPriority: 15,
+		desc: "Boosts Night and Storm moves by 20%. Unremovable. Darkira only",
 		onBasePower(basePower, user, target, move) {
 			if (user.baseSpecies.num === 487 && (move.type === 'Storm' || move.type === 'Folklore')) {
 				return this.chainModify([0x1333, 0x1000]);
@@ -220,7 +221,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	iridescentorb: {
 		name: "Iridescent Orb",
 		num: 1008,
-		desc: "Recover 12.5% of your max HP when using an attacking move.",
+		desc: "Recover 12.5% HP when using a Serenity-type move. Unremovable. Lakera only",
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source && move && move.type !== 'Serenity') {
 				this.heal(source.baseMaxhp / 8);
@@ -238,6 +239,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
+		desc: "Persebloom enters battle as Persebloom-Frost when holding this.",
 		forcedForme: "Persebloom-Frost",
 		itemUser: ["Persebloom-Frost"],
 		num: 1017,
