@@ -104,7 +104,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
                 }
             },
         },
-        name: "Alms Giver",
+        name: "AlmsGiver",
         rating: 3,
         num: -1,
     },
@@ -334,7 +334,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Chill",
 		desc: "Pokemon making contact with this pokemon have a 30% chance to be inflicted with chill.",
 		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact']) {
+			if (move.flags['contact'] && move.id !== 'wildpunch') {
 				if (this.randomChance(3, 10)) {
 					source.trySetStatus('frz', target);
 				}
@@ -353,7 +353,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Contagious",
 		desc: "Contact moves used against this pokemon have a 25% chance to poison the one who made contact.",
 		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact']) {
+			if (move.flags['contact'] && move.id !== 'wildpunch') {
 				if (this.randomChance(1, 4)) {
 					source.trySetStatus('psn', target);
 				}
@@ -837,7 +837,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Stone Skin",
 		desc: "User takes 25% less damage from contact moves.",
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.flags['contact']) return this.chainModify(0.75);
+			if (move.flags['contact'] && move.id !== 'wildpunch') return this.chainModify(0.75);
 		},
 	},
 	// Coded
