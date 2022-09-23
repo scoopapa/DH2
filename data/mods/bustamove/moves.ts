@@ -550,6 +550,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cute",
 		
 	},
+	ember: {
+		num: 52,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Ember",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyPriority(priority, source, target, move) {
+			if (['sunnyday', 'desolateland'].includes(source.effectiveWeather())) {
+				return priority + 1;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Cute",
+	},
 	extrasensory: {
 		num: 326,
 		accuracy: 100,
@@ -2123,6 +2142,49 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Dragon",
 		contestType: "Cool",
+	},
+	vinewhip: {
+		num: 22,
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+		name: "Vine Whip",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Vine Whip', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Cool",
+	},
+	watergun: {
+		num: 55,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Water Gun",
+		pp: 30,
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Cute",
 	},
 	zapcannon: {
 		num: 192,
