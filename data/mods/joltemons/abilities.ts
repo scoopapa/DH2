@@ -68,6 +68,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(target.baseMaxhp / 8);
 			}
 		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
 		name: "Ice Body",
     shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Hail.",
 		num: 115,
@@ -1159,6 +1162,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (effect.id === 'hail') {
 				this.heal(target.baseMaxhp / 8);
 			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Vanilluxe)",

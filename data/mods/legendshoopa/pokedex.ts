@@ -401,6 +401,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Floccoth",
 		copyData: "Wurmple",
 
+		types: ["Bug", "Fairy"],
 		abilities: {0: "Fluffy", H: "Tinted Lens"},
 		baseStats: {hp: 60, atk: 50, def: 95, spa: 70, spd: 50, spe: 65},
 		movepoolAdditions: [
