@@ -265,10 +265,4 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
-	serenesliceheal: {
-		duration: 1,
-		onResidual(pokemon) {
-			this.heal(Math.ceil(pokemon.maxhp * 0.25), pokemon);
-		}
-	}
 };

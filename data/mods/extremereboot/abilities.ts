@@ -104,7 +104,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
                 }
             },
         },
-        name: "AlmsGiver",
+        name: "Almsgiver",
         rating: 3,
         num: -1,
     },
