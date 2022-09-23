@@ -210,7 +210,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			this.damage(pokemon.baseMaxhp / 16);
+			this.damage(pokemon.baseMaxhp / 12);
 			pokemon.statusData.time--;
 			if (pokemon.statusData.time <= 0) {
 				this.add('-curestatus', pokemon, 'brn', '[Silent]');
@@ -284,7 +284,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 9,
 		onResidual(pokemon) {
 			this.hint(`${this.effectData.target.name} is afflicted with frostbite!`);
-			this.damage(pokemon.baseMaxhp / 16);
+			this.damage(pokemon.baseMaxhp / 12);
 			pokemon.statusData.time--;
 			if (pokemon.statusData.time <= 0) {
 				this.add('-curestatus', pokemon, 'frz', '[Silent]');
@@ -369,7 +369,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			this.damage(pokemon.baseMaxhp / 8);
+			this.damage(pokemon.baseMaxhp / 6);
 			if (pokemon.statusData.time <= 0) {
 				this.add('-curestatus', pokemon, 'psn', '[Silent]');
 				pokemon.setStatus('');
@@ -403,7 +403,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectData.stage < 15) {
 				this.effectData.stage++;
 			}
-			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
+			this.damage(this.clampIntRange(pokemon.baseMaxhp / 12, 1) * this.effectData.stage);
 			if (pokemon.statusData.time <= 0) {
 				this.add('-curestatus', pokemon, 'tox', '[Silent]');
 				pokemon.setStatus('');
