@@ -16,6 +16,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onModifySpe(spe, pokemon) {
+			if (pokemon.hasAbility("steadfast")) {
+				return this.chainModify(2);
+			}
 			return this.chainModify(0.5);
 		},
 	},
@@ -35,9 +38,19 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onModifyDef(def, pokemon) {
+			if (pokemon.hasAbility("thickskin")) {
+				return this.chainModify(1.5);
+			} else if (pokemon.hasAbility("steadfast")) {
+				return this.chainModify(1.25);
+			}
 			return this.chainModify(0.75);
 		},
 		onModifySpD(spd, pokemon) {
+			if (pokemon.hasAbility("thickskin")) {
+				return this.chainModify(1.5);
+			} else if (pokemon.hasAbility("steadfast")) {
+				return this.chainModify(1.25);
+			}
 			return this.chainModify(0.75);
 		},
 	},

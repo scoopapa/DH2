@@ -67,18 +67,47 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}				
 		}
 	},
-	// Not Fully Implemented
+	// Coded
 	allseeingeye: {
 		num: 1004,
 		name: "All-Seeing Eye",
 		desc: "Bypasses accuracy checks, but takes 15% more damage from attacks.",
+		onSourceModifyDamage(damage, source, target, move) {
+			return this.chainModify(1.15);
+		},
+		onSourceAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+				return true;
+			}
+			return accuracy;
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	almsgiver: {
 		num: 1005,
-		name: "Almsgiver",
-		desc: "Upon switching out, if the incoming ally is not holding an item, they will recieve a copy of this Pokémon's item.",
-	},
+        shortDesc: "On switching out, shares a copy of its item with its replacement.",
+        onSwitchOut(pokemon) {
+            if (pokemon.item && pokemon.side.addSlotCondition(pokemon, 'almsgiver')) {
+                Object.assign(pokemon.side.slotConditions[pokemon.position]['almsgiver'], {
+                    item: pokemon.item,
+                });
+            }
+        },
+        condition: {
+            onSwap(target) {
+                target.side.removeSlotCondition(target, 'almsgiver'); // always remove immediately even if it doesn't activate (you can remove this if you want it to be stored like Healing Wish)
+                if (!target.fainted) {
+                    if (!target.item && this.effectData.item && target.setItem(this.effectData.item)) {
+                        this.add('-ability', this.effectData.source, 'Alms Giver');
+                        this.add('-item', target, this.dex.getItem(this.effectData.item), '[from] Ability: Alms Giver', '[of] ' + this.effectData.source);
+                    }
+                }
+            },
+        },
+        name: "Alms Giver",
+        rating: 3,
+        num: -1,
+    },
 	// Coded
 	amplify: {
 		num: 1006,
@@ -92,7 +121,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	// Not Fully Implemented
+	// Not Fully Implemented - must be implemented in Rules Rewrite
 	arbiter: {
 		num: 1007,
 		name: "Arbiter",
@@ -136,9 +165,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokémon's Typless moves become Winter-type and gain a 1.2x. power boost. Existing Winter-type moves also get the power boost.",
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
-			// const noModifyType = [
+			const noModifyType = [
 			
-			// ];
+			];
 			if (move.type === 'Typeless' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
 				move.type = 'Winter';
 				move.bingChillingBoosted = true;
@@ -149,29 +178,76 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.bingChillingBoosted || move.type === "Winter") return this.chainModify([0x1333, 0x1000]);
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	bipolar: {
 		num: 1012,
 		name: "Bipolar",
 		desc: "Turns Storm-type moves into Serenity-type moves and Serenity-type moves into Storm-type moves, and boosts them by x1.2.",
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+
+			];
+			if (move.type === 'Serenity' && !noModifyType.includes(move.id) && move.category !== 'Status') {
+				move.type = 'Storm';
+				move.bipolarBoosted = true;
+			} else if (move.type === 'Storm' && !noModifyType.includes(move.id) && move.category !== 'Status') {
+				move.type = 'Serenity';
+				move.bipolarBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.bipolarBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	blessed: {
 		num: 1013,
 		name: "Blessed",
 		desc: "This Pokemon cannot be cursed, and is considered to have Serenity type as its secondary type.",
+		onStart(pokemon) {
+			if (pokemon.hasType('Serenity')) return false;
+			if (!pokemon.addType('Serenity')) return false;
+			pokemon.setType([pokemon.types[1],"Serenity"]);
+			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+		}
 	},
-	// Not Fully Implemented
+	// Coded
 	blightboost: {
 		num: 1014,
 		name: "Blight Boost",
 		desc: "While this Pokemon is cursed, the power of its special attacks is multiplied by 1.5 and takes no HP loss from it.",
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.status === 'crs' && move.category === 'Special') {
+				return this.chainModify(1.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'crs') {
+				return false;
+			}
+		},
+		name: "Blight Boost",
+		rating: 2,
+		num: 138,
 	},
-	// Not Fully Implemented
+	// Coded
 	blindrage: {
 		num: 1015,
 		name: "Blind Rage",
 		desc: "Hustle",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return accuracy * 0.8;
+			}
+		},
 	},
 	// Coded
 	blossom: {
@@ -206,17 +282,39 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	burningrage: {
 		num: 1017,
 		name: "Burning Rage",
 		desc: "Whenever this Pokemon has Sunburn, its highest attacking stat gains a 1.2x boost.",
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.status === 'brn') {
+				if ((attacker.storedStats['atk'] >= attacker.storedStats['spa'] && move.category === "Physical") ||
+					(attacker.storedStats['atk'] < attacker.storedStats['spa'] && move.category === "Special"))
+				{
+					return this.chainModify(1.2);
+				}
+			}
+		},
 	},
-	// Not Fully Implemented
+	// Coded
 	burnout: {
 		num: 1018,
 		name: "Burnout",
 		desc: "This Pokemon's moves that lower its stats have 1.3x power, but the amount the stat is lowered is doubled.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.self && move.self.boosts) { 
+				let negBoost = false;
+				for (const stat of move.self.boosts){
+					if (move.self.boosts[stat] < 0) { 
+						negBoost = true;
+						move.self.boosts[stat] = move.self.boosts[stat] * 2;
+					}
+				}
+				if (negBoost) return this.chainModify(1.3);
+			}
+		},
 	},
 	// Not Fully Implemented
 	celestial: {
@@ -230,11 +328,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Checkmate",
 		desc: "If the enemy has 33% health or less, it is trapped and cannot escape.",
 	},
-	// Not Fully Implemented
+	// Coded
 	chill: {
 		num: 1021,
 		name: "Chill",
 		desc: "Pokemon making contact with this pokemon have a 30% chance to be inflicted with chill.",
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('frz', target);
+				}
+			}
+		},
 	},
 	// Not Fully Implemented
 	climaticchange: {
@@ -496,12 +601,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 		},
 	},
-	// Not Fully Implemented
-	megatonburst: {
-		num: 1041,
-		name: "Megaton Burst",
-		desc: "This Pokemon uses a 60 BP physical Earth-type move (uses the user's Attack stat) after using a Sound-based move.",
-	},
+	// Not Used
+	// megatonburst: {
+		// num: 1041,
+		// name: "Megaton Burst",
+		// desc: "This Pokemon uses a 60 BP physical Earth-type move (uses the user's Attack stat) after using a Sound-based move.",
+	// },
 	// Not Fully Implemented
 	metalcoat: {
 		num: 1042,
@@ -720,17 +825,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Spectral Shifter",
 		desc: "While this Pokemon is active, opposing Pokemons' stat raises will be lowers instead, and vice versa.",
 	},
-	// Not Fully Implemented
-	steadfast: {
+	// Coded
+	steadfast: { // implemented in conditions.ts
 		num: 1063,
 		name: "Steadfast",
 		desc: "Inverts Sunburn and Chill effects on the user.",
 	},
-	// Not Fully Implemented
+	// Coded
 	stoneskin: {
 		num: 1064,
 		name: "Stone Skin",
 		desc: "User takes 25% less damage from contact moves.",
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['contact']) return this.chainModify(0.75);
+		},
 	},
 	// Coded
 	stormwatch: {
@@ -793,41 +901,56 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.field.setWeather('highnoon');
 		},
 	},
-	// Not Fully Implemented
-	supersapience: {
-		num: 1069,
-		name: "Super Sapience",
-		desc: "Boosts moves that start with S by 1.5x. Moves that start with any other letter receive a 0.5x  decrease in power.",
-	},
+	// Not Used
+	// supersapience: {
+		// num: 1069,
+		// name: "Super Sapience",
+		// desc: "Boosts moves that start with S by 1.5x. Moves that start with any other letter receive a 0.5x  decrease in power.",
+	// },
 	// Not Fully Implemented
 	thickheaded: {
 		num: 1070,
 		name: "Thick Headed",
-		desc: "When this pokemon makes contact with the foe, nullifies their type-based immunities.",
+		// desc: "When this pokemon makes contact with the foe, nullifies their type-based immunities.",
 	},
-	// Not Fully Implemented
-	thickskin: {
+	// Coded
+	thickskin: {// implemented in conditions.ts
 		num: 1071,
 		name: "Thick Skin",
 		desc: "This Pokemon is immune to the negative effects of Sunburn, and its defenses are 1.5x if it is Sunburned.",
 	},
-	// Not Fully Implemented
+	// Coded
 	toughclaws: {
 		num: 1072,
 		name: "Tough Claws",
-		desc: "No Changes",
+		desc: "Contact moves are boosted by 1.3x",
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact']) {
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
 	},
 	// Not Fully Implemented
 	transcription: {
 		num: 1073,
 		name: "Transcription",
-		desc: "Turns the Pokémon's first type to Folklore and the moves of the type into Folklore. They also receive a 1.1 boost in power.",
+		// desc: "Turns the Pokémon's first type to Folklore and the moves of the type into Folklore. They also receive a 1.1 boost in power.",
 	},
-	// Not Fully Implemented
+	// Coded
 	tropicalspirit: {
 		num: 1074,
 		name: "Tropical Spirit",
 		desc: "This Pokemon's attacks are critical hits if the target is sunburnt. Winter-type moves against this Pokemon deal half damage.",
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Winter') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && target.status === 'brn') return 5;
+		},
 	},
 	// Coded
 	unstable: {

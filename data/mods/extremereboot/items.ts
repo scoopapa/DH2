@@ -198,4 +198,49 @@ export const Items: {[itemid: string]: ItemData} = {
 		desc: "Holder's moves and effects that last 4 or 5 turns last 8 turns instead, except Rules Rewrite, which lasts 2 turns.",
 		gen: 8,
 	},
+	platinumorb: {
+		name: "Platinum Orb",
+		spritenum: 180,
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 487 && (move.type === 'Storm' || move.type === 'Folklore')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 487) || pokemon.baseSpecies.num === 487) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Darkira"],
+		num: 1015,
+		gen: 8,
+	},
+	iridescentorb: {
+		name: "Iridescent Orb",
+		num: 1008,
+		desc: "Recover 12.5% of your max HP when using an attacking move.",
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && move && move.type !== 'Serenity') {
+				this.heal(source.baseMaxhp / 8);
+			}
+		},
+		itemUser: ["Lakera"],
+		num: 1016,
+		gen: 8,
+	},
+	frostedseed: {
+		name: "Frosted Seed",
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+				return false;
+			}
+			return true;
+		},
+		forcedForme: "Persebloom-Frost",
+		itemUser: ["Persebloom-Frost"],
+		num: 1017,
+		gen: 8,
+	},
 };
