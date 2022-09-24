@@ -507,7 +507,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		condition: {
-			duration: 2,
+			duration: 1,
 			onImmunity(type, pokemon) {
 				if (type === 'sandstorm' || type === 'hail') return false;
 			},
