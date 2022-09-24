@@ -438,6 +438,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
+			else if (attacker.hp &&  this.canSwitch(attacker.side) && ) {
+				attacker.switchFlag = true;
+			}
 			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
 				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
 				attacker.formeChange(forme, move);
