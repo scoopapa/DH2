@@ -458,7 +458,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 2,
 			onSwap(target) {
-				this.runMove('dive2', target, this.getTargetLoc(target.side.foe.active[0], target));
+				this.runMove('dive2', target, this.getTargetLoc(target.side.foe.active[0], target), null, false, true);
 				target.side.removeSideCondition('dive');
 			},
 			onImmunity(type, pokemon) {
