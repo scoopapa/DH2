@@ -551,7 +551,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
 		onBoost(boost, target, source, effect) {
 			let invBoost = {};
-			let swapBoost = ['atk' = 'spa', 'spa' = 'atk', 'def' = 'spd', 'spd' = 'def'];
+			let swapBoost = [atk = 'spa', spa = 'atk', def = 'spd', spd = 'def'];
 			for (i in swapBoost) {
 				if (boost[i]) {
 					invBoost[swapBoost[i]] = boost[i] * -1;
