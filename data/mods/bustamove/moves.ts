@@ -456,7 +456,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		condition: {
-			duration: 2,
 			onSwap(target) {
 				target.side.removeSideCondition('dive');
 				this.runMove('dive2', target, this.getTargetLoc(target.side.foe.active[0], target), null, false, true);
@@ -500,7 +499,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.add('-prepare', attacker, move.name);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				attacker.switchFlag = true;
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender);
