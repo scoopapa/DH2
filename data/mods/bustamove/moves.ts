@@ -424,8 +424,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-   },*/
-	dive: {
+   },
+	dive: { Rass' Attempt (Move Passing Works, but still some issues regarding invulnerability)
 		num: 291,
 		accuracy: 100,
 		basePower: 90,
@@ -442,6 +442,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			else if (attacker.hp &&  this.canSwitch(attacker.side)) {
 				attacker.switchFlag = true;
+				attacker.side.removeSideCondition('dive');
 			}
 			if (attacker.hasAbility('gulpmissile') && attacker.species.name === 'Cramorant' && !attacker.transformed) {
 				const forme = attacker.hp <= attacker.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
@@ -449,14 +450,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.add('-prepare', attacker, move.name);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				attacker.side.removeSideCondition('dive');
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
 		condition: {
-			duration: 1,
+			duration: 2,
 			onSwap(target) {
 				target.side.removeSideCondition('dive');
 				this.runMove('dive2', target, this.getTargetLoc(target.side.foe.active[0], target), null, false, true);
@@ -486,7 +486,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		name: "Dive 2",
+		name: "Dive",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
@@ -506,7 +506,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		condition: {
-			duration: 1,
+			duration: 2,
 			onImmunity(type, pokemon) {
 				if (type === 'sandstorm' || type === 'hail') return false;
 			},
@@ -526,7 +526,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
-	},
+	}, */
 	dragonhammer: {
 		num: 692,
 		accuracy: 100,
