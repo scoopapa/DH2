@@ -205,12 +205,12 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		desc: "Boosts Night and Storm moves by 20%. Unremovable. Darkira only",
 		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.num === 487 && (move.type === 'Storm' || move.type === 'Folklore')) {
+			if (user.baseSpecies.num === 1129 && (move.type === 'Storm' || move.type === 'Folklore')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 487) || pokemon.baseSpecies.num === 487) {
+			if ((source && source.baseSpecies.num === 1129) || pokemon.baseSpecies.num === 1129) {
 				return false;
 			}
 			return true;
@@ -221,12 +221,17 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	iridescentorb: {
 		name: "Iridescent Orb",
-		num: 1008,
 		desc: "Recover 12.5% HP when using a Serenity-type move. Unremovable. Lakera only",
 		onAfterMoveSecondarySelf(source, target, move) {
-			if (source && move && move.type === 'Serenity') {
+			if (source && source.baseSpecies.num === 1130 && move && move.type === 'Serenity') {
 				this.heal(source.baseMaxhp / 8);
 			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1130) || pokemon.baseSpecies.num === 1130) {
+				return false;
+			}
+			return true;
 		},
 		itemUser: ["Lakera"],
 		num: 1016,
@@ -235,10 +240,15 @@ export const Items: {[itemid: string]: ItemData} = {
 	frostedseed: {
 		name: "Frosted Seed",
 		onTakeItem(item, pokemon, source) {
-			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
+			if ((source && source.baseSpecies.num === 1055) || pokemon.baseSpecies.num === 1055) {
 				return false;
 			}
 			return true;
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source && source.baseSpecies.num === 1055 && move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
 		},
 		desc: "Persebloom enters battle as Persebloom-Frost when holding this.",
 		forcedForme: "Persebloom-Frost",

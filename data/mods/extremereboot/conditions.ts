@@ -313,4 +313,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
+	temporarytrap: {
+		name: 'temporarytrap',
+		duration: 4,
+		onTrapPokemon(pokemon) {
+			if (this.effectData.source?.isActive) pokemon.tryTrap();
+		},
+		onEnd(pokemon) {
+			this.add('-message', pokemon.name + ' is no longer trapped!');
+		},
+	},
 };

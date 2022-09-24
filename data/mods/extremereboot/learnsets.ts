@@ -576,7 +576,7 @@ export const Learnsets = {
 			inhumanshriek: ["8L1"],
 			miscalculation: ["8L1"],
 			hyperbeam: ["8L1"],
-			tearingtorando: ["8L1"],
+			tearingtornado: ["8L1"],
 			heatstroke: ["8L1"],
 			narcoticpulse: ["8L1"],
 			ghostlyhowl: ["8L1"],

@@ -308,6 +308,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				speed = 0x2710 - speed;
 			}
 			return this.battle.trunc(speed, 13);
-		}
+		},
+		ignoringAbility() {
+			// Check if any active pokemon have the ability Neutralizing Gas
+			let volatileSuppress = false;
+			const suppressingVolatiles = ['mindcleansing', 'moonblade'];
+			for (const volatileStatus of suppressingVolatiles) {
+				if (this.volatiles[volatileStatus]) volatileSuppress = true;
+			}
+			return !!(!this.isActive || (volatileSuppress && !this.getAbility().isPermanent));
+		},
+		ignoringItem() {
+			return !!((this.battle.gen >= 5 && !this.isActive) ||
+				(this.hasAbility('klutz') && !this.getItem().ignoreKlutz) ||
+				this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
+		},
 	},
 };
