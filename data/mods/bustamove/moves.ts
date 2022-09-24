@@ -456,6 +456,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		condition: {
+			duration: 1,
 			onSwap(target) {
 				target.side.removeSideCondition('dive');
 				this.runMove('dive2', target, this.getTargetLoc(target.side.foe.active[0], target), null, false, true);
