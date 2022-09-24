@@ -145,7 +145,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.hasType('Sea')) {
 				this.heal(source.baseMaxhp / 3, source, target);
 				this.boost({atk: 1}, source);
-				this.damage(source.baseMaxhp / 3, source, target);
+				this.damage(target.baseMaxhp / 3, target, source);
 			}
 			if (source.hasType('Sea')) {
 				this.heal(source.baseMaxhp / 3, source, target);
@@ -321,10 +321,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Manmade",
 		shortDesc: "Traps and damages the target for 4-5 turns",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		volatileStatus: 'partiallytrapped',
 		target: "normal",
 		secondary: null,
+	},
+	// Coded
+	bindingflame: {
+		name: "Binding Flame",
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		pp: 15,
+		type: "Summer",
+		shortDesc: "Inflicts Curse on the user.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		target: "normal",
+		secondary: {
+			self: {
+				status: 'crs',
+			},
+		},
 	},
 	// Not Fully Implemented
 	blasphemy: {
@@ -1229,7 +1247,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	dormantpower: {
 		name: "Dormant Power",
 		accuracy: 100,
@@ -1274,7 +1292,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	drillpiercer: {
 		name: "Drill Piercer",
 		accuracy: 100,
@@ -1283,12 +1301,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		type: "Earth",
 		// shortDesc: "This move is supereffective against Sky-types.",
+		ignoreImmunity: {'Earth': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Sky') return 1;
+		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	dystopiareversal: {
 		name: "Dystopia Reversal",
 		accuracy: 100,
@@ -1296,7 +1318,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 20,
 		type: "Folklore",
-		// shortDesc: "Removes Manmade type from foe. If foe was Manmade type, poisons it.",
+		shortDesc: "Removes Manmade type from foe. If foe was Manmade type, poisons it.",
+		onTryMove(pokemon, target, move) {
+			if (target.hasType('Manmade')) return;
+			this.add('-fail', pokemon, 'move: Dystopia Reversal');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		onHit(pokemon) {
+			pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Burn Up');
+			pokemon.trySetStatus("psn");
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -1335,7 +1368,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	eeriebargain: {
 		name: "Eerie Bargain",
 		accuracy: true,
@@ -1343,13 +1376,37 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 5,
 		type: "Folklore",
-		// shortDesc: "Raises all stats by 1 (except acc/eva). Inflicts user with Fear, curing itself of any other non-volatile status condition in the process. Traps user for 5 turns.",
+		shortDesc: "Raises all stats by 1 (except acc/eva). Inflicts user with Fear, curing itself of any other non-volatile status condition in the process. Traps user for 5 turns.",
+		condition: {
+			duration: 5,
+			durationCallback(target, source) {
+				if (source?.hasItem('trickyhourglass')) return 8;
+			},
+			onStart(pokemon, source) {
+				this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
+			},
+			onResidualOrder: 11,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, this.effectData.sourceEffect, '[eeriebargain]');
+			},
+			onTrapPokemon(pokemon) {
+				pokemon.tryTrap();
+			},
+		},
+		status: 'fer',
 		priority: 0,
+		boosts: {
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
+		},
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "self",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	eeriespell: {
 		name: "Eerie Spell",
 		accuracy: 90,
@@ -1357,11 +1414,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Folklore",
-		// shortDesc: "Curses the target. Guaranteed to hit if used by a Folklore type.",
+		shortDesc: "Curses the target. Guaranteed to hit if used by a Folklore type.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
+		status: "crs",
 	},
 	// Not Fully Implemented
 	energyfield: {
@@ -1377,7 +1435,45 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
+	energysiphon: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Energy Siphon",
+		shortDesc: "Drains target's HP for 3 turns.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, contact: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Autumn",
+		volatileStatus: 'energysiphon',
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fell Stinger", target);
+		},
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'move: Energy Siphon');
+			},
+			duration: 3,
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.effectData.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage / 2, target, pokemon);
+				}
+			},
+		},
+	},
+	// Coded
 	energyshot: {
 		name: "Energy Shot",
 		accuracy: 100,
@@ -1385,14 +1481,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Typeless",
-		// shortDesc: "No additional effect.",
+		shortDesc: "No additional effect.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
 	},
-	// Not Fully Implemented
+	// Coded
 	enlighten: {
 		name: "Enlighten",
 		accuracy: true,
@@ -1400,10 +1496,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Serenity",
-		// shortDesc: "Removes status conditions from user and gives user Enlighten volatile. [Enlighten: Restores 1/16th HP each turn and immune to Curse.).",
+		shortDesc: "Removes status conditions from user and gives user Enlighten volatile. [Enlighten: Restores 1/16th HP each turn and immune to Curse.).",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		onHit(target, source) {
+			target.cureStatus();
+			if (!target.volatiles['enlighten']) target.addVolatile('enlighten');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: Enlighten');
+			},
+			onResidualOrder: 7,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 16);
+			},
+			onSetStatus(status, target, source, effect) {
+				if (status === "crs") return null;
+			},
+		},
+		target: "self",
 		secondary: null,
 	},
 	// Not Fully Implemented
@@ -1711,6 +1823,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
+	// Coded
+	gigiaclap: {
+		name: "Gigia Clap",
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		pp: 10,
+		type: "Winter",
+		shortDesc: "30% chance to inflict Chill on the target. Becomes perfectly accurate in Snow.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		target: "normal",
+		secondary: {
+			chance: 30,
+			status:'frz',
+		},
+	},
 	// Not Fully Implemented
 	glitch: {
 		name: "Glitch",
@@ -1770,6 +1899,60 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
+	},
+	// Coded
+	goodspirits: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Good Spirits",
+		pp: 25,
+		priority: 0,
+		flags: {snatch: 1},
+		sideCondition: 'goodspirits',
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('trickyhourglass')) {
+					this.add('-activate', source, 'item: trickyhourglass', effect);
+					return 8;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!effect || !source) return;
+				if (effect.id === 'yawn') return;
+				if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
+				if (target !== source) {
+					this.debug('interrupting setStatus');
+					if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+						this.add('-activate', target, 'move: Safeguard');
+					}
+					return null;
+				}
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (!effect || !source) return;
+				if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
+				if ((status.id === 'confusion' || status.id === 'yawn') && target !== source) {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Safeguard');
+					return null;
+				}
+			},
+			onStart(side) {
+				this.add('-sidestart', side, 'Safeguard');
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 2,
+			onEnd(side) {
+				this.add('-sideend', side, 'Safeguard');
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Normal",
+		zMove: {boost: {spe: 1}},
+		contestType: "Beautiful",
 	},
 	// Coded
 	growthpower: {
@@ -2219,7 +2402,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			status: 'frz',
 		},
 	},
-	// Not Fully Implemented
+	// Coded
 	incantation: {
 		name: "Incantation",
 		accuracy: 90,
@@ -2227,11 +2410,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Typeless",
-		// shortDesc: "Inflicts Curse on the opponent. 100% accuracy when used by Folklore-types. Sound-based.",
+		shortDesc: "Inflicts Curse on the opponent. 100% accuracy when used by Folklore-types. Sound-based.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
+		status: "crs",
 	},
 	// Coded
 	inhumanshriek: {
@@ -3027,7 +3211,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If user is Storm-type, changes Storm to Serenity before executing this move.",
 		onPrepareHit(target, source, move) {
 			if (move.hasBounced || !source.hasType("Storm")) return;
-			if (!source.setType("Serenity")) return;
+			let types = source.getTypes(true);
+			for (const i in types) {
+				if (types[i] === "Storm") {
+					types[i] = "Serenity";
+				}
+			}
+			source.setType(types);
 			this.add('-start', source, 'typechange', source.getTypes().join(), '[from] move: Purification');
 		},
 		priority: 0,
@@ -3270,7 +3460,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	repair: {
 		name: "Repair",
 		accuracy: true,
@@ -3278,9 +3468,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 20,
 		type: "Manmade",
-		// shortDesc: "The user has 1/16 of its maximum HP restored at the end of each turn, but it is prevented from switching out. The message 'X went under repair!' will be displayed when this move activates.",
+		shortDesc: "User heals 6.25% at the end of each turn, but can't switch.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {snatch: 1, nonsky: 1},
+		volatileStatus: 'repair',
+		condition: {
+			onStart(pokemon) {
+				this.add('-message', pokemon.name + 'went under repair!');
+			},
+			onResidualOrder: 7,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 16);
+			},
+			onTrapPokemon(pokemon) {
+				pokemon.tryTrap();
+			},
+			onDragOut(pokemon) {
+				this.add('-activate', pokemon, 'move: Repair');
+				return null;
+			},
+		},
 		target: "self",
 		secondary: null,
 		unviable: true,
@@ -3309,7 +3516,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	restrain: {
 		name: "Restrain",
 		accuracy: 90,
@@ -3317,9 +3524,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Night",
-		// shortDesc: "Traps the target for 5 turns. Ends if the user leaves the field. (Contact)",
+		shortDesc: "Traps the target for 5 turns. Ends if the user leaves the field. (Contact)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
 		target: "normal",
 		secondary: null,
 	},
@@ -3439,6 +3647,51 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
+	// Coded
+	risingsun: {
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Rising Sun",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		isFutureMove: true,
+		onModifyType(move, pokemon) {
+			if (pokemon.hp / pokemon.baseMaxhp < 0.5) {
+				move.type = "Winter";
+			} else {
+				move.type = "Summer";
+			}
+		},
+		onTry(source, target) {
+			let type = "Summer";
+			if (source.hp / source.baseMaxhp < 0.5) type = "Winter"
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				move: 'risingsun',
+				source: source,
+				moveData: {
+					id: 'risingsun',
+					name: "Rising Sun",
+					accuracy: 100,
+					basePower: 140,
+					category: "Special",
+					priority: 0,
+					flags: {},
+					effectType: 'Move',
+					isFutureMove: true,
+					type: 'Steel',
+				},
+			});
+			this.add('-start', source, 'Rising Sun');
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Beautiful",
+	},
 	// Not Fully Implemented
 	rocketjump: {
 		name: "Rocket Jump",
@@ -3447,9 +3700,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 5,
 		type: "Sky",
-		// shortDesc: "Turn 1: User loses 10% of Max HP, becomes semi-invulnerable. Turn 2: Deal damage, high crit ratio, 30% paralysis chance. If missed, take crash damage. (Contact)",
+		shortDesc: "Turn 1: User loses 10% of Max HP, becomes semi-invulnerable. Turn 2: Deal damage, high crit ratio, 30% paralysis chance. If missed, take crash damage. (Contact)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, gravity: 1, distance: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			this.damage(attacker.baseMaxhp / 10);
+			return null;
+		},
+		condition: {
+			duration: 2,
+			onInvulnerability(target, source, move) {
+				return false;
+			},
+		},
+		hasCrashDamage: true,
+		onMoveFail(target, source, move) {
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('Rocket Jump'));
+		},
+		critRatio: 2,
 		target: "normal",
 		secondary: null,
 	},
@@ -3553,7 +3829,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "foeSide",
 	},
-	// Not Fully Implemented
+	// Coded
 	rulesrewrite: {
 		name: "Rules Rewrite",
 		accuracy: true,
@@ -3562,8 +3838,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		type: "Manmade",
 		// shortDesc: "For 5 turns, turn order is reversed. Priority of -7. (Trick Room clone)",
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		priority: -7,
+		flags: {mirror: 1},
+		pseudoWeather: 'rulesrewrite',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('arbiter')) {
+					this.add('-activate', source, 'ability: Arbiter', effect);
+					return 7;
+				}
+				return 5;
+			},
+			onStart(target, source) {
+				this.add('-fieldstart', 'move: Arbiter', '[of] ' + source);
+			},
+			onRestart(target, source) {
+				this.field.removePseudoWeather('rulesrewrite');
+			},
+			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+			onResidualOrder: 23,
+			onEnd() {
+				this.add('-fieldend', 'move: Arbiter');
+			},
+		},
 		target: "normal",
 		secondary: null,
 	},
@@ -3603,7 +3901,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	seasonchange: {
 		name: "Season Change",
 		accuracy: 100,
@@ -3611,7 +3909,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 15,
 		type: "Spring",
-		// shortDesc: "Changes type every turn, order of Spring -> Summer -> Autumn -> Winter -> Spring",
+		shortDesc: "Changes type every turn, order of Spring -> Summer -> Autumn -> Winter -> Spring",
+		onModifyType(move, pokemon) {
+			const seasons = ["Spring", "Summer", "Autumn", "Winter"];
+			move.type = seasons[(pokemon.activeTurns-1) % 4];
+			this.add('-message', "Season Change: " + move.type);
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -3890,7 +4193,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Sky Punt",
 		accuracy: 90,
 		basePower: 60,
-		category: "Phsyical",
+		category: "Physical",
 		pp: 10,
 		type: "Sky",
 		shortDesc: "-6 priority. Enemy is force switched. (Contact)",
@@ -4678,7 +4981,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
-	// Not Fully Implemented
+	// Coded
 	swoop: {
 		name: "Swoop",
 		accuracy: 100,
@@ -4686,7 +4989,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 20,
 		type: "Sky",
-		// shortDesc: "Uses user's Speed stat as Attack in damage calculation. Contact.",
+		shortDesc: "Uses user's Speed stat as Attack in damage calculation. Contact.",
+		useSourceSpeedAsOffensive: true,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -5020,6 +5324,55 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 30,
 			status: 'psn',
 		},
+	},
+	// Coded
+	tradedeal: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Trade Deal",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, mystery: 1},
+		onTryImmunity(target) {
+			return !target.hasAbility('stickyhold');
+		},
+		onHit(target, source, move) {
+			const yourItem = target.takeItem(source);
+			const myItem = source.takeItem();
+			if (target.item || source.item || (!yourItem && !myItem)) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			if (
+				(myItem && !this.singleEvent('TakeItem', myItem, source.itemData, target, source, move, myItem)) ||
+				(yourItem && !this.singleEvent('TakeItem', yourItem, target.itemData, source, target, move, yourItem))
+			) {
+				if (yourItem) target.item = yourItem.id;
+				if (myItem) source.item = myItem.id;
+				return false;
+			}
+			this.add('-activate', source, 'move: Trade Deal', '[of] ' + target);
+			if (myItem) {
+				target.setItem(myItem);
+				this.add('-item', target, myItem, '[from] move: Trade Deal');
+			} else {
+				this.add('-enditem', target, yourItem, '[silent]', '[from] move: Trade Deal');
+			}
+			if (yourItem) {
+				source.setItem(yourItem);
+				this.add('-item', source, yourItem, '[from] move: Trade Deal');
+			} else {
+				this.add('-enditem', source, myItem, '[silent]', '[from] move: Trade Deal');
+			}
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spe: 2}},
+		contestType: "Clever",
 	},
 	// Coded
 	turbulence: {

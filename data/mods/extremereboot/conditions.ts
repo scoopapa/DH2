@@ -135,7 +135,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			if (pokemon.hasAbility('earlybird')) {
+			if (pokemon.hasAbility('celestial')) {
 				pokemon.statusData.time--;
 			}
 			pokemon.statusData.time--;
@@ -263,6 +263,54 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnd() {
 			this.add('-weather', 'none');
+		},
+	},
+	futuremove: {
+		// this is a slot condition
+		name: 'futuremove',
+		duration: 3,
+		onStart() {
+			this.effectData.startT = this.turn;
+		},
+		onResidualOrder: 3,
+		onResidual() {
+			if (this.effectData.move.id === "dormantpower") {
+				const duration =  this.turn - this.effectData.startT;
+				console.log("dormantpower turns: " + duration);
+				let winterActive = false;
+				for (const pokemon of this.battle.getAllActive()) {
+					if (pokemon.hasType("Winter")) winterActive = true;
+				}
+				if (winterActive && duration >= 3) {
+					this.effectData.duration = this.effectData.duration + 1;
+				}
+			}
+		},
+		onEnd(target) {
+			const data = this.effectData;
+			// time's up; time to hit! :D
+			const move = this.dex.getMove(data.move);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+				return;
+			}
+
+			this.add('-end', target, 'move: ' + move.name);
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
+
+			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+				data.moveData.infiltrates = true;
+			}
+			if (data.source.hasAbility('normalize') && this.gen >= 6) {
+				data.moveData.type = 'Normal';
+			}
+			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+				data.moveData.stab = 2;
+			}
+			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+
+			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
 };
