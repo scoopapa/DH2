@@ -436,6 +436,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
 		slotCondition: 'dive',
 		onTryMove(attacker, defender, move) {
+			attacker.side.addSlotCondition(attacker, 'dive');
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
@@ -448,7 +449,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.add('-prepare', attacker, move.name);
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				attacker.switchFlag = true;
+				attacker.side.removeSideCondition('dive');
 				return;
 			}
 			attacker.addVolatile('twoturnmove', defender);
