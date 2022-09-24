@@ -434,6 +434,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1},
+		slotCondition: 'dive',
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -457,6 +458,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			duration: 2,
 			onSwap(target) {
 				this.runMove('dive2', target, this.getTargetLoc(target.side.foe.active[0], target));
+				target.side.removeSideCondition('dive');
 			},
 			onImmunity(type, pokemon) {
 				if (type === 'sandstorm' || type === 'hail') return false;
