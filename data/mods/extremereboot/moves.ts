@@ -2724,6 +2724,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: null,
 	},
+	jitteringglare: {
+		name: "Jittering Glare",
+		accuracy: 70,
+		basePower: 120,
+		category: "Special",
+		pp: 5,
+		type: "Autumn",
+		shortDesc: "30% chance to inflict Fear.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		target: "normal",
+		secondary: {
+			chance: 30,
+			status: 'fer',
+		},
+	},
 	// Coded
 	jumpscare: {
 		name: "Jumpscare",

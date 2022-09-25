@@ -590,7 +590,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Rasteal",
 		types: ["Night"],
 		baseStats: {hp: 55, atk: 84, def: 70, spa: 60, spd: 65, spe: 100},
-		abilities: {0: "Modern Adapt", H: "Nocturnal"},
+		abilities: {0: "Modern Adaptation", H: "Nocturnal"},
 		weightkg: 8,
 		eggGroups: ["Regic Boat"],
 	},
