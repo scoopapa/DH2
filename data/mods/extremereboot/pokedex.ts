@@ -453,7 +453,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Earth", "Spring"],
 		baseStats: {hp: 70, atk: 100, def: 110, spa: 80, spd: 80, spe: 65},
 		abilities: {0: "Fluffy Float", H: "Big Bellied"},
-		weightkg: 8,
+		weightkg: 199.9,
 		eggGroups: ["Cookie Butter"],
 	},
 	ruinne: {
@@ -462,7 +462,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Night", "Spring"],
 		baseStats: {hp: 70, atk: 80, def: 60, spa: 110, spd: 80, spe: 105},
 		abilities: {0: "Fluffy Float", H: "Ignorance"},
-		weightkg: 8,
+		weightkg: 79.8,
 		eggGroups: ["Cookie Butter"],
 	},
 	tantton: {
@@ -480,7 +480,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Earth", "Summer"],
 		baseStats: {hp: 60, atk: 30, def: 100, spa: 40, spd: 200, spe: 20},
 		abilities: {0: "Reality", 1: "Shatter", H: "Sunbringer"},
-		weightkg: 8,
+		weightkg: 88,
 		eggGroups: ["Cookie Butter"],
 	},
 	stakstok: {
@@ -489,7 +489,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Earth", "Winter"],
 		baseStats: {hp: 60, atk: 40, def: 200, spa: 30, spd: 100, spe: 20},
 		abilities: {0: "Reality", 1: "Internet Rage", H: "Infinite Scaling"},
-		weightkg: 8,
+		weightkg: 88,
 		eggGroups: ["Cookie Butter"],
 	},
 	lychy: {
@@ -498,7 +498,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Folklore"],
 		baseStats: {hp: 75, atk: 125, def: 60, spa: 60, spd: 95, spe: 75},
 		abilities: {0: "Sacrificer", 1: "Necromancer", H: "Spectral Shifter"},
-		weightkg: 8,
+		weightkg: 3.3,
 		eggGroups: ["Cookie Butter"],
 	},
 	onigashiba: {
@@ -507,7 +507,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Autumn", "Summer"],
 		baseStats: {hp: 85, atk: 75, def: 75, spa: 110, spd: 105, spe: 40},
 		abilities: {0: "Prudent Plow", 1: "Strategic Retreat", H: "Wave Crasher"},
-		weightkg: 8,
+		weightkg: 14.7,
 		eggGroups: ["Cookie Butter"],
 	},
 	lunsura: {
