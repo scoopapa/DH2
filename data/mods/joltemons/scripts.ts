@@ -72,7 +72,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
             let powerofalchemyweezing = false;
             for (const pokemon of this.battle.getAllActive()) {
                 // can't use hasAbility because it would lead to infinite recursion
-                if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending) || (pokemon.ability === ('powerofalchemyweezing' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
+                if ((pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending) || (pokemon.ability === ('powerofalchemyweezing' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
                     neutralizinggas = true;
                     powerofalchemyweezing = true;
                     break;
