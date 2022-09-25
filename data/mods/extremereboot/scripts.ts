@@ -312,7 +312,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		ignoringAbility() {
 			// Check if any active pokemon have the ability Neutralizing Gas
 			let volatileSuppress = false;
-			const suppressingVolatiles = ['mindcleansing', 'moonblade'];
+			const suppressingVolatiles = ['mindcleansing', 'moonblade', 'void'];
 			for (const volatileStatus of suppressingVolatiles) {
 				if (this.volatiles[volatileStatus]) volatileSuppress = true;
 			}
@@ -321,7 +321,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		ignoringItem() {
 			return !!((this.battle.gen >= 5 && !this.isActive) ||
 				(this.hasAbility('klutz') && !this.getItem().ignoreKlutz) ||
-				this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
+				this.volatiles['void'] || this.battle.field.pseudoWeather['magicroom']);
 		},
 	},
 };

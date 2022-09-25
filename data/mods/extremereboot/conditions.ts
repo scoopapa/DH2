@@ -323,4 +323,51 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-message', pokemon.name + ' is no longer trapped!');
 		},
 	},
+	monkeyspawheal: {
+		onSwap(target) {
+			if (
+				!target.fainted && (
+					target.hp < target.maxhp ||
+					target.status ||
+					target.moveSlots.some(moveSlot => moveSlot.pp < moveSlot.maxpp)
+				)
+			) {
+				target.heal(target.maxhp);
+				target.setStatus('');
+				for (const moveSlot of target.moveSlots) {
+					moveSlot.pp = moveSlot.maxpp;
+				}
+				this.add('-heal', target, target.getHealth, "[from] move: Monkey's Paw");
+				target.side.removeSlotCondition(target, 'monkeyspawheal');
+			}
+		},
+	},
+	twisterlock: {
+		name: 'twisterlock',
+		durationCallback() {
+			const duration = this.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+			return duration;
+		},
+		onResidual(target) {
+			if (target.lastMove && target.lastMove.id === 'struggle' || target.status === 'slp') {
+				delete target.volatiles['twisterlock'];
+			}
+		},
+		onStart(target, source, effect) {
+			this.effectData.move = effect.id;
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.hasMove(this.effectData.move)) {
+				return;
+			}
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== this.effectData.move) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTrapPokemon(pokemon) {
+			pokemon.tryTrap();
+		},
+	},
 };

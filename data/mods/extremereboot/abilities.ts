@@ -370,6 +370,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1022,
 		name: "Climatic Change",
 		// desc: "Every Season type attack became the next one.(Spring become summer,summer become autumn,autumn become winter and winter become spring)",
+		desc: "Placeholder"
 	},
 	// Coded
 	contagious: {
@@ -502,7 +503,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	dataupgrade: {
 		num: 1028,
 		name: "Data Upgrade",
-		// desc: "When hit by a Special move, raises SpD by 1, but lowers Def by 1. When hit by a Physical move, raises Def by 1, but lowers SpD by 1.",
+		desc: "When hit by a Special move, raises SpD by 1, but lowers Def by 1. When hit by a Physical move, raises Def by 1, but lowers SpD by 1.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === "Physical") {
 				this.boost({def: 1, spd: -1});
@@ -881,7 +882,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	ragingsea: {
 		num: 1050,
 		name: "Raging Sea",
-		// desc: "Increases the power of Sea-type moves by up to 40% the lower its HP gets.",
+		desc: "Increases the power of Sea-type moves by up to 40% the lower its HP gets.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Sea') {
@@ -927,6 +928,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	rebirth: {
+		num: 1052,
+		name: "Rebirth",
+		desc: "Fully heals itself 20 turns after it first takes damage.",
+		onDamage(damage, pokemon) {
+			if (!pokemon.m.firstHit) pokemon.m.firstHit = this.turn;
+		},
+		onSetStatus(status, pokemon) {
+			if (!pokemon.m.firstHit) pokemon.m.firstHit = this.turn;
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.m.firstHit) return;
+			if (this.turn - pokemon.m.firstHit >= 20 && !pokemon.m.rebirth) {
+				pokemon.heal(pokemon.maxhp);
+				pokemon.setStatus('');
+				for (const moveSlot of pokemon.moveSlots) {
+					moveSlot.pp = moveSlot.maxpp;
+				}
+				this.add('-heal', pokemon, pokemon.getHealth, "[from] ability: Rebirth");
+				pokemon.m.rebirth = true;
+			}
+		}
+	},
 	// Coded
 	reaper: {
 		num: 1053,
@@ -961,7 +985,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	sacrificer: {
 		num: 1056,
 		name: "Sacrificer",
-		// desc: "This Pokemon loses 1/3 of its max HP when it switches out. Next Pokemon gets those HP.",
+		desc: "This Pokemon loses 1/3 of its max HP when it switches out. Next Pokemon gets those HP.",
 		onSwitchOut(pokemon) {
             if (pokemon.side.addSlotCondition(pokemon, 'sacrificer')) {
 				const hp = pokemon.baseMaxhp / 3;
@@ -1040,7 +1064,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	smite: {
 		num: 1060,
 		name: "Smite",
-		// desc: "Moves' power is boosted by 1.3x if the target is below half health",
+		desc: "Moves' power is boosted by 1.3x if the target is below half health",
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (defender.hp / defender.baseMaxhp < 0.5) {
