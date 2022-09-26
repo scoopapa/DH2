@@ -929,27 +929,36 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 	},
 	rebirth: {
-		num: 1052,
+		num: 1152,
 		name: "Rebirth",
-		desc: "Fully heals itself 20 turns after it first takes damage.",
-		onDamage(damage, pokemon) {
-			if (!pokemon.m.firstHit) pokemon.m.firstHit = this.turn;
-		},
-		onSetStatus(status, pokemon) {
-			if (!pokemon.m.firstHit) pokemon.m.firstHit = this.turn;
-		},
+		desc: "Fully resets pokemon when an attack would KO it.",
 		onUpdate(pokemon) {
-			if (!pokemon.m.firstHit) return;
-			if (this.turn - pokemon.m.firstHit >= 20 && !pokemon.m.rebirth) {
-				pokemon.heal(pokemon.maxhp);
-				pokemon.setStatus('');
-				for (const moveSlot of pokemon.moveSlots) {
-					moveSlot.pp = moveSlot.maxpp;
-				}
-				this.add('-heal', pokemon, pokemon.getHealth, "[from] ability: Rebirth");
-				pokemon.m.rebirth = true;
+			if (!pokemon.m.rebirthFlag) return;
+			pokemon.heal(pokemon.maxhp);
+			pokemon.setStatus('');
+			pokemon.clearBoosts();
+			for (const moveSlot of pokemon.moveSlots) {
+				moveSlot.pp = moveSlot.maxpp;
 			}
-		}
+			const negativeVolatiles = ['energysiphon', 'tantalize', 'shroomspores', 'partiallytrapped', 'rabidmaw', 'pollinate', 'pheromonalgas', 
+									'moonblade', 'mindcleansing', 'torment', 'Deafened', 'hypnotize', 'blasphemy', 'void', 'technocut', 
+									'temporarytrap', 'hitodama'
+			];
+			for (const vol of negativeVolatiles) {
+				if (source.volatiles[vol]) source.removeVolatile('vol');
+			}
+			this.add('-heal', pokemon, pokemon.getHealth, "[from] ability: Rebirth");
+			pokemon.m.reborn = true;
+			pokemon.m.rebirthFlag = false;
+		},
+		onDamagePriority: -100,
+		onDamage(damage, target, source, effect) {
+			if (damage >= target.hp && effect && effect.effectType === 'Move' && !target.m.rebirthFlag && !target.m.reborn) {
+				this.add('-ability', target, 'Sturdy');
+				return target.hp - 1;
+				!target.m.rebirthFlag;
+			}
+		},
 	},
 	// Coded
 	reaper: {

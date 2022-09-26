@@ -283,22 +283,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	sclam: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
+	// sclam: {
+		// tier: "OU",
+		// doublesTier: "DOU",
+	// },
 	cicaguren: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	bozunami: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	cryptice: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
+	// bozunami: {
+		// tier: "OU",
+		// doublesTier: "DOU",
+	// },
+	// cryptice: {
+		// tier: "OU",
+		// doublesTier: "DOU",
+	// },
 	mekangiras: {
 		tier: "OU",
 		doublesTier: "DOU",

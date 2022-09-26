@@ -2236,7 +2236,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['guardup']) {
+				if (!move.flags['protect']) {
 					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
@@ -3089,6 +3089,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
+		selfSwitch: true,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "self",
@@ -3174,10 +3175,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If the user moved before the target, then the target's higher attacking stat drops one stage. (Pulse)",
 		onHit(target, source, move){
 			if (this.queue.willMove(target)) {
-				const boosts = source.boosts;
+				const boosts = target.boosts;
 				let statName = 'atk';
-				const realAtk = source.storedStats['atk'] * (1 + (boosts['atk'] / 2));
-				const realSpA = source.storedStats['spa'] * (1 + (boosts['spa'] / 2));
+				const realAtk = target.storedStats['atk'] * (1 + (boosts['atk'] / 2));
+				const realSpA = target.storedStats['spa'] * (1 + (boosts['spa'] / 2));
 				if (realSpA > realAtk) statName = 'spa';
 				this.boost({[statName]: -1}, target);
 			}
@@ -4132,14 +4133,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	// Coded
 	riptide: {
 		name: "Riptide",
-		accuracy: 90,
-		basePower: 50,
+		accuracy: 100,
+		basePower: 40,
 		category: "Special",
-		pp: 10,
+		pp: 40,
 		type: "Sea",
-		shortDesc: "-6 priority. Foe is switched out.",
-		priority: -6,
-		forceSwitch: true,
+		shortDesc: "+1 Priority.",
+		priority: 1,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
@@ -4241,13 +4241,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 0,
 			onSwitchIn(source) {
-				if (source.hasType("Spring") || source.hasType("Sky")) return;
 				for (const side of this.sides) {
 					for (const pokemon of side.active) {
-						if (pokemon.hasAbility("subrosa")) pokemon.heal(pokemon.maxhp / 8);
+						if (pokemon.hasAbility("subrosa")) this.heal(pokemon.maxhp / 8, pokemon);
 					}
 				}
-				if (source.hasAbility("subrosa")) return;
+				if (source.hasAbility("subrosa") || source.hasType("Spring") || source.hasType("Sky")) return;
 				this.damage(source.maxhp / 8);
 			},
 			onStart(battle, source, effect) {
@@ -5885,6 +5884,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			status: 'fer',
 		},
 		unviable: true,
+	},
+	// Coded
+	tidalwave: {
+		name: "Tidal Wave",
+		accuracy: 90,
+		basePower: 50,
+		category: "Special",
+		pp: 10,
+		type: "Sea",
+		shortDesc: "-6 priority. Foe is switched out.",
+		priority: -6,
+		forceSwitch: true,
+		flags: {protect: 1, mirror: 1},
+		target: "normal",
+		secondary: null,
 	},
 	// Coded
 	thunderclap: {

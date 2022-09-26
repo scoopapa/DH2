@@ -1759,7 +1759,7 @@ export const Learnsets = {
 			balanceout: ["8L1"],
 			enlighten: ["8L1"],
 			hotshower: ["8L1"],
-			mindcleasing: ["8L1"],
+			mindcleansing: ["8L1"],
 			mindshield: ["8L1"],
 			patientpound: ["8L1"],
 			relax: ["8L1"],
@@ -2978,18 +2978,18 @@ export const Learnsets = {
 			puresky: ["8L1"],
 		},
 	},
-	sclam: {
-		learnset: {
-			empty: ["8L1"],
-			bodybash: ["8L1"],
-			deepbreath: ["8L1"],
-			doubledab: ["8L1"],
-			energyshot: ["8L1"],
-			guardup: ["8L1"],
-			intimidate: ["8L1"],
-			puresky: ["8L1"],
-		},
-	},
+	// sclam: {
+		// learnset: {
+			// empty: ["8L1"],
+			// bodybash: ["8L1"],
+			// deepbreath: ["8L1"],
+			// doubledab: ["8L1"],
+			// energyshot: ["8L1"],
+			// guardup: ["8L1"],
+			// intimidate: ["8L1"],
+			// puresky: ["8L1"],
+		// },
+	// },
 	cicaguren: {
 		learnset: {
 			aftershock: ["8L1"],
@@ -3043,30 +3043,30 @@ export const Learnsets = {
 			puresky: ["8L1"],
 		},
 	},
-	bozunami: {
-		learnset: {
-			empty: ["8L1"],
-			bodybash: ["8L1"],
-			deepbreath: ["8L1"],
-			doubledab: ["8L1"],
-			energyshot: ["8L1"],
-			guardup: ["8L1"],
-			intimidate: ["8L1"],
-			puresky: ["8L1"],
-		},
-	},
-	cryptice: {
-		learnset: {
-			empty: ["8L1"],
-			bodybash: ["8L1"],
-			deepbreath: ["8L1"],
-			doubledab: ["8L1"],
-			energyshot: ["8L1"],
-			guardup: ["8L1"],
-			intimidate: ["8L1"],
-			puresky: ["8L1"],
-		},
-	},
+	// bozunami: {
+		// learnset: {
+			// empty: ["8L1"],
+			// bodybash: ["8L1"],
+			// deepbreath: ["8L1"],
+			// doubledab: ["8L1"],
+			// energyshot: ["8L1"],
+			// guardup: ["8L1"],
+			// intimidate: ["8L1"],
+			// puresky: ["8L1"],
+		// },
+	// },
+	// cryptice: {
+		// learnset: {
+			// empty: ["8L1"],
+			// bodybash: ["8L1"],
+			// deepbreath: ["8L1"],
+			// doubledab: ["8L1"],
+			// energyshot: ["8L1"],
+			// guardup: ["8L1"],
+			// intimidate: ["8L1"],
+			// puresky: ["8L1"],
+		// },
+	// },
 	mekangiras: {
 		learnset: {
 			aftershock: ["8L1"],
