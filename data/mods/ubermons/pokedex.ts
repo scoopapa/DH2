@@ -383,4 +383,36 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 71, atk: 113, def: 73, spa: 113, spd: 73, spe: 127},
 	},
+	bergmite: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Snow Cloak", H: "Sturdy"},
+	},
+	avalugg: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Snow Cloak", H: "Sturdy"},
+	},
+	regice: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Snow Cloak"},
+	},
+	tyranitar: {
+		inherit: true,
+		abilities: {0: "Sand Stream", H: "Sand Veil"},
+	},
+	carbink: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Sand Veil", H: "Sturdy"},
+	},
+	diancie: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Sand Veil"},
+	},
+	clauncher: {
+		inherit: true,
+		abilities: {0: "Mega Launcher", H: "Quick Draw"},
+	},
+	clawitzer: {
+		inherit: true,
+		abilities: {0: "Mega Launcher", H: "Quick Draw"},
+	},
 };

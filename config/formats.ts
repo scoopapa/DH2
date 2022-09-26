@@ -1189,8 +1189,6 @@ export const Formats: FormatList = [
 			'Eternatus',
 			//Abilities
 			'Moody',
-			//Items
-			'King\'s Rock', 'Quick Claw', 'Razor Fang',
 			//Moves
 			'Baton Pass',
 		],
