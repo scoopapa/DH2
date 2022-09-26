@@ -3222,11 +3222,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(pokemon) {
 				this.effectData.sleepy = 0;
+				if (pokemon.status === 'slp') pokemon.removeVolatile('nightynight');
 			},
 			onResidual(pokemon) {
 				this.effectData.sleepy++;
 				if (this.effectData.sleepy >= 3) {
 					pokemon.trySetStatus('slp');
+					this.add(-'end', pokemon, 'Nighty Night');
+					pokemon.removeVolatile('nightynight');
 				} else {
 					const timer = 3 - this.effectData.sleepy;
 					const str = timer === 1 ? 'turn!' : 'turns!';
@@ -3238,7 +3241,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1 sound: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -5252,7 +5255,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							const boosts: SparseBoostsTable = {};
 							if (this.effectData.def) boosts.def = this.effectData.def;
 							if (this.effectData.spd) boosts.spd = this.effectData.spd;
-							this.boost(boosts, source, source);
+							this.boost(boosts, target, target);
 						}
 						this.add('-end', target, 'Stock Crops');
 						target.removeVolatile('stockpile');
