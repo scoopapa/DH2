@@ -519,8 +519,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
 			if (pokemon.status && this.field.isWeather('sandstorm')) {
-				this.debug('hydration');
-				this.add('-activate', pokemon, 'ability: Hydration');
+				this.debug('sandveil');
+				this.add('-activate', pokemon, 'ability: Sand Veil');
 				pokemon.cureStatus();
 			}
 		},
