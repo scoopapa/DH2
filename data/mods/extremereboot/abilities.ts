@@ -593,7 +593,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	glide: {
 		num: 1033,
 		name: "Glide",
-		desc: "This pokemon has it's speed raised by 1 when a Pokemon on the feild uses a sky move.",
+		desc: "This pokemon has it's speed raised by 1 when a Pokemon on the field uses a sky move.",
 		onAnyHit(target, source, move) {
 			if (move.type !== "Sky") return;
 			for (const side of this.sides) {

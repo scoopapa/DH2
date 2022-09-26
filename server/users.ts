@@ -518,6 +518,8 @@ export class User extends Chat.MessageContext {
 			(idName.includes("fuck")) ||
 			(idName.includes("prostitute")) ||
 			(idName.includes("666")) ||
+			(idName.includes("prozzub") || idName.includes("prozub")) ||
+			(idName.includes("theblackarceus")) ||
 			(idName.includes("wob") && (idName.includes("trol") || idName.includes("buf"))) ||
 			(idName.includes('scoopapa') && idName !== 'scoopapa') ||
 			(idName.includes('tkmof') && idName !== 'tkmofii2o9') ||
