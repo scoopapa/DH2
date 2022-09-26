@@ -115,7 +115,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "Increases power of pulse and sound moves by 1.3x.",
 		onBasePowerPriority: 7,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['sound'] || moves.flags['pulse']) {
+			if (move.flags['sound'] || move.flags['pulse']) {
 				this.debug('Amplify boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -758,8 +758,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Metal Coat",
 		desc: "This pokemon is immune to moves that are 60 bp or lower.",
 		onTryHit(pokemon, target, move) {
-			if (move.basePower <= 60) {
-				this.add('-immune', pokemon, '[from] ability: Bulletproof');
+			if (move.basePower <= 60 && move.category !== "Status") {
+				this.add('-immune', pokemon, '[from] ability: Metal Coat');
 				return null;
 			}
 		},

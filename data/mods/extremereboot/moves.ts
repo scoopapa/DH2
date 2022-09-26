@@ -1950,7 +1950,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "self",
 		secondary: null,
-		boost: {
+		boosts: {
 			atk: 1,
 			spd: 1
 		}
@@ -3173,12 +3173,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		shortDesc: "If the user moved before the target, then the target's higher attacking stat drops one stage. (Pulse)",
 		onHit(target, source, move){
-			const boosts = source.boosts;
-			let statName = 'atk';
-			const realAtk = source.storedStats['atk'] * (1 + (boosts['atk'] / 2));
-			const realSpA = source.storedStats['spa'] * (1 + (boosts['spa'] / 2));
-			if (realSpA > realAtk) statName = 'spa';
-			this.boost({[statName]: -1}, source);
+			if (this.queue.willMove(target)) {
+				const boosts = source.boosts;
+				let statName = 'atk';
+				const realAtk = source.storedStats['atk'] * (1 + (boosts['atk'] / 2));
+				const realSpA = source.storedStats['spa'] * (1 + (boosts['spa'] / 2));
+				if (realSpA > realAtk) statName = 'spa';
+				this.boost({[statName]: -1}, target);
+			}
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1, pulse: 1},
@@ -3833,7 +3835,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		type: "Autumn",
 		onModifyMove(move, source, target) {
-			if (this.field.getTerrain()) {
+			if (this.field.getTerrain().exists) {
 				move.basePower *= 1.5;
 				move.drain = [1,2];
 				move.terrainBoosted = true;
@@ -4558,8 +4560,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			source.addVolatile('sereneslice');
 		},
 		condition: {
-			duration: 2,
-			onResidual(pokemon) {
+			duration: 1,
+			onEnd(pokemon) {
 				this.heal(Math.ceil(pokemon.maxhp * 0.25), pokemon);
 			}
 		},
@@ -4630,7 +4632,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onResidualOrder: 4,
-			onResidual(){
+			onResidual(source){
 				if (!this.effectData.hp) {
 					source.side.removeSlotCondition(source, 'shootingstar');
 					source.battle.add('-message', 'But nothing happened!');
@@ -5245,7 +5247,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onBasePower(basePower, source, target, move) {
 				if (move.type === "Autumn" && this.effectData.layers >= 1) {
 					this.effectData.layers--;
-					if (this.effectData.layers == 0) pokemon.removeVolatile('stockpile');
+					console.log(this.effectData.layers);
+					if (this.effectData.layers === 0) {
+						if (this.effectData.def || this.effectData.spd) {
+							const boosts: SparseBoostsTable = {};
+							if (this.effectData.def) boosts.def = this.effectData.def;
+							if (this.effectData.spd) boosts.spd = this.effectData.spd;
+							this.boost(boosts, source, source);
+						}
+						this.add('-end', target, 'Stock Crops');
+						target.removeVolatile('stockpile');
+					} else {
+						this.add('-start', target, 'stockpile' + this.effectData.layers);
+					}
 					return this.chainModify(2);
 				}
 			},
@@ -5257,7 +5271,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.boost({def: 1, spd: 1}, target, target);
 				if (curDef !== target.boosts.def) this.effectData.def--;
 				if (curSpD !== target.boosts.spd) this.effectData.spd--;
-				if (this.field.getTerrain()) {
+				if (this.field.getTerrain().exists) {
 					this.effectData.layers = 2;
 					this.boost({def: 1, spd: 1}, target, target);
 					if (curDef !== target.boosts.def) this.effectData.def--;
@@ -5273,7 +5287,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.boost({def: 1, spd: 1}, target, target);
 				if (curDef !== target.boosts.def) this.effectData.def--;
 				if (curSpD !== target.boosts.spd) this.effectData.spd--;
-				if (this.effectData.layers <= 2 && this.field.getTerrain()) {
+				if (this.effectData.layers <= 2 && this.field.getTerrain().exists) {
 					this.boost({def: 1, spd: 1}, target, target);
 					if (curDef !== target.boosts.def) this.effectData.def--;
 					if (curSpD !== target.boosts.spd) this.effectData.spd--;
@@ -5281,6 +5295,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-start', target, 'stockcrops' + this.effectData.layers);
 			},
 			onEnd(target) {
+				console.log("onEnd");
 				if (this.effectData.def || this.effectData.spd) {
 					const boosts: SparseBoostsTable = {};
 					if (this.effectData.def) boosts.def = this.effectData.def;
