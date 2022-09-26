@@ -2738,7 +2738,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Physical",
 		pp: 15,
-		type: "Man Made",
+		type: "Manmade",
 		shortDesc: "If it faints a pokemon, raises Def by 1 stage",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -5070,7 +5070,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (stats.length) {
 				const randomStat = this.sample(stats);
 				const boost: SparseBoostsTable = {};
-				boost[randomStat] = 2;
+				boost[randomStat] = -2;
 				this.boost(boost);
 			} else {
 				return false;
