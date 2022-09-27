@@ -9,7 +9,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Manmade",
 		shortDesc: "Inflicts Fear on the target.(Sound)",
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1},
 		status: 'fer',
 		target: "normal",
 		secondary: null,
@@ -157,7 +157,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		onHitField(target, source) {
-			console.log("target: " + target.name + ": source: " + source.name);
 			if (target.hasType('Sea')) {
 				this.heal(source.baseMaxhp / 3, source, target);
 				this.boost({atk: 1}, source);
@@ -2941,7 +2940,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Typeless",
 		shortDesc: "Puts the target to sleep.  (Sound)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, sound: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -3550,7 +3549,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.hp / target.baseMaxhp <= .25) target.faint();
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, sound: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -5892,7 +5891,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Storm",
 		shortDesc: "10% chance to inflict Fear. (SOUND)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, sound: 1},
 		target: "normal",
 		secondary: {
 			chance: 10,

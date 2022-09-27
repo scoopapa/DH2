@@ -43,17 +43,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const r = this.random(3);
 			if (r === 1) {
 				r = this.random(3);
-				console.log(r);
 				const statuses = ['psn', 'fer', 'crs'];
 				target.setStatus(statuses[r - 1]);
 			} else if (r === 2) {
 				r = this.random(3);
-				console.log(r);
 				const volatiles = ['taunt', 'torment', 'encore'];
 				target.addVolatile( volatiles[ r - 1]);
 			} else {
 				r = this.random(5);
-				console.log(r);
 				const stats = ['atk', 'def', 'spa', 'spd', 'spe'];
 				const stat1 = stats[r-1];
 				stats.splice(r-1);
@@ -306,7 +303,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.self && move.self.boosts) { 
 				let negBoost = false;
-				console.log(move.self.boosts);
 				for (const stat in move.self.boosts) {
 					if (move.self.boosts[stat] < 0) { 
 						negBoost = true;
