@@ -750,6 +750,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Hits twice. User switches out.",
 		pp: 20,
 		selfSwitch: true,
+		type: "Rock",
 	},
 	shadowbone: {
 		inherit: true,
