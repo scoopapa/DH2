@@ -848,7 +848,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
-			if (this.field.isTerrain('rosefield')) this.heal(target.baseMaxhp / 8);
+			if (this.field.isTerrain('rosefield')) this.heal(pokemon.baseMaxhp / 8);
 		}
 	},
 	// Coded and Tested
