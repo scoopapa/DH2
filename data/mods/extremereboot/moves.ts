@@ -1491,7 +1491,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Folklore",
 		shortDesc: "Raises all stats by 1 (except acc/eva). Inflicts user with Fear, curing itself of any other non-volatile status condition in the process. Traps user for 5 turns.",
 		onTryHit(target, source,) {
-			if source.volatiles['eeriebargain'];
+			if (source.volatiles['eeriebargain']) return false;
 		},
 		condition: {
 			duration: 5,
