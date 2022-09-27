@@ -637,16 +637,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1036,
 		name: "Infinite Scaling",
 		desc: "The damage of this Pokémon increases infinitely. (Turn 1: 0.8x, Turn 2: 0.9x, Turn 3: 1x, Turn 4: 1.1x, etc.) Resets upon switching out.",
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
+		onModifyDamage(damage, source, target, move) {
 			let damageMod = 0.8;
-			damageMod = damageMod + (attacker.activeTurns * 0.1);
-			return this.chainModify(damageMod);
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			let damageMod = 0.8;
-			damageMod = damageMod + (attacker.activeTurns * 0.1);
+			damageMod = damageMod + (source.activeTurns * 0.1);
 			return this.chainModify(damageMod);
 		},
 	},
@@ -886,14 +879,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Sea') {
-				let mod = 1.4 * (1 - (pokemon.hp / pokemon.maxhp));
+				let mod = 1 + (.4 * (1 - (attacker.hp / attacker.maxhp)));
+				if (attacker.hp === 1) mod = 1.4;
 				return this.chainModify(mod);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Sea') {
-				let mod = 1.4 * (1 - (pokemon.hp / pokemon.maxhp));
+				let mod = 1 + (.4 * (1 - (attacker.hp / attacker.maxhp)));
+				if (attacker.hp === 1) mod = 1.4;
 				return this.chainModify(mod);
 			}
 		},
@@ -945,7 +940,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 									'temporarytrap', 'hitodama'
 			];
 			for (const vol of negativeVolatiles) {
-				if (source.volatiles[vol]) source.removeVolatile('vol');
+				if (pokemon.volatiles[vol]) pokemon.removeVolatile('vol');
 			}
 			this.add('-heal', pokemon, pokemon.getHealth, "[from] ability: Rebirth");
 			pokemon.m.reborn = true;

@@ -173,7 +173,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Restores 33% of the user's max health. Restores an additional 33% and raises the user's attack one stage for each Sea type on the field. Each Sea type on the field loses 33% max health.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "all",
 		secondary: null,
 	},
 	// Coded
