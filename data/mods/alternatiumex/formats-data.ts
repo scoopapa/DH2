@@ -263,7 +263,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
-	marowaktotem: {
+	marowakalolatotem: {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},

@@ -513,7 +513,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Limber", 1: "Technician", H: "No Guard"},
 		heightm: 1,
 		weightkg: 32,
-		prevo: "Meowth",
 	},
 	persianomen: {
 		num: 53,
@@ -679,7 +678,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1,
 		weightkg: 34,
 	},
-	marowaktotem: {
+	marowakalolatotem: {
 		num: 105,
 		name: "Marowak-Totem",
 		types: ["Ghost", "Rock"],

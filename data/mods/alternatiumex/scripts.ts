@@ -178,6 +178,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "polteageist").learnset.venoshock = ["8L1"];
 		this.modData("Learnsets", "polteageist").learnset.toxicspikes = ["8L1"];
 		this.modData("Learnsets", "polteageist").learnset.calmmind = ["8L1"];
+		delete this.modData('Learnsets', 'sinistea').learnset.shellsmash;
+		delete this.modData('Learnsets', 'sinistea').learnset.nastyplot;
+		delete this.modData('Learnsets', 'sinistea').learnset.storedpower;
 		delete this.modData('Learnsets', 'polteageist').learnset.shellsmash;
 		delete this.modData('Learnsets', 'polteageist').learnset.nastyplot;
 		delete this.modData('Learnsets', 'polteageist').learnset.storedpower;
@@ -242,6 +245,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "marowak").learnset.dragonpulse = ["8L1"];
 		this.modData("Learnsets", "marowak").learnset.dragonrush = ["8L1"];
 		this.modData("Learnsets", "marowak").learnset.scaleshot = ["8L1"];
+		
+		this.modData("Learnsets", "marowakalolatotem").learnset.headsmash = ["8L1"];
+		this.modData("Learnsets", "marowakalolatotem").learnset.meteorbeam = ["8L1"];
+		this.modData("Learnsets", "marowakalolatotem").learnset.powergem = ["8L1"];
+		this.modData("Learnsets", "marowakalolatotem").learnset.bulkup = ["8L1"];
+		this.modData("Learnsets", "marowakalolatotem").learnset.calmmind = ["8L1"];
+		this.modData("Learnsets", "marowakalolatotem").learnset.trickroom = ["8L1"];
+		this.modData("Learnsets", "marowakalolatotem").learnset.shoreup = ["8L1"];
+		delete this.modData('Learnsets', 'marowakalolatotem').learnset.fireblast;
+		delete this.modData('Learnsets', 'marowakalolatotem').learnset.flamecharge;
+		delete this.modData('Learnsets', 'marowakalolatotem').learnset.heatwave;
+		delete this.modData('Learnsets', 'marowakalolatotem').learnset.willowisp;
+		delete this.modData('Learnsets', 'marowakalolatotem').learnset.flamewheel;
+		delete this.modData('Learnsets', 'marowakalolatotem').learnset.sunnyday;
 	},
 	
 	pokemon: {
