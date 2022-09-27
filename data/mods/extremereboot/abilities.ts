@@ -815,7 +815,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Night') {
-				if (!this.boost({atk: 1})) {
+				if (!this.boost({spe: 1})) {
 					this.add('-immune', target, '[from] ability: Sap Sipper');
 				}
 				return null;

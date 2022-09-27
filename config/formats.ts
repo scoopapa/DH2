@@ -476,7 +476,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'extremereboot',
-		ruleset: ['Dynamax Clause', 'Sleep Clause Mod', 'Team Preview', 'Data Mod', 'Cancel Mod', 'Species Clause'],
+		ruleset: ['Standard', 'Data Mod',],
 		banlist: ['All Pokemon', 'All Items'],
 		unbanlist: [
 			'Extreme Ribbit', 'Baobloss', 'Tenquarrel', 'Tradituki', 'Hibarrage', 'Pumking', 'Carboneichus', 'Calmengo', 'Paciphal', 'Hullacane', 'Cylindrake', 

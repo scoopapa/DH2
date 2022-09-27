@@ -3241,7 +3241,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1 sound: 1},
+		flags: {protect: 1, mirror: 1, sound: 1},
 		target: "normal",
 		secondary: null,
 	},
