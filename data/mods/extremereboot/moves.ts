@@ -1439,8 +1439,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return null;
 		},
 		onHit(pokemon) {
-			pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
-			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Burn Up');
+			pokemon.setType(pokemon.getTypes(true).map(type => type === "Manmade" ? "???" : type));
+			this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Dystopia Reversal');
 			pokemon.trySetStatus("psn");
 		},
 		priority: 0,
