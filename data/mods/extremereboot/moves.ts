@@ -1346,9 +1346,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
-				duration: 4,
+				duration: 0,
 				move: 'dormantpower',
 				source: source,
+				position: target.position,
 				moveData: {
 					id: 'dormantpower',
 					name: "Dormant Power",
@@ -1363,7 +1364,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					type: 'Autumn',
 				},
 			});
-			this.add('-start', source, 'move: Time Bomb');
+			this.add('-start', source, 'move: Dormant Power');
 			return null;
 		},
 		type: "Autumn",
@@ -2151,6 +2152,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		sideCondition: 'goodspirits',
+		shortDesc: "Protects user's side from status conditions for 5 turns (8 with Tricky Hourglass).",
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
@@ -4157,6 +4159,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		isFutureMove: true,
+		ignoreImmunity: true,
 		onModifyType(move, pokemon) {
 			if (pokemon.hp / pokemon.baseMaxhp < 0.5) {
 				move.type = "Winter";
@@ -5174,11 +5177,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			source.addVolatile('starfall');
 		},
 		condition: {
-			duration: 5,
+			duration: 6,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Star Fall');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Star Fall');
+			},
 			onResidual(pokemon) {
 				const side = pokemon.side.foe;
 				for (const active of side.active) {
-					console.log("starfall damage");
 					this.damage(active.baseMaxhp / 8, active, pokemon);
 				}
 			},
@@ -5248,70 +5256,48 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			noCopy: true,
 			onBasePower(basePower, source, target, move) {
 				if (move.type === "Autumn" && this.effectData.layers >= 1) {
+					const isTerrain = this.effectData.layers;
 					this.effectData.layers--;
-					console.log(this.effectData.layers);
+					this.boost({def: -1, spd: -1}, source, source);
 					if (this.effectData.layers === 0) {
-						if (this.effectData.def || this.effectData.spd) {
-							const boosts: SparseBoostsTable = {};
-							if (this.effectData.def) boosts.def = this.effectData.def;
-							if (this.effectData.spd) boosts.spd = this.effectData.spd;
-							this.boost(boosts, target, target);
-						}
-						this.add('-end', target, 'Stock Crops');
-						target.removeVolatile('stockpile');
+						this.add('-end', source, 'stockcrops1');
+						source.removeVolatile('stockcrops');
 					} else {
-						this.add('-start', target, 'stockpile' + this.effectData.layers);
+						this.add('-end', source, 'stockcrops' + isTerrain);
+						this.add('-start', source, 'stockcrops' + this.effectData.layers);
 					}
 					return this.chainModify(2);
 				}
 			},
 			onStart(target) {
 				this.effectData.layers = 1;
-				this.effectData.def = 0;
-				this.effectData.spd = 0;
-				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
 				this.boost({def: 1, spd: 1}, target, target);
-				if (curDef !== target.boosts.def) this.effectData.def--;
-				if (curSpD !== target.boosts.spd) this.effectData.spd--;
 				if (this.field.getTerrain().exists) {
 					this.effectData.layers = 2;
 					this.boost({def: 1, spd: 1}, target, target);
-					if (curDef !== target.boosts.def) this.effectData.def--;
-					if (curSpD !== target.boosts.spd) this.effectData.spd--;
 				}
 				this.add('-start', target, 'stockcrops' + this.effectData.layers);
 			},
 			onRestart(target) {
 				if (this.effectData.layers >= 3) return false;
+				const isTerrain = this.effectData.layers;
 				this.effectData.layers++;
-				const curDef = target.boosts.def;
-				const curSpD = target.boosts.spd;
 				this.boost({def: 1, spd: 1}, target, target);
-				if (curDef !== target.boosts.def) this.effectData.def--;
-				if (curSpD !== target.boosts.spd) this.effectData.spd--;
 				if (this.effectData.layers <= 2 && this.field.getTerrain().exists) {
 					this.boost({def: 1, spd: 1}, target, target);
-					if (curDef !== target.boosts.def) this.effectData.def--;
-					if (curSpD !== target.boosts.spd) this.effectData.spd--;
+					this.effectData.layers++;
 				}
+				this.add('-end', target, 'stockcrops' + isTerrain);
 				this.add('-start', target, 'stockcrops' + this.effectData.layers);
 			},
 			onEnd(target) {
-				console.log("onEnd");
-				if (this.effectData.def || this.effectData.spd) {
-					const boosts: SparseBoostsTable = {};
-					if (this.effectData.def) boosts.def = this.effectData.def;
-					if (this.effectData.spd) boosts.spd = this.effectData.spd;
-					this.boost(boosts, target, target);
-				}
-				this.add('-end', target, 'Stock Crops');
+				if (this.effectData.layers) this.add('-end', target, 'stockcrops' + this.effectData.layers);
 			},
 		},
 		priority: 0,
 		flags: {},
 		target: "self",
 		secondary: null,
-		unviable: true,
 	},
 	// Coded
 	stonehammer: {
@@ -6032,6 +6018,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, mystery: 1},
+		shortDesc: "Swap items with the target, then switches the user out.",
 		onTryImmunity(target) {
 			return !target.hasAbility('stickyhold');
 		},

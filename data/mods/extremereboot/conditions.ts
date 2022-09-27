@@ -273,16 +273,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.effectData.startT = this.turn;
 		},
 		onResidualOrder: 3,
-		onResidual() {
-			if (this.effectData.move.id === "dormantpower") {
-				const duration =  this.turn - this.effectData.startT;
-				console.log("dormantpower turns: " + duration);
+		onResidual(target) {
+			if (this.effectData.move === "dormantpower") {
+				const duration = this.turn - this.effectData.startT;
 				let winterActive = false;
-				for (const pokemon of this.battle.getAllActive()) {
+				for (const pokemon of this.getAllActive()) {
 					if (pokemon.hasType("Winter")) winterActive = true;
 				}
-				if (winterActive && duration >= 3) {
-					this.effectData.duration = this.effectData.duration + 1;
+				if (!winterActive && duration >= 3) {
+					target.removeSlotCondition(this.effectData.position, 'futuremove');
+					if (this.effectData.source.isActive) this.add('-end', this.effectData.source, 'dormantpower');
 				}
 			}
 		},

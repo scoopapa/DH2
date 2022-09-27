@@ -689,7 +689,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Mononokero",
 		types: ["Folklore", "Autumn"],
 		baseStats: {hp: 80, atk: 100, def: 60, spa: 110, spd: 120, spe: 70},
-		abilities: {0: "Absorbtive", H: "Jack-O"},
+		abilities: {0: "Absorptive", H: "Jack-O"},
 		weightkg: 37.6,
 		eggGroups: ["Bloopyghost"],
 	},
