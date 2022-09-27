@@ -90,7 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	// Low Priority
+	// Coded
 	alphabetsoup: {
 		name: "Alphabet Soup",
 		accuracy: 95,
@@ -98,8 +98,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		pp: 40,
 		type: "Sea",
-		// shortDesc: "Hits 2-5 times in one turn. Power depends on the first letter of the target's name (1 if A, 2 if B, etc. 27 if non-alphabetical character)",
+		shortDesc: "Hits 2-5 times. Power depends on the first letter of the target's name.",
+		basePowerCallback(pokemon, target, move) {
+			const lowerCode = [97, 122];
+			const upperCode = [65, 90];
+			let basePower = 1;
+			const unicode = target.name.charCodeAt(0);
+			if (unicode >= lowerCode[0] && unicode <= lowerCode[1]) {
+				basePower = unicode - (lowercode[0] - 1);
+			} else if (unicode >= upperCode[0] && unicode <= upperCode[1]) {
+				basePower = unicode - (lowercode[1] - 1);
+			} else {
+				basePower = 27;
+			}
+			return basePower;
+		},
 		priority: 0,
+		multihit: [2,5],
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
@@ -2273,11 +2288,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		type: "Manmade",
 		shortDesc: "Removes entry hazards and terrains from both sides.",
-		onHit(target, source, move) {
+		onHitField(target, source, move) {
+			const sourceSide = source.side;
+			const targetSide = source.side.foe;
 			let success = false;
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
-			if (source.side.removeSideCondition('rubbles')) {
-				this.add('-sideend', source.side, 'rubbles', '[from] move: Uproot', '[of] ' + source);
+			if (sourceSide.removeSideCondition('rubbles')) {
+				this.add('-sideend', sourceSide, 'rubbles', '[from] move: Uproot', '[of] ' + source);
+				success = true;
+			}
+			if (targetSide.removeSideCondition('rubbles')) {
+				this.add('-sideend', targetSide, 'rubbles', '[from] move: Uproot', '[of] ' + source);
 				success = true;
 			}
 			this.field.clearTerrain();
@@ -2286,7 +2306,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		ignoreImmunity: true,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "self",
+		target: "all",
 		secondary: null,
 	},
 	// Coded
@@ -3125,6 +3145,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		secondary: {
+			chance: 20,
 			status: 'fer',
 		},
 		target: "randomNormal",
@@ -3486,10 +3507,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.damage(pokemon.baseMaxhp / 12);
 			},
 			onEnd(pokemon) {
+				this.damage(pokemon.baseMaxhp / 12);
 				this.add('-end', pokemon, 'move: Pollinate');
 			},
 		},
-		priority: 0,
+		priority: 1,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
@@ -4159,6 +4181,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 140,
 		category: "Special",
 		name: "Rising Sun",
+		shortDesc: "Hits 2 turns after being used. Winter type if user is below 50% HP.",
 		pp: 5,
 		priority: 0,
 		flags: {},
@@ -5181,11 +5204,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			source.addVolatile('starfall');
 		},
 		condition: {
-			duration: 6,
+			duration: 5,
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Star Fall');
 			},
 			onEnd(pokemon) {
+				const side = pokemon.side.foe;
+				for (const active of side.active) {
+					this.damage(active.baseMaxhp / 8, active, pokemon);
+				}
 				this.add('-end', pokemon, 'Star Fall');
 			},
 			onResidual(pokemon) {
@@ -5417,11 +5444,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onInvulnerability(target, source, move) {
 				return false;
-			},
-			onSourceModifyDamage(damage, source, target, move) {
-				if (move.id === 'gust' || move.id === 'twister') {
-					return this.chainModify(2);
-				}
 			},
 		},
 		priority: -6,
@@ -6296,11 +6318,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Removes fields and hazards from both sides of the field.",
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
-		onHit(target, source, move) {
+		onHitField(target, source, move) {
+			const sourceSide = source.side;
+			const targetSide = source.side.foe;
 			let success = false;
-			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
-			if (source.side.removeSideCondition('rubbles')) {
-				this.add('-sideend', source.side, 'rubbles', '[from] move: Uproot', '[of] ' + source);
+			if (sourceSide.removeSideCondition('rubbles')) {
+				this.add('-sideend', sourceSide, 'rubbles', '[from] move: Uproot', '[of] ' + source);
+				success = true;
+			}
+			if (targetSide.removeSideCondition('rubbles')) {
+				this.add('-sideend', targetSide, 'rubbles', '[from] move: Uproot', '[of] ' + source);
 				success = true;
 			}
 			this.field.clearTerrain();
@@ -6453,7 +6480,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 	},
 	// Coded
-	wildpunch: {
+	wildpunch: { // coded in the on-contact abilities
 		name: "Wild Punch",
 		accuracy: 100,
 		basePower: 85,
