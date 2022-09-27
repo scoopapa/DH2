@@ -1490,6 +1490,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		type: "Folklore",
 		shortDesc: "Raises all stats by 1 (except acc/eva). Inflicts user with Fear, curing itself of any other non-volatile status condition in the process. Traps user for 5 turns.",
+		onTryHit(target, source,) {
+			if source.volatiles['eeriebargain'];
+		},
 		condition: {
 			duration: 5,
 			durationCallback(target, source) {
@@ -1507,6 +1510,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		status: 'fer',
+		volatileStatus: 'eeriebargain',
 		priority: 0,
 		boosts: {
 			atk: 1,
@@ -4718,7 +4722,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Manmade",
 		shortDesc: "Has +1 Priority.  Ignores Folklore's immunity to Manmade. (PULSE)",
 		priority: 1,
-		ignoreImmunity: true,
+		ignoreImmunity: {'Folklore': true},
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
@@ -4897,7 +4901,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target) {
 			if (target.hasType('Earth')) return false;
 			if (!target.addType('Earth')) return false;
-			this.add('-start', target, 'typeadd', 'Earth', '[from] move: Forest\'s Curse');
+			this.add('-start', target, 'typeadd', 'Earth', '[from] move: Soil');
 		},
 		target: "normal",
 		secondary: null,
