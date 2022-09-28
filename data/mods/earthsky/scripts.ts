@@ -1497,7 +1497,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			"pikachubelle", "pikachucosplay", "pikachulibre", "pikachuphd", "pikachupopstar", "pikachurockstar", "pikachustarter", "slowpokegalar", "slowbrogalar", "victreebel", "eeveestarter", "articunogalar", "zapdosgalar", "moltresgalar", "pichuspikyeared", "slowkinggalar", "darmanitangalarzen", "floetteeternal", "lycanrocdusk", "eternatuseternamax", "kubfu", "urshifu", "urshifurapidstrike", "zarudedada", "regieleki", "regidrago", "calyrex", "glastrier", "spectrier", "calyrexshadow", "calyrexice",
 		];
 		const baseEight = [ //Pokemon using their Gen VIII learnsets as a base
-			"charmander", "charmeleon", "charizard", "farfetchd", "farfetchdgalar", "hitmonlee", "hitmonchan", "mrmime", "mrmimegalar", "scyther", "bellossom", "qwilfish", "scizor", "remoraid", "octillery", "tyrogue", "hitmontop", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "zigzagoon", "zigzagoongalar", "linoone", "linoonegalar", "lotad", "lombre", "lunatone", "solrock", "bagon", "shelgon", "salamence", "kyogre", "groudon", "rayquaza", "mimejr", "dialga", "palkia", "giratina", "basculin", "basculinbluestriped", "reshiram", "zekrom", "kyurem", "fletchling", "fletchinder", "talonflame", "swirlix", "slurpuff", "bergmite", "avalugg", "xerneas", "yveltal", "zygarde",
+			"charmander", "charmeleon", "charizard", "vileplume", "farfetchd", "farfetchdgalar", "hitmonlee", "hitmonchan", "mrmime", "mrmimegalar", "scyther", "bellossom", "qwilfish", "scizor", "remoraid", "octillery", "tyrogue", "hitmontop", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "zigzagoon", "zigzagoongalar", "linoone", "linoonegalar", "lotad", "lombre", "lunatone", "solrock", "bagon", "shelgon", "salamence", "kyogre", "groudon", "rayquaza", "mimejr", "uxie", "mesprit", "azelf", "dialga", "palkia", "giratina", "basculin", "basculinbluestriped", "reshiram", "zekrom", "kyurem", "fletchling", "fletchinder", "talonflame", "swirlix", "slurpuff", "bergmite", "avalugg", "xerneas", "yveltal", "zygarde",
 		];
 		const deletedItems = [
 			"luckypunch", "throatspray", "utilityumbrella",
@@ -1534,7 +1534,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		//console.log(esrules);
 		for (let pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];
-			const learnsetTest = false;//["solrock"].includes(pokemonID);
+			const learnsetTest = ["raichu", "bellossom", "sunflora"].includes(pokemonID);
 			 //Don't do anything with the new Pokemon, Totems, and Pokestar Studios opponents
 			if(pokemon.num <= -500 || pokemonID.endsWith('totem')) continue;
 			//Change generational accessibility
@@ -1578,12 +1578,28 @@ export const Scripts: ModdedBattleScriptsData = {
 			let startGen = (((pokemon.num > 807 || pokemon.num < -60) || baseEight.includes(pokemonID)) ? 8 : 7); //Tags Gen 7 or 8 for level/egg moves
 			const levelString = new RegExp(startGen + 'L[0-9]+');
 			if(learnsetTest) console.log("Starting with Gen " + startGen);
+			
+			// For Stone Evolutions, import prevo's level-up learnset at level 1
+			const stoneEvo = (startGen === 7 && pokemon.prevo && pokemon.prevo !== "Eevee" && pokemon.evoType && 
+				["Fire Stone", "Water Stone", "Thunder Stone", "Leaf Stone", "Moon Stone", "Sun Stone", "Shiny Stone", "Dusk Stone", "Dawn Stone", "Ice Stone"].includes(pokemon.evoType));
+			if(stoneEvo && this.modData('Learnsets', toID(pokemon.prevo)).learnset){
+				if(learnsetTest) console.log("This Pokemon evolves by Evolution Stone and needs its prevo's level-up moves");
+				for(const prevoMove of this.modData('Learnsets', toID(pokemon.prevo)).learnset){
+					const esLevelString = new RegExp('8L[0-9]+'); //Prevos will have updated their movepool first (no Pokemon evolves by Stone from one introduced later than it), so moves will always be stored as Gen 8
+					if(esLevelString.test(prevoMove[moveID][0])){ //Level-up will always be first in updated learnset and we only need it once
+						if(learnsetTest) console.log("Importing " + move.name);
+						this.modData('Learnsets', pokemonID).learnset[moveID].unshift("7L1");
+					}
+				}
+				if(learnsetTest) console.log("Commencing update");
+			}
+			
 			for(let moveID in this.data.Moves) { //TODO: change to Dex.moves.all() when DH updates to it
 				const move = this.data.Moves[moveID];
 				if(move.isZ || move.isMax) continue;
 				moveLearn = this.modData('Learnsets', pokemonID).learnset[moveID];
 				if(!moveLearn){
-					/* checks for new universal machines */
+					// checks for new universal machines
 					if(!(noUniversalTMs.includes(pokemonID))){
 						if(moveID === "endure" && (pokemon.num > 493 || pokemon.num < -23)){
 							if(learnsetTest) console.log("Adding universal TM Endure");
@@ -1609,7 +1625,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				for(const learnType of moveLearn){
 					if(levelString.test(learnType)){
 						if(learnsetTest) console.log("This move is learned by level");
-						moveMeans.push("8" + learnType.substring(1));
+						if(stoneEvo) { //Stone Evolutions only learn moves at level 1 and therefore we must also make sure they only learn moves once by level
+							if(!moveMeans.includes("8L1")) moveMeans.push("8L1");
+						} else moveMeans.push("8" + learnType.substring(1));
 					}
 				}
 				if(moveLearn.includes("".concat(startGen,"E"))){
@@ -1632,14 +1650,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				if(['grasspledge', 'firepledge', 'waterpledge', 'frenzyplant', 'blastburn', 'hydrocannon', 'dracometeor', 'steelbeam', 'meteorbeam'].includes(moveID) && moveLearn.includes("8T")){
 					if(learnsetTest) console.log("This move is taught by tutor");
 					moveMeans.push("8T");
-				}
-				// Gen VIII Level 1 moves for most Stone evolutions
-				if(startGen === 7 && pokemon.prevo && pokemon.prevo !== "Eevee" && pokemon.evoType && 
-					["Fire Stone", "Water Stone", "Thunder Stone", "Leaf Stone", "Moon Stone", "Sun Stone", "Shiny Stone", "Dusk Stone", "Dawn Stone", "Ice Stone"].includes(pokemon.evoType)){
-					if(moveLearn.includes("8L1") && !moveMeans.length){
-						if(learnsetTest) console.log("This Pokemon uses a Stone to evolve and can relearn the move in Gen VIII");
-						moveMeans.push("8L1");
-					}
 				}
 				if(learnsetTest) console.log("Compiled: " + moveMeans);
 				/* drops removed teachables */
@@ -2089,6 +2099,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'abra').learnset.toxic;
 		// Kadabra
 		this.modData("Learnsets", "kadabra").learnset.doubleteam = ["8D"];
+		this.modData("Learnsets", "kadabra").learnset.confusion = ["8L0"];
 		this.modData("Learnsets", "kadabra").learnset.flash = ["8M"];
 		this.modData("Learnsets", "kadabra").learnset.nastyplot = ["8M"];
 		this.modData("Learnsets", "kadabra").learnset.nightmare = ["8M"];
@@ -3000,6 +3011,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'shuckle').learnset.shellsmash;
 		// Heracross
 		this.modData("Learnsets", "heracross").learnset.horndrill = ["8D"];
+		this.modData("Learnsets", "heracross").learnset.throatchop = ["8L34"];
+		delete this.modData('Learnsets', 'heracross').learnset.takedown;
 		delete this.modData('Learnsets', 'heracross').learnset.toxic;
 		// Sneasel
 		this.modData("Learnsets", "sneasel").learnset.razorwind = ["8D"];
@@ -3591,6 +3604,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Volbeat
 		this.modData("Learnsets", "volbeat").learnset.spotlight = ["8D"];
 		this.modData("Learnsets", "volbeat").learnset.bugcloud = ["8L1"];
+		this.modData("Learnsets", "volbeat").learnset.flash = ["8L1", "8M"];
 		delete this.modData('Learnsets', 'volbeat').learnset.toxic;
 		// Illumise
 		this.modData("Learnsets", "illumise").learnset.ragepowder = ["8D"];
@@ -4497,6 +4511,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'uxie').learnset.toxic;
 		// Mesprit
 		this.modData("Learnsets", "mesprit").learnset.heartswap = ["8D"];
+		this.modData("Learnsets", "mesprit").learnset.calmmind = ["8L42", "8M"];
+		this.modData("Learnsets", "mesprit").learnset.luckychant = ["8L56"];
+		this.modData("Learnsets", "mesprit").learnset.charm = ["8M"];
 		this.modData("Learnsets", "mesprit").learnset.flash = ["8M"];
 		this.modData("Learnsets", "mesprit").learnset.nightmare = ["8M"];
 		this.modData("Learnsets", "mesprit").learnset.powergem = ["8M"];
@@ -5303,6 +5320,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Bouffalant
 		this.modData("Learnsets", "bouffalant").learnset.horndrill = ["8D"];
 		this.modData("Learnsets", "bouffalant").learnset.fullcollide = ["8M"];
+		this.modData("Learnsets", "bouffalant").learnset.throatchop = ["8E"];
 		delete this.modData('Learnsets', 'bouffalant').learnset.toxic;
 		// Rufflet
 		this.modData("Learnsets", "rufflet").learnset.nobleroar = ["8D"];
@@ -6147,11 +6165,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'lurantis').learnset.toxic;
 		// Morelull
 		this.modData("Learnsets", "morelull").learnset.magicpowder = ["8D"];
+		this.modData("Learnsets", "morelull").learnset.flash = ["8L1", "8M"];
 		this.modData("Learnsets", "morelull").learnset.naturalgift = ["8M"];
 		this.modData("Learnsets", "morelull").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'morelull').learnset.toxic;
 		// Shiinotic
 		this.modData("Learnsets", "shiinotic").learnset.magicpowder = ["8D"];
+		this.modData("Learnsets", "shiinotic").learnset.flash = ["8L1", "8M"];
 		this.modData("Learnsets", "shiinotic").learnset.naturalgift = ["8M"];
 		this.modData("Learnsets", "shiinotic").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'shiinotic').learnset.toxic;
