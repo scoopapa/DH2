@@ -2367,7 +2367,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["rashpowder", "sludgebomb", "gigadrain", "synthesis"],
 	},
 	xurkitree: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["hypnosis", "thunderbolt", "energyball", "tailglow"],
 	},
@@ -3426,7 +3426,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["partingshot", "glare", "knockoff", "earthquake"],
 	},
 	hariyama: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["closecombat", "fakeout", "icepunch", "knockoff"],
 	},
@@ -4396,7 +4396,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["doubleedge", "suckerpunch", "earthquake", "jumpkick"],
 	},
 	staraptor: {
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["bravebird", "doubleedge", "closecombat", "uturn"],
 	},
