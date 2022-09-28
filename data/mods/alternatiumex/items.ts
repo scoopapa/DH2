@@ -74,7 +74,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 90,
 		},
 		onSetStatus(status, target, source, effect) {
-			if (target.baseSpecies.baseSpecies === 'Marowak-Totem') {
+			if (target.baseSpecies.baseSpecies === 'Marowak-Alola-Totem') {
 				if (status.id !== 'psn' && status.id !== 'tox' && status.id !== 'brn') return;
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] item: Thick Club');
@@ -82,7 +82,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return false;
 			}
 		},
-		itemUser: ["Marowak-Totem"],
+		itemUser: ["Marowak-Alola-Totem"],
 		shortDesc: "If held by Marowak-Totem, it is immune to burn and poison.",
 		num: 258,
 		gen: 2,

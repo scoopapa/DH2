@@ -151,8 +151,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 2,
 		shortDesc: "This Pokemon's attacks have 1.2x power if it moves before the target.",
 	},
-	razorclaw: {
-		name: "Razor Claw",
+	razorfang: {
+		name: "Razor Fang",
 		spritenum: 382,
 		fling: {
 			basePower: 80,

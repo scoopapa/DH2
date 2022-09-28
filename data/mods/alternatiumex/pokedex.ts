@@ -680,7 +680,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	marowakalolatotem: {
 		num: 105,
-		name: "Marowak-Totem",
+		name: "Marowak-Alola-Totem",
 		types: ["Ghost", "Rock"],
 		baseStats: {hp: 120, atk: 80, def: 80, spa: 80, spd: 80, spe: 60},
 		abilities: {0: "Rock Head", 1: "Soundproof", H: "Dry Skin"},
