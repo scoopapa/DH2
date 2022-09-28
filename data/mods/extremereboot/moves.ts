@@ -4210,7 +4210,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					flags: {},
 					effectType: 'Move',
 					isFutureMove: true,
-					type: 'Steel',
+					type: type,
 				},
 			});
 			this.add('-start', source, 'Rising Sun');
@@ -4218,7 +4218,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Steel",
+		type: "Summer",
 		contestType: "Beautiful",
 	},
 	// Coded
@@ -6080,7 +6080,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		selfSwitch: true,
 		secondary: null,
 		target: "normal",
-		type: "Psychic",
+		type: "Autumn",
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
 	},
