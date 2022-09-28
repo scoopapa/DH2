@@ -239,7 +239,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	venomoth: {
-		tier: "RUBL",
+		tier: "UU",
 	},
 	diglett: {
 		tier: "LC",
@@ -542,10 +542,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	chansey: {
-		tier: "UUBL",
+		tier: "UU",
 	},
 	blissey: {
-		tier: "OU",
+		tier: "UUBL",
 	},
 	tangela: {
 		tier: "RU",
@@ -561,7 +561,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	seadra: {
-		tier: "PU",
+		tier: "NFE",
 	},
 	kingdra: {
 		tier: "OU",
@@ -833,7 +833,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	ampharos: {
-		tier: "(PU)",
+		tier: "PU",
 	},
 	ampharosmega: {
 		isNonstandard: "Past",
@@ -1019,7 +1019,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PU",
 	},
 	tyranitar: {
-		tier: "UUBL",
+		tier: "OU",
 	},
 	lugia: {
 		tier: "Uber",
@@ -1155,7 +1155,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	vigoroth: {
-		tier: "PUBL",
+		tier: "NU",
 	},
 	slaking: {
 		tier: "RUBL",
@@ -1206,7 +1206,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PU",
 	},
 	aggron: {
-		tier: "UU",
+		tier: "RU",
 	},
 	meditite: {
 		tier: "LC",
@@ -1301,7 +1301,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	zangoose: {
-		tier: "RU",
+		tier: "RUBL",
 	},
 	seviper: {
 		tier: "PU",
