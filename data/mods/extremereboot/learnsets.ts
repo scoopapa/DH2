@@ -2869,7 +2869,6 @@ export const Learnsets = {
 			bindingblade: ["8L1"],
 			cut: ["8L1"],
 			golemthrow: ["8L1"],
-			swiftstrike: ["8L1"],
 			cycloneshield: ["8L1"],
 			earthquake: ["8L1"],
 			enrage: ["8L1"],
