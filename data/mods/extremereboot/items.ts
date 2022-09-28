@@ -61,7 +61,9 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
 				const move = this.dex.getMove(moveSlot.id);
+				const ability = this.dex.getAbility(pokemon.ability);
 				if (move.onModifyType) move.onModifyType(move, pokemon);
+				if (ability.onModifyType) ability.onModifyType(move, pokemon);
 				if (pokemon.getTypes()[0] !== move.type) {
 					pokemon.disableMove(moveSlot.id);
 				}

@@ -2299,7 +2299,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sideend', targetSide, 'rubbles', '[from] move: Hard Reset', '[of] ' + source);
 				success = true;
 			}
-			this.field.clearTerrain();
+			if (this.field.clearTerrain()) success = true;
 			return success;
 		},
 		ignoreImmunity: true,
@@ -6329,7 +6329,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sideend', targetSide, 'rubbles', '[from] move: Uproot', '[of] ' + source);
 				success = true;
 			}
-			this.field.clearTerrain();
+			if (this.field.clearTerrain()) success = true;
 			return success;
 		},
 		target: "all",
