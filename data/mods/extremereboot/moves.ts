@@ -735,7 +735,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				spd: -1,
 			},
 		},
-		target: "foeSide",
+		target: "allAdjacentFoes",
 		secondary: null,
 	},
 	// Coded
@@ -2318,7 +2318,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Autumn",
 		shortDesc: "If this move succeeds, a message appears in the chat which says 'You get harvested.'",
 		onHit(pokemon) {
-			this.add('-message', 'You get harvested');
+			this.add('-message', 'You get harvested.');
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -2495,19 +2495,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		volatileStatus: 'hitodama',
 		condition: {
-			onStart(targetSide) {
-				this.add('-sidestart', targetSide, 'Hitodama');
+			onStart(target) {
+				this.add('-start', target, 'Hitodama');
 			},
 			onResidualOrder: 5,
 			onResidualSubOrder: 1.1,
-			onResidual(targetSide) {
-				for (const pokemon of targetSide.active) {
-					this.damage(pokemon.baseMaxhp / 16, pokemon);
-				}
+			onResidual(target) {
+				this.damage(pokemon.baseMaxhp / 16, pokemon);
 			},
 		},
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
+		target: "allAdjacentFoes",
 		secondary: null,
 		unviable: true,
 	},
@@ -4575,7 +4573,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "This move does not check accuracy. Hits foes.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "foeSide",
+		target: "allAdjacentFoes",
 		secondary: null,
 	},
 	// Coded

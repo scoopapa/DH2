@@ -317,7 +317,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'temporarytrap',
 		duration: 4,
 		onTrapPokemon(pokemon) {
-			if (this.effectData.source?.isActive) pokemon.tryTrap();
+			if (this.effectData.source?.isActive) {
+				pokemon.tryTrap();
+			} else {
+				pokemon.removeVolatile('temporarytrap');
+			}
 		},
 		onEnd(pokemon) {
 			this.add('-message', pokemon.name + ' is no longer trapped!');
