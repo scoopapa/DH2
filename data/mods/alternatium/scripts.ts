@@ -326,7 +326,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "genesect").learnset.flipturn = ["8L1"];
 		this.modData("Learnsets", "genesect").learnset.poisonjab = ["8L1"];
 		this.modData("Learnsets", "genesect").learnset.iciclecrash = ["8L1"];
-		this.modData("Learnsets", "genesect").learnset.recover = ["8L1"];
+		this.modData("Learnsets", "genesect").learnset.taunt = ["8L1"];
 		this.modData("Learnsets", "genesect").learnset.technoblastbase = ["8L1"];
 		delete this.modData('Learnsets', 'genesect').learnset.shiftgear;
 		delete this.modData('Learnsets', 'genesect').learnset.extremespeed;
@@ -448,6 +448,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "castform").learnset.auroraveil = ["8L1"];
 		this.modData("Learnsets", "castform").learnset.willowisp = ["8L1"];
 		this.modData("Learnsets", "castform").learnset.soak = ["8L1"];
+		this.modData("Learnsets", "castform").learnset.hypervoice = ["8L1"];
 		
 		//Slate 18
 		this.modData("Learnsets", "wormadam").learnset.uturn = ["8L1"];
