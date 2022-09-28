@@ -2292,11 +2292,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const targetSide = source.side.foe;
 			let success = false;
 			if (sourceSide.removeSideCondition('rubbles')) {
-				this.add('-sideend', sourceSide, 'rubbles', '[from] move: Uproot', '[of] ' + source);
+				this.add('-sideend', sourceSide, 'rubbles', '[from] move: Hard Reset', '[of] ' + source);
 				success = true;
 			}
 			if (targetSide.removeSideCondition('rubbles')) {
-				this.add('-sideend', targetSide, 'rubbles', '[from] move: Uproot', '[of] ' + source);
+				this.add('-sideend', targetSide, 'rubbles', '[from] move: Hard Reset', '[of] ' + source);
 				success = true;
 			}
 			this.field.clearTerrain();
@@ -6332,7 +6332,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.field.clearTerrain();
 			return success;
 		},
-		target: "normal",
+		target: "all",
 		secondary: null,
 	},
 	// Coded

@@ -595,10 +595,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const side of this.sides) {
 				for (const pokemon of side.active) {
 					if (!pokemon.hasAbility("Glide")) continue;
-					if (!pokemon.m.glideBoost || pokemon.m.glideBoost !== this.turn) {
-						pokemon.m.glideBoost = this.turn;
-						this.boost({spe:1});
-					}
+					// if (!pokemon.m.glideBoost || pokemon.m.glideBoost !== this.turn) {
+						// pokemon.m.glideBoost = this.turn;
+					this.boost({spe:1}, pokemon);
+					// }
 				}
 			}
 		}
