@@ -679,6 +679,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	lifecycle: {
 		name: "Life Cycle",
 		onResidual(pokemon) {
+			if (!pokemon.activeTurns) return;
 			const seasons = ["Spring", "Summer", "Autumn", "Winter"];
 			let types = pokemon.getTypes(true);
 			for (const i in types) {
