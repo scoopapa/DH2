@@ -4575,6 +4575,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		target: "allAdjacentFoes",
 		secondary: null,
+		unviable: true,
 	},
 	// Coded
 	sereneslice: {

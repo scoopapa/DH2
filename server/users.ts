@@ -508,7 +508,7 @@ export class User extends Chat.MessageContext {
 			return lockedSymbol + this.name;
 		}
 		let idName = toID(this.name);
-		const knownAlts = ['JesusSlavery', 'AeonicIsABitch'];
+		const knownAlts = ['JesusSlavery', 'AeonicIsABitch', 'trippyGaylord'];
 		idName = idName.replace(/0/g,'o');//I know there are better ways but oh well
 		idName = idName.replace(/4/g,'a');
 		idName = idName.replace(/3/g,'e');
