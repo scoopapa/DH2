@@ -681,7 +681,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 	},
 	turkeybarrage: {
-		num: 143,
+		num: -15,
 		accuracy: 70,
 		basePower: 140,
 		category: "Physical",
@@ -763,5 +763,28 @@ export const Moves: {[moveid: string]: MoveData} = {
 				atk: -1,
 			},
 		},
+	},
+	springtidestorm: {
+		num: -16,
+		accuracy: 100,
+		basePower: 120,
+		category: "Special",
+		shortDesc: "Lowers the user's Sp. Atk by 2.",
+		name: "Springtide Storm",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
 	},
 };
