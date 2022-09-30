@@ -283,10 +283,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	// sclam: {
-		// tier: "OU",
-		// doublesTier: "DOU",
-	// },
+	sclam: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	cicaguren: {
 		tier: "OU",
 		doublesTier: "DOU",

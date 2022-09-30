@@ -111,6 +111,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else {
 				basePower = 27;
 			}
+			console.log(basePower);
 			return basePower;
 		},
 		priority: 0,
@@ -478,10 +479,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		type: "Storm",
 		shortDesc: "Combines Winter-type in its type effectiveness.",
+		onTryImmunity(target) {
+			return !target.hasType("Spring");
+		},
 		onEffectiveness(typeMod, target, type, move) {
-			let newTypeMod = typeMod + this.dex.getEffectiveness('Winter', type);
-			if (type === "Spring") newTypeMod = 0;
-			return newTypeMod;
+			return typeMod + this.dex.getEffectiveness('Winter', type);
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -672,7 +674,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Summer",
 		shortDesc: "Drops the target's defensive stats by 1 stage each and the user switches out.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1},
+		flags: {protect: 1, mirror: 1, contact: 1, reflectable: 1},
 		onHit(target, source, move) {
 			const success = this.boost({def: -1, spd: -1}, target, source);
 			if (!success) {
@@ -740,6 +742,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		secondary: {
 			boosts: {
+				chance: 10,
 				spd: -1,
 			}
 		},
@@ -775,10 +778,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		type: "Night",
 		shortDesc: "Combines Storm in its type effectiveness.",
+		onTryImmunity(target) {
+			return !target.hasType("Serenity");
+		},
 		onEffectiveness(typeMod, target, type, move) {
-			let newTypeMod = typeMod + this.dex.getEffectiveness('Storm', type);
-			if (type === "Serenity") newTypeMod = 0;
-			return newTypeMod;
+			return typeMod + this.dex.getEffectiveness('Storm', type);
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -821,7 +825,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (r === 1) this.boost({spa: -2});
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -900,7 +904,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Winter",
 		shortDesc: "Inflicts chill on the target. Has 101% acc if used by a Winter-type.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		status: 'frz',
@@ -1197,7 +1201,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		shortDesc: "Traps the target until the end of the next turn.",
 		priority: 0,
-		flags: {mirror: 1, authentic: 1},
+		flags: {mirror: 1, authentic: 1, reflectable: 1},
 		pseudoWeather: 'dawneve',
 		condition: {
 			duration: 2,
@@ -1485,7 +1489,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			pokemon.trySetStatus("psn");
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -1574,7 +1578,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Folklore",
 		shortDesc: "Curses the target. Guaranteed to hit if used by a Folklore type.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		status: "crs",
@@ -1811,10 +1815,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Manmade",
 		shortDesc: "Removes user's stat changes, status conditions and fully heals user. Causes user to have to 'Boot Up' (Recharge) for the next turn. User is trapped while booting up.",
 		onHit(target, source) {
-			let b: BoostName;
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) source.boosts[b] = 0;
-			}
+			source.clearBoosts();
 			this.heal(source.baseMaxhp - source.hp, source, source);
 			source.cureStatus();
 		},
@@ -2531,7 +2532,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.damage(pokemon.baseMaxhp / 16, pokemon);
 			},
 		},
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "allAdjacentFoes",
 		secondary: null,
 		unviable: true,
@@ -2742,7 +2743,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Typeless",
 		shortDesc: "Inflicts Curse on the opponent. 100% accuracy when used by Folklore-types. Sound-based.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		status: "crs",
@@ -2965,7 +2966,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Typeless",
 		shortDesc: "Puts the target to sleep.  (Sound)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -3033,7 +3034,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.status && (target.status === 'crs' || target.status === 'fer')) target.setStatus('slp');
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -3076,7 +3077,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		priority: 0,
-		flags: {mirror: 1},
+		flags: {mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -3255,7 +3256,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.status && target.status === 'slp') target.setStatus('fer');
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -3489,7 +3490,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -3574,7 +3575,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.hp / target.baseMaxhp <= .25) target.faint();
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -4930,7 +4931,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Sets weather to Snow for the next 5 turns. Winter deals 1.5x damage, Summer deals 0.5x",
 		weather: 'Snowfall',
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {},
 		target: "all",
 		secondary: null,
 		unviable: true,
@@ -5135,7 +5136,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -5212,7 +5213,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		boosts: {
 			accuracy: -1,
 		},
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -5530,7 +5531,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Summer",
 		shortDesc: "Gives the target a sunburn.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		status: 'brn',
 		secondary: null,
@@ -5721,7 +5722,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Sky",
 		shortDesc: "User gains +1 Speed. Opponent loses -1 Speed.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		boosts: {spe: -1,},
@@ -5797,7 +5798,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Lowers the opponent's defense stat by 1.",
 		boosts: {def: -1,},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -5848,7 +5849,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1, contact: 1},
+		flags: {protect: 1, mirror: 1, contact: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -5901,7 +5902,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		type: "Earth",
 		shortDesc: "Damage is calculated using the user's Defense stat.",
-		useSourceDefensiveAsOffensive: true,
+		useSourceDefAsOffensive: true,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -6006,7 +6007,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Sky",
 		shortDesc: "Poisons the target.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		status: 'psn',
 		secondary: null,
@@ -6435,7 +6436,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		priority: 0,
 		flags: {},
-		target: "self",
+		target: "normal",
 		secondary: null,
 	},
 	// Coded
@@ -6534,7 +6535,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (healCount) this.heal((source.maxhp / 8) * healCount, source, source, move);
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
+		flags: {protect: 1, mirror: 1, heal: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 	},

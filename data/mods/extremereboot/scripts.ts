@@ -232,22 +232,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		let attackStat: StatNameExceptHP = category === 'Physical' ? 'atk' : 'spa';
 		const defenseStat: StatNameExceptHP = defensiveCategory === 'Physical' ? 'def' : 'spd';
 		const speedStat: StatNameExceptHP = 'spe';
-		if (move.useSourceDefensiveAsOffensive) {
-			attackStat = defenseStat;
-			// Body press really wants to use the def stat,
-			// so it switches stats to compensate for Wonder Room.
-			// Of course, the game thus miscalculates the boosts...
-			if ('wonderroom' in this.field.pseudoWeather) {
-				if (attackStat === 'def') {
-					attackStat = 'spd';
-				} else if (attackStat === 'spd') {
-					attackStat = 'def';
-				}
-				if (attacker.boosts['def'] || attacker.boosts['spd']) {
-					this.hint("Body Press uses Sp. Def boosts when Wonder Room is active.");
-				}
-			}
-		}
+		if (move.useSourceDefAsOffensive) attackStat = 'def';
+		if (move.useSourceSpDAsOffensive) attackStat = 'spd';
 		if (move.useSourceSpeedAsOffensive) attackStat = speedStat;
 
 		const statTable = {atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe'};
