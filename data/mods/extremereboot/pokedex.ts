@@ -716,7 +716,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Cloudim",
 		types: ["Storm", "Sky"],
 		baseStats: {hp: 110, atk: 55, def: 105, spa: 65, spd: 90, spe: 70},
-		abilities: {0: "Atraxia", 1: "Blind Rage", H: "Counterswirl"},
+		abilities: {0: "Ataraxia", 1: "Blind Rage", H: "Counterswirl"},
 		weightkg: 777,
 		eggGroups: ["Bloopyghost"],
 	},
