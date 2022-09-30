@@ -495,12 +495,9 @@ export const Formats: FormatList = [
 		onModifySpecies(species, target, source, effect) {
 			if (!target) return; // Chat command
 			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
-			if (species.id !== 'extremeribbit') {
-				const types = [...new Set(target.baseMoveSlots.slice(0, 2).map(move => this.dex.getMove(move.id).type))];
-				return {...species, types: types};
-			} else {
-				return species;
-			}
+			if (species.id !== 'extremeribbit') return;
+			const types = [...new Set(target.baseMoveSlots.slice(0, 2).map(move => this.dex.getMove(move.id).type))];
+			return {...species, types: types};
 		},
 		onSwitchIn(pokemon) {
 			if (pokemon.species.id === 'extremeribbit') return;

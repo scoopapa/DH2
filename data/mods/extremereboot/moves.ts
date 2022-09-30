@@ -3713,14 +3713,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If user is Storm-type, changes Storm to Serenity before executing this move.",
 		onPrepareHit(target, source, move) {
 			if (move.hasBounced || !source.hasType("Storm")) return;
-			let types = source.getTypes(true);
+			let types = [...source.getTypes(true)];
 			for (const i in types) {
 				if (types[i] === "Storm") {
 					types[i] = "Serenity";
 				}
 			}
 			source.setType(types);
-			this.add('-start', source, 'typechange', source.getTypes().join(), '[from] move: Purification');
+			this.add('-start', source, 'typechange', types.join('/'), '[from] move: Purification');
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -4488,7 +4488,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyType(move, source, target) {
 			const seasons = ["Spring", "Summer", "Autumn", "Winter"];
-			const types = source.getTypes();
+			const types = [...source.getTypes()];
 			if (seasons.includes(types[0])) {
 				move.type = types[0];
 			} else if (types[1] && seasons.includes(types[1])) {
@@ -6210,7 +6210,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.effectData.typhoonCounter++;
 				if (this.effectData.typhoonCounter === 3) {
 					this.add('-message', source.name + ' whipped up a raging storm!');
-					let types = source.getTypes(true);
+					let types = [...source.getTypes(true)];
 					for (const i in types) {
 						if (types[i] === "Sea") {
 							types[i] = "Storm";
@@ -6218,7 +6218,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 					source.setType(types);
 					this.boost({spa: 2});
-					this.add('-start', source, 'typechange', source.getTypes().join(), '[from] move: Typhoon');
+					this.add('-start', source, 'typechange', types.join('/'), '[from] move: Typhoon');
 				}
 			},
 		},
@@ -6420,7 +6420,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// Ability suppression implemented in Pokemon.ignoringAbility() within sim/pokemon.js
 			duration: 5,
 			onStart(pokemon) {
-				this.add('-start', source, 'move: Void');
+				this.add('-start', pokemon, 'move: Void');
 				this.add('-message', pokemon.name + ' is having its item and ability suppressed!');
 			},
 			onCopy(pokemon) {

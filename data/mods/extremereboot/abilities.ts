@@ -681,7 +681,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			if (!pokemon.activeTurns) return;
 			const seasons = ["Spring", "Summer", "Autumn", "Winter"];
-			let types = pokemon.getTypes(true);
+			let types = [...pokemon.getTypes(true)];
 			for (const i in types) {
 				if (seasons.includes(types[i])) { 
 					types[i] = seasons[(seasons.indexOf(types[i]) + 1) % 4];
