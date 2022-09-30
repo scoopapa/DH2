@@ -627,7 +627,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		type: "Earth",
 		shortDesc: "Traps the target for 4-5 turns and deals 1/8th residual damage. Deals 1/6th under rose field.",
-		volatileStatus: 'partiallytrapped',
+		volatileStatus: 'bramblewhip',
+		condition: {
+			duration: 5,
+			durationCallback(target, source) {
+				return this.random(5, 7);
+			},
+			onStart(pokemon, source) {
+				this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
+			},
+			onResidualOrder: 11,
+			onResidual(pokemon) {
+				const source = this.effectData.source;
+				const boundDivisor = this.field.isTerrain('rosefield') ? 6 : 8;
+				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
+					delete pokemon.volatiles['partiallytrapped'];
+					this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
+					return;
+				}
+				this.damage(pokemon.baseMaxhp / boundDivisor);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]');
+			},
+			onTrapPokemon(pokemon) {
+				if (this.effectData.source?.isActive) pokemon.tryTrap();
+			},
+		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -808,7 +834,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Autumn",
 		shortDesc: "Heals the user by 2x the damage dealt.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1},
+		flags: {protect: 1, mirror: 1, heal: 1, contact: 1},
 		drain: [2, 1],
 		target: "normal",
 		secondary: null,
@@ -900,7 +926,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Sea",
-		shortDesc: "Priority +3. Protects the user. Attackers making contact lose 1/8 Max HP.",
+		shortDesc: "Priority +4. Protects the user. Attackers making contact lose 1/8 Max HP.",
 		priority: 4,
 		flags: {},
 		stallingMove: true,
@@ -947,7 +973,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		unviable: true,
 	},
 	// Coded
 	cottonfield: {
@@ -1031,7 +1056,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		shortDesc: "10% chance to afflict fear.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: {
 			chance: 10,
@@ -1066,7 +1091,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Folklore",
 		shortDesc: "50% chance to curse foe.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: {
 			chance: 50,
@@ -1309,7 +1334,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		multihit: 2,
 		critRatio: 2,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -1344,7 +1369,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		useSourceSpeedAsOffensive: true,
 		shortDesc: "Uses Speed on calculating damage (instead of attack), Contact",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -2072,7 +2097,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 10,
 		type: "Winter",
-		shortDesc: "30% chance to inflict Chill on the target. Becomes perfectly accurate in Snow.",
+		shortDesc: "30% chance to inflict Chill on the target.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -2117,7 +2142,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		shortDesc: "Bite move. High crit ratio",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, bite: 1},
+		flags: {protect: 1, mirror: 1, bite: 1, contact: 1},
 		critRatio: 2,
 		target: "normal",
 		secondary: null,
@@ -3782,7 +3807,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -4596,7 +4621,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -4627,7 +4652,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Sea",
 		shortDesc: "30% chance to inflict Fear. (PULSE)",
 		secondary: {
-			chance: 100,
+			chance: 30,
 			status: 'fer',
 		},
 		priority: 0,
@@ -4759,7 +4784,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "-6 priority. Enemy is force switched. (Contact)",
 		forceSwitch: true,
 		priority: -6,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -4998,7 +5023,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.status === "fer") pokemon.cureStatus();
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -5139,7 +5164,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "+1 Priority. Restores health to the user equal to 1/2 of the damage dealt. (Contact)",
 		priority: 1,
 		drain: [1,2],
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -5153,7 +5178,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Spring",
 		shortDesc: "No additional effects.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -5338,7 +5363,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Earth",
 		shortDesc: "No additional effect.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -5372,7 +5397,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Storm",
 		shortDesc: "Deals 1/3 damage dealt as recoil to the user(Contact)",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		recoil: [1,3],
 		target: "normal",
 		secondary: null,
@@ -5485,7 +5510,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Summer",
 		shortDesc: "100% to Sunburn the target.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: {
 			chance: 100,
@@ -5660,7 +5685,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Uses user's Speed stat as Attack in damage calculation. Contact.",
 		useSourceSpeedAsOffensive: true,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -5994,7 +6019,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Sea",
 		shortDesc: "40% Poison chance; 100% if target has a lowered stat.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		onPrepareHit(target, pokemon, move) {
 			let negativeBoosts = false;
@@ -6227,7 +6252,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		shortDesc: "Power doubles if the target has a status aliment.",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},
@@ -6377,7 +6402,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
 	},

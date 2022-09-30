@@ -467,7 +467,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	critique: {
 		num: 1099,
 		name: "Critique",
-		desc: "Bounces back Folklore-type moves .",
+		desc: "Bounces back Folklore-type moves as Manmade type at 50% BP.",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target === source || move.hasBounced || move.type !== "Folklore") {
@@ -679,6 +679,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	lifecycle: {
 		name: "Life Cycle",
 		onResidual(pokemon) {
+			if (!pokemon.activeTurns) return;
 			const seasons = ["Spring", "Summer", "Autumn", "Winter"];
 			let types = pokemon.getTypes(true);
 			for (const i in types) {
@@ -688,6 +689,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			pokemon.setType(types);
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[from] ability: Life Cycle');
+		},
+		onSwitchIn(pokemon) {
+			pokemon.setType(["Spring", "Sky"]);
 		},
 	},
 	// Coded
