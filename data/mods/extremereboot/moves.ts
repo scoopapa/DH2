@@ -228,11 +228,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Serenity",
 		shortDesc: "Removes all stat changes from the user and the target.",
 		priority: 0,
-		onHit(pokemon, source) {
-			pokemon.clearBoosts();
-			source.clearBoosts();
+		flags: {authentic: 1},
+		onHitField() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				pokemon.clearBoosts();
+			}
 		},
-		flags: {protect: 1, mirror: 1},
 		target: "all",
 		secondary: null,
 	},
