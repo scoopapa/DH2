@@ -926,7 +926,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		pp: 10,
 		type: "Sea",
-		shortDesc: "Priority +3. Protects the user. Attackers making contact lose 1/8 Max HP.",
+		shortDesc: "Priority +4. Protects the user. Attackers making contact lose 1/8 Max HP.",
 		priority: 4,
 		flags: {},
 		stallingMove: true,
@@ -973,7 +973,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		unviable: true,
 	},
 	// Coded
 	cottonfield: {
@@ -4653,7 +4652,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Sea",
 		shortDesc: "30% chance to inflict Fear. (PULSE)",
 		secondary: {
-			chance: 100,
+			chance: 30,
 			status: 'fer',
 		},
 		priority: 0,
