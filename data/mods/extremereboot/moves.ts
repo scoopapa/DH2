@@ -3273,10 +3273,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'nightynight',
 		condition: {
 			onStart(pokemon) {
-				this.effectData.sleepy = 0;
+				this.effectData.sleepy = -2; // initial hit + initial turn give 2 at the start.
 				if (pokemon.status === 'slp') pokemon.removeVolatile('nightynight');
+				this.add('-start', pokemon, 'move: Nighty Night');
 			},
 			onResidual(pokemon) {
+				if (pokemon.status === 'slp') {
+					pokemon.removeVolatile('nightynight');
+					return;
+				}
 				this.effectData.sleepy++;
 				if (this.effectData.sleepy >= 3) {
 					pokemon.trySetStatus('slp');
@@ -3289,7 +3294,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onDamagingHit(damage, target, source, move) {
-				if (move.id === 'nightynight') this.effectData.sleepy++;
+				if (move.id === 'nightynight') { 
+					this.effectData.sleepy++;
+					if (this.effectData.sleepy > 0) this.add('-message', target.name + ' became even more drowsy!');
+				}
+				if (this.effectData.sleepy >= 3) {
+					target.trySetStatus('slp');
+					this.add(-'end', target, 'Nighty Night');
+					target.removeVolatile('nightynight');
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'move: Nighty Night');
 			},
 		},
 		priority: 0,
