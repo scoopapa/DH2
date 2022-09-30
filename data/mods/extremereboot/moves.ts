@@ -4690,7 +4690,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 4,
 			onResidual(source){
-				if (!this.effectData.hp) {
+				if (source && source.side && !this.effectData.hp) {
 					source.side.removeSlotCondition(source, 'shootingstar');
 					source.battle.add('-message', 'But nothing happened!');
 				}
