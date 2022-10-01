@@ -249,6 +249,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	craftyshield: {
 		num: 578,
+		shortDesc: "Bounces back certain non-damaging moves.",
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -292,6 +293,74 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 		gen: 1,
+	},
+	fierywrath: {
+		num: 822,
+		shortDesc: "Burns the foe.",
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		name: "Fiery Wrath",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		status: 'brn',
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	smartstrike: {
+		num: 684,
+		shortDesc: "High critical hit ratio.",
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Smart Strike",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+	},
+	fairylock: {
+		num: 587,
+		shortDesc: "Prevents the target from moving for 2-5 turns.",
+		accuracy: 70,
+		basePower: 15,
+		category: "Special",
+		name: "Fairy Lock",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		volatileStatus: 'partiallytrapped',
+		self: {
+			volatileStatus: 'partialtrappinglock',
+		},
+		onBeforeMove: function (pokemon, target, move) {
+			// Removes must recharge volatile even if it misses
+			target.removeVolatile('mustrecharge');
+		},
+		onHit: function (target, source) {
+			/**
+			 * The duration of the partially trapped must be always renewed to 2
+			 * so target doesn't move on trapper switch out as happens in gen 1.
+			 * However, this won't happen if there's no switch and the trapper is
+			 * about to end its partial trapping.
+			 **/
+			if (target.volatiles['partiallytrapped']) {
+				if (source.volatiles['partialtrappinglock'] && source.volatiles['partialtrappinglock'].duration > 1) {
+					target.volatiles['partiallytrapped'].duration = 2;
+				}
+			}
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		contestType: "Clever",
 	},
 
 // don't touch
