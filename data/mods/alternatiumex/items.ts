@@ -44,7 +44,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		itemUser: ["Marowak"],
-		shortDesc: "If held by Marowak, restores 1/3 of its max HP and KOing a Pokemon.",
+		shortDesc: "If held by Marowak, restores 1/3 of its max HP upon KOing a Pokemon.",
 		num: -1,
 		gen: 2,
 	},
