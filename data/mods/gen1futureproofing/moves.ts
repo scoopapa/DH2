@@ -309,6 +309,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
+		gen: 1,
 	},
 	smartstrike: {
 		num: 684,
@@ -325,6 +326,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ground",
 		contestType: "Cool",
+		gen: 1,
 	},
 	fairylock: {
 		num: 587,
@@ -358,9 +360,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		secondary: null,
-		target: "all",
+		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
+		gen: 1,
 	},
 
 // don't touch
