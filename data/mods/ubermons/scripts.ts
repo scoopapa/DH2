@@ -25,7 +25,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'dragapult').learnset.hydropump;
 		delete this.modData('Learnsets', 'dragapult').learnset.thunder;
 		delete this.modData('Learnsets', 'dragapult').learnset.phantomforce;
-		
 		this.modData('Learnsets', 'dragapult').learnset.shadowclaw = ['8L1'];
 		this.modData('Learnsets', 'dragapult').learnset.nightslash = ['8L1'];
 		
@@ -40,7 +39,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'rayquaza').learnset.vcreate;
 		
 		this.modData('Learnsets', 'deoxys').learnset.topsyturvy = ['8L1'];
-		
 		delete this.modData('Learnsets', 'deoxys').learnset.spikes;
 		delete this.modData('Learnsets', 'deoxys').learnset.nastyplot;
 		delete this.modData('Learnsets', 'deoxys').learnset.superpower;

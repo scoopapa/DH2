@@ -3487,8 +3487,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	magearnaoriginal: {
-		tier: "Illegal",
-		doublesTier: "Illegal",
+		tier: "(OU)",
+		doublesTier: "(DOU)",
 	},
 	pheromosa: {
 		tier: "OU",
