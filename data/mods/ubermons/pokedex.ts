@@ -421,7 +421,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	spinda: {
 		inherit: true,
-		abilities: {0: "Own Tempo", 1: "Tangled Feet", H: "Contrary"},
+		abilities: {0: "Own Tempo", 1: "Moody", H: "Contrary"},
 	},
 	plusle: {
 		inherit: true,
