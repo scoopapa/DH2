@@ -28,35 +28,83 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 	},
 	moody: {
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual(pokemon) {
-			let stats: BoostName[] = [];
-			const boost: SparseBoostsTable = {};
-			let statPlus: BoostName;
-			for (statPlus in pokemon.boosts) {
-				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-				if (pokemon.boosts[statPlus] < 6) {
-					stats.push(statPlus);
+		/*onResidualOrder: 26,
+        onResidualSubOrder: 1,
+        onResidual(pokemon) {
+            if (pokemon.activeTurns) {
+            let statName = 'atk';
+            let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
+            let s: StatNameExceptHP;
+            for (s in pokemon.storedStats) {
+                if (pokemon.storedStats[s] < worstStat) {
+                    statName = s;
+                    worstStat = pokemon.storedStats[s];
+                }
+            }
+            this.boost({[statName]: 1}, pokemon);
+            }
+        },
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s: StatNameExceptHP;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},*/
+		/*onStart(pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
+			let s: StatNameExceptHP;
+			for (s in pokemon.storedStats) {
+				if (pokemon.storedStats[s] < worstStat) {
+					statName = s;
+					worstStat = pokemon.storedStats[s];
+					this.boost({[statName]: 2}, pokemon);
+				}
+				else if (pokemon.storedStats[s] > bestStat) {
+					statName = s;
+					bestStat = pokemon.storedStats[s];
+					this.boost({[statName]: -1}, pokemon);
 				}
 			}
-			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
-			if (randomStat) boost[randomStat] = 2;
-
-			stats = [];
-			let statMinus: BoostName;
-			for (statMinus in pokemon.boosts) {
-				if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
-				if (pokemon.boosts[statMinus] > -6 && statMinus !== randomStat) {
-					stats.push(statMinus);
+		},
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},*/
+		onStart(pokemon) {
+			//if (!this.effectData.switchingIn) return;
+			let statName = 'atk';
+			let bestStat = 0;
+			let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
+			let bs: StatNameExceptHP;
+			let ws: StatNameExceptHP;
+			for (bs in pokemon.storedStats) {
+				if (pokemon.storedStats[bs] > bestStat) {
+					statName = bs;
+					bestStat = pokemon.storedStats[bs];
 				}
 			}
-			randomStat = stats.length ? this.sample(stats) : undefined;
-			if (randomStat) boost[randomStat] = -1;
-
-			this.boost(boost);
+			this.boost({[statName]: -1}, pokemon);
+			for (ws in pokemon.storedStats) {
+				if (pokemon.storedStats[ws] < worstStat) {
+					statName = ws;
+					worstStat = pokemon.storedStats[ws];
+				}
+				
+			}
+			this.boost({[statName]: 2}, pokemon);
+			//this.effectData.switchingIn = false;
 		},
 		name: "Moody",
+		shortDesc: "Upon entry, +2 in lowest stat and -1 in highest stat.",
 		rating: 5,
 		num: 141,
 	},

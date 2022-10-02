@@ -1205,8 +1205,6 @@ export const Formats: FormatList = [
 		banlist: [
 			//Pokémon
 			'Eternatus',
-			//Abilities
-			'Moody',
 			//Moves
 			'Baton Pass',
 		],

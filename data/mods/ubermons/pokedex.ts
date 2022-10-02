@@ -415,4 +415,32 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Mega Launcher", H: "Quick Draw"},
 	},
+	morpeko: {
+		inherit: true,
+		abilities: {0: "Hunger Switch", H: "Moody"},
+	},
+	spinda: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Tangled Feet", H: "Contrary"},
+	},
+	plusle: {
+		inherit: true,
+		abilities: {0: "Plus", 1: "Moody", H: "Lightning Rod"},
+	},
+	minun: {
+		inherit: true,
+		abilities: {0: "Minus", 1: "Moody", H: "Volt Absorb"},
+	},
+	beautifly: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Moody", H: "Rivalry"},
+	},
+	dustox: {
+		inherit: true,
+		abilities: {0: "Shield Dust", 1: "Moody", H: "Compound Eyes"},
+	},
+	mesprit: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Moody"},
+	},
 };
