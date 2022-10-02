@@ -81,6 +81,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'magearna').learnset.aurasphere;
 		delete this.modData('Learnsets', 'magearna').learnset.icebeam;
 		delete this.modData('Learnsets', 'magearna').learnset.aurorabeam;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.agility;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.shiftgear;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.calmmind;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.focusblast;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.aurasphere;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.icebeam;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.aurorabeam;
 		
 		this.modData('Learnsets', 'reshiram').learnset.uturn = ['8L1'];
 		

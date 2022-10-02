@@ -156,6 +156,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 115, atk: 85, def: 115, spa: 85, spd: 115, spe: 85},
 	},
+	magearnaoriginal: {
+		inherit: true,
+		baseStats: {hp: 115, atk: 85, def: 115, spa: 85, spd: 115, spe: 85},
+	},
 	pheromosa: {
 		inherit: true,
 		baseStats: {hp: 83, atk: 113, def: 67, spa: 113, spd: 67, spe: 127},
