@@ -56,10 +56,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (user.baseSpecies.baseSpecies === 'Alolawak') {
-				if (move.type === 'Ground') {
-					return this.chainModify(2);
-				}
+			if (move && user.baseSpecies.name === 'Alolawak' && move.type === 'Ground') {
+				return this.chainModify(2);
 			}
 		},
 		itemUser: ["Alolawak"],

@@ -28,35 +28,30 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 	},
 	moody: {
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual(pokemon) {
-			let stats: BoostName[] = [];
-			const boost: SparseBoostsTable = {};
-			let statPlus: BoostName;
-			for (statPlus in pokemon.boosts) {
-				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-				if (pokemon.boosts[statPlus] < 6) {
-					stats.push(statPlus);
+		onStart(pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
+			let bs: StatNameExceptHP;
+			let ws: StatNameExceptHP;
+			for (bs in pokemon.storedStats) {
+				if (pokemon.storedStats[bs] > bestStat) {
+					statName = bs;
+					bestStat = pokemon.storedStats[bs];
 				}
 			}
-			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
-			if (randomStat) boost[randomStat] = 2;
-
-			stats = [];
-			let statMinus: BoostName;
-			for (statMinus in pokemon.boosts) {
-				if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
-				if (pokemon.boosts[statMinus] > -6 && statMinus !== randomStat) {
-					stats.push(statMinus);
+			this.boost({[statName]: -1}, pokemon);
+			for (ws in pokemon.storedStats) {
+				if (pokemon.storedStats[ws] < worstStat) {
+					statName = ws;
+					worstStat = pokemon.storedStats[ws];
 				}
+				
 			}
-			randomStat = stats.length ? this.sample(stats) : undefined;
-			if (randomStat) boost[randomStat] = -1;
-
-			this.boost(boost);
+			this.boost({[statName]: 2}, pokemon);
 		},
 		name: "Moody",
+		shortDesc: "Upon entry, +2 in lowest stat and -1 in highest stat.",
 		rating: 5,
 		num: 141,
 	},
@@ -534,11 +529,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	quickdraw: {
 		onModifyPriority(priority, source, move) {
-			if (!move.flags['bullet']) return;
-			if (source.activeMoveActions < 1) {
-				return priority + 2;
-			} else if (source.activeMoveActions > 1) {
-				return priority + 0;
+			if (move.flags['bullet']) {
+				if (source.activeMoveActions < 1) {
+					return priority + 2;
+				} else if (source.activeMoveActions > 1) {
+					return priority + 0;
+				}
 			}
 		},
 		name: "Quick Draw",

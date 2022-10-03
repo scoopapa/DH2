@@ -25,7 +25,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'dragapult').learnset.hydropump;
 		delete this.modData('Learnsets', 'dragapult').learnset.thunder;
 		delete this.modData('Learnsets', 'dragapult').learnset.phantomforce;
-		
 		this.modData('Learnsets', 'dragapult').learnset.shadowclaw = ['8L1'];
 		this.modData('Learnsets', 'dragapult').learnset.nightslash = ['8L1'];
 		
@@ -40,7 +39,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'rayquaza').learnset.vcreate;
 		
 		this.modData('Learnsets', 'deoxys').learnset.topsyturvy = ['8L1'];
-		
 		delete this.modData('Learnsets', 'deoxys').learnset.spikes;
 		delete this.modData('Learnsets', 'deoxys').learnset.nastyplot;
 		delete this.modData('Learnsets', 'deoxys').learnset.superpower;
@@ -81,6 +79,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'magearna').learnset.aurasphere;
 		delete this.modData('Learnsets', 'magearna').learnset.icebeam;
 		delete this.modData('Learnsets', 'magearna').learnset.aurorabeam;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.agility;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.shiftgear;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.calmmind;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.focusblast;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.aurasphere;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.icebeam;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.aurorabeam;
 		
 		this.modData('Learnsets', 'reshiram').learnset.uturn = ['8L1'];
 		

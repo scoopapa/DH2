@@ -156,6 +156,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 115, atk: 85, def: 115, spa: 85, spd: 115, spe: 85},
 	},
+	magearnaoriginal: {
+		inherit: true,
+		baseStats: {hp: 115, atk: 85, def: 115, spa: 85, spd: 115, spe: 85},
+	},
 	pheromosa: {
 		inherit: true,
 		baseStats: {hp: 83, atk: 113, def: 67, spa: 113, spd: 67, spe: 127},
@@ -414,5 +418,33 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	clawitzer: {
 		inherit: true,
 		abilities: {0: "Mega Launcher", H: "Quick Draw"},
+	},
+	morpeko: {
+		inherit: true,
+		abilities: {0: "Hunger Switch", H: "Moody"},
+	},
+	spinda: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Moody", H: "Contrary"},
+	},
+	plusle: {
+		inherit: true,
+		abilities: {0: "Plus", 1: "Moody", H: "Lightning Rod"},
+	},
+	minun: {
+		inherit: true,
+		abilities: {0: "Minus", 1: "Moody", H: "Volt Absorb"},
+	},
+	beautifly: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Moody", H: "Rivalry"},
+	},
+	dustox: {
+		inherit: true,
+		abilities: {0: "Shield Dust", 1: "Moody", H: "Compound Eyes"},
+	},
+	mesprit: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Moody"},
 	},
 };
