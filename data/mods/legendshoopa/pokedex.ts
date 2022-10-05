@@ -430,7 +430,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "M",
 
 		types: ["Dark", "Electric"],
-		baseStats: {hp: 104, atk: 98, def: 83, spa: 92, spd: 87, spe: 71},
+		baseStats: {hp: 135, atk: 112, def: 65, spa: 65, spd: 100, spe: 63},
 		abilities: {0: "Water Absorb", 1: "Illuminate", H: "Strong Jaw"},
 		movepoolAdditions: [
 			"bite", "crunch", "darkpulse", "eerieimpulse", "flipturn", "icefang", "jawlock", "leer", "liquidation", "meanlook", "psychicfangs", "recover", "scaryface",
@@ -455,7 +455,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gender: "F",
 
 		types: ["Dark", "Electric"],
-		baseStats: {hp: 104, atk: 98, def: 83, spa: 92, spd: 87, spe: 71},
+		baseStats: {hp: 135, atk: 112, def: 65, spa: 65, spd: 100, spe: 63},
 		abilities: {0: "Water Absorb", 1: "Illuminate", H: "Strong Jaw"},
 		movepoolAdditions: [
 			"bite", "crunch", "darkpulse", "eerieimpulse", "flipturn", "icefang", "jawlock", "leer", "liquidation", "meanlook", "psychicfangs", "recover", "scaryface",
