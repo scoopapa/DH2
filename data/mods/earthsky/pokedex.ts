@@ -1506,9 +1506,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 35, atk: 65, def: 160, spa: 30, spd: 45, spe: 70},
 	},
+	krabby: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Shell Armor", H: "Bludgeon"},
+	},
+	kingler: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Shell Armor", H: "Bludgeon"},
+	},
 	exeggutoralola: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Bludgeon", H: "Harvest"},
+		abilities: {0: "Bludgeon", H: "Harvest"},
 	},
 	koffing: {
 		inherit: true,

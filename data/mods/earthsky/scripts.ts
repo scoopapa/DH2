@@ -1570,19 +1570,14 @@ export const Scripts: ModdedBattleScriptsData = {
 			/* Moves */
 			let moveLearn; //store move learnset to save memory/time
 			let moveDropped = false;
-			if(learnsetTest) {
-				console.log(baseEight);
-				console.log(pokemonID);
-				console.log(baseEight.includes(pokemonID));
-			}
 			let startGen = (((pokemon.num > 807 || pokemon.num < -60) || baseEight.includes(pokemonID)) ? 8 : 7); //Tags Gen 7 or 8 for level/egg moves
 			const levelString = new RegExp(startGen + 'L[0-9]+');
 			if(learnsetTest) console.log("Starting with Gen " + startGen);
 			
 			// For Stone Evolutions, import prevo's level-up learnset at level 1
-			const stoneEvo = (startGen === 7 && pokemon.prevo && pokemon.prevo !== "Eevee" && pokemon.evoType && 
-				["Fire Stone", "Water Stone", "Thunder Stone", "Leaf Stone", "Moon Stone", "Sun Stone", "Shiny Stone", "Dusk Stone", "Dawn Stone", "Ice Stone"].includes(pokemon.evoType));
-			if(stoneEvo && this.modData('Learnsets', toID(pokemon.prevo)).learnset){
+			const stoneEvo = (startGen === 7 && pokemon.prevo && pokemon.prevo !== "Eevee" && pokemon.evoItem && 
+				["Fire Stone", "Water Stone", "Thunder Stone", "Leaf Stone", "Moon Stone", "Sun Stone", "Shiny Stone", "Dusk Stone", "Dawn Stone", "Ice Stone"].includes(pokemon.evoItem));
+			if(stoneEvo){
 				if(learnsetTest) console.log("This Pokemon evolves by Evolution Stone and needs its prevo's level-up moves");
 				for(const prevoMove of this.modData('Learnsets', toID(pokemon.prevo)).learnset){
 					const esLevelString = new RegExp('8L[0-9]+'); //Prevos will have updated their movepool first (no Pokemon evolves by Stone from one introduced later than it), so moves will always be stored as Gen 8
@@ -1702,7 +1697,10 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 				}
 			}
-			if(learnsetTest) console.log("Final: " + this.modData('Learnsets', pokemonID).learnset);
+			if(learnsetTest){
+				console.log("Final: " + this.modData('Learnsets', pokemonID).learnset);
+				console.log("");
+			}
 		}
 		
 		/* Delete stuff */
