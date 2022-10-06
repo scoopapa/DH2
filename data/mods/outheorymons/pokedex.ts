@@ -213,6 +213,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	beartic: {
 		inherit: true, 
 		types: ["Ice", "Fighting"],
-		baseStats: {hp: 95, atk: 130, def: 80, spa: 70, spd: 80, spd: 70},
+		baseStats: {hp: 95, atk: 130, def: 80, spa: 70, spd: 80, spd: 75},
    }, 
 };
