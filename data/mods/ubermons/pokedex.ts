@@ -184,8 +184,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	dialga: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Persistent", H: "Telepathy"},
-		baseStats: {hp: 80, atk: 100, def: 100, spa: 130, spd: 80, spe: 80},
+		abilities: {0: "Pressure", H: "Telepathy"},
+		baseStats: {hp: 80, atk: 100, def: 100, spa: 125, spd: 80, spe: 85},
 	},
 	palkia: {
 		inherit: true,
@@ -377,7 +377,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	necrozmaultra: {
 		inherit: true,
 		types: ["Psychic", "Dark"],
-		baseStats: {hp: 97, atk: 139, def: 91, spa: 139, spd: 91, spe: 127},
+		baseStats: {hp: 97, atk: 127, def: 103, spa: 127, spd: 103, spe: 113},
 	},
 	darkrai: {
 		inherit: true,

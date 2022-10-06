@@ -312,7 +312,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	prismaticlaser: {
 		num: 711,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 70,
 		category: "Special",
 		shortDesc: "Super effective against Dark-types. 20% chance to lower target's accuracy.",
 		name: "Prismatic Laser",
