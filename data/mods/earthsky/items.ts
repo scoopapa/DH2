@@ -375,9 +375,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		consumable: true,
 		condition: {
 			duration: 2,
-			onSourceModifyMove(move, source, target) {
-				this.add('-enditem', source, 'Micle Berry');
-				source.removeVolatile('micleberry');
+			onModifyMovePriority: -5,
+			onModifyMove(move, pokemon) {
+				this.add('-enditem', pokemon, 'Micle Berry');
+				pokemon.removeVolatile('micleberry');
 				move.accuracy = true;
 				move.ignoreEvasion = true;
 			},
