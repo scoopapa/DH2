@@ -375,13 +375,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		consumable: true,
 		condition: {
 			duration: 2,
-			onAccuracyPriority: -1,
-			onAccuracy(accuracy, target, source, move) {
+			onSourceModifyMove(move, source, target) {
 				this.add('-enditem', source, 'Micle Berry');
 				source.removeVolatile('micleberry');
-				if (typeof(move.accuracy) === 'number' && !move.ohko) {
-					return true;
-				}
+				move.accuracy = true;
+				move.ignoreEvasion = true;
 			},
 		},
 		desc: "Holder's next non-OHKO move never misses when at 1/4 max HP or less. Single use.",
