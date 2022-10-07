@@ -39,13 +39,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'rayquaza').learnset.vcreate;
 		
 		this.modData('Learnsets', 'deoxys').learnset.topsyturvy = ['8L1'];
-		delete this.modData('Learnsets', 'deoxys').learnset.spikes;
+		//delete this.modData('Learnsets', 'deoxys').learnset.spikes;
 		delete this.modData('Learnsets', 'deoxys').learnset.nastyplot;
-		delete this.modData('Learnsets', 'deoxys').learnset.superpower;
-		delete this.modData('Learnsets', 'deoxys').learnset.extremespeed;
+		//delete this.modData('Learnsets', 'deoxys').learnset.superpower;
+		//delete this.modData('Learnsets', 'deoxys').learnset.extremespeed;
 		delete this.modData('Learnsets', 'deoxys').learnset.magiccoat;
-		delete this.modData('Learnsets', 'deoxys').learnset.taunt;
-		delete this.modData('Learnsets', 'deoxys').learnset.focusblast;
+		//delete this.modData('Learnsets', 'deoxys').learnset.taunt;
+		//delete this.modData('Learnsets', 'deoxys').learnset.focusblast;
 		delete this.modData('Learnsets', 'deoxys').learnset.drainpunch;
 		delete this.modData('Learnsets', 'deoxys').learnset.brickbreak;
 		delete this.modData('Learnsets', 'deoxys').learnset.agility;

@@ -3460,7 +3460,25 @@ export const Formats: FormatList = [
 		},
 		mod: 'blindstrictions',
 	},
-  {
+	{    
+		name: "[Gen 8] Boatmod OU",
+		desc: "Regic Boat's solomod.",
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQoBw-L2HININ-a3khG8iCqIqspSN4IRbifAZsoaGW1BMPlTE95JMxBeCWRPKHWygIdv336kyI4JVhN/pubhtml#">Spreadsheet</a>`,
+		],
+		mod: "boatmod",
+		teambuilderFormat: 'boatmod',
+		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
+		banlist: [
+			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
+			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
+			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
+			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
+			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
+			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+		],
+	},
+	{
 		name: "[Gen 8] Chaos Chaos Chaos",
 		desc: `Chaos Chaos Chaos`,
   		threads: [
@@ -4104,24 +4122,6 @@ export const Formats: FormatList = [
 						'Clefable', 'Mawile', 'Avalugg', 'Deoxys', 'Cherrim', 'Ampharos', 'Centiskorch', 'Magmortar', 'Electivire', 'Swampert', 'Copperajah',
 						'Pyroar', 'Pinsir', 'Toucannon', 'Tapu Koko', 'Rotom-Heat', 'Fearow', 'Mightyena', 'Manectric', 'Slaking', 'Dragapult',
 						'Krookodile', 'Carracosta', 'Goodra', 'Oricorio-Pom-Pom', 'Delcatty', 'Tropius', 'Skitty'],
-	},
-	{    
-		name: "[Gen 8] Boatmod OU",
-		desc: "Regic Boat's solomod.",
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQoBw-L2HININ-a3khG8iCqIqspSN4IRbifAZsoaGW1BMPlTE95JMxBeCWRPKHWygIdv336kyI4JVhN/pubhtml#">Spreadsheet</a>`,
-		],
-		mod: "boatmod",
-		teambuilderFormat: 'boatmod',
-		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Evasion Moves Clause', 'Species Clause', 'Data Mod'],
-		banlist: [
-			'Alakazam-Mega', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed',
-			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Kangaskhan-Mega', 'Kyogre',
-			'Kyurem-Black', 'Kyurem-White', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo',
-			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram',
-			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde-Base',
-			'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'Baton Pass',
-		],
 	},
 	// Past Gens OU
 	///////////////////////////////////////////////////////////////////
