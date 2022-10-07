@@ -1575,15 +1575,15 @@ export const Scripts: ModdedBattleScriptsData = {
 			if(learnsetTest) console.log("Starting with Gen " + startGen);
 			
 			// For Stone Evolutions, import prevo's level-up learnset at level 1
-			const stoneEvo = (startGen === 7 && pokemon.prevo && pokemon.prevo !== "Eevee" && pokemon.evoItem && 
-				["Fire Stone", "Water Stone", "Thunder Stone", "Leaf Stone", "Moon Stone", "Sun Stone", "Shiny Stone", "Dusk Stone", "Dawn Stone", "Ice Stone"].includes(pokemon.evoItem));
-			if(stoneEvo){
+			const stoneCheck = (startGen === 7 && pokemon.prevo && !(["Eevee", "Sunkern", "Charjabug", "Darumaka-Galar"].includes(pokemon.prevo)) && pokemon.evoItem && 
+				["Fire Stone", "Water Stone", "Thunder Stone", "Leaf Stone", "Moon Stone", "Sun Stone", "Shiny Stone", "Dusk Stone", "Ice Stone"].includes(pokemon.evoItem));
+			if(stoneCheck){
 				if(learnsetTest) console.log("This Pokemon evolves by Evolution Stone and needs its prevo's level-up moves");
 				for(const moveID in this.modData('Learnsets', this.toID(pokemon.prevo)).learnset){
 					const prevoMove = this.modData('Learnsets', this.toID(pokemon.prevo)).learnset[moveID];
 					const esLevelString = new RegExp('8L[0-9]+'); //Prevos will have updated their movepool first (no Pokemon evolves by Stone from one introduced later than it), so moves will always be stored as Gen 8
 					if(esLevelString.test(prevoMove[0])){ //Level-up will always be first in updated learnset and we only need it once
-						if(learnsetTest) console.log("Importing " + prevoMove.name);
+						if(learnsetTest) console.log("Importing " + moveID);
 						if(this.modData('Learnsets', pokemonID).learnset[moveID]) this.modData('Learnsets', pokemonID).learnset[moveID].unshift("7L1");
 						else this.modData('Learnsets', pokemonID).learnset[moveID] = ["7L1"];
 					}
@@ -1622,9 +1622,12 @@ export const Scripts: ModdedBattleScriptsData = {
 				for(const learnType of moveLearn){
 					if(levelString.test(learnType)){
 						if(learnsetTest) console.log("This move is learned by level");
-						if(stoneEvo) { //Stone Evolutions only learn moves at level 1 and therefore we must also make sure they only learn moves once by level
+						if(stoneCheck) { //Most Stone Evolutions only learn moves at level 1 and therefore we must also make sure they only learn moves once by level
 							if(!moveMeans.includes("8L1")) moveMeans.push("8L1");
-						} else moveMeans.push("8" + learnType.substring(1));
+						} else if(moveMeans.includes("8L1") && learnType !== (startGen + "L1")) { //Removes all instances of learning a move at level 1 and another level
+							moveMeans = ["8" + learnType.substring(1)]; //The check comes before non-level means are compiled, so this overrides the level 1 with the other level
+						}
+						else moveMeans.push("8" + learnType.substring(1));
 					}
 				}
 				if(moveLearn.includes("".concat(startGen,"E"))){
@@ -5669,9 +5672,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'swirlix').learnset.toxic;
 		// Slurpuff
 		this.modData("Learnsets", "slurpuff").learnset.lick = ["8D"];
-		this.modData("Learnsets", "slurpuff").learnset.playnice = ["8L3"];
-		this.modData("Learnsets", "slurpuff").learnset.fairywind = ["8L6"];
-		delete this.modData('Learnsets', 'slurpuff').learnset.stickyweb;
 		delete this.modData('Learnsets', 'slurpuff').learnset.toxic;
 		// Inkay
 		this.modData("Learnsets", "inkay").learnset.liquidation = ["8D"];

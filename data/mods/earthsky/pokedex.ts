@@ -1814,13 +1814,33 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Water Veil", 1: "Storm Drain", H: "Dazzling"},
 	},
+	magnezone: {
+		inherit: true,
+		evoType: "levelExtra",
+		evoCondition: "near a special magnetic field",
+	},
 	tangrowth: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Tangling", H: "Regenerator"},
 	},
+	leafeon: {
+		inherit: true,
+		evoType: "levelExtra",
+		evoCondition: "near a Moss Rock",
+	},
+	leafeon: {
+		inherit: true,
+		evoType: "levelExtra",
+		evoCondition: "near an Icy Rock",
+	},
 	mamoswine: {
 		inherit: true,
 		abilities: {0: "Oblivious", 1: "Ice Breaker", H: "Thick Fat"},
+	},
+	probopass: {
+		inherit: true,
+		evoType: "levelExtra",
+		evoCondition: "near a special magnetic field",
 	},
 	dusknoir: {
 		inherit: true,
@@ -2141,8 +2161,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	vikavolt: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Galvanize"},
-		evoType: "levelExtra",
-		evoCondition: "near a special magnetic field",
 	},
 	rockruff: {
 		num: 744,
