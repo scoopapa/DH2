@@ -379,7 +379,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			onAccuracy(accuracy, target, source, move) {
 				this.add('-enditem', source, 'Micle Berry');
 				source.removeVolatile('micleberry');
-				if (typeof accuracy === 'number' && !move.ohko) {
+				if (typeof(accuracy) === 'number' && !move.ohko) {
 					return true;
 				}
 			},

@@ -1654,7 +1654,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(learnsetTest) console.log("This move is taught by tutor");
 					moveMeans.push("8T");
 				}
-				if(startGen === 8 && !moveMeans && moveLearn.includes("7E")){
+				if(startGen === 8 && !moveMeans.length && moveLearn.includes("7E")){
 					if(learnsetTest) console.log("This move was learned by egg before it got removed");
 					moveMeans.push("8E");
 				}

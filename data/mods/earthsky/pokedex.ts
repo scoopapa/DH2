@@ -1894,6 +1894,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	regigigas: {
 		inherit: true,
 		abilities: {0: "Slow Start", H: "Stall"},
+		unreleasedHidden: true,
 	},
 	giratinaorigin: {
 		inherit: true,
@@ -2149,6 +2150,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	volcanion: {
 		inherit: true,
 		abilities: {0: "Water Absorb", H: "Steam Engine"},
+		unreleasedHidden: true,
 	},
 	grubbin: {
 		inherit: true,
