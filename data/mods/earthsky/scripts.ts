@@ -1584,7 +1584,8 @@ export const Scripts: ModdedBattleScriptsData = {
 					const esLevelString = new RegExp('8L[0-9]+'); //Prevos will have updated their movepool first (no Pokemon evolves by Stone from one introduced later than it), so moves will always be stored as Gen 8
 					if(esLevelString.test(prevoMove[0])){ //Level-up will always be first in updated learnset and we only need it once
 						if(learnsetTest) console.log("Importing " + move.name);
-						this.modData('Learnsets', pokemonID).learnset[moveID].unshift("7L1");
+						if(this.modData('Learnsets', pokemonID).learnset[moveID]) this.modData('Learnsets', pokemonID).learnset[moveID].unshift("7L1");
+						else this.modData('Learnsets', pokemonID).learnset[moveID] = ["7L1"];
 					}
 				}
 				if(learnsetTest) console.log("Commencing update");
