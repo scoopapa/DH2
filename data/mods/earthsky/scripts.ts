@@ -1534,7 +1534,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		//console.log(esrules);
 		for (let pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];
-			const learnsetTest = ["farfetchd", "lampent", "slurpuff"].includes(pokemonID);
+			const learnsetTest = ["farfetchd"].includes(pokemonID);
 			 //Don't do anything with the new Pokemon, Totems, and Pokestar Studios opponents
 			if(pokemon.num <= -500 || pokemonID.endsWith('totem')) continue;
 			//Change generational accessibility
@@ -1621,13 +1621,16 @@ export const Scripts: ModdedBattleScriptsData = {
 				// Level and egg moves of base gen
 				for(const learnType of moveLearn){
 					if(levelString.test(learnType)){
-						if(learnsetTest) console.log("This move is learned by level");
 						if(stoneCheck) { //Most Stone Evolutions only learn moves at level 1 and therefore we must also make sure they only learn moves once by level
 							if(!moveMeans.includes("8L1")) moveMeans.push("8L1");
-						} else if(moveMeans.includes("8L1") && learnType !== (startGen + "L1")) { //Removes all instances of learning a move at level 1 and another level
+						} /*else if(moveMeans.includes("8L1") && learnType !== (startGen + "L1")) { //Removes all instances of learning a move at level 1 and another level
+							if(learnsetTest) console.log ("This move is learned by level more than once, erasing the level 1 position");
 							moveMeans = ["8" + learnType.substring(1)]; //The check comes before non-level means are compiled, so this overrides the level 1 with the other level
+						}*/ //Showdown only stores the lowest level so this doesn't matter anyway
+						else {
+							if(learnsetTest) console.log("This move is learned by level");
+							moveMeans.push("8" + learnType.substring(1));
 						}
-						else moveMeans.push("8" + learnType.substring(1));
 					}
 				}
 				if(moveLearn.includes("".concat(startGen,"E"))){
@@ -1650,6 +1653,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				if(['grasspledge', 'firepledge', 'waterpledge', 'frenzyplant', 'blastburn', 'hydrocannon', 'dracometeor', 'steelbeam', 'meteorbeam'].includes(moveID) && moveLearn.includes("8T")){
 					if(learnsetTest) console.log("This move is taught by tutor");
 					moveMeans.push("8T");
+				}
+				if(startGen === 8 && !moveMeans && moveLearn.includes("7E")){
+					if(learnsetTest) console.log("This move was learned by egg before it got removed");
+					moveMeans.push("8E");
 				}
 				if(learnsetTest) console.log("Compiled: " + moveMeans);
 				/* drops removed teachables */
@@ -1703,7 +1710,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			if(learnsetTest){
-				console.log("Final: " + this.modData('Learnsets', pokemonID).learnset);
+				console.log("Final: ");
+				console.log(this.modData('Learnsets', pokemonID).learnset);
 				console.log("");
 			}
 		}
@@ -5672,6 +5680,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'swirlix').learnset.toxic;
 		// Slurpuff
 		this.modData("Learnsets", "slurpuff").learnset.lick = ["8D"];
+		delete this.modData('Learnsets', 'slurpuff').learnset.stickyweb;
 		delete this.modData('Learnsets', 'slurpuff').learnset.toxic;
 		// Inkay
 		this.modData("Learnsets", "inkay").learnset.liquidation = ["8D"];
