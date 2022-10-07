@@ -1579,9 +1579,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				["Fire Stone", "Water Stone", "Thunder Stone", "Leaf Stone", "Moon Stone", "Sun Stone", "Shiny Stone", "Dusk Stone", "Dawn Stone", "Ice Stone"].includes(pokemon.evoItem));
 			if(stoneEvo){
 				if(learnsetTest) console.log("This Pokemon evolves by Evolution Stone and needs its prevo's level-up moves");
-				for(const prevoMove of this.modData('Learnsets', this.toID(pokemon.prevo)).learnset){
+				for(const moveID in this.modData('Learnsets', this.toID(pokemon.prevo)).learnset){
+					const prevoMove = this.modData('Learnsets', this.toID(pokemon.prevo)).learnset[moveID];
 					const esLevelString = new RegExp('8L[0-9]+'); //Prevos will have updated their movepool first (no Pokemon evolves by Stone from one introduced later than it), so moves will always be stored as Gen 8
-					if(esLevelString.test(prevoMove[moveID][0])){ //Level-up will always be first in updated learnset and we only need it once
+					if(esLevelString.test(prevoMove[0])){ //Level-up will always be first in updated learnset and we only need it once
 						if(learnsetTest) console.log("Importing " + move.name);
 						this.modData('Learnsets', pokemonID).learnset[moveID].unshift("7L1");
 					}
