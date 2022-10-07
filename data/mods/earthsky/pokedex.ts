@@ -1297,7 +1297,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Durant",
 		forme: "Egelas",
 		types: ["Bug", "Fire"],
-		baseStats: {hp: 58, atk: 109, def: 92, spa: 68, spd: 48, spe: 109},
+		baseStats: {hp: 58, atk: 109, def: 72, spa: 88, spd: 48, spe: 109},
 		abilities: {0: "Symbiosis", 1: "Hustle", H: "Truant"},
 		heightm: 0.3,
 		weightkg: 16.5,
@@ -1506,9 +1506,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 35, atk: 65, def: 160, spa: 30, spd: 45, spe: 70},
 	},
+	krabby: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Shell Armor", H: "Bludgeon"},
+	},
+	kingler: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Shell Armor", H: "Bludgeon"},
+	},
 	exeggutoralola: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Bludgeon", H: "Harvest"},
+		abilities: {0: "Bludgeon", H: "Harvest"},
 	},
 	koffing: {
 		inherit: true,
@@ -1806,13 +1814,33 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Water Veil", 1: "Storm Drain", H: "Dazzling"},
 	},
+	magnezone: {
+		inherit: true,
+		evoType: "levelExtra",
+		evoCondition: "near a special magnetic field",
+	},
 	tangrowth: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Tangling", H: "Regenerator"},
 	},
+	leafeon: {
+		inherit: true,
+		evoType: "levelExtra",
+		evoCondition: "near a Moss Rock",
+	},
+	leafeon: {
+		inherit: true,
+		evoType: "levelExtra",
+		evoCondition: "near an Icy Rock",
+	},
 	mamoswine: {
 		inherit: true,
 		abilities: {0: "Oblivious", 1: "Ice Breaker", H: "Thick Fat"},
+	},
+	probopass: {
+		inherit: true,
+		evoType: "levelExtra",
+		evoCondition: "near a special magnetic field",
 	},
 	dusknoir: {
 		inherit: true,
@@ -1866,6 +1894,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	regigigas: {
 		inherit: true,
 		abilities: {0: "Slow Start", H: "Stall"},
+		unreleasedHidden: true,
 	},
 	giratinaorigin: {
 		inherit: true,
@@ -2121,6 +2150,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	volcanion: {
 		inherit: true,
 		abilities: {0: "Water Absorb", H: "Steam Engine"},
+		unreleasedHidden: true,
 	},
 	grubbin: {
 		inherit: true,
@@ -2133,8 +2163,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	vikavolt: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Galvanize"},
-		evoType: "levelExtra",
-		evoCondition: "near a special magnetic field",
 	},
 	rockruff: {
 		num: 744,
