@@ -1534,7 +1534,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		//console.log(esrules);
 		for (let pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];
-			const learnsetTest = ["farfetchd"].includes(pokemonID);
+			const learnsetTest = false;//["farfetchd"].includes(pokemonID);
 			 //Don't do anything with the new Pokemon, Totems, and Pokestar Studios opponents
 			if(pokemon.num <= -500 || pokemonID.endsWith('totem')) continue;
 			//Change generational accessibility
