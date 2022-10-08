@@ -1,3 +1,5 @@
+export const Learnsets = {
+
 woodite: {learnset: {
 	bugbite: ["7L1"],
 	bugbuzz: ["7L1"],
@@ -3662,3 +3664,4 @@ skyradise: {learnset: {
 	thunder: ["7L1"],
 	thunderbolt: ["7L1"],
 }},
+};
