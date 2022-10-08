@@ -470,6 +470,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.addVolatile('smackdown');
 			}
 		},
+		ignoreImmunity: {'Ground': true},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Ground",
