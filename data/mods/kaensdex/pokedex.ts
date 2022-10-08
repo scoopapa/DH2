@@ -1,3 +1,5 @@
+export const Pokedex: {[speciesid: string]: SpeciesData} = {
+
 woodite: {
 	num: 1.5,
 	species: "Woodite",
@@ -1472,3 +1474,4 @@ skyradise: {
 	abilities: {0: "Magic Guard", H: "Magic Bounce"},
 	weightkg: 999.9,
 },
+};
