@@ -152,7 +152,7 @@ export const Formats: FormatList = [
 				'Necrozma', 'Necrozma-Lionheart', 'Necrozma-Batwing', 'Necrozma-Dragon', 'Braviary-Patriot', 'Braviary-Hisui', 'Lilligant-Bard', 'Mistlegant', 'Electrode-Screwball', 
 				'Electrode-Ringo', 'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales', "Indeedee-Devil", "Indeedee-Angel", "Polteageist", "Polteageist-Antique",
 				"Toxtricity-Rock-Star", "Toxtricity-Low-Key", "Articuno-Mistral", "Articuno-Tsunami", "Zapdos", "Charpados", "Moltres", "Bennutres", "Marowak", "Alolawak", "Marowak-Alola-Totem",
-				"Enamorus", "Violentine",
+				"Enamorus", "Violentine", "Dialga", "Archronos", "Palkia", "Palkia-Origin",
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -3188,6 +3188,18 @@ export const Formats: FormatList = [
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
 	},
+	/*{
+		name: "[Gen 8] Ubermons Random Battle",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
+		], 
+		mod: 'ubermons',
+		team: 'random',
+		ruleset: ['[Gen 8] Ubermons', '!Team Preview'],
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		},
+	},*/
 	/*
 	{
 		name: "[Gen 8] Ink's Winter Wonderland",

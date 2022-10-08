@@ -14,6 +14,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "oricorio").learnset.firespin = ["8L1"];
 		this.modData("Learnsets", "oricorio").learnset.willowisp = ["8L1"];
 		this.modData("Learnsets", "oricorio").learnset.twirlingdance = ["8L1"];
+		this.modData("Learnsets", "oricorio").learnset.dualwingbeat = ["8L1"];
 		
 		this.modData("Learnsets", "ribombee").learnset.gigadrain = ["8L1"];
 		this.modData("Learnsets", "ribombee").learnset.thunderwave = ["8L1"];
@@ -45,11 +46,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "vikavolt").learnset.metalclaw = ["8L1"];
 		this.modData("Learnsets", "vikavolt").learnset.ironhead = ["8L1"];
 		this.modData("Learnsets", "vikavolt").learnset.switcheroo = ["8L1"];
-		delete this.modData('Learnsets', 'grubbin').learnset.agility;
+		this.modData("Learnsets", "vikavolt").learnset.swordsdance = ["8L1"];
+		this.modData("Learnsets", "vikavolt").learnset.brickbreak = ["8L1"];
+		this.modData("Learnsets", "vikavolt").learnset.zingzap = ["8L1"];
+		this.modData("Learnsets", "vikavolt").learnset.stompingtantrum = ["8L1"];
 		delete this.modData('Learnsets', 'grubbin').learnset.stickyweb;
-		delete this.modData('Learnsets', 'charjabug').learnset.agility;
 		delete this.modData('Learnsets', 'charjabug').learnset.stickyweb;
-		delete this.modData('Learnsets', 'vikavolt').learnset.agility;
 		delete this.modData('Learnsets', 'vikavolt').learnset.stickyweb;
 
 		this.modData("Learnsets", "vikavolttotem").learnset.earthquake = ["8L1"];
@@ -259,6 +261,32 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'marowakalolatotem').learnset.willowisp;
 		delete this.modData('Learnsets', 'marowakalolatotem').learnset.flamewheel;
 		delete this.modData('Learnsets', 'marowakalolatotem').learnset.sunnyday;
+		
+		this.modData("Learnsets", "dialga").learnset.doomdesire = ["8L1"];
+		this.modData("Learnsets", "dialga").learnset.teleport = ["8L1"];
+		
+		this.modData("Learnsets", "palkia").learnset.cosmicpower = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.calmmind = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.teleport = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.zenheadbutt = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.psychicfangs = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.superpower = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.expandingforce = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.hyperspacehole = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.psychic = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.psyshock = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.psychoboost = ["8L1"];
+		delete this.modData('Learnsets', 'palkia').learnset.aquaring;
+		delete this.modData('Learnsets', 'palkia').learnset.raindance;
+		delete this.modData('Learnsets', 'palkia').learnset.aquatail;
+		delete this.modData('Learnsets', 'palkia').learnset.liquidation;
+		delete this.modData('Learnsets', 'palkia').learnset.dive;
+		delete this.modData('Learnsets', 'palkia').learnset.hydropump;
+		delete this.modData('Learnsets', 'palkia').learnset.surf;
+		delete this.modData('Learnsets', 'palkia').learnset.brine;
+		delete this.modData('Learnsets', 'palkia').learnset.waterpulse;
+		delete this.modData('Learnsets', 'palkia').learnset.whirlpool;
+
 	},
 	
 	pokemon: {
