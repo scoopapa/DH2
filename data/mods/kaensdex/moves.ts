@@ -1,3 +1,5 @@
+export const Moves: {[k: string]: ModdedMoveData} = {
+
 woodcrash: {
 num: 10000,
 accuracy: 100,
@@ -540,3 +542,4 @@ souldrain: {
 		type: "Ghost",
 		contestType: "Clever",
 	},
+};
