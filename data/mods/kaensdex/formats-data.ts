@@ -1,4 +1,6 @@
-	woodite: {
+export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+
+woodite: {
 		tier: "KaensDex",
 		doublesTier: "KDD",
 	},
@@ -646,3 +648,4 @@
 		tier: "KaensDex",
 		doublesTier: "KDD",
 	},
+};
