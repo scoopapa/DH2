@@ -1,3 +1,5 @@
+export const Abilities: {[k: string]: ModdedAbilityData} = {
+
 success: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
@@ -145,3 +147,4 @@ deepsea: {
 		rating: 3,
 		num: 10008,
 	},
+};
