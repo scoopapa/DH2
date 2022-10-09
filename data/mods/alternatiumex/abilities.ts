@@ -116,7 +116,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: -5,
 	},
-	splitsystem: {
+	splitsystem: { //Not used in this mod, but the code can be helpful
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.type === "Dark") {
@@ -423,5 +423,103 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon's Sp. Atk. is 1.5x, but it can only select the first move it executes.",
 		rating: 4.5,
 		num: -14,
+	},
+	transience: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.field.pseudoWeather.trickroom) {
+				this.debug('Transience weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Transience",
+		shortDesc: "Under Trick Room, this Pokemon takes 0.75x damage from attacks.",
+		rating: 3.5,
+		num: -15,
+	},
+	originorb: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity === true;
+				move.basePower *= 0.5;
+			}
+		},
+		name: "Origin Orb",
+		shortDesc: "(Bugged) This Pokemon deals resisted damage to immunities.",
+		rating: 5,
+		num: -16,
+	},
+	rewind: {
+		onSwitchOut(pokemon) {
+			if (pokemon.hp && !pokemon.item && this.dex.getItem(pokemon.lastItem)) {
+				const item = pokemon.lastItem;
+				pokemon.lastItem = '';
+				this.add('-item', pokemon, this.dex.getItem(item), '[from] ability: Rewind');
+				pokemon.setItem(item);
+			}
+		},
+		name: "Rewind",
+		shortDesc: "(Bugged) This Pokemon restores its held item upon switching out.",
+		rating: 3.5,
+		num: -17,
+	},
+	spacedivide: {
+		onAfterBoost(boost, target, source, effect) {
+			if (!boost || effect.id === 'spacedivide') return;
+			let activated = false;
+			const spacedivideBoost: SparseBoostsTable = {};
+			if (boost.spa) {
+				spacedivideBoost.atk = -1 * boost.spa;
+				activated = true;
+			}
+			if (boost.spd) {
+				spacedivideBoost.def = -1 * boost.spd;
+				activated = true;
+			}
+			if (boost.atk) {
+				spacedivideBoost.spa = -1 * boost.atk;
+				activated = true;
+			}
+			if (boost.def) {
+				spacedivideBoost.spd = -1 * boost.def;
+				activated = true;
+			}
+			if (activated === true) {
+				this.add('-ability', target, 'Space Divide');
+				this.boost(spacedivideBoost, target, target, null, true);
+			}
+		},
+		name: "Space Divide",
+		shortDesc: "Applies the opposite of stat changes to the opposite stat (Atk/Sp. Atk, Def/Sp. Def).",
+		rating: 4,
+		num: -18,
+	},
+	
+	
+	//for /data cause I didn't want to do new items
+	adamantorbdialga: {
+		name: "Adamantorbdialga",
+		shortDesc: "If held by Dialga, extends Trick Room duration by 3.",
+		rating: 0,
+		num: -1001,
+	},
+	adamantorbarchronos: {
+		name: "Adamantorbarchronos",
+		shortDesc: "If held by Archronos: 1.2x in its offenses & 0.8x in its defenses.",
+		rating: 0,
+		num: -1002,
+	},
+	lustrousorbpalkia: {
+		name: "Lustrousorbpalkia",
+		shortDesc: "Boost the power of Palkia's STAB moves by 1.2x.",
+		rating: 0,
+		num: -1003,
+	},
+	lustrousorbpalkiaorigin: {
+		name: "Lustrousorbpalkiaorigin",
+		shortDesc: "If a Terrain is active, raises holder's Attack by 1 stage. Single use.",
+		rating: 0,
+		num: -1004,
 	},
 };

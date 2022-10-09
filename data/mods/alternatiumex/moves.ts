@@ -59,7 +59,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	ceaselessedge: {
 		num: -3,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 85,
 		category: "Physical",
 		shortDesc: "If this move is not very effective on a target, it sets a layer of Spikes.",
 		name: "Ceaseless Edge",
@@ -217,7 +217,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	wickedblow: {
 		inherit: true,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 85,
 		shortDesc: "Inflicts Torment on the opponent.",
 		pp: 10,
@@ -234,9 +234,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
-			return move.basePower + 10 * pokemon.positiveBoosts();
+			return move.basePower + 20 * pokemon.positiveBoosts();
 		},
-		shortDesc: "+ 10 power for each of the user's stat boosts.",
+		shortDesc: "+ 20 power for each of the user's stat boosts.",
 		pp: 10,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		willCrit: null,
@@ -506,7 +506,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	prismaticlaser: {
 		num: 711,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		shortDesc: "This move ignores type based interactions.",
 		name: "Prismatic Laser",
@@ -767,11 +767,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 	springtidestorm: {
 		num: -16,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 85,
 		category: "Special",
 		shortDesc: "Lowers the user's Sp. Atk by 2.",
 		name: "Springtide Storm",
-		pp: 5,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		self: {
@@ -786,5 +786,88 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
+	},
+	roaroftime: {
+		num: 459,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Raises user's SpA by 1 when attacked before it moves.",
+		name: "Roar of Time",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('roaroftime');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Roar of Time');
+			},
+			onDamagingHit(damage, target, source, move) {
+				this.boost({spa: 1}, target, source, undefined, true);
+				this.add('-activate', target, 'move: Roar of Time');
+			},
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('roaroftime');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
+	originrend: {
+		num: -17,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("Power doubled for no item");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		shortDesc: "Power doubles if the user has no held item.",
+		name: "Origin Rend",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spacial Rend", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+	},
+	
+	trickroom: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				if (source?.hasItem('adamantorb') && source?.species.name === 'Dialga') {
+					return 8;
+				}
+				return 5;
+			},
+			onStart(target, source) {
+				this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
+			},
+			onRestart(target, source) {
+				this.field.removePseudoWeather('trickroom');
+			},
+			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+			onResidualOrder: 23,
+			onEnd() {
+				this.add('-fieldend', 'move: Trick Room');
+			},
+		},
 	},
 };

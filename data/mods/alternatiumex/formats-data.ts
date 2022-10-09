@@ -275,4 +275,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	dialga: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	archronos: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	palkia: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	palkiaorigin: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
