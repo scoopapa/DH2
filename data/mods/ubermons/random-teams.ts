@@ -1260,7 +1260,96 @@ export class RandomTeams {
 			ability = 'Drought';
 		} else if (forme === 'Rayquaza') {
 			ability = 'Air Lock';
+		} else if (forme === 'Venusaur' && mega) {
+			ability = 'Chlorophyll';
+		} else if (forme === 'Charizard' && mega) {
+			ability = 'Solar Power';
+		} else if (forme === 'Blastoise' && mega) {
+			ability = 'Rain Dish';
+		} else if (forme === 'Alakazam' && mega) {
+			ability = 'Magic Guard';
 		} else if (forme === 'Gengar' && mega) {
+			ability = 'Cursed Body';
+		} else if (forme === 'Kangaskhan' && mega) {
+			ability = 'Scrappy';
+		} else if (forme === 'Pinsir' && mega) {
+			ability = 'Hyper Cutter';
+		} else if (forme === 'Gyarados' && mega) {
+			ability = 'Intimidate';
+		} else if (forme === 'Aerodactyl' && mega) {
+			ability = 'Unnerve';
+		} else if (forme === 'Mewtwo' && mega) {
+			ability = 'Pressure';
+		} else if (forme === 'Ampharos' && mega) {
+			ability = 'Static';
+		} else if (forme === 'Scizor' && mega) {
+			ability = 'Technician';
+		} else if (forme === 'Heracross' && mega) {
+			ability = 'Moxie';
+		} else if (forme === 'Houndoom' && mega) {
+			ability = 'Flash Fire';
+		} else if (forme === 'Tyranitar' && mega) {
+			ability = 'Sand Stream';
+		} else if (forme === 'Blaziken' && mega) {
+			ability = 'Speed Boost';
+		} else if (forme === 'Gardevoir' && mega) {
+			ability = 'Trace';
+		} else if (forme === 'Mawile' && mega) {
+			ability = 'Intimidate';
+		} else if (forme === 'Aggron' && mega) {
+			ability = 'Sturdy';
+		} else if (forme === 'Medicham' && mega) {
+			ability = 'Pure Power';
+		} else if (forme === 'Manectric' && mega) {
+			ability = 'Lightning Rod';
+		} else if (forme === 'Banette' && mega) {
+			ability = 'Frisk';
+		} else if (forme === 'Absol' && mega) {
+			ability = 'Justified';
+		} else if (forme === 'Latias' && mega) {
+			ability = 'Levitate';
+		} else if (forme === 'Latios' && mega) {
+			ability = 'Levitate';
+		} else if (forme === 'Garchomp' && mega) {
+			ability = 'Rough Skin';
+		} else if (forme === 'Lucario' && mega) {
+			ability = 'Justified';
+		} else if (forme === 'Abomasnow' && mega) {
+			ability = 'Snow Warning';
+		} else if (forme === 'Beedrill' && mega) {
+			ability = 'Sniper';
+		} else if (forme === 'Pidgeot' && mega) {
+			ability = 'Tangled Feet';
+		} else if (forme === 'Slowbro' && mega) {
+			ability = 'Regenerator';
+		} else if (forme === 'Steelix' && mega) {
+			ability = 'Sheer Force';
+		} else if (forme === 'Sceptile' && mega) {
+			ability = 'Overgrow';
+		} else if (forme === 'Swampert' && mega) {
+			ability = 'Damp';
+		} else if (forme === 'Sableye' && mega) {
+			ability = 'Prankster';
+		} else if (forme === 'Sharpedo' && mega) {
+			ability = 'Speed Boost';
+		} else if (forme === 'Camerupt' && mega) {
+			ability = 'Solid Rock';
+		} else if (forme === 'Altaria' && mega) {
+			ability = 'Natural Cure';
+		} else if (forme === 'Glalie' && mega) {
+			ability = 'Inner Focus';
+		} else if (forme === 'Salamence' && mega) {
+			ability = 'Intimidate';
+		} else if (forme === 'Metagross' && mega) {
+			ability = 'Clear Body';
+		} else if (forme === 'Lopunny' && mega) {
+			ability = 'Limber';
+		} else if (forme === 'Gallade' && mega) {
+			ability = 'Justified';
+		} else if (forme === 'Audino' && mega) {
+			ability = 'Regenerator';
+		} else if (forme === 'Diancie' && mega) {
+			ability = 'Clear Body';
 		} else {
 			ability = ability0.name;
 		}
