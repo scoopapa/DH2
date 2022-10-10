@@ -860,8 +860,6 @@ export const Formats: FormatList = [
 		banlist: [
 			//Pokémon
 			'Eternatus',
-			//Moves
-			'Baton Pass',
 		],
 		teambuilderFormat: 'OU',
 	},
@@ -2880,7 +2878,7 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'AG',
 		ruleset: ['Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Data Mod', 'Mega Data Mod', 'SylveMons Intro Mod'],
 	},
-	{
+	/*{
 		name: "[Gen 8] Ubermons Doubles",
 		mod: 'ubermons',
 		desc: [
@@ -2902,7 +2900,7 @@ export const Formats: FormatList = [
 		],
 		gameType: 'doubles',
 		teambuilderFormat: 'DOU',
-	},
+	},*/
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	
 	{
@@ -3188,18 +3186,18 @@ export const Formats: FormatList = [
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
 	},
-	/*{
+	{
 		name: "[Gen 8] Ubermons Random Battle",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
 		], 
 		mod: 'ubermons',
 		team: 'random',
-		ruleset: ['[Gen 8] Ubermons', '!Team Preview'],
+		ruleset: ['[Gen 8] Ubermons', '!Team Preview', '!Dynamax Clause'],
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
-	},*/
+	},
 	/*
 	{
 		name: "[Gen 8] Ink's Winter Wonderland",
