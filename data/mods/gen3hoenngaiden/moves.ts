@@ -58,7 +58,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(source) {
 				if (source.positiveBoosts()) {
 					source.clearBoosts();
-					this.add('-clearpositiveboost', source);
+					this.add('-clearallboost', source);
 					this.hint("Baton Pass can't pass Stat Boosts.");
 				}
 			}
