@@ -563,7 +563,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		self: {
 			onHit(source) {
 				source.clearBoosts();
-				this.add('-clearallboost', source);
+				this.add('-clearboost', source);
 				this.hint("Baton Pass can't pass Stat Changes.");
 			}
 		}
