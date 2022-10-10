@@ -192,6 +192,54 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
+	samurotthisui: {
+		tier: "OU",
+		randomBattleMoves: ["submission", "smartstrike", "blizzard", "hydropump"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	dewott: {
+		tier: "NFE",
+		randomBattleMoves: ["swordsdance", "bodyslam", "blizzard", "hydropump"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	oshawott: {
+		tier: "LC",
+		randomBattleMoves: ["swordsdance", "bodyslam", "blizzard", "hydropump"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	riolu: {
+		tier: "LC",
+		randomBattleMoves: ["highjumpkick", "snarl", "agility", "lowkick"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	lucario: {
+		tier: "OU",
+		randomBattleMoves: ["highjumpkick", "thunderpunch", "snarl", "icepunch"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	popplio: {
+		tier: "LC",
+		randomBattleMoves: ["surf", "blizzard", "sing", "rest"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	brionne: {
+		tier: "NFE",
+		randomBattleMoves: ["hydropump", "blizzard", "sing", "craftyshield"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	primarina: {
+		tier: "OU",
+		randomBattleMoves: ["hydropump", "blizzard", "sing", "lashout"],
+		isNonstandard: null,
+		gen: 1,
+	},
 
 // don't touch
 	bulbasaur: {
