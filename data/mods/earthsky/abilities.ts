@@ -935,7 +935,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 13,
 	},
-	//Corrosion self-poison prevention implemented in scripts.ts as an edit to setStatus in pokemon.ts.
+	corrosion: {
+		inherit: true,
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
+		//Self-poison prevention implemented in scripts.ts as an edit to setStatus in pokemon.ts.
+		rating: 3,
+		desc: "This Pokemon can hit Steel types with Poison-type moves. It can also poison or badly poison other Pokemon regardless of their typing.",
+		shortDesc: "Poison moves hit Steel and moves can poison Poison and Steel types.",
+	},
 	damp: {
 		inherit: true,
 		onAnyTryMove(target, source, effect) {
@@ -1662,6 +1675,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's allies have the power of their moves multiplied by 1.3.",
 		start: "  [POKEMON] is radiating a power aura!",
 	},
+	prismarmor: {
+		onModifyMovePriority: -100,
+		onAnyModifyMove(move, source, target){ //Fake unbreakableness by deleting ignoringAbility, except for Teravolt and Turboblaze.
+			if(target !== this.effectData.source) return;
+			if(move.ignoringAbility && !['teravolt','turboblaze'].includes(source.ability)){
+				delete move.ignoringAbility;
+			}
+		},
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 10, pokemon, pokemon);
+		},
+		name: "Prism Armor",
+		rating: 1,
+		num: 232,
+		desc: "This Pokemon receives 3/4 damage from supereffective attacks. It also loses 10% of its max HP at the end of each turn. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
+		shortDesc: "3/4 damage from supereffective attacks but loses 10% max HP each turn.",
+	},
 	receiver: {
 		onSwitchIn(pokemon){
 			this.effectData.switchingIn = true;
@@ -2254,20 +2284,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Imposter",
 		rating: 5,
 		num: 150,
-	},
-	prismarmor: {
-		onModifyMovePriority: -100,
-		onAnyModifyMove(move, source, target){ //Fake unbreakableness by deleting ignoringAbility, except for Teravolt and Turboblaze.
-			if(target !== this.effectData.source) return;
-			if(move.ignoringAbility && !['teravolt','turboblaze'].includes(source.ability)){
-				delete move.ignoringAbility;
-			}
-		},
-		name: "Prism Armor",
-		rating: 3,
-		num: 232,
-		desc: "This Pokemon receives 3/4 damage from supereffective attacks. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
-		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
 	},
 	shadowshield: {
 		onModifyMovePriority: -100,

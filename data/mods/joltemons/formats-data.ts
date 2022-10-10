@@ -3122,7 +3122,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["dracometeor", "flashcannon", "technoblast", "stealthrock"],
 	},
 	durant: {
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["firstimpression", "ironhead", "superpower", "mudspike"],
 	},
@@ -4107,7 +4107,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["electroball", "psychic", "focusblast", "nastyplot"],
 	},
 	raikou: {
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["thunderbolt", "aurorabeam", "aurasphere", "voltswitch"],
 	},
