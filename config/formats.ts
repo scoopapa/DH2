@@ -3186,7 +3186,7 @@ export const Formats: FormatList = [
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},
 	},
-	/*{
+	{
 		name: "[Gen 8] Ubermons Random Battle",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
@@ -3194,10 +3194,7 @@ export const Formats: FormatList = [
 		mod: 'ubermons',
 		team: 'random',
 		ruleset: ['[Gen 8] Ubermons', '!Team Preview', '!Dynamax Clause'],
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		},
-	},*/
+	},
 	/*
 	{
 		name: "[Gen 8] Ink's Winter Wonderland",
