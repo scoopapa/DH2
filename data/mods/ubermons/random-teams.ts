@@ -1260,6 +1260,7 @@ export class RandomTeams {
 			ability = 'Drought';
 		} else if (forme === 'Rayquaza') {
 			ability = 'Air Lock';
+		} else if (forme === 'Gengar' && mega) {
 		} else {
 			ability = ability0.name;
 		}
