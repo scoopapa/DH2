@@ -54,16 +54,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	batonpass: {
 		inherit: true,
-		self: {
-			onHit(source) {
-				if (source.positiveBoosts()) {
-					source.clearBoosts();
-					this.add('-clearpositiveboost', source);
-					this.hint("Baton Pass can't pass Stat Boosts.");
-				}
-			}
-		}
-
+		name: "Baton Pass Gaiden",
 	},
 	bodypress: {
 		num: 776,
@@ -108,6 +99,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Cool",
+		gen: 3,
+	},
+	darkestlariat: {
+		inherit: true,
 		gen: 3,
 	},
 	fierywrath: {

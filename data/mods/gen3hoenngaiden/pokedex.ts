@@ -308,10 +308,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Insomnia", 1: "Water Absorb"},
 	},
-	pidgeot: {
-		inherit: true,
-		abilities: {0: "Keen Eye"},
-	},
 	pidgeotto: {
 		inherit: true,
 		abilities: {0: "Keen Eye"},
@@ -2195,16 +2191,16 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		//baseStats: {hp: 90, atk: 55, def: 65, spa: 95, spd: 85, spe: 70},
 	},
-	nidoking: {
-		inherit: true,
-		//baseStats: {hp: 81, atk: 102, def: 77, spa: 85, spd: 75, spe: 85},
-		abilities: {0: "Poison Point"},
-	},
-	nidoqueen: {
-		inherit: true,
-		//baseStats: {hp: 90, atk: 92, def: 87, spa: 75, spd: 85, spe: 76},
-		abilities: {0: "Poison Point"},
-	},
+	// nidoking: {
+	// 	inherit: true,
+	// 	//baseStats: {hp: 81, atk: 102, def: 77, spa: 85, spd: 75, spe: 85},
+	// 	abilities: {0: "Poison Point"},
+	// },
+	// nidoqueen: {
+	// 	inherit: true,
+	// 	//baseStats: {hp: 90, atk: 92, def: 87, spa: 75, spd: 85, spe: 76},
+	// 	abilities: {0: "Poison Point"},
+	// },
 	magcargo: {
 		inherit: true,
 		//baseStats: {hp: 60, atk: 50, def: 120, spa: 90, spd: 80, spe: 30},
@@ -2272,11 +2268,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		//baseStats: {hp: 60, atk: 85, def: 60, spa: 75, spd: 50, spe: 125},
 	},
-	pidgeot: {
-		inherit: true,
-		//baseStats: {hp: 83, atk: 80, def: 75, spa: 70, spd: 70, spe: 101},
-		abilities: {0: "Keen Eye"},
-	},
+	// pidgeot: {
+	// 	inherit: true,
+	// 	//baseStats: {hp: 83, atk: 80, def: 75, spa: 70, spd: 70, spe: 101},
+	// 	abilities: {0: "Keen Eye"},
+	// },
 	poliwrath: {
 		inherit: true,
 		//baseStats: {hp: 90, atk: 95, def: 95, spa: 70, spd: 90, spe: 70},
@@ -2451,10 +2447,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoCondition: "during the day",
 		canHatch: true,
 	},
-	tangela: {
-		inherit: true,
-		evos: ["Tangrowth"],
-	},
+	// tangela: {
+	// 	inherit: true,
+	// 	evos: ["Tangrowth"],
+	// },
 	misdreavus: {
 		inherit: true,
 		evos: ["Mismagius"],
