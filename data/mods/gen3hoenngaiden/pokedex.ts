@@ -166,10 +166,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", 1: "Ice Body"},
 	},
-	// shuckle: {
-	// 	inherit: true,
-	// 	abilities: {0: "Sturdy", 1: "Gluttony"},
-	// },
+	shuckle: {
+		inherit: true,
+		abilities: {0: "Sturdy"},
+	},
 	hitmontop: {
 		inherit: true,
 		abilities: {0: "Intimidate"},
@@ -3142,11 +3142,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	zigzagoon: {
 		inherit: true,
+		abilities: {0: "Pickup"},
 		otherFormes: ["Zigzagoon-Galar"],
 		formeOrder: ["Zigzagoon", "Zigzagoon-Galar"],
 	},
 	linoone: {
 		inherit: true,
+		abilities: {0: "Pickup"},
 		otherFormes: ["Linoone-Galar"],
 		formeOrder: ["Linoone", "Linoone-Galar"],
 	},
