@@ -795,7 +795,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Raises user's SpA by 1 when attacked before it moves.",
 		name: "Roar of Time",
 		pp: 5,
-		priority: 0,
+		priority: -3,
 		flags: {protect: 1, mirror: 1},
 		beforeTurnCallback(pokemon) {
 			pokemon.addVolatile('roaroftime');
@@ -852,7 +852,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add('-activate', source, 'ability: Persistent', effect);
 					return 7;
 				}
-				if (source?.hasItem('adamantorb') && source?.species.name === 'Dialga') {
+				if (source?.hasItem('adamantorb')) {
 					return 8;
 				}
 				return 5;
@@ -868,6 +868,21 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onEnd() {
 				this.add('-fieldend', 'move: Trick Room');
 			},
+		},
+	},
+	hyperspacefury: {
+		inherit: true,
+		onTry(pokemon) {
+			if (pokemon.species.name === 'Hoopa-Unbound' || pokemon.species.name === 'Archronos') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Hoopa Unbound or Archronos can use this move.");
+			if (pokemon.species.name === 'Hoopa') {
+				this.add('-fail', pokemon, 'move: Hyperspace Fury', '[forme]');
+				return null;
+			}
+			this.add('-fail', pokemon, 'move: Hyperspace Fury');
+			return null;
 		},
 	},
 };

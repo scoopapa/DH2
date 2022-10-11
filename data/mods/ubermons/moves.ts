@@ -558,6 +558,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'healreplacement'},
 		contestType: "Clever",		
 	},
+	batonpass: {
+		inherit: true,
+		self: {
+			onHit(source) {
+				source.clearBoosts();
+				this.add('-clearboost', source);
+				this.hint("Baton Pass can't pass Stat Changes.");
+			}
+		}
+	},
 	
 	//Bad Dream moves
 	dreameater: {
