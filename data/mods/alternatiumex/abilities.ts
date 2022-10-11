@@ -437,9 +437,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -15,
 	},
 	originorb: {
-		/*onEffectivenessPriority: 1,
-		onEffectiveness(typeMod, target, type, move) {
-			if (move && !this.dex.getImmunity(move, type)) return -1;
+		/*onEffectiveness: function(typeMod, target, type, move) {
+			if (move && this.dex.getImmunity(move, type) === false) return 2;
+			return -typeMod;
 		},*/
 		name: "Origin Orb",
 		shortDesc: "(Non-functional placeholder) This Pokemon deals resisted damage to immunities.",
