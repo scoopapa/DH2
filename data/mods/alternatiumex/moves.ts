@@ -795,7 +795,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Raises user's SpA by 1 when attacked before it moves.",
 		name: "Roar of Time",
 		pp: 5,
-		priority: 0,
+		priority: -3,
 		flags: {protect: 1, mirror: 1},
 		beforeTurnCallback(pokemon) {
 			pokemon.addVolatile('roaroftime');
