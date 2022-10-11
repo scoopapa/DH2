@@ -437,30 +437,34 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -15,
 	},
 	originorb: {
-		onModifyMovePriority: -5,
-		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity === true;
-				move.basePower *= 0.5;
-			}
-		},
+		/*onEffectiveness: function(typeMod, target, type, move) {
+			if (move && this.dex.getImmunity(move, type) === false) return 2;
+			return -typeMod;
+		},*/
 		name: "Origin Orb",
-		shortDesc: "(Bugged) This Pokemon deals resisted damage to immunities.",
+		shortDesc: "(Non-functional placeholder) This Pokemon deals resisted damage to immunities.",
 		rating: 5,
 		num: -16,
 	},
 	rewind: {
-		onSwitchOut(pokemon) {
-			if (pokemon.hp && !pokemon.item && this.dex.getItem(pokemon.lastItem)) {
-				const item = pokemon.lastItem;
+		/*onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				pokemon.m.lostItem = pokemon.lastItem;
 				pokemon.lastItem = '';
-				this.add('-item', pokemon, this.dex.getItem(item), '[from] ability: Rewind');
-				pokemon.setItem(item);
 			}
 		},
+		onSwitchOut(pokemon) {
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem(pokemon.m.lostItem);
+				pokemon.lastItem = '';
+				delete pokemon.m.lostItem;
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Rewind');
+				return null;
+			}
+		},*/
 		name: "Rewind",
-		shortDesc: "(Bugged) This Pokemon restores its held item upon switching out.",
+		shortDesc: "(Non-functional placeholder) This Pokemon restores its held item upon switching out.",
 		rating: 3.5,
 		num: -17,
 	},
@@ -494,32 +498,5 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Applies the opposite of stat changes to the opposite stat (Atk/Sp. Atk, Def/Sp. Def).",
 		rating: 4,
 		num: -18,
-	},
-	
-	
-	//for /data cause I didn't want to do new items
-	adamantorbdialga: {
-		name: "Adamantorbdialga",
-		shortDesc: "If held by Dialga, extends Trick Room duration by 3.",
-		rating: 0,
-		num: -1001,
-	},
-	adamantorbarchronos: {
-		name: "Adamantorbarchronos",
-		shortDesc: "If held by Archronos: 1.2x in its offenses & 0.8x in its defenses.",
-		rating: 0,
-		num: -1002,
-	},
-	lustrousorbpalkia: {
-		name: "Lustrousorbpalkia",
-		shortDesc: "Boost the power of Palkia's STAB moves by 1.2x.",
-		rating: 0,
-		num: -1003,
-	},
-	lustrousorbpalkiaorigin: {
-		name: "Lustrousorbpalkiaorigin",
-		shortDesc: "If a Terrain is active, raises holder's Attack by 1 stage. Single use.",
-		rating: 0,
-		num: -1004,
 	},
 };
