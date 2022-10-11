@@ -1071,5 +1071,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'dugtrioalola').learnset.headbutt;
 		delete this.modData('Learnsets', 'dugtrioalola').learnset.reversal;
 
+		// Keep this at the bottom of the init function
+		// for (const species in this.data.pokedex) {
+		// 	if (this.data.Pokedex[species].learnset.batonpass) {
+		// 		this.modData('Learnsets', species).learnset.batonpassgaiden = this.data.Pokedex[species].learnset.batonpass;
+		// 		delete this.modData('Learnsets', species).learnset.batonpass;
+		// 	}
+		// }
 	},
 };

@@ -964,21 +964,29 @@ export const Formats: {[k: string]: FormatData} = {
 			return -typeMod;
 		},
 	},
-	// Hoenn Gaiden
+	// Made for Hoenn Gaiden
 	batonpassmod: {
 		effectType: 'Rule',
 		name: 'Baton Pass Mod',
 		desc: "Positive stat boosts are reset upon using Baton Pass.",
 		onBegin() {
-			this.add('rule', 'Desync Clause Mod: Desyncs changed to move failure.');
+			this.add('rule', 'Baton Pass Mod: Positive stat boosts are reset upon using Baton Pass');
 		},
 		onHit(source, target, move) {
 			if (source.positiveBoosts() && move.id === 'batonpass') {
-				source.clearpositiveboost();
 				this.add('-clearpositiveboost', source);
 				this.hint("Baton Pass Mod activated: Stat Boosts cannot be passed");
 			}
-		}
+		},
+		onValidateTeam(team) {
+			for (const set of team) {
+				if (set.moves.includes('batonpass')) {
+					return [
+						`${set.name || set.species} must run the modified move 'Baton Pass Gaiden' in place of 'Baton Pass'.`,
+					];
+				}
+			}
+		},
 	},
 	stabmonsmovelegality: {
 		effectType: 'ValidatorRule',

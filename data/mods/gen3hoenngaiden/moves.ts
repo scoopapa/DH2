@@ -2,6 +2,7 @@
  * Gen 3 moves
  */
 
+
 export const Moves: {[k: string]: ModdedMoveData} = {
 	weatherball: {
 		inherit: true,
@@ -54,7 +55,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	batonpass: {
 		inherit: true,
+		isNonStandard: "Unobtainable",
+	},
+	batonpassgaiden: {
 		name: "Baton Pass Gaiden",
+		realMove: "Baton Pass",
+		num: 226,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		pp: 40,
+		priority: 0,
+		flags: {},
+		selfSwitch: 'copyvolatile',
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+		desc: "The user is replaced with another Pokemon in its party. The selected Pokemon has the user's stat stage deductions, confusion, and certain move effects transferred to it.",
+		shortDesc: "Modified Baton Pass. Positive boosts are reset.",
 	},
 	bodypress: {
 		num: 776,

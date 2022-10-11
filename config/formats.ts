@@ -562,7 +562,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'gen3hoenngaiden',
-		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
+		ruleset: ['Standard', 'Data Mod', 'Baton Pass Mod', 'Freeze Clause Mod', 'Hoenn Gaiden Mod'],
 		banlist: ['Uber', 'Air Balloon'],
 		unbanlist: [
 			//Abilities
