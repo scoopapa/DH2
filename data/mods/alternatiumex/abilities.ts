@@ -437,24 +437,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -15,
 	},
 	originorb: {
-		/*onModifyMovePriority: -5,
-		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity = true;
-				move.originorbaffected = true;
-			}
-		},*/
-		onEffectivenessPriority: 1,
+		/*onEffectivenessPriority: 1,
 		onEffectiveness(typeMod, target, type, move) {
-			if (!target) return;
-			//if (move && !this.dex.getImmunity(move, type)) return -1;
-			//if (move && !target.runImmunity(move.type) && && !this.dex.getImmunity(move, type)) return;
-			if (!target.runImmunity(move.type)) return;
-			return -1;
-		},
+			if (move && !this.dex.getImmunity(move, type)) return -1;
+		},*/
 		name: "Origin Orb",
-		shortDesc: "(Bugged) This Pokemon deals resisted damage to immunities.",
+		shortDesc: "(Non-functional placeholder) This Pokemon deals resisted damage to immunities.",
 		rating: 5,
 		num: -16,
 	},
