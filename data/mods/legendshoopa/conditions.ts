@@ -3,7 +3,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'legendsboost',
 		onBoost(boost, target, source, effect) {
 			this.effectData.startTime = 0;
-			this.add('-message', `stat has been boosted`);
 			if (!boost || effect.id === 'legendsboost') return;
 			let activated = false;
 			let boostName: BoostName;
@@ -37,7 +36,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				activated = true;
 
 			}
-			this.add('-message', `Activated = ${activated}`);
 			if (activated === true) {
 				this.boost(LegendsBoost, target, target, null, true);
 				/*
@@ -84,7 +82,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 		onResidual(pokemon) {
 			this.effectData.time -= 1;
-			//this.add("-message", `Current time is ${this.effectData.time}`);
 			if (this.effectData.time <= 0) {
 				this.add('-clearboost', pokemon);
 				pokemon.clearBoosts();
@@ -175,7 +172,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if(effect.effectType === 'Item') this.duration = 4;
 			if(effect.effectType === 'Ability') this.duration = 5;
 			this.add('-start', target, 'primed', '[silent]');
-			this.add('-message', `${target.name} is primed!`);
+			this.add('-message', `${target.name} adopted a hard-hitting stance!`);
 		},
 
 		onModifyDamage(damage, source, target, move) {
@@ -213,7 +210,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			this.damage(pokemon.baseMaxhp / 16);
+			this.damage(pokemon.baseMaxhp / 12);
 			pokemon.statusData.time--;
 			if (pokemon.statusData.time <= 0) {
 				this.add('-curestatus', pokemon, 'brn', '[Silent]');
@@ -287,7 +284,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 9,
 		onResidual(pokemon) {
 			this.hint(`${this.effectData.target.name} is afflicted with frostbite!`);
-			this.damage(pokemon.baseMaxhp / 16);
+			this.damage(pokemon.baseMaxhp / 12);
 			pokemon.statusData.time--;
 			if (pokemon.statusData.time <= 0) {
 				this.add('-curestatus', pokemon, 'frz', '[Silent]');
@@ -372,7 +369,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			this.damage(pokemon.baseMaxhp / 8);
+			this.damage(pokemon.baseMaxhp / 6);
 			if (pokemon.statusData.time <= 0) {
 				this.add('-curestatus', pokemon, 'psn', '[Silent]');
 				pokemon.setStatus('');
@@ -406,7 +403,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.effectData.stage < 15) {
 				this.effectData.stage++;
 			}
-			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
+			this.damage(this.clampIntRange(pokemon.baseMaxhp / 12, 1) * this.effectData.stage);
 			if (pokemon.statusData.time <= 0) {
 				this.add('-curestatus', pokemon, 'tox', '[Silent]');
 				pokemon.setStatus('');

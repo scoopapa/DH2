@@ -13,7 +13,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	escavalier: {
 		tier: "OU",
-		randomBattleMoves: ["substitute", "slash", "twineedle"],
+		randomBattleMoves: ["substitute", "smartstrike", "twineedle"],
 		essentialMove: "snarl",
 		comboMoves: ["hyperbeam", "swordsdance"],
 		isNonstandard: null,
@@ -192,6 +192,54 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
+	samurotthisui: {
+		tier: "OU",
+		randomBattleMoves: ["submission", "smartstrike", "blizzard", "hydropump"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	dewott: {
+		tier: "NFE",
+		randomBattleMoves: ["swordsdance", "bodyslam", "blizzard", "hydropump"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	oshawott: {
+		tier: "LC",
+		randomBattleMoves: ["swordsdance", "bodyslam", "blizzard", "hydropump"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	riolu: {
+		tier: "LC",
+		randomBattleMoves: ["highjumpkick", "snarl", "agility", "lowkick"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	lucario: {
+		tier: "OU",
+		randomBattleMoves: ["highjumpkick", "thunderpunch", "snarl", "icepunch"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	popplio: {
+		tier: "LC",
+		randomBattleMoves: ["surf", "blizzard", "sing", "rest"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	brionne: {
+		tier: "NFE",
+		randomBattleMoves: ["hydropump", "blizzard", "sing", "craftyshield"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	primarina: {
+		tier: "OU",
+		randomBattleMoves: ["hydropump", "blizzard", "sing", "lashout"],
+		isNonstandard: null,
+		gen: 1,
+	},
 
 // don't touch
 	bulbasaur: {
@@ -268,7 +316,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	beedrill: {
-		randomBattleMoves: ["megadrain", "swordsdance", "twineedle"],
+		randomBattleMoves: ["smartstrike", "swordsdance", "twineedle"],
 		exclusiveMoves: ["doubleedge", "doubleedge", "hyperbeam"],
 		comboMoves: ["agility", "hyperbeam", "swordsdance", "twineedle"],
 		tier: "PU",
@@ -306,7 +354,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	fearow: {
-		randomBattleMoves: ["agility", "doubleedge", "drillpeck", "hyperbeam"],
+		randomBattleMoves: ["smartstrike", "doubleedge", "drillpeck", "hyperbeam"],
 		tier: "PU",
 	},
 	ekans: {
@@ -336,8 +384,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	sandslash: {
-		randomBattleMoves: ["bodyslam", "rockslide", "swordsdance"],
-		essentialMove: "earthquake",
+		randomBattleMoves: ["bodyslam", "rockslide", "hyperbeam"],
+		essentialMove: "smartstrike",
 		tier: "PU",
 	},
 	nidoranf: {
@@ -352,22 +400,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	nidoqueen: {
 		randomBattleMoves: ["blizzard", "strangesteam", "thunderbolt"],
-		essentialMove: "earthquake",
+		essentialMove: "smartstrike",
 		tier: "PU",
 	},
 	nidoranm: {
-		randomBattleMoves: ["blizzard", "bodyslam", "thunderbolt"],
-		exclusiveMoves: ["doubleedge", "doublekick"],
+		randomBattleMoves: ["blizzard", "smartstrike", "thunderbolt"],
+		exclusiveMoves: ["bodyslam", "doublekick"],
 		tier: "LC",
 	},
 	nidorino: {
-		randomBattleMoves: ["blizzard", "bodyslam", "thunderbolt"],
-		exclusiveMoves: ["bubblebeam", "doubleedge", "doublekick"],
+		randomBattleMoves: ["blizzard", "smartstrike", "thunderbolt"],
+		exclusiveMoves: ["bubblebeam", "bodyslam", "doublekick"],
 		tier: "NFE",
 	},
 	nidoking: {
 		randomBattleMoves: ["blizzard", "bodyslam"],
-		essentialMove: "earthquake",
+		essentialMove: "smartstrike",
 		exclusiveMoves: ["rockslide", "thunder", "thunderbolt"],
 		tier: "NU",
 	},
@@ -380,7 +428,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	clefable: {
 		randomBattleMoves: ["bodyslam", "thunderbolt", "thunderwave"],
 		essentialMove: "blizzard",
-		exclusiveMoves: ["counter", "hyperbeam", "psychic", "sing", "sing", "craftyshield"],
+		exclusiveMoves: ["counter", "hyperbeam", "psychic", "sing", "sing", "craftyshield", "fairylock"],
 		tier: "NU",
 	},
 	vulpix: {
@@ -389,7 +437,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	ninetales: {
-		randomBattleMoves: ["bodyslam", "confuseray", "fireblast"],
+		randomBattleMoves: ["bodyslam", "fierywrath", "fireblast"],
 		exclusiveMoves: ["flamethrower", "hyperbeam", "reflect", "substitute", "sunsteelstrike"],
 		tier: "NU",
 	},
@@ -400,7 +448,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	wigglytuff: {
 		randomBattleMoves: ["blizzard", "bodyslam", "thunderwave"],
-		exclusiveMoves: ["counter", "hyperbeam", "sing", "faketears"],
+		exclusiveMoves: ["counter", "hyperbeam", "sing", "faketears", "fairylock"],
 		tier: "NU",
 	},
 	zubat: {
@@ -445,7 +493,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	venomoth: {
 		randomBattleMoves: ["psychic", "sleeppowder", "stunspore"],
-		exclusiveMoves: ["doubleedge", "megadrain", "megadrain"],
+		exclusiveMoves: ["doubleedge", "fairylock", "megadrain"],
 		tier: "NU",
 	},
 	diglett: {
@@ -593,7 +641,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	rapidash: {
-		randomBattleMoves: ["firespin", "sunsteelstrike", "fireblast", "hyperbeam"],
+		randomBattleMoves: ["smartstrike", "sunsteelstrike", "fireblast", "hyperbeam"],
 		tier: "PU",
 	},
 	slowpoke: {
@@ -632,13 +680,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	seel: {
-		randomBattleMoves: ["blizzard", "bodyslam", "surf"],
-		exclusiveMoves: ["mimic", "rest"],
+		randomBattleMoves: ["blizzard", "smartstrike", "surf"],
+		exclusiveMoves: ["bodyslam", "rest"],
 		tier: "LC",
 	},
 	dewgong: {
 		randomBattleMoves: ["blizzard", "bodyslam", "surf"],
-		exclusiveMoves: ["hyperbeam", "mimic", "rest", "rest"],
+		exclusiveMoves: ["hyperbeam", "mimic", "rest", "rest", "smartstrike"],
 		tier: "UU",
 	},
 	grimer: {
@@ -681,7 +729,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	onix: {
-		randomBattleMoves: ["heavyslam", "earthquake", "explosion", "rockslide"],
+		randomBattleMoves: ["heavyslam", "smartstrike", "explosion", "rockslide"],
 		tier: "PU",
 	},
 	drowzee: {
@@ -691,7 +739,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	hypno: {
 		randomBattleMoves: ["hypnosis", "psychic", "thunderwave"],
-		exclusiveMoves: ["counter", "reflect", "rest", "rest", "seismictoss", "seismictoss"],
+		exclusiveMoves: ["counter", "reflect", "rest", "rest", "seismictoss", "seismictoss", "fairylock"],
 		tier: "UU",
 	},
 	krabby: {
@@ -794,11 +842,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NU",
 	},
 	goldeen: {
-		randomBattleMoves: ["agility", "blizzard", "doubleedge", "surf"],
+		randomBattleMoves: ["agility", "blizzard", "smartstrike", "surf"],
 		tier: "LC",
 	},
 	seaking: {
-		randomBattleMoves: ["blizzard", "doubleedge", "surf"],
+		randomBattleMoves: ["blizzard", "smartstrike", "surf"],
 		exclusiveMoves: ["agility", "agility", "hyperbeam"],
 		tier: "PU",
 	},
@@ -837,12 +885,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "PU",
 	},
 	pinsir: {
-		randomBattleMoves: ["bodyslam", "hyperbeam", "swordsdance"],
-		exclusiveMoves: ["seismictoss", "submission", "submission"],
+		randomBattleMoves: ["smartstrike", "hyperbeam", "swordsdance"],
+		exclusiveMoves: ["bodyslam", "submission", "submission"],
 		tier: "PU",
 	},
 	tauros: {
-		randomBattleMoves: ["bodyslam", "earthquake", "hyperbeam"],
+		randomBattleMoves: ["bodyslam", "smartstrike", "hyperbeam"],
 		exclusiveMoves: ["blizzard", "blizzard", "blizzard", "thunderbolt"],
 		tier: "OU",
 	},
@@ -943,7 +991,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	dragonair: {
-		randomBattleMoves: ["bodyslam", "hyperbeam", "thunderbolt", "thunderwave"],
+		randomBattleMoves: ["smartstrike", "hyperbeam", "thunderbolt", "thunderwave"],
 		essentialMove: "blizzard",
 		tier: "NFE",
 	},

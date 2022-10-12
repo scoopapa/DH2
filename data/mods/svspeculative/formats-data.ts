@@ -185,7 +185,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	teddiursa: { tier: "SV (NFE)" },
 	ursaring: { tier: "SV (NFE)" },
-	ursaluna: { tier: "SV (NFE)" },
+	ursaluna: { tier: "SV" },
 
 	delibird: { tier: "SV" },
 

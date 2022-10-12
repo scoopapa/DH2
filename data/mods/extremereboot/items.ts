@@ -61,6 +61,9 @@ export const Items: {[itemid: string]: ItemData} = {
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
 				const move = this.dex.getMove(moveSlot.id);
+				const ability = this.dex.getAbility(pokemon.ability);
+				if (move.onModifyType) move.onModifyType(move, pokemon);
+				if (ability.onModifyType) ability.onModifyType(move, pokemon);
 				if (pokemon.getTypes()[0] !== move.type) {
 					pokemon.disableMove(moveSlot.id);
 				}
@@ -196,6 +199,63 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Tricky Hourglass",
 		num: 1014,
 		desc: "Holder's moves and effects that last 4 or 5 turns last 8 turns instead, except Rules Rewrite, which lasts 2 turns.",
+		gen: 8,
+	},
+	platinumorb: {
+		name: "Platinum Orb",
+		spritenum: 180,
+		onBasePowerPriority: 15,
+		desc: "Boosts Night and Storm moves by 20%. Unremovable. Darkira only",
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 1129 && (move.type === 'Storm' || move.type === 'Folklore')) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1129) || pokemon.baseSpecies.num === 1129) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Darkira"],
+		num: 1015,
+		gen: 8,
+	},
+	iridescentorb: {
+		name: "Iridescent Orb",
+		desc: "Recover 12.5% HP when using a Serenity-type move. Unremovable. Lakera only",
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && source.baseSpecies.num === 1130 && move && move.type === 'Serenity') {
+				this.heal(source.baseMaxhp / 8);
+			}
+		},
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1130) || pokemon.baseSpecies.num === 1130) {
+				return false;
+			}
+			return true;
+		},
+		itemUser: ["Lakera"],
+		num: 1016,
+		gen: 8,
+	},
+	frostedseed: {
+		name: "Frosted Seed",
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 1055) || pokemon.baseSpecies.num === 1055) {
+				return false;
+			}
+			return true;
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source && source.baseSpecies.num === 1055 && move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([0x1333, 0x1000]);
+			}
+		},
+		desc: "Persebloom enters battle as Persebloom-Frost when holding this.",
+		forcedForme: "Persebloom-Frost",
+		itemUser: ["Persebloom-Frost"],
+		num: 1017,
 		gen: 8,
 	},
 };

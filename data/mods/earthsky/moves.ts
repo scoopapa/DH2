@@ -2252,6 +2252,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	lusterpurge: {
 		inherit: true,
+		power: 80,
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -2505,6 +2506,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	mistball: {
 		inherit: true,
+		power: 80,
 		secondary: {
 			chance: 100,
 			boosts: {

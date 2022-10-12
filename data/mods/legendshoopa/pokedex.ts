@@ -192,7 +192,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Girafgiraf"],
 		types: ["Psychic", "Dark"],
 		baseStats: {hp: 70, atk: 80, def: 65, spa: 90, spd: 65, spe: 85},
-		abilities: {0: "Strong Jaw", 1: "Inner Focus", H: "Two Headded"},
+		abilities: {0: "Strong Jaw", 1: "Inner Focus", H: "Two-Headed"},
 		weightkg: 41.5,
 	},
 
@@ -201,7 +201,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Girafgiraf",
 		types: ["Psychic", "Ghost"],
 		baseStats: {hp: 80, atk: 95, def: 70, spa: 95, spd: 70, spe: 95},
-		abilities: {0: "Strong Jaw", 1: "Inner Focus", H: "Two Headded"},
+		abilities: {0: "Strong Jaw", 1: "Inner Focus", H: "Two-Headed"},
 		weightkg: 51.51,
 		prevo: "Girafarig-Hoenn",
 	},
@@ -258,5 +258,214 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Torrent", H: "Water Veil"},
 		weightkg: 888.8,
 		prevo: "Croconaw",
+	},
+
+	crustle: {
+		inherit: true,
+		evos: ["Crusteroid"],
+	},
+	crusteroid: {
+		name: "Crusteroid",
+		copyData: "Crustle",
+
+		baseStats: {hp: 110, atk: 115, def: 140, spa: 60, spd: 85, spe: 25},
+		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Force of Gravity"},
+		movepoolAdditions: [
+			"focusblast", "gigaimpact", "gravity", "heatcrash", "hyperbeam", "moonblast", "moonlight", "pinmissile", "powergem", "spikes", "taunt", "trickroom"
+		],
+		weightkg: 700,
+
+		prevo: "Crustle",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		// creator: "zxgzxg",
+	},
+
+	tropius: {
+		inherit: true,
+		evos: ["Cornutropia"],
+	},
+	cornutropia: {
+		name: "Cornutropia",
+		copyData: "Tropius",
+
+		types: ["Grass", "Dragon"],
+		baseStats: {hp: 104, atk: 98, def: 83, spa: 92, spd: 87, spe: 71},
+		abilities: {0: "Ripen", 1: "Solar Power", H: "Harvest"},
+		movepoolAdditions: [
+			"appleacid", "aromatherapy", "belch", "berryblast", "breakingswipe", "dracometeor", "dragontail", "grassyterrain", "gravapple", "irontail", "junglehealing",
+			"pollenpuff", "spitup", "stockpile", "swallow", "woodhammer"
+		],
+		heightm: 9.4,
+		weightkg: 870,
+
+		prevo: "Tropius",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		// creator: "AquaticPanic",
+	},
+
+	tranquill: {
+		inherit: true,
+		evos: ["Unfezant", "Dovinity", "Dovinity-F"],
+	},
+	dovinity: {
+		name: "Dovinity",
+		copyData: "Tranquill",
+		baseForme: "M",
+		gender: "M",
+
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 90, atk: 50, def: 60, spa: 105, spd: 85, spe: 98},
+		abilities: {0: "Big Pecks", 1: "Super Luck", H: "Technician"},
+		movepoolAdditions: [
+			"bravebird", "dazzlinggleam", "disarmingvoice", "drainingkiss", "fairywind", "fling", "gigaimpact", "hurricane", "hyperbeam", "moonlight",
+			"playrough", "postdelivery", "skydrop", "takeheart", "trick"
+		],
+		heightm: 1.4,
+		weightkg: 34,
+
+		prevo: "Tranquill",
+		otherFormes: ["Dovinity-F"],
+		formeOrder: ["Dovinity", "Dovinity-F"],
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		otherFormes: ["Dovinity-F"],
+		formeOrder: ["Dovinity", "Dovinity-F"],
+		// creator: "AquaticPanic",
+	},
+	dovinityf: {
+		name: "Dovinity-F",
+		copyData: "Tranquill",
+		baseSpecies: "Dovinity",
+		forme: "F",
+		gender: "F",
+
+		types: ["Fairy", "Flying"],
+		baseStats: {hp: 90, atk: 105, def: 80, spa: 55, spd: 55, spe: 103},
+		abilities: {0: "Big Pecks", 1: "Super Luck", H: "Fluffy"},
+		movepoolAdditions: [
+			"bravebird", "dazzlinggleam", "disarmingvoice", "drainingkiss", "fairywind", "fling", "gigaimpact", "heartstamp", "hurricane", "hyperbeam", "moonlight",
+			"playrough", "postdelivery", "skydrop", "trick"
+		],
+		heightm: 1.3,
+		weightkg: 32,
+
+		prevo: "Tranquill",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		// creator: "AquaticPanic",
+	},
+
+	kecleon: {
+		inherit: true,
+		evos: ["Kaleideon"],
+	},
+	kaleideon: {
+		name: "Kaleideon",
+		copyData: "Kecleon",
+
+		baseStats: {hp: 80, atk: 90, def: 70, spa: 80, spd: 70, spe: 110},
+		movepoolAdditions: [
+			"acidspray", "calmmind", "camoscope", "entrainment", "gigaimpact", "haze", "hyperbeam", "icywind", "lightscreen", "mirrormove", "moonlight", "powerwhip",
+			"reflect", "scaleshot", "skittersmack", "snarl", "spikes", "steelwing", "switcheroo", "tailwind", "triattack"
+		],
+
+		prevo: "Kecleon",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		// creator: "AquaticPanic",
+	},
+
+	wurmple: {
+		inherit: true,
+		evos: ["Silcoon", "Cascoon", "Saccoon"],
+	},
+	saccoon: {
+		name: "Saccoon",
+		copyData: "Wurmple",
+
+		abilities: {0: "Shed Skin"},
+		baseStats: {hp: 50, atk: 35, def: 55, spa: 25, spd: 25, spe: 15},
+		movepoolAdditions: [
+			"harden", "irondefense"
+		],
+		weightkg: 10.7,
+
+		prevo: "Wurmple",
+		evos: ["Floccoth"],
+		evoLevel: 7,
+		// creator: "Tapler",
+	},
+	floccoth: {
+		name: "Floccoth",
+		copyData: "Wurmple",
+
+		types: ["Bug", "Fairy"],
+		abilities: {0: "Fluffy", H: "Tinted Lens"},
+		baseStats: {hp: 60, atk: 50, def: 95, spa: 70, spd: 50, spe: 65},
+		movepoolAdditions: [
+			"harden", "irondefense",
+			"acrobatics", "aerialace", "aircutter", "attract", "bugbuzz", "captivate", "confide", "dazzlinggleam", "defog", "doubleteam", "doubleedge", "endure",
+			"energyball", "facade", "fairywind", "flash", "frustration", "gigadrain", "gigaimpact", "gust", "hiddenpower", "hyperbeam", "infestation", "laserfocus",
+			"mimic", "moonblast", "naturalgift", "ominouswind", "protect", "psychic", "quiverdance", "reflect", "rest", "return", "roost", "round", "secretpower",
+			"shadowball", "signalbeam", "silverwind", "pixiedust", "sleeptalk", "solarbeam", "strengthsap", "strugglebug", "substitute", "sunnyday", "swagger", "swift",
+			"tailwind", "thief", "toxic", "twister", "uturn", "venoshock", "whirlwind"
+		],
+		weightkg: 30.0,
+
+		prevo: "Saccoon",
+		evoLevel: 10,
+		// creator: "Tapler",
+	},
+
+	lanturn: {
+		inherit: true,
+		evos: ["Abyssylar", "Abyssylar-F"],
+	},
+	abyssylar: {
+		name: "Abyssylar",
+		copyData: "Lanturn",
+		baseForme: "M",
+		gender: "M",
+
+		types: ["Dark", "Electric"],
+		baseStats: {hp: 135, atk: 112, def: 65, spa: 65, spd: 100, spe: 63},
+		abilities: {0: "Water Absorb", 1: "Illuminate", H: "Strong Jaw"},
+		movepoolAdditions: [
+			"bite", "crunch", "darkpulse", "eerieimpulse", "flipturn", "icefang", "jawlock", "leer", "liquidation", "meanlook", "psychicfangs", "recover", "scaryface",
+			"snarl", "stormoflight", "thunderfang"
+		],
+		heightm: 2.4,
+		weightkg: 50.3,
+
+		otherFormes: ["Abyssylar-F"],
+		formeOrder: ["Abyssylar", "Abyssylar-F"],
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		otherFormes: ["Abyssylar-F"],
+		formeOrder: ["Abyssylar", "Abyssylar-F"],
+		// creator: "Samtendo09",
+	},
+	abyssylarf: {
+		name: "Abyssylar-F",
+		baseSpecies: "Abyssylar",
+		forme: "F",
+		copyData: "Lanturn",
+		gender: "F",
+
+		types: ["Dark", "Electric"],
+		baseStats: {hp: 135, atk: 112, def: 65, spa: 65, spd: 100, spe: 63},
+		abilities: {0: "Water Absorb", 1: "Illuminate", H: "Strong Jaw"},
+		movepoolAdditions: [
+			"bite", "crunch", "darkpulse", "eerieimpulse", "flipturn", "icefang", "jawlock", "leer", "liquidation", "meanlook", "psychicfangs", "recover", "scaryface",
+			"snarl", "stormoflight", "thunderfang"
+		],
+		heightm: 4.8,
+		weightkg: 100.6,
+
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		// creator: "Samtendo09",
 	},
 };

@@ -255,4 +255,40 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	marowak: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	alolawak: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	marowakalolatotem: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	enamorus: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	violentine: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	dialga: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	archronos: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	palkia: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	palkiaorigin: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
