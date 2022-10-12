@@ -560,6 +560,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	batonpass: {
 		inherit: true,
+		shortDesc: "User switches and passes volatile statuses. Stat changes are removed.",
 		self: {
 			onHit(source) {
 				source.clearBoosts();
