@@ -271,20 +271,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 	technoblastbase: {
 		num: 546,
 		accuracy: 90,
-		basePower: 90,
+		basePower: 100,
 		category: "Special",
-		shortDesc: "Physical if user's Atk > Sp. Atk. Matches user's secondary type.",
+		shortDesc: "Physical if user's Atk > Sp. Atk. Type varies based on held Drive.",
 		name: "Techno Blast (Base)",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
-		},
 		onModifyType(move, pokemon) {
-			let type = pokemon.types[1];
-			if (type === "Bird") type = "???";
-			move.type = type;
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, undefined, move, 'Normal');
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
