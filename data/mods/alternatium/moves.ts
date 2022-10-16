@@ -871,11 +871,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 110,
 		category: "Physical",
-		shortDesc: "Raises the user's Speed by 1.",
+		shortDesc: "Raises the user's Speed by 1. Alternates between Electric and Poison every turn.",
 		name: "Aura Wheel",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			const types = ["Electric", "Poison"];
+			move.type = types[(pokemon.activeTurns - 1) % 2];
+			this.add('-message', "Type Change: " + move.type);
+		},
 		secondary: {
 			chance: 100,
 			self: {
