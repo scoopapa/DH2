@@ -271,20 +271,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 	technoblastbase: {
 		num: 546,
 		accuracy: 90,
-		basePower: 90,
+		basePower: 100,
 		category: "Special",
-		shortDesc: "Physical if user's Atk > Sp. Atk. Matches user's secondary type.",
+		shortDesc: "Physical if user's Atk > Sp. Atk. Type varies based on held Drive.",
 		name: "Techno Blast (Base)",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
-		},
 		onModifyType(move, pokemon) {
-			let type = pokemon.types[1];
-			if (type === "Bird") type = "???";
-			move.type = type;
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Drive', pokemon, undefined, move, 'Normal');
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -871,11 +867,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 110,
 		category: "Physical",
-		shortDesc: "Raises the user's Speed by 1.",
+		shortDesc: "Raises the user's Speed by 1. Alternates between Electric and Poison every turn.",
 		name: "Aura Wheel",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			const types = ["Electric", "Poison"];
+			move.type = types[(pokemon.activeTurns - 1) % 2];
+			this.add('-message', "Type Change: " + move.type);
+		},
 		secondary: {
 			chance: 100,
 			self: {

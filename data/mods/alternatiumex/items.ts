@@ -85,6 +85,17 @@ export const Items: {[itemid: string]: ItemData} = {
 		fling: {
 			basePower: 60,
 		},
+		itemUser: ["Dialga"],
+		num: 135,
+		gen: 4,
+		shortDesc: "When this Pokemon sets Trick Room, it lasts for 8 turns instead of 5.",
+	},
+	tempusorb: {
+		name: "Tempus Orb",
+		spritenum: 4,
+		fling: {
+			basePower: 60,
+		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.baseSpecies.baseSpecies === 'Archronos') {
@@ -109,10 +120,10 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify(0.8);
 			}
 		},
-		itemUser: ["Dialga"],
-		num: 135,
+		itemUser: ["Archronos"],
+		num: -3,
 		gen: 4,
-		shortDesc: "Effect depends on the holder. (use /dt and the item name + user)",
+		shortDesc: "If held by Archronos: 1.2x in its offenses & 0.8x in its defenses.",
 	},
 	lustrousorb: {
 		name: "Lustrous Orb",
@@ -126,24 +137,34 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
+		itemUser: ["Palkia"],
+		num: 136,
+		gen: 4,
+		shortDesc: "Boost the power of Palkia's STAB moves by 1.2x.",
+	},
+	spacialorb: {
+		name: "Spacial Orb",
+		spritenum: 265,
+		fling: {
+			basePower: 60,
+		},
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Palkia') return;
 			if (!pokemon.ignoringItem() && !this.field.isTerrain('')) {
 				pokemon.useItem();
 			}
 		},
 		onAnyTerrainStart() {
 			const pokemon = this.effectData.target;
-			if (!this.field.isTerrain('') && !pokemon.baseSpecies.name === 'Palkia') {
+			if (!this.field.isTerrain('')) {
 				pokemon.useItem();
 			}
 		},
 		boosts: {
 			atk: 1,
 		},
-		itemUser: ["Palkia"],
-		num: 136,
+		itemUser: ["Palkia-Origin"],
+		num: -4,
 		gen: 4,
-		shortDesc: "Effect depends on the holder. (use /dt and the item name + user)",
+		shortDesc: "If a Terrain is active, raises holder's Attack by 1 stage. Single use.",
 	},
 };
