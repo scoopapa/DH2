@@ -222,5 +222,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	frosmoth: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 65, def: 60, spa: 125, spd: 90, spe: 85},
+	},
+	lycanrocdusk: {
+		inherit: true,
+		types: ["Rock", "Ghost"],
+	},
+	salamence: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Aerilate", H: "Moxie"},
    }, 
 };
