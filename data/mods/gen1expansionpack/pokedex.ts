@@ -137,7 +137,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1167,
 		name: "Gyaoon",
 		types: ["Rock"],
-		baseStats: {hp: 101, atk: 130, def: 105, spa: 70, spd: 70, spe: 35}, //Seems underwhelming. 
+		baseStats: {hp: 101, atk: 110, def: 100, spa: 95, spd: 95, spe: 30},
 		abilities: {},
 		prevo: "Decilla",
 		evoLevel: 50,
@@ -674,6 +674,76 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	moltresgalar: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 85, def: 90, spa: 125, spd: 125, spe: 90},
+	},
+		//8888 8888                  888                           888      888               
+	//8888 8888 888 8e  888 88e  888  ,"Y88b Y8b Y888P  ,"Y88b 888 88e  888  ,e e,   dP"Y 
+	//8888 8888 888 88b 888 888b 888 "8" 888  Y8b Y8P  "8" 888 888 888b 888 d88 88b C88b  
+	//8888 8888 888 888 888 888P 888 ,ee 888   Y8b Y   ,ee 888 888 888P 888 888   ,  Y88D 
+	//'Y88 88P' 888 888 888 88"  888 "88 888    888    "88 888 888 88"  888  "YeeP" d,dP  
+	//				  888                     888                                       
+	//				  888                     888                                       
+	// These are alternate formes of RBY Pokemon that exist but were never playable.
+	// Namely, the Gastly, Haunter, Cubone, and Marowak ghosts, as well as the Aerodactyl and Kabutops fossils.
+	// These were mainly added for fun and have no impact on gameplay. The important details are simply cloned as a result.
+	gastlyghost: {
+		inherit: true,
+		num: -9000,
+		name: "Gastly-Ghost",
+		baseSpecies: "Gastly",
+		forme: "Ghost",
+		types: ["Ghost", "Poison"],
+		abilities: {},
+		baseStats: {hp: 30, atk: 35, def: 30, spa: 100, spd: 100, spe: 80},
+	},
+	haunterghost: {
+		inherit: true,
+		num: -9001,
+		name: "Haunter-Ghost",
+		baseSpecies: "Haunter",
+		forme: "Ghost",
+		types: ["Ghost", "Poison"],
+		abilities: {},
+		baseStats: {hp: 45, atk: 50, def: 45, spa: 115, spd: 115, spe: 95},
+	},
+	cuboneghost: {
+		inherit: true,
+		num: -9002,
+		name: "Cubone-Ghost",
+		baseSpecies: "Cubone",
+		forme: "Ghost",
+		types: ["Ground"],
+		abilities: {},
+		baseStats: {hp: 50, atk: 50, def: 95, spa: 40, spd: 40, spe: 35},
+	},
+	marowakghost: {
+		inherit: true,
+		num: -9003,
+		name: "Marowak-Ghost",
+		baseSpecies: "Marowak",
+		forme: "Ghost",
+		types: ["Ground"],
+		abilities: {},
+		baseStats: {hp: 60, atk: 80, def: 110, spa: 50, spd: 50, spe: 45},
+	},
+	kabutopsfossil: {
+		inherit: true,
+		num: -9004,
+		name: "Kabutops-Fossil",
+		baseSpecies: "Kabutops",
+		forme: "Fossil",
+		types: ["Rock", "Water"],
+		abilities: {},
+		baseStats: {hp: 60, atk: 115, def: 105, spa: 70, spd: 70, spe: 80},
+	},
+	aerodactylfossil: {
+		inherit: true,
+		num: -9005,
+		name: "Aerodactyl-Fossil",
+		baseSpecies: "Aerodactyl",
+		forme: "Fossil",
+		types: ["Rock", "Flying"],
+		abilities: {},
+		baseStats: {hp: 80, atk: 105, def: 65, spa: 60, spd: 60, spe: 130},
 	},
 	/// .o88b. db       .d8b.  .d8888. .d8888. d888888b  .o88b.   d8888b.  .d88b.  db   dD d88888b d8888b. d88888b db    db 
 	///d8P  Y8 88      d8' `8b 88'  YP 88'  YP   `88'   d8P  Y8   88  `8D .8P  Y8. 88 ,8P' 88'     88  `8D 88'     `8b  d8' 

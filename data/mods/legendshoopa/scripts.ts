@@ -4,6 +4,49 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customTiers: ['ANL OU', 'ANL NFE', 'ANL LC'],
 	},
 
+	init() { // pasted in by Hematite because I am far too lazy to manage learnsets.ts
+		delete this.modData('Learnsets', 'crustle').learnset.gigaimpact;
+		delete this.modData('Learnsets', 'crustle').learnset.hyperbeam;
+		this.modData('Learnsets', 'lanturn').learnset.thunderfang = ["8M"];
+		this.modData('Learnsets', 'kecleon').learnset.camoscope = ["8M"];
+		this.modData('Learnsets', 'tropius').learnset.berryblast = ["8M"];
+		for (const id in this.dataCache.Pokedex) {
+			const newMon = this.dataCache.Pokedex[id];
+			if (!newMon || !newMon.copyData) continue; // weeding out Pokémon that aren't specifically using this feature
+			let copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
+
+			if (!newMon.types && copyData.types) newMon.types = copyData.types;
+			if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
+			if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
+			if (!newMon.num && copyData.num) newMon.num = copyData.num * -1; // inverting the original's dex number
+			if (!newMon.genderRatio && copyData.genderRatio) newMon.genderRatio = copyData.genderRatio;
+			if (!newMon.heightm && copyData.heightm) newMon.heightm = copyData.heightm;
+			if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
+			if (!newMon.color && copyData.color) newMon.color = copyData.color;
+			if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
+
+			let copyMoves = newMon.copyData;
+			if (newMon.copyMoves) copyMoves = newMon.copyMoves;
+			if (copyMoves) {
+				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = { learnset: {}};
+				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
+				for (const moveid in learnset) {
+					this.modData('Learnsets', id).learnset[moveid] = learnset[moveid];
+				}
+				if (newMon.movepoolAdditions) {
+					for (const move of newMon.movepoolAdditions) {
+						this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
+					}
+				}
+				if (newMon.movepoolDeletions) {
+					for (const move of newMon.movepoolDeletions) {
+						delete this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)];
+					}
+				}
+			}
+		}
+	},
+
 	hitStepAccuracy(targets, pokemon, move) {
 		const hitResults = [];
 		for (const [i, target] of targets.entries()) {

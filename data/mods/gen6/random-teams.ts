@@ -1111,3 +1111,5 @@ export class RandomGen6Teams extends RandomGen7Teams {
 		return pokemon;
 	}
 }
+
+export default RandomGen6Teams;

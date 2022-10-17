@@ -1393,757 +1393,757 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	snover: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	abomasnow: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	gliscor: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	frillish: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	jellicent: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	tynamo: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	eelektrik: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	eelektross: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	cryogonal: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	typenull: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NUBL",
 	},
 	silvally: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	silvallybug: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallydark: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallydragon: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallyelectric: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallyfighting: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	silvallyfire: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallyflying: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	silvallyghost: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	silvallygrass: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallyground: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	silvallyice: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallypoison: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallypsychic: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallyrock: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	silvallysteel: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	silvallywater: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	golett: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	golurk: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	geodudealola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	graveleralola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	golemalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	croagunk: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	toxicroak: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	crabrawler: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	crabominable: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	starly: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	staravia: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	staraptor: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	stunky: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	skuntank: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	fletchling: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	fletchinder: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	talonflame: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	sylveon: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	zarude: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	zarudedada: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	buneary: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	lopunny: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	chespin: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	quilladin: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	chesnaught: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	cramorant: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	guzzlord: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	litten: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	torracat: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	incineroar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	mimejr: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	mrmimegalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NUBL",
 	},
 	mrrime: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	glaceon: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	uxie: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	marowakalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	marowakalolatotem: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	dracovish: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	slowkinggalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	slowpokegalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	milcery: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	alcremie: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	regieleki: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	/*mamoswine: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UUBL",
 	},*/
 	roserade: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	/*dusknoir: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UUBL",
 	},*/
 	leafeon: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	slowbrogalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	mismagius: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	/*honchkrow: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},*/
 	budew: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	bonsly: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	mantyke: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	chingling: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	happiny: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	/*ambipom: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	weavile: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	magnezone: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	porygonz: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UUBL",
 	},
 	lickilicky: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	rhyperior: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "Uber",
 	},*/
 	tangrowth: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	/*probopass: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	electivire: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "Uber",
 	},*/
 	magmortar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UUBL",
 	},
 	/*togekiss: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	yanmega: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	gallade: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	froslass: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	raticatealola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	rattataalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},*/
 	raichualola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	/*sandshrewalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	sandslashalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},	
 	vulpixalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	ninetalesalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},*/
 	diglettalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	dugtrioalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	/*persianalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	meowthalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},*/
 	meowthgalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	perrserker: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	/*mukalola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	grimeralola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	exeggutoralola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	ponytagalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	rapidashgalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},*/
 	farfetchdgalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	sirfetchd: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	/*cursola: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	corsolagalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NUBL",
 	},*/
 	weezinggalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	articunogalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	zapdosgalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	moltresgalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	zigzagoongalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	linoonegalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	obstagoon: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UUBL",
 	},
 	munchlax: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	impidimp: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	sandile: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	wimpod: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	skrelp: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	krokorok: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	morgrem: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	grimmsnarl: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	golisopod: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	dragalge: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	krookodile: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	pincurchin: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	regidrago: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	stunfisk: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	stunfiskgalar: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	/*wyrdeer: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},*/
 	kleavor: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},
 	/*ursaluna: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "Uber",
 	},
 	sneaselhisui: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NUBL",
 	},
 	sneasler: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "Uber",
 	},
 	qwilfishhisui: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "NFE",
 	},
 	overqwil: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "UU",
 	},*/
 	voltorbhisui: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	electrodehisui: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},
 	/*growlithehisui: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "LC",
 	},
 	arcaninehisui: {
-		isNonstandard: null,
+
 		gen: 3,
 		tier: "OU",
 	},*/

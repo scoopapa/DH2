@@ -6,10 +6,10 @@ export const Formats: {[k: string]: FormatData} = {
 		//banlist: [],
 		/*
 		onBegin() {
-			this.add('rule', "Legends Boost Mod: Stat changes imitate Legends: Arceus's !");
+			this.add('rule', "Legends Boost Mod: Stat changes imitate Legends: Arceus's!");
 		},
 		*/
-		onSwitchIn(pokemon) {
+		onSwap(pokemon) {
 			pokemon.addVolatile('legendsboost');
 		},
 	},

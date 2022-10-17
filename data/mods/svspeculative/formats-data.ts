@@ -14,11 +14,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	qwilfishhisui: { tier: "SV (NFE)" },
 	overqwil: { tier: "SV" },
 
-	sneasel: { tier: "SV (NFE)" },
-	sneaselhisui: { tier: "SV (NFE)" },
-	weavile: { tier: "SV" },
-	sneasler: { tier: "SV" },
-
 	dialgaorigin: { tier: "Uber" },
 	palkiaorigin: { tier: "Uber" },
 
@@ -96,8 +91,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	arcaninehisui: { tier: "SV" },
 
 	slowpoke: { tier: "SV (NFE)" },
+	slowpokegalar: { tier: "SV (NFE)" },
 	slowbro: { tier: "SV" },
+	slowbrogalar: { tier: "SV" },
 	slowking: { tier: "SV" },
+	slowkinggalar: { tier: "SV" },
 
 	magnemite: { tier: "SV (NFE)" },
 	magneton: { tier: "SV (NFE)" },
@@ -180,9 +178,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	dunsparce: { tier: "SV" },
 
+	sneasel: { tier: "SV (NFE)" },
+	sneaselhisui: { tier: "SV (NFE)" },
+	weavile: { tier: "SV" },
+	sneasler: { tier: "SV" },
+
 	teddiursa: { tier: "SV (NFE)" },
 	ursaring: { tier: "SV (NFE)" },
-	ursaluna: { tier: "SV (NFE)" },
+	ursaluna: { tier: "SV" },
 
 	delibird: { tier: "SV" },
 
@@ -222,11 +225,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	numel: { tier: "SV (NFE)" },
 	camerupt: { tier: "SV" },
 
+	torkoal: { tier: "SV" },
+
 	cacnea: { tier: "SV (NFE)" },
 	cacturne: { tier: "SV" },
 
 	swablu: { tier: "SV (NFE)" },
 	altaria: { tier: "SV" },
+
+	zangoose: { tier: "SV" },
 
 	seviper: { tier: "SV" },
 
@@ -318,6 +325,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	larvesta: { tier: "SV (NFE)" },
 	volcarona: { tier: "SV" },
+
+	chespin: { tier: "SV (NFE)" },
+	quilladin: { tier: "SV (NFE)" },
+	chesnaught: { tier: "SV" },
+
+	fennekin: { tier: "SV (NFE)" },
+	braixen: { tier: "SV (NFE)" },
+	delphox: { tier: "SV" },
+
+	froakie: { tier: "SV (NFE)" },
+	frogadier: { tier: "SV (NFE)" },
+	greninja: { tier: "SV" },
+	greninjaash: { tier: "SV" }, // not confirmed and I kinda hope not o_o but the rest of the line is here
 
 	fletchling: { tier: "SV (NFE)" },
 	fletchinder: { tier: "SV (NFE)" },

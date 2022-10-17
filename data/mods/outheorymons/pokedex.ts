@@ -209,5 +209,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
    unfezant: {
       inherit: true, 
 		types: ["Ground", "Flying"],
+	}, 
+	beartic: {
+		inherit: true, 
+		types: ["Ice", "Fighting"],
+		baseStats: {hp: 95, atk: 130, def: 80, spa: 70, spd: 80, spe: 70},
+	},
+	stunfiskgalar: {
+		inherit: true,
+		abilities: {0: "Mimicry", H: "Regenerator"},
+	},
+	frosmoth: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 65, def: 60, spa: 125, spd: 90, spe: 85},
    }, 
 };

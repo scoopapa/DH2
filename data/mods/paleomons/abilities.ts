@@ -376,6 +376,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Boneyard",
+		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Ground-type attack.",
 		rating: 3.5,
 		num: -116,
 	},
@@ -390,6 +391,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Tactics Change",
+		shortDesc: "If Aegislash-Ancient, changes Forme to Ancient-Hunter before attacks and Ancient before King's Shield.",
 		rating: 5,
 		num: -117
 	},

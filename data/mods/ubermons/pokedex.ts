@@ -156,6 +156,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 115, atk: 85, def: 115, spa: 85, spd: 115, spe: 85},
 	},
+	magearnaoriginal: {
+		inherit: true,
+		baseStats: {hp: 115, atk: 85, def: 115, spa: 85, spd: 115, spe: 85},
+	},
 	pheromosa: {
 		inherit: true,
 		baseStats: {hp: 83, atk: 113, def: 67, spa: 113, spd: 67, spe: 127},
@@ -180,8 +184,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	dialga: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Persistent", H: "Telepathy"},
-		baseStats: {hp: 80, atk: 100, def: 100, spa: 130, spd: 80, spe: 80},
+		abilities: {0: "Pressure", H: "Telepathy"},
+		baseStats: {hp: 80, atk: 100, def: 100, spa: 125, spd: 80, spe: 85},
 	},
 	palkia: {
 		inherit: true,
@@ -373,6 +377,74 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	necrozmaultra: {
 		inherit: true,
 		types: ["Psychic", "Dark"],
-		baseStats: {hp: 97, atk: 139, def: 91, spa: 139, spd: 91, spe: 127},
+		baseStats: {hp: 97, atk: 127, def: 103, spa: 127, spd: 103, spe: 113},
+	},
+	darkrai: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 110, def: 75, spa: 135, spd: 100, spe: 105},
+	},
+	naganadel: {
+		inherit: true,
+		baseStats: {hp: 71, atk: 113, def: 73, spa: 113, spd: 73, spe: 127},
+	},
+	bergmite: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Snow Cloak", H: "Sturdy"},
+	},
+	avalugg: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Snow Cloak", H: "Sturdy"},
+	},
+	regice: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Snow Cloak"},
+	},
+	tyranitar: {
+		inherit: true,
+		abilities: {0: "Sand Stream", H: "Sand Veil"},
+	},
+	carbink: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Sand Veil", H: "Sturdy"},
+	},
+	diancie: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Sand Veil"},
+	},
+	clauncher: {
+		inherit: true,
+		abilities: {0: "Mega Launcher", H: "Quick Draw"},
+	},
+	clawitzer: {
+		inherit: true,
+		abilities: {0: "Mega Launcher", H: "Quick Draw"},
+	},
+	morpeko: {
+		inherit: true,
+		abilities: {0: "Hunger Switch", H: "Moody"},
+	},
+	spinda: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Moody", H: "Contrary"},
+	},
+	plusle: {
+		inherit: true,
+		abilities: {0: "Plus", 1: "Moody", H: "Lightning Rod"},
+	},
+	minun: {
+		inherit: true,
+		abilities: {0: "Minus", 1: "Moody", H: "Volt Absorb"},
+	},
+	beautifly: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Moody", H: "Rivalry"},
+	},
+	dustox: {
+		inherit: true,
+		abilities: {0: "Shield Dust", 1: "Moody", H: "Compound Eyes"},
+	},
+	mesprit: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Moody"},
 	},
 };

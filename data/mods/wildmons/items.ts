@@ -1,42 +1,42 @@
 export const Items: {[itemid: string]: ItemData} = {
 	assaultvest: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 	choiceband: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 	choicescarf: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 	choicespecs: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 	eviolite: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 	focussash: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 	heavydutyboots: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 	lifeorb: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 	rockyhelmet: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 	expertbelt: {
 		inherit: true,
-		isViable: false,
+		unviable: true,
 	},
 };

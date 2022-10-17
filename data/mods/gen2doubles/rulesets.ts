@@ -19,10 +19,7 @@ export const Formats: {[k: string]: ModdedFormatsData} = {
 	standarddoubles: {
 		effectType: 'ValidatorRule',
 		name: 'Standard Doubles',
-		desc: "The standard ruleset for all official Smogon doubles tiers",
-		ruleset: [
-			'Obtainable', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Species Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-		],
+		ruleset: ['Obtainable', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Species Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless battle Clause', 'HP Percentage Mod', 'Cancel Mod'],
 		banlist: [
 			'Hypnosis + Mean Look',
 			'Hypnosis + Spider Web',

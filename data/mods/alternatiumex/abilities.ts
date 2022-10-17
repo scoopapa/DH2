@@ -116,7 +116,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: -5,
 	},
-	splitsystem: {
+	splitsystem: { //Not used in this mod, but the code can be helpful
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.type === "Dark") {
@@ -356,8 +356,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add("-fail", target, "unboost", "[from] ability: Snow Cloak", "[of] " + target);
 			}
 		},
-		shortDesc: "If Hail is active, this Pokemon cannot have its stats lowered or lower its own stats.",
 		name: "Snow Cloak",
+		shortDesc: "If Hail is active, this Pokemon cannot have its stats lowered or lower its own stats.",
 		rating: 3,
 		num: 81,
 	},
@@ -366,7 +366,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.boost({spa: 1});
 		},
 		name: "Plus",
-		shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage after it is damaged by a move.",
+		shortDesc: "This Pokemon's SpA is raised by 1 stage when hit by an attack.",
 		rating: 3.5,
 		num: 57,
 	},
@@ -380,5 +380,123 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon heals 1/16 of its max HP before using an attacking move.",
 		rating: 3.5,
 		num: -13,
+	},
+	coldblooded: {
+		onStart(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.isZOrMaxPowered || move.id === 'struggle') return;
+			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
+				// Fails unless ability is being ignored (these events will not run), no PP lost.
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Cold-Blooded");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityData.choiceLock = move.id;
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Cold-Blooded SpA Boost');
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.abilityData.choiceLock) return;
+			if (pokemon.volatiles['dynamax']) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		name: "Cold-Blooded",
+		shortDesc: "This Pokemon's Sp. Atk. is 1.5x, but it can only select the first move it executes.",
+		rating: 4.5,
+		num: -14,
+	},
+	transience: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (this.field.pseudoWeather.trickroom) {
+				this.debug('Transience weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Transience",
+		shortDesc: "Under Trick Room, this Pokemon takes 0.75x damage from attacks.",
+		rating: 3.5,
+		num: -15,
+	},
+	originorb: {
+		/*onEffectiveness: function(typeMod, target, type, move) {
+			if (move && this.dex.getImmunity(move, type) === false) return 2;
+			return -typeMod;
+		},*/
+		name: "Origin Orb",
+		shortDesc: "(Non-functional placeholder) This Pokemon deals resisted damage to immunities.",
+		rating: 5,
+		num: -16,
+	},
+	rewind: {
+		/*onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				pokemon.m.lostItem = pokemon.lastItem;
+				pokemon.lastItem = '';
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem(pokemon.m.lostItem);
+				pokemon.lastItem = '';
+				delete pokemon.m.lostItem;
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Rewind');
+				return null;
+			}
+		},*/
+		name: "Rewind",
+		shortDesc: "(Non-functional placeholder) This Pokemon restores its held item upon switching out.",
+		rating: 3.5,
+		num: -17,
+	},
+	spacedivide: {
+		onAfterBoost(boost, target, source, effect) {
+			if (!boost || effect.id === 'spacedivide') return;
+			let activated = false;
+			const spacedivideBoost: SparseBoostsTable = {};
+			if (boost.spa) {
+				spacedivideBoost.atk = -1 * boost.spa;
+				activated = true;
+			}
+			if (boost.spd) {
+				spacedivideBoost.def = -1 * boost.spd;
+				activated = true;
+			}
+			if (boost.atk) {
+				spacedivideBoost.spa = -1 * boost.atk;
+				activated = true;
+			}
+			if (boost.def) {
+				spacedivideBoost.spd = -1 * boost.def;
+				activated = true;
+			}
+			if (activated === true) {
+				this.add('-ability', target, 'Space Divide');
+				this.boost(spacedivideBoost, target, target, null, true);
+			}
+		},
+		name: "Space Divide",
+		shortDesc: "Applies the opposite of stat changes to the opposite stat (Atk/Sp. Atk, Def/Sp. Def).",
+		rating: 4,
+		num: -18,
 	},
 };

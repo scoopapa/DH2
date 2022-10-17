@@ -1,9 +1,4 @@
 export const Moves: {[moveid: string]: MoveData} = {
-	shoreup: {
-		inherit: true,
-		isViable: true,
-	},
-	
 	triplearrows: {
 		num: -1,
 		accuracy: 100,
@@ -64,7 +59,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	ceaselessedge: {
 		num: -3,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 85,
 		category: "Physical",
 		shortDesc: "If this move is not very effective on a target, it sets a layer of Spikes.",
 		name: "Ceaseless Edge",
@@ -157,13 +152,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 	},
-	deathlyskirt: {
+	deathlydance: {
 		num: -7,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
 		shortDesc: "User recovers 50% of the damage dealt.",
-		name: "Deathly Skirt",
+		name: "Deathly Dance",
 		pp: 15,
 		priority: 0,
 		flags: {dance: 1, protect: 1, mirror: 1, heal: 1},
@@ -222,7 +217,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	wickedblow: {
 		inherit: true,
-		accuracy: 90,
+		accuracy: 100,
 		basePower: 85,
 		shortDesc: "Inflicts Torment on the opponent.",
 		pp: 10,
@@ -239,9 +234,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
-			return move.basePower + 10 * pokemon.positiveBoosts();
+			return move.basePower + 20 * pokemon.positiveBoosts();
 		},
-		shortDesc: "+ 10 power for each of the user's stat boosts.",
+		shortDesc: "+ 20 power for each of the user's stat boosts.",
 		pp: 10,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		willCrit: null,
@@ -511,7 +506,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	prismaticlaser: {
 		num: 711,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		shortDesc: "This move ignores type based interactions.",
 		name: "Prismatic Laser",
@@ -596,6 +591,49 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Clever",
 	},
+	overdrive: {
+		inherit: true,
+		basePower: 100,
+	},
+	teatime: {
+		inherit: true,
+		priority: 1,
+	},
+	teatimeantique: {
+		num: 752,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "All active Pokemon consume held Berries.",
+		name: "Teatime (Antique)",
+		pp: 10,
+		priority: 0,
+		flags: {authentic: 1},
+		onHitField(target, source, move) {
+			let result = false;
+			for (const active of this.getAllActive()) {
+				if (this.runEvent('Invulnerability', active, source, move) === false) {
+					this.add('-miss', source, active);
+					result = true;
+				} else {
+					const item = active.getItem();
+					if (active.hp && item.isBerry) {
+						// bypasses Unnerve
+						active.eatItem(true);
+						result = true;
+					}
+				}
+			}
+			return result;
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Teatime", target);
+		},
+		secondary: null,
+		target: "all",
+		type: "Normal",
+	},
 	freezingglare: {
 		num: 821,
 		accuracy: 100,
@@ -620,7 +658,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Heals the user for 1/3 max HP. If afflicted with a status, heals the user for 1/6 max HP and cures the status.",
+		shortDesc: "Heals 1/3 of max HP. If statused: Heals 1/6 and cures status.",
 		name: "Life Dew",
 		pp: 10,
 		priority: 0,
@@ -642,16 +680,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Water",
 	},
-	skyattack: {
-		num: 143,
+	turkeybarrage: {
+		num: -15,
 		accuracy: 70,
 		basePower: 140,
 		category: "Physical",
 		shortDesc: "20% chance to make the target flinch.",
-		name: "Sky Attack",
+		name: "Turkey Barrage",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sky Attack", target);
+		},
 		secondary: {
 			chance: 20,
 			volatileStatus: 'flinch',
@@ -676,5 +718,171 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Dark",
+	},
+	boneclub: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 70,
+		shortDesc: "The target takes hazard damage after being hit by this move.",
+		pp: 15,
+		onAfterHit(target, source) {
+			const targetSide = source.side.foe;
+			if (targetSide.getSideCondition('stealthrock')) {
+				if (target.hasItem('heavydutyboots')) return;
+				const typeMod = this.clampIntRange(target.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
+				this.damage(target.maxhp * Math.pow(2, typeMod) / 8);
+				this.add('-message', `Pointed stones dug into ${target.name}!`);
+			}
+			if (targetSide.getSideCondition('spikes')) {
+				//if (!target.isGrounded()) return;
+				if (target.hasItem('heavydutyboots')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectData.layers] * target.maxhp / 24);
+				this.add('-message', `${target.name} was hurt by the spikes!`);
+			}
+		},
+		secondary: {},
+	},
+	bonemerang: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 35,
+		shortDesc: "Hits twice. User switches out.",
+		pp: 20,
+		selfSwitch: true,
+		type: "Rock",
+	},
+	shadowbone: {
+		inherit: true,
+		basePower: 90,
+		shortDesc: "30% chance to lower target's Attack by 1.",
+		pp: 15,
+		secondary: {
+			chance: 30,
+			boosts: {
+				atk: -1,
+			},
+		},
+	},
+	springtidestorm: {
+		num: -16,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		shortDesc: "Lowers the user's Sp. Atk by 2.",
+		name: "Springtide Storm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spa: -2,
+			},
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psycho Boost", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+	},
+	roaroftime: {
+		num: 459,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Raises user's SpA by 1 when attacked before it moves.",
+		name: "Roar of Time",
+		pp: 5,
+		priority: -3,
+		flags: {protect: 1, mirror: 1},
+		beforeTurnCallback(pokemon) {
+			pokemon.addVolatile('roaroftime');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Roar of Time');
+			},
+			onDamagingHit(damage, target, source, move) {
+				this.boost({spa: 1}, target, source, undefined, true);
+				this.add('-activate', target, 'move: Roar of Time');
+			},
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('roaroftime');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
+	originrend: {
+		num: -17,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("Power doubled for no item");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		shortDesc: "Power doubles if the user has no held item.",
+		name: "Origin Rend",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spacial Rend", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+	},
+	
+	trickroom: {
+		inherit: true,
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				if (source?.hasItem('adamantorb')) {
+					return 8;
+				}
+				return 5;
+			},
+			onStart(target, source) {
+				this.add('-fieldstart', 'move: Trick Room', '[of] ' + source);
+			},
+			onRestart(target, source) {
+				this.field.removePseudoWeather('trickroom');
+			},
+			// Speed modification is changed in Pokemon.getActionSpeed() in sim/pokemon.js
+			onResidualOrder: 23,
+			onEnd() {
+				this.add('-fieldend', 'move: Trick Room');
+			},
+		},
+	},
+	hyperspacefury: {
+		inherit: true,
+		onTry(pokemon) {
+			if (pokemon.species.name === 'Hoopa-Unbound' || pokemon.species.name === 'Archronos') {
+				return;
+			}
+			this.hint("Only a Pokemon whose form is Hoopa Unbound or Archronos can use this move.");
+			if (pokemon.species.name === 'Hoopa') {
+				this.add('-fail', pokemon, 'move: Hyperspace Fury', '[forme]');
+				return null;
+			}
+			this.add('-fail', pokemon, 'move: Hyperspace Fury');
+			return null;
+		},
 	},
 };

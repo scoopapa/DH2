@@ -123,7 +123,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Sableior"],
 		onTakeItem: false,
 		num: 754,
-		desc: "If held by a Sableior or an Absable, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Sableior, Absable, or Sablemime, this item allows it to Mega Evolve in battle.",
 	},
 	heracronite: {
 		name: "Heracronite",

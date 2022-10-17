@@ -4,7 +4,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		// implemented in conditions.ts
 
 		name: "Remaining Hope",
-		shortDesc: "This Pokémon's Stat changess last for 4 turns instead of 3",
+		shortDesc: "The Pokémon's stat changes last for 4 turns instead of 3.",
+		num: -100,
 	},
 
 	sirenevoice: {
@@ -14,44 +15,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 
 		name: "Sirene Voice",
-		shortDesc: "This Pokemon's sound-based moves trap the foe",
+		shortDesc: "This Pokémon's sound-based moves trap the target.",
+		num: -101,
 	},
 
-	twoheadded: {
+	twoheaded: {
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
 			if (['endeavor', 'fling', 'iceball', 'rollout'].includes(move.id)) return;
 			if (!move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
 				move.multihit = 2;
-				move.multihitType = 'twoheadded';
+				move.multihitType = 'twoheaded';
 			}
 		},
 		onBasePowerPriority: 7,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'twoheadded' && move.hit > 1) return this.chainModify(0.25);
+			if (move.multihitType === 'twoheaded' && move.hit > 1) return this.chainModify(0.25);
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
-			if (move.multihitType === 'twoheadded' && move.id === 'secretpower' && move.hit < 2) {
+			if (move.multihitType === 'twoheaded' && move.id === 'secretpower' && move.hit < 2) {
 				// hack to prevent accidentally suppressing King's Rock/Razor Fang
 				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
 			}
 		},
 
-		name: "Two Headded",
-		shortDesc: "Damaging moves hit twice. The second hit deals 0.25x damage."
+		name: "Two-Headed",
+		shortDesc: "Damaging moves hit twice. The second hit deals 0.25x damage.",
+		num: -102,
 	},
 
-	
-
 	dreamtherapy: {
-		/*
-		onModifyMove(move, source, target) {
-			if(target.status === 'slp' && move.category !== 'Status') {
-				move.drain = [1,2];
-				return;
-			}
-		},
-		*/
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status' && target.status == 'slp' && target) {
 				this.heal(pokemon.lastDamage / 2, pokemon);
@@ -59,7 +52,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 
 		name: "Dream Therapy",
-		shortDesc: "Moves used against sleeping targets heal 50%",
+		shortDesc: "Moves used against sleeping targets heal 50%.",
+		num: -103,
+	},
+
+	forceofgravity: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.secondary && move.secondary.volatileStatus && move.secondary.volatileStatus === 'jaggedsplinters') {
+				return this.chainModify(2);
+			}
+		},
+		name: "Force of Gravity",
+		shortDesc: "Doubles the power of moves that set jagged splinters.",
+		num: -104,
 	},
 
 
@@ -217,7 +223,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBasePower(basePower, pokemon, target, move) {
-			if ((move.multihitType === 'parentalbond' || move.multihitType === 'twoheadded') && move.hit > 1) return this.chainModify(0.25);
+			if ((move.multihitType === 'parentalbond' || move.multihitType === 'twoheaded') && move.hit > 1) return this.chainModify(0.25);
 		},
 		rating: 2,
 		num: 152,
@@ -239,7 +245,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.status) {
-				this.add('-message', "Guts boost");
 				return this.chainModify(1.5);
 			}
 		},
@@ -255,6 +260,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move?.effectType === 'Move' && target.getMoveHitData(move).crit) {
 				target.setBoost({atk: 1});
 				target.addVolatile('primed');
+			}
+		},
+	},
+
+
+	// debugging
+	speedboost: {
+		inherit: true,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: 1});
 			}
 		},
 	},

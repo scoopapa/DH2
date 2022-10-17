@@ -139,6 +139,228 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Liquidation", target);
 		},
+		target: "normal",
+		type: "Water",
+	},
+
+	berryblast: {
+		shortDesc: "Doubles in power if the user is itemless.",
+		num: -106,
+		accuracy: 100,
+		basePower: 55,
+		basePowerCallback(pokemon, target, move) {
+			if (!pokemon.item) {
+				this.debug("Power doubled for no item");
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Berry Blast",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Seed Bomb", target);
+		},
+		target: "any",
+		type: "Grass",
+		contestType: "Cute",
+	},
+
+	postdelivery: {
+		shortDesc: "Does damage 2 turns after use. Physical if the user is female.",
+		num: -107,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Post Delivery",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		ignoreImmunity: true,
+		isFutureMove: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			if (source.gender === 'F') {
+				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+					duration: 3,
+					move: 'postdelivery',
+					source: source,
+					moveData: {
+						id: 'postdelivery',
+						name: "Post Delivery",
+						accuracy: 100,
+						basePower: 90,
+						category: "Physical",
+						priority: 0,
+						flags: {},
+						ignoreImmunity: false,
+						effectType: 'Move',
+						isFutureMove: true,
+						type: 'Fairy',
+					},
+				});
+			} else {
+				Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+					duration: 3,
+					move: 'postdelivery',
+					source: source,
+					moveData: {
+						id: 'postdelivery',
+						name: "Post Delivery",
+						accuracy: 100,
+						basePower: 90,
+						category: "Special",
+						priority: 0,
+						flags: {},
+						ignoreImmunity: false,
+						effectType: 'Move',
+						isFutureMove: true,
+						type: 'Fairy',
+					},
+				});
+			}
+			this.add('-message', `${source.illusion ? source.illusion.name : source.name} is making a special delivery!`);
+			return null;
+		},
+		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Present", target);
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Clever",
+	},
+
+	camoscope: {
+		shortDesc: "Matches the user's primary type.",
+		num: -108,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Camoscope",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			let type = pokemon.types[0];
+			if (type === "Bird") type = "???";
+			move.type = type;
+		},
+		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Smart Strike", target);
+		},
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
+
+	pixiedust: {
+		shortDesc: "-1 priority. Attempted Fire moves fail and explode; if they do, this move does half damage.",
+		num: -109,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Pixie Dust",
+		pp: 10,
+		priority: -1,
+		flags: {bullet: 1, protect: 1},
+		beforeTurnCallback(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				target.addVolatile('pixiedust', pokemon);
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Powder'); // display as Powder but it's technically different
+			},
+			onTryMovePriority: -1,
+			onTryMove(pokemon, target, move) {
+				if (move.type === 'Fire') {
+					this.add('-activate', pokemon, 'move: Powder');
+					this.damage(this.clampIntRange(Math.round(pokemon.maxhp / 4), 1));
+					this.effectData.activated = true; // because it needs to be removed now
+					return false;
+				}
+			},
+		},
+		basePowerCallback(pokemon, target, move) {
+			if (target.volatiles['pixiedust'] && target.volatiles['pixiedust'].activated) {
+				this.debug("Power halved for no Pixie Dust");
+				return move.basePower * 0.5;
+			}
+			return move.basePower;
+		},
+		onAfterMove(pokemon, target) {
+			target.removeVolatile('pixiedust');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Cute",
+	},
+
+	stormoflight: {
+		shortDesc: "The user sacrifices 80% of its current HP.",
+		num: -110,
+		accuracy: 100,
+		basePower: 200,
+		category: "Physical",
+		name: "Storm of Light",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp * 4 / 5), pokemon, pokemon, this.dex.getEffect('Steel Beam'), true);
+			}
+		},
+		secondary: null,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Light That Burns the Sky", target);
+		},
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Cool",
+	},
+
+	takeheart: { // for Dovinity
+		shortDesc: "Raises the user's Sp. Atk and Sp. Def by 1. User cures its burn, poison, or paralysis.",
+		num: -111,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Take Heart",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Tail Glow", target);
+		},
+		onHit(pokemon) {
+			if (pokemon.status === '') return;
+			pokemon.cureStatus();
+		},
+		boosts: {
+			spa: 1,
+			spd: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
 	},
 
 
@@ -196,6 +418,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			volatileStatus: 'jaggedsplinters',
 		},
+		flags: {protect: 1, mirror: 1},
+		target: "adjacentFoe",
 		sideCondition: undefined,
 		shortDesc: "Sets Jagged Splinters.",
 	},
@@ -209,6 +433,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			volatileStatus: 'jaggedsplinters',
 		},
+		flags: {protect: 1, mirror: 1},
+		target: "adjacentFoe",
+		sideCondition: undefined,
 		shortDesc: "Sets Jagged Splinters.",
 	},
 
@@ -253,8 +480,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	selfdestruct: {
 		inherit: true,
 		selfdestruct: '',
-		onModifyMove(move, target, source) {
-			this.damage((source.maxhp * 4) / 5);
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp * 4 / 5), pokemon, pokemon, this.dex.getEffect('Steel Beam'), true);
+			}
 		},
 	},
 
@@ -282,26 +512,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			volatileStatus: 'fixated',
 		},
 		basePowerCallback() {
-			return;
+			return 80;
 		},
-		onTry() {
-			return;
+		onTry() {},
+		condition: {
+			duration: null,
 		},
 	},
 
 	explosion: {
 		inherit: true,
 		selfdestruct: '',
-		onModifyMove(move, target, source) {
-			this.damage((source.maxhp * 4) / 5);
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp * 4 / 5), pokemon, pokemon, this.dex.getEffect('Steel Beam'), true);
+			}
 		},
 	},
 
 	mistyexplosion: {
 		inherit: true,
 		selfdestruct: '',
-		onModifyMove(move, target, source) {
-			this.damage((source.maxhp * 4) / 5);
+		mindBlownRecoil: true,
+		onAfterMove(pokemon, target, move) {
+			if (move.mindBlownRecoil && !move.multihit) {
+				this.damage(Math.round(pokemon.maxhp * 4 / 5), pokemon, pokemon, this.dex.getEffect('Steel Beam'), true);
+			}
 		},
 	},
 
@@ -344,61 +581,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			volatileStatus: 'jaggedsplinters',
 		},
 		shortDesc: "Sets Jagged Splinters",
-	},
-
-	toxicspikes: {
-		inherit: true,
-		condition: {
-			duration: 4,
-			// this is a side condition
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Toxic Spikes');
-			},
-			onRestart(side) {
-				if (this.effectData.layers >= 2) return false;
-				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers++;
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasType('Poison')) {
-					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
-					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
-					return;
-				} else if (this.effectData.layers >= 2) {
-					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
-				} else {
-					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
-				}
-			},
-			onEnd(targetSide) {
-				for (const pokemon of targetSide.active) {
-					this.add('-sideend', targetSide, 'Toxic Spikes');
-				}
-		  	},
-		},
-	},
-
-	stickyweb: {
-		inherit: true,
-		condition: {
-			duration: 4,
-			onStart(side) {
-				this.add('-sidestart', side, 'move: Sticky Web');
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots')) return;
-				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
-			},
-			onEnd(targetSide) {
-				for (const pokemon of targetSide.active) {
-					this.add('-sideend', targetSide, 'Toxic Spikes');
-				}
-		  	},
-		},
 	},
 
 	rollout: {

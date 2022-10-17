@@ -10,8 +10,61 @@ export const Scripts: ModdedBattleScriptsData = {
 	// Legends stuff + future speculative Fakemon
 
 	init() {
+		const cutMoves = [
+			'karatechop', 'doubleslap', 'cometpunch', 'razorwind', 'Jumpkick', 'rollingkick', 'twineedle', 'sonicboom', 'dragonrage', 'meditate', 'rage', 'barrier',
+			'bide', 'mirrormove', 'eggbomb', 'boneclub', 'clamp', 'spikecannon', 'constrict', 'barrage', 'bubble', 'dizzypunch', 'flash', 'psywave', 'sharpen',
+			'spiderweb', 'nightmare', 'feintattack', 'foresight', 'return', 'frustration', 'magnitude', 'pursuit', 'hiddenpower', 'smellingsalts', 'assist', 'refresh',
+			'snatch', 'secretpower', 'camouflage', 'mudsport', 'iceball', 'needlearm', 'odorsleuth', 'silverwind', 'grasswhistle', 'signalbeam', 'skyuppercut',
+			'watersport', 'miracleeye', 'wakeupslap', 'naturalgift', 'embargo', 'trumpcard', 'healblock', 'wringout', 'luckychant', 'mefirst', 'punishment', 'mudbomb',
+			'mirrorshot', 'rockclimb', 'magnetbomb', 'captivate', 'healorder', 'ominouswind', 'telekinesis', 'flameburst', 'synchronoise', 'chipaway', 'skydrop',
+			'bestow', 'heartstamp', 'steamroller', 'rototiller', 'iondeluge', 'spotlight',
+		];
+		const galarMoves = [
+			'acrobatics', 'agility', 'airslash', 'allyswitch', 'amnesia', 'assurance', 'attract', 'aurasphere', 'avalanche', 'batonpass', 'beatup', 'blazekick',
+			'blizzard', 'bodypress', 'bodyslam', 'bounce', 'bravebird', 'breakingswipe', 'brickbreak', 'brine', 'brutalswing', 'bugbuzz', 'bulkup', 'bulldoze',
+			'bulletseed', 'burningjealousy', 'calmmind', 'charm', 'closecombat', 'coaching', 'corrosivegas', 'cosmicpower', 'crosspoison', 'crunch', 'darkestlariat',
+			'darkpulse', 'dazzlinggleam', 'dig', 'dive', 'dracometeor', 'dragonclaw', 'dragondance', 'dragonpulse', 'drainingkiss', 'drainpunch', 'drillrun',
+			'dualwingbeat', 'earthpower', 'earthquake', 'eerieimpulse', 'electricterrain', 'electroball', 'electroweb', 'encore', 'endure', 'energyball',
+			'expandingforce', 'facade', 'faketears', 'falseswipe', 'fireblast', 'firefang', 'firepunch', 'firespin', 'flamethrower', 'flareblitz', 'flashcannon',
+			'fling', 'flipturn', 'fly', 'focusblast', 'focusenergy', 'foulplay', 'futuresight', 'gigadrain', 'gigaimpact', 'grassknot', 'grassyglide', 'grassyterrain',
+			'guardswap', 'gunkshot', 'gyroball', 'hail', 'heatcrash', 'heatwave', 'heavyslam', 'helpinghand', 'hex', 'highhorsepower', 'hurricane', 'hydropump',
+			'hyperbeam', 'hypervoice', 'icebeam', 'icefang', 'icepunch', 'iciclespear', 'icywind', 'imprison', 'irondefense', 'ironhead', 'irontail', 'lashout',
+			'leafblade', 'leafstorm', 'leechlife', 'lightscreen', 'liquidation', 'lowkick', 'lowsweep', 'magicalleaf', 'magicroom', 'megahorn', 'megakick', 'megapunch',
+			'meteorbeam', 'metronome', 'mistyexplosion', 'mistyterrain', 'muddywater', 'mudshot', 'mysticalfire', 'nastyplot', 'outrage', 'overheat', 'payback', 'payday',
+			'phantomforce', 'pinmissile', 'playrough', 'poisonjab', 'pollenpuff', 'poltergeist', 'powergem', 'powerswap', 'powerwhip', 'protect', 'psychic',
+			'psychicfangs', 'psychicterrain', 'psychocut', 'psyshock', 'raindance', 'razorshell', 'reflect', 'rest', 'retaliate', 'revenge', 'reversal', 'risingvoltage',
+			'rockblast', 'rockslide', 'rocktomb', 'round', 'safeguard', 'sandstorm', 'sandtomb', 'scald', 'scaleshot', 'scaryface', 'scorchingsands', 'screech',
+			'seedbomb', 'selfdestruct', 'shadowball', 'shadowclaw', 'skillswap', 'skittersmack', 'sleeptalk', 'sludgebomb', 'sludgewave', 'smartstrike', 'snarl', 'snore',
+			'solarbeam', 'solarblade', 'speedswap', 'spikes', 'stealthrock', 'steelbeam', 'steelroller', 'steelwing', 'stompingtantrum', 'stoneedge', 'storedpower',
+			'substitute', 'sunnyday', 'superpower', 'surf', 'swift', 'swordsdance', 'tailslap', 'taunt', 'terrainpulse', 'thief', 'throatchop', 'thunder', 'thunderbolt',
+			'thunderfang', 'thunderpunch', 'thunderwave', 'toxicspikes', 'triattack', 'trick', 'trickroom', 'tripleaxel', 'uproar', 'uturn', 'venomdrench', 'venoshock',
+			'voltswitch', 'waterfall', 'weatherball', 'whirlpool', 'wildcharge', 'willowisp', 'wonderroom', 'workup', 'xscissor', 'zenheadbutt',
+		];
 		for (const id in this.dataCache.Pokedex) {
 			if (this.dataCache.Learnsets[id] && this.dataCache.Learnsets[id].learnset) {
+				const learnset = this.modData('Learnsets', this.toID(id)).learnset;
+				for (const moveid in learnset) {
+					if (cutMoves.includes(moveid)) {
+						delete learnset[moveid];
+					} else if (galarMoves.includes(moveid)) {
+						learnset[moveid] = ['8M'];
+					} else {
+						let moveSource = null;
+						for (const source of learnset[moveid]) {
+							if (parseInt(source.charAt(0)) < 7) continue; // only recent level/Egg moves
+							if (source.charAt(1) === 'L') {
+								moveSource = ['8L1'];
+								break; // prioritize level-up over Egg if something can be both
+							}
+							if (source.charAt(1) === 'E') moveSource = ['8E'];
+						}
+						if (moveSource) {
+							learnset[moveid] = moveSource;
+						} else {
+							delete learnset[moveid];
+						}
+					}
+				}
 				this.modData('Learnsets', this.toID(id)).learnset.terablast = ["8M"];
 			}
 			const newMon = this.dataCache.Pokedex[id];

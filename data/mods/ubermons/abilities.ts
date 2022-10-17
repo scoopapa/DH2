@@ -22,48 +22,43 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.field.setWeather('deltastream');
 			const item = source.getItem();
 			if (source.species.id === 'rayquazamega') {
-				source.useItem();
+				source.setItem('');
 			}
 		},
 		inherit: true,
 	},
 	moody: {
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual(pokemon) {
-			let stats: BoostName[] = [];
-			const boost: SparseBoostsTable = {};
-			let statPlus: BoostName;
-			for (statPlus in pokemon.boosts) {
-				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
-				if (pokemon.boosts[statPlus] < 6) {
-					stats.push(statPlus);
+		onStart(pokemon) {
+			let statName = 'atk';
+			let bestStat = 0;
+			let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
+			let bs: StatNameExceptHP;
+			let ws: StatNameExceptHP;
+			for (bs in pokemon.storedStats) {
+				if (pokemon.storedStats[bs] > bestStat) {
+					statName = bs;
+					bestStat = pokemon.storedStats[bs];
 				}
 			}
-			let randomStat: BoostName | undefined = stats.length ? this.sample(stats) : undefined;
-			if (randomStat) boost[randomStat] = 2;
-
-			stats = [];
-			let statMinus: BoostName;
-			for (statMinus in pokemon.boosts) {
-				if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
-				if (pokemon.boosts[statMinus] > -6 && statMinus !== randomStat) {
-					stats.push(statMinus);
+			this.boost({[statName]: -1}, pokemon);
+			for (ws in pokemon.storedStats) {
+				if (pokemon.storedStats[ws] < worstStat) {
+					statName = ws;
+					worstStat = pokemon.storedStats[ws];
 				}
+				
 			}
-			randomStat = stats.length ? this.sample(stats) : undefined;
-			if (randomStat) boost[randomStat] = -1;
-
-			this.boost(boost);
+			this.boost({[statName]: 2}, pokemon);
 		},
 		name: "Moody",
+		shortDesc: "Upon entry, +2 in lowest stat and -1 in highest stat.",
 		rating: 5,
 		num: 141,
 	},
 	shadowtag: {
-		onFoeSwitchOut(source, target) {
-			for (const target of source.side.foe.active) {
-				this.damage(source.baseMaxhp / 8, source, target);
+		onFoeSwitchOut(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				this.damage(pokemon.baseMaxhp / 8, pokemon, target);
 			}
 		},
 		name: "Shadow Tag",
@@ -451,5 +446,100 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon ignores other Pokemon's stat stages when taking damage.",
 		rating: 3.5,
 		num: 235,
+	},
+	baddreams: {
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.side.foe.active) {
+				if (!activated) {
+					this.add('-ability', source, 'Bad Dreams');
+				}
+				activated = true;
+				if (!pokemon.volatiles['baddreams']) {
+					pokemon.addVolatile('baddreams');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectData.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['baddreams']) {
+					target.addVolatile('baddreams');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			const source = this.effectData.target;
+			for (const target of source.side.foe.active) {
+				target.removeVolatile('baddreams');
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if ((effect as Move)?.status && source.volatiles['baddreams']) {
+				this.add('-immune', source, '[from] ability: Bad Dreams');
+			}
+			return false;
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Bad Dreams');
+			},
+			onResidualOrder: 18,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Bad Dreams');
+			},
+		},
+		// Permanent sleep "status" implemented in the relevant sleep-checking effects
+		isPermanent: true,
+		isUnbreakable: true,
+		name: "Bad Dreams",
+		shortDesc: "The foes cannot be statused, and are considered to be asleep.",
+		rating: 4,
+		num: 123,
+	},
+	snowcloak: {
+		onModifyDef(def, pokemon) {
+			if (this.field.isWeather('hail')) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Snow Cloak",
+		shortDesc: "If Hail is active, this Pokemon's Defense is multiplied by 1.5x.",
+		rating: 0.5,
+		num: 81,
+	},
+	sandveil: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.status && this.field.isWeather('sandstorm')) {
+				this.debug('sandveil');
+				this.add('-activate', pokemon, 'ability: Sand Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		name: "Sand Veil",
+		shortDesc: "This Pokemon has its status cured at the end of each turn if Sandstorm is active.",
+		rating: 0.5,
+		num: 8,
+	},
+	quickdraw: {
+		onModifyPriority(priority, source, move) {
+			if (move.flags['bullet']) {
+				if (source.activeMoveActions < 1) {
+					return priority + 2;
+				} else if (source.activeMoveActions > 1) {
+					return priority + 0;
+				}
+			}
+		},
+		name: "Quick Draw",
+		shortDesc: "User's bullet/bomb moves have +2 priority on the first turn.",
+		rating: 2.5,
+		num: 259,
 	},
 };
