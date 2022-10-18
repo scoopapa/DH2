@@ -4351,7 +4351,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["doubleedge", "aggravate", "earthquake", "lowkick"],
 	},
 	slowbrogalar: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["nastyplot", "shellsidearm", "psychic", "focusblast"],
 	},
@@ -4406,7 +4406,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["hydropump", "blizzard", "flipturn", "thunder"],
 	},
 	steelix: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["aridabsorption", "curse", "heavyslam", "earthquake"],
 	},
@@ -4536,12 +4536,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["swordsdance", "gunkshot", "armthrust", "suckerpunch"],
 	},
 	toxtricity: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["boomburst", "overdrive", "shiftgear", "technoblast"],
 	},
 	toxtricitylowkey: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	trevenant: {
