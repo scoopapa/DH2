@@ -2177,7 +2177,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["multiattack", "blazekick", "earthquake", "partingshot"],
 	},
 	silvallyghost: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["multiattack", "superpower", "earthquake", "uturn"],
 	},
@@ -3371,7 +3371,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["cosmicpower", "storedpower", "rest", "sleeptalk"],
 	},
 	gourgeist: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["poltergeist", "powerwhip", "shadowsneak", "synthesis"],
 	},
@@ -4560,7 +4560,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["tropkick", "rapidspin", "knockoff", "uturn", "tripleaxel"],
 	},
 	turtonator: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["shellsmash", "overheat", "dracometeor", "scorchingsands"],
 	},
