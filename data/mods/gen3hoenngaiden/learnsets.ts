@@ -519,7 +519,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			round: ["3L1"],
 			sandstorm: ["3L1"],
 			scaryface: ["3L1"],
-			signalbeam: ["3L1"],
+			// signalbeam: ["3L1"],
 			sleeptalk: ["3L1"],
 			snore: ["3L1"],
 			substitute: ["3L1"],
