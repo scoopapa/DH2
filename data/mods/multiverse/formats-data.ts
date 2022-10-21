@@ -117,22 +117,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MV",
 	},
 	keldeoresolute: {
-		tier: "MV",
+		tier: "Illegal",
 	},
 	genesect: {
 		tier: "MV",
 	},
 	genesectdouse: {
-		tier: "MV",
+		tier: "Illegal",
 	},
 	genesectshock: {
-		tier: "MV",
+		tier: "Illegal",
 	},
 	genesectburn: {
-		tier: "MV",
+		tier: "Illegal",
 	},
 	genesectchill: {
-		tier: "MV",
+		tier: "Illegal",
 	},
 	chesnaught: {
 		tier: "MV",
