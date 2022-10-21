@@ -105,6 +105,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 60, atk: 95, def: 125, spa: 55, spd: 75, spe: 40},
 		abilities: {0: "Intimidate"},
 	},
+	mawilemega: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 95, def: 125, spa: 55, spd: 75, spe: 40},
+	},
 	manectric: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 75, def: 100, spa: 105, spd: 80, spe: 125},
