@@ -240,6 +240,42 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
+	impidimp: {
+		tier: "LC",
+		randomBattleMoves: ["strangesteam", "psychic", "thunderbolt", "flamethrower"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	morgrem: {
+		tier: "NFE",
+		randomBattleMoves: ["strangesteam", "psychic", "thunderwave", "flamethrower"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	grimmsnarl: {
+		tier: "OU",
+		randomBattleMoves: ["sludge", "psychic", "thunderwave", "lashout"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	diglettalola: {
+		tier: "LC",
+		randomBattleMoves: ["earthquake", "slash", "fireblast", "fierywrath"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	dugtrioalola: {
+		tier: "OU",
+		randomBattleMoves: ["earthquake", "slash", "fireblast", "hyperbeam"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	sylveon: {
+		tier: "OU",
+		randomBattleMoves: ["rest", "sing", "twineedle", "psychic"],
+		isNonstandard: null,
+		gen: 1,
+	},
 
 // don't touch
 	bulbasaur: {

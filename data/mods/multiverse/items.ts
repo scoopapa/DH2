@@ -2,32 +2,41 @@ export const Items: {[itemid: string]: ItemData} = {
 	mawilelite: {
 		name: "Mawile-Lite",
 		spritenum: 1,
-		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Huge Power', '[from] ability: Intimidate', '[of] ' + pokemon);
-			pokemon.setAbility('hugepower');
+		onUpdate(pokemon) {
+			if (pokemon.baseSpecies.name === 'Mawile') {
+				pokemon.formeChange('Mawile-Mega', this.effect, true);
+				this.add('-message', "Mawile mega evolved!");
+			}
 		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Mawile') return false;
-			return true;
+		onTakeItem(item, pokemon) {
+			if (pokemon.baseSpecies.name === 'Mawile-Mega') {
+				pokemon.formeChange('Mawile', this.effect, true);
+				this.add('-message', "Mawile's power got sealed!");
+			}
 		},
 		num: -1,
 		gen: 8,
-		shortDesc: "When held by Mawile, Changes Intimidate to Huge Power.",
+		shortDesc: "Transforms Mawile into its Mega. Transforms back when loosing this item.",
 	},
 	earthplate: {
 		inherit: true,
 		isNonstandard: null,
+		forcedForme: null,
 	},
 	smokebomb: {
 		name: "Smoke Bomb",
 		spritenum: 1,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Greninja') return false;
-			return true;
-		},
+		zMove: true,
+		zMoveType: "Ground",
+		itemUser: ["Greninja"],
+		onTakeItem: false,
 		num: -2,
 		gen: 8,
-		shortDesc: "When held by Greninja, Dig: +20 BP & 1 turn. Single Use.",
+		shortDesc: "If holder is Greninja, this item allows it to use an Ground Z-Move.",
+	},
+	fairymemory: {
+		inherit: true,
+		forcedForme: null,
 	},
 	kokoniumz: {
 		name: "Kokonium Z",
@@ -35,10 +44,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		zMove: true,
 		zMoveType: "Electric",
 		itemUser: ["Tapu Koko"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
+		onTakeItem: false,
 		num: -3,
 		gen: 8,
 		shortDesc: "If holder is Tapu Koko, this item allows it to use an Electric Z-Move.",

@@ -44,6 +44,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'jumpluff').learnset.defog = ['8L1'];
 		this.modData('Learnsets', 'jumpluff').learnset.heavyflip = ['8L1'];
+		this.modData('Learnsets', 'jumpluff').learnset.drainpunch = ['8L1'];
 		
 		this.modData('Learnsets', 'murkrow').learnset.leafburst = ['8L1'];
 		this.modData('Learnsets', 'murkrow').learnset.workup = ['8L1'];
@@ -73,8 +74,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'flygon').learnset.defog;
 		delete this.modData('Learnsets', 'vibrava').learnset.defog;
 		
+		delete this.modData('Learnsets', 'bagon').learnset.return;
+		delete this.modData('Learnsets', 'shelgon').learnset.return;
+		delete this.modData('Learnsets', 'salamence').learnset.return;
+		delete this.modData('Learnsets', 'bagon').learnset.refresh;
+		delete this.modData('Learnsets', 'shelgon').learnset.refresh;
+		delete this.modData('Learnsets', 'salamence').learnset.refresh;
+		
 		this.modData('Learnsets', 'regice').learnset.overcharge = ['8L1'];
 		this.modData('Learnsets', 'regice').learnset.flameburst = ['8L1'];
+		this.modData('Learnsets', 'regice').learnset.recover = ['8L1'];
 		delete this.modData('Learnsets', 'regice').learnset.rockpolish;
 		
 		
@@ -91,6 +100,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		//Generation 5
 		this.modData('Learnsets', 'stoutland').learnset.bringsticks = ['8L1'];
+		this.modData('Learnsets', 'stoutland').learnset.earthquake = ['8L1'];
+		this.modData('Learnsets', 'stoutland').learnset.shoreup = ['8L1'];
 		
 		this.modData('Learnsets', 'musharna').learnset.teleport = ['8L1'];
 		
@@ -103,7 +114,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'eelektross').learnset.sludgebomb = ['8L1'];
 		this.modData('Learnsets', 'eelektross').learnset.sludgewave = ['8L1'];
 		
-		this.modData('Learnsets', 'hydreigon').learnset.sludgebomb = ['8L1'];
 		delete this.modData('Learnsets', 'hydreigon').learnset.nastyplot;
 		delete this.modData('Learnsets', 'zweilous').learnset.nastyplot;
 		delete this.modData('Learnsets', 'deino').learnset.nastyplot;
@@ -142,6 +152,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'mimikyu').learnset.spiritshackle = ['8L1'];
 		delete this.modData('Learnsets', 'mimikyu').learnset.bulkup;
 		delete this.modData('Learnsets', 'mimikyu').learnset.swordsdance;
+		
+		this.modData('Learnsets', 'silvallyfairy').learnset.playrough = ['8L1'];
+		this.modData('Learnsets', 'silvallyfairy').learnset.dazzlinggleam = ['8L1'];
 		
 		this.modData('Learnsets', 'tapukoko').learnset.icefang = ['8L1'];
 		delete this.modData('Learnsets', 'tapukoko').learnset.calmmind;
@@ -216,5 +229,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
 		customTiers: ['MV'],
+		//customTiers: ['S', 'A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-'],
 	},
 };
