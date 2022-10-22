@@ -2130,11 +2130,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
-	/*mamoswine: {
-		rank: "Unranked",
-		gen: 3,
-		tier: "UU",
-	},*/
 	roserade: {
 		rank: "D1",
 		gen: 3,
@@ -2225,11 +2220,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
-	/*probopass: {
-		rank: "Unranked",
-		gen: 3,
-		tier: "UU",
-	},
+	/*
 	electivire: {
 		rank: "Unranked",
 		gen: 3,
@@ -2255,11 +2246,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "UU",
 	},
-	froslass: {
-		rank: "Unranked",
-		gen: 3,
-		tier: "UU",
-	},
+
 	raticatealola: {
 		rank: "Unranked",
 		gen: 3,
@@ -2535,4 +2522,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "UU",
 	},*/
+	froslass: {
+		rank: "New",
+		gen: 3,
+		tier: "OU",
+	},
+	mamoswine: {
+		rank: "New",
+		gen: 3,
+		tier: "OU",
+	},
+	probopass: {
+		rank: "New",
+		gen: 3,
+		tier: "OU",
+	},
 };

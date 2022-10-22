@@ -892,6 +892,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "zarude").learnset.seismictoss = ["3L1"];
 		this.modData("Learnsets", "zarude").learnset.strength = ["3L1"];
 		this.modData("Learnsets", "zarude").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.frustration = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.return = ["3L1"];
 
 		this.modData("Learnsets", "guzzlord").learnset.counter = ["3L1"];
 		this.modData("Learnsets", "guzzlord").learnset.doubleedge = ["3L1"];
