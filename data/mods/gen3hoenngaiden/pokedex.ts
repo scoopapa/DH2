@@ -1492,7 +1492,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 845,
 		name: "Cramorant",
 		types: ["Flying", "Water"],
-		baseStats: {hp: 70, atk: 85, def: 55, spa: 85, spd: 95, spe: 85},
+		baseStats: {hp: 80, atk: 55, def: 75, spa: 85, spd: 135, spe: 85},
 		abilities: {0: "Gulp Missile"},
 		heightm: 0.8,
 		weightkg: 18,
