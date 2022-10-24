@@ -3696,7 +3696,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["lavaplume", "earthpower", "recover", "stealthrock"],
 	},
 	magmortar: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["fireblast", "focusblast", "recover", "thunderbolt"],
 	},
@@ -3721,9 +3721,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["rototiller", "grassyglide", "knockoff", "drainpunch"],
 	},
 	marowak: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DOU",
-		randomBattleMoves: ["bonemerang", "earthquake", "knockoff", "swordsdance"],
+		randomBattleMoves: ["bonemerang", "lightninglance", "knockoff", "curse"],
 	},
 	marowakalola: {
 		tier: "NU",
@@ -4102,7 +4102,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["volttackle", "fakeout", "extremespeed", "knockoff"],
 	},
 	raichualola: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["electroball", "psychic", "focusblast", "nastyplot"],
 	},
