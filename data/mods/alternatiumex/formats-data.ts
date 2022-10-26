@@ -172,6 +172,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Alternatium EX",
 	},
 	braviaryhisui: {
+		isNonstandard: null,
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
@@ -268,6 +269,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Alternatium EX",
 	},
 	enamorus: {
+		isNonstandard: null,
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
@@ -288,6 +290,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Alternatium EX",
 	},
 	palkiaorigin: {
+		isNonstandard: null,
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},

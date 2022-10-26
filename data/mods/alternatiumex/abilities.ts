@@ -463,8 +463,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},*/
+		onSwitchOut(pokemon) {
+            this.useMove('Recycle', pokemon);
+        },
 		name: "Rewind",
-		shortDesc: "(Non-functional placeholder) This Pokemon restores its held item upon switching out.",
+		shortDesc: "(Semifunctional placeholder) This Pokemon restores its held item upon switching out.",
 		rating: 3.5,
 		num: -17,
 	},

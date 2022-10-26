@@ -18,7 +18,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		types: ["Grass", "Dark"],
 		baseStats: {hp: 80, atk: 95, def: 65, spa: 100, spd: 100, spe: 80},
-		abilities: {0: "Sniper", H: "Gluttony"},
+		abilities: {0: "Sniper", H: "Thick Fat"},
 	},
 	golem: {
 		inherit: true,
@@ -77,7 +77,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	magby: {
 		inherit: true,
 		types: ["Fire", "Fighting"],
-		baseStats: {hp: 75, atk: 115, def: 67, spa: 110, spd: 85, spe: 83},
+		baseStats: {hp: 75, atk: 105, def: 77, spa: 95, spd: 85, spe: 98},
 		abilities: {0: "Flame Body", 1: "Multiscale", H: "Vital Spirit"},
 		evos: null,
 	},
@@ -87,7 +87,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	breloom: {
 		inherit: true,
-		baseStats: {hp: 105, atk: 130, def: 80, spa: 60, spd: 70, spe: 70},
+		baseStats: {hp: 80, atk: 120, def: 80, spa: 60, spd: 70, spe: 70},
 		abilities: {0: "Poison Heal", H: "Technician"},
 	},
 	hariyama: {
@@ -104,6 +104,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 60, atk: 95, def: 125, spa: 55, spd: 75, spe: 40},
 		abilities: {0: "Intimidate"},
+	},
+	mawilemega: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 95, def: 125, spa: 55, spd: 75, spe: 40},
 	},
 	manectric: {
 		inherit: true,
@@ -184,6 +188,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 		baseSpecies: null,
 		changesFrom: null,
+		requiredItem: null,
 	},
 	stoutland: {
 		inherit: true,
@@ -206,6 +211,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	hydreigon: {
 		inherit: true,
+		baseStats: {hp: 92, atk: 105, def: 90, spa: 115, spd: 90, spe: 98},
 	},
 	landorus: {
 		inherit: true,
@@ -276,7 +282,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	tyrantrum: {
 		inherit: true,
-		baseStats: {hp: 82, atk: 121, def: 119, spa: 69, spd: 69, spe: 71},
+		baseStats: {hp: 82, atk: 111, def: 119, spa: 69, spd: 69, spe: 71},
 	},
 	sliggoo: {
 		inherit: true,
@@ -311,6 +317,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 		baseSpecies: null,
 		changesFrom: null,
+		requiredItem: null,
 	},
 	mimikyu: {
 		inherit: true,
