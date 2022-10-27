@@ -569,6 +569,394 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		}
 	},
+	eternabeam: {
+		inherit: true,
+		shortDesc: "User cannot move next turn. Multiplies current HP by 1.2x.",
+		onHit(target, source) {
+			this.heal(source.hp / 5, source);
+		},
+	},
+	
+	//Gmax moves
+	gmaxbefuddle: {
+		inherit: true,
+		shortDesc: "Base move affects power. All: -1/4 HP with Fire moves, 3 turns.",
+		self: {
+			pseudoWeather: 'gmaxbefuddle',
+		},
+		condition: {
+			duration: 3,
+			onStart() {
+				this.add('-fieldstart', 'move: G-Max Befuddle');
+			},
+			onTryMovePriority: -1,
+			onTryMove(pokemon, target, move) {
+				if (move.type === 'Fire') {
+					this.add('-activate', pokemon, 'move: Powder');
+					this.damage(this.clampIntRange(Math.round(pokemon.maxhp / 4), 1));
+					return false;
+				}
+			},
+			onEnd() {
+				this.add('-fieldend', 'move: G-Max Befuddle');
+			},
+		},
+	},
+	gmaxcannonade: {
+		inherit: true,
+		shortDesc: "Base move affects power. Foes: -1/8 HP, 3 turns.",
+		condition: {
+			duration: 3,
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'G-Max Cannonade');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1.1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Water')) this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Water')) this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+				this.add('-sideend', targetSide, 'G-Max Cannonade');
+			},
+		},
+	},
+	gmaxcentiferno: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
+		shortDesc: "Base move affects power. In Sun: 1.5x power & bound foes.",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+						pokemon.addVolatile('partiallytrapped', source, this.dex.getActiveMove('G-Max Centiferno'));
+					}
+				}
+			},
+		},
+	},
+	gmaxchistrike: {
+		inherit: true,
+		shortDesc: "Base move affects power. Allies: Always Crit, 3 turns.",
+		self: {
+			sideCondition: 'gmaxchistrike',
+		},
+		condition: {
+			duration: 3,
+			onStart(side) {
+				this.add('-sidestart', side, 'move: G-Max Chi Strike');
+			},
+			onModifyMove(move, pokemon) {
+				move.willCrit = true;
+			},
+			onResidualOrder: 21,
+			onResidualSubOrder: 1,
+			onEnd(side) {
+				this.add('-sideend', side, 'move: G-Max Chi Strike');
+			},
+		},
+	},
+	gmaxcuddle: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (target.volatiles['gmaxcuddle']) {
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
+		shortDesc: "Base move affects power. Foes: infatuated and 1.5x power.",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.addVolatile('gmaxcuddle');
+				}
+			},
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(pokemon, source, effect) {
+				if (!this.runEvent('G-Max Cuddle', pokemon, source)) {
+					this.debug('G-Max Cuddle event failed');
+					return false;
+				}
+				this.add('-start', pokemon, 'G-Max Cuddle');
+			},
+			onUpdate(pokemon) {
+				if (this.effectData.source && !this.effectData.source.isActive && pokemon.volatiles['gmaxcuddle']) {
+					this.debug('Removing G-Max Cuddle volatile on ' + pokemon);
+					pokemon.removeVolatile('gmaxcuddle');
+				}
+			},
+			onBeforeMovePriority: 2,
+			onBeforeMove(pokemon, target, move) {
+				this.add('-activate', pokemon, 'move: G-Max Cuddle', '[of] ' + this.effectData.source);
+				if (this.randomChance(1, 2)) {
+					this.add('cant', pokemon, 'G-Max Cuddle');
+					return false;
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'G-Max Cuddle', '[silent]');
+			},
+		},
+	},
+	gmaxdepletion: {
+		inherit: true,
+		shortDesc: "Base move affects power. Foes: last move -2 PP & disabled.",
+		volatileStatus: 'disable',
+	},
+	gmaxfoamburst: {
+		inherit: true,
+		shortDesc: "Base move affects power. Foes: -1 Speed & -1 each turn.",
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('gmaxfoamburst');
+				for (const pokemon of source.side.foe.active) {
+					this.boost({spe: -1}, pokemon);
+				}
+			},
+		},
+		condition: {
+			duration: 3,
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'G-Max Foam Burst');
+			},
+			onResidualOrder: 26,
+			onResidualSubOrder: 1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					this.boost({spe: -1}, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				this.add('-sideend', targetSide, 'G-Max Foam Burst');
+			},
+		},
+	},
+	gmaxgoldrush: {
+		inherit: true,
+		shortDesc: "Base move affects power. User: steals target's boosts.",
+		stealsBoosts: true,
+		self: null,
+	},
+	gmaxmalodor: {
+		inherit: true,
+		shortDesc: "Base move affects power. Foes: badly poisoned.",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('tox', source);
+				}
+			},
+		},
+	},
+	gmaxmeltdown: {
+		inherit: true,
+		shortDesc: "Base move affects power. Foes: burned.",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('brn', source);
+				}
+			},
+		},
+	},
+	gmaxsandblast: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (this.field.isWeather('sandstorm')) {
+				return move.basePower * 1.5;
+			}
+			return move.basePower;
+		},
+		shortDesc: "Base move affects power. In Sand: 1.5x power & bound foes.",
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					if (this.field.isWeather('sandstorm')) {
+						pokemon.addVolatile('partiallytrapped', source, this.dex.getActiveMove('G-Max Sandblast'));
+					}
+				}
+			},
+		},
+	},
+	gmaxsnooze: {
+		inherit: true,
+		shortDesc: "Base move affects power. Target: yawned.",
+		onHit(target) {
+			if (target.status || !target.runStatusImmunity('slp')) return;
+			target.addVolatile('yawn');
+		},
+		onAfterSubDamage(damage, target) {
+			if (target.status || !target.runStatusImmunity('slp')) return;
+			target.addVolatile('yawn');
+		},
+	},
+	gmaxstonesurge: {
+		inherit: true,
+		type: "Rock",
+	},
+	gmaxstunshock: {
+		inherit: true,
+		shortDesc: "Base move affects power. Foes: paralyzed & 1.5x power.",
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'par') {
+				return this.chainModify(1.5);
+			}
+		},
+		self: {
+			onHit(source) {
+				for (const pokemon of source.side.foe.active) {
+					pokemon.trySetStatus('par', source);
+				}
+			},
+		},
+	},
+	gmaxsweetness: {
+		inherit: true,
+		shortDesc: "Base move affects power. Allies: status cured & +1/4 max HP.",
+		self: {
+			onHit(target, source, move) {
+				for (const ally of source.side.pokemon) {
+					ally.cureStatus();
+					this.heal(ally.maxhp / 4, ally, source, move);
+				}
+			},
+		},
+	},
+	gmaxtartness: {
+		inherit: true,
+		shortDesc: "Base move affects power. Aliies: +1 Acc & +1 each turn.",
+		self: {
+			sideCondition: 'gmaxtartness',
+			onHit(source) {
+				for (const pokemon of source.side.active) {
+					this.boost({accuracy: 1}, pokemon);
+				}
+			},
+		},
+		condition: {
+			duration: 3,
+			onStart(side) {
+				this.add('-sidestart', side, 'G-Max Tartness');
+			},
+			onResidualOrder: 26,
+			onResidualSubOrder: 1,
+			onResidual(side) {
+				this.boost({accuracy: 1}, side);
+			},
+			onEnd(side) {
+				this.add('-sideend', side, 'G-Max Tartness');
+			},
+		},
+	},
+	gmaxvinelash: {
+		inherit: true,
+		shortDesc: "Base move affects power. Foes: -1/8 HP, 3 turns.",
+		condition: {
+			duration: 3,
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'G-Max Vine Lash');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1.1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Grass')) this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+				this.add('-sideend', targetSide, 'G-Max Vine Lash');
+			},
+		},
+	},
+	gmaxvolcalith: {
+		inherit: true,
+		shortDesc: "Base move affects power. Foes: -1/8 HP, 3 turns.",
+		condition: {
+			duration: 4,
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'G-Max Volcalith');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1.1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 6, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Rock')) this.damage(pokemon.baseMaxhp / 6, pokemon);
+				}
+				this.add('-sideend', targetSide, 'G-Max Volcalith');
+			},
+		},
+	},
+	gmaxwildfire: {
+		inherit: true,
+		shortDesc: "Base move affects power. Foes: -1/8 HP, 3 turns.",
+		condition: {
+			duration: 3,
+			onStart(targetSide) {
+				this.add('-sidestart', targetSide, 'G-Max Wildfire');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 1.1,
+			onResidual(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Fire')) this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+			},
+			onEnd(targetSide) {
+				for (const pokemon of targetSide.active) {
+					if (!pokemon.hasType('Fire')) this.damage(pokemon.baseMaxhp / 8, pokemon);
+				}
+				this.add('-sideend', targetSide, 'G-Max Wildfire');
+			},
+		},
+	},
+	gmaxwindrage: {
+		inherit: true,
+		shortDesc: "Base move affects power. Ends Terrain, weather, hazards.",
+		self: {
+			onHit(source) {
+				let success = false;
+				const removeTarget = [
+					'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
+				];
+				const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+				for (const targetCondition of removeTarget) {
+					if (source.side.foe.removeSideCondition(targetCondition)) {
+						if (!removeAll.includes(targetCondition)) continue;
+						this.add('-sideend', source.side.foe, this.dex.getEffect(targetCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
+						success = true;
+					}
+				}
+				for (const sideCondition of removeAll) {
+					if (source.side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: G-Max Wind Rage', '[of] ' + source);
+						success = true;
+					}
+				}
+				this.field.clearWeather();
+				this.field.clearTerrain();
+				return success;
+			},
+		},
+	},
 	
 	//Bad Dream moves
 	dreameater: {
@@ -630,6 +1018,182 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			if (target.status === 'slp' || target.hasAbility('comatose') || target.volatiles['baddreams']) return move.basePower * 2;
 			return move.basePower;
+		},
+	},
+	
+	//Dynamax moves
+	destinybond: {
+		inherit: true,
+		condition: {
+			onStart(pokemon) {
+				this.add('-singlemove', pokemon, 'Destiny Bond');
+			},
+			onFaint(target, source, effect) {
+				if (!source || !effect || target.side === source.side) return;
+				if (effect.effectType === 'Move' && !effect.isFutureMove) {
+					this.add('-activate', target, 'move: Destiny Bond');
+					source.faint();
+				}
+			},
+			onBeforeMovePriority: -1,
+			onBeforeMove(pokemon, target, move) {
+				if (move.id === 'destinybond') return;
+				this.debug('removing Destiny Bond before attack');
+				pokemon.removeVolatile('destinybond');
+			},
+			onMoveAborted(pokemon, target, move) {
+				pokemon.removeVolatile('destinybond');
+			},
+		},
+	},
+	encore: {
+		inherit: true,
+		condition: {
+			duration: 3,
+			noCopy: true, // doesn't get copied by Z-Baton Pass
+			onStart(target) {
+				const noEncore = [
+					'assist', 'copycat', 'encore', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'sketch', 'sleeptalk', 'struggle', 'transform',
+				];
+				let move: Move | ActiveMove | null = target.lastMove;
+				if (!move) return false;
+
+				if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
+				const moveIndex = target.moves.indexOf(move.id);
+				if (move.isZ || noEncore.includes(move.id) || !target.moveSlots[moveIndex] || target.moveSlots[moveIndex].pp <= 0) {
+					// it failed
+					return false;
+				}
+				this.effectData.move = move.id;
+				this.add('-start', target, 'Encore');
+				if (!this.queue.willMove(target)) {
+					this.effectData.duration++;
+				}
+			},
+			onOverrideAction(pokemon, target, move) {
+				if (move.id !== this.effectData.move) return this.effectData.move;
+			},
+			onResidualOrder: 13,
+			onResidual(target) {
+				if (target.moves.includes(this.effectData.move) &&
+					target.moveSlots[target.moves.indexOf(this.effectData.move)].pp <= 0) {
+					// early termination if you run out of PP
+					target.removeVolatile('encore');
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Encore');
+			},
+			onDisableMove(pokemon) {
+				if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
+					return;
+				}
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id !== this.effectData.move) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+		},
+	},
+	entrainment: {
+		inherit: true,
+		onTryHit(target, source) {
+			if (target === source) return false;
+
+			const additionalBannedSourceAbilities = [
+				// Zen Mode included here for compatability with Gen 5-6
+				'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+			];
+			if (
+				target.ability === source.ability ||
+				target.getAbility().isPermanent || target.ability === 'truant' ||
+				source.getAbility().isPermanent || additionalBannedSourceAbilities.includes(source.ability)
+			) {
+				return false;
+			}
+		},
+	},
+	grassknot: {
+		inherit: true,
+		onTryHit() {},
+	},
+	heatcrash: {
+		inherit: true,
+		onTryHit() {},
+	},
+	heavyslam: {
+		inherit: true,
+		onTryHit() {},
+	},
+	instruct: {
+		inherit: true,
+		onHit(target, source) {
+			if (!target.lastMove) return false;
+			const lastMove = target.lastMove;
+			const moveIndex = target.moves.indexOf(lastMove.id);
+			const noInstruct = [
+				'assist', 'beakblast', 'bide', 'celebrate', 'copycat', 'dynamaxcannon', 'focuspunch', 'iceball', 'instruct', 'kingsshield', 'mefirst', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'outrage', 'petaldance', 'rollout', 'shelltrap', 'sketch', 'sleeptalk', 'thrash', 'transform',
+			];
+			if (
+				noInstruct.includes(lastMove.id) || lastMove.isZ || lastMove.isMax ||
+				lastMove.flags['charge'] || lastMove.flags['recharge'] ||
+				target.volatiles['beakblast'] || target.volatiles['focuspunch'] || target.volatiles['shelltrap'] ||
+				(target.moveSlots[moveIndex] && target.moveSlots[moveIndex].pp <= 0)
+			) {
+				return false;
+			}
+			this.add('-singleturn', target, 'move: Instruct', '[of] ' + source);
+			this.runMove(target.lastMove.id, target, target.lastMoveTargetLoc!);
+		},
+	},
+	lowkick: {
+		inherit: true,
+		onTryHit() {},
+	},
+	psychup: {
+		inherit: true,
+		onHit(target, source) {
+			let i: BoostName;
+			for (i in target.boosts) {
+				source.boosts[i] = target.boosts[i];
+			}
+			const volatilesToCopy = ['focusenergy', 'laserfocus'];
+			for (const volatile of volatilesToCopy) {
+				if (target.volatiles[volatile]) {
+					source.addVolatile(volatile);
+				} else {
+					source.removeVolatile(volatile);
+				}
+			}
+			this.add('-copyboost', source, target, '[from] move: Psych Up');
+		},
+	},
+	skillswap: {
+		inherit: true,
+		onTryHit(target, source) {
+			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
+			if (
+				target.getAbility().isPermanent || source.getAbility().isPermanent ||
+				additionalBannedAbilities.includes(target.ability) || additionalBannedAbilities.includes(source.ability)
+			) {
+				return false;
+			}
+		},
+	},
+	torment: {
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Torment');
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Torment');
+			},
+			onDisableMove(pokemon) {
+				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+			},
 		},
 	},
 };

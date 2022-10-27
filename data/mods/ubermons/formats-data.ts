@@ -16,7 +16,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	venusaurgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	charmander: {
 		tier: "LC",
@@ -41,7 +41,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	charizardgmax: {
 		//randomBattleMoves: ["blastburn", "hurricane", "scorchingsands", "fireblast"],
-		tier: "AG",
+		tier: "RU",
 	},
 	squirtle: {
 		tier: "LC",
@@ -61,7 +61,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	blastoisegmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	caterpie: {
 		tier: "LC",
@@ -75,7 +75,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	butterfreegmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	weedle: {
 		tier: "LC",
@@ -194,7 +194,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	pikachugmax: {
-		tier: "AG",
+		tier: "NFE",
 	},
 	pikachuworld: {
 		tier: "Illegal",
@@ -355,7 +355,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	meowthgmax: {
-		tier: "AG",
+		tier: "LC",
 	},
 	persian: {
 		inherit: true,
@@ -440,7 +440,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	machampgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	bellsprout: {
 		tier: "LC",
@@ -612,7 +612,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	gengargmax: {
-		tier: "AG",
+		tier: "UUBL",
 	},
 	onix: {
 		tier: "LC",
@@ -644,7 +644,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	kinglergmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	voltorb: {
 		tier: "LC",
@@ -884,7 +884,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	laprasgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	ditto: {
 		inherit: true,
@@ -898,7 +898,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	eeveegmax: {
-		tier: "AG",
+		tier: "LC",
 	},
 	vaporeon: {
 		inherit: true,
@@ -988,7 +988,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	snorlaxgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	articuno: {
 		inherit: true,
@@ -2817,7 +2817,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	garbodorgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	zorua: {
 		tier: "LC",
@@ -3973,7 +3973,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	melmetalgmax: {
-		tier: "AG",
+		tier: "UUBL",
 	},
 	grookey: {
 		tier: "LC",
@@ -3987,7 +3987,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	rillaboomgmax: {
-		tier: "AG",
+		tier: "OU",
 	},
 	scorbunny: {
 		tier: "LC",
@@ -4002,7 +4002,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	cinderacegmax: {
-		tier: "AG",
+		tier: "OU",
 	},
 	sobble: {
 		tier: "LC",
@@ -4015,7 +4015,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	inteleongmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	skwovet: {
 		tier: "LC",
@@ -4035,7 +4035,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	corviknightgmax: {
-		tier: "AG",
+		tier: "OU",
 	},
 	blipbug: {
 		tier: "LC",
@@ -4048,7 +4048,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	orbeetlegmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	nickit: {
 		tier: "LC",
@@ -4079,7 +4079,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	drednawgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	yamper: {
 		tier: "LC",
@@ -4099,7 +4099,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	coalossalgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	applin: {
 		tier: "LC",
@@ -4109,14 +4109,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	flapplegmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	appletun: {
 		inherit: true,
 		tier: "RU",
 	},
 	appletungmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	silicobra: {
 		tier: "LC",
@@ -4126,7 +4126,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	sandacondagmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	cramorant: {
 		inherit: true,
@@ -4151,10 +4151,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	toxtricitygmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	toxtricitylowkeygmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	sizzlipede: {
 		tier: "LC",
@@ -4164,7 +4164,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	centiskorchgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	clobbopus: {
 		tier: "LC",
@@ -4199,7 +4199,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	hatterenegmax: {
-		tier: "AG",
+		tier: "UU",
 	},
 	impidimp: {
 		tier: "LC",
@@ -4213,7 +4213,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	grimmsnarlgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	milcery: {
 		tier: "LC",
@@ -4223,7 +4223,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	alcremiegmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	falinks: {
 		inherit: true,
@@ -4270,7 +4270,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	copperajahgmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	dracozolt: {
 		inherit: true,
@@ -4295,7 +4295,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	duraludongmax: {
-		tier: "AG",
+		tier: "RU",
 	},
 	dreepy: {
 		tier: "LC",
@@ -4333,6 +4333,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	eternatus: {
+		inherit: true,
+		randomBattleMoves: ["dynamaxcannon", "flamethrower", "recover", "toxic", "meteorbeam", "cosmicpower"],
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	kubfu: {
 		tier: "NFE",
 	},
@@ -4346,10 +4352,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	urshifugmax: {
-		tier: "AG",
+		tier: "OU",
 	},
 	urshifurapidstrikegmax: {
-		tier: "AG",
+		tier: "UU",
 	},
 	zarude: {
 		inherit: true,

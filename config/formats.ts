@@ -858,11 +858,8 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
 		], 
-		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokémon
-			'Eternatus',
-		],
+		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [],
 		teambuilderFormat: 'OU',
 	},
 	{
@@ -2924,6 +2921,21 @@ export const Formats: FormatList = [
 		],
 		gameType: 'doubles',
 		teambuilderFormat: 'DOU',
+	},
+	{
+		name: "[Gen 8] Ubermons LC",	
+		mod: 'ubermons',
+		desc: [
+			"<b>Ubermons</b>: A Pet Mod that aims to rebalance Ubers for OU. The goal is to make every single ban into a viable and healthy part of the metagame.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
+		],
+		forcedLevel: 5,
+		maxLevel: 5,
+		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Little Cup'],
+		banlist: ['Sticky Web', 'Chlorophyll', 'Sticky Web', 'Dragon Rage', 'Sonic Boom', 'Eevium Z'],
+		teambuilderFormat: 'LC',
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	
