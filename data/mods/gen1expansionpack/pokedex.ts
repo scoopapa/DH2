@@ -504,7 +504,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 62, atk: 135, def: 95, spa: 68, spd: 68, spe: 65},
 	},
-	mrrrime: {
+	mrrime: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 85, def: 75, spa: 100, spd: 100, spe: 70},
 	},
