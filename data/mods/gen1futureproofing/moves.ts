@@ -249,6 +249,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	craftyshield: {
 		num: 578,
+		shortDesc: "Bounces back certain non-damaging moves.",
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -289,6 +290,77 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "allySide",
+		type: "Psychic",
+		contestType: "Clever",
+		gen: 1,
+	},
+	fierywrath: {
+		num: 822,
+		shortDesc: "Burns the foe.",
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		name: "Fiery Wrath",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		status: 'brn',
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+		gen: 1,
+	},
+	smartstrike: {
+		num: 684,
+		shortDesc: "High critical hit ratio.",
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Smart Strike",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		critRatio: 2,
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Cool",
+		gen: 1,
+	},
+	fairylock: {
+		num: 587,
+		shortDesc: "Prevents the target from moving for 2-5 turns.",
+		accuracy: 70,
+		basePower: 15,
+		category: "Special",
+		name: "Fairy Lock",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		volatileStatus: 'partiallytrapped',
+		self: {
+			volatileStatus: 'partialtrappinglock',
+		},
+		onBeforeMove: function (pokemon, target, move) {
+			// Removes must recharge volatile even if it misses
+			target.removeVolatile('mustrecharge');
+		},
+		onHit: function (target, source) {
+			/**
+			 * The duration of the partially trapped must be always renewed to 2
+			 * so target doesn't move on trapper switch out as happens in gen 1.
+			 * However, this won't happen if there's no switch and the trapper is
+			 * about to end its partial trapping.
+			 **/
+			if (target.volatiles['partiallytrapped']) {
+				if (source.volatiles['partialtrappinglock'] && source.volatiles['partialtrappinglock'].duration > 1) {
+					target.volatiles['partiallytrapped'].duration = 2;
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
 		type: "Psychic",
 		contestType: "Clever",
 		gen: 1,
@@ -805,13 +877,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	mimic: {
 		inherit: true,
+		desc: "While the user remains active, this move is replaced by a random move known by the target, even if the user already knows that move. The copied move keeps the remaining PP for this move, regardless of the copied move's maximum PP. Whenever one PP is used for a copied move, one PP is used for this move.",
+		shortDesc: "Random move known by the target replaces this.",
 		onHit(target, source) {
 			const moveslot = source.moves.indexOf('mimic');
 			if (moveslot < 0) return false;
 			const moves = target.moves;
 			const moveid = this.sample(moves);
 			if (!moveid) return false;
-			const move = this.dex.moves.get(moveid);
+			const move = this.dex.getMove(moveid);
 			source.moveSlots[moveslot] = {
 				move: move.name,
 				id: move.id,
@@ -827,12 +901,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	mirrormove: {
 		inherit: true,
+		desc: "The user uses the last move used by the target. Fails if the target has not made a move, or if the last move used was Mirror Move.",
 		onHit(pokemon) {
 			const foe = pokemon.side.foe.active[0];
-			if (!foe?.lastMove || foe.lastMove.id === 'mirrormove') {
+			if (!foe || !foe.lastMove || foe.lastMove.id === 'mirrormove') {
 				return false;
 			}
-			this.actions.useMove(foe.lastMove.id, pokemon);
+			this.useMove(foe.lastMove.id, pokemon);
 		},
 	},
 	mist: {

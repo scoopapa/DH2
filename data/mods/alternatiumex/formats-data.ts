@@ -172,6 +172,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Alternatium EX",
 	},
 	braviaryhisui: {
+		isNonstandard: null,
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
@@ -204,6 +205,92 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Alternatium EX",
 	},
 	meowstictwotales: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	indeedeedevil: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	indeedeeangel: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	polteageist: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	polteageistantique: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	toxtricityrockstar: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	toxtricitylowkey: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	articunomistral: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	articunotsunami: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	zapdos: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	charpados: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	moltres: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	bennutres: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	marowak: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	alolawak: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	marowakalolatotem: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	enamorus: {
+		isNonstandard: null,
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	violentine: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	dialga: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	archronos: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	palkia: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	palkiaorigin: {
+		isNonstandard: null,
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},

@@ -312,7 +312,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	prismaticlaser: {
 		num: 711,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 70,
 		category: "Special",
 		shortDesc: "Super effective against Dark-types. 20% chance to lower target's accuracy.",
 		name: "Prismatic Laser",
@@ -470,6 +470,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.addVolatile('smackdown');
 			}
 		},
+		ignoreImmunity: {'Ground': true},
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Ground",
@@ -531,7 +532,104 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Ice",
+	},
+	darkvoid: {
+		num: 464,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Lowers targets' Def, Sp. Def by 1. User switches.",
+		name: "Dark Void",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		onHit(target, source, move) {
+			const success = this.boost({def: -1, spd: -1}, target, source);
+			if (!success && !target.hasAbility('mirrorarmor')) {
+				delete move.selfSwitch;
+			}
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Dark",
+		zMove: {effect: 'healreplacement'},
+		contestType: "Clever",		
+	},
+	batonpass: {
+		inherit: true,
+		shortDesc: "User switches and passes volatile statuses. Stat changes are removed.",
+		self: {
+			onHit(source) {
+				source.clearBoosts();
+				this.add('-clearboost', source);
+				this.hint("Baton Pass can't pass Stat Changes.");
+			}
+		}
+	},
+	
+	//Bad Dream moves
+	dreameater: {
+		inherit: true,
+		onTryImmunity(target) {
+			return target.status === 'slp' || target.hasAbility('comatose') || target.volatiles['baddreams'];
+		},
+	},
+	hex: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose') || target.volatiles['baddreams']) return move.basePower * 2;
+			return move.basePower;
+		},
+	},
+	nightmare: {
+		inherit: true,
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') && !pokemon.volatiles['baddreams']) {
+					return false;
+				}
+				this.add('-start', pokemon, 'Nightmare');
+			},
+			onResidualOrder: 9,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 4);
+			},
+		},
+	},
+	rest: {
+		inherit: true,
+		onTryMove(pokemon) {
+			if (pokemon.hp === pokemon.maxhp) {
+				this.add('-fail', pokemon, 'heal');
+				return null;
+			}
+			if (pokemon.status === 'slp' || pokemon.hasAbility('comatose') || pokemon.volatiles['baddreams']) {
+				this.add('-fail', pokemon);
+				return null;
+			}
+		},
+	},
+	sleeptalk: {
+		inherit: true,
+		onTryHit(pokemon) {
+			if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') || !pokemon.volatiles['baddreams']) return false;
+		},
+	},
+	snore: {
+		inherit: true,
+		onTryHit(target, source) {
+			if (source.status !== 'slp' && !source.hasAbility('comatose') && !source.volatiles['baddreams']) return false;
+		},
+	},
+	wakeupslap: {
+		inherit: true,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'slp' || target.hasAbility('comatose') || target.volatiles['baddreams']) return move.basePower * 2;
+			return move.basePower;
+		},
 	},
 };

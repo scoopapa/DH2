@@ -591,7 +591,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 				target.setAbility('pillage', pokemon);
 				pokemon.setAbility(ability);
-				
+
 				this.add('-activate', pokemon, 'ability: Pillage');
 				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
 				this.add('-activate', pokemon, 'ability: ' + ability.name);

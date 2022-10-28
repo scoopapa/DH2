@@ -25,7 +25,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'dragapult').learnset.hydropump;
 		delete this.modData('Learnsets', 'dragapult').learnset.thunder;
 		delete this.modData('Learnsets', 'dragapult').learnset.phantomforce;
-		
 		this.modData('Learnsets', 'dragapult').learnset.shadowclaw = ['8L1'];
 		this.modData('Learnsets', 'dragapult').learnset.nightslash = ['8L1'];
 		
@@ -40,14 +39,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'rayquaza').learnset.vcreate;
 		
 		this.modData('Learnsets', 'deoxys').learnset.topsyturvy = ['8L1'];
-		
-		delete this.modData('Learnsets', 'deoxys').learnset.spikes;
+		//delete this.modData('Learnsets', 'deoxys').learnset.spikes;
 		delete this.modData('Learnsets', 'deoxys').learnset.nastyplot;
-		delete this.modData('Learnsets', 'deoxys').learnset.superpower;
-		delete this.modData('Learnsets', 'deoxys').learnset.extremespeed;
+		//delete this.modData('Learnsets', 'deoxys').learnset.superpower;
+		//delete this.modData('Learnsets', 'deoxys').learnset.extremespeed;
 		delete this.modData('Learnsets', 'deoxys').learnset.magiccoat;
-		delete this.modData('Learnsets', 'deoxys').learnset.taunt;
-		delete this.modData('Learnsets', 'deoxys').learnset.focusblast;
+		//delete this.modData('Learnsets', 'deoxys').learnset.taunt;
+		//delete this.modData('Learnsets', 'deoxys').learnset.focusblast;
 		delete this.modData('Learnsets', 'deoxys').learnset.drainpunch;
 		delete this.modData('Learnsets', 'deoxys').learnset.brickbreak;
 		delete this.modData('Learnsets', 'deoxys').learnset.agility;
@@ -81,6 +79,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'magearna').learnset.aurasphere;
 		delete this.modData('Learnsets', 'magearna').learnset.icebeam;
 		delete this.modData('Learnsets', 'magearna').learnset.aurorabeam;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.agility;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.shiftgear;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.calmmind;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.focusblast;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.aurasphere;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.icebeam;
+		delete this.modData('Learnsets', 'magearnaoriginal').learnset.aurorabeam;
 		
 		this.modData('Learnsets', 'reshiram').learnset.uturn = ['8L1'];
 		
@@ -162,7 +167,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData('Learnsets', 'lucario').learnset.triplekick = ['8L1'];
 		
-		delete this.modData('Learnsets', 'tornadus').learnset.hurricane;
+		delete this.modData('Learnsets', 'tornadus').learnset.nastyplot;
+		
+		delete this.modData('Learnsets', 'darkrai').learnset.sludgebomb;
+		delete this.modData('Learnsets', 'darkrai').learnset.nastyplot;
+		
+		delete this.modData('Learnsets', 'poipole').learnset.nastyplot;
+		delete this.modData('Learnsets', 'naganadel').learnset.nastyplot;
+		delete this.modData('Learnsets', 'naganadel').learnset.dragondance;
+		this.modData('Learnsets', 'naganadel').learnset.earthquake = ['8L1'];
+		this.modData('Learnsets', 'naganadel').learnset.firstimpression = ['8L1'];
 	},
 	
 	pokemon: {
@@ -172,6 +186,24 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
             this.volatiles['embargo'] || this.battle.field.pseudoWeather['magicroom']);
 		}
 	},
+	
+	canMegaEvo(pokemon) {
+		const species = pokemon.baseSpecies;
+		const altForme = species.otherFormes && this.dex.getSpecies(species.otherFormes[0]);
+		const item = pokemon.getItem();
+		// Mega Rayquaza
+		if ((this.gen <= 7 || this.ruleTable.has('standardnatdex') || this.ruleTable.has('standarddoubles')) &&
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove) {
+			return altForme.name;
+		}
+		// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
+		if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
+			return item.megaStone;
+		}
+		return null;
+	},
+	
 /*
 		for (const id in this.dataCache.Pokedex) {
 			const poke = this.dataCache.Pokedex[id];

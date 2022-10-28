@@ -68,6 +68,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(target.baseMaxhp / 8);
 			}
 		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
 		name: "Ice Body",
     shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Hail.",
 		num: 115,
@@ -957,6 +960,45 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 138,
 	},
+	neutralizinggas: {
+		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
+		// TODO Will abilities that already started start again? (Intimidate seems like a good test case)
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityData.ending = false;
+			for (const target of this.getAllActive()) {
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+			}
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			this.add('-message', `Neutralizing gas filled the area!`);
+		},
+		onEnd(source) {
+			// FIXME this happens before the pokemon switches out, should be the opposite order.
+			// Not an easy fix since we cant use a supported event. Would need some kind of special event that
+			// gathers events to run after the switch and then runs them when the ability is no longer accessible.
+			// (If your tackling this, do note extreme weathers have the same issue)
+
+			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
+			source.abilityData.ending = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source) {
+					// Will be suppressed by Pokemon#ignoringAbility if needed
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+				}
+			}
+		},
+		name: "Neutralizing Gas",
+		rating: 5,
+		num: 256,
+	},
 
 // The other Power of Alchemies
 		powerofalchemyweezing: {
@@ -1159,6 +1201,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (effect.id === 'hail') {
 				this.heal(target.baseMaxhp / 8);
 			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Vanilluxe)",

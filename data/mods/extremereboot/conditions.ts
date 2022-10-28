@@ -16,6 +16,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onModifySpe(spe, pokemon) {
+			if (pokemon.hasAbility("steadfast")) {
+				return this.chainModify(2);
+			}
 			return this.chainModify(0.5);
 		},
 	},
@@ -35,9 +38,19 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onModifyDef(def, pokemon) {
+			if (pokemon.hasAbility("thickskin")) {
+				return this.chainModify(1.5);
+			} else if (pokemon.hasAbility("steadfast")) {
+				return this.chainModify(1.25);
+			}
 			return this.chainModify(0.75);
 		},
 		onModifySpD(spd, pokemon) {
+			if (pokemon.hasAbility("thickskin")) {
+				return this.chainModify(1.5);
+			} else if (pokemon.hasAbility("steadfast")) {
+				return this.chainModify(1.25);
+			}
 			return this.chainModify(0.75);
 		},
 	},
@@ -122,7 +135,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			if (pokemon.hasAbility('earlybird')) {
+			if (pokemon.hasAbility('celestial')) {
 				pokemon.statusData.time--;
 			}
 			pokemon.statusData.time--;
@@ -250,6 +263,144 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnd() {
 			this.add('-weather', 'none');
+		},
+	},
+	futuremove: {
+		// this is a slot condition
+		name: 'futuremove',
+		duration: 3,
+		onStart() {
+			this.effectData.startT = this.turn;
+		},
+		onResidualOrder: 3,
+		onResidual(target) {
+			if (this.effectData.move === "dormantpower") {
+				const duration = this.turn - this.effectData.startT;
+				let winterActive = false;
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.hasType("Winter")) winterActive = true;
+				}
+				if (!winterActive && duration >= 3) {
+					target.removeSlotCondition(this.effectData.position, 'futuremove');
+					if (this.effectData.source.isActive) this.add('-end', this.effectData.source, 'dormantpower');
+				}
+			}
+		},
+		onEnd(target) {
+			const data = this.effectData;
+			// time's up; time to hit! :D
+			const move = this.dex.getMove(data.move);
+			if (target.fainted || target === data.source) {
+				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
+				return;
+			}
+
+			this.add('-end', target, 'move: ' + move.name);
+			target.removeVolatile('Protect');
+			target.removeVolatile('Endure');
+
+			if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
+				data.moveData.infiltrates = true;
+			}
+			if (data.source.hasAbility('normalize') && this.gen >= 6) {
+				data.moveData.type = 'Normal';
+			}
+			if (data.source.hasAbility('adaptability') && this.gen >= 6) {
+				data.moveData.stab = 2;
+			}
+			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
+
+			this.trySpreadMoveHit([target], data.source, hitMove);
+		},
+	},
+	temporarytrap: {
+		name: 'temporarytrap',
+		duration: 4,
+		onTrapPokemon(pokemon) {
+			if (this.effectData.source?.isActive) {
+				pokemon.tryTrap();
+			} else {
+				pokemon.removeVolatile('temporarytrap');
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-message', pokemon.name + ' is no longer trapped!');
+		},
+	},
+	monkeyspawheal: {
+		onSwap(target) {
+			if (
+				!target.fainted && (
+					target.hp < target.maxhp ||
+					target.status ||
+					target.moveSlots.some(moveSlot => moveSlot.pp < moveSlot.maxpp)
+				)
+			) {
+				target.heal(target.maxhp);
+				target.setStatus('');
+				for (const moveSlot of target.moveSlots) {
+					moveSlot.pp = moveSlot.maxpp;
+				}
+				this.add('-heal', target, target.getHealth, "[from] move: Monkey's Paw");
+				target.side.removeSlotCondition(target, 'monkeyspawheal');
+			}
+		},
+	},
+	twisterlock: {
+		name: 'twisterlock',
+		durationCallback() {
+			const duration = this.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+			return duration;
+		},
+		onResidual(target) {
+			if (target.lastMove && target.lastMove.id === 'struggle' || target.status === 'slp') {
+				delete target.volatiles['twisterlock'];
+			}
+		},
+		onStart(target, source, effect) {
+			this.effectData.move = effect.id;
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.hasMove(this.effectData.move)) {
+				return;
+			}
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== this.effectData.move) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTrapPokemon(pokemon) {
+			pokemon.tryTrap();
+		},
+	},
+	lockedmove: {
+		// Rampage && Mononoke Dance
+		name: 'lockedmove',
+		duration: 2,
+		onResidual(target) {
+			if (target.status === 'slp') {
+				// don't lock, and bypass confusion for calming
+				delete target.volatiles['lockedmove'];
+			}
+			this.effectData.trueDuration--;
+		},
+		onStart(target, source, effect) {
+			this.effectData.trueDuration = this.random(2, 4);
+			this.effectData.move = effect.id;
+		},
+		onRestart() {
+			if (this.effectData.trueDuration >= 2) {
+				this.effectData.duration = 2;
+			}
+		},
+		onEnd(target) {
+			if (this.effectData.trueDuration > 1) return;
+			if (this.effectData.move === 'rampage') target.trySetStatus('slp');
+		},
+		onLockMove(pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			return this.effectData.move;
 		},
 	},
 };

@@ -3827,7 +3827,46 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: "Mewtwonite Y",
 		battleOnly: "Spewtwo",
 	},
-
+	krowtom: {
+		fusion: ['Honchkrow', 'Rotom'],
+		num: 234,
+		name: "Krowtom",
+		types: ["Dark", "Electric"],
+		baseStats: {hp: 90, atk: 95, def: 94, spa: 110, spd: 84, spe: 78},
+		abilities: {0: "Test Cram"},
+		weightkg: 13.8,
+	},
+	sablemime: {
+		fusion: ['Sableye', 'Mr. Mime'],
+		num: 236,
+		name: "Sablemime",
+		types: ["Ghost", "Fairy"],
+		baseStats: {hp: 55, atk: 70, def: 80, spa: 92, spd: 102, spe: 80},
+		abilities: {0: "Slow and Steady"},
+		weightkg: 32.8,
+	},
+	sablemimemega: {
+		fusion: ['Sableye', 'Mr. Mime'],
+		num: 236,
+		name: "Sablemime-Mega",
+		baseSpecies: "Sablemime",
+		forme: "Mega",
+		types: ["Ghost", "Fairy"],
+		baseStats: {hp: 55, atk: 80, def: 130, spa: 112, spd: 152, spe: 50},
+		abilities: {0: "Magic Bounce"},
+		weightkg: 70.2,
+		requiredItem: "Sablenite",
+		battleOnly: "Sablemime",
+	},
+	lycakingdusk: {
+		fusion: ['Nidoking', 'Lycanroc-Dusk'],
+		num: 235,
+		name: "Lycaking-Dusk",
+		types: ["Rock", "Ground"],
+		baseStats: {hp: 89, atk: 119, def: 81, spa: 80, spd: 80, spe: 107},
+		abilities: {0: "Poison Touch"},
+		weightkg: 43.5,
+	},
 	
 // LC
 	woopopotas: {
@@ -5061,6 +5100,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ghoul Away"},
 		weightkg: 6.6,
 		evos: ["Mr. Haunt-Galar"],
+	},
+	rockoranm: {
+		fusion: ['Nidoran-M', 'Rockruff'],
+		num: 1120,
+		name: "Rockoran-M",
+		types: ["Rock", "Poison"],
+		baseStats: {hp: 55, atk: 71, def: 50, spa: 45, spd: 50, spe: 65},
+		abilities: {0: "Dizzy Venom"},
+		weightkg: 9.1,
+		evos: ["Lycaking-Dusk"],
 	},
 
 // NFE

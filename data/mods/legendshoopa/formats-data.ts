@@ -4,8 +4,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ANL OU",
 		isModded: true,
 	},
-
-
 	*/
 
 	larvitar: {
@@ -23,23 +21,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	slugma: {
-		tier: "ANL LC",
-		isModded: true,
-	},
-
 	magcargohoenn: {
 		tier: "ANL OU",
-		isModded: true,
-	},
-
-	oddish: {
-		tier: "ANL LC",
-		isModded: true,
-	},
-
-	gloom: {
-		tier: "ANL NFE",
 		isModded: true,
 	},
 
@@ -83,8 +66,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+	bulbasaur: {
+		tier: "ANL LC",
+		isModded: true,
+	},
+
+	ivysaur: {
+		tier: "ANL NFE",
+		isModded: true,
+	},
+
 	venusaurhoenn: {
 		tier: "ANL OU",
+		isModded: true,
+	},
+
+	fennekin: {
+		tier: "ANL LC",
+		isModded: true,
+	},
+
+	braixen: {
+		tier: "ANL NFE",
 		isModded: true,
 	},
 
@@ -93,7 +96,62 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+	totodile: {
+		tier: "ANL LC",
+		isModded: true,
+	},
+
+	crocanaw: {
+		tier: "ANL NFE",
+		isModded: true,
+	},
+
 	feraligatrhoenn: {
+		tier: "ANL OU",
+		isModded: true,
+	},
+
+	crusteroid: {
+		tier: "ANL OU",
+		isModded: true,
+	},
+
+	cornutropia: {
+		tier: "ANL OU",
+		isModded: true,
+	},
+
+	dovinity: {
+		tier: "ANL OU",
+		isModded: true,
+	},
+
+	dovinityf: {
+		tier: "ANL OU",
+		isModded: true,
+	},
+
+	kaleideon: {
+		tier: "ANL OU",
+		isModded: true,
+	},
+
+	saccoon: {
+		tier: "ANL NFE",
+		isModded: true,
+	},
+
+	floccoth: {
+		tier: "ANL OU",
+		isModded: true,
+	},
+
+	abyssylar: {
+		tier: "ANL OU",
+		isModded: true,
+	},
+
+	abyssylarf: { // the only differences are height and weight, but...
 		tier: "ANL OU",
 		isModded: true,
 	},
@@ -390,7 +448,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	gravler: {
+	graveler: {
 		tier: "ANL NFE",
 		isModded: true,
 	},
@@ -567,6 +625,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+	/*
 	bellossom: {
 		tier: "ANL OU",
 		isModded: true,
@@ -581,6 +640,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ANL OU",
 		isModded: true,
 	},
+	*/
 	
 	budew: {
 		tier: "ANL LC",
@@ -846,13 +906,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	starme: {
+	starmie: {
 		tier: "ANL OU",
 		isModded: true,
 	},
 
 	kecleon: {
-		tier: "ANL OU",
+		tier: "ANL NFE", // Kaleideon
 		isModded: true,
 	},
 
@@ -882,7 +942,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	tropius: {
-		tier: "ANL OU",
+		tier: "ANL NFE", // Cornutropia
 		isModded: true,
 	},
 
@@ -983,7 +1043,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ANL OU",
 		isModded: true,
 	},
-	*/
 
 	rhyhorn: {
 		tier: "ANL LC",
@@ -999,6 +1058,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ANL OU",
 		isModded: true,
 	},
+	*/
 
 	snorunt: {
 		tier: "ANL LC",
@@ -1030,7 +1090,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	clampearl: {
+	clamperl: {
 		tier: "ANL LC",
 		isModded: true,
 	},
@@ -1061,7 +1121,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	lanturn: {
-		tier: "ANL OU",
+		tier: "ANL NFE", // Abyssylar
 		isModded: true,
 	},
 
@@ -1261,7 +1321,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	tranquil: {
+	tranquill: {
 		tier: "ANL NFE",
 		isModded: true,
 	},
@@ -1349,7 +1409,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	crustle: {
-		tier: "ANL OU",
+		tier: "ANL NFE", // Crusteroid
 		isModded: true,
 	},
 
@@ -1363,7 +1423,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	tyrouge: {
+	tyrogue: {
 		tier: "ANL LC",
 		isModded: true,
 	},
@@ -1553,7 +1613,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	hipno: {
+	hypno: {
 		tier: "ANL OU",
 		isModded: true,
 	},
@@ -1698,6 +1758,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+/*
 	weedle: {
 		tier: "ANL LC",
 		isModded: true,
@@ -1728,15 +1789,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	bunneary: {
+	buneary: {
 		tier: "ANL LC",
 		isModded: true,
 	},
 
-	diggersby: {
+	lopunny: {
 		tier: "ANL OU",
 		isModded: true,
 	},
+*/
 
 	druddigon: {
 		tier: "ANL OU",
@@ -1793,6 +1855,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
+// Sky Pillar in ORAS
+
+	spinarak: {
+		tier: "ANL LC",
+		isModded: true,
+	},
+
+	ariados: {
+		tier: "ANL OU",
+		isModded: true,
+	},
 
 	// hoopa
 
