@@ -2908,17 +2908,8 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
 		],
-		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokémon
-			'Eternatus',
-			//Abilities
-			'Moody',
-			//Items
-			'King\'s Rock', 'Quick Claw', 'Razor Fang',
-			//Moves
-			'Baton Pass',
-		],
+		ruleset: ['Standard Doubles', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [],
 		gameType: 'doubles',
 		teambuilderFormat: 'DOU',
 	},

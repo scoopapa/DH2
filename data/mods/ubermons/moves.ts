@@ -716,7 +716,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	gmaxfoamburst: {
 		inherit: true,
-		shortDesc: "Base move affects power. Foes: -1 Speed & -1 each turn.",
+		shortDesc: "Base move affects power. Foes: -1 Speed & 0.4x Spe for 3 turns.",
 		self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('gmaxfoamburst');
@@ -730,12 +730,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onStart(targetSide) {
 				this.add('-sidestart', targetSide, 'G-Max Foam Burst');
 			},
-			onResidualOrder: 26,
-			onResidualSubOrder: 1,
-			onResidual(targetSide) {
-				for (const pokemon of targetSide.active) {
-					this.boost({spe: -1}, pokemon);
-				}
+			onModifySpe(spe, targetSide) {
+				return this.chainModify(0.4);
 			},
 			onEnd(targetSide) {
 				this.add('-sideend', targetSide, 'G-Max Foam Burst');
@@ -835,7 +831,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	gmaxtartness: {
 		inherit: true,
-		shortDesc: "Base move affects power. Aliies: +1 Acc & +1 each turn.",
+		shortDesc: "Base move affects power. Aliies: +1 Acc & 2x acc for 3 turns.",
 		self: {
 			sideCondition: 'gmaxtartness',
 			onHit(source) {
@@ -849,10 +845,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onStart(side) {
 				this.add('-sidestart', side, 'G-Max Tartness');
 			},
-			onResidualOrder: 26,
-			onResidualSubOrder: 1,
-			onResidual(side) {
-				this.boost({accuracy: 1}, side);
+			onSourceModifyAccuracyPriority: 4,
+			onSourceModifyAccuracy(accuracy) {
+				if (typeof accuracy === 'number') {
+					return accuracy * 2;
+				}
 			},
 			onEnd(side) {
 				this.add('-sideend', side, 'G-Max Tartness');

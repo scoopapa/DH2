@@ -16,6 +16,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	venusaurgmax: {
+		randomBattleMoves: ["gigadrain", "frenzyplant", "sleeppowder", "sludgebomb", "earthpower"],
 		tier: "RU",
 	},
 	charmander: {
@@ -40,7 +41,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	charizardgmax: {
-		//randomBattleMoves: ["blastburn", "hurricane", "scorchingsands", "fireblast"],
+		randomBattleMoves: ["blastburn", "hurricane", "scorchingsands", "fireblast"],
 		tier: "RU",
 	},
 	squirtle: {
@@ -61,6 +62,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	blastoisegmax: {
+		randomBattleMoves: ["earthquake", "hydropump", "icebeam", "aurasphere", "hydrocannon"],
 		tier: "RU",
 	},
 	caterpie: {
@@ -75,6 +77,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	butterfreegmax: {
+		randomBattleMoves: ["hurricane", "bugbuzz", "quiverdance", "sleeppowder"],
 		tier: "RU",
 	},
 	weedle: {
@@ -194,6 +197,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	pikachugmax: {
+		randomDoubleBattleMoves: ["extremespeed", "fakeout", "knockoff", "surf", "volttackle"],
 		tier: "NFE",
 	},
 	pikachuworld: {
@@ -440,6 +444,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	machampgmax: {
+		randomBattleMoves: ["bulletpunch", "closecombat", "facade", "knockoff", "stoneedge"],
 		tier: "RU",
 	},
 	bellsprout: {
@@ -612,6 +617,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	gengargmax: {
+		randomBattleMoves: ["focusblast", "nastyplot", "shadowball", "sludgewave"],
 		tier: "UUBL",
 	},
 	onix: {
@@ -644,6 +650,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	kinglergmax: {
+		randomDoubleBattleMoves: ["knockoff", "liquidation", "guillotine", "superpower", "xscissor"],
 		tier: "RU",
 	},
 	voltorb: {
@@ -884,6 +891,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	laprasgmax: {
+		randomBattleMoves: ["freezedry", "icebeam", "protect", "sparklingaria", "thunderbolt", "toxic"],
 		tier: "RU",
 	},
 	ditto: {
@@ -988,6 +996,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	snorlaxgmax: {
+		randomBattleMoves: ["bodyslam", "curse", "darkestlariat", "earthquake", "rest"],
 		tier: "RU",
 	},
 	articuno: {
@@ -2817,6 +2826,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	garbodorgmax: {
+		randomBattleMoves: ["explosion", "gunkshot", "painsplit", "spikes", "stompingtantrum", "toxicspikes"],
 		tier: "RU",
 	},
 	zorua: {
@@ -3973,6 +3983,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	melmetalgmax: {
+		randomBattleMoves: ["doubleironbash", "earthquake", "superpower", "rockslide"],
 		tier: "UUBL",
 	},
 	grookey: {
@@ -3987,6 +3998,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	rillaboomgmax: {
+		randomBattleMoves: ["acrobatics", "grassyglide", "highhorsepower", "knockoff", "swordsdance"],
 		tier: "OU",
 	},
 	scorbunny: {
@@ -4002,6 +4014,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	cinderacegmax: {
+		randomBattleMoves: ["bulkup", "highjumpkick", "pyroball", "suckerpunch"],
 		tier: "OU",
 	},
 	sobble: {
@@ -4015,6 +4028,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	inteleongmax: {
+		randomBattleMoves: ["airslash", "focusenergy", "icebeam", "surf"],
 		tier: "RU",
 	},
 	skwovet: {
@@ -4035,6 +4049,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 	},
 	corviknightgmax: {
+		randomBattleMoves: ["bodypress", "bravebird", "ironhead", "agility"],
 		tier: "OU",
 	},
 	blipbug: {
@@ -4048,6 +4063,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	orbeetlegmax: {
+		randomDoubleBattleMoves: ["hypnosis", "psychic", "bugbuzz", "stickyweb", "batonpass"],
 		tier: "RU",
 	},
 	nickit: {
@@ -4079,6 +4095,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	drednawgmax: {
+		randomBattleMoves: ["liquidation", "stoneedge", "superpower", "swordsdance"],
 		tier: "RU",
 	},
 	yamper: {
@@ -4099,6 +4116,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	coalossalgmax: {
+		randomBattleMoves: ["flareblitz", "earthquake", "rapidspin", "stoneedge", "stealthrock"],
 		tier: "RU",
 	},
 	applin: {
@@ -4109,6 +4127,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	flapplegmax: {
+		randomBattleMoves: ["dragondance", "gravapple", "dragonrush", "suckerpunch", "uturn"],
 		tier: "RU",
 	},
 	appletun: {
@@ -4116,6 +4135,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	appletungmax: {
+		randomBattleMoves: ["appleacid", "dracometeor", "curse", "recover", "seedbomb", "bodypress"],
 		tier: "RU",
 	},
 	silicobra: {
@@ -4126,6 +4146,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	sandacondagmax: {
+		randomBattleMoves: ["coil", "earthquake", "bodypress", "stoneedge", "rest"],
 		tier: "RU",
 	},
 	cramorant: {
@@ -4151,9 +4172,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	toxtricitygmax: {
+		randomBattleMoves: ["boomburst", "overdrive", "shiftgear", "sludgewave", "hex"],
 		tier: "RU",
 	},
 	toxtricitylowkeygmax: {
+		randomBattleMoves: ["boomburst", "overdrive", "encore", "sludgewave", "hex"],
 		tier: "RU",
 	},
 	sizzlipede: {
@@ -4164,6 +4187,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	centiskorchgmax: {
+		randomBattleMoves: ["coil", "firelash", "knockoff", "leechlife", "powerwhip"],
 		tier: "RU",
 	},
 	clobbopus: {
@@ -4199,6 +4223,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	hatterenegmax: {
+		randomBattleMoves: ["calmmind", "dazzlinggleam", "mysticalfire", "psychic", "psyshock", "trickroom"],
 		tier: "UU",
 	},
 	impidimp: {
@@ -4213,6 +4238,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUU",
 	},
 	grimmsnarlgmax: {
+		randomBattleMoves: ["bulkup", "darkestlariat", "playrough", "rest", "suckerpunch"],
 		tier: "RU",
 	},
 	milcery: {
@@ -4223,6 +4249,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	alcremiegmax: {
+		randomBattleMoves: ["calmmind", "dazzlinggleam", "mysticalfire", "psychic", "recover"],
 		tier: "RU",
 	},
 	falinks: {
@@ -4270,6 +4297,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	copperajahgmax: {
+		randomBattleMoves: ["earthquake", "heatcrash", "heavyslam", "powerwhip", "stoneedge"],
 		tier: "RU",
 	},
 	dracozolt: {
@@ -4295,6 +4323,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "RU",
 	},
 	duraludongmax: {
+		randomBattleMoves: ["bodypress", "dracometeor", "flashcannon", "stealthrock", "thunderbolt"],
 		tier: "RU",
 	},
 	dreepy: {
@@ -4352,9 +4381,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 	},
 	urshifugmax: {
+		randomBattleMoves: ["bulkup", "drainpunch", "substitute", "wickedblow"],
 		tier: "OU",
 	},
 	urshifurapidstrikegmax: {
+		randomBattleMoves: ["bulkup", "closecombat", "icepunch", "surgingstrikes", "uturn"],
 		tier: "UU",
 	},
 	zarude: {
