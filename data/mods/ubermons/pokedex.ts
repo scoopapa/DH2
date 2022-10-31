@@ -447,4 +447,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Moody"},
 	},
+	eternatus: {
+		inherit: true,
+		baseStats: {hp: 115, atk: 86, def: 90, spa: 110, spd: 90, spe: 109},
+		abilities: {0: "Pressure", H: "Merciless"},
+	},
 };
