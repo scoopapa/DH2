@@ -98,14 +98,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.volatiles['dynamax']) return;
+			//if (pokemon.volatiles['dynamax']) return;
 			// PLACEHOLDER
 			this.debug('Gorilla Tactics Atk Boost');
 			return this.chainModify(1.5);
 		},
 		onDisableMove(pokemon) {
 			if (!pokemon.abilityData.choiceLock) return;
-			if (pokemon.volatiles['dynamax']) return;
+			//if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
 					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
@@ -541,5 +541,39 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "User's bullet/bomb moves have +2 priority on the first turn.",
 		rating: 2.5,
 		num: 259,
+	},
+	
+	//Dynamax abilities
+	liquidvoice: {
+		inherit: true,
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.flags['sound']) { // hardcode
+				move.type = 'Water';
+			}
+		},
+	},
+	wanderingspirit: {
+		onDamagingHit(damage, target, source, move) {
+			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
+			if (source.getAbility().isPermanent || additionalBannedAbilities.includes(source.ability)
+			) {
+				return;
+			}
+
+			if (move.flags['contact']) {
+				const sourceAbility = source.setAbility('wanderingspirit', target);
+				if (!sourceAbility) return;
+				if (target.side === source.side) {
+					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
+				} else {
+					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.getAbility(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
+				}
+				target.setAbility(sourceAbility);
+			}
+		},
+		name: "Wandering Spirit",
+		rating: 2.5,
+		num: 254,
 	},
 };
