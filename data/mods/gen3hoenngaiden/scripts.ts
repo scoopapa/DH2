@@ -513,66 +513,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'leafeon').learnset.swift = ['3L1'];		
 		this.modData('Learnsets', 'leafeon').learnset.swagger = ['3L1'];
 		
-		this.modData('Learnsets', 'honchkrow').learnset.superpower = ['3L1'];
-
-		this.modData('Learnsets', 'lickilicky').learnset.explosion = ['3L1'];
-
-		this.modData('Learnsets', 'magnezone').learnset.mirrorcoat = ['3L1'];
-
-		this.modData('Learnsets', 'electivire').learnset.earthquake = ['3L1'];
-		this.modData('Learnsets', 'electivire').learnset.rockslide = ['3L1'];
-		this.modData('Learnsets', 'electivire').learnset.flamethrower = ['3L1'];
-		
 		this.modData('Learnsets', 'magmortar').learnset.earthquake = ['3L1'];
 		this.modData('Learnsets', 'magmortar').learnset.rockslide = ['3L1'];
 		this.modData('Learnsets', 'magmortar').learnset.thunderbolt = ['3L1'];
 		
 		this.modData('Learnsets', 'togekiss').learnset.extremespeed = ['3L1'];
-
-		this.modData("Learnsets", 'gallade').learnset.aerialace = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.brickbreak = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.bulkup = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.focuspunch = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.leafblade = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.revenge = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.rocktomb = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.falseswipe = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.furycutter = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.reversal = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.rocksmash = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.cut = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.earthquake = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.hyperbeam = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.leer = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.lowkick = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.rockslide = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.slash = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.strength = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.swordsdance = ['3L1'];
-
-		this.modData("Learnsets", 'froslass').learnset.iciclespear = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.imprison = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.shockwave = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.taunt = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.torment = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.trick = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.willowisp = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.charm = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.destinybond = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.mudslap = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.painsplit = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.psychup = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.confuseray = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.dreameater = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.hyperbeam = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.icepunch = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.psychic = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.reflect = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.thunder = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.thunderwave = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.thunderbolt = ['3L1'];
 		
-		delete this.modData('Learnsets', 'lickitung').learnset.knockoff;
 		delete this.modData('Learnsets', 'deoxys').learnset.knockoff;
 		
 		
