@@ -2534,7 +2534,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	magnezone: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 70, def: 115, spa: 130, spd: 90, spe: 60},
+		baseStats: {hp: 70, atk: 70, def: 137, spa: 90, spd: 73, spe: 60},
 		abilities: {0: "Levitate"},
 		gen: 3,
 	},
