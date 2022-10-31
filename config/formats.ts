@@ -858,11 +858,8 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
 		], 
-		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokémon
-			'Eternatus',
-		],
+		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [],
 		teambuilderFormat: 'OU',
 	},
 	{
@@ -2912,19 +2909,25 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
 		],
-		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokémon
-			'Eternatus',
-			//Abilities
-			'Moody',
-			//Items
-			'King\'s Rock', 'Quick Claw', 'Razor Fang',
-			//Moves
-			'Baton Pass',
-		],
+		ruleset: ['Standard Doubles', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [],
 		gameType: 'doubles',
 		teambuilderFormat: 'DOU',
+	},
+	{
+		name: "[Gen 8] Ubermons LC",	
+		mod: 'ubermons',
+		desc: [
+			"<b>Ubermons</b>: A Pet Mod that aims to rebalance Ubers for OU. The goal is to make every single ban into a viable and healthy part of the metagame.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
+		],
+		forcedLevel: 5,
+		maxLevel: 5,
+		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Little Cup'],
+		banlist: ['Sticky Web', 'Chlorophyll', 'Sticky Web', 'Dragon Rage', 'Sonic Boom', 'Eevium Z'],
+		teambuilderFormat: 'LC',
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	
@@ -3539,6 +3542,22 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+        name: "[Gen 8] Dance of the Dead",
+        desc: `<b>?????</b>`,
+        threads: [
+            `&bullet; <a href="https://docs.google.com/spreadsheets/d/1sh7JljsjdTXlVlvUq45O2rT8x6ZM3nVv-kWkMnCgK_A/edit?usp=sharing">Spreadsheet</a>`,
+        ],
+        mod: 'danceofthedead',
+        ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Swagger Clause', 'Baton Pass Clause', 'OHKO Clause', 'Item Clause', 'Data Mod'],
+        banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'King\'s Rock',],
+        unbanlist: [
+ 'Baloon-Popped', 'Encrave', 'Eneryth', 'Fantom', 'Flamepion', 'Grievenge', 'Hydread', 'Marspookial', 'Mortemoth', 'Pozaqes', 'Sanbatter', 'Sheegal', 'Spirox', 'Tumbleak', 'Wistape',			  
+			],	
+			onSwitchIn(pokemon) {
+        		this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+        	},	
+	}, 
 	{
 		name: "[Gen 8] Dex Reversal",
 		desc: `<b>Dex Reversal</b>.`,

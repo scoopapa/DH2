@@ -275,7 +275,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1184,
 		name: "Totartle",
 		types: ["Water", "Grass"],
-		baseStats: {hp: 70, atk: 100, def: 65, spa: 100, spd: 100, spe: 78},
+		baseStats: {hp: 70, atk: 83, def: 65, spa: 100, spd: 100, spe: 78},
 		abilities: {},
 		prevo: "Wartortle", //It seemed less complicated to separate Blastoise and Totartle when coding so I went back on the branch evolution aspect. It's cool and gives a PokeGod aspect, but it's more accurate and moves are retained properly anyway.
 		evoLevel: 43,
@@ -309,7 +309,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1188,
 		name: "Tsubomitto",
 		types: ["Grass", "Poison"],
-		baseStats: {hp: 80, atk: 120, def: 60, spa: 85, spd: 85, spe: 70},
+		baseStats: {hp: 80, atk: 120, def: 65, spa: 85, spd: 85, spe: 70},
 		abilities: {},
 		prevo: "Weepinbell",
 		evoType: "trade", // sun/poison stone does not exist so let's just do this
