@@ -2379,7 +2379,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'gen3hgoct2022',
-		ruleset: ['Standard', 'Data Mod', 'HG Oct 22 Mod'],
+		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
 		banlist: ['Uber', 'Air Balloon'],
 		unbanlist: [
 			//Abilities

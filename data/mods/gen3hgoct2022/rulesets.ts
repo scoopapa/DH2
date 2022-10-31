@@ -7,7 +7,7 @@ export const Formats: {[k: string]: FormatData} = {
 
 	hoenngaidenmod: {
 		effectType: 'Rule',
-		name: 'HG Oct 22 Mod',
+		name: 'Hoenn Gaiden Mod',
 		desc: 'At the start of a battle, gives each player a link to the Hoenn Gaiden thread so they can use it to get information about new additions to the metagame.',
 		onBegin() {
 			this.add(`raw|<img src="https://cdn.discordapp.com/attachments/510822010922860545/864665757446045716/Hoenn_Gaiden_Banner.png" height="213" width="381">`);
