@@ -830,8 +830,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ledian: {
 		randomBattleMoves: ["agility", "batonpass", "lightscreen", "reflect", "silverwind", "swordsdance"],
-		tier: "UU",
-		rank: "Unranked",
+		tier: "OU",
+		rank: "New",
 	},
 	spinarak: {
 		tier: "LC",
@@ -2001,9 +2001,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	sylveon: {
-		rank: "Unranked",
+		rank: "New",
 		gen: 3,
-		tier: "UU",
+		tier: "OU",
 	},
 	zarude: {
 		rank: "Unranked",
@@ -2191,11 +2191,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	weavile: {
-		rank: "Unranked",
-		gen: 3,
-		tier: "UU",
-	},
-	magnezone: {
 		rank: "Unranked",
 		gen: 3,
 		tier: "UU",
@@ -2533,6 +2528,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	probopass: {
+		rank: "New",
+		gen: 3,
+		tier: "OU",
+	},
+	magnezone: {
 		rank: "New",
 		gen: 3,
 		tier: "OU",
