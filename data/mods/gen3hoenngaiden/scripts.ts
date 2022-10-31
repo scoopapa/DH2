@@ -213,6 +213,8 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		delete this.modData('Learnsets', 'ledian').learnset.brickbreak;
 		delete this.modData('Learnsets', 'ledian').learnset.focuspunch;
+		delete this.modData('Learnsets', 'ledyba').learnset.brickbreak;
+		delete this.modData('Learnsets', 'ledyba').learnset.focuspunch;
 		
 		this.modData('Learnsets', 'sableye').learnset.yawn = ['3L1'];
 		
@@ -1087,6 +1089,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'farfetchdgalar').learnset.yawn;
 		delete this.modData('Learnsets', 'farfetchdgalar').learnset.mirrormove;
 
+		delete this.modData('Learnsets', 'budew').learnset.sleeppowder;
+		delete this.modData('Learnsets', 'roselia').learnset.sleeppowder;
 		delete this.modData('Learnsets', 'roserade').learnset.sleeppowder;
 
 		delete this.modData('Learnsets', 'electrodehisui').learnset.headbutt;
