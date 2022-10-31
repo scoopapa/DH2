@@ -164,7 +164,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		// list Pokemon by VR rank
 		for (const id in this.dataCache.Pokedex) {
-			if (this.modData('FormatsData', id)) {
+			if (this.modData('FormatsData', id) && this.modData('FormatsData', id).tier !== 'Uber') {
 				if (this.modData('FormatsData', id).rank !== 'Unranked') {
 					this.modData('FormatsData', id).tier = this.modData('FormatsData', id).rank;
 				} else {
