@@ -563,7 +563,7 @@ export const Formats: FormatList = [
 		],
 
 		mod: 'gen3hoenngaiden',
-		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
+		ruleset: ['Standard', 'Data Mod', 'Baton Pass Mod', 'Freeze Clause Mod', 'Hoenn Gaiden Mod'],
 		banlist: ['Uber', 'Air Balloon'],
 		unbanlist: [
 			//Abilities
@@ -858,11 +858,8 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
 		], 
-		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokémon
-			'Eternatus',
-		],
+		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [],
 		teambuilderFormat: 'OU',
 	},
 	{
@@ -2369,22 +2366,23 @@ export const Formats: FormatList = [
 		banlist: ['OU', 'UUBL'],
 		unbanlist: [
 		],
-		teambuilderFormat: 'UU',
+		teambuilderFormat: 'OU',
 	},
 	{
-		name: "[Gen 3] Hoenn Gaiden NU",
+		name: "[Gen 3] Hoenn Gaiden OU, October 2022",
 		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-the-gen-3-pet-mod-round-1-discussion.3681339/">Hoenn Gaiden on Smogon Forums</a>`,
 		],
 
-		mod: 'gen3hoenngaiden',
-		searchShow: false,
-		ruleset: ['[Gen 3] Hoenn Gaiden UU'],
-		banlist: ['UU', 'NUBL'],
+		mod: 'gen3hgoct2022',
+		ruleset: ['Standard', 'Data Mod', 'Hoenn Gaiden Mod'],
+		banlist: ['Uber', 'Air Balloon'],
 		unbanlist: [
+			//Abilities
+			'Sand Veil',
 		],
-		teambuilderFormat: 'NU',
+		teambuilderFormat: 'OU',
 	},
 	/*{
 		name: "[Gen 3] Hoenn Gaiden Uber",
@@ -2911,19 +2909,25 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
 		],
-		ruleset: ['Standard Doubles', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: [
-			//Pokémon
-			'Eternatus',
-			//Abilities
-			'Moody',
-			//Items
-			'King\'s Rock', 'Quick Claw', 'Razor Fang',
-			//Moves
-			'Baton Pass',
-		],
+		ruleset: ['Standard Doubles', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		banlist: [],
 		gameType: 'doubles',
 		teambuilderFormat: 'DOU',
+	},
+	{
+		name: "[Gen 8] Ubermons LC",	
+		mod: 'ubermons',
+		desc: [
+			"<b>Ubermons</b>: A Pet Mod that aims to rebalance Ubers for OU. The goal is to make every single ban into a viable and healthy part of the metagame.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/ubermons-slate-2-spooky-scary-skeletons-dragapult-marshadow-spectrier.3683759/">Ubermons on Smogon Forums</a>`,
+		],
+		forcedLevel: 5,
+		maxLevel: 5,
+		ruleset: ['Standard NatDex', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Little Cup'],
+		banlist: ['Sticky Web', 'Chlorophyll', 'Sticky Web', 'Dragon Rage', 'Sonic Boom', 'Eevium Z'],
+		teambuilderFormat: 'LC',
 	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	

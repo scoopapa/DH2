@@ -597,10 +597,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 169,
 		gen: 3,
 	},
-	gluttony: {
-		name: "Gluttony",
-		rating: 1.5,
-		num: 82,
-		gen: 3,
-	},
+	// gluttony: {
+	// 	name: "Gluttony",
+	// 	rating: 1.5,
+	// 	num: 82,
+	// 	gen: 3,
+	// },
 };

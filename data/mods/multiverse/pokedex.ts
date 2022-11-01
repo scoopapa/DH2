@@ -188,7 +188,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: null,
 		baseSpecies: null,
 		changesFrom: null,
-		requiredItem: null,
+		requiredItems: null,
 	},
 	stoutland: {
 		inherit: true,
