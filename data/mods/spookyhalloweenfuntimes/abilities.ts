@@ -88,16 +88,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (pokemon.addVolatile('substitute')) {
 					pokemon.volatiles['substitute'].hp = 0;
 					pokemon.volatiles['substitute'].hp += Math.floor(pokemon.battle.lastKOhealth / 2);
-					console.log(pokemon.volatiles['substitute'].hp);
 					this.add('-ability', pokemon, 'Necromancy');
-					this.add('-anim', pokemon, "Thunder", pokemon);
 					if (pokemon.battle.lastKOname) {
 						this.add('-message', `${pokemon.name} called for ${pokemon.battle.lastKOname}'s help beyond the grave...!!`);
 					} else {
 						this.add('-message', `${pokemon.name} called for help beyond the grave...!!`);
 					}
+					this.add('-anim', pokemon, "Thunder", pokemon);
 					pokemon.battle.lastKOhealth = null;
-					console.log(pokemon.volatiles['substitute'].hp);
 					this.add('-message', `I t ' s   a l i v e !`);
 					if (pokemon.battle.lastKOname) {
 						this.add('-message', `${pokemon.name} created a Substitute from ${pokemon.battle.lastKOname}'s remains...`);
@@ -114,16 +112,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (pokemon.addVolatile('substitute')) {
 					pokemon.volatiles['substitute'].hp = 0;
 					pokemon.volatiles['substitute'].hp += Math.floor(pokemon.battle.lastKOhealth / 2);
-					console.log(pokemon.volatiles['substitute'].hp);
 					this.add('-ability', pokemon, 'Necromancy');
-					this.add('-anim', pokemon, "Thunder", pokemon);
 					if (pokemon.battle.lastKOname) {
 						this.add('-message', `${pokemon.name} called for ${pokemon.battle.lastKOname}'s help beyond the grave...!!`);
 					} else {
 						this.add('-message', `${pokemon.name} called for help beyond the grave...!!`);
 					}
+					this.add('-anim', pokemon, "Thunder", pokemon);
 					pokemon.battle.lastKOhealth = null;
-					console.log(pokemon.volatiles['substitute'].hp);
 					this.add('-message', `I t ' s   a l i v e !`);
 					if (pokemon.battle.lastKOname) {
 						this.add('-message', `${pokemon.name} created a Substitute from ${pokemon.battle.lastKOname}'s remains...`);
