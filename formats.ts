@@ -1481,6 +1481,22 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	{
+		name: "[Gen 3] Hoenn Gaiden",
+		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-the-gen-3-pet-mod-round-1-discussion.3681339/">Hoenn Gaiden on Smogon Forums</a>`,
+		],
+
+		mod: 'gen3hoenngaiden',
+		ruleset: ['Standard', 'Data Mod', 'Baton Pass Mod', 'Freeze Clause Mod', 'Hoenn Gaiden Mod'],
+		banlist: ['Uber', 'Air Balloon'],
+		unbanlist: [
+			//Abilities
+			'Sand Veil',
+		],
+		teambuilderFormat: 'OU',
+	},
 	// Old Pet Mods ///////////////////////////////////////////////////////////////////
 	{
 		section: "Old Pet Mods",
