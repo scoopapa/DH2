@@ -3409,6 +3409,30 @@ export const Formats: FormatList = [
 		},
 		mod: 'svspeculative',
 	},
+	{
+		name: "[Gen 8] Spookymons 2022",
+		desc: [
+			"Testing currently",
+		],
+		mod: "spookyhalloweenfuntimes",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Item Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		searchShow: false,
+	},
+	{
+		name: "[Gen 8] Spookymons 2022 VGC",
+		desc: [
+			"Testing currently",
+		],
+		mod: "spookyhalloweenfuntimes",
+		ruleset: ['Standard GBU', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		searchShow: false,
+		gameType: 'doubles',
+		forcedLevel: 50,
+		teamLength: {
+			validate: [4, 6],
+			battle: 4,
+		},
+	},
 	// Solo Mods
 	{
 		section: "Solomods",
