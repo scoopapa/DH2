@@ -525,6 +525,7 @@ export const Formats: FormatList = [
 						'Zigzagoon-Galar', 'Linoone-Galar', 'Obstagoon', 'Stunfisk-Galar', 'Mimikyu', 'Mimikyu-Busted', 
 						'Oshawott', 'Dewott', 'Samurott-Hisui', 'Riolu', 'Lucario', 'Popplio', 'Brionne', 'Primarina',
 						'Grimmsnarl', 'Impidimp', 'Morgrem', 'Sylveon', 'Diglett-Alola', 'Dugtrio-Alola',
+						'Magnezone', 'Houndour', 'Houndoom', 'Cutiefly', 'Ribombee',
 					  ],
     },
    {
