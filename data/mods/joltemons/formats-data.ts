@@ -1992,7 +1992,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["uturn", "earthquake", "knockoff", "roost"],
 	},
 	greninja: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["spikes", "hydropump", "icebeam", "uturn"],
 	},
