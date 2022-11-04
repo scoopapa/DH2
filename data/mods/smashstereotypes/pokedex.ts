@@ -1206,4 +1206,30 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 135, atk: 100, def: 80, spa: 60, spd: 100, spe: 65},
 		evos: null,
 	},
+	vi: {
+		num: 6000174,
+		name: "Vi", /* Bug Fables */
+		types: ["Bug", "Flying"],
+		gender: "F",
+		baseStats: {hp: 78, atk: 117, def: 65, spa: 55, spd: 70, spe: 115},
+		abilities: {0: "Skill Link", 1: "Harvest", H: "Long Reach"},
+		heightm: 0.1,
+		weightkg: 0.1,
+	},
+	ninetalesalola: {
+		num: 38,
+		name: "Ninetales-Alola",
+		types: ["Ice", "Steel"],
+		genderRatio: {M: 0.25, F: 0.75},
+		baseStats: {hp: 80, atk: 90, def: 85, spa: 120, spd: 85, spe: 100},
+		abilities: {0: "Slush Rush", 1: "Air Lock", H: "Snow Warning"},
+		heightm: 1.1,
+		weightkg: 19.9,
+		eggGroups: ["Field"],
+		inherit: true,
+	},
+  porygonz: {
+    inherit: true,
+    types: ["Electric", "Ghost"],
+  },
 };
