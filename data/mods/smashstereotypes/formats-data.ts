@@ -365,4 +365,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	munchlax: {
 		tier: "SSS",
 	},
+	vi: {
+		tier: "SSS",
+	},
+	ninetalesalola: {
+		tier: "SSS",
+	},
+	porygonz: {
+		tier: "SSS",
+	},
 };
