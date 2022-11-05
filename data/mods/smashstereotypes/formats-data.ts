@@ -383,4 +383,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vulclairis: {
 		tier: "SSS",
 	},
+	ninjoth: {
+		tier: "SSS",
+	},
+	croakorrode: {
+		tier: "SSS",
+	},
+	yellowwollywog: {
+		tier: "SSS",
+	},
 };
