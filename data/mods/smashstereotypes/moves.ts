@@ -369,8 +369,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	coralcrash: {
 		num: 1006,
-		accuracy: 100,
-		basePower: 80,
+		accuracy: 90,
+		basePower: 110,
 		category: "Physical",
 		shortDesc: " Has 1/4 recoil. 10% chance to lower the target's Special Attack by 1.",
 		name: "Coral Crash",
@@ -378,7 +378,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [1, 4],
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Head Smash", target);
 		},
