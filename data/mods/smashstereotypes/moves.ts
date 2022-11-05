@@ -2008,12 +2008,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		gmaxPower: 130,
 		contestType: "Cool",
 	},
-	turnreplay: {
+	turnrelay: {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Switches the user out.",
-		name: "Turn Replay",
+		name: "Turn Relay",
 		pp: 40,
 		priority: 1,
 		flags: {},
@@ -2198,5 +2198,78 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
 			}
 		},
+	},
+	espwave: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Lowers the Attack, Sp. Atk, and Speed of the target if they are trapped.",
+		name: "ESP Wave",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psybeam", target);
+		},
+		onHit(target, source, move) {
+			if (target.volatiles['trapped'] || target.volatiles['partiallytrapped']) {
+				return !!this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
+			}
+			return false;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Psychic",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
+	},
+	boltarang: {
+		accuracy: 100,
+		basePower: 15,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.species.name === 'Thunjust-Super' && pokemon.hasAbility('retribution')) {
+				return move.basePower + 10;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "Hits 2-5 times.",
+		name: "Boltarang",
+		pp: 20,
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
+		multihit: [2, 5],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Thunder Wave", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
+	stormcloak: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the user's SpA by 1 stage and lowers the user's Spe by 1 stage.",
+		name: "Storm Cloak",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Defog", target);
+		},
+		boosts: {
+			spa: 1,
+			spe: -1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
 	},
 };
