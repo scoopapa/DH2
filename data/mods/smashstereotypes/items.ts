@@ -411,4 +411,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 		shortDesc: "Holder takes 33% less damage from special moves upon entry. -1 priority.",
 	},
+	protector: {
+		name: "Protector",
+		spritenum: 367,
+		fling: {
+			basePower: 100,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0 && !target.hasAbility('solidrock') && !target.hasAbility('filter')) {
+				this.debug('Protector neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		num: 321,
+		gen: 4,
+		desc: "Super effective attacks deal 3/4 damage to the holder.",
+	},
+	"serenitybrace": {
+		id: "Serenity Brace",
+		name: "serenitybrace",
+		spritenum: 417,
+		fling: {
+			basePower: 50,
+		},
+		onModifySecondaries(secondaries) {
+			this.debug('Shield Dust prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		desc: "Protects the holder from the secondary effects of opponent's moves.",
+	},
 };
