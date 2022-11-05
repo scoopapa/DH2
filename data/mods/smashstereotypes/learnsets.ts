@@ -374,6 +374,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uproar: ["8L1"],
 			uturn: ["8L1"],
 			weatherball: ["8L1"],
+			nastyplot: ["8L1"],
+			aeroblast: ["8L1"],
 		},
 	},
 	silvallyrock: {
@@ -839,6 +841,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			swordsdance: ["8L1"],
 			accelerock: ["8L1"],
 			coralcrash: ["8L1"],
+			trickroom: ["8L1"],
 		},
 		eventData: [
 			{generation: 3, level: 5, shiny: 1, moves: ["8L1"], pokeball: "pokeball"},
