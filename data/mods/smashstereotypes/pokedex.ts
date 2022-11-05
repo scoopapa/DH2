@@ -1241,14 +1241,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Divine Grace"},
 	},
 	vulclairis: {
-		num: 109,
+		num: 110,
 		name: "Vulclairis",
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 100, atk: 50, def: 100, spa: 100, spd: 100, spe: 50},
 		abilities: {0: "Immunity", 1: "Water Absorb", H: "All-Seeing Eye"},
 	},
 	thunjust: {
-		num: 110,
+		num: 111,
 		name: "Thunjust",
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 90, atk: 86, def: 120, spa: 82, spd: 78, spe: 74},
@@ -1257,7 +1257,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: ["Thunjust", "Thunjust", "Thunjust-Super"],
 	},
 	thunjustsuper: {
-		num: 110,
+		num: 111,
 		name: "Thunjust-Super",
 		baseSpecies: "Thunjust",
 		forme: "Super",
