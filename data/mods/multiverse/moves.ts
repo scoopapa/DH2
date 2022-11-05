@@ -1,27 +1,4 @@
 export const Moves: {[moveid: string]: MoveData} = {
-	dig: {
-		inherit: true,
-		onTryMove(attacker, defender, move) {
-			if (attacker.species.id === 'greninja' && attacker.hasItem('smokebomb') && move.id === 'dig') return;
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			this.add('-prepare', attacker, move.name);
-			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
-				return;
-			}
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
-		},
-		onModifyMove(move, source, target) {
-			if (source.species.id !== 'greninja') return;
-			if (source.hasItem('smokebomb')) {
-				move.basePower = 100;
-				delete move.flags['charge'];
-				source.useItem();
-			}
-		},
-	},
 	flameburst: {
 		inherit: true,
 		isNonstandard: null,
@@ -33,10 +10,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 	jumpkick: {
 		inherit: true,
 		isNonstandard: null,
-	},
-	multiattack: {
-		inherit: true,
-		basePower: 90,
 	},
 	refresh: {
 		inherit: true,
@@ -176,7 +149,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	heavyflip: {
 		num: -5,
 		accuracy: 100,
-		basePower: 55,
+		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.item) {
 				this.debug("Power doubled for item");
@@ -242,8 +215,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	sharpleaves: {
 		num: -8,
-		accuracy: 95,
-		basePower: 55,
+		accuracy: 100,
+		basePower: 70,
 		category: "Physical",
 		shortDesc: "Always results in a critical hit.",
 		name: "Sharp Leaves",
@@ -349,8 +322,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	absoluteimpact: {
 		num: -11,
-		accuracy: 100,
-		basePower: 120,
+		accuracy: 90,
+		basePower: 100,
 		category: "Physical",
 		shortDesc: "Has 33% recoil.",
 		name: "Absolute Impact",

@@ -185,6 +185,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'munchlax').learnset.playrough = ['8L1'];
 		this.modData('Learnsets', 'munchlax').learnset.bodypress = ['8L1'];
 		delete this.modData('Learnsets', 'munchlax').learnset.recycle;
+		this.modData("Learnsets", "ninetalesalola").learnset.snowstorm = ["8L1"];
+		this.modData("Learnsets", "ninetalesalola").learnset.flashcannon = ["8L1"];
+		this.modData("Learnsets", "ninetalesalola").learnset.steelbeam = ["8L1"];
+		this.modData("Learnsets", "ninetalesalola").learnset.earthpower = ["8L1"];
+		this.modData("Learnsets", "ninetalesalola").learnset.willowisp = ["8L1"];
+		this.modData("Learnsets", "ninetalesalola").learnset.taunt = ["8L1"];
+		this.modData("Learnsets", "ninetalesalola").learnset.recover = ["8L1"];
+		this.modData("Learnsets", "ninetalesalola").learnset.ironhead = ["8L1"];
+		this.modData("Learnsets", "porygonz").learnset.confuseray = ["8L1"];
+		this.modData("Learnsets", "porygonz").learnset.shadowsneak = ["8L1"];
+		this.modData("Learnsets", "porygonz").learnset.psyshock = ["8L1"];
 	},
 	
 	teambuilderConfig: {

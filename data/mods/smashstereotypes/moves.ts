@@ -1987,4 +1987,216 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "all",
 		type: "Ground",
 	},	
+	"hurricanetoss": {
+		num: 40119,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		desc: "Hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "hurricanetoss",
+		name: "Hurricane Toss",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreDefensive: true,
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		zMovePower: 140,
+		gmaxPower: 130,
+		contestType: "Cool",
+	},
+	turnreplay: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Switches the user out.",
+		name: "Turn Replay",
+		pp: 40,
+		priority: 1,
+		flags: {},
+ 		onPrepareHit: function(target, source, move) {
+		  this.attrLastMove('[still]');
+		  this.add('-anim', source, "Baton Pass", target);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cute",
+	},
+	snowstorm: {
+		num: 1003,
+		accuracy: 75,
+		basePower: 100,
+		category: "Special",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		name: "Snowstorm",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon, target) {
+			switch (target?.effectiveWeather()) {
+			case 'hail':
+				move.accuracy = true;
+				break;
+			case 'sunnyday':
+			case 'desolateland':
+				move.accuracy = 50;
+				break;
+			}
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Glacial Lance", target);
+		},
+		volatileStatus: 'partiallytrapped',
+		secondary: undefined,
+		target: "normal",
+		type: "Ice",
+		contestType: "Tough",
+	},
+	triattack: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Electric-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Electric';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	doubleedge: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Steel-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Steel';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	facade: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Fighting-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Fighting';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	gigaimpact: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Dark-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Dark';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	hyperbeam: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Dark-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Dark';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	lastresort: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Dark-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Dark';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	round: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Flying-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Flying';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	secretpower: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Psychic-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	skullbash: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Rock-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Rock';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
+	swift: {
+		inherit: true,
+		shortDesc: "AbNormal Porygon-Z: Fairy-type.",
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'porygonz') {
+				move.type = 'Fairy';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'porygonz') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
+		},
+	},
 };
