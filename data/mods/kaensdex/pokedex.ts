@@ -1,5 +1,4 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
-
 woodite: {
 	num: 1.5,
 	species: "Woodite",
@@ -16,7 +15,7 @@ manteaf: {
 	baseStats: {hp: 68, atk: 85, def: 70, spa: 50, spd: 57, spe: 75},
 	abilities: {0: "Overgrow", H: "Tinted Lens"},
 	weightkg: 26.4,
-	prevo: "woodite",
+	prevo: "Woodite",
 	evos: ["fasmiwood"],
 },
 fasmiwood: {
@@ -161,7 +160,7 @@ spiball: {
 	species: "Spiball",
 	types: ["Bug", "Dark"],
 	baseStats: {hp: 55, atk: 45, def: 34, spa: 26, spd: 42, spe: 48},
-	abilities: {0: "Compund Eyes", 1: "Super Luck", H: "Mold Breaker"},
+	abilities: {0: "Compound Eyes", 1: "Super Luck", H: "Mold Breaker"},
 	weightkg: 8.5,
 	evos: ["scopiball"],
 },
@@ -170,7 +169,7 @@ scopiball: {
 	species: "Scopiball",
 	types: ["Bug", "Dark"],
 	baseStats: {hp: 82, atk: 118, def: 75, spa: 43, spd: 95, spe: 75},
-	abilities: {0: "Compund Eyes", 1: "Super Luck", H: "Mold Breaker"},
+	abilities: {0: "Compound Eyes", 1: "Super Luck", H: "Mold Breaker"},
 	weightkg: 39.2,
 	prevo: "spiball",
 },
