@@ -2203,17 +2203,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Lowers the Attack, Sp. Atk, and Speed of the target if they are trapped.",
 		name: "ESP Wave",
+		shortDesc: "Lowers Atk/Sp. Atk/Speed of trapped foes by 1.",
 		pp: 20,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Psybeam", target);
+		flags: {sound: 1, reflectable: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Psywave", target);
 		},
 		onHit(target, source, move) {
-			if (target.volatiles['trapped'] || target.volatiles['partiallytrapped']) {
+			if (target.volatiles['partiallytrapped'] || target.volatiles['trapped']) {
 				return !!this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
 			}
 			return false;
@@ -2222,7 +2222,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Psychic",
 		zMove: {boost: {def: 1}},
-		contestType: "Clever",
+		contestType: "Cool",
 	},
 	boltarang: {
 		accuracy: 100,
