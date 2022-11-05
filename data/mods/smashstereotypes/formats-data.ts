@@ -392,4 +392,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	yellowwollywog: {
 		tier: "SSS",
 	},
+	serpaint: {
+		tier: "SSS",
+	},
+	butterfree: {
+		tier: "SSS",
+	},
+	salamalix: {
+		tier: "SSS",
+	},
 };
