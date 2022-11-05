@@ -1385,4 +1385,62 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 53,
 		prevo: "Mightyena-Ancient",
 	},
+	
+	teenizino: {
+		num: -189,
+		name: "Teenizino",
+		types: ["Dragon"],
+		baseStats: {hp: 35, atk: 50, def: 35, spa: 45, spd: 60, spe: 80},
+		abilities: {0: "Run Away", H: "Frisk"},
+		weightkg: 44.2,
+	
+	},
+	terrorzino: {
+		num: -190,
+		name: "Terrorzino",
+		types: ["Dragon"],
+		baseStats: {hp: 85, atk: 135, def: 70, spa: 115, spd: 90, spe: 60},
+		abilities: {0: "Hyper Cutter", H: "Steelworker"},
+		weightkg: 274.6,
+		prevo: "Teenizino", 
+	
+	}, 
+	sailad: {
+		num: -191,
+		name: "Sailad", 
+		types: ["Fire"], 
+		baseStats: {hp: 58, atk: 50, def: 75, spa: 89, spd: 45, spe: 50},
+		abilities: {0: "Mummy", H: "Sand Force"},
+		weightkg: 23, 
+		
+	},
+	pharaocious: {
+		num: -192, 
+		name: "Pharoacious", 
+		types: ["Fire", "Dark"], 
+		baseStats: {hp: 82, atk: 80, def: 111, spa: 106, spd: 70, spe: 78}, 
+		abilities: {0: "Mummy", H: "Sand Force"},
+		weightkg: 182.6,
+		prevo: "Sailad",
+		
+	}, 
+	honkeri: {
+		num: -193, 
+		name: "Honkeri", 
+		types: ["Grass"],
+		baseStats: {hp: 55, atk: 50, def: 50, spa: 50, spd: 50, spe: 55}, 
+      abilities: {0: "Pastel Veil", H: "Liquid Voice"}, 
+		weightkg: 37, 
+		
+	},
+	melophus: {
+		num: -194, 
+		name: "Melophus", 
+		types: ["Grass", "Fairy"],
+		baseStats: {hp: 110, atk: 70, def: 90, spa: 90, spd: 70, spe: 95}, 
+		abilities: {0: "Pastel Veil", H: "Liquid Voice"}, 
+		weightkg: 172,
+		prevo: "Honkeri",
+		
+	},
 };
