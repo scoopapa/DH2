@@ -374,4 +374,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	porygonz: {
 		tier: "SSS",
 	},
+	firefairy: {
+		tier: "SSS",
+	},
+	thunjust: {
+		tier: "SSS",
+	},
+	vulclairis: {
+		tier: "SSS",
+	},
 };
