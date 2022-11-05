@@ -204,6 +204,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	 * Do not use for LC bans (usage tier will override LC Uber).
 	 */
 	readonly doublesTier: TierTypes.Doubles | TierTypes.Other;
+	readonly rank?: string; // Used in Hoenn Gaiden
 	readonly randomBattleMoves?: readonly ID[];
 	readonly randomBattleLevel?: number;
 	readonly randomDoubleBattleMoves?: readonly ID[];
@@ -234,6 +235,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 		this.prevo = data.prevo || '';
 		this.tier = data.tier || '';
 		this.doublesTier = data.doublesTier || '';
+		this.rank = data.rank || ''; 
 		this.evos = data.evos || [];
 		this.evoType = data.evoType || undefined;
 		this.evoMove = data.evoMove || undefined;

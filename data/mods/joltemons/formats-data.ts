@@ -1992,7 +1992,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["uturn", "earthquake", "knockoff", "roost"],
 	},
 	greninja: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["spikes", "hydropump", "icebeam", "uturn"],
 	},
@@ -4610,7 +4610,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["quiverdance", "sleeppowder", "bugbuzz", "sludgebomb"],
 	},
 	venusaur: {
-		tier: "NU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 		randomBattleMoves: ["sunnyday", "weatherball", "solarbeam", "earthpower"],
 	},

@@ -1,161 +1,178 @@
-import type {Dex} from '../sim/dex';
-
 const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
 
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen3',
 	gen: 3,
-	init() {
-		for (const i in this.data.Pokedex) {
-			delete this.data.Pokedex[i].abilities['H'];
-		}
+
+	teambuilderConfig: {
+		// for micrometas to only show custom tiers
+		excludeStandardTiers: true,
+		// only to specify the order of custom tiers
+		customTiers: ['New','S1','S2','A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','D1','D2','E1','E2','Unranked','NFE','LC','Uber'],
 	},
-		// Don't remove this function; it handles Silvally's Multi-Attack type
-		useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
-			if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
-			if (sourceEffect && sourceEffect.id === 'instruct') sourceEffect = null;
-	
-			let move = this.dex.getActiveMove(moveOrMoveName);
-	
-			if (this.activeMove) {
-				move.priority = this.activeMove.priority;
+
+	// Don't remove this function; it handles Silvally's Multi-Attack type
+	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
+		if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
+		if (sourceEffect && sourceEffect.id === 'instruct') sourceEffect = null;
+
+		let move = this.dex.getActiveMove(moveOrMoveName);
+
+		if (this.activeMove) {
+			move.priority = this.activeMove.priority;
+		}
+		const baseTarget = move.target;
+		if (target === undefined) target = this.getRandomTarget(pokemon, move);
+		if (move.target === 'self' || move.target === 'allies') {
+			target = pokemon;
+		}
+		if (sourceEffect) {
+			move.sourceEffect = sourceEffect.id;
+			move.ignoreAbility = false;
+		}
+		let moveResult = false;
+
+		this.setActiveMove(move, pokemon, target);
+
+		this.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+		this.singleEvent('ModifyMove', move, null, pokemon, target, move, move);
+		if (baseTarget !== move.target) {
+			// Target changed in ModifyMove, so we must adjust it here
+			// Adjust before the next event so the correct target is passed to the
+			// event
+			target = this.getRandomTarget(pokemon, move);
+		}
+		move = this.runEvent('ModifyType', pokemon, target, move, move);
+		move = this.runEvent('ModifyMove', pokemon, target, move, move);
+		if (baseTarget !== move.target) {
+			// Adjust again
+			target = this.getRandomTarget(pokemon, move);
+		}
+		if (!move || pokemon.fainted) {
+			return false;
+		}
+
+		let attrs = '';
+
+		let movename = move.name;
+		if (move.id === 'hiddenpower') movename = 'Hidden Power';
+		if (sourceEffect) attrs += `|[from]${this.dex.getEffect(sourceEffect)}`;
+		this.addMove('move', pokemon, movename, target + attrs);
+
+		if (!target) {
+			this.attrLastMove('[notarget]');
+			this.add('-notarget', pokemon);
+			return false;
+		}
+
+		const {targets, pressureTargets} = pokemon.getMoveTargets(move, target);
+
+		if (!sourceEffect || sourceEffect.id === 'pursuit') {
+			let extraPP = 0;
+			for (const source of pressureTargets) {
+				const ppDrop = this.runEvent('DeductPP', source, pokemon, move);
+				if (ppDrop !== true) {
+					extraPP += ppDrop || 0;
+				}
 			}
-			const baseTarget = move.target;
-			if (target === undefined) target = this.getRandomTarget(pokemon, move);
-			if (move.target === 'self' || move.target === 'allies') {
-				target = pokemon;
+			if (extraPP > 0) {
+				pokemon.deductPP(move, extraPP);
 			}
-			if (sourceEffect) {
-				move.sourceEffect = sourceEffect.id;
-				move.ignoreAbility = false;
-			}
-			let moveResult = false;
-	
-			this.setActiveMove(move, pokemon, target);
-	
-			this.singleEvent('ModifyType', move, null, pokemon, target, move, move);
-			this.singleEvent('ModifyMove', move, null, pokemon, target, move, move);
-			if (baseTarget !== move.target) {
-				// Target changed in ModifyMove, so we must adjust it here
-				// Adjust before the next event so the correct target is passed to the
-				// event
-				target = this.getRandomTarget(pokemon, move);
-			}
-			move = this.runEvent('ModifyType', pokemon, target, move, move);
-			move = this.runEvent('ModifyMove', pokemon, target, move, move);
-			if (baseTarget !== move.target) {
-				// Adjust again
-				target = this.getRandomTarget(pokemon, move);
-			}
-			if (!move || pokemon.fainted) {
-				return false;
-			}
-	
-			let attrs = '';
-	
-			let movename = move.name;
-			if (move.id === 'hiddenpower') movename = 'Hidden Power';
-			if (sourceEffect) attrs += `|[from]${this.dex.getEffect(sourceEffect)}`;
-			this.addMove('move', pokemon, movename, target + attrs);
-	
-			if (!target) {
+		}
+
+		if (!this.singleEvent('TryMove', move, null, pokemon, target, move) ||
+			!this.runEvent('TryMove', pokemon, target, move)) {
+			move.mindBlownRecoil = false;
+			return false;
+		}
+
+		this.singleEvent('UseMoveMessage', move, null, pokemon, target, move);
+
+		if (move.ignoreImmunity === undefined) {
+			move.ignoreImmunity = (move.category === 'Status');
+		}
+
+		if (move.selfdestruct === 'always') {
+			this.faint(pokemon, pokemon, move);
+		}
+
+		let damage: number | false | undefined | '' = false;
+		if (move.target === 'all' || move.target === 'foeSide' || move.target === 'allySide' || move.target === 'allyTeam') {
+			damage = this.tryMoveHit(target, pokemon, move);
+			if (damage === this.NOT_FAIL) pokemon.moveThisTurnResult = null;
+			if (damage || damage === 0 || damage === undefined) moveResult = true;
+		} else if (move.target === 'allAdjacent' || move.target === 'allAdjacentFoes') {
+			if (!targets.length) {
 				this.attrLastMove('[notarget]');
 				this.add('-notarget', pokemon);
 				return false;
 			}
-	
-			const {targets, pressureTargets} = pokemon.getMoveTargets(move, target);
-	
-			if (!sourceEffect || sourceEffect.id === 'pursuit') {
-				let extraPP = 0;
-				for (const source of pressureTargets) {
-					const ppDrop = this.runEvent('DeductPP', source, pokemon, move);
-					if (ppDrop !== true) {
-						extraPP += ppDrop || 0;
-					}
+			if (targets.length > 1) move.spreadHit = true;
+			const hitSlots = [];
+			for (const source of targets) {
+				const hitResult = this.tryMoveHit(source, pokemon, move);
+				if (hitResult || hitResult === 0 || hitResult === undefined) {
+					moveResult = true;
+					hitSlots.push(source.getSlot());
 				}
-				if (extraPP > 0) {
-					pokemon.deductPP(move, extraPP);
+				if (damage) {
+					damage += hitResult || 0;
+				} else {
+					if (damage !== false || hitResult !== this.NOT_FAIL) damage = hitResult;
+				}
+				if (damage === this.NOT_FAIL) pokemon.moveThisTurnResult = null;
+			}
+			if (move.spreadHit) this.attrLastMove('[spread] ' + hitSlots.join(','));
+		} else {
+			target = targets[0];
+			let lacksTarget = !target || target.fainted;
+			if (!lacksTarget) {
+				if (['adjacentFoe', 'adjacentAlly', 'normal', 'randomNormal'].includes(move.target)) {
+					lacksTarget = !this.isAdjacent(target, pokemon);
 				}
 			}
-	
-			if (!this.singleEvent('TryMove', move, null, pokemon, target, move) ||
-				!this.runEvent('TryMove', pokemon, target, move)) {
-				move.mindBlownRecoil = false;
+			if (lacksTarget && !move.isFutureMove) {
+				this.attrLastMove('[notarget]');
+				this.add('-notarget', pokemon);
 				return false;
 			}
-	
-			this.singleEvent('UseMoveMessage', move, null, pokemon, target, move);
-	
-			if (move.ignoreImmunity === undefined) {
-				move.ignoreImmunity = (move.category === 'Status');
-			}
-	
-			if (move.selfdestruct === 'always') {
-				this.faint(pokemon, pokemon, move);
-			}
-	
-			let damage: number | false | undefined | '' = false;
-			if (move.target === 'all' || move.target === 'foeSide' || move.target === 'allySide' || move.target === 'allyTeam') {
-				damage = this.tryMoveHit(target, pokemon, move);
-				if (damage === this.NOT_FAIL) pokemon.moveThisTurnResult = null;
-				if (damage || damage === 0 || damage === undefined) moveResult = true;
-			} else if (move.target === 'allAdjacent' || move.target === 'allAdjacentFoes') {
-				if (!targets.length) {
-					this.attrLastMove('[notarget]');
-					this.add('-notarget', pokemon);
-					return false;
-				}
-				if (targets.length > 1) move.spreadHit = true;
-				const hitSlots = [];
-				for (const source of targets) {
-					const hitResult = this.tryMoveHit(source, pokemon, move);
-					if (hitResult || hitResult === 0 || hitResult === undefined) {
-						moveResult = true;
-						hitSlots.push(source.getSlot());
-					}
-					if (damage) {
-						damage += hitResult || 0;
-					} else {
-						if (damage !== false || hitResult !== this.NOT_FAIL) damage = hitResult;
-					}
-					if (damage === this.NOT_FAIL) pokemon.moveThisTurnResult = null;
-				}
-				if (move.spreadHit) this.attrLastMove('[spread] ' + hitSlots.join(','));
-			} else {
-				target = targets[0];
-				let lacksTarget = !target || target.fainted;
-				if (!lacksTarget) {
-					if (['adjacentFoe', 'adjacentAlly', 'normal', 'randomNormal'].includes(move.target)) {
-						lacksTarget = !this.isAdjacent(target, pokemon);
-					}
-				}
-				if (lacksTarget && !move.isFutureMove) {
-					this.attrLastMove('[notarget]');
-					this.add('-notarget', pokemon);
-					return false;
-				}
-				damage = this.tryMoveHit(target, pokemon, move);
-				if (damage === this.NOT_FAIL) pokemon.moveThisTurnResult = null;
-				if (damage || damage === 0 || damage === undefined) moveResult = true;
-			}
-			if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
-			if (!pokemon.hp) {
-				this.faint(pokemon, pokemon, move);
-			}
-	
-			if (!moveResult) {
-				this.singleEvent('MoveFail', move, null, target, pokemon, move);
-				return false;
-			}
-	
-			if (!move.negateSecondary && !(move.hasSheerForce && pokemon.hasAbility('sheerforce'))) {
-				this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
-				this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
-			}
-			return true;
-		},
+			damage = this.tryMoveHit(target, pokemon, move);
+			if (damage === this.NOT_FAIL) pokemon.moveThisTurnResult = null;
+			if (damage || damage === 0 || damage === undefined) moveResult = true;
+		}
+		if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
+		if (!pokemon.hp) {
+			this.faint(pokemon, pokemon, move);
+		}
+
+		if (!moveResult) {
+			this.singleEvent('MoveFail', move, null, target, pokemon, move);
+			return false;
+		}
+
+		if (!move.negateSecondary && !(move.hasSheerForce && pokemon.hasAbility('sheerforce'))) {
+			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
+			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
+		}
+		return true;
+	},
 	init: function () {
+
+		for (const i in this.data.Pokedex) {
+			delete this.data.Pokedex[i].abilities['H'];
+		}
+
+		// list Pokemon by VR rank
+		for (const id in this.dataCache.Pokedex) {
+			if (this.modData('FormatsData', id) && this.modData('FormatsData', id).tier !== 'Uber') {
+				if (this.modData('FormatsData', id).rank !== 'Unranked') {
+					this.modData('FormatsData', id).tier = this.modData('FormatsData', id).rank;
+				} else {
+					this.modData('FormatsData', id).tier = 'Unranked';
+				}
+			}
+		};
+
 		//Slate 2 Buffs
 		this.modData('Learnsets', 'jumpluff').learnset.rapidspin = ['3L1'];
 		this.modData('Learnsets', 'jumpluff').learnset.batonpass = ['3L1'];
@@ -187,8 +204,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		//this.modData('Learnsets', 'delibird').learnset.spikes = ['3L1'];
 		//this.modData('Learnsets', 'delibird').learnset.surf = ['3L1'];
 		
-		this.modData('Learnsets', 'ledian').learnset.psychic = ['3L1'];
-		this.modData('Learnsets', 'ledian').learnset.firepunch = ['3L1'];
+		// this.modData('Learnsets', 'ledian').learnset.psychic = ['3L1'];
+		// this.modData('Learnsets', 'ledian').learnset.firepunch = ['3L1'];
+		this.modData('Learnsets', 'ledian').learnset.lunge = ['3L1'];
+		this.modData('Learnsets', 'ledian').learnset.aeroblast = ['3L1'];
+		this.modData('Learnsets', 'ledian').learnset.bellydrum = ['3L1'];
+		this.modData('Learnsets', 'ledian').learnset.calmmind = ['3L1'];
+
+		delete this.modData('Learnsets', 'ledian').learnset.brickbreak;
+		delete this.modData('Learnsets', 'ledian').learnset.focuspunch;
+		delete this.modData('Learnsets', 'ledyba').learnset.brickbreak;
+		delete this.modData('Learnsets', 'ledyba').learnset.focuspunch;
 		
 		this.modData('Learnsets', 'sableye').learnset.yawn = ['3L1'];
 		
@@ -470,7 +496,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'leafeon').learnset.bulletseed = ['3L1'];
 		this.modData('Learnsets', 'leafeon').learnset.covet = ['3L1'];
 		this.modData('Learnsets', 'leafeon').learnset.doublekick = ['3L1'];
-		this.modData('Learnsets', 'leafeon').learnset.faketears = ['3L1'];
+		// this.modData('Learnsets', 'leafeon').learnset.faketears = ['3L1'];
 		this.modData('Learnsets', 'leafeon').learnset.focusenergy = ['3L1'];
 		this.modData('Learnsets', 'leafeon').learnset.flash = ['3L1'];
 		this.modData('Learnsets', 'leafeon').learnset.furycutter = ['3L1'];
@@ -487,66 +513,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'leafeon').learnset.swift = ['3L1'];		
 		this.modData('Learnsets', 'leafeon').learnset.swagger = ['3L1'];
 		
-		this.modData('Learnsets', 'honchkrow').learnset.superpower = ['3L1'];
-
-		this.modData('Learnsets', 'lickilicky').learnset.explosion = ['3L1'];
-
-		this.modData('Learnsets', 'magnezone').learnset.mirrorcoat = ['3L1'];
-
-		this.modData('Learnsets', 'electivire').learnset.earthquake = ['3L1'];
-		this.modData('Learnsets', 'electivire').learnset.rockslide = ['3L1'];
-		this.modData('Learnsets', 'electivire').learnset.flamethrower = ['3L1'];
-		
 		this.modData('Learnsets', 'magmortar').learnset.earthquake = ['3L1'];
 		this.modData('Learnsets', 'magmortar').learnset.rockslide = ['3L1'];
 		this.modData('Learnsets', 'magmortar').learnset.thunderbolt = ['3L1'];
 		
 		this.modData('Learnsets', 'togekiss').learnset.extremespeed = ['3L1'];
-
-		this.modData("Learnsets", 'gallade').learnset.aerialace = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.brickbreak = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.bulkup = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.focuspunch = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.leafblade = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.revenge = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.rocktomb = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.falseswipe = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.furycutter = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.reversal = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.rocksmash = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.cut = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.earthquake = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.hyperbeam = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.leer = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.lowkick = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.rockslide = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.slash = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.strength = ['3L1'];
-		this.modData("Learnsets", 'gallade').learnset.swordsdance = ['3L1'];
-
-		this.modData("Learnsets", 'froslass').learnset.iciclespear = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.imprison = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.shockwave = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.taunt = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.torment = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.trick = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.willowisp = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.charm = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.destinybond = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.mudslap = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.painsplit = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.psychup = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.confuseray = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.dreameater = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.hyperbeam = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.icepunch = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.psychic = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.reflect = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.thunder = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.thunderwave = ['3L1'];
-		this.modData("Learnsets", 'froslass').learnset.thunderbolt = ['3L1'];
 		
-		delete this.modData('Learnsets', 'lickitung').learnset.knockoff;
 		delete this.modData('Learnsets', 'deoxys').learnset.knockoff;
 		
 		
@@ -713,11 +685,380 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "golemalola").learnset.dynamicpunch = ["3L1"];
 		this.modData("Learnsets", "golemalola").learnset.furycutter = ["3L1"];
 		this.modData("Learnsets", "golemalola").learnset.megakick = ["3L1"];
+		// this.modData("Learnsets", "golemalola").learnset.megakick = ["3L1"];
 		this.modData("Learnsets", "golemalola").learnset.metronome = ["3L1"];
 		this.modData("Learnsets", "golemalola").learnset.mimic = ["3L1"];
 		this.modData("Learnsets", "golemalola").learnset.mudslap = ["3L1"];
 		this.modData("Learnsets", "golemalola").learnset.secretpower = ["3L1"];
 		this.modData("Learnsets", "golemalola").learnset.rocksmash = ["3L1"];
 		this.modData("Learnsets", "golemalola").learnset.strength = ["3L1"];
+
+		// pre-slate 14 tidy-ups
+		this.modData("Learnsets", "golurk").learnset.bodyslam = ["3L1"];
+		this.modData("Learnsets", "golurk").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "golurk").learnset.nightmare = ["3L1"];
+		this.modData("Learnsets", "golurk").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "golurk").learnset.shockwave = ["3L1"];
+		this.modData("Learnsets", "golurk").learnset.pound = ["3L1"];
+		this.modData("Learnsets", "golurk").learnset.sandstorm = ["3L1"];
+		this.modData("Learnsets", "golurk").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "golurk").learnset.counter = ["3L1"];
+
+		this.modData("Learnsets", "diglett").learnset.suckerpunch = ["3L1"];
+
+		this.modData("Learnsets", "dugtrio").learnset.suckerpunch = ["3L1"];
+
+		this.modData("Learnsets", "diglettalola").learnset.sandtomb = ["3L1"];
+		this.modData("Learnsets", "diglettalola").learnset.suckerpunch = ["3L1"];
+
+		this.modData("Learnsets", "dugtrioalola").learnset.sandtomb = ["3L1"];
+		this.modData("Learnsets", "dugtrioalola").learnset.suckerpunch = ["3L1"];
+		this.modData("Learnsets", "dugtrioalola").learnset.triattack = ["3L1"];
+		this.modData("Learnsets", "dugtrioalola").learnset.hyperbeam = ["3L1"];
+
+		this.modData("Learnsets", "obstagoon").learnset.hyperbeam = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.furyswipes = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.strength = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.roar = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.slash = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.lick = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.takedown = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.taunt = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.metronome = ["3L1"];
+		this.modData("Learnsets", "obstagoon").learnset.dynamicpunch = ["3L1"];
+
+		this.modData("Learnsets", "mismagius").learnset.magicalleaf = ["3L1"];
+		this.modData("Learnsets", "mismagius").learnset.suckerpunch = ["3L1"];
+		this.modData("Learnsets", "mismagius").learnset.icywind = ["3L1"];
+
+		this.modData("Learnsets", "magmortar").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "mismagius").learnset.solarbeam = ["3L1"];
+		this.modData("Learnsets", "mismagius").learnset.rocktomb = ["3L1"];
+		this.modData("Learnsets", "mismagius").learnset.taunt = ["3L1"];
+
+		this.modData("Learnsets", "perrserker").learnset.curse = ["3L1"];
+		this.modData("Learnsets", "perrserker").learnset.covet = ["3L1"];
+		this.modData("Learnsets", "perrserker").learnset.shockwave = ["3L1"];
+		this.modData("Learnsets", "perrserker").learnset.aerialace = ["3L1"];
+		this.modData("Learnsets", "perrserker").learnset.torment = ["3L1"];
+		this.modData("Learnsets", "perrserker").learnset.waterpulse = ["3L1"];
+		this.modData("Learnsets", "perrserker").learnset.roar = ["3L1"];
+		this.modData("Learnsets", "perrserker").learnset.flash = ["3L1"];
+		this.modData("Learnsets", "perrserker").learnset.icywind = ["3L1"];
+		this.modData("Learnsets", "perrserker").learnset.hyperbeam = ["3L1"];
+
+		this.modData("Learnsets", "tangela").learnset.ancientpower = ["3L1"];
+
+		this.modData("Learnsets", "tangrowth").learnset.ancientpower = ["3L1"];
+		this.modData("Learnsets", "tangrowth").learnset.block = ["3L1"];
+		this.modData("Learnsets", "tangrowth").learnset.aerialace = ["3L1"];
+		this.modData("Learnsets", "tangrowth").learnset.rocktomb = ["3L1"];
+		this.modData("Learnsets", "tangrowth").learnset.shockwave = ["3L1"];
+		this.modData("Learnsets", "tangrowth").learnset.earthquake = ["3L1"];
+		this.modData("Learnsets", "tangrowth").learnset.brickbreak = ["3L1"];
+		this.modData("Learnsets", "tangrowth").learnset.rockslide = ["3L1"];
+		this.modData("Learnsets", "tangrowth").learnset.strength = ["3L1"];
+
+		this.modData("Learnsets", "articunogalar").learnset.ancientpower = ["3L1"];
+
+		this.modData("Learnsets", "moltresgalar").learnset.leer = ["3L1"];
+		this.modData("Learnsets", "moltresgalar").learnset.gust = ["3L1"];
+
+		this.modData("Learnsets", "zapdosgalar").learnset.fly = ["3L1"];
+		this.modData("Learnsets", "zapdosgalar").learnset.strength = ["3L1"];
+		this.modData("Learnsets", "zapdosgalar").learnset.bodyslam = ["3L1"];
+		this.modData("Learnsets", "zapdosgalar").learnset.ancientpower = ["3L1"];
+
+		this.modData("Learnsets", "weezinggalar").learnset.muddywater = ["3L1"];
+
+		this.modData("Learnsets", "cramorant").learnset.psychup = ["3L1"];
+		this.modData("Learnsets", "cramorant").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "cramorant").learnset.skyattack = ["3L1"];
+		this.modData("Learnsets", "cramorant").learnset.waterpulse = ["3L1"];
+		this.modData("Learnsets", "cramorant").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "cramorant").learnset.return = ["3L1"];
+		this.modData("Learnsets", "cramorant").learnset.frustration = ["3L1"];
+
+		this.modData("Learnsets", "jellicent").learnset.hydropump = ["3L1"];
+		this.modData("Learnsets", "jellicent").learnset.waterpulse = ["3L1"];
+		this.modData("Learnsets", "jellicent").learnset.sludgebomb = ["3L1"];
+		this.modData("Learnsets", "jellicent").learnset.flash = ["3L1"];
+		this.modData("Learnsets", "jellicent").learnset.nightmare = ["3L1"];
+
+		this.modData("Learnsets", "silvally").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "silvally").learnset.secretpower = ["3L1"];
+
+		this.modData("Learnsets", "golemalola").learnset.spark = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.megapunch = ["3L1"];
+		this.modData("Learnsets", "golemalola").learnset.hyperbeam = ["3L1"];
+
+		this.modData("Learnsets", "kleavor").learnset.calmmind = ["3L1"];
+		this.modData("Learnsets", "kleavor").learnset.sandstorm = ["3L1"];
+		this.modData("Learnsets", "kleavor").learnset.rocktomb = ["3L1"];
+
+		this.modData("Learnsets", "golemalola").learnset.spark = ["3L1"];
+
+		this.modData("Learnsets", "electrodehisui").learnset.solarbeam = ["3L1"];
+		this.modData("Learnsets", "electrodehisui").learnset.iceball = ["3L1"];
+
+		this.modData("Learnsets", "incineroar").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.darkestlariat = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.cut = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.strength = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.rocksmash = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "incineroar").learnset.metronome = ["3L1"];
+
+		this.modData("Learnsets", "skuntank").learnset.selfdestruct = ["3L1"];
+		this.modData("Learnsets", "skuntank").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "skuntank").learnset.bodyslam = ["3L1"];
+		this.modData("Learnsets", "skuntank").learnset.torment = ["3L1"];
+
+		this.modData("Learnsets", "lopunny").learnset.circlethrow = ["3L1"];
+		this.modData("Learnsets", "lopunny").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "lopunny").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "lopunny").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "lopunny").learnset.seismictoss = ["3L1"];
+
+		this.modData("Learnsets", "crabominable").learnset.bodyslam = ["3L1"];
+		this.modData("Learnsets", "crabominable").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "crabominable").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "crabominable").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "crabominable").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "crabominable").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "crabominable").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "crabominable").learnset.strength = ["3L1"];
+		this.modData("Learnsets", "crabominable").learnset.waterpulse = ["3L1"];
+
+		this.modData("Learnsets", "zarude").learnset.cut = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.endure = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.furycutter = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.psychup = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.rocksmash = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.strength = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.frustration = ["3L1"];
+		this.modData("Learnsets", "zarude").learnset.return = ["3L1"];
+
+		this.modData("Learnsets", "guzzlord").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "guzzlord").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "guzzlord").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "guzzlord").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "guzzlord").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "guzzlord").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "guzzlord").learnset.swift = ["3L1"];
+		this.modData("Learnsets", "guzzlord").learnset.torment = ["3L1"];
+
+		this.modData("Learnsets", "grimmsnarl").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.focuspunch = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.toxic = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.feintattack = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.beatup = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.flatter = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.rocksmash = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.strength = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.endure = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.flash = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.nightmare = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.return = ["3L1"];
+		this.modData("Learnsets", "grimmsnarl").learnset.frustration = ["3L1"];
+
+		this.modData("Learnsets", "toxicroak").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "toxicroak").learnset.hyperbeam = ["3L1"];
+
+		this.modData("Learnsets", "chesnaught").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "chesnaught").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "chesnaught").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "chesnaught").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "chesnaught").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "chesnaught").learnset.megapunch = ["3L1"];
+		this.modData("Learnsets", "chesnaught").learnset.megakick = ["3L1"];
+
+		this.modData("Learnsets", "dracovish").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "dracovish").learnset.waterpulse = ["3L1"];
+		this.modData("Learnsets", "dracovish").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "dracovish").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "dracovish").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "dracovish").learnset.return = ["3L1"];
+		this.modData("Learnsets", "dracovish").learnset.frustration = ["3L1"];
+
+		this.modData("Learnsets", "alcremie").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "alcremie").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "alcremie").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "alcremie").learnset.flash = ["3L1"];
+		this.modData("Learnsets", "alcremie").learnset.dreameater = ["3L1"];
+		this.modData("Learnsets", "alcremie").learnset.psychup = ["3L1"];
+		this.modData("Learnsets", "alcremie").learnset.swift = ["3L1"];
+		this.modData("Learnsets", "alcremie").learnset.swagger = ["3L1"];
+		this.modData("Learnsets", "alcremie").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "alcremie").learnset.doubleteam = ["3L1"];
+		
+		this.modData("Learnsets", "abomasnow").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "abomasnow").learnset.dynamicpunch = ["3L1"];
+
+		this.modData("Learnsets", "krookodile").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "krookodile").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "krookodile").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "krookodile").learnset.furycutter = ["3L1"];
+		this.modData("Learnsets", "krookodile").learnset.seismictoss = ["3L1"];
+
+		this.modData("Learnsets", "pincurchin").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "pincurchin").learnset.waterpulse = ["3L1"];
+		this.modData("Learnsets", "pincurchin").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "pincurchin").learnset.swift = ["3L1"];
+		this.modData("Learnsets", "pincurchin").learnset.flash = ["3L1"];
+		this.modData("Learnsets", "pincurchin").learnset.swagger = ["3L1"];
+		this.modData("Learnsets", "pincurchin").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "pincurchin").learnset.return = ["3L1"];
+		this.modData("Learnsets", "pincurchin").learnset.frustration = ["3L1"];
+		this.modData("Learnsets", "pincurchin").learnset.doubleteam = ["3L1"];
+
+		this.modData("Learnsets", "regieleki").learnset.supersonic = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.flash = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.foresight = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.sandstorm = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.swagger = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.safeguard = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.batonpass = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.sunnyday = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.raindance = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.charge = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.magiccoat = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.skillswap = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.imprison = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.metalsound = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.superpower = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.return = ["3L1"];
+		this.modData("Learnsets", "regieleki").learnset.frustration = ["3L1"];
+
+		this.modData("Learnsets", "regidrago").learnset.strength = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.rocksmash = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.focuspunch = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.thunderwave = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.swagger = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.rollout = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.megapunch = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.megakick = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.sandstorm = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.aerialace = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.doubleteam = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.safeguard = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.raindance = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.sunnyday = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.rocktomb = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.icepunch = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.bodyslam = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.psychup = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.curse = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.zapcannon = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.lockon = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.thunderbolt = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.thunder = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.return = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.frustration = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.shockwave = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.counter = ["3L1"];
+		this.modData("Learnsets", "regidrago").learnset.earthquake = ["3L1"];
+
+		this.modData("Learnsets", "uxie").learnset.wish = ["3L1"];
+
+		this.modData("Learnsets", "stunfisk").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "stunfisk").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "stunfisk").learnset.swift = ["3L1"];
+		this.modData("Learnsets", "stunfisk").learnset.waterpulse = ["3L1"];
+		this.modData("Learnsets", "stunfisk").learnset.doubleedge = ["3L1"];
+
+		this.modData("Learnsets", "stunfiskgalar").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "stunfiskgalar").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "stunfiskgalar").learnset.swift = ["3L1"];
+		this.modData("Learnsets", "stunfiskgalar").learnset.waterpulse = ["3L1"];
+		this.modData("Learnsets", "stunfiskgalar").learnset.doubleedge = ["3L1"];
+
+		this.modData("Learnsets", "golisopod").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "golisopod").learnset.secretpower = ["3L1"];
+		this.modData("Learnsets", "golisopod").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "golisopod").learnset.strength = ["3L1"];
+		this.modData("Learnsets", "golisopod").learnset.seismictoss = ["3L1"];
+		this.modData("Learnsets", "golisopod").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "golisopod").learnset.rollout = ["3L1"];
+
+		this.modData("Learnsets", "dragalge").learnset.swift = ["3L1"];
+		this.modData("Learnsets", "dragalge").learnset.swagger = ["3L1"];
+		this.modData("Learnsets", "dragalge").learnset.mudslap = ["3L1"];
+		this.modData("Learnsets", "dragalge").learnset.mimic = ["3L1"];
+		this.modData("Learnsets", "dragalge").learnset.doubleedge = ["3L1"];
+
+		this.modData("Learnsets", "sirfetchd").learnset.rocksmash = ["3L1"];
+		this.modData("Learnsets", "sirfetchd").learnset.strength = ["3L1"];
+		this.modData("Learnsets", "sirfetchd").learnset.dynamicpunch = ["3L1"];
+		this.modData("Learnsets", "sirfetchd").learnset.leafblade = ["3L1"];
+		this.modData("Learnsets", "sirfetchd").learnset.slam = ["3L1"];
+		this.modData("Learnsets", "sirfetchd").learnset.skyattack = ["3L1"];
+		this.modData("Learnsets", "sirfetchd").learnset.rocksmash = ["3L1"];
+		this.modData("Learnsets", "sirfetchd").learnset.knockoff = ["3L1"];
+
+		this.modData("Learnsets", "talonflame").learnset.skyattack = ["3L1"];	
+		this.modData("Learnsets", "talonflame").learnset.doubleedge = ["3L1"];
+		this.modData("Learnsets", "talonflame").learnset.mimic = ["3L1"];	
+		this.modData("Learnsets", "talonflame").learnset.mudslap = ["3L1"];	
+
+
+		delete this.modData('Learnsets', 'sirfetchd').learnset.featherdance;
+		delete this.modData('Learnsets', 'sirfetchd').learnset.wish;
+		delete this.modData('Learnsets', 'sirfetchd').learnset.yawn;
+		delete this.modData('Learnsets', 'sirfetchd').learnset.mirrormove;
+
+		delete this.modData('Learnsets', 'farfetchdgalar').learnset.featherdance;
+		delete this.modData('Learnsets', 'farfetchdgalar').learnset.wish;
+		delete this.modData('Learnsets', 'farfetchdgalar').learnset.yawn;
+		delete this.modData('Learnsets', 'farfetchdgalar').learnset.mirrormove;
+
+		delete this.modData('Learnsets', 'budew').learnset.sleeppowder;
+		delete this.modData('Learnsets', 'roselia').learnset.sleeppowder;
+		delete this.modData('Learnsets', 'roserade').learnset.sleeppowder;
+
+		delete this.modData('Learnsets', 'electrodehisui').learnset.headbutt;
+		delete this.modData('Learnsets', 'electrodehisui').learnset.refresh;
+
+		delete this.modData('Learnsets', 'perrserker').learnset.batonpass;
+		delete this.modData('Learnsets', 'perrserker').learnset.crunch;
+		delete this.modData('Learnsets', 'perrserker').learnset.headbutt;
+		delete this.modData('Learnsets', 'perrserker').learnset.retaliate;
+		
+		delete this.modData('Learnsets', 'diglettalola').learnset.headbutt;
+		delete this.modData('Learnsets', 'diglettalola').learnset.reversal;
+
+		delete this.modData('Learnsets', 'dugtrioalola').learnset.headbutt;
+		delete this.modData('Learnsets', 'dugtrioalola').learnset.reversal;
+
+		// Keep this at the bottom of the init function
+		// for (const species in this.data.pokedex) {
+		// 	if (this.data.Pokedex[species].learnset.batonpass) {
+		// 		this.modData('Learnsets', species).learnset.batonpassgaiden = this.data.Pokedex[species].learnset.batonpass;
+		// 		delete this.modData('Learnsets', species).learnset.batonpass;
+		// 	}
+		// }
 	},
 };
