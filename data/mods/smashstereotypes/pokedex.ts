@@ -1207,7 +1207,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evos: null,
 	},
 	vi: {
-		num: 6000174,
+		num: 106,
 		name: "Vi", /* Bug Fables */
 		types: ["Bug", "Flying"],
 		gender: "F",
@@ -1217,7 +1217,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 0.1,
 	},
 	ninetalesalola: {
-		num: 38,
+		num: 107,
 		name: "Ninetales-Alola",
 		types: ["Ice", "Steel"],
 		genderRatio: {M: 0.25, F: 0.75},
@@ -1230,6 +1230,41 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
   porygonz: {
     inherit: true,
+	 num: 108,
     types: ["Electric", "Ghost"],
   },
+	firefairy: {
+		num: 109,
+		name: "firefairy",
+		types: ["Fire", "Fairy"],
+		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
+		abilities: {0: "Divine Grace"},
+	},
+	vulclairis: {
+		num: 109,
+		name: "Vulclairis",
+		types: ["Normal", "Psychic"],
+		baseStats: {hp: 100, atk: 50, def: 100, spa: 100, spd: 100, spe: 50},
+		abilities: {0: "Immunity", 1: "Water Absorb", H: "All-Seeing Eye"},
+	},
+	thunjust: {
+		num: 110,
+		name: "Thunjust",
+		types: ["Electric", "Flying"],
+		baseStats: {hp: 90, atk: 86, def: 120, spa: 82, spd: 78, spe: 74},
+		abilities: {0: "Static", 1: "Justified", H: "Retribution"},
+		otherFormes: ["Thunjust-Super"],
+		formeOrder: ["Thunjust", "Thunjust", "Thunjust-Super"],
+	},
+	thunjustsuper: {
+		num: 110,
+		name: "Thunjust-Super",
+		baseSpecies: "Thunjust",
+		forme: "Super",
+		types: ["Electric", "Flying"],
+		baseStats: {hp: 90, atk: 136, def: 120, spa: 132, spd: 78, spe: 84},
+		abilities: {0: "Retribution"},
+		requiredAbility: "Retribution",
+		battleOnly: "Thunjust",
+	},
 };
