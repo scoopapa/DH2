@@ -375,16 +375,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	photonball: {
 		num: -111,
 		accuracy: 100,
-		basePower: 110,
+		basePower: 90,
 		category: "Physical",
 		name: "Photon Ball",
-		desc: "Has a 100% chance to raise the user's Speed by 1 stage.",
-		shortDesc: "100% chance to raise the user's Speed by 1.",
+		desc: "Has a 30% chance to raise the user's Speed by 1 stage.",
+		shortDesc: "30% chance to raise the user's Speed by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 100,
+			chance: 30,
 			self: {
 				boosts: {
 					spe: 1,
