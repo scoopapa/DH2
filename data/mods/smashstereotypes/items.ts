@@ -338,11 +338,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onStart(pokemon) {
 			 if (pokemon.side.getSideCondition('stealthrock') && !pokemon.ignoringItem()) {
 				  pokemon.useItem();
-				  this.boost({spe: 1}, pokemon);
+				  let statName = 'atk';
+				  let bestStat = 0;
+				  let s: StatNameExceptHP;
+				  for (s in pokemon.storedStats) {
+						if (pokemon.storedStats[s] > bestStat) {
+							 statName = s;
+							 bestStat = pokemon.storedStats[s];
+						}
+				  }
+				  this.boost({[statName]: 1}, pokemon);
 			 }
 		},
 		gen: 8,
-		desc: "If Stealth Rock is on the field, damage is ignored, and the user's Speed is raised by 1. Single use.",
+		desc: "If Stealth Rock is on the field, damage is ignored, and the user's highest stat is raised by 1. Single use.",
 	},
 	seviisap: {	
 		onResidualOrder: 5,
@@ -439,5 +448,44 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 		},
 		desc: "Protects the holder from the secondary effects of opponent's moves.",
+	},
+	playerpin: {
+		name: "Player Pin",
+		spritenum: 297,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] item: Player Pin', '[of] ' + pokemon, '[identify]');
+				}
+			}
+			let warnMoves: (Move | Pokemon)[][] = [];
+			let warnBp = 1;
+			for (const target of pokemon.side.foe.active) {
+				if (target.fainted) continue;
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.getMove(moveSlot.move);
+					let bp = move.basePower;
+					if (move.ohko) bp = 150;
+					if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
+					if (bp === 1) bp = 80;
+					if (!bp && move.category !== 'Status') bp = 80;
+					if (bp > warnBp) {
+						warnMoves = [[move, target]];
+						warnBp = bp;
+					} else if (bp === warnBp) {
+						warnMoves.push([move, target]);
+					}
+				}
+			}
+			if (!warnMoves.length) return;
+			const [warnMoveName, warnTarget] = this.sample(warnMoves);
+			this.add('-activate', pokemon, 'item: Player Pin', warnMoveName, '[of] ' + warnTarget);
+		},
+		gen: 8,
+		desc: "Reveals the foe(s)'s item and strongest move on switch-in, unless they are also holding a Player Pin.",
 	},
 };
