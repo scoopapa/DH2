@@ -1473,4 +1473,20 @@ skyradise: {
 	abilities: {0: "Magic Guard", H: "Magic Bounce"},
 	weightkg: 999.9,
 },
+luvdisc: {
+		inherit: true,
+		evos: ["Luviu"],
+	},
+arbok: {
+		inherit: true,
+		evos: ["Nohtyp"],
+	},	
+hypno: {
+		inherit: true,
+		evos: ["Dreamer"],
+	},	
+shuckle: {
+		inherit: true,
+		evos: ["Shucklony"],
+	},	
 };
