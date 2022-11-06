@@ -272,12 +272,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
          if (!move.flags['charge'] || !target.volatiles['twoturnmove']) return;	
          }/* else if (!this.dex.getImmunity(moveType, source)) {
 				this.boost({atk: 1});
-			}
 			(move as any).persistence = true;
 			*/
 		},
 		onAfterMove(source, target, move) {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
+         if (!move.flags['charge'] || !target.volatiles['twoturnmove']) return;
 			if(source.moveThisTurnResult === null || source.moveThisTurnResult === undefined) return;
 			if(!source.moveThisTurnResult) {
 				this.boost({atk: 1});
@@ -289,7 +289,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If the user doesn't damage the target with an attacking move, raises user's Attack by 1 stage.",
 		num: -111,
 	},
-
+		
 	thunderthighs: {
 		onBasePowerPriority: 23,
 		onModifyMove(critRatio, source, target, move) {
