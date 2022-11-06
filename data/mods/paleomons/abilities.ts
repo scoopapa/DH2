@@ -279,7 +279,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onAfterMove(source, target, move) {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
-         if (!move.flags['charge'] || !target.volatiles['twoturnmove']) return;
+         if (!move.flags['charge']) return;
 			if(source.moveThisTurnResult === null || source.moveThisTurnResult === undefined) return;
 			if(!source.moveThisTurnResult) {
 				this.boost({atk: 1});
