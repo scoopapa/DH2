@@ -288,8 +288,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If the user doesn't damage the target with an attacking move, raises user's Attack by 1 stage.",
 		num: -111,
 	},
-
-	thunderthighs: {
+		
+   thunderthighs: {
 		onBasePowerPriority: 23,
 		onModifyMove(critRatio, source, target, move) {
 			if (kickMoves.includes(move.id)) {
