@@ -1416,7 +1416,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pharaocious: {
 		num: -192, 
-		name: "Pharoacious", 
+		name: "Pharaocious", 
 		types: ["Fire", "Dark"], 
 		baseStats: {hp: 82, atk: 80, def: 111, spa: 106, spd: 70, spe: 78}, 
 		abilities: {0: "Mummy", H: "Sand Force"},
