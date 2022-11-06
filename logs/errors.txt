@@ -1,0 +1,11 @@
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (internal/child_process.js:832:26)
+    at QueryProcessWrapper.destroy (C:\Users\Tegan\Downloads\DH-master\DH-M\DH\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\Tegan\Downloads\DH-master\DH-M\DH\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\Tegan\Downloads\DH-master\DH-M\DH\.lib-dist\process-manager.js:421:16)
+    at ChildProcess.<anonymous> (C:\Users\Tegan\Downloads\DH-master\DH-M\DH\.lib-dist\process-manager.js:468:48)
+    at ChildProcess.emit (events.js:315:20)
+    at ChildProcess.EventEmitter.emit (domain.js:483:12)
+    at finish (internal/child_process.js:861:14)
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
