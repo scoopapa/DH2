@@ -269,7 +269,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onBeforeMove(target, source, move) {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
 			const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
-			}/* else if (!this.dex.getImmunity(moveType, source)) {
+         if (!move.flags['charge'] || !target.volatiles['twoturnmove']) return;	
+         }/* else if (!this.dex.getImmunity(moveType, source)) {
 				this.boost({atk: 1});
 			}
 			(move as any).persistence = true;
@@ -278,7 +279,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMove(source, target, move) {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
 			if(source.moveThisTurnResult === null || source.moveThisTurnResult === undefined) return;
-			if (move.flags['charge'] && !target.volatiles['twoturnmove']) return;
 			if(!source.moveThisTurnResult) {
 				this.boost({atk: 1});
 			} else if(target.moveThisTurnResult) {
