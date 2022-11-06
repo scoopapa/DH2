@@ -854,7 +854,7 @@ yufo: {
 	baseStats: {hp: 55, atk: 34, def: 85, spa: 76, spd: 15, spe: 51},
 	abilities: {0: "Filter", 1: "Telepathy", H: "Levitate"},
 	weightkg: 60.8,
-	evos: "spavader",
+	evos: ["spavader"],
 },
 spavader: {
 	num: 95.5,
@@ -864,7 +864,7 @@ spavader: {
 	baseStats: {hp: 70, atk: 68, def: 145, spa: 102, spd: 65, spe: 51},
 	abilities: {0: "Filter", 1: "Telepathy", H: "Levitate"},
 	weightkg: 580.9,
-	prevo: ["yufo"],
+	prevo: "yufo",
 },
 grichick: {
 	num: 96.5,
