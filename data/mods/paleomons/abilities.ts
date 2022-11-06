@@ -291,7 +291,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		
    thunderthighs: {
 		onBasePowerPriority: 23,
-		onModifyMove(critRatio, source, target, move) {
+		onModifyMove(critRatio, source, target, move) ;
 			if (kickMoves.includes(move.id)) {
 				move.basePower *= 1.2;
 			}
