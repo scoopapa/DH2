@@ -152,7 +152,10 @@ export const Formats: FormatList = [
 				'Necrozma', 'Necrozma-Lionheart', 'Necrozma-Batwing', 'Necrozma-Dragon', 'Braviary-Patriot', 'Braviary-Hisui', 'Lilligant-Bard', 'Mistlegant', 'Electrode-Screwball', 
 				'Electrode-Ringo', 'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales', "Indeedee-Devil", "Indeedee-Angel", "Polteageist", "Polteageist-Antique",
 				"Toxtricity-Rock-Star", "Toxtricity-Low-Key", "Articuno-Mistral", "Articuno-Tsunami", "Zapdos", "Charpados", "Moltres", "Bennutres", "Marowak", "Alolawak", "Marowak-Alola-Totem",
-				"Enamorus", "Violentine", "Dialga", "Archronos", "Palkia", "Palkia-Origin",
+				"Enamorus", "Violentine", "Dialga", "Archronos", "Palkia", "Palkia-Origin", "Basculin-Hot-Headed",
+				"Basculectric", "Basculin-Skyship", "Basculegion",
+				"Basculagoon", "Magearna", "Magearna-Prototype",
+				"Zarude", "Zarude-Hero",
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */

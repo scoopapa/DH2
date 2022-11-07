@@ -33528,3 +33528,126 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:920:14)
     at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+TypeError: this.setBoost is not a function
+    at Battle.onAnyFaint (C:\Users\anaco\Documents\GitHub\DH\.data-dist\mods\alternatiumex\abilities.js:510:9)
+    at Battle.runEvent (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:741:34)
+    at Battle.faintMessages (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2432:10)
+    at Battle.runAction (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2672:8)
+    at Battle.go (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\anaco\Documents\GitHub\DH\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\anaco\Documents\GitHub\DH\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p2 move 1
+  inputLog = 
+>version 7116f1312e3e464589131683faa6c82b28855a50
+>start {"formatid":"gen8alternatiumex","seed":[35604,48748,60332,7760]}
+>player p1 {"name":"anaconja","avatar":"cirno.png","team":"Basculin-Skyship|||skybreach|flipturn|Jolly|252,,,,4,252|||||]Basculegion||leftovers|moldbreaker|venoshock|Quiet|252,4,,252,,|M||||]Mistlegant|||mountaineer|synthesis|Modest|,,,252,,|F|,0,,,,|||","rating":0}
+>player p2 {"name":"What How","avatar":"cirno.png","team":"Marowak-Alola-Tote|marowakalolatotem|thickclub|dryskin|stealthrock,bonemerang|Impish|252,4,252,,,|||||]Magearna-Prototype||choicescarf|windupkey|overheat|Timid|,,,252,4,252|F|,0,,,,|||]Basculagoon||choiceband|adaptability|wavecrash|Brave|252,252,,4,,|F||||","rating":0}
+>p1 team 1, 2, 3
+>p2 team 1, 2, 3
+>p1 move flipturn
+>p2 move stealthrock
+>p1 switch 2
+>p1 move venoshock
+>p2 move bonemerang
+>p2 switch 3
+>p1 switch 3
+>p2 switch 2
+>p1 move synthesis
+>p2 move overheat
+  log = 
+|t:|1667804169
+|player|p1|anaconja|cirno.png|
+|player|p2|What How|cirno.png|
+|teamsize|p1|3
+|teamsize|p2|3
+|gametype|singles
+|gen|8
+|tier|[Gen 8] Alternatium EX
+|clearpoke
+|poke|p1|Basculin-Skyship, M|
+|poke|p1|Basculegion, M|
+|poke|p1|Mistlegant, F|
+|poke|p2|Marowak-Alola-Totem, F|
+|poke|p2|Magearna-Prototype, F|
+|poke|p2|Basculagoon, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Z-Move Clause: Z-Moves are banned
+|teampreview
+|
+|t:|1667804173
+|start
+|switch|p1a: Basculin-Skyship|Basculin-Skyship, M|344/344
+|switch|p2a: Marowak-Alola-Tote|Marowak-Alola-Totem, F|444/444
+|-start|p1a: Basculin-Skyship|typechange|Flying/Steel|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Basculin-Skyship</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Flying.png" alt="Flying" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Gale Wings / Light Metal / Sky Breach</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>92</span> <span class="col statcol"><em>Def</em><br>65</span> <span class="col statcol"><em>SpA</em><br>80</span> <span class="col statcol"><em>SpD</em><br>55</span> <span class="col statcol"><em>Spe</em><br>118</span> </span></li><li style="clear: both"></li></ul>
+|-start|p2a: Marowak-Alola-Tote|typechange|Ghost/Rock|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Marowak-Alola-Totem</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ghost.png" alt="Ghost" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Rock.png" alt="Rock" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Rock Head / Soundproof / Dry Skin</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>120</span> <span class="col statcol"><em>Atk</em><br>80</span> <span class="col statcol"><em>Def</em><br>80</span> <span class="col statcol"><em>SpA</em><br>80</span> <span class="col statcol"><em>SpD</em><br>80</span> <span class="col statcol"><em>Spe</em><br>60</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1667804176
+|move|p1a: Basculin-Skyship|Flip Turn|p2a: Marowak-Alola-Tote
+|-resisted|p2a: Marowak-Alola-Tote
+|-damage|p2a: Marowak-Alola-Tote|414/444
+|
+|t:|1667804182
+|switch|p1a: Basculegion|Basculegion, M|444/444
+|-start|p1a: Basculegion|typechange|Dark/Ghost|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Basculegion</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ghost.png" alt="Ghost" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Mold Breaker / Perish Body / Rattled</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>120</span> <span class="col statcol"><em>Atk</em><br>115</span> <span class="col statcol"><em>Def</em><br>60</span> <span class="col statcol"><em>SpA</em><br>85</span> <span class="col statcol"><em>SpD</em><br>90</span> <span class="col statcol"><em>Spe</em><br>60</span> </span></li><li style="clear: both"></li></ul>
+|-ability|p1a: Basculegion|Mold Breaker
+|move|p2a: Marowak-Alola-Tote|Stealth Rock|p1a: Basculegion
+|-sidestart|p1: anaconja|move: Stealth Rock
+|
+|upkeep
+|turn|2
+|
+|t:|1667804187
+|move|p2a: Marowak-Alola-Tote|Bonemerang|p1a: Basculegion
+|-damage|p1a: Basculegion|392/444
+|-damage|p1a: Basculegion|343/444
+|-hitcount|p1a: Basculegion|2
+|
+|t:|1667804192
+|switch|p2a: Basculagoon|Basculagoon, F|444/444
+|-start|p2a: Basculagoon|typechange|Water/Dragon|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Basculagoon</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Water.png" alt="Water" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dragon.png" alt="Dragon" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Adaptability / Marvel Scale / Water Compaction</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>120</span> <span class="col statcol"><em>Atk</em><br>95</span> <span class="col statcol"><em>Def</em><br>90</span> <span class="col statcol"><em>SpA</em><br>100</span> <span class="col statcol"><em>SpD</em><br>80</span> <span class="col statcol"><em>Spe</em><br>45</span> </span></li><li style="clear: both"></li></ul>
+|move|p1a: Basculegion|Venoshock|p2a: Basculagoon
+|-damage|p2a: Basculagoon|367/444
+|
+|-heal|p1a: Basculegion|370/444|[from] item: Leftovers
+|upkeep
+|turn|3
+|
+|t:|1667804198
+|switch|p1a: Mistlegant|Mistlegant, F|281/281
+|-start|p1a: Mistlegant|typechange|Grass/Ice|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Mistlegant</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Grass.png" alt="Grass" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Victory Star / Mountaineer / Competitive</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>75</span> <span class="col statcol"><em>Def</em><br>75</span> <span class="col statcol"><em>SpA</em><br>95</span> <span class="col statcol"><em>SpD</em><br>75</span> <span class="col statcol"><em>Spe</em><br>130</span> </span></li><li style="clear: both"></li></ul>
+|switch|p2a: Magearna-Prototype|Magearna-Prototype, F|301/301
+|-start|p2a: Magearna-Prototype|typechange|Fire/Fairy|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Magearna-Prototype</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Steam Engine / Wind-up Key</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>80</span> <span class="col statcol"><em>Atk</em><br>65</span> <span class="col statcol"><em>Def</em><br>95</span> <span class="col statcol"><em>SpA</em><br>105</span> <span class="col statcol"><em>SpD</em><br>70</span> <span class="col statcol"><em>Spe</em><br>100</span> </span></li><li style="clear: both"></li></ul>
+|
+|upkeep
+|turn|4
+|
+|t:|1667804201
+|move|p2a: Magearna-Prototype|Overheat|p1a: Mistlegant
+|-supereffective|p1a: Mistlegant
+|-damage|p1a: Mistlegant|0 fnt
+|-unboost|p2a: Magearna-Prototype|spa|2
+|faint|p1a: Mistlegant
+

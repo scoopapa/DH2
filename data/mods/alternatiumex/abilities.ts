@@ -403,7 +403,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.volatiles['dynamax']) return;
-			// PLACEHOLDER
 			this.debug('Cold-Blooded SpA Boost');
 			return this.chainModify(1.5);
 		},
@@ -447,22 +446,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -16,
 	},
 	rewind: {
-		/*onTakeItem(item, pokemon, source) {
-			if (!this.activeMove) throw new Error("Battle.activeMove is null");
-			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
-				pokemon.m.lostItem = pokemon.lastItem;
-				pokemon.lastItem = '';
-			}
-		},
-		onSwitchOut(pokemon) {
-			if (pokemon.hp && !pokemon.item) {
-				pokemon.setItem(pokemon.m.lostItem);
-				pokemon.lastItem = '';
-				delete pokemon.m.lostItem;
-				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Rewind');
-				return null;
-			}
-		},*/
 		onSwitchOut(pokemon) {
             this.useMove('Recycle', pokemon);
         },
@@ -501,5 +484,44 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "Applies the opposite of stat changes to the opposite stat (Atk/Sp. Atk, Def/Sp. Def).",
 		rating: 4,
 		num: -18,
+	},
+	skybreach: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Water' && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Flying';
+			}
+		},
+		name: "Sky Breach",
+		shortDesc: "This Pokemon's Water-type moves become Flying-type.",
+		rating: 3,
+		num: -19,
+	},
+	windupkey: {
+		onAnyFaintPriority: 1,
+		onAnyFaint() {
+			this.add('-clearnegativeboost', this, '[silent]');
+	    },
+		name: "Wind-up Key",
+		shortDesc: "This Pokemon's negative stat changes are removed when a Pokemon faints.",
+		rating: 3,
+		num: -20,
+	},
+	mountaineer: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Mountaineer",
+		rating: 3,
+		num: -21,
 	},
 };
