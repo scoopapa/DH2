@@ -499,8 +499,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	windupkey: {
 		onAnyFaintPriority: 1,
-		onAnyFaint() {
-			this.add('-clearnegativeboost', this, '[silent]');
+		onAnyFaint(pokemon) {
+				const boosts: SparseBoostsTable = {};
+				let i: BoostName;
+				for (i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 0) {
+						boosts[i] = 0;
+					}
+				}
+				pokemon.setBoost(boosts);
+				this.add('-clearnegativeboost', pokemon, '[silent]');
+				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
 	    },
 		name: "Wind-up Key",
 		shortDesc: "This Pokemon's negative stat changes are removed when a Pokemon faints.",
@@ -522,6 +531,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		isBreakable: true,
 		name: "Mountaineer",
 		rating: 3,
-		num: -21,
+		num: -2,
 	},
 };
