@@ -486,7 +486,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Paleomons",
 		isModded: true,
 	},
-
+	
+	paras: {
+		tier: "Paleomons LC", 
+		doublesTier: "Paleomons LC", 
+		isModded: false,
+   },
+   
 	parasectancient: {
 		tier: "Paleomons NFE",
 		doublesTier: "Paleomons NFE",
@@ -524,6 +530,42 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	matriaryena: {
+		tier: "Paleomons",
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+	
+	teenizino: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+	
+	terrorzino: {
+		tier: "Paleomons", 
+		doublesTier: "Paleomons", 
+		isModded: true,
+	}, 
+	
+	sailad: {
+		tier: "Paleomons LC", 
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+ 
+	pharaocious: {
+		tier: "Paleomons", 
+		doublesTier: "Paleomons",
+		isModded: true,
+	},
+	
+	honkeri: {
+		tier: "Paleomons LC",
+		doublesTier: "Paleomons LC",
+		isModded: true,
+	},
+	
+	melophus: {
 		tier: "Paleomons",
 		doublesTier: "Paleomons",
 		isModded: true,
