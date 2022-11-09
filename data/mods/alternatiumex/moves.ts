@@ -842,7 +842,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Poison",
 	},
-	
 	trickroom: {
 		inherit: true,
 		condition: {
@@ -884,5 +883,43 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-fail', pokemon, 'move: Hyperspace Fury');
 			return null;
 		},
+	},
+	wavecrash: {
+		num: -18,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "Fails if the target is not attacking. Has 33% recoil.",
+		name: "Wave Crash",
+		pp: 5,
+		priority: 1,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		recoil: [33, 100],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aqua Jet", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	venoshock: {
+		num: 474,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Venoshock",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		zMove: {basePower: 160},
+		contestType: "Clever",
 	},
 };

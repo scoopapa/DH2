@@ -167,4 +167,27 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 4,
 		shortDesc: "If a Terrain is active, raises holder's Attack by 1 stage. Single use.",
 	},
+	eviolite: {
+		name: "Eviolite",
+		spritenum: 130,
+		fling: {
+			basePower: 40,
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'basculinskyship') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.nfe || pokemon.species.id === 'basculinskyship') {
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Basculin-Skyship"],
+		shortDesc: "If Basculin-Skyship, its Defense and Sp. Def are 1.5x.",
+		num: 538,
+		gen: 5,
+	},
 };
