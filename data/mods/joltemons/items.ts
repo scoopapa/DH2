@@ -303,6 +303,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.field.setWeather('desolateland');
 			}
 		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'desolateland' && !strongWeathers.includes(weather.id)) return false;
+		},
 		onSwitchOut(pokemon) {
 			this.field.clearWeather();
 		},

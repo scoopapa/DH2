@@ -350,16 +350,21 @@ export const Scripts: ModdedBattleScriptsData = {
 		baseDamage = this.randomizer(baseDamage);
 
 		// STAB
-		if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
+		if (move.forceSTAB || (type !== '???' && (pokemon.hasType(type) || pokemon.species.teraBoost?.includes(type)))) {
 			// The "???" type never gets STAB
 			// Not even if you Roost in Gen 4 and somehow manage to use
 			// Struggle in the same turn.
 			// (On second thought, it might be easier to get a MissingNo.)
 			let stabBoost = 1.5;
 			if (move.stab) stabBoost = move.stab;
-			if (pokemon.species.teraBoost && pokemon.species.teraBoost.includes(type)) {
-				if (!suppressMessages) this.add('-message', `Terastal boosts moves of the ${type} type!`);
-				stabBoost = 2;
+			if (pokemon.species.teraBoost?.includes(type)) {
+				if (pokemon.hasType(type)) {
+					if (!suppressMessages) this.add('-message', `Terastal boosts moves of the ${type} type!`);
+					stabBoost = 2;
+				} else {
+					this.hint(`Terastal keeps STAB on the user's original type, ${type}!`, true, pokemon.side);
+					// don't reveal to the opponent (in case of Illusion)
+				}
 			}
 			baseDamage = this.modify(baseDamage, stabBoost);
 		}

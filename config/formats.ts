@@ -152,7 +152,10 @@ export const Formats: FormatList = [
 				'Necrozma', 'Necrozma-Lionheart', 'Necrozma-Batwing', 'Necrozma-Dragon', 'Braviary-Patriot', 'Braviary-Hisui', 'Lilligant-Bard', 'Mistlegant', 'Electrode-Screwball', 
 				'Electrode-Ringo', 'Persian-Bandit', 'Persian-Omen', 'Meowstic-Untethered', 'Meowstic-TwoTales', "Indeedee-Devil", "Indeedee-Angel", "Polteageist", "Polteageist-Antique",
 				"Toxtricity-Rock-Star", "Toxtricity-Low-Key", "Articuno-Mistral", "Articuno-Tsunami", "Zapdos", "Charpados", "Moltres", "Bennutres", "Marowak", "Alolawak", "Marowak-Alola-Totem",
-				"Enamorus", "Violentine", "Dialga", "Archronos", "Palkia", "Palkia-Origin",
+				"Enamorus", "Violentine", "Dialga", "Archronos", "Palkia", "Palkia-Origin", "Basculin-Hot-Headed",
+				"Basculectric", "Basculin-Skyship", "Basculegion",
+				"Basculagoon", "Magearna", "Magearna-Prototype",
+				"Zarude", "Zarude-Hero",
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -525,6 +528,7 @@ export const Formats: FormatList = [
 						'Zigzagoon-Galar', 'Linoone-Galar', 'Obstagoon', 'Stunfisk-Galar', 'Mimikyu', 'Mimikyu-Busted', 
 						'Oshawott', 'Dewott', 'Samurott-Hisui', 'Riolu', 'Lucario', 'Popplio', 'Brionne', 'Primarina',
 						'Grimmsnarl', 'Impidimp', 'Morgrem', 'Sylveon', 'Diglett-Alola', 'Dugtrio-Alola',
+						'Magnezone', 'Houndour', 'Houndoom', 'Cutiefly', 'Ribombee',
 					  ],
     },
    {
@@ -2466,7 +2470,7 @@ export const Formats: FormatList = [
 					'Soul Blade Lvl. 2', 'Soul Blade Lvl. 3', 'Soul Blade Lvl. 4', 'Soul Blade Lvl. 5', 'Ultra Soul Blade',
 					'Chill Pill G', 'Lopunnite', 'Scizorite', 'Gyaradosite', 'Charizardite Y', 'Charizardite X', 'Pinsirite', 'Heracronite', 'Aerodactylite', 'Alakazite', 'Galladite', 'Gardevoirite', 'Medichamite', 'Diancite', 'Mawilite', 'Beedrillite', 'Swampertite', 'Latiasite', 'Latiosite', 'Tyranitarite', 'Venusaurite', 'Graduation Scale', 'Sablenite',
 					'Altarianite', 'Chill Pill', 'Relic Charm', 'Drizzle', 'Ampharosite', 'Manectite', 'Pidgeotite', 'Steelixite', 'Aggronite', 'Banettite', 'Sharpedonite',
-					'Absolite', 'Audinite', 'Kangaskhanite', 'Sceptilite', 'Cameruptite', 'Drought', 'Ghost Memory',
+					'Absolite', 'Audinite', 'Kangaskhanite', 'Sceptilite', 'Cameruptite', 'Ghost Memory',
 					'Light Clay', 'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
 	},
 /*
@@ -3393,6 +3397,30 @@ export const Formats: FormatList = [
 		},
 		mod: 'svspeculative',
 	},
+	{
+		name: "[Gen 8] Spookymons 2022",
+		desc: [
+			"Testing currently",
+		],
+		mod: "spookyhalloweenfuntimes",
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Item Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		searchShow: false,
+	},
+	{
+		name: "[Gen 8] Spookymons 2022 VGC",
+		desc: [
+			"Testing currently",
+		],
+		mod: "spookyhalloweenfuntimes",
+		ruleset: ['Standard GBU', '+Unobtainable', '+Past', 'VGC Timer', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		searchShow: false,
+		gameType: 'doubles',
+		forcedLevel: 50,
+		teamLength: {
+			validate: [4, 6],
+			battle: 4,
+		},
+	},
 	// Solo Mods
 	{
 		section: "Solomods",
@@ -3776,7 +3804,8 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Uber',
 	},
 	{
-		name: "Kaen's Dex",
+		name: "[Gen 8] Kaen's Dex",
+		mod: "kaensdex",
 		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Evasion Moves Clause', 'Species Clause', 'Z-Move Clause', 'Data Mod'],
 		banlist: ['All Pokemon'],
 		unbanlist: ['Luvdisc', 'Hypno','Arbok','Shuckle','Woodite','Manteaf','Fasmiwood','Smice','Ratevil','Burstrat','Doplash','Makid','Merdolph','Princeguin',
