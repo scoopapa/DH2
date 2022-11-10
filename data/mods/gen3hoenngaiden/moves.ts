@@ -353,72 +353,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 		gen: 3,
 	},
-	//Temporary Multi-Attack Fix
-	/*multiattack: {
-		accuracy: 100,
-		basePower: 120,
-		category: "Physical",
-		shortDesc: "Type varies based on the held Memory.",
-		isViable: true,
-		name: "Multi-Attack",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyType(move, pokemon) {
-			switch (pokemon.item.id) {
-			case 'bugmemory':
-				move.type = 'Bug';
-				break;
-			case 'darkmemory':
-				move.type = 'Dark';
-				break;
-			case 'dragonmemory':
-				move.type = 'Dragon';
-				break;
-			case 'electricmemory':
-				move.type = 'Electric';
-				break;
-			case 'fightingmemory':
-				move.type = 'Fighting';
-				break;
-			case 'firememory':
-				move.type = 'Fire';
-				break;
-			case 'flyingmemory':
-				move.type = 'Flying';
-				break;
-			case 'ghostmemory':
-				move.type = 'Ghost';
-				break;
-			case 'grassmemory':
-				move.type = 'Grass';
-				break;
-			case 'groundmemory':
-				move.type = 'Ground';
-				break;
-			case 'icememory':
-				move.type = 'Ice';
-				break;
-			case 'poisonmemory':
-				move.type = 'Poison';
-				break;
-			case 'psychicmemory':
-				move.type = 'Psychic';
-				break;
-			case 'rockmemory':
-				move.type = 'Rock';
-				break;
-			case 'steelmemory':
-				move.type = 'Steel';
-				break;
-			case 'watermemory':
-				move.type = 'Water';
-				break;
-			}
-		},
-		onModifyMove(move, pokemon) {
-			if (['darkmemory', 'dragonmemory', 'electricmemory', 'firememory', 'grassmemory', 'icememory', 'psychicmemory', 'watermemory'].includes(pokemon.item.id)) move.category = 'Special';
-		},
-		type: "Normal",
-	},*/
+	attackorder: {
+		inherit: true,
+		gen: 3,
+	},
+	defendorder: {
+		inherit: true,
+		gen: 3,
+	},
+	healorder: {
+		inherit: true,
+		gen: 3,
+	},
 };

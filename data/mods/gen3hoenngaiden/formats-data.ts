@@ -2537,4 +2537,38 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 3,
 		tier: "OU",
 	},
+	bisharp: {
+		rank: "New",
+		gen: 3,
+		tier: "OU",
+	},
+	vespiquen: {
+		rank: "New",
+		gen: 3,
+		tier: "OU",
+	},
+	druddigon: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	komala: {
+		isNonstandard: "Future",
+		tier: "Unobtainable",
+	},
+	scrafty: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	yanmega: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	weavile: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	simipour: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 };

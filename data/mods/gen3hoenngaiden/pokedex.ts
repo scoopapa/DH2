@@ -3382,4 +3382,55 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Mineral"],
 		gen: 3,
 	},
+	// Slate 15
+	bisharp: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 90, def: 100, spa: 115, spd: 70, spe: 70},
+		abilities: {0: "Shed Skin", 1: "Pressure"},
+		gen: 3,
+	},
+	vespiquen: {
+		inherit: true,
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 70, atk: 100, def: 105, spa: 60, spd: 105, spe: 40},
+		abilities: {0: "Pressure"},
+		gen: 3,
+	},
+	druddigon: {
+		inherit: true,
+		types: ["Dragon", "Dark"],
+		baseStats: {hp: 87, atk: 120, def: 90, spa: 90, spd: 90, spe: 48},
+		abilities: {0: "Rough Skin", 1: "Mold Breaker"},
+		gen: 3,
+	},
+	komala: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 115, def: 65, spa: 75, spd: 95, spe: 65},
+		gen: 3,
+	},
+	scrafty: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Intimidate"},
+		gen: 3,
+	},
+	yanmega: {
+		inherit: true,
+		types: ["Bug", "Dragon"],
+		baseStats: {hp: 86, atk: 76, def: 86, spa: 126, spd: 56, spe: 95},
+		abilities: {0: "Speed Boost", 1: "Keen Eye"},
+		gen: 3,
+	},
+	weavile: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 90, def: 65, spa: 90, spd: 85, spe: 110},
+		abilities: {0: "Water Absorb", 1: "Guts"},
+		gen: 3,
+	},
+	simipour: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 75, atk: 98, def: 63, spa: 98, spd: 63, spe: 101},
+		abilities: {0: "Torrent", 1: "Guts"},
+		gen: 3,
+	},
 };
