@@ -603,4 +603,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	// 	num: 82,
 	// 	gen: 3,
 	// },
+	comatose: {
+		inherit: true,
+		gen: 3,
+	},
 };
