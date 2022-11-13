@@ -156,4 +156,39 @@ deepsea: {
 		rating: 3,
 		num: 10008,
 	},
+leafplates: {
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Water') mod /= 2;
+			if (move.type === 'Ice') mod /= 2;
+			if (move.flags['contact']) mod /= 2;
+			return this.chainModify(mod);
+		},
+		name: "Leaf Plates",
+		desc: "Halves damage from contact moves, and any Ice or Water move.",
+		rating: 3.5,
+		num: 10009,
+	},
+storm: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.field.getWeather().id !== 'hail') {
+				this.field.setWeather('hail');
+			}
+		},
+		name: "Storm",
+		desc: "When this Pokemon is hit by an attack, the effect of Hail begins.",
+		rating: 2,
+		num: 10010,
+	},
+protectivepelt: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Special') {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Protective Pelt",
+		desc: "Halves damage from special moves.",
+		rating: 4,
+		num: 10011,
+	},
 };
