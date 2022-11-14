@@ -1828,7 +1828,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoType: "levelExtra",
 		evoCondition: "near a Moss Rock",
 	},
-	leafeon: {
+	glaceon: {
 		inherit: true,
 		evoType: "levelExtra",
 		evoCondition: "near an Icy Rock",

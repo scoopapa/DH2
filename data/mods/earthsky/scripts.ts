@@ -1553,8 +1553,10 @@ export const Scripts: ModdedBattleScriptsData = {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
 						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(this.getSpecies(pokemonID)) ? "Uber" : "OU";
-						//console.log(pokemon.name + "'s mod tier: " + this.modData('FormatsData', pokemonID).tier);
-						//console.log(pokemon.name + "'s format tier: " + this.data.FormatsData[pokemonID].tier);
+						if(learnsetTest){
+							console.log(pokemon.name + "'s mod tier: " + this.modData('FormatsData', pokemonID).tier);
+							console.log(pokemon.name + "'s format tier: " + this.data.FormatsData[pokemonID].tier);
+						}
 					}
 				}
 			}
@@ -1623,10 +1625,15 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(levelString.test(learnType)){
 						if(stoneCheck) { //Most Stone Evolutions only learn moves at level 1 and therefore we must also make sure they only learn moves once by level
 							if(!moveMeans.includes("8L1")) moveMeans.push("8L1");
-						} /*else if(moveMeans.includes("8L1") && learnType !== (startGen + "L1")) { //Removes all instances of learning a move at level 1 and another level
-							if(learnsetTest) console.log ("This move is learned by level more than once, erasing the level 1 position");
-							moveMeans = ["8" + learnType.substring(1)]; //The check comes before non-level means are compiled, so this overrides the level 1 with the other level
-						}*/ //Showdown only stores the lowest level so this doesn't matter anyway
+						} else if(learnType === (startGen + "L1") && pokemon.prevo && this.modData('Learnsets', prevo).learnset){ //Removes all instances of evolutions moving moves to level 1
+							const prevoLearn = this.modData('Learnsets', prevo).learnset;
+							for(const prevoMeans of prevoLearn){
+								if(levelString.test(prevoMeans) && prevoMeans !== (startGen + "L1")){ //Showdown only stores the earliest level, so we only have to check for prevos not having it at 1
+									if(learnsetTest) console.log("This move is learned at level 1, but the prevo learns it later; using the later one");
+									moveMeans = ["8" + prevoMeans.substring(1)]; //The check comes before non-level means are compiled, so this overrides the level 1 with the other level
+								}
+							}
+						}
 						else {
 							if(learnsetTest) console.log("This move is learned by level");
 							moveMeans.push("8" + learnType.substring(1));
@@ -3254,21 +3261,21 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "larvitar").learnset.rage = ["8D"];
 		this.modData("Learnsets", "larvitar").learnset.rockthrow = ["8L1"];
 		this.modData("Learnsets", "larvitar").learnset.tussle = ["8L3"];
-		this.modData("Learnsets", "larvitar").learnset.thrash = ["8L24"];
+		this.modData("Learnsets", "larvitar").learnset.chipaway = ["8L24"];
 		this.modData("Learnsets", "larvitar").learnset.darkpulse = ["8M"];
 		delete this.modData('Learnsets', 'larvitar').learnset.toxic;
 		// Pupitar
 		this.modData("Learnsets", "pupitar").learnset.rage = ["8D"];
 		this.modData("Learnsets", "pupitar").learnset.rockthrow = ["8L1"];
 		this.modData("Learnsets", "pupitar").learnset.tussle = ["8L3"];
-		this.modData("Learnsets", "pupitar").learnset.thrash = ["8L24"];
+		this.modData("Learnsets", "pupitar").learnset.chipaway = ["8L24"];
 		this.modData("Learnsets", "pupitar").learnset.darkpulse = ["8M"];
 		delete this.modData('Learnsets', 'pupitar').learnset.toxic;
 		// Tyranitar
 		this.modData("Learnsets", "tyranitar").learnset.rage = ["8D"];
 		this.modData("Learnsets", "tyranitar").learnset.rockthrow = ["8L1"];
 		this.modData("Learnsets", "tyranitar").learnset.tussle = ["8L3"];
-		this.modData("Learnsets", "tyranitar").learnset.thrash = ["8L24"];
+		this.modData("Learnsets", "tyranitar").learnset.chipaway = ["8L24"];
 		this.modData("Learnsets", "tyranitar").learnset.darkpulse = ["8M"];
 		this.modData("Learnsets", "tyranitar").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'tyranitar').learnset.toxic;
@@ -5402,6 +5409,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData("Learnsets", "tornadus").learnset.twister;
 		// Thundurus
 		this.modData("Learnsets", "thundurus").learnset.iondeluge = ["8D"];
+		this.modData("Learnsets", "thundurus").learnset.extrasensory = ["8L25"];
+		this.modData("Learnsets", "thundurus").learnset.raindance = ["8L55"];
+		this.modData("Learnsets", "thundurus").learnset.nastyplot = ["8D"];
+		delete this.modData('Learnsets', 'thundurus').learnset.healblock;
 		delete this.modData('Learnsets', 'thundurus').learnset.toxic;
 		// Thundurus Therian
 		this.modData("Learnsets", "thundurustherian").learnset.dragonpulse = ["8D"];
