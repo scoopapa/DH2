@@ -963,7 +963,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (pokemon.ability === 'faustianpact' && move.flags['contact']) {
 			let swapped = false; 
 			const targetAbility = target.getAbility();
-			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
+			const additionalBannedAbilities = ['noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'pillage', 'magicmissile', 'ecopy', 'lemegeton', 'modeshift', 'rebootsystem', 'concussion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode'];
 			if (!targetAbility.isPermanent || !additionalBannedAbilities.includes(targetAbility) || !pokemon.volatiles['dynamax']) {
 				swapped = true; 
 			} 
