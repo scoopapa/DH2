@@ -7,6 +7,7 @@ success: {
 			}
 		},
 		name: "Success",
+		desc: "This Pokémon's Speed is raised by 1 stage if it attacks and KOes another Pokémon.",
 		rating: 3,
 		num: 10000,
 	},
@@ -23,6 +24,7 @@ hotknife: {
 			});
 		},
 		name: "Hot Knife",
+		desc: "This Pokémon's Contact moves have a 30% chance of burning.",
 		rating: 2,
 		num: 10001,
 	},
@@ -33,6 +35,7 @@ openmind: {
 			}
 		},
 		name: "Open Mind",
+		desc: "If Psychic Terrain is active, this Pokémon's speed is doubled.",
 		rating: 3,
 		num: 10002,
 	},
@@ -44,6 +47,7 @@ voidbody: {
 			}
 		},
 		name: "Void Body",
+		desc: "Pokémon making contact with this Pokémon have their Attack lowered by 1 stage.",
 		rating: 2,
 		num: 10003,
 	},
@@ -64,6 +68,7 @@ frightening: {
 			}
 		},
 		name: "Frightening",
+		desc: "On switch-in, this Pokémon lowers the SpA of opponents by 1 stage.",
 		rating: 3.5,
 		num: 10004,
 	},
@@ -104,6 +109,7 @@ eternalice: {
 			return false;
 		},
 		name: "Eternal Ice",
+		desc: "This Pokémon's Ice power is 1.3x; It can't be burned; Fire power against it is halved.",
 		rating: 4.5,
 		num: 10005,
 	},
@@ -116,6 +122,7 @@ leecher: {
 			}
 		},
 		name: "Leecher",
+		desc: "Gains 1.3x HP from draining moves, Aqua Ring, Ingrain, Leech Seed and Strength Sap.",
 		rating: 3.5,
 		num: 10006,
 	},
@@ -129,6 +136,7 @@ airionizer: {
 			}
 		},
 		name: "Air Ionizer",
+		desc: "This Pokémon SpA is raised 1 stage if hit by a Flying move; Flying immunity.",
 		rating: 3,
 		num: 10007,
 	},
@@ -144,6 +152,7 @@ deepsea: {
 			}
 		},
 		name: "Deep Sea",
+		desc: "If Rain is active, this Pokemon's Defense and Special defense is doubled.",
 		rating: 3,
 		num: 10008,
 	},
