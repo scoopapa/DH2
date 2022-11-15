@@ -480,6 +480,48 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Flygon, this item allows it to Mega Evolve in battle.",
 	},
+	cacturnitex: {
+		name: "Cacturnite X",
+		spritenum: 578,
+		megaStone: "Cacturne-Mega-X",
+		megaEvolves: "Cacturne",
+		itemUser: ["Cacturne"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1079,
+		gen: 8,
+		desc: "If held by a Cacturne, this item allows it to Mega Evolve in battle.",
+	},
+	cacturnitey: {
+		name: "Cacturnite Y",
+		spritenum: 578,
+		megaStone: "Cacturne-Mega-Y",
+		megaEvolves: "Cacturne",
+		itemUser: ["Cacturne"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1079,
+		gen: 8,
+		desc: "If held by a Cacturne, this item allows it to Mega Evolve in battle.",
+	},
+	whiscashite: {
+		name: "Whiscashite",
+		spritenum: 578,
+		megaStone: "Whiscash-Mega",
+		megaEvolves: "Whiscash",
+		itemUser: ["Whiscash"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1079,
+		gen: 8,
+		desc: "If held by a Whiscash, this item allows it to Mega Evolve in battle.",
+	},
 	zoroarkite: {
 		name: "Zoroarkite",
 		spritenum: 578,

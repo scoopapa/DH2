@@ -1753,6 +1753,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
+	whiscashmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	corphish: {
 		tier: "LC",
 	},

@@ -895,6 +895,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", H:"Drought"},
 	},
+	whiscash: {
+		inherit: true,
+		otherFormes: ["Whiscash-Mega"],
+        formeOrder: ["Whiscash", "Whiscash-Mega"],
+	},
+	whiscashmega: {
+		num: 340,
+		name: "Whiscash-Mega",
+		baseSpecies: "Whiscash",
+		forme: "Mega",
+		types: ["Water", "Ground"],
+		baseStats: {hp: 110, atk: 118, def: 88, spa: 111, spd: 81, spe: 60},
+		abilities: {0: "Unaware"},
+		heightm: 2.7,
+		weightkg: 293,
+		color: "Blue",
+		eggGroups: ["Water 2"],
+        requiredItem: "Whiscashite",
+	},
 	claydol: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 50, def: 105, spa: 70, spd: 120, spe: 75},
@@ -1974,6 +1993,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 97, atk: 132, def: 90, spa: 50, spd: 89, spe: 30},
 	},
+	oricorio: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 70, def: 70, spa: 108, spd: 70, spe: 103},
+	},
+	oricoriopompom: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 70, def: 70, spa: 108, spd: 70, spe: 103},
+	},
+	oricoriopau: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 70, def: 70, spa: 108, spd: 70, spe: 103},
+	},
+	oricoriosensu: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 70, def: 70, spa: 108, spd: 70, spe: 103},
+	},
 	ribombee: {
 		inherit: true,
 		otherFormes: ["Ribombee-Totem", "Ribombee-Mega"],
@@ -2373,6 +2408,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	komala: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 100, def: 75, spa: 50, spd: 105, spe: 65},
+	},
+	togedemaru: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 98, def: 63, spa: 40, spd: 73, spe: 101},
+	},
+	bruxish: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 115, def: 70, spa: 65, spd: 70, spe: 102},
+	},
+	drampa: {
+		inherit: true,
+		baseStats: {hp: 78, atk: 60, def: 85, spa: 150, spd: 91, spe: 36},
 	},
 	solgaleo: {
 		inherit: true,
