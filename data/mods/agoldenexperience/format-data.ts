@@ -4379,7 +4379,26 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	jaboraishi: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	stonlet: {
+		tier: "LC",
+	},
+	rockster: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	rockstermega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	wizamadol: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mystao: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

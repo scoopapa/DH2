@@ -1406,6 +1406,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 75, atk: 125, def: 75, spa: 30, spd: 75, spe: 105},
 	},
+	leavanny: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 113, def: 80, spa: 50, spd: 80, spe: 102},
+		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Leaf Dress"},
+	},
 	scolipede: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 110, def: 89, spa: 55, spd: 69, spe: 112},
@@ -1467,6 +1472,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Ground"],
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 50, spd: 90, spe: 60},
 		abilities: {0: "Water Absorb", 1: "Chlorophyll", H: "Thorns"},
+	},
+	scrafty: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 90, def: 115, spa: 45, spd: 115, spe: 58},
+		abilities: {0: "Shed Skin", 1: "Moxie", H: "Disillusioned"},
 	},
 	cofagrigus: {
 		inherit: true,
@@ -1551,6 +1561,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gothitelle: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 50, def: 95, spa: 95, spd: 110, spe: 65},
+	},
+	swanna: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 60, def: 80, spa: 97, spd: 63, spe: 98},
+	},
+	vanilluxe: {
+		inherit: true,
+		baseStats: {hp: 81, atk: 60, def: 90, spa: 125, spd: 100, spe: 79},
+	},
+	sawsbuck: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 70, spa: 60, spd: 70, spe: 105},
+	},
+	emolga: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 65, def: 70, spa: 85, spd: 70, spe: 118},
+	},
+	escavalier: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 135, def: 105, spa: 60, spd: 105, spe: 20},
+	},
+	jellicent: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 50, def: 90, spa: 85, spd: 105, spe: 60},
 	},
 	galvantula: {
 		inherit: true,
@@ -2825,7 +2859,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	//Fakemons (+ their megas) :
 	fiyounfly: {
-		num: -1318,
+		num: 1500,
 		name: "Fiyounfly",
 		types: ["Bug"],
 		gender: "F",
@@ -2839,7 +2873,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		canHatch: true,
 	},
 	ledixy: {
-		num: 1167,
+		num: 1501,
 		name: "Ledixy",
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 75, atk: 110, def: 70, spa: 40, spd: 120, spe: 85},
@@ -2864,6 +2898,51 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoLevel: 68,
 		eggGroups: ["Bug"],
 	},
+	jaboraishi: {
+		num: 1001,
+		name: "Jaboraishi",
+		types: ["Electric", "Fighting"],
+		baseStats: {hp: 64, atk: 111, def: 57, spa: 39, spd: 58, spe: 115},
+		abilities: {0: "Lightning Rod", 1: "Lightning Rod", H: "Reflex"},
+		heightm: 0.4,
+		weightkg: 10,
+		eggGroups: ["Field"],
+	},
+	stonlet: {
+		num: 1003,
+		name: "Stonlet",
+		types: ["Rock"],
+		baseStats: {hp: 70, atk: 70, def: 70, spa: 70, spd: 70, spe: 30},
+		abilities: {0: "Skill Link", 1: "Skill Link", H: "Sniper"},
+		heightm: 0.5,
+		weightkg: 40,
+		evos: ["Rockster"],
+		eggGroups: ["Mineral"],
+	},
+	rockster: {
+		num: 1004,
+		name: "Rockster",
+		types: ["Rock", "Steel"],
+		baseStats: {hp: 90, atk: 80, def: 110, spa: 120, spd: 90, spe: 40},
+		abilities: {0: "Skill Link", 1: "Skill Link", H: "Sniper"},
+		heightm: 1.85,
+		weightkg: 400,
+		prevo: "Stonlet",
+		eggGroups: ["Mineral"],
+	},
+	rockstermega: {
+		num: 1004,
+		name: "Rockster-Mega",
+		baseSpecies: "Rockster",
+		forme: "Mega",
+		types: ["Rock", "Steel"],
+		baseStats: {hp: 90, atk: 130, def: 130, spa: 150, spd: 90, spe: 60},
+		abilities: {0: "Speed Boost"},
+		heightm: 1.85,
+		weightkg: 400,
+		eggGroups: ["Mineral"],		
+		requiredItem: "Rocksterite",
+	},
 	wizamadol: {
 		num: -1655,
 		name: "Wizamadol",
@@ -2874,6 +2953,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 65,
 		color: "Red",
 		eggGroups: ["Field"],
+	},
+	mystao: {
+		num: 1002,
+		name: "Mystao",
+		types: ["Fighting"],
+		baseStats: {hp: 77, atk: 117, def: 77, spa: 117, spd: 77, spe: 107},
+		abilities: {0: "Arcane Mastery"},
+		heightm: 1.7,
+		weightkg: 50,
+		eggGroups: ["Human-Like"],
 	},
 	hopkineye: {
 		num: -1302,

@@ -522,6 +522,48 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Whiscash, this item allows it to Mega Evolve in battle.",
 	},
+	froslassite: {
+		name: "Froslassite",
+		spritenum: 578,
+		megaStone: "Froslass-Mega",
+		megaEvolves: "Froslass",
+		itemUser: ["Froslass"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1079,
+		gen: 8,
+		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
+	},
+	krookodite: {
+		name: "Krookodite",
+		spritenum: 578,
+		megaStone: "Krookodile-Mega",
+		megaEvolves: "Krookodile",
+		itemUser: ["Krookodile"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1079,
+		gen: 8,
+		desc: "If held by a Krookodile, this item allows it to Mega Evolve in battle.",
+	},
+	crustlite: {
+		name: "Crustlite",
+		spritenum: 578,
+		megaStone: "Crustle-Mega",
+		megaEvolves: "Crustle",
+		itemUser: ["Crustle"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1079,
+		gen: 8,
+		desc: "If held by a Crustle, this item allows it to Mega Evolve in battle.",
+	},
 	zoroarkite: {
 		name: "Zoroarkite",
 		spritenum: 578,
@@ -661,6 +703,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1080,
 		gen: 8,
 		desc: "If held by a Frosmoth, this item allows it to Mega Evolve in battle.",
+	},
+	rocksterite: {
+		name: "Rocksterite",
+		spritenum: 578,
+		megaStone: "Rockster-Mega",
+		megaEvolves: "Rockster",
+		itemUser: ["Rockster"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1080,
+		gen: 8,
+		desc: "If held by a Rockster, this item allows it to Mega Evolve in battle.",
 	},
 
 	honey: {

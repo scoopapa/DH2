@@ -867,6 +867,31 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 160,
 	},
+	disillusioned: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				this.add('-immune', target, '[from] ability: Disillusioned');
+				return null;
+			}
+		},
+		onModifyMove(move) {
+			
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Dark'] = true;
+			}
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move.type !== 'Dark') return;
+			if (move.type === 'Dark' && target.hasType('Fairy')) {
+				this.debug('Disillusioned boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Disillusioned",
+		rating: 3.5,
+		num: 11,
+	},
 	leafdress: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
