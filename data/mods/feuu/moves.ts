@@ -40,7 +40,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					|| pokemon.hasAbility('levitability') || pokemon.hasAbility('stickyfloat') 
 					|| pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') 
 					|| pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('floatguise') 
-					|| pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram')
+					|| pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram') || pokemon.hasAbility('floatingreach')
 				) applies = true;
 				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
 					this.field.getPseudoWeather('gravity')) applies = false;
@@ -95,7 +95,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					|| target.hasAbility('levitability') || target.hasAbility('stickyfloat') 
 					|| target.hasAbility('etativel') || target.hasAbility('lighthearted') 
 					|| target.hasAbility('clearlyfloating') || target.hasAbility('floatguise') 
-					|| target.hasAbility('aerialbreak') || target.hasAbility('levimetal') || target.hasAbility('hoverboard') || target.hasAbility('levistatic') || target.hasAbility('lovelessfloat') || target.hasAbility('ghoulaway') || target.hasAbility('spiritascent') || target.hasAbility('testcram')) {
+					|| target.hasAbility('aerialbreak') || target.hasAbility('levimetal') || target.hasAbility('hoverboard') || target.hasAbility('levistatic') || target.hasAbility('lovelessfloat') || target.hasAbility('ghoulaway') || target.hasAbility('spiritascent') || target.hasAbility('testcram') || target.hasAbility('floatingreach')) {
 				move.ignoreAbility = true;
 			}
 		},
@@ -338,7 +338,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
-				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram')) return;
+				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram') || pokemon.hasAbility('floatingreach')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -373,7 +373,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
-				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram')) return;
+				if (pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram') || pokemon.hasAbility('floatingreach')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
@@ -410,7 +410,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('etativel') || pokemon.hasAbility('leviflame') || pokemon.hasAbility('magneticwaves') || pokemon.hasAbility('stickyfloat') || pokemon.hasAbility('levitability') || pokemon.hasAbility('feelnopain') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('etativel') || pokemon.hasAbility('leviflame') || pokemon.hasAbility('magneticwaves') || pokemon.hasAbility('stickyfloat') || pokemon.hasAbility('levitability') || pokemon.hasAbility('feelnopain') || pokemon.hasAbility('lighthearted') || pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram') || pokemon.hasAbility('floatingreach')) {
 					return;
 				} else if (this.effectData.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
