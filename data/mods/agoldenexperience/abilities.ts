@@ -1,4 +1,4 @@
-const bladeMoves = ['aerialace','airslash', 'aircutter', 'behemothblade', 'crosspoison', 'cut', 'falseswipe', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind','sacredsword', 'secretsword', 'slash', 'xscissor', 'solarblade', 'ceaselessedge', /*'braveblade',*/];
+const bladeMoves = ['aerialace','airslash', 'aircutter', 'behemothblade', 'crosspoison', 'cut', 'falseswipe', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind','sacredsword', 'secretsword', 'slash', 'xscissor', 'solarblade', 'ceaselessedge', /*sneakyassault,*/ /*'braveblade',*/];
 const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazekick', 'tropkick', 'lowkick', 'lowsweep', 'rollingkick', 'triplekick', 'stomp', 'highhorsepower', 'tripleaxel', 'stompingtantrum', 'thunderouskick'];
 const tailMoves = ['firelash', 'powerwhip', 'tailslap', 'wrap', 'constrict', 'irontail', 'dragontail', 'poisontail', 'aquatail', 'vinewhip', 'wringout',];
 
@@ -357,6 +357,26 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 	},
+	coldvengeance: {
+		desc: "When replacing a fainted party member, its next move has x1.5 BP.",
+		shortDesc: "Its first move has x1.5 BP when replacing a fainted ally.",
+		onAfterMega(pokemon) {
+			if (!pokemon.side.faintedLastTurn) return;
+			pokemon.addVolatile('coldvengeance');
+		},
+		onStart(pokemon) {
+			if (!pokemon.side.faintedThisTurn) return;
+			pokemon.addVolatile('coldvengeance');
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source.volatiles['coldvengeance']) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Cold Vengeance",
+		rating: 3,
+		num: -1008,
+	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
 			if (!move.damage && !move.damageCallback && target.getMoveHitData(move).typeMod > 0) {
@@ -641,6 +661,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Ice Breaker",
 		rating: 3,
 		num: 202,
+	},
+	parasitism: {
+		name: "Parasitism",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact'] && !target.hp) {
+				if (!target.status && target.runStatusImmunity('slp')) {
+					target.addVolatile('yawn');
+				}
+				if (!(target.hasType('Grass'))) {
+					target.addVolatile('leechseed', source);
+				}
+			}
+		},
+		rating: 2.5,
+		num: 106,
 	},
 	explosive: {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.",
@@ -940,6 +976,50 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Invincible",
 		rating: 3,
 		num: 113,
+	},
+	sonar: {
+        shortDesc: "Reveals a random move of each adjacent opponent when this Pokemon hits them with a Sound move.",
+		onSourceHit(target, source, move) {
+			if (move.flags['sound']) {
+				for (const target of pokemon.side.foe.active) {
+					if (!target || target.fainted) continue;
+					let potentialMoves = 0;
+					for (const moveSlot of target.moveSlots) {
+						if (moveSlot.revealed) continue;
+						potentialMoves++;
+					}
+					let r = 0;
+					if (potentialMoves) {
+						r = this.random(potentialMoves);
+					}
+					for (const moveSlot of target.moveSlots) {
+						if (moveSlot.revealed) continue;
+						if (r === 0) {
+							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+						}
+						r--;
+						moveSlot.revealed = true;
+						return;
+					}
+				}
+			}
+		},
+        name: "Sonar",
+        rating: 3,
+        num: -1592,
+	},
+	unstableshell: {
+		Desc: "If a pokemon makes contact to this pokemon, this Pokemon loses 25% max HP and returns doubles of lost HP.",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (move.flags['contact']) {
+				this.damage(Math.round(target.maxhp / 4), target, target);
+				this.damage(Math.round(target.maxhp / 2), source, target);
+			}
+		},
+		name: "Unstable Shell",
+		rating: 2.5,
+		num: 160,
 	},
 	newtonslaw: {
 		onModifySpe(spe, pokemon) {
@@ -1798,6 +1878,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onTryMovePriority: -2,
 			onTryMove(pokemon, target, move) {
+				if (!pokemon.hasAbility('Gorilla Tactics')) {
+					pokemon.removeVolatile('gorillatactics');
+					return;
+				}
 				if (this.effectData.lastMove === move.id && pokemon.moveLastTurnResult) {
 					this.effectData.numConsecutive++;
 				} else if (pokemon.volatiles['twoturnmove'] && this.effectData.lastMove !== move.id) {

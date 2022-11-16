@@ -135,8 +135,47 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		shortDesc: "The target is cleared from all its stat changes.",
 	},
+	photopower: {
+		num: -1174,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Photo-Power",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1},
+		onModifyMove(move, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) move.boosts = {spa: 2, spe: 1};
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		zMove: {boost: {spa: 1}},
+		contestType: "Beautiful",
+	},
+	draconicwrath: {
+		num: -2755,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon, target, move) {
+			if (!target.newlySwitched) {
+				this.debug('Draconic Wrath damage boost');
+				return move.basePower * 2;
+			}
+			this.debug('Draconic Wrath NOT boosted');
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Draconic Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+	},
 	purifyingstream: {
-		num: 499,
+		num: -1499,
 		accuracy: true,
 		basePower: 90,
 		category: "Special",
@@ -154,7 +193,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	railwaysmash: {
-		num: 344,
+		num: -1344,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -167,7 +206,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 	},
 	galvanismash: {
-		num: 457,
+		num: -1457,
 		accuracy: 80,
 		basePower: 150,
 		category: "Physical",
@@ -182,7 +221,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	nectack: {
-		num: 228,
+		num: -1228,
 		accuracy: 100,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
@@ -363,10 +402,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
-		/*onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Air Slash", target);
-		},		*/
 	},
 	fireball: {
 		num: 257,
@@ -708,6 +743,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Tough",
 	},
+	sneakyassault: {
+		num: -1306,
+		accuracy: 100,
+		basePower: 30,
+		category: "Physical",
+    	shortDesc: "Hits three times. Each hit has 10% to lower the target's Def.",
+		isViable: true,
+		name: "Sneaky Assault",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: 3,
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+   		},
+		target: "normal",
+		type: "Dark",
+		contestType: "Cool",
+	},
 	mercuryshot: {
 		num: 503,
 		accuracy: 100,
@@ -850,6 +907,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fairy",
 		contestType: "Cute",
+	},
+	payback: {
+		num: 371,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Payback NOT boosted');
+				return move.basePower;
+			}
+			this.debug('Payback damage boost');
+			return move.basePower * 2;
+		},
+		category: "Physical",
+		name: "Payback",
+		pp: 10,
+		priority: -1,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
 	},
 	powdersnow: {
 		num: 181,

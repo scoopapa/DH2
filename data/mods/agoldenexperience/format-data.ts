@@ -1867,6 +1867,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
+	froslassmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	spheal: {
 		tier: "LC",
 	},
@@ -2650,6 +2654,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UU",
 		doublesTier: "DUU",
 	},
+	krookodilemega: {
+		tier: "OU",
+		doublesTier: "DUU",
+	},
 	darumaka: {
 		tier: "LC",
 	},
@@ -2681,6 +2689,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	crustle: {
 		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
+	crustlemega: {
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	scraggy: {
@@ -4383,6 +4395,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	sylvardian: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	stonlet: {
 		tier: "LC",
 	},
@@ -4802,129 +4818,3 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 };
-/*
-
-
-	ribombee: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
-	shedinja: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
-	torkoal: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
-	cameruptmega: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
-
-	dodrio: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
-	flapple: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
-	gyarados: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
-
-
-	fearow: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	feraligatr: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	floatzel: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	forretress: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	furfrou: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	girafarig: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-
-	gorebyss: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	grimmsnarl: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	grumpig: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	gumshoos: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-
-	seviper: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	shaymin: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	simipour: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	simisear: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	simisage: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	slaking: {
-		tier: "UU",
-		doublesTier: "DOU",
-	},
-	slowbrogalar: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	spinda: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	stantler: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	swalot: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	swanna: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-	swellow: {
-		tier: "RU",
-		doublesTier: "DOU",
-	},
-
-*/

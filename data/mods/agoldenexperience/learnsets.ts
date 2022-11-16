@@ -755,6 +755,19 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			knockoff: ["8L1"],
 		},
 	},
+	sylvardian: {
+		learnset: {
+			recover: ["8L1"],
+			gigadrain: ["8L1"],
+			focusblast: ["8L1"],
+			nastyplot: ["8L1"],
+			leafstorm: ["8L1"],
+			dazzlinggleam: ["8L1"],
+			grassyglide: ["8T"],
+			expandingforce: ["8T"],
+			magicleaf: ["8L1"],
+		},
+	},
 	stonlet: {
 		learnset: {
 			stealthrock: ["8L1"],
