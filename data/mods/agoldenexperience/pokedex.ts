@@ -935,6 +935,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Water", "Dragon"],
 	},
+	castform: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
+	},
+	castformsunny: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 100, spd: 80, spe: 80},
+	},
+	castformrainy: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 100, spe: 80},
+	},
+	castformsnowy: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 100},
+	},
 	shuppet: {
 		inherit: true,
 		abilities: {0: "Shadow Tag", 1: "Frisk", H: "Cursed Body"},

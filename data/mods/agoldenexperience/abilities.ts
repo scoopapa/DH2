@@ -3,6 +3,17 @@ const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazek
 const tailMoves = ['firelash', 'powerwhip', 'tailslap', 'wrap', 'constrict', 'irontail', 'dragontail', 'poisontail', 'aquatail', 'vinewhip', 'wringout',];
 
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
+	dardevil: {
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		name: "Dardevil",
+		rating: 3,
+		num: -1069,
+	},
 	waterproof: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
@@ -33,7 +44,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Snobbery",
 		rating: 3.5,
-		num: 47,
+		num: -1147,
 	},
 	starsforce: {
 		desc: "When this Pokémon has 1/3 or less of its maximum HP, rounded down, all of its stats are x1.5.",
@@ -1081,6 +1092,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 248,
 	},
+	powerspot: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectData.target) {
+				this.debug('Power Spot boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Power Spot",
+		rating: 1,
+		num: 249,
+	},
 	arenatrap: {
 		onModifyDamage(damage, source, target, move) {
 			if (!(source.activeMoveActions > 1)) {
@@ -1229,6 +1252,64 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Water Compaction",
 		rating: 3,
 		num: 195,
+	},
+	forecast: {
+		onUpdate(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
+				break;
+			case 'hail':
+				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+				break;
+			default:
+				if (pokemon.species.id !== 'castform') forme = 'Castform';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				switch (pokemon.effectiveWeather()) {
+				case 'sunnyday':
+				case 'desolateland':
+					move.type = 'Fire';
+					move.forecastBoosted = true;
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					move.type = 'Water';
+					move.forecastBoosted = true;
+					break;
+				case 'hail':
+					move.type = 'Ice';
+					move.forecastBoosted = true;
+					break;
+				default:
+					break;
+				}
+				}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.forecastBoosted) return this.chainModify([0x1333, 0x1000]);
+		},
+		name: "Forecast",
+		rating: 2,
+		num: 59,
 	},
 	mimicry: {
 		onStart(pokemon) {
