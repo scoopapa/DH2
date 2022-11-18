@@ -4395,6 +4395,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	girafatak: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	girafataknocturnal: {
+		tier: "Illegal",
+	},
 	sylvardian: {
 		tier: "OU",
 		doublesTier: "DOU",

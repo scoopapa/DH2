@@ -3,6 +3,34 @@ const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazek
 const tailMoves = ['firelash', 'powerwhip', 'tailslap', 'wrap', 'constrict', 'irontail', 'dragontail', 'poisontail', 'aquatail', 'vinewhip', 'wringout',];
 
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
+	poisonousradula: {
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status' && move.type ==='Poison' && !(target.getMoveHitData(move).typeMod < 0)) {
+				if (move.category === 'Physical'){
+					move.secondaries.push({
+						chance: 100,
+						boosts: {
+							def: -1,
+						ability: this.dex.getAbility('poisonousradula'),
+						},
+					})
+				}else if (move.category === 'Special'){
+					move.secondaries.push({
+						chance: 100,
+						boosts: {
+							spd: -1,
+						},
+						ability: this.dex.getAbility('poisonousradula'),
+					
+					});
+				}
+			}
+		},
+		name: "Poisonous Radula",
+		rating: 2,
+		num: -1143,
+	},
 	dardevil: {
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'recoil') {
@@ -149,6 +177,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Perforating",
 		rating: 3,
 		num: 113,
+	},
+	doublespirit: {
+		shortDesc: "Switches to Nocturnal form before using a Physical move, and to Diurnal form before using a Special move.",
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Girafatak' || attacker.transformed) return;
+			if (move.category === 'Status') return;
+			const targetForme = (move.category === 'Special' ? 'Girafatak' : 'Girafatak-Nocturnal');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		isPermanent: true,
+		name: "Double Spirit",
+		rating: 4,
+		num: 176,
 	},
 	divination: {
         shortDesc: "Reveals a random move of each adjacent opponent on entry.",
@@ -297,9 +339,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Never Gonna Give You Up",
 		rating: 4,
-		num: -64,
+		num: -1064,
 	},
 	convectioncurrent: {
+		desc: "If Gravity is active, this Pokemon's Speed is doubled.",
+		shortDesc: "Speed x2 on Gravity.",
 		onModifySpe(spe, pokemon) {
 			if (this.field.getPseudoWeather('gravity')) {
 				return this.chainModify(2);
@@ -307,7 +351,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Convection Current",
 		rating: 3,
-		num: 34,
+		num: -1034,
 	},
 	evaporate: {
 		desc: "If the Pokemon or the opponent uses a Water type move, it triggers the Haze effect. Immune to Water.",
@@ -349,7 +393,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1025,
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
-			if (attacker.species.baseSpecies !== 'Cacturne-Mega-Y' || attacker.transformed) return;
+			if (attacker.species.baseSpecies !== 'Cacturne' || attacker.transformed) return;
 			if (move.type !== 'Grass' && move.type !== 'Dark') return;
 			const targetForme = (move.type === 'Grass' ? 'Cacturne-Mega-Y-Day' : 'Cacturne-Mega-Y-Night');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
@@ -1288,6 +1332,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 60,
 	},
 	normalize: {
+		desc: "This Pokemon's moves have the Normal type, and can hit Ghost-type targets.",
+		shortDesc: "Moves have Normal type; bypass Ghost immunity.",
 		onModifyTypePriority: 1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
@@ -1313,7 +1359,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 96,
 	},
 	watercompaction: {
-		shortDesc: "This Pokemon's Defense goes up 2 stages when hit by a Water-type move; Water immunity",
+		desc: "This Pokemon's Defense goes up 2 stages when hit by a Water-type move; Water immunity",
+		shortDesc: "Water type move => this Pokemon gets Def +2; Water immunity.",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
@@ -1398,7 +1445,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			} else {
 				const types = pokemon.baseSpecies.types;
 				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
-				this.add('-start', pokemon, 'typeadd', types.join('/'), '[from] ability: Mimicry');
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
 				this.hint("Transform Mimicry changes you to your original un-transformed types.");
 			}
 		},
@@ -1426,14 +1473,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				case 'psychicterrain':
 					newType = 'Psychic';
 					break;
+				case 'chakraterrain':
+					newType = 'Fighting';
+					break;
 				}
-				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
+				if (!newType || pokemon.getTypes().join() === newType || !pokemon.addType(newType)) return;
 				this.add('-start', pokemon, 'typeadd', newType, '[from] ability: Mimicry');
 			},
 			onUpdate(pokemon) {
 				if (!this.field.terrain) {
 					const types = pokemon.species.types;
-					if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+					if (pokemon.getTypes().join() === types.join() || !pokemon.addType(types)) return;
 					this.add('-activate', pokemon, 'ability: Mimicry');
 					this.add('-end', pokemon, 'typeadd', '[silent]');
 					pokemon.removeVolatile('mimicry');

@@ -833,6 +833,76 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
 	},
+	naturepower: {
+		num: 267,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Nature Power",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		onTryHit(target, pokemon) {
+			let move = 'triattack';
+			if (this.field.isTerrain('electricterrain')) {
+				move = 'thunderbolt';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move = 'energyball';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move = 'moonblast';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move = 'psychic';
+			} else if (this.field.isTerrain('chakraterrain')) {
+				move = 'aurasphere';
+			}
+			this.useMove(move, pokemon, target);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	terrainpulse: {
+		num: 805,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Terrain Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, pulse: 1},
+		onModifyType(move, pokemon) {
+			if (!pokemon.isGrounded()) return;
+			switch (this.field.terrain) {
+			case 'electricterrain':
+				move.type = 'Electric';
+				break;
+			case 'grassyterrain':
+				move.type = 'Grass';
+				break;
+			case 'mistyterrain':
+				move.type = 'Fairy';
+				break;
+			case 'psychicterrain':
+				move.type = 'Psychic';
+				break;
+			case 'chakraterrain':
+				move.type = 'Fighting';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (this.field.terrain && pokemon.isGrounded()) {
+				move.basePower *= 2;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+	},
 	sonicboom: {
 		inherit: true,
 		damage: null,

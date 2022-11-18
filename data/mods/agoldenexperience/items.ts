@@ -497,7 +497,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	cacturnitey: {
 		name: "Cacturnite Y",
 		spritenum: 578,
-		megaStone: "Cacturne-Mega-Y",
+		megaStone: "Cacturne-Mega-Y-Day",
 		megaEvolves: "Cacturne",
 		itemUser: ["Cacturne"],
 		onTakeItem(item, source) {
