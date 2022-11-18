@@ -1244,6 +1244,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "PU",
 		doublesTier: "(DUU)",
 	},
+	magcargomega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	swinub: {
 		tier: "LC",
 	},
@@ -1718,6 +1722,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	cacturne: {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
+	},
+	cacturnemegax: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	cacturnemegayday: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	cacturnemegaynight: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	swablu: {
 		tier: "LC",
@@ -2524,10 +2540,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
-	/*unfezantf: {
-		tier: "(PU)",
-		doublesTier: "(DUU)",
-	},*/
 	blitzle: {
 		tier: "LC",
 	},
@@ -4380,6 +4392,36 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 //fakemons
+	tentarcohl: {
+		tier: "LC",
+	},
+	carsnail: {
+		tier: "NFE",
+	},
+	carcoliath: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	slidge: {
+		tier: "LC",
+	},
+	hustrack: {
+		tier: "NFE",
+	},
+	shusski: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	seagmate: {
+		tier: "LC",
+	},
+	gullcean: {
+		tier: "NFE",
+	},
+	admistral: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	fiyounfly: {
 		tier: "LC",
 	},
@@ -4426,6 +4468,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	hopkineye: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	slugmasinnoh: {
+		tier: "LC",
+	},
+	magcargosinnoh: {
+		tier: "NFE",
+	},
+	leechuption: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

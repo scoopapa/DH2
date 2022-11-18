@@ -55,6 +55,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -78,
 	},
+	racketeering: {
+		shortDesc: "Boosts the power of Knock Off, Thief and Pluck by 1.5x",
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.name === 'Knock Off' || move.name === 'Thief' || move.name === 'Pluck') {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Racketeering",
+		rating: 3,
+		num: -1028,
+	},
 	snobbery: {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
