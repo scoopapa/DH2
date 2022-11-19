@@ -1349,6 +1349,21 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Froslassite",
 	},
+	uxie: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 70, def: 130, spa: 70, spd: 130, spe: 95},
+		abilities: {0: "Levitate", H: "Mirror Armor"},
+	},
+	mesprit: {
+		inherit: true,
+		types: ["Psychic", "Rock"],
+		abilities: {0: "Levitate", H: "Mental Fortitude"},
+	},
+	azelf: {
+		inherit: true,
+		types: ["Psychic"],
+		abilities: {0: "Levitate", H: "Swordsmanship"},
+	},
 	dialga: {
 		inherit: true,
 		baseForme: "Altered",

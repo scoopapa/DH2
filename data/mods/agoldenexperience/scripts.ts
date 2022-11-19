@@ -314,6 +314,29 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'lucario').learnset.cosmicpunch = ['8L1'];
     //this.modData('Learnsets', 'paranormear').learnset.cosmicpunch = ['8L1'];
 
+    // draconiccurse 
+    this.modData('Learnsets', 'rayquaza').learnset.draconiccurse = ['8L1'];
+    this.modData('Learnsets', 'reshiram').learnset.draconiccurse = ['8L1'];
+    this.modData('Learnsets', 'hydreigon').learnset.draconiccurse = ['8L1'];
+    this.modData('Learnsets', 'salamence').learnset.draconiccurse = ['8L1'];
+    this.modData('Learnsets', 'noivern').learnset.draconiccurse = ['8L1'];
+    //this.modData('Learnsets', 'noivernsinnoh').learnset.draconiccurse = ['8L1'];
+    this.modData('Learnsets', 'regidrago').learnset.draconiccurse = ['8L1'];
+    this.modData('Learnsets', 'giratina').learnset.draconiccurse = ['8L1'];
+
+    // draconicfury 
+    this.modData('Learnsets', 'rayquaza').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'zekrom').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'kommoo').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'salamence').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'dragonite').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'hydreigon').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'haxorus').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'druddigon').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'tyrantrum').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'guzzlord').learnset.draconicfury = ['8L1'];
+    this.modData('Learnsets', 'regidrago').learnset.draconicfury = ['8L1'];
+
     // contrariety 
     this.modData('Learnsets', 'pawniard').learnset.contrariety = ['8T'];
 		this.modData('Learnsets', 'sandile').learnset.contrariety = ['8T'];
@@ -663,6 +686,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'leafeon').learnset.sappyseed = ['8L1'];
     this.modData('Learnsets', 'leafeon').learnset.sacredsword = ['8L1'];
     this.modData('Learnsets', 'glaceon').learnset.freezyfrost = ['8L1'];
+    this.modData('Learnsets', 'porygonz').learnset.conversionz = ['8L1'];
     this.modData('Learnsets', 'gallade').learnset.sacredsword = ['8L1'];
     this.modData('Learnsets', 'probopass').learnset.bodypress = ['8L1'];
     this.modData('Learnsets', 'dusknoir').learnset.recover = ['8L1'];
@@ -671,6 +695,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'rotomfrost').learnset.icebeam = ['8L1'];
     this.modData('Learnsets', 'rotomfan').learnset.hurricane = ['8L1'];
     this.modData('Learnsets', 'rotommow').learnset.leechseed = ['8L1'];
+    this.modData('Learnsets', 'uxie').learnset.bodypress = ['8L1'];
+    this.modData('Learnsets', 'uxie').learnset.awakening = ['8L1'];
+    this.modData('Learnsets', 'mesprit').learnset.bodypress = ['8L1'];
+    this.modData('Learnsets', 'mesprit').learnset.powergem = ['8L1'];
+    this.modData('Learnsets', 'mesprit').learnset.rockslide = ['8L1'];
+    this.modData('Learnsets', 'mesprit').learnset.scorchingsands = ['8L1'];
+    this.modData('Learnsets', 'mesprit').learnset.fulldevotion = ['8L1'];
+    this.modData('Learnsets', 'azelf').learnset.bodypress = ['8L1'];
+    this.modData('Learnsets', 'azelf').learnset.leafblade = ['8L1'];
+    this.modData('Learnsets', 'azelf').learnset.sacredsword = ['8L1'];
+    this.modData('Learnsets', 'azelf').learnset.braveblade = ['8L1'];
     this.modData('Learnsets', 'palkia').learnset.teleport = ['8L1'];
     this.modData('Learnsets', 'palkia').learnset.cosmicpower = ['8L1'];
     this.modData('Learnsets', 'giratina').learnset.teleport = ['8L1'];

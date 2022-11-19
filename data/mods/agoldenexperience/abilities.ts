@@ -1,4 +1,4 @@
-const bladeMoves = ['aerialace','airslash', 'aircutter', 'behemothblade', 'crosspoison', 'cut', 'falseswipe', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind','sacredsword', 'secretsword', 'slash', 'xscissor', 'solarblade', 'ceaselessedge', /*sneakyassault,*/ /*'braveblade',*/];
+const bladeMoves = ['aerialace','airslash', 'aircutter', 'behemothblade', 'crosspoison', 'cut', 'falseswipe', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind','sacredsword', 'secretsword', 'slash', 'xscissor', 'solarblade', 'ceaselessedge', 'sneakyassault', 'braveblade',];
 const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazekick', 'tropkick', 'lowkick', 'lowsweep', 'rollingkick', 'triplekick', 'stomp', 'highhorsepower', 'tripleaxel', 'stompingtantrum', 'thunderouskick'];
 const tailMoves = ['firelash', 'powerwhip', 'tailslap', 'wrap', 'constrict', 'irontail', 'dragontail', 'poisontail', 'aquatail', 'vinewhip', 'wringout',];
 
@@ -1791,6 +1791,50 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Iron Fist",
 		rating: 3,
 		num: 89,
+	},
+	slowstart: {
+		shortDesc: "Atk, Spe halved for 5 turns. Boost all stats after 5 turns.",
+		onStart(pokemon) {
+			if ( !pokemon.slowStartInit ) {
+				pokemon.slowStartInit = true;
+				pokemon.slowStartTurns = 5;
+			}
+			if (pokemon.slowStartTurns > 0) pokemon.addVolatile('slowstart');
+		},
+		onResidual(pokemon) {
+			if (pokemon.slowStartTurns && pokemon.slowStartTurns > 0) pokemon.slowStartTurns--;
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['slowstart'];
+			this.add('-end', pokemon, 'Slow Start', '[silent]');
+		},
+		condition: {
+			duration: 5,
+			durationCallback(pokemon) {
+				return pokemon.slowStartTurns
+			},
+			onStart(target) {
+				this.add('-start', target, 'ability: Slow Start');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				return this.chainModify(0.5);
+			},
+			onModifySpA(spa, pokemon) {
+				return this.chainModify(0.5);
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Slow Start');
+				this.boost({atk: 1});
+				this.boost({def: 1});
+				this.boost({spa: 1});
+				this.boost({spd: 1});
+				this.boost({spe: 1});
+			},
+		},
+		name: "Slow Start",
+		rating: -1,
+		num: 112,
 	},
 	rkssystem: {
 		shortDesc: "Non-STAB moves have 1.2x power.",
