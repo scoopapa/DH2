@@ -4441,6 +4441,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	normear: {
+        tier: "LC",
+    },
+	paranormear: {
+        tier: "OU",
+        doublesTier: "DOU",
+    },
 	kistraw: {
 		tier: "LC",
 	},
@@ -4523,6 +4530,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	cymadalea: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	tapuwala: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

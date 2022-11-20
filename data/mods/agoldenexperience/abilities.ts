@@ -202,7 +202,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Double Spirit",
 		rating: 4,
-		num: 176,
+		num: -1176,
 	},
 	divination: {
         shortDesc: "Reveals a random move of each adjacent opponent on entry.",
@@ -251,7 +251,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Arcane Mastery",
 		rating: 3.5,
-		num: 200,
+		num: -1200,
 	},
 	strangebody: {
 		onEffectiveness(typeMod, target, type, move) {
@@ -270,7 +270,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "sadism",
 		rating: 1.5,
-		num: 196,
+		num: -1196,
+	},
+	bipolar: {
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if (attacker.species.baseSpecies !== 'Bipolectric' || attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== 'icebarrier') return;
+			const targetForme = (move.id === 'icebarrier' ? 'Bipolectric-Permafrost' : 'Bipolectric');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		isPermanent: true,
+		name: "Bipolar",
+		rating: 4,
+		num: -1176,
 	},
 	mistymountain: {
 		onModifyTypePriority: -1,
@@ -368,19 +381,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	endlessdream: {
 		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
 		shortDesc: "All Pokemon are under Comatose effect.",
-		onStart(source) {
+		/*onStart(source) {
 			this.add('-ability', source, 'Endless Dream');
 			this.field.addPseudoWeather('ultrasleep');
 			this.hint("All Pokemon are under Comatose effect!");
 			this.field.pseudoWeather.ultrasleep.duration = 0;
-		},
+		},*/
 		onSetStatus(status, target, source, effect) {
-			if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia')) return;
+			if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia') || source.hasAbility('endlessdream')) return;
 			if (effect && ((effect as Move).status || effect.id === 'yawn')) {
-				this.add('-activate', target, '[from] ability: Endless Dream');
+				this.add('-immune', target, '[from] ability: Endless Dream');
 			}
 			return false;
 		},
+		/*onResidualOrder: 21,
+		onResidualSubOrder: 2,
 		onEnd(pokemon) {
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
@@ -389,7 +404,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			this.field.removePseudoWeather('ultrasleep');
-		},
+		},*/
 		name: "Endless Dream",
 		rating: 3,
 		num: -1111,

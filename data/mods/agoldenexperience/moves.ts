@@ -323,6 +323,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Clever",
 	},
+	deadlybreeze: {
+		num: -1573,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Deadly Breeze",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move) {
+			move.infiltrates = true;
+			delete move.flags['protect'];
+		},
+		onTryHit(target, source, move) {
+			if (target.hasType('Steel')) {
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
 	overcharge: {
 		num: 682,
 		accuracy: 100,
@@ -348,6 +371,63 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Clever",
+	},
+	icebarrier: {
+		num: -1661,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Ice Barrier",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'banefulbunker',
+		onTryHit(target, source, move) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					source.trySetStatus('psn', target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.flags['contact']) {
+					source.trySetStatus('frz', target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
+		zMove: {boost: {def: 1}},
+		contestType: "Tough",
 	},
 	rolledballed: {
 		num: -1306,
@@ -505,6 +585,42 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 		contestType: "Beautiful",
+	},
+	backfire: {
+		num: -1205,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			if (pokemon.volatiles['backfire'] && pokemon.volatiles['backfire'].hitCount) {
+				//bp *= Math.pow(2, pokemon.volatiles['backfire'].hitCount);
+				bp += 20*pokemon.volatiles['backfire'].hitCount;
+			}
+			if (pokemon.status !== 'slp') pokemon.addVolatile('backfire');
+			this.debug("Rollout bp: " + bp);
+			return bp;
+		},
+		category: "Physical",
+		name: "Backfire",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		condition: {
+			duration: 2,
+			onStart() {
+				this.effectData.hitCount = 1;
+			},
+			onRestart() {
+				this.effectData.hitCount++;
+				if (this.effectData.hitCount < 5) {
+					this.effectData.duration = 2;
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
 	},
 	highwater: {
 		num: -659,
@@ -779,6 +895,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 		contestType: "Tough",
+	},
+	punishingblow: {
+		num: -1712,
+		accuracy: 90,
+		basePower: 80,
+		category: "Physical",
+		name: "Punishing Blow",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyCritRatio(critRatio, source, target) {
+			if (target.hasBoosts) return 5;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		contestType: "Cool",
 	},
 	draconiccurse: {
 		num: -1246,

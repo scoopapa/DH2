@@ -28,6 +28,45 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'magmortar').learnset.fireball = ['8T'];
     this.modData('Learnsets', 'cinderace').learnset.fireball = ['8T'];
     //this.modData('Learnsets', 'drinferno').learnset.fireball = ['8T'];
+
+    // backfire 
+    this.modData('Learnsets', 'reshiram').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'hooh').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'victini').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'blacephalon').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'chimchar').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'monferno').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'infernape').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'tepig').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'pignite').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'emboar').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'emboargalar').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'turtonator').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'litwick').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'lampent').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'chandelure').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'houndour').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'houndoom').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'marowakalola').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'vulpix').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'ninetales').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'litleo').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'pyroar').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'fletchinder').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'talonflame').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'cyndaquil').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'quilava').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'typhlosion').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'wizamadol').learnset.backfire = ['8L1'];
+    //this.modData('Learnsets', 'solens').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'charmander').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'charmeleon').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'charizard').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'torchic').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'combusken').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'blaziken').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'ponyta').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'rapidash').learnset.backfire = ['8L1'];
     
     // highwater 
     this.modData('Learnsets', 'poliwrath').learnset.highwater = ['8T'];
@@ -217,6 +256,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'ledixy').learnset.golemstrike = ['8T'];
     //this.modData('Learnsets', 'mosquitox').learnset.golemstrike = ['8T'];
 
+    // punishingblow 
+    this.modData('Learnsets', 'froslass').learnset.punishingblow = ['8L1'];
+    this.modData('Learnsets', 'blacephalon').learnset.punishingblow = ['8L1'];
+    this.modData('Learnsets', 'banette').learnset.punishingblow = ['8L1'];
+    this.modData('Learnsets', 'decidueye').learnset.punishingblow = ['8L1'];
+    this.modData('Learnsets', 'dhelmise').learnset.punishingblow = ['8L1'];
+    this.modData('Learnsets', 'golurk').learnset.punishingblow = ['8L1'];
+    this.modData('Learnsets', 'mimikyu').learnset.punishingblow = ['8L1'];
+    this.modData('Learnsets', 'paranormear').learnset.punishingblow = ['8L1'];
+    this.modData('Learnsets', 'slendawful').learnset.punishingblow = ['8L1'];
+
     // condensate 
     this.modData('Learnsets', 'ninetalesalola').learnset.condensate = ['8L1'];
     this.modData('Learnsets', 'articuno').learnset.condensate = ['8L1'];
@@ -312,7 +362,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'ledian').learnset.cosmicpunch = ['8L1'];
     this.modData('Learnsets', 'metang').learnset.cosmicpunch = ['8L1'];
     this.modData('Learnsets', 'lucario').learnset.cosmicpunch = ['8L1'];
-    //this.modData('Learnsets', 'paranormear').learnset.cosmicpunch = ['8L1'];
+    this.modData('Learnsets', 'paranormear').learnset.cosmicpunch = ['8L1'];
 
     // draconiccurse 
     this.modData('Learnsets', 'rayquaza').learnset.draconiccurse = ['8L1'];
@@ -361,7 +411,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'zoroark').learnset.hypnotichorror = ['8T'];
     this.modData('Learnsets', 'zoroarkhisui').learnset.hypnotichorror = ['8T'];
     this.modData('Learnsets', 'slendawful').learnset.hypnotichorror = ['8T'];
-    //this.modData('Learnsets', 'paranormear').learnset.hypnotichorror = ['8T'];
+    this.modData('Learnsets', 'paranormear').learnset.hypnotichorror = ['8T'];
 
     // sneakyassault 
     this.modData('Learnsets', 'rattataalola').learnset.sneakyassault = ['8L1'];

@@ -3154,7 +3154,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         prevo: "Hustrack",
     },
 	seagmate: {
-		num: 1001,
+		num: 2007,
 		name: "Seagmate",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 65, atk: 65, def: 40, spa: 45, spd: 40, spe: 55},
@@ -3164,7 +3164,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Gullcean"],
 	},
 	gullcean: {
-		num: 1002,
+		num: 2008,
 		name: "Gullcean",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 80, atk: 75, def: 75, spa: 50, spd: 75, spe: 65},
@@ -3175,7 +3175,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Admistral"],
 	},
 	admistral: {
-		num: 1003,
+		num: 2009,
 		name: "Admistral",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 95, atk: 120, def: 90, spa: 60, spd: 90, spe: 85},
@@ -3185,7 +3185,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Gullcean",
 	},
 	fiyounfly: {
-		num: 1500,
+		num: 2012,
 		name: "Fiyounfly",
 		types: ["Bug"],
 		gender: "F",
@@ -3199,7 +3199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		canHatch: true,
 	},
 	ledixy: {
-		num: 1501,
+		num: 2013,
 		name: "Ledixy",
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 75, atk: 110, def: 70, spa: 40, spd: 120, spe: 85},
@@ -3212,7 +3212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 	},
 	terados: {
-		num: 1168,
+		num: 2014,
 		name: "Terados",
 		types: ["Bug", "Dark"],
 		baseStats: {hp: 95, atk: 110, def: 95, spa: 40, spd: 95, spe: 65},
@@ -3225,7 +3225,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Bug"],
 	},
 	jaboraishi: {
-		num: 1001,
+		num: 2015,
 		name: "Jaboraishi",
 		types: ["Electric", "Fighting"],
 		baseStats: {hp: 64, atk: 111, def: 57, spa: 39, spd: 58, spe: 115},
@@ -3234,8 +3234,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 10,
 		eggGroups: ["Field"],
 	},
+	normear: {
+        num: 2017,
+        name: "Normear,",
+        types: ["Normal"],
+        baseStats: {hp: 30, atk: 30, def: 35, spa: 30, spd: 30, spe: 40},
+        abilities: {0: "Rattled", 1: "Unaware", H: "Klutz"},
+        heightm: 0.9,
+        weightkg: 20,
+        evos: ["Paranormear"],
+        eggGroups: ["Field"],
+    },
+    paranormear: {
+        num: 2018,
+        name: "Paranormear,",
+        types: ["Normal", "Ghost"],
+        baseStats: {hp: 90, atk: 120, def: 65, spa: 105, spd: 90, spe: 60},
+        abilities: {0: "Defiant", 1: "Unaware", H: "Cursed Body"},
+        heightm: 2.2,
+        weightkg: 20,
+        prevo: "Normear",
+        eggGroups: ["Field", "Monster"],
+    },
 	kistraw: {
-		num: 5001,
+		num: 2021,
 		name: "Kistraw",
 		types: ["Grass", "Fighting"],
 		baseStats: {hp: 90, atk: 60, def: 40, spa: 65, spd: 40, spe: 85},
@@ -3246,7 +3268,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	origyrant: {
-		num: 5002,
+		num: 2022,
 		name: "Origyrant",
 		types: ["Grass", "Fighting"],
 		baseStats: {hp: 130, atk: 95, def: 50, spa: 110, spd: 50, spe: 120},
@@ -3257,7 +3279,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	girafatak: {
-		num: 3002,
+		num: 2026,
 		name: "Girafatak",
 		types: ["Normal", "Psychic"],
 		baseStats: {hp: 80, atk: 85, def: 75, spa: 125, spd: 75, spe: 95},
@@ -3270,7 +3292,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		formeOrder: ["Girafatak", "Girafatak-Nocturnal"],
 	},
 	girafataknocturnal: {
-		num: 3002,
+		num: 2026,
 		name: "Girafatak-Nocturnal",
 		baseSpecies: "Girafatak",
 		forme: "Nocturnal",
@@ -3279,13 +3301,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Double Spirit"},
 		heightm: 1.8,
 		weightkg: 50,
-		prevo: "Girafarig",
 		eggGroups: ["Field"],
 		requiredAbility: "Double Spirit",
 		battleOnly: "Girafatak",
 	},
 	sylvardian: {
-		num: 3001,
+		num: 2027,
 		name: "Sylvardian",
 		types: ["Grass", "Psychic"],
 		baseStats: {hp: 85, atk: 60, def: 80, spa: 120, spd: 90, spe: 100},
@@ -3296,7 +3317,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	stonlet: {
-		num: 1003,
+		num: 2031,
 		name: "Stonlet",
 		types: ["Rock"],
 		baseStats: {hp: 70, atk: 70, def: 70, spa: 70, spd: 70, spe: 30},
@@ -3307,7 +3328,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 	},
 	rockster: {
-		num: 1004,
+		num: 2032,
 		name: "Rockster",
 		types: ["Rock", "Steel"],
 		baseStats: {hp: 90, atk: 80, def: 110, spa: 120, spd: 90, spe: 40},
@@ -3318,7 +3339,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral"],
 	},
 	rockstermega: {
-		num: 1004,
+		num: 2032,
 		name: "Rockster-Mega",
 		baseSpecies: "Rockster",
 		forme: "Mega",
@@ -3331,7 +3352,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: "Rocksterite",
 	},
 	wizamadol: {
-		num: -1655,
+		num: -2035,
 		name: "Wizamadol",
 		types: ["Fire", "Psychic"],
 		baseStats: {hp: 65, atk: 45, def: 75, spa: 125, spd: 110, spe: 100},
@@ -3342,7 +3363,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 	},
 	mystao: {
-		num: 1002,
+		num: 2036,
 		name: "Mystao",
 		types: ["Fighting"],
 		baseStats: {hp: 77, atk: 117, def: 77, spa: 117, spd: 77, spe: 107},
@@ -3352,7 +3373,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 	},
 	hopkineye: {
-		num: -1302,
+		num: 2037,
 		name: "Hopkineye",
 		types: ["Rock", "Dark"],
 		baseStats: {hp: 80, atk: 30, def: 80, spa: 105, spd: 80, spe: 105},
@@ -3366,7 +3387,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoCondition: "at night",
 	},
 	leechuption: {
-		num: -1219,
+		num: 2057,
 		name: "Leechuption",
 		types: ["Fire", "Ice"],
 		baseStats: {hp: 90, atk: 45, def: 160, spa: 75, spd: 120, spe: 25},
@@ -3379,7 +3400,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 	},
 	jhex:{
-		num: 1124,
+		num: 2059,
 		name: "Jhex",
 		types: ["Ice", "Ghost"],
 		gender: "F",
@@ -3394,7 +3415,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 	},
 	goldiorno: {
-		num: -1005,
+		num: 2062,
 		name: "Goldiorno",
 		types: ["Fighting", "Fairy"],
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 85, spd: 80, spe: 115},
@@ -3405,7 +3426,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 	},
 	slendawful: {
-		num: 1001,
+		num: 2063,
 		name: "Slendawful",
 		types: ["Ghost", "Dark"],
 		baseStats: {hp: 50, atk: 110, def: 80, spa: 100, spd: 80, spe: 90},
@@ -3416,7 +3437,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 	},
 	berkslash: {
-		num: 1002,
+		num: 2064,
 		name: "Berkslash",
 		types: ["Steel", "Poison"],
 		baseStats: {hp: 100, atk: 134, def: 98, spa: 65, spd: 68, spe: 55},
@@ -3426,7 +3447,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Amorphous"],
 	},
 	straightasani: {
-		num: 1003,
+		num: 2065,
 		name: "Straightasan-i",
 		baseSpecies: "Straightasan",
 		forme: "i",
@@ -3438,7 +3459,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Flying"],
 	},
 	nopainnogain: {
-		num: 1004,
+		num: 2066,
 		name: "Nopainnogain",
 		types: ["Fighting", "Psychic"],
 		baseStats: {hp: 130, atk: 75, def: 70, spa: 80, spd: 75, spe: 85},
@@ -3448,7 +3469,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 	},
 	bubblure: {
-		num: -1069,
+		num: 2067,
 		name: "Bubblure",
 		types: ["Water", "Dark"],
 		baseStats: {hp: 50, atk: 65, def: 40, spa: 25, spd: 40, spe: 40},
@@ -3460,7 +3481,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Dragon"],
 	},
 	abysshark: {
-		num: -1070,
+		num: 2068,
 		name: "Abysshark",
 		types: ["Water", "Dark"],
 		baseStats: {hp: 75, atk: 90, def: 50, spa: 50, spd: 50, spe: 85},
@@ -3474,7 +3495,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 1", "Dragon"],
 	},
 	cymadalea: {
-		num: -1071,
+		num: 2069,
 		name: "Cymadalea",
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 102, atk: 84, def: 89, spa: 130, spd: 118, spe: 77},
@@ -3486,8 +3507,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoLevel: 60,
 		eggGroups: ["Water 1", "Dragon"],
 	},
+	tapuwala: {
+        num: 2070,
+        name: "Tapu Wala,",
+        types: ["Fighting", "Fairy"],
+        baseStats: {hp: 70, atk: 130, def: 85, spa: 115, spd: 75, spe: 95},
+        abilities: {0: "Chakra Surge", 1: "Chakra Surge", H: "Telepathy"},
+        heightm: 1.5,
+        weightkg: 23.2,
+        eggGroups: ["Undiscovered"],
+    },
     snoxin: {
-		num: -1002,
+		num: 2071,
 		name: "Snoxin",
 		types: ["Ice", "Poison"],
 		gender: "N",
@@ -3499,7 +3530,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	magroach: {
-		num: 1016,
+		num: 2073,
 		name: "Magroach",
 		types: ["Bug"],
 		baseStats: {hp: 90, atk: 110, def: 85, spa: 85, spd: 110, spe: 90},

@@ -31,6 +31,37 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by Meloetta: Pirouette Forme on entry.",
 	},
+	nullifyorb: {
+		name: "Nullify Orb",
+		shortDesc: "Nullify all abilities on the field.",
+		fling: {
+			basePower: 30,
+		},
+		onPreStart(pokemon) {
+			this.add('-item', pokemon, 'Nullify Orb');
+			pokemon.abilityData.ending = false;
+			for (const target of this.getAllActive()) {
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'nullifyorb');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+			}
+		},
+		onEnd(source) {
+			source.abilityData.ending = true;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source) {
+
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+				}
+			}
+		},
+		num: -1270,
+		gen: 8,
+	},
 	normalgem: {
 		name: "Normal Gem",
 		spritenum: 307,
