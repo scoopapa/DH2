@@ -3803,6 +3803,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NU",
 		doublesTier: "(DUU)",
 	},
+	dhelmisemega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	jangmoo: {
 		tier: "LC",
 	},
@@ -4437,12 +4441,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	kistraw: {
+		tier: "LC",
+	},
+	origyrant: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	girafatak: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	girafataknocturnal: {
-		tier: "Illegal",
+		
 	},
 	sylvardian: {
 		tier: "OU",

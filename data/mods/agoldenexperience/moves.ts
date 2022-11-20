@@ -1,3 +1,5 @@
+import computeSourceMap from "sucrase/dist/types/computeSourceMap";
+
 export const Moves: {[k: string]: ModdedMoveData} = {
 	tentacatch: {
 		num: 20,
@@ -65,8 +67,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		contestType: "Tough",
 	},
+	magisterialwind: {
+		num: -1753,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "Ignores the target's ability, cannot be redirected.",
+		name: "Magisterial Wind",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreAbility: true,
+		tracksTarget: true,
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Cool",
+	},
 	stellarpunch: {
-		num: 713,
+		num: -1713,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -79,7 +98,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
-		contestType: "Cool",
+		contestType: "Tough",
 	},
 	toxicthread: {
 		num: 672,
@@ -330,6 +349,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Clever",
 	},
+	rolledballed: {
+		num: -1306,
+		accuracy: 90,
+		basePower: 35,
+		category: "Physical",
+    	shortDesc: "Hits twice. Has a 10% chance to lower the target's Def after each hit.",
+		name: "Rolled Balled",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: 2,
+		secondary: {
+			chance: 10,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Cool",
+	},
 	goldenexperience: {
 		num: 409,
 		accuracy: 100,
@@ -405,6 +445,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
+	},
+	aspiravoid: {
+		num: -1399,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		name: "Aspira-Void",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			chance: 100,
+			boosts: {
+				atk: 1,
+				spa: 1,
+			},
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Dark",
+		shortDesc: "-1 Atk/SpA for target; +1 Atk/SpA for this Pokemon.",
+		contestType: "Cool",
 	},
 	flamingsphere: {
 		num: -1040,
@@ -828,7 +896,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	mercuryshot: {
-		num: 503,
+		num: -1503,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
@@ -841,12 +909,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 30,
 			status: 'psn',
 		},
+		shortDesc: "30% to poison the target.",
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
 	},
 	chakraterrain: {
-		num: 604,
+		num: -1604,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -878,7 +947,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onAnyAccuracy(accuracy, target, source, move) {
-				if (move.type === 'Fighting' && (source === this.effectData.target || target === this.effectData.target) && (target.isGrounded() && !target.isSemiInvulnerable() || source.isGrounded() && !source.isSemiInvulnerable())) {
+				if (move.type === 'Fighting' && (source === this.effectData.target || target === this.effectData.target) && (target.isGrounded() && !target.isSemiInvulnerable())) {
 					return true;
 				}
 				return accuracy;
@@ -2351,5 +2420,74 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
+	},
+	// Endless Dream field
+	wakeupslap: {
+		num: 358,
+		accuracy: 100,
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'slp' || target.hasAbility('comatose') || target.hasAbility('endlessdream') || pokemon.hasAbility('endlessdream')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Wake-Up Slap",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onHit(target) {
+			if (target.status === 'slp') target.cureStatus();
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	dreameater: {
+		num: 138,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Dream Eater",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		onTryImmunity(target, source) {
+			return target.status === 'slp' || target.hasAbility('comatose') || target.hasAbility('endlessdream') || source.hasAbility('endlessdream');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	nightmare: {
+		num: 171,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Nightmare",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'nightmare',
+		condition: {
+			noCopy: true,
+			onStart(target, source) {
+				if (target.status !== 'slp' && !target.hasAbility('comatose') && !target.hasAbility('endlessdream') && !source.hasAbility('endlessdream')) {
+					return false;
+				}
+				this.add('-start', pokemon, 'Nightmare');
+			},
+			onResidualOrder: 9,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / 4);
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
 	},
 }

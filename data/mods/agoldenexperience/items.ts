@@ -704,6 +704,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Frosmoth, this item allows it to Mega Evolve in battle.",
 	},
+	baskironite: {
+		name: "Baskironite",
+		spritenum: 578,
+		megaStone: "Baskiron-Mega",
+		megaEvolves: "Baskiron",
+		itemUser: ["Baskiron"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1079,
+		gen: 8,
+		desc: "If held by a Baskiron, this item allows it to Mega Evolve in battle.",
+	},
+	terreptilite: {
+		name: "Terreptilite",
+		spritenum: 578,
+		megaStone: "Terreptile-Mega",
+		megaEvolves: "Terreptile",
+		itemUser: ["Terreptile"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1079,
+		gen: 8,
+		desc: "If held by a Terreptile, this item allows it to Mega Evolve in battle.",
+	},
 	rocksterite: {
 		name: "Rocksterite",
 		spritenum: 578,
@@ -718,7 +746,44 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Rockster, this item allows it to Mega Evolve in battle.",
 	},
+	infarmatemite: {
+		name: "Infarmatemite",
+		spritenum: 578,
+		megaStone: "Infarmatem-Mega",
+		megaEvolves: "Infarmatem",
+		itemUser: ["Infarmatem"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1079,
+		gen: 8,
+		desc: "If held by a Infarmatem, this item allows it to Mega Evolve in battle.",
+	},
 
+	chakraseed: {
+		name: "Chakra Seed",
+		spritenum: 664,
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem() && this.field.isTerrain('chakraterrain')) {
+				pokemon.useItem();
+			}
+		},
+		onAnyTerrainStart() {
+			const pokemon = this.effectData.target;
+			if (this.field.isTerrain('chakraterrain')) {
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			def: 1,
+		},
+		num: -1881,
+		gen: 8,
+	},
 	honey: {
 		name: "Honey",
 		fling: {
@@ -739,6 +804,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			pokemon.cureStatus();
 			pokemon.removeVolatile('confusion');
 		},
+	},
+	indecisiveorb: {
+		name: "Indecisive Orb",
+		fling: {
+			basePower: 30,
+		},
+		onDisableMove: function(pokemon) {
+			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		},
+		onStart(target) {
+			this.add('-message', `${target.name} is being tormented!`);
+		},
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify([0x14CC, 0x1000]);
+		},
+		desc: "Holder's move have 1.2x BP, but it can't use the same move twice in a row.",
+		num: -1270,
+		gen: 8,
 	},
 	deepseascale: {
 		name: "Deep Sea Scale",

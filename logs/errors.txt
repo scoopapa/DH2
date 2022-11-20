@@ -608,3 +608,45 @@ Additional information:
 |
 |t:|1668801050
 
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Girafatak","avatar":"169","team":"Hypno||leftovers|endlessdream|dreameater,wakeupslap,hypnotichorror,thunderwave|Brave|252,252,,4,,|||||]Amoonguss||blacksludge|regenerator|spore,stunspore,gigadrain,toxic|Calm|252,,,4,252,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,earthquake|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 4e9788e5620da3beeb8cdca5ffd03f049c32312d
+>start {"formatid":"gen8agoldenexperience","seed":[63423,4289,60146,48343]}
+  log = 
+|t:|1668945847
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"NaroneHater","avatar":"2","team":"Hypno||leftovers|endlessdream|dreameater,wakeupslap,hypnotichorror,thunderwave|Brave|252,252,,4,,|||||]Amoonguss||blacksludge|regenerator|spore,stunspore,gigadrain,toxic|Calm|252,,,4,252,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,earthquake|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 4e9788e5620da3beeb8cdca5ffd03f049c32312d
+>start {"formatid":"gen8agoldenexperience","seed":[63423,4289,60146,48343]}
+  log = 
+|t:|1668945847
+

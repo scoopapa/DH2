@@ -365,6 +365,35 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -1034,
 	},
+	endlessdream: {
+		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
+		shortDesc: "All Pokemon are under Comatose effect.",
+		onStart(source) {
+			this.add('-ability', source, 'Endless Dream');
+			this.field.addPseudoWeather('ultrasleep');
+			this.hint("All Pokemon are under Comatose effect!");
+			this.field.pseudoWeather.ultrasleep.duration = 0;
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia')) return;
+			if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+				this.add('-activate', target, '[from] ability: Endless Dream');
+			}
+			return false;
+		},
+		onEnd(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('endlessdream')) {
+					return;
+				}
+			}
+			this.field.removePseudoWeather('ultrasleep');
+		},
+		name: "Endless Dream",
+		rating: 3,
+		num: -1111,
+	},
 	evaporate: {
 		desc: "If the Pokemon or the opponent uses a Water type move, it triggers the Haze effect. Immune to Water.",
 		shortDesc: "Haze when any Pokemon uses a Water move; Water immunity.",
@@ -576,6 +605,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Long Tail",
+	},
+	boarding: {
+		onBasePower(basePower, pokemon, target) {
+			if (target.trapped) {
+				return this.chainModify(1.25);
+			}
+		},
+		name: "Boarding",
+		shortDesc: "This Pokemon deals 1.25x damage to trapped opponents.",
+		rating: 3,
+		num: -1265,
 	},
 	lasttoxin: {
 		desc: "When this Pokemon brings an opponent to 50% or under using an attacking move, it badly poisons that opponent.",
@@ -1175,7 +1215,31 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Searing Touch",
 		rating: 2,
-		num: 143,
+		num: -1143,
+	},
+	colorchange: {
+		onTryHit(target, source, move) {
+			if (!target.hp) return;
+			const type = move.type;
+			if (
+				target.isActive && move.effectType === 'Move' && move.category !== 'Status' &&
+				type !== '???' && !target.hasType(type)
+			) {
+				if (!target.setType(type)) return false;
+				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
+
+				if (target.side.active.length === 2 && target.position === 1) {
+					// Curse Glitch
+					const action = this.queue.willMove(target);
+					if (action && action.move.id === 'curse') {
+						action.targetLoc = -1;
+					}
+				}
+			}
+		},
+		name: "Color Change",
+		rating: 0,
+		num: 16,
 	},
 	iceface: {
 		onStart(pokemon) {
