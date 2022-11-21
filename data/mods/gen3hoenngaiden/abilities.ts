@@ -245,25 +245,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		onModifyDef(def, pokemon) {
-			if (this.field.isWeather('sandstorm')) {
-				return this.chainModify(1.1);
-			}
-		},
-		onImmunity(type, pokemon) {
-			if (type === 'sandstorm') return false;
-		},
 		id: "sandveil",
 		name: "Sand Veil",
 		rating: 3,
 		num: 146,
 	},
 	icebody: {
-		onWeather(target, source, effect) {
-			if (effect.id === 'hail') {
-				this.heal(target.baseMaxhp / 16);
-			}
-		},
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
