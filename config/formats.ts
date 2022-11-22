@@ -530,6 +530,7 @@ export const Formats: FormatList = [
 						'Oshawott', 'Dewott', 'Samurott-Hisui', 'Riolu', 'Lucario', 'Popplio', 'Brionne', 'Primarina',
 						'Grimmsnarl', 'Impidimp', 'Morgrem', 'Sylveon', 'Diglett-Alola', 'Dugtrio-Alola',
 						'Magnezone', 'Houndour', 'Houndoom', 'Cutiefly', 'Ribombee',
+						'Zarude', 'Zarude-Dada', 'Vulpix-Alola', 'Ninetales-Alola', 'Piplup', 'Prinplup', 'Empoleon',
 					  ],
     },
    {
