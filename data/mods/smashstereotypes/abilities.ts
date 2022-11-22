@@ -860,4 +860,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -100,
 	},
+	tacticschange: {
+		onBeforeMovePriority: 0.5,
+		onBeforeMove(attacker, defender, move) {
+			if ((attacker.species.baseSpecies !== 'Aegislash' && !attacker.species.name.includes('Ancient'))|| attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== 'foragerspoise') return;
+			const targetForme = (move.id === 'foragerspoise' ? 'Aegislash-Ancient' : 'Aegislash-Ancient-Hunter');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		isPermanent: true,
+		name: "Tactics Change",
+		shortDesc: "If Aegislash-Ancient, changes Forme to Ancient-Hunter before attacks and Ancient before King's Shield.",
+		rating: 5,
+		num: -117
+	},
+	refreshment: {
+		onSwitchIn(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 16);
+		},
+		name: "Refreshment",
+		rating: 4.5,
+		num: -118,
+		shortDesc: "(Partially functional) When the user switches in, all non-fainted team members regain 1/16 HP.",
+	},
 };
