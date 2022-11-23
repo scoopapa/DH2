@@ -1362,12 +1362,115 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Roar of Time",
 		pp: 5,
 		priority: 0,
-		desc: "Reduce 2 turns to any active weather, terrain and room one the field.",
+		onHit() {
+			this.field.clearTerrain();
+			this.field.clearWeather();
+		},
+		shortDesc: "Clears all terrains and weathers after hit.",
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
+	},
+	trickroom: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	magicroom: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	wonderroom: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	raindance: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	sunnyday: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	hail: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	sandstorm: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	electricterrain: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	psychicterrain: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	grassyterrain: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
+	},
+	mistyterrain: {
+		inherit: true,
+		durationCallback(target, source, effect){
+			if (source.move.id === 'roaroftime') {
+				duration -= 2;
+				return duration;
+			}
+		},
 	},
 	spacialrend: {
 		num: 460,
@@ -2621,6 +2724,46 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
+	ultrasleep: { //this move is only for Endless Dream ability
+		num: -1433,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Ultrasleep",
+		pp: 5,
+		priority: -7,
+		flags: {mirror: 1},
+		pseudoWeather: 'ultrasleep',
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				return 5;
+			},
+			onStart(target, source) {
+				this.add('-fieldstart', 'move: Ultrasleep', '[of] ' + source);
+			},
+			onSetStatus(status, target, source, effect) {
+				if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia')) return;
+				if (effect && ((effect as Move).status || effect.id === 'yawn')) {
+					this.add('-activate', target, 'move: Ultrasleep');
+				}
+				return false;
+			},
+			onResidualOrder: 23,
+			onEnd() {
+				this.add('-fieldend', 'move: Ultrasleep');
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Psychic",
+		zMove: {boost: {accuracy: 1}},
 		contestType: "Clever",
 	},
 }

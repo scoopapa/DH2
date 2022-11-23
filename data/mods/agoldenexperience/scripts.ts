@@ -1,4 +1,34 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+  canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
+			return null;
+		}
+    else if (item.name === "Zoroarkite" && pokemon.baseSpecies.name === "Zoroark-Hisui") {
+			return null;
+		}
+    else if (item.name === "Magcargonite" && pokemon.baseSpecies.name === "Magcargo-Sinnoh") {
+			return null;
+		}
+    else if (item.name === "Scizorite" && pokemon.baseSpecies.name === "Scizor") {
+			return "Scizor-Mega";
+		}
+    else if (item.name === "Scizorite" && pokemon.baseSpecies.name === "Scizor-Galar") {
+			return "Scizor-Galar-Mega";
+		}
+    else if (item.name === "Typhlosionite" && pokemon.baseSpecies.name === "Typhlosion-Hisui") {
+			return null;
+		}
+		return item.megaStone;
+	},
+
     inherit: 'gen8',
     init: function() {
   
@@ -607,6 +637,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'furret').learnset.extremspeed = ['8T'];
     this.modData('Learnsets', 'furret').learnset.taunt = ['8T'];
     this.modData('Learnsets', 'furret').learnset.rapidspin = ['8T'];
+    this.modData('Learnsets', 'noctowl').learnset.focusblast = ['8L1'];
+    this.modData('Learnsets', 'noctowl').learnset.magisterialwind = ['8L1'];
+    this.modData('Learnsets', 'noctowl').learnset.uturn = ['8L1'];
     this.modData('Learnsets', 'lanturn').learnset.tailglow = ['8L1'];
     this.modData('Learnsets', 'bellossom').learnset.weatherball = ['8L1'];
     this.modData('Learnsets', 'politoed').learnset.flipturn = ['8L1'];

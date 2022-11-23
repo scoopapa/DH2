@@ -751,3 +751,58 @@ Additional information:
   log = 
 |t:|1668971709
 
+
+TypeError: Cannot set properties of undefined (setting 'duration')
+    at Battle.onStart (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:394:49)
+    at Battle.singleEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:487:25)
+    at Battle.runSwitch (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:1343:9)
+    at Battle.runAction (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2631:9)
+    at Battle.go (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 team 12
+  inputLog = 
+>version b25c14ee77bbaa3ce3cb4fb3ee56e9c9adfe98cd
+>start {"formatid":"gen8agoldenexperience","seed":[19002,45149,36505,58543]}
+>player p1 {"name":"Lysiinfinity","avatar":"2","team":"Hypno||lifeorb|endlessdream|thunderwave,rest,dreameater,wakeupslap|Sassy|252,4,,,252,|||||]Amoonguss||blacksludge|regenerator|spore,stunspore,toxic,clearsmog|Calm|252,,,4,252,||,0,,,,|||","rating":0}
+>player p2 {"name":"FateIsNotDesblabla","avatar":"2","team":"Hypno||lifeorb|endlessdream|thunderwave,rest,dreameater,wakeupslap|Sassy|252,4,,,252,|||||]Amoonguss||blacksludge|regenerator|spore,stunspore,toxic,clearsmog|Calm|252,,,4,252,||,0,,,,|||","rating":0}
+>p1 team 1, 2
+>p2 team 2, 1
+  log = 
+|t:|1669042356
+|player|p1|Lysiinfinity|2|
+|player|p2|FateIsNotDesblabla|2|
+|teamsize|p1|2
+|teamsize|p2|2
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Hypno, F|
+|poke|p1|Amoonguss, F|
+|poke|p2|Hypno, M|
+|poke|p2|Amoonguss, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669042360
+|start
+|switch|p1a: Hypno|Hypno, F|374/374
+|switch|p2a: Amoonguss|Amoonguss, F|432/432
+|-start|p1a: Hypno|typechange|Psychic|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Hypno</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Psychic.png" alt="Psychic" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Insomnia / Endless Dream / Inner Focus</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>70</span> <span class="col statcol"><em>SpA</em><br>90</span> <span class="col statcol"><em>SpD</em><br>115</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
+|-ability|p1a: Hypno|Endless Dream
+|-fieldstart|move: Ultrasleep|[of] p1a: Hypno
+|-hint|All Pokemon are under Comatose effect!
+

@@ -787,6 +787,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	scizorgalar: {
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	scizorgalarmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	smoochum: {
 		tier: "LC",
 	},
@@ -1029,7 +1037,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	feraligatrmega: {
 		tier: "OU",
-		doublesTier: "DUU",
+		doublesTier: "DOU",
 	},
 	sentret: {
 		tier: "LC",
@@ -1044,6 +1052,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	noctowl: {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
+	},
+	noctowlmega: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	ledyba: {
 		tier: "LC",
@@ -4486,6 +4498,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	hopkineye: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	harvesking: {
+		tier: "LC",
+	},
+	foroyal: {
+		tier: "NFE",
+	},
+	dracoalt: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

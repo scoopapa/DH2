@@ -262,6 +262,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Strange Body",
 		rating: 4,
 		shortDesc: "This Pokemon will always take neutral damages from super effective damages from physical moves.",
+		num: -9999,
+	},
+	shortcircuit: {
+		onStart(pokemon) {
+			let bp = 0;
+			for (const moveSlot of pokemon.moveSlots) {
+				const move = this.dex.getMove(moveSlot.move);
+				if (move.category === 'Status') continue;
+				if (move.basePower > bp) {
+					bp = move.basePower;
+				}
+				if (pokemon.volatiles['abilitylock']) {
+					this.debug('removing abilitylock: ' + pokemon.volatiles['abilitylock']);
+				}
+				pokemon.removeVolatile('abilitylock');
+			}
+		},
+		onModifyMove(move, pokemon) {
+			pokemon.addVolatile('abilitylock');
+		},
+		name: "Short Circuit",
+		rating: 0.5,
+		num: 107,
 	},
 	sadism: {
 		shortDesc: "This Pokemon's moves will always crit on statused target.",
@@ -381,20 +404,27 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	endlessdream: {
 		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
 		shortDesc: "All Pokemon are under Comatose effect.",
-		/*onStart(source) {
-			this.add('-ability', source, 'Endless Dream');
-			this.field.addPseudoWeather('ultrasleep');
-			this.hint("All Pokemon are under Comatose effect!");
-			this.field.pseudoWeather.ultrasleep.duration = 0;
-		},*/
-		onSetStatus(status, target, source, effect) {
-			if (target.hasAbility('vitalspirit') || target.hasAbility('insomnia') || source.hasAbility('endlessdream')) return;
-			if (effect && ((effect as Move).status || effect.id === 'yawn')) {
-				this.add('-immune', target, '[from] ability: Endless Dream');
+		onStart(source) {
+			if (this.field.getPseudoWeather('ultrasleep')) {
+				this.add('-ability', source, 'Endless Dream');
+				this.hint("All Pokemon are under Comatose effect!");
+				this.field.pseudoWeather.ultrasleep.source = source;
+				this.field.pseudoWeather.ultrasleep.duration = 0;
+			} else {
+				this.add('-ability', source, 'Endless Dream');
+				this.field.addPseudoWeather('ultrasleep');
+				this.hint("All Pokemon are under Comatose effect!");
+				this.field.pseudoWeather.ultrasleep.duration = 0;
 			}
-			return false;
 		},
-		/*onResidualOrder: 21,
+		onAnyTryMove(target, source, effect) {
+			if (['ultrasleep'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectData.target, 'ability: Endless Dream', move, '[of] ' + target);
+				return false;
+			}
+		},
+		onResidualOrder: 21,
 		onResidualSubOrder: 2,
 		onEnd(pokemon) {
 			for (const target of this.getAllActive()) {
@@ -404,7 +434,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			this.field.removePseudoWeather('ultrasleep');
-		},*/
+		},
 		name: "Endless Dream",
 		rating: 3,
 		num: -1111,
@@ -1130,7 +1160,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Unstable Shell",
 		rating: 2.5,
-		num: 160,
+		num: -1160,
 	},
 	newtonslaw: {
 		onModifySpe(spe, pokemon) {
@@ -1140,7 +1170,33 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Newton's Law",
 		rating: 3,
-		num: 34,
+		num: -1034,
+	},
+	hyperthermia: {
+			/*onSourceHit(target, source, move) {
+				if (move.category === 'Status') return;
+				if (source.volatiles['warming']) {
+					delete source.volatiles['warming'];
+					source.addVolatile('warm');
+				}
+				else if (source.volatiles['warm']) {
+					delete source.volatiles['warm'];
+					source.clearBoosts();
+				}
+				else {
+					source.addVolatile('warming');
+				}
+			},*/
+		onAfterMoveSecondary(target, source, move) {
+			if (move.category === 'Status') return;
+			source.clearBoosts();
+			this.add('-clearboost', source);
+		},
+		name: "Hyperthermia",
+		desc: "After this Pokemon used 2 offensive moves, all of its stat changes are reseted.",
+		shortDesc: "Resets all stat changes after 2 offensive moves.",
+		rating: 1,
+		num: -1138,
 	},
 	mentalfortitude: {
 		onUpdate(pokemon) {
