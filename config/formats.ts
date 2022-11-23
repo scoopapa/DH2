@@ -4276,6 +4276,12 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Smeargle + Baton Pass'],
 	},
 	{
+		name: "[Gen 3] Sample Team Randbats",
+		team: 'random',
+		mod: 'gen3sampleteamrandbats',
+		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
+	},
+	{
 		name: "[Gen 2] OU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/posts/8133788/">GSC Sample Teams</a>`,
