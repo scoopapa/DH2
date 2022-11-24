@@ -4460,6 +4460,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
         tier: "OU",
         doublesTier: "DOU",
     },
+	mossiden: {
+        tier: "LC",
+    },
+	statimoss: {
+        tier: "OU",
+        doublesTier: "DOU",
+    },
 	kistraw: {
 		tier: "LC",
 	},
@@ -4467,6 +4474,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	mercurino: {
+        tier: "LC",
+    },
+	dauvifar: {
+        tier: "OU",
+        doublesTier: "DOU",
+    },
 	/*girafatak: { deleted for now
 		tier: "OU",
 		doublesTier: "DOU",

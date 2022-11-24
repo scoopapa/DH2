@@ -895,6 +895,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	parasitism: {
 		name: "Parasitism",
+		desc: "When this Pokemon is KO, inflicts Yawn and Leech Seed to the opponent.",
+		shortDesc: "Inflicts Yawn and Leech Seed on KO.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact'] && !target.hp) {
@@ -958,6 +960,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -64,
 	},
 	accumulate: {
+		desc: "At the end of each turn, this Pokemon gets 1 Stockpile.",
+		shortDesc: "Stockpiles at the end of each turn.",
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
@@ -983,6 +987,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 11,
 	},
 	blowhole: {
+		desc: "When this Pokemon uses a Water move, it sets Rain Dance.",
+		shortDesc: "Sets Rain Dance when using a Water move.",
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (move.type === 'Water' && this.field.getWeather().id !== 'raindance'){
@@ -1146,6 +1152,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 160,
 	},
 	disillusioned: {
+		desc: "This Pokemon is immune to Fairy type moves, and can hit Fairy type opponents for neutral damages with Dark moves.",
+		shortDesc: "Hits Fairy opponents for neutral damages with Dark moves; Fairy immune.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fairy') {
 				this.add('-immune', target, '[from] ability: Disillusioned');
@@ -1278,9 +1286,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			},*/
 		onAfterMoveSecondary(target, source, move) {
-			if (move.category === 'Status') return;
-			source.clearBoosts();
-			this.add('-clearboost', source);
+			if (move.category !== 'Status') {
+				source.clearBoosts();
+				this.add('-clearboost', source);
+			}
 		},
 		name: "Hyperthermia",
 		desc: "After this Pokemon used 2 offensive moves, all of its stat changes are reseted.",
@@ -1329,7 +1338,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 1.5,
 		num: 12,
 	},
-	cloudofsouls: {
+	pride: {
 		onSourceAfterFaint(length, target, source, effect, move) {
 			if (effect && effect.effectType === 'Move' && move.category === 'Physical') {
 				this.boost({atk: length}, source);
@@ -1338,9 +1347,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({spa: length}, source);
 			}
 		},
-		name: "Cloud of Souls",
+		name: "Pride",
 		rating: 3,
-		num: 153,
+		num: -1153,
 	},
 	hydrophilic: {
 		onModifyAtkPriority: 5,
@@ -1358,9 +1367,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Hydrophilic",
-		shortDesc: "This user's attacking stat is x1.5 when using a Water type move.",
+		desc: "This user's attacking stat is x1.5 when using a Water type move.",
+		shortDesc: "Attacking stat x1.5 when using a Water type move.",
 		rating: 3.5,
-		num: 200,
+		num: -1200,
 	},
 	searingtouch: {
 		onModifyMove(move) {
