@@ -4511,6 +4511,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	incinemate: {
+		tier: "LC",
+	},
+	fugivern: {
+		tier: "NFE",
+	},
+	drinferno: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	slugmasinnoh: {
 		tier: "LC",
 	},
