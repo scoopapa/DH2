@@ -4467,13 +4467,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	girafatak: {
+	/*girafatak: { deleted for now
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	girafataknocturnal: {
 		
-	},
+	},*/
 	sylvardian: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -4574,6 +4574,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	magroach: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	parafgufa: {
+		tier: "Uber",
+		doublesTier: "DOU",
+	},
+	infarmatem: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	infarmatemmega: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

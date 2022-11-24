@@ -32,7 +32,38 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     inherit: 'gen8',
     init: function() {
   
-    
+    // underdog 
+    this.modData('Learnsets', 'lillipup').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'herdier').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'stoutland').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'snubbull').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'granbull').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'eevee').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'vaporeon').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'jolteon').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'flareon').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'espeon').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'umbreon').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'leafeon').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'glaceon').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'sylveon').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'furfrou').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'growlithe').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'growlithehisui').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'arcanine').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'arcaninehisui').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'houndour').learnset.underdog = ['8L1'];
+    //this.modData('Learnsets', 'houndourgalar').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'houndoom').learnset.underdog = ['8L1'];
+    //this.modData('Learnsets', 'baskiron').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'yamper').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'boltund').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'watchog').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'tauros').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'furret').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'gumshoos').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'linoonegalar').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'obstagoon').learnset.underdog = ['8L1'];
 		
     // flamingsphere 
     this.modData('Learnsets', 'magmar').learnset.flamingsphere = ['8T'];
@@ -57,7 +88,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'chandelure').learnset.fireball = ['8T'];
     this.modData('Learnsets', 'magmortar').learnset.fireball = ['8T'];
     this.modData('Learnsets', 'cinderace').learnset.fireball = ['8T'];
-    //this.modData('Learnsets', 'drinferno').learnset.fireball = ['8T'];
+    this.modData('Learnsets', 'drinferno').learnset.fireball = ['8T'];
 
     // backfire 
     this.modData('Learnsets', 'reshiram').learnset.backfire = ['8L1'];
@@ -701,6 +732,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'regirock').learnset.shoreup = ['8L1'];
 
     //gen 4 :
+    this.modData('Learnsets', 'torterra').learnset.bodypress = ['8L1'];
+    this.modData('Learnsets', 'torterra').learnset.weatherball = ['8L1'];
     this.modData('Learnsets', 'empoleon').learnset.flipturn = ['8T'];
     this.modData('Learnsets', 'bibarel').learnset.earthquake = ['8L1'];
     this.modData('Learnsets', 'bibarel').learnset.icefang = ['8L1'];

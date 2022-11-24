@@ -2,11 +2,12 @@ import computeSourceMap from "sucrase/dist/types/computeSourceMap";
 
 export const Moves: {[k: string]: ModdedMoveData} = {
 	tentacatch: {
-		num: 20,
+		num: -1,
 		accuracy: 85,
 		basePower: 60,
 		category: "Physical",
 		name: "Tentacatch",
+		desc: "Traps and damages the target for 4-5 turns. Lowers the target's Atk by 1 stage.",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -22,7 +23,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	schuss: {
-		num: 136,
+		num: -2,
 		accuracy: 90,
 		basePower: 130,
 		category: "Physical",
@@ -38,7 +39,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	goodfishing: {
-		num: -1168,
+		num: -3,
 		accuracy: 100,
 		basePower: 65,
 		category: "Physical",
@@ -68,7 +69,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	magisterialwind: {
-		num: -1753,
+		num: -4,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
@@ -85,7 +86,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	stellarpunch: {
-		num: -1713,
+		num: -5,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -122,7 +123,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	toxicsting: {
 		shortDesc: "50% drain; badly poison target.",
-		num: -1202,
+		num: -6,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -139,7 +140,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 	},
 	detectmagic: {
-		num: 573,
+		num: -7,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
@@ -155,7 +156,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	dispelmagic: {
-		num: 499,
+		num: -8,
 		accuracy: true,
 		basePower: 70,
 		category: "Special",
@@ -173,7 +174,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "The target is cleared from all its stat changes.",
 	},
 	photopower: {
-		num: -1174,
+		num: -9,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -191,7 +192,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	draconicwrath: {
-		num: -2755,
+		num: -10,
 		accuracy: 100,
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
@@ -212,7 +213,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dragon",
 	},
 	purifyingstream: {
-		num: -1499,
+		num: -11,
 		accuracy: true,
 		basePower: 90,
 		category: "Special",
@@ -230,7 +231,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	railwaysmash: {
-		num: -1344,
+		num: -12,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -242,7 +243,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
-	galvanismash: {
+	//unused due to deleted Fakemons
+	/*galvanismash: {
 		num: -1457,
 		accuracy: 80,
 		basePower: 150,
@@ -428,9 +430,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
-	},
+	},*/
 	rolledballed: {
-		num: -1306,
+		num: -13,
 		accuracy: 90,
 		basePower: 35,
 		category: "Physical",
@@ -451,7 +453,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	goldenexperience: {
-		num: 409,
+		num: -14,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
@@ -467,7 +469,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	dimensionalbleeding: {
-		num: 722,
+		num: -15,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
@@ -484,7 +486,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 	},
     frostbite: {
-		num: -1001,
+		num: -16,
 		accuracy: 90,
 		basePower: 0,
 		category: "Status",
@@ -527,7 +529,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	aspiravoid: {
-		num: -1399,
+		num: -17,
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
@@ -554,8 +556,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "-1 Atk/SpA for target; +1 Atk/SpA for this Pokemon.",
 		contestType: "Cool",
 	},
+	underdog: {
+		num: -18,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Underdog",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onBasePower(basePower, source, target, move) {
+			const targetAtk = target.storedStats.atk;
+			const sourceAtk = source.storedStats.atk;
+			if (targetAtk >= sourceAtk) {
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
+	},
 	flamingsphere: {
-		num: -1040,
+		num: -19,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -570,7 +594,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	fireball: {
-		num: 257,
+		num: -20,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
@@ -587,7 +611,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	backfire: {
-		num: -1205,
+		num: -21,
 		accuracy: 100,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
@@ -623,7 +647,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	highwater: {
-		num: -659,
+		num: -22,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -647,7 +671,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	condensate: {
-		num: -1797,
+		num: -23,
 		accuracy: 100,
 		basePower: 65,
 		category: "Special",
@@ -672,7 +696,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 	},
 	chillblain: {
-		num: -1086,
+		num: -24,
 		accuracy: 85,
 		basePower: 0,
 		category: "Status",
@@ -688,7 +712,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	monkeypunch: {
-		num: 409,
+		num: -25,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -705,7 +729,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
     indomitablespirit: {
-		num: -1038,
+		num: -26,
 		accuracy: 95,
 		basePower: 75,
 		category: "Special",
@@ -743,7 +767,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 	},
 	cosmicpunch: {
-		num: -1473,
+		num: -27,
 		accuracy: 100,
 		basePower: 80,
 		shortDesc: "Damages target based on SpD, not Def.",
@@ -758,12 +782,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 	},
 	dissolution: {
-		num: -687,
+		num: -28,
 		accuracy: 70,
 		basePower: 100,
 		category: "Special",
 		name: "Dissolution",
 		pp: 16,
+		shortDesc: "Supresses the target's ability after hit.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onHit(target) {
@@ -781,7 +806,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 	},
 	landslide: {
-		num: 529,
+		num: -29,
 		accuracy: 100,
 		basePower: 50,
 		category: "Physical",
@@ -819,7 +844,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	epicenter: {
-		num: -1248,
+		num: -30,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -858,7 +883,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	downdraft: {
-		num: -1403,
+		num: -31,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -877,7 +902,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	golemstrike: {
-		num: -1444,
+		num: -32,
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
@@ -897,7 +922,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	punishingblow: {
-		num: -1712,
+		num: -33,
 		accuracy: 90,
 		basePower: 80,
 		category: "Physical",
@@ -914,7 +939,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	draconiccurse: {
-		num: -1246,
+		num: -34,
 		accuracy: 95,
 		basePower: 80,
 		category: "Special",
@@ -939,7 +964,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	draconicfury: {
-		num: -1337,
+		num: -35,
 		accuracy: 100,
 		basePower: 95,
 		category: "Physical",
@@ -958,7 +983,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
     contrariety: {
-        num: -1050,
+        num: -36,
         accuracy: true,
         basePower: 0,
         category: "Status",
@@ -986,7 +1011,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         zMove: {boost: {def: 1}},
     },
 	hypnotichorror: {
-		num: 276,
+		num: -37,
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
@@ -1007,7 +1032,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	sneakyassault: {
-		num: -1306,
+		num: -38,
 		accuracy: 100,
 		basePower: 30,
 		category: "Physical",
@@ -1029,7 +1054,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	mercuryshot: {
-		num: -1503,
+		num: -39,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
@@ -1048,7 +1073,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	chakraterrain: {
-		num: -1604,
+		num: -40,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1372,105 +1397,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Beautiful",
-	},
-	trickroom: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	magicroom: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	wonderroom: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	raindance: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	sunnyday: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	hail: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	sandstorm: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	electricterrain: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	psychicterrain: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	grassyterrain: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
-	},
-	mistyterrain: {
-		inherit: true,
-		durationCallback(target, source, effect){
-			if (source.move.id === 'roaroftime') {
-				duration -= 2;
-				return duration;
-			}
-		},
 	},
 	spacialrend: {
 		num: 460,

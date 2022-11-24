@@ -806,3 +806,20 @@ Additional information:
 |-fieldstart|move: Ultrasleep|[of] p1a: Hypno
 |-hint|All Pokemon are under Comatose effect!
 
+
+TypeError: Cannot read properties of undefined (reading 'learnset')
+    at ModdedDex.init (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\scripts.js:56:47)
+    at ModdedDex.loadData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1511:34)
+    at ModdedDex.includeData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1428:8)
+    at ModdedDex.forFormat (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:194:33)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:197:18)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Stoutland||silkscarf|scrappy|underdog,closecombat,earthquake,crunch|Adamant|,252,,,4,252|||||
+

@@ -190,7 +190,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 113,
 	},
-	doublespirit: {
+	//Girafatak is deleted for now
+	/*doublespirit: {
 		shortDesc: "Switches to Nocturnal form before using a Physical move, and to Diurnal form before using a Special move.",
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
@@ -203,7 +204,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Double Spirit",
 		rating: 4,
 		num: -1176,
-	},
+	},*/
 	divination: {
         shortDesc: "Reveals a random move of each adjacent opponent on entry.",
         onStart(pokemon) {
@@ -264,7 +265,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon will always take neutral damages from super effective damages from physical moves.",
 		num: -9999,
 	},
-	shortcircuit: {
+	//unused due to deleted Fakemons
+	/*shortcircuit: {
 		onStart(pokemon) {
 			let bp = 0;
 			for (const moveSlot of pokemon.moveSlots) {
@@ -307,7 +309,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Bipolar",
 		rating: 4,
 		num: -1176,
-	},
+	},*/
 	mistymountain: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
@@ -388,6 +390,94 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Never Gonna Give You Up",
 		rating: 4,
 		num: -1064,
+	},
+	microclimate: {
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// Cloud Nine does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			if (!this.effectData.switchingIn) return;
+			this.add('-ability', pokemon, 'Microclimate');
+			this.effectData.switchingIn = false;
+		},
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+				this.debug('Microclimate strengthen');
+				return this.chainModify(2);
+			}
+			else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+				this.debug('Microclimate weaken');
+				return this.chainModify(0.5);
+			}
+			else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.debug('Microclimate weaken');
+				return this.chainModify(0.5);
+			}
+			else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.debug('Microclimate strengthen');
+				return this.chainModify(2);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+				this.debug('Microclimate strengthen');
+				return this.chainModify(2);
+			}
+			else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+				this.debug('Microclimate weaken');
+				return this.chainModify(0.5);
+			}
+			else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.debug('Microclimate weaken');
+				return this.chainModify(0.5);
+			}
+			else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.debug('Microclimate strengthen');
+				return this.chainModify(2);
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+				if (move.type === 'Fire') {
+					this.debug('Microclimate boost');
+					return this.chainModify(2);
+				}
+				else if (move.type === 'Water') {
+					this.debug('Microclimate boost');
+					return this.chainModify(0.5);
+				}
+			}
+			else if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				if (move.type === 'Fire') {
+					this.debug('Microclimate boost');
+					return this.chainModify(0.5);
+				}
+				else if (move.type === 'Water') {
+					this.debug('Microclimate boost');
+					return this.chainModify(2);
+				}
+			}
+		},
+		suppressWeather: true,
+		shortDesc: "Reverses effects of Sun and Rain; negates Sand and Hail.",
+		name: "Microclimate",
+		rating: 2,
+		num: -1013,
+	},
+	voidheart: {
+		desc: "When it KOs an opponent with a direct move, it recovers 25% of its max HP.",
+		shortDesc: "Heals 25% HP on KO.",
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.heal(source.baseMaxhp / 4);
+			}
+		},
+		name: "Void Heart",
+		rating: 3,
+		num: -1153,
 	},
 	convectioncurrent: {
 		desc: "If Gravity is active, this Pokemon's Speed is doubled.",
