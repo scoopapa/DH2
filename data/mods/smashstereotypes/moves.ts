@@ -2767,6 +2767,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'flintspear',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stone Edge", target);
+		},
 		condition: {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Flint Spear');
