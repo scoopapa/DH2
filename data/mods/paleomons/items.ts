@@ -145,4 +145,32 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "If held by a Trobsidon, this item allows it to Mega Evolve in battle.",
 		//isNonstandard: "Past",
 	},
+	steelixite: {
+		name: "Steelixite",
+		spritenum: 621,
+		megaStone: "Steelix-Mega",
+		megaEvolves: "Steelix",
+		itemUser: ["Steelix"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 761,
+		gen: 8,
+		shortDesc: "If held by a Steelix-Crystal, this item allows it to Mega Evolve in battle.",
+	},
+	diancite: {
+		name: "Diancite",
+		spritenum: 624,
+		megaStone: "Diancie-Mega",
+		megaEvolves: "Diancie",
+		itemUser: ["Diancie"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 764,
+		gen: 8,
+		shortDesc: "If held by a Diancie-Cataclysm, this item allows it to Mega Evolve in battle.",
+	},
 };

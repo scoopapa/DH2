@@ -6,6 +6,25 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customDoublesTiers: ['Paleomons', 'Paleomons NFE', 'Paleomons LC'],
 	},
 
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Diancite" && pokemon.baseSpecies.name === "Diancie-Cataclysm") {
+			return "Diancie-Cataclysm-Mega"; 
+		}
+		if (item.name === "Steelixite" && pokemon.baseSpecies.name === "Steelix-Crystal") {
+			return "Steelix-Crystal-Mega"; 
+		}
+		
+		return item.megaStone;
+	},
+
 	pokemon: {
 		runEffectiveness(move: ActiveMove) {
 			let totalTypeMod = 0;
