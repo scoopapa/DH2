@@ -298,12 +298,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.name === 'Jump Kick' || move.name === 'High Jump Kick' || move.name === 'Mega Kick' || move.name === 'Double Kick' || move.name === 'Trop Kick' || move.name === 'Blaze Kick' || move.name === 'Low Kick' || move.name === 'Stick Kick' || move.name === 'Thunderous Kick') {
 				this.debug('Thunder Thighs boost');
 				return this.chainModify([0x1333, 0x1000]);
-				move.accuracy = true;
 			}
+		},
+		onSourceModifyAccuracyPriority: 9,
+		onSourceModifyAccuracy(accuracy, move) {
+			if (typeof accuracy !== 'number' && (move.name === 'Jump Kick' || move.name === 'High Jump Kick' || move.name === 'Mega Kick' || move.name === 'Double Kick' || move.name === 'Trop Kick' || move.name === 'Blaze Kick' || move.name === 'Low Kick' || move.name === 'Stick Kick' || move.name === 'Thunderous Kick')) return;
+			this.debug('compoundeyes - enhancing accuracy');
+			return accuracy * 1.3;
 		},
 		name: "Thunder Thighs",
 		desc: "Moves with the word 'kick' in their name have their power multiplied by 1.2x.",
-		shortDesc: "Kicking moves deal 1.2x damage.",
+		shortDesc: "Kicking moves deal 1.2x damage and can't miss.",
 		num: -112,
 	},
 
