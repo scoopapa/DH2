@@ -2759,7 +2759,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	flintspear: {
 		num: -114,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 85,
 		category: "Physical",
 		name: "Flint Spear",
 		shortDesc: "Target becomes weaker to Fire.",
@@ -2767,10 +2767,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'flintspear',
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Stone Edge", target);
-		},
 		condition: {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Flint Spear');
@@ -2785,7 +2781,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Rock",
+		type: "Ghost",
 	},
 
 	foragerspoise: {
