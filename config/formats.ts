@@ -4280,6 +4280,12 @@ export const Formats: FormatList = [
 		team: 'random',
 		mod: 'gen3sampleteamrandbats',
 		ruleset: ['Standard', 'One Boost Passer Clause', 'Freeze Clause Mod'],
+		onBegin() {
+			for (const pokemon of this.getAllPokemon()) {
+				var side = pokemon.side;
+				this.hint(side.team[0].sampleTeamName, true, pokemon.side);
+			}
+		},
 	},
 	{
 		name: "[Gen 2] OU",
