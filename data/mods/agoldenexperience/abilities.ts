@@ -1,3 +1,5 @@
+import { consoleips } from "../../../config/config-example";
+
 const bladeMoves = ['aerialace','airslash', 'aircutter', 'behemothblade', 'crosspoison', 'cut', 'falseswipe', 'furycutter', 'leafblade', 'nightslash', 'psychocut', 'razorshell', 'razorwind','sacredsword', 'secretsword', 'slash', 'xscissor', 'solarblade', 'ceaselessedge', 'sneakyassault', 'braveblade',];
 const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazekick', 'tropkick', 'lowkick', 'lowsweep', 'rollingkick', 'triplekick', 'stomp', 'highhorsepower', 'tripleaxel', 'stompingtantrum', 'thunderouskick'];
 const tailMoves = ['firelash', 'powerwhip', 'tailslap', 'wrap', 'constrict', 'irontail', 'dragontail', 'poisontail', 'aquatail', 'vinewhip', 'wringout',];
@@ -328,6 +330,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Misty Mountain",
 		rating: 4,
 		num: 174,
+	},
+	toymaker: {
+		name: "Toymaker",
+		desc: "At the end of each turn, if it doesn't have an held item, the user acquires a random item. (Leftovers, Sitrus Berry, Lum Berry, Figy Berry, Starf Berry, Choice Band, Choice Specs, Choice Scarf, Flame Orb, Para Orb, Toxic Orb, Light Ball, Iron Ball, Rocky Helmet, Heavy-Duty Boots)",
+		shortDesc: "Gets a random item from a list at the end of the turn if the user doesn't already have one.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			const itemList =  ['leftovers', 'sitrusberry', 'lumberry', 'figyberry', 'starfberry', 'choiceband', 'choicespecs', 'choicescarf', 'flameorb', 'paraorb', 'toxicorb', 'lightball', 'ironball', 'rockyhelmet', 'heavydutyboots'];
+			const itemIndex = this.random(itemList.length);
+			const itemMade = itemList[itemIndex];
+			if (pokemon.hp && !pokemon.item) {
+				pokemon.setItem(itemMade);
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Toymaker');
+			}
+		},
+		rating: 3,
+		num: -1118,
 	},
 	woodclearing: {
 		onBasePowerPriority: 21,
@@ -871,7 +891,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Night Light",
 		rating: 3.5,
-		num: 47,
+		num: -1047,
 	},
 	icebreaker: {
 		onModifySpe(spe, pokemon) {
@@ -891,7 +911,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Ice Breaker",
 		rating: 3,
-		num: 202,
+		num: -1202,
 	},
 	parasitism: {
 		name: "Parasitism",
@@ -909,7 +929,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		rating: 2.5,
-		num: 106,
+		num: -1106,
+	},
+	flatterer: {
+		onBoost(boost, target, source, effect) {
+			if (!(target && target === source)) {
+				console.log("if statement")
+				let i: BoostName;
+				for (i in boost) {
+					console.log("for statement")
+					console.log("i = " + i);
+					boost[i]! *= 2;
+				}
+			}
+		},
+		name: "Flatterer",
+		desc: "When this Pokemon raises or lowers another Pokemon's stat, the stat change is doubled. ",
+		shortDesc: "Doubles stat change inflicted to other Pokemons.",
+		rating: 0.5,
+		num: -1145,
 	},
 	explosive: {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.",
@@ -971,7 +1009,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Accumulate",
 		rating: 4.5,
-		num: 3,
+		num: -1003,
 	},
 	angelicnature: {
 		onTryHit(target, source, move) {
@@ -984,7 +1022,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Angelic Nature",
 		rating: 3.5,
-		num: 11,
+		num: -2011,
 	},
 	blowhole: {
 		desc: "When this Pokemon uses a Water move, it sets Rain Dance.",
@@ -1271,24 +1309,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1034,
 	},
 	hyperthermia: {
-			/*onSourceHit(target, source, move) {
-				if (move.category === 'Status') return;
+		onSourceHit(target, source, move) {
+			if (move.category !== 'Status') {
 				if (source.volatiles['warming']) {
 					delete source.volatiles['warming'];
 					source.addVolatile('warm');
 				}
-				else if (source.volatiles['warm']) {
-					delete source.volatiles['warm'];
-					source.clearBoosts();
-				}
 				else {
 					source.addVolatile('warming');
 				}
-			},*/
-		onAfterMoveSecondary(target, source, move) {
-			if (move.category !== 'Status') {
-				source.clearBoosts();
-				this.add('-clearboost', source);
+			}
+		},
+		onAfterMove(pokemon) {
+			if (pokemon.volatiles['warm']) {
+				pokemon.clearBoosts();
+				this.add('-clearboost', pokemon);
+				delete pokemon.volatiles['warm'];
 			}
 		},
 		name: "Hyperthermia",

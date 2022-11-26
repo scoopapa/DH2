@@ -823,3 +823,196 @@ Additional information:
   formatid = gen8agoldenexperience
   team = Stoutland||silkscarf|scrappy|underdog,closecombat,earthquake,crunch|Adamant|,252,,,4,252|||||
 
+
+ReferenceError: move is not defined
+    at Battle.onBoost (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:1308:5)
+    at Battle.runEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:741:34)
+    at Battle.boost (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:1687:16)
+    at Battle.runMoveEffects (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:922:23)
+    at Battle.spreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:821:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:100:33)
+
+Additional information:
+  chunk = >p2 move 1 mega
+  inputLog = 
+>version de999c966ac9b1315bd6e568e388406c6ad057f7
+>start {"formatid":"gen8agoldenexperience","seed":[57832,38891,64276,20382]}
+>player p1 {"name":"Lysiyes","avatar":"1","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||","rating":0}
+>player p2 {"name":"Lysihope","avatar":"265","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||","rating":0}
+>p1 team 2, 1
+>p2 team 1, 2
+>p1 move toxic
+>p2 move shiftgear mega
+  log = 
+|t:|1669457705
+|player|p1|Lysiyes|1|
+|player|p2|Lysihope|265|
+|teamsize|p1|2
+|teamsize|p2|2
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Scizor-Galar, M|
+|poke|p1|Toxapex, M|
+|poke|p2|Scizor-Galar, M|
+|poke|p2|Toxapex, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669457709
+|start
+|switch|p1a: Toxapex|Toxapex, M|304/304
+|switch|p2a: Scizor|Scizor-Galar, M|343/343
+|-start|p2a: Scizor|typechange|Bug/Fire|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Scizor-Galar</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Bug.png" alt="Bug" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Swarm / Hyperthermia / Steadfast</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>75</span> <span class="col statcol"><em>SpA</em><br>105</span> <span class="col statcol"><em>SpD</em><br>75</span> <span class="col statcol"><em>Spe</em><br>85</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1669457714
+|detailschange|p2a: Scizor|Scizor-Galar-Mega, M
+|-mega|p2a: Scizor|Scizor|Scizorite
+|-start|p2a: Scizor|typechange|Steel/Fire|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Scizor-Galar-Mega</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Hyperthermia</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>155</span> <span class="col statcol"><em>Def</em><br>85</span> <span class="col statcol"><em>SpA</em><br>115</span> <span class="col statcol"><em>SpD</em><br>85</span> <span class="col statcol"><em>Spe</em><br>90</span> </span></li><li style="clear: both"></li></ul>
+|move|p2a: Scizor|Shift Gear|p2a: Scizor
+
+
+TypeError: Cannot read properties of undefined (reading 'category')
+    at Battle.onBoost (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:1308:14)
+    at Battle.runEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:741:34)
+    at Battle.boost (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:1687:16)
+    at Battle.runMoveEffects (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:922:23)
+    at Battle.spreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:821:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:100:33)
+
+Additional information:
+  chunk = >p2 move 3
+  inputLog = 
+>version de999c966ac9b1315bd6e568e388406c6ad057f7
+>start {"formatid":"gen8agoldenexperience","seed":[52,19036,64233,4465]}
+>player p1 {"name":"Lysinosleep","avatar":"1","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||","rating":0}
+>player p2 {"name":"Lysidreamingnomore","avatar":"101","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||","rating":0}
+>p1 team 1, 2
+>p2 team 2, 1
+>p1 move shiftgear mega
+>p2 move toxic
+  log = 
+|t:|1669457906
+|player|p1|Lysinosleep|1|
+|player|p2|Lysidreamingnomore|101|
+|teamsize|p1|2
+|teamsize|p2|2
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Scizor-Galar, F|
+|poke|p1|Toxapex, F|
+|poke|p2|Scizor-Galar, M|
+|poke|p2|Toxapex, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669457915
+|start
+|switch|p1a: Scizor|Scizor-Galar, F|343/343
+|switch|p2a: Toxapex|Toxapex, F|304/304
+|-start|p1a: Scizor|typechange|Bug/Fire|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Scizor-Galar</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Bug.png" alt="Bug" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Swarm / Hyperthermia / Steadfast</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>75</span> <span class="col statcol"><em>SpA</em><br>105</span> <span class="col statcol"><em>SpD</em><br>75</span> <span class="col statcol"><em>Spe</em><br>85</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1669457919
+|detailschange|p1a: Scizor|Scizor-Galar-Mega, F
+|-mega|p1a: Scizor|Scizor|Scizorite
+|-start|p1a: Scizor|typechange|Steel/Fire|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Scizor-Galar-Mega</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Hyperthermia</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>155</span> <span class="col statcol"><em>Def</em><br>85</span> <span class="col statcol"><em>SpA</em><br>115</span> <span class="col statcol"><em>SpD</em><br>85</span> <span class="col statcol"><em>Spe</em><br>90</span> </span></li><li style="clear: both"></li></ul>
+|move|p1a: Scizor|Shift Gear|p1a: Scizor
+
+
+ReferenceError: itemList is not defined
+    at Battle.onResidual (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:343:34)
+    at Battle.singleEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:487:25)
+    at Battle.residualEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2653:9)
+    at Battle.go (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p2 move 3
+  inputLog = 
+>version de999c966ac9b1315bd6e568e388406c6ad057f7
+>start {"formatid":"gen8agoldenexperience","seed":[41980,41637,23409,9999]}
+>player p1 {"name":"Lysistmas","avatar":"169","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Persian|persianalola|lifeorb|flatterer|partingshot,swagger,nastyplot,darkpulse|Timid|,,,252,4,252||,0,,,,|||]Delistmas|||toymaker|roost,uturn,fling,tripleaxel|Careful|248,8,,,252,|||||","rating":0}
+>player p2 {"name":"WinterLysi","avatar":"265","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Persian|persianalola|lifeorb|flatterer|partingshot,swagger,nastyplot,darkpulse|Timid|,,,252,4,252||,0,,,,|||]Delistmas|||toymaker|roost,uturn,fling,tripleaxel|Careful|248,8,,,252,|||||","rating":0}
+>p1 team 4, 2, 3, 1
+>p2 team 4, 2, 3, 1
+>p1 move fling
+>p2 move fling
+  log = 
+|t:|1669464861
+|player|p1|Lysistmas|169|
+|player|p2|WinterLysi|265|
+|teamsize|p1|4
+|teamsize|p2|4
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Scizor-Galar, M|
+|poke|p1|Toxapex, F|
+|poke|p1|Persian-Alola, F|
+|poke|p1|Delistmas, F|
+|poke|p2|Scizor-Galar, F|
+|poke|p2|Toxapex, F|
+|poke|p2|Persian-Alola, M|
+|poke|p2|Delistmas, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669464865
+|start
+|switch|p1a: Delistmas|Delistmas, F|423/423
+|switch|p2a: Delistmas|Delistmas, F|423/423
+|-start|p1a: Delistmas|typechange|Ice/Fairy|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Delistmas</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Toymaker</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>110</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>65</span> <span class="col statcol"><em>SpA</em><br>70</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>70</span> </span></li><li style="clear: both"></li></ul>
+|-start|p2a: Delistmas|typechange|Ice/Fairy|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Delistmas</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Toymaker</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>110</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>65</span> <span class="col statcol"><em>SpA</em><br>70</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>70</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1669464875
+|move|p1a: Delistmas|Fling||[still]
+|-fail|p1a: Delistmas
+|move|p2a: Delistmas|Fling||[still]
+|-fail|p2a: Delistmas
+|
+

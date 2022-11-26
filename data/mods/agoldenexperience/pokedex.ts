@@ -144,6 +144,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 80, def: 60, spa: 65, spd: 65, spe: 115},
 		abilities: {0: "Limber", 1: "Technician", H: "Tough Claws"},
 	},
+	persianalola: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 60, def: 60, spa: 85, spd: 65, spe: 115},
+		abilities: {0: "Fur Coat", 1: "Technician", H: "Flatterer"},
+	},
 	golduck: {
 		inherit: true,
 		types: ["Water", "Psychic"],
@@ -802,6 +807,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 75, atk: 60, def: 75, spa: 125, spd: 75, spe: 70},
 		abilities: {0: "Suction Cups", 1: "Sniper", H: "Mega Launcher"},
+	},
+	delibird: {
+		inherit: true,
+		evos: ["Delistmas"],
 	},
 	mantine: {
 		inherit: true,
@@ -3564,6 +3573,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Magcargo-Sinnoh",
 		evoLevel: 55,
 		eggGroups: ["Amorphous"],
+	},
+	delistmas: {
+		num: 2058,
+		name: "Delistmas",
+		types: ["Ice", "Fairy"],
+		baseStats: {hp: 110, atk: 90, def: 65, spa: 70, spd: 65, spe: 70},
+		abilities: {0: "Toymaker"},
+		heightm: 1.7,
+		weightkg: 86,
+		prevo: "Delibird",
+		eggGroups: ["Water 1", "Field"],
 	},
 	jhex:{
 		num: 2059,

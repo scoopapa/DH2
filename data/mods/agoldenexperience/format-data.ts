@@ -4545,6 +4545,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	delistmas: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	jhex: {
 		tier: "OU",
 		doublesTier: "DOU",

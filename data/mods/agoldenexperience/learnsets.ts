@@ -2339,6 +2339,17 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			meteorbeam: ["8L1"],
 		},
 	},
+	delistmas: {
+		learnset: {
+			celebrate: ["8L1"],
+			healingwish: ["8L1"],
+			knockoff: ["8L1"],
+			roost: ["8L1"],
+			trick: ["8L1"],
+			uturn: ["8L1"],
+			wish: ["8L1"],
+		},
+	},
 	jhex: {
 		learnset: {
 			hex: ["8L1"],
