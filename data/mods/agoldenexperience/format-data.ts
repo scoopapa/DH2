@@ -4535,6 +4535,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	houndourgalar: {
+		tier: "LC",
+	},
+	baskiron: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	baskironmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	slugmasinnoh: {
 		tier: "LC",
 	},
@@ -4588,6 +4599,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	snoxin: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	florhoper: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
