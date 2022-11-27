@@ -26,6 +26,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     else if (item.name === "Typhlosionite" && pokemon.baseSpecies.name === "Typhlosion-Hisui") {
 			return null;
 		}
+    else if (item.name === "Meteor Fragment" && pokemon.baseSpecies.name === "Rayquaza") {
+			return "Rayquaza-Mega";
+		}
+    else if (item.name === "Necrosolunite" && pokemon.baseSpecies.name === "Necrozma-Dusk-Mane") {
+			return "Necrozma-Ultra";
+		}
+    else if (item.name === "Necrosolunite" && pokemon.baseSpecies.name === "Necrozma-Dawn-Wings") {
+			return "Necrozma-Ultra";
+		}
 		return item.megaStone;
 	},
 
@@ -53,9 +62,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'arcanine').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'arcaninehisui').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'houndour').learnset.underdog = ['8L1'];
-    //this.modData('Learnsets', 'houndourgalar').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'houndourgalar').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'houndoom').learnset.underdog = ['8L1'];
-    //this.modData('Learnsets', 'baskiron').learnset.underdog = ['8L1'];
+    this.modData('Learnsets', 'baskiron').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'yamper').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'boltund').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'watchog').learnset.underdog = ['8L1'];
@@ -237,7 +246,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'staraptor').learnset.downdraft = ['8L1'];
     this.modData('Learnsets', 'cymadalea').learnset.downdraft = ['8L1'];
     //this.modData('Learnsets', 'medidragon').learnset.downdraft = ['8L1'];
-    //this.modData('Learnsets', 'admistral').learnset.downdraft = ['8L1'];
+    this.modData('Learnsets', 'admistral').learnset.downdraft = ['8L1'];
 
     // golemstrike 
     this.modData('Learnsets', 'nidoqueen').learnset.golemstrike = ['8T'];

@@ -109,10 +109,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	raticate: {
-		tier: "NFE",
+		tier: "(PU)",
+		doublesTier: "(DUU)",
 	},
 	raticatealola: {
-		tier: "NFE",
+		tier: "(PU)",
+		doublesTier: "(DUU)",
 	},
 	raticatealolatotem: {
 		isNonstandard: "Past",
@@ -1188,7 +1190,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	girafarig: {
-		tier: "LC",
+		tier: "(PU)",
+		doublesTier: "(DUU)",
 	},
 	pineco: {
 		tier: "LC",
@@ -4474,6 +4477,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	sharkutkie: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	mercurino: {
         tier: "LC",
     },
@@ -4492,6 +4499,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	scarpent: {
+		tier: "LC",
+	},
+	terreptile: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	terreptilemega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	stonlet: {
 		tier: "LC",
 	},
@@ -4500,6 +4518,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	rockstermega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	expecies: {
+		tier: "LC",
+	},
+	albirat: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -4543,6 +4568,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	baskironmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ameba: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
