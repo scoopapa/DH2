@@ -35923,10 +35923,10 @@ function randomIntFromInterval(min, max) { // min and max included
 export class RandomGen3Teams extends RandomGen4Teams {
 	randomTeam() {
 		var pokemon = [];
+		var genders = ["Male", "Female"];
 		var randomTeam = randomIntFromInterval(0, 377);
 		var team = Object.keys(SampleTeamsData)[randomTeam];
-		var genders = ["Male", "Female"];
-		console.log(team);
+		var sampleTeamName = SampleTeamsData[team]['teamName'];
 		for (var setNo in SampleTeamsData[team]['teamData']) {
 			var name = SampleTeamsData[team]['teamData'][setNo]['name'];
 			if (name == '') name = SampleTeamsData[team]['teamData'][setNo]['species'];
@@ -35942,6 +35942,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 				nature: SampleTeamsData[team]['teamData'][setNo]['nature'],
 				level: 100,
 				shiny: this.randomChance(1, 1024),
+				sampleTeamName: sampleTeamName,
 			}
 			pokemon.push(set);
 		}
