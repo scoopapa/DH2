@@ -39,8 +39,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 
     inherit: 'gen8',
+    gen: 8,
     init: function() {
-  
+
     // underdog 
     this.modData('Learnsets', 'lillipup').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'herdier').learnset.underdog = ['8L1'];
@@ -64,7 +65,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'houndour').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'houndourgalar').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'houndoom').learnset.underdog = ['8L1'];
-    this.modData('Learnsets', 'baskiron').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'yamper').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'boltund').learnset.underdog = ['8L1'];
     this.modData('Learnsets', 'watchog').learnset.underdog = ['8L1'];

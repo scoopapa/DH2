@@ -1016,3 +1016,119 @@ Additional information:
 |-fail|p2a: Delistmas
 |
 
+
+TypeError: Cannot read properties of undefined (reading 'learnset')
+    at ModdedDex.init (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\scripts.js:67:42)
+    at ModdedDex.loadData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1511:34)
+    at ModdedDex.includeData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1428:8)
+    at ModdedDex.forFormat (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:194:33)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:197:18)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Noivern-Sinnoh||choicespecs|refrigerate|boomburst,dracometeor,uturn,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+TypeError: target.boost is not a function
+    at Battle.onSourceHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:937:12)
+    at Battle.runEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:741:34)
+    at Battle.runMoveEffects (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1006:12)
+    at Battle.spreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:821:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:100:33)
+    at Battle.runAction (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2572:9)
+
+Additional information:
+  chunk = >p1 move 3
+  inputLog = 
+>version 25b6885799582306f12c0842e48bc8aec0cfa2ac
+>start {"formatid":"gen8agoldenexperience","seed":[51092,20064,46071,65062]}
+>player p1 {"name":"Lysidelgard ship","avatar":"266","team":"Noivern|noivernsinnoh|choicespecs|refrigerate|boomburst,dracometeor,uturn,focusblast|Timid|,,,252,4,252||,0,,,,|||]Persian|persianalola|leftovers|flatterer|nastyplot,partingshot,swagger,hypervoice|Timid|,,,252,4,252||,0,,,,|||","rating":0}
+>player p2 {"name":"BappyLysithea","avatar":"266","team":"Noivern|noivernsinnoh|choicespecs|refrigerate|boomburst,dracometeor,uturn,focusblast|Timid|,,,252,4,252||,0,,,,|||]Persian|persianalola|leftovers|flatterer|nastyplot,partingshot,swagger,hypervoice|Timid|,,,252,4,252||,0,,,,|||","rating":0}
+>p1 team 2, 1
+>p2 team 1, 2
+>p1 move partingshot
+>p2 move boomburst
+>p1 switch 2
+>p1 move uturn
+>p2 switch 2
+>p1 move uturn
+>p2 move partingshot
+  log = 
+|t:|1669565506
+|player|p1|Lysidelgard ship|266|
+|player|p2|BappyLysithea|266|
+|teamsize|p1|2
+|teamsize|p2|2
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Noivern-Sinnoh, F|
+|poke|p1|Persian-Alola, F|
+|poke|p2|Noivern-Sinnoh, M|
+|poke|p2|Persian-Alola, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Species Clause: Limit one of each Pokémon
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669565510
+|start
+|switch|p1a: Persian|Persian-Alola, F|271/271
+|switch|p2a: Noivern|Noivern-Sinnoh, M|311/311
+|-start|p2a: Noivern|typechange|Ice/Dragon|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Noivern-Sinnoh</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dragon.png" alt="Dragon" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Levitate / Refrigerate</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>83</span> <span class="col statcol"><em>Def</em><br>80</span> <span class="col statcol"><em>SpA</em><br>85</span> <span class="col statcol"><em>SpD</em><br>80</span> <span class="col statcol"><em>Spe</em><br>123</span> </span></li><li style="clear: both"></li></ul>
+|-start|p1a: Persian|typechange|Dark|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Persian-Alola</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Fur Coat / Technician / Flatterer</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>65</span> <span class="col statcol"><em>Atk</em><br>60</span> <span class="col statcol"><em>Def</em><br>60</span> <span class="col statcol"><em>SpA</em><br>85</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>115</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1669565515
+|move|p2a: Noivern|Boomburst|p1a: Persian
+|-damage|p1a: Persian|0 fnt
+|faint|p1a: Persian
+|
+|upkeep
+|
+|t:|1669565520
+|switch|p1a: Noivern|Noivern-Sinnoh, F|311/311
+|-start|p1a: Noivern|typechange|Ice/Dragon|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Noivern-Sinnoh</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dragon.png" alt="Dragon" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Levitate / Refrigerate</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>83</span> <span class="col statcol"><em>Def</em><br>80</span> <span class="col statcol"><em>SpA</em><br>85</span> <span class="col statcol"><em>SpD</em><br>80</span> <span class="col statcol"><em>Spe</em><br>123</span> </span></li><li style="clear: both"></li></ul>
+|turn|2
+|
+|t:|1669565526
+|switch|p2a: Persian|Persian-Alola, F|271/271
+|-start|p2a: Persian|typechange|Dark|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Persian-Alola</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Fur Coat / Technician / Flatterer</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>65</span> <span class="col statcol"><em>Atk</em><br>60</span> <span class="col statcol"><em>Def</em><br>60</span> <span class="col statcol"><em>SpA</em><br>85</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>115</span> </span></li><li style="clear: both"></li></ul>
+|move|p1a: Noivern|U-turn|p2a: Persian
+|-supereffective|p2a: Persian
+|-damage|p2a: Persian|157/271
+|
+|-heal|p2a: Persian|173/271|[from] item: Leftovers
+|upkeep
+|turn|3
+|
+|t:|1669565530
+|move|p1a: Noivern|U-turn|p2a: Persian
+|-supereffective|p2a: Persian
+|-damage|p2a: Persian|73/271
+|move|p2a: Persian|Parting Shot|p1a: Noivern
+|-unboost|p1a: Noivern|atk|1
+|-unboost|p1a: Noivern|spa|1
+

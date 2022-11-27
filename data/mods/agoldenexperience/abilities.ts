@@ -931,24 +931,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: -1106,
 	},
-	flatterer: {
-		onBoost(boost, target, source, effect) {
-			if (!(target && target === source)) {
-				console.log("if statement")
-				let i: BoostName;
-				for (i in boost) {
-					console.log("for statement")
-					console.log("i = " + i);
-					boost[i]! *= 2;
-				}
-			}
-		},
-		name: "Flatterer",
-		desc: "When this Pokemon raises or lowers another Pokemon's stat, the stat change is doubled. ",
-		shortDesc: "Doubles stat change inflicted to other Pokemons.",
-		rating: 0.5,
-		num: -1145,
-	},
 	explosive: {
 		desc: "This Pokémon does not suffer the drawbacks of recoil moves and sacrificial moves.",
 		shortDesc: "Ignores recoil and self-KO effects of that move.",
