@@ -2444,6 +2444,27 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			willowisp: ["8L1"],
 		},
 	},
+	snobawcus: {
+		learnset: {
+			bulkup: ["8L1"],
+			toxic: ["8L1"],
+			taunt: ["8L1"],
+			spikes: ["8L1"],
+			toxicspikes: ["8L1"],
+			rest: ["8L1"],
+			protect: ["8L1"],
+			megahorn: ["8L1"],
+			rolledballed: ["8L1"],
+			rockblast: ["8L1"],
+			gunkshot: ["8L1"],
+			superpower: ["8L1"],
+			headcharge: ["8L1"],
+			iceshard: ["8L1"],
+			focusblast: ["8L1"],
+			sludgebomb: ["8L1"],
+			earthpower: ["8L1"],
+		},
+	},
 	slugmasinnoh: {
 		learnset: {
 			acidarmor: ["7E", "7V", "6E", "5E", "4E", "3E"],

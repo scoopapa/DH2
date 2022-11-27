@@ -3678,6 +3678,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 1.2,
 		weightkg: 25,
 	},
+	snobawcus: {
+		num: 2052,
+		name: "Snobawcus",
+		types: ["Bug", "Ice"],
+		baseStats: {hp: 70, atk: 75, def: 130, spa: 40, spd: 85, spe: 60},
+		abilities: {0: "Thick Fat", 1: "Shell Armor", H: "Pure Power"},
+		heightm: 1.2,
+		weightkg: 60,
+	},
 	leechuption: {
 		num: 2057,
 		name: "Leechuption",
