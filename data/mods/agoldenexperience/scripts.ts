@@ -128,7 +128,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'quilava').learnset.backfire = ['8L1'];
     this.modData('Learnsets', 'typhlosion').learnset.backfire = ['8L1'];
     this.modData('Learnsets', 'wizamadol').learnset.backfire = ['8L1'];
-    //this.modData('Learnsets', 'solens').learnset.backfire = ['8L1'];
+    this.modData('Learnsets', 'solens').learnset.backfire = ['8L1'];
     this.modData('Learnsets', 'charmander').learnset.backfire = ['8L1'];
     this.modData('Learnsets', 'charmeleon').learnset.backfire = ['8L1'];
     this.modData('Learnsets', 'charizard').learnset.backfire = ['8L1'];
@@ -245,7 +245,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'swellow').learnset.downdraft = ['8L1'];
     this.modData('Learnsets', 'staraptor').learnset.downdraft = ['8L1'];
     this.modData('Learnsets', 'cymadalea').learnset.downdraft = ['8L1'];
-    //this.modData('Learnsets', 'medidragon').learnset.downdraft = ['8L1'];
+    this.modData('Learnsets', 'medidragon').learnset.downdraft = ['8L1'];
     this.modData('Learnsets', 'admistral').learnset.downdraft = ['8L1'];
 
     // golemstrike 
@@ -324,7 +324,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'urshifurapidstrike').learnset.golemstrike = ['8T'];
     this.modData('Learnsets', 'ledian').learnset.golemstrike = ['8T'];
     this.modData('Learnsets', 'ledixy').learnset.golemstrike = ['8T'];
-    //this.modData('Learnsets', 'mosquitox').learnset.golemstrike = ['8T'];
+    this.modData('Learnsets', 'mosquitox').learnset.golemstrike = ['8T'];
 
     // punishingblow 
     this.modData('Learnsets', 'froslass').learnset.punishingblow = ['8L1'];
@@ -440,7 +440,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'hydreigon').learnset.draconiccurse = ['8L1'];
     this.modData('Learnsets', 'salamence').learnset.draconiccurse = ['8L1'];
     this.modData('Learnsets', 'noivern').learnset.draconiccurse = ['8L1'];
-    //this.modData('Learnsets', 'noivernsinnoh').learnset.draconiccurse = ['8L1'];
+    this.modData('Learnsets', 'noivernsinnoh').learnset.draconiccurse = ['8L1'];
     this.modData('Learnsets', 'regidrago').learnset.draconiccurse = ['8L1'];
     this.modData('Learnsets', 'giratina').learnset.draconiccurse = ['8L1'];
 

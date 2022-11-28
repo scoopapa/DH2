@@ -4467,6 +4467,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	magthief: {
+		tier: "LC",
+	},
+	snobberaven: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	fiyounfly: {
 		tier: "LC",
 	},
@@ -4479,6 +4486,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	jaboraishi: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	mosquitox: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -4583,6 +4594,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	drinferno: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	hydrookie: {
+		tier: "LC",
+	},
+	scienstream: {
+		tier: "NFE",
+	},
+	medidragon: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -4698,6 +4719,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	infarmatemmega: {
 		tier: "OU",
 		doublesTier: "DOU",
+	},
+	grimillia: {
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 //unavailable
 	missingno: {
