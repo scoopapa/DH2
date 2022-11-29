@@ -2548,12 +2548,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	druddigon: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		rank: "New",
+		gen: 3,
+		tier: "OU",
 	},
 	komala: {
-		isNonstandard: "Future",
-		tier: "Unobtainable",
+		rank: "New",
+		gen: 3,
+		tier: "OU",
 	},
 	scrafty: {
 		isNonstandard: "Future",
