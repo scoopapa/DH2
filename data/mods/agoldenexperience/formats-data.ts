@@ -2563,6 +2563,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "(PU)",
 		doublesTier: "(DUU)",
 	},
+	unfezantf: {
+		tier: "(PU)",
+		doublesTier: "(DUU)",
+	},
 	blitzle: {
 		tier: "LC",
 	},
@@ -4525,13 +4529,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
         tier: "OU",
         doublesTier: "DOU",
     },
-	/*girafatak: { deleted for now
+	girafatak: { 
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	girafataknocturnal: {
 		
-	},*/
+	},
 	sylvardian: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -4659,6 +4663,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	jhex: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	maaltis: {
+		tier: "LC",
+	},
+	baalzebutis: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

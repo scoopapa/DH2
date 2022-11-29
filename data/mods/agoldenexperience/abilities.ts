@@ -192,8 +192,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 113,
 	},
-	//Girafatak is deleted for now
-	/*doublespirit: {
+	doublespirit: {
 		shortDesc: "Switches to Nocturnal form before using a Physical move, and to Diurnal form before using a Special move.",
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
@@ -206,7 +205,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Double Spirit",
 		rating: 4,
 		num: -1176,
-	},*/
+	},
 	divination: {
         shortDesc: "Reveals a random move of each adjacent opponent on entry.",
         onStart(pokemon) {
@@ -837,10 +836,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Deadly Blasts",
 		rating: 2.5,
-		num: 233,
+		num: -1233,
 	},
 	cosmicenergy: {
-		shortDesc: "This Pokémon can skip the charging turn of its moves.",
+		desc: "This Pokémon can skip the charging turn of its moves.",
+		shortDesc: "Skip charging turns of moves.",
 		onChargeMove(pokemon, target, move) {
 			this.debug('Solar Core - remove charge turn for ' + move.id);
 			this.attrLastMove('[still]');
@@ -849,7 +849,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Cosmic Energy",
 		rating: 2,
-		num: -14,
+		num: -1014,
 	},
 	ignite: {
 		desc: "This Pokémon's Normal-type moves become Fire-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
@@ -894,6 +894,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1047,
 	},
 	icebreaker: {
+		desc: "This Pokemon's Speed is x1.5 on Hail, and this Pokemon's Atk and SpA is x1.5 on Rain.",
+		shortDesc: "x1.5 Speed on Hail; x1.5 Atk and SpA on Rain.",
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('hail')) {
 				return this.chainModify(1.5);

@@ -1132,3 +1132,79 @@ Additional information:
 |-unboost|p1a: Noivern|atk|1
 |-unboost|p1a: Noivern|spa|1
 
+
+Error: Rule "+Unobtainable" was added by "[Gen 8] A Golden Experience" but already exists in "Standard NatDex"
+    at ModdedDex.getRuleTable (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:886:12)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Ursaluna||flameorb|guts|facade,headlongrush,closecombat,swordsdance|Adamant|248,252,,,8,|||||]Typhlosion-Hisui||choicespecs|blaze|eruption,fireblast,infernalparade,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+TypeError: Cannot read properties of undefined (reading 'startsWith')
+    at ModdedDex.getRuleTable (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:851:13)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Ursaluna||flameorb|guts|facade,headlongrush,closecombat,swordsdance|Adamant|248,252,,,8,|||||]Typhlosion-Hisui||choicespecs|blaze|eruption,fireblast,infernalparade,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+TypeError: Cannot read properties of undefined (reading 'startsWith')
+    at ModdedDex.getRuleTable (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:851:13)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Ursaluna||flameorb|guts|facade,headlongrush,closecombat,swordsdance|Adamant|248,252,,,8,|||||]Typhlosion-Hisui||choicespecs|blaze|eruption,fireblast,infernalparade,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+TypeError: Cannot read properties of undefined (reading 'startsWith')
+    at ModdedDex.getRuleTable (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:851:13)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Ursaluna||flameorb|guts|facade,headlongrush,closecombat,swordsdance|Adamant|248,252,,,8,|||||]Typhlosion-Hisui||choicespecs|blaze|eruption,fireblast,infernalparade,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:892:26)
+    at QueryProcessWrapper.destroy (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:526:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:922:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)

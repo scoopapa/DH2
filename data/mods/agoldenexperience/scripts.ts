@@ -857,6 +857,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'simipour').learnset.scorchingsands = ['8L1'];
     this.modData('Learnsets', 'simipour').learnset.closecombat = ['8L1'];
     this.modData('Learnsets', 'musharna').learnset.teleport = ['8L1'];
+    this.modData('Learnsets', 'unfezant').learnset.knockoff = ['8L1'];
+    this.modData('Learnsets', 'unfezant').learnset.nastyplot = ['8L1'];
+    this.modData('Learnsets', 'unfezant').learnset.hypervoice = ['8L1'];
+    this.modData('Learnsets', 'unfezant').learnset.swordsdance = ['8L1'];
+    this.modData('Learnsets', 'unfezant').learnset.doubleedge = ['8L1'];
+    this.modData('Learnsets', 'unfezantf').learnset.knockoff = ['8L1'];
+    this.modData('Learnsets', 'unfezantf').learnset.nastyplot = ['8L1'];
+    this.modData('Learnsets', 'unfezantf').learnset.hypervoice = ['8L1'];
+    this.modData('Learnsets', 'unfezantf').learnset.swordsdance = ['8L1'];
+    this.modData('Learnsets', 'unfezantf').learnset.doubleedge = ['8L1'];
     this.modData('Learnsets', 'zebstrika').learnset.flareblitz = ['8L1'];
     this.modData('Learnsets', 'zebstrika').learnset.jumpkick = ['8L1'];
     this.modData('Learnsets', 'zebstrika').learnset.highhorsepower = ['8L1'];
@@ -984,8 +994,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'guzzlord').learnset.spikes = ['8L1'];
     this.modData('Learnsets', 'necrozma').learnset.focusblast = ['8L1'];
     this.modData('Learnsets', 'necrozma').learnset.aurasphere = ['8L1'];
-    this.modData('Learnsets', 'magearna').learnset.moonblast = ['8L1'];
-    this.modData('Learnsets', 'magearna').learnset.moonlight = ['8L1'];
+    delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
+    delete this.modData('Learnsets', 'magearna').learnset.storedpower;
     this.modData('Learnsets', 'stakataka').learnset.weneedawall = ['8T'];
 
     //gen 8 :

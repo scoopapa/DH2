@@ -1078,6 +1078,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Chakra Terrain",
+		desc: "Summons Chakra Terrain for 5 turns. All Fighting moves have full accuracy, and pulse moves have x1.3 power.",
+		shortDesc: "Summons Chakra Terrain. 100% Acc for Fighting moves; x1.3 BP for pulse moves.",
 		pp: 10,
 		priority: 0,
 		flags: {nonsky: 1},
@@ -1794,6 +1796,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	chloroblast: {
+		desc: "This move has 50% recoil. Hits target for at least neutral damages.",
 		num: -1720,
 		accuracy: 100,
 		basePower: 120,
@@ -1977,7 +1980,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 				if (move.flags['contact']) {
-					source.trySetStatus('psn', target);
+					target.clearBoosts();
 				}
 				return this.NOT_FAIL;
 			},
