@@ -81,5 +81,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Cool",
 	},
+	mindreader: {
+		num: 170,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Mind Reader",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (['hail'].includes(pokemon.effectiveWeather())) move.boosts = {spa: 2, accuracy: 2};
+		},
+		boosts: {
+			spa: 1,
+			accuracy: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
+		zMove: {boost: {spa: 1}},
+		contestType: "Clever",
+	},
 };
 

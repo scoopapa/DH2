@@ -89,4 +89,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	entei: {
 		tier: "metamons",
 	},
+	xatu: {
+		tier: "metamons",
+	},
+	jellicent: {
+		tier: "metamons",
+	},
+	gigalith: {
+		tier: "metamons",
+	},
+	florges: {
+		tier: "metamons",
+	},
+	sunflora: {
+		tier: "metamons",
+	},
+	frogadier: {
+		tier: "metamons",
+	},
+	articuno: {
+		tier: "metamons",
+	},
+	passimian: {
+		tier: "metamons",
+	},
 };
