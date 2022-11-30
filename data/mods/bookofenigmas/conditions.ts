@@ -18,8 +18,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onModifyDefPriority: 10,
-		onModifyDef(spd, pokemon) {
-			if (pokemon.hasType('Rock') && this.field.isWeather('sandstorm')) {
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Ice') && this.field.isWeather('hail')) {
 				return this.modify(def, 1.5);
 			}
 		},

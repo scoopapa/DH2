@@ -191,7 +191,7 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Book of Enigmas",
+		name: "[Gen 8] Book of Enigmas",
 		desc: [
 			"<b>Book of Enigmas</b>: A Pet Mod that aims to create new Paradox Pokemon based on Ho-oh and Lugia - the sky and the sea, respectively.",
 		],
@@ -206,6 +206,7 @@ export const Formats: FormatList = [
 			'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite', 
 			'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
 			'Blue Orb', 'Red Orb', //this is just copied from ANL's lol
+			'Beedrill-Mega', 'Pidgeot-Mega', //?????
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
