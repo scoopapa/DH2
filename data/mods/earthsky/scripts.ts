@@ -4561,6 +4561,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'palkia').learnset.toxic;
 		// Heatran
 		this.modData("Learnsets", "heatran").learnset.eruption = ["8D"];
+		delete this.modData('Learnsets', 'heatran').learnset.toxic;
 		// Regigigas
 		this.modData("Learnsets", "regigigas").learnset.storedpower = ["8D"];
 		this.modData("Learnsets", "regigigas").learnset.chipaway = ["8M"];
