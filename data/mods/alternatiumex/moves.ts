@@ -894,6 +894,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 1,
 		flags: {protect: 1, mirror: 1, contact: 1},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
 		recoil: [33, 100],
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
@@ -921,5 +928,115 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {basePower: 160},
 		contestType: "Clever",
+	},
+	barbbarrage: {
+		num: -19,
+		accuracy: 100,
+		basePower: 25,
+		category: "Special",
+		name: "Barb Barrage",
+		shortDesc: "Hits 2-5 times in one turn. Each hit has 10% to poison.",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: [2, 5],
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spike Cannon", target);
+		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+	},
+	bittermalice: {
+		num: -20,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Bitter Malice",
+		shortDesc: "100% chance to lower the target's Special Attack by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Icy Wind", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+			},
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Clever",
+	},
+	shelter: {
+		num: -21,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Shelter",
+		shortDesc: "Protects from damaging attacks. If the attacker makes contact, they are afflicted with Infestation.",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spiky Shield", target);
+		},
+		stallingMove: true,
+		volatileStatus: 'shelter',
+		onPrepareHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					this.useMove("Infestation", target);
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					this.useMove("Infestation", target);
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Ground",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
 	},
 };

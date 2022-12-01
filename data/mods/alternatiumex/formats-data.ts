@@ -331,4 +331,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	qwilfish: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	aquattack: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	zoroark: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	zoroarkhoarfrost: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	goodratsunade: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	goodrasymbiotic: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
