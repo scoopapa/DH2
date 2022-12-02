@@ -500,7 +500,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Void Heart",
 		rating: 3,
-		num: -1153,
+		num: -22,
 	},
 	convectioncurrent: {
 		desc: "If Gravity is active, this Pokemon's Speed is doubled.",
@@ -512,7 +512,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Convection Current",
 		rating: 3,
-		num: -1034,
+		num: -23,
 	},
 	endlessdream: {
 		desc: "While this Pokemon is active, every other Pokemon is treated as if it has the Comatose ability. Pokemon that are either affected by Sweet Veil, or have Insomnia or Vital Spirit as their abilities are immune this effect.",
@@ -550,7 +550,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Endless Dream",
 		rating: 3,
-		num: -1111,
+		num: -24,
 	},
 	evaporate: {
 		desc: "If the Pokemon or the opponent uses a Water type move, it triggers the Haze effect. Immune to Water.",
@@ -573,7 +573,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Evaporate",
 		rating: 4,
-		num: -6043,
+		num: -25,
 	},
 	desertsong: {
 		onModifyTypePriority: -1,
@@ -585,12 +585,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Desert Song",
 		shortDesc: "Turns sounds moves into Ground type moves.",
 		rating: 1.5,
-		num: -1204,
+		num: -26,
 	},
 	sundownswitch: {
 		name: "Sundown Switch",
 		desc: "If Cacturne-Mega-Y: Changes to Day form before using Grass move; to Night before using Dark move.",
-		num: -1025,
+		num: -27,
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (attacker.species.baseSpecies !== 'Cacturne' || attacker.transformed) return;
@@ -619,7 +619,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Cold Vengeance",
 		rating: 3,
-		num: -1008,
+		num: -28,
 	},
 	blindrage: {
 		onDamagingHit(damage, target, source, move) {
@@ -630,7 +630,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Blind Rage",
 		shortDesc: "This Pokemon's Atk is raised by 1 when hit by a super effective attack.",
 		rating: 3.5,
-		num: 275,
+		num: -29,
 	},
 	hardrock: {
 		onModifyDefPriority: 6,
@@ -644,7 +644,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Hard Rock",
 		shortDesc: "Gets x1.5 Def but x0.5 SpD.",
 		rating: 1.5,
-		num: 179,
+		num: -30,
 	},
 	forgery: {
 		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party.",
@@ -687,7 +687,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Forgery",
 		rating: 3,
-		num: -50,
+		num: -31,
 	},
 	clairvoyance: {
 		desc: "This Pokémon's Psychic-type moves take effect two turns after being used. At the end of that turn, the damage is calculated at that time and dealt to the Pokémon at the position the target had when the move was used. Only one move can be delayed at a time. If the user is no longer active at the time an attacking move should hit, damage is calculated based on the user's natural Attack or Special Attack stat, types, and level, with no boosts from its held item or Ability. Status moves are used by the Pokémon at the position the user had when the move was used.",
@@ -754,7 +754,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Clairvoyance",
 		rating: 3,
-		num: -51,
+		num: -32,
 	},
 	longtail: {
 		shortDesc: "Boosts the power of tail and whip moves by 1.3x",
@@ -765,6 +765,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Long Tail",
+		num: -33,
 	},
 	boarding: {
 		onBasePower(basePower, pokemon, target) {
@@ -775,7 +776,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Boarding",
 		shortDesc: "This Pokemon deals 1.25x damage to trapped opponents.",
 		rating: 3,
-		num: -1265,
+		num: -34,
 	},
 	lasttoxin: {
 		desc: "When this Pokemon brings an opponent to 50% or under using an attacking move, it badly poisons that opponent.",
@@ -791,7 +792,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Last Toxin",
 		rating: 4,
-		num: -6035,
+		num: -35,
 	},
 	chakrasurge: {
 		onStart(source) {
@@ -800,7 +801,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Chakra Surge",
 		shortDesc: "On switch-in, sets Chakra Terrain.",
 		rating: 4,
-		num: 226,
+		num: -36,
 	},
 	swordsmanship: {
 		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.3x",
@@ -1228,6 +1229,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Leaf Dress",
+		shortDesc: "Negates Grass type weaknesses.",
 		rating: 3.5,
 		num: 47,
 	},
@@ -1283,7 +1285,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         num: -1592,
 	},
 	unstableshell: {
-		Desc: "If a pokemon makes contact to this pokemon, this Pokemon loses 25% max HP and returns doubles of lost HP.",
+		shortDesc: "If a pokemon makes contact to this pokemon, this Pokemon loses 25% max HP and returns doubles of lost HP.",
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
@@ -1383,6 +1385,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Pride",
+		shortDesc: "After successfully KOing a foe with a move, gets +1 in the stat of the move that KO'd target.",
 		rating: 3,
 		num: -1153,
 	},
@@ -1645,7 +1648,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	watercompaction: {
 		desc: "This Pokemon's Defense goes up 2 stages when hit by a Water-type move; Water immunity",
-		shortDesc: "Water type move => this Pokemon gets Def +2; Water immunity.",
+		shortDesc: "This Pokemon gets +2 Def if targeted by a Water type move; Water immunity.",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
@@ -1720,6 +1723,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.forecastBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
 		name: "Forecast",
+		shortDesc: "Castform's type and Normal type moves change to the current weather condition's type, except Sandstorm.",
 		rating: 2,
 		num: 59,
 	},
@@ -1776,7 +1780,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 		},
 		name: "Mimicry",
-		shortDesc: "This Pokemon's type adds to match the Terrain. Type reverts when Terrain ends.",
+		shortDesc: "This Pokemon's type gets a new added type to match the Terrain. Type reverts when Terrain ends.",
 		rating: 0.5,
 		num: 250,
 	},

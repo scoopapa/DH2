@@ -1006,8 +1006,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	meganium: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "PU",
+		doublesTier: "(DUU)",
 	},
 	meganiummega: {
 		tier: "OU",

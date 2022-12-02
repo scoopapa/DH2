@@ -3365,6 +3365,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
             skittersmack: ["8L1"],
             lashout: ["8L1"],
             firstimpression: ["8L1"],
+			suckerpunch: ["8L1"],
         },
     },
 	goldiorno: {

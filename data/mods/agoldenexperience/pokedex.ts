@@ -584,6 +584,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	crobatmega: {
 		num: 169,
 		name: "Crobat-Mega",
+		baseSpecies: "Crobat",
+		forme: "Mega",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 85, atk: 110, def: 90, spa: 100, spd: 100, spe: 150},
 		abilities: {0: "Regenerator"},
