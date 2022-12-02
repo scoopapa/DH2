@@ -834,6 +834,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'azelf').learnset.braveblade = ['8L1'];
     this.modData('Learnsets', 'palkia').learnset.teleport = ['8L1'];
     this.modData('Learnsets', 'palkia').learnset.cosmicpower = ['8L1'];
+    this.modData('Learnsets', 'regigigas').learnset.headsmash = ['8L1'];
+    this.modData('Learnsets', 'regigigas').learnset.wildcharge = ['8L1'];
+    this.modData('Learnsets', 'regigigas').learnset.icehammer = ['8L1'];
+    this.modData('Learnsets', 'regigigas').learnset.dragonhammer = ['8L1'];
+    this.modData('Learnsets', 'regigigas').learnset.meteormash = ['8L1'];
+    this.modData('Learnsets', 'regigigas').learnset.slackoff = ['8L1'];
     this.modData('Learnsets', 'giratina').learnset.teleport = ['8L1'];
 
     //gen 5 :

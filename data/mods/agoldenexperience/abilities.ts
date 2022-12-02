@@ -2074,7 +2074,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 89,
 	},
 	slowstart: {
-		shortDesc: "Atk, Spe halved for 5 turns. Boost all stats after 5 turns.",
+		shortDesc: "Atk, SpA halved for 5 turns. Boost all stats after 5 turns. Timer does not reset on switch.",
 		onStart(pokemon) {
 			if ( !pokemon.slowStartInit ) {
 				pokemon.slowStartInit = true;
@@ -2157,6 +2157,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Parental Bond",
+		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage quartered. Doesn't affect fixed damages moves.",
 		rating: 4.5,
 		num: 184,
 	},
