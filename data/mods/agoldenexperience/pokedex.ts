@@ -531,7 +531,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	feraligatrmega: {
 		num: 160,
-		name: "Feraligatr",
+		name: "Feraligatr-Mega",
 		baseSpecies: "Feraligatr",
 		forme: "Mega",
 		types: ["Water", "Dark"],
@@ -788,9 +788,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	magcargosinnoh: {
 		num: 219,
-		name: "Magcargo",
-		baseSpecies: "Slowbro",
-		forme: "Galar",
+		name: "Magcargo-Sinnoh",
+		baseSpecies: "Magcargo",
+		forme: "Sinnoh",
 		types: ["Rock", "Ice"],
 		baseStats: {hp: 80, atk: 40, def: 120, spa: 70, spd: 105, spe: 15},
 		abilities: {0: "Ice Body", H: "Snow Warning"},
@@ -1458,7 +1458,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	azelf: {
 		inherit: true,
-		types: ["Psychic"],
+		types: ["Psychic", "Grass"],
 		abilities: {0: "Levitate", H: "Swordsmanship"},
 	},
 	dialga: {
@@ -1694,6 +1694,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	seismitoad: {
 		inherit: true,
 		baseStats: {hp: 105, atk: 95, def: 75, spa: 85, spd: 75, spe: 74},
+		abilities: {0: "Swift Swim", 1: "Toxic Boost", H: "Water Absorb"},
 	},
 	throh: {
 		inherit: true,
@@ -2321,7 +2322,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         name: "Noibat-Sinnoh",
         baseSpecies: "Noibat",
         forme: "Sinnoh",
-        types: ["Ice", "Fying"],
+        types: ["Ice", "Flying"],
         baseStats: {hp: 40, atk: 30, def: 35, spa: 45, spd: 40, spe: 55},
         abilities: {0: "Fluffy", H: "Refrigerate"},
         heightm: 0.5,
@@ -3159,7 +3160,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Ghost"],
 		gender: "M",
 		baseStats: {hp: 120, atk: 112, def: 65, spa: 80, spd: 75, spe: 78},
-		abilities: {0: "Rattled", 1: "Adaptability", H: "Cloud of Souls"}, //Cloud of Souls
+		abilities: {0: "Rattled", 1: "Adaptability", H: "Mold Breaker"}, 
 		heightm: 3,
 		weightkg: 110,
 		color: "Green",
@@ -3365,7 +3366,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 2012,
 		name: "Fiyounfly",
 		types: ["Bug"],
-		gender: "F",
 		baseStats: {hp: 40, atk: 25, def: 40, spa: 25, spd: 40, spe: 20},
 		abilities: {0: "Oblivious", 1: "Swarm", H: "Prankster"},
 		heightm: 0.3,
@@ -3422,7 +3422,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	normear: {
         num: 2017,
-        name: "Normear,",
+        name: "Normear",
         types: ["Normal"],
         baseStats: {hp: 30, atk: 30, def: 35, spa: 30, spd: 30, spe: 40},
         abilities: {0: "Rattled", 1: "Unaware", H: "Klutz"},
@@ -3433,7 +3433,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
     paranormear: {
         num: 2018,
-        name: "Paranormear,",
+        name: "Paranormear",
         types: ["Normal", "Ghost"],
         baseStats: {hp: 90, atk: 120, def: 65, spa: 105, spd: 90, spe: 60},
         abilities: {0: "Defiant", 1: "Unaware", H: "Cursed Body"},
@@ -3575,8 +3575,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	terreptilemega: {
 		num: 2030,
-		name: "Terreptile",
-		baseSpecies: "Terreptile-Mega",
+		name: "Terreptile-Mega",
+		baseSpecies: "Terreptile",
 		forme: "Mega",
 		types: ["Ground", "Poison"],
 		baseStats: {hp: 70, atk: 130, def: 80, spa: 100, spd: 80, spe: 150},
@@ -3894,7 +3894,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
     },
 	baalzebutis: {
         num: 2061,
-        name: "baalzebutis",
+        name: "Baalzebutis",
         types: ["Dark", "Bug"],
         baseStats: {hp: 80, atk: 120, def: 70, spa: 70, spd: 80, spe: 130},
         abilities: {0: "Glutonny", 1: "Battle Armor", H: "Defiant"},
@@ -3936,8 +3936,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	straightasani: {
 		num: 2065,
 		name: "Straightasan-i",
-		baseSpecies: "Straightasan",
-		forme: "i",
 		types: ["Dark", "Flying"],
 		baseStats: {hp: 60, atk: 80, def: 120, spa: 75, spd: 75, spe: 75},
 		abilities: {0: "Intimidate", H: "Keen Eye"},
@@ -3976,7 +3974,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 1.6,
 		weightkg: 35,
 		color: "Blue",
-		prevo: "Dratini",
+		prevo: "Bubblure",
 		evoLevel: 32,
 		evos: ["Cymadalea"],
 		eggGroups: ["Water 1", "Dragon"],
@@ -3996,7 +3994,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tapuwala: {
         num: 2070,
-        name: "Tapu Wala,",
+        name: "Tapu Wala",
         types: ["Fighting", "Fairy"],
         baseStats: {hp: 70, atk: 130, def: 85, spa: 115, spd: 75, spe: 95},
         abilities: {0: "Chakra Surge", H: "Telepathy"},

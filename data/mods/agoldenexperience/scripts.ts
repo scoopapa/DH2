@@ -75,6 +75,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'obstagoon').learnset.underdog = ['8L1'];
 		
     // flamingsphere 
+    this.modData('Learnsets', 'charizard').learnset.flamingsphere = ['8T'];
     this.modData('Learnsets', 'magmar').learnset.flamingsphere = ['8T'];
     this.modData('Learnsets', 'moltres').learnset.flamingsphere = ['8T'];
     this.modData('Learnsets', 'houndoom').learnset.flamingsphere = ['8T'];
@@ -1104,7 +1105,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     delete this.modData('Learnsets', 'nidorino').learnset.hiddenpower;
     delete this.modData('Learnsets', 'nidoking').learnset.hiddenpower;
     delete this.modData('Learnsets', 'clefairy').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'clefairy').learnset.hiddenpower;
+    delete this.modData('Learnsets', 'clefable').learnset.hiddenpower;
     delete this.modData('Learnsets', 'vulpix').learnset.hiddenpower;
     delete this.modData('Learnsets', 'vulpixalola').learnset.hiddenpower;
     delete this.modData('Learnsets', 'ninetales').learnset.hiddenpower;
@@ -1507,6 +1508,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     delete this.modData('Learnsets', 'drifblim').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'buneary').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'lopunny').learnset.hiddenpower; 
+    delete this.modData('Learnsets', 'mismagius').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'honchkrow').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'glameow').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'purugly').learnset.hiddenpower; 
@@ -1828,9 +1830,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     delete this.modData('Learnsets', 'crabrawler').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'crabominable').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'oricorio').learnset.hiddenpower; 
-    //delete this.modData('Learnsets', 'oricoriopompom').learnset.hiddenpower; 
-    //delete this.modData('Learnsets', 'oricoriopau').learnset.hiddenpower; 
-    //delete this.modData('Learnsets', 'oricoriosensu').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'cutiefly').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'ribombee').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'rockruff').learnset.hiddenpower; 

@@ -145,6 +145,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Special",
 		name: "Detect Magic",
+		desc: "This move is super effective on Dark type targets.",
+		shortDesc: "Super effective on Dark targets.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -205,6 +207,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Draconic Wrath",
+		shortDesc: "If a foe isn't switching in, hits it at 2x power.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -218,6 +221,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Purifying Stream",
+		shortDesc: "Resets all of the target's stat stages to 0.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -236,6 +240,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Railway Smash",
+		shortDesc: "Has 33% recoil.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -562,6 +567,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Underdog",
+		shortDesc: "BP x2 if target's Atk > user's Atk.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -676,8 +682,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 65,
 		category: "Special",
 		name: "Condensate",
-		shortDesc: "Power x2 if on Misty Terrain.",
-		pp: 24,
+		shortDesc: "BP x2 if on Misty Terrain.",
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, source) {
@@ -701,6 +707,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Chillblain",
+		shortDesc: "Freezes the target.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
@@ -783,8 +790,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	dissolution: {
 		num: -28,
-		accuracy: 70,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 70,
 		category: "Special",
 		name: "Dissolution",
 		pp: 16,
@@ -811,6 +818,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Physical",
 		name: "Landslide",
+		shortDesc: "Removes the hazards on the field. Lowers the target's Speed by one stage.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -826,19 +834,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Landslide', '[of] ' + source);
 					success = true;
 				}
 			}
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Landslide', '[of] ' + source);
 					success = true;
 				}
 			}
 			return success;
 		},
-		secondary: null,
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
@@ -849,6 +862,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Epicenter",
+		shortDesc: "This move hits 2 turns later.",
 		pp: 10,
 		priority: 0,
 		flags: {},
@@ -888,6 +902,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Downdraft",
+		desc: "If the opponent is Flying type or has Levitate, the opponent's Speed is lowered by one stage.",
+		shortDesc: "-1 Speed if the target has Levitate or is Flying type.", 
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -907,7 +923,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Physical",
 		name: "Golem Strike",
-		pp: 16,
+		pp: 10,
 		shortDesc: "10% chance to lower target's Def",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -927,6 +943,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Punishing Blow",
+		shortDesc: "If the target has boosts, this move always results in a critical hit.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -968,7 +985,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 95,
 		category: "Physical",
-		name: "Draconic fury",
+		name: "Draconic Fury",
+		shortDesc: "Has a 10% to lower the target's Def.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -988,6 +1006,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         basePower: 0,
         category: "Status",
         name: "Contrariety",
+		shortDesc: "Every Pokemon on the field gets Contrary as an ability.",
         pp: 15,
         priority: 0,
         flags: {},
@@ -2406,6 +2425,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Lightning Assault",
+		shortDesc: "More power the faster the user is than the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -2454,6 +2474,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "We Need A Wall",
+		shortDesc: "Raises user's Atk by 1 on turn 1. Hits turn 2.",
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
