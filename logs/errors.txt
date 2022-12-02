@@ -1,0 +1,1210 @@
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:892:26)
+    at QueryProcessWrapper.destroy (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:526:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:922:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error: bind EADDRINUSE 0.0.0.0:8000
+    at listenOnPrimaryHandle (node:net:1397:18)
+    at shared (node:internal/cluster/child:149:3)
+    at Worker.<anonymous> (node:internal/cluster/child:106:7)
+    at process.onInternalMessage (node:internal/cluster/utils:49:5)
+    at process.emit (node:events:538:35)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Error: bind EADDRINUSE 0.0.0.0:8000
+    at listenOnPrimaryHandle (node:net:1397:18)
+    at shared (node:internal/cluster/child:149:3)
+    at Worker.<anonymous> (node:internal/cluster/child:106:7)
+    at process.onInternalMessage (node:internal/cluster/utils:49:5)
+    at process.emit (node:events:538:35)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Error: bind EADDRINUSE 0.0.0.0:8000
+    at listenOnPrimaryHandle (node:net:1397:18)
+    at shared (node:internal/cluster/child:149:3)
+    at Worker.<anonymous> (node:internal/cluster/child:106:7)
+    at process.onInternalMessage (node:internal/cluster/utils:49:5)
+    at process.emit (node:events:538:35)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Error: Cannot find module 'shelljs'
+Require stack:
+- C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\process-manager.js
+- C:\Users\lysio\Documents\GitHub\AGE\.server-dist\modlog.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at StreamProcessWrapper.destroy (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\process-manager.js:288:15)
+    at StreamProcessWrapper.release (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:526:28)
+    at ChildProcess.emit (node:domain:475:12)
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lysio\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"Lysitruc","avatar":"266","team":"Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,grassknot|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[17308,28618,50634,47070]}
+  log = 
+|t:|1668620817
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lysio\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"Lysitheayaya","avatar":"1","team":"Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,grassknot|Hasty|,4,,252,,252|||||]Blissey||shedshell|naturalcure|seismictoss,teleport,softboiled,stealthrock|Bold|252,,252,,4,|F|,0,,,,|||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[8752,28046,27950,52788]}
+  log = 
+|t:|1668621118
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lysio\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Lysfumo","avatar":"102","team":"Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,grassknot|Hasty|,4,,252,,252|||||]Blissey||shedshell|naturalcure|seismictoss,teleport,softboiled,stealthrock|Bold|252,,252,,4,|F|,0,,,,|||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[8752,28046,27950,52788]}
+  log = 
+|t:|1668621118
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lysio\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"Lysiwaifupillow","avatar":"2","team":"Blissey||shedshell|naturalcure|seismictoss,teleport,softboiled,stealthrock|Bold|252,,252,,4,|F|,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,grassknot|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[15244,11543,56895,59846]}
+  log = 
+|t:|1668621506
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lysio\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Lysifumo","avatar":"266","team":"Blissey||shedshell|naturalcure|seismictoss,teleport,softboiled,stealthrock|Bold|252,,252,,4,|F|,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,grassknot|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[15244,11543,56895,59846]}
+  log = 
+|t:|1668621506
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lysio\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"Commitswarcrimes","avatar":"266","team":"Blissey||shedshell|naturalcure|seismictoss,teleport,softboiled,stealthrock|Bold|252,,252,,4,|F|,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,grassknot|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[65461,16335,18964,32583]}
+  log = 
+|t:|1668621768
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lysio\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Lysiangry","avatar":"265","team":"Blissey||shedshell|naturalcure|seismictoss,teleport,softboiled,stealthrock|Bold|252,,252,,4,|F|,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,grassknot|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[65461,16335,18964,32583]}
+  log = 
+|t:|1668621768
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at ModdedDex.dataSearch (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:1091:44)
+    at CommandContext.data (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat-commands\info.js:598:26)
+    at CommandContext.run (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:585:24)
+    at CommandContext.details [as handler] (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat-commands\info.js:879:8)
+    at CommandContext.run (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:585:24)
+    at CommandContext.parse (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:482:20)
+    at _class.parse (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:1599:18)
+    at User.chat (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\users.js:1433:9)
+    at Object.socketReceive (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\users.js:1705:12)
+
+Additional information:
+  user = Lysiangry
+  room = battle-gen8agoldenexperience-369
+  pmTarget = undefined
+  message = /dt girafatak-nocturnal
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at ModdedDex.dataSearch (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:1091:44)
+    at CommandContext.data (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat-commands\info.js:598:26)
+    at CommandContext.run (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:585:24)
+    at CommandContext.details [as handler] (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat-commands\info.js:879:8)
+    at CommandContext.run (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:585:24)
+    at CommandContext.parse (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:482:20)
+    at _class.parse (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:1599:18)
+    at User.chat (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\users.js:1433:9)
+    at Object.socketReceive (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\users.js:1705:12)
+
+Additional information:
+  user = Lysiangry
+  room = battle-gen8agoldenexperience-369
+  pmTarget = undefined
+  message = /dt girafataknocturnal
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at ModdedDex.dataSearch (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:1091:44)
+    at CommandContext.data (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat-commands\info.js:598:26)
+    at CommandContext.run (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:585:24)
+    at CommandContext.details [as handler] (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat-commands\info.js:879:8)
+    at CommandContext.run (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:585:24)
+    at CommandContext.parse (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:482:20)
+    at _class.parse (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\chat.js:1599:18)
+    at User.chat (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\users.js:1433:9)
+    at Object.socketReceive (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\users.js:1705:12)
+
+Additional information:
+  user = Lysiangry
+  room = battle-gen8agoldenexperience-369
+  pmTarget = undefined
+  message = /dt girafataknocturnal
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lysio\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"LysiYareYare","avatar":"266","team":"Blissey||shedshell|naturalcure|seismictoss,teleport,softboiled,stealthrock|Bold|252,,252,,4,|F|,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,grassknot|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[33337,8176,10720,27254]}
+  log = 
+|t:|1668622268
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lysio\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lysio\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lysio\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lysio\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Lysipissedoff","avatar":"169","team":"Blissey||shedshell|naturalcure|seismictoss,teleport,softboiled,stealthrock|Bold|252,,252,,4,|F|,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,grassknot|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[33337,8176,10720,27254]}
+  log = 
+|t:|1668622268
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"Lysitruc","avatar":"265","team":"Girafatak||lifeorb|doublespirit|closecombat,crunch,return,psychic|Hasty|,252,,4,,252|||||]Blissey||shedshell|naturalcure|seismictoss,softboiled,stealthrock,teleport|Bold|252,,252,,4,|F|,0,,,,|||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[52707,40596,59342,14660]}
+  log = 
+|t:|1668626339
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Lysitryhard","avatar":"101","team":"Girafatak||lifeorb|doublespirit|closecombat,crunch,return,psychic|Hasty|,252,,4,,252|||||]Blissey||shedshell|naturalcure|seismictoss,softboiled,stealthrock,teleport|Bold|252,,252,,4,|F|,0,,,,|||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[52707,40596,59342,14660]}
+  log = 
+|t:|1668626339
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"Lysilol","avatar":"1","team":"Girafatak||lifeorb|doublespirit|closecombat,crunch,return,psychic|Hasty|,252,,4,,252|||||]Blissey||shedshell|naturalcure|seismictoss,softboiled,stealthrock,teleport|Bold|252,,252,,4,|F|,0,,,,|||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[47200,10665,50499,46690]}
+  log = 
+|t:|1668627063
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Lysangry","avatar":"169","team":"Girafatak||lifeorb|doublespirit|closecombat,crunch,return,psychic|Hasty|,252,,4,,252|||||]Blissey||shedshell|naturalcure|seismictoss,softboiled,stealthrock,teleport|Bold|252,,252,,4,|F|,0,,,,|||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[47200,10665,50499,46690]}
+  log = 
+|t:|1668627063
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"Lysihappy","avatar":"2","team":"Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,return,crunch,psychic|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[36833,19736,33075,30843]}
+  log = 
+|t:|1668799540
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"noavailablepseudo?","avatar":"2","team":"Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,return,crunch,psychic|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[24470,54428,39206,57145]}
+  log = 
+|t:|1668799799
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Lystriuc","avatar":"170","team":"Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,return,crunch,psychic|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[24470,54428,39206,57145]}
+  log = 
+|t:|1668799799
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"welldoit","avatar":"266","team":"Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,return,crunch,psychic|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[29700,56640,52401,14646]}
+  log = 
+|t:|1668799884
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"tryhardyolo","avatar":"170","team":"Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,return,crunch,psychic|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[29700,56640,52401,14646]}
+  log = 
+|t:|1668799884
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"ukefubg4","avatar":"102","team":"Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,return,crunch,psychic|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[34324,35453,26833,19528]}
+  log = 
+|t:|1668800024
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"trhfubrhukgf","avatar":"170","team":"Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,return,crunch,psychic|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[34324,35453,26833,19528]}
+  log = 
+|t:|1668800024
+
+
+Error: Species with no learnset data: carsnail
+    at TeamValidator.checkLearnset (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:1872:11)
+    at TeamValidator.validateSet (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:589:33)
+    at TeamValidator.baseValidateTeam (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:269:60)
+    at TeamValidator.validateTeam (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:217:15)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:57)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Carcoliath||blacksludge|poisonousradula|tentacatch,strengthsap,stealthrock,sludgebomb|Impish|252,,252,,4,|||||
+
+
+TypeError: move.target.getMoveHitData is not a function
+    at Battle.onModifyMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:8:81)
+    at Battle.runEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:741:34)
+    at Battle.useMoveInner (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:198:15)
+    at Battle.useMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:100:33)
+    at Battle.runAction (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2572:9)
+    at Battle.go (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:119:17)
+
+Additional information:
+  chunk = >p2 move 4
+  inputLog = 
+>version 492abe3e1c9dc05b71c36f3d55b39a27784edcb5
+>start {"formatid":"gen8agoldenexperience","seed":[62791,26135,64250,44912]}
+>player p1 {"name":"Lysigoesayaya","avatar":"2","team":"Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Carcoliath||blacksludge|poisonousradula|tentacatch,strengthsap,stealthrock,sludgebomb|Impish|252,,252,,4,|||||","rating":0}
+>player p2 {"name":"Lysitest","avatar":"101","team":"Cacturne||cacturnitey|sandveil|swordsdance,synthesis,earthquake,knockoff|Adamant|248,252,,,8,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Carcoliath||blacksludge|poisonousradula|tentacatch,strengthsap,stealthrock,sludgebomb|Impish|252,,252,,4,|||||","rating":0}
+>p1 team 2, 1, 3
+>p2 team 3, 2, 1
+>p1 move toxic
+>p2 move sludgebomb
+  log = 
+|t:|1668801031
+|player|p1|Lysigoesayaya|2|
+|player|p2|Lysitest|101|
+|teamsize|p1|3
+|teamsize|p2|3
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Cacturne, M|
+|poke|p1|Toxapex, M|
+|poke|p1|Carcoliath, F|
+|poke|p2|Cacturne, M|
+|poke|p2|Toxapex, M|
+|poke|p2|Carcoliath, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1668801037
+|start
+|switch|p1a: Toxapex|Toxapex, M|304/304
+|switch|p2a: Carcoliath|Carcoliath, F|414/414
+|-start|p2a: Carcoliath|typechange|Grass/Poison|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Carcoliath</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Grass.png" alt="Grass" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Poison.png" alt="Poison" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Overgrow / Overgrow / Poisonous Radula</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>105</span> <span class="col statcol"><em>Atk</em><br>110</span> <span class="col statcol"><em>Def</em><br>100</span> <span class="col statcol"><em>SpA</em><br>75</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1668801050
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Girafatak","avatar":"169","team":"Hypno||leftovers|endlessdream|dreameater,wakeupslap,hypnotichorror,thunderwave|Brave|252,252,,4,,|||||]Amoonguss||blacksludge|regenerator|spore,stunspore,gigadrain,toxic|Calm|252,,,4,252,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,earthquake|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 4e9788e5620da3beeb8cdca5ffd03f049c32312d
+>start {"formatid":"gen8agoldenexperience","seed":[63423,4289,60146,48343]}
+  log = 
+|t:|1668945847
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"NaroneHater","avatar":"2","team":"Hypno||leftovers|endlessdream|dreameater,wakeupslap,hypnotichorror,thunderwave|Brave|252,252,,4,,|||||]Amoonguss||blacksludge|regenerator|spore,stunspore,gigadrain,toxic|Calm|252,,,4,252,||,0,,,,|||]Girafatak||lifeorb|doublespirit|closecombat,psychic,crunch,earthquake|Hasty|,252,,4,,252|||||","rating":0}
+  inputLog = 
+>version 4e9788e5620da3beeb8cdca5ffd03f049c32312d
+>start {"formatid":"gen8agoldenexperience","seed":[63423,4289,60146,48343]}
+  log = 
+|t:|1668945847
+
+
+TypeError: Cannot read properties of undefined (reading 'learnset')
+    at ModdedDex.init (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\scripts.js:61:40)
+    at ModdedDex.loadData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1511:34)
+    at ModdedDex.includeData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1428:8)
+    at ModdedDex.forFormat (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:194:33)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:197:18)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Marowak-Alola||thickclub|rockhead|flareblitz,earthquake,poltergeist,backfire|Adamant|248,252,,,8,|||||
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"Lysiyamete","avatar":"1","team":"Hypno||lifeorb|endlessdream|dreameater,wakeupslap,thunderwave,rest|Brave|252,252,,4,,|||||]Mimikyu||lifeorb|disguise|swordsdance,punishingblow,shadowsneak,playrough|Jolly|,252,,,4,252|||||]Amoonguss||blacksludge|regenerator|gigadrain,spore,stunspore,toxic|Calm|252,,,4,252,||,0,,,,|||]Urshifu||lifeorb|unseenfist|bulkup,wickedblow,suckerpunch,closecombat|Jolly|,252,,,4,252|||||]Girafatak||lifeorb|doublespirit|closecombat,crunch,psychic,thunderbolt|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 5c84aa7b112d2ed6893eef5d70bd9115ebe634d4
+>start {"formatid":"gen8agoldenexperience","seed":[8639,63020,48579,65415]}
+  log = 
+|t:|1668971546
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Lysipls","avatar":"170","team":"Hypno||lifeorb|endlessdream|dreameater,wakeupslap,thunderwave,rest|Brave|252,252,,4,,|||||]Mimikyu||lifeorb|disguise|swordsdance,punishingblow,shadowsneak,playrough|Jolly|,252,,,4,252|||||]Amoonguss||blacksludge|regenerator|gigadrain,spore,stunspore,toxic|Calm|252,,,4,252,||,0,,,,|||]Urshifu||lifeorb|unseenfist|bulkup,wickedblow,suckerpunch,closecombat|Jolly|,252,,,4,252|||||]Girafatak||lifeorb|doublespirit|closecombat,crunch,psychic,thunderbolt|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 5c84aa7b112d2ed6893eef5d70bd9115ebe634d4
+>start {"formatid":"gen8agoldenexperience","seed":[8639,63020,48579,65415]}
+  log = 
+|t:|1668971546
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p1 {"name":"Lysiperhaps","avatar":"102","team":"Hypno||lifeorb|endlessdream|dreameater,wakeupslap,thunderwave,rest|Brave|252,252,,4,,|||||]Mimikyu||lifeorb|disguise|swordsdance,punishingblow,shadowsneak,playrough|Jolly|,252,,,4,252|||||]Amoonguss||blacksludge|regenerator|gigadrain,spore,stunspore,toxic|Calm|252,,,4,252,||,0,,,,|||]Urshifu||lifeorb|unseenfist|bulkup,wickedblow,suckerpunch,closecombat|Jolly|,252,,,4,252|||||]Girafatak||lifeorb|doublespirit|closecombat,crunch,psychic,thunderbolt|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 5c84aa7b112d2ed6893eef5d70bd9115ebe634d4
+>start {"formatid":"gen8agoldenexperience","seed":[45683,26944,7875,2266]}
+  log = 
+|t:|1668971709
+
+
+TypeError: Cannot read properties of undefined (reading 'tier')
+    at ModdedDex.getSpecies (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:406:90)
+    at Battle.canMegaEvo (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1197:52)
+    at new Pokemon (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\pokemon.js:416:33)
+    at new Side (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\side.js:89:22)
+    at Battle.setPlayer (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2995:11)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:110:16)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+    at RoomBattleStream._write (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1172:9)
+    at RoomBattleStream.write (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\streams.js:836:15)
+
+Additional information:
+  chunk = >player p2 {"name":"Lysihope","avatar":"102","team":"Hypno||lifeorb|endlessdream|dreameater,wakeupslap,thunderwave,rest|Brave|252,252,,4,,|||||]Mimikyu||lifeorb|disguise|swordsdance,punishingblow,shadowsneak,playrough|Jolly|,252,,,4,252|||||]Amoonguss||blacksludge|regenerator|gigadrain,spore,stunspore,toxic|Calm|252,,,4,252,||,0,,,,|||]Urshifu||lifeorb|unseenfist|bulkup,wickedblow,suckerpunch,closecombat|Jolly|,252,,,4,252|||||]Girafatak||lifeorb|doublespirit|closecombat,crunch,psychic,thunderbolt|Hasty|,4,,252,,252|||||","rating":0}
+  inputLog = 
+>version 5c84aa7b112d2ed6893eef5d70bd9115ebe634d4
+>start {"formatid":"gen8agoldenexperience","seed":[45683,26944,7875,2266]}
+  log = 
+|t:|1668971709
+
+
+TypeError: Cannot set properties of undefined (setting 'duration')
+    at Battle.onStart (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:394:49)
+    at Battle.singleEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:487:25)
+    at Battle.runSwitch (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:1343:9)
+    at Battle.runAction (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2631:9)
+    at Battle.go (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p1 team 12
+  inputLog = 
+>version b25c14ee77bbaa3ce3cb4fb3ee56e9c9adfe98cd
+>start {"formatid":"gen8agoldenexperience","seed":[19002,45149,36505,58543]}
+>player p1 {"name":"Lysiinfinity","avatar":"2","team":"Hypno||lifeorb|endlessdream|thunderwave,rest,dreameater,wakeupslap|Sassy|252,4,,,252,|||||]Amoonguss||blacksludge|regenerator|spore,stunspore,toxic,clearsmog|Calm|252,,,4,252,||,0,,,,|||","rating":0}
+>player p2 {"name":"FateIsNotDesblabla","avatar":"2","team":"Hypno||lifeorb|endlessdream|thunderwave,rest,dreameater,wakeupslap|Sassy|252,4,,,252,|||||]Amoonguss||blacksludge|regenerator|spore,stunspore,toxic,clearsmog|Calm|252,,,4,252,||,0,,,,|||","rating":0}
+>p1 team 1, 2
+>p2 team 2, 1
+  log = 
+|t:|1669042356
+|player|p1|Lysiinfinity|2|
+|player|p2|FateIsNotDesblabla|2|
+|teamsize|p1|2
+|teamsize|p2|2
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Hypno, F|
+|poke|p1|Amoonguss, F|
+|poke|p2|Hypno, M|
+|poke|p2|Amoonguss, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669042360
+|start
+|switch|p1a: Hypno|Hypno, F|374/374
+|switch|p2a: Amoonguss|Amoonguss, F|432/432
+|-start|p1a: Hypno|typechange|Psychic|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Hypno</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Psychic.png" alt="Psychic" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Insomnia / Endless Dream / Inner Focus</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>70</span> <span class="col statcol"><em>SpA</em><br>90</span> <span class="col statcol"><em>SpD</em><br>115</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
+|-ability|p1a: Hypno|Endless Dream
+|-fieldstart|move: Ultrasleep|[of] p1a: Hypno
+|-hint|All Pokemon are under Comatose effect!
+
+
+TypeError: Cannot read properties of undefined (reading 'learnset')
+    at ModdedDex.init (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\scripts.js:56:47)
+    at ModdedDex.loadData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1511:34)
+    at ModdedDex.includeData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1428:8)
+    at ModdedDex.forFormat (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:194:33)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:197:18)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Stoutland||silkscarf|scrappy|underdog,closecombat,earthquake,crunch|Adamant|,252,,,4,252|||||
+
+
+ReferenceError: move is not defined
+    at Battle.onBoost (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:1308:5)
+    at Battle.runEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:741:34)
+    at Battle.boost (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:1687:16)
+    at Battle.runMoveEffects (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:922:23)
+    at Battle.spreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:821:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:100:33)
+
+Additional information:
+  chunk = >p2 move 1 mega
+  inputLog = 
+>version de999c966ac9b1315bd6e568e388406c6ad057f7
+>start {"formatid":"gen8agoldenexperience","seed":[57832,38891,64276,20382]}
+>player p1 {"name":"Lysiyes","avatar":"1","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||","rating":0}
+>player p2 {"name":"Lysihope","avatar":"265","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||","rating":0}
+>p1 team 2, 1
+>p2 team 1, 2
+>p1 move toxic
+>p2 move shiftgear mega
+  log = 
+|t:|1669457705
+|player|p1|Lysiyes|1|
+|player|p2|Lysihope|265|
+|teamsize|p1|2
+|teamsize|p2|2
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Scizor-Galar, M|
+|poke|p1|Toxapex, M|
+|poke|p2|Scizor-Galar, M|
+|poke|p2|Toxapex, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669457709
+|start
+|switch|p1a: Toxapex|Toxapex, M|304/304
+|switch|p2a: Scizor|Scizor-Galar, M|343/343
+|-start|p2a: Scizor|typechange|Bug/Fire|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Scizor-Galar</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Bug.png" alt="Bug" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Swarm / Hyperthermia / Steadfast</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>75</span> <span class="col statcol"><em>SpA</em><br>105</span> <span class="col statcol"><em>SpD</em><br>75</span> <span class="col statcol"><em>Spe</em><br>85</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1669457714
+|detailschange|p2a: Scizor|Scizor-Galar-Mega, M
+|-mega|p2a: Scizor|Scizor|Scizorite
+|-start|p2a: Scizor|typechange|Steel/Fire|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Scizor-Galar-Mega</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Hyperthermia</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>155</span> <span class="col statcol"><em>Def</em><br>85</span> <span class="col statcol"><em>SpA</em><br>115</span> <span class="col statcol"><em>SpD</em><br>85</span> <span class="col statcol"><em>Spe</em><br>90</span> </span></li><li style="clear: both"></li></ul>
+|move|p2a: Scizor|Shift Gear|p2a: Scizor
+
+
+TypeError: Cannot read properties of undefined (reading 'category')
+    at Battle.onBoost (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:1308:14)
+    at Battle.runEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:741:34)
+    at Battle.boost (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:1687:16)
+    at Battle.runMoveEffects (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:922:23)
+    at Battle.spreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:821:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:100:33)
+
+Additional information:
+  chunk = >p2 move 3
+  inputLog = 
+>version de999c966ac9b1315bd6e568e388406c6ad057f7
+>start {"formatid":"gen8agoldenexperience","seed":[52,19036,64233,4465]}
+>player p1 {"name":"Lysinosleep","avatar":"1","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||","rating":0}
+>player p2 {"name":"Lysidreamingnomore","avatar":"101","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||","rating":0}
+>p1 team 1, 2
+>p2 team 2, 1
+>p1 move shiftgear mega
+>p2 move toxic
+  log = 
+|t:|1669457906
+|player|p1|Lysinosleep|1|
+|player|p2|Lysidreamingnomore|101|
+|teamsize|p1|2
+|teamsize|p2|2
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Scizor-Galar, F|
+|poke|p1|Toxapex, F|
+|poke|p2|Scizor-Galar, M|
+|poke|p2|Toxapex, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669457915
+|start
+|switch|p1a: Scizor|Scizor-Galar, F|343/343
+|switch|p2a: Toxapex|Toxapex, F|304/304
+|-start|p1a: Scizor|typechange|Bug/Fire|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Scizor-Galar</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Bug.png" alt="Bug" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Swarm / Hyperthermia / Steadfast</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>75</span> <span class="col statcol"><em>SpA</em><br>105</span> <span class="col statcol"><em>SpD</em><br>75</span> <span class="col statcol"><em>Spe</em><br>85</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1669457919
+|detailschange|p1a: Scizor|Scizor-Galar-Mega, F
+|-mega|p1a: Scizor|Scizor|Scizorite
+|-start|p1a: Scizor|typechange|Steel/Fire|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Scizor-Galar-Mega</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Hyperthermia</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>70</span> <span class="col statcol"><em>Atk</em><br>155</span> <span class="col statcol"><em>Def</em><br>85</span> <span class="col statcol"><em>SpA</em><br>115</span> <span class="col statcol"><em>SpD</em><br>85</span> <span class="col statcol"><em>Spe</em><br>90</span> </span></li><li style="clear: both"></li></ul>
+|move|p1a: Scizor|Shift Gear|p1a: Scizor
+
+
+ReferenceError: itemList is not defined
+    at Battle.onResidual (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:343:34)
+    at Battle.singleEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:487:25)
+    at Battle.residualEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:416:9)
+    at Battle.runAction (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2653:9)
+    at Battle.go (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2761:9)
+    at Battle.commitDecisions (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2827:8)
+    at Battle.choose (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2783:35)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:119:17)
+    at RoomBattleStream._writeLine (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\room-battle.js:1255:18)
+    at RoomBattleStream._writeLines (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle-stream.js:77:10)
+
+Additional information:
+  chunk = >p2 move 3
+  inputLog = 
+>version de999c966ac9b1315bd6e568e388406c6ad057f7
+>start {"formatid":"gen8agoldenexperience","seed":[41980,41637,23409,9999]}
+>player p1 {"name":"Lysistmas","avatar":"169","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Persian|persianalola|lifeorb|flatterer|partingshot,swagger,nastyplot,darkpulse|Timid|,,,252,4,252||,0,,,,|||]Delistmas|||toymaker|roost,uturn,fling,tripleaxel|Careful|248,8,,,252,|||||","rating":0}
+>player p2 {"name":"WinterLysi","avatar":"265","team":"Scizor|scizorgalar|scizorite|swarm|shiftgear,overheat,closecombat,ironhead|Brave|248,252,,8,,|||||]Toxapex||blacksludge|regenerator|scald,recover,toxic,haze|Bold|252,,252,,4,||,0,,,,|||]Persian|persianalola|lifeorb|flatterer|partingshot,swagger,nastyplot,darkpulse|Timid|,,,252,4,252||,0,,,,|||]Delistmas|||toymaker|roost,uturn,fling,tripleaxel|Careful|248,8,,,252,|||||","rating":0}
+>p1 team 4, 2, 3, 1
+>p2 team 4, 2, 3, 1
+>p1 move fling
+>p2 move fling
+  log = 
+|t:|1669464861
+|player|p1|Lysistmas|169|
+|player|p2|WinterLysi|265|
+|teamsize|p1|4
+|teamsize|p2|4
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Scizor-Galar, M|
+|poke|p1|Toxapex, F|
+|poke|p1|Persian-Alola, F|
+|poke|p1|Delistmas, F|
+|poke|p2|Scizor-Galar, F|
+|poke|p2|Toxapex, F|
+|poke|p2|Persian-Alola, M|
+|poke|p2|Delistmas, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669464865
+|start
+|switch|p1a: Delistmas|Delistmas, F|423/423
+|switch|p2a: Delistmas|Delistmas, F|423/423
+|-start|p1a: Delistmas|typechange|Ice/Fairy|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Delistmas</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Toymaker</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>110</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>65</span> <span class="col statcol"><em>SpA</em><br>70</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>70</span> </span></li><li style="clear: both"></li></ul>
+|-start|p2a: Delistmas|typechange|Ice/Fairy|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Delistmas</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Toymaker</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>110</span> <span class="col statcol"><em>Atk</em><br>90</span> <span class="col statcol"><em>Def</em><br>65</span> <span class="col statcol"><em>SpA</em><br>70</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>70</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1669464875
+|move|p1a: Delistmas|Fling||[still]
+|-fail|p1a: Delistmas
+|move|p2a: Delistmas|Fling||[still]
+|-fail|p2a: Delistmas
+|
+
+
+TypeError: Cannot read properties of undefined (reading 'learnset')
+    at ModdedDex.init (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\scripts.js:67:42)
+    at ModdedDex.loadData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1511:34)
+    at ModdedDex.includeData (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:1428:8)
+    at ModdedDex.forFormat (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:194:33)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:197:18)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Noivern-Sinnoh||choicespecs|refrigerate|boomburst,dracometeor,uturn,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+TypeError: target.boost is not a function
+    at Battle.onSourceHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\mods\agoldenexperience\abilities.js:937:12)
+    at Battle.runEvent (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:741:34)
+    at Battle.runMoveEffects (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:1006:12)
+    at Battle.spreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:821:17)
+    at Battle.hitStepMoveHitLoop (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:686:37)
+    at Battle.trySpreadMoveHit (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:361:28)
+    at Battle.useMoveInner (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:274:22)
+    at Battle.useMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:145:27)
+    at Battle.runMove (C:\Users\lukas\Documents\GitHub\AGE\.data-dist\scripts.js:100:33)
+    at Battle.runAction (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\battle.js:2572:9)
+
+Additional information:
+  chunk = >p1 move 3
+  inputLog = 
+>version 25b6885799582306f12c0842e48bc8aec0cfa2ac
+>start {"formatid":"gen8agoldenexperience","seed":[51092,20064,46071,65062]}
+>player p1 {"name":"Lysidelgard ship","avatar":"266","team":"Noivern|noivernsinnoh|choicespecs|refrigerate|boomburst,dracometeor,uturn,focusblast|Timid|,,,252,4,252||,0,,,,|||]Persian|persianalola|leftovers|flatterer|nastyplot,partingshot,swagger,hypervoice|Timid|,,,252,4,252||,0,,,,|||","rating":0}
+>player p2 {"name":"BappyLysithea","avatar":"266","team":"Noivern|noivernsinnoh|choicespecs|refrigerate|boomburst,dracometeor,uturn,focusblast|Timid|,,,252,4,252||,0,,,,|||]Persian|persianalola|leftovers|flatterer|nastyplot,partingshot,swagger,hypervoice|Timid|,,,252,4,252||,0,,,,|||","rating":0}
+>p1 team 2, 1
+>p2 team 1, 2
+>p1 move partingshot
+>p2 move boomburst
+>p1 switch 2
+>p1 move uturn
+>p2 switch 2
+>p1 move uturn
+>p2 move partingshot
+  log = 
+|t:|1669565506
+|player|p1|Lysidelgard ship|266|
+|player|p2|BappyLysithea|266|
+|teamsize|p1|2
+|teamsize|p2|2
+|gametype|singles
+|gen|8
+|tier|[Gen 8] A Golden Experience
+|clearpoke
+|poke|p1|Noivern-Sinnoh, F|
+|poke|p1|Persian-Alola, F|
+|poke|p2|Noivern-Sinnoh, M|
+|poke|p2|Persian-Alola, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|Dynamax Clause: You cannot dynamax
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Species Clause: Limit one of each Pokémon
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|teampreview
+|
+|t:|1669565510
+|start
+|switch|p1a: Persian|Persian-Alola, F|271/271
+|switch|p2a: Noivern|Noivern-Sinnoh, M|311/311
+|-start|p2a: Noivern|typechange|Ice/Dragon|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Noivern-Sinnoh</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dragon.png" alt="Dragon" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Levitate / Refrigerate</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>83</span> <span class="col statcol"><em>Def</em><br>80</span> <span class="col statcol"><em>SpA</em><br>85</span> <span class="col statcol"><em>SpD</em><br>80</span> <span class="col statcol"><em>Spe</em><br>123</span> </span></li><li style="clear: both"></li></ul>
+|-start|p1a: Persian|typechange|Dark|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Persian-Alola</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Fur Coat / Technician / Flatterer</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>65</span> <span class="col statcol"><em>Atk</em><br>60</span> <span class="col statcol"><em>Def</em><br>60</span> <span class="col statcol"><em>SpA</em><br>85</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>115</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1669565515
+|move|p2a: Noivern|Boomburst|p1a: Persian
+|-damage|p1a: Persian|0 fnt
+|faint|p1a: Persian
+|
+|upkeep
+|
+|t:|1669565520
+|switch|p1a: Noivern|Noivern-Sinnoh, F|311/311
+|-start|p1a: Noivern|typechange|Ice/Dragon|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Noivern-Sinnoh</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Ice.png" alt="Ice" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dragon.png" alt="Dragon" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Levitate / Refrigerate</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>83</span> <span class="col statcol"><em>Def</em><br>80</span> <span class="col statcol"><em>SpA</em><br>85</span> <span class="col statcol"><em>SpD</em><br>80</span> <span class="col statcol"><em>Spe</em><br>123</span> </span></li><li style="clear: both"></li></ul>
+|turn|2
+|
+|t:|1669565526
+|switch|p2a: Persian|Persian-Alola, F|271/271
+|-start|p2a: Persian|typechange|Dark|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Persian-Alola</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Fur Coat / Technician / Flatterer</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>65</span> <span class="col statcol"><em>Atk</em><br>60</span> <span class="col statcol"><em>Def</em><br>60</span> <span class="col statcol"><em>SpA</em><br>85</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>115</span> </span></li><li style="clear: both"></li></ul>
+|move|p1a: Noivern|U-turn|p2a: Persian
+|-supereffective|p2a: Persian
+|-damage|p2a: Persian|157/271
+|
+|-heal|p2a: Persian|173/271|[from] item: Leftovers
+|upkeep
+|turn|3
+|
+|t:|1669565530
+|move|p1a: Noivern|U-turn|p2a: Persian
+|-supereffective|p2a: Persian
+|-damage|p2a: Persian|73/271
+|move|p2a: Persian|Parting Shot|p1a: Noivern
+|-unboost|p1a: Noivern|atk|1
+|-unboost|p1a: Noivern|spa|1
+
+
+Error: Rule "+Unobtainable" was added by "[Gen 8] A Golden Experience" but already exists in "Standard NatDex"
+    at ModdedDex.getRuleTable (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:886:12)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Ursaluna||flameorb|guts|facade,headlongrush,closecombat,swordsdance|Adamant|248,252,,,8,|||||]Typhlosion-Hisui||choicespecs|blaze|eruption,fireblast,infernalparade,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+TypeError: Cannot read properties of undefined (reading 'startsWith')
+    at ModdedDex.getRuleTable (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:851:13)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Ursaluna||flameorb|guts|facade,headlongrush,closecombat,swordsdance|Adamant|248,252,,,8,|||||]Typhlosion-Hisui||choicespecs|blaze|eruption,fireblast,infernalparade,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+TypeError: Cannot read properties of undefined (reading 'startsWith')
+    at ModdedDex.getRuleTable (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:851:13)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Ursaluna||flameorb|guts|facade,headlongrush,closecombat,swordsdance|Adamant|248,252,,,8,|||||]Typhlosion-Hisui||choicespecs|blaze|eruption,fireblast,infernalparade,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+TypeError: Cannot read properties of undefined (reading 'startsWith')
+    at ModdedDex.getRuleTable (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\dex.js:851:13)
+    at new TeamValidator (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:199:29)
+    at Function.get (C:\Users\lukas\Documents\GitHub\AGE\.sim-dist\team-validator.js:2115:10)
+    at QueryProcessManager._query (C:\Users\lukas\Documents\GitHub\AGE\.server-dist\team-validator-async.js:51:43)
+    at process.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:540:30)
+    at process.emit (node:events:526:28)
+    at process.emit (node:domain:475:12)
+    at emit (node:internal/child_process:938:14)
+    at processTicksAndRejections (node:internal/process/task_queues:84:21)
+
+Additional information:
+  formatid = gen8agoldenexperience
+  team = Ursaluna||flameorb|guts|facade,headlongrush,closecombat,swordsdance|Adamant|248,252,,,8,|||||]Typhlosion-Hisui||choicespecs|blaze|eruption,fireblast,infernalparade,focusblast|Timid|,,,252,4,252||,0,,,,|||
+
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:892:26)
+    at QueryProcessWrapper.destroy (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:178:16)
+    at QueryProcessWrapper.release (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:164:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:526:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:922:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
