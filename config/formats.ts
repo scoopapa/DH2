@@ -155,7 +155,9 @@ export const Formats: FormatList = [
 				"Enamorus", "Violentine", "Dialga", "Archronos", "Palkia", "Palkia-Origin", "Basculin-Hot-Headed",
 				"Basculectric", "Basculin-Skyship", "Basculegion",
 				"Basculagoon", "Magearna", "Magearna-Prototype",
-				"Zarude", "Zarude-Hero",
+				"Zarude", "Zarude-Hero", "Qwilfish",
+				"Aquattack", "Zoroark-Jorogumo", "Zoroark-Hoarfrost",
+				"Goodra-Tsunade", "Goodra-Symbiotic",
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */

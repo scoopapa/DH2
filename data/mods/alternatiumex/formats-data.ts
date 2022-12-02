@@ -294,4 +294,65 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	basculinhotheaded: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	basculectric: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	basculinskyship: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	basculegion: {
+		isNonstandard: null,
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	basculagoon: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	magearna: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	magearnaprototype: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	zarude: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	zarudehero: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	qwilfish: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	aquattack: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	zoroark: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	zoroarkhoarfrost: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	goodratsunade: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	goodrasymbiotic: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };
