@@ -1625,16 +1625,15 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(levelString.test(learnType)){
 						if(stoneCheck) { //Most Stone Evolutions only learn moves at level 1 and therefore we must also make sure they only learn moves once by level
 							if(!moveMeans.includes("8L1")) moveMeans.push("8L1");
-						} else if(learnType === (startGen + "L1") && pokemon.prevo && this.modData('Learnsets', prevo).learnset){ //Removes all instances of evolutions moving moves to level 1
-							const prevoLearn = this.modData('Learnsets', prevo).learnset;
+						/*} else if(learnType === (startGen + "L1") && pokemon.prevo && this.modData('Learnsets', prevo).learnset){ //Removes all instances of evolutions moving moves to level 1
+							const prevoLearn = this.modData('Learnsets', prevo).learnset[moveID];
 							for(const prevoMeans of prevoLearn){
 								if(levelString.test(prevoMeans) && prevoMeans !== (startGen + "L1")){ //Showdown only stores the earliest level, so we only have to check for prevos not having it at 1
 									if(learnsetTest) console.log("This move is learned at level 1, but the prevo learns it later; using the later one");
 									moveMeans = ["8" + prevoMeans.substring(1)]; //The check comes before non-level means are compiled, so this overrides the level 1 with the other level
 								}
-							}
-						}
-						else {
+							}*/
+						} else {
 							if(learnsetTest) console.log("This move is learned by level");
 							moveMeans.push("8" + learnType.substring(1));
 						}
