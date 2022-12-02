@@ -145,6 +145,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Special",
 		name: "Detect Magic",
+		desc: "This move is super effective on Dark type targets.",
+		shortDesc: "Super effective on Dark targets.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -179,6 +181,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Photo-Power",
+		shortDesc: "Raises user's Sp. Atk by 2 and Speed by 1 in Sun.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1},
@@ -205,6 +208,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Draconic Wrath",
+		shortDesc: "If a foe isn't switching in, hits it at 2x power.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -218,6 +222,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Purifying Stream",
+		shortDesc: "Resets all of the target's stat stages to 0.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -236,6 +241,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Railway Smash",
+		shortDesc: "Has 33% recoil.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -562,6 +568,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Underdog",
+		shortDesc: "BP x2 if target's Atk > user's Atk.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -645,6 +652,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
+		shortDesc: "This move raises in power after each use (5 turns max).",
 	},
 	highwater: {
 		num: -22,
@@ -677,7 +685,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		name: "Condensate",
 		shortDesc: "Power x2 if on Misty Terrain.",
-		pp: 24,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, source) {
@@ -701,6 +709,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Chillblain",
+		shortDesc: "Freezes the target.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
@@ -727,6 +736,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fighting",
 		contestType: "Tough",
+		shortDesc: "Super effective on Bug and Grass targets.",
 	},
     indomitablespirit: {
 		num: -26,
@@ -783,11 +793,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	dissolution: {
 		num: -28,
-		accuracy: 70,
-		basePower: 100,
+		accuracy: 100,
+		basePower: 70,
 		category: "Special",
 		name: "Dissolution",
-		pp: 16,
+		pp: 15,
 		shortDesc: "Supresses the target's ability after hit.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -811,6 +821,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Physical",
 		name: "Landslide",
+		shortDesc: "Removes the hazards on the field. Lowers the target's Speed by one stage.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -826,19 +837,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Landslide', '[of] ' + source);
 					success = true;
 				}
 			}
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Landslide', '[of] ' + source);
 					success = true;
 				}
 			}
 			return success;
 		},
-		secondary: null,
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
 		target: "normal",
 		type: "Ground",
 		contestType: "Tough",
@@ -849,6 +865,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Epicenter",
+		shortDesc: "This move hits 2 turns later.",
 		pp: 10,
 		priority: 0,
 		flags: {},
@@ -888,6 +905,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Downdraft",
+		desc: "If the opponent is Flying type or has Levitate, the opponent's Speed is lowered by one stage.",
+		shortDesc: "-1 Speed if the target has Levitate or is Flying type.", 
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -907,7 +926,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 85,
 		category: "Physical",
 		name: "Golem Strike",
-		pp: 16,
+		pp: 10,
 		shortDesc: "10% chance to lower target's Def",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -927,6 +946,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Punishing Blow",
+		shortDesc: "If the target has boosts, this move always results in a critical hit.",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -968,7 +988,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 95,
 		category: "Physical",
-		name: "Draconic fury",
+		name: "Draconic Fury",
+		shortDesc: "Has a 10% to lower the target's Def.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -988,6 +1009,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         basePower: 0,
         category: "Status",
         name: "Contrariety",
+		shortDesc: "Every Pokemon on the field gets Contrary as an ability.",
         pp: 15,
         priority: 0,
         flags: {},
@@ -1307,6 +1329,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Ice",
 		contestType: "Beautiful",
+		shortDesc: "Has a 100% chance to Freeze the target.",
 	},
 	nightdaze: {
 		num: 539,
@@ -1328,8 +1351,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
-	batonpass: { //copied from Hoenn Gaiden
+	batonpass: { 
 		inherit: true,
+		shortDesc: "User switches, passing Substitute and more. No longer passes stats.",
 		self: {
 			onHit(source) {
 				if (source.positiveBoosts()) {
@@ -1338,7 +1362,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			}
 		}
-
 	},
 	lowsweep: {
 		num: 490,
@@ -1610,6 +1633,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
+		shortDesc: "User loses 50% max HP.",
 	},
 	wickedblow: {
 		num: 817,
@@ -1779,6 +1803,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Raging Fury",
+		shortDesc: "Lasts 2-3 turns. Confuses the user afterwards.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -1832,6 +1857,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Special",
 		name: "Infernal Parade",
+		shortDesc: "Has a 30% chance to burn the target. Power doubles if the target is burned.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1850,7 +1876,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Ceaseless Edge",
-		pp: 20,
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'partiallytrapped',
@@ -1865,6 +1892,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Victory Dance",
+		shortDesc: "Raises the user's Atk, Def, Speed by 1.",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1, dance: 1},
@@ -1889,6 +1917,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Special",
 		name: "Bitter Malice",
+		shortDesc: "Has a 30% chance to freeze the target. Power doubles if the target is frozen.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1907,6 +1936,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 95,
 		category: "Special",
 		name: "Esper Wing",
+		shortDesc: "30% chance to lower the target's Sp. Def by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1926,6 +1956,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 115,
 		category: "Physical",
 		name: "Mountain Gale",
+		shortDesc: "10% chance to lower the target's Def by 1.",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1995,6 +2026,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
+		shortDesc: "Protects from moves. Contact: resets opponent's stat boosts.",
 	},
 	triplearrows: {
 		num: -1612,
@@ -2028,6 +2060,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Psyshield Bash",
+		shortDesc: "Uses user's Def stat as Atk in damage calculation.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -2042,6 +2075,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Physical",
 		name: "Stone Axe",
+		shortDesc: "30% chance to lower the target's Defense by 1.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -2061,6 +2095,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Headlong Rush",
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -2081,6 +2116,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 75,
 		category: "Physical",
 		name: "Wave Crash",
+		shortDesc: "Has 33% recoil. 100% chance to raise the user's Speed by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -2103,6 +2139,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 90,
 		category: "Physical",
 		name: "Dire Claw",
+		shortDesc: "50% chance to poison the target.",
 		pp: 16,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -2124,6 +2161,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Barb Barrage",
+		shortDesc: "Has a 30% chance to poison the target. Power doubles if the target is poisonned.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -2406,6 +2444,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Lightning Assault",
+		shortDesc: "More power the faster the user is than the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -2422,6 +2461,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Conversion-Z",
+		shortDesc: "Fails if the user has an item. Raises all stats by 1, and user gets the type of its 3rd move.",
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, sound: 1, dance: 1},
@@ -2454,6 +2494,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "We Need A Wall",
+		shortDesc: "Raises user's Atk by 1 on turn 1. Hits turn 2.",
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
@@ -2520,6 +2561,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Full Devotion",
+		shortDesc: "One adjacent ally's move power is 1.5x this turn. Lowers damages this ally receives of 25%.",
 		pp: 10,
 		priority: 0,
 		flags: {authentic: 1},

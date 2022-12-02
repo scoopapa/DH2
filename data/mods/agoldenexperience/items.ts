@@ -11,7 +11,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidual(pokemon) {
 			pokemon.trySetStatus('par', pokemon);
 		},
-		num: 272,
+		desc: "At the end of each turn, tries to paralyze the holder.",
+		shortDesc: "Tries to para the holder.",
+		num: -1272,
 		gen: 4,
 	},
 	relicsheet: {
@@ -33,31 +35,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	nullifyorb: {
 		name: "Nullify Orb",
-		shortDesc: "Nullify all abilities on the field.",
+		shortDesc: "Nullify the holder's ability.",
 		fling: {
 			basePower: 30,
 		},
-		onPreStart(pokemon) {
-			this.add('-item', pokemon, 'Nullify Orb');
-			pokemon.abilityData.ending = false;
-			for (const target of this.getAllActive()) {
-				if (target.illusion) {
-					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'nullifyorb');
-				}
-				if (target.volatiles['slowstart']) {
-					delete target.volatiles['slowstart'];
-					this.add('-end', target, 'Slow Start', '[silent]');
-				}
-			}
-		},
-		onEnd(source) {
-			source.abilityData.ending = true;
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon !== source) {
-
-					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
-				}
-			}
+		onStart(pokemon) {
+			if (pokemon.getAbility().isPermanent) return;
+			pokemon.addVolatile('gastroacid');
 		},
 		num: -1270,
 		gen: 8,
@@ -794,6 +778,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 
 	chakraseed: {
 		name: "Chakra Seed",
+		shortDesc: "If the terrain is Chakra Terrain, raises holder's Defense by 1 stage. Single use.",
 		spritenum: 664,
 		fling: {
 			basePower: 10,
@@ -856,6 +841,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	deepseascale: {
 		name: "Deep Sea Scale",
+		shortDesc: "If held by a Clamperl or a Gorebyss, its Sp. Def is x1.5.",
 		spritenum: 93,
 		fling: {
 			basePower: 30,
@@ -872,6 +858,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	deepseatooth: {
 		name: "Deep Sea Tooth",
+		shortDesc: "If held by a Clamperl or a Huntail, its Sp. Atk is x1.5.",
 		spritenum: 94,
 		fling: {
 			basePower: 90,

@@ -1253,7 +1253,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
             gigadrain: ["8L1"],
             discharge: ["8L1"],
             energyball: ["8L1"],
-            strenghtsap: ["8L1"],
+            strengthsap: ["8L1"],
             toxic: ["8L1"],
             pinmissile: ["8L1"],
             solarbeam: ["8L1"],
@@ -2606,7 +2606,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			phantomforce: ["8L1"],
 		},
 	},
-	houndoom: {
+	baskiron: {
 		learnset: {
 			attract: ["7M", "7V", "6M", "5M", "4M", "3M"],
 			beatup: ["7L26", "6L26", "5L26", "4L28"],
@@ -3365,6 +3365,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
             skittersmack: ["8L1"],
             lashout: ["8L1"],
             firstimpression: ["8L1"],
+			suckerpunch: ["8L1"],
         },
     },
 	goldiorno: {
@@ -3589,7 +3590,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			swordsdance: ["8L1"],
 			grassyglide: ["8L1"],
 			gunkshot: ["8L1"],
-			directtoxic: ["8L1"],
+			poisonjab: ["8L1"],
 			toxic: ["8L1"],
 			earthquake: ["8L1"],
 		},
@@ -3772,6 +3773,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			helpinghand: ["8M"],
 			brickbreak: ["8M"],
 			weatherball: ["8M"],
+			roost: ["8M"],
 			brine: ["8M"], 
 			payback: ["8M"],
 			icefang: ["8M"],

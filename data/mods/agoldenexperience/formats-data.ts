@@ -1006,8 +1006,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	meganium: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "PU",
+		doublesTier: "(DUU)",
 	},
 	meganiummega: {
 		tier: "OU",
@@ -2753,7 +2753,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	cofagrigus: {
-		tier: "PU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	runerigus: {
@@ -3931,12 +3931,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DUber",
 	},
 	magearna: {
-		tier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	magearnaoriginal: {
-		tier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	marshadow: {
 		tier: "Uber",
@@ -4731,8 +4731,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	grimillia: {
-		tier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 //unavailable
 	missingno: {

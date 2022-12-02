@@ -1208,3 +1208,18 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:922:14)
     at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error: Cannot find module 'shelljs'
+Require stack:
+- C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js
+- C:\Users\lukas\Documents\GitHub\AGE\.server-dist\modlog.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at StreamProcessWrapper.destroy (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:288:15)
+    at StreamProcessWrapper.release (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:274:14)
+    at StreamProcessManager.releaseCrashed (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:423:16)
+    at ChildProcess.<anonymous> (C:\Users\lukas\Documents\GitHub\AGE\.lib-dist\process-manager.js:470:48)
+    at ChildProcess.emit (node:events:526:28)
+    at ChildProcess.emit (node:domain:475:12)
