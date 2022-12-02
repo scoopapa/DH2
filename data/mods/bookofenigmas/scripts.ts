@@ -68,6 +68,46 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		addNewMoves('slowkinggalar',['chillingwater']);
 		addNewMoves('vaporeon',['chillingwater']);
 		addNewMoves('wigglytuff',['chillingwater']);
+
+		addNewMoves('wigglytuff', ['nastyplot']);
+		addNewMoves('dugtrio', ['swordsdance']);
+		addNewMoves('dugtrioalola', ['swordsdance']);
+		addNewMoves('golduck', ['nastyplot', "powergem"]);
+		addNewMoves('primeape', ['stealthrock']);
+		addNewMoves('muk', ['drainpunch', 'toxicspikes']);
+		addNewMoves('mukalola', ['drainpunch']);
+		addNewMoves('gengar', ['toxicspikes']);
+		addNewMoves('scyther', ['closecombat']);
+		addNewMoves('vaporeon', ['calmmind']);
+		addNewMoves('jolteon', ['calmmind']);
+		addNewMoves('flareon', ['calmmind']);
+		addNewMoves('articuno', ['haze']);
+		addNewMoves('articunogalar', ['tailwind']);
+		addNewMoves('zapdosgalar', ['tailwind']);
+		addNewMoves('moltresgalar', ['tailwind']);
+		addNewMoves('dragonite', ['encore']);
+		addNewMoves('mewtwo', ['earthpower', 'powergem']);
+
+		addNewMoves('typhlosionhisui', ['focusblast', 'eruption']);
+		addNewMoves('ampharos', ['dazzlinggleam']);
+		addNewMoves('sudowoodo', ['spikes']);
+		addNewMoves('jumpluff', ['tailwind', 'pollenpuff', 'dazzlinggleam']);
+		addNewMoves('quagsire', ['spikes', 'toxicspikes', 'stealthrock']);
+		addNewMoves('espeon', ['powergem']);
+		addNewMoves('umbreon', ['calmmind', 'thunderwave']);
+		addNewMoves('slowkinggalar', ['toxicspikes']);
+		addNewMoves('forretress', ['bodypress']);
+		addNewMoves('scizor', ['pounce', 'closecombat']);
+		addNewMoves('tyranitar', ['powergem']);
+
+		addNewMoves('gardevoir', ['aurasphere']);
+		addNewMoves('masquerain', ['hurricane']);
+		addNewMoves('sableye', ['gigadrain', 'reflect', 'lightscreen']);
+		addNewMoves('honchkrow', ['uturn', 'hurricane']);
+		addNewMoves('weavile', ['icespinner']);
+		addNewMoves('leafeon', ['calmmind']);
+		addNewMoves('weavile', ['calmmind']);
+		addNewMoves('gallade', ['agility', 'sacredsword']);
 	},
 
 	hitStepBreakProtect(targets, pokemon, move) {
