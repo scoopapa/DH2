@@ -6,7 +6,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		mega: "gogoatmega",
 		megaName: "Gogoat-Mega",
-		megaType: ["Grass"],
 		megaAbility: {0: "Speed Boost"},
 		megaStats: {hp: 123, atk: 135, def: 77, spa: 142, spd: 106, spe: 48},
 		megaStone: "Gogoatite",
@@ -36,6 +35,40 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Clawitzerite",
 		movepoolAdditions: ["dragondance", "shellsidearm", "stoneedge"],
 		megaCreator: "NANI?!",
+	},
+
+	// slate 2
+
+	wormadamsandy: {
+		inherit: true,
+		mega: "wormadamsandymega",
+		megaName: "Wormadam-Sandy-Mega",
+		megaAbility: {0: "Poison Heal"},
+		megaStats: {hp: 60, atk: 91, def: 155, spa: 74, spd: 105, spe: 39},
+		megaStone: "Wormadamite",
+		megaCreator: "Paulluxx and IsoCon",
+	},
+
+	drifblim: {
+		inherit: true,
+		mega: "drifblimmega",
+		megaName: "Drifblim-Mega",
+		megaAbility: {0: "Neutralizing Gas"},
+		megaStats: {hp: 150, atk: 80, def: 44, spa: 145, spd: 89, spe: 90},
+		megaStone: "Drifblimite",
+		megaCreator: "BlueRay",
+	},
+
+	heliolisk: {
+		inherit: true,
+		mega: "helioliskmega",
+		megaName: "Heliolisk-Mega",
+		megaType: ["Electric", "Dragon"],
+		megaAbility: {0: "Solar Power"},
+		megaStats: {hp: 62, atk: 85, def: 62, spa: 129, spd: 124, spe: 129},
+		megaStone: "Heliolite",
+		movepoolAdditions: ["dragontail", "morningsun"],
+		megaCreator: "lydian",
 	},
 
 };

@@ -441,7 +441,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	flintspear: {
 		num: -114,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 85,
 		category: "Physical",
 		name: "Flint Spear",
 		shortDesc: "Target becomes weaker to Fire.",
@@ -463,7 +463,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Rock",
+		type: "Ghost",
 	},
 
 	foragerspoise: {
@@ -928,5 +928,33 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.runEvent('AfterUseItem', pokemon, null, null, item);
 			}
 		},
+	},
+	recrystalize: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Heals up to 50% of the user's max HP; Ice-types recover 67% in Hail and Rock-types recover 67% in Sandstorm.",
+		shortDesc: "Heals up to 50% of the user's max HP; Ice-types recover 67% in Hail and Rock-types recover 67% in Sandstorm.",
+		isViable: true,
+		name: "Recrystalize",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', target, "Rock Polish", source);
+		},
+		onHit(pokemon) {
+			let factor = 0.5;
+			if (this.field.isWeather('hail')) {
+				factor = 0.667;
+			}
+			return !!this.heal(this.modify(pokemon.maxhp, factor));
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
 	},
 };

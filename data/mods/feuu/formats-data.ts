@@ -1871,6 +1871,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 75,
 		requiredItem: "Sablenite",
 	},
+	victreegeistsmall: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	dragerigus: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	drudlinks: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	oricroak: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
+	deciduvolt: {
+		tier: "FENU",
+		doublesTier: "DUU",
+		randomBattleLevel: 81,
+	},
 							
 	//Silvino Nightmare Hours
 	//on god whose fucking idea was this
@@ -2521,6 +2546,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
+	bellaboosmall: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	maskrelp: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
+	rowbbin: {
+		tier: "FELC",
+		doublesTier: "LC",
+	},
 	corveotto: {
 		tier: "FENFE",
 		doublesTier: "NFE",
@@ -2574,6 +2611,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "NFE",
 	},
 	mrhauntgalar: {
+		tier: "FENFE",
+		doublesTier: "NFE",
+	},
+	dartbug: {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},

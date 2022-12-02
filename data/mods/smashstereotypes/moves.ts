@@ -2756,4 +2756,121 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
 	},
+	flintspear: {
+		num: -114,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Flint Spear",
+		shortDesc: "Target becomes weaker to Fire.",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'flintspear',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stone Edge", target);
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Flint Spear');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Fire') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
+
+	foragerspoise: {
+		num: 588,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Forager's Poise",
+		shortDesc: "Protects from damaging attacks; +1 Crit hit. Contact: -1 Atk.",
+		pp: 10,
+		priority: 4,
+		flags: {},
+		stallingMove: true,
+		volatileStatus: 'foragerspoise',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Baneful Bunker", target);
+		},
+		onTryHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					target.addVolatile('foragercrit');
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.flags['contact']) {
+					this.boost({atk: -1}, source, target, this.dex.getActiveMove("Forager's Poise"));
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Cool",
+	},
+	pepsipower: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Pepsi Power",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", target);
+		},
+		onHit(target, source) {
+			const item = target.takeItem(source);
+			if (item) {
+				this.add('-enditem', target, item.name, '[from] move: Pepsi Power', '[of] ' + source);
+				target.setItem('pepsican');
+			}
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Water",
+	},
 };

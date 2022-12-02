@@ -401,4 +401,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	salamalix: {
 		tier: "SSS",
 	},
+	pepsiman: {
+		tier: "SSS",
+	},
+	draxplosion: {
+		tier: "SSS",
+	},
+	aegislashancient: {
+		tier: "SSS",
+	},
 };

@@ -886,7 +886,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		target: "normal",
-		type: "Dark",
+		type: "Electric",
 	},
 	thousandarrows: {
 		num: 614,

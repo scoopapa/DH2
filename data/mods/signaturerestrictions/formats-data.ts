@@ -26,4 +26,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	souruffowz: {
 		tier: "SigRes",
 	},
+	barnacrust: {
+		tier: "SigRes",
+	},
+	mercurice: {
+		tier: "SigRes",
+	},
+	valcondor: {
+		tier: "SigRes",
+	},
+	luminity: {
+		tier: "SigRes",
+	},
+	lotusage: {
+		tier: "SigRes",
+	},
+	revitty: {
+		tier: "SigRes",
+	},
+	silvorm: {
+		tier: "SigRes",
+	},
+	devialloy: {
+		tier: "SigRes",
+	},
+	kuninyx: {
+		tier: "SigRes",
+	},
 };
