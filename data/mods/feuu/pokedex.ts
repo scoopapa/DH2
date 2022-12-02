@@ -5332,7 +5332,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Mr. Gar"],
 	},
 	dartbug: {
-		fusion: ['Dartrix', 'Haunter'],
+		fusion: ['Dartrix', 'Charjabug'],
 		num: 2015,
 		name: "Dartbug",
 		types: ["Electric", "Flying"],
