@@ -506,7 +506,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						break;
 					case 'U': //Undo: Clears hazards, screens, weather, and terrain
 						const removeEffects = [
-							'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
+							'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'healblock', 'luckychant', 'spikes', 'toxicspikes', 'stealthrock', 'stickyweb',
 						];
 						for (const condition of removeEffects) {
 							if (pokemon.side.removeSideCondition(condition)) {
@@ -765,7 +765,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		R - Reverse:	Summons Trick Room for five turns.
 		S - Storm:		Summons torrential rain for as long as Unown is in battle.
 		T - Turnabout:	The first attack to hit Unown this turn has its damage Rebound, using the same calculation as the move.
-		U - Undo:		Clears all weather effects, terrains, entry hazards, and screens.
+		U - Undo:		Clears all weather effects, terrains, entry hazards, side conditions, and screens.
 		V - Vanish:		Forces Unown's direct opponent to switch out, ignoring substitutes.
 		W - Weird:		Summons Psychic Terrain for five turns.
 		X - X-Out:		If Unown faints from an attack, the attacker also faints.

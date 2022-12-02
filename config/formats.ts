@@ -3723,6 +3723,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'earthsky',
 		ruleset: [ '[Gen 8] Earth & Sky OU', 'Egelas Pokedex',],
+		banlist: ['Mawile-Mega',],
 		teambuilderFormat: 'National Dex',
 	},
 	{
