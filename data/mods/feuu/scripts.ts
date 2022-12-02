@@ -337,6 +337,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 							this.battle.add('-immune', this, '[from] ability: Spirit Ascent');
 						} else if (this.hasAbility('testcram')) {
 							this.battle.add('-immune', this, '[from] ability: Test Cram');
+						} else if (this.hasAbility('floatingreach')) {
+							this.battle.add('-immune', this, '[from] ability: Floating Reach');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -380,6 +382,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.hasAbility('ghoulaway') || 
 				this.hasAbility('spiritascent') ||
 				this.hasAbility('testcram') ||
+				this.hasAbility('floatingreach') ||
 				this.hasAbility('lovelessfloat')) &&
 				
 				!this.battle.suppressingAttackEvents()
@@ -960,7 +963,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (pokemon.ability === 'faustianpact' && move.flags['contact']) {
 			let swapped = false; 
 			const targetAbility = target.getAbility();
-			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
+			const additionalBannedAbilities = ['noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'pillage', 'magicmissile', 'ecopy', 'lemegeton', 'modeshift', 'rebootsystem', 'concussion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode'];
 			if (!targetAbility.isPermanent || !additionalBannedAbilities.includes(targetAbility) || !pokemon.volatiles['dynamax']) {
 				swapped = true; 
 			} 

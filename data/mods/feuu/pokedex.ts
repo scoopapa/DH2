@@ -3867,6 +3867,53 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Touch"},
 		weightkg: 43.5,
 	},
+	victreegeistsmall: {
+		fusion: ['Victreebel', 'Gourgeist'],
+		num: 237,
+		name: "Victreegeist-Small",
+		types: ["Ghost", "Poison"],
+		baseStats: {hp: 70, atk: 100, def: 93, spa: 80, spd: 72, spe: 100},
+		abilities: {0: "Stress Eating"},
+		weightkg: 12.5,
+	},
+	dragerigus: {
+		fusion: ['Dragalge', 'Runerigus'],
+		num: 238,
+		name: "Dragerigus",
+		types: ["Ghost", "Dragon"],
+		baseStats: {hp: 81, atk: 95, def: 117, spa: 83, spd: 114, spe: 37},
+		// abilities: {0: "Mephisto's Pact"},
+		abilities: {0: "Faustian Pact"},
+		weightkg: 74.1,
+	},
+	drudlinks: {
+		fusion: ['Druddigon', 'Falinks'],
+		num: 239,
+		name: "Drudlinks",
+		types: ["Fighting", "Dragon"],
+		baseStats: {hp: 77, atk: 110, def: 95, spa: 65, spd: 75, spe: 77},
+		abilities: {0: "Reality Smasher"},
+		weightkg: 100.5,
+	},
+	oricroak: {
+		fusion: ['Oricorio', 'Toxicroak'],
+		num: 240,
+		name: "Oricroak",
+		types: ["Fighting", "Ghost"],
+		baseStats: {hp: 80, atk: 90, def: 70, spa: 105, spd: 70, spe: 100},
+		abilities: {0: "Toxin Replica"},
+		weightkg: 23.9,
+	},
+	deciduvolt: {
+		fusion: ['Decidueye', 'Vikavolt'],
+		num: 241,
+		name: "Deciduvolt",
+		types: ["Electric", "Ghost"],
+		baseStats: {hp: 80, atk: 100, def: 82, spa: 125, spd: 90, spe: 57},
+		abilities: {0: "Floating Reach"},
+		weightkg: 40.8,
+	},
+
 	
 // LC
 	woopopotas: {
@@ -5111,6 +5158,37 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 9.1,
 		evos: ["Lycaking-Dusk"],
 	},
+	bellaboosmall: {
+		fusion: ['Bellsprout', 'Pumpkaboo'],
+		num: 1121,
+		name: "Bellaboo-Small",
+		types: ["Ghost", "Poison"],
+		baseStats: {hp: 50, atk: 75, def: 52, spa: 58, spd: 42, spe: 64},
+		abilities: {0: "Stress Eating"},
+		weightkg: 3.8,
+		evos: ["Victreegeist-Small"],
+	},
+	maskrelp: {
+		fusion: ['Skrelp', 'Yamask-Galar'],
+		num: 1122,
+		name: "Maskrelp",
+		types: ["Ghost", "Water"],
+		baseStats: {hp: 64, atk: 67, def: 72, spa: 45, spd: 72, spe: 30},
+		// abilities: {0: "Mephisto's Pact"},
+		abilities: {0: "Faustian Pact"},
+		weightkg: 4.4,
+		evos: ["Dragerigus"],
+	},
+	rowbbin: {
+		fusion: ['Rowlet', 'Grubbin'],
+		num: 1123,
+		name: "Rowbbin",
+		types: ["Bug", "Flying"],
+		baseStats: {hp: 60, atk: 70, def: 50, spa: 55, spd: 50, spe: 45},
+		abilities: {0: "Last Stand"},
+		weightkg: 3,
+		evos: ["Dartbug"],
+	},
 
 // NFE
 	corveotto: {
@@ -5252,6 +5330,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Spirit Ascent"},
 		weightkg: 28.5,
 		evos: ["Mr. Gar"],
+	},
+	dartbug: {
+		fusion: ['Dartrix', 'Charjabug'],
+		num: 2015,
+		name: "Dartbug",
+		types: ["Electric", "Flying"],
+		baseStats: {hp: 70, atk: 90, def: 85, spa: 65, spd: 75, spe: 45},
+		abilities: {0: "Tough Claws"},
+		weightkg: 13.3,
+		evos: ["Deciduvolt"],
 	},
 
 };

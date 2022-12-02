@@ -488,4 +488,75 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "Reveals the foe(s)'s item and strongest move on switch-in, unless they are also holding a Player Pin.",
 	},
+	pepsican: {
+		name: "Pepsi Can",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.heal(source.baseMaxhp / 16);
+			}
+			else {
+				this.heal(source.baseMaxhp / 16);
+			}
+			for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+			}
+			if (source.species.id !== 'pepsiman') {
+				source.setItem('pepsicantwothirdsfull');
+				this.add('-item', source, source.getItem(), '[from] item: Pepsi Can');
+			}
+		},
+		num: 1009,
+		gen: 8,
+		shortDesc: "At the end of every turn, holder restores 1/16 of its max HP. Lasts 3 turns.",
+	},
+	pepsicantwothirdsfull: {
+		name: "Pepsi Can (Two-Thirds Full)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.heal(source.baseMaxhp / 16);
+			}
+			else {
+				this.heal(source.baseMaxhp / 16);
+			}
+			for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+			}
+			source.setItem('pepsicanonethirdfull');
+			this.add('-item', source, source.getItem(), '[from] item: Pepsi Can');
+		},
+		num: 1010,
+		gen: 8,
+		shortDesc: "At the end of every turn, holder restores 1/16 of its max HP. Lasts 2 turns.",
+	},
+	pepsicanonethirdfull: {
+		name: "Pepsi Can (One-Third Full)",
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(source) {
+			if (source.volatiles['malnourish']) {
+				this.heal(source.baseMaxhp / 16);
+			}
+			else {
+				this.heal(source.baseMaxhp / 16);
+			}
+			for (const pokemon of this.getAllActive()) {
+					if (pokemon.switchFlag === true) return;
+			}
+			source.setItem('pepsicanempty');
+			this.add('-item', source, source.getItem(), '[from] item: Pepsi Can');
+		},
+		num: 1011,
+		gen: 8,
+		shortDesc: "At the end of every turn, holder restores 1/16 of its max HP. Lasts 1 turn.",
+	},
+	pepsicanempty: {
+		name: "Pepsi Can (Empty)",
+		num: 1012,
+		gen: 8,
+		shortDesc: "No effect.",
+	},
 };
