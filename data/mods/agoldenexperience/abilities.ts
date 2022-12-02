@@ -54,7 +54,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		name: "Water Proof",
+		name: "Waterproof",
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Water move; Water immunity.",
 		rating: 3,
 		num: -3,

@@ -3773,6 +3773,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			helpinghand: ["8M"],
 			brickbreak: ["8M"],
 			weatherball: ["8M"],
+			roost: ["8M"],
 			brine: ["8M"], 
 			payback: ["8M"],
 			icefang: ["8M"],

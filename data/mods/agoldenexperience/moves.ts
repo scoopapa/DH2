@@ -684,7 +684,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 65,
 		category: "Special",
 		name: "Condensate",
-		shortDesc: "BP x2 if on Misty Terrain.",
+		shortDesc: "Power x2 if on Misty Terrain.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -797,7 +797,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Special",
 		name: "Dissolution",
-		pp: 16,
+		pp: 15,
 		shortDesc: "Supresses the target's ability after hit.",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -1353,6 +1353,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	batonpass: { 
 		inherit: true,
+		shortDesc: "User switches, passing Substitute and more. No longer passes stats.",
 		self: {
 			onHit(source) {
 				if (source.positiveBoosts()) {
@@ -1361,7 +1362,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			}
 		}
-		shortDesc: "User switches, passing Substitute and more. No longer passes stats.",
 	},
 	lowsweep: {
 		num: 490,

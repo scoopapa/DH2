@@ -723,6 +723,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 115,
 		color: "Red",
 		eggGroups: ["Bug"],
+		battleOnly: "Scizor-Galar",
 		requiredItem: "Scizorite",
 	},
 	sneasel: {
