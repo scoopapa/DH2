@@ -504,9 +504,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	passimian: {
 		num: 766,
 		name: "Passimian",
-		types: ["Fighting", "Ground"],
+		types: ["Rock", "Fighting"],
 		baseStats: {hp: 100, atk: 120, def: 90, spa: 40, spd: 70, spe: 95},
-		abilities: {0: "Receiver", H: "Defiant"},
+		abilities: {0: "Sand Rush", H: "Defiant"},
 		heightm: 2,
 		weightkg: 82.8,
 		color: "White",
