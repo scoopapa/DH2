@@ -29,6 +29,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.category = 'Special';
 				break;
 			}
+			if (this.field.effectiveWeather()) move.basePower *= 2;
 		},
 	},
 	acrobatics: {
