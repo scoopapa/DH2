@@ -29,6 +29,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.category = 'Special';
 				break;
 			}
+			if (this.field.effectiveWeather()) move.basePower *= 2;
 		},
 	},
 	acrobatics: {
@@ -248,6 +249,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		gen: 3,
 		basePower: 120,
+		onModifyMove(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			move.type = this.runEvent('Memory', pokemon, null, move, 'Normal');
+			const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
+			move.category = specialTypes.includes(move.type) ? 'Special' : 'Physical';
+		}
 	},
 	recover: {
 		inherit: true,
