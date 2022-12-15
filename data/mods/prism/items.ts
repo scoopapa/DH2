@@ -98,12 +98,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 			duration: 1,
 			onDamage: function (damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && damage >= target.hp) {
-					this.effectData.activated = true;
+					this.effectState.activated = true;
 					return target.hp - 1;
 				}
 			},
 			onAfterMoveSecondary: function (target) {
-				if (this.effectData.activated) target.useItem();
+				if (this.effectState.activated) target.useItem();
 				target.removeVolatile('focussash');
 			},
 		},
@@ -149,7 +149,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			duration: 1,
 			onAfterMoveSecondarySelf: function (source, target, move) {
 				if (move && move.effectType === 'Move' && source && source.volatiles['lifeorb']) {
-					this.damage(source.maxhp / 10, source, source, this.getItem('lifeorb'));
+					this.damage(source.maxhp / 10, source, source, this.items.get('lifeorb'));
 					source.removeVolatile('lifeorb');
 				}
 			},
@@ -210,13 +210,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 					pokemon.removeVolatile('metronome');
 					return;
 				}
-				if (!this.effectData.move || this.effectData.move !== move.id) {
-					this.effectData.move = move.id;
-					this.effectData.numConsecutive = 0;
-				} else if (this.effectData.numConsecutive < 10) {
-					this.effectData.numConsecutive++;
+				if (!this.effectState.move || this.effectState.move !== move.id) {
+					this.effectState.move = move.id;
+					this.effectState.numConsecutive = 0;
+				} else if (this.effectState.numConsecutive < 10) {
+					this.effectState.numConsecutive++;
 				}
-				return basePower * (1 + (this.effectData.numConsecutive / 10));
+				return basePower * (1 + (this.effectState.numConsecutive / 10));
 			},
 		},
 	},

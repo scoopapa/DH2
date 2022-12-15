@@ -93,13 +93,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.tryTrap();
 		  },
     		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (!pokemon.hasAbility('shadowtag') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (!pokemon.hasAbility('shadowtag')) {
 				pokemon.maybeTrapped = true;
 			}
@@ -204,7 +204,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyTryMove(target, source, effect) {
 			if (['roulettespin'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'ability: Obtrusive', effect, '[of] ' + target);
+				this.add('cant', this.effectState.target, 'ability: Obtrusive', effect, '[of] ' + target);
 				return false;
 			}
 		},
@@ -365,7 +365,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onResidualOrder: 19,
 			onEnd(target) {
 				this.add('-end', target, 'ability: Tranquilizing Gas', '[silent]');
-				target.trySetStatus('slp', this.effectData.source);
+				target.trySetStatus('slp', this.effectState.source);
 			},
 		},
 		name: "Tranquilizing Gas",
@@ -385,7 +385,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 3,
 			onStart(target) {
 				if (target.activeTurns && !this.queue.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 				this.add('-start', target, 'move: Taunt');
 			},
@@ -395,7 +395,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (move.category === 'Status' && move.id !== 'mefirst') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -459,7 +459,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	adaptation: {
 		shortDesc: "On switch-in, user gains a type matching its first move.",
 		onStart(pokemon) {
-			const type = this.dex.getMove(pokemon.moveSlots[0].id).type;
+			const type = this.dex.moves.get(pokemon.moveSlots[0].id).type;
 			if (pokemon.hasType(type) || !pokemon.addType(type)) return false;
 			this.add('-start', pokemon, 'typeadd', type);
 		},

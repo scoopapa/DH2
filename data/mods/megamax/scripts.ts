@@ -67,7 +67,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'urshifu').learnset.psychup = ["8M"];
 	},
 	canMegaEvo(pokemon) {
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&
@@ -111,7 +111,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		this.runEvent('AfterMega', pokemon);
-		const baseTypes = this.dex.mod('gen8').getSpecies(pokemon.baseSpecies).types.join('/');
+		const baseTypes = this.dex.mod('gen8').species.get(pokemon.baseSpecies).types.join('/');
 		if (pokemon.types.join('/') !== baseTypes) this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 		return true;
 	},

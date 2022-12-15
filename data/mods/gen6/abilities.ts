@@ -81,7 +81,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's moves are changed to be Normal type.",
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
-			if (move.id !== 'struggle' && this.dex.getMove(move.id).type !== 'Normal') {
+			if (move.id !== 'struggle' && this.dex.moves.get(move.id).type !== 'Normal') {
 				move.type = 'Normal';
 			}
 		},

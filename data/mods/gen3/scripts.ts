@@ -2,17 +2,17 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen4',
 	gen: 3,
 	init() {
-		for (const i in this.data.Pokedex) {
-			delete this.data.Pokedex[i].abilities['H'];
+		for (const i in this.species.all()) {
+			delete this.species.all()[i].abilities['H'];
 		}
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 		let newCategory = '';
-		for (const i in this.data.Moves) {
-			if (!this.data.Moves[i]) console.log(i);
-			if (this.data.Moves[i].category === 'Status') continue;
-			newCategory = specialTypes.includes(this.data.Moves[i].type) ? 'Special' : 'Physical';
-			if (newCategory !== this.data.Moves[i].category) {
-				this.modData('Moves', i).category = newCategory;
+		for (const i in this.moves.all()) {
+			if (!this.moves.all()[i]) console.log(i);
+			if (this.moves.all()[i].category === 'Status') continue;
+			newCategory = specialTypes.includes(this.moves.all()[i].type) ? 'Special' : 'Physical';
+			if (newCategory !== this.moves.all()[i].category) {
+				this.modData('Moves', this.moves.all()[i].id).category = newCategory;
 			}
 		}
 	},
@@ -130,7 +130,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let lacksTarget = !target || target.fainted;
 			if (!lacksTarget) {
 				if (['adjacentFoe', 'adjacentAlly', 'normal', 'randomNormal'].includes(move.target)) {
-					lacksTarget = !this.isAdjacent(target, pokemon);
+					lacksTarget = !target.isAdjacent(pokemon);
 				}
 			}
 			if (lacksTarget && !move.isFutureMove) {
@@ -303,7 +303,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let nullDamage = true;
 			let moveDamage: number | undefined | false;
 			// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-			const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+			const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
 			let i: number;
 			for (i = 0; i < hits && target.hp && pokemon.hp; i++) {
 				if (pokemon.status === 'slp' && !isSleepUsable) break;

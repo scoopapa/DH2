@@ -1249,7 +1249,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onRestart(pokemon) {
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 				this.add('-start', pokemon, 'move: Agile Stance');
 			},
 			onModifyPriority(priority, pokemon, target, move) {
@@ -1294,7 +1294,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onRestart(pokemon) {
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 				this.add('-start', pokemon, 'move: Power Stance');
 			},
 			onModifyPriority(priority, pokemon, target, move) {

@@ -65,7 +65,7 @@ let BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (target && this.isAdjacent(target, pokemon) && !target.volatiles['substitute']) {
+				if (target && target.isAdjacent(pokemon) && !target.volatiles['substitute']) {
 					activated = true;
 					break;
 				}
@@ -78,7 +78,7 @@ let BattleAbilities = {
 			this.add('-ability', pokemon, 'Intimidate', 'boost');
 
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
@@ -93,8 +93,8 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon draws single-target Electric moves used by opponents to itself.",
 		onFoeRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Electric') return;
-			if (this.validTarget(this.effectData.target, source, move.target)) {
-				return this.effectData.target;
+			if (this.validTarget(this.effectState.target, source, move.target)) {
+				return this.effectState.target;
 			}
 		},
 		id: "lightningrod",
@@ -178,7 +178,7 @@ let BattleAbilities = {
 			if (!pokemon.isStarted) return;
 			let target = pokemon.side.foe.randomActive();
 			if (!target || target.fainted) return;
-			let ability = this.dex.getAbility(target.ability);
+			let ability = this.dex.abilities.get(target.ability);
 			let bannedAbilities = ['forecast', 'multitype', 'trace'];
 			if (bannedAbilities.includes(target.ability)) {
 				return;

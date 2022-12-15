@@ -50,7 +50,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Mythical Presence', 'boost');
 					activated = true;
@@ -125,7 +125,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onAnySetStatus(status, pokemon) {
 			if (status.id === 'slp') {
-				if (pokemon === this.effectData.target) {
+				if (pokemon === this.effectState.target) {
 					this.add('-fail', pokemon, 'slp', '[from] ability: Wake the Dead', '[msg]');
 				} else {
 					this.add('-fail', pokemon, 'slp', '[from] ability: Wake the Dead');

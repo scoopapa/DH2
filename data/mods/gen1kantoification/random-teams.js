@@ -22,8 +22,8 @@ class RandomGen1Teams extends RandomGen2Teams {
 		}
 
 		let formeCounter = 0;
-		for (let id in this.dex.data.Pokedex) {
-			if (!(this.dex.data.Pokedex[id].num in hasDexNumber)) continue;
+		for (let id in this.dex.species.all()) {
+			if (!(this.dex.species.all()[id].num in hasDexNumber)) continue;
 			let template = this.dex.getTemplate(id);
 			if (!template.learnset || template.forme) continue;
 			formes[hasDexNumber[template.num]].push(template.species);
@@ -90,7 +90,7 @@ class RandomGen1Teams extends RandomGen2Teams {
 			let pool = [];
 			if (template.learnset) {
 				for (let move in template.learnset) {
-					if (this.dex.getMove(move).gen !== 1) continue;
+					if (this.dex.moves.get(move).gen !== 1) continue;
 					if (template.learnset[move].some(learned => learned[0] === '1')) {
 						pool.push(move);
 					}
@@ -292,7 +292,7 @@ class RandomGen1Teams extends RandomGen2Teams {
 				hasMove = {};
 				counter = {Physical: 0, Special: 0, Status: 0, physicalsetup: 0, specialsetup: 0};
 				for (const setMoveid of moves) {
-					let move = this.dex.getMove(setMoveid);
+					let move = this.dex.moves.get(setMoveid);
 					let moveid = move.id;
 					hasMove[moveid] = true;
 					if (!move.damage && !move.damageCallback) {
@@ -314,7 +314,7 @@ class RandomGen1Teams extends RandomGen2Teams {
 
 				for (const [i, moveid] of moves.entries()) {
 					if (moveid === template.essentialMove) continue;
-					let move = this.dex.getMove(moveid);
+					let move = this.dex.moves.get(moveid);
 					let rejected = false;
 					if (!template.essentialMove || moveid !== template.essentialMove) {
 						switch (moveid) {

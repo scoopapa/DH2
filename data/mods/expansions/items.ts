@@ -11,7 +11,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.getMove(moveSlot.move).category === 'Status' && this.dex.getMove(moveSlot.move).name !== 'fifthmove' && this.dex.getMove(moveSlot.move).name !== 'Fifth Move') {
+				if (this.dex.moves.get(moveSlot.move).category === 'Status' && this.dex.moves.get(moveSlot.move).name !== 'fifthmove' && this.dex.moves.get(moveSlot.move).name !== 'Fifth Move') {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}

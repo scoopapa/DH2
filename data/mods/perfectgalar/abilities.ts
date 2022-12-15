@@ -38,7 +38,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!pokemon.abilityData.choiceLock) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
-					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
 				}
 			}
 		},
@@ -147,7 +147,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Grim Neigh', 'boost');
 					activated = true;
@@ -178,7 +178,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Minus', 'boost');
 					activated = true;
@@ -197,7 +197,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	dauntlessshield: {
 		name: "Dauntless Shield",
 		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectData.target;
+			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon || !pokemon.hasDynamaxed) return;
 			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['def'] = 0;
@@ -249,13 +249,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	shadowtag: {
 		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (!pokemon.hasAbility('shadowtag') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (!pokemon.hasAbility('shadowtag')) {
 				pokemon.maybeTrapped = true;
 			}
@@ -271,16 +271,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFoeTrapPokemon(pokemon) {
 			const targetWeight = pokemon.getWeight();
 			if (targetWeight < 1500 ) return;
-			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+			if (!pokemon.isAdjacent(this.effectState.target)) return;
 			if (pokemon.isGrounded()) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
+			if (!source) source = this.effectState.target;
 			const targetWeight = pokemon.getWeight();
 			if (targetWeight < 1500 ) return;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
 				pokemon.maybeTrapped = true;
 			}
@@ -336,7 +336,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"disguise": {
 		inherit: true,
 		onUpdate(pokemon) {
-			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.speciesid) && this.effectData.busted) {
+			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.speciesid) && this.effectState.busted) {
 				let speciesid = pokemon.species.speciesid === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.doMaxBoostFormeChange( pokemon, true );
@@ -349,22 +349,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (this.field.isWeather('hail') && pokemon.species.speciesid === 'eiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
 				this.doMaxBoostFormeChange( pokemon, true );
 			}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.speciesid === 'eiscue' && this.effectData.busted) {
+			if (pokemon.species.speciesid === 'eiscue' && this.effectState.busted) {
 				pokemon.formeChange('Eiscue-Noice', this.effect, true);
 				this.doMaxBoostFormeChange( pokemon, true );
 			}
 		},
 		onAnyWeatherStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isWeather('hail') && pokemon.species.speciesid === 'eiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
 				this.doMaxBoostFormeChange( pokemon, true );
 			}

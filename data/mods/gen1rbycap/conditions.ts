@@ -66,8 +66,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-5 turns
-			this.effectData.startTime = this.random(1, 5);
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.startTime = this.random(1, 5);
+			this.effectState.time = this.effectState.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -88,8 +88,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(target) {
 			this.add('-status', target, 'frz');
 			//1-5 turns
-			this.effectData.startTime = this.random(1, 5);
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.startTime = this.random(1, 5);
+			this.effectState.time = this.effectState.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -137,7 +137,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectData.time = this.random(2, 6);
+			this.effectState.time = this.random(2, 6);
 		},
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
@@ -183,7 +183,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'trapped',
 		noCopy: true,
 		onTrapPokemon(pokemon) {
-			if (!this.effectData.source || !this.effectData.source.isActive) {
+			if (!this.effectState.source || !this.effectState.source.isActive) {
 				delete pokemon.volatiles['trapped'];
 				return;
 			}
@@ -211,14 +211,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onStart(target, source, effect) {
-			this.effectData.move = effect.id;
+			this.effectState.move = effect.id;
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.hasMove(this.effectData.move)) {
+			if (!pokemon.hasMove(this.effectState.move)) {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== this.effectData.move) {
+				if (moveSlot.id !== this.effectState.move) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -241,12 +241,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 2,
 		counterMax: 256,
 		onStart() {
-			this.effectData.counter = 2;
+			this.effectState.counter = 2;
 		},
 		onStallMove() {
-			// this.effectData.counter should never be undefined here.
+			// this.effectState.counter should never be undefined here.
 			// However, just in case, use 1 if it is undefined.
-			const counter = this.effectData.counter || 1;
+			const counter = this.effectState.counter || 1;
 			if (counter >= 256) {
 				// 2^32 - special-cased because Battle.random(n) can't handle n > 2^16 - 1
 				return (this.random() * 4294967296 < 1);
@@ -256,10 +256,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onRestart() {
 			// @ts-ignore
-			if (this.effectData.counter < this.effect.counterMax) {
-				this.effectData.counter *= 2;
+			if (this.effectState.counter < this.effect.counterMax) {
+				this.effectState.counter *= 2;
 			}
-			this.effectData.duration = 2;
+			this.effectState.duration = 2;
 		},
 	},
 };

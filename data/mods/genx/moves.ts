@@ -239,7 +239,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onRestart(pokemon) {
-				this.effectData.duration = 100;
+				this.effectState.duration = 100;
 				this.add('-start', pokemon, 'move: Sonic Pulse');
 			},
 			onSourceModifyCritRatio(critRatio) {

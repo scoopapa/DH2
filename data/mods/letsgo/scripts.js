@@ -5,7 +5,7 @@ let BattleScripts = {
 	inherit: 'gen7',
 	init() {
 		this.modData('Abilities', 'noability').isNonstandard = false;
-		for (let i in this.data.Pokedex) {
+		for (let i in this.species.all()) {
 			this.modData('Pokedex', i).abilities = {0: 'No Ability'};
 		}
 	},

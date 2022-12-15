@@ -53,7 +53,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 10,
 		},
 		onAnyBoost(boost, target, source, effect) {
-			if (target === this.effectData.target || !boost || effect.id === 'mirrorherb') return;
+			if (target === this.effectState.target || !boost || effect.id === 'mirrorherb') return;
 			let activate = false;
 			const mirrorBoost: SparseBoostsTable = {};
 			let b: BoostName;
@@ -64,8 +64,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 					activate = true;
 				}
 			}
-			if (activate && this.effectData.target.useItem()) {
-				this.boost(mirrorBoost, this.effectData.target, this.effectData.target);
+			if (activate && this.effectState.target.useItem()) {
+				this.boost(mirrorBoost, this.effectState.target, this.effectState.target);
 			}
 		},
 		num: -1001,

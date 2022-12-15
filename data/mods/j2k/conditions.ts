@@ -52,8 +52,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-3 turns
-			this.effectData.startTime = this.random(2, 5);
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.startTime = this.random(2, 5);
+			this.effectState.time = this.effectState.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -126,7 +126,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'tox',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 			if (sourceEffect && sourceEffect.id === 'toxicorb') {
 				this.add('-status', target, 'tox', '[from] item: Toxic Orb');
 			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -136,14 +136,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onSwitchIn() {
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			if (this.effectData.stage < 15) {
-				this.effectData.stage++;
+			if (this.effectState.stage < 15) {
+				this.effectState.stage++;
 			}
-			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
+			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage);
 		},
 	},
 	confusion: {
@@ -155,7 +155,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectData.time = this.random(2, 6);
+			this.effectState.time = this.random(2, 6);
 		},
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
@@ -211,27 +211,27 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return this.random(5, 7);
 		},
 		onStart(pokemon, source) {
-			this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
-			this.effectData.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
+			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+			this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
 		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
-			const source = this.effectData.source;
+			const source = this.effectState.source;
 			// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
-			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
 			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
 				delete pokemon.volatiles['partiallytrapped'];
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
 				return;
 			}
-			this.damage(pokemon.baseMaxhp / this.effectData.boundDivisor);
+			this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor);
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]');
+			this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]');
 		},
 		onTrapPokemon(pokemon) {
-			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
-			if (this.effectData.source?.isActive || gmaxEffect) pokemon.tryTrap();
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+			if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
 		},
 	},
 	lockedmove: {
@@ -243,24 +243,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 				// don't lock, and bypass confusion for calming
 				delete target.volatiles['lockedmove'];
 			}
-			this.effectData.trueDuration--;
+			this.effectState.trueDuration--;
 		},
 		onStart(target, source, effect) {
-			this.effectData.trueDuration = this.random(2, 4);
-			this.effectData.move = effect.id;
+			this.effectState.trueDuration = this.random(2, 4);
+			this.effectState.move = effect.id;
 		},
 		onRestart() {
-			if (this.effectData.trueDuration >= 2) {
-				this.effectData.duration = 2;
+			if (this.effectState.trueDuration >= 2) {
+				this.effectState.duration = 2;
 			}
 		},
 		onEnd(target) {
-			if (this.effectData.trueDuration > 1) return;
+			if (this.effectState.trueDuration > 1) return;
 			target.addVolatile('confusion');
 		},
 		onLockMove(pokemon) {
 			if (pokemon.volatiles['dynamax']) return;
-			return this.effectData.move;
+			return this.effectState.move;
 		},
 	},
 	twoturnmove: {
@@ -268,15 +268,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'twoturnmove',
 		duration: 2,
 		onStart(target, source, effect) {
-			this.effectData.move = effect.id;
+			this.effectState.move = effect.id;
 			target.addVolatile(effect.id, source);
 			this.attrLastMove('[still]');
 		},
 		onEnd(target) {
-			target.removeVolatile(this.effectData.move);
+			target.removeVolatile(this.effectState.move);
 		},
 		onLockMove() {
-			return this.effectData.move;
+			return this.effectState.move;
 		},
 		onMoveAborted(pokemon) {
 			pokemon.removeVolatile('twoturnmove');
@@ -288,7 +288,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(pokemon) {
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
 			if (!this.activeMove.id || this.activeMove.hasBounced) return false;
-			this.effectData.move = this.activeMove.id;
+			this.effectState.move = this.activeMove.id;
 		},
 		onBeforeMove(pokemon, target, move) {
 			if (!pokemon.getItem().isChoice) {
@@ -297,7 +297,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			if (
 				!pokemon.ignoringItem() && !pokemon.volatiles['dynamax'] &&
-				move.id !== this.effectData.move && move.id !== 'struggle'
+				move.id !== this.effectState.move && move.id !== 'struggle'
 			) {
 				// Fails unless the Choice item is being ignored, and no PP is lost
 				this.addMove('move', pokemon, move.name);
@@ -308,7 +308,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.getItem().isChoice || !pokemon.hasMove(this.effectData.move)) {
+			if (!pokemon.getItem().isChoice || !pokemon.hasMove(this.effectState.move)) {
 				pokemon.removeVolatile('choicelock');
 				return;
 			}
@@ -316,8 +316,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== this.effectData.move) {
-					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				if (moveSlot.id !== this.effectState.move) {
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
 				}
 			}
 		},
@@ -343,9 +343,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 3,
 		onResidualOrder: 3,
 		onEnd(target) {
-			const data = this.effectData;
+			const data = this.effectState;
 			// time's up; time to hit! :D
-			const move = this.dex.getMove(data.move);
+			const move = this.dex.moves.get(data.move);
 			if (target.fainted || target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
@@ -373,14 +373,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// this is a slot condition
 		name: 'healreplacement',
 		onStart(side, source, sourceEffect) {
-			this.effectData.sourceEffect = sourceEffect;
+			this.effectState.sourceEffect = sourceEffect;
 			this.add('-activate', source, 'healreplacement');
 		},
 		onSwitchInPriority: 1,
 		onSwitchIn(target) {
 			if (!target.fainted) {
 				target.heal(target.maxhp);
-				this.add('-heal', target, target.getHealth, '[from] move: ' + this.effectData.sourceEffect, '[zeffect]');
+				this.add('-heal', target, target.getHealth, '[from] move: ' + this.effectState.sourceEffect, '[zeffect]');
 				target.side.removeSlotCondition(target, 'healreplacement');
 			}
 		},
@@ -391,22 +391,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 2,
 		counterMax: 729,
 		onStart() {
-			this.effectData.counter = 3;
+			this.effectState.counter = 3;
 		},
 		onStallMove(pokemon) {
-			// this.effectData.counter should never be undefined here.
+			// this.effectState.counter should never be undefined here.
 			// However, just in case, use 1 if it is undefined.
-			const counter = this.effectData.counter || 1;
+			const counter = this.effectState.counter || 1;
 			this.debug("Success chance: " + Math.round(100 / counter) + "%");
 			const success = this.randomChance(1, counter);
 			if (!success) delete pokemon.volatiles['stall'];
 			return success;
 		},
 		onRestart() {
-			if (this.effectData.counter < (this.effect as Condition).counterMax!) {
-				this.effectData.counter *= 3;
+			if (this.effectState.counter < (this.effect as Condition).counterMax!) {
+				this.effectState.counter *= 3;
 			}
-			this.effectData.duration = 2;
+			this.effectState.duration = 2;
 		},
 	},
 	gem: {
@@ -445,7 +445,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'RainDance', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'RainDance');
@@ -515,7 +515,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'SunnyDay');
@@ -590,7 +590,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Sandstorm', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Sandstorm');
@@ -620,7 +620,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Hail');
@@ -681,7 +681,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Fog', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Fog');
@@ -717,7 +717,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Acid Rain', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Acid Rain');
@@ -733,7 +733,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart: function (battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Acid Rain', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Acid Rain');

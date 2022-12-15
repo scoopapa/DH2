@@ -15,11 +15,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Temporarily copies the item of an adjacent opponent on entry.",
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
-				if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
-				if (!target.item || this.dex.getItem(target.item).zMove || this.dex.getItem(target.item).megaStone) continue;
+				if (!target || target.fainted || !target.isAdjacent(pokemon)) continue;
+				if (!target.item || this.dex.items.get(target.item).zMove || this.dex.items.get(target.item).megaStone) continue;
 				if (!pokemon.useItem) return;
 				pokemon.item = target.item;
-				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} copied the ${this.dex.getItem(pokemon.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} copied the ${this.dex.items.get(pokemon.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
 				pokemon.addVolatile('dittoplush');
 				return;
 			}

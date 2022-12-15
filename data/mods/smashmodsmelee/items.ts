@@ -182,7 +182,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onSourceHit(target, source) {
 			let move: Move | ActiveMove | null = source.lastMove;
 			if (!move || move.isZ || move.ohko || move.category === 'Status') return;
-			if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
+			if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
 			source.deductPP(move.id, 1);
 		},
 		num: -1009,

@@ -305,7 +305,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.debug('Nectack start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectData.sources) {
+				for (const source of this.effectState.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Nectack');
@@ -505,20 +505,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'frostbite',
 		condition: {
 			onStart(target) {
-			  this.effectData.stage = 0;
+			  this.effectState.stage = 0;
 				this.add('-start', target, 'move: Frostbite');
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-	  		if (this.effectData.stage < 15) {
-		  		this.effectData.stage++;
+	  		if (this.effectState.stage < 15) {
+		  		this.effectState.stage++;
 		  	}
-				const target = this.effectData.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
+				const target = this.effectState.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
 				}
-				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage, pokemon, target,); //'[silent]'); //looking at that soon
+				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
 				if (damage) {
 					this.heal(damage, target, pokemon);
 				}
@@ -639,12 +639,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart() {
-				this.effectData.hitCount = 1;
+				this.effectState.hitCount = 1;
 			},
 			onRestart() {
-				this.effectData.hitCount++;
-				if (this.effectData.hitCount < 5) {
-					this.effectData.duration = 2;
+				this.effectState.hitCount++;
+				if (this.effectState.hitCount < 5) {
+					this.effectState.duration = 2;
 				}
 			},
 		},
@@ -760,15 +760,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: { // this is *not* meant to be set as part of the move; partially defined in scripts.ts!
 			onModifyDamage(damage, source, target, move) {
 				if (target.getMoveHitData(move).typeMod < 0) {
-					this.effectData.boost = 'thisMoveResisted';
+					this.effectState.boost = 'thisMoveResisted';
 					this.debug('set Indomitable Spirit boost');
 				}
 			},
 			onBeforeMove(pokemon) {
-				if (this.effectData.boost === 'thisMoveResisted') {
-					this.effectData.boost = 'lastMoveResisted';
+				if (this.effectState.boost === 'thisMoveResisted') {
+					this.effectState.boost = 'lastMoveResisted';
 				} else {
-					this.effectData.boost = null;
+					this.effectState.boost = null;
 				}
 			},
 		},
@@ -1129,7 +1129,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onAnyAccuracy(accuracy, target, source, move) {
-				if (move.type === 'Fighting' && (source === this.effectData.target || target === this.effectData.target) && (target.isGrounded() && !target.isSemiInvulnerable())) {
+				if (move.type === 'Fighting' && (source === this.effectState.target || target === this.effectState.target) && (target.isGrounded() && !target.isSemiInvulnerable())) {
 					return true;
 				}
 				return accuracy;
@@ -2473,7 +2473,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			delete move.boosts;
 		},
 		onHit(target) {
-			const type = this.dex.getMove(target.moveSlots[2].id).type;
+			const type = this.dex.moves.get(target.moveSlots[2].id).type;
 			if (target.hasType(type) || !target.setType(type)) return false;
 			this.add('-start', target, 'typechange', type);
 		},
@@ -2541,7 +2541,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                 for (const moveSlot of target.moveSlots) {
                     if (moveSlot.revealed) continue;
                     if (r === 0) {
-                        this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+                        this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
                     }
                     r--;
                     moveSlot.revealed = true;
@@ -2572,13 +2572,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onStart(target, source) {
-				this.effectData.multiplier = 1.5;
+				this.effectState.multiplier = 1.5;
 				this.add('-singleturn', target, 'Full Devotion', '[of] ' + source);
 			},
 			onBasePowerPriority: 10,
 			onBasePower(basePower) {
-				this.debug('Boosting from Full Devotion: ' + this.effectData.multiplier);
-				return this.chainModify(this.effectData.multiplier);
+				this.debug('Boosting from Full Devotion: ' + this.effectState.multiplier);
+				return this.chainModify(this.effectState.multiplier);
 			},
 			onDamagingHit(damage, target, source, move){
 				if (source.side !== target.side){

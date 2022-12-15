@@ -29,7 +29,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
           move.secondaries.push({
               chance: 20,
               status: 'brn',
-              ability: this.dex.getAbility('burningechoes'),
+              ability: this.dex.abilities.get('burningechoes'),
           });
       },
 		onBasePowerPriority: 19,
@@ -60,8 +60,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Dark' || move.type !== 'Ghost') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -75,8 +75,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Electric' || move.type !== 'Fighting') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -101,7 +101,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return;
 			}
 
-			const dazzlingHolder = this.effectData.target;
+			const dazzlingHolder = this.effectState.target;
 			if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
 				this.add('cant', dazzlingHolder, 'ability: Royal Presence', move, '[of] ' + target);
@@ -127,7 +127,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart (pokemon) {
             let activated = false;
             for (const target of pokemon.side.foe.active) {
-                if (!target || !this.isAdjacent(target, pokemon)) continue;
+                if (!target || !target.isAdjacent(pokemon)) continue;
                 if (!activated) {
                     this.add('-ability', pokemon, 'Divine Light', 'boost');
                     activated = true;
@@ -147,7 +147,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart (pokemon) {
             let activated = false;
             for (const target of pokemon.side.foe.active) {
-                if (!target || !this.isAdjacent(target, pokemon)) continue;
+                if (!target || !target.isAdjacent(pokemon)) continue;
                 if (!activated) {
                     this.add('-ability', pokemon, 'Matter Splitter', 'boost');
                     activated = true;
@@ -174,7 +174,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Demotivate', 'boost');
 					activated = true;
@@ -322,9 +322,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Water') {
-				this.boost({def: 1}, this.effectData.target);
+				this.boost({def: 1}, this.effectState.target);
 			}
 		},
 		name: "Water Compaction",
@@ -356,7 +356,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       shortDesc: "This Pokemon and its allies have the power of their moves multiplied by 1.3",
 		onAllyBasePowerPriority: 22,
 		onAllyBasePower(basePower, attacker, defender, move) {
-			if (attacker !== this.effectData.target) {
+			if (attacker !== this.effectState.target) {
 				this.debug('Power Spot boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -438,7 +438,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFoeTryEatItem: false,
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({atk: length}, source, source, this.dex.getAbility('chillingneigh'));
+				this.boost({atk: length}, source, source, this.dex.abilities.get('chillingneigh'));
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -469,7 +469,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFoeTryEatItem: false,
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({spa: length}, source, source, this.dex.getAbility('grimneigh'));
+				this.boost({spa: length}, source, source, this.dex.abilities.get('grimneigh'));
 			}
 		},
 		onModifyAtkPriority: 5,
@@ -571,7 +571,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
@@ -692,7 +692,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				['eiscue'].includes(target.species.id) && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Ice Face');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -719,10 +719,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (['eiscue'].includes(pokemon.species.id) && this.effectData.busted) {
+			if (['eiscue'].includes(pokemon.species.id) && this.effectState.busted) {
 				const speciesid = pokemon.species.id === 'eiscue' : 'Eiscue-Noice';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
 		isPermanent: true,

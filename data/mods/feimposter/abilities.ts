@@ -107,7 +107,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return;
 			}
 
-			const dazzlingHolder = this.effectData.target;
+			const dazzlingHolder = this.effectState.target;
 			if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
 				this.add('cant', dazzlingHolder, 'ability: Queenly Majesty', move, '[of] ' + target);
@@ -165,7 +165,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Domination', 'boost');
 					activated = true;
@@ -187,7 +187,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.infiltrates = true;
 		},
 		onAnyModifyBoost(boosts, pokemon) {
-			const completeignoranceUser = this.effectData.target;
+			const completeignoranceUser = this.effectState.target;
 			if (completeignoranceUser === pokemon) return;
 			if (completeignoranceUser === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['def'] = 0;
@@ -287,7 +287,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllyTryAddVolatile(status, target, source, effect) {
 			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
 				if (effect.effectType === 'Move') {
-					const effectHolder = this.effectData.target;
+					const effectHolder = this.effectState.target;
 					this.add('-block', target, 'ability: Healing Scent', '[of] ' + effectHolder);
 				}
 				return null;
@@ -327,7 +327,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
-					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'recoveringfumes');
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, pokemon, 'recoveringfumes');
 				}
 				if (target.volatiles['slowstart']) {
 					delete target.volatiles['slowstart'];
@@ -475,7 +475,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {
@@ -536,7 +536,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Entomophobia', 'boost');
 					activated = true;
@@ -561,7 +561,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				['mimidactyl'].includes(target.species.id) && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Freighting Costume');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -588,10 +588,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (['mimidactyl'].includes(pokemon.species.id) && this.effectData.busted) {
+			if (['mimidactyl'].includes(pokemon.species.id) && this.effectState.busted) {
 				const speciesid = pokemon.species.id === 'Mimidactyl-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
 		name: "Freighting Costume",
@@ -633,7 +633,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(length, target, source, move, effect) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Grass') {
 				let statName = 'atk';
 				let bestStat = 0;

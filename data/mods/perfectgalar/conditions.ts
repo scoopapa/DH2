@@ -11,7 +11,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.hasDynamaxed = true;
 			pokemon.volatileTag = 'maxstatboost';
 			pokemon.removeVolatile('substitute');
-			if (pokemon.illusion) this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+			if (pokemon.illusion) this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 			this.add('-start', pokemon, 'Dynamax');
 			this.doMaxBoostFormeChange( pokemon, false );
 			if (pokemon.gigantamax){
@@ -98,9 +98,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(pokemon) {
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
 			if (!this.activeMove.id || this.activeMove.hasBounced) return false;
-			this.effectData.move = this.activeMove.id;
-			if ( this.dex.getMove( this.effectData.move ).isMax ){
-				this.effectData.move = this.activeMove.baseMove;
+			this.effectState.move = this.activeMove.id;
+			if ( this.dex.moves.get( this.effectState.move ).isMax ){
+				this.effectState.move = this.activeMove.baseMove;
 			}
 		},
 		onBeforeMove(pokemon, target, move) {
@@ -108,9 +108,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				pokemon.removeVolatile('choicelock');
 				return;
 			}
-			let maxID = this.toID( this.getMaxMove( this.effectData.move, pokemon ))
+			let maxID = this.toID( this.getMaxMove( this.effectState.move, pokemon ))
 			if ( !pokemon.ignoringItem() 
-				&& ( move.id !== this.effectData.move
+				&& ( move.id !== this.effectState.move
 					&& move.id !== maxID )
 				&& move.id !== 'struggle' ) 
 			{
@@ -123,7 +123,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.getItem().isChoice || !pokemon.hasMove(this.effectData.move)){
+			if (!pokemon.getItem().isChoice || !pokemon.hasMove(this.effectState.move)){
 				pokemon.removeVolatile('choicelock');
 				return;
 			}
@@ -131,8 +131,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if ( moveSlot.id !== this.effectData.move ){
-					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				if ( moveSlot.id !== this.effectState.move ){
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
 				}
 			}
 		},

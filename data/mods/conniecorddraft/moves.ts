@@ -139,7 +139,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
 				// because Stealth Rock bypasses Substitute.
@@ -158,20 +158,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectData.layers >= 3) return false;
+				if (this.effectState.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers++;
+				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
 		},
 	},
@@ -184,7 +184,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
@@ -200,10 +200,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
+				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
 		},
 	},
@@ -213,12 +213,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectData.layers >= 2) return false;
+				if (this.effectState.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers++;
+				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
@@ -226,10 +226,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
 				} else if (pokemon.hasType('Steel') || pokemon.hasType('Poison') ||
-					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())) {
+					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())) {
 					return;
 				} else {
-					if (this.effectData.layers >= 2) {
+					if (this.effectState.layers >= 2) {
 						pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 					} else {
 						pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
@@ -401,7 +401,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (this.effectData.duration === 2) return;
+				if (this.effectState.duration === 2) return;
 				if (!move.flags['protect']) {
 					if (move.isZ || (move.isMax && !move.breaksProtect)) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
@@ -459,7 +459,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.formeChange('Surge' + forme, move, true, '[silent]');
 				this.add('-message', `${pokemon.name} upgraded!`);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-				const species = this.dex.getSpecies(pokemon.species.name);
+				const species = this.dex.species.get(pokemon.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];
@@ -529,9 +529,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualOrder: 3,
 			onResidual(target) {
 				// unlike a future move, Long Whip activates each turn
-				this.effectData.target = this.effectData.side.active[this.effectData.position];
-				const data = this.effectData;
-				const move = this.dex.getMove(data.move);
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get(data.move);
 				if (data.target.fainted || data.target === data.source) {
 					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 					return;
@@ -567,9 +567,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onEnd(target) {
 				// unlike a future move, Long Whip activates each turn
-				this.effectData.target = this.effectData.side.active[this.effectData.position];
-				const data = this.effectData;
-				const move = this.dex.getMove(data.move);
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get(data.move);
 				if (data.target.fainted || data.target === data.source) {
 					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 					return;
@@ -753,7 +753,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasAbility('pounce')) { // coded here because Jagged Root behaves unlike other hazards
 					let activated = false;
 					for (const target of pokemon.side.foe.active) {
-						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!target || !target.isAdjacent(pokemon)) continue;
 						if (!activated) {
 							this.add('-ability', pokemon, 'Pounce', 'boost');
 							activated = true;
@@ -766,7 +766,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
 				this.damage(pokemon.maxhp / 8);
 			},

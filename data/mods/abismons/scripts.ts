@@ -1,4 +1,6 @@
-export const Scripts: ModdedBattleScriptsData = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	inherit: 'gen8',
+	gen: 8,
 	init() {
 		const newMoves = (mon: string, moves: string[]) => {
 			for (const move of moves) {
@@ -9,7 +11,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		newMoves("hoopa", ["hex","willowisp"]);
 	},	
 	canMegaEvo(pokemon) {
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&

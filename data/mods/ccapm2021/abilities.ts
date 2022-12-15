@@ -23,8 +23,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				this.effectData.lastMove = '';
-				this.effectData.numConsecutive = 0;
+				this.effectState.lastMove = '';
+				this.effectState.numConsecutive = 0;
 			},
 			onTryMovePriority: -2,
 			onTryMove(pokemon, target, move) {
@@ -32,19 +32,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.removeVolatile('bingeeater');
 					return;
 				}
-				if (this.effectData.lastMove === move.id && pokemon.moveLastTurnResult) {
-					this.effectData.numConsecutive++;
-				} else if (pokemon.volatiles['twoturnmove'] && this.effectData.lastMove !== move.id) {
-					this.effectData.numConsecutive = 1;
+				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
+					this.effectState.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove'] && this.effectState.lastMove !== move.id) {
+					this.effectState.numConsecutive = 1;
 				} else {
-					this.effectData.numConsecutive = 0;
+					this.effectState.numConsecutive = 0;
 				}
-				this.effectData.lastMove = move.id;
+				this.effectState.lastMove = move.id;
 			},
 			onModifyDamage(damage, source, target, move) {
 			  if (move.type === 'Food') {
 				const dmgMod = [1, 1.33, 1.66, 2];
-				const numConsecutive = this.effectData.numConsecutive > 3 ? 3 : this.effectData.numConsecutive;
+				const numConsecutive = this.effectState.numConsecutive > 3 ? 3 : this.effectState.numConsecutive;
 				return this.chainModify(dmgMod[numConsecutive]);
 			  }
 			},
@@ -63,7 +63,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts: {
 					def: -1,
 				},
-				ability: this.dex.getAbility('ferocity'),
+				ability: this.dex.abilities.get('ferocity'),
 			});
 		},
 		name: "Ferocity",
@@ -78,7 +78,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('foodpoisoning'),
+				ability: this.dex.abilities.get('foodpoisoning'),
 			});
 		},
 		name: "Food Poisoning",

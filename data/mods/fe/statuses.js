@@ -5,11 +5,11 @@ let BattleStatuses = {
 //         choicelock: {
 //             inherit: true,
 //             onBeforeMove(pokemon, target, move) {
-//                 if (!(pokemon.getItem().isChoice || (pokemon.volatiles['goldentouch'] && pokemon.volatiles['goldentouch'].item && this.getItem(pokemon.volatiles['goldentouch'].item).isChoice) || (pokemon.volatiles['beastbootleg'] && ((pokemon.volatiles['beastbootleg'].items[0] && this.getItem(pokemon.volatiles['beastbootleg'].items[0]).isChoice) || (pokemon.volatiles['beastbootleg'].items[1] && this.getItem(pokemon.volatiles['beastbootleg'].items[1]).isChoice)))) || !pokemon.hasMove(this.effectData.move)) {
+//                 if (!(pokemon.getItem().isChoice || (pokemon.volatiles['goldentouch'] && pokemon.volatiles['goldentouch'].item && this.items.get(pokemon.volatiles['goldentouch'].item).isChoice) || (pokemon.volatiles['beastbootleg'] && ((pokemon.volatiles['beastbootleg'].items[0] && this.items.get(pokemon.volatiles['beastbootleg'].items[0]).isChoice) || (pokemon.volatiles['beastbootleg'].items[1] && this.items.get(pokemon.volatiles['beastbootleg'].items[1]).isChoice)))) || !pokemon.hasMove(this.effectState.move)) {
 //                     pokemon.removeVolatile('choicelock');
 //                     return;
 //                 }
-//                 if (move.id !== this.effectData.move && move.id !== 'struggle') {
+//                 if (move.id !== this.effectState.move && move.id !== 'struggle') {
 //                     // Fails even if the Choice item is being ignored, and no PP is lost
 //                     this.addMove('move', pokemon, move.name);
 //                     this.attrLastMove('[still]');
@@ -18,7 +18,7 @@ let BattleStatuses = {
 //                 }
 //             },
 //             onDisableMove(pokemon) {
-//                 if (!(pokemon.getItem().isChoice || (pokemon.volatiles['goldentouch'] && pokemon.volatiles['goldentouch'].item && pokemon.volatiles['goldentouch'].item.isChoice) || (pokemon.volatiles['beastbootleg'] && ((pokemon.volatiles['beastbootleg'].items[0] && pokemon.volatiles['beastbootleg'].items[0].isChoice) || (pokemon.volatiles['beastbootleg'].items[1] && pokemon.volatiles['beastbootleg'].items[1].isChoice)))) || !pokemon.hasMove(this.effectData.move)) {
+//                 if (!(pokemon.getItem().isChoice || (pokemon.volatiles['goldentouch'] && pokemon.volatiles['goldentouch'].item && pokemon.volatiles['goldentouch'].item.isChoice) || (pokemon.volatiles['beastbootleg'] && ((pokemon.volatiles['beastbootleg'].items[0] && pokemon.volatiles['beastbootleg'].items[0].isChoice) || (pokemon.volatiles['beastbootleg'].items[1] && pokemon.volatiles['beastbootleg'].items[1].isChoice)))) || !pokemon.hasMove(this.effectState.move)) {
 //                     pokemon.removeVolatile('choicelock');
 //                     return;
 //                 }
@@ -27,8 +27,8 @@ let BattleStatuses = {
 //                 }
 //                 let moves = pokemon.moveset;
 //                 for (let i = 0; i < moves.length; i++) {
-//                     if (moves[i].id !== this.effectData.move) {
-//                         pokemon.disableMove(moves[i].id, false, this.effectData.sourceEffect);
+//                     if (moves[i].id !== this.effectState.move) {
+//                         pokemon.disableMove(moves[i].id, false, this.effectState.sourceEffect);
 //                     }
 //                 }
 //             },
@@ -130,7 +130,7 @@ solarsnow: {
 		},
 		onStart(battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'SolarSnow', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'SolarSnow');
@@ -246,7 +246,7 @@ shadowdance: {
     },
     onStart(battle, source, effect) {
         if (effect && effect.effectType === 'Ability') {
-            if (this.gen <= 5) this.effectData.duration = 0;
+            if (this.gen <= 5) this.effectState.duration = 0;
             this.add('-weather', 'ShadowDance', '[from] ability: ' + effect, '[of] ' + source);
         } else {
             this.add('-weather', 'ShadowDance');
@@ -309,7 +309,7 @@ afterstorm: {
 	 },
     onStart(battle, source, effect) {
         if (effect && effect.effectType === 'Ability') {
-            if (this.gen <= 5) this.effectData.duration = 0;
+            if (this.gen <= 5) this.effectState.duration = 0;
             this.add('-weather', 'Afterstorm', '[from] ability: ' + effect, '[of] ' + source);
         } else {
             this.add('-weather', 'Afterstorm');
@@ -350,7 +350,7 @@ afterstorm: {
 		},
 		onStart(battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'CactusPower', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'CactusPower');
@@ -396,7 +396,7 @@ afterstorm: {
 		},
 		onStart(battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Yeti', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Yeti');

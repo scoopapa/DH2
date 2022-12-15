@@ -20,7 +20,7 @@ hotknife: {
 			move.secondaries.push({
 				chance: 30,
 				status: 'brn',
-				ability: this.dex.getAbility('hotknife'),
+				ability: this.dex.abilities.get('hotknife'),
 			});
 		},
 		name: "Hot Knife",
@@ -55,7 +55,7 @@ frightening: {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Frightening', 'boost');
 					activated = true;

@@ -1,13 +1,13 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen7',
 	init: function () {
-		for (const id in this.dataCache.Pokedex) {
+		/*for (const id in this.dataCache.Pokedex) {
 			let unbanlist = this.dataCache.Formats['gen7dlcmons'].unbanlist;
 			let speciesName = this.dataCache.Pokedex[id].name;
 			if (!unbanlist.includes(speciesName)) {
 				// if (this.dataCache.FormatsData[id] !== undefined) this.dataCache.FormatsData[id].tier = "Illegal";
 			}
-		}
+		}*/
 		this.modData('Learnsets', 'kommoo').learnset.clangoroussoul = ['7T'];
 		
 		this.modData('Learnsets', 'tapukoko').learnset.hurricane = ['7T'];
@@ -313,7 +313,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'gastly').learnset.poisondrain = ['7T'];
 	},
 	canMegaEvo(pokemon) {
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&
@@ -342,7 +342,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		} // only part that's changed
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 

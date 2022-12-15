@@ -36,12 +36,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-3 turns
-			this.effectData.startTime = 3;
+			this.effectState.startTime = 3;
 			const sleepMoves = ["sleeppowder", "spore", "grasswhistle", "darkvoid", "hypnosis"];
 			if (sourceEffect && sourceEffect.effectType === 'Move' ) {
-				if (sleepMoves.includes(sourceEffect.id)) this.effectData.startTime = 2;
+				if (sleepMoves.includes(sourceEffect.id)) this.effectState.startTime = 2;
 			}
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.time = this.effectState.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {

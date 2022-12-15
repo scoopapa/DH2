@@ -5,8 +5,8 @@ let BattleScripts = {
 	inherit: 'gen4',
 	gen: 3,
 	init() {
-		for (let i in this.data.Pokedex) {
-			delete this.data.Pokedex[i].abilities['H'];
+		for (let i in this.species.all()) {
+			delete this.species.all()[i].abilities['H'];
 		}
 		let specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 		let newCategory = '';
@@ -134,7 +134,7 @@ let BattleScripts = {
 			let lacksTarget = !target || target.fainted;
 			if (!lacksTarget) {
 				if (move.target === 'adjacentFoe' || move.target === 'adjacentAlly' || move.target === 'normal' || move.target === 'randomNormal') {
-					lacksTarget = !this.isAdjacent(target, pokemon);
+					lacksTarget = !target.isAdjacent(pokemon);
 				}
 			}
 			if (lacksTarget && !move.isFutureMove) {
@@ -306,7 +306,7 @@ let BattleScripts = {
 			/** @type {number | undefined | false} */
 			let moveDamage;
 			// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-			let isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+			let isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
 			let i;
 			for (i = 0; i < hits && target.hp && pokemon.hp; i++) {
 				if (pokemon.status === 'slp' && !isSleepUsable) break;

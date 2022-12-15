@@ -28,7 +28,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyTerrainStart(target, source, terrain) {
 			if (!source.hasAbility('rhoinfluence')) {
-				this.field.setTerrain('psychicterrain', this.effectData.target);
+				this.field.setTerrain('psychicterrain', this.effectState.target);
 			}
 		},
 		onEnd(pokemon) {
@@ -53,7 +53,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyTerrainStart(target, source, terrain) {
 			if (!source.hasAbility('primordialsoup')) {
-				this.field.setTerrain('grassyterrain', this.effectData.target);
+				this.field.setTerrain('grassyterrain', this.effectState.target);
 			}
 		},
 		onEnd(pokemon) {

@@ -32,7 +32,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1002,
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				const additionalBannedAbilities = [
 					'noability', 'contrary', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
 				];
@@ -71,7 +71,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Permafrost', 'boost');
 					activated = true;
@@ -325,7 +325,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyDamage(damage, target, source, effect) {
 			if (effect && (effect.id === 'tox' || effect.id === 'psn')) {
 				if (damage > 0) {
-					this.heal(damage / 2, this.effectData.target, target);
+					this.heal(damage / 2, this.effectState.target, target);
 				}
 			}
 		},
@@ -386,7 +386,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (!attacker || attacker.fainted) continue;
 				const action = this.queue.willMove(attacker);
 				if (!action) return;
-				const move = this.dex.getMove(action.move);
+				const move = this.dex.moves.get(action.move);
 				if (move.category === 'Status') continue;
 				const target = this.getTarget(action.pokemon, action.move, action.targetLoc);
 				if (!target) return; // unfortunately not sure how to make this play nice with doubles ._. that feels like the biggest obstacle
@@ -445,13 +445,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "Prevents adjacent opposing Grass-types from choosing to switch.",
 		num: -1023,
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Grass') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Grass') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (!pokemon.knownType || pokemon.hasType('Grass')) {
 				pokemon.maybeTrapped = true;
 			}
@@ -497,7 +497,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (source.species.name !== 'Cozminea-True') { 
 				source.formeChange('Cozminea-True', this.effect, true, '[silent]');
 				this.add('-message', `${source.name} revealed its true forme!`);
-				const species = this.dex.getSpecies(source.species.name);
+				const species = this.dex.species.get(source.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];
@@ -579,7 +579,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
 				if (pokemon.side.getSideCondition(sideCondition)) {
 					for (const target of pokemon.side.foe.active) {
-						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!target || !target.isAdjacent(pokemon)) continue;
 						if (!activated) {
 							this.add('-ability', pokemon, 'Pounce', 'boost');
 							activated = true;

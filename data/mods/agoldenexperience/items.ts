@@ -789,7 +789,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('chakraterrain')) {
 				pokemon.useItem();
 			}

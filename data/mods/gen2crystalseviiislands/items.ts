@@ -225,8 +225,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
         shortDesc: "Deals 1/8 damage to the opponent while behind a Substitute, for every turn the Substitute does not take damage.",
         damage: "[POKEMON] was hurt by the Wynaut!",
 		onFoeAfterMoveSelf(target, source) {
-            if (!source) source = this.effectData.source;
-			if (target === source) source = this.effectData.target;
+            if (!source) source = this.effectState.source;
+			if (target === source) source = this.effectState.target;
             const lastAttackedBy = source.getLastAttackedBy();
             if (lastAttackedBy?.move && lastAttackedBy.thisTurn) return;
             if (source.volatiles['substitute']) {
@@ -263,7 +263,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Metal Powder",
 		spritenum: 287,
 		onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
+				if (target !== source && target.side === this.effectState.target) {
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
@@ -348,7 +348,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
+				if (target !== source && target.side === this.effectState.target && this.getCategory(move) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);

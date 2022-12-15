@@ -35,8 +35,8 @@ export const Conditions = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-3 turns
-			this.effectData.startTime = this.random(2, 5);
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.startTime = this.random(2, 5);
+			this.effectState.time = this.effectState.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -101,7 +101,7 @@ export const Conditions = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectData.time = this.random(2, 6);
+			this.effectState.time = this.random(2, 6);
 		},
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
@@ -134,7 +134,7 @@ export const Conditions = {
 		onStart(pokemon) {
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
 			if (!this.activeMove.id || this.activeMove.hasBounced) return false;
-			this.effectData.move = this.activeMove.id;
+			this.effectState.move = this.activeMove.id;
 		},
 		onBeforeMove(pokemon, target, move) {
 			if(move.id === 'twist') return;
@@ -142,7 +142,7 @@ export const Conditions = {
 				pokemon.removeVolatile('choicelock');
 				return;
 			}
-			if (!pokemon.ignoringItem() && !pokemon.volatiles['dynamax'] && move.id !== this.effectData.move && move.id !== 'struggle') {
+			if (!pokemon.ignoringItem() && !pokemon.volatiles['dynamax'] && move.id !== this.effectState.move && move.id !== 'struggle') {
 				// Fails unless the Choice item is being ignored, and no PP is lost
 				this.addMove('move', pokemon, move.name);
 				this.attrLastMove('[still]');
@@ -152,7 +152,7 @@ export const Conditions = {
 			}
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.getItem().isChoice || !pokemon.hasMove(this.effectData.move)) {
+			if (!pokemon.getItem().isChoice || !pokemon.hasMove(this.effectState.move)) {
 				pokemon.removeVolatile('choicelock');
 				return;
 			}
@@ -160,8 +160,8 @@ export const Conditions = {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== this.effectData.move) {
-					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				if (moveSlot.id !== this.effectState.move) {
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
 				}
 			}
 		},
@@ -205,16 +205,16 @@ export const Conditions = {
 				tw.disabled = true;
 				tw.disabledSource = 'partiallytrapped';
 			}
-			this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
+			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
 		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
-			const source = this.effectData.source;
+			const source = this.effectState.source;
 			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 				// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
-				if (['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id)) return;
+				if (['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id)) return;
 				delete pokemon.volatiles['partiallytrapped'];
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
 				return;
 			}
 			if (source.hasItem('bindingband')) {
@@ -224,10 +224,10 @@ export const Conditions = {
 			}
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]');
+			this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]');
 		},
 		onTrapPokemon(pokemon) {
-			if (this.effectData.source && this.effectData.source.isActive) pokemon.tryTrap();
+			if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
 		},
 	},
 	mustrecharge: {
@@ -285,7 +285,7 @@ export const Conditions = {
         },
         onEnd(pokemon) {
             var twistName;
-			const move = this.dex.getMove('twist');
+			const move = this.dex.moves.get('twist');
 			const twistMove = {
 				move: move.name,
 				id: move.id,

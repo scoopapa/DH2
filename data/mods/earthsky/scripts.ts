@@ -36,7 +36,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				// does this happen?
 				return [{
-					move: this.battle.dex.getMove(lockedMove).name,
+					move: this.battle.dex.moves.get(lockedMove).name,
 					id: lockedMove,
 				}];
 			}
@@ -48,13 +48,13 @@ export const Scripts: ModdedBattleScriptsData = {
 					moveName = 'Hidden Power ' + this.hpType;
 					if (this.battle.gen < 6) moveName += ' ' + this.hpPower;
 				} else if (moveSlot.id === 'return' || moveSlot.id === 'frustration') {
-					const basePowerCallback = this.battle.dex.getMove(moveSlot.id).basePowerCallback as (pokemon: Pokemon) => number;
+					const basePowerCallback = this.battle.dex.moves.get(moveSlot.id).basePowerCallback as (pokemon: Pokemon) => number;
 					moveName += ' ' + basePowerCallback(this);
 				}
 				let target = moveSlot.target;
 				if (moveSlot.id === 'curse') {
 					if (!this.hasType('Ghost')) {
-						target = this.battle.dex.getMove('curse').nonGhostTarget || moveSlot.target;
+						target = this.battle.dex.moves.get('curse').nonGhostTarget || moveSlot.target;
 					}
 				}
 				if (moveSlot.id === 'spitup') {
@@ -67,7 +67,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				let disabled = moveSlot.disabled;
 				if (this.volatiles['dynamax']) {
-					disabled = this.maxMoveDisabled(this.battle.dex.getMove(moveSlot.id));
+					disabled = this.maxMoveDisabled(this.battle.dex.moves.get(moveSlot.id));
 				} else if (
 					(moveSlot.pp <= 0 && !this.volatiles['partialtrappinglock']) || disabled &&
 					this.side.active.length >= 2 && this.battle.targetTypeChoices(target!)
@@ -359,7 +359,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return false;
 		},
 		getTarget(pokemon: Pokemon, move: string | Move, targetLoc: number, originalTarget?: Pokemon) { //Play Dead, Ally Switch
-			move = this.dex.getMove(move);
+			move = this.dex.moves.get(move);
 
 			let tracksTarget = move.tracksTarget;
 			// Stalwart sets trackTarget in ModifyMove, but ModifyMove happens after getTarget, so
@@ -410,7 +410,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// moves that can target either allies or foes will only target foes
 			// when used without an explicit target.
 
-			move = this.dex.getMove(move);
+			move = this.dex.moves.get(move);
 			if (move.target === 'adjacentAlly') {
 				const allyActives = pokemon.side.active;
 				let adjacentAllies = [allyActives[pokemon.position - 1], allyActives[pokemon.position + 1]];
@@ -587,11 +587,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (callback === undefined) return relayVar;
 
 			const parentEffect = this.effect;
-			const parentEffectData = this.effectData;
+			const parentEffectData = this.effectState;
 			const parentEvent = this.event;
 
 			this.effect = effect;
-			this.effectData = effectData || {};
+			this.effectState = effectData || {};
 			this.event = {id: eventid, target, source, effect: sourceEffect};
 			this.eventDepth++;
 
@@ -607,7 +607,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			this.eventDepth--;
 			this.effect = parentEffect;
-			this.effectData = parentEffectData;
+			this.effectState = parentEffectData;
 			this.event = parentEvent;
 
 			return returnVal === undefined ? relayVar : returnVal;
@@ -749,15 +749,15 @@ export const Scripts: ModdedBattleScriptsData = {
 				let returnVal;
 				if (typeof handler.callback === 'function') {
 					const parentEffect = this.effect;
-					const parentEffectData = this.effectData;
+					const parentEffectData = this.effectState;
 					this.effect = handler.effect;
-					this.effectData = handler.state || {};
-					this.effectData.target = effectHolder;
+					this.effectState = handler.state || {};
+					this.effectState.target = effectHolder;
 
 					returnVal = handler.callback.apply(this, args);
 
 					this.effect = parentEffect;
-					this.effectData = parentEffectData;
+					this.effectState = parentEffectData;
 				} else {
 					returnVal = handler.callback;
 				}
@@ -909,7 +909,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (zMove) {
 				if (pokemon.illusion) {
-					this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 				}
 				this.add('-zpower', pokemon);
 				pokemon.side.zMoveUsed = true;
@@ -941,7 +941,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (dancer.fainted) continue;
 					this.add('-activate', dancer, 'ability: Dancer');
 					const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
-					this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.getAbility('dancer'), undefined, true);
+					this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.abilities.get('dancer'), undefined, true);
 				}
 			}
 			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
@@ -949,7 +949,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		canMegaEvo(pokemon) { //Magic Room suppression, Mega-Ray change
 			if('magicroom' in this.field.pseudoWeather) return null;
 			const species = pokemon.baseSpecies;
-			const altForme = species.otherFormes && this.dex.getSpecies(species.otherFormes[0]);
+			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
 			const item = pokemon.getItem();
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
 				//Additional check for required move
@@ -1172,7 +1172,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let nullDamage = true;
 			let moveDamage: (number | boolean | undefined)[];
 			// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-			const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+			const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
 
 			let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
 			let hit: number;
@@ -1532,8 +1532,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		/* Wide-spread changes */
 		const esrules = this.getRuleTable(this.getFormat('gen8earthskyou'));
 		//console.log(esrules);
-		for (let pokemonID in this.data.Pokedex) {
-			const pokemon = this.data.Pokedex[pokemonID];
+		for (let pokemonID in this.species.all()) {
+			const pokemon = this.species.all()[pokemonID];
 			const learnsetTest = false;//["farfetchd"].includes(pokemonID);
 			 //Don't do anything with the new Pokemon, Totems, and Pokestar Studios opponents
 			if(pokemon.num <= -500 || pokemonID.endsWith('totem')) continue;
@@ -1552,7 +1552,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(pokemon.evos) {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
-						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(this.getSpecies(pokemonID)) ? "Uber" : "OU";
+						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(this.species.get(pokemonID)) ? "Uber" : "OU";
 						if(learnsetTest){
 							console.log(pokemon.name + "'s mod tier: " + this.modData('FormatsData', pokemonID).tier);
 							console.log(pokemon.name + "'s format tier: " + this.data.FormatsData[pokemonID].tier);
@@ -1593,8 +1593,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				if(learnsetTest) console.log("Commencing update");
 			}
 			
-			for(let moveID in this.data.Moves) { //TODO: change to Dex.moves.all() when DH updates to it
-				const move = this.data.Moves[moveID];
+			for(let moveID in this.moves.all()) { //TODO: change to Dex.moves.all() when DH updates to it
+				const move = this.moves.all()[moveID];
 				if(move.isZ || move.isMax) continue;
 				moveLearn = this.modData('Learnsets', pokemonID).learnset[moveID];
 				if(!moveLearn){
@@ -1708,8 +1708,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				const pokeAbilities = this.modData('Pokedex', pokemonID).abilities;
 				for(const abilityKey in pokeAbilities){
 					if(this.toID(pokeAbilities[abilityKey]) === renamedAbilities[i]){
-						//console.log(this.data.Abilities[renamedAbilities[i]].name + " name change");
-						this.modData('Pokedex', pokemonID).abilities[abilityKey] = this.data.Abilities[newNameAbilities[i]].name;
+						//console.log(this.abilities.all()[renamedAbilities[i]].name + " name change");
+						this.modData('Pokedex', pokemonID).abilities[abilityKey] = this.abilities.all()[newNameAbilities[i]].name;
 						//console.log(this.modData('Pokedex', pokemonID).abilities[abilityKey]);
 						break;
 					}
@@ -1723,7 +1723,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		
 		/* Delete stuff */
-		for(let moveID in this.data.Moves) { //marks all moves as current gen, except renamed ones
+		for(let moveID in this.moves.all()) { //marks all moves as current gen, except renamed ones
 			const move = this.modData('Moves', moveID);
 			if(move.isNonstandard === "Past" && !renamedMoves.includes(moveID)) delete move.isNonstandard;
 			if(move.zMove) delete move.zMove;
@@ -1740,7 +1740,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			const ability = this.modData('Abilities', abilityID);
 			ability.isNonstandard = "Past";
 		}
-		for(let itemID in this.data.Items) { //marks all items as current gen, except Z-Crystals
+		for(let itemID in this.items.all()) { //marks all items as current gen, except Z-Crystals
 			const item = this.modData('Items', itemID);
 			if((item.isNonstandard === "Past" || item.isNonstandard === "Unobtainable") && !item.zMove) delete item.isNonstandard;
 		}
@@ -1750,7 +1750,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		
 		/* Item adjustments */
-		for(let itemID in this.data.Items){
+		for(let itemID in this.items.all()){
 			const item = this.modData('Items', itemID);
 			if(item.isBerry && !item.consumable) item.consumable = true; //I manually added the flag to the ones I edited, but there are some I didn't edit.
 			if(item.fling && item.fling.basePower === 10){ //Fling BP buffs

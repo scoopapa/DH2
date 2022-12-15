@@ -1,10 +1,10 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
   realmonclause: {
 		effectType: 'ValidatorRule',
 		name: 'Realmon Clause',
 		desc: "Bans all previously-existing Pokemon.",
 		onValidateSet(set) {
-			const species = this.dex.getSpecies(set.species);
+			const species = this.dex.species.get(set.species);
 			const exceptions = ["onixpatratdex", "wobbuffetpatratdex", "spoinkpatratdex", "wynautpatratdex", "luvdiscpatratdex", "carnivinepatratdex", "patratpatratdex", "watchogpatratdex", "valillitepatratdex", "vanillishpatratdex", "vanilluxepatratdex", "litwickpatratdex", "lampentpatratdex", "chandelurepatratdex",]
 			const forms = ["incrownitoflock", "monstratahammer", "carnivinepatratdexrevealed", "monsoonurachunky",]
 			if (!(exceptions.includes(species.id)) && (species.num < 1000)) {

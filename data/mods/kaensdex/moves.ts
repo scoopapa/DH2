@@ -78,20 +78,20 @@ self: {
 		condition: {
 			noCopy: true,
 			onStart(target, source, effect) {
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 				if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
 					this.add('-start', target, 'move: Hunt');
 				}
 			},
 			onRestart(target, source, effect) {
-				if (this.effectData.layers >= 3) return false;
-				this.effectData.layers++;
+				if (this.effectState.layers >= 3) return false;
+				this.effectState.layers++;
 				if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
 					this.add('-start', target, 'move: Hunt');
 				}
 			},
 			onModifyCritRatio(critRatio) {
-				return critRatio + this.effectData.layers;
+				return critRatio + this.effectState.layers;
 			},
 		},
 		secondary: null,
@@ -158,20 +158,20 @@ self: {
 		condition: {
 			noCopy: true,
 			onStart(target, source, effect) {
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 				if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
 					this.add('-start', target, 'move: Wind Blade');
 				}
 			},
 			onRestart(target, source, effect) {
-				if (this.effectData.layers >= 3) return false;
-				this.effectData.layers++;
+				if (this.effectState.layers >= 3) return false;
+				this.effectState.layers++;
 				if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
 					this.add('-start', target, 'move: Wind Blade');
 				}
 			},
 			onModifyCritRatio(critRatio) {
-				return critRatio + this.effectData.layers;
+				return critRatio + this.effectState.layers;
 			},
 		},
 		secondary: null,

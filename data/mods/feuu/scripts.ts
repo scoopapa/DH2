@@ -1,4 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	inherit: 'gen8',
+	gen: 8,
 	init(){ 
 		// Automatically construct fusion learnsets! (Thank u scoopapa)
 		for (const id in this.dataCache.Pokedex) {//check the dex for fusions
@@ -51,7 +53,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	
 	canMegaEvo(pokemon) {
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&
@@ -247,7 +249,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		if (zMove) {
 			if (pokemon.illusion) {
-				this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+				this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 			}
 			this.add('-zpower', pokemon);
 			pokemon.side.zMoveUsed = true;
@@ -278,7 +280,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (this.faintMessages()) break;
 				if (dancer.fainted) continue;
 				const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
-				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.getAbility(dancer.ability), undefined, true);
+				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.abilities.get(dancer.ability), undefined, true);
 			}
 		}
 		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
@@ -293,8 +295,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//AFFECTED ABILITIES: Magnetic Waves, Leviflame, Levitability
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
-			if (!(type in this.battle.dex.data.TypeChart)) {
-				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+			// if (!(type in this.battle.dex.data.TypeChart)) {
+				// if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+				// throw new Error("Use runStatusImmunity for " + type);
+			// } //
+			if (!this.battle.dex.types.isName(type)) {
 				throw new Error("Use runStatusImmunity for " + type);
 			}
 			if (this.fainted) return false;
@@ -762,7 +767,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		let nullDamage = true;
 		let moveDamage: (number | boolean | undefined)[];
 		// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-		const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+		const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
 
 		let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
 		let hit: number;

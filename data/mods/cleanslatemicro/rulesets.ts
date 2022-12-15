@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: ModdedFormatsData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	standardpetmod: {
 		inherit: true,
 		ruleset: ['[Gen 7] OU', '!Species Clause'],

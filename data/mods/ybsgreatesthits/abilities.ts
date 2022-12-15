@@ -6,8 +6,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Psychic') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1400, 0x1000]);
 		},
 		name: "Psylink",
@@ -109,7 +109,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	            this.debug('Sensei boost');
 	            let warnBp = move.basePower;
 	            for (const moveSlot of attacker.moveSlots) {
-	                let moves = this.dex.getMove(moveSlot.move);
+	                let moves = this.dex.moves.get(moveSlot.move);
 	                let bp = moves.basePower;
 	                if (moves.ohko) bp = 160;
 	                if (moves.id === 'counter' || moves.id === 'metalburst' || moves.id === 'mirrorcoat') bp = 120;

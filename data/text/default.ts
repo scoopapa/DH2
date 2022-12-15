@@ -21,6 +21,10 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		swap: "[POKEMON] and [TARGET] switched places!",
 		swapCenter: "[POKEMON] moved to the center!",
 
+		// Multi Battles only
+		canDynamax: "  [TRAINER] can dynamax now!",
+		canDynamaxOwn: "  Dynamax Energy gathered around [TRAINER]!",
+
 		zEffect: "  [POKEMON] unleashes its full-force Z-Move!",
 		move: "[POKEMON] used **[MOVE]**!",
 		abilityActivation: "[[POKEMON]'s [ABILITY]]",
@@ -32,6 +36,7 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		primal: "[POKEMON]'s Primal Reversion! It reverted to its primal state!",
 		zPower: "  [POKEMON] surrounded itself with its Z-Power!",
 		zBroken: "  [POKEMON] couldn't fully protect itself and got hurt!",
+		terastallize: "  [POKEMON] has Terastallized into the [TYPE]-type!", // filler
 
 		// in case the different default messages didn't make it obvious, the difference
 		// is that the `cant` message REPLACES "Pokemon used Move!", while the `fail`
@@ -284,6 +289,12 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		end: "  The hail stopped.",
 		upkeep: "  (The hail is crashing down.)",
 		damage: "  [POKEMON] is buffeted by the hail!",
+	},
+	snow: {
+		weatherName: "Snow",
+		start: "  It started to snow!",
+		end: "  The snow stopped.",
+		upkeep: "  (The snow is falling down.)", // TODO: Figure out proper upkeep message (if any)
 	},
 	desolateland: {
 		weatherName: "Intense Sun",

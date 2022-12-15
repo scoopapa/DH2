@@ -77,7 +77,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 11,
 			onResidual(pokemon) {
-				const source = this.effectData.source;
+				const source = this.effectState.source;
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['octolock'];
 					this.add('-end', pokemon, 'Octolock', '[partiallytrapped]', '[silent]');
@@ -86,7 +86,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.boost({def: -1, spd: -1, spe: -1}, pokemon, source, this.dex.getActiveMove("Octolock"));
 			},
 			onTrapPokemon(pokemon) {
-				if (this.effectData.source && this.effectData.source.isActive) pokemon.tryTrap();
+				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
 			},
 		},
 	},
@@ -107,37 +107,37 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			// this is a side condition
 			onStart(side) {
-				this.effectData.gMaxLayers = 0;
-				this.effectData.layers = 0;
+				this.effectState.gMaxLayers = 0;
+				this.effectState.layers = 0;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
 				if ( this.activeMove.id === 'gmaxmalodor' ){
-					this.effectData.gMaxLayers = 1;
-					this.effectData.layers = 1;
+					this.effectState.gMaxLayers = 1;
+					this.effectState.layers = 1;
 				} else {
-					this.effectData.layers = 1;
+					this.effectState.layers = 1;
 				}
 			},
 			onRestart(side) {
 				if ( this.activeMove.id === 'toxicspikes' ){
-					if ( this.effectData.layers >= 2 ) return false;
-					this.effectData.layers++;
+					if ( this.effectState.layers >= 2 ) return false;
+					this.effectState.layers++;
 				}
 				else if ( this.activeMove.id === 'gmaxmalodor' ){
-					if ( this.effectData.gMaxLayers >= 2 ) return false;
-					this.effectData.gMaxLayers++;
-					this.effectData.layers++;
+					if ( this.effectState.gMaxLayers >= 2 ) return false;
+					this.effectState.gMaxLayers++;
+					this.effectState.layers++;
 				}
 				this.add('-sidestart', side, 'move: Toxic Spikes');
 			},
 			onSwitchIn(pokemon) {
-				let totalLayers = this.effectData.layers + this.effectData.gMaxLayers;
+				let totalLayers = this.effectState.layers + this.effectState.gMaxLayers;
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Poison')) {
-					if ( this.effectData.gMaxLayers === 0 ){
+					if ( this.effectState.gMaxLayers === 0 ){
 						this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 						pokemon.side.removeSideCondition('toxicspikes');
-					} else if (this.effectData.gMaxLayers === 1) {
-						this.effectData.layers = 0;
+					} else if (this.effectState.gMaxLayers === 1) {
+						this.effectState.layers = 0;
 						this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 						this.add('-sidestart', side, 'move: Toxic Spikes');
 					}					
@@ -215,18 +215,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					delete target.volatiles['encore'];
 					return false;
 				}
-				this.effectData.move = move.id;
+				this.effectState.move = move.id;
 				this.add('-start', target, 'Encore');
 				if (!this.queue.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 			},
 			onOverrideAction(pokemon, target, move) {
-				if (move.id !== this.effectData.move) return this.effectData.move;
+				if (move.id !== this.effectState.move) return this.effectState.move;
 			},
 			onResidualOrder: 13,
 			onResidual(target) {
-				if (target.moves.includes(this.effectData.move) && target.moveSlots[target.moves.indexOf(this.effectData.move)].pp <= 0) {
+				if (target.moves.includes(this.effectState.move) && target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
 					// early termination if you run out of PP
 					delete target.volatiles.encore;
 					this.add('-end', target, 'Encore');
@@ -236,11 +236,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-end', target, 'Encore');
 			},
 			onDisableMove(pokemon) {
-				if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
+				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
 					return;
 				}
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id !== this.effectData.move) {
+					if (moveSlot.id !== this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -862,10 +862,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(source) {
 				if (this.random(2) === 0) return;
 				for (let pokemon of source.side.active) {
-					if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
+					if (!pokemon.item && pokemon.lastItem && this.dex.items.get(pokemon.lastItem).isBerry) {
 						let item = pokemon.lastItem;
 						pokemon.lastItem = '';
-						this.add('-item', pokemon, this.dex.getItem(item), '[from] move: G-Max Replenish');
+						this.add('-item', pokemon, this.dex.items.get(item), '[from] move: G-Max Replenish');
 						pokemon.setItem(item);
 					}
 				}

@@ -23,7 +23,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             move.secondaries.push({
                 chance: 20,
                 status: 'brn',
-                ability: this.dex.getAbility('burningechoes'),
+                ability: this.dex.abilities.get('burningechoes'),
             });
         },
         id: "burningechoes",
@@ -57,7 +57,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart (pokemon) {
             let activated = false;
             for (const target of pokemon.side.foe.active) {
-                if (!target || !this.isAdjacent(target, pokemon)) continue;
+                if (!target || !target.isAdjacent(pokemon)) continue;
                 if (!activated) {
                     this.add('-ability', pokemon, 'Divine Light', 'boost');
                     activated = true;
@@ -78,7 +78,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart (pokemon) {
             let activated = false;
             for (const target of pokemon.side.foe.active) {
-                if (!target || !this.isAdjacent(target, pokemon)) continue;
+                if (!target || !target.isAdjacent(pokemon)) continue;
                 if (!activated) {
                     this.add('-ability', pokemon, 'Matter Splitter', 'boost');
                     activated = true;
@@ -108,7 +108,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart (pokemon) {
             let activated = false;
             for (const target of pokemon.side.foe.active) {
-                if (!target || !this.isAdjacent(target, pokemon)) continue;
+                if (!target || !target.isAdjacent(pokemon)) continue;
                 if (!activated) {
                     this.add('-ability', pokemon, 'Cute Charm', 'boost');
                     activated = true;
@@ -141,7 +141,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         desc: "If this Pokemon is a Cherrim and Sunny Day is active, it changes to Sunshine Form, its Speed is doubled, and the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokemon is a Cherrim and it is holding Utility Umbrella, it remains in its regular form and the Attack and Special Defense stats of it and its allies are not boosted. If this Pokemon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokemon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form. If an ally is holding Utility Umbrella while Cherrim is in its Sunshine Form, they will not receive the Attack and Special Defense boosts.",
         shortDesc: "If user is Cherrim and Sunny Day is active, its Speed is doubled and it and allies' Attack and Sp. Def are 1.5x.",
         onStart(pokemon) {
-            delete this.effectData.forme;
+            delete this.effectState.forme;
         },
         onUpdate(pokemon) {
             if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
@@ -157,14 +157,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         },
         onAllyModifyAtkPriority: 3,
         onAllyModifyAtk(atk, pokemon) {
-            if (this.effectData.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+            if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
             if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
                 return this.chainModify(1.5);
             }
         },
         onModifySpDPriority: 4,
         onAllyModifySpD(spd, pokemon) {
-            if (this.effectData.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+            if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
             if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
                 return this.chainModify(1.5);
             }
@@ -202,7 +202,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
                 return;
             }
  
-            const dazzlingHolder = this.effectData.target;
+            const dazzlingHolder = this.effectState.target;
             if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
                 this.attrLastMove('[still]');
                 this.add('cant', dazzlingHolder, 'ability: Royal Presence', move, '[of] ' + target);
@@ -269,8 +269,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Dark' || move.type !== 'Ghost') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -285,8 +285,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Electric' || move.type !== 'Fighting') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -378,7 +378,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	powerspot: {
 		onAllyBasePowerPriority: 22,
 		onAllyBasePower(basePower, attacker, defender, move) {
-			if (attacker !== this.effectData.target) {
+			if (attacker !== this.effectState.target) {
 				this.debug('Power Spot boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}

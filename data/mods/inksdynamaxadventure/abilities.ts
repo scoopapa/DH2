@@ -128,8 +128,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Electric') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -176,7 +176,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.activeTurns) {
 				let activated = false;
 				for (const target of pokemon.side.foe.active) {
-					if (!target || !this.isAdjacent(target, pokemon)) continue;
+					if (!target || !target.isAdjacent(pokemon)) continue;
 					if (!activated) {
 						this.add('-ability', pokemon, 'Intimidate', 'boost');
 						activated = true;
@@ -330,8 +330,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Electric') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,

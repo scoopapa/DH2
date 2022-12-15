@@ -16,7 +16,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart: function (pokemon) {
             let activated = false;
             for (const target of pokemon.side.foe.active) {
-                if (!target || !this.isAdjacent(target, pokemon)) continue;
+                if (!target || !target.isAdjacent(pokemon)) continue;
                 if (!activated) {
                     this.add('-ability', pokemon, 'Mythical Presence', 'boost');
                     activated = true;
@@ -58,9 +58,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             }
         },
         onAllyTryHitSide: function (target, source, move) {
-            if (target === this.effectData.target || target.side !== source.side) return;
+            if (target === this.effectState.target || target.side !== source.side) return;
             if (move.type === 'Dark') {
-                this.boost({atk: 1}, this.effectData.target);
+                this.boost({atk: 1}, this.effectState.target);
             }
         },
         id: "abyssallight",
@@ -90,7 +90,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart: function (pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Malware', 'boost');
 					activated = true;

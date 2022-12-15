@@ -633,7 +633,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.effectData.source.side.active[pokemon.volatiles['magicfrost'].sourcePosition];
+				const target = this.effectState.source.side.active[pokemon.volatiles['magicfrost'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
@@ -692,7 +692,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
+				if (target !== source && target.side === this.effectState.target) {
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
@@ -741,7 +741,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
+				if (target !== source && target.side === this.effectState.target) {
 					if (target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special') {
 						return;
 					}
@@ -789,7 +789,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
+				if (target !== source && target.side === this.effectState.target) {
 					if (target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') {
 						return;
 					}
@@ -1022,26 +1022,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.random(5, 7);
 			},
 			onStart(pokemon, source) {
-				this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
-				this.effectData.boundDivisor = source.hasItem('bindingband') ? 8 : 10;
+				this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+				this.effectState.boundDivisor = source.hasItem('bindingband') ? 8 : 10;
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.effectData.source.side.active[pokemon.volatiles['vinetether'].sourcePosition];
+				const target = this.effectState.source.side.active[pokemon.volatiles['vinetether'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
 				}
-				const damage = this.damage(pokemon.baseMaxhp / this.effectData.boundDivisor, pokemon, target);
+				const damage = this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor, pokemon, target);
 				if (damage) {
 					this.heal(damage, target, pokemon);
 				}
 			},
 			onTrapPokemon(pokemon) {
-				if (this.effectData.source?.isActive) pokemon.tryTrap();
+				if (this.effectState.source?.isActive) pokemon.tryTrap();
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[vinetether]');
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[vinetether]');
 			},
 		},
 		secondary: null,

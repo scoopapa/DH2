@@ -1,16 +1,16 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	
 	init: function () {
-		for (var id in this.data.Pokedex) {
-			if (this.data.Pokedex[id].breedingVariant) {
-				const name = this.data.Pokedex[id].baseSpecies;
-				const variant = this.data.Pokedex[id].breedingVariant;
+		for (var id in this.species.all()) {
+			if (this.species.all()[id].breedingVariant) {
+				const name = this.species.all()[id].baseSpecies;
+				const variant = this.species.all()[id].breedingVariant;
 				const learnset = this.data.Learnsets[this.toID(name)].learnset;
 				if (!this.data.Learnsets[id]) this.data.Learnsets[id] = { learnset: {}};
 				for (const moveid in learnset) {
 					this.modData('Learnsets', id).learnset[moveid] = ['8L1', '7L1', '6L1', '5L1', '4L1'];
 				}
-				const weight = (this.data.Pokedex[id].weightkg + this.data.Pokedex[this.toID(variant)].weightkg) / 2;
+				const weight = (this.species.all()[id].weightkg + this.species.all()[this.toID(variant)].weightkg) / 2;
 				this.modData('Pokedex', id).weightkg = weight;
 			}
 		}

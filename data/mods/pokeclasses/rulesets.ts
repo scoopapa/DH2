@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: ModdedFormatsData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	pokeskillsmovelegality: {
 		effectType: 'ValidatorRule',
 		name: 'PokeSkills Move Legality',

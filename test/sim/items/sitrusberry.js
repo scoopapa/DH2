@@ -41,14 +41,27 @@ describe('Sitrus Berry', function () {
 		assert.equal(battle.p1.active[0].hp, 1);
 	});
 
-	it.skip('should not heal 25% hp if a confusion self-hit triggers the healing', function () {
-		battle = common.createBattle([
-			[{species: 'Deoxys-Attack', ability: 'pressure', item: 'sitrusberry', moves: ['sleeptalk']}],
-			[{species: 'Sableye', ability: 'prankster', moves: ['confuseray']}],
-		]);
+	it.skip(`should not heal 25% HP if a confusion self-hit would bring the user into Berry trigger range`, function () {
+		battle = common.createBattle([[
+			{species: 'Deoxys-Attack', item: 'sitrusberry', moves: ['sleeptalk']},
+		], [
+			{species: 'Sableye', ability: 'prankster', moves: ['confuseray']},
+		]]);
 		const holder = battle.p1.active[0];
 		battle.makeChoices('move sleeptalk', 'move confuseray');
 		assert.holdsItem(holder);
-		assert.false.equal(holder.hp, holder.maxhp);
+		assert.false.fullHP(holder);
+	});
+
+	it.skip(`should heal 25% HP immediately after any end-of-turn effect`, function () {
+		battle = common.createBattle([[
+			{species: 'mimikyu', moves: ['curse']},
+		], [
+			{species: 'darmanitan', ability: 'zenmode', item: 'sitrusberry', moves: ['sleeptalk'], evs: {hp: 4}},
+		]]);
+		const darm = battle.p2.active[0];
+		battle.makeChoices();
+		battle.makeChoices();
+		assert.species(darm, 'Darmanitan', `Sitrus Berry should heal Darmanitan outside of Zen Mode range.`);
 	});
 });

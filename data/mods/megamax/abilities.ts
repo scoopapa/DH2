@@ -13,7 +13,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries) {
-				const effectHolder = this.effectData.target;
+				const effectHolder = this.effectState.target;
 				this.add('-block', target, 'ability: Calming Tides', '[of] ' + effectHolder);
 			}
 		},
@@ -21,7 +21,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasType('Water') && source && target !== source && effect && effect.id !== 'yawn') {
 				this.debug('interrupting setStatus with Calming Tides');
 				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
-					const effectHolder = this.effectData.target;
+					const effectHolder = this.effectState.target;
 					this.add('-block', target, 'ability: Calming Tides', '[of] ' + effectHolder);
 				}
 				return null;
@@ -30,7 +30,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllyTryAddVolatile(status, target) {
 			if (target.hasType('Water') && status.id === 'yawn') {
 				this.debug('Calming Tides blocking yawn');
-				const effectHolder = this.effectData.target;
+				const effectHolder = this.effectState.target;
 				this.add('-block', target, 'ability: Calming Tides', '[of] ' + effectHolder);
 				return null;
 			}
@@ -44,7 +44,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Contaminate', 'boost');
 					activated = true;

@@ -191,7 +191,7 @@ pokemon: {
 		speciesId: string | Species, source: Effect = this.battle.effect,
 		isPermanent?: boolean, message?: string
 	) {
-		const rawSpecies = this.battle.dex.getSpecies(speciesId);
+		const rawSpecies = this.battle.dex.species.get(speciesId);
 
 		const species = this.setSpecies(rawSpecies, source);
 		if (!species) return false;
@@ -241,16 +241,16 @@ pokemon: {
 		}
 		this.battle.add('-start', this, 'typechange', this.getTypes(true).join('/'), '[silent]');
 		if (!this.m.busted && this.species.name !== 'Poultergeist-Headless') { // one-time /dt for form changes
-			const species = this.battle.dex.getSpecies(this.species.name);
-			let abilities = this.battle.dex.getAbility(species.abilities[0]).name;
+			const species = this.battle.dex.species.get(this.species.name);
+			let abilities = this.battle.dex.abilities.get(species.abilities[0]).name;
 			if (species.abilities[1]) {
-				abilities += ` / ${this.battle.dex.getAbility(species.abilities[1]).name}`;
+				abilities += ` / ${this.battle.dex.abilities.get(species.abilities[1]).name}`;
 			}
 			if (species.abilities['H']) {
-				abilities += ` / ${this.battle.dex.getAbility(species.abilities['H']).name}`;
+				abilities += ` / ${this.battle.dex.abilities.get(species.abilities['H']).name}`;
 			}
 			if (species.abilities['S']) {
-				abilities += ` / ${this.battle.dex.getAbility(species.abilities['S']).name}`;
+				abilities += ` / ${this.battle.dex.abilities.get(species.abilities['S']).name}`;
 			}
 			const baseStats = species.baseStats;
 			const type = species.types[0];

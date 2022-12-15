@@ -87,7 +87,7 @@ let BattleScripts = {
 
 		if (zMove) {
 			if (pokemon.illusion) {
-				this.singleEvent('End', this.getAbility('Illusion'), pokemon.abilityData, pokemon);
+				this.singleEvent('End', this.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 			}
 			this.add('-zpower', pokemon);
 			pokemon.side.zMoveUsed = true;
@@ -114,7 +114,7 @@ let BattleScripts = {
 			for (const dancer of dancers) {
 				if (this.faintMessages()) break;
 				this.add('-activate', dancer, 'ability: Dancer');
-				this.runMove(move.id, dancer, 0, this.getAbility('dancer'), undefined, true);
+				this.runMove(move.id, dancer, 0, this.abilities.get('dancer'), undefined, true);
 			}
 		}
 		if (noLock && pokemon.volatiles.lockedmove) delete pokemon.volatiles.lockedmove;
@@ -264,7 +264,7 @@ let BattleScripts = {
 			let lacksTarget = target.fainted;
 			if (!lacksTarget) {
 				if (move.target === 'adjacentFoe' || move.target === 'adjacentAlly' || move.target === 'normal' || move.target === 'randomNormal') {
-					lacksTarget = !this.isAdjacent(target, pokemon);
+					lacksTarget = !target.isAdjacent(pokemon);
 				}
 			}
 			if (lacksTarget && !move.isFutureMove) {
@@ -488,7 +488,7 @@ let BattleScripts = {
 			/**@type {number | false} */
 			let moveDamage;
 			// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-			let isSleepUsable = move.sleepUsable || this.getMove(move.sourceEffect).sleepUsable;
+			let isSleepUsable = move.sleepUsable || this.moves.get(move.sourceEffect).sleepUsable;
 			let i;
 			for (i = 0; i < hits && target.hp && pokemon.hp; i++) {
 				if (pokemon.status === 'slp' && !isSleepUsable) break;
@@ -908,10 +908,10 @@ let BattleScripts = {
 				zMoves.push(null);
 				continue;
 			}
-			let move = this.getMove(moveSlot.move);
+			let move = this.moves.get(moveSlot.move);
 			let zMoveName = this.getZMove(move, pokemon, true) || '';
 			if (zMoveName) {
-				let zMove = this.getMove(zMoveName);
+				let zMove = this.moves.get(zMoveName);
 				if (!zMove.isZ && zMove.category === 'Status') zMoveName = "Z-" + zMoveName;
 				zMoves.push({move: zMoveName, target: zMove.target});
 			} else {

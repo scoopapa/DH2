@@ -4,13 +4,13 @@ const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAll
 
 export const Scripts: BattleScriptsData = {
 	getMaxMove(move, pokemon) {
-		if (typeof move === 'string') move = this.dex.getMove(move);
+		if (typeof move === 'string') move = this.dex.moves.get(move);
 		if (move.name === 'Struggle') return move;
 		if (pokemon.gigantamax && pokemon.canGigantamax && move.category !== 'Status') {
-			const gMaxMove = this.dex.getMove(pokemon.canGigantamax);
+			const gMaxMove = this.dex.moves.get(pokemon.canGigantamax);
 			if (gMaxMove.exists && gMaxMove.type === move.type) return gMaxMove;
 		}
-		const maxMove = this.dex.getMove(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
+		const maxMove = this.dex.moves.get(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
 		if (maxMove.exists) return maxMove;
 	},
 

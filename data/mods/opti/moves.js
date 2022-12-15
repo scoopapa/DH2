@@ -258,7 +258,7 @@ exports.BattleMovedex = {
 					ppDeducted = target.deductPP(target.lastMove.id, 8);
 				}
 				if (ppDeducted) {
-					this.add("-activate", target, 'move: Spite', this.getMove(target.lastMove.id).name, ppDeducted);
+					this.add("-activate", target, 'move: Spite', this.moves.get(target.lastMove.id).name, ppDeducted);
 					return;
 				}
 			}
@@ -366,18 +366,18 @@ exports.BattleMovedex = {
 			duration: 1,
 			noCopy: true,
 			onStart: function (target, source, source2, move) {
-				this.effectData.position = null;
-				this.effectData.damage = 0;
+				this.effectState.position = null;
+				this.effectState.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget: function (target, source, source2) {
-				if (source !== this.effectData.target) return;
-				return source.side.foe.active[this.effectData.position];
+				if (source !== this.effectState.target) return;
+				return source.side.foe.active[this.effectState.position];
 			},
 			onAfterDamage: function (damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && source.side !== target.side) {
-					this.effectData.position = source.position;
-					this.effectData.damage = 1.5 * damage;
+					this.effectState.position = source.position;
+					this.effectState.damage = 1.5 * damage;
 				}
 			},
 		},

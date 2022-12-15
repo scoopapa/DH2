@@ -22,7 +22,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {
@@ -52,8 +52,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Grass') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -69,8 +69,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Water') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -106,7 +106,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "solarflare",
 		shortDesc: "In sunlight, this Pokemon changes into its Flare form if it is a Hyakada.",
 		onStart(pokemon) {
-			delete this.effectData.forme;
+			delete this.effectState.forme;
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Hyakada' || pokemon.transformed) return;
@@ -206,7 +206,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					let bp = move.basePower;
 					if (move.ohko) bp = 150;
 					if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
@@ -327,11 +327,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Placeholder, does nothing right now.",
 		/* shortDesc: "When this Pokemon switches in on Stealth Rock, it gains +2 Defense.
 		onSwitchIn(pokemon) {
-			this.effectData.switchingIn = true;
+			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
 			// I'm not sure if getting this ability with stealth rock on your side of the field activates it or if you're immune to Stealth Rock damage, but this should suffice.
-			if (pokemon.side.getSideCondition('stealthrock') && this.effectData.switchingIn) {
+			if (pokemon.side.getSideCondition('stealthrock') && this.effectState.switchingIn) {
 				this.boost({def: 2});
 			}
 		},

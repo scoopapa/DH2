@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: ModdedFormatsData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	"abilityclause": {
 		effectType: 'ValidatorRule',
 		name: 'Ability Clause',
@@ -14,7 +14,7 @@ export const Formats: {[k: string]: ModdedFormatsData} = {
 				if (ability in abilityTable) {
 					return [
 						`You are limited to one of each ability by Ability Clause.`,
-						`(You have more than one ${this.dex.getAbility(ability).name} variants)`,
+						`(You have more than one ${this.dex.abilities.get(ability).name} variants)`,
 					];
 					abilityTable[ability] = 1;
 				}

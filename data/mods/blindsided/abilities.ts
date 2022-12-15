@@ -15,13 +15,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	bananatrap: {
 		shortDesc: "Opposing Grass-types are unable to switch out.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Grass') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Grass') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (!pokemon.knownType || pokemon.hasType('Grass')) {
 				pokemon.maybeTrapped = true;
 			}
@@ -84,7 +84,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyWeatherStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			delete pokemon.volatiles['coloredjewel'];
 			pokemon.addVolatile('coloredjewel');
 		},
@@ -134,7 +134,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Debilitate', 'boost');
 					activated = true;
@@ -202,7 +202,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyDamage(damage, target, source, effect) {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
             if (target.side === pokemon.side) return;
             if (effect && effect.id === 'brn') {
                 this.heal(pokemon.baseMaxhp / 8, pokemon);
@@ -240,7 +240,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Mythical Presence', 'boost');
 					activated = true;
@@ -305,12 +305,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Poison' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
-			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
 				if (move.smartTarget) move.smartTarget = false;
-				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Toxic Armor');
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Toxic Armor');
 				}
-				return this.effectData.target;
+				return this.effectState.target;
 			}
 		},
 		name: "Toxic Armor",
@@ -337,7 +337,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
         onAllyTryAddVolatile(status, target, source, effect) {
             if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment', 'piercingrampage'].includes(status.id)) {
                 if (effect.effectType === 'Move') {
-                    const effectHolder = this.effectData.target;
+                    const effectHolder = this.effectState.target;
                     this.add('-block', target, 'ability: Aroma Veil', '[of] ' + effectHolder);
                 }
                 return null;
@@ -375,7 +375,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (pokemon.species.name.includes('Zawa')) {
 					if (pokemon.species.id !== 'zawazen') pokemon.formeChange('Zawa-Zen');
 					if (pokemon.hasGoneZen) {
-						const species = this.dex.getSpecies(pokemon.species.name);
+						const species = this.dex.species.get(pokemon.species.name);
 						const abilities = species.abilities;
 						const baseStats = species.baseStats;
 						const type = species.types[0];
@@ -429,8 +429,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					} else {
 						this.add('-message', `${attacker.name} changed to Torpedo Form!`);
 						this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
-						if (!this.effectData.busted) { // this is just to make a dt that only shows up once per Tactaval
-							const species = this.dex.getSpecies(attacker.species.name);
+						if (!this.effectState.busted) { // this is just to make a dt that only shows up once per Tactaval
+							const species = this.dex.species.get(attacker.species.name);
 							const abilities = species.abilities;
 							const baseStats = species.baseStats;
 							const type = species.types[0];
@@ -440,7 +440,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							} else {
 								this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 							}
-							this.effectData.busted = true;
+							this.effectState.busted = true;
 						}
 					}
 				}

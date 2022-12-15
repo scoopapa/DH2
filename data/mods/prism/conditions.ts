@@ -15,7 +15,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart: function (target) {
 			this.add('-status', target, 'slp');
 			// 1-4 turns
-			this.effectData.time = this.random(2, 6);
+			this.effectState.time = this.random(2, 6);
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove: function (pokemon, target, move) {

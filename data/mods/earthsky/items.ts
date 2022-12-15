@@ -1196,7 +1196,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			target.lastItem = target.item;
 			target.item = '';
 			target.itemData = {id: '', target};
-			this.runEvent('AfterUseItem', target, null, null, this.dex.getItem('airballoon'));
+			this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
 		},
 		onAfterSubDamage(damage, target, source, effect) {
 			this.debug('effect: ' + effect.id);
@@ -1205,7 +1205,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				target.lastItem = target.item;
 				target.item = '';
 				target.itemData = {id: '', target};
-				this.runEvent('AfterUseItem', target, null, null, this.dex.getItem('airballoon'));
+				this.runEvent('AfterUseItem', target, null, null, this.dex.items.get('airballoon'));
 			}
 		},
 		shortDesc: "Holder gains floating status. Pops when hit.",

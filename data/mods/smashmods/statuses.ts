@@ -65,7 +65,7 @@ export const Statuses: {[k: string]: EffectData} = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectData.time = this.random(3, 4);
+			this.effectState.time = this.random(3, 4);
 		},
 		onEnd: function (target) {
 			this.add('-end', target, 'confusion');

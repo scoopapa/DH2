@@ -2,37 +2,37 @@ export const Conditions: {[k: string]: ConditionData} = {
 	legendsboost: {
 		name: 'legendsboost',
 		onBoost(boost, target, source, effect) {
-			this.effectData.startTime = 0;
+			this.effectState.startTime = 0;
 			if (!boost || effect.id === 'legendsboost') return;
 			let activated = false;
 			let boostName: BoostName;
-			this.effectData.atkBoosted = false;
-			this.effectData.defBoosted = false;
-			this.effectData.speBoosted = false;
+			this.effectState.atkBoosted = false;
+			this.effectState.defBoosted = false;
+			this.effectState.speBoosted = false;
 
 			const LegendsBoost : SparseBoostsTable = {};
 			if (boost.atk) {
 				LegendsBoost.spa = boost.atk;
-				this.effectData.atkBoosted = true;
+				this.effectState.atkBoosted = true;
 				activated = true;
 			}
 			if (boost.spa) {
 				LegendsBoost.atk = boost.spa;
-				this.effectData.atkBoosted = true;
+				this.effectState.atkBoosted = true;
 				activated = true;
 			}
 			if (boost.spd) {
 				LegendsBoost.def = boost.spd;
-				this.effectData.defBoosted = true;
+				this.effectState.defBoosted = true;
 				activated = true;
 			}
 			if (boost.def) {
 				LegendsBoost.spd = boost.def;
-				this.effectData.defBoosted = true;
+				this.effectState.defBoosted = true;
 				activated = true;
 			}
 			if(boost.spe) {
-				this.effectData.speBoosted = true;
+				this.effectState.speBoosted = true;
 				activated = true;
 
 			}
@@ -44,24 +44,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 				3 turns for omniboosts or stat boosts gained by an offensive move's effect / ability / item
 				*/
 				
-				this.effectData.startTime = 6;
-				if(this.effectData.atkBoosted) {
-					this.effectData.startTime -= 1;
+				this.effectState.startTime = 6;
+				if(this.effectState.atkBoosted) {
+					this.effectState.startTime -= 1;
 				}
-				if(this.effectData.defBoosted) {
-					this.effectData.startTime -= 1;
+				if(this.effectState.defBoosted) {
+					this.effectState.startTime -= 1;
 				}
-				if(this.effectData.speBoosted) {
-					this.effectData.startTime -= 1;
+				if(this.effectState.speBoosted) {
+					this.effectState.startTime -= 1;
 				}
 				if((effect.effectType === 'Move' && !effect.status) || effect.effectType === 'Ability' || effect.effectType === 'Item') {
-					this.effectData.startTime = 3;
+					this.effectState.startTime = 3;
 				}
 
-				if(this.dex.getAbility('remaininghope') && this.effectData.startTime == 3) {
-					this.effectData.startTime += 1;
+				if(this.dex.abilities.get('remaininghope') && this.effectState.startTime == 3) {
+					this.effectState.startTime += 1;
 				}
-				this.effectData.time = this.effectData.startTime;
+				this.effectState.time = this.effectState.startTime;
 				return;
 			}
 		},
@@ -81,8 +81,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 
 		onResidual(pokemon) {
-			this.effectData.time -= 1;
-			if (this.effectData.time <= 0) {
+			this.effectState.time -= 1;
+			if (this.effectState.time <= 0) {
 				this.add('-clearboost', pokemon);
 				pokemon.clearBoosts();
 				return;
@@ -106,11 +106,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'jaggedsplinters',
 		onStart(side, target, source) {
 			this.add('-start', side, 'Jagged Splinters');
-			this.effectData.jaggedType = target.lastMove;
+			this.effectState.jaggedType = target.lastMove;
 		},
 
 		onResidual(pokemon) {
-				let type = this.dex.getActiveMove(this.effectData.jaggedType);
+				let type = this.dex.getActiveMove(this.effectState.jaggedType);
 				let typeMod = this.clampIntRange(pokemon.runEffectiveness(type));
 				const tr = this.trunc;
 				
@@ -136,14 +136,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'fixated',
 		onStart(target, source, effect) {
 			this.add('-start', target, 'fixated', '[silent]');
-			this.effectData.move = effect.id;
-			this.add('-message', `${target.name} is fixated on ${this.effectData.move}!`);
+			this.effectState.move = effect.id;
+			this.add('-message', `${target.name} is fixated on ${this.effectState.move}!`);
 		},
 
 		onTryMovePriority: -2,
 		onTryMove(pokemon, target, move) {
-			//this.add('-message', `effectdata is: ${this.effectData.move} and move.id is: ${move.id}`);
-			if(this.effectData.move === move.id) return;
+			//this.add('-message', `effectdata is: ${this.effectState.move} and move.id is: ${move.id}`);
+			if(this.effectState.move === move.id) return;
 			pokemon.removeVolatile('fixated');
 		},
 
@@ -154,7 +154,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 		onFoeBasePowerPriority: 17,
 		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectData.target !== defender) return;
+			if (this.effectState.target !== defender) return;
 			return this.chainModify(1.33);
 		},
 
@@ -201,11 +201,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-status', target, 'brn');
 			}
-			this.effectData.startTime = 6;
+			this.effectState.startTime = 6;
 			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
-				this.effectData.startTime = 3;
+				this.effectState.startTime = 3;
 			}
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.time = this.effectState.startTime;
 		},
 		// Damage reduction is handled directly in the sim/battle.js damage function
 		onResidualOrder: 9,
@@ -228,11 +228,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-status', target, 'par');
 			}
-			this.effectData.startTime = 6;
+			this.effectState.startTime = 6;
 			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
-				this.effectData.startTime = 3;
+				this.effectState.startTime = 3;
 			}
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.time = this.effectState.startTime;
 		},
 		onModifySpe(spe, pokemon) {
 			if (!pokemon.hasAbility('quickfeet')) {
@@ -270,11 +270,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
 				target.formeChange('Shaymin', this.effect, true);
 			}
-			this.effectData.startTime = 6;
+			this.effectState.startTime = 6;
 			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
-				this.effectData.startTime = 3;
+				this.effectState.startTime = 3;
 			}
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.time = this.effectState.startTime;
 		},
 		onHit(target, source, move) {
 			if (move.thawsTarget || (move.id === 'flamewheel' || move.id === 'flareblitz') && move.category !== 'Status') {
@@ -283,7 +283,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			this.hint(`${this.effectData.target.name} is afflicted with frostbite!`);
+			this.hint(`${this.effectState.target.name} is afflicted with frostbite!`);
 			this.damage(pokemon.baseMaxhp / 12);
 			pokemon.statusData.time--;
 			if (pokemon.statusData.time <= 0) {
@@ -305,11 +305,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-status', target, 'slp');
 			}
-			this.effectData.startTime = 6;
+			this.effectState.startTime = 6;
 			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
-				this.effectData.startTime = 3;
+				this.effectState.startTime = 3;
 			}
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.time = this.effectState.startTime;
 		},
 
 		onBeforeMovePriority: 1,
@@ -329,7 +329,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 		onFoeBasePowerPriority: 17,
 		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectData.target !== defender) return;
+			if (this.effectState.target !== defender) return;
 			return this.chainModify(1.33);
 		},
 
@@ -361,11 +361,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-status', target, 'psn');
 			}
-			this.effectData.startTime = 6;
+			this.effectState.startTime = 6;
 			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
-				this.effectData.startTime = 3;
+				this.effectState.startTime = 3;
 			}
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.time = this.effectState.startTime;
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
@@ -381,7 +381,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'tox',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 			if (sourceEffect && sourceEffect.id === 'toxicorb') {
 				this.add('-status', target, 'tox', '[from] item: Toxic Orb');
 			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -389,21 +389,21 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-status', target, 'tox');
 			}
-			this.effectData.startTime = 6;
+			this.effectState.startTime = 6;
 			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
-				this.effectData.startTime = 3;
+				this.effectState.startTime = 3;
 			}
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.time = this.effectState.startTime;
 		},
 		onSwitchIn() {
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			if (this.effectData.stage < 15) {
-				this.effectData.stage++;
+			if (this.effectState.stage < 15) {
+				this.effectState.stage++;
 			}
-			this.damage(this.clampIntRange(pokemon.baseMaxhp / 12, 1) * this.effectData.stage);
+			this.damage(this.clampIntRange(pokemon.baseMaxhp / 12, 1) * this.effectState.stage);
 			if (pokemon.statusData.time <= 0) {
 				this.add('-curestatus', pokemon, 'tox', '[Silent]');
 				pokemon.setStatus('');
@@ -424,7 +424,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Hail');

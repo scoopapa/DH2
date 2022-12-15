@@ -92,13 +92,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart(pokemon, source) {
-				this.effectData.hp = source.maxhp / 2;
+				this.effectState.hp = source.maxhp / 2;
 			},
 			onResidualOrder: 4,
 			onEnd(target) {
 				if (target && !target.fainted) {
-					const damage = this.heal(this.effectData.hp, target, target);
-					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Lifes Light', '[wisher] ' + this.effectData.source.name);
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Lifes Light', '[wisher] ' + this.effectState.source.name);
 				}
 			},
 		},

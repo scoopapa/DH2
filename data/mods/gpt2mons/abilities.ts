@@ -22,7 +22,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			if (this.field.isWeather('sun') && pokemon.species.id === 'cherrim3noflower' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Flower Head');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Cherrim 3', this.effect, true);
 			}
 		},
@@ -33,7 +33,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				target.species.id === 'cherrim3' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Flower Head');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -52,16 +52,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id === 'cherrim3' && this.effectData.busted) {
+			if (pokemon.species.id === 'cherrim3' && this.effectState.busted) {
 				pokemon.formeChange('Cherrim 3 (No Flower)', this.effect, true);
 			}
 		},
 		onAnyWeatherStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (!pokemon.hp) return;
 			if (this.field.isWeather('sun') && pokemon.species.id === 'cherrim3noflower' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Flower Head');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Cherrim 3', this.effect, true);
 			}
 		},
@@ -126,7 +126,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				boosts: {
 						spa: -1,
 								},
-				ability: this.dex.getAbility('mysticalfire'),
+				ability: this.dex.abilities.get('mysticalfire'),
 			});
 		},
 		name: "Mystical Fire",
@@ -168,7 +168,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Flatter', 'boost');
 					activated = true;
@@ -249,7 +249,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'tox',
-				ability: this.dex.getAbility('poisontouch'),
+				ability: this.dex.abilities.get('poisontouch'),
 			});
 		},
 		name: "Toxicroak",

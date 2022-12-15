@@ -22,8 +22,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectData.target, source);
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		effect: {
@@ -40,13 +40,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					active.switchFlag = false;
 				}
 			}
-			this.effectData.exiting = true;
+			this.effectState.exiting = true;
 			target.switchFlag = true;
 			this.add('-activate', target, 'ability: Au Revoir');
 		},
 		onSwitchOut(pokemon) {
-			if (this.effectData.exiting === true) {
-				this.effectData.exiting = undefined;
+			if (this.effectState.exiting === true) {
+				this.effectState.exiting = undefined;
 			} else {
 				pokemon.heal(pokemon.baseMaxhp / 3);
 			}
@@ -104,30 +104,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let statName = 'atk';
 			let bestStat = 0;
 			let s: StatNameExceptHP;
-			for (s in this.effectData.target.storedStats) {
-				if (this.effectData.target.storedStats[s] > bestStat) {
+			for (s in this.effectState.target.storedStats) {
+				if (this.effectState.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectData.target.storedStats[s];
+					bestStat = this.effectState.target.storedStats[s];
 				}
 			}
 			if (target !== source && move.type === 'Ground') {
-				this.boost({[statName]: 1}, this.effectData.target);
+				this.boost({[statName]: 1}, this.effectState.target);
 				return null;
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			let statName = 'atk';
 			let bestStat = 0;
 			let s: StatNameExceptHP;
-			for (s in this.effectData.target.storedStats) {
-				if (this.effectData.target.storedStats[s] > bestStat) {
+			for (s in this.effectState.target.storedStats) {
+				if (this.effectState.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectData.target.storedStats[s];
+					bestStat = this.effectState.target.storedStats[s];
 				}
 			}
 			if (move.type === 'Ground') {
-				this.boost({[statName]: 1}, this.effectData.target);
+				this.boost({[statName]: 1}, this.effectState.target);
 			}
 		},
 		onSourceAfterFaint(length, target, source, effect) {
@@ -151,7 +151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Thunderclap', 'boost');
 					activated = true;
@@ -273,7 +273,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyDamage(damage, target, source, effect) {
-			if(effect && effect.effectType === 'Move' && effect.basePower <= 60 && source.side !== this.effectData.target.side) {
+			if(effect && effect.effectType === 'Move' && effect.basePower <= 60 && source.side !== this.effectState.target.side) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
@@ -384,7 +384,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "unamused",
 		name: "Unamused",
 		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectData.target;
+			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
 			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['def'] = 0;
@@ -400,14 +400,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.field.getWeather().id !== 'sandstorm') {
-				this.field.setWeather('sandstorm', this.effectData.target);
+				this.field.setWeather('sandstorm', this.effectState.target);
 			}
 		},
 		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (target !== source && move.category !== 'Status') {
 				if (this.field.getWeather().id !== 'sandstorm') {
-					this.field.setWeather('sandstorm', this.effectData.target);
+					this.field.setWeather('sandstorm', this.effectState.target);
 				}
 			}
 		},
@@ -429,7 +429,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "unbullet",
 		name: "Unbullet",
 		onAfterUseItem(item, pokemon) {
-			if (pokemon !== this.effectData.target) return;
+			if (pokemon !== this.effectState.target) return;
 			pokemon.addVolatile('unburden');
 		},
 		onTakeItem(item, pokemon) {
@@ -540,7 +540,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (source.volatiles['disable']) return;
 			if (!move.isFutureMove) {
 				if (this.randomChance(3, 10)) {
-					source.addVolatile('disable', this.effectData.target);
+					source.addVolatile('disable', this.effectState.target);
 				}
 			}
 		},
@@ -595,7 +595,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('nocturnalflash'),
+				ability: this.dex.abilities.get('nocturnalflash'),
 			});
 		},
 	},
@@ -692,13 +692,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.secondaries.push({
 					chance: 45,
 					status: 'brn',
-					ability: this.dex.getAbility('abysmalsurge'),
+					ability: this.dex.abilities.get('abysmalsurge'),
 				});
 			} else {
 				move.secondaries.push({
 					chance: 30,
 					status: 'brn',
-					ability: this.dex.getAbility('abysmalsurge'),
+					ability: this.dex.abilities.get('abysmalsurge'),
 				});
 			}
 		},
@@ -748,14 +748,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectData.target.storedStats) {
-				if (this.effectData.target.storedStats[s] > bestStat) {
+			for (s in this.effectState.target.storedStats) {
+				if (this.effectState.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectData.target.storedStats[s];
+					bestStat = this.effectState.target.storedStats[s];
 				}
 			}
 			if (status.id === 'slp') {
-				this.boost({[statName]: 1}, this.effectData.target);
+				this.boost({[statName]: 1}, this.effectState.target);
 			}
 		},
 	}, 

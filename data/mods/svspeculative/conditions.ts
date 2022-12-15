@@ -5,9 +5,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Move' && sourceEffect.id === 'bittermalice') {
 				this.add('-status', target, 'frz');
-				this.hint(`${this.effectData.target.name} is frostbitten! It can still use moves, but its special moves will be half as strong.`);
+				this.hint(`${this.effectState.target.name} is frostbitten! It can still use moves, but its special moves will be half as strong.`);
 				this.hint(`Like a burn, frostbite will damage the afflicted Pokémon at the end of each turn.`);
-				this.effectData.frostbite = true;
+				this.effectState.frostbite = true;
 			}
 			else if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
@@ -20,7 +20,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['defrost'] || this.effectData.frostbite) return;
+			if (move.flags['defrost'] || this.effectState.frostbite) return;
 			if (this.randomChance(1, 5)) {
 				pokemon.cureStatus();
 				return;
@@ -41,8 +41,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			if (!this.effectData.frostbite) return;
-			this.hint(`${this.effectData.target.name} is afflicted with frostbite!`);
+			if (!this.effectState.frostbite) return;
+			this.hint(`${this.effectState.target.name} is afflicted with frostbite!`);
 			this.damage(pokemon.baseMaxhp / 16);
 		},
 	},

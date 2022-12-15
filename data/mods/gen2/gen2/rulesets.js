@@ -17,7 +17,7 @@ let BattleFormats = {
 			}
 			let hasSD = false;
 			if (set.item) {
-				let item = this.getItem(set.item);
+				let item = this.items.get(set.item);
 				if (item.gen > this.gen) {
 					problems.push(item.name + ' does not exist in gen ' + this.gen + '.');
 				} else if (item.isNonstandard) {
@@ -26,7 +26,7 @@ let BattleFormats = {
 			}
 			if (set.moves) {
 				for (const setMoveid of set.moves) {
-					let move = this.getMove(setMoveid);
+					let move = this.moves.get(setMoveid);
 					if (move.gen > this.gen) {
 						problems.push(move.name + ' does not exist in gen ' + this.gen + '.');
 					} else if (move.isNonstandard) {
@@ -74,7 +74,7 @@ let BattleFormats = {
 			if (set.moves) {
 				let hasMove = {};
 				for (const setMoveid of set.moves) {
-					let move = this.getMove(setMoveid);
+					let move = this.moves.get(setMoveid);
 					let moveid = move.id;
 					if (hasMove[moveid]) continue;
 					hasMove[moveid] = true;

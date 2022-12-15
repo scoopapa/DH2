@@ -39,7 +39,7 @@ let BattleStatuses = {
 		onStart: function (target) {
 			this.add('-status', target, 'slp');
 			// 1-6 turns
-			this.effectData.time = this.random(2, 8);
+			this.effectState.time = this.random(2, 8);
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove: function (pokemon, target, move) {
@@ -102,18 +102,18 @@ let BattleStatuses = {
 		effectType: 'Status',
 		onStart: function (target) {
 			this.add('-status', target, 'tox');
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 		},
 		onAfterMoveSelfPriority: 3,
 		onAfterMoveSelf: function (pokemon) {
-			if (this.effectData.stage < 15) {
-				this.effectData.stage++;
+			if (this.effectState.stage < 15) {
+				this.effectState.stage++;
 			}
-			this.damage(this.clampIntRange(pokemon.maxhp / 16, 1) * this.effectData.stage);
+			this.damage(this.clampIntRange(pokemon.maxhp / 16, 1) * this.effectState.stage);
 		},
 		onSwitchIn: function (pokemon) {
 			// Regular poison status and damage after a switchout -> switchin.
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 			pokemon.setStatus('psn');
 		},
 		onAfterSwitchInSelf: function (pokemon) {
@@ -129,9 +129,9 @@ let BattleStatuses = {
 				this.add('-start', target, 'confusion');
 			}
 			if (sourceEffect && sourceEffect.id === 'berserkgene') {
-				this.effectData.time = 256;
+				this.effectState.time = 256;
 			} else {
-				this.effectData.time = this.random(2, 6);
+				this.effectState.time = this.random(2, 6);
 			}
 		},
 		onBeforeMove: function (pokemon, target, move) {
@@ -180,7 +180,7 @@ let BattleStatuses = {
 			}
 		},
 		onStart: function (target, source, effect) {
-			this.effectData.move = effect.id;
+			this.effectState.move = effect.id;
 		},
 		onEnd: function (target) {
 			// Confusion begins even if already confused
@@ -188,13 +188,13 @@ let BattleStatuses = {
 			target.addVolatile('confusion');
 		},
 		onLockMove: function (pokemon) {
-			return this.effectData.move;
+			return this.effectState.move;
 		},
 		onMoveAborted: function (pokemon) {
 			delete pokemon.volatiles['lockedmove'];
 		},
 		onBeforeTurn: function (pokemon) {
-			let move = this.getMove(this.effectData.move);
+			let move = this.moves.get(this.effectState.move);
 			if (move.id) {
 				this.debug('Forcing into ' + move.id);
 				this.changeAction(pokemon, {move: move.id});
@@ -213,16 +213,16 @@ let BattleStatuses = {
 		num: 0,
 		duration: 2,
 		onStart: function () {
-			this.effectData.counter = 127;
+			this.effectState.counter = 127;
 		},
 		onStallMove: function () {
-			let counter = Math.floor(this.effectData.counter) || 127;
+			let counter = Math.floor(this.effectState.counter) || 127;
 			this.debug("Success chance: " + Math.round(counter * 1000 / 255) / 10 + "% (" + counter + "/255)");
 			return this.randomChance(counter, 255);
 		},
 		onRestart: function () {
-			this.effectData.counter /= 2;
-			this.effectData.duration = 2;
+			this.effectState.counter /= 2;
+			this.effectState.duration = 2;
 		},
 	},
 };

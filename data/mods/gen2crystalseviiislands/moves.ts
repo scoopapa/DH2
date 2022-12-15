@@ -120,7 +120,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const moves = [];
 				for (const moveSlot of source.moveSlots) {
 					const move = moveSlot.id;
-					if (move && !NoParry.includes(move) && !this.dex.getMove(move).flags['charge']) {
+					if (move && !NoParry.includes(move) && !this.dex.moves.get(move).flags['charge']) {
 						moves.push(move);
 					}
 				}
@@ -163,9 +163,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		   duration: 5,
 			// this is a side condition
 		   onStart(side) {
-				if (!this.effectData.layers || this.effectData.layers === 0) {
+				if (!this.effectState.layers || this.effectState.layers === 0) {
 					this.add('-sidestart', side, 'move: Sacred Candle');
-					this.effectData.layers = 1;
+					this.effectState.layers = 1;
 				} else {
 					return false;
 				   }
@@ -283,7 +283,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onLockMove: 'hypeup',
 			onAnySetStatus(status, pokemon) {
 				if (status.id === 'slp') {
-					if (pokemon === this.effectData.target) {
+					if (pokemon === this.effectState.target) {
 						this.add('-message', `${pokemon.name} is too hyped up to sleep.`);
 					} else {
 						this.add('-message', `${pokemon.name} is too hyped up to sleep.`);
@@ -399,7 +399,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onBeforeSwitchOut(pokemon) {
 				this.debug('Preyingswipe start');
 				let alreadyAdded = false;
-				for (const source of this.effectData.sources) {
+				for (const source of this.effectState.sources) {
 					if (source.speed < pokemon.speed || (source.speed === pokemon.speed && this.random(2) === 0)) {
 						// Destiny Bond ends if the switch action "outspeeds" the attacker, regardless of host
 						pokemon.removeVolatile('destinybond');
@@ -612,7 +612,7 @@ export const Moves: {[moveid: string]: MoveData} = {
             for (const moveSlot of pokemon.moveSlots) {
                 const moveid = moveSlot.id;
                 if (!moveid) continue;
-                const move = this.dex.getMove(moveid);
+                const move = this.dex.moves.get(moveid);
                 if (noSleepTalk.includes(moveid) || move.flags['charge']) {
                     continue;
                 }
@@ -635,7 +635,7 @@ export const Moves: {[moveid: string]: MoveData} = {
                     this.add('-item', target, 'Wynaut');
                     this.add('-activate', target, 'item: Wynaut');
                 }
-                this.effectData.hp = Math.floor(target.maxhp / 4);
+                this.effectState.hp = Math.floor(target.maxhp / 4);
                 delete target.volatiles['partiallytrapped'];
             },
             onTryPrimaryHitPriority: -1,

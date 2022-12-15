@@ -589,7 +589,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
             },
             onDisableMove(pokemon) {
                 for (const moveSlot of pokemon.moveSlots) {
-                    const move = this.dex.getMove(moveSlot.id);
+                    const move = this.dex.moves.get(moveSlot.id);
                     if (move.stallingMove && move.id !== 'endure') {
                         pokemon.disableMove(moveSlot.id);
                     }
@@ -690,12 +690,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
         condition: {
             duration: 2,
             onStart(pokemon, source) {
-                this.effectData.hp = source.maxhp / 4;
+                this.effectState.hp = source.maxhp / 4;
             },
             onResidualOrder: 4,
             onEnd(target) {
                 if (target && !target.fainted) {
-                    const damage = this.heal(this.effectData.hp, target, target);
+                    const damage = this.heal(this.effectState.hp, target, target);
                     target.cureStatus();
                 }
             },
@@ -830,7 +830,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
+				if (target !== source && target.side === this.effectState.target) {
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
@@ -889,7 +889,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Water Wall');
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-                if (target !== source && target.side === this.effectData.target) {
+                if (target !== source && target.side === this.effectState.target) {
                     if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Water') {
                             this.debug('Water Wall weaken');

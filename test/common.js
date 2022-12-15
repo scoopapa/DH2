@@ -1,7 +1,9 @@
 'use strict';
 
+const path = require('path');
+const fs = require('fs');
 const assert = require('./assert');
-const Sim = require('./../.sim-dist');
+const Sim = require('./../sim');
 const Dex = Sim.Dex;
 
 const cache = new Map();
@@ -21,7 +23,7 @@ class TestTools {
 		this.currentMod = mod;
 		this.dex = Dex.mod(mod);
 
-		this.modPrefix = this.dex.isBase ? `[gen8] ` : `[${mod}] `;
+		this.modPrefix = this.dex.isBase ? `[gen9] ` : `[${mod}] `;
 	}
 
 	mod(mod) {
@@ -40,7 +42,7 @@ class TestTools {
 	}
 
 	getFormat(options) {
-		if (options.formatid) return Dex.getFormat(options.formatid);
+		if (options.formatid) return Dex.formats.get(options.formatid);
 
 		const gameType = Dex.toID(options.gameType || 'singles');
 		const customRules = [
@@ -55,14 +57,20 @@ class TestTools {
 		].filter(Boolean);
 		const customRulesID = customRules.length ? `@@@${customRules.join(',')}` : ``;
 
-		const basicFormat = this.currentMod === 'base' && gameType === 'singles' ? 'Anything Goes' : 'Custom Game';
+		let basicFormat = this.currentMod === 'base' && gameType === 'singles' ? 'Anything Goes' : 'Custom Game';
+		let modPrefix = this.modPrefix;
+		if (this.currentMod === 'gen1stadium') basicFormat = 'OU';
+		if (gameType === 'freeforall' || gameType === 'multi') {
+			basicFormat = 'randombattle';
+			modPrefix = `[gen8] `; // Remove when FFA/multis support Gen 9
+		}
 		const gameTypePrefix = gameType === 'singles' ? '' : capitalize(gameType) + ' ';
-		const formatName = `${this.modPrefix}${gameTypePrefix}${basicFormat}${customRulesID}`;
+		const formatName = `${modPrefix}${gameTypePrefix}${basicFormat}${customRulesID}`;
 
 		let format = formatsCache.get(formatName);
 		if (format) return format;
 
-		format = Dex.getFormat(formatName);
+		format = Dex.formats.get(formatName);
 		if (!format.exists) throw new Error(`Unidentified format: ${formatName}`);
 
 		formatsCache.set(formatName, format);
@@ -103,8 +111,39 @@ class TestTools {
 
 		return new Sim.Battle(battleOptions);
 	}
+
+	/**
+	 * Saves the log of the given battle as a bare-bones replay file in the `test\replays` directory
+	 * You can view the replay by opening the file in any browser or by dragging and dropping the
+	 * file into a PS! client window.
+	 *
+	 * @param {Sim.Battle} battle
+	 * @param {string} [fileName]
+	 */
+	saveReplay(battle, fileName) {
+		const battleLog = battle.getDebugLog();
+		if (!fileName) fileName = 'test-replay';
+		const filePath = path.resolve(__dirname, `./replays/${fileName}-${Date.now()}.html`);
+		const out = fs.createWriteStream(filePath, {flags: 'a'});
+		out.on('open', () => {
+			out.write(
+				`<!DOCTYPE html>\n` +
+				`<script type="text/plain" class="battle-log-data">${battleLog}</script>\n` +
+				`<script src="https://play.pokemonshowdown.com/js/replay-embed.js"></script>\n`
+			);
+			out.end();
+		});
+	}
+	hasModule(mod) {
+		try {
+			require(mod);
+			return true;
+		} catch {
+			return false;
+		}
+	}
 }
 
 const common = exports = module.exports = new TestTools();
 cache.set('base', common);
-cache.set('gen8', common);
+cache.set('gen9', common);

@@ -5,8 +5,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		for (const id in this.dataCache.Formats['gen5prism'].banlist) {
             // this.dataCache.FormatsData[this.toID(this.dataCache.Formats['gen5prism'].banlist[id])].tier = "Illegal";
 		}
-		for (let i in this.data.Pokedex) {
-			delete this.data.Pokedex[i].abilities['H'];
+		for (let i in this.species.all()) {
+			delete this.species.all()[i].abilities['H'];
 		}
 	},
 	
@@ -15,7 +15,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	// May need to add abilities
 	getDamage: function (pokemon, target, move, suppressMessages) {
 		// First of all, we get the move.
-		if (typeof move === 'string') move = this.getMove(move);
+		if (typeof move === 'string') move = this.moves.get(move);
 		if (typeof move === 'number') {
 			move = {
 				basePower: move,

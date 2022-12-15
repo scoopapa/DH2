@@ -48,15 +48,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			onStart(side) {
 				this.add('-sidestart', side, 'Water Shield');
-				this.effectData.layers = 8;
+				this.effectState.layers = 8;
 			},
 			onDamagingHitOrder: 1,
 			onDamagingHit(damage, target, source, move) {
 				if (move.flags['contact']) {
 					this.damage(source.baseMaxhp / 16, source, target);
-					this.effectData.layers--;
+					this.effectState.layers--;
 				}
-				if (this.effectData.layers === 0) {
+				if (this.effectState.layers === 0) {
 					const side = target.side;
 					this.add('-sideend', side, 'Water Shield');
 				}
@@ -138,7 +138,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (moveSlot.id === 'defog' || moveSlot.id === 'spinningweb') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -885,7 +885,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		else if (result === 42) {
 			this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
 			for (const pokemon of this.getAllActive()) {
-				const frstMove = this.dex.getMove(pokemon.moveSlots[0].id);
+				const frstMove = this.dex.moves.get(pokemon.moveSlots[0].id);
 				this.useMove(frstMove, pokemon);
 			}
 		}
@@ -1030,7 +1030,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 3,
 			onStart(target) {
 				if (target.activeTurns && !this.queue.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 				this.add('-start', target, 'move: Deez Nuts Joke');
 		},
@@ -1040,7 +1040,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (move.category === 'Status' && move.id !== 'mefirst') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -1201,13 +1201,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart(pokemon, source) {
-				this.effectData.hp = source.maxhp / 2;
+				this.effectState.hp = source.maxhp / 2;
 			},
 			onResidualOrder: 4,
 			onEnd(target) {
 				if (target && !target.fainted) {
-					const damage = this.heal(this.effectData.hp, target, target);
-					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name);
 				}
 			},
 		},
@@ -1238,7 +1238,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Special') {
+				if (target !== source && target.side === this.effectState.target && this.getCategory(move) === 'Special') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Light Screen weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
@@ -1282,7 +1282,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
+				if (target !== source && target.side === this.effectState.target && this.getCategory(move) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
@@ -1487,7 +1487,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 11,
 			onResidual(pokemon) {
-				const source = this.effectData.source;
+				const source = this.effectState.source;
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['octolock'];
 					this.add('-end', pokemon, 'Octolock', '[partiallytrapped]', '[silent]');
@@ -1496,7 +1496,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.boost({def: -1, spd: -1}, pokemon, source, this.dex.getActiveMove('octolock'));
 			},
 			onTrapPokemon(pokemon) {
-				if (this.effectData.source && this.effectData.source.isActive) pokemon.tryTrap();
+				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
 			},
 		},
 		secondary: null,
@@ -1729,7 +1729,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const moveSlot of pokemon.moveSlots) {
 				const moveid = moveSlot.id;
 				if (!moveid) continue;
-				const move = this.dex.getMove(moveid);
+				const move = this.dex.moves.get(moveid);
 				if (noSleepTalk.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
 					continue;
 				}
@@ -1970,12 +1970,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart(pokemon, source) {
-				this.effectData.hp = source.maxhp / 3;
+				this.effectState.hp = source.maxhp / 3;
 			},
 			onResidualOrder: 4,
 			onEnd(target) {
 				if (target && !target.fainted) {
-					const damage = this.heal(this.effectData.hp, target, target);
+					const damage = this.heal(this.effectState.hp, target, target);
 					target.cureStatus();
 				}
 			},
@@ -2217,7 +2217,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectData.hp = Math.floor(target.maxhp / 4);
+				this.effectState.hp = Math.floor(target.maxhp / 4);
 				if (target.volatiles['partiallytrapped']) {
 					this.add('-end', target, target.volatiles['partiallytrapped'].sourceEffect, '[partiallytrapped]', '[silent]');
 					delete target.volatiles['partiallytrapped'];
@@ -2335,7 +2335,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (move.realMove) continue;
 				if (move.isZ || move.isMax || move.isNonstandard) continue;
 				if (effect.noMetronome!.includes(move.name)) continue;
-				if (this.dex.getMove(id).gen > this.gen) continue;
+				if (this.dex.moves.get(id).gen > this.gen) continue;
 				if (move.type === 'Fighting' || move.type === 'Ghost' || move.type === 'Ice' || move.type === 'Normal' || move.type === 'Rock' || move.type === 'Psychic') continue;
 				moves.push(move);
 			}
@@ -2569,7 +2569,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			this.add('-message', target + " was the Impsaustor!");
 			this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(target.species.name);
+			const species = this.dex.species.get(target.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];
@@ -2661,7 +2661,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		onHit(target) {
-			const type = this.dex.getMove(target.moveSlots[0].id).type;
+			const type = this.dex.moves.get(target.moveSlots[0].id).type;
 			if (target.hasType(type) || !target.setType(type)) return false;
 			this.add('-start', target, 'typechange', type);
 		},

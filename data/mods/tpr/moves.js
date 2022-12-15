@@ -650,7 +650,7 @@ let BattleMovedex = {
 				for (const moveSlot of pokemon.moveSlots) {
 					let moveid = moveSlot.id;
 					if (noAssist.includes(moveid)) continue;
-					const move = this.dex.getMove(moveid);
+					const move = this.dex.moves.get(moveid);
 					if (move.isZ || move.isMax) {
 						continue;
 					}
@@ -766,14 +766,14 @@ let BattleMovedex = {
 				}
 			},
 			onUpdate(pokemon) {
-				if (this.effectData.source && !this.effectData.source.isActive && pokemon.volatiles['attract']) {
+				if (this.effectState.source && !this.effectState.source.isActive && pokemon.volatiles['attract']) {
 					this.debug('Removing Attract volatile on ' + pokemon);
 					pokemon.removeVolatile('attract');
 				}
 			},
 			onBeforeMovePriority: 2,
 			onBeforeMove(pokemon, target, move) {
-				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectData.source);
+				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
 				if (this.randomChance(1, 2)) {
 					this.add('cant', pokemon, 'Attract');
 					return false;
@@ -893,7 +893,7 @@ let BattleMovedex = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
+				if (target !== source && target.side === this.effectState.target) {
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
@@ -1334,26 +1334,26 @@ let BattleMovedex = {
 			duration: 3,
 			onLockMove: 'bide',
 			onStart(pokemon) {
-				this.effectData.totalDamage = 0;
+				this.effectState.totalDamage = 0;
 				this.add('-start', pokemon, 'move: Bide');
 			},
 			onDamagePriority: -101,
 			onDamage(damage, target, source, move) {
 				if (!move || move.effectType !== 'Move' || !source) return;
-				this.effectData.totalDamage += damage;
-				this.effectData.lastDamageSource = source;
+				this.effectState.totalDamage += damage;
+				this.effectState.lastDamageSource = source;
 			},
 			onBeforeMove(pokemon, target, move) {
-				if (this.effectData.duration === 1) {
+				if (this.effectState.duration === 1) {
 					this.add('-end', pokemon, 'move: Bide');
-					target = this.effectData.lastDamageSource;
-					if (!target || !this.effectData.totalDamage) {
+					target = this.effectState.lastDamageSource;
+					if (!target || !this.effectState.totalDamage) {
 						this.attrLastMove('[still]');
 						this.add('-fail', pokemon);
 						return false;
 					}
 					if (!target.isActive) {
-						const possibleTarget = this.resolveTarget(pokemon, this.dex.getMove('pound'));
+						const possibleTarget = this.resolveTarget(pokemon, this.dex.moves.get('pound'));
 						if (!possibleTarget) {
 							this.add('-miss', pokemon);
 							return false;
@@ -1364,7 +1364,7 @@ let BattleMovedex = {
 						id: 'bide',
 						name: "Bide",
 						accuracy: true,
-						damage: this.effectData.totalDamage * 2,
+						damage: this.effectState.totalDamage * 2,
 						category: "Physical",
 						priority: 1,
 						flags: {contact: 1, protect: 1},
@@ -2310,7 +2310,7 @@ let BattleMovedex = {
 		effect: {
 			duration: 2,
 			onRestart(pokemon) {
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 			},
 			onBasePowerPriority: 3,
 			onBasePower(basePower, attacker, defender, move) {
@@ -2744,7 +2744,7 @@ let BattleMovedex = {
 		priority: 0,
 		flags: {snatch: 1},
 		onHit(target) {
-			let type = this.dex.getMove(target.moveSlots[0].id).type;
+			let type = this.dex.moves.get(target.moveSlots[0].id).type;
 			if (target.hasType(type) || !target.setType(type)) return false;
 			this.add('-start', target, 'typechange', type);
 		},
@@ -2961,18 +2961,18 @@ let BattleMovedex = {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
-				this.effectData.position = null;
-				this.effectData.damage = 0;
+				this.effectState.position = null;
+				this.effectState.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectData.target) return;
-				return source.side.foe.active[this.effectData.position];
+				if (source !== this.effectState.target) return;
+				return source.side.foe.active[this.effectState.position];
 			},
 			onAfterDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && source.side !== target.side && this.getCategory(effect) === 'Physical') {
-					this.effectData.position = source.position;
-					this.effectData.damage = 2 * damage;
+					this.effectState.position = source.position;
+					this.effectState.damage = 2 * damage;
 				}
 			},
 		},
@@ -3678,7 +3678,7 @@ let BattleMovedex = {
 			onStart(pokemon, source, effect) {
 				// The target hasn't taken its turn, or Cursed Body activated and the move was not used through Dancer or Instruct
 				if (this.willMove(pokemon) || (pokemon === this.activePokemon && this.activeMove && !this.activeMove.isExternal)) {
-					this.effectData.duration--;
+					this.effectState.duration--;
 				}
 				if (!pokemon.lastMove) {
 					this.debug('pokemon hasn\'t moved yet');
@@ -3695,7 +3695,7 @@ let BattleMovedex = {
 							} else {
 								this.add('-start', pokemon, 'Disable', moveSlot.move);
 							}
-							this.effectData.move = pokemon.lastMove.id;
+							this.effectState.move = pokemon.lastMove.id;
 							return;
 						}
 					}
@@ -3709,14 +3709,14 @@ let BattleMovedex = {
 			},
 			onBeforeMovePriority: 7,
 			onBeforeMove(attacker, defender, move) {
-				if (!move.isZ && move.id === this.effectData.move) {
+				if (!move.isZ && move.id === this.effectState.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectData.move) {
+					if (moveSlot.id === this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -4448,13 +4448,13 @@ let BattleMovedex = {
 		effect: {
 			duration: 2,
 			onStart() {
-				this.effectData.multiplier = 1;
+				this.effectState.multiplier = 1;
 			},
 			onRestart() {
-				if (this.effectData.duration !== 2) {
-					this.effectData.duration = 2;
-					if (this.effectData.multiplier < 5) {
-						this.effectData.multiplier++;
+				if (this.effectState.duration !== 2) {
+					this.effectState.duration = 2;
+					if (this.effectState.multiplier < 5) {
+						this.effectState.multiplier++;
 					}
 				}
 			},
@@ -4735,18 +4735,18 @@ let BattleMovedex = {
 					delete target.volatiles['encore'];
 					return false;
 				}
-				this.effectData.move = move.id;
+				this.effectState.move = move.id;
 				this.add('-start', target, 'Encore');
 				if (!this.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 			},
 			onOverrideAction(pokemon, target, move) {
-				if (move.id !== this.effectData.move) return this.effectData.move;
+				if (move.id !== this.effectState.move) return this.effectState.move;
 			},
 			onResidualOrder: 13,
 			onResidual(target) {
-				if (target.moves.includes(this.effectData.move) && target.moveSlots[target.moves.indexOf(this.effectData.move)].pp <= 0) {
+				if (target.moves.includes(this.effectState.move) && target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
 					// early termination if you run out of PP
 					delete target.volatiles.encore;
 					this.add('-end', target, 'Encore');
@@ -4756,11 +4756,11 @@ let BattleMovedex = {
 				this.add('-end', target, 'Encore');
 			},
 			onDisableMove(pokemon) {
-				if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
+				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
 					return;
 				}
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id !== this.effectData.move) {
+					if (moveSlot.id !== this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -4883,7 +4883,7 @@ let BattleMovedex = {
 		onHit(target, source) {
 			let oldAbility = target.setAbility(source.ability);
 			if (oldAbility) {
-				this.add('-ability', target, this.dex.getAbility(target.ability).name, '[from] move: Entrainment');
+				this.add('-ability', target, this.dex.abilities.get(target.ability).name, '[from] move: Entrainment');
 				return;
 			}
 			return false;
@@ -5603,7 +5603,7 @@ let BattleMovedex = {
 				return;
 			}
 			for (const ally of target.side.active) {
-				if (ally && this.isAdjacent(target, ally)) {
+				if (ally && target.isAdjacent(ally)) {
 					this.damage(ally.baseMaxhp / 16, ally, source, this.dex.getEffect('Flame Burst'));
 				}
 			}
@@ -5613,7 +5613,7 @@ let BattleMovedex = {
 				return;
 			}
 			for (const ally of target.side.active) {
-				if (ally && this.isAdjacent(target, ally)) {
+				if (ally && target.isAdjacent(ally)) {
 					this.damage(ally.baseMaxhp / 16, ally, source, this.dex.getEffect('Flame Burst'));
 				}
 			}
@@ -6117,9 +6117,9 @@ let BattleMovedex = {
 			},
 			onFoeRedirectTargetPriority: 1,
 			onFoeRedirectTarget(target, source, source2, move) {
-				if (!this.effectData.target.isSkyDropped() && this.validTarget(this.effectData.target, source, move.target)) {
+				if (!this.effectState.target.isSkyDropped() && this.validTarget(this.effectState.target, source, move.target)) {
 					this.debug("Follow Me redirected target of move");
-					return this.effectData.target;
+					return this.effectState.target;
 				}
 			},
 		},
@@ -6409,13 +6409,13 @@ let BattleMovedex = {
 		effect: {
 			duration: 2,
 			onStart() {
-				this.effectData.multiplier = 1;
+				this.effectState.multiplier = 1;
 			},
 			onRestart() {
-				if (this.effectData.multiplier < 4) {
-					this.effectData.multiplier <<= 1;
+				if (this.effectState.multiplier < 4) {
+					this.effectState.multiplier <<= 1;
 				}
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 			},
 		},
 		secondary: null,
@@ -6555,7 +6555,7 @@ let BattleMovedex = {
 			// Ability suppression implemented in Pokemon.ignoringAbility() within sim/pokemon.js
 			onStart(pokemon) {
 				this.add('-endability', pokemon);
-				this.singleEvent('End', this.dex.getAbility(pokemon.ability), pokemon.abilityData, pokemon, pokemon, 'gastroacid');
+				this.singleEvent('End', this.dex.abilities.get(pokemon.ability), pokemon.abilityData, pokemon, pokemon, 'gastroacid');
 			},
 		},
 		secondary: null,
@@ -7097,10 +7097,10 @@ let BattleMovedex = {
 			onHit(source) {
 				if (this.random(2) === 0) return;
 				for (let pokemon of source.side.active) {
-					if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
+					if (!pokemon.item && pokemon.lastItem && this.dex.items.get(pokemon.lastItem).isBerry) {
 						let item = pokemon.lastItem;
 						pokemon.lastItem = '';
-						this.add('-item', pokemon, this.dex.getItem(item), '[from] move: G-Max Replenish');
+						this.add('-item', pokemon, this.dex.items.get(item), '[from] move: G-Max Replenish');
 						pokemon.setItem(item);
 					}
 				}
@@ -7715,7 +7715,7 @@ let BattleMovedex = {
 				}
 			},
 			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Grassy Terrain');
 			},
 		},
@@ -7809,7 +7809,7 @@ let BattleMovedex = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).flags['gravity']) {
+					if (this.dex.moves.get(moveSlot.id).flags['gravity']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -7902,7 +7902,7 @@ let BattleMovedex = {
 					for (const moveSlot of source.moveSlots) {
 						if (moveSlot.id === source.lastMove.id) {
 							moveSlot.pp = 0;
-							this.add('-activate', source, 'move: Grudge', this.dex.getMove(source.lastMove.id).name);
+							this.add('-activate', source, 'move: Grudge', this.dex.moves.get(source.lastMove.id).name);
 						}
 					}
 				}
@@ -8313,7 +8313,7 @@ let BattleMovedex = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).flags['heal']) {
+					if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -8330,7 +8330,7 @@ let BattleMovedex = {
 				this.add('-end', pokemon, 'move: Heal Block');
 			},
 			onTryHeal(damage, target, source, effect) {
-				if ((effect && effect.id === 'zpower') || this.effectData.isZ) return damage;
+				if ((effect && effect.id === 'zpower') || this.effectState.isZ) return damage;
 				return false;
 			},
 		},
@@ -8612,17 +8612,17 @@ let BattleMovedex = {
 		effect: {
 			duration: 1,
 			onStart(target, source) {
-				this.effectData.multiplier = 1.5;
+				this.effectState.multiplier = 1.5;
 				this.add('-singleturn', target, 'Helping Hand', '[of] ' + source);
 			},
 			onRestart(target, source) {
-				this.effectData.multiplier *= 1.5;
+				this.effectState.multiplier *= 1.5;
 				this.add('-singleturn', target, 'Helping Hand', '[of] ' + source);
 			},
 			onBasePowerPriority: 3,
 			onBasePower(basePower) {
-				this.debug('Boosting from Helping Hand: ' + this.effectData.multiplier);
-				return this.chainModify(this.effectData.multiplier);
+				this.debug('Boosting from Helping Hand: ' + this.effectState.multiplier);
+				return this.chainModify(this.effectState.multiplier);
 			},
 		},
 		secondary: null,
@@ -9391,12 +9391,12 @@ let BattleMovedex = {
 			duration: 2,
 			onLockMove: 'iceball',
 			onStart() {
-				this.effectData.hitCount = 1;
+				this.effectState.hitCount = 1;
 			},
 			onRestart() {
-				this.effectData.hitCount++;
-				if (this.effectData.hitCount < 5) {
-					this.effectData.duration = 2;
+				this.effectState.hitCount++;
+				if (this.effectState.hitCount < 5) {
+					this.effectState.duration = 2;
 				}
 			},
 			onResidual(target) {
@@ -9634,7 +9634,7 @@ let BattleMovedex = {
 				this.add('-start', target, 'move: Imprison');
 			},
 			onFoeDisableMove(pokemon) {
-				for (const moveSlot of this.effectData.source.moveSlots) {
+				for (const moveSlot of this.effectState.source.moveSlots) {
 					if (moveSlot.id === 'struggle') continue;
 					pokemon.disableMove(moveSlot.id, 'hidden');
 				}
@@ -9642,7 +9642,7 @@ let BattleMovedex = {
 			},
 			onFoeBeforeMovePriority: 4,
 			onFoeBeforeMove(attacker, defender, move) {
-				if (move.id !== 'struggle' && this.effectData.source.hasMove(move.id) && !move.isZ && !move.isMax) {
+				if (move.id !== 'struggle' && this.effectState.source.hasMove(move.id) && !move.isZ && !move.isMax) {
 					this.add('cant', attacker, 'move: Imprison', move);
 					return false;
 				}
@@ -10146,7 +10146,7 @@ let BattleMovedex = {
 				}
 			},
 			onRestart(pokemon) {
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 				this.add('-start', pokemon, 'move: Laser Focus');
 			},
 			onModifyCritRatio(critRatio) {
@@ -10331,7 +10331,7 @@ let BattleMovedex = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				let target = this.effectData.source.side.active[pokemon.volatiles['leechseed'].sourcePosition];
+				let target = this.effectState.source.side.active[pokemon.volatiles['leechseed'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
@@ -10476,7 +10476,7 @@ let BattleMovedex = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Special') {
+				if (target !== source && target.side === this.effectState.target && this.getCategory(move) === 'Special') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Light Screen weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
@@ -10569,10 +10569,10 @@ let BattleMovedex = {
 			duration: 2,
 			onSourceInvulnerabilityPriority: 1,
 			onSourceInvulnerability(target, source, move) {
-				if (move && source === this.effectData.target && target === this.effectData.source) return 0;
+				if (move && source === this.effectState.target && target === this.effectState.source) return 0;
 			},
 			onSourceAccuracy(accuracy, target, source, move) {
-				if (move && source === this.effectData.target && target === this.effectData.source) return true;
+				if (move && source === this.effectState.target && target === this.effectState.source) return true;
 			},
 		},
 		secondary: null,
@@ -10709,19 +10709,19 @@ let BattleMovedex = {
 			duration: 2,
 			onStart(side, source) {
 				this.debug('Lunar Dance started on ' + side.name);
-				this.effectData.positions = [];
+				this.effectState.positions = [];
 				for (const i of side.active.keys()) {
-					this.effectData.positions[i] = false;
+					this.effectState.positions[i] = false;
 				}
-				this.effectData.positions[source.position] = true;
+				this.effectState.positions[source.position] = true;
 			},
 			onRestart(side, source) {
-				this.effectData.positions[source.position] = true;
+				this.effectState.positions[source.position] = true;
 			},
 			onSwitchInPriority: 1,
 			onSwitchIn(target) {
-				const positions = /**@type {boolean[]} */ (this.effectData.positions);
-				if (target.position !== this.effectData.sourcePosition) {
+				const positions = /**@type {boolean[]} */ (this.effectState.positions);
+				if (target.position !== this.effectState.sourcePosition) {
 					return;
 				}
 				if (!target.fainted) {
@@ -10842,7 +10842,7 @@ let BattleMovedex = {
 			onStart(target, source, effect) {
 				this.add('-singleturn', target, 'move: Magic Coat');
 				if (effect && effect.effectType === 'Move') {
-					this.effectData.pranksterBoosted = effect.pranksterBoosted;
+					this.effectState.pranksterBoosted = effect.pranksterBoosted;
 				}
 			},
 			onTryHitPriority: 2,
@@ -10852,7 +10852,7 @@ let BattleMovedex = {
 				}
 				let newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
-				newMove.pranksterBoosted = this.effectData.pranksterBoosted;
+				newMove.pranksterBoosted = this.effectState.pranksterBoosted;
 				this.useMove(newMove, target, source);
 				return null;
 			},
@@ -10863,7 +10863,7 @@ let BattleMovedex = {
 				let newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
-				this.useMove(newMove, this.effectData.target, source);
+				this.useMove(newMove, this.effectState.target, source);
 				return null;
 			},
 		},
@@ -10924,7 +10924,7 @@ let BattleMovedex = {
 			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
 			onResidualOrder: 25,
 			onEnd() {
-				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectData.source);
+				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectState.source);
 			},
 		},
 		secondary: null,
@@ -11897,18 +11897,18 @@ let BattleMovedex = {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
-				this.effectData.position = null;
-				this.effectData.damage = 0;
+				this.effectState.position = null;
+				this.effectState.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectData.target) return;
-				return source.side.foe.active[this.effectData.position];
+				if (source !== this.effectState.target) return;
+				return source.side.foe.active[this.effectState.position];
 			},
 			onAfterDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && source.side !== target.side) {
-					this.effectData.position = source.position;
-					this.effectData.damage = 1.5 * damage;
+					this.effectState.position = source.position;
+					this.effectState.damage = 1.5 * damage;
 				}
 			},
 		},
@@ -12027,7 +12027,7 @@ let BattleMovedex = {
 				if (move.isZ || move.isMax || move.isNonstandard) continue;
 				// @ts-ignore
 				if (effect.noMetronome.includes(move.id)) continue;
-				if (this.dex.getMove(id).gen > this.gen) continue;
+				if (this.dex.moves.get(id).gen > this.gen) continue;
 				moves.push(move);
 			}
 			let randomMove = '';
@@ -12254,18 +12254,18 @@ let BattleMovedex = {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
-				this.effectData.position = null;
-				this.effectData.damage = 0;
+				this.effectState.position = null;
+				this.effectState.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectData.target) return;
-				return source.side.foe.active[this.effectData.position];
+				if (source !== this.effectState.target) return;
+				return source.side.foe.active[this.effectState.position];
 			},
 			onAfterDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && source.side !== target.side && this.getCategory(effect) === 'Special') {
-					this.effectData.position = source.position;
-					this.effectData.damage = 2 * damage;
+					this.effectState.position = source.position;
+					this.effectState.damage = 2 * damage;
 				}
 			},
 		},
@@ -13204,7 +13204,7 @@ let BattleMovedex = {
 			},
 			onResidualOrder: 11,
 			onResidual(pokemon) {
-				const source = this.effectData.source;
+				const source = this.effectState.source;
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['octolock'];
 					this.add('-end', pokemon, 'Octolock', '[partiallytrapped]', '[silent]');
@@ -13213,7 +13213,7 @@ let BattleMovedex = {
 				this.boost({def: -1, spd: -1}, pokemon, source, this.dex.getActiveMove("Octolock"));
 			},
 			onTrapPokemon(pokemon) {
-				if (this.effectData.source && this.effectData.source.isActive) pokemon.tryTrap();
+				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
 			},
 		},
 		secondary: null,
@@ -14706,7 +14706,7 @@ let BattleMovedex = {
 			onBeforeSwitchOut(pokemon) {
 				this.debug('Pursuit start');
 				let alreadyAdded = false;
-				for (const source of this.effectData.sources) {
+				for (const source of this.effectState.sources) {
 					if (!this.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Pursuit');
@@ -14929,9 +14929,9 @@ let BattleMovedex = {
 			},
 			onFoeRedirectTargetPriority: 1,
 			onFoeRedirectTarget(target, source, source2, move) {
-				if (!this.effectData.target.isSkyDropped() && source.runStatusImmunity('powder') && this.validTarget(this.effectData.target, source, move.target)) {
+				if (!this.effectState.target.isSkyDropped() && source.runStatusImmunity('powder') && this.validTarget(this.effectState.target, source, move.target)) {
 					this.debug("Rage Powder redirected target of move");
-					return this.effectData.target;
+					return this.effectState.target;
 				}
 			},
 		},
@@ -15108,7 +15108,7 @@ let BattleMovedex = {
 			if (pokemon.item || !pokemon.lastItem) return false;
 			let item = pokemon.lastItem;
 			pokemon.lastItem = '';
-			this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Recycle');
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Recycle');
 			pokemon.setItem(item);
 		},
 		secondary: null,
@@ -15140,7 +15140,7 @@ let BattleMovedex = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
+				if (target !== source && target.side === this.effectState.target && this.getCategory(move) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
@@ -15647,7 +15647,7 @@ let BattleMovedex = {
 		onHit(target, source) {
 			let oldAbility = source.setAbility(target.ability);
 			if (oldAbility) {
-				this.add('-ability', source, this.dex.getAbility(source.ability).name, '[from] move: Role Play', '[of] ' + target);
+				this.add('-ability', source, this.dex.abilities.get(source.ability).name, '[from] move: Role Play', '[of] ' + target);
 				return;
 			}
 			return false;
@@ -15707,12 +15707,12 @@ let BattleMovedex = {
 			duration: 2,
 			onLockMove: 'rollout',
 			onStart() {
-				this.effectData.hitCount = 1;
+				this.effectState.hitCount = 1;
 			},
 			onRestart() {
-				this.effectData.hitCount++;
-				if (this.effectData.hitCount < 5) {
-					this.effectData.duration = 2;
+				this.effectState.hitCount++;
+				if (this.effectState.hitCount < 5) {
+					this.effectState.duration = 2;
 				}
 			},
 			onResidual(target) {
@@ -15752,7 +15752,7 @@ let BattleMovedex = {
 			},
 			onTypePriority: -1,
 			onType(types, pokemon) {
-				this.effectData.typeWas = types;
+				this.effectState.typeWas = types;
 				return types.filter(type => type !== 'Flying');
 			},
 		},
@@ -16833,8 +16833,8 @@ let BattleMovedex = {
 			}
 		},
 		onHit(target, source, move) {
-			let targetAbility = this.dex.getAbility(target.ability);
-			let sourceAbility = this.dex.getAbility(source.ability);
+			let targetAbility = this.dex.abilities.get(target.ability);
+			let sourceAbility = this.dex.abilities.get(source.ability);
 			if (target.side === source.side) {
 				this.add('-activate', source, 'move: Skill Swap', '', '', '[of] ' + target);
 			} else {
@@ -16973,32 +16973,32 @@ let BattleMovedex = {
 		effect: {
 			duration: 2,
 			onAnyDragOut(pokemon) {
-				if (pokemon === this.effectData.target || pokemon === this.effectData.source) return false;
+				if (pokemon === this.effectState.target || pokemon === this.effectState.source) return false;
 			},
 			onFoeTrapPokemonPriority: -15,
 			onFoeTrapPokemon(defender) {
-				if (defender !== this.effectData.source) return;
+				if (defender !== this.effectState.source) return;
 				defender.trapped = true;
 			},
 			onFoeBeforeMovePriority: 12,
 			onFoeBeforeMove(attacker, defender, move) {
-				if (attacker === this.effectData.source) {
-					this.effectData.source.activeTurns--;
+				if (attacker === this.effectState.source) {
+					this.effectState.source.activeTurns--;
 					this.debug('Sky drop nullifying.');
 					return null;
 				}
 			},
 			onRedirectTargetPriority: 99,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectData.target) return;
-				if (this.effectData.source.fainted) return;
-				return this.effectData.source;
+				if (source !== this.effectState.target) return;
+				if (this.effectState.source.fainted) return;
+				return this.effectState.source;
 			},
 			onAnyInvulnerability(target, source, move) {
-				if (target !== this.effectData.target && target !== this.effectData.source) {
+				if (target !== this.effectState.target && target !== this.effectState.source) {
 					return;
 				}
-				if (source === this.effectData.target && target === this.effectData.source) {
+				if (source === this.effectState.target && target === this.effectState.source) {
 					return;
 				}
 				if (['gust', 'twister', 'skyuppercut', 'thunder', 'hurricane', 'smackdown', 'thousandarrows'].includes(move.id)) {
@@ -17007,10 +17007,10 @@ let BattleMovedex = {
 				return false;
 			},
 			onAnyBasePower(basePower, target, source, move) {
-				if (target !== this.effectData.target && target !== this.effectData.source) {
+				if (target !== this.effectState.target && target !== this.effectState.source) {
 					return;
 				}
-				if (source === this.effectData.target && target === this.effectData.source) {
+				if (source === this.effectState.target && target === this.effectState.source) {
 					return;
 				}
 				if (move.id === 'gust' || move.id === 'twister') {
@@ -17144,7 +17144,7 @@ let BattleMovedex = {
 			for (const moveSlot of pokemon.moveSlots) {
 				const moveid = moveSlot.id;
 				if (!moveid) continue;
-				const move = this.dex.getMove(moveid);
+				const move = this.dex.moves.get(moveid);
 				if (noSleepTalk.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
 					continue;
 				}
@@ -17413,7 +17413,7 @@ let BattleMovedex = {
 				this.add('-singleturn', pokemon, 'Snatch');
 			},
 			onAnyTryMove(source, target, move) {
-				const snatchUser = this.effectData.source;
+				const snatchUser = this.effectState.source;
 				if (snatchUser.isSkyDropped()) return;
 				if (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch') {
 					return;
@@ -17831,18 +17831,18 @@ let BattleMovedex = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectData.layers >= 3) return false;
+				if (this.effectState.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers++;
+				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
 				let damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
 		},
 		secondary: null,
@@ -18116,9 +18116,9 @@ let BattleMovedex = {
 			},
 			onFoeRedirectTargetPriority: 2,
 			onFoeRedirectTarget(target, source, source2, move) {
-				if (this.validTarget(this.effectData.target, source, move.target)) {
+				if (this.validTarget(this.effectState.target, source, move.target)) {
 					this.debug("Spotlight redirected target of move");
-					return this.effectData.target;
+					return this.effectState.target;
 				}
 			},
 		},
@@ -18271,7 +18271,7 @@ let BattleMovedex = {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
+				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
 		},
 		secondary: null,
@@ -18299,35 +18299,35 @@ let BattleMovedex = {
 		effect: {
 			noCopy: true,
 			onStart(target) {
-				this.effectData.layers = 1;
-				this.effectData.def = 0;
-				this.effectData.spd = 0;
-				this.add('-start', target, 'stockpile' + this.effectData.layers);
+				this.effectState.layers = 1;
+				this.effectState.def = 0;
+				this.effectState.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
 				let [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
 				this.boost({def: 1, spd: 1}, target, target);
-				if (curDef !== target.boosts.def) this.effectData.def--;
-				if (curSpD !== target.boosts.spd) this.effectData.spd--;
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
 			},
 			onRestart(target) {
-				if (this.effectData.layers >= 3) return false;
-				this.effectData.layers++;
-				this.add('-start', target, 'stockpile' + this.effectData.layers);
+				if (this.effectState.layers >= 3) return false;
+				this.effectState.layers++;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
 				const curDef = target.boosts.def;
 				const curSpD = target.boosts.spd;
 				this.boost({def: 1, spd: 1}, target, target);
-				if (curDef !== target.boosts.def) this.effectData.def--;
-				if (curSpD !== target.boosts.spd) this.effectData.spd--;
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
 			},
 			onEnd(target) {
-				if (this.effectData.def || this.effectData.spd) {
+				if (this.effectState.def || this.effectState.spd) {
 					/** @type {SparseBoostsTable} */
 					let boosts = {};
-					if (this.effectData.def) boosts.def = this.effectData.def;
-					if (this.effectData.spd) boosts.spd = this.effectData.spd;
+					if (this.effectState.def) boosts.def = this.effectState.def;
+					if (this.effectState.spd) boosts.spd = this.effectState.spd;
 					this.boost(boosts, target, target);
 				}
 				this.add('-end', target, 'Stockpile');
-				if (this.effectData.def !== this.effectData.layers * -1 || this.effectData.spd !== this.effectData.layers * -1) {
+				if (this.effectState.def !== this.effectState.layers * -1 || this.effectState.spd !== this.effectState.layers * -1) {
 					this.hint("In Gen 7, Stockpile keeps track of how many times it successfully altered each stat individually.");
 				}
 			},
@@ -18682,7 +18682,7 @@ let BattleMovedex = {
 		effect: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectData.hp = Math.floor(target.maxhp / 4);
+				this.effectState.hp = Math.floor(target.maxhp / 4);
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryPrimaryHitPriority: -1,
@@ -19333,7 +19333,7 @@ let BattleMovedex = {
 			duration: 3,
 			onStart(target) {
 				if (target.activeTurns && !this.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 				this.add('-start', target, 'move: Taunt');
 			},
@@ -19343,7 +19343,7 @@ let BattleMovedex = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).category === 'Status') {
+					if (this.dex.moves.get(moveSlot.id).category === 'Status') {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -19673,7 +19673,7 @@ let BattleMovedex = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).flags['sound']) {
+					if (this.dex.moves.get(moveSlot.id).flags['sound']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -19963,12 +19963,12 @@ let BattleMovedex = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectData.layers >= 2) return false;
+				if (this.effectState.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers++;
+				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
@@ -19977,7 +19977,7 @@ let BattleMovedex = {
 					pokemon.side.removeSideCondition('toxicspikes');
 				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
 					return;
-				} else if (this.effectData.layers >= 2) {
+				} else if (this.effectState.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 				} else {
 					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
@@ -20390,7 +20390,7 @@ let BattleMovedex = {
 			onLockMove: 'uproar',
 			onAnySetStatus(status, pokemon) {
 				if (status.id === 'slp') {
-					if (pokemon === this.effectData.target) {
+					if (pokemon === this.effectState.target) {
 						this.add('-fail', pokemon, 'slp', '[from] Uproar', '[msg]');
 					} else {
 						this.add('-fail', pokemon, 'slp', '[from] Uproar');
@@ -21058,13 +21058,13 @@ let BattleMovedex = {
 		effect: {
 			duration: 2,
 			onStart(pokemon, source) {
-				this.effectData.hp = source.maxhp / 2;
+				this.effectState.hp = source.maxhp / 2;
 			},
 			onResidualOrder: 4,
 			onEnd(target) {
 				if (target && !target.fainted) {
-					let damage = this.heal(this.effectData.hp, target, target);
-					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectData.source.name);
+					let damage = this.heal(this.effectState.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name);
 				}
 			},
 		},
@@ -21296,7 +21296,7 @@ let BattleMovedex = {
 			onResidualOrder: 19,
 			onEnd(target) {
 				this.add('-end', target, 'move: Yawn', '[silent]');
-				target.trySetStatus('slp', this.effectData.source);
+				target.trySetStatus('slp', this.effectState.source);
 			},
 		},
 		secondary: null,

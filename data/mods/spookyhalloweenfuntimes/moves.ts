@@ -262,9 +262,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualOrder: 3,
 			onResidual(target) {
 				// unlike a future move, Flurry activates each turn
-				this.effectData.target = this.effectData.side.active[this.effectData.position];
-				const data = this.effectData;
-				const move = this.dex.getMove('flurry');
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get('flurry');
 				if (data.target.fainted || data.target === data.source) {
 					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 					return;
@@ -291,9 +291,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onEnd(target) {
 				// unlike a future move, Flurry activates each turn
-				this.effectData.target = this.effectData.side.active[this.effectData.position];
-				const data = this.effectData;
-				const move = this.dex.getMove('flurry');
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
+				const move = this.dex.moves.get('flurry');
 				if (data.target.fainted || data.target === data.source) {
 					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 					return;
@@ -355,21 +355,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectData.layers >= 3) return false;
+				if (this.effectState.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
-				this.effectData.layers++;
+				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				if (pokemon.hasItem('crocs')) {
-					this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 12);
+					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 12);
 				} else {
-					this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 				}
 			},
 		},
@@ -380,12 +380,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectData.layers >= 2) return false;
+				if (this.effectState.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers++;
+				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
@@ -394,7 +394,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('toxicspikes');
 				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots')) {
 					return;
-				} else if (this.effectData.layers >= 2 || pokemon.hasItem('crocs')) {
+				} else if (this.effectState.layers >= 2 || pokemon.hasItem('crocs')) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 				} else {
 					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
@@ -413,9 +413,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				if (pokemon.hasItem('crocs')) {
-					this.boost({spe: -2}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
+					this.boost({spe: -2}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 				} else {
-					this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
+					this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 				}
 			},
 		},
@@ -593,7 +593,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (effect?.effectType === 'Move') {
 					this.add('-start', target, 'Substitute');
 				}
-				this.effectData.hp = Math.floor(target.maxhp / 4);
+				this.effectState.hp = Math.floor(target.maxhp / 4);
 				if (target.volatiles['partiallytrapped']) {
 					this.add('-end', target, target.volatiles['partiallytrapped'].sourceEffect, '[partiallytrapped]', '[silent]');
 					delete target.volatiles['partiallytrapped'];

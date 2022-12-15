@@ -622,7 +622,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onLockMove: 'uproar',
 			onAnySetStatus: function (status, pokemon) {
 				if (status.id === 'slp') {
-					if (pokemon === this.effectData.target) {
+					if (pokemon === this.effectState.target) {
 						this.add('-fail', pokemon, 'slp', '[from] Uproar', '[msg]');
 					} else {
 						this.add('-fail', pokemon, 'slp', '[from] Uproar');
@@ -2538,17 +2538,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onStart: function (side, source) {
 				this.debug('Hot Tag started on ' + side.name);
-				this.effectData.positions = [];
+				this.effectState.positions = [];
 				for (let i = 0; i < side.active.length; i++) {
-					this.effectData.positions[i] = false;
+					this.effectState.positions[i] = false;
 				}
-				this.effectData.positions[source.position] = true;
+				this.effectState.positions[source.position] = true;
 			},
 			onRestart: function (side, source) {
-				this.effectData.positions[source.position] = true;
+				this.effectState.positions[source.position] = true;
 			},
 			onSwitchIn: function (target) {
-				const positions = /**@type {boolean[]} */ (this.effectData.positions);
+				const positions = /**@type {boolean[]} */ (this.effectState.positions);
 				if (!positions[target.position]) {
 					return;
 				}

@@ -13,14 +13,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	powerofalchemy: {
 		onAnyFaint(target) {
-			if (!this.effectData.target.hp) return;
+			if (!this.effectState.target.hp) return;
 			const ability = target.getAbility();
 			const additionalBannedAbilities = [
 				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
 			];
 			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
-			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			this.effectData.target.setAbility(ability);
+			this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectState.target.setAbility(ability);
 		},
 		name: "Power of Alchemy",
 		shortDesc: "This Pokémon copies the ability of the last fainted Pokémon.",
@@ -335,12 +335,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target !== source || move.category !== 'Status' || move.type === 'Ghost' || move.type === 'Dark') {
-				if (!move.auraBooster) move.auraBooster = this.effectData.target;
-				if (move.auraBooster !== this.effectData.target) return;
+				if (!move.auraBooster) move.auraBooster = this.effectState.target;
+				if (move.auraBooster !== this.effectState.target) return;
 				return this.chainModify(1.2);
 			} else if (target !== source || move.category !== 'Status' || move.type === 'Fairy' || move.type === 'Psychic') {
-				if (!move.auraBooster) move.auraBooster = this.effectData.target;
-				if (move.auraBooster !== this.effectData.target) return;
+				if (!move.auraBooster) move.auraBooster = this.effectState.target;
+				if (move.auraBooster !== this.effectState.target) return;
 				return this.chainModify(0.8);
 			}
 		},
@@ -506,8 +506,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify(1.33);
 		},
 		name: "Dark Aura",
@@ -521,8 +521,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify(1.33);
 		},
 		name: "Fairy Aura",
@@ -561,20 +561,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Pillage",
 		shortDesc: "On switch-in, swaps ability with the opponent.",
 		onSwitchIn(pokemon) {
-			this.effectData.switchingIn = true;
+			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
 			))
 			|| pokemon.species.id !== 'morvilant') {
-				this.effectData.gaveUp = true;
+				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectData.gaveUp) return;
-			if (!this.effectData.switchingIn) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+			if (!this.effectState.switchingIn) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);

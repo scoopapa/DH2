@@ -3,7 +3,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "If this Pokemon loses its held item for any reason, its Speed is doubled. This boost is lost if it switches out or gains a new item or Ability.",
 		shortDesc: "Speed is doubled on held item loss; boost is lost if it switches, gets new item/Ability.",
 		onStart: function (item, pokemon) {
-			if (pokemon !== this.effectData.target) return;
+			if (pokemon !== this.effectState.target) return;
 			pokemon.addVolatile('hunger');
 		},
 		onEatItem: function (item, pokemon) {
@@ -67,13 +67,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "Prevents adjacent opposing Steel-type Pokemon from choosing to switch out unless they are immune to trapping.",
 		shortDesc: "Prevents adjacent Water-type foes from choosing to switch.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (pokemon.hasType('Water') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Water') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Water')) && this.isAdjacent(pokemon, source)) {
+			if (!source) source = this.effectState.target;
+			if ((!pokemon.knownType || pokemon.hasType('Water')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -155,9 +155,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide: function (target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Water') {
-				this.boost({atk: 1}, this.effectData.target);
+				this.boost({atk: 1}, this.effectState.target);
 			}
 		},
 		id: "dewdrink",
@@ -407,7 +407,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAllyTryHitSide: function (target, source, move) {
 			if (move.flags['sound']) {
-				this.add('-immune', this.effectData.target, '[from] ability: S.O.N.A.R');
+				this.add('-immune', this.effectState.target, '[from] ability: S.O.N.A.R');
 			}
 		},
 		id: "sonar",

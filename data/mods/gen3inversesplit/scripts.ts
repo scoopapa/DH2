@@ -5,12 +5,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		const specialTypes = ['Bug', 'Fighting', 'Flying', 'Ground', 'Ghost', 'Normal', 'Poison', 'Rock', 'Steel'];
 		let newCategory = '';
-		for (const i in this.data.Moves) {
-			if (!this.data.Moves[i]) console.log(i);
-			if (this.data.Moves[i].category === 'Status') continue;
-			newCategory = specialTypes.includes(this.data.Moves[i].type) ? 'Special' : 'Physical';
-			if (newCategory !== this.data.Moves[i].category) {
-				this.modData('Moves', i).category = newCategory;
+		for (const i in this.moves.all()) {
+			if (!this.moves.all()[i]) console.log(i);
+			if (this.moves.all()[i].category === 'Status') continue;
+			newCategory = specialTypes.includes(this.moves.all()[i].type) ? 'Special' : 'Physical';
+			if (newCategory !== this.moves.all()[i].category) {
+				this.modData('Moves', this.moves.all()[i].id).category = newCategory;
 			}
 		}
 	},

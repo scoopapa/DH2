@@ -18,20 +18,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'frostbite',
 		condition: {
 			onStart(target) {
-			  this.effectData.stage = 0;
+			  this.effectState.stage = 0;
 				this.add('-start', target, 'move: Frostbite');
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-	  		if (this.effectData.stage < 15) {
-		  		this.effectData.stage++;
+	  		if (this.effectState.stage < 15) {
+		  		this.effectState.stage++;
 		  	}
-				const target = this.effectData.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
+				const target = this.effectState.source.side.active[pokemon.volatiles['frostbite'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
 				}
-				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage, pokemon, target, '[silent]');
+				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target, '[silent]');
 				if (damage) {
 					this.heal(damage, target, pokemon);
 				}
@@ -685,9 +685,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				// otherwise, a Pokémon could use a move after replacements are chosen for the turn, and I don't think that's safe
 			},
 			onHiveMind(target) {
-				if (!target.fainted && this.effectData.moveTarget && this.effectData.moveTarget.isActive) {
-					const move = this.dex.getMove(this.effectData.move);
-					this.useMove(move, target, this.effectData.moveTarget);
+				if (!target.fainted && this.effectState.moveTarget && this.effectState.moveTarget.isActive) {
+					const move = this.dex.moves.get(this.effectState.move);
+					this.useMove(move, target, this.effectState.moveTarget);
 				}
 				target.side.removeSlotCondition(target, 'hivemind'); // make sure to remove the slot condition immediately
 			},
@@ -724,15 +724,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: { // this is *not* meant to be set as part of the move; partially defined in scripts.ts!
 			onModifyDamage(damage, source, target, move) {
 				if (target.getMoveHitData(move).typeMod < 0) {
-					this.effectData.boost = 'thisMoveResisted';
+					this.effectState.boost = 'thisMoveResisted';
 					this.debug('set Indomitable Spirit boost');
 				}
 			},
 			onBeforeMove(pokemon) {
-				if (this.effectData.boost === 'thisMoveResisted') {
-					this.effectData.boost = 'lastMoveResisted';
+				if (this.effectState.boost === 'thisMoveResisted') {
+					this.effectState.boost = 'lastMoveResisted';
 				} else {
-					this.effectData.boost = null;
+					this.effectState.boost = null;
 				}
 			},
 		},

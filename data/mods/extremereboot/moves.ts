@@ -322,12 +322,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onLockMove: 'rollout',
 			onStart() {
-				this.effectData.hitCount = 1;
+				this.effectState.hitCount = 1;
 			},
 			onRestart() {
-				this.effectData.hitCount++;
-				if (this.effectData.hitCount < 5) {
-					this.effectData.duration = 2;
+				this.effectState.hitCount++;
+				if (this.effectState.hitCount < 5) {
+					this.effectState.duration = 2;
 				}
 			},
 			onResidual(target) {
@@ -603,12 +603,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onLockMove: 'boulder',
 			onStart() {
-				this.effectData.hitCount = 1;
+				this.effectState.hitCount = 1;
 			},
 			onRestart() {
-				this.effectData.hitCount++;
-				if (this.effectData.hitCount < 5) {
-					this.effectData.duration = 2;
+				this.effectState.hitCount++;
+				if (this.effectState.hitCount < 5) {
+					this.effectState.duration = 2;
 				}
 			},
 			onResidual(target) {
@@ -638,24 +638,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.random(5, 7);
 			},
 			onStart(pokemon, source) {
-				this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
+				this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
 			},
 			onResidualOrder: 11,
 			onResidual(pokemon) {
-				const source = this.effectData.source;
+				const source = this.effectState.source;
 				const boundDivisor = this.field.isTerrain('rosefield') ? 6 : 8;
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['partiallytrapped'];
-					this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
+					this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
 					return;
 				}
 				this.damage(pokemon.baseMaxhp / boundDivisor);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]');
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]');
 			},
 			onTrapPokemon(pokemon) {
-				if (this.effectData.source?.isActive) pokemon.tryTrap();
+				if (this.effectState.source?.isActive) pokemon.tryTrap();
 			},
 		},
 		priority: 0,
@@ -997,7 +997,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (pokemon.hasType("Winter") || pokemon.hasType("Storm")) return;
 				if (pokemon.hasAbility("fluffyfloat")) return;
-				this.boost({evasion: -2}, pokemon, this.effectData.source, this.dex.getActiveMove('cottonfield'));
+				this.boost({evasion: -2}, pokemon, this.effectState.source, this.dex.getActiveMove('cottonfield'));
 				this.damage(pokemon.maxhp / 16);
 			},
 			onStart(battle, source, effect) {
@@ -1008,7 +1008,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Cotton Field');
 			},
 		},
@@ -1243,7 +1243,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(target) {
 				this.add('-start', target, 'Decoy');
-				this.effectData.hp = Math.floor(target.maxhp / 4);
+				this.effectState.hp = Math.floor(target.maxhp / 4);
 				if (target.volatiles['partiallytrapped']) {
 					this.add('-end', target, target.volatiles['partiallytrapped'].sourceEffect, '[partiallytrapped]', '[silent]');
 					delete target.volatiles['partiallytrapped'];
@@ -1544,11 +1544,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (source?.hasItem('trickyhourglass')) return 8;
 			},
 			onStart(pokemon, source) {
-				this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
+				this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
 			},
 			onResidualOrder: 11,
 			onEnd(pokemon) {
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[eeriebargain]');
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[eeriebargain]');
 			},
 			onTrapPokemon(pokemon) {
 				pokemon.tryTrap();
@@ -1660,7 +1660,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 3,
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.effectData.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
+				const target = this.effectState.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
@@ -1917,13 +1917,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart(pokemon, source) {
-				this.effectData.hp = source.maxhp / 2;
+				this.effectState.hp = source.maxhp / 2;
 			},
 			onResidualOrder: 4,
 			onEnd(target) {
 				if (target && !target.fainted) {
-					const damage = this.heal(this.effectData.hp, target, target);
-					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Floral Breeze', '[wisher] ' + this.effectData.source.name);
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Floral Breeze', '[wisher] ' + this.effectState.source.name);
 				}
 			},
 		},
@@ -2676,25 +2676,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				let move: Move | ActiveMove | null = target.lastMove;
 				if (!move || target.volatiles['dynamax']) return false;
 
-				if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
+				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
 				const moveIndex = target.moves.indexOf(move.id);
 				if (move.isZ || noEncore.includes(move.id) || !target.moveSlots[moveIndex] || target.moveSlots[moveIndex].pp <= 0) {
 					// it failed
 					return false;
 				}
-				this.effectData.move = move.id;
+				this.effectState.move = move.id;
 				this.add('-start', target, 'Hypnotize');
 				if (!this.queue.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 			},
 			onOverrideAction(pokemon, target, move) {
-				if (move.id !== this.effectData.move) return this.effectData.move;
+				if (move.id !== this.effectState.move) return this.effectState.move;
 			},
 			onResidualOrder: 13,
 			onResidual(target) {
-				if (target.moves.includes(this.effectData.move) &&
-					target.moveSlots[target.moves.indexOf(this.effectData.move)].pp <= 0) {
+				if (target.moves.includes(this.effectState.move) &&
+					target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
 					// early termination if you run out of PP
 					target.removeVolatile('dynamax');
 				}
@@ -2703,11 +2703,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-end', target, 'Hypnotize');
 			},
 			onDisableMove(pokemon) {
-				if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
+				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
 					return;
 				}
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id !== this.effectData.move) {
+					if (moveSlot.id !== this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -2856,7 +2856,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onAllyTryHitSide(target, source, move) {
 				if (move.flags['sound']) {
-					this.add('-immune', this.effectData.target);
+					this.add('-immune', this.effectState.target);
 				}
 			},
 		},
@@ -3134,7 +3134,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						target.moveSlots.some(moveSlot => moveSlot.pp < moveSlot.maxpp)
 					)
 				) {
-					target.faint(this.effectData.source);
+					target.faint(this.effectState.source);
 					target.side.removeSlotCondition(target, 'monkeyspaw');
 					target.side.addSlotCondition(target, 'monkeyspawheal');
 				}
@@ -3273,7 +3273,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'nightynight',
 		condition: {
 			onStart(pokemon) {
-				this.effectData.sleepy = -2; // initial hit + initial turn give 2 at the start.
+				this.effectState.sleepy = -2; // initial hit + initial turn give 2 at the start.
 				if (pokemon.status === 'slp') pokemon.removeVolatile('nightynight');
 				this.add('-start', pokemon, 'move: Nighty Night');
 			},
@@ -3282,23 +3282,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					pokemon.removeVolatile('nightynight');
 					return;
 				}
-				this.effectData.sleepy++;
-				if (this.effectData.sleepy >= 3) {
+				this.effectState.sleepy++;
+				if (this.effectState.sleepy >= 3) {
 					pokemon.trySetStatus('slp');
 					this.add(-'end', pokemon, 'Nighty Night');
 					pokemon.removeVolatile('nightynight');
 				} else {
-					const timer = 3 - this.effectData.sleepy;
+					const timer = 3 - this.effectState.sleepy;
 					const str = timer === 1 ? 'turn!' : 'turns!';
 					this.add('-message', pokemon.name + ' will fall asleep in ' + timer + ' ' + str);
 				}
 			},
 			onDamagingHit(damage, target, source, move) {
 				if (move.id === 'nightynight') { 
-					this.effectData.sleepy++;
-					if (this.effectData.sleepy > 0) this.add('-message', target.name + ' became even more drowsy!');
+					this.effectState.sleepy++;
+					if (this.effectState.sleepy > 0) this.add('-message', target.name + ' became even more drowsy!');
 				}
-				if (this.effectData.sleepy >= 3) {
+				if (this.effectState.sleepy >= 3) {
 					target.trySetStatus('slp');
 					this.add(-'end', target, 'Nighty Night');
 					target.removeVolatile('nightynight');
@@ -3488,14 +3488,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-start', pokemon, 'Pheromonal Gas');
 			},
 			onUpdate(pokemon) {
-				if (this.effectData.source && !this.effectData.source.isActive && pokemon.volatiles['pheromonalgas']) {
+				if (this.effectState.source && !this.effectState.source.isActive && pokemon.volatiles['pheromonalgas']) {
 					this.debug('Removing Pheromonal Gas volatile on ' + pokemon);
 					pokemon.removeVolatile('pheromonalgas');
 				}
 			},
 			onBeforeMovePriority: 2,
 			onBeforeMove(pokemon, target, move) {
-				this.add('-activate', pokemon, 'move: Pheromonal Gas', '[of] ' + this.effectData.source);
+				this.add('-activate', pokemon, 'move: Pheromonal Gas', '[of] ' + this.effectState.source);
 				if (this.randomChance(1, 2)) {
 					this.add('cant', pokemon, 'Pheromonal Gas');
 					return false;
@@ -3619,7 +3619,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
+				if (target !== source && target.side === this.effectState.target) {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Prickly Bush weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
@@ -3694,7 +3694,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				
 			},
 			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Pumpkin Field');
 			},
 		},
@@ -3805,7 +3805,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).flags['heal']) {
+					if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -4195,7 +4195,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				
 			},
 			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Pumpkin Field');
 			},
 		},
@@ -4331,7 +4331,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Rose Field');
 			},
 		},
@@ -4354,7 +4354,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Rubbles');
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 				if (side.foe.sideConditions['rubbles']){
 					let allySideRubbles = side.foe.sideConditions['rubbles'];
 					if (allySideRubbles.layers > 0) {
@@ -4371,9 +4371,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onRestart(side) {
-				if (this.effectData.layers >= 3) return false;
-				this.effectData.layers++;
-				this.add('-message', this.effectData.layers + ' layers of Rubbles were laid!');
+				if (this.effectState.layers >= 3) return false;
+				this.effectState.layers++;
+				this.add('-message', this.effectState.layers + ' layers of Rubbles were laid!');
 				if (side.foe.sideConditions['rubbles']){
 					let allySideRubbles = side.foe.sideConditions['rubbles'];
 					if (allySideRubbles.layers > 0) {
@@ -4393,7 +4393,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
 		},
 		secondary: null,
@@ -4695,26 +4695,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart(side, source, sourceEffect){
-				this.effectData.turn = side.battle.turn;
-				this.effectData.source = source;
-				this.effectData.pkmnname = source.fullname;
+				this.effectState.turn = side.battle.turn;
+				this.effectState.source = source;
+				this.effectState.pkmnname = source.fullname;
 			},
 			onFoeDamage(damage, target, source, effect) {
-				if (effect.id === 'shootingstar' && this.effectData.pkmnname === source.fullname && this.effectData.turn === source.battle.turn) {
-					this.effectData.hp = damage / 2;
+				if (effect.id === 'shootingstar' && this.effectState.pkmnname === source.fullname && this.effectState.turn === source.battle.turn) {
+					this.effectState.hp = damage / 2;
 					source.battle.add('-message', source.name + ' wished upon the shooting star!');
 				}
 			},
 			onResidualOrder: 4,
 			onResidual(source){
-				if (source && source.side && !this.effectData.hp) {
+				if (source && source.side && !this.effectState.hp) {
 					source.side.removeSlotCondition(source, 'shootingstar');
 					source.battle.add('-message', 'But nothing happened!');
 				}
 			},
 			onEnd(target) {
 				if (target && !target.fainted) {
-					const damage = this.heal(this.effectData.hp, target, target);
+					const damage = this.heal(this.effectState.hp, target, target);
 				}
 			},
 		},
@@ -4771,7 +4771,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualOrder: 19,
 			onEnd(target) {
 				this.add('-end', target, 'move: Shroom Spores', '[silent]');
-				target.trySetStatus('slp', this.effectData.source);
+				target.trySetStatus('slp', this.effectState.source);
 			},
 		},
 		target: "normal",
@@ -5286,7 +5286,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onTryHit(target, source, move) {
-				if (move.priority > 0 && target.getStat('spe', false, true) > source.getStat('spe', false, true) && target.fullname === this.effectData.effectTarget.fullname ) {
+				if (move.priority > 0 && target.getStat('spe', false, true) > source.getStat('spe', false, true) && target.fullname === this.effectState.effectTarget.fullname ) {
 					this.add('-message', 'Priority move of ' + source.name + ' failed due to Starlight Crash!');
 					return false
 				}
@@ -5328,43 +5328,43 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			noCopy: true,
 			onBasePower(basePower, source, target, move) {
-				if (move.type === "Autumn" && this.effectData.layers >= 1) {
-					const isTerrain = this.effectData.layers;
-					this.effectData.layers--;
+				if (move.type === "Autumn" && this.effectState.layers >= 1) {
+					const isTerrain = this.effectState.layers;
+					this.effectState.layers--;
 					this.boost({def: -1, spd: -1}, source, source);
-					if (this.effectData.layers === 0) {
+					if (this.effectState.layers === 0) {
 						this.add('-end', source, 'stockcrops1');
 						source.removeVolatile('stockcrops');
 					} else {
 						this.add('-end', source, 'stockcrops' + isTerrain);
-						this.add('-start', source, 'stockcrops' + this.effectData.layers);
+						this.add('-start', source, 'stockcrops' + this.effectState.layers);
 					}
 					return this.chainModify(2);
 				}
 			},
 			onStart(target) {
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 				this.boost({def: 1, spd: 1}, target, target);
 				if (this.field.getTerrain().exists) {
-					this.effectData.layers = 2;
+					this.effectState.layers = 2;
 					this.boost({def: 1, spd: 1}, target, target);
 				}
-				this.add('-start', target, 'stockcrops' + this.effectData.layers);
+				this.add('-start', target, 'stockcrops' + this.effectState.layers);
 			},
 			onRestart(target) {
-				if (this.effectData.layers >= 3) return false;
-				const isTerrain = this.effectData.layers;
-				this.effectData.layers++;
+				if (this.effectState.layers >= 3) return false;
+				const isTerrain = this.effectState.layers;
+				this.effectState.layers++;
 				this.boost({def: 1, spd: 1}, target, target);
-				if (this.effectData.layers <= 2 && this.field.getTerrain().exists) {
+				if (this.effectState.layers <= 2 && this.field.getTerrain().exists) {
 					this.boost({def: 1, spd: 1}, target, target);
-					this.effectData.layers++;
+					this.effectState.layers++;
 				}
 				this.add('-end', target, 'stockcrops' + isTerrain);
-				this.add('-start', target, 'stockcrops' + this.effectData.layers);
+				this.add('-start', target, 'stockcrops' + this.effectState.layers);
 			},
 			onEnd(target) {
-				if (this.effectData.layers) this.add('-end', target, 'stockcrops' + this.effectData.layers);
+				if (this.effectState.layers) this.add('-end', target, 'stockcrops' + this.effectState.layers);
 			},
 		},
 		priority: 0,
@@ -5620,7 +5620,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				
 			},
 			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Sunflower Field');
 			},
 		},
@@ -5775,7 +5775,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 3,
 			onStart(target) {
 				if (target.activeTurns && !this.queue.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 				this.add('-start', target, 'move: Tantalize');
 			},
@@ -5785,7 +5785,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (move.category === 'Status' && move.id !== 'mefirst') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -6221,13 +6221,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				this.effectData.typhoonCounter = 1;
+				this.effectState.typhoonCounter = 1;
 				this.add('-message', pokemon.name + ' is building up a Typhoon!');
 			}, 
 			onFoeHit(target, source, move) {
-				if (move.id !== "typhoon" || source !== this.effectData.source) return;
-				this.effectData.typhoonCounter++;
-				if (this.effectData.typhoonCounter === 3) {
+				if (move.id !== "typhoon" || source !== this.effectState.source) return;
+				this.effectState.typhoonCounter++;
+				if (this.effectState.typhoonCounter === 3) {
 					this.add('-message', source.name + ' whipped up a raging storm!');
 					let types = [...source.getTypes(true)];
 					for (const i in types) {
@@ -6309,7 +6309,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (move.realMove) continue;
 				if (move.isZ || move.isMax || move.isNonstandard) continue;
 				if (effect.noMetronome!.includes(move.name)) continue;
-				if (this.dex.getMove(id).gen > this.gen) continue;
+				if (this.dex.moves.get(id).gen > this.gen) continue;
 				moves.push(move);
 			}
 			let randomMove = '';
@@ -6606,7 +6606,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (target && !target.fainted) {
 					let source = target.side.foe.active[0];
 					const damage = this.heal(source.hp / 2, target, target);
-					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Withering Breeze', '[wisher] ' + this.effectData.source.name);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Withering Breeze', '[wisher] ' + this.effectState.source.name);
 				}
 			},
 		},

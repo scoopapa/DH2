@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	subscribeformorecontent: {
 		effectType: 'Rule',
 		name: 'Subscribe For More Content',
@@ -636,7 +636,7 @@ export const Formats: {[k: string]: FormatData} = {
 		else if (result === 42) {
 			this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
 			for (const pokemon of this.getAllActive()) {
-				const frstMove = this.dex.getMove(pokemon.moveSlots[0].id);
+				const frstMove = this.dex.moves.get(pokemon.moveSlots[0].id);
 				this.useMove(frstMove, pokemon);
 			}
 		}
@@ -1386,7 +1386,7 @@ export const Formats: {[k: string]: FormatData} = {
 		else if (result === 42) {
 			this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
 			for (const pokemon of this.getAllActive()) {
-				const frstMove = this.dex.getMove(pokemon.moveSlots[0].id);
+				const frstMove = this.dex.moves.get(pokemon.moveSlots[0].id);
 				this.useMove(frstMove, pokemon);
 			}
 		}
@@ -1514,7 +1514,7 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: 'Gives data on stats, Ability and types when a Pokémon switches in.',
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(pokemon.species.name);
+			const species = this.dex.species.get(pokemon.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];

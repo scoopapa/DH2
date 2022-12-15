@@ -76,13 +76,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping.",
     shortDesc: "Prevents adjacent foes from choosing to switch.",
     onFoeTrapPokemon(pokemon) {
-      if (this.isAdjacent(pokemon, this.effectData.target)) {
+      if (pokemon.isAdjacent(this.effectState.target)) {
         pokemon.tryTrap(true);
       }
     },
     onFoeMaybeTrapPokemon(pokemon, source) {
-      if (!source) source = this.effectData.target;
-      if (!source || !this.isAdjacent(pokemon, source)) return;
+      if (!source) source = this.effectState.target;
+      if (!source || !pokemon.isAdjacent(source)) return;
       pokemon.maybeTrapped = true;
     },
     id: "toughitout",
@@ -298,7 +298,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     onStart(pokemon) {
       let activated = false;
       for (const target of pokemon.side.foe.active) {
-        if (!target || !this.isAdjacent(target, pokemon)) continue;
+        if (!target || !target.isAdjacent(pokemon)) continue;
         if (!activated) {
           this.add("-ability", pokemon, "Chilling Atmosphere", "boost");
           activated = true;
@@ -583,12 +583,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         !target.transformed
       ) {
         this.add("-activate", target, "ability: Unsteady Hood");
-        this.effectData.busted = true;
+        this.effectState.busted = true;
         return damage / 2;
       }
     },
     onUpdate(pokemon) {
-      if (pokemon.template.speciesid === "hyness" && this.effectData.busted) {
+      if (pokemon.template.speciesid === "hyness" && this.effectState.busted) {
         pokemon.formeChange("Hyness-Unhooded", this.effect, true);
       }
     },
@@ -879,11 +879,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     onAnyBasePower(basePower, attacker, defender, move) {
       if (
         move.flags['slash'] &&
-        [attacker, defender].includes(this.effectData.target)
+        [attacker, defender].includes(this.effectState.target)
       ) {
         this.debug("Sword of Swords - Altering damage taken.");
         return this.chainModify([
-          defender === this.effectData.target ? 0x0aac : 0x1547,
+          defender === this.effectState.target ? 0x0aac : 0x1547,
           0x1000
         ]);
       }
@@ -938,11 +938,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     onAnyBasePower(basePower, attacker, defender, move) {
       if (
         move.swordSpiritBoosted &&
-        [attacker, defender].includes(this.effectData.target)
+        [attacker, defender].includes(this.effectState.target)
       ) {
         this.debug("Sword Spirit - Altering damage taken.");
         return this.chainModify(
-          defender === this.effectData.target ? 0.5 : 1.5
+          defender === this.effectState.target ? 0.5 : 1.5
         );
       }
     },
@@ -1069,7 +1069,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       move.secondaries.push({
         chance: burnchance,
         status: "brn",
-        ability: this.getAbility("chemicalburn")
+        ability: this.abilities.get("chemicalburn")
       });
     },
     id: "chemicalburn",
@@ -1310,7 +1310,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     //scripts.js/field implements how it basically becomes Air Lock once one on each side with this ability is in play.
     onFoeTryMove(target, source, effect) {
       if (
-        target.side !== this.effectData.target.side &&
+        target.side !== this.effectState.target.side &&
         effect.id === "auroraveil" &&
         this.field.isWeather("hail") &&
         effect.target !== "foeSide"
@@ -1318,7 +1318,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         this.attrLastMove("[still]");
         this.add(
           "cant",
-          this.effectData.target,
+          this.effectState.target,
           "ability: Scarlet Temperament",
           effect,
           "[of] " + target
@@ -1333,7 +1333,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     onAnyBasePower(basePower, attacker, defender, move) {
       //Case 1 is use of a Fire-type move in Rain or a Water-type move in Sun.
       //Case 2 is using Solar Blade in non-Sun weather.
-      if (attacker.side === this.effectData.target.side) {
+      if (attacker.side === this.effectState.target.side) {
         if (
           (attacker.effectiveWeather() == "raindance" &&
             move.type === "Fire") ||
@@ -1395,13 +1395,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       )
         return;
       if (
-        pokemon === this.effectData.target &&
+        pokemon === this.effectState.target &&
         this.field.isWeather(["sunnyday", "desolateland", "deltastream"])
       ) {
         return this.chainModify(this.field.isWeather("deltastream") ? 2 : 1.5);
       }
       let enemyHasActiveFlowerGift = false;
-      for (const target of this.effectData.target.side.foe.active) {
+      for (const target of this.effectState.target.side.foe.active) {
         if (!target) continue;
         if (
           target.hasAbility("flowergift") &&
@@ -1413,7 +1413,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       }
       if (
         this.field.isWeather(["sunnyday", "desolateland"]) &&
-        this.effectData.target.side !== pokemon.side &&
+        this.effectState.target.side !== pokemon.side &&
         (enemyHasActiveFlowerGift || pokemon.hasAbility("powerofsummer"))
       ) {
         return this.chainModify([0x0aab, 0x1000]);
@@ -1422,7 +1422,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     onModifyMovePriority: -1,
     onAnyModifyMove(move, attacker, defender) {
       if (
-        defender.side !== this.effectData.target.side &&
+        defender.side !== this.effectState.target.side &&
         defender.hasAbility("leafguard")
       ) {
         if (
@@ -1438,7 +1438,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         move.ignoreAbility = true;
       }
       if (
-        attacker.side !== this.effectData.target.side &&
+        attacker.side !== this.effectState.target.side &&
         move.id === "weatherball" &&
         move.type !== "Normal"
       ) {
@@ -1459,13 +1459,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         return;
       if (
         this.field.isWeather(["sandstorm", "deltastream"]) &&
-        this.effectData.target === pokemon
+        this.effectState.target === pokemon
       ) {
         return this.chainModify(this.field.isWeather("sandstorm") ? 1.5 : 2);
       }
       if (
         this.field.isWeather(["sunnyday", "desolateland"]) &&
-        this.effectData.target.side !== pokemon.side &&
+        this.effectState.target.side !== pokemon.side &&
         pokemon.hasAbility("powerofsummer")
       ) {
         return this.chainModify([0x0aab, 0x1000]);
@@ -1485,13 +1485,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         return;
       if (
         this.field.isWeather("deltastream") &&
-        this.effectData.target === pokemon
+        this.effectState.target === pokemon
       ) {
         return this.chainModify(2);
       }
       if (
         this.field.isWeather(["sunnyday", "desolateland"]) &&
-        this.effectData.target.side !== pokemon.side &&
+        this.effectState.target.side !== pokemon.side &&
         pokemon.hasAbility("powerofsummer")
       ) {
         return this.chainModify([0x0aab, 0x1000]);
@@ -1500,8 +1500,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     onModifySpDPriority: 4,
     onAnyModifySpD(spd, pokemon) {
       if (
-        this.effectData.target !== pokemon &&
-        this.effectData.target.side === pokemon.side
+        this.effectState.target !== pokemon &&
+        this.effectState.target.side === pokemon.side
       )
         return;
       if (
@@ -1516,18 +1516,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         return;
       if (
         this.field.isWeather("sandstorm") &&
-        this.effectData.target.side !== pokemon.side
+        this.effectState.target.side !== pokemon.side
       ) {
         return this.chainModify([0x0aab, 0x1000]);
       }
       if (
         this.field.isWeather(["raindance", "primordialsea", "deltastream"]) &&
-        this.effectData.target === pokemon
+        this.effectState.target === pokemon
       ) {
         return this.chainModify(this.field.isWeather("deltastream") ? 2 : 1.5);
       }
       let enemyHasActiveFlowerGift = false;
-      for (const target of this.effectData.target.side.foe.active) {
+      for (const target of this.effectState.target.side.foe.active) {
         if (!target) continue;
         if (
           target.hasAbility("flowergift") &&
@@ -1539,7 +1539,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       }
       if (
         this.field.isWeather(["sunnyday", "desolateland"]) &&
-        this.effectData.target.side !== pokemon.side &&
+        this.effectState.target.side !== pokemon.side &&
         (enemyHasActiveFlowerGift || pokemon.hasAbility("powerofsummer"))
       ) {
         return this.chainModify([0x0aab, 0x1000]);
@@ -1562,7 +1562,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         return;
       if (["morningsun", "synthesis", "moonlight"].includes(effect.id)) {
         if (
-          target.side === this.effectData.target.side &&
+          target.side === this.effectState.target.side &&
           this.field.isWeather([
             "raindance",
             "primordialsea",
@@ -1572,20 +1572,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         ) {
           return damage * 2;
         } else if (
-          target.side !== this.effectData.target.side &&
+          target.side !== this.effectState.target.side &&
           this.field.isWeather(["sunnyday", "desolateland"])
         ) {
           return (damage * 2) / 3;
         }
       } else if (
-        target.side !== this.effectData.target.side &&
+        target.side !== this.effectState.target.side &&
         this.field.isWeather("sandstorm") &&
         effect.id === "shoreup"
       ) {
         return (damage * 2) / 3;
       }
       if (
-        this.effectData.target.side !== target.side &&
+        this.effectState.target.side !== target.side &&
         ["icebody", "hydration", "dryskin"].includes(effect)
       )
         return 0;
@@ -1602,12 +1602,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       )
         return;
       if (
-        pokemon === this.effectData.target &&
+        pokemon === this.effectState.target &&
         this.field.isWeather(["hail", "deltastream"])
       ) {
         return this.chainModify(this.field.isWeather("hail") ? 1.5 : 2);
       }
-      if (pokemon.side !== this.effectData.target.side) {
+      if (pokemon.side !== this.effectState.target.side) {
         if (
           (pokemon.hasAbility("chlorophyll") &&
             this.field.isWeather(["sunnyday", "desolateland"])) ||
@@ -1629,7 +1629,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       }
     },
     onAnyModifyAccuracy(accuracy, target, source, move) {
-      if (source.side === this.effectData.target.side) {
+      if (source.side === this.effectState.target.side) {
         //Restore Thunder and Hurricane's accuracy in sun.
         if (
           this.field.isWeather([
@@ -1650,7 +1650,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         this.debug("fixing " + move.id + " accuracy");
         return accuracy * 1.4;
       }
-      if (target.side !== this.effectData.target.side) {
+      if (target.side !== this.effectState.target.side) {
         if (
           (target.hasAbility("sandveil") &&
             this.field.isWeather("sandstorm")) ||
@@ -1737,11 +1737,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       "Immune to Special Fire/Water+Ice/Electric/Dark moves with an exception specified in battle. Being hit by such a Special move re-randomizes the exception. Using a Special Fire/Water+Ice/Electric/Dark move changes the barrier to block its original weakspot but leave this Pokemon vulnerable to the Special Move's type",
     onStart(pokemon) {
       let possibleBlockedTypes = ["Fire", "Water", "Electric", "Dark"];
-      this.effectData.vulnerableType = this.sample(possibleBlockedTypes);
+      this.effectState.vulnerableType = this.sample(possibleBlockedTypes);
       this.add(
         "-ability",
         pokemon,
-        "Barrier Change (" + this.effectData.vulnerableType + ")"
+        "Barrier Change (" + this.effectState.vulnerableType + ")"
       );
     },
     onHit(target, source, move) {
@@ -1750,21 +1750,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         move &&
         move.effectType === "Move" &&
         move.category === "Special" &&
-        move.type === this.effectData.vulnerableType
+        move.type === this.effectState.vulnerableType
       ) {
         let possibleVulnerableTypes = ["Fire", "Water", "Electric", "Dark"];
         let newPossibleVulnerableTypes = [];
         for (let i in possibleVulnerableTypes) {
-          if (this.effectData.vulnerableType != i)
+          if (this.effectState.vulnerableType != i)
             newPossibleVulnerableTypes.push(i);
         }
-        this.effectData.vulnerableType = this.sample(
+        this.effectState.vulnerableType = this.sample(
           newPossibleVulnerableTypes
         );
         this.add(
           "-ability",
           target,
-          "Barrier Change (" + this.effectData.vulnerableType + ")"
+          "Barrier Change (" + this.effectState.vulnerableType + ")"
         );
       }
     },
@@ -1778,14 +1778,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
       let possibleBlockedTypes = ["Fire", "Water", "Ice", "Electric", "Dark"];
       if (
         possibleBlockedTypes.includes(move.type) &&
-        (this.effectData.vulnerableType !== move.type ||
-          (this.effectData.vulnerableType !== "Water" && move.type === "Ice"))
+        (this.effectState.vulnerableType !== move.type ||
+          (this.effectState.vulnerableType !== "Water" && move.type === "Ice"))
       ) {
         this.debug(
           "Barrier Change immunity: " +
             move.id +
             " (Vulnerable type should be " +
-            this.effectData.vulnerableType +
+            this.effectState.vulnerableType +
             ")"
         );
         this.add("-immune", target, "[from] ability: Barrier Change");
@@ -1841,24 +1841,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     onAnyBasePowerPriority: 8,
     onAnyBasePower(basePower, attacker, defender, move) {
       if (
-        [attacker, defender].includes(this.effectData.target) &&
+        [attacker, defender].includes(this.effectState.target) &&
         attacker.side !== defender.side
       )
         return;
       if (
-        attacker.side === this.effectData.target.side &&
-        this.isAdjacent(attacker, this.effectData.target)
+        attacker.side === this.effectState.target.side &&
+        attacker.isAdjacent(this.effectState.target)
       ) {
         return this.chainModify([
-          defender.side === this.effectData.target.side &&
-          this.isAdjacent(defender, this.effectData.target)
+          defender.side === this.effectState.target.side &&
+          defender.isAdjacent(this.effectState.target)
             ? 0x1333
             : 0x1800,
           0x1000
         ]);
       } else if (
-        defender.side === this.effectData.target.side &&
-        this.isAdjacent(defender, this.effectData.target)
+        defender.side === this.effectState.target.side &&
+        defender.isAdjacent(this.effectState.target)
       ) {
         this.debug("Rose's Thorns reduction");
         return this.chainModify([0x0ccd, 0x1000]);
@@ -1964,7 +1964,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             "-activate",
             target,
             "ability: Mummy",
-            this.getAbility(oldAbility).name,
+            this.abilities.get(oldAbility).name,
             "[of] " + source
           );
         }
@@ -2004,7 +2004,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         this.attrLastMove("[still]");
         this.add(
           "cant",
-          this.effectData.target,
+          this.effectState.target,
           "ability: Damp",
           effect,
           "[of] " + target
@@ -2124,7 +2124,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's allies have the base power of their moves multiplied by 1.3.",
 		onAllyBasePowerPriority: 8,
 		onAllyBasePower(basePower, attacker, defender, move) {
-			if (attacker !== this.effectData.target) {
+			if (attacker !== this.effectState.target) {
 				this.debug('Charisma boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -2138,11 +2138,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     onBasePowerPriority: 8,
     onAnyBasePower(basePower, attacker, defender, move) {
         if ((move.flags['punch']) &&
-        [attacker, defender].includes(this.effectData.target))
+        [attacker, defender].includes(this.effectState.target))
 		{
 			this.debug("Master Champion - Altering damage taken.");
 			return this.chainModify([
-			  defender === this.effectData.target ? 0x0aac : 0x1547,
+			  defender === this.effectState.target ? 0x0aac : 0x1547,
 			  0x1000
 			]);
 		}
@@ -2360,13 +2360,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "On switch-in, or when this Pokemon acquires this ability, this Pokemon copies a random adjacent opposing Pokemon's Ability and then suppresses that Pokemon's ability. However, if one or more adjacent Pokemon has the Ability \"No Ability\", Trace won't copy anything even if there is another valid Ability it could normally copy. Otherwise, if there is no Ability that can be copied at that time, this Ability will activate as soon as an Ability can be copied. Abilities that cannot be copied are the previously mentioned \"No Ability\", as well as Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Schooling, Stance Change, Trace, and Zen Mode.",
 		shortDesc: "On switch-in, or when it can, this Pokemon copies a random adjacent foe's Ability, and then suppresses that foe's ability.",
 		onStart(pokemon) {
-			if (pokemon.side.foe.active.some(foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability')) {
-				this.effectData.gaveUp = true;
+			if (pokemon.side.foe.active.some(foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability')) {
+				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectData.gaveUp) return;
-			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);

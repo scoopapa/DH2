@@ -526,7 +526,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).flags['heal']) {
+					if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -543,7 +543,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-end', pokemon, 'move: G-Max Coral Curse');
 			},
 			onTryHeal(damage, target, source, effect) {
-				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
+				if ((effect?.id === 'zpower') || this.effectState.isZ) return damage;
 				return false;
 			},
 		},
@@ -624,7 +624,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.debug('Pursuit start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectData.sources) {
+				for (const source of this.effectState.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Pursuit');
@@ -1376,18 +1376,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
-				this.effectData.position = null;
-				this.effectData.damage = 0;
+				this.effectState.position = null;
+				this.effectState.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectData.target) return;
-				return source.side.foe.active[this.effectData.position];
+				if (source !== this.effectState.target) return;
+				return source.side.foe.active[this.effectState.position];
 			},
 			onDamagingHit(damage, target, source, effect) {
 				if (source.side !== target.side) {
-					this.effectData.position = source.position;
-					this.effectData.damage = 1.5 * damage;
+					this.effectState.position = source.position;
+					this.effectState.damage = 1.5 * damage;
 				}
 			},
 		},
@@ -1914,7 +1914,7 @@ gmaxevoglace: {
 				if (pokemon.item) return;
 				const pickupTargets = [];
 				for (const target of this.getAllActive()) {
-					if (target.lastItem && target.usedItemThisTurn && this.isAdjacent(pokemon, target)) {
+					if (target.lastItem && target.usedItemThisTurn && pokemon.isAdjacent(target)) {
 						pickupTargets.push(target);
 					}
 				}
@@ -1922,7 +1922,7 @@ gmaxevoglace: {
 				const randomTarget = this.sample(pickupTargets);
 				const item = randomTarget.lastItem;
 				randomTarget.lastItem = '';
-				this.add('-item', pokemon, this.dex.getItem(item), '[from] move: G-Max Robbery');
+				this.add('-item', pokemon, this.dex.items.get(item), '[from] move: G-Max Robbery');
 				pokemon.setItem(item);
 			}
 		},
@@ -2302,7 +2302,7 @@ gmaxevoglace: {
               this.add('-sidestart', side, 'move: G-Max Blue Star');
           },
           onAnyModifyDamage(damage, source, target, move) {
-              if (target !== source && target.side === this.effectData.target && (move.type === 'Ghost' || move.type === 'Dark')) {
+              if (target !== source && target.side === this.effectState.target && (move.type === 'Ghost' || move.type === 'Dark')) {
                   this.debug('GMax Blue Star weaken');
                   return this.chainModify(0.5);
               }
@@ -2604,20 +2604,20 @@ gmaxbattlecry: {
       condition: {
           noCopy: true,
           onStart(target, source, effect) {
-              this.effectData.layers = 1;
+              this.effectState.layers = 1;
               if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
                   this.add('-start', target, 'move: G-Max Vegetal Sword');
               }
           },
           onRestart(target, source, effect) {
-              if (this.effectData.layers >= 3) return false;
-              this.effectData.layers++;
+              if (this.effectState.layers >= 3) return false;
+              this.effectState.layers++;
               if (!['imposter', 'psychup', 'transform'].includes(effect?.id)) {
                   this.add('-start', target, 'move: G-Max Vegetal Sword');
               }
           },
           onModifyCritRatio(critRatio) {
-              return critRatio + this.effectData.layers;
+              return critRatio + this.effectState.layers;
           },
       },
       target: "adjacentFoe",

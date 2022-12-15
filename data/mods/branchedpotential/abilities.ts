@@ -60,7 +60,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				['phankyr'].includes(target.species.id) && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Esiugsid');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -87,10 +87,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (['phankyr'].includes(pokemon.species.id) && this.effectData.busted) {
+			if (['phankyr'].includes(pokemon.species.id) && this.effectState.busted) {
 				const speciesid = 'Phankyr-Revealed';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
 		isPermanent: true,
@@ -163,7 +163,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('potionmaster'),
+				ability: this.dex.abilities.get('potionmaster'),
 			});
 		},
 

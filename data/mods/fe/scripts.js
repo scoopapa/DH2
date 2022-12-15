@@ -322,7 +322,7 @@ exports.BattleScripts = {
             /**@type {number | false} */
             let moveDamage;
             // There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-            let isSleepUsable = move.sleepUsable || this.getMove(move.sourceEffect).sleepUsable;
+            let isSleepUsable = move.sleepUsable || this.moves.get(move.sourceEffect).sleepUsable;
             let i;
             for (i = 0; i < hits && target.hp && pokemon.hp; i++) {
                 if (pokemon.status === 'slp' && !isSleepUsable) break;
@@ -707,7 +707,7 @@ exports.BattleScripts = {
             if (!this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability)) return false;
             this.battle.singleEvent('End', this.battle.getAbility(oldAbility), this.abilityData, this, source);
             if (this.battle.effect && this.battle.effect.effectType === 'Move') {
-                this.battle.add('-endability', this, this.battle.getAbility(oldAbility), '[from] move: ' + this.battle.getMove(this.battle.effect.id));
+                this.battle.add('-endability', this, this.battle.getAbility(oldAbility), '[from] move: ' + this.battle.moves.get(this.battle.effect.id));
             }
             this.ability = ability.id;
             this.abilityData = {

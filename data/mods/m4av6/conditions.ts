@@ -3,9 +3,9 @@ const longwhip: ConditionData = {
 	onResidualOrder: 3,
 	onResidual(target) {
 		// unlike a future move, Long Whip activates each turn
-		this.effectData.target = this.effectData.side.active[this.effectData.position];
-		const data = this.effectData;
-		const move = this.dex.getMove(data.move);
+		this.effectState.target = this.effectState.side.active[this.effectState.position];
+		const data = this.effectState;
+		const move = this.dex.moves.get(data.move);
 		if (data.target.fainted || data.target === data.source) {
 			this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 			return;
@@ -40,9 +40,9 @@ const longwhip: ConditionData = {
 	},
 	onEnd(target) {
 		// unlike a future move, Long Whip activates each turn
-		this.effectData.target = this.effectData.side.active[this.effectData.position];
-		const data = this.effectData;
-		const move = this.dex.getMove(data.move);
+		this.effectState.target = this.effectState.side.active[this.effectState.position];
+		const data = this.effectState;
+		const move = this.dex.moves.get(data.move);
 		if (data.target.fainted || data.target === data.source) {
 			this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 			return;
@@ -83,7 +83,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				if (sourceEffect.name === 'Acid Rock') {
-					this.effectData.type = 'acidrock';
+					this.effectState.type = 'acidrock';
 				}
 				this.add('-status', target, 'psn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
@@ -92,7 +92,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			if (this.effectData.type === 'acidrock') {
+			if (this.effectState.type === 'acidrock') {
 				this.damage(pokemon.baseMaxhp / 16);
 			} else {
 				this.damage(pokemon.baseMaxhp / 8);
@@ -174,7 +174,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-ability', source, 'Desert Gales');
 				this.add('-weather', 'Desert Gales', '[silent]');
 				this.add('-message', `Desert gales kicked up!`);
@@ -223,7 +223,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-ability', source, 'Diamond Dust');
 				this.add('-weather', 'Diamond Dust', '[silent]');
 				this.add('-message', `A cloud of diamond dust blew in!`);
@@ -260,22 +260,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 4,
 		onResidualOrder: 1,
 		onResidual(pokemon) {
-			if (this.effectData.duration !== 3) return;
+			if (this.effectState.duration !== 3) return;
 			let num = 0;
-			for (const moveSlot of this.effectData.target.moveSlots) {
+			for (const moveSlot of this.effectState.target.moveSlots) {
 				num++;
 				if (num === 1) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
 				}
 			}
 		},
 		onEnd(pokemon) {
 			let num = 0;
-			for (const moveSlot of this.effectData.target.moveSlots) {
+			for (const moveSlot of this.effectState.target.moveSlots) {
 				num++;
 				if (num === 1) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
 				}
 			}
@@ -286,22 +286,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 4,
 		onResidualOrder: 1,
 		onResidual(pokemon) {
-			if (this.effectData.duration !== 3) return;
+			if (this.effectState.duration !== 3) return;
 			let num = 0;
-			for (const moveSlot of this.effectData.target.moveSlots) {
+			for (const moveSlot of this.effectState.target.moveSlots) {
 				num++;
 				if (num === 2) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
 				}
 			}
 		},
 		onEnd(pokemon) {
 			let num = 0;
-			for (const moveSlot of this.effectData.target.moveSlots) {
+			for (const moveSlot of this.effectState.target.moveSlots) {
 				num++;
 				if (num === 2) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
 				}
 			}
@@ -312,22 +312,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 4,
 		onResidualOrder: 1,
 		onResidual(pokemon) {
-			if (this.effectData.duration !== 3) return;
+			if (this.effectState.duration !== 3) return;
 			let num = 0;
-			for (const moveSlot of this.effectData.target.moveSlots) {
+			for (const moveSlot of this.effectState.target.moveSlots) {
 				num++;
 				if (num === 3) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
 				}
 			}
 		},
 		onEnd(pokemon) {
 			let num = 0;
-			for (const moveSlot of this.effectData.target.moveSlots) {
+			for (const moveSlot of this.effectState.target.moveSlots) {
 				num++;
 				if (num === 3) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
 				}
 			}
@@ -338,22 +338,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 4,
 		onResidualOrder: 1,
 		onResidual(pokemon) {
-			if (this.effectData.duration !== 3) return;
+			if (this.effectState.duration !== 3) return;
 			let num = 0;
-			for (const moveSlot of this.effectData.target.moveSlots) {
+			for (const moveSlot of this.effectState.target.moveSlots) {
 				num++;
 				if (num === 4) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
 				}
 			}
 		},
 		onEnd(pokemon) {
 			let num = 0;
-			for (const moveSlot of this.effectData.target.moveSlots) {
+			for (const moveSlot of this.effectState.target.moveSlots) {
 				num++;
 				if (num === 4) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
 				}
 			}

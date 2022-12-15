@@ -282,7 +282,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onHit(pokemon, source, move) {
 				if (move.flags['contact']) {
-					this.effectData.brn = true;
+					this.effectState.brn = true;
 					source.trySetStatus('brn', pokemon);
 				}
 			},

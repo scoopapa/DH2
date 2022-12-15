@@ -1,4 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	inherit: 'gen8',
+	gen: 8,
 	teambuilderConfig: {
         // for micrometas to only show custom tiers
         // excludeStandardTiers: true,
@@ -93,7 +95,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (waveCrasher.fainted) continue;
 				this.add('-activate', waveCrasher, 'ability: Wave Crasher');
 				const dancersTarget = target!.side !== waveCrasher.side && pokemon.side === waveCrasher.side ? target! : pokemon;
-				this.runMove(move.id, waveCrasher, this.getTargetLoc(dancersTarget, waveCrasher), this.dex.getAbility('wavecrasher'), undefined, true);
+				this.runMove(move.id, waveCrasher, this.getTargetLoc(dancersTarget, waveCrasher), this.dex.abilities.get('wavecrasher'), undefined, true);
 			}
 		}
 		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];

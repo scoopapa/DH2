@@ -29,25 +29,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (source.pokeClass === 'mage') this.effectData.sourceClass = 'mage';
+				if (source.pokeClass === 'mage') this.effectState.sourceClass = 'mage';
 				if (source?.hasItem('lightclay')) {
 					return 8;
 				}
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Physical') {
+				if (target !== source && target.side === this.effectState.target && this.getCategory(move) === 'Physical') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Reflect weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
-						if (this.effectData.sourceClass === 'mage') return this.chainModify(0.45);
+						if (this.effectState.sourceClass === 'mage') return this.chainModify(0.45);
 						else return this.chainModify(0.5);
 					}
 				}
 			},
 			onStart(side) {
 				this.add('-sidestart', side, 'Reflect');
-				// this.effectData.sourceClass = 
+				// this.effectState.sourceClass = 
 			},
 			onResidualOrder: 21,
 			onEnd(side) {
@@ -75,18 +75,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (source.pokeClass === 'mage') this.effectData.sourceClass = 'mage';
+				if (source.pokeClass === 'mage') this.effectState.sourceClass = 'mage';
 				if (source?.hasItem('lightclay')) {
 					return 8;
 				}
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target && this.getCategory(move) === 'Special') {
+				if (target !== source && target.side === this.effectState.target && this.getCategory(move) === 'Special') {
 					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
 						this.debug('Light Screen weaken');
 						if (target.side.active.length > 1) return this.chainModify([0xAAC, 0x1000]);
-						if (this.effectData.sourceClass === 'mage') return this.chainModify(0.45);
+						if (this.effectState.sourceClass === 'mage') return this.chainModify(0.45);
 						else return this.chainModify(0.5);
 					}
 				}

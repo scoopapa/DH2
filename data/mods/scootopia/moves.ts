@@ -110,7 +110,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 3,
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.effectData.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
+				const target = this.effectState.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
@@ -185,7 +185,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Grassy Terrain');
 			},
 		},
@@ -253,7 +253,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				if (target.isSemiInvulnerable() || target.side === source.side) return;
 				if (!target.isGrounded()) {
-					const baseMove = this.dex.getMove(effect.id);
+					const baseMove = this.dex.moves.get(effect.id);
 					if (baseMove.priority > 0) {
 						this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
 					}

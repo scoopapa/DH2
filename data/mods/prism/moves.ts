@@ -82,22 +82,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					index++;
 					if (index >= team.length) break;
 				}
-				this.effectData.index = index;
+				this.effectState.index = index;
 			},
 			onRestart: function (pokemon) {
-				let index = this.effectData.index;
+				let index = this.effectState.index;
 				let team = pokemon.side.pokemon;
 				do {
 					index++;
 					if (index >= team.length) break;
 				} while (!team[index] || team[index].fainted || team[index].status);
-				this.effectData.index = index;
+				this.effectState.index = index;
 			},
 			onModifyAtkPriority: -101,
 			onModifyAtk: function (atk, pokemon) {
-				this.add('-activate', pokemon, 'move: Beat Up', '[of] ' + pokemon.side.pokemon[this.effectData.index].name);
+				this.add('-activate', pokemon, 'move: Beat Up', '[of] ' + pokemon.side.pokemon[this.effectState.index].name);
 				this.event.modifier = 1;
-				return pokemon.side.pokemon[this.effectData.index].template.baseStats.atk;
+				return pokemon.side.pokemon[this.effectState.index].template.baseStats.atk;
 			},
 			onFoeModifyDefPriority: -101,
 			onFoeModifyDef: function (def, pokemon) {
@@ -112,14 +112,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 3,
 			onLockMove: 'bide',
 			onStart: function (pokemon) {
-				this.effectData.totalDamage = 0;
+				this.effectState.totalDamage = 0;
 				this.add('-start', pokemon, 'move: Bide');
 			},
 			onDamagePriority: -101,
 			onDamage: function (damage, target, source, move) {
 				if (!move || move.effectType !== 'Move' || !source) return;
-				this.effectData.totalDamage += damage;
-				this.effectData.lastDamageSource = source;
+				this.effectState.totalDamage += damage;
+				this.effectState.lastDamageSource = source;
 			},
 			onAfterSetStatus: function (status, pokemon) {
 				if (status.id === 'slp' || status.id === 'frz') {
@@ -127,19 +127,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onBeforeMove: function (pokemon, target, move) {
-				if (this.effectData.duration === 1) {
+				if (this.effectState.duration === 1) {
 					this.add('-end', pokemon, 'move: Bide');
-					if (!this.effectData.totalDamage) {
+					if (!this.effectState.totalDamage) {
 						this.add('-fail', pokemon);
 						return false;
 					}
-					target = this.effectData.lastDamageSource;
+					target = this.effectState.lastDamageSource;
 					if (!target) {
 						this.add('-fail', pokemon);
 						return false;
 					}
-					if (!target.isActive) target = this.resolveTarget(pokemon, this.getMove('pound'));
-					if (!this.isAdjacent(pokemon, target)) {
+					if (!target.isActive) target = this.resolveTarget(pokemon, this.moves.get('pound'));
+					if (!pokemon.isAdjacent(target)) {
 						this.add('-miss', pokemon, target);
 						return false;
 					}
@@ -147,7 +147,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						id: 'bide',
 						name: "Bide",
 						accuracy: true,
-						damage: this.effectData.totalDamage * 2,
+						damage: this.effectState.totalDamage * 2,
 						category: "Physical",
 						priority: 1,
 						flags: {contact: 1, protect: 1},
@@ -296,7 +296,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			noCopy: true,
 			onStart: function (pokemon) {
 				if (!this.willMove(pokemon)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 				if (!pokemon.lastMove) {
 					return false;
@@ -308,7 +308,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							return false;
 						} else {
 							this.add('-start', pokemon, 'Disable', moves[i].move);
-							this.effectData.move = pokemon.lastMove;
+							this.effectState.move = pokemon.lastMove;
 							return;
 						}
 					}
@@ -320,7 +320,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onBeforeMovePriority: 7,
 			onBeforeMove: function (attacker, defender, move) {
-				if (move.id === this.effectData.move) {
+				if (move.id === this.effectState.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
@@ -328,7 +328,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onDisableMove: function (pokemon) {
 				let moves = pokemon.moveset;
 				for (let i = 0; i < moves.length; i++) {
-					if (moves[i].id === this.effectData.move) {
+					if (moves[i].id === this.effectState.move) {
 						pokemon.disableMove(moves[i].id);
 					}
 				}
@@ -421,14 +421,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					delete target.volatiles['encore'];
 					return;
 				}
-				this.effectData.move = target.lastMove;
+				this.effectState.move = target.lastMove;
 				this.add('-start', target, 'Encore');
 				if (!this.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 			},
 			onOverrideDecision: function (pokemon) {
-				return this.effectData.move;
+				return this.effectState.move;
 			},
 			onResidualOrder: 13,
 			onResidual: function (target) {
@@ -442,11 +442,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-end', target, 'Encore');
 			},
 			onDisableMove: function (pokemon) {
-				if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
+				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
 					return;
 				}
 				for (let i = 0; i < pokemon.moveset.length; i++) {
-					if (pokemon.moveset[i].id !== this.effectData.move) {
+					if (pokemon.moveset[i].id !== this.effectState.move) {
 						pokemon.disableMove(pokemon.moveset[i].id);
 					}
 				}
@@ -640,7 +640,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove: function (pokemon) {
 				for (let i = 0; i < pokemon.moveset.length; i++) {
-					if (this.getMove(pokemon.moveset[i].id).flags['heal']) {
+					if (this.moves.get(pokemon.moveset[i].id).flags['heal']) {
 						pokemon.disableMove(pokemon.moveset[i].id);
 					}
 				}
@@ -676,7 +676,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchInPriority: -1,
 			onSwitchIn: function (target) {
-				if (target.position !== this.effectData.sourcePosition) {
+				if (target.position !== this.effectState.sourcePosition) {
 					return;
 				}
 				if (target.hp > 0) {
@@ -758,7 +758,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onSwitchInPriority: -1,
 			onSwitchIn: function (target) {
-				if (target.position !== this.effectData.sourcePosition) {
+				if (target.position !== this.effectState.sourcePosition) {
 					return;
 				}
 				if (target.hp > 0) {
@@ -845,7 +845,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.transformed || !target.lastMove || disallowedMoves[target.lastMove] || source.moves.indexOf(target.lastMove) !== -1 || target.volatiles['substitute']) return false;
 			let moveslot = source.moves.indexOf('mimic');
 			if (moveslot < 0) return false;
-			let move = Dex.getMove(target.lastMove);
+			let move = Dex.moves.get(target.lastMove);
 			source.moveset[moveslot] = {
 				move: move.name,
 				id: move.id,
@@ -1385,7 +1385,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (source.transformed || !target.lastMove || disallowedMoves[target.lastMove] || source.moves.indexOf(target.lastMove) >= 0 || target.volatiles['substitute']) return false;
 			let moveslot = source.moves.indexOf('sketch');
 			if (moveslot < 0) return false;
-			let move = Dex.getMove(target.lastMove);
+			let move = Dex.moves.get(target.lastMove);
 			let sketchedMove = {
 				move: move.name,
 				id: move.id,
@@ -1521,7 +1521,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onDisableMove: function (pokemon) {
 				let moves = pokemon.moveset;
 				for (let i = 0; i < moves.length; i++) {
-					if (this.getMove(moves[i].move).category === 'Status') {
+					if (this.moves.get(moves[i].move).category === 'Status') {
 						pokemon.disableMove(moves[i].id);
 					}
 				}
@@ -1557,12 +1557,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart: function (side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers = 1;
+				this.effectState.layers = 1;
 			},
 			onRestart: function (side) {
-				if (this.effectData.layers >= 2) return false;
+				if (this.effectState.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectData.layers++;
+				this.effectState.layers++;
 			},
 			onSwitchIn: function (pokemon) {
 				if (!pokemon.runImmunity('Ground')) return;
@@ -1573,7 +1573,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				if (pokemon.volatiles['substitute']) {
 					return;
-				} else if (this.effectData.layers >= 2) {
+				} else if (this.effectState.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 				} else {
 					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
@@ -1613,9 +1613,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onResidualOrder: 0,
 			onEnd: function (side) {
-				let target = side.active[this.effectData.sourcePosition];
+				let target = side.active[this.effectState.sourcePosition];
 				if (!target.fainted) {
-					let source = this.effectData.source;
+					let source = this.effectState.source;
 					let damage = this.heal(target.maxhp / 2, target, target);
 					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + source.name);
 				}

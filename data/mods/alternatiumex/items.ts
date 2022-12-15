@@ -154,7 +154,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (!this.field.isTerrain('')) {
 				pokemon.useItem();
 			}

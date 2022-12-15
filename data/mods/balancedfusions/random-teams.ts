@@ -9,7 +9,7 @@ export class RandomFusionTeams extends RandomTeams {
 
 		const availableFormes: {[k: string]: string[]} = {};
 		for (const id in this.dex.data.FormatsData) {
-			const template = this.dex.getSpecies(id);
+			const template = this.dex.species.get(id);
 			if (template.gen <= this.gen && !excludedTiers.includes(template.tier) && !template.isMega && !template.isPrimal && !template.isNonstandard && template.randomBattleMoves) {
 				if (!availableFormes[template.baseSpecies]) {
 					availableFormes[template.baseSpecies] = [id];
@@ -23,7 +23,7 @@ export class RandomFusionTeams extends RandomTeams {
 		// PotD stuff
 		let potd;
 		if (global.Config && Config.potd && this.dex.getRuleTable(this.format).has('potd')) {
-			potd = this.dex.getSpecies(Config.potd);
+			potd = this.dex.species.get(Config.potd);
 		}
 
 		const typeCount: {[k: string]: number} = {};
@@ -34,7 +34,7 @@ export class RandomFusionTeams extends RandomTeams {
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 
 		while (pokemonPool.length && pokemon.length < 6) {
-			let template = this.dex.getSpecies(this.sample(this.sampleNoReplace(pokemonPool)));
+			let template = this.dex.species.get(this.sample(this.sampleNoReplace(pokemonPool)));
 			if (!template.exists) continue;
 
 			// Useless in Random Battle without greatly lowering the levels of everything else
@@ -62,7 +62,7 @@ export class RandomFusionTeams extends RandomTeams {
 				if (this.random(5) >= 1) continue;
 			}
 
-			const fusion = this.dex.getSpecies(this.sample(this.sampleNoReplace(pokemonPool)));
+			const fusion = this.dex.species.get(this.sample(this.sampleNoReplace(pokemonPool)));
 			if (!fusion.exists) continue;
 
 			// Useless in Random Battle without greatly lowering the levels of everything else
@@ -163,7 +163,7 @@ export class RandomFusionTeams extends RandomTeams {
 			}
 
 			// Team has Mega/weather/hazards
-			if (this.dex.getItem(set.item).megaStone) teamDetails['megaStone'] = 1;
+			if (this.dex.items.get(set.item).megaStone) teamDetails['megaStone'] = 1;
 			if (set.ability === 'Snow Warning') teamDetails['hail'] = 1;
 			if (set.ability === 'Drizzle' || set.moves.includes('raindance')) teamDetails['rain'] = 1;
 			if (set.ability === 'Sand Stream') teamDetails['sand'] = 1;

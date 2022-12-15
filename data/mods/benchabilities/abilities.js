@@ -98,7 +98,7 @@ let BattleAbilities = {
 	"handoff": { // Aipom, Ambipom
 		shortDesc: "When an ally consumes their held item, this pokemon gives its item to them.",
 		onAfterUseItem(item, pokemon) {
-			// if (pokemon !== this.effectData.target) return;
+			// if (pokemon !== this.effectState.target) return;
 			let battle = pokemon.battle;
 			let sideID = pokemon.side.id;
 			let allyBench = battle.benchPokemon[ sideID ];
@@ -340,7 +340,7 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon cannot be statused, and is considered to be asleep.",
 		onBasePowerPriority: 7,
 		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectData.target !== defender) return;
+			if (this.effectState.target !== defender) return;
 			if (move.type === 'Ice') {
 				return this.chainModify(2);
 			}

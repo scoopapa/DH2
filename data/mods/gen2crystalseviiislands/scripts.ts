@@ -8,12 +8,12 @@ export const Scripts: ModdedBattleScriptsData = {
 	init: function () {
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Cosmic'];
 		let newCategory = '';
-		for (const i in this.data.Moves) {
-			if (!this.data.Moves[i]) console.log(i);
-			if (this.data.Moves[i].category === 'Status') continue;
-			newCategory = specialTypes.includes(this.data.Moves[i].type) ? 'Special' : 'Physical';
-			if (newCategory !== this.data.Moves[i].category) {
-				this.modData('Moves', i).category = newCategory;
+		for (const i in this.moves.all()) {
+			if (!this.moves.all()[i]) console.log(i);
+			if (this.moves.all()[i].category === 'Status') continue;
+			newCategory = specialTypes.includes(this.moves.all()[i].type) ? 'Special' : 'Physical';
+			if (newCategory !== this.moves.all()[i].category) {
+				this.modData('Moves', this.moves.all()[i].id).category = newCategory;
 			}
 		}
 		for (const id in this.dataCache.Pokedex) {
@@ -321,7 +321,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let lacksTarget = !target || target.fainted;
 			if (!lacksTarget) {
 				if (['adjacentFoe', 'adjacentAlly', 'normal', 'randomNormal'].includes(move.target)) {
-					lacksTarget = !this.isAdjacent(target, pokemon);
+					lacksTarget = !target.isAdjacent(pokemon);
 				}
 			}
 			if (lacksTarget && !move.isFutureMove) {

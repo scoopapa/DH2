@@ -702,7 +702,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.debug('Heat Stomp start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectData.sources) {
+				for (const source of this.effectState.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Heat Stomp');

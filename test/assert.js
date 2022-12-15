@@ -47,6 +47,15 @@ assert.atMost = function (value, threshold, message) {
 	});
 };
 
+assert.legalTeam = function (team, format, message) {
+	const actual = require('../sim/team-validator').TeamValidator.get(format).validateTeam(team);
+	if (actual === null) return;
+	throw new AssertionError({
+		message: message || "Expected team to be valid, but it was rejected because:\n" + actual.join("\n"),
+		stackStartFunction: assert.legalTeam,
+	});
+};
+
 assert.species = function (pokemon, species, message) {
 	const actual = pokemon.species.name;
 	if (actual === species) return;
@@ -179,6 +188,31 @@ assert.sets = function (getter, value, fn, message) {
 		message: message,
 		stackStartFunction: assert.sets,
 	});
+};
+
+
+// .throws() does not currently work with Promises.
+assert.throwsAsync = async function (fn, message) {
+	try {
+		await fn();
+	} catch (e) {
+		return; // threw
+	}
+	throw new AssertionError({
+		message: message || `Expected function to throw an error.`,
+		stackStartFunction: assert.throwsAsync,
+	});
+};
+
+assert.doesNotThrowAsync = async function (fn, message) {
+	try {
+		await fn();
+	} catch (e) {
+		throw new AssertionError({
+			message: message || `Expected function not to throw an error (threw ${e}).`,
+			stackStartFunction: assert.doesNotThrowAsync,
+		});
+	}
 };
 
 assert.strictEqual = () => {

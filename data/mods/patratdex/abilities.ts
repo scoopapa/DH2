@@ -27,7 +27,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				['carnivinepatratdex'].includes(target.species.id) && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Decoy');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -54,10 +54,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (['carnivinepatratdex'].includes(pokemon.species.id) && this.effectData.busted) {
+			if (['carnivinepatratdex'].includes(pokemon.species.id) && this.effectState.busted) {
 				const speciesid = pokemon.species.id === 'carnivinepatratdex' ? 'Carnivine-Patratdex-Revealed' : 'Carnivine-Patratdex-Revealed';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
 		isPermanent: true,
@@ -92,7 +92,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
  	hammerhead: {
 		onStart(pokemon) {
-			delete this.effectData.forme;
+			delete this.effectState.forme;
 			pokemon.transformed = false	
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -134,7 +134,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 	raingrow: {
 		onStart(pokemon) {
-			delete this.effectData.forme;
+			delete this.effectState.forme;
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Monsoonura' || pokemon.transformed) return;

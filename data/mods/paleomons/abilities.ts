@@ -133,11 +133,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 	absorption: {
 		onSwitchIn(pokemon) {
-			this.effectData.switchingIn = true;
+			this.effectState.switchingIn = true;
 			pokemon.addVolatile('absorption');
 		},
 		onStart(pokemon) {
-			if (!this.effectData.switchingIn || this.field.isTerrain('')) {
+			if (!this.effectState.switchingIn || this.field.isTerrain('')) {
 				return;
 			}
 			this.add('-message', `Absorption Activated!`);
@@ -205,14 +205,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			});
 		},
 		onFoeTrapPokemon(pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+			if (!pokemon.isAdjacent(this.effectState.target)) return;
 			if (pokemon.volatiles['fanglock']) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (pokemon.volatiles['fanglock']) {
 				pokemon.maybeTrapped = true;
 			}

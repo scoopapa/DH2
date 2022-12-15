@@ -6,8 +6,8 @@
 
 'use strict';
 const assert = require('assert').strict;
-const Responder = require('../../../.server-dist/chat-plugins/responder').AutoResponder;
-const room = Rooms.createChatRoom('Etheria');
+const Responder = require('../../../server/chat-plugins/responder').AutoResponder;
+const room = Rooms.createChatRoom('etheria');
 const Help = new Responder(room);
 
 describe('Autoresponder', function () {

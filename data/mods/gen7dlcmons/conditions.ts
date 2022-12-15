@@ -4,24 +4,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'twoturnmove',
 		duration: 2,
 		onStart(target, source, effect) {
-			this.effectData.move = effect.id;
+			this.effectState.move = effect.id;
 			target.addVolatile(effect.id, source);
 			this.attrLastMove('[still]');
 		},
 		onEnd(target) {
-			target.removeVolatile(this.effectData.move);
+			target.removeVolatile(this.effectState.move);
 		},
 		onLockMove(pokemon) {
 			if (pokemon.hasAbility('sifting')) return; // onLockMove traps the user
-			return this.effectData.move;
+			return this.effectState.move;
 		},
 		onDisableMove(pokemon) {
 			if (!pokemon.hasAbility('sifting')) return; // equivalent to onLockMove if the user should not be trapped
-			if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
+			if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== this.effectData.move) {
+				if (moveSlot.id !== this.effectState.move) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -36,9 +36,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 3,
 		onResidualOrder: 3,
 		onEnd(target) {
-			const data = this.effectData;
+			const data = this.effectState;
 			// time's up; time to hit! :D
-			const move = this.dex.getMove(data.move);
+			const move = this.dex.moves.get(data.move);
 			if (target.fainted || target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;

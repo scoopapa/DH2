@@ -1,6 +1,8 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	inherit: 'gen8',
+	gen: 8,
 	canMegaEvo(pokemon) {
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&
@@ -382,8 +384,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		return this.modifyDamage(baseDamage, pokemon, target, move, suppressMessages);
 	},
 		getAbility() {
-			const item = this.battle.dex.getItem(this.ability);
-			return item.exists ? item as Effect as Ability : this.battle.dex.getAbility(this.ability);
+			const item = this.battle.dex.items.get(this.ability);
+			return item.exists ? item as Effect as Ability : this.battle.dex.abilities.get(this.ability);
 		},
 		hasItem(item) {
 			if (this.ignoringItem()) return false;
@@ -456,7 +458,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return false;
 		},
 		setAbility(ability, source, isFromFormeChange) {
-			if (this.battle.dex.getItem(this.ability).exists) return false;
+			if (this.battle.dex.items.get(this.ability).exists) return false;
 			return Object.getPrototypeOf(this).setAbility.call(this, ability, source, isFromFormeChange);
 		},
 		takeDual(source) {

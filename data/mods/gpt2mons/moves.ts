@@ -404,30 +404,30 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return this.random(5, 7);
 		},
 		onStart(pokemon, source) {
-			this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
-			this.effectData.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
+			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+			this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
 		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
-			const source = this.effectData.source;
+			const source = this.effectState.source;
 			// G-Max Centiferno and G-Max Sandblast continue even after the user leaves the field
-			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
 			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
 				delete pokemon.volatiles['suctionseed'];
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]', '[silent]');
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]', '[silent]');
 				return;
 			}
-			this.damage(pokemon.baseMaxhp / this.effectData.boundDivisor);
+			this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor);
 			if (damage) {
 					this.heal(damage, target, pokemon);
 			}
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, this.effectData.sourceEffect, '[suctionseed]');
+			this.add('-end', pokemon, this.effectState.sourceEffect, '[suctionseed]');
 		},
 		onTrapPokemon(pokemon) {
-			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
-			if (this.effectData.source?.isActive || gmaxEffect) pokemon.tryTrap();
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+			if (this.effectState.source?.isActive || gmaxEffect) pokemon.tryTrap();
 		},
 		onTryImmunity(target) {
 			return !target.hasType('Grass');
@@ -785,7 +785,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const id in Abilities) {
 				const move = Abilities[id];
 				if (effect.noMetroability!.includes(ability.name)) continue;
-				if (this.dex.getAbility(id).gen > this.gen) continue;
+				if (this.dex.abilities.get(id).gen > this.gen) continue;
 				abilities.push(ability);
 			}
 			let randomAbility = '';
@@ -847,7 +847,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onRestart(pokemon) {
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 			},
 			onBasePowerPriority: 9,
 			onBasePower(basePower, attacker, defender, move) {
@@ -1290,7 +1290,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (move.realMove) continue;
 				if (move.isZ || move.isMax || move.isNonstandard) continue;
 				if (effect.noMetronome!.includes(move.name)) continue;
-				if (this.dex.getMove(id).gen > this.gen) continue;
+				if (this.dex.moves.get(id).gen > this.gen) continue;
 				moves.push(move);
 			}
 			let randomMove = '';
@@ -1332,7 +1332,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return 3;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectData.target) {
+				if (target !== source && target.side === this.effectState.target) {
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') || (target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
 					}

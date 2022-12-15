@@ -5,7 +5,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.item && pokemon.m.originalItem) {
 				if (pokemon.setItem(pokemon.m.originalItem)) {
 					this.add('-ability', pokemon, 'Hoard');
-					this.add('-item', pokemon, this.dex.getItem(pokemon.m.originalItem), '[from] Ability: Hoard');
+					this.add('-item', pokemon, this.dex.items.get(pokemon.m.originalItem), '[from] Ability: Hoard');
 				}
 			}
 		},
@@ -79,9 +79,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Fire' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
-			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
 				if (move.smartTarget) move.smartTarget = false;
-				return this.effectData.target;
+				return this.effectState.target;
 			}
 		},
 		name: "Lava Flow",
@@ -101,9 +101,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Ground' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
-			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
 				if (move.smartTarget) move.smartTarget = false;
-				return this.effectData.target;
+				return this.effectState.target;
 			}
 		},
 		name: "Centrifuge",
@@ -149,8 +149,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			if (!this.effectData.busted && pokemon.species.id === 'starlycrowncloud') { // this is just to make a dt that only shows up once per Starly
-				const species = this.dex.getSpecies(pokemon.species.name);
+			if (!this.effectState.busted && pokemon.species.id === 'starlycrowncloud') { // this is just to make a dt that only shows up once per Starly
+				const species = this.dex.species.get(pokemon.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];
@@ -160,7 +160,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else {
 					this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 				}
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 			}
 		},
 		onResidualOrder: 27,
@@ -178,8 +178,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			if (!this.effectData.busted && pokemon.species.id === 'starlycrowncloud') { // this is just to make a dt that only shows up once per Starly
-				const species = this.dex.getSpecies(pokemon.species.name);
+			if (!this.effectState.busted && pokemon.species.id === 'starlycrowncloud') { // this is just to make a dt that only shows up once per Starly
+				const species = this.dex.species.get(pokemon.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];
@@ -189,7 +189,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else {
 					this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 				}
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 			}
 		},
 		onFaint(pokemon) {
@@ -270,8 +270,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				attacker.formeChange('Condana-Coiled');
 				this.add('-message', `${attacker.name} changed to Coiled Forme!`);
 				this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
-				if (!this.effectData.busted) { // this is just to make a dt that only shows up once per Condana
-					const species = this.dex.getSpecies(attacker.species.name);
+				if (!this.effectState.busted) { // this is just to make a dt that only shows up once per Condana
+					const species = this.dex.species.get(attacker.species.name);
 					const abilities = species.abilities;
 					const baseStats = species.baseStats;
 					const type = species.types[0];
@@ -281,7 +281,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					} else {
 						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 					}
-					this.effectData.busted = true;
+					this.effectState.busted = true;
 				}
 			}
 		},
@@ -305,8 +305,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				} else if (targetForme === 'Klefki-Galar-Revealed') {
 					this.add('-message', `${pokemon.name} changed to Revealed Mode!`);
 				}
-				if (!this.effectData.busted && pokemon.species.baseSpecies !== 'Morpeko') { // this is just to make a dt that only shows up once per Klefki
-					const species = this.dex.getSpecies(pokemon.species.name); 
+				if (!this.effectState.busted && pokemon.species.baseSpecies !== 'Morpeko') { // this is just to make a dt that only shows up once per Klefki
+					const species = this.dex.species.get(pokemon.species.name); 
 					const abilities = species.abilities;
 					const baseStats = species.baseStats;
 					const type = species.types[0];
@@ -316,7 +316,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					} else {
 						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 					}
-					this.effectData.busted = true;
+					this.effectState.busted = true;
 				}
 			} else {
 				return;

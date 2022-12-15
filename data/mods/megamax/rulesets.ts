@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatsData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	dynamaxclause: {
 		effectType: 'Rule',
 		name: 'Dynamax Clause',

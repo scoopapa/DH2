@@ -1,6 +1,5 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	init: function () {	
-
+	init: function () {
 		for (const id in this.dataCache.Pokedex) {//check the dex for fusions
 			const fusionEntry = this.dataCache.Pokedex[id];
 			if (fusionEntry.fusion) {//if the pokedex entry has a fusion field, it's a fusion
@@ -25,16 +24,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 		
-		for (var id in this.data.Pokedex) {
-			if (this.data.Pokedex[id].breedingVariant) {
-				const name = this.data.Pokedex[id].baseSpecies;
-				const variant = this.data.Pokedex[id].breedingVariant;
+		for (var i in this.species.all()) {
+			const species = this.species.all()[i]
+			const id = species.id;
+			if (species.breedingVariant) {
+				const name = species.baseSpecies;
+				const variant = this.species.get(species.breedingVariant).id;
 				const learnset = this.data.Learnsets[this.toID(name)].learnset;
 				if (!this.data.Learnsets[id]) this.data.Learnsets[id] = { learnset: {}};
 				for (const moveid in learnset) {
 					this.modData('Learnsets', id).learnset[moveid] = ['8L1', '7L1', '6L1', '5L1', '4L1'];
 				}
-				const weight = (this.data.Pokedex[id].weightkg + this.data.Pokedex[this.toID(variant)].weightkg) / 2;
+				const weight = (species.weightkg + this.species.get(variant).weightkg) / 2;
 				this.modData('Pokedex', id).weightkg = weight;
 			}
 		}
@@ -206,7 +207,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	
 	canMegaEvo(pokemon) {
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&
@@ -235,7 +236,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 
 		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		} // only part that's changed
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 

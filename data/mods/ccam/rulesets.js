@@ -45,7 +45,7 @@ pokemon2: {
 			return problems;
 		},
 		onChangeSet: function (set, format) {
-			let item = this.getItem(set.item);
+			let item = this.items.get(set.item);
 			let template = this.getTemplate(set.species);
 			let problems = [];
 			let totalEV = 0;
@@ -62,14 +62,14 @@ pokemon2: {
 			// @ts-ignore
 			let ability = {};
 			if (set.ability) {
-				ability = this.getAbility(set.ability);
+				ability = this.abilities.get(set.ability);
 				if (ability.gen > this.gen) {
 					problems.push(ability.name + ' does not exist in gen ' + this.gen + '.');
 				}
 			}
 			if (set.moves) {
 				for (const moveid of set.moves) {
-					let move = this.getMove(moveid);
+					let move = this.moves.get(moveid);
 					if (move.gen > this.gen) {
 						problems.push(move.name + ' does not exist in gen ' + this.gen + '.');
 					} else if (!allowCAP && move.isNonstandard) {
@@ -166,7 +166,7 @@ pokemon2: {
 				/**@type {{[k: string]: true}} */
 				let hasMove = {};
 				for (const moveId of set.moves) {
-					let move = this.getMove(moveId);
+					let move = this.moves.get(moveId);
 					let moveid = move.id;
 					if (hasMove[moveid]) continue;
 					hasMove[moveid] = true;

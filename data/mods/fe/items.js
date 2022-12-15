@@ -28,7 +28,7 @@ exports.BattleItems = {
 		},
 		onAfterMoveSecondarySelf: function (source, target, move) {
 			if (source && source !== target && move && move.category !== 'Status' && !source.hasAbility('sheerflight')) {
-				this.damage(source.maxhp / 10, source, source, this.getItem('lifeorb'));
+				this.damage(source.maxhp / 10, source, source, this.items.get('lifeorb'));
 			}
 		},
 		num: 270,

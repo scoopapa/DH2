@@ -45,7 +45,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				if (this.randomChance(3, 10)) {
-					source.addVolatile('attract', this.effectData.target);
+					source.addVolatile('attract', this.effectState.target);
 				}
 			}
 		},
@@ -129,7 +129,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					let bp = move.basePower;
 					if (move.ohko) bp = 160;
 					if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
@@ -156,7 +156,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (target && this.isAdjacent(target, pokemon) &&
+				if (target && target.isAdjacent(pokemon) &&
 					!(target.volatiles['substitute'] ||
 						target.volatiles['substitutebroken'] && target.volatiles['substitutebroken'].move === 'uturn')) {
 					activated = true;
@@ -171,7 +171,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Intimidate', 'boost');
 
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);

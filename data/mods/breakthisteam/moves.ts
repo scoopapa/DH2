@@ -74,7 +74,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			let item = this.battle.lostItemQueue.pop();
 			//console.log("After Retrieval: " + this.battle.lostItemQueue);
 			
-			this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Retrieval');
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Retrieval');
 			pokemon.setItem(item);
 		},
 		secondary: null,

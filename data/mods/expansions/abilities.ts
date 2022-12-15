@@ -20,7 +20,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			while (possibleAbilities.length) {
 				let rand = 0;
 				if (possibleAbilities.length > 1) rand = this.random(possibleAbilities.length);
-				const ability = this.dex.getAbility(possibleAbilities[rand]);
+				const ability = this.dex.abilities.get(possibleAbilities[rand]);
 				if (ability.isPermanent || ability.copyLimited && !ability.copyLimited.includes('trace')) {
 					possibleAbilities.splice(rand, 1);
 					possibleTargets.splice(rand, 1);

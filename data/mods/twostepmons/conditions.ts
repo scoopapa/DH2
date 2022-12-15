@@ -5,14 +5,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 5,
 		onStart(target, source, sourceEffect) {
 			this.add('-start', target, 'moraleboost');
-			this.effectData.firstAtk = false;
+			this.effectState.firstAtk = false;
 		},
 		onEnd(target) {
 			this.add('-end', target, 'moraleboost');
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (!this.effectData.firstAtk) {
-				this.effectData.firstAtk = true;
+			if (!this.effectState.firstAtk) {
+				this.effectState.firstAtk = true;
 				return this.chainModify(1.3);
 			}
 		},

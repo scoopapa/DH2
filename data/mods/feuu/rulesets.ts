@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	teampreview: {
 		effectType: 'Rule',
 		name: 'Team Preview',

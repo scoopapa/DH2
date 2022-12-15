@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	standardnatdex: {
 		effectType: 'ValidatorRule',
 		name: 'Standard NatDex',
@@ -12,12 +12,12 @@ export const Formats: {[k: string]: FormatData} = {
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
 				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
-			const species = this.dex.getSpecies(set.species);
+			const species = this.dex.species.get(set.species);
 			if (species.restrictedLearnset || species.name === 'Vespiquen') {
 				const problems: string[] = [];
 				if (set.moves) {
 					for (const moveId of set.moves) {
-						const move = this.dex.getMove(moveId);
+						const move = this.dex.moves.get(moveId);
 						if (move.isNonstandard) problems.push(
 							move.name + ' is not available in Sword and Shield, which is necessary for ' + species.name + ' because its home mod requires it.'
 						);
@@ -38,7 +38,7 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 			// Items other than Z-Crystals and Pokémon-specific items should be illegal
 			if (!set.item) return;
-			const item = this.dex.getItem(set.item);
+			const item = this.dex.items.get(set.item);
 			if (!item.isNonstandard) return;
 			if (['Past', 'Unobtainable'].includes(item.isNonstandard) && !item.zMove && !item.itemUser && !item.forcedForme) {
 				if (this.ruleTable.has(`+item:${item.id}`)) return;
@@ -57,7 +57,7 @@ export const Formats: {[k: string]: FormatData} = {
 			const problems: string[] = [];
 			if (set.moves) {
 				for (const moveId of set.moves) {
-					const move = this.dex.getMove(moveId);
+					const move = this.dex.moves.get(moveId);
 					if (move.ohko) problems.push(move.name + ' is banned by OHKO Clause.');
 					if (set.species === 'Escavalier') continue;
 					if (move.name === 'Guillotine') problems.push(move.name + ' is banned by OHKO Clause.');

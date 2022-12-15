@@ -15,12 +15,12 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 			this.add('-start', pokemon, 'Dynamax');
 			if (pokemon.gigantamax) {
-				const gMaxSpecies = this.dex.getSpecies(pokemon.species.name + '-Gmax');
+				const gMaxSpecies = this.dex.species.get(pokemon.species.name + '-Gmax');
 				this.add('-formechange', pokemon, gMaxSpecies);
 				
 				//Type change
 				if (pokemon.species && (pokemon.species.num === 493 || pokemon.species.num === 773)) return;
-				let newBaseTypes = this.dex.getSpecies(pokemon.species.name + '-Gmax').types;
+				let newBaseTypes = this.dex.species.get(pokemon.species.name + '-Gmax').types;
 				pokemon.setType(newBaseTypes);
 				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[silent]');
 			}

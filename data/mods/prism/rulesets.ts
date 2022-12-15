@@ -1,9 +1,9 @@
-export const Formats: {[k: string]: ModdedFormatsData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	pokemon: {
 		inherit: true,
 		onValidateSet: function (set) {
-			let template = this.dex.getSpecies(set.species);
-			let item = this.dex.getItem(set.item);
+			let template = this.dex.species.get(set.species);
+			let item = this.dex.items.get(set.item);
 			if (item && item.id === 'griseousorb' && template.num !== 487) {
 				return ['Griseous Orb can only be held by Giratina in Generation 4.'];
 			}

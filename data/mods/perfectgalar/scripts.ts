@@ -309,7 +309,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		let result = {maxMoves: []};
 		for ( let moveSlot of pokemon.moveSlots ) {
 			if ( !moveSlot.disabled ){
-				let move = this.dex.getMove(moveSlot.id);
+				let move = this.dex.moves.get(moveSlot.id);
 				let maxMove = this.getMaxMove(move, pokemon);
 				if (maxMove) result.maxMoves.push({move: maxMove.id, target: maxMove.target});
 			}
@@ -318,13 +318,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		return result;
 	},
 	getMaxMove(move, pokemon) {
-		if (typeof move === 'string') move = this.dex.getMove(move);
+		if (typeof move === 'string') move = this.dex.moves.get(move);
 		if (move.name === 'Struggle') return move;
 		if (pokemon.gigantamax && pokemon.canGigantamax && move.category !== 'Status') {
-			const gMaxMove = this.dex.getMove(pokemon.canGigantamax);
+			const gMaxMove = this.dex.moves.get(pokemon.canGigantamax);
 			if (gMaxMove.exists && gMaxMove.type === move.type) return gMaxMove;
 		}
-		const maxMove = this.dex.getMove(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
+		const maxMove = this.dex.moves.get(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
 		if (maxMove.exists) return maxMove;
 	},
 

@@ -298,7 +298,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onAfterDamage(damage, target, source, effect) {
 			if (effect && target.useItem()) {
 				this.add('-item', target, 'Mimic Orb');
-				let move = this.getMove('mimic');
+				let move = this.moves.get('mimic');
 				if (source.moves.indexOf('mimic') >= 0){
 					this.useMove('Mimic', target);
 					target.moveSlots.push({
@@ -469,7 +469,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.getMove(moveSlot.move).category === 'Status') {
+				if (this.dex.moves.get(moveSlot.move).category === 'Status') {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}

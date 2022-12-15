@@ -33,7 +33,9 @@ const bminus = ["cresselia", "dragapult", "ferrothorn", "weezinggalar", "gastrod
 const c = ["aerodactyl", "marowakalola", "bronzong", "coalossal", "celesteela", "crobat", "articunogalar", "zapdosgalar", "gyarados", "heatran", "jellicent", "liepard", "dragalgemega", "hydreigonmega", "honchkrowmega", "leavannymega", "registeelmega", "swampertmega", "meowsticm", "ninetales", "regigigas", "sirfetchd", "slaking", "staraptor", "suicune", "terrakion", "tornadus", "weavile"];
 */
 
-export const Scripts: ModdedBattleScriptsData = {
+export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	inherit: 'gen8',
+	gen: 8,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['Tourbanned', 'Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
@@ -85,7 +87,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		};
 	},
 	canMegaEvo(pokemon) {
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&
@@ -148,7 +150,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return null;
 		}
 		if (item.name === "RKS Megamemory" && pokemon.species.name.startsWith('Silvally')) {
-			let newSpecies = this.dex.deepClone(this.dex.getSpecies('Silvally-Mega'));
+			let newSpecies = this.dex.deepClone(this.dex.species.get('Silvally-Mega'));
 			newSpecies.types[0] = pokemon.hpType || "Dark";
 			newSpecies.name = newSpecies.name + '-' + newSpecies.types[0];
 			return newSpecies;
@@ -180,7 +182,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		} // only part that's changed
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
@@ -363,7 +365,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		lostItemForDelibird: null,
 		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
 			if (!this.hp) return false;
-			if (typeof item === 'string') item = this.battle.dex.getItem(item);
+			if (typeof item === 'string') item = this.battle.dex.items.get(item);
 
 			const effectid = this.battle.effect ? this.battle.effect.id : '';
 			const RESTORATIVE_BERRIES = new Set([
@@ -385,16 +387,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		setAbility(ability: string | Ability, source?: Pokemon | null, isFromFormeChange?: boolean) { // edited so Megas can have Neutralizing Gas and similar
 			if (!this.hp) return false;
-			if (typeof ability === 'string') ability = this.battle.dex.getAbility(ability);
+			if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
 			const oldAbility = this.ability;
 			if (!isFromFormeChange) {
 				if (ability.isPermanent || this.getAbility().isPermanent) return false;
 			}
 			if (!this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability)) return false;
-			this.battle.singleEvent('End', this.battle.dex.getAbility(oldAbility), this.abilityData, this, source);
+			this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityData, this, source);
 			if (this.battle.effect && this.battle.effect.effectType === 'Move') {
-				this.battle.add('-endability', this, this.battle.dex.getAbility(oldAbility), '[from] move: ' +
-									 this.battle.dex.getMove(this.battle.effect.id));
+				this.battle.add('-endability', this, this.battle.dex.abilities.get(oldAbility), '[from] move: ' +
+									 this.battle.dex.moves.get(this.battle.effect.id));
 			}
 			this.ability = ability.id;
 			this.abilityData = {id: ability.id, target: this};

@@ -5,7 +5,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		id: 'blade',
 		num: 0,
 		onStart(pokemon){ this.add('-start', pokemon, 'Blade');},
-		onDisableMove( pokemon ){ pokemon.disableMove(pokemon.pokeSkill, false, this.effectData.sourceEffect); },
+		onDisableMove( pokemon ){ pokemon.disableMove(pokemon.pokeSkill, false, this.effectState.sourceEffect); },
 		onBasePowerPriority: 8,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['blade']) {
@@ -24,7 +24,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		id: 'destruction',
 		num: 0,
 		onStart(pokemon){ this.add('-start', pokemon, 'Destruction');},
-		onDisableMove( pokemon ){ pokemon.disableMove(pokemon.pokeSkill, false, this.effectData.sourceEffect); },
+		onDisableMove( pokemon ){ pokemon.disableMove(pokemon.pokeSkill, false, this.effectState.sourceEffect); },
 		onSourceHit(target, source, move) {
 			console.log( 'destruction' );
 			if ( move.type === "Fire" ) source.side.foe.addSideCondition('firestorm');

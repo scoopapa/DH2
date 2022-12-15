@@ -76,23 +76,23 @@ export const Scripts: BattleScriptsData = {
 
 	
 	getMaxMove(move, pokemon) {
-		if (typeof move === 'string') move = this.dex.getMove(move);
+		if (typeof move === 'string') move = this.dex.moves.get(move);
 		if (move.name === 'Struggle') return move;
 		if (pokemon.gigantamax && pokemon.canGigantamax && move.category !== 'Status') {
-			const gMaxSpecies = this.dex.getSpecies(pokemon.species.name + '-Gmax');
+			const gMaxSpecies = this.dex.species.get(pokemon.species.name + '-Gmax');
 			if (gMaxSpecies.gMaxMoves) {
 				for (const thisMove in gMaxSpecies.gMaxMoves) {
-					const gMaxMove = this.dex.getMove(gMaxSpecies.gMaxMoves[thisMove]);
+					const gMaxMove = this.dex.moves.get(gMaxSpecies.gMaxMoves[thisMove]);
 					if (gMaxMove.exists && gMaxMove.type === move.type) return gMaxMove;
 				}
 			}
 			else {
-				const gMaxMove = this.dex.getMove(gMaxSpecies.isGigantamax);
+				const gMaxMove = this.dex.moves.get(gMaxSpecies.isGigantamax);
 				if (gMaxMove.exists && gMaxMove.type === move.type) return gMaxMove;
 			}
 			
 		}
-		const maxMove = this.dex.getMove(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
+		const maxMove = this.dex.moves.get(this.maxMoveTable[move.category === 'Status' ? move.category : move.type]);
 		if (maxMove.exists) return maxMove;
 	},
 
@@ -103,7 +103,7 @@ export const Scripts: BattleScriptsData = {
 		if (move.category !== 'Status') {
 			
 			if (pokemon.gigantamax && pokemon.canGigantamax) {
-				const gMaxSpecies = this.dex.getSpecies(pokemon.species.name + '-Gmax');
+				const gMaxSpecies = this.dex.species.get(pokemon.species.name + '-Gmax');
 				if (gMaxSpecies.gMaxMoves) {
 					for (const thisMove in gMaxSpecies.gMaxMoves) {
 						const gMaxMove = this.dex.getActiveMove(gMaxSpecies.gMaxMoves[thisMove]);

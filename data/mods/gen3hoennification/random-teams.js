@@ -115,7 +115,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [i, setMoveid] of moves.entries()) {
-				let move = this.dex.getMove(setMoveid);
+				let move = this.dex.moves.get(setMoveid);
 				let moveid = move.id;
 				let rejected = false;
 				let isSetup = false;
@@ -365,7 +365,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 				if (reqMove) {
 					// reject a move
 					for (let [i, move] of moves.entries()) {
-						if (move === 'weatherball' || this.dex.getMove(move).type in hasType) continue;
+						if (move === 'weatherball' || this.dex.moves.get(move).type in hasType) continue;
 						moves[i] = reqMove;
 						let reqMoveIndex = movePool.indexOf(reqMove);
 						if (reqMoveIndex !== -1) this.fastPop(movePool, reqMoveIndex);
@@ -437,10 +437,10 @@ class RandomGen3Teams extends RandomGen4Teams {
 			ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
 		}
 
-		let abilities = Object.values(baseTemplate.abilities).filter(a => this.dex.getAbility(a).gen === 3);
-		abilities.sort((a, b) => this.dex.getAbility(b).rating - this.dex.getAbility(a).rating);
-		let ability0 = this.dex.getAbility(abilities[0]);
-		let ability1 = this.dex.getAbility(abilities[1]);
+		let abilities = Object.values(baseTemplate.abilities).filter(a => this.dex.abilities.get(a).gen === 3);
+		abilities.sort((a, b) => this.dex.abilities.get(b).rating - this.dex.abilities.get(a).rating);
+		let ability0 = this.dex.abilities.get(abilities[0]);
+		let ability1 = this.dex.abilities.get(abilities[1]);
 		if (abilities[1]) {
 			if (ability0.rating <= ability1.rating && this.randomChance(1, 2)) {
 				[ability0, ability1] = [ability1, ability0];

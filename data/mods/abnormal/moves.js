@@ -795,7 +795,7 @@ exports.BattleMovedex = {
       },
       onTypePriority: -1,
       onType(types, pokemon) {
-        this.effectData.typeWas = types;
+        this.effectState.typeWas = types;
         return types.filter(type => type !== 'Flying').map(type => type === "Normal" ? "Ground" : type);
       },
     },

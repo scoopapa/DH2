@@ -1,11 +1,14 @@
 /**
  * Battle search - handles searching battle logs.
  */
-import {FS} from '../../lib/fs';
-import {Utils} from '../../lib/utils';
-import {QueryProcessManager, exec} from '../../lib/process-manager';
-import {Repl} from '../../lib/repl';
-import {checkRipgrepAvailability} from '../config-loader';
+import {FS, Utils, ProcessManager, Repl} from '../../lib';
+
+import {checkRipgrepAvailability, Config} from '../config-loader';
+
+import * as path from 'path';
+import * as child_process from 'child_process';
+
+const BATTLESEARCH_PROCESS_TIMEOUT = 3 * 60 * 60 * 1000; // 3 hours
 
 interface BattleOutcome {
 	lost: string;
@@ -31,7 +34,7 @@ export async function runBattleSearch(userids: ID[], month: string, tierid: ID, 
 	let files = [];
 	try {
 		files = await FS(pathString).readdir();
-	} catch (err) {
+	} catch (err: any) {
 		if (err.code === 'ENOENT') {
 			return results;
 		}
@@ -43,11 +46,11 @@ export async function runBattleSearch(userids: ID[], month: string, tierid: ID, 
 	if (useRipgrep) {
 		// Matches non-word (including _ which counts as a word) characters between letters/numbers
 		// in a user's name so the userid can case-insensitively be matched to the name.
-		const regexString = userids.map(id => `(.*("p(1|2)":"${[...id].join('[^a-zA-Z0-9]*')}[^a-zA-Z0-9]*"))`).join('');
+		const regexString = userids.map(id => `(?=.*?("p(1|2)":"${[...id].join('[^a-zA-Z0-9]*')}[^a-zA-Z0-9]*"))`).join('');
 		let output;
 		try {
-			output = await exec(['rg', '-i', regexString, '--no-line-number', '-tjson', ...files]);
-		} catch (error) {
+			output = await ProcessManager.exec(['rg', '-i', regexString, '--no-line-number', '-P', '-tjson', ...files]);
+		} catch {
 			return results;
 		}
 		for (const line of output.stdout.split('\n').reverse()) {
@@ -230,7 +233,75 @@ function buildResults(
 	return buf;
 }
 
-async function getBattleSearch(
+async function rustBattleSearch(
+	context: Chat.PageContext, targetUser: string, daysString: string, format: ID
+) {
+	const days = parseInt(daysString);
+	if (days < 1 || days > 15) {
+		throw new Chat.ErrorMessage(`Days must be between 1 and 15. To search longer ranges, use psbattletools manually on sim3.`);
+	}
+	if (!targetUser) {
+		throw new Chat.ErrorMessage(`No user specified.`);
+	}
+	const {connection, user} = context;
+	const currentDayOfMonth = (new Date()).getDate();
+	if (days < 1 || days > 15) {
+		return context.errorReply(`Days must be between 1 and 15. To search longer ranges, use psbattletools manually on sim3.`);
+	}
+
+	try {
+		await ProcessManager.exec(`psbattletools --version`, {
+			env: {PATH: `${process.env.PATH}:${process.env.HOME}/.cargo/bin`},
+		});
+	} catch (e) {
+		return context.errorReply(
+			`You must install <a href="https://crates.io/crates/psbattletools">psbattletools</a> to use the alternate battlesearch.`
+		);
+	}
+	if (user.lastCommand !== '/battlesearch' && [30, 31, 1].includes(currentDayOfMonth)) {
+		const buf = [`Warning: Usage stats may be running currently.`];
+		buf.push(`Battlesearch can interfere with usage stats processing due to high computational load.`);
+		buf.push(`Please exercise caution.`);
+		buf.push(`Type the command again to confirm.`);
+		user.lastCommand = '/battlesearch';
+		throw new Chat.ErrorMessage(buf.join('<br />'));
+	}
+	user.lastCommand = '';
+
+	const directories = [];
+	for (let daysAgo = 0; daysAgo < days; daysAgo++) {
+		const date = new Date(Date.now() - 24 * 60 * 60 * 1000 * daysAgo);
+		const year = date.getFullYear();
+		const month = (date.getMonth() + 1).toString().padStart(2, '0');
+		const day = date.getDate().toString().padStart(2, '0');
+
+		directories.push(path.join(__dirname, '..', '..', 'logs', `${year}-${month}`, format, `${year}-${month}-${day}`));
+	}
+
+	// TODO: implement flag?
+	let buf = `>view-battlesearch-${toID(targetUser)}\n|init|html\n|title|[Battlesearch] ${targetUser} in ${format}\n`;
+	buf += `|pagehtml|<div class="pad"><h2>Battlesearch for ${targetUser} in ${format} in the last ${days} days</h2>`;
+	buf += `<div style="white-space:pre-wrap;display:block;"></div>`;
+	buf += `<p>Searching...</p>`;
+	buf += `</div>`;
+	connection.send(buf);
+
+	const search = child_process.spawn(
+		'psbattletools',
+		['--threads', '3', 'search', targetUser, ...directories],
+		{env: {PATH: `${process.env.PATH}:${process.env.HOME}/.cargo/bin`}}
+	);
+	search.stdout.on('data', data => {
+		buf = buf.replace('</div>', `${Chat.formatText(data.toString()).replace(/\n/g, '<br />')}</div>`);
+		connection.send(buf);
+	});
+	search.on('close', () => {
+		buf = buf.replace('Searching...', 'Done!');
+		connection.send(buf);
+	});
+}
+
+async function fsBattleSearch(
 	connection: Connection, userids: string[], month: string,
 	tierid: ID, turnLimit?: number
 ) {
@@ -242,10 +313,16 @@ async function getBattleSearch(
 	connection.send(buildResults(response, userids as ID[], month, tierid, turnLimit));
 }
 
-export const pages: PageTable = {
+export const pages: Chat.PageTable = {
 	async battlesearch(args, user, connection) {
 		if (!user.named) return Rooms.RETRY_AFTER_LOGIN;
 		this.checkCan('forcewin');
+		if (Config.nobattlesearch === true) {
+			return this.errorReply(`Battlesearch has been temporarily disabled due to load issues.`);
+		}
+		if (Config.nobattlesearch === 'psbattletools') {
+			return rustBattleSearch(this, args[0], args[1], toID(args[2]));
+		}
 		const [ids, rawLimit, month, formatid, confirmation] = Utils.splitFirst(this.pageid.slice(18), '--', 5);
 		let turnLimit: number | undefined = parseInt(rawLimit);
 		if (isNaN(turnLimit)) turnLimit = undefined;
@@ -260,12 +337,10 @@ export const pages: PageTable = {
 		}
 		buf += `</p>`;
 
-		const months = (await FS('logs/').readdir()).filter(f => f.length === 7 && f.includes('-')).sort((aKey, bKey) => {
-			const a = aKey.split('-').map(n => parseInt(n));
-			const b = bKey.split('-').map(n => parseInt(n));
-			if (a[0] !== b[0]) return b[0] - a[0];
-			return b[1] - a[1];
-		});
+		const months = Utils.sortBy(
+			(await FS('logs/').readdir()).filter(f => f.length === 7 && f.includes('-')),
+			name => ({reverse: name})
+		);
 		if (!month) {
 			buf += `<p>Please select a month:</p><ul style="list-style: none; display: block; padding: 0">`;
 			for (const i of months) {
@@ -280,22 +355,14 @@ export const pages: PageTable = {
 		}
 
 		const tierid = toID(formatid);
-		const tiers = (await FS(`logs/${month}/`).readdir()).sort((a, b) => {
+		const tiers = Utils.sortBy(await FS(`logs/${month}/`).readdir(), tier => [
 			// First sort by gen with the latest being first
-			let aGen = 6;
-			let bGen = 6;
-			if (a.startsWith('gen')) aGen = parseInt(a.substring(3, 4));
-			if (b.startsWith('gen')) bGen = parseInt(b.substring(3, 4));
-			if (aGen !== bGen) return bGen - aGen;
-			// Sort alphabetically
-			const aTier = a.substring(4);
-			const bTier = b.substring(4);
-			if (aTier < bTier) return -1;
-			if (aTier > bTier) return 1;
-			return 0;
-		}).map(tier => {
+			tier.startsWith('gen') ? -parseInt(tier.charAt(3)) : -6,
+			// Then sort alphabetically
+			tier,
+		]).map(tier => {
 			// Use the official tier name
-			const format = Dex.getFormat(tier);
+			const format = Dex.formats.get(tier);
 			if (format?.exists) tier = format.name;
 			// Otherwise format as best as possible
 			if (tier.startsWith('gen')) {
@@ -329,7 +396,7 @@ export const pages: PageTable = {
 		}
 
 		// Run search
-		void getBattleSearch(connection, userids, month, tierid, turnLimit);
+		void fsBattleSearch(connection, userids, month, tierid, turnLimit);
 		return (
 			`<div class="pad ladder"><h2>Battle Search</h2><p>` +
 			`Searching for ${tierid} battles on ${month} where the ` +
@@ -340,7 +407,7 @@ export const pages: PageTable = {
 	},
 };
 
-export const commands: ChatCommands = {
+export const commands: Chat.ChatCommands = {
 	battlesearch(target, room, user, connection) {
 		if (!target.trim()) return this.parse('/help battlesearch');
 		this.checkCan('forcewin');
@@ -349,16 +416,33 @@ export const commands: ChatCommands = {
 		let turnLimit;
 		const ids = [];
 		for (const part of parts) {
-			const parsed = parseInt(part);
-			if (!isNaN(parsed)) turnLimit = parsed;
-			else ids.push(part);
+			if (part.startsWith('limit=')) {
+				const n = parseInt(part.slice('limit='.length).trim());
+				if (isNaN(n)) {
+					return this.errorReply(`Invalid limit: ${part.slice('limit='.length)}`);
+				}
+				turnLimit = n;
+				continue;
+			}
+			ids.push(part);
 		}
 		// Selection on month, tier, and date will be handled in the HTML room
 		return this.parse(`/join view-battlesearch-${ids.map(toID).join('-')}--${turnLimit || ""}`);
 	},
-	battlesearchhelp: [
-		'/battlesearch [args] - Searches rated battle history for the provided [args] and returns information on battles between the userids given.',
-		`If a number is provided in the [args], it is assumed to be a turn limit, else they're assuemd to be userids. Requires &`,
+	battlesearchhelp() {
+		if (Config.nobattlesearch === 'psbattletools') {
+			// use the psbattletools battlesearch command instead
+			return this.parse('/help rustbattlesearch');
+		}
+
+		this.runBroadcast();
+		return this.sendReply(
+			'/battlesearch [args] - Searches rated battle history for the provided [args] and returns information on battles between the userids given.\n' +
+			`If a number is provided in the [args], it is assumed to be a turn limit, else they're assumed to be userids. Requires &`
+		);
+	},
+	rustbattlesearchhelp: [
+		`/battlesearch <user>, <format>, <days> - Searches for battles played by <user> in the past <days> days. Requires: &`,
 	],
 };
 
@@ -366,10 +450,16 @@ export const commands: ChatCommands = {
  * Process manager
  *********************************************************/
 
-export const PM = new QueryProcessManager<AnyObject, AnyObject>(module, async data => {
+export const PM = new ProcessManager.QueryProcessManager<AnyObject, AnyObject>(module, async data => {
 	const {userids, turnLimit, month, tierid} = data;
+	const start = Date.now();
 	try {
-		return await runBattleSearch(userids, month, tierid, turnLimit);
+		const result = await runBattleSearch(userids, month, tierid, turnLimit);
+		const elapsedTime = Date.now() - start;
+		if (elapsedTime > 10 * 60 * 1000) {
+			Monitor.slow(`[Slow battlesearch query] ${elapsedTime}ms: ${JSON.stringify(data)}`);
+		}
+		return result;
 	} catch (err) {
 		Monitor.crashlog(err, 'A battle search query', {
 			userids,
@@ -379,6 +469,10 @@ export const PM = new QueryProcessManager<AnyObject, AnyObject>(module, async da
 		});
 	}
 	return null;
+}, BATTLESEARCH_PROCESS_TIMEOUT, message => {
+	if (message.startsWith('SLOW\n')) {
+		Monitor.slow(message.slice(5));
+	}
 });
 
 if (!PM.isParentProcess) {
@@ -388,6 +482,9 @@ if (!PM.isParentProcess) {
 		crashlog(error: Error, source = 'A battle search process', details: AnyObject | null = null) {
 			const repr = JSON.stringify([error.name, error.message, source, details]);
 			process.send!(`THROW\n@!!@${repr}\n${error.stack}`);
+		},
+		slow(text: string) {
+			process.send!(`CALLBACK\nSLOW\n${text}`);
 		},
 	};
 	process.on('uncaughtException', err => {

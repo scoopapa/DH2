@@ -3,6 +3,7 @@
  */
 
 export const Scripts: ModdedBattleScriptsData = {
+
 	inherit: 'gen3',
 	gen: 2,
 	// BattlePokemon scripts.
@@ -254,7 +255,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let nullDamage = true;
 			let moveDamage: number | undefined | false;
 
-			const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+			const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
 			let i: number;
 			for (i = 0; i < hits && target.hp && pokemon.hp; i++) {
 				if (pokemon.status === 'slp' && !isSleepUsable) break;

@@ -50,7 +50,7 @@ exports.BattleAbilities = {
 		},
 		onBasePowerPriority: 7,
 		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectData.target !== defender) return;
+			if (this.effectState.target !== defender) return;
 			if (move.type === 'Fire') {
 				return this.chainModify(1.25);
 			}
@@ -109,7 +109,7 @@ exports.BattleAbilities = {
 		desc: "If this Pokemon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5.",
 		shortDesc: "If user is Cherrim and Sunny Day is active, it and allies' Attack and Sp. Def are 1.5x.",
 		onStart(pokemon) {
-			delete this.effectData.forme;
+			delete this.effectState.forme;
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isActive || pokemon.baseTemplate.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
@@ -127,7 +127,7 @@ exports.BattleAbilities = {
 		},
 		onModifyAtkPriority: 3,
 		onAllyModifyAtk(atk, pokemon) {
-			if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherrim') return;
+			if (this.effectState.target.baseTemplate.baseSpecies !== 'Cherrim') return;
 			if (this.field.isWeather(['sunnyday', 'desolateland', 'solarsnow'])) {
 				if (!!pokemon.volatiles['atmosphericperversion'] === !!pokemon.volatiles['weatherbreak']){
 					return this.chainModify(1.5);
@@ -138,7 +138,7 @@ exports.BattleAbilities = {
 		},
 		onModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
-			if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherrim') return;
+			if (this.effectState.target.baseTemplate.baseSpecies !== 'Cherrim') return;
 			if (this.field.isWeather(['sunnyday', 'desolateland', 'solarsnow'])) {
 				if (!!pokemon.volatiles['atmosphericperversion'] === !!pokemon.volatiles['weatherbreak']){
 					return this.chainModify(1.5);
@@ -284,7 +284,7 @@ exports.BattleAbilities = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if ((this.field.isWeather(['sunnyday', 'desolateland', 'solarsnow']) || this.randomChance(1, 2)) === (!!pokemon.volatiles['atmosphericperversion'] === !!pokemon.volatiles['weatherbreak'])) {
-				if (pokemon.hp && !pokemon.item && this.getItem(pokemon.lastItem).isBerry) {
+				if (pokemon.hp && !pokemon.item && this.items.get(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
 					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Harvest');
@@ -406,7 +406,7 @@ exports.BattleAbilities = {
 		onBasePowerPriority: 8,
 		onAllyBasePower(basePower, attacker, defender, move) {
 			if ((defender.hasAbility('moldedstall') && defender.willMove()) || (!move.ignoreAbility && defender.hasAbility(['unstablevoltage', 'teraarmor', 'turbocurse', 'unamazed', 'sturdymold']))) return;
-			if (attacker !== this.effectData.target && move.category === 'Special') {
+			if (attacker !== this.effectState.target && move.category === 'Special') {
 				this.debug('Battery boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -434,7 +434,7 @@ exports.BattleAbilities = {
 		},
 		onAfterDamage(damage, target, source, effect) {
 			if (target.illusion && effect && effect.effectType === 'Move' && effect.id !== 'confused') {
-				this.singleEvent('End', this.getAbility('Illusion'), target.abilityData, target, source, effect);
+				this.singleEvent('End', this.abilities.get('Illusion'), target.abilityData, target, source, effect);
 			}
 		},
 		onEnd(pokemon) {
@@ -444,7 +444,7 @@ exports.BattleAbilities = {
 				let details = pokemon.template.species + (pokemon.level === 100 ? '' : ', L' + pokemon.level) + (pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details);
 				this.add('-end', pokemon, 'Illusion');
-				let ability = this.getAbility(pokemon.ability);
+				let ability = this.abilities.get(pokemon.ability);
             this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[silent]');
 				this.add('raw', ability, ability.shortDesc);
 			}
@@ -530,7 +530,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Intimidating Scales', 'boost');
 					activated = true;
@@ -673,15 +673,15 @@ exports.BattleAbilities = {
 	"moldedstall": {
         shortDesc: "No abilities have an effect, other than this one, until after this Pokemon acts.",
 			onAnyBeforeMove(attacker, defender, move) {
-			if (this.effectData.target.willMove() && attacker !== this.effectData.target) {
+			if (this.effectState.target.willMove() && attacker !== this.effectState.target) {
 					let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'resurrection', 'magicalwand', 'sleepingsystem', 'cursedcloak', 'appropriation', 'disguiseburden', 'hideandseek', 'beastcostume', 'spiralpower', 'optimize', 'prototype', 'typeillusionist', 'godoffertility', 'foundation', 'sandyconstruct', 'victorysystem', 'techequip', 'technicalsystem', 'triagesystem', 'geneticalgorithm', 'effectsetter', 'tacticalcomputer', 'mitosis', 'barbstance', 'errormacro', 'combinationdrive', 'stanceshield', 'unfriend', 'desertmirage', 'sociallife', 'cosmology', 'crystallizedshield', 'compression', 'whatdoesthisdo', 'underpressure', 'poisontouch', 'magician'];
-					if (!bannedAbilities.includes(attacker.getAbility()) && !attacker.getAbility().isUnbreakable && (!move.ignoreAbility || defender !== this.effectData.target)){
+					if (!bannedAbilities.includes(attacker.getAbility()) && !attacker.getAbility().isUnbreakable && (!move.ignoreAbility || defender !== this.effectState.target)){
 	         		attacker.addVolatile('teraarmor');
 					}
 			}
      	},
 		onAnyModifyMove(move, attacker) {
-			if (attacker === this.effectData.target || this.effectData.target.willMove()) move.ignoreAbility = true;
+			if (attacker === this.effectState.target || this.effectState.target.willMove()) move.ignoreAbility = true;
 		},	
         id: "moldedstall",
         name: "Molded Stall",
@@ -714,11 +714,11 @@ exports.BattleAbilities = {
 	"armorcast": {
 		shortDesc: "When an item is used or lost, Attack and Speed are raised by two stages, while Defense and Special Defense are lowered by one.",
 		onAfterUseItem(item, pokemon) {
-			if (pokemon !== this.effectData.target) return;
+			if (pokemon !== this.effectState.target) return;
 			pokemon.addVolatile('armorcast');
 		},
 		onTakeItem(item, pokemon) {
-			if (pokemon !== this.effectData.target) return;
+			if (pokemon !== this.effectState.target) return;
 			pokemon.addVolatile('armorcast');
 		},
 		onEnd(pokemon) {
@@ -783,7 +783,7 @@ exports.BattleAbilities = {
 // 			var foeactive = pokemon.side.foe.active;
 // 			var activated = false;
 // 			for (var i = 0; i < foeactive.length; i++) {
-// 				if (!foeactive[i] || !this.isAdjacent(foeactive[i], pokemon)) continue;
+// 				if (!foeactive[i] || !pokemon.isAdjacent(foeactive[i])) continue;
 // 				if (!activated) {
 // 					this.add('-ability', pokemon, 'Intimidate');
 // 					activated = true;
@@ -946,7 +946,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Veil of Intimidation', 'boost');
 					activated = true;
@@ -1027,7 +1027,7 @@ exports.BattleAbilities = {
 			if (source && source !== target && move && move.flags['contact'] && source.ability !== 'mummy') {
 				let oldAbility = source.setAbility('mummy', target);
 				if (oldAbility) {
-					this.add('-activate', target, 'ability: Mummy Fortitude', this.getAbility(oldAbility).name, '[of] ' + source);
+					this.add('-activate', target, 'ability: Mummy Fortitude', this.abilities.get(oldAbility).name, '[of] ' + source);
 				}
 			}
 		},
@@ -1123,7 +1123,7 @@ exports.BattleAbilities = {
 			pokemon.addVolatile('flashfire');
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Dreaded Flames', 'boost');
 					activated = true;
@@ -1206,7 +1206,7 @@ exports.BattleAbilities = {
 		onResidual(pokemon) {
 			if (pokemon.activeTurns) {
 				for (const target of pokemon.side.foe.active) {
-					if (!target || !this.isAdjacent(target, pokemon)) continue;
+					if (!target || !target.isAdjacent(pokemon)) continue;
 					if (!target.volatiles['substitute']) {
 						this.boost({atk: -1}, target, pokemon);
 					}
@@ -1222,7 +1222,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Intimidating Absorption', 'boost');
 					activated = true;
@@ -1252,7 +1252,7 @@ exports.BattleAbilities = {
 				boosts: {
 					atk: -1,
 				},
-				ability: this.getAbility('intimidatingabsorption'),
+				ability: this.abilities.get('intimidatingabsorption'),
 			});
 		},
 		id: "intimidatingabsorption",
@@ -1347,7 +1347,7 @@ exports.BattleAbilities = {
 	"naturalguard": {
 		shortDesc: "Natural Cure + No Guard.",
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
 				return true;
 			}
 			return accuracy;
@@ -1510,7 +1510,7 @@ exports.BattleAbilities = {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 				let target = possibleTargets[rand];
-				let ability = this.getAbility(target.ability);
+				let ability = this.abilities.get(target.ability);
 				let bannedAbilities = {
 					adaptableillusion: 1,
 					aeroform: 1,
@@ -1602,7 +1602,7 @@ exports.BattleAbilities = {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 				let target = possibleTargets[rand];
-				let ability = this.getAbility(target.ability);
+				let ability = this.abilities.get(target.ability);
 				let bannedAbilities = {
 					adaptableillusion: 1,
 					aeroform: 1,
@@ -1910,7 +1910,7 @@ exports.BattleAbilities = {
 			if (showMsg && !effect.secondaries) this.add("-fail", target, "unboost", "[from] ability: Breaker", "[of] " + target);
 		},
 		onAnyModifyBoost(boosts, target) {
-			var source = this.effectData.target;
+			var source = this.effectState.target;
 			if (source === target) return;
 			if (source === this.activePokemon && target === this.activeTarget) {
 				boosts['def'] = 0;
@@ -2160,7 +2160,7 @@ exports.BattleAbilities = {
 		onSourceModifyAccuracy(accuracy) {
 			if (this.field.isWeather(['sandstorm', 'cactuspower', 'yeti'])) {
 				if (typeof accuracy !== 'number') return;
-				if (!!this.effectData.target.volatiles['atmosphericperversion'] === !!this.effectData.target.volatiles['weatherbreak']){
+				if (!!this.effectState.target.volatiles['atmosphericperversion'] === !!this.effectState.target.volatiles['weatherbreak']){
 					this.debug('Sandy Eyes - enhancing accuracy');
 					return accuracy * 1.333;
 				} else {
@@ -2266,7 +2266,7 @@ exports.BattleAbilities = {
 			},
 			onBeforeMovePriority: 10,
 			onAnyBeforeMove(attacker, defender, move) {
-				this.effectData.target.removeVolatile('magicbreak');
+				this.effectState.target.removeVolatile('magicbreak');
 			},
 			onResidual(pokemon) {
 				pokemon.removeVolatile('magicbreak');
@@ -2317,11 +2317,11 @@ exports.BattleAbilities = {
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Fire' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
-			if (this.validTarget(this.effectData.target, source, move.target)) {
-				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Thunderous Embers');
+			if (this.validTarget(this.effectState.target, source, move.target)) {
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Thunderous Embers');
 				}
-				return this.effectData.target;
+				return this.effectState.target;
 			}
 		},
 		id: "thunderousembers",
@@ -2375,7 +2375,7 @@ exports.BattleAbilities = {
 			let foeactive = pokemon.side.foe.active;
 			let activated = false;
 			for (let i = 0; i < foeactive.length; i++) {
-				if (!foeactive[i] || !this.isAdjacent(foeactive[i], pokemon)) continue;
+				if (!foeactive[i] || !pokemon.isAdjacent(foeactive[i])) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Sea Monster', 'boost');
 					activated = true;
@@ -2691,7 +2691,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Negative Body', 'boost');
 					activated = true;
@@ -2769,7 +2769,7 @@ exports.BattleAbilities = {
 		'boosttrace': {
 		shortDesc: "Copies opponent's stat boosts (not drops) on switch in.",
 		onStart(pokemon) {
-			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
                                 let buffed = false;
@@ -3006,7 +3006,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
 				return true;
 			}
 			return accuracy;
@@ -3018,12 +3018,12 @@ exports.BattleAbilities = {
 		shortDesc: "On switch-in, or when it can, this Pokemon copies a random adjacent foe's Ability.",
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted) return;
-			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 				let target = possibleTargets[rand];
-				let ability = this.getAbility(target.ability);
+				let ability = this.abilities.get(target.ability);
 				let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'zenmode'];
 				if (bannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -3057,13 +3057,13 @@ exports.BattleAbilities = {
 	"pixielure": {
 		shortDesc: "Prevents Fairy-types from switching out.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Fairy') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Fairy') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Fairy')) && this.isAdjacent(pokemon, source)) {
+			if (!source) source = this.effectState.target;
+			if ((!pokemon.knownType || pokemon.hasType('Fairy')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -3353,7 +3353,7 @@ exports.BattleAbilities = {
 			let foeactive = pokemon.side.foe.active;
 			let activated = false;
 			for (let i = 0; i < foeactive.length; i++) {
-				if (!foeactive[i] || !this.isAdjacent(foeactive[i], pokemon)) continue;
+				if (!foeactive[i] || !pokemon.isAdjacent(foeactive[i])) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Pecking Order', 'boost');
 					activated = true;
@@ -3462,7 +3462,7 @@ exports.BattleAbilities = {
 			let foeactive = pokemon.side.foe.active;
 			let activated = false;
 			for (let i = 0; i < foeactive.length; i++) {
-				if (!foeactive[i] || !this.isAdjacent(foeactive[i], pokemon)) continue;
+				if (!foeactive[i] || !pokemon.isAdjacent(foeactive[i])) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Soften Up', 'boost');
 					activated = true;
@@ -3500,7 +3500,7 @@ exports.BattleAbilities = {
 			return false;
 		},
 		onAnyModifyBoost(boosts, target) {
-			let source = this.effectData.target;
+			let source = this.effectState.target;
 			if (source === target) return;
 			if (source === this.activePokemon && target === this.activeTarget) {
 				boosts['def'] = 0;
@@ -3517,7 +3517,7 @@ exports.BattleAbilities = {
 	"unstablevoltage": {
 		shortDesc: "Attacks that either target this Pokémon or are used by it have perfect accuracy. Ignores abilities when attacking and attacked.",
 		onAnyAccuracy(accuracy, target, source, move) { // No Guard effects
-			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
 				return true;
 			}
 			return accuracy;
@@ -3526,7 +3526,7 @@ exports.BattleAbilities = {
 			move.ignoreAbility = true;
 		},
 		onAnyBeforeMove(attacker, defender, move) { // Defensive Mold Breaker
-			if (attacker !== defender && defender === this.effectData.target) {
+			if (attacker !== defender && defender === this.effectState.target) {
 					let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'resurrection', 'magicalwand', 'sleepingsystem', 'cursedcloak', 'appropriation', 'disguiseburden', 'hideandseek', 'beastcostume', 'spiralpower', 'optimize', 'prototype', 'typeillusionist', 'godoffertility', 'foundation', 'sandyconstruct', 'victorysystem', 'techequip', 'technicalsystem', 'triagesystem', 'geneticalgorithm', 'effectsetter', 'tacticalcomputer', 'mitosis', 'barbstance', 'errormacro', 'combinationdrive', 'stanceshield', 'unfriend', 'desertmirage', 'sociallife', 'cosmology', 'crystallizedshield', 'compression', 'whatdoesthisdo', 'underpressure', 'poisontouch', 'magician'];
 					if (!bannedAbilities.includes(attacker.getAbility()) && !attacker.getAbility().isUnbreakable && !move.ignoreAbility){
 	         		attacker.addVolatile('teraarmor');
@@ -3652,13 +3652,13 @@ exports.BattleAbilities = {
 	"blacksmith": {
 		shortDesc: "Traps in Fire and Steel types, and absorbs moves of these typed to get a boost on it's Fire-Type attacks.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Steel') || pokemon.hasType('Fire') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Steel') || pokemon.hasType('Fire') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Steel') || pokemon.hasType('Fire')) && this.isAdjacent(pokemon, source)) {
+			if (!source) source = this.effectState.target;
+			if ((!pokemon.knownType || pokemon.hasType('Steel') || pokemon.hasType('Fire')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -3738,7 +3738,7 @@ exports.BattleAbilities = {
 			let foeactive = pokemon.side.foe.active;
 			let activated = false;
 			for (let i = 0; i < foeactive.length; i++) {
-				if (!foeactive[i] || !this.isAdjacent(foeactive[i], pokemon)) continue;
+				if (!foeactive[i] || !pokemon.isAdjacent(foeactive[i])) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Code Unknown', 'boost');
 					activated = true;
@@ -3900,13 +3900,13 @@ exports.BattleAbilities = {
 	"fattrap": {
 		shortDesc: "Traps Pokémon of the Fire, Ice or Steel types and takes half damage from moves of those types.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Steel') || pokemon.hasType('Fire') || pokemon.hasType('Ice') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Steel') || pokemon.hasType('Fire') || pokemon.hasType('Ice') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Steel') || pokemon.hasType('Fire') || pokemon.hasType('Ice')) && this.isAdjacent(pokemon, source)) {
+			if (!source) source = this.effectState.target;
+			if ((!pokemon.knownType || pokemon.hasType('Steel') || pokemon.hasType('Fire') || pokemon.hasType('Ice')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -4723,11 +4723,11 @@ exports.BattleAbilities = {
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Electric' || move.type !== 'Fire' || move.type !== 'Grass' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
-			if (this.validTarget(this.effectData.target, source, move.target)) {
-				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Solar Panel');
+			if (this.validTarget(this.effectState.target, source, move.target)) {
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Solar Panel');
 				}
-				return this.effectData.target;
+				return this.effectState.target;
 			}
 		},
 		id: "solarpanel",
@@ -5187,7 +5187,7 @@ exports.BattleAbilities = {
 	"titanicstrength": {
 		shortDesc: "If this Pokemon (not its substitute) takes a critical hit, its Attack is raised 12 stages.",
 		onAfterUseItem(item, pokemon) {
-			if (pokemon !== this.effectData.target) return;
+			if (pokemon !== this.effectState.target) return;
 			pokemon.addVolatile('titanicstrength');
 		},
 		onTakeItem(item, pokemon) {
@@ -5202,13 +5202,13 @@ exports.BattleAbilities = {
 	"hygroscopy": {
 		shortDesc: "Upon being hit by a water- or steel-type move, restores 1/4 of this Pokemon's maximum HP. Water- and steel-type opponents cannot switch out while this Pokemon is active.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Steel') || pokemon.hasType('Water') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Steel') || pokemon.hasType('Water') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Steel') || pokemon.hasType('Water')) && this.isAdjacent(pokemon, source)) {
+			if (!source) source = this.effectState.target;
+			if ((!pokemon.knownType || pokemon.hasType('Steel') || pokemon.hasType('Water')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -5237,13 +5237,13 @@ exports.BattleAbilities = {
 	"prisoncell": {
 		shortDesc: "Prevents adjacent Dark-type foes from choosing to switch.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Dark') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Dark') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
+			if (!source) source = this.effectState.target;
+			if ((!pokemon.knownType || pokemon.hasType('Dark')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -5268,7 +5268,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Terrorize', 'boost');
 					activated = true;
@@ -5360,12 +5360,12 @@ exports.BattleAbilities = {
 					showMsg = true;
 				}
 			}
-			if (showMsg && !effect.secondaries) this.add('-fail', this.effectData.target, 'unboost', '[from] ability: Surge Bloom', '[of] ' + target);
+			if (showMsg && !effect.secondaries) this.add('-fail', this.effectState.target, 'unboost', '[from] ability: Surge Bloom', '[of] ' + target);
 		},
 		onAllySetStatus(status, target, source, effect) {
 			if (target.hasType('Grass')) {
 				if (!effect || !effect.status) return false;
-				this.add('-activate', this.effectData.target, 'ability: Surge Bloom', '[of] ' + target);
+				this.add('-activate', this.effectState.target, 'ability: Surge Bloom', '[of] ' + target);
 				return null;
 			}
 		},
@@ -5564,7 +5564,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon) || !target.gender || !pokemon.gender) continue;
+				if (!target || !target.isAdjacent(pokemon) || !target.gender || !pokemon.gender) continue;
 				if (pokemon.gender !== target.gender) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Mean Girl', 'boost');
@@ -5578,9 +5578,9 @@ exports.BattleAbilities = {
 			}
 		},
 		onFoeSwitchin(pokemon) {
-			if (pokemon.gender && this.effectdata.target.gender) {
-				if (pokemon.gender === this.effectdata.target.gender) {
-					this.boost({atk: 1}, this.effectdata.target);
+			if (pokemon.gender && this.effectState.target.gender) {
+				if (pokemon.gender === this.effectState.target.gender) {
+					this.boost({atk: 1}, this.effectState.target);
 				}
 			}
 		},
@@ -5652,7 +5652,7 @@ exports.BattleAbilities = {
         onStart(pokemon) {
             let activated = false;
             for (const target of pokemon.side.foe.active) {
-                if (!target || !this.isAdjacent(target, pokemon)) continue;
+                if (!target || !target.isAdjacent(pokemon)) continue;
                 if (!activated) {
                     activated = true;
                 }
@@ -5768,9 +5768,9 @@ exports.BattleAbilities = {
 	"queenscommand": {
 		shortDesc: "Priority moves won't work against this Pokémon. Attempts to do so result in +1 to its Attack.",
 		onFoeTryMove(target, source, effect) {
-			if ((source.side === this.effectData.target.side || effect.id === 'perishsong') && effect.priority > 0.1 && effect.target !== 'foeSide') {
+			if ((source.side === this.effectState.target.side || effect.id === 'perishsong') && effect.priority > 0.1 && effect.target !== 'foeSide') {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'ability: Queens Command', effect, '[of] ' + target);
+				this.add('cant', this.effectState.target, 'ability: Queens Command', effect, '[of] ' + target);
 				this.boost({atk: 1}, source, target);
 				return false;
 			}
@@ -5801,7 +5801,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Petrify', 'boost');
 					activated = true;
@@ -5821,7 +5821,7 @@ exports.BattleAbilities = {
 		},
 		onAllyTryHitSide(target, source, move) {
 			if (move.flags['sound']) {
-				this.add('-immune', this.effectData.target, '[msg]', '[from] ability: Petrify');
+				this.add('-immune', this.effectState.target, '[msg]', '[from] ability: Petrify');
 			}
 		},
 		id: "petrify",
@@ -5889,9 +5889,9 @@ exports.BattleAbilities = {
 				}
 			}
 			if (loweredstats){
-				this.boost({spa: 2}, this.effectData.target);
+				this.boost({spa: 2}, this.effectState.target);
 			} else {
-				this.boost({spa: 1}, this.effectData.target);
+				this.boost({spa: 1}, this.effectState.target);
 			}
 		},
 		id: "rubberup",
@@ -5920,7 +5920,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAnyModifyBoost(boosts, target) {
-			let source = this.effectData.target;
+			let source = this.effectState.target;
 			if (source === target) return;
 			if (source === this.activePokemon && target === this.activeTarget) {
 				boosts['def'] = 0;
@@ -6099,7 +6099,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Bad Influence', 'boost');
 					activated = true;
@@ -6124,7 +6124,7 @@ exports.BattleAbilities = {
 			for (const target of pokemon.side.foe.active) {
 				if (target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					let move = this.getMove(moveSlot.move);
+					let move = this.moves.get(moveSlot.move);
 					if (move.category !== 'Status' && (this.getImmunity(move.type, pokemon) && this.getEffectiveness(move.type, pokemon) > 0 || move.ohko)) {
 						this.add('-ability', pokemon, 'Scout');
 						pokemon.switchFlag = true;
@@ -6287,7 +6287,7 @@ exports.BattleAbilities = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (this.randomChance(1, 2)) {
-				if (pokemon.hp && !pokemon.item && this.getItem(pokemon.lastItem).isBerry) {
+				if (pokemon.hp && !pokemon.item && this.items.get(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					let statName = 'atk';
 					let bestStat = 0;
@@ -6347,7 +6347,7 @@ exports.BattleAbilities = {
 		},
 		onBasePowerPriority: 7,
 		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectData.target !== defender) return;
+			if (this.effectState.target !== defender) return;
 			if (move.secondaries) {
 				return this.chainModify(0.5);
 			}
@@ -6407,9 +6407,9 @@ exports.BattleAbilities = {
 	"dazzlebeast": {
 		shortDesc: "Priority moves won't work against this Pokémon. Attempts to do so result in +1 to its highest non-HP stat.",
 		onFoeTryMove(target, source, effect) {
-			if ((source.side === this.effectData.target.side || effect.id === 'perishsong') && effect.priority > 0.1 && effect.target !== 'foeSide') {
+			if ((source.side === this.effectState.target.side || effect.id === 'perishsong') && effect.priority > 0.1 && effect.target !== 'foeSide') {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'ability: Dazzle Beast', effect, '[of] ' + target);
+				this.add('cant', this.effectState.target, 'ability: Dazzle Beast', effect, '[of] ' + target);
 				let statName = 'atk';
 				let bestStat = 0;
 				/** @type {StatNameExceptHP} */
@@ -6689,11 +6689,11 @@ exports.BattleAbilities = {
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Electric' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
-			if (this.validTarget(this.effectData.target, source, move.target)) {
-				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Airborne Lighting');
+			if (this.validTarget(this.effectState.target, source, move.target)) {
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Airborne Lighting');
 				}
-				return this.effectData.target;
+				return this.effectState.target;
 			}
 		},
 		id: "airbornelighting",
@@ -7039,7 +7039,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				let statName = 'atk';
 				let bestStat = 0;
 				/** @type {StatNameExceptHP} */
@@ -7067,7 +7067,7 @@ exports.BattleAbilities = {
 		onAnyTryMove(target, source, effect) {
 			if (effect.type === 'Grass') {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'ability: Uninhabitable', effect, '[of] ' + target);
+				this.add('cant', this.effectState.target, 'ability: Uninhabitable', effect, '[of] ' + target);
 				return false;
 			}
 		},
@@ -7226,7 +7226,7 @@ exports.BattleAbilities = {
 		},
 		onModifySpAPriority: 3,
 		onAllyModifySpA(atk, pokemon) {
-			if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherform') return;
+			if (this.effectState.target.baseTemplate.baseSpecies !== 'Cherform') return;
 			if (this.field.isWeather() && !this.field.isWeather(['deltastream'])) {
 				if (!!pokemon.volatiles['atmosphericperversion'] === !!pokemon.volatiles['weatherbreak']){
 					return this.chainModify(1.5);
@@ -7237,7 +7237,7 @@ exports.BattleAbilities = {
 		},
 		onModifySpDPriority: 4,
 		onAllyModifySpD(spd, pokemon) {
-			if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherform') return;
+			if (this.effectState.target.baseTemplate.baseSpecies !== 'Cherform') return;
 			if (this.field.isWeather()) {
 				if (!!pokemon.volatiles['atmosphericperversion'] === !!pokemon.volatiles['weatherbreak']){
 					return this.chainModify(1.5);
@@ -7265,7 +7265,7 @@ exports.BattleAbilities = {
 		},
 		onAfterDamage(damage, target, source, effect) {
 			if (target.illusion && effect && effect.effectType === 'Move' && effect.id !== 'confused' && effect.type !== 'Dark') {
-				this.singleEvent('End', this.getAbility('Illusion'), target.abilityData, target, source, effect);
+				this.singleEvent('End', this.abilities.get('Illusion'), target.abilityData, target, source, effect);
 			}
 		},
 		onEnd(pokemon) {
@@ -7275,7 +7275,7 @@ exports.BattleAbilities = {
 				let details = pokemon.template.species + (pokemon.level === 100 ? '' : ', L' + pokemon.level) + (pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details);
 				this.add('-end', pokemon, 'Illusion');
-				let ability = this.getAbility(pokemon.ability);
+				let ability = this.abilities.get(pokemon.ability);
             this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[silent]');
 				this.add('raw', ability, ability.shortDesc);
 			}
@@ -7296,7 +7296,7 @@ exports.BattleAbilities = {
 				}
 				for (const target2 of source.side.active) {
 					let activated = false;
-   				if (!target2 || !this.isAdjacent(target2, target)) continue;
+   				if (!target2 || !target2.isAdjacent(target)) continue;
     				if (!activated) {
         				activated = true;
     				}
@@ -7403,17 +7403,17 @@ exports.BattleAbilities = {
 				this.add('-immune', target, '[msg]', '[from] ability: Echo');
 				let newMove = this.getMoveCopy(move.id);
 				if (source.ability !== 'echo') {
-					this.useMove(newMove, this.effectData.target, source);
+					this.useMove(newMove, this.effectState.target, source);
 				}
 				return null;
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
 			if (move.flags['sound']) {
-				this.add('-immune', this.effectData.target, '[msg]', '[from] ability: Echo');
+				this.add('-immune', this.effectState.target, '[msg]', '[from] ability: Echo');
 				let newMove = this.getMoveCopy(move.id);
 				if (source.ability !== 'echo') {
-					this.useMove(newMove, this.effectData.target, source);
+					this.useMove(newMove, this.effectState.target, source);
 				}
 			}
 			return null;
@@ -7689,9 +7689,9 @@ exports.BattleAbilities = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Fire') {
-				this.boost({spa: 1}, this.effectData.target);
+				this.boost({spa: 1}, this.effectState.target);
 			}
 		},
 		onUpdate(pokemon) {
@@ -7729,7 +7729,7 @@ exports.BattleAbilities = {
 			        move.secondaries.push({
 				chance: 100,
 				status: 'tox',
-				ability: this.getAbility('ogresswamp'),
+				ability: this.abilities.get('ogresswamp'),
 			});
 			}
 		},
@@ -7773,7 +7773,7 @@ exports.BattleAbilities = {
 			this.add('-ability', pokemon, 'Broken Heart');
 		},
 		onAnyFaint() {
-			this.boost({spa: 1}, this.effectData.target);
+			this.boost({spa: 1}, this.effectState.target);
 		},
 		onDeductPP(target, source) {
 			if (target.side === source.side) return;
@@ -7851,7 +7851,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAfterUseItem(item, pokemon) {
-			if (pokemon !== this.effectData.target) return;
+			if (pokemon !== this.effectState.target) return;
 			pokemon.addVolatile('manapotion');
 		},
 		onTakeItem(item, pokemon) {
@@ -7903,7 +7903,7 @@ exports.BattleAbilities = {
 					for (const moveSlot of source.moveSlots) {
 						if (moveSlot.id === source.lastMove.id) {
 							moveSlot.pp = 0;
-							this.add('-activate', source, 'ability: Pressured Innards', this.getMove(source.lastMove.id).name);
+							this.add('-activate', source, 'ability: Pressured Innards', this.moves.get(source.lastMove.id).name);
 						}
 					}
 				}
@@ -8117,7 +8117,7 @@ exports.BattleAbilities = {
 			if (target === source || move.category !== 'Special') return;
                         let newMove = this.getMoveCopy(move.id);
 								if (target.ability !== 'flutteringheart') {
-                        this.useMove(newMove, this.effectData.target, source);
+                        this.useMove(newMove, this.effectState.target, source);
 								}
 		},
 		onSourceFaint(target, source, effect) {
@@ -8196,7 +8196,7 @@ exports.BattleAbilities = {
 			if (this.activeMove && this.activeMove.id === 'skillswap') return;
 			let target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
 			if (target) {
-				target.transformInto(pokemon, target, this.getAbility('imposter'));
+				target.transformInto(pokemon, target, this.abilities.get('imposter'));
 			}
 		},
 		id: "mirrormirror",
@@ -8223,7 +8223,7 @@ exports.BattleAbilities = {
 	"nightterror": {
 		shortDesc: "No Guard + Bad Dreams.",
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
 				return true;
 			}
 			return accuracy;
@@ -8292,13 +8292,13 @@ exports.BattleAbilities = {
 		shortDesc: "Prevents adjacent foes from choosing to switch if they match the type of a held Plate/Z-Crystal.",
                 //TODO: (Possibly) implement form changes
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType(pokemon.getItem().onPlate) && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType(pokemon.getItem().onPlate) && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType(pokemon.getItem().onPlate)) && this.isAdjacent(pokemon, source)) {
+			if (!source) source = this.effectState.target;
+			if ((!pokemon.knownType || pokemon.hasType(pokemon.getItem().onPlate)) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -8369,7 +8369,7 @@ exports.BattleAbilities = {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && target.template.speciesid === 'mimiblim' && !target.transformed) {
 				this.add('-activate', target, 'ability: Disguise Burden');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				target.addVolatile('disguiseburden');
 				return 0;
 			}
@@ -8382,7 +8382,7 @@ exports.BattleAbilities = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (pokemon.template.speciesid === 'mimiblim' && this.effectData.busted) {
+			if (pokemon.template.speciesid === 'mimiblim' && this.effectState.busted) {
 				let template = this.getTemplate('Mimiblim-Busted');
 				pokemon.formeChange(template);
 				pokemon.baseTemplate = template;
@@ -8589,7 +8589,7 @@ exports.BattleAbilities = {
 	"auraoffailure": {
 		shortDesc: "Halves Attack and Special Attack of all Pokemon on the field at 50% max HP or less.",
 		onUpdate(pokemon) {
-			if (this.effectData.target.hp <= this.effectData.target.maxhp / 2) {
+			if (this.effectState.target.hp <= this.effectState.target.maxhp / 2) {
 				this.debug('Aura of Failure');
 				pokemon.addVolatile('auraoffailure');
 			}
@@ -8650,14 +8650,14 @@ exports.BattleAbilities = {
 		effect: {
 			duration: 1,
 			onStart(side, source, sourceEffect) {
-				this.effectData.position = source.position;
+				this.effectState.position = source.position;
 			},
 			onSwitchInPriority: 1,
 			onSwitchIn(target) {
-				if (!target.fainted && target.position === this.effectData.position) {
+				if (!target.fainted && target.position === this.effectState.position) {
 					let oldAbility = target.setAbility('chainheal', target);
 					if (oldAbility) {
-						this.add('-activate', target, 'ability: Chain Heal', this.getAbility(oldAbility).name, '[of] ' + this.effectData.source);
+						this.add('-activate', target, 'ability: Chain Heal', this.abilities.get(oldAbility).name, '[of] ' + this.effectState.source);
 					}
 					target.side.removeSideCondition('chainheal');
 				}
@@ -8749,7 +8749,7 @@ exports.BattleAbilities = {
 				this.add('cant', pokemon, 'ability: Stare Down');
 			   let activated = false;
 			   for (const target of pokemon.side.foe.active) {
-				   if (!target || !this.isAdjacent(target, pokemon)) continue;
+				   if (!target || !target.isAdjacent(pokemon)) continue;
 				   if (!activated) {
 					    	this.add('-ability', pokemon, 'Stare Down', 'boost');
 				        	activated = true;
@@ -8783,14 +8783,14 @@ exports.BattleAbilities = {
 		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or are Electric-type.",
 		shortDesc: "Prevents adjacent foes from choosing to switch unless they are Electric-type.",
 		onFoeTrapPokemon(pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+			if (!pokemon.isAdjacent(this.effectState.target)) return;
 			if (!pokemon.hasType('Electric')) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!this.isAdjacent(pokemon, source)) return;
+			if (!source) source = this.effectState.target;
+			if (!pokemon.isAdjacent(source)) return;
 			if (!pokemon.hasType('Electric')) {
 				pokemon.maybeTrapped = true;
 			}
@@ -8801,7 +8801,7 @@ exports.BattleAbilities = {
 	"teraarmor": {
 		shortDesc: "Moves targeting this Pokémon are unaffected by the Ability of the move user.",
 		onAnyBeforeMove(attacker, defender, move) {
-			if (attacker !== defender && defender === this.effectData.target) {
+			if (attacker !== defender && defender === this.effectState.target) {
 					let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'resurrection', 'magicalwand', 'sleepingsystem', 'cursedcloak', 'appropriation', 'disguiseburden', 'hideandseek', 'beastcostume', 'spiralpower', 'optimize', 'prototype', 'typeillusionist', 'godoffertility', 'foundation', 'sandyconstruct', 'victorysystem', 'techequip', 'technicalsystem', 'triagesystem', 'geneticalgorithm', 'effectsetter', 'tacticalcomputer', 'mitosis', 'barbstance', 'errormacro', 'combinationdrive', 'stanceshield', 'unfriend', 'desertmirage', 'sociallife', 'cosmology', 'crystallizedshield', 'compression', 'whatdoesthisdo', 'underpressure', 'poisontouch', 'magician'];
 					if (!bannedAbilities.includes(attacker.getAbility()) && !attacker.getAbility().isUnbreakable && !move.ignoreAbility){
 	         		attacker.addVolatile('teraarmor');
@@ -8813,8 +8813,8 @@ exports.BattleAbilities = {
 			duration: 1,
 			onBeforeMovePriority: 10,
 			onAnyBeforeMove(attacker, defender, move) {
-				if (this.effectData.target === attacker) return;
-				this.effectData.target.removeVolatile('teraarmor');
+				if (this.effectState.target === attacker) return;
+				this.effectState.target.removeVolatile('teraarmor');
 			},
 			onResidual(pokemon) {
 				pokemon.removeVolatile('teraarmor');
@@ -8826,7 +8826,7 @@ exports.BattleAbilities = {
 	"turbocurse": {
         shortDesc: "Moves targeting this Pokémon are unaffected by the Ability of the move user.",
 		onAnyBeforeMove(attacker, defender, move) {
-			if (attacker !== defender && defender === this.effectData.target) {
+			if (attacker !== defender && defender === this.effectState.target) {
 					let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'resurrection', 'magicalwand', 'sleepingsystem', 'cursedcloak', 'appropriation', 'disguiseburden', 'hideandseek', 'beastcostume', 'spiralpower', 'optimize', 'prototype', 'typeillusionist', 'godoffertility', 'foundation', 'sandyconstruct', 'victorysystem', 'techequip', 'technicalsystem', 'triagesystem', 'geneticalgorithm', 'effectsetter', 'tacticalcomputer', 'mitosis', 'barbstance', 'errormacro', 'combinationdrive', 'stanceshield', 'unfriend', 'desertmirage', 'sociallife', 'cosmology', 'crystallizedshield', 'compression', 'whatdoesthisdo', 'underpressure', 'poisontouch', 'magician'];
 					if (!bannedAbilities.includes(attacker.getAbility()) && !attacker.getAbility().isUnbreakable && !move.ignoreAbility){
 	         		attacker.addVolatile('teraarmor');
@@ -8901,7 +8901,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || target.fainted || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Beast Roar', 'boost');
 					activated = true;
@@ -8929,7 +8929,7 @@ exports.BattleAbilities = {
 	"sturdymold": {
         shortDesc: "This Pokemon cannot be KO'd in one hit, and the abilities of attacking Pokemon are ignored in damage calculation.",
 		onAnyBeforeMove(attacker, defender, move) {
-			if (attacker !== defender && defender === this.effectData.target) {
+			if (attacker !== defender && defender === this.effectState.target) {
 					let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'resurrection', 'magicalwand', 'sleepingsystem', 'cursedcloak', 'appropriation', 'disguiseburden', 'hideandseek', 'beastcostume', 'spiralpower', 'optimize', 'prototype', 'typeillusionist', 'godoffertility', 'foundation', 'sandyconstruct', 'victorysystem', 'techequip', 'technicalsystem', 'triagesystem', 'geneticalgorithm', 'effectsetter', 'tacticalcomputer', 'mitosis', 'barbstance', 'errormacro', 'combinationdrive', 'stanceshield', 'unfriend', 'desertmirage', 'sociallife', 'cosmology', 'crystallizedshield', 'compression', 'whatdoesthisdo', 'underpressure', 'poisontouch', 'magician'];
 					if (!bannedAbilities.includes(attacker.getAbility()) && !attacker.getAbility().isUnbreakable && !move.ignoreAbility){
 	         		attacker.addVolatile('teraarmor');
@@ -8955,7 +8955,7 @@ exports.BattleAbilities = {
 	"unamazed": {
 		shortDesc: "Moves used by and against this Pokémon ignore the foe’s ability and stat changes.",
 		onAnyBeforeMove(attacker, defender, move) {
-			if (attacker !== defender && defender === this.effectData.target) {
+			if (attacker !== defender && defender === this.effectState.target) {
 					let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'multitype', 'powerconstruct', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'truant', 'resurrection', 'magicalwand', 'sleepingsystem', 'cursedcloak', 'appropriation', 'disguiseburden', 'hideandseek', 'beastcostume', 'spiralpower', 'optimize', 'prototype', 'typeillusionist', 'godoffertility', 'foundation', 'sandyconstruct', 'victorysystem', 'techequip', 'technicalsystem', 'triagesystem', 'geneticalgorithm', 'effectsetter', 'tacticalcomputer', 'mitosis', 'barbstance', 'errormacro', 'combinationdrive', 'stanceshield', 'unfriend', 'desertmirage', 'sociallife', 'cosmology', 'crystallizedshield', 'compression', 'whatdoesthisdo', 'underpressure', 'poisontouch', 'magician'];
 					if (!bannedAbilities.includes(attacker.getAbility()) && !attacker.getAbility().isUnbreakable && !move.ignoreAbility){
 	         		attacker.addVolatile('teraarmor');
@@ -8969,7 +8969,7 @@ exports.BattleAbilities = {
 			move.ignoreAbility = true;
 		},
 		onAnyModifyBoost(boosts, target) {
-			let source = this.effectData.target;
+			let source = this.effectState.target;
 			if (source === target) return;
 			if (source === this.activePokemon && target === this.activeTarget) {
 				boosts['def'] = 0;
@@ -9093,7 +9093,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAfterUseItem(item, pokemon) {
-			if (pokemon !== this.effectData.target) return;
+			if (pokemon !== this.effectState.target) return;
                         this.heal(pokemon.maxhp / 4);
 			pokemon.addVolatile('lighteninglightning');
 		},
@@ -9164,7 +9164,7 @@ exports.BattleAbilities = {
 			return false;
 		},
 		onAfterUseItem(item, pokemon) {
-			if (pokemon !== this.effectData.target) return;
+			if (pokemon !== this.effectState.target) return;
 			pokemon.addVolatile('ambulance');
 		},
 		onTakeItem(item, pokemon) {
@@ -9332,7 +9332,7 @@ exports.BattleAbilities = {
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
 			this.boost({atk: 1}, target);
-  	      this.useMove(newMove, this.effectData.target, source);
+  	      this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		effect: {
@@ -9345,7 +9345,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Beautiful Obliteration Weapon', 'boost');
 					activated = true;
@@ -9377,7 +9377,7 @@ exports.BattleAbilities = {
     desc: "Type effectiveness of moves that the holder uses or is hit by is inverted (Inverse Battle rules apply; type effectiveness of moves used by Mold Breaker variants users is not influenced by this ability).",
     shortDesc: "Type effectiveness in moves that target or are used by this Pokemon is inverted.",
 	 onAnyModifyMove(move, attacker, defender) {
-		 if (!move || (attacker !== this.effectData.target && defender !== this.effectData.target)) return;
+		 if (!move || (attacker !== this.effectState.target && defender !== this.effectState.target)) return;
 		 if (!move.ignoreImmunity) move.ignoreImmunity = {};
 		 if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity[move.type] = true;
@@ -9386,7 +9386,7 @@ exports.BattleAbilities = {
 	 },
 	 onEffectivenessPriority: 1,
     onAnyEffectiveness(typeMod, target, type, move) {
-		  if (!move.inversearmor && target !== this.effectData.target) return;
+		  if (!move.inversearmor && target !== this.effectState.target) return;
         if (move && !this.getImmunity(move, type)) return 1;
         return typeMod*-1;
     },
@@ -9532,7 +9532,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAnyModifyBoost(boosts, target) {
-			let source = this.effectData.target;
+			let source = this.effectState.target;
 			if (source === target) return;
 			if (source === this.activePokemon && target === this.activeTarget) {
 				boosts['def'] = 0;
@@ -9572,13 +9572,13 @@ exports.BattleAbilities = {
 				let bestStat = 0;
 				/** @type {StatNameExceptHP} */
 				let s;
-				for (s in this.effectData.target.storedStats) {
-					if (this.effectData.target.storedStats[s] > bestStat) {
+				for (s in this.effectState.target.storedStats) {
+					if (this.effectState.target.storedStats[s] > bestStat) {
 						statName = s;
-						bestStat = this.effectData.target.storedStats[s];
+						bestStat = this.effectState.target.storedStats[s];
 					}
 				}
-				this.boost({[statName]: 1}, this.effectData.target);
+				this.boost({[statName]: 1}, this.effectState.target);
 		},
 		onSourceFaint(target, source, effect) {
 			if (effect && effect.effectType === 'Move' && target.activeTurns < source.activeTurns) {
@@ -9624,7 +9624,7 @@ exports.BattleAbilities = {
 		onSwitchOut(pokemon) {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
-				target.addVolatile('disable', this.effectData.source);
+				target.addVolatile('disable', this.effectState.source);
 			}
 		},
 		id: "nautralcurse",
@@ -9643,13 +9643,13 @@ exports.BattleAbilities = {
 			}
 		},
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Steel') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType('Steel')) && this.isAdjacent(pokemon, source)) {
+			if (!source) source = this.effectState.target;
+			if ((!pokemon.knownType || pokemon.hasType('Steel')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -9657,7 +9657,7 @@ exports.BattleAbilities = {
 			if (source && source !== target && move && move.flags['contact'] && source.ability !== 'mummy') {
 				let oldAbility = source.setAbility('mummy', target);
 				if (oldAbility) {
-					this.add('-activate', target, 'ability: Mummy', this.getAbility(oldAbility).name, '[of] ' + source);
+					this.add('-activate', target, 'ability: Mummy', this.abilities.get(oldAbility).name, '[of] ' + source);
 					target.tryTrap(true);
 				}
 			}
@@ -9821,7 +9821,7 @@ exports.BattleAbilities = {
 	"weathercaster": {
 		shortDesc: "While this Pokemon is active, its secondary type changes.",
 		onStart(pokemon) {
-			let type = this.getMove(pokemon.moveSlots[0].id).type;
+			let type = this.moves.get(pokemon.moveSlots[0].id).type;
 			let activated = true;
 			if (type === 'Fire') {
 				pokemon.setType(['Electric', 'Fire']);
@@ -9969,7 +9969,7 @@ exports.BattleAbilities = {
 				if (target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
 					this.add('-ability', pokemon, 'Dance Poster');
-					let moves = this.getMove(moveSlot.move);
+					let moves = this.moves.get(moveSlot.move);
 					this.useMove(moves, pokemon);
 				}
 			}
@@ -10090,20 +10090,20 @@ exports.BattleAbilities = {
 			duration: 2,
 			onStart(side, source) {
 				this.debug('Compassionate Soul started on ' + side.name);
-				this.effectData.positions = [];
+				this.effectState.positions = [];
 				// @ts-ignore
 				for (const i of side.active.keys()) {
-					this.effectData.positions[i] = false;
+					this.effectState.positions[i] = false;
 				}
-				this.effectData.positions[source.position] = true;
+				this.effectState.positions[source.position] = true;
 			},
 			onRestart(side, source) {
-				this.effectData.positions[source.position] = true;
+				this.effectState.positions[source.position] = true;
 			},
 			onSwitchInPriority: 1,
 			onSwitchIn(target) {
-				const positions = /**@type {boolean[]} */ (this.effectData.positions);
-				if (target.position !== this.effectData.sourcePosition) {
+				const positions = /**@type {boolean[]} */ (this.effectState.positions);
+				if (target.position !== this.effectState.sourcePosition) {
 					return;
 				}
 				if (target && !target.fainted && target.hp > 0) {
@@ -10124,7 +10124,7 @@ exports.BattleAbilities = {
 			for (const target of pokemon.side.foe.active) {
 				if (target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					let move = this.getMove(moveSlot.move);
+					let move = this.moves.get(moveSlot.move);
 					let bp = move.basePower;
 					if (move.ohko) bp = 160;
 					if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
@@ -10268,12 +10268,12 @@ exports.BattleAbilities = {
 		shortDesc: "Upon being sent out, the Pokemon copies the opposing Pokemon's ability and halves the PP of their moves.",
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted) return;
-			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 				let target = possibleTargets[rand];
-				let ability = this.getAbility(target.ability);
+				let ability = this.abilities.get(target.ability);
 				let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'zenmode'];
 				if (bannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -10299,7 +10299,7 @@ exports.BattleAbilities = {
 	            this.debug('Sensei boost');
 	            let warnBp = move.basePower;
 	            for (const moveSlot of attacker.moveSlots) {
-	                let moves = this.getMove(moveSlot.move);
+	                let moves = this.moves.get(moveSlot.move);
 	                let bp = moves.basePower;
 	                if (moves.ohko) bp = 160;
 	                if (moves.id === 'counter' || moves.id === 'metalburst' || moves.id === 'mirrorcoat') bp = 120;
@@ -10321,7 +10321,7 @@ exports.BattleAbilities = {
 	    onDamage(damage, target, source, effect) {
 	        if (effect && effect.effectType === 'Move' && target.template.speciesid === 'mimukyu' && !target.transformed) {
 	            this.add('-activate', target, 'ability: Appropriation');
-	            this.effectData.busted = true;
+	            this.effectState.busted = true;
 				   source.addVolatile('appropriation');
 	            return 0;
 	        }
@@ -10334,15 +10334,15 @@ exports.BattleAbilities = {
 	        return 0;
 	    },
 	    onUpdate(pokemon) {
-	        if (pokemon.template.speciesid === 'mimukyu' && this.effectData.busted) {
+	        if (pokemon.template.speciesid === 'mimukyu' && this.effectState.busted) {
 	            let template = this.getTemplate('Mimukyu-Busted');
 	            pokemon.formeChange(template);
 	            pokemon.baseTemplate = template;
 	            pokemon.details = template.species + (pokemon.level === 100 ? '' : ', L' + pokemon.level) + (pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 	            this.add('detailschange', pokemon, pokemon.details);
 					for (const target of pokemon.side.foe.active) {
-						if (!target || !this.isAdjacent(target, pokemon) || !target.removeVolatile['appropriation']) continue;
-	            	let ability = this.getAbility(target.ability);
+						if (!target || !target.isAdjacent(pokemon) || !target.removeVolatile['appropriation']) continue;
+	            	let ability = this.abilities.get(target.ability);
 	            	let bannedAbilities = ['appropriation', 'battlebond', 'comatose', 'disguise', 'flowergift', 'forecast', 'illusion', 'imposter', 'multitype', 'powerconstruct', 'powerofalchemy', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'zenmode', 'resurrection', 'magicalwand', 'sleepingsystem', 'cursedcloak', 'appropriation', 'disguiseburden', 'hideandseek', 'beastcostume', 'spiralpower', 'optimize', 'prototype', 'typeillusionist', 'godoffertility', 'foundation', 'sandyconstruct', 'victorysystem', 'techequip', 'technicalsystem', 'triagesystem', 'geneticalgorithm', 'effectsetter', 'tacticalcomputer', 'mitosis', 'barbstance', 'errormacro', 'combinationdrive', 'stanceshield', 'unfriend', 'desertmirage', 'sociallife', 'cosmology', 'crystallizedshield', 'compression', 'whatdoesthisdo'];
 	            	if (bannedAbilities.includes(ability)) break;
 						this.add('-ability', pokemon, ability, '[from] ability: Appropriation', '[of] ' + pokemon);
@@ -10358,7 +10358,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Scarily Adorable', 'boost');
 					activated = true;
@@ -10422,7 +10422,7 @@ exports.BattleAbilities = {
 			let warnMoves = [];
 			let warnBp = 1;
 				for (const moveSlot of pokemon.moveSlots) {
-					let newMove = this.getMove(moveSlot.move);
+					let newMove = this.moves.get(moveSlot.move);
 					let bp = newMove.basePower;
 					if (newMove.ohko) bp = 160;
 					if (newMove.id === 'counter' || newMove.id === 'metalburst' || newMove.id === 'mirrorcoat') bp = 120;
@@ -10465,12 +10465,12 @@ exports.BattleAbilities = {
 		onFoeModifyMove(source, target, move) {
 		},
 		onAnyModifyMove(source, target, move) {
-			if (target !== this.effectData.target && source !== this.effectData.target) return;
-			if (target === this.effectData.target && target.runEffectiveness(move) > 0) {
+			if (target !== this.effectState.target && source !== this.effectState.target) return;
+			if (target === this.effectState.target && target.runEffectiveness(move) > 0) {
 				move.type === 'Ice';
 				move.christmasparade = true;
 			}
-			else if (source === this.effectData.target && move.type === 'Normal' && !['judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'weatherball'].includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+			else if (source === this.effectState.target && move.type === 'Normal' && !['judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'weatherball'].includes(move.id) && !(move.isZ && move.category !== 'Status')) {
 				move.type = 'Ice';
 				move.christmasparadeboosted = true;
 			}
@@ -10508,11 +10508,11 @@ exports.BattleAbilities = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					if (this.getMove(moveSlot.id).flags['heal']) {
+					if (this.moves.get(moveSlot.id).flags['heal']) {
 						target.disableMove(moveSlot.id);
 						}
 						for (const moveSlot of pokemon.moveSlots) {
-						if (this.getMove(moveSlot.id).flags['heal']) {
+						if (this.moves.get(moveSlot.id).flags['heal']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 					}
@@ -10565,7 +10565,7 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon is immune to types of its moves.",
 		onTryHit(target, source, move) {
 				for (const moveSlot of target.moveSlots) {
-					let hiddenmove = this.getMove(moveSlot.move);
+					let hiddenmove = this.moves.get(moveSlot.move);
 					if (target !== source && ((!(['hiddenpower', 'hiddengem'].includes(hiddenmove) && move.type === 'Normal') && (move.type === hiddenmove.type)) || (['hiddenpower', 'hiddengem'].includes(hiddenmove) && move.type === target.hpType))) {
 						this.add('-immune', target, '[msg]', '[from] ability: Hidden Advantage');
 						return null;
@@ -10636,7 +10636,7 @@ exports.BattleAbilities = {
 		id: "tommysroom",
 		name: "Tommy's Room",
 		onAnyModifyBoost(boosts, target) {
-			let source = this.effectData.target;
+			let source = this.effectState.target;
 			if (source === target) return;
 			if (source === this.activePokemon && target === this.activeTarget) {
 				boosts['def'] = 0;
@@ -10848,7 +10848,7 @@ exports.BattleAbilities = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if ((this.field.isWeather(['sunnyday', 'desolateland', 'solarsnow']) || this.randomChance(1, 2)) === !!(pokemon.volatiles['atmosphericperversion'] === !!pokemon.volatiles['weatherbreak'])) {
-				if (pokemon.hp && !pokemon.item && this.getItem(pokemon.lastItem).isBerry) {
+				if (pokemon.hp && !pokemon.item && this.items.get(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
 					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Farmer\'s Delight');
@@ -11117,7 +11117,7 @@ exports.BattleAbilities = {
 				let bestStat = 0;
 				/** @type {StatNameExceptHP} */
 				for (const target of pokemon.side.foe.active) {
-					if (!target || !this.isAdjacent(target, pokemon)) continue;
+					if (!target || !target.isAdjacent(pokemon)) continue;
 					let s;
 					for (s in target.storedStats) {
 						if (target.storedStats[s] > bestStat) {
@@ -11230,7 +11230,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAnySwitchin(pokemon) {
-			if (pokemon === this.effectData.target) return;
+			if (pokemon === this.effectState.target) return;
 			pokemon.addVolatile('weatherbreak');
 		},
 		onEnd(pokemon) {
@@ -11295,7 +11295,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAnySwitchin(pokemon) {
-			if (pokemon === this.effectData.target) return;
+			if (pokemon === this.effectState.target) return;
 			pokemon.addVolatile('atmosphericperversion');
 		},
 		onEnd(pokemon) {
@@ -11356,7 +11356,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAnySwitchin(pokemon) {
-			if (pokemon === this.effectData.target) return;
+			if (pokemon === this.effectState.target) return;
 			pokemon.addVolatile('atmosphericperversion');
 		},
 		onBoost(boost, target, source, effect) {
@@ -11417,7 +11417,7 @@ exports.BattleAbilities = {
 			if (!type1 || type1 === true) {
 				type1 = 'Normal';
 			}
-			let type2 = this.getMove(pokemon.moveSlots[0].id).type;
+			let type2 = this.moves.get(pokemon.moveSlots[0].id).type;
 			if (!type2){
 				type2 = 'Normal';
 			}
@@ -11608,9 +11608,9 @@ exports.BattleAbilities = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Grass' || move.type === 'Water') {
-				this.boost({atk: 1}, this.effectData.target);
+				this.boost({atk: 1}, this.effectState.target);
 			}
 		},
 		id: "mosscleaner",
@@ -11654,7 +11654,7 @@ exports.BattleAbilities = {
 			return this.modify(atk, 1.5);
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && source === this.effectData.target) {
+			if (move && source === this.effectState.target) {
 				if (['psn', 'tox'].includes(target.status)){
 					return true;
 				}
@@ -11678,7 +11678,7 @@ exports.BattleAbilities = {
 		},
 		onBasePowerPriority: 7,
 		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectData.target !== defender) return;
+			if (this.effectState.target !== defender) return;
 			if (move.type === 'Fire') {
 				return this.chainModify(1.25);
 			}
@@ -11713,7 +11713,7 @@ exports.BattleAbilities = {
 			if (effect.effectType !== 'Move') {
 				let targets = [];
 				for (const enemy of target.side.foe.active) {
-					if (!enemy || enemy.status || !this.isAdjacent(enemy, target)) continue;
+					if (!enemy || enemy.status || !enemy.isAdjacent(target)) continue;
 					targets.push(enemy);
 				}
 				if (targets.length){
@@ -11810,7 +11810,7 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon is treated as airborne. Allies that are also airborne have the power of their special attacks multiplied by 1.3.",
 		onBasePowerPriority: 8,
 		onAllyBasePower(basePower, attacker, defender, move) {
-			if (!attacker.isGrounded() && attacker !== this.effectData.target && move.category === 'Special') {
+			if (!attacker.isGrounded() && attacker !== this.effectState.target && move.category === 'Special') {
 				this.debug('Magnetic Field boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -11863,7 +11863,7 @@ exports.BattleAbilities = {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 				let target = possibleTargets[rand];
-				let ability = this.getAbility(target.ability);
+				let ability = this.abilities.get(target.ability);
 				let bannedAbilities = {
 					adaptableillusion: 1,
 					aeroform: 1,
@@ -11992,13 +11992,13 @@ exports.BattleAbilities = {
 			move.stab = 2;
 		},
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType(this.effectData.target.getTypes()) && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType(this.effectState.target.getTypes()) && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if ((!pokemon.knownType || pokemon.hasType(source.getTypes())) && this.isAdjacent(pokemon, source)) {
+			if (!source) source = this.effectState.target;
+			if ((!pokemon.knownType || pokemon.hasType(source.getTypes())) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -12100,7 +12100,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Antivirus', 'boost');
 					activated = true;
@@ -12147,7 +12147,7 @@ exports.BattleAbilities = {
         onStart(pokemon) {
             let activated = false;
             for (const target of pokemon.side.foe.active) {
-                if (!target || !this.isAdjacent(target, pokemon)) continue;
+                if (!target || !target.isAdjacent(pokemon)) continue;
                 if (!activated) {
                     this.add('-ability', pokemon, 'Levitimidate', 'boost');
                     activated = true;
@@ -12188,7 +12188,7 @@ exports.BattleAbilities = {
 		shortDesc: "If the foe is poisoned, whenever it tries to heal (with an item or move), it takes that amount of damage.",
 		id: "slimedrench",
 		onAnyTryHeal(damage, target, source, effect) {
-			if (target.side === this.effectData.target.side) return;
+			if (target.side === this.effectState.target.side) return;
 			this.debug("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
 			if ((target.status === 'tox' || target.status === 'psn') && effect && (effect.effectType === 'Move' || effect.effectType === 'Item')) {
 				this.damage(damage);
@@ -12259,7 +12259,7 @@ exports.BattleAbilities = {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
 				let pressureabilities = ['pressure', 'sandpressure', 'auraoffailure', 'noskill', 'justicepower', 'calamity', 'overwhelmingpresence', 'underpressure', 'compoundpressure', 'gtolerance', 'powerdrain', 'sandystorm', 'brokenheart', 'diamondarmor', 'normalizedenemy', 'pressurate', 'piercinggaze', 'goddesstrace', 'pressuredinnards', 'lightspeed', 'quarantine', 'mitosis', 'sharpshooter', 'vexingvalor', 'compression', 'peerpressure', 'timestop', 'dirtnap', 'ability', 'revitalize', 'threateningglare', 'pressurizer', 'monarchoftherain', 'dukeofthelightning', 'emperorofthefire', 'shortcircuit', 'purgativenostrum'];
-				if (!target || !this.isAdjacent(target, pokemon) || target.status || !pressureabilities.includes(target.ability)) continue;
+				if (!target || !target.isAdjacent(pokemon) || target.status || !pressureabilities.includes(target.ability)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Short Circuit', 'boost');
 					activated = true;
@@ -12308,8 +12308,8 @@ exports.BattleAbilities = {
 		desc: "This Pokemon's moves that match one of its types have a same-type attack bonus (STAB) of 2 instead of 1.5. When targeted by a move that matches one of the user's types, the same-type attack bonus is disregarded.",
 		shortDesc: "This Pokemon's same-type attack bonus (STAB) is 2 instead of 1.5. Negates STAB of incoming moves.",
 		onAnyModifyMove(move, attacker, defender) {
-			if (attacker === this.effectData.target) move.stab = 2;
-			else if (defender === this.effectData.target) move.stab = 1;
+			if (attacker === this.effectState.target) move.stab = 2;
+			else if (defender === this.effectState.target) move.stab = 1;
 		},
 		id: "adaptivebias",
 		name: "Adaptive Bias",
@@ -12319,7 +12319,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let targets = [];
 			for (const target of pokemon.side.active.concat(pokemon.side.foe.active)) {
-				if (target.item && target.item !== pokemon.item && this.isAdjacent(pokemon, target)) {
+				if (target.item && target.item !== pokemon.item && pokemon.isAdjacent(target)) {
 					targets.push(target);
 				}
 			}
@@ -12365,7 +12365,7 @@ exports.BattleAbilities = {
 		},
 		onAfterDamage(damage, target, source, effect) {
 			if (target.illusion && effect && effect.effectType === 'Move' && effect.id !== 'confused') {
-				this.singleEvent('End', this.getAbility('Adaptable Illusion'), target.abilityData, target, source, effect);
+				this.singleEvent('End', this.abilities.get('Adaptable Illusion'), target.abilityData, target, source, effect);
 			}
 		},
 		onEnd(pokemon) {
@@ -12375,7 +12375,7 @@ exports.BattleAbilities = {
 				let details = pokemon.template.species + (pokemon.level === 100 ? '' : ', L' + pokemon.level) + (pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details);
 				this.add('-end', pokemon, 'Adaptable Illusion');
-				let ability = this.getAbility(pokemon.ability);
+				let ability = this.abilities.get(pokemon.ability);
             this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[silent]');
 				this.add('raw', ability, ability.shortDesc);
 			}
@@ -12493,7 +12493,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAnySwitchin(pokemon) {
-			if (pokemon === this.effectData.target) return;
+			if (pokemon === this.effectState.target) return;
 			pokemon.addVolatile('engarde');
 		},
 		//Volatile effect suppressing items implemented in pokemon.js.
@@ -12519,7 +12519,7 @@ exports.BattleAbilities = {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && target.template.speciesid === 'kyutana' && !target.transformed) {
 				this.add('-activate', target, 'ability: Beast Costume');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -12536,7 +12536,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.template.speciesid === 'kyutana' && this.effectData.busted) {
+			if (pokemon.template.speciesid === 'kyutana' && this.effectState.busted) {
 				let templateid = 'Kyutana-Busted';
 				pokemon.formeChange(templateid, this.effect, true);
 			}
@@ -12631,7 +12631,7 @@ exports.BattleAbilities = {
 			let type = pokemon.getItem().onMemory;
 			// @ts-ignore
 			if (pokemon.template.speciesid === 'aegivallyguerilla'){
-				type = this.getMove(pokemon.moveSlots[0].id).type;
+				type = this.moves.get(pokemon.moveSlots[0].id).type;
 			}
 			if (!type || type === true) {
 					type = 'Normal';
@@ -12656,7 +12656,7 @@ exports.BattleAbilities = {
 				if (!type || type === true) {
 					type = 'Normal';
 				}
-				if (type !== this.getMove(attacker.moveSlots[0].id).type){
+				if (type !== this.moves.get(attacker.moveSlots[0].id).type){
 					if (attacker.template.species === 'Aegivally'){	
 						if (type === 'Steel'){
 							attacker.setType('Steel');
@@ -12666,7 +12666,7 @@ exports.BattleAbilities = {
 							this.add('-start', attacker, 'typechange', attacker.types.join('/'), '[from] Tactical Computer');
 						}
 					} else {
-						let type2 = this.getMove(attacker.moveSlots[0].id).type;
+						let type2 = this.moves.get(attacker.moveSlots[0].id).type;
 						if (type2 === 'Steel'){
 							attacker.setType('Steel');
 							this.add('-start', attacker, 'typechange', 'Steel', '[from] Tactical Computer');
@@ -12735,10 +12735,10 @@ exports.BattleAbilities = {
     desc: "Pokemon making contact with this Pokemon lose 1/8 of their maximum HP, rounded down. This damage is doubled if it's holding an item. If this Pokemon loses its held item for any reason, its Speed is doubled and all opponents lose 12.5% of their maximum HP. This boost is lost if it switches out or gains a new item or Ability.",
     shortDesc: "Speed is doubled and opponents lose 12.5% Max HP on held item loss; boost is lost if it switches, gets new item/Ability. Pokemon making contact with this Pokemon lose 1/8 of their max HP, 1/4 if holding an item.",
     onAfterUseItem(item, pokemon) {
-        if (pokemon !== this.effectData.target) return;
+        if (pokemon !== this.effectState.target) return;
         pokemon.addVolatile('unburden');
         for (const target of pokemon.side.foe.active) {
-            if (!target || !this.isAdjacent(target, pokemon)) continue;
+            if (!target || !target.isAdjacent(pokemon)) continue;
             if (!target.volatiles['substitute']) {
                 this.damage(source.maxhp / 8, target, pokemon);
             }
@@ -12757,7 +12757,7 @@ exports.BattleAbilities = {
     onTakeItem(item, pokemon) {
         pokemon.addVolatile('unburden');
         for (const target of pokemon.side.foe.active) {
-            if (!target || !this.isAdjacent(target, pokemon)) continue;
+            if (!target || !target.isAdjacent(pokemon)) continue;
             if (!target.volatiles['substitute']) {
                 this.damage(source.maxhp / 8, target, pokemon);
             }
@@ -12792,7 +12792,7 @@ exports.BattleAbilities = {
         }
     },
     onAnySwitchin(pokemon) {
-        if (pokemon.side === this.effectData.target.side || !pokemon.getItem() || !['adrenalineorb', 'choicescarf', 'quickpowder'].includes(pokemon.getItem())) return;
+        if (pokemon.side === this.effectState.target.side || !pokemon.getItem() || !['adrenalineorb', 'choicescarf', 'quickpowder'].includes(pokemon.getItem())) return;
         pokemon.addVolatile('engarde');
     },
     onEnd(pokemon) {
@@ -12833,9 +12833,9 @@ exports.BattleAbilities = {
         }
     },
     onAnyDeductPP(target, source) {
-        if (target !== this.effectData.target && source !== this.effectData.target) return;
-        if (target === this.effectData.target && target.template.speciesid !== 'washoxstrand') return;
-        if (source === this.effectData.target && source.template.speciesid !== 'washox') return;
+        if (target !== this.effectState.target && source !== this.effectState.target) return;
+        if (target === this.effectState.target && target.template.speciesid !== 'washoxstrand') return;
+        if (source === this.effectState.target && source.template.speciesid !== 'washox') return;
         return 1;
     },
     onResidualOrder: 27,
@@ -12861,7 +12861,7 @@ exports.BattleAbilities = {
     onDamage(damage, target, source, effect) {
         if (effect && effect.effectType === 'Move' && target.template.speciesid === 'banekyu' && !target.transformed) {
             this.add('-activate', target, 'ability: Cursed Cloak');
-            this.effectData.busted = true;
+            this.effectState.busted = true;
             if (source !== target) {
                 source.addVolatile('disable', target);
             }
@@ -12876,7 +12876,7 @@ exports.BattleAbilities = {
         return 0;
     },
     onUpdate(pokemon) {
-        if (['mimikyu', 'mimikyutotem'].includes(pokemon.template.speciesid) && this.effectData.busted) {
+        if (['mimikyu', 'mimikyutotem'].includes(pokemon.template.speciesid) && this.effectState.busted) {
             pokemon.formeChange('Banekyu-Busted', this.effect, true);
         }
     },
@@ -12890,7 +12890,7 @@ exports.BattleAbilities = {
         if (pokemon.baseTemplate.baseSpecies !== 'Lycanitan' || pokemon.transformed) return;
         let hasPsychicMove = false;
         for (const moveSlot of pokemon.moveSlots) {
-            let move = this.getMove(moveSlot.move);
+            let move = this.moves.get(moveSlot.move);
             if (!hasPsychicMove && move.type === 'Psychic') {
                 hasPsychicMove = true;
             }
@@ -12933,7 +12933,7 @@ exports.BattleAbilities = {
         if (pokemon.baseTemplate.baseSpecies !== 'Lycanitan' || pokemon.transformed) return;
         let hasPsychicMove = false;
         for (const moveSlot of pokemon.moveSlots) {
-            let move = this.getMove(moveSlot.move);
+            let move = this.moves.get(moveSlot.move);
             if (!hasPsychicMove && move.type === 'Psychic') {
                 hasPsychicMove = true;
             }
@@ -13013,7 +13013,7 @@ exports.BattleAbilities = {
     },
     onAfterDamage(damage, target, source, effect) {
         if (target.illusion && effect && effect.effectType === 'Move' && effect.id !== 'confused') {
-            this.singleEvent('End', this.getAbility('Mirage Guard'), target.abilityData, target, source, effect);
+            this.singleEvent('End', this.abilities.get('Mirage Guard'), target.abilityData, target, source, effect);
         }
     },
     onEnd(pokemon) {
@@ -13023,7 +13023,7 @@ exports.BattleAbilities = {
             let details = pokemon.template.species + (pokemon.level === 100 ? '' : ', L' + pokemon.level) + (pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
             this.add('replace', pokemon, details);
             this.add('-end', pokemon, 'Illusion');
-				let ability = this.getAbility(pokemon.ability);
+				let ability = this.abilities.get(pokemon.ability);
             this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[silent]');
 				this.add('raw', ability, ability.shortDesc);
         }
@@ -13062,19 +13062,19 @@ exports.BattleAbilities = {
 		noCopy: true,
 		duration: 0,
 		onStart(target) {
-			this.effectData.items = ['', ''];
+			this.effectState.items = ['', ''];
 		},
 	   onSourceFaint(target, source, effect) {
 			if (!effect || effect.effectType !== 'Move') return;
 			if (target.item) {
            	if (!this.singleEvent('TakeItem', target.getItem(), target.itemData, target, source, effect, target.getItem())) return;
-           	if (target.getItem() === source.getItem() || (this.effectData.items && (this.getItem(this.effectData.items[0]) === target.getItem() || this.getItem(this.effectData.items[1]) === target.getItem()))) return;
-           	if (source.volatiles['goldentouch'] && this.getItem(source.volatiles['goldentouch'].item) === target.getItem()) return;
-				if (this.effectData.items[0]) this.singleEvent('End', target.getItem(), {id: target.getItem().id, target: source}, source);
-           	this.effectData.items = [this.effectData.items[1], target.item];
+           	if (target.getItem() === source.getItem() || (this.effectState.items && (this.items.get(this.effectState.items[0]) === target.getItem() || this.items.get(this.effectState.items[1]) === target.getItem()))) return;
+           	if (source.volatiles['goldentouch'] && this.items.get(source.volatiles['goldentouch'].item) === target.getItem()) return;
+				if (this.effectState.items[0]) this.singleEvent('End', target.getItem(), {id: target.getItem().id, target: source}, source);
+           	this.effectState.items = [this.effectState.items[1], target.item];
            	this.singleEvent('Start', target.getItem(), {id: target.getItem().id, target: source}, source);
-           	source.volatiles['beastbootleg1'] = {id: this.effectData.items[1], target: source}
-           	if (this.effectData.items[0]) source.volatiles['beastbootleg2'] = {id: this.effectData.items[0], target: source};
+           	source.volatiles['beastbootleg1'] = {id: this.effectState.items[1], target: source}
+           	if (this.effectState.items[0]) source.volatiles['beastbootleg2'] = {id: this.effectState.items[0], target: source};
          }
     	},
 		onEnd(target) {
@@ -13135,7 +13135,7 @@ exports.BattleAbilities = {
         }
     },
     onAllyTryHitSide(target, source, move) {
-        if (target === this.effectData.target || target.side !== source.side) return;
+        if (target === this.effectState.target || target.side !== source.side) return;
         if (move.type === 'Grass') {
             let spawnedBerries = ['leppaberry', 'oranberry', 'sitrusberry', 'figyberry', 'wikiberry', 'magoberry', 'aguavberry', 'iapapaberry', 'liechiberry', 'ganlonberry', 'salacberry', 'petayaberry', 'apicotberry', 'lansatberry', 'starfberry', 'micleberry', 'custapberry', 'keeberry', 'marangaberry', 'rowapberry', 'jabocaberry'];
             if (target.status) {
@@ -13591,7 +13591,7 @@ exports.BattleAbilities = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Disruption', 'boost');
 					activated = true;
@@ -13651,7 +13651,7 @@ exports.BattleAbilities = {
 			for (const target of pokemon.side.foe.active) {
 				if (target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					let move = this.getMove(moveSlot.move);
+					let move = this.moves.get(moveSlot.move);
 					if (move.category !== 'Status' && (this.getImmunity(move.type, pokemon) && this.getEffectiveness(move.type, pokemon) > 0 || move.ohko)) {
 						target.disableMove(moveSlot.id);
 						return;
@@ -13716,20 +13716,20 @@ exports.BattleAbilities = {
 			duration: 1,
 			onStart(side, source) {
 				this.debug('Hydra started on ' + side.name);
-				this.effectData.positions = [];
+				this.effectState.positions = [];
 				// @ts-ignore
 				for (const i of side.active.keys()) {
-					this.effectData.positions[i] = false;
+					this.effectState.positions[i] = false;
 				}
-				this.effectData.positions[source.position] = true;
+				this.effectState.positions[source.position] = true;
 			},
 			onRestart(side, source) {
-				this.effectData.positions[source.position] = true;
+				this.effectState.positions[source.position] = true;
 			},
 			onSwitchInPriority: 1,
 			onSwitchIn(target) {
-				const positions = /**@type {boolean[]} */ (this.effectData.positions);
-				if (target.position !== this.effectData.sourcePosition) {
+				const positions = /**@type {boolean[]} */ (this.effectState.positions);
+				if (target.position !== this.effectState.sourcePosition) {
 						return;
 				}
 				if (target && !target.fainted && target.hp > 0) {
@@ -13860,14 +13860,14 @@ exports.BattleAbilities = {
 		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or are healthy.",
 		shortDesc: "Prevents adjacent foes from choosing to switch if they have a volatile status condition.",
 		onFoeTrapPokemon(pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+			if (!pokemon.isAdjacent(this.effectState.target)) return;
 			if (pokemon.status) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (pokemon.status) {
 				pokemon.maybeTrapped = true;
 			}
@@ -13879,14 +13879,14 @@ exports.BattleAbilities = {
 		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or are healthy.",
 		shortDesc: "Prevents adjacent foes from choosing to switch if they have a volatile status condition.",
 		onFoeTrapPokemon(pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
+			if (!pokemon.isAdjacent(this.effectState.target)) return;
 			if (pokemon.status) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (pokemon.status) {
 				pokemon.maybeTrapped = true;
 			}
@@ -13940,7 +13940,7 @@ exports.BattleAbilities = {
 			let newMove = this.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		effect: {
@@ -14162,7 +14162,7 @@ exports.BattleAbilities = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if ((this.field.isWeather(['sunnyday', 'desolateland', 'solarsnow']) || this.randomChance(1, 2)) === (!!pokemon.volatiles['atmosphericperversion'] === !!pokemon.volatiles['weatherbreak'])) {
-				if (pokemon.hp && !pokemon.item && this.getItem(pokemon.lastItem).isBerry) {
+				if (pokemon.hp && !pokemon.item && this.items.get(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
 					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Berry Cola');
@@ -14171,8 +14171,8 @@ exports.BattleAbilities = {
 		},
 		//TODO: 
 // 		onAnyTryHeal(damage, target, source, effect) {
-// 			if (source !== this.effectData.target) return; //Only works if the source is the mon with the ability.
-// 			if (!this.getItem(source.lastItem).isBerry && (!source.item || source.getItem().isBerry)) return; //We know the mon with Berry Cola has a berry!
+// 			if (source !== this.effectState.target) return; //Only works if the source is the mon with the ability.
+// 			if (!this.items.get(source.lastItem).isBerry && (!source.item || source.getItem().isBerry)) return; //We know the mon with Berry Cola has a berry!
 // 			this.debug("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
 // 			if (effect && effect.effectType === 'Move') {
 // 				if (source.item && source.getItem().isBerry){
@@ -14197,7 +14197,7 @@ exports.BattleAbilities = {
 				if (target.side === source.side) {
 					this.add('-activate', target, 'Role Play', '', '', '[of] ' + source);
 				} else {
-					this.add('-activate', target, 'ability: Vengeful Curse', this.dex.getAbility(sourceAbility).name, '[of] ' + source);		
+					this.add('-activate', target, 'ability: Vengeful Curse', this.dex.abilities.get(sourceAbility).name, '[of] ' + source);		
 				}
 				target.setAbility(sourceAbility);
 			}

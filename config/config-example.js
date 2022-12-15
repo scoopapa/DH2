@@ -2,12 +2,16 @@
 
 /**
  * The server port - the port to run Pokemon Showdown under
+ *
+ * @type {number}
  */
 exports.port = 8000;
 
 /**
  * The server address - the address at which Pokemon Showdown should be hosting
  *   This should be kept set to 0.0.0.0 unless you know what you're doing.
+ *
+ * @type {string}
  */
 exports.bindaddress = '0.0.0.0';
 
@@ -87,7 +91,6 @@ Main's SSL deploy script from Let's Encrypt looks like:
  * @type {false | string[]}.
  */
 exports.proxyip = false;
-exports.isTrustedProxyIp = ip => ["::1", "127.0.0.1"].includes(ip);
 
 /**
  * Various debug options
@@ -130,6 +133,8 @@ exports.debugdexsearchprocesses = true;
  * Pokemon of the Day - put a pokemon's name here to make it Pokemon of the Day
  *   The PotD will always be in the #2 slot (not #1 so it won't be a lead)
  *   in every Random Battle team.
+ *
+ * @type {ID}
  */
 exports.potd = '';
 
@@ -171,8 +176,8 @@ Y929lRybWEiKUr+4Yw2O1W0CAwEAAQ==
  *   Don't change this setting - there aren't any other options right now
  */
 exports.routes = {
-	root: 'dragonheavenserver.herokuapp.com',
-	client: 'dragonheaven.herokuapp.com',
+	root: 'pokemonshowdown.com',
+	client: 'play.pokemonshowdown.com',
 	dex: 'dex.pokemonshowdown.com',
 	replays: 'replay.pokemonshowdown.com',
 };
@@ -269,6 +274,20 @@ exports.nothrottle = false;
 exports.noipchecks = false;
 
 /**
+ * controls the behavior of the /battlesearch command
+ *
+ * valid values are:
+ *   - true: disables battlesearch entirely
+ *   - false: enables the node.js /battlesearch
+ * 	   (uses either node fs or ripgrep for searching)
+ *   - 'psbattletools': defaults to the psbattletools /battlesearch (normally available as /alternatebattlesearch)
+ * 	   (uses psbattletools, which must be installed, for searching)
+ *
+ * @type {boolean | 'psbattletools'}
+ */
+exports.nobattlesearch = false;
+
+/**
  * allow punishmentmonitor to lock users with multiple roombans.
  *	 When set to `true`, this feature will automatically lock any users with three or more
  *	 active roombans, and notify the staff room.
@@ -283,7 +302,7 @@ exports.punishmentautolock = false;
  *   If this is set to `true`, only autoconfirmed users can send links to either chatrooms or other users, except for staff members.
  *   This option can be used if your server has trouble with spammers mass PMing links to users, or trolls sending malicious links.
  */
-exports.restrictLinks = true;
+exports.restrictLinks = false;
 
 /**
  * whitelist - prevent users below a certain group from doing things
@@ -298,7 +317,7 @@ exports.restrictLinks = true;
   * chat modchat - default minimum group for speaking in chatrooms; changeable with /modchat
   * @type {false | string}
  */
-exports.chatmodchat = '+';
+exports.chatmodchat = false;
 /**
  * battle modchat - default minimum group for speaking in battles; changeable with /modchat
  * @type {false | AuthLevel}
@@ -319,6 +338,8 @@ exports.laddermodchat = false;
  * forced timer - force the timer on for all battles
  *   Players will be unable to turn it off.
  *   This setting can also be turned on with the command /forcetimer.
+ *
+ * @type {boolean}
  */
 exports.forcetimer = false;
 
@@ -398,6 +419,8 @@ exports.inactiveuserthreshold = 1000 * 60 * 60;
  * autolockdown - whether or not to automatically kill the server when it is
  * in lockdown mode and the final battle finishes.  This is potentially useful
  * to prevent forgetting to restart after a lockdown where battles are finished.
+ *
+ * @type {boolean}
  */
 exports.autolockdown = true;
 
@@ -410,21 +433,6 @@ exports.autolockdown = true;
  * no authority. You cannot log into a trusted (g+/r%) user account this way.
  */
 exports.noguestsecurity = false;
-
-/**
- * Custom avatars.
- * This allows you to specify custom avatar images for users on your server.
- * Place custom avatar files under the /config/avatars/ directory.
- * Users must be specified as userids -- that is, you must make the name all
- * lowercase and remove non-alphanumeric characters.
- *
- * Your server *must* be registered in order for your custom avatars to be
- * displayed in the client.
- * @type {{[userid: string]: string}}
- */
-exports.customavatars = {
-	// 'userid': 'customavatar.png'
-};
 
 /**
  * tourroom - specify a room to receive tournament announcements (defaults to
@@ -468,7 +476,7 @@ exports.disablehotpatchall = false;
  * Battles involving user IDs which begin with one of the prefixes configured here
  * will be unaffected by various battle privacy commands such as /modjoin, /hideroom
  * or /ionext.
- * @type {string[]}
+ * @type {string[] | undefined}
  */
 exports.forcedpublicprefixes = [];
 
@@ -573,6 +581,7 @@ exports.grouplist = [
 		gdeclare: true,
 		gamemanagement: true,
 		exportinputlog: true,
+		tournaments: true,
 	},
 	{
 		symbol: '#',
@@ -603,6 +612,7 @@ exports.grouplist = [
 		declare: true,
 		modchat: 'a',
 		gamemanagement: true,
+		forcewin: true,
 		tournaments: true,
 		joinbattle: true,
 	},
@@ -650,6 +660,13 @@ exports.grouplist = [
 		hiderank: true,
 	},
 	{
+		symbol: '\u00a7',
+		id: "sectionleader",
+		name: "Section Leader",
+		inherit: '+',
+		jurisdiction: 'u',
+	},
+	{
 		// Bots are ranked below Driver/Mod so that Global Bots can be kept out
 		// of modjoin % rooms (namely, Staff).
 		// (They were previously above Driver/Mod so they can have game management
@@ -665,7 +682,7 @@ exports.grouplist = [
 		declare: true,
 		bypassafktimer: true,
 		gamemanagement: true,
-		broadcast: true,
+
 		ip: false,
 		globalban: false,
 		lock: false,
@@ -678,7 +695,7 @@ exports.grouplist = [
 		name: "Player",
 		inherit: '+',
 		battleonly: true,
-		broadcast: true,
+
 		roomvoice: true,
 		modchat: true,
 		editprivacy: true,
@@ -691,8 +708,7 @@ exports.grouplist = [
 		id: "voice",
 		name: "Voice",
 		inherit: ' ',
-		broadcast: true,
-		roomvoice: true,
+
 		altsself: true,
 		makegroupchat: true,
 		joinbattle: true,

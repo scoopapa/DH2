@@ -5,7 +5,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 0,
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Harvest Moon', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Harvest Moon');
@@ -83,7 +83,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.field.clearTerrain();
 			this.field.removePseudoWeather();
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Vacuum', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Vacuum');

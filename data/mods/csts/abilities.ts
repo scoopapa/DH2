@@ -19,14 +19,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFoeTrapPokemon(pokemon) {
 			console.log(pokemon.activeTurns);
-			let source = this.effectData.target;
-			if (source && this.isAdjacent(pokemon, source) && !source.volatiles['zephyr']) {
+			let source = this.effectState.target;
+			if (source && pokemon.isAdjacent(source) && !source.volatiles['zephyr']) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source) || source.volatiles['zephyr']) return;
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source) || source.volatiles['zephyr']) return;
 			pokemon.maybeTrapped = true;
 		},
 		id: "zephyr",
@@ -47,11 +47,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Ground' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
-			if (this.validTarget(this.effectData.target, source, move.target)) {
-				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Grounding');
+			if (this.validTarget(this.effectState.target, source, move.target)) {
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Grounding');
 				}
-				return this.effectData.target;
+				return this.effectState.target;
 			}
 		},
 		id: "grounding",
@@ -141,7 +141,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart: function (pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Malware', 'boost');
 					activated = true;
@@ -188,7 +188,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onStart: function (pokemon) {
             let activated = false;
             for (const target of pokemon.side.foe.active) {
-                if (!target || !this.isAdjacent(target, pokemon)) continue;
+                if (!target || !target.isAdjacent(pokemon)) continue;
                 if (!activated) {
                     this.add('-ability', pokemon, 'Mythical Presence', 'boost');
                     activated = true;
@@ -230,9 +230,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             }
         },
         onAllyTryHitSide: function (target, source, move) {
-            if (target === this.effectData.target || target.side !== source.side) return;
+            if (target === this.effectState.target || target.side !== source.side) return;
             if (move.type === 'Dark') {
-                this.boost({atk: 1}, this.effectData.target);
+                this.boost({atk: 1}, this.effectState.target);
             }
         },
         id: "abyssallight",
@@ -262,7 +262,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart: function (pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Malware', 'boost');
 					activated = true;

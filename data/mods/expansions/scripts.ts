@@ -1,7 +1,7 @@
 export const Scripts: ModdedBattleScriptsData = {
 	/*
 	init() {
-		Object.values(this.data.Abilities).forEach(ability => {
+		Object.values(this.abilities.all()).forEach(ability => {
 			if (ability.id === 'trace') return;
 			let id = 'ability' + ability.id;
 			this.data.Statuses[id] = Object.assign({}, ability);

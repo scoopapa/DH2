@@ -47,7 +47,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Terror', 'boost');
 					activated = true;
@@ -92,7 +92,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Gluttony effect + The Pokémon recycles any Berry it has consumed when it switches out.",
 		name: "Forager",
 		onSwitchOut(pokemon) {
-			if (pokemon.hp && !pokemon.item && this.dex.getItem(pokemon.lastItem).isBerry) {
+			if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
 				pokemon.setItem(pokemon.lastItem);
 				pokemon.lastItem = '';
 				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Forager');
@@ -133,7 +133,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
@@ -180,7 +180,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					if (target.side === source.side) {
 						this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
 					} else {
-						this.add('-activate', target, 'ability: Identity Theft', this.dex.getAbility(targetAbility).name, 'Identity Theft', '[of] ' + source);
+						this.add('-activate', target, 'ability: Identity Theft', this.dex.abilities.get(targetAbility).name, 'Identity Theft', '[of] ' + source);
 					}
 					source.setAbility(targetAbility);
 				}
@@ -206,7 +206,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart: function (pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Terror', 'boost');
 					activated = true;

@@ -132,7 +132,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				let scaredThisGuy = false;
 				for (const moveSlot of ((pokemon.illusion && pokemon.illusion.moveSlots) ? pokemon.illusion.moveSlots : pokemon.moveSlots)) {
 					if (scaredThisGuy === true) continue;
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
@@ -202,7 +202,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			});
 		},
 		onAnyHit(target, source, move) {
-			if (source && source !== target && source === this.effectData.target && move && move.flags['contact'] && move.type === 'Grass' && source.useItem()) {
+			if (source && source !== target && source === this.effectState.target && move && move.flags['contact'] && move.type === 'Grass' && source.useItem()) {
 				target.addVolatile('yawn');
 			}
 		},

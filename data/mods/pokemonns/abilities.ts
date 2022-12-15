@@ -97,7 +97,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Ink Splatter', 'boost');
 					activated = true;
@@ -190,7 +190,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Spin Around",
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
-			if (this.effectData.target.activeTurns) return;
+			if (this.effectState.target.activeTurns) return;
 
 			if (target === source || move.hasBounced || !move.flags['reflectable']) {
 				return;
@@ -201,14 +201,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (this.effectData.target.activeTurns) return;
+			if (this.effectState.target.activeTurns) return;
 
 			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
 				return;
 			}
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {
@@ -345,7 +345,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts: {
 				def: -1,
 			},
-				ability: this.dex.getAbility('hypercutter'),
+				ability: this.dex.abilities.get('hypercutter'),
 			});
 		},
 		name: "Hyper Cutter",
@@ -380,14 +380,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFoeTrapPokemon(pokemon) {
 			console.log(pokemon.activeTurns);
-			let source = this.effectData.target;
-			if (source && this.isAdjacent(pokemon, source) && !source.volatiles['shadowtag']) {
+			let source = this.effectState.target;
+			if (source && pokemon.isAdjacent(source) && !source.volatiles['shadowtag']) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
-			if (!source || !this.isAdjacent(pokemon, source) || source.volatiles['shadowtag']) return;
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source) || source.volatiles['shadowtag']) return;
 			pokemon.maybeTrapped = true;
 		},
 		name: "Shadow Tag",
@@ -413,7 +413,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnySwitchIn(pokemon) {
-			const source = this.effectData.target;
+			const source = this.effectState.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target.volatiles['embargo']) {
@@ -422,7 +422,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			const source = this.effectData.target;
+			const source = this.effectState.target;
 			for (const target of source.side.foe.active) {
 				target.removeVolatile('embargo');
 			}

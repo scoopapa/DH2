@@ -52,7 +52,7 @@ exports.BattleAbilities = {
 		shortDesc: "Protects the Pokémon and its ally Pokémon from being poisoned.",
 		onAllySwitchIn(pokemon) {
 			if (['psn', 'tox'].includes(pokemon.status)) {
-				this.add('-activate', this.effectData.target, 'ability: Pastel Veil');
+				this.add('-activate', this.effectState.target, 'ability: Pastel Veil');
 				pokemon.cureStatus();
 			}
 		},
@@ -65,7 +65,7 @@ exports.BattleAbilities = {
 		onAllySetStatus(status, target, source, effect) {
 			if (!['psn', 'tox'].includes(status.id)) return;
 			if (!effect || !effect.status) return false;
-			this.add('-block', target, 'ability: Pastel Veil', '[of] ' + this.effectData.target);
+			this.add('-block', target, 'ability: Pastel Veil', '[of] ' + this.effectState.target);
 			return false;
 		},
 		onTryHit(target, source, move) {

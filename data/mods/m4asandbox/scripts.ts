@@ -206,7 +206,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		lostItemForDelibird: null,
 		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
 			if (!this.hp) return false;
-			if (typeof item === 'string') item = this.battle.dex.getItem(item);
+			if (typeof item === 'string') item = this.battle.dex.items.get(item);
 
 			const effectid = this.battle.effect ? this.battle.effect.id : '';
 			const RESTORATIVE_BERRIES = new Set([
@@ -228,16 +228,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		setAbility(ability: string | Ability, source?: Pokemon | null, isFromFormeChange?: boolean) { // edited so Megas can have Neutralizing Gas and similar
 			if (!this.hp) return false;
-			if (typeof ability === 'string') ability = this.battle.dex.getAbility(ability);
+			if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
 			const oldAbility = this.ability;
 			if (!isFromFormeChange) {
 				if (ability.isPermanent || this.getAbility().isPermanent) return false;
 			}
 			if (!this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability)) return false;
-			this.battle.singleEvent('End', this.battle.dex.getAbility(oldAbility), this.abilityData, this, source);
+			this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityData, this, source);
 			if (this.battle.effect && this.battle.effect.effectType === 'Move') {
-				this.battle.add('-endability', this, this.battle.dex.getAbility(oldAbility), '[from] move: ' +
-									 this.battle.dex.getMove(this.battle.effect.id));
+				this.battle.add('-endability', this, this.battle.dex.abilities.get(oldAbility), '[from] move: ' +
+									 this.battle.dex.moves.get(this.battle.effect.id));
 			}
 			this.ability = ability.id;
 			this.abilityData = {id: ability.id, target: this};
@@ -418,10 +418,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		};
 		
 		// MnM4A
-		for (const i in this.data.Items) {
-			if (!this.data.Items[i].megaStone) continue;
-			this.modData('Items', i).onTakeItem = false;
-			const id = this.toID(this.data.Items[i].megaStone);
+		for (const i in this.items.all()) {
+			let id = this.items.all()[i].id;
+			if (!this.items.all()[i].megaStone) continue;
+			this.modData('Items', id).onTakeItem = false;
+			id = this.toID(this.items.all()[i].megaStone);
 			if (this.modData('FormatsData', id)) this.modData('FormatsData', id).isNonstandard = null;
 		}
 		// some slight changes around here to account for Legends: Arceus, which I am meant to be adding to the sandbox as convenient presets of sorts (:
@@ -748,7 +749,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	runMegaEvo(pokemon) {
 		if (pokemon.species.isMega) return false;
 		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		}
 
 		// @ts-ignore
@@ -775,7 +776,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		// Do we have a proper sprite for it?
-		if (this.dex.getSpecies(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
+		if (this.dex.species.get(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
 			pokemon.formeChange(species, pokemon.getItem(), true);
 			this.add('-start', pokemon, pokemon.getItem(), '[silent]');
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
@@ -791,7 +792,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		} else {
 			let oSpecies = pokemon.m.originalSpecies;
 			// @ts-ignore
-			const oMegaSpecies = this.dex.getSpecies(species.originalMega);
+			const oMegaSpecies = this.dex.species.get(species.originalMega);
 			pokemon.formeChange(species, pokemon.getItem(), true);
 			if (oMegaSpecies.requiredItem) this.add('-start', pokemon, oMegaSpecies.requiredItem, '[silent]');
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
@@ -811,13 +812,13 @@ export const Scripts: ModdedBattleScriptsData = {
 	getMixedSpecies(originalForme, megaForme) {
 		let originalSpecies = originalForme;
 		// @ts-ignore
-		const deltas = this.getMegaDeltas(this.dex.getSpecies(megaForme));
+		const deltas = this.getMegaDeltas(this.dex.species.get(megaForme));
 		// @ts-ignore
 		const species = this.doGetMixedSpecies(originalSpecies, deltas);
 		return species;
 	},
 	getMegaDeltas(megaSpecies) {
-		const baseSpecies = this.dex.getSpecies(megaSpecies.baseSpecies);
+		const baseSpecies = this.dex.species.get(megaSpecies.baseSpecies);
 		const deltas: {
 			ability: string,
 			baseStats: SparseStatsTable,
@@ -854,7 +855,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	doGetMixedSpecies(speciesOrForme, deltas) {
 		if (!deltas) throw new TypeError("Must specify deltas!");
-		const preMegaForme = this.dex.getSpecies(speciesOrForme);
+		const preMegaForme = this.dex.species.get(speciesOrForme);
 		let species = this.dex.deepClone(preMegaForme);
 		species.abilities = {'0': deltas.ability};
 		if (deltas.type === 'mono') {
