@@ -93,7 +93,7 @@ export const Formats: FormatList = [
 		},
 		validateSet(set, teamHas) { // stolen from SV Specualative
 			const species = this.dex.species.get(set.species);
-			const ability = this.dex.getAbility(set.ability);
+			const ability = this.dex.abilities.get(set.ability);
 			if (!set.hpType === 'Fairy' && !set.hpType === 'Normal') {
 				return this.validateSet(set, teamHas);
 			} else {
