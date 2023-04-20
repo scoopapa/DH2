@@ -35,7 +35,7 @@ import {DataMove, DexMoves} from './dex-moves';
 import {Item, DexItems} from './dex-items';
 import {Ability, DexAbilities} from './dex-abilities';
 import {Species, DexSpecies} from './dex-species';
-import {Format, DexFormats} from './dex-formats';
+import {Format, DexFormats, mergeFormatLists} from './dex-formats';
 import {Utils} from '../lib';
 
 const BASE_MOD = 'gen9' as ID;
@@ -43,15 +43,17 @@ const BASE_MOD = 'gen9' as ID;
 const DATA_PATH = __dirname.endsWith('.sim-dist') ? `../.data-dist` : `../data`;
 const DATA_DIR = path.resolve(__dirname, DATA_PATH);
 const MODS_DIR = path.resolve(DATA_DIR, './mods');
+const MAIN_FORMATS = path.resolve(__dirname, '../.config-dist/formats');
+const CUSTOM_FORMATS = path.resolve(__dirname, '../.config-dist/custom-formats');
 
 const dexes: {[mod: string]: ModdedDex} = Object.create(null);
 
 type DataType =
 	'Abilities' | 'Rulesets' | 'FormatsData' | 'Items' | 'Learnsets' | 'Moves' |
-	'Natures' | 'Pokedex' | 'Scripts' | 'Conditions' | 'TypeChart';
+	'Natures' | 'Pokedex' | 'Scripts' | 'Conditions' | 'TypeChart' | 'Formats';
 const DATA_TYPES: (DataType | 'Aliases')[] = [
 	'Abilities', 'Rulesets', 'FormatsData', 'Items', 'Learnsets', 'Moves',
-	'Natures', 'Pokedex', 'Scripts', 'Conditions', 'TypeChart',
+	'Natures', 'Pokedex', 'Scripts', 'Conditions', 'TypeChart', 'Formats',
 ];
 
 const DATA_FILES = {
@@ -67,6 +69,7 @@ const DATA_FILES = {
 	Scripts: 'scripts',
 	Conditions: 'conditions',
 	TypeChart: 'typechart',
+	Formats: 'formats',
 };
 
 interface DexTable<T> {
@@ -86,6 +89,7 @@ interface DexTableData {
 	Scripts: DexTable<AnyObject>;
 	Conditions: DexTable<EffectData>;
 	TypeChart: DexTable<TypeData>;
+	Formats: DexTable<Format>;
 }
 interface TextTableData {
 	Abilities: DexTable<AbilityText>;
@@ -120,6 +124,7 @@ export class ModdedDex {
 
 	dataCache: DexTableData | null;
 	textCache: TextTableData | null;
+	formatsCache: DexTable<Format> | null;
 
 	deepClone = Utils.deepClone;
 
@@ -140,6 +145,7 @@ export class ModdedDex {
 
 		this.dataCache = null;
 		this.textCache = null;
+		this.formatsCache = null;
 
 		this.formats = new DexFormats(this);
 		this.abilities = new DexAbilities(this);
@@ -557,7 +563,54 @@ export class ModdedDex {
 	}
 
 	includeFormats(): this {
-		this.formats.load();
+		if (!this.isBase) throw new Error(`This should only be run on the base mod`);
+		this.includeMods();
+		if (this.formatsCache) return this;
+
+		if (!this.formatsCache) this.formatsCache = {};
+
+		// Load formats
+		let Formats: any;
+		let customFormats;
+		try {
+			customFormats = require(CUSTOM_FORMATS).Formats;
+		} catch (e) {
+			if (e.code !== 'MODULE_NOT_FOUND' && e.code !== 'ENOENT') {
+				throw e;
+			}
+		}
+		try {
+			Formats = mergeFormatLists(require(MAIN_FORMATS).Formats, customFormats);
+		} catch (e) {
+			if (e.code !== 'MODULE_NOT_FOUND' && e.code !== 'ENOENT') {
+				throw e;
+			}
+		}
+		if (!Array.isArray(Formats)) {
+			throw new TypeError(`Exported property 'Formats' from "./config/formats.ts" must be an array`);
+		}
+		let section = '';
+		let column = 1;
+		for (const [i, format] of Formats.entries()) {
+			const id = toID(format.name);
+			if (format.section) section = format.section;
+			if (format.column) column = format.column;
+			if (!format.name && format.section) continue;
+			if (!id) {
+				throw new RangeError(`Format #${i + 1} must have a name with alphanumeric characters, not '${format.name}'`);
+			}
+			if (!format.section) format.section = section;
+			if (!format.column) format.column = column;
+			if (this.formatsCache[id]) throw new Error(`Format #${i + 1} has a duplicate ID: '${id}'`);
+			format.effectType = 'Format';
+			format.baseRuleset = format.ruleset ? format.ruleset.slice() : [];
+			if (format.challengeShow === undefined) format.challengeShow = true;
+			if (format.searchShow === undefined) format.searchShow = true;
+			if (format.tournamentShow === undefined) format.tournamentShow = true;
+			if (format.mod === undefined) format.mod = 'gen8';
+			if (!dexes[format.mod]) throw new Error(`Format "${format.name}" requires nonexistent mod: '${format.mod}'`);
+			this.formatsCache[id] = format;
+		}
 		return this;
 	}
 }
