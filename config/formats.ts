@@ -672,7 +672,7 @@ export const Formats: FormatList = [
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
 			let species = this.dex.species.get(set.species);
-			let item = this.dex.getItem(set.item);
+			let item = this.dex.items.get(set.item);
 			let tierSpecies = species;
 
 			if (item.megaEvolves === species.name) {
@@ -976,14 +976,14 @@ export const Formats: FormatList = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)') {
 					return [set.species + ' is not legal in the Evolution Project format.'];
 				}
 			}
 		},
 		onValidateSet(set) {
-			const item = this.dex.getItem(set.item);
+			const item = this.dex.items.get(set.item);
 			if (item.megaStone) return [`${set.name || set.species} is not currently allowed to Mega Evolve.`];
 		},
 		mod: 'evolutionproject',
@@ -1001,7 +1001,7 @@ export const Formats: FormatList = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)') {
 					return [set.species + ' is not legal in the Evolution Project format.'];
 				}
@@ -1012,7 +1012,7 @@ export const Formats: FormatList = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
 				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
-			const species = this.dex.getSpecies(set.species);
+			const species = this.dex.species.get(set.species);
 			if (unobtainables.includes(species.name)) {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];
@@ -1026,7 +1026,7 @@ export const Formats: FormatList = [
 			}
 			// Items other than Z-Crystals and Pokémon-specific items should be illegal
 			if (!set.item) return;
-			const item = this.dex.getItem(set.item);
+			const item = this.dex.items.get(set.item);
 			if (item.megaStone) return [`${set.name || set.species} is not currently allowed to Mega Evolve.`];
 			if (!item.isNonstandard) return;
 			if (['Past', 'Unobtainable'].includes(item.isNonstandard) && !item.zMove && !item.itemUser && !item.forcedForme) {
