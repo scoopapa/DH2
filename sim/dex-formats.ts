@@ -434,7 +434,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 }
 
 /** merges format lists from config/formats and config/custom-formats */
-function mergeFormatLists(main: FormatList, custom: FormatList | undefined): FormatList {
+export function mergeFormatLists(main: FormatList, custom: FormatList | undefined): FormatList {
 	// interface for the builder.
 	interface FormatSection {
 		section: string;
