@@ -1040,130 +1040,130 @@ export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	//////////////////////// Randbats /////////////////////////////
 	///////////////////////////////////////////////////////////////
-	{
-		section: "Randbats",
-		column: 2,
-	},
-	{
-        name: "[Gen 9] Duomod Randbats",
-        desc: `<b>gen 9 duomod back and better than ever baybeeeeee</b>`,
-        threads: [
-            `&bullet; <a href="https://docs.google.com/spreadsheets/d/1VZp8emRachS_ieusnF8FWKFqTcOUjrVyr393J-J17pY/edit?usp=sharing">Spreadsheet</a>`,
-        ],
-        team: 'random',
-        mod: 'gen9duomod',
-        ruleset: ['Standard NatDex', 'Subscribe For More Content', 'Duomod Data Mod'],
-        onSwitchIn(pokemon) {
-            this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-        },
-    },
-	{
-		name: "[Gen 8] Duomod Randbats",
-		desc: `<b>Duomod</b>: Legendary YouTuber and professional Smash player DuoM2's solomod, build around the idea where nobody is ever truly losing.`,
-        threads: [
-            `&bullet; <a href="https://docs.google.com/spreadsheets/d/1lguyF31tjV8f-Gv3uLxmZXGAlg23k2fkF_nBqevJouM/edit?usp=sharing">Spreadsheet</a>`,
-        ],
-		team: 'random',
-		mod: 'duomod',
-		ruleset: ['Standard NatDex', 'Subscribe For More Content', 'Duomod Data Mod'],
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		},
-	},
-	{
-		name: "[Gen 8] Fusion Evolution UU Random Battle",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Fusion Evolution Under Used on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zFk1_DBIoXFFn_7JpvYbVBrW-f1oFFh80Wn0CJNnbVo/edit#gid=0">Spreadsheet</a>`,
-		],
-		mod: 'feuu',
-		team: 'random',
-		ruleset: ['OHKO Clause', 'Obtainable', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Cancel Mod'],
-	},
-	{
-		name: "[Gen 1] FutureProofing Random Battle",
-	   desc: `<b>[Gen 1] FutureProofing</b>: Adapting Dark, Steel, and Fairy-type moves and Pokemon to the Gen 1 OU metagame.`,
-	   threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-futureproofing-slate-1-discussion.3703375/">FutureProofing on Smogon Forums</a>`,
-	   ],
-		mod: 'gen1futureproofing',
-		team: 'random',
-		ruleset: ['Standard', 'Data Mod'],
-	},
-	{
-		name: "[Gen 8] JolteMons Random Battle",
-		desc: [
-			"<b>JolteMons</b>: A sequel to SylveMons where Pokemon, items, abilities and moves are redesigned for OU (and new items, abilities and moves are added) without changing base stats.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/joltemons-slate-1-distribution-phase.3694234/">Thread on the Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/149ZlQY0bJIAqfWB_233Dvbpqs3pVSHYpIoAQQkwquls/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'joltemons',	
-		team: 'random',
-		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Mega Data Mod', 'Data Mod', 'Z-Move Clause'],
-	},
-	{
-		name: "[Gen 8] M4A Random Battle",
-		threads: [
-				`&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
-				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
-				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
-		      ],
-		mod: 'm4asandbox',
-		team: 'random',
-		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod', 'Mega Hint Mod'],
-	},
-	{
-		name: "[Gen 8] Roulettemons Random",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3649106/">Roulettemons on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EOA1m7JXTq7Zz0ViVI4n6lBppFjVBa4S1GqhAwkPTZQ/edit?usp=sharing">Spreadsheet</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1J5ZMVzTAfJ48KQWVE7jt1S6fm7Y8DQX1tFX0-iENWiw/edit?usp=sharing">Bonus Random Team Generator</a>`,
-		],
-		team: 'random',
-		mod: 'roulettemons',
-		ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod'],
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		},
-		onChangeSet(set) {
-			if (set.species === 'Chillyte-Mega') {
-				set.species = 'Chillyte';
-				set.ability = 'Grassy Surge';
-			}
-		},
-	},
-	{
-      name: "[Gen 8] OU Theorymons Random Battle",
-      threads: [ 
-          `&bullet; <a href="https://www.smogon.com/forums/threads/ss-ou-theorymon.3695574/">OU Theorymons on Smogon Forums</a>`,
-          `&bullet; <a href="https://docs.google.com/spreadsheets/d/1AgqKo8IiXky8apuu0FUgx4MJRVtsVwtuhg_Wj_ACgao/edit#gid=0">Spreadsheet</a>`,
-      ],
-      team: 'random',
-		mod: 'outheorymons', 
-		ruleset: ['Dynamax Clause', 'Data Mod', 'Species Clause'],
-	},
-	{
-		name: "[Gen 8] Roulettemons Random Doubles",
-		threads: [
-		   `&bullet; <a href="https://www.smogon.com/forums/threads/3649106/">Roulettemons on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1EOA1m7JXTq7Zz0ViVI4n6lBppFjVBa4S1GqhAwkPTZQ/edit?usp=sharing">Spreadsheet</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1J5ZMVzTAfJ48KQWVE7jt1S6fm7Y8DQX1tFX0-iENWiw/edit?usp=sharing">Bonus Random Team Generator</a>`,
-		],
-		team: 'random',
-		gameType: 'doubles',
-		mod: 'roulettemons',
-		ruleset: ['Standard NatDex', 'Sleep Clause Mod'],
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		},
-		onChangeSet(set) {
-			if (set.species === 'Chillyte-Mega') {
-				set.species = 'Chillyte';
-			}
-		},
-	},
+	// {
+		// section: "Randbats",
+		// column: 2,
+	// },
+	// {
+        // name: "[Gen 9] Duomod Randbats",
+        // desc: `<b>gen 9 duomod back and better than ever baybeeeeee</b>`,
+        // threads: [
+            // `&bullet; <a href="https://docs.google.com/spreadsheets/d/1VZp8emRachS_ieusnF8FWKFqTcOUjrVyr393J-J17pY/edit?usp=sharing">Spreadsheet</a>`,
+        // ],
+        // team: 'random',
+        // mod: 'gen9duomod',
+        // ruleset: ['Standard NatDex', 'Subscribe For More Content', 'Duomod Data Mod'],
+        // onSwitchIn(pokemon) {
+            // this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+        // },
+    // },
+	// {
+		// name: "[Gen 8] Duomod Randbats",
+		// desc: `<b>Duomod</b>: Legendary YouTuber and professional Smash player DuoM2's solomod, build around the idea where nobody is ever truly losing.`,
+        // threads: [
+            // `&bullet; <a href="https://docs.google.com/spreadsheets/d/1lguyF31tjV8f-Gv3uLxmZXGAlg23k2fkF_nBqevJouM/edit?usp=sharing">Spreadsheet</a>`,
+        // ],
+		// team: 'random',
+		// mod: 'duomod',
+		// ruleset: ['Standard NatDex', 'Subscribe For More Content', 'Duomod Data Mod'],
+		// onSwitchIn(pokemon) {
+			// this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		// },
+	// },
+	// {
+		// name: "[Gen 8] Fusion Evolution UU Random Battle",
+		// threads: [
+			// `&bullet; <a href="https://www.smogon.com/forums/threads/fusion-evolution-under-used-submission-slate-3.3674163/">Fusion Evolution Under Used on Smogon Forums</a>`,
+			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1zFk1_DBIoXFFn_7JpvYbVBrW-f1oFFh80Wn0CJNnbVo/edit#gid=0">Spreadsheet</a>`,
+		// ],
+		// mod: 'feuu',
+		// team: 'random',
+		// ruleset: ['OHKO Clause', 'Obtainable', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Cancel Mod'],
+	// },
+	// {
+		// name: "[Gen 1] FutureProofing Random Battle",
+	   // desc: `<b>[Gen 1] FutureProofing</b>: Adapting Dark, Steel, and Fairy-type moves and Pokemon to the Gen 1 OU metagame.`,
+	   // threads: [
+			// `&bullet; <a href="https://www.smogon.com/forums/threads/gen-1-futureproofing-slate-1-discussion.3703375/">FutureProofing on Smogon Forums</a>`,
+	   // ],
+		// mod: 'gen1futureproofing',
+		// team: 'random',
+		// ruleset: ['Standard', 'Data Mod'],
+	// },
+	// {
+		// name: "[Gen 8] JolteMons Random Battle",
+		// desc: [
+			// "<b>JolteMons</b>: A sequel to SylveMons where Pokemon, items, abilities and moves are redesigned for OU (and new items, abilities and moves are added) without changing base stats.",
+		// ],
+		// threads: [
+			// `&bullet; <a href="https://www.smogon.com/forums/threads/joltemons-slate-1-distribution-phase.3694234/">Thread on the Smogon Forums</a>`,
+			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/149ZlQY0bJIAqfWB_233Dvbpqs3pVSHYpIoAQQkwquls/edit?usp=sharing">Spreadsheet</a>`,
+		// ],
+		// mod: 'joltemons',	
+		// team: 'random',
+		// ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Mega Data Mod', 'Data Mod', 'Z-Move Clause'],
+	// },
+	// {
+		// name: "[Gen 8] M4A Random Battle",
+		// threads: [
+				// `&bullet; <a href="https://www.smogon.com/forums/threads/megas-for-all-v7-slate-33-electrode-golurk-and-silvally-please-read-the-first-post-fully-playable-through-slate-32.3671140/">Megas for All v7 on Smogon Forums</a>`,
+				// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
+				// `&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
+		      // ],
+		// mod: 'm4asandbox',
+		// team: 'random',
+		// ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod', 'Mega Hint Mod'],
+	// },
+	// {
+		// name: "[Gen 8] Roulettemons Random",
+		// threads: [
+			// `&bullet; <a href="https://www.smogon.com/forums/threads/3649106/">Roulettemons on Smogon Forums</a>`,
+			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1EOA1m7JXTq7Zz0ViVI4n6lBppFjVBa4S1GqhAwkPTZQ/edit?usp=sharing">Spreadsheet</a>`,
+			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1J5ZMVzTAfJ48KQWVE7jt1S6fm7Y8DQX1tFX0-iENWiw/edit?usp=sharing">Bonus Random Team Generator</a>`,
+		// ],
+		// team: 'random',
+		// mod: 'roulettemons',
+		// ruleset: ['Standard NatDex', 'Dynamax Clause', 'Sleep Clause Mod'],
+		// onSwitchIn(pokemon) {
+			// this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		// },
+		// onChangeSet(set) {
+			// if (set.species === 'Chillyte-Mega') {
+				// set.species = 'Chillyte';
+				// set.ability = 'Grassy Surge';
+			// }
+		// },
+	// },
+	// {
+      // name: "[Gen 8] OU Theorymons Random Battle",
+      // threads: [ 
+          // `&bullet; <a href="https://www.smogon.com/forums/threads/ss-ou-theorymon.3695574/">OU Theorymons on Smogon Forums</a>`,
+          // `&bullet; <a href="https://docs.google.com/spreadsheets/d/1AgqKo8IiXky8apuu0FUgx4MJRVtsVwtuhg_Wj_ACgao/edit#gid=0">Spreadsheet</a>`,
+      // ],
+      // team: 'random',
+		// mod: 'outheorymons', 
+		// ruleset: ['Dynamax Clause', 'Data Mod', 'Species Clause'],
+	// },
+	// {
+		// name: "[Gen 8] Roulettemons Random Doubles",
+		// threads: [
+		   // `&bullet; <a href="https://www.smogon.com/forums/threads/3649106/">Roulettemons on Smogon Forums</a>`,
+			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1EOA1m7JXTq7Zz0ViVI4n6lBppFjVBa4S1GqhAwkPTZQ/edit?usp=sharing">Spreadsheet</a>`,
+			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1J5ZMVzTAfJ48KQWVE7jt1S6fm7Y8DQX1tFX0-iENWiw/edit?usp=sharing">Bonus Random Team Generator</a>`,
+		// ],
+		// team: 'random',
+		// gameType: 'doubles',
+		// mod: 'roulettemons',
+		// ruleset: ['Standard NatDex', 'Sleep Clause Mod'],
+		// onSwitchIn(pokemon) {
+			// this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
+		// },
+		// onChangeSet(set) {
+			// if (set.species === 'Chillyte-Mega') {
+				// set.species = 'Chillyte';
+			// }
+		// },
+	// },
 	///////////////////////////////////////////////////////////////
 	/////////////// Gen 9 Offical Smogon Formats //////////////////
 	///////////////////////////////////////////////////////////////
