@@ -28,14 +28,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.field.setTerrain('electricterrain');
 			
 			if (pokemon.side.foe.active.some(
-				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
 			)) {
-				this.effectState.gaveUp = true;
+				this.effectData.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -113,13 +113,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	justifiedsylve: {
 		onFoeTrapPokemon (pokemon) {
-			if (pokemon.hasType('Dark') && pokemon.isAdjacent(this.effectState.target)) {
+			if (pokemon.hasType('Dark') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon (pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Dark')) && pokemon.isAdjacent(source)) {
+			if (!source) source = this.effectData.target;
+			if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -339,7 +339,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Mythical Presence', 'boost');
 					activated = true;
@@ -434,10 +434,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectState.target.storedStats) {
-				if (this.effectState.target.storedStats[s] > bestStat) {
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectState.target.storedStats[s];
+					bestStat = this.effectData.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'atk') {
@@ -450,10 +450,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectState.target.storedStats) {
-				if (this.effectState.target.storedStats[s] > bestStat) {
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectState.target.storedStats[s];
+					bestStat = this.effectData.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'def') {
@@ -466,10 +466,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectState.target.storedStats) {
-				if (this.effectState.target.storedStats[s] > bestStat) {
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectState.target.storedStats[s];
+					bestStat = this.effectData.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'spa') {
@@ -482,10 +482,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectState.target.storedStats) {
-				if (this.effectState.target.storedStats[s] > bestStat) {
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectState.target.storedStats[s];
+					bestStat = this.effectData.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'spd') {
@@ -497,10 +497,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectState.target.storedStats) {
-				if (this.effectState.target.storedStats[s] > bestStat) {
+			for (s in this.effectData.target.storedStats) {
+				if (this.effectData.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectState.target.storedStats[s];
+					bestStat = this.effectData.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'spe') {
@@ -529,7 +529,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (this.field.isWeather('hail') && pokemon.species.id === 'escavaliereiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectState.busted = false;
+				this.effectData.busted = false;
 				pokemon.formeChange('Escavalier-Eiscue', this.effect, true);
 			}
 		},
@@ -540,7 +540,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.species.id === 'escavaliereiscue' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Ice Face');
-				this.effectState.busted = true;
+				this.effectData.busted = true;
 				return 0;
 			}
 		},
@@ -559,15 +559,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id === 'escavaliereiscue' && this.effectState.busted) {
+			if (pokemon.species.id === 'escavaliereiscue' && this.effectData.busted) {
 				pokemon.formeChange('Escavalier-Eiscue-Noice', this.effect, true);
 			}
 		},
 		onAnyWeatherStart() {
-			const pokemon = this.effectState.target;
+			const pokemon = this.effectData.target;
 			if (this.field.isWeather('hail') && pokemon.species.id === 'escavaliereiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectState.busted = false;
+				this.effectData.busted = false;
 				pokemon.formeChange('Escavalier-Eiscue', this.effect, true);
 			}
 		},
@@ -588,7 +588,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onFoeBasePowerPriority: 17,
 		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.target !== defender) return;
+			if (this.effectData.target !== defender) return;
 			if (move.type === 'Fire') {
 				return this.chainModify(1.25);
 			}
@@ -640,7 +640,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Debilitate', 'boost');
 					activated = true;
@@ -777,7 +777,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectState.target, source);
+			this.useMove(newMove, this.effectData.target, source);
 			return null;
 		},
 		condition: {

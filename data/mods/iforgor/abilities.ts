@@ -4,7 +4,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Debilitate', 'boost');
 					activated = true;
@@ -25,7 +25,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Annihilate', 'boost');
 					activated = true;
@@ -46,7 +46,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Obliterate', 'boost');
 					activated = true;
@@ -181,20 +181,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1010,
 		shortDesc: "On switch-in, swaps ability with the opponent.",
 		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = true;
+			this.effectData.switchingIn = true;
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
-				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
 			))
 			|| pokemon.species.id !== 'normalghost') {
-				this.effectState.gaveUp = true;
+				this.effectData.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			if (!this.effectData.switchingIn) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -388,7 +388,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Decelerate', 'boost');
 					activated = true;
@@ -409,7 +409,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Locate', 'boost');
 					activated = true;
@@ -435,9 +435,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1024,
 	},
 	akashiarts: {
-		shortDesc: "This Pokemon's Attack is raised by 1 stage after it is damaged by a move.",
-		onDamagingHit(damage, target, source, effect) {
-			this.boost({atk: 1});
+		shortDesc: "This Pokemon's slicing moves lower the target's Defense by 1.",
+		onAfterMove(target, source, move) {
+			if (move?.flags['slicing']) {
+				target.boost({def: -1});
+			}
 		},
 		name: "Akashi Arts",
 		rating: 3.5,
@@ -452,7 +454,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Overripe",
-		rating: 3.5,
+		rating: 4.5,
 		num: -1026,
 	},
 };

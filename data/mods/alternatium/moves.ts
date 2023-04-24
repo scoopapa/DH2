@@ -55,18 +55,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers = 1;
+				this.effectData.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectState.layers >= 3) return false;
+				if (this.effectData.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers++;
+				this.effectData.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasItem('burndrive')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
 		},
 	},
@@ -76,12 +76,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectState.layers = 1;
+				this.effectData.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectState.layers >= 2) return false;
+				if (this.effectData.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectState.layers++;
+				this.effectData.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
@@ -90,7 +90,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					pokemon.side.removeSideCondition('toxicspikes');
 				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasItem('burndrive')) {
 					return;
-				} else if (this.effectState.layers >= 2) {
+				} else if (this.effectData.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 				} else {
 					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
@@ -490,10 +490,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onHit(source) {
 				if (this.randomChance(1, 1)) {
 					for (const pokemon of source.side.active) {
-						if (!pokemon.item && pokemon.lastItem && this.dex.items.get(pokemon.lastItem).isBerry) {
+						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
 							const item = pokemon.lastItem;
 							pokemon.lastItem = '';
-							this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Egg Bomb');
+							this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
 							pokemon.setItem(item);
 						}
 					}
@@ -743,32 +743,32 @@ export const Moves: {[moveid: string]: MoveData} = {
 						layers = 3;
 					}
 				}
-				this.effectState.layers = layers;
-				this.effectState.def = 0;
-				this.effectState.spd = 0;
-				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				this.effectData.layers = layers;
+				this.effectData.def = 0;
+				this.effectData.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
 				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
 				this.boost({def: layers, spd: layers}, target, target);
 				for (let i = 0; i < layers; i++) {
-					if (curDef !== target.boosts.def) this.effectState.def--;
-					if (curSpD !== target.boosts.spd) this.effectState.spd--;
+					if (curDef !== target.boosts.def) this.effectData.def--;
+					if (curSpD !== target.boosts.spd) this.effectData.spd--;
 				}
 			},
 			onRestart(target) {
-				if (this.effectState.layers >= 3) return false;
-				this.effectState.layers++;
-				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				if (this.effectData.layers >= 3) return false;
+				this.effectData.layers++;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
 				const curDef = target.boosts.def;
 				const curSpD = target.boosts.spd;
 				this.boost({def: 1, spd: 1}, target, target);
-				if (curDef !== target.boosts.def) this.effectState.def--;
-				if (curSpD !== target.boosts.spd) this.effectState.spd--;
+				if (curDef !== target.boosts.def) this.effectData.def--;
+				if (curSpD !== target.boosts.spd) this.effectData.spd--;
 			},
 			onEnd(target) {
-				if (this.effectState.def || this.effectState.spd) {
+				if (this.effectData.def || this.effectData.spd) {
 					const boosts: SparseBoostsTable = {};
-					if (this.effectState.def) boosts.def = this.effectState.def;
-					if (this.effectState.spd) boosts.spd = this.effectState.spd;
+					if (this.effectData.def) boosts.def = this.effectData.def;
+					if (this.effectData.spd) boosts.spd = this.effectData.spd;
 					this.boost(boosts, target, target);
 				}
 				this.add('-end', target, 'Stockpile');

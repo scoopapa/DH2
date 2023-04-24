@@ -154,7 +154,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
+			const pokemon = this.effectData.target;
 			if (!this.field.isTerrain('')) {
 				pokemon.useItem();
 			}
@@ -189,5 +189,35 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "If Basculin-Skyship, its Defense and Sp. Def are 1.5x.",
 		num: 538,
 		gen: 5,
+	},
+	
+	//SV Item Descriptions
+	abilityshield:  {
+		inherit: true,
+		shortDesc: "Holder's Ability cannot be changed by any effect.",
+	},
+	clearamulet:  {
+		inherit: true,
+		shortDesc: "Prevents other Pokemon from lowering the holder's stat stages.",
+	},
+	mirrorherb:  {
+		inherit: true,
+		shortDesc: "When an opposing Pokemon raises a stat stage, the holder copies it. Single use.",
+	},
+	punchingglove:  {
+		inherit: true,
+		shortDesc: "Holder's punch-based attacks have 1.1x power and do not make contact.",
+	},
+	covertcloak:  {
+		inherit: true,
+		shortDesc: "Holder is not affected by the secondary effect of another Pokemon's attack.",
+	},
+	loadeddice:  {
+		inherit: true,
+		shortDesc: "Holder's moves that hit 2-5 times hit 4-5 times; Population Bomb hits 4-10 times.",
+	},
+	boosterenergy:  {
+		inherit: true,
+		shortDesc: "Activates the Protosynthesis or Quark Drive Abilities. Single use.",
 	},
 };

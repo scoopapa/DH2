@@ -554,34 +554,42 @@ export const Items: {[k: string]: ModdedItemData} = {
 	
 	assaultvest: {
 		inherit: true,
-		isViable: false,
+		isNonstandard: "Future",
+		gen: 8,
 	},
 	choicescarf: {
 		inherit: true,
-		isViable: false,
+		isNonstandard: "Future",
+		gen: 8,
 	},
 	choicespecs: {
 		inherit: true,
-		isViable: false,
+		isNonstandard: "Future",
+		gen: 8,
 	},
 	eviolite: {
 		inherit: true,
-		isViable: false,
+		isNonstandard: "Future",
+		gen: 8,
 	},
 	focussash: {
 		inherit: true,
-		isViable: false,
+		isNonstandard: "Future",
+		gen: 8,
 	},
 	heavydutyboots: {
 		inherit: true,
-		isViable: false,
+		isNonstandard: "Future",
+		gen: 8,
 	},
 	lifeorb: {
 		inherit: true,
-		isViable: false,
+		isNonstandard: "Future",
+		gen: 8,
 	},
 	rockyhelmet: {
 		inherit: true,
-		isViable: false,
+		isNonstandard: "Future",
+		gen: 8,
 	},
 };

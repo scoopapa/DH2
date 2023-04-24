@@ -82,7 +82,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllySetStatus(status, target, source, effect) {
 			if (status.id === 'slp') {
 				this.debug('Sweet Veil interrupts sleep');
-				const effectHolder = this.effectState.target;
+				const effectHolder = this.effectData.target;
 				this.add('-block', target, 'ability: Sweet Veil', '[of] ' + effectHolder);
 				return null;
 			}
@@ -90,7 +90,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllyTryAddVolatile(status, target) {
 			if (status.id === 'yawn') {
 				this.debug('Sweet Veil blocking yawn');
-				const effectHolder = this.effectState.target;
+				const effectHolder = this.effectData.target;
 				this.add('-block', target, 'ability: Sweet Veil', '[of] ' + effectHolder);
 				return null;
 			}
@@ -176,9 +176,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectState.target || target.side !== source.side) return;
+			if (target === this.effectData.target || target.side !== source.side) return;
 			if (move.type === 'Water') {
-				this.boost({def: 2}, this.effectState.target);
+				this.boost({def: 2}, this.effectData.target);
 			}
 		},
 		name: "Water Compaction",
@@ -290,7 +290,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.abilities.get('poisontouch'),
+				ability: this.dex.getAbility('poisontouch'),
 			});
 		},
 		onSourceAfterFaint(length, target, source, effect) {
@@ -330,7 +330,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAllySwitchIn(pokemon) {
 			if (['psn', 'tox'].includes(pokemon.status)) {
-				this.add('-activate', this.effectState.target, 'ability: Pastel Veil');
+				this.add('-activate', this.effectData.target, 'ability: Pastel Veil');
 				pokemon.cureStatus();
 			}
 		},
@@ -344,7 +344,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllySetStatus(status, target, source, effect) {
 			if (!['psn', 'tox'].includes(status.id)) return;
 			if ((effect as Move)?.status) {
-				const effectHolder = this.effectState.target;
+				const effectHolder = this.effectData.target;
 				this.add('-block', target, 'ability: Pastel Veil', '[of] ' + effectHolder);
 			}
 			return false;
@@ -482,20 +482,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	wanderingspirit: {
 		shortDesc: "On switch-in, swaps ability with the opponent.",
 		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = true;
+			this.effectData.switchingIn = true;
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
-				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
 			))
 			|| pokemon.species.id !== 'spiritomb' && pokemon.species.id !== 'spectrier' && pokemon.species.id !== 'yamaskgalar' && pokemon.species.id !== 'runerigus' && pokemon.species.id !== 'cofagrigus' && pokemon.species.id !== 'cacturne' && pokemon.species.id !== 'hoopa' && pokemon.species.id !== 'marowak' && pokemon.species.id !== 'rotom') {
-				this.effectState.gaveUp = true;
+				this.effectData.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			if (!this.effectData.switchingIn) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -629,8 +629,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (
 					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
-					!pokemon.side.pokemon[i].item || this.dex.items.get(pokemon.side.pokemon[i].item).zMove ||
-					 this.dex.items.get(pokemon.side.pokemon[i].item).megaStone
+					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove ||
+					 this.dex.getItem(pokemon.side.pokemon[i].item).megaStone
 				) continue;
 				break;
 			}
@@ -639,7 +639,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const counterfeit = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Counterfeit');
 			pokemon.item = counterfeit.item;
-			this.add('-message', `${pokemon.name}'s item became a replica of the ${this.dex.items.get(counterfeit.item).name} belonging to ${counterfeit.name}!`);
+			this.add('-message', `${pokemon.name}'s item became a replica of the ${this.dex.getItem(counterfeit.item).name} belonging to ${counterfeit.name}!`);
 		},
 		name: "Counterfeit",
 		rating: 3.5,
@@ -649,14 +649,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
 			if (pokemon.side.foe.active.some(
-				foeActive => foeActive && pokemon.isAdjacent(foeActive) && !foeActive.item
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && !foeActive.item
 			)) {
-				this.effectState.gaveUp = true;
+				this.effectData.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -684,11 +684,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
-				if (!target || target.fainted || !target.isAdjacent(pokemon)) continue;
-				if (!target.item || this.dex.items.get(target.item).zMove || this.dex.items.get(target.item).megaStone) continue;
+				if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
+				if (!target.item || this.dex.getItem(target.item).zMove || this.dex.getItem(target.item).megaStone) continue;
 				if (!pokemon.useItem) return;
 				pokemon.ability = target.item;
-				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} counterfeited the ${this.dex.items.get(target.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} counterfeited the ${this.dex.getItem(target.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
 				return;
 			}
 		},
@@ -803,7 +803,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllyTryAddVolatile(status, target, source, effect) {
 			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment', 'trashtalk'].includes(status.id)) {
 				if (effect.effectType === 'Move') {
-					const effectHolder = this.effectState.target;
+					const effectHolder = this.effectData.target;
 					this.add('-block', target, 'ability: Aroma Veil', '[of] ' + effectHolder);
 				}
 				return null;
@@ -816,14 +816,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	trace: {
 		onStart(pokemon) {
 			if (pokemon.side.foe.active.some(
-				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
 			)) {
-				this.effectState.gaveUp = true;
+				this.effectData.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -863,7 +863,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnySwitchIn(pokemon) {
-			const source = this.effectState.target;
+			const source = this.effectData.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target.volatiles['embargo'] && !target.hasItem('morningblossom')) {
@@ -872,7 +872,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			const source = this.effectState.target;
+			const source = this.effectData.target;
 			for (const target of source.side.foe.active) {
 				target.removeVolatile('embargo');
 			}
@@ -895,7 +895,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnySwitchIn(pokemon) {
-			const source = this.effectState.target;
+			const source = this.effectData.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target.volatiles['embargo'] && !target.hasItem('morningblossom')) {
@@ -904,7 +904,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			const source = this.effectState.target;
+			const source = this.effectData.target;
 			for (const target of source.side.foe.active) {
 				target.removeVolatile('embargo');
 			}
@@ -968,7 +968,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
-					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
 				}
 				if (target.volatiles['slowstart']) {
 					delete target.volatiles['slowstart'];
@@ -1008,7 +1008,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
-					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
 				}
 				if (target.volatiles['slowstart']) {
 					delete target.volatiles['slowstart'];
@@ -1063,7 +1063,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllySetStatus(status, target, source, effect) {
 			if (status.id === 'slp') {
 				this.debug('Sweet Veil interrupts sleep');
-				const effectHolder = this.effectState.target;
+				const effectHolder = this.effectData.target;
 				this.add('-block', target, 'ability: Sweet Veil', '[of] ' + effectHolder);
 				return null;
 			}
@@ -1071,7 +1071,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllyTryAddVolatile(status, target) {
 			if (status.id === 'yawn') {
 				this.debug('Sweet Veil blocking yawn');
-				const effectHolder = this.effectState.target;
+				const effectHolder = this.effectData.target;
 				this.add('-block', target, 'ability: Sweet Veil', '[of] ' + effectHolder);
 				return null;
 			}
@@ -1135,16 +1135,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return false;
 		},
 		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = true;
+			this.effectData.switchingIn = true;
 		},
 		onStart(pokemon) {
 			// Imposter does not activate when Skill Swapped or when Neutralizing Gas leaves the field
-			if (!this.effectState.switchingIn) return;
+			if (!this.effectData.switchingIn) return;
 			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
 			if (target) {
-				pokemon.transformInto(target, this.dex.abilities.get('powerofalchemyditto'));
+				pokemon.transformInto(target, this.dex.getAbility('powerofalchemyditto'));
 			}
-			this.effectState.switchingIn = false;
+			this.effectData.switchingIn = false;
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Ditto)",
@@ -1367,7 +1367,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectState.target, source);
+			this.useMove(newMove, this.effectData.target, source);
 			return null;
 		},
 		condition: {
@@ -1576,7 +1576,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.moves.get(moveSlot.move).category === 'Status') {
+				if (this.dex.getMove(moveSlot.move).category === 'Status') {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -1614,7 +1614,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
-					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
 				}
 			}
 		},
@@ -1656,7 +1656,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
-					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
 				}
 			}
 		},
@@ -1694,7 +1694,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
-					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
 				}
 			}
 		},
@@ -1830,7 +1830,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onAllyTryAddVolatile(status, target, source, effect) {
 				if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
 					if (effect.effectType === 'Move') {
-						const effectHolder = this.effectState.target;
+						const effectHolder = this.effectData.target;
 						this.add('-block', target, 'ability: Mental Herb', '[of] ' + effectHolder);
 						target.removeVolatile('mentalherb');
 					}
@@ -2469,8 +2469,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				this.effectState.lastMove = '';
-				this.effectState.numConsecutive = 0;
+				this.effectData.lastMove = '';
+				this.effectData.numConsecutive = 0;
 			},
 			onTryMovePriority: -2,
 			onTryMove(pokemon, target, move) {
@@ -2478,18 +2478,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.removeVolatile('metronome');
 					return;
 				}
-				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
-					this.effectState.numConsecutive++;
-				} else if (pokemon.volatiles['twoturnmove'] && this.effectState.lastMove !== move.id) {
-					this.effectState.numConsecutive = 1;
+				if (this.effectData.lastMove === move.id && pokemon.moveLastTurnResult) {
+					this.effectData.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove'] && this.effectData.lastMove !== move.id) {
+					this.effectData.numConsecutive = 1;
 				} else {
-					this.effectState.numConsecutive = 0;
+					this.effectData.numConsecutive = 0;
 				}
-				this.effectState.lastMove = move.id;
+				this.effectData.lastMove = move.id;
 			},
 			onModifyDamage(damage, source, target, move) {
 				const dmgMod = [0x1000, 0x1333, 0x1666, 0x1999, 0x1CCC, 0x2000];
-				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+				const numConsecutive = this.effectData.numConsecutive > 5 ? 5 : this.effectData.numConsecutive;
 				return this.chainModify([dmgMod[numConsecutive], 0x1000]);
 			},
 		},

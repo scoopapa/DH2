@@ -11,17 +11,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			const source = this.effectState.source;
-			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectState.sourceEffect.id);
+			const source = this.effectData.source;
+			const gmaxEffect = ['gmaxcentiferno', 'gmaxsandblast'].includes(this.effectData.sourceEffect.id);
 			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
 				delete pokemon.volatiles['jawlock'];
-				this.add('-end', pokemon, this.effectState.sourceEffect, '[jawlock]', '[silent]');
+				this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]', '[silent]');
 				return;
 			}
 			this.damage(pokemon.baseMaxhp / 8);
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, this.effectState.sourceEffect, '[jawlock]');
+			this.add('-end', pokemon, this.effectData.sourceEffect, '[jawlock]');
 		},
 	},
 	/*diving: {
@@ -36,24 +36,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'twoturnmove',
 		duration: 2,
 		onStart(target, source, effect) {
-			this.effectState.move = effect.id;
+			this.effectData.move = effect.id;
 			target.addVolatile(effect.id, source);
 			this.attrLastMove('[still]');
 		},
 		onEnd(target) {
-			target.removeVolatile(this.effectState.move);
+			target.removeVolatile(this.effectData.move);
 		},
 		onLockMove(pokemon) {
 			if (pokemon.volatile('diving')) return; // onLockMove traps the user
-			return this.effectState.move;
+			return this.effectData.move;
 		},
 		onDisableMove(pokemon) {
 			if (pokemon.volatile('diving')) return; // equivalent to onLockMove if the user should not be trapped
-			if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
+			if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== this.effectState.move) {
+				if (moveSlot.id !== this.effectData.move) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}

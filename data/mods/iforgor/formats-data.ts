@@ -324,7 +324,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "IDK2",
 	},
 	firepsychic: {
-		tier: "EF",
+		tier: "IDK",
 		doublesTier: "IDK2",
 	},
 	darkghost: {

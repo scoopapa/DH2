@@ -182,7 +182,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	runMegaEvo(pokemon) {
 		if (pokemon.species.isMega || !pokemon.canMegaEvo) return false;
 		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
+			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
 		}
 		let species = this.dex.deepClone(pokemon.species);
 		species.teraBoost = pokemon.species.types;
@@ -256,13 +256,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		 isPermanent?: boolean, message?: string
 		) {
 			if (this.species.teraType) console.log("teraType: " + this.species.teraType);
-			let baseForm = this.battle.dex.species.get(speciesId);
+			let baseForm = this.battle.dex.getSpecies(speciesId);
 			let teraSpecies = null;
 			if (this.species.teraType) {
 				teraSpecies = this.battle.dex.deepClone(baseForm);
 				teraSpecies.teraType = this.species.teraType;
 				teraSpecies.types = [teraSpecies.teraType];
-				teraSpecies.teraBoost = this.battle.dex.species.get(speciesId).types;
+				teraSpecies.teraBoost = this.battle.dex.getSpecies(speciesId).types;
 				teraSpecies.nonTeraForm = baseForm;
 			}
 			const rawSpecies = teraSpecies || baseForm;
@@ -446,7 +446,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		let nullDamage = true;
 		let moveDamage: (number | boolean | undefined)[];
 		// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-		const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
+		const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
 
 		let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
 		let hit: number;

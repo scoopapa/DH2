@@ -183,7 +183,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onLockMove: 'reconstruct',
 			onStart(pokemon) {
-				this.effectState.totalDamage = 0;
+				this.effectData.totalDamage = 0;
 				this.add('-start', pokemon, 'move: Reconstruct');
 			},
 			onSourceModifyDamage(damage, source, target, move) {
@@ -192,7 +192,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onBeforeMove(pokemon, target, move) {
-				if (this.effectState.duration === 1) {
+				if (this.effectData.duration === 1) {
 					this.add('-end', pokemon, 'move: Reconstruct');
 					const moveData: Partial<ActiveMove> = {
 						id: 'reconstruct' as ID,
@@ -930,7 +930,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.effectState.source.side.active[pokemon.volatiles['curse'].sourcePosition];
+				const target = this.effectData.source.side.active[pokemon.volatiles['curse'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to curse');
 					return;
@@ -1385,7 +1385,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
 				}
 				if (item.id === 'boomerang') {
-					this.add('-item', target, this.dex.items.get(item), '[from] item: Boomerang');
+					this.add('-item', target, this.dex.getItem(item), '[from] item: Boomerang');
 					target.setItem(item);				
 				}
 			}
@@ -1469,7 +1469,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.moves.get(moveSlot.id).flags['gravity']) {
+					if (this.dex.getMove(moveSlot.id).flags['gravity']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}

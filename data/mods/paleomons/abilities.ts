@@ -133,11 +133,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 	absorption: {
 		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = true;
+			this.effectData.switchingIn = true;
 			pokemon.addVolatile('absorption');
 		},
 		onStart(pokemon) {
-			if (!this.effectState.switchingIn || this.field.isTerrain('')) {
+			if (!this.effectData.switchingIn || this.field.isTerrain('')) {
 				return;
 			}
 			this.add('-message', `Absorption Activated!`);
@@ -205,14 +205,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			});
 		},
 		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.isAdjacent(this.effectState.target)) return;
+			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
 			if (pokemon.volatiles['fanglock']) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if (!source || !pokemon.isAdjacent(source)) return;
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
 			if (pokemon.volatiles['fanglock']) {
 				pokemon.maybeTrapped = true;
 			}
@@ -266,16 +266,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 	persistence: { 
+	/*
 		onBeforeMove(target, source, move) {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
 			const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
-			/*if (move.flags['charge'] && !target.volatiles['twoturnmove']) {
+			if (move.flags['charge'] && !target.volatiles['twoturnmove']) {
 				this.boost({atk: 1});
 			} else if (!this.dex.getImmunity(moveType, source)) {
 				this.boost({atk: 1});
 			}
 			(move as any).persistence = true;
-			*/
 		},
 		onAfterMove(source, target, move) {
 			if (!source || source === target || move.category === 'Status' || move.name === "Counter") return;
@@ -286,9 +286,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			} else if(target.moveThisTurnResult) {
 			}
 		},
+*/
 		name: "Persistence",
 		desc: "If the user chooses an attacking move but doesn't damage the target on the same turn, raises the user's Attack by 1 stage. This effect doesn't occur if this Pokemon is charging.",
-		shortDesc: "If the user doesn't damage the target with an attacking move, raises user's Attack by 1 stage.",
+		shortDesc: "(Non-functional placeholder) If the user doesn't damage the target with an attacking move, raises user's Attack by 1 stage.",
 		num: -111,
 	},
 		

@@ -53,7 +53,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onSwap(target) {
 				target.side.removeSlotCondition(target, 'afterimage');
 				if (!target.fainted) {
-					target.m.afterimage = this.effectState.source; // not being null is truthy
+					target.m.afterimage = this.effectData.source; // not being null is truthy
 					if (target.hasType('Ghost')) return;
 					if (!target.addType('Ghost')) return;
 					this.add('-start', target, 'typeadd', 'Ghost', '[from] Ability: Afterimage', '[of] ' + target.m.afterimage);
@@ -174,7 +174,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.item && pokemon.m.originalItem) {
 				if (pokemon.setItem(pokemon.m.originalItem)) {
 					this.add('-ability', pokemon, 'Hoard');
-					this.add('-item', pokemon, this.dex.items.get(pokemon.m.originalItem), '[from] Ability: Hoard');
+					this.add('-item', pokemon, this.dex.getItem(pokemon.m.originalItem), '[from] Ability: Hoard');
 				}
 			}
 		},
@@ -490,7 +490,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (target !== source && move.type === 'Fairy') {
 				let activated = false;
 				for (const ally of target.side.active) {
-					if (!ally || (!ally.isAdjacent(target) && ally !== target)) continue;
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
 					if (!activated) {
 						this.add('-ability', target, 'Comedian', 'boost');
 						this.add('-message', `${target.name} is howling with laughter!`);
@@ -506,11 +506,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectState.target || target.side !== source.side) return;
+			if (target === this.effectData.target || target.side !== source.side) return;
 			if (move.type === 'Fairy') {
 				let activated = false;
 				for (const ally of target.side.active) {
-					if (!ally || (!ally.isAdjacent(target) && ally !== target)) continue;
+					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
 					if (!activated) {
 						this.add('-ability', target, 'Comedian', 'boost');
 						this.add('-message', `${target.name} is howling with laughter!`);
@@ -593,7 +593,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					move: move,
 					position: target.position,
 					side: target.side,
-					moveData: this.dex.moves.get(move),
+					moveData: this.dex.getMove(move),
 				});
 				this.add('-ability', source, 'Clairvoyance');
 				this.add('-message', `${source.name} cast ${move.name} into the future!`);
@@ -605,16 +605,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 3,
 			onResidualOrder: 3,
 			onEnd(target) {
-				this.effectState.target = this.effectState.side.active[this.effectState.position];
-				const data = this.effectState;
-				const move = this.dex.moves.get(data.move);
-				this.add('-ability', this.effectState.source, 'Clairvoyance');
+				this.effectData.target = this.effectData.side.active[this.effectData.position];
+				const data = this.effectData;
+				const move = this.dex.getMove(data.move);
+				this.add('-ability', this.effectData.source, 'Clairvoyance');
 				if (!data.target) {
 					this.hint(`${move.name} did not hit because there was no target.`);
 					return;
 				}
 
-				this.add('-message', `${this.effectState.source.name}'s ${move.name} took effect!`);
+				this.add('-message', `${this.effectData.source.name}'s ${move.name} took effect!`);
 				data.target.removeVolatile('Endure');
 
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -668,7 +668,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	hallowseve: {
 		shortDesc: "This Pokémon's SpA and SpD rise when targeted by a Ghost move.",
 		onAnyTryMove(source, target, move) {
-			if (move && move.type === 'Ghost' && target === this.effectState.target) target.addVolatile('hallowseve');
+			if (move && move.type === 'Ghost' && target === this.effectData.target) target.addVolatile('hallowseve');
 		},
 		condition: {
 			duration: 1,
@@ -720,7 +720,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.illusion) {
-				this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, source, move);
+				this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, source, move);
 				if (target.item === 'hatofdisguise') {
 					target.useItem();
 					target.setAbility(target.baseAbility);
@@ -730,7 +730,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onTakeItem(item, pokemon, source) {
 			if (pokemon.item === 'hatofdisguise') {
 				if (pokemon.illusion) {
-						this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, source, move);
+						this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, source, move);
 						pokemon.setAbility(pokemon.baseAbility);
 					}	
 			}

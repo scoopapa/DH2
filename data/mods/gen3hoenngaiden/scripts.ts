@@ -128,7 +128,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let lacksTarget = !target || target.fainted;
 			if (!lacksTarget) {
 				if (['adjacentFoe', 'adjacentAlly', 'normal', 'randomNormal'].includes(move.target)) {
-					lacksTarget = !target.isAdjacent(pokemon);
+					lacksTarget = !this.isAdjacent(target, pokemon);
 				}
 			}
 			if (lacksTarget && !move.isFutureMove) {
@@ -158,8 +158,8 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	init: function () {
 
-		for (const i in this.species.all()) {
-			delete this.species.all()[i].abilities['H'];
+		for (const i in this.data.Pokedex) {
+			delete this.data.Pokedex[i].abilities['H'];
 		}
 
 		// list Pokemon by VR rank
@@ -208,13 +208,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		// this.modData('Learnsets', 'ledian').learnset.firepunch = ['3L1'];
 		this.modData('Learnsets', 'ledian').learnset.lunge = ['3L1'];
 		this.modData('Learnsets', 'ledian').learnset.aeroblast = ['3L1'];
-		this.modData('Learnsets', 'ledian').learnset.bellydrum = ['3L1'];
+		// this.modData('Learnsets', 'ledian').learnset.bellydrum = ['3L1'];
 		this.modData('Learnsets', 'ledian').learnset.calmmind = ['3L1'];
 
 		delete this.modData('Learnsets', 'ledian').learnset.brickbreak;
 		delete this.modData('Learnsets', 'ledian').learnset.focuspunch;
+		delete this.modData('Learnsets', 'ledian').learnset.swordsdance;
 		delete this.modData('Learnsets', 'ledyba').learnset.brickbreak;
 		delete this.modData('Learnsets', 'ledyba').learnset.focuspunch;
+		delete this.modData('Learnsets', 'ledyba').learnset.swordsdance;
 		
 		this.modData('Learnsets', 'sableye').learnset.yawn = ['3L1'];
 		
@@ -780,6 +782,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "cramorant").learnset.mimic = ["3L1"];
 		this.modData("Learnsets", "cramorant").learnset.return = ["3L1"];
 		this.modData("Learnsets", "cramorant").learnset.frustration = ["3L1"];
+		this.modData("Learnsets", "cramorant").learnset.doubleedge = ["3L1"];
 
 		this.modData("Learnsets", "jellicent").learnset.hydropump = ["3L1"];
 		this.modData("Learnsets", "jellicent").learnset.waterpulse = ["3L1"];
@@ -982,7 +985,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "regidrago").learnset.counter = ["3L1"];
 		this.modData("Learnsets", "regidrago").learnset.earthquake = ["3L1"];
 
-		this.modData("Learnsets", "uxie").learnset.wish = ["3L1"];
+		// this.modData("Learnsets", "uxie").learnset.wish = ["3L1"];
 
 		this.modData("Learnsets", "stunfisk").learnset.mimic = ["3L1"];
 		this.modData("Learnsets", "stunfisk").learnset.secretpower = ["3L1"];
@@ -1018,12 +1021,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "sirfetchd").learnset.skyattack = ["3L1"];
 		this.modData("Learnsets", "sirfetchd").learnset.rocksmash = ["3L1"];
 		this.modData("Learnsets", "sirfetchd").learnset.knockoff = ["3L1"];
+		this.modData("Learnsets", "sirfetchd").learnset.bulkup = ["3L1"];
 
 		this.modData("Learnsets", "talonflame").learnset.skyattack = ["3L1"];	
 		this.modData("Learnsets", "talonflame").learnset.doubleedge = ["3L1"];
 		this.modData("Learnsets", "talonflame").learnset.mimic = ["3L1"];	
 		this.modData("Learnsets", "talonflame").learnset.mudslap = ["3L1"];	
 
+		//quick fix
 
 		delete this.modData('Learnsets', 'sirfetchd').learnset.featherdance;
 		delete this.modData('Learnsets', 'sirfetchd').learnset.wish;
@@ -1039,6 +1044,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'roselia').learnset.sleeppowder;
 		delete this.modData('Learnsets', 'roserade').learnset.sleeppowder;
 
+		delete this.modData('Learnsets', 'voltorbhisui').learnset.headbutt;
+		delete this.modData('Learnsets', 'voltorbhisui').learnset.refresh;
 		delete this.modData('Learnsets', 'electrodehisui').learnset.headbutt;
 		delete this.modData('Learnsets', 'electrodehisui').learnset.refresh;
 
@@ -1053,10 +1060,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'dugtrioalola').learnset.headbutt;
 		delete this.modData('Learnsets', 'dugtrioalola').learnset.reversal;
 
+		delete this.modData('Learnsets', 'weavile').learnset.calmmind;
+
 		// Keep this at the bottom of the init function
 		// for (const species in this.data.pokedex) {
-		// 	if (this.species.all()[species].learnset.batonpass) {
-		// 		this.modData('Learnsets', species).learnset.batonpassgaiden = this.species.all()[species].learnset.batonpass;
+		// 	if (this.data.Pokedex[species].learnset.batonpass) {
+		// 		this.modData('Learnsets', species).learnset.batonpassgaiden = this.data.Pokedex[species].learnset.batonpass;
 		// 		delete this.modData('Learnsets', species).learnset.batonpass;
 		// 	}
 		// }

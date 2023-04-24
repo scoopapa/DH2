@@ -60,7 +60,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	absorption: {
 		name: 'absorption',
 		onSwitchIn(pokemon) {
-			this.effectState.switchingIn = true;
+			this.effectData.switchingIn = true;
 		},
 		onStart(pokemon) { //i have 0 idea if this will activate when i want it to but whatever lol
 			if (this.field.isTerrain('')) {
@@ -69,22 +69,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 			let type;
 				switch (this.field.terrain) {
 				case 'electricterrain':
-					this.effectState.type = 'Electric';
+					this.effectData.type = 'Electric';
 					break;
 				case 'grassyterrain':
-					this.effectState.type = 'Grass';
+					this.effectData.type = 'Grass';
 					break;
 				case 'mistyterrain':
-					this.effectState.type = 'Fairy';
+					this.effectData.type = 'Fairy';
 					break;
 				case 'psychicterrain':
-					this.effectState.type = 'Psychic';
+					this.effectData.type = 'Psychic';
 					break;
 				case 'tarterrain':
-					this.effectState.type = 'Poison';
+					this.effectData.type = 'Poison';
 					break;
 				default:
-					this.effectState.type = '';
+					this.effectData.type = '';
 					break;
 				}
 			return type;
@@ -103,12 +103,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'foragercrit',
 
 		onModifyCritRatio(critRatio) {
-			this.effectState.usedMove = true;
+			this.effectData.usedMove = true;
 			return 5;
 		},
 
 		onAfterMove(source, target, move) {
-			if(this.effectState.usedMove) {
+			if(this.effectData.usedMove) {
 				delete source.volatiles['foragercrit'];
 			}
 		}

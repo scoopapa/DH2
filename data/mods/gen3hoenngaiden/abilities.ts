@@ -63,7 +63,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (target && target.isAdjacent(pokemon) && !target.volatiles['substitute']) {
+				if (target && this.isAdjacent(target, pokemon) && !target.volatiles['substitute']) {
 					activated = true;
 					break;
 				}
@@ -76,7 +76,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Intimidate', 'boost');
 
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
@@ -91,8 +91,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon draws single-target Electric moves used by opponents to itself.",
 		onFoeRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Electric') return;
-			if (this.validTarget(this.effectState.target, source, move.target)) {
-				return this.effectState.target;
+			if (this.validTarget(this.effectData.target, source, move.target)) {
+				return this.effectData.target;
 			}
 		},
 		name: "Lightning Rod",
@@ -240,8 +240,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 225,
 	},
 	sandveil: {
-		desc: "If Sandstorm is active, this Pokemon's defence is multiplied by 1.1. This Pokemon takes no damage from Sandstorm.",
-		shortDesc: "If Sandstorm is active, this Pokemon's defence is 1.1x; immunity to Sandstorm.",
+		desc: "This Pokemon can not be damaged by sandstorm.",
+		shortDesc: "This Pokemon can not be damaged by sandstorm.",
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
@@ -255,6 +255,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'hail') return false;
 		},
 		isNonstandard: null,
+		desc: "This Pokemon can not be damaged by hail.",
+		shortDesc: "This Pokemon can not be damaged by hail.",
 		gen: 3,
 		name: "Ice Body",
 		rating: 1,
@@ -302,7 +304,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.galvanizeBoosted) return this.chainModify(1.2);
 		},
-		inherit: true,
 		isNonstandard: null,
 		gen: 3,
 		name: "Galvanize",
@@ -444,7 +445,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
-					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
 				}
 				if (target.volatiles['slowstart']) {
 					delete target.volatiles['slowstart'];
@@ -499,6 +500,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Inner Focus",
+		shortDesc: "This Pokemon cannot be made to flinch. Immune to Intimidate.",
 		rating: 1.5,
 		num: 39,
 	},
@@ -524,6 +526,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Own Tempo",
+		shortDesc: "This Pokemon cannot be confused. Immune to Intimidate.",
 		rating: 1.5,
 		num: 20,
 	},
@@ -551,6 +554,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Oblivious",
+		shortDesc: "This Pokemon cannot be infatuated. Immune to Intimidate.",
 		rating: 1.5,
 		num: 12,
 	},

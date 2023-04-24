@@ -1,4 +1,5 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	inherit: 'gen9',
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
@@ -286,7 +287,128 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'palkia').learnset.brine;
 		delete this.modData('Learnsets', 'palkia').learnset.waterpulse;
 		delete this.modData('Learnsets', 'palkia').learnset.whirlpool;
+		
+		this.modData("Learnsets", "gumshoos").learnset.doubleedge = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.fakeout = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.gunkshot = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.poisonjab = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.sludgebomb = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.sludgewave = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.toxicspikes = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.superpower = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "gumshoos").learnset.switcheroo = ["8L1"];
+		
+		this.modData("Learnsets", "gumshoostotem").learnset.darkestlariat = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.foulplay = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.lashout = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.suckerpunch = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.powertrip = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.darkpulse = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.snarl = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.obstruct = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.partingshot = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.snatch = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.embargo = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.stoneedge = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.rockslide = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.smackdown = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.rockblast = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.powergem = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.stealthrock = ["8L1"];
+		delete this.modData('Learnsets', 'gumshoostotem').learnset.firepunch;
+		delete this.modData('Learnsets', 'gumshoostotem').learnset.icepunch;
+		delete this.modData('Learnsets', 'gumshoostotem').learnset.thunderpunch;
+		delete this.modData('Learnsets', 'gumshoostotem').learnset.shockwave;
+		
+		this.modData("Learnsets", "togedemaru").learnset.bulletpunch = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.bodypress = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.rapidspin = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.rockblast = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.rockslide = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.spinout = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.stoneedge = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.aurasphere = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.energyball = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.bulkup = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.stealthrock = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.swordsdance = ["8L1"];
+		delete this.modData('Learnsets', 'togedemaru').learnset.spark;
+		delete this.modData('Learnsets', 'togedemaru').learnset.wildcharge;
+		delete this.modData('Learnsets', 'togedemaru').learnset.chargebeam;
+		delete this.modData('Learnsets', 'togedemaru').learnset.discharge;
+		delete this.modData('Learnsets', 'togedemaru').learnset.electroball;
+		delete this.modData('Learnsets', 'togedemaru').learnset.electroweb;
+		delete this.modData('Learnsets', 'togedemaru').learnset.risingvoltage;
+		delete this.modData('Learnsets', 'togedemaru').learnset.shock;
+		delete this.modData('Learnsets', 'togedemaru').learnset.thunder;
+		delete this.modData('Learnsets', 'togedemaru').learnset.thunderbolt;
+		delete this.modData('Learnsets', 'togedemaru').learnset.thundershock;
+		delete this.modData('Learnsets', 'togedemaru').learnset.voltswitch;
+		delete this.modData('Learnsets', 'togedemaru').learnset.electricterrain;
+		
+		this.modData("Learnsets", "tauros").learnset.highhorsepower = ["8L1"];
+		this.modData("Learnsets", "tauros").learnset.stealthrock = ["8L1"];
+		this.modData("Learnsets", "tauros").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "tauros").learnset.headcharge = ["8L1"];
+		
+		this.modData("Learnsets", "raichu").learnset.icepunch = ["8L1"];
+		this.modData("Learnsets", "raichu").learnset.moonblast = ["8L1"];
+		this.modData("Learnsets", "raichu").learnset.paraboliccharge = ["8L1"];
+		this.modData("Learnsets", "raichu").learnset.lifedew = ["8L1"];
+		this.modData("Learnsets", "raichu").learnset.zippyzap = ["8L1"];
+		delete this.modData('Learnsets', 'raichu').learnset.wish;
+		delete this.modData('Learnsets', 'pikachu').learnset.wish;
+		delete this.modData('Learnsets', 'pichu').learnset.wish;
+		
+		this.modData("Learnsets", "rapidash").learnset.poisonjab = ["8L1"];
+		this.modData("Learnsets", "rapidash").learnset.jumpkick = ["8L1"];
+		this.modData("Learnsets", "rapidash").learnset.uturn = ["8L1"];
+		delete this.modData('Learnsets', 'rapidash').learnset.swordsdance;
 
+		this.modData("Learnsets", "rapidashgalar").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "rapidashgalar").learnset.earthpower = ["8L1"];
+		this.modData("Learnsets", "rapidashgalar").learnset.scorchingsands = ["8L1"];
+		this.modData("Learnsets", "rapidashgalar").learnset.spiritbreak = ["8L1"];
+		this.modData("Learnsets", "rapidashgalar").learnset.moonblast = ["8L1"];
+		this.modData("Learnsets", "rapidashgalar").learnset.nastyplot = ["8L1"];
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.agility;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.calmmind;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.expandingforce;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.futuresight;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.healingwish;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.psychocut;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.rest;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.storedpower;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.zenheadbutt;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.allyswitch;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.confusion;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.healpulse;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.hypnosis;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.imprison;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.magicroom;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.psybeam;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.psychicterrain;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.trickroom;
+		delete this.modData('Learnsets', 'rapidashgalar').learnset.wonderroom;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.agility;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.calmmind;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.expandingforce;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.futuresight;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.healingwish;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.rest;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.storedpower;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.zenheadbutt;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.allyswitch;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.confusion;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.healpulse;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.hypnosis;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.imprison;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.magicroom;
+		delete this.modData('Learnsets', 'ponytagalar').learnset.psybeam;
+		
+		this.modData("Learnsets", "golemalola").learnset.shiftgear = ["8L1"];
 	},
 	
 	pokemon: {
@@ -334,5 +456,169 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				)
 			);
 		},
+	},
+	hitStepMoveHitLoop(targets, pokemon, move) { // Temporary name
+		const damage: (number | boolean | undefined)[] = [];
+		for (const i of targets.keys()) {
+			damage[i] = 0;
+		}
+		move.totalDamage = 0;
+		pokemon.lastDamage = 0;
+		let targetHits = move.multihit || 1;
+		if (Array.isArray(targetHits)) {
+			// yes, it's hardcoded... meh
+			if (targetHits[0] === 2 && targetHits[1] === 5) {
+				if (this.gen >= 5) {
+					// 35-35-15-15 out of 100 for 2-3-4-5 hits
+					targetHits = this.sample([2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5]);
+					if (targetHits < 4 && pokemon.hasItem('loadeddice')) {
+						targetHits = 5 - this.random(2);
+					}
+				} else {
+					targetHits = this.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+				}
+			} else {
+				targetHits = this.random(targetHits[0], targetHits[1] + 1);
+			}
+		}
+		targetHits = Math.floor(targetHits);
+		let nullDamage = true;
+		let moveDamage: (number | boolean | undefined)[];
+		// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
+		const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+
+		let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
+		let hit: number;
+		for (hit = 1; hit <= targetHits; hit++) {
+			if (damage.includes(false)) break;
+			if (hit > 1 && pokemon.status === 'slp' && !isSleepUsable) break;
+			if (targets.every(target => !target || !target.hp)) break;
+			move.hit = hit;
+			if (move.smartTarget && targets.length > 1) {
+				targetsCopy = [targets[hit - 1]];
+			} else {
+				targetsCopy = targets.slice(0);
+			}
+			const target = targetsCopy[0]; // some relevant-to-single-target-moves-only things are hardcoded
+			if (target && typeof move.smartTarget === 'boolean') {
+				if (hit > 1) {
+					this.addMove('-anim', pokemon, move.name, target);
+				} else {
+					this.retargetLastMove(target);
+				}
+			}
+
+			// like this (Triple Kick)
+			if (target && move.multiaccuracy && hit > 1) {
+				let accuracy = move.accuracy;
+				const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
+				if (accuracy !== true) {
+					if (!move.ignoreAccuracy) {
+						const boosts = this.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
+						const boost = this.clampIntRange(boosts['accuracy'], -6, 6);
+						if (boost > 0) {
+							accuracy *= boostTable[boost];
+						} else {
+							accuracy /= boostTable[-boost];
+						}
+					}
+					if (!move.ignoreEvasion) {
+						const boosts = this.runEvent('ModifyBoost', target, null, null, {...target.boosts});
+						const boost = this.clampIntRange(boosts['evasion'], -6, 6);
+						if (boost > 0) {
+							accuracy /= boostTable[boost];
+						} else if (boost < 0) {
+							accuracy *= boostTable[-boost];
+						}
+					}
+				}
+				accuracy = this.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
+				if (!move.alwaysHit) {
+					accuracy = this.runEvent('Accuracy', target, pokemon, move, accuracy);
+					if (accuracy !== true && !this.randomChance(accuracy, 100)) break;
+				}
+			}
+
+			const moveData = move;
+			if (!moveData.flags) moveData.flags = {};
+
+			// Modifies targetsCopy (which is why it's a copy)
+			[moveDamage, targetsCopy] = this.spreadMoveHit(targetsCopy, pokemon, move, moveData);
+
+			if (!moveDamage.some(val => val !== false)) break;
+			nullDamage = false;
+
+			for (const [i, md] of moveDamage.entries()) {
+				// Damage from each hit is individually counted for the
+				// purposes of Counter, Metal Burst, and Mirror Coat.
+				damage[i] = md === true || !md ? 0 : md;
+				// Total damage dealt is accumulated for the purposes of recoil (Parental Bond).
+				move.totalDamage += damage[i] as number;
+			}
+			if (move.mindBlownRecoil) {
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
+				move.mindBlownRecoil = false;
+			}
+			this.eachEvent('Update');
+			if (!pokemon.hp && targets.length === 1) {
+				hit++; // report the correct number of hits for multihit moves
+				break;
+			}
+		}
+		// hit is 1 higher than the actual hit count
+		if (hit === 1) return damage.fill(false);
+		if (nullDamage) damage.fill(false);
+		if (move.multihit && typeof move.smartTarget !== 'boolean') {
+			this.add('-hitcount', targets[0], hit - 1);
+		}
+
+		if (move.recoil && move.totalDamage) {
+			this.damage(this.calcRecoilDamage(move.totalDamage, move), pokemon, pokemon, 'recoil');
+		}
+
+		if (move.struggleRecoil) {
+			let recoilDamage;
+			if (this.dex.gen >= 5) {
+				recoilDamage = this.clampIntRange(Math.round(pokemon.baseMaxhp / 4), 1);
+			} else {
+				recoilDamage = this.trunc(pokemon.maxhp / 4);
+			}
+			this.directDamage(recoilDamage, pokemon, pokemon, {id: 'strugglerecoil'} as Condition);
+		}
+
+		// smartTarget messes up targetsCopy, but smartTarget should in theory ensure that targets will never fail, anyway
+		if (move.smartTarget) targetsCopy = targets.slice(0);
+		for (const [i, target] of targetsCopy.entries()) {
+			if (target && pokemon !== target) {
+				target.gotAttacked(move, damage[i] as number | false | undefined, pokemon);
+				if (typeof damage[i] === 'number') {
+					if (!target.m.timesAttacked) target.m.timesAttacked = 0;
+					target.m.timesAttacked += hit - 1;
+				}
+			}
+		}
+		
+		if (move.ohko && !targets[0].hp) this.add('-ohko');
+
+		if (!damage.some(val => !!val || val === 0)) return damage;
+
+		this.eachEvent('Update');
+
+		this.afterMoveSecondaryEvent(targetsCopy.filter(val => !!val) as Pokemon[], pokemon, move);
+
+		if (!move.negateSecondary && !(move.hasSheerForce && pokemon.hasAbility('sheerforce'))) {
+			for (const [i, d] of damage.entries()) {
+				// There are no multihit spread moves, so it's safe to use move.totalDamage for multihit moves
+				// The previous check was for `move.multihit`, but that fails for Dragon Darts
+				const curDamage = targets.length === 1 ? move.totalDamage : d;
+				if (typeof curDamage === 'number' && targets[i].hp) {
+					const targetHPBeforeDamage = (targets[i].hurtThisTurn || 0) + curDamage;
+					if (targets[i].hp <= targets[i].maxhp / 2 && targetHPBeforeDamage > targets[i].maxhp / 2) {
+						this.runEvent('EmergencyExit', targets[i], pokemon);
+					}
+				}
+			}
+		}
+		return damage;
 	},
 };

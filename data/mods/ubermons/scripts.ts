@@ -189,7 +189,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	
 	canMegaEvo(pokemon) {
 		const species = pokemon.baseSpecies;
-		const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
+		const altForme = species.otherFormes && this.dex.getSpecies(species.otherFormes[0]);
 		const item = pokemon.getItem();
 		// Mega Rayquaza
 		if ((this.gen <= 7 || this.ruleTable.has('standardnatdex') || this.ruleTable.has('standarddoubles')) &&

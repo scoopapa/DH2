@@ -981,7 +981,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Coastle",
 		types: ["Ground"],
 		baseStats: {hp: 55, atk: 60, def: 80, spa: 40, spd: 40, spe: 40},
-		abilities: {0: "Sand Rush", H: "Immunity"},
+		abilities: {0: "Sand Rush", H: "Shell Armor"},
 		weightkg: 16,
 		evos: ["Terratudo"]
 	},
@@ -990,7 +990,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Terratudo",
 		types: ["Ground"],
 		baseStats: {hp: 73, atk: 100, def: 122, spa: 55, spd: 55, spe: 61},
-		abilities: {0: "Sand Rush", H: "Immunity"},
+		abilities: {0: "Sand Rush", H: "Shell Armor"},
 		weightkg: 500,
 	},
 	sharay: {
@@ -1230,7 +1230,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Panvolt",
 		types: ["Electric"],
 		baseStats: {hp: 50, atk: 53, def: 48, spa: 53, spd: 48, spe: 64},
-		abilities: {0: "Gluttony", H: "Illuminate"},
+		abilities: {0: "Gluttony", H: "Static"},
 		weightkg: 11,
 		evos: ["Simivolt"]
 	},
@@ -1239,7 +1239,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		name: "Simivolt",
 		types: ["Electric"],
 		baseStats: {hp: 75, atk: 98, def: 63, spa: 98, spd: 63, spe: 101},
-		abilities: {0: "Gluttony", H: "Illuminate"},
+		abilities: {0: "Gluttony", H: "Static"},
 		weightkg: 29,
 	},
 	scorparent: {
@@ -1450,7 +1450,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		types: ["Fire", "Fairy"],
 		gender: "N",
 		baseStats: {hp: 81, atk: 80, def: 82, spa: 120, spd: 117, spe: 90},
-		abilities: {0: "Solar Power", H: "Healer"},
+		abilities: {0: "Flash Fire", H: "Healer"},
 		weightkg: 86,
 	},
 	pisiren: {

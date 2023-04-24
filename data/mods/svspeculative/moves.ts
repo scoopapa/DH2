@@ -809,13 +809,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		slotCondition: 'shedtail',
 		condition: {
 			onStart(pokemon, source) {
-				this.effectState.hp = Math.floor(source.maxhp / 4);
+				this.effectData.hp = Math.floor(source.maxhp / 4);
 			},
 			onSwap(target) {
 				target.side.removeSlotCondition(target, 'shedtail');
 				if (!target.fainted) {
 					if (target.addVolatile('substitute')) {
-						target.volatiles['substitute'].hp = this.effectState.hp;
+						target.volatiles['substitute'].hp = this.effectData.hp;
 						this.add('-anim', target, "Substitute", target);
 					}
 				}

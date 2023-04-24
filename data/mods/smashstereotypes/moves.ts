@@ -355,7 +355,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				pokemon.formeChange('Sandaconda' + forme, move, true, '[silent]');
 				this.add('-message', `${pokemon.name} uncoiled!`);
-				const species = this.dex.species.get(pokemon.species.name);
+				const species = this.dex.getSpecies(pokemon.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];
@@ -549,7 +549,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.debug('Flame Wheel start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectState.sources) {
+				for (const source of this.effectData.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Flame Wheel');
@@ -1005,7 +1005,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const ally of pokemon.side.pokemon) {
 				if (!ally || ally.fainted) continue;
 				for (const moveSlot of ally.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.id === 'fusionflare') continue;
 					this.debug('double power');
 					return this.chainModify(1.3);
@@ -1018,7 +1018,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				for (const ally of pokemon.side.pokemon) {
 					if (!ally || ally.fainted) continue;
 					for (const moveSlot of ally.moveSlots) {
-						const move = this.dex.moves.get(moveSlot.move);
+						const move = this.dex.getMove(moveSlot.move);
 						if (move.id === 'fusionflare') continue;
 						target.trySetStatus('brn');
 					}

@@ -1,13 +1,13 @@
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Ground') && pokemon.isAdjacent(this.effectState.target)) {
+			if (pokemon.hasType('Ground') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if (!source || !pokemon.isAdjacent(source)) return;
+			if (!source) source = this.effectData.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
 			if (!pokemon.knownType || pokemon.hasType('Ground')) {
 				pokemon.maybeTrapped = true;
 			}
@@ -108,7 +108,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			//if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
-					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
 				}
 			}
 		},
@@ -220,7 +220,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
-			this.useMove(newMove, this.effectState.target, source);
+			this.useMove(newMove, this.effectData.target, source);
 			return null;
 		},
 		condition: {
@@ -301,8 +301,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePower(basePower, source, target, move) {
 			if (source.activeMoveActions > 1) return;
 			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
-			if (!move.auraBooster) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -319,8 +319,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePower(basePower, source, target, move) {
 			if (source.activeMoveActions > 1) return;
 			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
-			if (!move.auraBooster) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectData.target;
+			if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -360,14 +360,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({atk: length}, source, source, this.dex.abilities.get('chillingneigh'));
+				this.boost({atk: length}, source, source, this.dex.getAbility('chillingneigh'));
 			}
 		},
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (this.field.isWeather(['sunnyday', 'desolateland']) || this.randomChance(1, 2)) {
-				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+				if (pokemon.hp && !pokemon.item && this.dex.getItem(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
 					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: As One');
@@ -386,14 +386,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({spa: length}, source, source, this.dex.abilities.get('grimneigh'));
+				this.boost({spa: length}, source, source, this.dex.getAbility('grimneigh'));
 			}
 		},
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (this.field.isWeather(['sunnyday', 'desolateland']) || this.randomChance(1, 2)) {
-				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+				if (pokemon.hp && !pokemon.item && this.dex.getItem(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
 					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: As One');
@@ -434,7 +434,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	dauntlessshield: {
 		onAnyModifyBoost(boosts, pokemon) {
-			const dauntlessshieldUser = this.effectState.target;
+			const dauntlessshieldUser = this.effectData.target;
 			if (pokemon === this.activePokemon && dauntlessshieldUser === this.activeTarget) {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
@@ -461,7 +461,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onAnySwitchIn(pokemon) {
-			const source = this.effectState.target;
+			const source = this.effectData.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target.volatiles['baddreams']) {
@@ -470,7 +470,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			const source = this.effectState.target;
+			const source = this.effectData.target;
 			for (const target of source.side.foe.active) {
 				target.removeVolatile('baddreams');
 			}
@@ -567,7 +567,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (target.side === source.side) {
 					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
 				} else {
-					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.abilities.get(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
+					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.getAbility(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
 				}
 				target.setAbility(sourceAbility);
 			}

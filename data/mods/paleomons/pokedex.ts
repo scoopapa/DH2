@@ -1482,8 +1482,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	dianciecataclysmmega: {
 		num: -197,
 		name: "Diancie-Cataclysm-Mega",
-		baseSpecies: "Diancie",
-		forme: "Cataclysm-Mega",
+		baseSpecies: "Diancie-Cataclysm",
+		forme: "Mega",
 		types: ["Rock", "Ghost"],
 		gender: "N",
 		baseStats: {hp: 50, atk: 110, def: 160, spa: 110, spd: 160, spe: 110},
@@ -1513,8 +1513,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	steelixcrystalmega: {
 		num: -199,
 		name: "Steelix-Crystal-Mega",
-		baseSpecies: "Steelix",
-		forme: "Crystal-Mega",
+		baseSpecies: "Steelix-Crystal",
+		forme: "Mega",
 		types: ["Ice", "Water"],
 		baseStats: {hp: 70, atk: 135, def: 210, spa: 50, spd: 95, spe: 50},
 		abilities: {0: "Polar Ice"},

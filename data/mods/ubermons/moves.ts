@@ -148,7 +148,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			for (const ally of pokemon.side.pokemon) {
 				if (!ally || ally.fainted) continue;
 				for (const moveSlot of ally.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.id === 'fusionflare') continue;
 					this.debug('double power');
 					return this.chainModify(1.3);
@@ -161,7 +161,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				for (const ally of pokemon.side.pokemon) {
 					if (!ally || ally.fainted) continue;
 					for (const moveSlot of ally.moveSlots) {
-						const move = this.dex.moves.get(moveSlot.move);
+						const move = this.dex.getMove(moveSlot.move);
 						if (move.id === 'fusionflare') continue;
 						target.trySetStatus('brn');
 					}
@@ -186,7 +186,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			for (const ally of pokemon.side.pokemon) {
 				if (!ally || ally.fainted) continue;
 				for (const moveSlot of ally.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.id === 'fusionbolt') continue;
 					this.debug('double power');
 					return this.chainModify(1.3);
@@ -199,7 +199,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				for (const ally of pokemon.side.pokemon) {
 					if (!ally || ally.fainted) continue;
 					for (const moveSlot of ally.moveSlots) {
-						const move = this.dex.moves.get(moveSlot.move);
+						const move = this.dex.getMove(moveSlot.move);
 						if (move.id === 'fusionbolt') continue;
 						target.trySetStatus('par');
 					}
@@ -691,14 +691,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-start', pokemon, 'G-Max Cuddle');
 			},
 			onUpdate(pokemon) {
-				if (this.effectState.source && !this.effectState.source.isActive && pokemon.volatiles['gmaxcuddle']) {
+				if (this.effectData.source && !this.effectData.source.isActive && pokemon.volatiles['gmaxcuddle']) {
 					this.debug('Removing G-Max Cuddle volatile on ' + pokemon);
 					pokemon.removeVolatile('gmaxcuddle');
 				}
 			},
 			onBeforeMovePriority: 2,
 			onBeforeMove(pokemon, target, move) {
-				this.add('-activate', pokemon, 'move: G-Max Cuddle', '[of] ' + this.effectState.source);
+				this.add('-activate', pokemon, 'move: G-Max Cuddle', '[of] ' + this.effectData.source);
 				if (this.randomChance(1, 2)) {
 					this.add('cant', pokemon, 'G-Max Cuddle');
 					return false;
@@ -1055,25 +1055,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 				let move: Move | ActiveMove | null = target.lastMove;
 				if (!move) return false;
 
-				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+				if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
 				const moveIndex = target.moves.indexOf(move.id);
 				if (move.isZ || noEncore.includes(move.id) || !target.moveSlots[moveIndex] || target.moveSlots[moveIndex].pp <= 0) {
 					// it failed
 					return false;
 				}
-				this.effectState.move = move.id;
+				this.effectData.move = move.id;
 				this.add('-start', target, 'Encore');
 				if (!this.queue.willMove(target)) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				}
 			},
 			onOverrideAction(pokemon, target, move) {
-				if (move.id !== this.effectState.move) return this.effectState.move;
+				if (move.id !== this.effectData.move) return this.effectData.move;
 			},
 			onResidualOrder: 13,
 			onResidual(target) {
-				if (target.moves.includes(this.effectState.move) &&
-					target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
+				if (target.moves.includes(this.effectData.move) &&
+					target.moveSlots[target.moves.indexOf(this.effectData.move)].pp <= 0) {
 					// early termination if you run out of PP
 					target.removeVolatile('encore');
 				}
@@ -1082,11 +1082,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-end', target, 'Encore');
 			},
 			onDisableMove(pokemon) {
-				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
+				if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
 					return;
 				}
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id !== this.effectState.move) {
+					if (moveSlot.id !== this.effectData.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}

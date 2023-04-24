@@ -2,13 +2,13 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen4',
 	gen: 3,
 	init() {
-		for (const i in this.species.all()) {
-            if (this.species.all()[i].abilities[1] == 'Illuminate' && i != 'chinchou' && i != 'lanturn') delete this.species.all()[i].abilities[1];
-            if (this.species.all()[i].abilities[0] == 'Illuminate' && this.species.all()[i].abilities[1] && i != 'shiinotic' && i != 'morelull' && i != 'staryu' && i != 'starmie' && i != 'volbeat' && i != 'watchog') {
-                this.species.all()[i].abilities[0] = this.species.all()[i].abilities[1];
-                delete this.species.all()[i].abilities[1];
+		for (const i in this.data.Pokedex) {
+            if (this.data.Pokedex[i].abilities[1] == 'Illuminate' && i != 'chinchou' && i != 'lanturn') delete this.data.Pokedex[i].abilities[1];
+            if (this.data.Pokedex[i].abilities[0] == 'Illuminate' && this.data.Pokedex[i].abilities[1] && i != 'shiinotic' && i != 'morelull' && i != 'staryu' && i != 'starmie' && i != 'volbeat' && i != 'watchog') {
+                this.data.Pokedex[i].abilities[0] = this.data.Pokedex[i].abilities[1];
+                delete this.data.Pokedex[i].abilities[1];
             }
-            this.species.all()[i].num = -this.species.all()[i].num;
+            this.data.Pokedex[i].num = -this.data.Pokedex[i].num;
 		}
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 		let newCategory = '';
@@ -135,7 +135,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let lacksTarget = !target || target.fainted;
 			if (!lacksTarget) {
 				if (['adjacentFoe', 'adjacentAlly', 'normal', 'randomNormal'].includes(move.target)) {
-					lacksTarget = !target.isAdjacent(pokemon);
+					lacksTarget = !this.isAdjacent(target, pokemon);
 				}
 			}
 			if (lacksTarget && !move.isFutureMove) {
@@ -308,7 +308,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let nullDamage = true;
 			let moveDamage: number | undefined | false;
 			// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-			const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
+			const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
 			let i: number;
 			for (i = 0; i < hits && target.hp && pokemon.hp; i++) {
 				if (pokemon.status === 'slp' && !isSleepUsable) break;

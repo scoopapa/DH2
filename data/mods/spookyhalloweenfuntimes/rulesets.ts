@@ -1,4 +1,4 @@
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Formats: {[k: string]: FormatData} = {
 	teampreview: {
 		effectType: 'Rule',
 		name: 'Team Preview',
@@ -22,8 +22,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: 'When a new Pokémon switches in for the first time, information about its types, stats and Abilities is displayed to both players.',
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
-				const species = this.dex.species.get(pokemon.species.name);
-				const baseSpecies = Dex.species.get(pokemon.species.name);
+				const species = this.dex.getSpecies(pokemon.species.name);
+				const baseSpecies = Dex.getSpecies(pokemon.species.name);
 				let modded = false;
 				for (const type in [0, 1]) {
 					if (species.types[type] !== baseSpecies.types[type]) {
@@ -50,10 +50,10 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 		},
 		onSwitchIn(pokemon) {
-			let species = this.dex.species.get(pokemon.species.name);
+			let species = this.dex.getSpecies(pokemon.species.name);
 			let switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
-				species = this.dex.species.get(pokemon.illusion.species.name);
+				species = this.dex.getSpecies(pokemon.illusion.species.name);
 				// console.log(pokemon.illusion.name + " is being reported");
 				if (!pokemon.illusion.isModded) return;
 				this.add('-start', pokemon, 'typechange', pokemon.illusion.getTypes(true).join('/'), '[silent]');
@@ -66,15 +66,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				if (pokemon.switchedIn) return;
 				pokemon.switchedIn = true;
 			}
-			let abilities = this.dex.abilities.get(species.abilities[0]).name;
+			let abilities = this.dex.getAbility(species.abilities[0]).name;
 			if (species.abilities[1]) {
-				abilities += ` / ${this.dex.abilities.get(species.abilities[1]).name}`;
+				abilities += ` / ${this.dex.getAbility(species.abilities[1]).name}`;
 			}
 			if (species.abilities['H']) {
-				abilities += ` / ${this.dex.abilities.get(species.abilities['H']).name}`;
+				abilities += ` / ${this.dex.getAbility(species.abilities['H']).name}`;
 			}
 			if (species.abilities['S']) {
-				abilities += ` / ${this.dex.abilities.get(species.abilities['S']).name}`;
+				abilities += ` / ${this.dex.getAbility(species.abilities['S']).name}`;
 			}
 			const baseStats = species.baseStats;
 			const type = species.types[0];
@@ -93,16 +93,16 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
 					if (!target.switchedIn) {
 						target.switchedIn = true;
-						let species = this.dex.species.get(target.species.name);
-						let abilities = this.dex.abilities.get(species.abilities[0]).name;
+						let species = this.dex.getSpecies(target.species.name);
+						let abilities = this.dex.getAbility(species.abilities[0]).name;
 						if (species.abilities[1]) {
-							abilities += ` / ${this.dex.abilities.get(species.abilities[1]).name}`;
+							abilities += ` / ${this.dex.getAbility(species.abilities[1]).name}`;
 						}
 						if (species.abilities['H']) {
-							abilities += ` / ${this.dex.abilities.get(species.abilities['H']).name}`;
+							abilities += ` / ${this.dex.getAbility(species.abilities['H']).name}`;
 						}
 						if (species.abilities['S']) {
-							abilities += ` / ${this.dex.abilities.get(species.abilities['S']).name}`;
+							abilities += ` / ${this.dex.getAbility(species.abilities['S']).name}`;
 						}
 						const baseStats = species.baseStats;
 						const type = species.types[0];

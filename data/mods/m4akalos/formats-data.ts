@@ -136,7 +136,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pancham: { tier: "Kalos (NFE)" },
 	pangoro: { tier: "Kalos" },
 
-	furfrou: { tier: "Kalos (NFE)" },
+	furfrou: { tier: "Kalos" },
 
 	doduo: { tier: "Kalos (NFE)" },
 	dodrio: { tier: "Kalos" },
@@ -679,7 +679,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	swablu: { tier: "Kalos (NFE)" },
 	altaria: { tier: "Kalos" },
 
-	druddigon: { tier: "Kalos (NFE)" },
+	druddigon: { tier: "Kalos" },
 
 	deino: { tier: "Kalos (NFE)" },
 	zweilous: { tier: "Kalos (NFE)" },

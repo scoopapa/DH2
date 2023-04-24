@@ -7,7 +7,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			for (const pokemon of source.side.foe.active) {
 				if (!pokemon || pokemon.fainted) continue;
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
 					if (
@@ -91,7 +91,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return;
 			}
 
-			const kingsrockHolder = this.effectState.target;
+			const kingsrockHolder = this.effectData.target;
 			if ((source.side === kingsrockHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
 				this.add('cant', kingsrockHolder, 'item: King\u2019s Rock', move, '[of] ' + target);
@@ -172,7 +172,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			for (const pokemon of source.side.foe.active) {
 				if (!pokemon || pokemon.fainted) continue;
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
 					if (

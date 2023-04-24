@@ -7736,6 +7736,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			thunderbolt: ["8L1"],
 			toxic: ["8L1"],
 			zenheadbutt: ["8L1"],
+			nightslash: ["8L1"],
+			bodypress: ["8L1"],
 		},
 	},
 	rock: {
