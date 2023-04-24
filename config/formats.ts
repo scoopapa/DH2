@@ -108,7 +108,7 @@ export const Formats: FormatList = [
 		mod: 'bookofenigmas',
 	},
 	{
-		name: "[Gen 8] Clean Slate Micro 2",
+		name: "[Gen 9] Clean Slate Micro 2",
 		desc: `Clean Slate.`,
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/clean-slate-micro-2.3696166/">Clean Slate Micro 2</a>`,
