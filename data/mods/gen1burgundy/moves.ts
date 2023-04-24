@@ -808,8 +808,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// max HP and current HP is 0
 			if (target.hp >= target.maxhp) return false;
 			if (!target.setStatus('slp')) return false;
-			target.statusData.time = 2;
-			target.statusData.startTime = 2;
+			target.statusState.time = 2;
+			target.statusState.startTime = 2;
 			this.heal(target.maxhp); // Aeshetic only as the healing happens after you fall asleep in-game
 			this.add('-status', target, 'slp', '[from] move: Rest');
 		},

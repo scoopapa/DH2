@@ -251,11 +251,11 @@ exports.BattleScripts = {
 			}
 			//status
 			if (pokemon.status) {
-				let status = pokemon.status, statusData = Object.assign({}, pokemon.statusData);
+				let status = pokemon.status, statusState = Object.assign({}, pokemon.statusState);
 				pokemon.cureStatus('');
 				target.trySetStatus(status);
-				target.statusData = statusData;
-				target.statusData.target = target;
+				target.statusState = statusState;
+				target.statusState.target = target;
 			}
 
 			//boosts

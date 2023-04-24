@@ -42,10 +42,10 @@ export const Conditions = {
 		onBeforeMove(pokemon, target, move) {
             if(move.id === 'twist') return;
 			if (pokemon.hasAbility('earlybird')) {
-				pokemon.statusData.time--;
+				pokemon.statusState.time--;
 			}
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time <= 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0) {
 				pokemon.cureStatus();
 				return;
 			}

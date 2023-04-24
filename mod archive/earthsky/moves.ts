@@ -2649,8 +2649,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return false;
 				}
 				//Sets sleep duration to 3 turns without resetting turns spent.
-				pokemon.statusData.time = 4 + pokemon.statusData.time - pokemon.statusData.startTime;
-				pokemon.statusData.startTime = 4;
+				pokemon.statusState.time = 4 + pokemon.statusState.time - pokemon.statusState.startTime;
+				pokemon.statusState.startTime = 4;
 				this.add('-start', pokemon, 'Nightmare');
 			},
 			onResidualOrder: 9,

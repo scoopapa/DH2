@@ -5,10 +5,10 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 			if (this.effectData.timerDecreased !== this.turn) {
 				this.effectData.timerDecreased = this.turn;
 				if (pokemon.hasAbility('earlybird')) {
-					pokemon.statusData.time--;
+					pokemon.statusState.time--;
 				}
-				pokemon.statusData.time--;
-				if (pokemon.statusData.time <= 0) {
+				pokemon.statusState.time--;
+				if (pokemon.statusState.time <= 0) {
 					pokemon.cureStatus();
 					return;
 				}

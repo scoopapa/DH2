@@ -1577,7 +1577,7 @@ export class Pokemon {
 			}
 		}
 		const prevStatus = this.status;
-		const prevStatusState = this.statusState;
+		const prevstatusState = this.statusState;
 		if (status.id) {
 			const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
 			if (!result) {
@@ -1598,7 +1598,7 @@ export class Pokemon {
 			this.battle.debug('status start [' + status.id + '] interrupted');
 			// cancel the setstatus
 			this.status = prevStatus;
-			this.statusState = prevStatusState;
+			this.statusState = prevstatusState;
 			return false;
 		}
 		if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {

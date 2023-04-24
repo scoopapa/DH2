@@ -1888,7 +1888,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Tail Glow", target);
 		},
 		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite) return;
+			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusState.frostbite) return;
 			pokemon.cureStatus();
 		},
 		boosts: {
@@ -1904,7 +1904,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	refresh: {
 		inherit: true,
 		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite) return;
+			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusState.frostbite) return;
 			pokemon.cureStatus();
 		},
 	},

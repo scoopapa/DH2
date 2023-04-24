@@ -779,8 +779,8 @@ let BattleMovedex = {
 			target.hp === (target.maxhp - 255) ||
 			target.hp === (target.maxhp - 511)) return false;
 			if (!target.setStatus('slp', source, move)) return false;
-			target.statusData.time = 2;
-			target.statusData.startTime = 2;
+			target.statusState.time = 2;
+			target.statusState.startTime = 2;
 			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
 	},
