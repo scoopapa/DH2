@@ -1,0 +1,18 @@
+  The list of contributors are as follows: 
+- lavari:
+  + Front: Starizard, Smoninja, Soaperior
+  + Back: Smoninja, Mud
+  + Back (Shiny): Mud
+  
+- Lapzaplerq (Tempest on Discord)
+  + Front: Furant, Sapras, Mud, Starizard, Arcamine, Fweezing
+  + Back: Furant, Sapras, Starizard, Arcamine, Fweezing
+  + Front (Shiny): Furant, Sapras, Mud, Starizard, Soaperior, Smoninja, Arcamine, Fweezing
+  + Back (Shiny): Furant, Sapras, Starizard, Soaperior, Smoninja, Arcamine, Fweezing
+  + Icons: Smoninja, Furant, Sapras, Mud, Starizard, Soaperior, Arcamine, Fweezing
+  
+- jrdyo p:
+  + Front: Wither Wing
+  + Icons: Wither Wing
+
+P/s: I thought this was a more systematic way to view the contributors and much easier to edit too. Hope I didn't forget anyone!:D
