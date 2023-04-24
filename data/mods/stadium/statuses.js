@@ -59,13 +59,13 @@ let BattleStatuses = {
 		},
 		onBeforeMovePriority: 2,
 		onBeforeMove(pokemon, target, move) {
-			pokemon.statusData.time--;
+			pokemon.statusState.time--;
 			this.add('cant', pokemon, 'slp');
 			pokemon.lastMove = null;
 			return false;
 		},
 		onAfterMoveSelf(pokemon) {
-			if (pokemon.statusData.time <= 0) pokemon.cureStatus();
+			if (pokemon.statusState.time <= 0) pokemon.cureStatus();
 		},
 	},
 	frz: {

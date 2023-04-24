@@ -1908,8 +1908,8 @@ exports.BattleMovedex = {
 			onHit(target) {
 				if (!target.setStatus('slp')) return false;
 				target.addVolatile('lovelylullaby');
-				target.statusData.time = 3;
-				target.statusData.startTime = 3;
+				target.statusState.time = 3;
+				target.statusState.startTime = 3;
 				this.heal(target.maxhp); //Aeshetic only as the healing happens after you fall asleep in-game
 				this.add('-status', target, 'slp', '[from] move: Lovely Lullaby');
 			},

@@ -1367,7 +1367,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			if (status.id === 'frz') {
 				if (sourceEffect && sourceEffect.effectType === 'Move' && sourceEffect.id === 'bittermalice') return; // please work
 				for (const pokemon of target.side.pokemon) {
-					if (pokemon.status === 'frz' && !pokemon.statusData.frostbite) {
+					if (pokemon.status === 'frz' && !pokemon.statusState.frostbite) {
 						this.add('-message', 'Freeze Clause activated.');
 						return false;
 					}

@@ -67,15 +67,15 @@ exports.BattleStatuses = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove: function (pokemon, target, move) {
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time > 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time > 0) {
 				this.add('cant', pokemon, 'slp');
 			}
 			pokemon.lastMove = '';
 			return false;
 		},
 		onAfterMoveSelf: function (pokemon) {
-			if (pokemon.statusData.time <= 0) pokemon.cureStatus();
+			if (pokemon.statusState.time <= 0) pokemon.cureStatus();
 		},
 	},
 	frz: {

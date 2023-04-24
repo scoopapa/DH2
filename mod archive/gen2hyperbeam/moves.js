@@ -389,9 +389,9 @@ exports.BattleMovedex = {
 		onHit: function (target) {
 			if (target.hp >= target.maxhp) return false;
 			if (!target.setStatus('slp') && target.status !== 'slp') return false;
-			target.statusData.time = 3;
-			target.statusData.startTime = 3;
-			target.statusData.source = target;
+			target.statusState.time = 3;
+			target.statusState.startTime = 3;
+			target.statusState.source = target;
 			this.heal(target.maxhp);
 			this.add('-status', target, 'slp', '[from] move: Rest');
 		},

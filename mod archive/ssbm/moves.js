@@ -4001,8 +4001,8 @@ exports.BattleMovedex = {
 			if (pokemon.status !== 'slp') {
 				if (pokemon.hp >= pokemon.maxhp) return false;
 				if (!pokemon.setStatus('slp')) return false;
-				pokemon.statusData.time = 3;
-				pokemon.statusData.startTime = 3;
+				pokemon.statusState.time = 3;
+				pokemon.statusState.startTime = 3;
 				this.heal(pokemon.maxhp);
 				this.add('-status', pokemon, 'slp', '[from] move: Rest');
 			}

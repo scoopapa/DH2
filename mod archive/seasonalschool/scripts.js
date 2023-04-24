@@ -265,8 +265,8 @@ exports.BattleScripts = {
 				{
 					if (this.sides[i].pokemon[0].setStatus('slp') && !(this.sides[i].pokemon[0].hp >= this.sides[i].pokemon[0].maxhp)) 
 					{
-						this.sides[i].pokemon[0].statusData.time = 3;
-						this.sides[i].pokemon[0].statusData.startTime = 3;
+						this.sides[i].pokemon[0].statusState.time = 3;
+						this.sides[i].pokemon[0].statusState.startTime = 3;
 						this.heal(this.sides[i].pokemon[0].maxhp);
 						this.add('-status', this.sides[i].pokemon[0], 'slp', '[from] move: Rest');
 					}
