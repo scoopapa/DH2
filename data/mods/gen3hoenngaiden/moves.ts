@@ -56,7 +56,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	batonpass: {
 		inherit: true,
-		isNonStandard: "Unobtainable",
+		isNonstandard: "Unobtainable",
 	},
 	batonpassgaiden: {
 		name: "Baton Pass Gaiden",
