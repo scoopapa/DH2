@@ -473,7 +473,7 @@ let BattleMovedex = {
 			pokemon.hp = Math.floor(pokemon.maxhp * (target.hp / target.maxhp)) || 1;
 			pokemon.status = target.status;
 			delete target.volatiles[target.name];
-			if (target.statusData) pokemon.statusData = target.statusData;
+			if (target.statusState) pokemon.statusState = target.statusState;
 			for (const [j, moveSlot] of pokemon.moveSlots.entries()) {
 				moveSlot.pp = Math.floor(moveSlot.maxpp * (target.moveSlots[j] ? (target.moveSlots[j].pp / target.moveSlots[j].maxpp) : 1));
 			}
@@ -748,7 +748,7 @@ let BattleMovedex = {
 				carryOver.push({
 					hp: pokemon.hp / pokemon.maxhp,
 					status: pokemon.status,
-					statusData: pokemon.statusData,
+					statusState: pokemon.statusState,
 					pp: pokemon.moveSlots.slice().map(m => {
 						return m.pp / m.maxpp;
 					}),
@@ -785,7 +785,7 @@ let BattleMovedex = {
 
 				pokemon.hp = Math.floor(pokemon.maxhp * oldSet.hp) || 1;
 				pokemon.status = oldSet.status;
-				if (oldSet.statusData) pokemon.statusData = oldSet.statusData;
+				if (oldSet.statusState) pokemon.statusState = oldSet.statusState;
 				for (const [j, moveSlot] of pokemon.moveSlots.entries()) {
 					moveSlot.pp = Math.floor(moveSlot.maxpp * oldSet.pp[j]);
 				}
@@ -2730,13 +2730,13 @@ let BattleMovedex = {
 			if (target !== napWeather.source) {
 				for (const ally of target.side.pokemon) {
 					if (ally.status === 'slp') {
-						if (!(ally.statusData.source && ally.statusData.source.side === ally.side)) return false;
+						if (!(ally.statusState.source && ally.statusState.source.side === ally.side)) return false;
 					}
 				}
 			}
 			if (!target.setStatus('slp', napWeather.source, move)) return false;
-			target.statusData.time = 2;
-			target.statusData.startTime = 2;
+			target.statusState.time = 2;
+			target.statusState.startTime = 2;
 			this.heal(target.baseMaxhp / 2); // Aesthetic only as the healing happens after you fall asleep in-game
 			if (napWeather.source === target) {
 				for (const curMon of this.getAllActive()) {

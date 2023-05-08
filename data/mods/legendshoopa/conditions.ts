@@ -211,8 +211,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 9,
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 12);
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time <= 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0) {
 				this.add('-curestatus', pokemon, 'brn', '[Silent]');
 				pokemon.setStatus('');
 				return;
@@ -248,8 +248,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time <= 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0) {
 				this.add('-curestatus', pokemon, 'par', '[Silent]');
 				pokemon.setStatus('');
 				return;
@@ -285,8 +285,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual(pokemon) {
 			this.hint(`${this.effectState.target.name} is afflicted with frostbite!`);
 			this.damage(pokemon.baseMaxhp / 12);
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time <= 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0) {
 				this.add('-curestatus', pokemon, 'frz', '[Silent]');
 				pokemon.setStatus('');
 				return;
@@ -342,8 +342,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time <= 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0) {
 				this.add('-curestatus', pokemon, 'slp', '[Silent]');
 				pokemon.setStatus('');
 
@@ -370,7 +370,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidualOrder: 9,
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 6);
-			if (pokemon.statusData.time <= 0) {
+			if (pokemon.statusState.time <= 0) {
 				this.add('-curestatus', pokemon, 'psn', '[Silent]');
 				pokemon.setStatus('');
 				return;
@@ -404,7 +404,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.effectState.stage++;
 			}
 			this.damage(this.clampIntRange(pokemon.baseMaxhp / 12, 1) * this.effectState.stage);
-			if (pokemon.statusData.time <= 0) {
+			if (pokemon.statusState.time <= 0) {
 				this.add('-curestatus', pokemon, 'tox', '[Silent]');
 				pokemon.setStatus('');
 				return;

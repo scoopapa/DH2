@@ -43,8 +43,8 @@ let BattleStatuses = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove: function (pokemon, target, move) {
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time <= 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0) {
 				pokemon.cureStatus();
 				return;
 			}

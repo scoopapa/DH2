@@ -2947,7 +2947,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         onResidualSubOrder: 4,
         onResidual(pokemon) {
             if (pokemon.hp && pokemon.status) {
-                if (!pokemon.statusData.source || !pokemon.statusData.source.side || pokemon.statusData.source.side === pokemon.side) return;
+                if (!pokemon.statusState.source || !pokemon.statusState.source.side || pokemon.statusState.source.side === pokemon.side) return;
                 this.debug('Electrolytes');
                 let statName = 'atk';
                 let bestStat = 0;

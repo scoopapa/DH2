@@ -2191,8 +2191,8 @@ exports.BattleMovedex = {
         },
         onHit(target) {
             if (!target.setStatus('slp')) return false;
-            target.statusData.time = 3;
-            target.statusData.startTime = 3;
+            target.statusState.time = 3;
+            target.statusState.startTime = 3;
             this.add('-status', target, 'slp', '[from] move: Hypno Spore');
         },
         volatileStatus: 'hypnospore',
@@ -2200,7 +2200,7 @@ exports.BattleMovedex = {
             duration: 1,
             durationCallback(target, source) {
                 // Duration depends on sleep counter
-                if (target.status === 'slp') return target.statusData.time;
+                if (target.status === 'slp') return target.statusState.time;
             },
             onStart(pokemon, source) {
                 this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
@@ -5128,7 +5128,7 @@ exports.BattleMovedex = {
             duration: 1,
             durationCallback(target, source) {
                 // Duration depends on sleep counter
-                if (target.status === 'slp') return target.statusData.time;
+                if (target.status === 'slp') return target.statusState.time;
             },
             onStart(pokemon, source) {
                 this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);

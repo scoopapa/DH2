@@ -71,15 +71,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time > 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time > 0) {
 				this.add('cant', pokemon, 'slp');
 			}
 			pokemon.lastMove = null;
 			return false;
 		},
 		onAfterMoveSelf(pokemon) {
-			if (pokemon.statusData.time <= 0) pokemon.cureStatus();
+			if (pokemon.statusState.time <= 0) pokemon.cureStatus();
 		},
 	},
 	frz: {
@@ -93,8 +93,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time > 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time > 0) {
 				this.add('cant', pokemon, 'frz');
 			}
 			pokemon.lastMove = null;

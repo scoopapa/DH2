@@ -450,7 +450,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			pokemon.hp = Math.floor(pokemon.maxhp * (target.hp / target.maxhp)) || 1;
 			pokemon.status = target.status;
 			delete target.volatiles[target.name];
-			if (target.statusData) pokemon.statusData = target.statusData;
+			if (target.statusState) pokemon.statusState = target.statusState;
 			for (const [j, moveSlot] of pokemon.moveSlots.entries()) {
 				moveSlot.pp = Math.floor(
 					moveSlot.maxpp * (target.moveSlots[j] ? (target.moveSlots[j].pp / target.moveSlots[j].maxpp) : 1)
@@ -717,13 +717,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target, source) {
 			// Store percent of HP left, percent of PP left, and status for each pokemon on the user's team
-			const carryOver: {hp: number, status: ID, statusData: EffectState, pp: number[]}[] = [];
+			const carryOver: {hp: number, status: ID, statusState: EffectState, pp: number[]}[] = [];
 			const currentTeam = source.side.pokemon.slice();
 			for (const pokemon of currentTeam) {
 				carryOver.push({
 					hp: pokemon.hp / pokemon.maxhp,
 					status: pokemon.status,
-					statusData: pokemon.statusData,
+					statusState: pokemon.statusState,
 					pp: pokemon.moveSlots.slice().map(m => {
 						return m.pp / m.maxpp;
 					}),
@@ -758,7 +758,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 
 				pokemon.hp = Math.floor(pokemon.maxhp * oldSet.hp) || 1;
 				pokemon.status = oldSet.status;
-				if (oldSet.statusData) pokemon.statusData = oldSet.statusData;
+				if (oldSet.statusState) pokemon.statusState = oldSet.statusState;
 				for (const [j, moveSlot] of pokemon.moveSlots.entries()) {
 					moveSlot.pp = Math.floor(moveSlot.maxpp * oldSet.pp[j]);
 				}
@@ -2673,13 +2673,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target !== napWeather.source) {
 				for (const ally of target.side.pokemon) {
 					if (ally.status === 'slp') {
-						if (!(ally.statusData.source && ally.statusData.source.side === ally.side)) return false;
+						if (!(ally.statusState.source && ally.statusState.source.side === ally.side)) return false;
 					}
 				}
 			}
 			if (!target.setStatus('slp', napWeather.source, move)) return false;
-			target.statusData.time = 2;
-			target.statusData.startTime = 2;
+			target.statusState.time = 2;
+			target.statusState.startTime = 2;
 			this.heal(target.baseMaxhp / 2); // Aesthetic only as the healing happens after you fall asleep in-game
 			if (napWeather.source === target) {
 				for (const curMon of this.getAllActive()) {
