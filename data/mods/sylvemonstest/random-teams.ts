@@ -26,7 +26,7 @@ export class RandomTeams {
 	prng: PRNG;
 
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
-		format = Dex.getFormat(format);
+		format = Dex.formats.get(format);
 		this.dex = Dex.forFormat(format);
 		this.gen = this.dex.gen;
 
