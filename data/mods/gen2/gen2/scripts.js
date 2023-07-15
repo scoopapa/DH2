@@ -671,7 +671,7 @@ let BattleScripts = {
 			if (!effect) effect = this.effect;
 		}
 		if (!target || !target.hp) return 0;
-		effect = this.getEffect(effect);
+		effect = this.conditions.get(effect);
 		if (!(damage || damage === 0)) return damage;
 		if (damage !== 0) damage = this.clampIntRange(damage, 1);
 

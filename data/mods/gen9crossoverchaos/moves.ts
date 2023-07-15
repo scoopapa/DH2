@@ -185,7 +185,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			let removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Puyo Pop', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Puyo Pop', '[of] ' + source);
 				}
 			}
 		},

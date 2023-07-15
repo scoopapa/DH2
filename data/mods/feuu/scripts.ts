@@ -236,7 +236,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					return;
 				}
 			} else {
-				sourceEffect = this.dex.getEffect('lockedmove');
+				sourceEffect = this.dex.conditions.get('lockedmove');
 			}
 			pokemon.moveUsed(move, targetLoc);
 		}
@@ -421,7 +421,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         ignoreImmunities = false
     ) {
 			  if (!this.hp) return false;
-			  status = this.battle.dex.getEffect(status);
+			  status = this.battle.dex.conditions.get(status);
 			  if (this.battle.event) {
 					if (!source) source = this.battle.event.source;
 					if (!sourceEffect) sourceEffect = this.battle.effect;
@@ -833,7 +833,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				move.totalDamage += damage[i] as number;
 			}
 			if (move.mindBlownRecoil) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Mind Blown'), true);
 				move.mindBlownRecoil = false;
 			}
 			this.eachEvent('Update');

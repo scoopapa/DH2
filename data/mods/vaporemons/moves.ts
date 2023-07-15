@@ -574,7 +574,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		mindBlownRecoil: true,
 		onAfterMove(pokemon, target, move) {
 			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Steel Beam'), true);
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Steel Beam'), true);
 			}
 		},
 		secondary: null,
@@ -988,7 +988,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		hasCrashDamage: true,
 		onMoveFail(target, source, move) {
-			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('High Jump Kick'));
 		},
 		secondary: {
 			chance: 30,
@@ -1610,7 +1610,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const side of sides) {
 				for (const sideCondition of removeAll) {
 					if (side.removeSideCondition(sideCondition)) {
-						this.add('-sideend', side, this.dex.getEffect(sideCondition).name);
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
 						success = true;
 					}
 				}
@@ -2137,7 +2137,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
@@ -2151,7 +2151,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
@@ -2395,7 +2395,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const side of sides) {
 				for (const sideCondition of removeAll) {
 					if (side.removeSideCondition(sideCondition)) {
-						this.add('-sideend', side, this.dex.getEffect(sideCondition).name);
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
 						this.boost({def: 1}, pokemon);
 						success = true;
 					}
@@ -2427,7 +2427,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const side of sides) {
 				for (const sideCondition of removeAll) {
 					if (side.removeSideCondition(sideCondition)) {
-						this.add('-sideend', side, this.dex.getEffect(sideCondition).name);
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
 						success = true;
 					}
 				}
@@ -2461,12 +2461,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const side of sides) {
 				for (const sideCondition of somesideConditions) {
 					if (side.removeSideCondition('spikes')) {
-						this.add('-sideend', side, this.dex.getEffect('spikes'));
+						this.add('-sideend', side, this.dex.conditions.get('spikes'));
 						hazardsCleared += 1;
 						this.boost({def: 1}, pokemon);
 					}
 					if (side.removeSideCondition('stealthrock')) {
-						this.add('-sideend', side, this.dex.getEffect('stealthrock'));
+						this.add('-sideend', side, this.dex.conditions.get('stealthrock'));
 						hazardsCleared += 1;
 						this.boost({def: 1}, pokemon);
 					}
@@ -2674,13 +2674,13 @@ stickyweb: {
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
 					success = true;
 				}
 			}
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
 					success = true;
 				}
 			}
@@ -2709,7 +2709,7 @@ stickyweb: {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'healingstones'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
@@ -2723,7 +2723,7 @@ stickyweb: {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'healingstones'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Rapid Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
@@ -2759,7 +2759,7 @@ stickyweb: {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'healingstones'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
@@ -2773,7 +2773,7 @@ stickyweb: {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'healingstones'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Mortal Spin', '[of] ' + pokemon);
 				}
 			}
 			if (pokemon.hp && pokemon.volatiles['partiallytrapped']) {
@@ -2811,7 +2811,7 @@ stickyweb: {
 			for (const side of sides) {
 				for (const sideCondition of removeAll) {
 					if (side.removeSideCondition(sideCondition)) {
-						this.add('-sideend', side, this.dex.getEffect(sideCondition).name);
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
 						success = true;
 					}
 				}
@@ -2845,7 +2845,7 @@ stickyweb: {
 			];
 			let success = false;
 			for (const id of sideConditions) {
-				const effectName = this.dex.getEffect(id).name;
+				const effectName = this.dex.conditions.get(id).name;
 				if (sourceSide.sideConditions[id] && targetSide.sideConditions[id]) {
 					[sourceSide.sideConditions[id], targetSide.sideConditions[id]] = [
 						targetSide.sideConditions[id], sourceSide.sideConditions[id],

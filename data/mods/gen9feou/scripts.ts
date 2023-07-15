@@ -96,7 +96,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					return;
 				}
 			} else {
-				sourceEffect = this.dex.getEffect('lockedmove');
+				sourceEffect = this.dex.conditions.get('lockedmove');
 			}
 			pokemon.moveUsed(move, targetLoc);
 		}

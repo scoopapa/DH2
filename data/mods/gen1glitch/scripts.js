@@ -205,7 +205,7 @@ let BattleScripts = {
 			return false;
 		}
 
-		if (sourceEffect) attrs += '|[from]' + this.dex.getEffect(sourceEffect);
+		if (sourceEffect) attrs += '|[from]' + this.dex.conditions.get(sourceEffect);
 		this.addMove('move', pokemon, move.name, target + attrs);
 
 		if (!this.singleEvent('Try', move, null, pokemon, target, move)) {
@@ -633,7 +633,7 @@ let BattleScripts = {
 			if (!source) source = this.event.source;
 			if (!effect) effect = this.effect;
 		}
-		if (typeof effect === 'string') effect = this.dex.getEffect(effect);
+		if (typeof effect === 'string') effect = this.dex.conditions.get(effect);
 		if (!target || !target.hp) return 0;
 		let success = null;
 		boost = this.runEvent('Boost', target, source, effect, Object.assign({}, boost));

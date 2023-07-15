@@ -305,7 +305,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		mindBlownRecoil: true,
 		onAfterMove(pokemon, target, move) {
 			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Steel Beam'), true);
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Steel Beam'), true);
 			}
 		},
 		secondary: null,
@@ -599,7 +599,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		hasCrashDamage: true,
 		onMoveFail(target, source, move) {
-			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('High Jump Kick'));
 		},
 		secondary: {
 			chance: 30,
@@ -1099,7 +1099,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const side of sides) {
 				for (const sideCondition of removeAll) {
 					if (side.removeSideCondition(sideCondition)) {
-						this.add('-sideend', side, this.dex.getEffect(sideCondition).name);
+						this.add('-sideend', side, this.dex.conditions.get(sideCondition).name);
 						success = true;
 					}
 				}

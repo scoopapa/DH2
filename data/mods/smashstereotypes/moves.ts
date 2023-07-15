@@ -411,7 +411,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			let removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Puyo Pop', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Puyo Pop', '[of] ' + source);
 				}
 			}
 		},
@@ -829,7 +829,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		hasCrashDamage: true,
 		onMoveFail(target, source, move) {
-			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('Planetary Crash'));
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('Planetary Crash'));
 		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1693,7 +1693,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const sideConditions = ['spikes', 'toxicspikes'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Strength (PGP)', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Strength (PGP)', '[of] ' + pokemon);
 				}
 			}
 		},
@@ -1701,7 +1701,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of sideConditions) {
 				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] move: Strength (PGP)', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] move: Strength (PGP)', '[of] ' + pokemon);
 				}
 			}
 		},

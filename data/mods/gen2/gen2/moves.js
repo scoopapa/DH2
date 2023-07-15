@@ -27,7 +27,7 @@ let BattleMovedex = {
 				return false;
 			}
 			if (target.hp <= target.maxhp / 2) {
-				this.boost({atk: 2}, null, null, this.getEffect('bellydrum2'));
+				this.boost({atk: 2}, null, null, this.conditions.get('bellydrum2'));
 				return false;
 			}
 			this.directDamage(target.maxhp / 2);

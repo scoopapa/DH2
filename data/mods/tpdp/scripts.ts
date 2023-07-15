@@ -82,7 +82,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		getStatusSlots(): number {
 			let statusSlots = 0;
 			for (const st in this.status) {
-				const s = this.battle.dex.getEffect(st);
+				const s = this.battle.dex.conditions.get(st);
 				console.log(s);
 				if (s.statusSlots)
 					statusSlots += s.statusSlots;
@@ -106,7 +106,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!this.hp) return false;
 			let statusSlots = this.getStatusSlots();
 			console.log(statusSlots);
-			status = this.battle.dex.getEffect(status);
+			status = this.battle.dex.conditions.get(status);
 			if (status.statusSlots && statusSlots + status.statusSlots > 2) {
 				if ((sourceEffect as Move)?.status) {
 					this.battle.add('-fail', source);

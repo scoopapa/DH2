@@ -196,7 +196,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			ignoreImmunities = false
 		) {
 			if (!this.hp) return false;
-			status = this.battle.dex.getEffect(status);
+			status = this.battle.dex.conditions.get(status);
 			if (this.battle.event) {
 				if (!source) source = this.battle.event.source;
 				if (!sourceEffect) sourceEffect = this.battle.effect;
@@ -255,7 +255,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		removeVolatile(status: string | Effect) { //Adds a runEvent to the removal for effects (namely, Stasis) that prevent it.
 			if (!this.hp) return false;
-			status = this.battle.dex.getEffect(status) as Effect;
+			status = this.battle.dex.conditions.get(status) as Effect;
 			if (!this.volatiles[status.id]) return false;
 			if(this.volatiles['stasis']?.affectedStatuses.includes(status.id)){ //Can't get the RemoveVolatile event to fail, so I'm hardcoding it beforehand
 				this.battle.debug('remove volatile [' + status.id + '] interrupted');
@@ -898,7 +898,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						return;
 					}
 				} else {
-					sourceEffect = this.dex.getEffect('lockedmove');
+					sourceEffect = this.dex.conditions.get('lockedmove');
 				}
 				pokemon.moveUsed(move, targetLoc);
 			}
@@ -1243,7 +1243,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					move.totalDamage += damage[i] as number;
 				}
 				if (move.mindBlownRecoil) {
-					this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
+					this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Mind Blown'), true);
 					move.mindBlownRecoil = false;
 				}
 				this.eachEvent('Update');

@@ -208,7 +208,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeTarget.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
 				}
 			}
 		},
@@ -299,7 +299,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return this.clampIntRange(target.maxhp / 2, 1);
 		},
 		onMoveFail(target, source, move) {
-			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('High Jump Kick'));
 		},
 		category: "Physical",
 		name: "Kamikaze",

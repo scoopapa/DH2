@@ -166,10 +166,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			if (move.mindBlownRecoil) { // this section is modified for Emergency Exit
 				if (pokemon.hp > pokemon.maxhp / 2) {
-					this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
+					this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Mind Blown'), true);
 					pokemon.m.goingToEmergencyExit = true; // I'm pretty sure the actual Emergency Exit happens later, so I'm storing it
 				} else {
-					this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
+					this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Mind Blown'), true);
 				}
 				move.mindBlownRecoil = false;
 			}

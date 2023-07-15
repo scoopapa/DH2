@@ -83,7 +83,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.useMove('stockpile', pokemon);
 					}
 					pokemon.side.removeSideCondition(sideCondition);
-					this.add('-sideend', pokemon.side, this.dex.getEffect(sideCondition).name, '[from] Ability: Trash Compactor', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(sideCondition).name, '[from] Ability: Trash Compactor', '[of] ' + pokemon);
 				}
 			}
 		},

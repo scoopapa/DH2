@@ -93,7 +93,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         ignoreImmunities = false
     ) {
 			  if (!this.hp) return false;
-			  status = this.battle.dex.getEffect(status);
+			  status = this.battle.dex.conditions.get(status);
 			  if (this.battle.event) {
 					if (!source) source = this.battle.event.source;
 					if (!sourceEffect) sourceEffect = this.battle.effect;

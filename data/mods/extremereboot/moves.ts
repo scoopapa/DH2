@@ -4304,7 +4304,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		hasCrashDamage: true,
 		onMoveFail(target, source, move) {
-			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('Rocket Jump'));
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('Rocket Jump'));
 		},
 		critRatio: 2,
 		target: "normal",
@@ -6433,7 +6433,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If this attack misses, attacker loses 50% of their max hp.",
 		hasCrashDamage: true,
 		onMoveFail(target, source, move) {
-			this.damage(source.baseMaxhp / 2, source, source, this.dex.getEffect('High Jump Kick'));
+			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('High Jump Kick'));
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},

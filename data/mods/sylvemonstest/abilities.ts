@@ -231,7 +231,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
          const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
          for (const condition of sideConditions) {
             if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-               this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] ability: Housekeeping', '[of] ' + pokemon);
+               this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] ability: Housekeeping', '[of] ' + pokemon);
             }
           }
 		},

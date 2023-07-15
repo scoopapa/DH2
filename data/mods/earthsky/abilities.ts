@@ -510,10 +510,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						];
 						for (const condition of removeEffects) {
 							if (pokemon.side.removeSideCondition(condition)) {
-								this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name);
+								this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name);
 							}
 							if (pokemon.side.foe.removeSideCondition(condition)) {
-								this.add('-sideend', pokemon.side.foe, this.dex.getEffect(condition).name);
+								this.add('-sideend', pokemon.side.foe, this.dex.conditions.get(condition).name);
 							}
 						}
 						this.field.clearWeather();
@@ -1475,7 +1475,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	magicguard: {
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType !== 'Move' && effect.name !== 'Recoil' && 
-				![this.dex.items.get('lifeorb'), this.dex.getEffect('High Jump Kick'), this.dex.getEffect('Jump Kick'), this.dex.getEffect('Steel Beam'), this.dex.getEffect('Mind Blown')].includes(effect)
+				![this.dex.items.get('lifeorb'), this.dex.conditions.get('High Jump Kick'), this.dex.conditions.get('Jump Kick'), this.dex.conditions.get('Steel Beam'), this.dex.conditions.get('Mind Blown')].includes(effect)
 			) {
 				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
 				return false;

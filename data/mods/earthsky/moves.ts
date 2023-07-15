@@ -1226,13 +1226,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const targetCondition of removeTarget) {
 				if (enemySide.removeSideCondition(targetCondition)) {
 					if (!removeAll.includes(targetCondition)) continue;
-					this.add('-sideend', enemySide, this.dex.getEffect(targetCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', enemySide, this.dex.conditions.get(targetCondition).name, '[from] move: Defog', '[of] ' + source);
 					success = true;
 				}
 			}
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Defog', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Defog', '[of] ' + source);
 					success = true;
 				}
 			}
@@ -2976,11 +2976,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			];
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.dex.getEffect(sideCondition).name, '[from] move: Rototiller', '[of] ' + source);
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Rototiller', '[of] ' + source);
 					success = true;
 				}
 				if (target.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', target.side, this.dex.getEffect(sideCondition).name, '[from] move: Rototiller', '[of] ' + source);
+					this.add('-sideend', target.side, this.dex.conditions.get(sideCondition).name, '[from] move: Rototiller', '[of] ' + source);
 					success = true;
 				}
 			}
@@ -3470,7 +3470,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		onAfterMove(pokemon, target, move) {
 			if (pokemon.moveThisTurnResult != null && move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Steel Beam'), true);
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Steel Beam'), true);
 			}
 		},
 		contestType: "Cool", 

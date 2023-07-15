@@ -104,7 +104,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				move.totalDamage += damage[i] as number;
 			}
 			if (move.mindBlownRecoil) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Mind Blown'), true);
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Mind Blown'), true);
 				move.mindBlownRecoil = false;
 			}
 			this.eachEvent('Update');

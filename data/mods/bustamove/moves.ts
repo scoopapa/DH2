@@ -712,7 +712,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		mindBlownRecoil: true,
 		onAfterMove(pokemon, target, move) {
 			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 10), pokemon, pokemon, this.dex.getEffect('Eternabeam'), true);
+				this.damage(Math.round(pokemon.maxhp / 10), pokemon, pokemon, this.dex.conditions.get('Eternabeam'), true);
 			}
 		},
 		secondary: null,
@@ -1640,7 +1640,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
 					if (!removeTarget.includes(targetCondition)) continue;
-					this.add('-sideend', target.side, this.dex.getEffect(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Razor Wind', '[of] ' + source);
 				}
 			}
 		},
@@ -1771,7 +1771,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		mindBlownRecoil: true,
 		onAfterMove(pokemon, target, move) {
 			if (move.mindBlownRecoil && !move.multihit) {
-				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.getEffect('Self-Destruct'), true);
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Self-Destruct'), true);
 			}
 		},
 		secondary: null,

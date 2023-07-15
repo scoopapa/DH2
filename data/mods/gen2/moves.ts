@@ -36,7 +36,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 			if (target.hp <= target.maxhp / 2) {
-				this.boost({atk: 2}, null, null, this.dex.getEffect('bellydrum2'));
+				this.boost({atk: 2}, null, null, this.dex.conditions.get('bellydrum2'));
 				return false;
 			}
 			this.directDamage(target.maxhp / 2);

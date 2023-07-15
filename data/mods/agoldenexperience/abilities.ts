@@ -437,7 +437,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectData.recoil![0] / this.effectData.recoil![1]), 1), source, source, 'recoil');
 				}
 				if (this.effectData.mindBlownRecoil) {
-					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.getEffect('Mind Blown'), true);
+					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
 				}
 				if (this.effectData.selfdestruct) {
 					this.faint(source, source, this.effectData.move);
@@ -1017,7 +1017,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectData.recoil![0] / this.effectData.recoil![1]), 1), source, source, 'recoil');
 				}
 				if (this.effectData.mindBlownRecoil) {
-					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.getEffect('Mind Blown'), true);
+					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
 				}
 				if (this.effectData.selfdestruct) {
 					this.faint(source, source, this.effectData.move);
