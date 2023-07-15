@@ -100,7 +100,7 @@ export class RandomTeams {
 	// }
 	// hasMegaEvo(species) {
 	// 	if (!species.otherFormes) return false;
-	// 	const firstForme = this.dex.getSpecies(species.otherFormes[0]);
+	// 	const firstForme = this.dex.species.get(species.otherFormes[0]);
 	// 	return !!firstForme.isMega;
 	// }
 	randomCCTeam(): RandomTeamsTypes.RandomSet[] {
@@ -114,8 +114,8 @@ export class RandomTeams {
 
 		for (let i = 0; i < 6; i++) {
 			let forme = random6[i];
-			let species = dex.getSpecies(forme);
-			if (species.isNonstandard) species = dex.getSpecies(species.baseSpecies);
+			let species = dex.species.get(forme);
+			if (species.isNonstandard) species = dex.species.get(species.baseSpecies);
 
 			// Random legal item
 			let item = '';
@@ -128,24 +128,24 @@ export class RandomTeams {
 			// Make sure forme is legal
 			if (species.battleOnly) {
 				if (typeof species.battleOnly === 'string') {
-					species = dex.getSpecies(species.battleOnly);
+					species = dex.species.get(species.battleOnly);
 				} else {
-					species = dex.getSpecies(this.sample(species.battleOnly));
+					species = dex.species.get(this.sample(species.battleOnly));
 				}
 				forme = species.name;
 			} else if (species.requiredItems && !species.requiredItems.some(req => toID(req) === item)) {
 				if (!species.changesFrom) throw new Error(`${species.name} needs a changesFrom value`);
-				species = dex.getSpecies(species.changesFrom);
+				species = dex.species.get(species.changesFrom);
 				forme = species.name;
 			}
 
 			// Make sure that a base forme does not hold any forme-modifier items.
 			let itemData = this.dex.getItem(item);
-			if (itemData.forcedForme && forme === this.dex.getSpecies(itemData.forcedForme).baseSpecies) {
+			if (itemData.forcedForme && forme === this.dex.species.get(itemData.forcedForme).baseSpecies) {
 				do {
 					item = this.sample(items);
 					itemData = this.dex.getItem(item);
-				} while (itemData.gen > this.gen || itemData.isNonstandard || itemData.forcedForme && forme === this.dex.getSpecies(itemData.forcedForme).baseSpecies);
+				} while (itemData.gen > this.gen || itemData.isNonstandard || itemData.forcedForme && forme === this.dex.species.get(itemData.forcedForme).baseSpecies);
 			}
 
 			// Random legal ability
@@ -163,7 +163,7 @@ export class RandomTeams {
 			} else {
 				let learnset = this.dex.data.Learnsets[species.id] && this.dex.data.Learnsets[species.id].learnset && !['gastrodoneast', 'pumpkaboosuper', 'zygarde10'].includes(species.id) ?
 					this.dex.data.Learnsets[species.id].learnset :
-					this.dex.data.Learnsets[this.dex.getSpecies(species.baseSpecies).id].learnset;
+					this.dex.data.Learnsets[this.dex.species.get(species.baseSpecies).id].learnset;
 				if (learnset) {
 					pool = Object.keys(learnset).filter(
 						moveid => learnset![moveid].find(learned => learned.startsWith(String(this.gen)))
@@ -205,7 +205,7 @@ export class RandomTeams {
 
 			let stats = species.baseStats;
 			// If Wishiwashi, use the school-forme's much higher stats
-			if (species.baseSpecies === 'Wishiwashi') stats = Dex.getSpecies('wishiwashischool').baseStats;
+			if (species.baseSpecies === 'Wishiwashi') stats = Dex.species.get('wishiwashischool').baseStats;
 
 			// Modified base stat total assumes 31 IVs, 85 EVs in every stat
 			let mbst = (stats["hp"] * 2 + 31 + 21 + 100) + 10;
@@ -278,7 +278,7 @@ export class RandomTeams {
 		const formes: string[][] = [[], [], [], [], [], []];
 		for (const id in this.dex.data.Pokedex) {
 			if (!(this.dex.data.Pokedex[id].num in hasDexNumber)) continue;
-			const species = this.dex.getSpecies(id);
+			const species = this.dex.species.get(id);
 			if (species.gen <= this.gen && (!species.isNonstandard || species.isNonstandard === 'Unobtainable')) {
 				formes[hasDexNumber[species.num]].push(species.name);
 			}
@@ -306,7 +306,7 @@ export class RandomTeams {
 
 		for (let i = 0; i < 6; i++) {
 			// Choose forme
-			const species = this.dex.getSpecies(random6[i]);
+			const species = this.dex.species.get(random6[i]);
 
 			// Random unique item
 			let item = '';
@@ -576,7 +576,7 @@ export class RandomTeams {
 	}
 
 	randomSet(species: string | Species, teamDetails: RandomTeamsTypes.TeamDetails = {}, isLead = false, isDoubles = false): RandomTeamsTypes.RandomSet {
-		species = this.dex.getSpecies(species);
+		species = this.dex.species.get(species);
 		let forme = species.name;
 		let gmax = false;
 		let mega = false;
@@ -1066,7 +1066,7 @@ export class RandomTeams {
 			}
 		} while (moves.length < 4 && (movePool.length || rejectedPool.length));
 
-		const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.getSpecies(species.battleOnly as string) : species;
+		const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.species.get(species.battleOnly as string) : species;
 		const abilities: string[] = Object.values(species.abilities);
 		abilities.sort((a, b) => this.dex.getAbility(b).rating - this.dex.getAbility(a).rating);
 		let ability0 = this.dex.getAbility(abilities[0]);
@@ -1466,12 +1466,12 @@ export class RandomTeams {
 		const exclude = pokemon.map(p => toID(p.species));
 		const pokemonPool = [];
 		for (const id in this.dex.data.FormatsData) {
-			let species = this.dex.getSpecies(id);
+			let species = this.dex.species.get(id);
 			if (species.gen > this.gen || exclude.includes(species.id)) continue;
 			if (isMonotype) {
 				if (!species.types.includes(type)) continue;
 				if (typeof species.battleOnly === 'string') {
-					species = this.dex.getSpecies(species.battleOnly);
+					species = this.dex.species.get(species.battleOnly);
 					if (!species.types.includes(type)) continue;
 				}
 			}
@@ -1493,7 +1493,7 @@ export class RandomTeams {
 		// PotD stuff
 		let potd: Species | false = false;
 		if (global.Config && Config.potd && ruleTable.has('potd')) {
-			potd = this.dex.getSpecies(Config.potd);
+			potd = this.dex.species.get(Config.potd);
 		}
 
 		const baseFormes: {[k: string]: number} = {};
@@ -1509,7 +1509,7 @@ export class RandomTeams {
 			if (pokemon.length >= 6) break;
 			const pokemonPool = this.getPokemonPool(type, pokemon, isMonotype);
 			while (pokemonPool.length && pokemon.length < 6) {
-				let species = this.dex.getSpecies(this.sampleNoReplace(pokemonPool));
+				let species = this.dex.species.get(this.sampleNoReplace(pokemonPool));
 				if (!species.exists) continue;
 
 				// Check if the forme has moves for random battle

@@ -4,7 +4,7 @@ import RandomGen5Teams from '../gen5/random-teams';
 
 export class RandomGen4Teams extends RandomGen5Teams {
 	randomSet(species: string | Species, teamDetails: RandomTeamsTypes.TeamDetails = {}, isLead = false): RandomTeamsTypes.RandomSet {
-		species = this.dex.getSpecies(species);
+		species = this.dex.species.get(species);
 		let forme = species.name;
 
 		if (species.battleOnly && species.battleOnly === 'string') forme = species.battleOnly;

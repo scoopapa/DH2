@@ -17,7 +17,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If the Pokémon changes its type, the result is permanent. Deletes STAB.",
 		onSwitchIn(pokemon) {
 			if (pokemon.species.id !== 'porygonz') return;
-			const type = this.dex.getSpecies(pokemon.species).types[0];
+			const type = this.dex.species.get(pokemon.species).types[0];
 			if (pokemon.hasType(type) || !pokemon.setType(type)) return;
 			this.add('-start', pokemon, 'typechange', type);
 		},
@@ -25,7 +25,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (source.species.id !== 'porygonz') return;
 			if (move.id === 'conversion' || move.id === 'conversion2') {
 				this.add('-ability', source, 'Conversion-Z');
-				const pokemon = this.dex.getSpecies(source.species);
+				const pokemon = this.dex.species.get(source.species);
 				pokemon.types[0] = source.types[0];
 			}
 		},

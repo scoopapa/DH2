@@ -390,13 +390,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		 isPermanent?: boolean, message?: string
 		) {
 			if (this.species.teraType) console.log("teraType: " + this.species.teraType);
-			let baseForm = this.battle.dex.getSpecies(speciesId);
+			let baseForm = this.battle.dex.species.get(speciesId);
 			let teraSpecies = null;
 			if (this.species.teraType) {
 				teraSpecies = this.battle.dex.deepClone(baseForm);
 				teraSpecies.teraType = this.species.teraType;
 				teraSpecies.types = [teraSpecies.teraType];
-				teraSpecies.teraBoost = this.battle.dex.getSpecies(speciesId).types;
+				teraSpecies.teraBoost = this.battle.dex.species.get(speciesId).types;
 				teraSpecies.nonTeraForm = baseForm;
 			}
 			const rawSpecies = teraSpecies || baseForm;

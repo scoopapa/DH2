@@ -355,7 +355,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				pokemon.formeChange('Sandaconda' + forme, move, true, '[silent]');
 				this.add('-message', `${pokemon.name} uncoiled!`);
-				const species = this.dex.getSpecies(pokemon.species.name);
+				const species = this.dex.species.get(pokemon.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];

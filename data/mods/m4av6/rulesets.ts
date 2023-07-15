@@ -47,7 +47,7 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onAfterMega(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(pokemon.species);
+			const species = this.dex.species.get(pokemon.species);
 			const abilities = this.dex.getAbility(species.abilities[0]).name;
 			const baseStats = species.baseStats;
 			const type = species.types[0];
@@ -74,41 +74,41 @@ export const Formats: {[k: string]: FormatData} = {
 		onValidateSet(set) {
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
-			let species = this.dex.getSpecies(set.species);
+			let species = this.dex.species.get(set.species);
 			let item = this.dex.getItem(set.item);
 			let tierSpecies = species;
 
 			if (item.megaEvolves === species.name) {
 				if (!item.megaStone) throw new Error(`Item ${item.name} has no base form for mega evolution`);
-				tierSpecies = this.dex.getSpecies(item.megaStone);
+				tierSpecies = this.dex.species.get(item.megaStone);
 			} else if (item.id === 'lycanite' && species.id === 'lycanrocmidnight') {
-				tierSpecies = this.dex.getSpecies('Lycanroc-Midnight-Mega');
+				tierSpecies = this.dex.species.get('Lycanroc-Midnight-Mega');
 			} else if (item.id === 'lycanite' && species.id === 'lycanrocdusk') {
-				tierSpecies = this.dex.getSpecies('Lycanroc-Dusk-Mega');
+				tierSpecies = this.dex.species.get('Lycanroc-Dusk-Mega');
 			} else if (item.id === 'gourgeite' && species.id === 'gourgeistsmall') {
-				tierSpecies = this.dex.getSpecies('Gourgeist-Small-Mega');
+				tierSpecies = this.dex.species.get('Gourgeist-Small-Mega');
 			} else if (item.id === 'gourgeite' && species.id === 'gourgeistlarge') {
-				tierSpecies = this.dex.getSpecies('Gourgeist-Large-Mega');
+				tierSpecies = this.dex.species.get('Gourgeist-Large-Mega');
 			} else if (item.id === 'gourgeite' && species.id === 'gourgeistsuper') {
-				tierSpecies = this.dex.getSpecies('Gourgeist-Super-Mega');
+				tierSpecies = this.dex.species.get('Gourgeist-Super-Mega');
 			} else if (item.id === 'reginite' && species.id === 'regice') {
-				tierSpecies = this.dex.getSpecies('Regice-Mega');
+				tierSpecies = this.dex.species.get('Regice-Mega');
 			} else if (item.id === 'reginite' && species.id === 'registeel') {
-				tierSpecies = this.dex.getSpecies('Registeel-Mega');
+				tierSpecies = this.dex.species.get('Registeel-Mega');
 			} else if (item.id === 'meowsticite' && species.id === 'meowsticf') {
-				tierSpecies = this.dex.getSpecies('Meowstic-F-Mega');
+				tierSpecies = this.dex.species.get('Meowstic-F-Mega');
 			} else if (item.id === 'sawsbuckite' && species.id === 'sawsbucksummer') {
-				tierSpecies = this.dex.getSpecies('Sawsbuck-Summer-Mega');
+				tierSpecies = this.dex.species.get('Sawsbuck-Summer-Mega');
 			} else if (item.id === 'sawsbuckite' && species.id === 'sawsbuckautumn') {
-				tierSpecies = this.dex.getSpecies('Sawsbuck-Autumn-Mega');
+				tierSpecies = this.dex.species.get('Sawsbuck-Autumn-Mega');
 			} else if (item.id === 'sawsbuckite' && species.id === 'sawsbuckwinter') {
-				tierSpecies = this.dex.getSpecies('Sawsbuck-Winter-Mega');
+				tierSpecies = this.dex.species.get('Sawsbuck-Winter-Mega');
 			} else if (item.id === 'toxtricitite' && species.id === 'toxtricitylowkey') {
-				tierSpecies = this.dex.getSpecies('Toxtricity-Low-Key-Mega');
+				tierSpecies = this.dex.species.get('Toxtricity-Low-Key-Mega');
 			} else if (item.id === 'redorb' && species.id === 'groudon') {
-				tierSpecies = this.dex.getSpecies('Groudon-Primal');
+				tierSpecies = this.dex.species.get('Groudon-Primal');
 			} else if (item.id === 'blueorb' && species.id === 'kyogre') {
-				tierSpecies = this.dex.getSpecies('Kyogre-Primal');
+				tierSpecies = this.dex.species.get('Kyogre-Primal');
 			}
 			let problem = this.checkSpecies(set, species, tierSpecies, setHas);
 			if (problem) problems.push(problem);
@@ -150,7 +150,7 @@ export const Formats: {[k: string]: FormatData} = {
 			this.add('-message', 'Your Mega Evolution this match is:');
 			for (const pokemon of this.getAllPokemon()) {
 				if (pokemon.canMegaEvo) {
-					const mega = this.dex.getSpecies(pokemon.canMegaEvo);
+					const mega = this.dex.species.get(pokemon.canMegaEvo);
 					const baseStats = mega.baseStats;
 					let types = mega.types[0];
 					if (mega.types[1]) {
@@ -181,7 +181,7 @@ export const Formats: {[k: string]: FormatData} = {
 		onValidateTeam(team) {
 			let typeTable: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (i === 0) {
 					typeTable = species.types;
@@ -190,16 +190,16 @@ export const Formats: {[k: string]: FormatData} = {
 				}
 				const item = this.dex.getItem(set.item);
 				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-					species = this.dex.getSpecies(item.megaStone);
+					species = this.dex.species.get(item.megaStone);
 					typeTable = typeTable.filter(type => species.types.includes(type));
 				}
 				if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-					species = this.dex.getSpecies("Necrozma-Ultra");
+					species = this.dex.species.get("Necrozma-Ultra");
 					typeTable = typeTable.filter(type => species.types.includes(type));
 				}
 				if (item.id === "mimikyunite" && species.baseSpecies === "Mimikyu") {
 					// Mega Mimikyu is banned from Fairy Mono and this enforces that
-					species = this.dex.getSpecies("Mimikyu-Busted-Mega");
+					species = this.dex.species.get("Mimikyu-Busted-Mega");
 					typeTable = typeTable.filter(type => species.types.includes(type));
 				}
 			}
@@ -218,7 +218,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -226,13 +226,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -254,7 +254,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -262,13 +262,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -290,7 +290,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -298,13 +298,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -326,7 +326,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -334,13 +334,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -362,7 +362,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -370,13 +370,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -398,7 +398,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -406,13 +406,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -434,7 +434,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -442,13 +442,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -470,7 +470,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -478,13 +478,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -506,7 +506,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -514,13 +514,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -542,7 +542,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -550,13 +550,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -578,7 +578,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -586,13 +586,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -614,7 +614,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -622,13 +622,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -650,7 +650,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -658,13 +658,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -686,7 +686,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -694,13 +694,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -722,7 +722,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -730,13 +730,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -758,7 +758,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -766,13 +766,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -794,7 +794,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -802,13 +802,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -830,7 +830,7 @@ export const Formats: {[k: string]: FormatData} = {
 			//let typeTable: string[] = [];
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				if (!species.types) return [`Invalid pokemon ${set.name || set.species}`];
 				if (!species.types.includes(teamType)) {
 					problems.push(species + " is not " + teamType + " type.");
@@ -838,13 +838,13 @@ export const Formats: {[k: string]: FormatData} = {
 				if (this.gen >= 7) {
 					const item = this.dex.getItem(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
-						species = this.dex.getSpecies(item.megaStone);
+						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
 					}
 					if (item.id === "ultranecroziumz" && species.baseSpecies === "Necrozma") {
-						species = this.dex.getSpecies("Necrozma-Ultra");
+						species = this.dex.species.get("Necrozma-Ultra");
 						if (!species.types.includes(teamType)) {
 							problems.push(species + " is not " + teamType + " type.");
 						} 
@@ -864,7 +864,7 @@ export const Formats: {[k: string]: FormatData} = {
 		onValidateTeam(team) {
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
-				let species = this.dex.getSpecies(set.species);
+				let species = this.dex.species.get(set.species);
 				const item = this.dex.getItem(set.item);
 				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 					continue;

@@ -957,7 +957,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const speciesid = /*pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' :*/ 'Iron Mimic-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 				pokemon.addVolatile('faultyphoton');
 				//pokemon.volatiles['faultyphoton'].fromBooster = true;
 			}

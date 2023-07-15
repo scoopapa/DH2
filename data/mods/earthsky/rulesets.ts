@@ -30,7 +30,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 			const egelasDex = [
 				"Caeleaf","Sprop","Graecust","Iguava","Chucklava","Helmuana","Newtiny","Ruggeft","Claymander","Palrat","Spectrat","Shinx","Luxio","Luxray","Stunky","Skuntank","Fanfowl","Plumifowl","Pealated","Hoothoot-Egelas","Noctowl-Egelas","Toybot","Aibot","Utilitron","Utilitron-Boat","Utilitron-Copter","Trubbish","Garbodor","Faerunee","Caterpie","Metapod","Butterfree","Budew","Roselia","Roserade","Sothodil","Sosphodel","Gulpin","Swalot","Montura","Twintura","Silvurah","Burrorm","Burryrm","Scarabouch","Deerling","Sawsbuck","Azurill","Marill","Azumarill","Ballooffalo","Slowpoke","Slowbro","Slowking","Magikarp","Gyarados","Tigrissle","Beedive","Basculin","Basculin-Blue-Striped","Pikeral","Pikeral-Blue-Striped","Feebas","Milotic","Slakoth","Vigoroth","Slaking","Bounsweet","Steenee","Tsareena","Lithoshroom","Litholich","Geodude","Graveler","Golem","Sableye","Mawile","Rugblin","Runogre","Growlithe","Arcanine","Houndour","Houndoom","Joroo","Jaquol","Thylone","Axew","Fraxure","Haxorus","Fletchling","Fletchinder","Talonflame","Blitzle","Zebstrika","Falinks","Cufant","Copperajah","Phanpy","Donphan","Teddiursa","Ursaring","Trigenee","Hexyon","Hektillion","Termill","Terrazor","Heracross","Pinsir","Rockruff","Lycanroc","Lycanroc-Midnight","Lycanroc-Twilight","Elpine","Freezelk","Moorfrost","Snover","Abomasnow","Swinub","Piloswine","Mamoswine","Vanillite","Vanillish","Vanilluxe","Smoochum","Jynx","Zubat","Golbat","Crobat","Noibat","Noivern","Dunsparce","Drampa","Minior","Prominoid","Cryogonal","Riolu","Lucario","Zorua","Zoroark","Igglybuff","Jigglypuff","Wigglytuff","Delibird-Egelas","Tynamo","Eelektrik-Egelas","Eelektross-Egelas","Elekid","Electabuzz","Electivire","Milcery","Alcremie","Inkay","Malamar","Croagunk","Toxicroak","Farfetch\u2019d","Kendo\u2019no","Deino","Zweilous","Hydreigon","Joltik","Galvantula","Lemurod","Sandygast","Palossand","Crabrawler","Crabominable","Exeggcute","Exeggutor-Alola","Tropius","Wingull","Pelipper","Antarctross","Shellder","Cloyster","Finneon","Lumineon","Gobellos","Dragobellos","Plecuum","Vorplec","Pyukumuku","Pincurchin","Lioxin","Frillish","Jellicent","Scrunge","Dhelmise","Cuttlelass","Dreadnautilus","Kravokalypse","Cubone-Egelas","Marowak-Alola","Duskull","Dusclops","Dusknoir","Ralts","Kirlia","Gardevoir","Gallade","Elgyem","Beheeyem","Unown","Sigilyph","Roggenrola","Boldore","Gigalith","Carbink","Stegrowth","Stegrove","Angkol","Macedon","Tauros-Egelas","Miltank-Egelas","Durant-Egelas","Heatmor-Egelas","Ponyta-Egelas","Rapidash-Egelas","Mienfoo","Mienshao","Ascelyte","Paraiagon","Absol","Helioptile","Heliolisk","Silicobra","Sandaconda","Obelith","Pyramyth","Magby","Magmar","Magmortar","Torkoal","Turtonator","Moroth","Keelmora","Yamask","Cofagrigus","Bronzor","Bronzong","Honedge","Doublade","Aegislash","Druddigon","Deceuceus","Fervintill","Selervis","Helyrion","Daedestus","Apherove","Poleboar","Pallatinel","Jurotera","Oceides","Hatar","Zuros","Norphaval"
 			];
-			const species = this.dex.getSpecies(set.species || set.name);
+			const species = this.dex.species.get(set.species || set.name);
 			if (!egelasDex.includes(species.name)) {
 				return [species.name + " is not in the Egelan Pokedex."];
 			}
@@ -45,13 +45,13 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 			const problems: string[] = [];
 			for (const set of team) {
 				if (set.moves) {
-					const pokemon = this.dex.getSpecies(set.species || set.name);
-					const prevo = (pokemon.prevo) ? this.dex.getSpecies(pokemon.prevo) : undefined;
+					const pokemon = this.dex.species.get(set.species || set.name);
+					const prevo = (pokemon.prevo) ? this.dex.species.get(pokemon.prevo) : undefined;
 					let isHidden = false;
 					for (const moveID of set.moves) {
 						let pokeLearnset = this.dex.getLearnsetData(pokemon.id);
 						if(!pokeLearnset.learnset){
-							pokeLearnset = this.dex.getLearnsetData(this.dex.getSpecies(pokemon.baseSpecies).id);
+							pokeLearnset = this.dex.getLearnsetData(this.dex.species.get(pokemon.baseSpecies).id);
 						}
 						const pokeLearnsMove = pokeLearnset.learnset[moveID];
 						//console.log(pokemon + " knows " + moveID + " with means " + pokeLearnsMove);
@@ -65,7 +65,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 							let isNatural = false; //whether it's learned through Sketch
 							//console.log("This move is not naturally learned by this stage or form");
 							if(pokemon.changesFrom && pokemon.name !== pokemon.changesFrom){ //There is a base forme
-								let baseLearns = this.dex.getLearnsetData(this.dex.getSpecies(pokemon.changesFrom).id).learnset[moveID];
+								let baseLearns = this.dex.getLearnsetData(this.dex.species.get(pokemon.changesFrom).id).learnset[moveID];
 								//if(pokemon.changesFrom) console.log("Base form is " + pokemon.changesFrom + " and its accessibility to " + moveID + " is " + baseLearns);
 								if(baseLearns) isNatural = true;
 								if(baseLearns == "8D"){ //This move is base forme's Hidden Move
@@ -95,7 +95,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 										}
 									}
 								} else if (this.dex.getLearnsetData(prevo.id).learnset[moveID] === undefined){ //The prevo can't learn it either, therefore...
-									const first = (prevo.prevo) ? this.dex.getSpecies(prevo.prevo) : undefined; //there must be a first stage
+									const first = (prevo.prevo) ? this.dex.species.get(prevo.prevo) : undefined; //there must be a first stage
 									if(first){
 										let firstLearns = this.dex.getLearnsetData(first.id).learnset[moveID];
 										//console.log("First stage is " + first.name + " and its accessibility to " + moveID + " is " + firstLearns);
@@ -129,10 +129,10 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 						const family: Species[] = [];
 						let base = pokemon; //Get the base Pokemon in the family
 						if(prevo){
-							if(prevo.prevo) base = this.dex.getSpecies(prevo.prevo);
+							if(prevo.prevo) base = this.dex.species.get(prevo.prevo);
 							else base = prevo;
 						}
-						if(base.name !== base.baseSpecies) base = this.dex.getSpecies(base.baseSpecies);
+						if(base.name !== base.baseSpecies) base = this.dex.species.get(base.baseSpecies);
 						family.push(base.name);
 						//console.log("Creating " + base.name + " family");
 						if(base.evos){
@@ -140,12 +140,12 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 								if(!family.includes(evo)){
 									//console.log("Adding " + evo);
 									family.push(evo);
-									const evoMon = this.dex.getSpecies(evo);
+									const evoMon = this.dex.species.get(evo);
 									if(evoMon.evos){
 										for(let evoFinal of evoMon.evos){
 											//console.log("Adding " + evoFinal);
 											family.push(evoFinal);
-											const evoFinalMon = this.dex.getSpecies(evoFinal);
+											const evoFinalMon = this.dex.species.get(evoFinal);
 											if(evoFinalMon.otherFormes){
 												for(let evoFinalForme of evoFinalMon.otherFormes){
 													//console.log("Adding " + evoFinalForme);
@@ -159,7 +159,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 											if(!family.includes(evoForme)){
 												//console.log("Adding " + evoForme);
 												family.push(evoForme);
-												const evoMonForme = this.dex.getSpecies(evoForme);
+												const evoMonForme = this.dex.species.get(evoForme);
 												if(evoMonForme.evos){
 													for(let evoFormeFinal of evoMonForme.evos){
 														if(!family.includes(evoFormeFinal)){
@@ -177,13 +177,13 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 							for(let forme of base.otherFormes){
 								//console.log("Adding " + forme);
 								family.push(forme);
-								const formeMon = this.dex.getSpecies(forme);
+								const formeMon = this.dex.species.get(forme);
 								if(formeMon.evos){
 									for(let formeEvo of formeMon.evos){
 										if(!family.includes(formeEvo)){
 											//console.log("Adding " + formeEvo);
 											family.push(formeEvo);
-											const formeEvoMon = this.dex.getSpecies(formeEvo);
+											const formeEvoMon = this.dex.species.get(formeEvo);
 											if(formeEvoMon.evos){
 												for(let formeEvoFinal of formeEvoMon.evos)
 													if(!family.includes(formeEvoFinal)){

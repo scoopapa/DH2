@@ -11,7 +11,7 @@ export const Formats: {[k: string]: FormatData} = {
 			const unobtainables = [
 				'Xerneas-Neutral',
 			];
-			const species = this.dex.getSpecies(set.species);
+			const species = this.dex.species.get(set.species);
 			if (unobtainables.includes(species.name)) {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];

@@ -17,8 +17,8 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: 'When a new Pokémon switches in for the first time, information about its types, stats and Abilities is displayed to both players.',
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
-				const species = this.dex.getSpecies(pokemon.species.name);
-				const baseSpecies = Dex.getSpecies(pokemon.species.name);
+				const species = this.dex.species.get(pokemon.species.name);
+				const baseSpecies = Dex.species.get(pokemon.species.name);
 				let modded = false;
 				for (const type in [0, 1]) {
 					if (species.types[type] !== baseSpecies.types[type]) {
@@ -45,10 +45,10 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 		onSwitchIn(pokemon) {
-			let species = this.dex.getSpecies(pokemon.species.name);
+			let species = this.dex.species.get(pokemon.species.name);
 			let switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
-				species = this.dex.getSpecies(pokemon.illusion.species.name);
+				species = this.dex.species.get(pokemon.illusion.species.name);
 				// console.log(pokemon.illusion.name + " is being reported");
 				if (!pokemon.illusion.isModded) return;
 				this.add('-start', pokemon, 'typechange', pokemon.illusion.getTypes(true).join('/'), '[silent]');
@@ -88,7 +88,7 @@ export const Formats: {[k: string]: FormatData} = {
 					this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
 					if (!target.switchedIn) {
 						target.switchedIn = true;
-						let species = this.dex.getSpecies(target.species.name);
+						let species = this.dex.species.get(target.species.name);
 						let abilities = species.abilities[0];
 						if (species.abilities[1]) {
 							abilities += ` / ${species.abilities[1]}`;
@@ -148,7 +148,7 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onAfterMega(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(pokemon.species.name);
+			const species = this.dex.species.get(pokemon.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];

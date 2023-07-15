@@ -1,0 +1,3 @@
+replace ".getSpecies(" with ".species.get("
+replace "dex.getAbility(" with "dex.abilities.get("
+replace ".getMove(" with ".moves.get("

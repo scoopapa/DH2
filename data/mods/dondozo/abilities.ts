@@ -570,7 +570,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (['mimigiri', 'mimigiritotem'].includes(pokemon.species.id) && this.effectData.busted) {
 				const speciesid = 'Mimigiri-Dondozo';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 				const randAbil = this.random(3);
 				if (randAbil < 1) pokemon.setAbility('unaware');
 				else if (randAbil < 2) pokemon.setAbility('waterveil');

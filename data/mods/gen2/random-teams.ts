@@ -14,7 +14,7 @@ export class RandomGen2Teams extends RandomGen3Teams {
 
 		const pokemonPool: string[] = [];
 		for (const id in this.dex.data.FormatsData) {
-			const species = this.dex.getSpecies(id);
+			const species = this.dex.species.get(id);
 			if (!species.isNonstandard && this.dex.data.FormatsData[id].randomSets) {
 				pokemonPool.push(id);
 			}
@@ -37,7 +37,7 @@ export class RandomGen2Teams extends RandomGen3Teams {
 		};
 
 		while (pokemonPool.length && pokemonLeft > 0) {
-			const species = this.dex.getSpecies(this.sampleNoReplace(pokemonPool));
+			const species = this.dex.species.get(this.sampleNoReplace(pokemonPool));
 			if (!species.exists) continue;
 			let skip = false;
 
@@ -136,9 +136,9 @@ export class RandomGen2Teams extends RandomGen3Teams {
 	}
 
 	randomSet(species: string | Species, restrictMoves: {[k: string]: number}): RandomTeamsTypes.RandomSet {
-		species = this.dex.getSpecies(species);
-		if (!species.exists) species = this.dex.getSpecies('unown');
-		if (!species.randomSets || !species.randomSets.length) species = this.dex.getSpecies('unown');
+		species = this.dex.species.get(species);
+		if (!species.exists) species = this.dex.species.get('unown');
+		if (!species.randomSets || !species.randomSets.length) species = this.dex.species.get('unown');
 
 		let randomSetNumber = 0;
 		let set: RandomTeamsTypes.Gen2RandomSet = species.randomSets![0];

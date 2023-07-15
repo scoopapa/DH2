@@ -936,7 +936,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.id) && this.effectData.busted) {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.getSpecies(speciesid));
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 			if (pokemon.canMegaEvo && this.effectData.busted) {
 				pokemon.canMegaEvo = 'mimikyubustedmega';
@@ -2035,7 +2035,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			this.add('-message', `More of ${pokemon.name}'s friends came together!`);
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(pokemon.species.name);
+			const species = this.dex.species.get(pokemon.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];
@@ -2076,7 +2076,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.add('-message', `${attacker.name} changed to Combat formation!`);
 						this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 						if (!this.effectData.busted) { // this is just to make a dt that only shows up once per Mega Falinks
-							const species = this.dex.getSpecies(attacker.species.name);
+							const species = this.dex.species.get(attacker.species.name);
 							const abilities = species.abilities;
 							const baseStats = species.baseStats;
 							const type = species.types[0];

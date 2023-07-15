@@ -150,7 +150,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			if (!this.effectData.busted && pokemon.species.id === 'starlycrowncloud') { // this is just to make a dt that only shows up once per Starly
-				const species = this.dex.getSpecies(pokemon.species.name);
+				const species = this.dex.species.get(pokemon.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];
@@ -179,7 +179,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			if (!this.effectData.busted && pokemon.species.id === 'starlycrowncloud') { // this is just to make a dt that only shows up once per Starly
-				const species = this.dex.getSpecies(pokemon.species.name);
+				const species = this.dex.species.get(pokemon.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];
@@ -290,7 +290,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-message', `${attacker.name} changed to Coiled Forme!`);
 				this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 				if (!this.effectData.busted) { // this is just to make a dt that only shows up once per Condana
-					const species = this.dex.getSpecies(attacker.species.name);
+					const species = this.dex.species.get(attacker.species.name);
 					const abilities = species.abilities;
 					const baseStats = species.baseStats;
 					const type = species.types[0];
@@ -325,7 +325,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.add('-message', `${pokemon.name} changed to Revealed Mode!`);
 				}
 				if (!this.effectData.busted && pokemon.species.baseSpecies !== 'Morpeko') { // this is just to make a dt that only shows up once per Klefki
-					const species = this.dex.getSpecies(pokemon.species.name); 
+					const species = this.dex.species.get(pokemon.species.name); 
 					const abilities = species.abilities;
 					const baseStats = species.baseStats;
 					const type = species.types[0];

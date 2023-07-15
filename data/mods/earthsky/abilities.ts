@@ -322,7 +322,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if(!pokemon.abilityData.formeDecided){//Determines forme if it hasn't already.
 					pokemon.abilityData.unownType = pokemon.species.forme;
 					while(pokemon.abilityData.unownType === 'Question'){ //?????: Randomly picks another form each time.
-						pokemon.abilityData.unownType = this.dex.getSpecies(this.sample(pokemon.species.formeOrder)).forme;
+						pokemon.abilityData.unownType = this.dex.species.get(this.sample(pokemon.species.formeOrder)).forme;
 					}
 					if(pokemon.abilityData.unownType === pokemon.species.forme){ //Non-? formes only need to determine once.
 						pokemon.abilityData.formeDecided = true;

@@ -20,7 +20,7 @@ export class RandomGen1Teams extends RandomGen2Teams {
 		let formeCounter = 0;
 		for (const id in this.dex.data.Pokedex) {
 			if (!(this.dex.data.Pokedex[id].num in hasDexNumber)) continue;
-			const species = this.dex.getSpecies(id);
+			const species = this.dex.species.get(id);
 			const lsetData = this.dex.getLearnsetData(id as ID);
 			if (!lsetData.learnset || species.forme) continue;
 			formes[hasDexNumber[species.num]].push(species.name);
@@ -33,7 +33,7 @@ export class RandomGen1Teams extends RandomGen2Teams {
 		for (let i = 0; i < 6; i++) {
 			// Choose forme.
 			const poke = this.sample(formes[i]);
-			const species = this.dex.getSpecies(poke);
+			const species = this.dex.species.get(poke);
 			const lsetData = this.dex.getLearnsetData(species.id);
 
 			// Level balance: calculate directly from stats rather than using some silly lookup table.
@@ -134,7 +134,7 @@ export class RandomGen1Teams extends RandomGen2Teams {
 
 		const pokemonPool = [];
 		for (const id in this.dex.data.FormatsData) {
-			const species = this.dex.getSpecies(id);
+			const species = this.dex.species.get(id);
 			if (!species.isNonstandard && species.randomBattleMoves) {
 				pokemonPool.push(id);
 			}
@@ -148,7 +148,7 @@ export class RandomGen1Teams extends RandomGen2Teams {
 		let hasShitmon = false;
 
 		while (pokemonPool.length && pokemonLeft < 6) {
-			const species = this.dex.getSpecies(this.sampleNoReplace(pokemonPool));
+			const species = this.dex.species.get(this.sampleNoReplace(pokemonPool));
 			if (!species.exists) continue;
 
 			// Bias the tiers so you get less shitmons and only one of the two Ubers.
@@ -238,8 +238,8 @@ export class RandomGen1Teams extends RandomGen2Teams {
 	 * Random set generation for Gen 1 Random Battles.
 	 */
 	randomSet(species: string | Species): RandomTeamsTypes.RandomSet {
-		species = this.dex.getSpecies(species);
-		if (!species.exists) species = this.dex.getSpecies('pikachu'); // Because Gen 1.
+		species = this.dex.species.get(species);
+		if (!species.exists) species = this.dex.species.get('pikachu'); // Because Gen 1.
 
 		const movePool = species.randomBattleMoves ? species.randomBattleMoves.slice() : [];
 		let moves: string[] = [];

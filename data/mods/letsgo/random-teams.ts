@@ -4,7 +4,7 @@ import RandomTeams from '../../random-teams';
 
 export class RandomLetsGoTeams extends RandomTeams {
 	randomSet(species: string | Species, teamDetails: RandomTeamsTypes.TeamDetails = {}): RandomTeamsTypes.RandomSet {
-		species = this.dex.getSpecies(species);
+		species = this.dex.species.get(species);
 		let forme = species.name;
 
 		if (species.battleOnly && typeof species.battleOnly === 'string') {
@@ -210,7 +210,7 @@ export class RandomLetsGoTeams extends RandomTeams {
 
 		const pokemonPool: string[] = [];
 		for (const id in this.dex.data.FormatsData) {
-			const species = this.dex.getSpecies(id);
+			const species = this.dex.species.get(id);
 			if (
 				species.num < 1 || (species.num > 151 && ![808, 809].includes(species.num)) || species.gen > 7 ||
 				species.nfe || !species.randomBattleMoves || !species.randomBattleMoves.length
@@ -224,7 +224,7 @@ export class RandomLetsGoTeams extends RandomTeams {
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 
 		while (pokemonPool.length && pokemon.length < 6) {
-			const species = this.dex.getSpecies(this.sampleNoReplace(pokemonPool));
+			const species = this.dex.species.get(this.sampleNoReplace(pokemonPool));
 			if (!species.exists) continue;
 
 			// Limit to one of each species (Species Clause)

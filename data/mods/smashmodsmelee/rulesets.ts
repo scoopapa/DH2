@@ -12,7 +12,7 @@ export const Formats: {[k: string]: FormatData} = {
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
 				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
-			const species = this.dex.getSpecies(set.species);
+			const species = this.dex.species.get(set.species);
 			if (species.restrictedLearnset || species.name === 'Vespiquen') {
 				const problems: string[] = [];
 				if (set.moves) {

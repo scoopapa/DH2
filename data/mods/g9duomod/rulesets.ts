@@ -11,7 +11,7 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		
 		canMegaEvo(pokemon) {
-			const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+			const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 			const item = pokemon.getItem();
 			if (
 				altForme?.isMega && altForme?.requiredMove &&
@@ -1528,7 +1528,7 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: 'Gives data on stats, Ability and types when a Pokémon switches in.',
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(pokemon.species.name);
+			const species = this.dex.species.get(pokemon.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];
@@ -1541,7 +1541,7 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onAfterMega(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(pokemon.species.name);
+			const species = this.dex.species.get(pokemon.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];

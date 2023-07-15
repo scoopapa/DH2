@@ -1514,7 +1514,7 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: 'Gives data on stats, Ability and types when a Pokémon switches in.',
 		onSwitchIn(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(pokemon.species.name);
+			const species = this.dex.species.get(pokemon.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];

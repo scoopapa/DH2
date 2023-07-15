@@ -2037,7 +2037,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.id) && this.effectData.busted) {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 16, pokemon, pokemon, this.dex.getSpecies(speciesid)); // 6.25% instead of 12.5% HP lost
+				this.damage(pokemon.baseMaxhp / 16, pokemon, pokemon, this.dex.species.get(speciesid)); // 6.25% instead of 12.5% HP lost
 			}
 		},
 		isPermanent: true,

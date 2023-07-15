@@ -817,9 +817,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		// Do we have a proper sprite for it?
-		if (this.dex.getSpecies(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
-			species.id = this.dex.getSpecies(pokemon.canMegaEvo!).id ? this.dex.getSpecies(pokemon.canMegaEvo!).id : species.id;
-			species.name = this.dex.getSpecies(pokemon.canMegaEvo!).name ? this.dex.getSpecies(pokemon.canMegaEvo!).name : species.name;
+		if (this.dex.species.get(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
+			species.id = this.dex.species.get(pokemon.canMegaEvo!).id ? this.dex.species.get(pokemon.canMegaEvo!).id : species.id;
+			species.name = this.dex.species.get(pokemon.canMegaEvo!).name ? this.dex.species.get(pokemon.canMegaEvo!).name : species.name;
 			pokemon.formeChange(species, pokemon.getItem(), true);
 			this.add('-start', pokemon, pokemon.getItem(), '[silent]');
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
@@ -835,7 +835,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		} else {
 			let oSpecies = pokemon.m.originalSpecies;
 			// @ts-ignore
-			const oMegaSpecies = this.dex.getSpecies(species.originalMega);
+			const oMegaSpecies = this.dex.species.get(species.originalMega);
 			pokemon.formeChange(species, pokemon.getItem(), true);
 			if (oMegaSpecies.requiredItem) this.add('-start', pokemon, oMegaSpecies.requiredItem, '[silent]');
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
@@ -855,13 +855,13 @@ export const Scripts: ModdedBattleScriptsData = {
 	getMixedSpecies(originalForme, megaForme) {
 		let originalSpecies = originalForme;
 		// @ts-ignore
-		const deltas = this.getMegaDeltas(this.dex.getSpecies(megaForme));
+		const deltas = this.getMegaDeltas(this.dex.species.get(megaForme));
 		// @ts-ignore
 		const species = this.doGetMixedSpecies(originalSpecies, deltas);
 		return species;
 	},
 	getMegaDeltas(megaSpecies) {
-		const baseSpecies = this.dex.getSpecies(megaSpecies.baseSpecies);
+		const baseSpecies = this.dex.species.get(megaSpecies.baseSpecies);
 		const deltas: {
 			ability: string,
 			baseStats: SparseStatsTable,
@@ -898,7 +898,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	doGetMixedSpecies(speciesOrForme, deltas) {
 		if (!deltas) throw new TypeError("Must specify deltas!");
-		const preMegaForme = this.dex.getSpecies(speciesOrForme);
+		const preMegaForme = this.dex.species.get(speciesOrForme);
 		let species = this.dex.deepClone(preMegaForme);
 		species.abilities = {'0': deltas.ability};
 		if (deltas.type === 'mono') {

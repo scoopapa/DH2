@@ -245,7 +245,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 				this.add('-start', pokemon, 'typechange', target.getTypes(true).join('/'), '[silent]');
 				this.add('-message', `${pokemon.name} was the Impsaustor!`);
-				const species = this.dex.getSpecies(pokemon.species.name);
+				const species = this.dex.species.get(pokemon.species.name);
 				const abilities = species.abilities;
 				const baseStats = species.baseStats;
 				const type = species.types[0];

@@ -2569,7 +2569,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 			this.add('-message', target + " was the Impsaustor!");
 			this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.getSpecies(target.species.name);
+			const species = this.dex.species.get(target.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];

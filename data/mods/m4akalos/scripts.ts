@@ -38,7 +38,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 	},
 	canMegaEvo(pokemon) { // modded for forms
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&

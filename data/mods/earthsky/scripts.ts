@@ -949,7 +949,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		canMegaEvo(pokemon) { //Magic Room suppression, Mega-Ray change
 			if('magicroom' in this.field.pseudoWeather) return null;
 			const species = pokemon.baseSpecies;
-			const altForme = species.otherFormes && this.dex.getSpecies(species.otherFormes[0]);
+			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
 			const item = pokemon.getItem();
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
 				//Additional check for required move
@@ -1552,7 +1552,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(pokemon.evos) {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
-						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(this.getSpecies(pokemonID)) ? "Uber" : "OU";
+						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(this.species.get(pokemonID)) ? "Uber" : "OU";
 						if(learnsetTest){
 							console.log(pokemon.name + "'s mod tier: " + this.modData('FormatsData', pokemonID).tier);
 							console.log(pokemon.name + "'s format tier: " + this.data.FormatsData[pokemonID].tier);

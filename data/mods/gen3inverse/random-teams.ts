@@ -12,7 +12,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 	}
 
 	randomSet(species: string | Species, teamDetails: RandomTeamsTypes.TeamDetails = {}): RandomTeamsTypes.RandomSet {
-		species = this.dex.getSpecies(species);
+		species = this.dex.species.get(species);
 		let forme = species.name;
 
 		if (species.battleOnly && typeof species.battleOnly === 'string') forme = species.battleOnly;
@@ -488,7 +488,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 
 		const pokemonPool = [];
 		for (const id in this.dex.data.FormatsData) {
-			const species = this.dex.getSpecies(id);
+			const species = this.dex.species.get(id);
 			if (species.gen <= this.gen && species.randomBattleMoves) {
 				pokemonPool.push(id);
 			}
@@ -501,7 +501,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 
 		while (pokemonPool.length && pokemon.length < 6) {
-			const species = this.dex.getSpecies(this.sampleNoReplace(pokemonPool));
+			const species = this.dex.species.get(this.sampleNoReplace(pokemonPool));
 			if (!species.exists) continue;
 
 			// Limit to one of each species (Species Clause)
