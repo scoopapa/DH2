@@ -1385,7 +1385,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
 				}
 				if (item.id === 'boomerang') {
-					this.add('-item', target, this.dex.getItem(item), '[from] item: Boomerang');
+					this.add('-item', target, this.dex.items.get(item), '[from] item: Boomerang');
 					target.setItem(item);				
 				}
 			}

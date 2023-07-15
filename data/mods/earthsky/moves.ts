@@ -2614,7 +2614,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			move.type = item.naturalGift.type;
 		},
 		onPrepareHit(target, pokemon, move) {
-			const item = this.dex.getItem(pokemon.lastItem);
+			const item = this.dex.items.get(pokemon.lastItem);
 			move.basePower = item.naturalGift.basePower;
 			this.runEvent('AfterUseItem', pokemon, null, null, item);
 		},

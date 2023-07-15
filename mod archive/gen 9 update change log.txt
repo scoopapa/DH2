@@ -1,3 +1,4 @@
 replace ".getSpecies(" with ".species.get("
-replace "dex.getAbility(" with "dex.abilities.get("
+replace "dex.getAbility(" with "dex.abilities.get(" - need to avoid replacing pokemon.getAbility()
 replace ".getMove(" with ".moves.get("
+replace "dex.getItem(" with "dex.items.get(" - need to avoid replacing pokemon.getItem()

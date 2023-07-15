@@ -349,7 +349,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source && source.baseSpecies.num === 649) {
 				if (source && source !== target && move && move.category !== 'Status') {
-					this.damage(source.baseMaxhp / 8, source, source, this.dex.getItem('shockdrive'));
+					this.damage(source.baseMaxhp / 8, source, source, this.dex.items.get('shockdrive'));
 				}
 			}
 		},

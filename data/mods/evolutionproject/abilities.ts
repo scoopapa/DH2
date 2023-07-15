@@ -5,7 +5,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!pokemon.item && pokemon.m.originalItem) {
 				if (pokemon.setItem(pokemon.m.originalItem)) {
 					this.add('-ability', pokemon, 'Hoard');
-					this.add('-item', pokemon, this.dex.getItem(pokemon.m.originalItem), '[from] Ability: Hoard');
+					this.add('-item', pokemon, this.dex.items.get(pokemon.m.originalItem), '[from] Ability: Hoard');
 				}
 			}
 		},

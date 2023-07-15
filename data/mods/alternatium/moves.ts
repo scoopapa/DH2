@@ -490,10 +490,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onHit(source) {
 				if (this.randomChance(1, 1)) {
 					for (const pokemon of source.side.active) {
-						if (!pokemon.item && pokemon.lastItem && this.dex.getItem(pokemon.lastItem).isBerry) {
+						if (!pokemon.item && pokemon.lastItem && this.dex.items.get(pokemon.lastItem).isBerry) {
 							const item = pokemon.lastItem;
 							pokemon.lastItem = '';
-							this.add('-item', pokemon, this.dex.getItem(item), '[from] move: Egg Bomb');
+							this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Egg Bomb');
 							pokemon.setItem(item);
 						}
 					}

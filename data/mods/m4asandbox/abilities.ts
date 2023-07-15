@@ -1373,7 +1373,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							this.add('-ability', pokemon, 'Spirit of Giving');
 						}
 						activated = true;
-						this.add('-item', ally, this.dex.getItem(item), '[from] Ability: Spirit of Giving');
+						this.add('-item', ally, this.dex.items.get(item), '[from] Ability: Spirit of Giving');
 					}
 				}
 			}
@@ -1862,8 +1862,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (
 					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
-					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove ||
-					 this.dex.getItem(pokemon.side.pokemon[i].item).megaStone
+					!pokemon.side.pokemon[i].item || this.dex.items.get(pokemon.side.pokemon[i].item).zMove ||
+					 this.dex.items.get(pokemon.side.pokemon[i].item).megaStone
 				) continue;
 				break;
 			}
@@ -1872,7 +1872,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const forgery = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Forgery');
 			pokemon.item = forgery.item;
-			this.add('-message', `${pokemon.name}'s Zoroarkite became a replica of the ${this.dex.getItem(forgery.item).name} belonging to ${forgery.name}!`);
+			this.add('-message', `${pokemon.name}'s Zoroarkite became a replica of the ${this.dex.items.get(forgery.item).name} belonging to ${forgery.name}!`);
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.name !== 'Zoroark-Mega') return;
@@ -3245,8 +3245,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (
 					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
-					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove ||
-					 this.dex.getItem(pokemon.side.pokemon[i].item).megaStone
+					!pokemon.side.pokemon[i].item || this.dex.items.get(pokemon.side.pokemon[i].item).zMove ||
+					 this.dex.items.get(pokemon.side.pokemon[i].item).megaStone
 				) continue;
 				break;
 			}
@@ -3255,7 +3255,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const forgery = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Forgery');
 			pokemon.item = forgery.item;
-			this.add('-message', `${pokemon.name}'s Zoroarkite became a replica of the ${this.dex.getItem(forgery.item).name} belonging to ${forgery.name}!`);
+			this.add('-message', `${pokemon.name}'s Zoroarkite became a replica of the ${this.dex.items.get(forgery.item).name} belonging to ${forgery.name}!`);
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.species.isMega) return;

@@ -122,7 +122,7 @@ export class RandomTeams {
 			if (this.gen >= 2) {
 				do {
 					item = this.sample(items);
-				} while (this.dex.getItem(item).gen > this.gen || this.dex.data.Items[item].isNonstandard);
+				} while (this.dex.items.get(item).gen > this.gen || this.dex.data.Items[item].isNonstandard);
 			}
 
 			// Make sure forme is legal
@@ -140,11 +140,11 @@ export class RandomTeams {
 			}
 
 			// Make sure that a base forme does not hold any forme-modifier items.
-			let itemData = this.dex.getItem(item);
+			let itemData = this.dex.items.get(item);
 			if (itemData.forcedForme && forme === this.dex.species.get(itemData.forcedForme).baseSpecies) {
 				do {
 					item = this.sample(items);
-					itemData = this.dex.getItem(item);
+					itemData = this.dex.items.get(item);
 				} while (itemData.gen > this.gen || itemData.isNonstandard || itemData.forcedForme && forme === this.dex.species.get(itemData.forcedForme).baseSpecies);
 			}
 
@@ -313,7 +313,7 @@ export class RandomTeams {
 			if (this.gen >= 2) {
 				do {
 					item = this.sampleNoReplace(itemPool);
-				} while (this.dex.getItem(item).gen > this.gen || this.dex.data.Items[item].isNonstandard);
+				} while (this.dex.items.get(item).gen > this.gen || this.dex.data.Items[item].isNonstandard);
 			}
 
 			// Random unique ability

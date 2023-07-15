@@ -1099,7 +1099,7 @@ export class RandomGen7Teams extends RandomTeams {
 		let effectivePool: {set: AnyObject, moveVariants?: number[]}[] = [];
 		const priorityPool = [];
 		for (const curSet of setList) {
-			const item = this.dex.getItem(curSet.item);
+			const item = this.dex.items.get(curSet.item);
 			if (teamData.megaCount > 0 && item.megaStone) continue; // reject 2+ mega stones
 			if (teamData.zCount && teamData.zCount > 0 && item.zMove) continue; // reject 2+ Z stones
 			if (itemsMax[item.id] && teamData.has[item.id] >= itemsMax[item.id]) continue;
@@ -1232,7 +1232,7 @@ export class RandomGen7Teams extends RandomTeams {
 			const set = this.randomFactorySet(species, teamData, chosenTier);
 			if (!set) continue;
 
-			const itemData = this.dex.getItem(set.item);
+			const itemData = this.dex.items.get(set.item);
 
 			// Actually limit the number of Megas to one
 			if (teamData.megaCount >= 1 && itemData.megaStone) continue;
@@ -1380,7 +1380,7 @@ export class RandomGen7Teams extends RandomTeams {
 		let effectivePool: {set: AnyObject, moveVariants?: number[], itemVariants?: number, abilityVariants?: number}[] = [];
 		const priorityPool = [];
 		for (const curSet of setList) {
-			const item = this.dex.getItem(curSet.item);
+			const item = this.dex.items.get(curSet.item);
 			if (teamData.megaCount > 1 && item.megaStone) continue; // reject 3+ mega stones
 			if (teamData.zCount && teamData.zCount > 1 && item.zMove) continue; // reject 3+ Z stones
 			if (teamData.has[item.id]) continue; // Item clause
@@ -1525,7 +1525,7 @@ export class RandomGen7Teams extends RandomTeams {
 			teamData.baseFormes[species.baseSpecies] = 1;
 
 			// Limit Mega and Z-move
-			const itemData = this.dex.getItem(set.item);
+			const itemData = this.dex.items.get(set.item);
 			if (itemData.megaStone) teamData.megaCount++;
 			if (itemData.zMove) {
 				if (!teamData.zCount) teamData.zCount = 0;

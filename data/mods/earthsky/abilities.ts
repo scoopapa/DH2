@@ -1475,7 +1475,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	magicguard: {
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType !== 'Move' && effect.name !== 'Recoil' && 
-				![this.dex.getItem('lifeorb'), this.dex.getEffect('High Jump Kick'), this.dex.getEffect('Jump Kick'), this.dex.getEffect('Steel Beam'), this.dex.getEffect('Mind Blown')].includes(effect)
+				![this.dex.items.get('lifeorb'), this.dex.getEffect('High Jump Kick'), this.dex.getEffect('Jump Kick'), this.dex.getEffect('Steel Beam'), this.dex.getEffect('Mind Blown')].includes(effect)
 			) {
 				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
 				return false;

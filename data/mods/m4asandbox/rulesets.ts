@@ -78,7 +78,7 @@ export const Formats: {[k: string]: FormatData} = {
 			const problems: string[] = [];
 			const setHas: {[k: string]: true} = {};
 			let species = this.dex.species.get(set.species);
-			let item = this.dex.getItem(set.item);
+			let item = this.dex.items.get(set.item);
 			let tierSpecies = species;
 
 			if (item.megaEvolves === species.name) {
@@ -191,7 +191,7 @@ export const Formats: {[k: string]: FormatData} = {
 				} else {
 					typeTable = typeTable.filter(type => species.types.includes(type));
 				}
-				const item = this.dex.getItem(set.item);
+				const item = this.dex.items.get(set.item);
 				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 					species = this.dex.species.get(item.megaStone);
 					typeTable = typeTable.filter(type => species.types.includes(type));
@@ -227,7 +227,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -263,7 +263,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -299,7 +299,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -335,7 +335,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -371,7 +371,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -407,7 +407,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -443,7 +443,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -479,7 +479,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -515,7 +515,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -551,7 +551,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -587,7 +587,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -623,7 +623,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -659,7 +659,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -695,7 +695,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -731,7 +731,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -767,7 +767,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -803,7 +803,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -839,7 +839,7 @@ export const Formats: {[k: string]: FormatData} = {
 					problems.push(species + " is not " + teamType + " type.");
 				} 
 				if (this.gen >= 7) {
-					const item = this.dex.getItem(set.item);
+					const item = this.dex.items.get(set.item);
 					if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 						species = this.dex.species.get(item.megaStone);
 						if (!species.types.includes(teamType)) {
@@ -868,7 +868,7 @@ export const Formats: {[k: string]: FormatData} = {
 			let problems: string[] = [];
 			for (const [i, set] of team.entries()) {
 				let species = this.dex.species.get(set.species);
-				const item = this.dex.getItem(set.item);
+				const item = this.dex.items.get(set.item);
 				if (item.megaStone && species.baseSpecies === item.megaEvolves) {
 					continue;
 				} else {

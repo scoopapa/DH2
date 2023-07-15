@@ -2613,7 +2613,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (this.field.isWeather(['sunnyday', 'desolateland']) || this.randomChance(1, 2)) {
-				if (pokemon.hp && !pokemon.item && this.dex.getItem(pokemon.lastItem).isBerry) {
+				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
 					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Berry Nice');
@@ -4487,7 +4487,7 @@ lifedrain: {
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-				if (target.getMoveHitData(move).typeMod > 0 && target.hp && !target.item && this.dex.getItem(target.lastItem).isBerry) {
+				if (target.getMoveHitData(move).typeMod > 0 && target.hp && !target.item && this.dex.items.get(target.lastItem).isBerry) {
 					target.m.savedBerry = target.lastItem
 					target.lastItem = '';
 				}
@@ -6624,7 +6624,7 @@ lifedrain: {
 			const randomTarget = this.sample(pickupTargets);
 			const item = randomTarget.lastItem;
 			randomTarget.lastItem = '';
-			this.add('-item', pokemon, this.dex.getItem(item), '[from] ability: Winter Hoard');
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Winter Hoard');
 			pokemon.setItem(item);
 		},
 		name: "Winter Hoard",

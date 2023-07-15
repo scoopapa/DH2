@@ -4,7 +4,7 @@ export const Formats: {[k: string]: FormatData} = {
 		name: 'Z-Move Clause',
 		desc: "Bans Pokémon from holding Z-Crystals, except Pokémon-exclusive ones",
 		onValidateSet(set) {
-			const item = this.dex.getItem(set.item);
+			const item = this.dex.items.get(set.item);
 			if (item.zMove && !item.itemUser) return [`${set.name || set.species}'s item ${item.name} is banned by Z-Move Clause. Only Pokémon-exclusive Z-Moves are allowed!`];
 		},
 		onBegin() {

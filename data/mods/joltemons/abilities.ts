@@ -629,8 +629,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (
 					!pokemon.side.pokemon[i] || pokemon.side.pokemon[i].fainted ||
-					!pokemon.side.pokemon[i].item || this.dex.getItem(pokemon.side.pokemon[i].item).zMove ||
-					 this.dex.getItem(pokemon.side.pokemon[i].item).megaStone
+					!pokemon.side.pokemon[i].item || this.dex.items.get(pokemon.side.pokemon[i].item).zMove ||
+					 this.dex.items.get(pokemon.side.pokemon[i].item).megaStone
 				) continue;
 				break;
 			}
@@ -639,7 +639,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const counterfeit = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Counterfeit');
 			pokemon.item = counterfeit.item;
-			this.add('-message', `${pokemon.name}'s item became a replica of the ${this.dex.getItem(counterfeit.item).name} belonging to ${counterfeit.name}!`);
+			this.add('-message', `${pokemon.name}'s item became a replica of the ${this.dex.items.get(counterfeit.item).name} belonging to ${counterfeit.name}!`);
 		},
 		name: "Counterfeit",
 		rating: 3.5,
@@ -685,10 +685,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
-				if (!target.item || this.dex.getItem(target.item).zMove || this.dex.getItem(target.item).megaStone) continue;
+				if (!target.item || this.dex.items.get(target.item).zMove || this.dex.items.get(target.item).megaStone) continue;
 				if (!pokemon.useItem) return;
 				pokemon.ability = target.item;
-				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} counterfeited the ${this.dex.getItem(target.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
+				this.add('-message', `${pokemon.illusion ? pokemon.illusion.name : pokemon.name} counterfeited the ${this.dex.items.get(target.item).name} belonging to ${target.illusion ? target.illusion.name : target.name}!`);
 				return;
 			}
 		},

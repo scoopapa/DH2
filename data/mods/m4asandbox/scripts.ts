@@ -206,7 +206,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		lostItemForDelibird: null,
 		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
 			if (!this.hp) return false;
-			if (typeof item === 'string') item = this.battle.dex.getItem(item);
+			if (typeof item === 'string') item = this.battle.dex.items.get(item);
 
 			const effectid = this.battle.effect ? this.battle.effect.id : '';
 			const RESTORATIVE_BERRIES = new Set([

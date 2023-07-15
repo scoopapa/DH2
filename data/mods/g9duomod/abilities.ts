@@ -142,7 +142,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	update: {
 		onStart(pokemon) {
 			this.add('-message', pokemon.name + "'s current item: " + pokemon.item + "!", '[identify]');
-			this.add('-activate', pokemon, 'ability: Update', this.dex.getItem(pokemon.item).name, '[silent]');
+			this.add('-activate', pokemon, 'ability: Update', this.dex.items.get(pokemon.item).name, '[silent]');
 		},
 		onTryHit(target, source, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {return;}

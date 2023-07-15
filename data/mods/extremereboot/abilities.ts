@@ -96,7 +96,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
                 if (!target.fainted) {
                     if (!target.item && this.effectData.item && target.setItem(this.effectData.item)) {
                         this.add('-ability', this.effectData.source, 'Almsgiver');
-                        this.add('-item', target, this.dex.getItem(this.effectData.item), '[from] Ability: Almsgiver', '[of] ' + this.effectData.source);
+                        this.add('-item', target, this.dex.items.get(this.effectData.item), '[from] Ability: Almsgiver', '[of] ' + this.effectData.source);
                     }
                 }
             },

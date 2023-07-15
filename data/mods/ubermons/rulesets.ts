@@ -26,7 +26,7 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 			// Items other than Z-Crystals and Pokémon-specific items should be illegal
 			if (!set.item) return;
-			const item = this.dex.getItem(set.item);
+			const item = this.dex.items.get(set.item);
 			if (!item.isNonstandard) return;
 			if (['Past', 'Unobtainable'].includes(item.isNonstandard) && !item.zMove && !item.itemUser && !item.forcedForme) {
 				if (this.ruleTable.has(`+item:${item.id}`)) return;

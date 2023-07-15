@@ -920,7 +920,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 		let effectivePool: {set: AnyObject, moveVariants?: number[], itemVariants?: number, abilityVariants?: number}[] = [];
 		const priorityPool = [];
 		for (const curSet of setList) {
-			const itemData = this.dex.getItem(curSet.item);
+			const itemData = this.dex.items.get(curSet.item);
 			if (teamData.megaCount > 0 && itemData.megaStone) continue; // reject 2+ mega stones
 			if (itemsMax[itemData.id] && teamData.has[itemData.id] >= itemsMax[itemData.id]) continue;
 
@@ -1052,7 +1052,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 
 			teamData.baseFormes[species.baseSpecies] = 1;
 
-			const itemData = this.dex.getItem(set.item);
+			const itemData = this.dex.items.get(set.item);
 			if (itemData.megaStone) teamData.megaCount++;
 			if (itemData.id in teamData.has) {
 				teamData.has[itemData.id]++;

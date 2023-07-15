@@ -92,7 +92,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.hasType("Autumn")) return;
 			if (source && source !== target && move && move.category !== 'Status') {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('fellscythe'));
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.items.get('fellscythe'));
 			}
 		},
 		onResidualOrder: 5,

@@ -7,7 +7,7 @@ export const Formats: {[k: string]: ModdedFormatsData} = {
 		inherit: true,
 		onValidateSet(set) {
 			const species = this.dex.species.get(set.species);
-			const item = this.dex.getItem(set.item);
+			const item = this.dex.items.get(set.item);
 			if (item && item.id === 'griseousorb' && species.num !== 487) {
 				return ['Griseous Orb can only be held by Giratina in Generation 4.'];
 			}
