@@ -93,12 +93,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.tryTrap();
 		  },
     		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
+			if (!source) source = this.effectState.target;
 			if (!source || !this.isAdjacent(pokemon, source)) return;
 			if (!pokemon.hasAbility('shadowtag')) {
 				pokemon.maybeTrapped = true;
@@ -204,7 +204,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyTryMove(target, source, effect) {
 			if (['roulettespin'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'ability: Obtrusive', effect, '[of] ' + target);
+				this.add('cant', this.effectState.target, 'ability: Obtrusive', effect, '[of] ' + target);
 				return false;
 			}
 		},
@@ -365,7 +365,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onResidualOrder: 19,
 			onEnd(target) {
 				this.add('-end', target, 'ability: Tranquilizing Gas', '[silent]');
-				target.trySetStatus('slp', this.effectData.source);
+				target.trySetStatus('slp', this.effectState.source);
 			},
 		},
 		name: "Tranquilizing Gas",
@@ -385,7 +385,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			duration: 3,
 			onStart(target) {
 				if (target.activeTurns && !this.queue.willMove(target)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 				this.add('-start', target, 'move: Taunt');
 			},

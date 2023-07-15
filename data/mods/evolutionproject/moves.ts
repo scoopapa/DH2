@@ -71,8 +71,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onResidualOrder: 3,
 			onResidual(target) {
 				// unlike a future move, Flurry activates each turn
-				this.effectData.target = this.effectData.side.active[this.effectData.position];
-				const data = this.effectData;
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
 				const move = this.dex.moves.get('flurry');
 				if (data.target.fainted || data.target === data.source) {
 					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
@@ -100,8 +100,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onEnd(target) {
 				// unlike a future move, Flurry activates each turn
-				this.effectData.target = this.effectData.side.active[this.effectData.position];
-				const data = this.effectData;
+				this.effectState.target = this.effectState.side.active[this.effectState.position];
+				const data = this.effectState;
 				const move = this.dex.moves.get('flurry');
 				if (data.target.fainted || data.target === data.source) {
 					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);

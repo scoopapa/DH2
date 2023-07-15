@@ -18,7 +18,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-4 turns
-			this.effectData.time = this.random(2, 6);
+			this.effectState.time = this.random(2, 6);
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {

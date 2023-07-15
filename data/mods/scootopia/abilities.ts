@@ -133,7 +133,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		// },
 		// onAnySetStatus(status, pokemon) {
 			// if (status.id === 'slp') {
-				// if (pokemon === this.effectData.target) {
+				// if (pokemon === this.effectState.target) {
 					// this.add('-fail', pokemon, 'slp', '[from] ability: Wake the Dead', '[msg]');
 				// } else {
 					// this.add('-fail', pokemon, 'slp', '[from] ability: Wake the Dead');
@@ -319,7 +319,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			// }
 		// },
 		// onAllyTryHitSide(target, source, move) {
-			// if (target === this.effectData.target || target.side !== source.side) return;
+			// if (target === this.effectState.target || target.side !== source.side) return;
 			// if (move.type === 'Grass') {
 				// this.field.setTerrain('grassyterrain');
 			// }

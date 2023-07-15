@@ -22,7 +22,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {
@@ -52,8 +52,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Grass') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -69,8 +69,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || move.type !== 'Water') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -106,7 +106,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "solarflare",
 		shortDesc: "In sunlight, this Pokemon changes into its Flare form if it is a Hyakada.",
 		onStart(pokemon) {
-			delete this.effectData.forme;
+			delete this.effectState.forme;
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Hyakada' || pokemon.transformed) return;
@@ -326,11 +326,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		id: "stonehouse",
 		shortDesc: "When this Pokemon switches in on Stealth Rock, it gains +2 Defense.",
 		onSwitchIn(pokemon) {
-			this.effectData.switchingIn = true;
+			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
 			// I'm not sure if getting this ability with stealth rock on your side of the field activates it or if you're immune to Stealth Rock damage, but this should suffice.
-			if (pokemon.side.getSideCondition('stealthrock') && this.effectData.switchingIn) {
+			if (pokemon.side.getSideCondition('stealthrock') && this.effectState.switchingIn) {
 				this.boost({def: 2});
 			}
 		},
@@ -477,10 +477,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
 		onAnyWeatherStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if ((this.field.isWeather('raindance') || this.field.isWeather('primordialsea'))  && pokemon.species.id === 'tsunamey' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Surf\'s Up');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Tsunamey-Surfing', this.effect, true);
 			}
 		},
@@ -514,12 +514,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Water' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
-			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
 				if (move.smartTarget) move.smartTarget = false;
-				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Battle Tide');
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Battle Tide');
 				}
-				return this.effectData.target;
+				return this.effectState.target;
 			}
 		},
 		name: "Battle Tide",

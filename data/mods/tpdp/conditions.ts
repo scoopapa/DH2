@@ -36,7 +36,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				target.clearStatus('brn');
 				return false;
 			}
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'hvybrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
@@ -44,14 +44,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onSwitchIn() {
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 		},
 		onResidualOrder: 10,
 		onResidual(pokemon) {
-			if (this.effectData.stage < 15) {
-				this.effectData.stage++;
+			if (this.effectState.stage < 15) {
+				this.effectState.stage++;
 			}
-			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
+			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage);
 		},
 	},
 	par: {
@@ -163,8 +163,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'stp');
 			}
 			// 1-3 turns
-			this.effectData.startTime = this.random(2, 5);
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.startTime = this.random(2, 5);
+			this.effectState.time = this.effectState.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -218,7 +218,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				target.clearStatus('tox');
 				return false;
 			}
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 			if (sourceEffect && sourceEffect.id === 'toxicorb') {
 				this.add('-status', target, 'tox', '[from] item: ' + sourceEffect.name);
 			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
@@ -228,14 +228,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onSwitchIn() {
-			this.effectData.stage = 0;
+			this.effectState.stage = 0;
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			if (this.effectData.stage < 15) {
-				this.effectData.stage++;
+			if (this.effectState.stage < 15) {
+				this.effectState.stage++;
 			}
-			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
+			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage);
 		},
 	},
 	weak: {
@@ -459,7 +459,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Dust Storm', '[from] ability: ' + effect.name, '[of] ' + source);
 				this.add('-message', `A dust storm kicked up!`);
 			} else {
@@ -491,7 +491,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Sunshower', '[from] ability: ' + effect.name, '[of] ' + source);
 				this.add('-message', `A sunshower began to fall!`);
 			} else {

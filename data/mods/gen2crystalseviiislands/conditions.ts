@@ -7,7 +7,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		duration: 3,
 		onResidualOrder: 3,
 		onEnd(target) {
-			const data = this.effectData;
+			const data = this.effectState;
 			// time's up; time to hit! :D
 			const move = this.dex.moves.get(data.move);
 			if (target.fainted) {

@@ -12,10 +12,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	cleansingfire: {
 		onAnyFaintPriority: 1,
 		onAnyFaint() {
-			if(!this.effectData.target.hp) return;
+			if(!this.effectState.target.hp) return;
 			this.debug('cleansingfire');
-			this.add('-activate', this.effectData.target, 'ability: Cleansing Fire');
-			this.effectData.target.cureStatus();
+			this.add('-activate', this.effectState.target, 'ability: Cleansing Fire');
+			this.effectState.target.cureStatus();
 		},
 		name: "Cleansing Fire",
 		shortDesc: "When a Pokemon faints, this Pokemon's status is cured.",

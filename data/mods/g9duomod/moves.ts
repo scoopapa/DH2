@@ -642,7 +642,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onTypePriority: -1,
 			onType(types, pokemon) {
-				this.effectData.typeWas = types;
+				this.effectState.typeWas = types;
 				return types.filter(type => type !== 'Flying');
 			},
 		},
@@ -1105,13 +1105,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		slotCondition: 'shedtail',
 		condition: {
 			onStart(pokemon, source) {
-				this.effectData.hp = Math.floor(source.maxhp / 4);
+				this.effectState.hp = Math.floor(source.maxhp / 4);
 			},
 			onSwap(target) {
 				target.side.removeSlotCondition(target, 'shedtail');
 				if (!target.fainted) {
 					if (target.addVolatile('substitute')) {
-						target.volatiles['substitute'].hp = this.effectData.hp;
+						target.volatiles['substitute'].hp = this.effectState.hp;
 						this.add('-anim', target, "Substitute", target);
 					}
 				}
@@ -1887,7 +1887,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
 			onResidualOrder: 25,
 			onEnd() {
-				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectData.source);
+				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectState.source);
 			},
 		},
 		secondary: null,
@@ -1921,7 +1921,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 			onRestart(pokemon) {
-				this.effectData.duration = 2;
+				this.effectState.duration = 2;
 				this.add('-start', pokemon, 'move: Laser Focus');
 			},
 			onModifyCritRatio(critRatio) {
@@ -1959,13 +1959,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onStart(target, source) {
 				this.add('-start', target, 'move: Yawn', '[of] ' + source);
 				if (source.lastMove) {
-					if (source.lastMove.id != 'yawn') {this.effectData.duration = 1;}
+					if (source.lastMove.id != 'yawn') {this.effectState.duration = 1;}
 				} 
 			},
 			onResidualOrder: 19,
 			onEnd(target) {
 				this.add('-end', target, 'move: Yawn', '[silent]');
-				target.trySetStatus('slp', this.effectData.source);
+				target.trySetStatus('slp', this.effectState.source);
 			},
 		},
 		secondary: null,
@@ -2038,7 +2038,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onResidualOrder: 25,
 			onEnd() {
-				this.add('-fieldend', 'move: Guarding Room', '[of] ' + this.effectData.source);
+				this.add('-fieldend', 'move: Guarding Room', '[of] ' + this.effectState.source);
 			},
 		},
 		secondary: null,

@@ -30,11 +30,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
 			)) {
-				this.effectData.gaveUp = true;
+				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
 			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
@@ -113,12 +113,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	justifiedsylve: {
 		onFoeTrapPokemon (pokemon) {
-			if (pokemon.hasType('Dark') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Dark') && this.isAdjacent(pokemon, this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon (pokemon, source) {
-			if (!source) source = this.effectData.target;
+			if (!source) source = this.effectState.target;
 			if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
 				pokemon.maybeTrapped = true;
 			}
@@ -434,10 +434,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectData.target.storedStats) {
-				if (this.effectData.target.storedStats[s] > bestStat) {
+			for (s in this.effectState.target.storedStats) {
+				if (this.effectState.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectData.target.storedStats[s];
+					bestStat = this.effectState.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'atk') {
@@ -450,10 +450,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectData.target.storedStats) {
-				if (this.effectData.target.storedStats[s] > bestStat) {
+			for (s in this.effectState.target.storedStats) {
+				if (this.effectState.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectData.target.storedStats[s];
+					bestStat = this.effectState.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'def') {
@@ -466,10 +466,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectData.target.storedStats) {
-				if (this.effectData.target.storedStats[s] > bestStat) {
+			for (s in this.effectState.target.storedStats) {
+				if (this.effectState.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectData.target.storedStats[s];
+					bestStat = this.effectState.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'spa') {
@@ -482,10 +482,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectData.target.storedStats) {
-				if (this.effectData.target.storedStats[s] > bestStat) {
+			for (s in this.effectState.target.storedStats) {
+				if (this.effectState.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectData.target.storedStats[s];
+					bestStat = this.effectState.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'spd') {
@@ -497,10 +497,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let bestStat = 0;
 			/** @type {StatNameExceptHP} */
 			let s;
-			for (s in this.effectData.target.storedStats) {
-				if (this.effectData.target.storedStats[s] > bestStat) {
+			for (s in this.effectState.target.storedStats) {
+				if (this.effectState.target.storedStats[s] > bestStat) {
 					statName = s;
-					bestStat = this.effectData.target.storedStats[s];
+					bestStat = this.effectState.target.storedStats[s];
 				}
 			}
 			if (pokemon.status && statName === 'spe') {
@@ -529,7 +529,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (this.field.isWeather('hail') && pokemon.species.id === 'escavaliereiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Escavalier-Eiscue', this.effect, true);
 			}
 		},
@@ -540,7 +540,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.species.id === 'escavaliereiscue' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Ice Face');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -559,15 +559,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id === 'escavaliereiscue' && this.effectData.busted) {
+			if (pokemon.species.id === 'escavaliereiscue' && this.effectState.busted) {
 				pokemon.formeChange('Escavalier-Eiscue-Noice', this.effect, true);
 			}
 		},
 		onAnyWeatherStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isWeather('hail') && pokemon.species.id === 'escavaliereiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Escavalier-Eiscue', this.effect, true);
 			}
 		},
@@ -588,7 +588,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onFoeBasePowerPriority: 17,
 		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectData.target !== defender) return;
+			if (this.effectState.target !== defender) return;
 			if (move.type === 'Fire') {
 				return this.chainModify(1.25);
 			}
@@ -777,7 +777,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {
@@ -960,19 +960,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Pillage",
 		shortDesc: "On switch-in, swaps ability with the opponent.",
 		onSwitchIn(pokemon) {
-			this.effectData.switchingIn = true;
+			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
 			))
 			|| pokemon.species.id !== 'yaciancrowned' && pokemon.species.id !== 'porygrigus' && pokemon.species.id !== 'porymask' && pokemon.species.id !== 'hatterune' && pokemon.species.id !== 'hatamaskgalar') {
-				this.effectData.gaveUp = true;
+				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectData.gaveUp) return;
-			if (!this.effectData.switchingIn) return;
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+			if (!this.effectState.switchingIn) return;
 			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
@@ -1044,7 +1044,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
-					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
 				}
 			}
 		},

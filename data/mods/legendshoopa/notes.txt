@@ -38,8 +38,8 @@ in the process, but until then everythings up there
 - The duration for statuses is implemented similarly; with every individual status being edited:
 
 	onStart() {
-			this.effectData.startTime = 6;
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.startTime = 6;
+			this.effectState.time = this.effectState.startTime;
 		},
 	onResidual(pokemon) {
 			pokemon.statusData.time--;

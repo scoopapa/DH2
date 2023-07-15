@@ -59,55 +59,55 @@ let BattleMovedex = {
 				return this.random(3, 4);
 			},
 			onStart(pokemon) {
-				this.effectData.totalDamage = 0;
-				this.effectData.lastDamage = 0;
+				this.effectState.totalDamage = 0;
+				this.effectState.lastDamage = 0;
 				this.add('-start', pokemon, 'Bide');
 			},
 			onHit(target, source, move) {
 				if (source && source !== target && move.category !== 'Physical' && move.category !== 'Special') {
-					let damage = this.effectData.totalDamage;
-					this.effectData.totalDamage += damage;
-					this.effectData.lastDamage = damage;
-					this.effectData.sourcePosition = source.position;
-					this.effectData.sourceSide = source.side;
+					let damage = this.effectState.totalDamage;
+					this.effectState.totalDamage += damage;
+					this.effectState.lastDamage = damage;
+					this.effectState.sourcePosition = source.position;
+					this.effectState.sourceSide = source.side;
 				}
 			},
 			onDamage(damage, target, source, move) {
 				if (!source || source.side === target.side) return;
 				if (!move || move.effectType !== 'Move') return;
-				if (!damage && this.effectData.lastDamage > 0) {
-					damage = this.effectData.totalDamage;
+				if (!damage && this.effectState.lastDamage > 0) {
+					damage = this.effectState.totalDamage;
 				}
-				this.effectData.totalDamage += damage;
-				this.effectData.lastDamage = damage;
-				this.effectData.sourcePosition = source.position;
-				this.effectData.sourceSide = source.side;
+				this.effectState.totalDamage += damage;
+				this.effectState.lastDamage = damage;
+				this.effectState.sourcePosition = source.position;
+				this.effectState.sourceSide = source.side;
 			},
 			onAfterSetStatus(status, pokemon) {
 				// Sleep, freeze, and partial trap will just pause duration.
 				if (pokemon.volatiles['flinch']) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				} else if (pokemon.volatiles['partiallytrapped']) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				} else {
 					switch (status.id) {
 					case 'slp':
 					case 'frz':
-						this.effectData.duration++;
+						this.effectState.duration++;
 						break;
 					}
 				}
 			},
 			onBeforeMove(pokemon, target, move) {
-				if (this.effectData.duration === 1) {
-					if (!this.effectData.totalDamage) {
+				if (this.effectState.duration === 1) {
+					if (!this.effectState.totalDamage) {
 						this.debug("Bide failed due to 0 damage taken");
 						this.add('-fail', pokemon);
 						return false;
 					}
 					this.add('-end', pokemon, 'Bide');
-					let target = this.effectData.sourceSide.active[this.effectData.sourcePosition];
-					this.moveHit(target, pokemon, move, /** @type {ActiveMove} */ ({damage: this.effectData.totalDamage * 2}));
+					let target = this.effectState.sourceSide.active[this.effectState.sourcePosition];
+					this.moveHit(target, pokemon, move, /** @type {ActiveMove} */ ({damage: this.effectState.totalDamage * 2}));
 					return false;
 				}
 				this.add('-activate', pokemon, 'Bide');
@@ -305,12 +305,12 @@ let BattleMovedex = {
 			},
 			onStart(pokemon) {
 				if (!this.willMove(pokemon)) {
-					this.effectData.duration++;
+					this.effectState.duration++;
 				}
 				let moves = pokemon.moves;
 				let move = this.dex.moves.get(this.sample(moves));
 				this.add('-start', pokemon, 'Disable', move.name);
-				this.effectData.move = move.id;
+				this.effectState.move = move.id;
 				return;
 			},
 			onResidualOrder: 14,
@@ -318,14 +318,14 @@ let BattleMovedex = {
 				this.add('-end', pokemon, 'Disable');
 			},
 			onBeforeMove(attacker, defender, move) {
-				if (move.id === this.effectData.move) {
+				if (move.id === this.effectState.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectData.move) {
+					if (moveSlot.id === this.effectState.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -700,7 +700,7 @@ let BattleMovedex = {
 			// Rage lock
 			duration: 255,
 			onStart(target, source, effect) {
-				this.effectData.move = 'rage';
+				this.effectState.move = 'rage';
 			},
 			onLockMove: 'rage',
 			onTryHit(target, source, move) {
@@ -927,7 +927,7 @@ let BattleMovedex = {
 		effect: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectData.hp = Math.floor(target.maxhp / 4) + 1;
+				this.effectState.hp = Math.floor(target.maxhp / 4) + 1;
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryHitPriority: -1,

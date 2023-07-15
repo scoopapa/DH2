@@ -183,7 +183,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onLockMove: 'reconstruct',
 			onStart(pokemon) {
-				this.effectData.totalDamage = 0;
+				this.effectState.totalDamage = 0;
 				this.add('-start', pokemon, 'move: Reconstruct');
 			},
 			onSourceModifyDamage(damage, source, target, move) {
@@ -192,7 +192,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onBeforeMove(pokemon, target, move) {
-				if (this.effectData.duration === 1) {
+				if (this.effectState.duration === 1) {
 					this.add('-end', pokemon, 'move: Reconstruct');
 					const moveData: Partial<ActiveMove> = {
 						id: 'reconstruct' as ID,
@@ -930,7 +930,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.effectData.source.side.active[pokemon.volatiles['curse'].sourcePosition];
+				const target = this.effectState.source.side.active[pokemon.volatiles['curse'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to curse');
 					return;

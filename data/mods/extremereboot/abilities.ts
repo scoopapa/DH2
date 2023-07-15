@@ -73,7 +73,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			return this.chainModify(1.15);
 		},
 		onSourceAccuracy(accuracy, target, source, move) {
-			if (move && (source === this.effectData.target || target === this.effectData.target)) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
 				return true;
 			}
 			return accuracy;
@@ -94,9 +94,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
             onSwap(target) {
                 target.side.removeSlotCondition(target, 'almsgiver'); // always remove immediately even if it doesn't activate (you can remove this if you want it to be stored like Healing Wish)
                 if (!target.fainted) {
-                    if (!target.item && this.effectData.item && target.setItem(this.effectData.item)) {
-                        this.add('-ability', this.effectData.source, 'Almsgiver');
-                        this.add('-item', target, this.dex.items.get(this.effectData.item), '[from] Ability: Almsgiver', '[of] ' + this.effectData.source);
+                    if (!target.item && this.effectState.item && target.setItem(this.effectState.item)) {
+                        this.add('-ability', this.effectState.source, 'Almsgiver');
+                        this.add('-item', target, this.dex.items.get(this.effectState.item), '[from] Ability: Almsgiver', '[of] ' + this.effectState.source);
                     }
                 }
             },
@@ -336,12 +336,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Checkmate",
 		desc: "If the enemy has 33% health or less, it is trapped and cannot escape.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hp / pokemon.baseMaxhp <= 0.33 && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hp / pokemon.baseMaxhp <= 0.33 && this.isAdjacent(pokemon, this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
+			if (!source) source = this.effectState.target;
 			if (!source || !this.isAdjacent(pokemon, source)) return;
 			if (pokemon.hp / pokemon.baseMaxhp <= 0.33) {
 				pokemon.maybeTrapped = true;
@@ -488,7 +488,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			newMove.hasBounced = true;
 			newMove.type = "Manmade";
 			newMove.basePower = newMove.basePower / 2;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {
@@ -815,9 +815,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Night') {
-				this.boost({spe: 1}, this.effectData.target);
+				this.boost({spe: 1}, this.effectState.target);
 			}
 		},
 	},
@@ -917,9 +917,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Folklore') {
-				this.boost({atk: 1}, this.effectData.target);
+				this.boost({atk: 1}, this.effectState.target);
 			}
 		},
 	},
@@ -1003,8 +1003,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
             onSwap(target) {
                 target.side.removeSlotCondition(target, 'sacrificer'); // always remove immediately even if it doesn't activate (you can remove this if you want it to be stored like Healing Wish)
                 if (!target.fainted) {
-                    if (this.heal(this.effectData.hp, target, this.effectData.source)) {
-                        this.add('-ability', this.effectData.source, 'Sacrificer');
+                    if (this.heal(this.effectState.hp, target, this.effectState.source)) {
+                        this.add('-ability', this.effectState.source, 'Sacrificer');
                     }
                 }
             },
@@ -1139,9 +1139,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Storm') {
-				this.boost({def: 1, spd: 1}, this.effectData.target);
+				this.boost({def: 1, spd: 1}, this.effectState.target);
 			}
 		},
 	},

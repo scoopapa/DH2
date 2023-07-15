@@ -1,12 +1,12 @@
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	arenatrap: {
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Ground') && this.isAdjacent(pokemon, this.effectData.target)) {
+			if (pokemon.hasType('Ground') && this.isAdjacent(pokemon, this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
-			if (!source) source = this.effectData.target;
+			if (!source) source = this.effectState.target;
 			if (!source || !this.isAdjacent(pokemon, source)) return;
 			if (!pokemon.knownType || pokemon.hasType('Ground')) {
 				pokemon.maybeTrapped = true;
@@ -108,7 +108,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			//if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
-					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
 				}
 			}
 		},
@@ -220,7 +220,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {
@@ -301,8 +301,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePower(basePower, source, target, move) {
 			if (source.activeMoveActions > 1) return;
 			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -319,8 +319,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyBasePower(basePower, source, target, move) {
 			if (source.activeMoveActions > 1) return;
 			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -434,7 +434,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	dauntlessshield: {
 		onAnyModifyBoost(boosts, pokemon) {
-			const dauntlessshieldUser = this.effectData.target;
+			const dauntlessshieldUser = this.effectState.target;
 			if (pokemon === this.activePokemon && dauntlessshieldUser === this.activeTarget) {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
@@ -461,7 +461,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onAnySwitchIn(pokemon) {
-			const source = this.effectData.target;
+			const source = this.effectState.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target.volatiles['baddreams']) {
@@ -470,7 +470,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			const source = this.effectData.target;
+			const source = this.effectState.target;
 			for (const target of source.side.foe.active) {
 				target.removeVolatile('baddreams');
 			}

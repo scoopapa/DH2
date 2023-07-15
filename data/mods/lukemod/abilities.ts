@@ -109,10 +109,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	cleansingfire: {
 		onAnyFaintPriority: 1,
 		onAnyFaint() {
-			if(!this.effectData.target.hp) return;
+			if(!this.effectState.target.hp) return;
 			this.debug('cleansingfire');
-			this.add('-activate', this.effectData.target, 'ability: Cleansing Fire');
-			this.effectData.target.cureStatus();
+			this.add('-activate', this.effectState.target, 'ability: Cleansing Fire');
+			this.effectState.target.cureStatus();
 		},
 		name: "Cleansing Fire",
 		shortDesc: "When a Pokemon faints, this Pokemon's status is cured.",
@@ -175,7 +175,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				effect && effect.effectType === 'Move' && target.species.id === 'ironmimic' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Faulty Photon');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -198,7 +198,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id === 'ironmimic' && this.effectData.busted) {
+			if (pokemon.species.id === 'ironmimic' && this.effectState.busted) {
 				const speciesid = /*pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' :*/ 'Iron Mimic-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
@@ -215,40 +215,40 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {/*
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Faulty Photon', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Faulty Photon');
 				}*/
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'faultyphoton' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'faultyphoton' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Faulty Photon atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Faulty Photon def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Faulty Photon spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Faulty Photon spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Faulty Photon spe boost');
 				return this.chainModify(1.5);
 			},
@@ -282,19 +282,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Pillage",
 		shortDesc: "On switch-in, swaps ability with the opponent.",
 		onSwitchIn(pokemon) {
-			this.effectData.switchingIn = true;
+			this.effectState.switchingIn = true;
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
 			))
 			|| pokemon.species.id !== 'zoinkazenta') {
-				this.effectData.gaveUp = true;
+				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectData.gaveUp) return;
-			if (!this.effectData.switchingIn) return;
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+			if (!this.effectState.switchingIn) return;
 			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;

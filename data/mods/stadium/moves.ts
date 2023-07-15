@@ -64,7 +64,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// Rage lock
 			duration: 255,
 			onStart(target, source, effect) {
-				this.effectData.move = 'rage';
+				this.effectState.move = 'rage';
 			},
 			onLockMove: 'rage',
 			onTryHit(target, source, move) {
@@ -117,7 +117,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		effect: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectData.hp = Math.floor(target.maxhp / 4);
+				this.effectState.hp = Math.floor(target.maxhp / 4);
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryHitPriority: -1,

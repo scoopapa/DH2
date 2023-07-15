@@ -183,7 +183,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.trunc(weighthg / 2);
 		},
 		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
 		},
 		onUpdate(pokemon) {
 			// if (pokemon.transformed) return;
@@ -201,7 +201,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
 			if (source == target) return;
-			const user = this.effectData.target;
+			const user = this.effectState.target;
 			if (user.volatiles['lightdrive'] && !user.volatiles['lightdrive'].fromWeightDiff) return;
 			if (source === user) {
 				if (user.getWeight() < target.getWeight() && !user.volatiles['lightdrive']) {
@@ -227,40 +227,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Light Drive', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Light Drive');
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'lightdrive' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'lightdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Light Drive atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Light Drive def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Light Drive spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Light Drive spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Light Drive spe boost');
 				return this.chainModify(1.5);
 			},
@@ -325,7 +325,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onUpdate(pokemon) {
 			// if (pokemon.transformed) return;
@@ -348,40 +348,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Opening Act', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Opening Act');
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'openingact' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'openingact' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Opening Act atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Opening Act def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Opening Act spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Opening Act spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Opening Act spe boost');
 				return this.chainModify(1.5);
 			},
@@ -459,7 +459,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Quark Drive + Electric Surge",
 		onStart(pokemon) {
 			this.field.setTerrain('electricterrain');
-			this.singleEvent('TerrainChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
 		},
 		onUpdate(pokemon) {
 			// if (pokemon.transformed) return;
@@ -482,40 +482,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Quark Surge', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Quark Surge');
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'quarksurge' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'quarksurge' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Quark Surge atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Quark Surge def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Quark Surge spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Quark Surge spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Quark Surge spe boost');
 				return this.chainModify(1.5);
 			},
@@ -530,7 +530,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	onceuponatime: {
 	  shortDesc: "Protosynthesis + Infiltrator",
 		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onUpdate(pokemon) {
 			// if (pokemon.transformed) return;
@@ -553,40 +553,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Once Upon a Time', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Once Upon a Time');
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'onceuponatime' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'onceuponatime' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Once Upon a Time atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Once Upon a Time def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Once Upon a Time spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Once Upon a Time spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Once Upon a Time spe boost');
 				return this.chainModify(1.5);
 			},
@@ -604,7 +604,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	primitive: {
 	  shortDesc: "Protosynthesis + Oblivious",
 		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onImmunity(type, pokemon) {
 			if (type === 'attract') return false;
@@ -652,40 +652,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Primitive', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Primitive');
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'primitive' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'primitive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Primitive atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Primitive def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Primitive spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Primitive spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Primitive spe boost');
 				return this.chainModify(1.5);
 			},
@@ -721,40 +721,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: System Purge', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: System Purge');
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'systempurge' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'systempurge' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('System Purge atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('System Purge def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('System Purge spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('System Purge spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('System Purge spe boost');
 				return this.chainModify(1.5);
 			},
@@ -793,17 +793,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	choreography: {
 	  shortDesc: "Protean + Dancer",
 		onPrepareHit(source, target, move) {
-			if (this.effectData.choreography) return;
+			if (this.effectState.choreography) return;
 			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
 				if (!source.setType(type)) return;
-				this.effectData.choreography = true;
+				this.effectState.choreography = true;
 				this.add('-start', source, 'typechange', type, '[from] ability: Choreography');
 			}
 		},
 		onSwitchIn(pokemon) {
-			delete this.effectData.choreography;
+			delete this.effectState.choreography;
 		},
 		name: "Choreography",
 		rating: 4,
@@ -820,13 +820,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Ice' || move.type === 'Fire') {
-				this.boost({atk: 1}, this.effectData.target);
+				this.boost({atk: 1}, this.effectState.target);
 			}
 		},
 		onAllySideConditionStart(target, source, sideCondition) {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (sideCondition.id === 'tailwind') {
 				this.boost({atk: 1}, pokemon, pokemon);
 			}
@@ -914,8 +914,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || !move.secondaries) return;
-			if (!move.auraBooster) move.auraBooster = this.effectData.target;
-			if (move.auraBooster !== this.effectData.target) return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		isUnbreakable: true,
@@ -930,7 +930,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				effect && effect.effectType === 'Move' && target.species.id === 'ironmimic' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Faulty Photon');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -953,7 +953,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id === 'ironmimic' && this.effectData.busted) {
+			if (pokemon.species.id === 'ironmimic' && this.effectState.busted) {
 				const speciesid = /*pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' :*/ 'Iron Mimic-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
@@ -970,40 +970,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {/*
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Faulty Photon', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Faulty Photon');
 				}*/
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'faultyphoton' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'faultyphoton' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Faulty Photon atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Faulty Photon def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Faulty Photon spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Faulty Photon spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Faulty Photon spe boost');
 				return this.chainModify(1.5);
 			},
@@ -1018,7 +1018,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	dyschronometria: {
 	  shortDesc: "This Pokemon ignores other Pokemon's stat stages and Paradox boosts when taking or doing damage.",
 		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectData.target;
+			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
 			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['def'] = 0;
@@ -1034,7 +1034,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		/*onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
-			//this.effectData.bestStat = attacker.getBestStat(false, true);
+			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			if (attacker.getBestStat(false, true) !== 'atk') return;
 			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 										'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1047,7 +1047,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
-			//this.effectData.bestStat = attacker.getBestStat(false, true);
+			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			if (attacker.getBestStat(false, true) !== 'spa') return;
 			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 										'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1103,8 +1103,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 		onAnyModifyAtkPriority: 6,
 		onAnyModifyAtk(atk, attacker, defender, move) {
-			//this.effectData.bestStat = attacker.getBestStat(false, true);
-			const dyschronoUser = this.effectData.target;
+			//this.effectState.bestStat = attacker.getBestStat(false, true);
+			const dyschronoUser = this.effectState.target;
 			if (defender == dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
@@ -1131,8 +1131,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyModifySpAPriority: 5,
 		onAnyModifySpA(atk, attacker, defender, move) {
-			//this.effectData.bestStat = attacker.getBestStat(false, true);
-			const dyschronoUser = this.effectData.target;
+			//this.effectState.bestStat = attacker.getBestStat(false, true);
+			const dyschronoUser = this.effectState.target;
 			if (defender == dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
@@ -1166,7 +1166,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.heal(pokemon.baseMaxhp / 3);
 		},
 		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onUpdate(pokemon) {
 			// if (pokemon.transformed) return;
@@ -1189,40 +1189,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Nanorepairs', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Nanorepairs');
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'nanorepairs' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'nanorepairs' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Nanorepairs atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Nanorepairs def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Nanorepairs spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Nanorepairs spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Nanorepairs spe boost');
 				return this.chainModify(1.5);
 			},
@@ -1367,7 +1367,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (source.volatiles['disable']) return;
 			if (!move.isFutureMove) {
 				if (this.randomChance(3, 10)) {
-					source.addVolatile('disable', this.effectData.target);
+					source.addVolatile('disable', this.effectState.target);
 				}
 			}
 		},
@@ -1386,7 +1386,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(1.5);
 		},
 		onAnyModifyAtk(atk, source, target, move) {
-			const abilityHolder = this.effectData.target;
+			const abilityHolder = this.effectState.target;
 			if (source.hasAbility('Grindset')) return;
 			if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
 			if (move.ruinedAtk !== abilityHolder) return;
@@ -1446,7 +1446,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	circuitbreaker: {
 	  shortDesc: "Quark Drive + Mold Breaker",
 		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 			this.add('-ability', pokemon, 'Circuit Breaker');
 		},
 		onModifyMove(move) {
@@ -1473,40 +1473,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Circuit Breaker', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Circuit Breaker');
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'circuitbreaker' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'circuitbreaker' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Circuit Breaker atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Circuit Breaker def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Circuit Breaker spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Circuit Breaker spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Circuit Breaker spe boost');
 				return this.chainModify(1.5);
 			},
@@ -1525,7 +1525,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return weighthg*2
 		},
 		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onUpdate(pokemon) {
 			// if (pokemon.transformed) return;
@@ -1543,7 +1543,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
 			if (source == target) return;
-			const user = this.effectData.target;
+			const user = this.effectState.target;
 			if (user.volatiles['weightoflife'] && !user.volatiles['weightoflife'].fromWeightDiff) return;
 			if (source === user) {
 				if (user.getWeight() > target.getWeight() && !user.volatiles['weightoflife']) {
@@ -1569,40 +1569,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Weight of Life', '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Weight of Life');
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'weightoflife' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'weightoflife' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Weight of Life atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Weight of Life def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Weight of Life spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Weight of Life spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Weight of Life spe boost');
 				return this.chainModify(1.5);
 			},
@@ -1701,7 +1701,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	//Mainly did this so we could try to see if Quark Drive would work
 	protosynthesis: {
 		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onUpdate(pokemon) {
 			// if (pokemon.transformed) return;
@@ -1724,40 +1724,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: ' + pokemon.getAbility().name, '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: ' + pokemon.getAbility().name);
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'protosynthesis' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Protosynthesis atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Protosynthesis def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Protosynthesis spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Protosynthesis spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Protosynthesis spe boost');
 				return this.chainModify(1.5);
 			},
@@ -1772,7 +1772,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	quarkdrive: {
 		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectData, pokemon);
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
 		},
 		onUpdate(pokemon) {
 			// if (pokemon.transformed) return;
@@ -1795,40 +1795,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
 				if (effect?.id === 'boosterenergy') {
-					this.effectData.fromBooster = true;
+					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: ' + pokemon.getAbility().name, '[fromitem]');
 				} else {
 					this.add('-activate', pokemon, 'ability: ' + pokemon.getAbility().name);
 				}
-				this.effectData.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'quarkdrive' + this.effectData.bestStat);
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectData.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk') return;
 				this.debug('Quark Drive atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectData.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def') return;
 				this.debug('Quark Drive def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectData.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa') return;
 				this.debug('Quark Drive spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectData.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd') return;
 				this.debug('Quark Drive spd boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpe(spe, pokemon) {
-				if (this.effectData.bestStat !== 'spe') return;
+				if (this.effectState.bestStat !== 'spe') return;
 				this.debug('Quark Drive spe boost');
 				return this.chainModify(1.5);
 			},

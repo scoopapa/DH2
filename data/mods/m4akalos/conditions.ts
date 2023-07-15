@@ -11,7 +11,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectData.duration = 0;
+				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-ability', source, 'Diamond Dust');
 				this.add('-weather', 'Diamond Dust', '[silent]');
 				this.add('-message', `A cloud of diamond dust blew in!`);

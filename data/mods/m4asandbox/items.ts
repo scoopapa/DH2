@@ -173,7 +173,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('electricterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
@@ -209,7 +209,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('psychicterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
@@ -245,7 +245,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('mistyterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
@@ -281,7 +281,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('grassyterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
@@ -905,7 +905,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('acidicterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {

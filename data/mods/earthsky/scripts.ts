@@ -532,7 +532,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return tr(baseDamage, 16);
 		},
 		singleEvent(
-			eventid: string, effect: Effect, effectData: AnyObject | null,
+			eventid: string, effect: Effect, effectState: AnyObject | null,
 			target: string | Pokemon | Side | Field | Battle | null, source?: string | Pokemon | Effect | false | null,
 			sourceEffect?: Effect | string | null, relayVar?: any
 		) {
@@ -587,11 +587,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (callback === undefined) return relayVar;
 
 			const parentEffect = this.effect;
-			const parentEffectData = this.effectData;
+			const parentEffectData = this.effectState;
 			const parentEvent = this.event;
 
 			this.effect = effect;
-			this.effectData = effectData || {};
+			this.effectState = effectState || {};
 			this.event = {id: eventid, target, source, effect: sourceEffect};
 			this.eventDepth++;
 
@@ -607,7 +607,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			this.eventDepth--;
 			this.effect = parentEffect;
-			this.effectData = parentEffectData;
+			this.effectState = parentEffectData;
 			this.event = parentEvent;
 
 			return returnVal === undefined ? relayVar : returnVal;
@@ -749,15 +749,15 @@ export const Scripts: ModdedBattleScriptsData = {
 				let returnVal;
 				if (typeof handler.callback === 'function') {
 					const parentEffect = this.effect;
-					const parentEffectData = this.effectData;
+					const parentEffectData = this.effectState;
 					this.effect = handler.effect;
-					this.effectData = handler.state || {};
-					this.effectData.target = effectHolder;
+					this.effectState = handler.state || {};
+					this.effectState.target = effectHolder;
 
 					returnVal = handler.callback.apply(this, args);
 
 					this.effect = parentEffect;
-					this.effectData = parentEffectData;
+					this.effectState = parentEffectData;
 				} else {
 					returnVal = handler.callback;
 				}

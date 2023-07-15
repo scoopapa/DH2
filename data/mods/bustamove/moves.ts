@@ -830,7 +830,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.debug('Flame Wheel start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectData.sources) {
+				for (const source of this.effectState.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Flame Wheel');
@@ -1085,7 +1085,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 			onEnd() {
-				if (!this.effectData.duration) this.eachEvent('Terrain');
+				if (!this.effectState.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Grassy Terrain');
 			},
 		},
@@ -1722,7 +1722,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onResidualOrder: 11,
 			onResidual(pokemon) {
-				const source = this.effectData.source;
+				const source = this.effectState.source;
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['scaryface'];
 					this.add('-end', pokemon, 'Scary Face', '[partiallytrapped]', '[silent]');
@@ -1731,7 +1731,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.boost({spe: -1}, pokemon, source, this.dex.getActiveMove('scaryface'));
 			},
 			onTrapPokemon(pokemon) {
-				if (this.effectData.source && this.effectData.source.isActive) pokemon.tryTrap();
+				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
 			},
 		},
 		secondary: null,
@@ -2107,7 +2107,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 			onResidualOrder: 11,
 			onResidual(pokemon) {
-				const source = this.effectData.source;
+				const source = this.effectState.source;
 				if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns)) {
 					delete pokemon.volatiles['tarshot'];
 					this.add('-end', pokemon, 'Tar Shot', '[partiallytrapped]', '[silent]');
@@ -2116,7 +2116,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.boost({spe: -1}, pokemon, source, this.dex.getActiveMove('tarshot'));
 			},
 			onTrapPokemon(pokemon) {
-				if (this.effectData.source && this.effectData.source.isActive) pokemon.tryTrap();
+				if (this.effectState.source && this.effectState.source.isActive) pokemon.tryTrap();
 			},
 		},
 		secondary: null,

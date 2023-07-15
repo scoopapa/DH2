@@ -62,7 +62,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			target.useItem();			
 			return null;
 		},

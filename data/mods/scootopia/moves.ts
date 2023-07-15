@@ -148,7 +148,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 3,
 			onResidualOrder: 8,
 			onResidual(pokemon) {
-				const target = this.effectData.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
+				const target = this.effectState.source.side.active[pokemon.volatiles['energysiphon'].sourcePosition];
 				if (!target || target.fainted || target.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
@@ -235,7 +235,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				// }
 			// },
 			// onEnd() {
-				// if (!this.effectData.duration) this.eachEvent('Terrain');
+				// if (!this.effectState.duration) this.eachEvent('Terrain');
 				// this.add('-fieldend', 'move: Grassy Terrain');
 			// },
 		// },

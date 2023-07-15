@@ -766,7 +766,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				//if (!target.isGrounded()) return;
 				if (target.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectData.layers] * target.maxhp / 24);
+				this.damage(damageAmounts[this.effectState.layers] * target.maxhp / 24);
 				this.add('-message', `${target.name} was hurt by the spikes!`);
 			}
 		},

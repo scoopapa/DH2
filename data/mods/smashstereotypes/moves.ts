@@ -549,7 +549,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.debug('Flame Wheel start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectData.sources) {
+				for (const source of this.effectState.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Flame Wheel');

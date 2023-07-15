@@ -57,7 +57,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				}
 			}
 			if (!statsRaised) return;
-			const pokemon: Pokemon = this.effectData.target;
+			const pokemon: Pokemon = this.effectState.target;
 			pokemon.useItem();
 			this.boost(boostPlus, pokemon);
 		},
@@ -538,7 +538,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectData.target, source);
+			this.useMove(newMove, this.effectState.target, source);
 			target.useItem();			
 			return null;
 		},
@@ -558,7 +558,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (!this.canSwitch(attacker.side) || attacker.forceSwitchFlag || attacker.switchFlag || !move.flags['sound']) return;
-			this.effectData.move = this.dex.moves.get(move.id);
+			this.effectState.move = this.dex.moves.get(move.id);
 			attacker.deductPP(move.id, 1);
 			if (attacker.side.addSlotCondition(attacker, 'walkietalkie')) {
 			for (const side of this.sides) {
@@ -579,8 +579,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 				target.side.removeSlotCondition(target, 'walkietalkie');
 			},
 			onSwap(target) {
-				if (!target.fainted && this.effectData.moveTarget && this.effectData.moveTarget.isActive) {
-					const move = this.dex.moves.get(this.effectData.move);
+				if (!target.fainted && this.effectState.moveTarget && this.effectState.moveTarget.isActive) {
+					const move = this.dex.moves.get(this.effectState.move);
 					this.runMove(move, target, this.getTargetLoc(target.side.foe.active[0], target), null, false, true);
 				}
 				target.side.removeSlotCondition(target, 'walkietalkie');
@@ -617,8 +617,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 				target.side.removeSlotCondition(target, 'walkietalkie');
 			},
 			onSwitchIn(target) {
-				if (!target.fainted && this.effectData.moveTarget && this.effectData.moveTarget.isActive) {
-					this.useMove("Copycat", target, this.effectData.moveTarget);
+				if (!target.fainted && this.effectState.moveTarget && this.effectState.moveTarget.isActive) {
+					this.useMove("Copycat", target, this.effectState.moveTarget);
 				}
 				target.side.removeSlotCondition(target, 'walkietalkie');
 			},
@@ -636,7 +636,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onModifyMove(move, pokemon) {
 			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag ||
 				 !move.flags['sound'] || pokemon.side.getSideCondition('walkietalkie')) return;
-			this.effectData.move = this.dex.moves.get(move.id);
+			this.effectState.move = this.dex.moves.get(move.id);
 			delete move.flags['contact'];
 			delete move.flags['wind'];
 			delete move.flags['bullet'];
@@ -736,9 +736,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.flags['sound']) {
-				this.boost({atk: 1}, this.effectData.target);
+				this.boost({atk: 1}, this.effectState.target);
 			}
 		},
 		onTakeItem(item, source) {
@@ -852,7 +852,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('electricterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('cloudnine')) {
@@ -888,7 +888,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('psychicterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('cloudnine')) {
@@ -924,7 +924,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('mistyterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('cloudnine')) {
@@ -960,7 +960,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('grassyterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('cloudnine')) {

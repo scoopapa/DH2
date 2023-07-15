@@ -80,12 +80,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				switchingOut = battle.log[battle.lastMoveLine].splice('|');
 				id = switchingOut.indexOf('faint') + 1;
 				for(const ally of side.pokemon){ if(ally.id === switchingOut[id]) target = ally; } // pretty sure 'pokemon.id' is in the same format as what is shown in the console, just needs testing
-				if (!this.effectData.target.hp) return;
+				if (!this.effectState.target.hp) return;
 				let ability = target.getAbility();
 				let bannedAbilities = ['battlebond', 'comatose', 'disguise', 'download', 'flowergift', 'forecast', 'gorillatactics', 'gulpmissile', 'hugepower', 'hungerswitch', 'hustle', 'iceface', 'illusion', 'intrepidsword', 'imposter', 'multitype', 'powerconstruct', 'powerofalchemy', 'purepower', 'receiver', 'rkssystem', 'schooling', 'shieldsdown', 'stancechange', 'trace', 'wonderguard', 'zenmode'];
 				if (bannedAbilities.includes(target.ability)) return;
-				this.add('-ability', this.effectData.target, ability, '[from] ability: Receiver', '[of] ' + target);
-				this.effectData.target.setAbility(ability);
+				this.add('-ability', this.effectState.target, ability, '[from] ability: Receiver', '[of] ' + target);
+				this.effectState.target.setAbility(ability);
 			}
 		},
 		id: "receiver",
@@ -215,9 +215,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             const move = this.dex.moves.get(moveSlot.move);
             if (move.category === 'Status') continue;
             const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
-            if (this.dex.getImmunity(moveType, this.effectData.source) && this.dex.getEffectiveness(moveType, this.effectData.source) > 0 || move.ohko) {
-              this.add('-ability', this.effectData.source, 'Run Away'); 
-              this.effectData.source.useMove('teleport');
+            if (this.dex.getImmunity(moveType, this.effectState.source) && this.dex.getEffectiveness(moveType, this.effectState.source) > 0 || move.ohko) {
+              this.add('-ability', this.effectState.source, 'Run Away'); 
+              this.effectState.source.useMove('teleport');
               return;
             }
           }

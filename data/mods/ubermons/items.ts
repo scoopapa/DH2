@@ -91,7 +91,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return;
 			}
 
-			const kingsrockHolder = this.effectData.target;
+			const kingsrockHolder = this.effectState.target;
 			if ((source.side === kingsrockHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
 				this.add('cant', kingsrockHolder, 'item: King\u2019s Rock', move, '[of] ' + target);

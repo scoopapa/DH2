@@ -45,8 +45,8 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-3 turns
-			this.effectData.startTime = this.random(1, 4);
-			this.effectData.time = this.effectData.startTime;
+			this.effectState.startTime = this.random(1, 4);
+			this.effectState.time = this.effectState.startTime;
 		},
 		onBeforeMovePriority: 2,
 		onBeforeMove(pokemon, target, move) {
@@ -117,7 +117,7 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 			this.add('-activate', target, 'move: ' + effect, '[of] ' + source);
 		},
 		onBeforeMove(pokemon) {
-			if (this.effectData.source && (!this.effectData.source.isActive || this.effectData.source.hp <= 0)) {
+			if (this.effectState.source && (!this.effectState.source.isActive || this.effectState.source.hp <= 0)) {
 				pokemon.removeVolatile('partiallytrapped');
 				return;
 			}
@@ -125,7 +125,7 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 			return false;
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]');
+			this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]');
 		},
 	},
 };

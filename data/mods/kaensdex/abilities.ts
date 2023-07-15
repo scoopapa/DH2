@@ -381,7 +381,7 @@ boast: {
 		},
 		onAllyTryHitSide(target, source, move) {
 			if (move.flags['sound']) {
-				this.add('-immune', this.effectData.target, '[from] ability: Boast');
+				this.add('-immune', this.effectState.target, '[from] ability: Boast');
 			}
 		},
 		onModifyPriority(priority, pokemon, target, move) {
@@ -456,9 +456,9 @@ miceadaptation: {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectData.target || target.side !== source.side) return;
+			if (target === this.effectState.target || target.side !== source.side) return;
 			if (move.type === 'Grass' || move.type === 'Water') {
-				this.boost({atk: 1}, this.effectData.target);
+				this.boost({atk: 1}, this.effectState.target);
 			}
 		},
 		name: "Mice Adaptation",

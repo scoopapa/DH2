@@ -287,7 +287,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (move.type === 'Fire') {
 					this.add('-activate', pokemon, 'move: Powder');
 					this.damage(this.clampIntRange(Math.round(pokemon.maxhp / 4), 1));
-					this.effectData.activated = true; // because it needs to be removed now
+					this.effectState.activated = true; // because it needs to be removed now
 					return false;
 				}
 			},

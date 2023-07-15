@@ -308,7 +308,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return;
 			}
 
-			const armortailHolder = this.effectData.target;
+			const armortailHolder = this.effectState.target;
 			if ((source.side === armortailHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
 				this.add('cant', armortailHolder, 'ability: Armor Tail', move, '[of] ' + target);
@@ -496,7 +496,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	opportunist: {
 		onFoeAfterBoost(boost, target, source, effect) {
 			if (effect?.name === 'Opportunist') return;
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			const positiveBoosts: Partial<BoostsTable> = {};
 			let i: BoostName;
 			for (i in boost) {
@@ -629,10 +629,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	noguard: {
 		onAnyInvulnerabilityPriority: 1,
 		onAnyInvulnerability(target, source, move) {
-			if (move && (source === this.effectData.target || target === this.effectData.target) && !this.field.getPseudoWeather('neutralizinggas')) return 0;
+			if (move && (source === this.effectState.target || target === this.effectState.target) && !this.field.getPseudoWeather('neutralizinggas')) return 0;
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && (source === this.effectData.target || target === this.effectData.target) && !this.field.getPseudoWeather('neutralizinggas')) {
+			if (move && (source === this.effectState.target || target === this.effectState.target) && !this.field.getPseudoWeather('neutralizinggas')) {
 				return true;
 			}
 			return accuracy;

@@ -31,7 +31,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			} else {
 				this.add('-status', target, 'frz');
 			}
-			this.effectData.time = 0;
+			this.effectState.time = 0;
 			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
 				target.formeChange('Shaymin', this.effect, true);
 			}
@@ -67,8 +67,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		inherit: true,
 		onStart(pokemon, source) {
 			if(pokemon.volatiles['strongpartialtrap']) return false;
-			this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
-			this.effectData.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
+			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+			this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
 		},
 	},
 	/* New statuses */
@@ -88,22 +88,22 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		counterMax: 729,
 		onStart(pokemon) {
 			if(pokemon.volatiles['odorsleuth']) return false;
-			this.effectData.counter = 3;
+			this.effectState.counter = 3;
 		},
 		onEvadeStallMove(pokemon) {
-			// this.effectData.counter should never be undefined here.
+			// this.effectState.counter should never be undefined here.
 			// However, just in case, use 1 if it is undefined.
-			const counter = this.effectData.counter || 1;
+			const counter = this.effectState.counter || 1;
 			this.debug("Success chance: " + Math.round(100 / counter) + "%");
 			const success = this.randomChance(1, counter);
 			if (!success) delete pokemon.volatiles['evadestall'];
 			return success;
 		},
 		onRestart() {
-			if (this.effectData.counter < (this.effect as Condition).counterMax!) {
-				this.effectData.counter *= 3;
+			if (this.effectState.counter < (this.effect as Condition).counterMax!) {
+				this.effectState.counter *= 3;
 			}
-			this.effectData.duration = 2;
+			this.effectState.duration = 2;
 		},
 	},
 	blocked: {
@@ -160,21 +160,21 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		onStart(pokemon, source) {
 			if(pokemon.volatiles['partiallytrapped']) return false;
-			this.add('-activate', pokemon, 'move: ' + this.effectData.sourceEffect, '[of] ' + source);
-			this.effectData.boundDivisor = source.hasItem('bindingband') ? 3 : 4;
+			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
+			this.effectState.boundDivisor = source.hasItem('bindingband') ? 3 : 4;
 		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
-			const source = this.effectData.source;
+			const source = this.effectState.source;
 			if (source && (!source.isActive || source.hp <= 0 || !source.activeTurns) && !gmaxEffect) {
 				delete pokemon.volatiles['strongpartialtrap'];
-				this.add('-end', pokemon, this.effectData.sourceEffect, '[strongpartialtrap]', '[silent]');
+				this.add('-end', pokemon, this.effectState.sourceEffect, '[strongpartialtrap]', '[silent]');
 				return;
 			}
-			this.damage(pokemon.baseMaxhp / this.effectData.boundDivisor);
+			this.damage(pokemon.baseMaxhp / this.effectState.boundDivisor);
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, this.effectData.sourceEffect, '[strongpartialtrap]');
+			this.add('-end', pokemon, this.effectState.sourceEffect, '[strongpartialtrap]');
 		},
 	},
 	/* Status changes due to other elements */
@@ -232,7 +232,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectData.time = this.random(2, 6);
+			this.effectState.time = this.random(2, 6);
 		},
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
@@ -274,7 +274,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onStart(pokemon) {
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
 			if (!this.activeMove.id || this.activeMove.hasBounced) return false;
-			this.effectData.move = this.activeMove.id;
+			this.effectState.move = this.activeMove.id;
 		},
 		onBeforeMove(pokemon, target, move) {
 			if (!pokemon.getItem().isChoice) {
@@ -283,7 +283,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 			if (
 				!pokemon.ignoringItem() && !pokemon.volatiles['dynamax'] &&
-				move.id !== this.effectData.move && move.id !== 'struggle' && !pokemon.volatiles['fullcollide']
+				move.id !== this.effectState.move && move.id !== 'struggle' && !pokemon.volatiles['fullcollide']
 			) {
 				// Fails unless the Choice item is being ignored, and no PP is lost
 				this.addMove('move', pokemon, move.name);
@@ -294,7 +294,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.getItem().isChoice || !pokemon.hasMove(this.effectData.move)) {
+			if (!pokemon.getItem().isChoice || !pokemon.hasMove(this.effectState.move)) {
 				pokemon.removeVolatile('choicelock');
 				return;
 			}
@@ -302,8 +302,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== this.effectData.move) {
-					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				if (moveSlot.id !== this.effectState.move) {
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
 				}
 			}
 		},

@@ -568,7 +568,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isTerrain('chakraterrain')) {
 				pokemon.useItem();
 			}
@@ -709,7 +709,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 			if (!statsRaised) return;
-			const pokemon: Pokemon = this.effectData.target;
+			const pokemon: Pokemon = this.effectState.target;
 			pokemon.useItem();
 			this.boost(boostPlus, pokemon);
 		},

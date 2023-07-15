@@ -4,7 +4,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Ignores stat changes. Sets Electric Terrain when attacked.",
 		name: "Thunderhead",
 		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectData.target;
+			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
 			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['def'] = 0;
@@ -48,7 +48,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnySwitchIn(pokemon) {
-			const source = this.effectData.target;
+			const source = this.effectState.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
@@ -101,7 +101,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyTryMove(target, source, effect) {
 			if (['trickroom'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectData.target, 'ability: Time Warp', effect, '[of] ' + target);
+				this.add('cant', this.effectState.target, 'ability: Time Warp', effect, '[of] ' + target);
 				return false;
 			}
 		},
@@ -317,15 +317,15 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						this.add('-ability', this.effectData.target, 'Run Away');
-						this.effectData.target.switchFlag = true;
+						this.add('-ability', this.effectState.target, 'Run Away');
+						this.effectState.target.switchFlag = true;
 						return;
 					}
 				}
 			}
 		},
 		onAnySwitchIn(pokemon) {
-			const source = this.effectData.target;
+			const source = this.effectState.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
@@ -337,8 +337,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
 						move.ohko
 					) {
-						this.add('-ability', this.effectData.target, 'Run Away');
-						this.effectData.target.switchFlag = true;
+						this.add('-ability', this.effectState.target, 'Run Away');
+						this.effectState.target.switchFlag = true;
 						return;
 					}
 				}

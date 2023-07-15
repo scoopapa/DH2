@@ -81,7 +81,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-message', `Pokémon opposing ${pokemon.name} can't pivot out of battle!`);
 		},
 		onAnyModifyMove(move, pokemon) {
-			if (pokemon.side === this.effectData.target.side) return;
+			if (pokemon.side === this.effectState.target.side) return;
 			if (move.selfSwitch && !move.ignoreAbility) delete move.selfSwitch;
 		},
 		name: "Alluring",
@@ -101,35 +101,35 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-start', pokemon, 'Sticky Gel', '[from] ability: Red Licorice', '[of] ' + source);
 			},
 			onAnyDamage(damage, target, source, effect) {
-				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && source === this.effectData.target) {
-					if (this.effectData.damage) {
+				if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && source === this.effectState.target) {
+					if (this.effectState.damage) {
 						if (target.hp <= damage) {
-							this.effectData.damage += target.hp;
+							this.effectState.damage += target.hp;
 						} else {
-							this.effectData.damage += damage;
+							this.effectState.damage += damage;
 						}
 					} else {
 						if (target.hp <= damage) {
-							this.effectData.damage = target.hp;
+							this.effectState.damage = target.hp;
 						} else {
-							this.effectData.damage = damage;
+							this.effectState.damage = damage;
 						}
 					}
-					this.effectData.lit = true;
-				} else if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectData.target) {
-					this.effectData.lit = true;
+					this.effectState.lit = true;
+				} else if (effect && effect.effectType === 'Move' && effect.type === 'Fire' && target === this.effectState.target) {
+					this.effectState.lit = true;
 					return damage * 1.5;
 				}
 			},
 			onUpdate(pokemon) {
-				if (this.effectData.lit) {
+				if (this.effectState.lit) {
 					pokemon.removeVolatile('redlicorice');
 					this.add('-end', pokemon, 'Sticky Gel', '[silent]');
 					this.hint("The sticky gel ignited!");
-					if (this.effectData.damage) {
-						this.damage(this.effectData.damage / 2, this.effectData.target);
+					if (this.effectState.damage) {
+						this.damage(this.effectState.damage / 2, this.effectState.target);
 					}
-					pokemon.trySetStatus('brn', this.effectData.source);
+					pokemon.trySetStatus('brn', this.effectState.source);
 				}
 			},
 		},
@@ -201,7 +201,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				pokemon.species.id === 'eiscuenoice' && !pokemon.transformed
 			) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
 			}
 		},
@@ -212,7 +212,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.species.id === 'eiscue' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Ice Face');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -231,18 +231,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id === 'eiscue' && this.effectData.busted) {
+			if (pokemon.species.id === 'eiscue' && this.effectState.busted) {
 				pokemon.formeChange('Eiscue-Noice', this.effect, true);
 			}
 		},
 		onAnyWeatherStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (
 				(this.field.isWeather('hail') || this.field.isWeather('diamonddust'))
 				&& pokemon.species.id === 'eiscuenoice' && !pokemon.transformed
 			) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
 			}
 		},

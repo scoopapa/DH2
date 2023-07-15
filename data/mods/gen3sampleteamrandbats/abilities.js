@@ -93,8 +93,8 @@ let BattleAbilities = {
 		shortDesc: "This Pokemon draws single-target Electric moves used by opponents to itself.",
 		onFoeRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Electric') return;
-			if (this.validTarget(this.effectData.target, source, move.target)) {
-				return this.effectData.target;
+			if (this.validTarget(this.effectState.target, source, move.target)) {
+				return this.effectState.target;
 			}
 		},
 		id: "lightningrod",

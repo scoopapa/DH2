@@ -3,12 +3,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			if (this.field.isWeather('hail') && (this.field.weatherData.layers !== 0) && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
 			}
 			else if (this.field.isWeather('hail') && (this.field.weatherData.layers !== 0) && pokemon.species.id === 'castform' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Castform-Snowy', this.effect, true);
 			}
 		},
@@ -19,7 +19,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				 target.species.id === 'eiscue' || target.species.id === 'castformsnowy'  && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Ice Face');
-				this.effectData.busted = true;
+				this.effectState.busted = true;
 				return 0;
 			}
 		},
@@ -38,23 +38,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (pokemon.species.id === 'eiscue' && this.effectData.busted) {
+			if (pokemon.species.id === 'eiscue' && this.effectState.busted) {
 				pokemon.formeChange('Eiscue-Noice', this.effect, true);
 			}
-			else if (pokemon.species.id === 'castformsnowy' && this.effectData.busted) {
+			else if (pokemon.species.id === 'castformsnowy' && this.effectState.busted) {
 				pokemon.formeChange('Castform', this.effect, true);
 			}
 		},
 		onAnyWeatherStart() {
-			const pokemon = this.effectData.target;
+			const pokemon = this.effectState.target;
 			if (this.field.isWeather('hail') && (this.field.weatherData.layers !== 0) && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
 			}
 			if (this.field.isWeather('hail') && (this.field.weatherData.layers !== 0) && pokemon.species.id === 'castform' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
-				this.effectData.busted = false;
+				this.effectState.busted = false;
 				pokemon.formeChange('Castform-Snowy', this.effect, true);
 			}
 		},
