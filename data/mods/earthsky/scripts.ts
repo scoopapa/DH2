@@ -1530,7 +1530,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			"tynamo", "scatterbug", "spewpa", "cosmog", "cosmoem", "blipbug", "applin"
 		];
 		/* Wide-spread changes */
-		const esrules = this.getRuleTable(this.formats.get('gen8earthskyou'));
+		const esrules = this.formats.getRuleTable(this.formats.get('gen8earthskyou'));
 		//console.log(esrules);
 		for (let pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];
