@@ -105,7 +105,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's moves are changed to be Normal type.",
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
-			if (move.id !== 'struggle' && this.dex.getMove(move.id).type !== 'Normal' /* && !this.field.getPseudoWeather('neutralizinggas') */) {
+			if (move.id !== 'struggle' && this.dex.moves.get(move.id).type !== 'Normal' /* && !this.field.getPseudoWeather('neutralizinggas') */) {
 				move.type = 'Normal';
 			}
 		},
@@ -409,7 +409,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			duration: 2,
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (move.category === 'Status' && move.id !== 'mefirst') {
 						pokemon.disableMove(moveSlot.id);
 					}

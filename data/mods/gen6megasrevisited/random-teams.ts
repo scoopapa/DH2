@@ -102,7 +102,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [i, setMoveid] of moves.entries()) {
-				const move = this.dex.getMove(setMoveid);
+				const move = this.dex.moves.get(setMoveid);
 				const moveid = move.id;
 				let rejected = false;
 				let isSetup = false;
@@ -770,7 +770,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 			} else {
 				item = 'Red Card';
 				for (const moveid of moves) {
-					const move = this.dex.getMove(moveid);
+					const move = this.dex.moves.get(moveid);
 					if (hasType[move.type] && move.basePower >= 90) {
 						item = move.type + ' Gem';
 						break;

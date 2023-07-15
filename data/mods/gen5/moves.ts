@@ -166,7 +166,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Changes user's type to match a known move.",
 		onHit(target) {
 			const possibleTypes = target.moveSlots.map(moveSlot => {
-				const move = this.dex.getMove(moveSlot.id);
+				const move = this.dex.moves.get(moveSlot.id);
 				if (move.id !== 'conversion' && !target.hasType(move.type)) {
 					return move.type;
 				}
@@ -792,7 +792,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onTryHit(target, source, effect) {
 				// Quick Guard only blocks moves with a natural positive priority
 				// (e.g. it doesn't block 0 priority moves boosted by Prankster)
-				if (effect && (effect.id === 'feint' || this.dex.getMove(effect.id).priority <= 0)) {
+				if (effect && (effect.id === 'feint' || this.dex.moves.get(effect.id).priority <= 0)) {
 					return;
 				}
 				this.add('-activate', target, 'Quick Guard');

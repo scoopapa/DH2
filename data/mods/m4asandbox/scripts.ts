@@ -237,7 +237,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityData, this, source);
 			if (this.battle.effect && this.battle.effect.effectType === 'Move') {
 				this.battle.add('-endability', this, this.battle.dex.abilities.get(oldAbility), '[from] move: ' +
-									 this.battle.dex.getMove(this.battle.effect.id));
+									 this.battle.dex.moves.get(this.battle.effect.id));
 			}
 			this.ability = ability.id;
 			this.abilityData = {id: ability.id, target: this};

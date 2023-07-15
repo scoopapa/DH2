@@ -96,7 +96,7 @@ export class RandomGen7Teams extends RandomTeams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [k, moveId] of moves.entries()) {
-				const move = this.dex.getMove(moveId);
+				const move = this.dex.moves.get(moveId);
 				const moveid = move.id;
 				let rejected = false;
 				let isSetup = false;
@@ -787,7 +787,7 @@ export class RandomGen7Teams extends RandomTeams {
 				item = 'Ultranecrozium Z';
 				if (!hasMove['photongeyser']) {
 					for (const moveid of moves) {
-						const move = this.dex.getMove(moveid);
+						const move = this.dex.moves.get(moveid);
 						if (move.category === 'Status' || hasType[move.type]) continue;
 						moves[moves.indexOf(moveid)] = 'photongeyser';
 						break;

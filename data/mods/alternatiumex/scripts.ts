@@ -537,7 +537,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		let nullDamage = true;
 		let moveDamage: (number | boolean | undefined)[];
 		// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-		const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+		const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
 
 		let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
 		let hit: number;

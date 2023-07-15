@@ -88,7 +88,7 @@ export class RandomGen1Teams extends RandomGen2Teams {
 			const pool: string[] = [];
 			if (lsetData.learnset) {
 				for (const move in lsetData.learnset) {
-					if (this.dex.getMove(move).gen !== 1) continue;
+					if (this.dex.moves.get(move).gen !== 1) continue;
 					if (lsetData.learnset[move].some(learned => learned[0] === '1')) {
 						pool.push(move);
 					}
@@ -285,7 +285,7 @@ export class RandomGen1Teams extends RandomGen2Teams {
 				hasMove = {};
 				counter = {Physical: 0, Special: 0, Status: 0, physicalsetup: 0, specialsetup: 0};
 				for (const setMoveid of moves) {
-					const move = this.dex.getMove(setMoveid);
+					const move = this.dex.moves.get(setMoveid);
 					const moveid = move.id;
 					hasMove[moveid] = true;
 					if (!move.damage && !move.damageCallback) {
@@ -307,7 +307,7 @@ export class RandomGen1Teams extends RandomGen2Teams {
 
 				for (const [i, moveid] of moves.entries()) {
 					if (moveid === species.essentialMove) continue;
-					const move = this.dex.getMove(moveid);
+					const move = this.dex.moves.get(moveid);
 					let rejected = false;
 					if (!species.essentialMove || moveid !== species.essentialMove) {
 						switch (moveid) {

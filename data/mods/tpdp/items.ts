@@ -1735,7 +1735,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			for (const moveSlot of user.moveSlots) {
-				var moveData = this.dex.getMove(moveSlot.move);
+				var moveData = this.dex.moves.get(moveSlot.move);
 				if (moveData.category !== 'Status' && user.hasType(moveData.type)) {
 					return;
 				}

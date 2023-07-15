@@ -634,7 +634,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if(pokemon.addVolatile('slipaway')){
 					pokemon.addVolatile('protect'); //Protection is seperate so that it will still switch if broken
 					pokemon.addVolatile('stall');
-					this.queue.insertChoice({choice: 'move', pokemon: pokemon, move: this.dex.getMove('slipaway')}, true); //Adds switch event
+					this.queue.insertChoice({choice: 'move', pokemon: pokemon, move: this.dex.moves.get('slipaway')}, true); //Adds switch event
 				}
 			}
 		},
@@ -998,7 +998,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						return false;
 					}
 					if (!target.isActive) {
-						const possibleTarget = this.getRandomTarget(pokemon, this.dex.getMove('pound'));
+						const possibleTarget = this.getRandomTarget(pokemon, this.dex.moves.get('pound'));
 						if (!possibleTarget) {
 							this.add('-miss', pokemon);
 							return false;
@@ -2020,7 +2020,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).flags['heal']) {
+					if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -4202,7 +4202,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				let move: Move | ActiveMove | null = target.lastMove;
 				if (!move || target.volatiles['dynamax']) return false;
 
-				if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
+				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
 				const moveIndex = target.moves.indexOf(move.id);
 				if (move.isZ || noEncore.includes(move.id) || !target.moveSlots[moveIndex] || target.moveSlots[moveIndex].pp <= 0) {
 					// it failed
@@ -4443,7 +4443,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				if (target.isSemiInvulnerable() || target.side === source.side) return;
 				if (!target.isGrounded()) {
-					const baseMove = this.dex.getMove(effect.id);
+					const baseMove = this.dex.moves.get(effect.id);
 					if (baseMove.priority > 0) {
 						this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
 					}
@@ -4792,7 +4792,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				for (const moveSlot of pokemon.moveSlots) {
 					const moveid = moveSlot.id;
 					if (noAssist.includes(moveid)) continue;
-					const move = this.dex.getMove(moveid);
+					const move = this.dex.moves.get(moveid);
 					if (move.isZ || move.isMax) {
 						continue;
 					}
@@ -4821,7 +4821,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.hint('Own Tempo blocks effects that steal or copy its moves');
 				return null;
 			}
-			if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
+			if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
 			if (noCopycat.includes(move.id) || move.isZ || move.isMax) {
 				return false;
 			}
@@ -4901,7 +4901,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const moveSlot of pokemon.moveSlots) {
 				const moveid = moveSlot.id;
 				if (!moveid) continue;
-				const move = this.dex.getMove(moveid);
+				const move = this.dex.moves.get(moveid);
 				if (noSleepTalk.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
 					continue;
 				}

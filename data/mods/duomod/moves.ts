@@ -138,7 +138,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (moveSlot.id === 'defog' || moveSlot.id === 'spinningweb') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -885,7 +885,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		else if (result === 42) {
 			this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
 			for (const pokemon of this.getAllActive()) {
-				const frstMove = this.dex.getMove(pokemon.moveSlots[0].id);
+				const frstMove = this.dex.moves.get(pokemon.moveSlots[0].id);
 				this.useMove(frstMove, pokemon);
 			}
 		}
@@ -1040,7 +1040,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (move.category === 'Status' && move.id !== 'mefirst') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -1729,7 +1729,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const moveSlot of pokemon.moveSlots) {
 				const moveid = moveSlot.id;
 				if (!moveid) continue;
-				const move = this.dex.getMove(moveid);
+				const move = this.dex.moves.get(moveid);
 				if (noSleepTalk.includes(moveid) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
 					continue;
 				}
@@ -2335,7 +2335,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (move.realMove) continue;
 				if (move.isZ || move.isMax || move.isNonstandard) continue;
 				if (effect.noMetronome!.includes(move.name)) continue;
-				if (this.dex.getMove(id).gen > this.gen) continue;
+				if (this.dex.moves.get(id).gen > this.gen) continue;
 				if (move.type === 'Fighting' || move.type === 'Ghost' || move.type === 'Ice' || move.type === 'Normal' || move.type === 'Rock' || move.type === 'Psychic') continue;
 				moves.push(move);
 			}
@@ -2661,7 +2661,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		onHit(target) {
-			const type = this.dex.getMove(target.moveSlots[0].id).type;
+			const type = this.dex.moves.get(target.moveSlots[0].id).type;
 			if (target.hasType(type) || !target.setType(type)) return false;
 			this.add('-start', target, 'typechange', type);
 		},

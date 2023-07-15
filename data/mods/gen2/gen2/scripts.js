@@ -73,7 +73,7 @@ let BattleScripts = {
 				target = null;
 			}
 		}
-		move = this.getMove(move);
+		move = this.moves.get(move);
 		if (!target && target !== false) target = this.resolveTarget(pokemon, move);
 
 		this.setActiveMove(move, pokemon, target);
@@ -225,7 +225,7 @@ let BattleScripts = {
 			/**@type {number | false} */
 			let moveDamage;
 
-			let isSleepUsable = move.sleepUsable || this.getMove(move.sourceEffect).sleepUsable;
+			let isSleepUsable = move.sleepUsable || this.moves.get(move.sourceEffect).sleepUsable;
 			let i;
 			for (i = 0; i < hits && target.hp && pokemon.hp; i++) {
 				if (pokemon.status === 'slp' && !isSleepUsable) break;
@@ -436,7 +436,7 @@ let BattleScripts = {
 	getDamage: function (pokemon, target, move, suppressMessages) {
 		// First of all, we get the move.
 		if (typeof move === 'string') {
-			move = this.getMove(move);
+			move = this.moves.get(move);
 		} else if (typeof move === 'number') {
 			// @ts-ignore
 			move = {

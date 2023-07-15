@@ -7,7 +7,7 @@ const longwhip: ConditionData = {
 		// unlike a future move, Long Whip activates each turn
 		this.effectData.target = this.effectData.side.active[this.effectData.position];
 		const data = this.effectData;
-		const move = this.dex.getMove(data.move);
+		const move = this.dex.moves.get(data.move);
 		if (data.target.fainted || data.target === data.source) {
 			this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 			return;
@@ -44,7 +44,7 @@ const longwhip: ConditionData = {
 		// unlike a future move, Long Whip activates each turn
 		this.effectData.target = this.effectData.side.active[this.effectData.position];
 		const data = this.effectData;
-		const move = this.dex.getMove(data.move);
+		const move = this.dex.moves.get(data.move);
 		if (data.target.fainted || data.target === data.source) {
 			this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 			return;
@@ -267,7 +267,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			for (const moveSlot of this.effectData.target.moveSlots) {
 				num++;
 				if (num === 1) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
 				}
 			}
@@ -277,7 +277,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			for (const moveSlot of this.effectData.target.moveSlots) {
 				num++;
 				if (num === 1) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
 				}
 			}
@@ -293,7 +293,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			for (const moveSlot of this.effectData.target.moveSlots) {
 				num++;
 				if (num === 2) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
 				}
 			}
@@ -303,7 +303,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			for (const moveSlot of this.effectData.target.moveSlots) {
 				num++;
 				if (num === 2) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
 				}
 			}
@@ -319,7 +319,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			for (const moveSlot of this.effectData.target.moveSlots) {
 				num++;
 				if (num === 3) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
 				}
 			}
@@ -329,7 +329,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			for (const moveSlot of this.effectData.target.moveSlots) {
 				num++;
 				if (num === 3) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
 				}
 			}
@@ -345,7 +345,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			for (const moveSlot of this.effectData.target.moveSlots) {
 				num++;
 				if (num === 4) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} needs to settle down after using ${move.name}!`);
 				}
 			}
@@ -355,7 +355,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			for (const moveSlot of this.effectData.target.moveSlots) {
 				num++;
 				if (num === 4) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					this.add('-message', `${pokemon.name} settled down from using ${move.name}!`);
 				}
 			}

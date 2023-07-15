@@ -23,7 +23,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (moveSlot.id === 'defog' || moveSlot.id === 'gmaxwindrage' || moveSlot.id === 'mortalspin' || moveSlot.id === 'rapidspin' || moveSlot.id === 'tidyup' || moveSlot.id === 'courtchange') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -789,7 +789,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).flags['heal']) {
+					if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -855,7 +855,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				const move = Moves[id];
 				if (move.realMove) continue;
 				if (effect.noMetronome!.includes(move.name)) continue;
-				if (this.dex.getMove(id).gen > this.gen) continue;
+				if (this.dex.moves.get(id).gen > this.gen) continue;
 				moves.push(move);
 			}
 			let randomMove = '';
@@ -2530,7 +2530,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				const overrideBypassProtect = [
 					'block', 'flowershield', 'gearup', 'magneticflux', 'phantomforce', 'psychup', 'teatime', 'transform',
 				];
-				const blockedByMaxGuard = (this.dex.getMove(move.id).flags['protect'] ||
+				const blockedByMaxGuard = (this.dex.moves.get(move.id).flags['protect'] ||
 						move.isZ || move.isMax || overrideBypassProtect.includes(move.id));
 				if (!blockedByMaxGuard) {
 					return;

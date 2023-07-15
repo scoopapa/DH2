@@ -45,7 +45,7 @@ let BattleMovedex = {
 		onHit(target, source, effect) {
 			let moves = [];
 			for (let i in exports.BattleMovedex) {
-				let move = this.dex.getMove(i);
+				let move = this.dex.moves.get(i);
 				if (i !== move.id) continue;
 				if (move.gen !== 1) continue;
 				// @ts-ignore

@@ -3042,7 +3042,7 @@ stickyweb: {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.id).flags['heal']) {
+					if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -3134,7 +3134,7 @@ stickyweb: {
 			onSwap(target) {
 				if (!target.fainted && this.effectData.moveTarget && this.effectData.moveTarget.isActive) {
 					this.add('-message', `${pokemon.name} was called in!`);
-					// const move = this.dex.getMove(this.effectData.move);
+					// const move = this.dex.moves.get(this.effectData.move);
 					this.runMove('copycat', target, this.getTargetLoc(target.side.foe.active[0], target), null, false, true);
 				}
 				target.side.removeSlotCondition(target, 'walkietalkie');
@@ -3233,7 +3233,7 @@ stickyweb: {
 				}
 				if (target.isSemiInvulnerable() || target.side === source.side) return;
 				if (!target.isGrounded()) {
-					const baseMove = this.dex.getMove(effect.id);
+					const baseMove = this.dex.moves.get(effect.id);
 					if (baseMove.priority > 0) {
 						this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
 					}

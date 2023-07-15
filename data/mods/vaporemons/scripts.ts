@@ -390,7 +390,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		let nullDamage = true;
 		let moveDamage: (number | boolean | undefined)[];
 		// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-		const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+		const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
 
 		let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
 		let hit: number;
@@ -817,7 +817,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					action.fractionalPriority = this.battle.runEvent('FractionalPriority', action.pokemon, null, action.move, 0);
 				} else if (['switch', 'instaswitch'].includes(action.choice)) {
 					if (typeof action.pokemon.switchFlag === 'string') {
-						action.sourceEffect = this.battle.dex.getMove(action.pokemon.switchFlag as ID) as any;
+						action.sourceEffect = this.battle.dex.moves.get(action.pokemon.switchFlag as ID) as any;
 					}
 					action.pokemon.switchFlag = false;
 				}
@@ -858,7 +858,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						return move + Dex.toID(this.hpType) + (this.battle.gen < 6 ? '' : this.hpPower);
 					}
 					if (move === 'frustration' || move === 'return') {
-						const basePowerCallback = this.battle.dex.getMove(move).basePowerCallback as (pokemon: Pokemon) => number;
+						const basePowerCallback = this.battle.dex.moves.get(move).basePowerCallback as (pokemon: Pokemon) => number;
 						return move + basePowerCallback(this);
 					}
 					return move;

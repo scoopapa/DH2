@@ -2921,7 +2921,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			delete move.boosts;
 		},
 		onHit(target) {
-			const type = this.dex.getMove(target.moveSlots[2].id).type;
+			const type = this.dex.moves.get(target.moveSlots[2].id).type;
 			if (target.hasType(type) || !target.setType(type)) return false;
 			this.add('-start', target, 'typechange', type);
 		},
@@ -2989,7 +2989,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
                 for (const moveSlot of target.moveSlots) {
                     if (moveSlot.revealed) continue;
                     if (r === 0) {
-                        this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+                        this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
                     }
                     r--;
                     moveSlot.revealed = true;

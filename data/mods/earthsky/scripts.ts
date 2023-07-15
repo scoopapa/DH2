@@ -36,7 +36,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				// does this happen?
 				return [{
-					move: this.battle.dex.getMove(lockedMove).name,
+					move: this.battle.dex.moves.get(lockedMove).name,
 					id: lockedMove,
 				}];
 			}
@@ -48,13 +48,13 @@ export const Scripts: ModdedBattleScriptsData = {
 					moveName = 'Hidden Power ' + this.hpType;
 					if (this.battle.gen < 6) moveName += ' ' + this.hpPower;
 				} else if (moveSlot.id === 'return' || moveSlot.id === 'frustration') {
-					const basePowerCallback = this.battle.dex.getMove(moveSlot.id).basePowerCallback as (pokemon: Pokemon) => number;
+					const basePowerCallback = this.battle.dex.moves.get(moveSlot.id).basePowerCallback as (pokemon: Pokemon) => number;
 					moveName += ' ' + basePowerCallback(this);
 				}
 				let target = moveSlot.target;
 				if (moveSlot.id === 'curse') {
 					if (!this.hasType('Ghost')) {
-						target = this.battle.dex.getMove('curse').nonGhostTarget || moveSlot.target;
+						target = this.battle.dex.moves.get('curse').nonGhostTarget || moveSlot.target;
 					}
 				}
 				if (moveSlot.id === 'spitup') {
@@ -67,7 +67,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				let disabled = moveSlot.disabled;
 				if (this.volatiles['dynamax']) {
-					disabled = this.maxMoveDisabled(this.battle.dex.getMove(moveSlot.id));
+					disabled = this.maxMoveDisabled(this.battle.dex.moves.get(moveSlot.id));
 				} else if (
 					(moveSlot.pp <= 0 && !this.volatiles['partialtrappinglock']) || disabled &&
 					this.side.active.length >= 2 && this.battle.targetTypeChoices(target!)
@@ -359,7 +359,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return false;
 		},
 		getTarget(pokemon: Pokemon, move: string | Move, targetLoc: number, originalTarget?: Pokemon) { //Play Dead, Ally Switch
-			move = this.dex.getMove(move);
+			move = this.dex.moves.get(move);
 
 			let tracksTarget = move.tracksTarget;
 			// Stalwart sets trackTarget in ModifyMove, but ModifyMove happens after getTarget, so
@@ -410,7 +410,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// moves that can target either allies or foes will only target foes
 			// when used without an explicit target.
 
-			move = this.dex.getMove(move);
+			move = this.dex.moves.get(move);
 			if (move.target === 'adjacentAlly') {
 				const allyActives = pokemon.side.active;
 				let adjacentAllies = [allyActives[pokemon.position - 1], allyActives[pokemon.position + 1]];
@@ -1172,7 +1172,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let nullDamage = true;
 			let moveDamage: (number | boolean | undefined)[];
 			// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-			const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
+			const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
 
 			let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
 			let hit: number;

@@ -1830,7 +1830,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const moveSlot of pokemon.moveSlots) {
 				const moveid = moveSlot.id;
 				if (!moveid) continue;
-				const move = this.dex.getMove(moveid);
+				const move = this.dex.moves.get(moveid);
 				if (noSleepTalk.includes(moveid) || (pokemon.species.id === 'claydol' && cfmNoSleepTalk.includes(moveid)) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
 					continue;
 				}

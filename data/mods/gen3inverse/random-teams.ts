@@ -83,7 +83,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [k, moveId] of moves.entries()) {
-				const move = this.dex.getMove(moveId);
+				const move = this.dex.moves.get(moveId);
 				const moveid = move.id;
 				let rejected = false;
 				let isSetup = false;

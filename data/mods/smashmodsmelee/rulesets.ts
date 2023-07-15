@@ -17,7 +17,7 @@ export const Formats: {[k: string]: FormatData} = {
 				const problems: string[] = [];
 				if (set.moves) {
 					for (const moveId of set.moves) {
-						const move = this.dex.getMove(moveId);
+						const move = this.dex.moves.get(moveId);
 						if (move.isNonstandard) problems.push(
 							move.name + ' is not available in Sword and Shield, which is necessary for ' + species.name + ' because its home mod requires it.'
 						);
@@ -57,7 +57,7 @@ export const Formats: {[k: string]: FormatData} = {
 			const problems: string[] = [];
 			if (set.moves) {
 				for (const moveId of set.moves) {
-					const move = this.dex.getMove(moveId);
+					const move = this.dex.moves.get(moveId);
 					if (move.ohko) problems.push(move.name + ' is banned by OHKO Clause.');
 					if (set.species === 'Escavalier') continue;
 					if (move.name === 'Guillotine') problems.push(move.name + ' is banned by OHKO Clause.');

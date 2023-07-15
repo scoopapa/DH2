@@ -666,7 +666,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onHit(pokemon, source, move) {
 			if(pokemon.species.baseSpecies === 'Unown' && pokemon.abilityData.unownType === 'Exclamation' && move.category !== "Status"){ //!!!!!: Blows up if it gets hit
-				const kaboom = this.dex.getMove('explosion');
+				const kaboom = this.dex.moves.get('explosion');
 				kaboom.willCrit = true;
 				kaboom.ignoreImmunity = {};
 				kaboom.ignoreImmunity['Normal'] = true;
@@ -710,7 +710,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onResidual(pokemon){
 			if(pokemon.species.baseSpecies === 'Unown' && pokemon.abilityData.unownType === 'Exclamation'){ //!!!!!: Blows up at the end of the turn
-				const kaboom = this.dex.getMove('explosion');
+				const kaboom = this.dex.moves.get('explosion');
 				kaboom.willCrit = true;
 				kaboom.ignoreImmunity = {};
 				kaboom.ignoreImmunity['Normal'] = true;
@@ -839,7 +839,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
 					if (move.twoType){
 						if (this.dex.getImmunity(move, pokemon) && this.dex.getEffectiveness(move, pokemon) >= 2) {
@@ -859,7 +859,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if(!this.turn) return; //only true on initial sending out at battle start
 			const pokemon = this.effectData.target;
 			for (const moveSlot of target.moveSlots) {
-				const move = this.dex.getMove(moveSlot.move);
+				const move = this.dex.moves.get(moveSlot.move);
 				if (move.category === 'Status') continue;
 				if (move.twoType){
 					if (this.dex.getImmunity(move, pokemon) && this.dex.getEffectiveness(move, pokemon) >= 2) {
@@ -1025,7 +1025,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					//console.log("Forewarn investigating " + target.name);
 					let warnBp = 1;
 					for (const moveSlot of target.moveSlots) { //Todo: Make this into a function so it's not called both here and in onFoeSwitchIn
-						const move = this.dex.getMove(moveSlot.move);
+						const move = this.dex.moves.get(moveSlot.move);
 						//console.log("Forewarn investigating " + move.name);
 						if(!move) continue;
 						let bp = move.basePower;
@@ -1160,7 +1160,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				//console.log("Forewarn investigating " + target.name);
 				let warnBp = 1;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					//console.log("Forewarn investigating " + move.name);
 					if(!move) continue;
 					let bp = move.basePower;

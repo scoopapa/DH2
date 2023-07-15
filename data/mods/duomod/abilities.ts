@@ -395,7 +395,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (move.category === 'Status' && move.id !== 'mefirst') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -459,7 +459,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	adaptation: {
 		shortDesc: "On switch-in, user gains a type matching its first move.",
 		onStart(pokemon) {
-			const type = this.dex.getMove(pokemon.moveSlots[0].id).type;
+			const type = this.dex.moves.get(pokemon.moveSlots[0].id).type;
 			if (pokemon.hasType(type) || !pokemon.addType(type)) return false;
 			this.add('-start', pokemon, 'typeadd', type);
 		},

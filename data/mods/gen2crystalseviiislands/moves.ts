@@ -120,7 +120,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const moves = [];
 				for (const moveSlot of source.moveSlots) {
 					const move = moveSlot.id;
-					if (move && !NoParry.includes(move) && !this.dex.getMove(move).flags['charge']) {
+					if (move && !NoParry.includes(move) && !this.dex.moves.get(move).flags['charge']) {
 						moves.push(move);
 					}
 				}
@@ -604,7 +604,7 @@ export const Moves: {[moveid: string]: MoveData} = {
             for (const moveSlot of pokemon.moveSlots) {
                 const moveid = moveSlot.id;
                 if (!moveid) continue;
-                const move = this.dex.getMove(moveid);
+                const move = this.dex.moves.get(moveid);
                 if (noSleepTalk.includes(moveid) || move.flags['charge']) {
                     continue;
                 }

@@ -95,7 +95,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [i, setMoveid] of moves.entries()) {
-				const move = this.dex.getMove(setMoveid);
+				const move = this.dex.moves.get(setMoveid);
 				const moveid = move.id;
 				let rejected = false;
 				let isSetup = false;
@@ -549,7 +549,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			// Give Unburden mons a random Gem of the type of one of their damaging moves
 			const eligibleTypes = [];
 			for (const setMoveid of moves) {
-				const move = this.dex.getMove(setMoveid);
+				const move = this.dex.moves.get(setMoveid);
 				if (!move.basePower && !move.basePowerCallback) continue;
 				eligibleTypes.push(move.type);
 			}
@@ -571,7 +571,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		} else if (hasMove['substitute'] && hasMove['reversal']) {
 			const eligibleTypes = [];
 			for (const setMoveid of moves) {
-				const move = this.dex.getMove(setMoveid);
+				const move = this.dex.moves.get(setMoveid);
 				if (!move.basePower && !move.basePowerCallback) continue;
 				eligibleTypes.push(move.type);
 			}

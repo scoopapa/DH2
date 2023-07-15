@@ -194,7 +194,7 @@ let BattleStatuses = {
 			delete pokemon.volatiles['lockedmove'];
 		},
 		onBeforeTurn: function (pokemon) {
-			let move = this.getMove(this.effectData.move);
+			let move = this.moves.get(this.effectData.move);
 			if (move.id) {
 				this.debug('Forcing into ' + move.id);
 				this.changeAction(pokemon, {move: move.id});

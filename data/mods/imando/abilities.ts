@@ -168,7 +168,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						this.attrLastMove('[still]');
 						if (source.moveSlots.length < 0) return false;
 						const learnedMove = {
-							move: this.dex.getMove(moveSlot.id),
+							move: this.dex.moves.get(moveSlot.id),
 							id: moveSlot.id,
 							pp: moveSlot.pp,
 							maxpp: moveSlot.pp,

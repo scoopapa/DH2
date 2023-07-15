@@ -249,7 +249,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 				if (target.isSemiInvulnerable() || target.side === source.side || source.hasAbility('mystic')) return;
 				if (!target.isGrounded()) {
-					const baseMove = this.dex.getMove(effect.id);
+					const baseMove = this.dex.moves.get(effect.id);
 					if (baseMove.priority > 0) {
 						this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
 					}

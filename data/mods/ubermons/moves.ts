@@ -148,7 +148,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			for (const ally of pokemon.side.pokemon) {
 				if (!ally || ally.fainted) continue;
 				for (const moveSlot of ally.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.id === 'fusionflare') continue;
 					this.debug('double power');
 					return this.chainModify(1.3);
@@ -161,7 +161,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				for (const ally of pokemon.side.pokemon) {
 					if (!ally || ally.fainted) continue;
 					for (const moveSlot of ally.moveSlots) {
-						const move = this.dex.getMove(moveSlot.move);
+						const move = this.dex.moves.get(moveSlot.move);
 						if (move.id === 'fusionflare') continue;
 						target.trySetStatus('brn');
 					}
@@ -186,7 +186,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			for (const ally of pokemon.side.pokemon) {
 				if (!ally || ally.fainted) continue;
 				for (const moveSlot of ally.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.id === 'fusionbolt') continue;
 					this.debug('double power');
 					return this.chainModify(1.3);
@@ -199,7 +199,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				for (const ally of pokemon.side.pokemon) {
 					if (!ally || ally.fainted) continue;
 					for (const moveSlot of ally.moveSlots) {
-						const move = this.dex.getMove(moveSlot.move);
+						const move = this.dex.moves.get(moveSlot.move);
 						if (move.id === 'fusionbolt') continue;
 						target.trySetStatus('par');
 					}
@@ -1055,7 +1055,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				let move: Move | ActiveMove | null = target.lastMove;
 				if (!move) return false;
 
-				if (move.isMax && move.baseMove) move = this.dex.getMove(move.baseMove);
+				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
 				const moveIndex = target.moves.indexOf(move.id);
 				if (move.isZ || noEncore.includes(move.id) || !target.moveSlots[moveIndex] || target.moveSlots[moveIndex].pp <= 0) {
 					// it failed

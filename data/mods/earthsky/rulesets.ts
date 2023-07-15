@@ -57,7 +57,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 						//console.log(pokemon + " knows " + moveID + " with means " + pokeLearnsMove);
 						if(pokeLearnsMove == "8D"){
 							if(isHidden){ //Since it can't know the same move twice, it must have gotten it from a family member, and exclusive ones are taken care of.
-								problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+								problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 							} else {
 								isHidden = true;
 							}
@@ -70,10 +70,10 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 								if(baseLearns) isNatural = true;
 								if(baseLearns == "8D"){ //This move is base forme's Hidden Move
 									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
-										problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
+										problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
 									} else {
 										if(isHidden){
-											problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+											problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 										} else {
 											isHidden = true;
 										}
@@ -86,10 +86,10 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 								if(prevoLearns) isNatural = true;
 								if(prevoLearns == "8D"){//This move is prevo's Hidden Move
 									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
-										problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
+										problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
 									} else {
 										if(isHidden){
-											problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+											problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 										} else {
 											isHidden = true;
 										}
@@ -102,10 +102,10 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 										if(firstLearns) isNatural = true;
 										if(firstLearns == "8D") {//This move is first stage's Hidden Move
 											if(pokemon.exclusiveHidden || prevo.exclusiveHidden) { //and the Pokemon can't learn it
-												problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${first}'s exclusive Hidden Move.`);
+												problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${first}'s exclusive Hidden Move.`);
 											} else {
 												if(isHidden){
-													problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+													problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 												} else {
 													isHidden = true;
 												}
@@ -117,7 +117,7 @@ export const Formats: {[k: string]: ModdedFormatData} = {
 							//if(!isNatural) console.log("This move is learned through Sketch");
 							if(!isNatural && pokeLearnset.learnset['sketch'] == "8D"){ //Move is Sketched and Sketch is the Hidden Move, so move counts as Hidden too
 								if(isHidden){
-									problems.push(`${pokemon} can't sketch ${this.dex.getMove(moveID)} because Sketch is its Hidden Move and it already knows a sketched move.`);
+									problems.push(`${pokemon} can't sketch ${this.dex.moves.get(moveID)} because Sketch is its Hidden Move and it already knows a sketched move.`);
 								} else {
 									isHidden = true;
 								}

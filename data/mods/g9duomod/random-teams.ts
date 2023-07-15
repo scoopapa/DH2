@@ -329,7 +329,7 @@ export class RandomTeams {
 			const m = [];
 			do {
 				const moveid = this.sampleNoReplace(movePool);
-				const move = this.dex.getMove(moveid);
+				const move = this.dex.moves.get(moveid);
 				if (move.gen <= this.gen && !move.isNonstandard && !move.name.startsWith('Hidden Power ')) {
 					m.push(moveid);
 				}
@@ -466,7 +466,7 @@ export class RandomTeams {
 
 		// Iterate through all moves we've chosen so far and keep track of what they do:
 		for (const [k, moveId] of moves.entries()) {
-			const move = this.dex.getMove(moveId);
+			const move = this.dex.moves.get(moveId);
 			const moveid = move.id;
 			let movetype = move.type;
 			if (['judgment', 'multiattack', 'revelationdance'].includes(moveid)) movetype = Object.keys(hasType)[0];
@@ -541,7 +541,7 @@ export class RandomTeams {
 
 		// Keep track of the available moves
 		for (const moveid of movePool) {
-			const move = this.dex.getMove(moveid);
+			const move = this.dex.moves.get(moveid);
 			if (move.damageCallback) continue;
 			if (move.category === 'Physical') counter['physicalpool']++;
 			if (move.category === 'Special') counter['specialpool']++;
@@ -647,7 +647,7 @@ export class RandomTeams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [k, moveId] of moves.entries()) {
-				const move = this.dex.getMove(moveId);
+				const move = this.dex.moves.get(moveId);
 				const moveid = move.id;
 				let rejected = false;
 				let isSetup = false;

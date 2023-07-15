@@ -320,7 +320,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
@@ -339,7 +339,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
@@ -1131,7 +1131,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "On entry: type changes to match its first move that's super effective against an adjacent opponent.",
 		onStart(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.getMove(moveSlot.move);
+				const move = this.dex.moves.get(moveSlot.move);
 				if (move.category === 'Status') continue;
 				const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
 				for (const target of pokemon.side.foe.active) {
@@ -1276,7 +1276,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let num = 0;
 			for (const moveSlot of pokemon.moveSlots) {
 				num++;
-				const checkSlot = this.dex.getMove(moveSlot.move);
+				const checkSlot = this.dex.moves.get(moveSlot.move);
 				if (move.id === checkSlot.id) {
 					if (num === 1 && !pokemon.volatiles['settle1']) {
 						if (move.category !== 'Special') return;
@@ -1909,7 +1909,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					move: move,
 					position: target.position,
 					side: target.side,
-					moveData: this.dex.getMove(move),
+					moveData: this.dex.moves.get(move),
 				});
 				this.add('-ability', source, 'Clairvoyance');
 				this.add('-message', `${source.name} cast ${move.name} into the future!`);
@@ -1923,7 +1923,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onEnd(target) {
 				this.effectData.target = this.effectData.side.active[this.effectData.position];
 				const data = this.effectData;
-				const move = this.dex.getMove(data.move);
+				const move = this.dex.moves.get(data.move);
 				this.add('-ability', this.effectData.source, 'Clairvoyance');
 				if (!data.target) {
 					this.hint(`${move.name} did not hit because there was no target.`);
@@ -2240,7 +2240,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					move: move,
 					position: target.position,
 					side: target.side,
-					moveData: this.dex.getMove(move),
+					moveData: this.dex.moves.get(move),
 				});
 				return null;
 			}

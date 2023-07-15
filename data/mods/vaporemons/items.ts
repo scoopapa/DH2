@@ -558,7 +558,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (!this.canSwitch(attacker.side) || attacker.forceSwitchFlag || attacker.switchFlag || !move.flags['sound']) return;
-			this.effectData.move = this.dex.getMove(move.id);
+			this.effectData.move = this.dex.moves.get(move.id);
 			attacker.deductPP(move.id, 1);
 			if (attacker.side.addSlotCondition(attacker, 'walkietalkie')) {
 			for (const side of this.sides) {
@@ -580,7 +580,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			},
 			onSwap(target) {
 				if (!target.fainted && this.effectData.moveTarget && this.effectData.moveTarget.isActive) {
-					const move = this.dex.getMove(this.effectData.move);
+					const move = this.dex.moves.get(this.effectData.move);
 					this.runMove(move, target, this.getTargetLoc(target.side.foe.active[0], target), null, false, true);
 				}
 				target.side.removeSlotCondition(target, 'walkietalkie');
@@ -636,7 +636,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onModifyMove(move, pokemon) {
 			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag ||
 				 !move.flags['sound'] || pokemon.side.getSideCondition('walkietalkie')) return;
-			this.effectData.move = this.dex.getMove(move.id);
+			this.effectData.move = this.dex.moves.get(move.id);
 			delete move.flags['contact'];
 			delete move.flags['wind'];
 			delete move.flags['bullet'];

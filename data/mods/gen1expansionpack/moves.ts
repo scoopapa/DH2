@@ -276,7 +276,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.effectData.duration++;
 				}
 				const moves = pokemon.moves;
-				const move = this.dex.getMove(this.sample(moves));
+				const move = this.dex.moves.get(this.sample(moves));
 				this.add('-start', pokemon, 'Disable', move.name);
 				this.effectData.move = move.id;
 				return;

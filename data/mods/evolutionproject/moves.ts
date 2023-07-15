@@ -73,7 +73,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				// unlike a future move, Flurry activates each turn
 				this.effectData.target = this.effectData.side.active[this.effectData.position];
 				const data = this.effectData;
-				const move = this.dex.getMove('flurry');
+				const move = this.dex.moves.get('flurry');
 				if (data.target.fainted || data.target === data.source) {
 					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 					return;
@@ -102,7 +102,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				// unlike a future move, Flurry activates each turn
 				this.effectData.target = this.effectData.side.active[this.effectData.position];
 				const data = this.effectData;
-				const move = this.dex.getMove('flurry');
+				const move = this.dex.moves.get('flurry');
 				if (data.target.fainted || data.target === data.source) {
 					this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 					return;

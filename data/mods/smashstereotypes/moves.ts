@@ -1005,7 +1005,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const ally of pokemon.side.pokemon) {
 				if (!ally || ally.fainted) continue;
 				for (const moveSlot of ally.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.id === 'fusionflare') continue;
 					this.debug('double power');
 					return this.chainModify(1.3);
@@ -1018,7 +1018,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				for (const ally of pokemon.side.pokemon) {
 					if (!ally || ally.fainted) continue;
 					for (const moveSlot of ally.moveSlots) {
-						const move = this.dex.getMove(moveSlot.move);
+						const move = this.dex.moves.get(moveSlot.move);
 						if (move.id === 'fusionflare') continue;
 						target.trySetStatus('brn');
 					}

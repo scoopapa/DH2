@@ -239,7 +239,7 @@ regalreversal: {
 			for (let i = 0; i < targets.length; i++) {
 				if (!targets[i] || targets[i].fainted) continue;
 				for (let j = 0; j < targets[i].moveset.length; j++) {
-					let move = this.getMove(targets[i].moveset[j].move);
+					let move = this.moves.get(targets[i].moveset[j].move);
 					if (move.category !== 'Status' && (this.getImmunity(move.type, pokemon) && this.getEffectiveness(move.type, pokemon) > 0 || move.ohko)) {
 						this.add('-ability', pokemon, 'Anticipation');
 						return;
@@ -1294,7 +1294,7 @@ regalreversal: {
 			for (let i = 0; i < targets.length; i++) {
 				if (targets[i].fainted) continue;
 				for (let j = 0; j < targets[i].moveset.length; j++) {
-					let move = this.getMove(targets[i].moveset[j].move);
+					let move = this.moves.get(targets[i].moveset[j].move);
 					let bp = move.basePower;
 					if (move.ohko) bp = 160;
 					if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
@@ -2483,7 +2483,7 @@ regalreversal: {
 		shortDesc: "This Pokemon's moves are changed to be Normal type and have 1.2x power.",
 		onModifyMovePriority: 1,
 		onModifyMove: function (move, pokemon) {
-			if (!move.isZ && move.id !== 'struggle' && this.getMove(move.id).type !== 'Normal') {
+			if (!move.isZ && move.id !== 'struggle' && this.moves.get(move.id).type !== 'Normal') {
 				move.type = 'Normal';
 			}
 			if (move.category !== 'Status') pokemon.addVolatile('normalize');

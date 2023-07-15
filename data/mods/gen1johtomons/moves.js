@@ -254,7 +254,7 @@ let BattleMovedex = {
 			// It will fail if the last move selected by the opponent has base power 0 or is not Normal or Fighting Type.
 			// If both are true, counter will deal twice the last damage dealt in battle, no matter what was the move.
 			// That means that, if opponent switches, counter will use last counter damage * 2.
-			let lastUsedMove = target.side.lastMove && this.dex.getMove(target.side.lastMove.id);
+			let lastUsedMove = target.side.lastMove && this.dex.moves.get(target.side.lastMove.id);
 			if (lastUsedMove && lastUsedMove.basePower > 0 && ['Normal', 'Fighting'].includes(lastUsedMove.type) && this.lastDamage > 0 && !this.queue.willMove(target)) {
 				return 2 * this.lastDamage;
 			}
@@ -308,7 +308,7 @@ let BattleMovedex = {
 					this.effectData.duration++;
 				}
 				let moves = pokemon.moves;
-				let move = this.dex.getMove(this.sample(moves));
+				let move = this.dex.moves.get(this.sample(moves));
 				this.add('-start', pokemon, 'Disable', move.name);
 				this.effectData.move = move.id;
 				return;
@@ -615,7 +615,7 @@ let BattleMovedex = {
 			let moves = target.moves;
 			let moveid = this.sample(moves);
 			if (!moveid) return false;
-			let move = this.dex.getMove(moveid);
+			let move = this.dex.moves.get(moveid);
 			source.moveSlots[moveslot] = {
 				move: move.name,
 				id: move.id,

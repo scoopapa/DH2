@@ -636,7 +636,7 @@ export const Formats: {[k: string]: FormatData} = {
 		else if (result === 42) {
 			this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
 			for (const pokemon of this.getAllActive()) {
-				const frstMove = this.dex.getMove(pokemon.moveSlots[0].id);
+				const frstMove = this.dex.moves.get(pokemon.moveSlots[0].id);
 				this.useMove(frstMove, pokemon);
 			}
 		}
@@ -1386,7 +1386,7 @@ export const Formats: {[k: string]: FormatData} = {
 		else if (result === 42) {
 			this.hint("Roulette Wheel Result 43 - Both active Pokemon use their first move.");
 			for (const pokemon of this.getAllActive()) {
-				const frstMove = this.dex.getMove(pokemon.moveSlots[0].id);
+				const frstMove = this.dex.moves.get(pokemon.moveSlots[0].id);
 				this.useMove(frstMove, pokemon);
 			}
 		}

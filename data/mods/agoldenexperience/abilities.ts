@@ -228,7 +228,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				for (const moveSlot of target.moveSlots) {
 					if (moveSlot.revealed) continue;
 					if (r === 0) {
-						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
 					}
 					r--;
 					moveSlot.revealed = true;
@@ -276,7 +276,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onStart(pokemon) {
 			let bp = 0;
 			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.getMove(moveSlot.move);
+				const move = this.dex.moves.get(moveSlot.move);
 				if (move.category === 'Status') continue;
 				if (move.basePower > bp) {
 					bp = move.basePower;
@@ -739,7 +739,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					move: move,
 					position: target.position,
 					side: target.side,
-					moveData: this.dex.getMove(move),
+					moveData: this.dex.moves.get(move),
 				});
 				this.add('-ability', source, 'Clairvoyance');
 				this.add('-message', `${source.name} cast ${move.name} into the future!`);
@@ -753,7 +753,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			onEnd(target) {
 				this.effectData.target = this.effectData.side.active[this.effectData.position];
 				const data = this.effectData;
-				const move = this.dex.getMove(data.move);
+				const move = this.dex.moves.get(data.move);
 				this.add('-ability', this.effectData.source, 'Clairvoyance');
 				if (!data.target) {
 					this.hint(`${move.name} did not hit because there was no target.`);
@@ -1335,7 +1335,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					for (const moveSlot of target.moveSlots) {
 						if (moveSlot.revealed) continue;
 						if (r === 0) {
-							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
 						}
 						r--;
 						moveSlot.revealed = true;

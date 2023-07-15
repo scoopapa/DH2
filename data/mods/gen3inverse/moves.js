@@ -81,7 +81,7 @@ let BattleMovedex = {
 						return false;
 					}
 					if (!target.isActive) {
-						const possibleTarget = this.resolveTarget(pokemon, this.dex.getMove('pound'));
+						const possibleTarget = this.resolveTarget(pokemon, this.dex.moves.get('pound'));
 						if (!possibleTarget) {
 							this.add('-miss', pokemon);
 							return false;
@@ -167,7 +167,7 @@ let BattleMovedex = {
 		desc: "The user's type changes to match the original type of one of its known moves besides Curse, at random, but not either of its current types. Fails if the user cannot change its type, or if this move would only be able to select one of the user's current types.",
 		onHit(target) {
 			let possibleTypes = target.moveSlots.map(moveSlot => {
-				let move = this.dex.getMove(moveSlot.id);
+				let move = this.dex.moves.get(moveSlot.id);
 				if (move.id !== 'curse' && !target.hasType(move.type)) {
 					return move.type;
 				}
@@ -191,7 +191,7 @@ let BattleMovedex = {
 		desc: "Deals damage to the last opposing Pokemon to hit the user with a physical attack this turn equal to twice the HP lost by the user from that attack. If that opposing Pokemon's position is no longer in use and there is another opposing Pokemon on the field, the damage is done to it instead. This move considers Hidden Power as Normal type, and only the last hit of a multi-hit attack is counted. Fails if the user was not hit by an opposing Pokemon's physical attack this turn, or if the user did not lose HP from the attack.",
 		damageCallback(pokemon) {
 			let lastAttackedBy = pokemon.getLastAttackedBy();
-			if (lastAttackedBy && lastAttackedBy.move && lastAttackedBy.thisTurn && (this.getCategory(lastAttackedBy.move) === 'Physical' || this.dex.getMove(lastAttackedBy.move).id === 'hiddenpower')) {
+			if (lastAttackedBy && lastAttackedBy.move && lastAttackedBy.thisTurn && (this.getCategory(lastAttackedBy.move) === 'Physical' || this.dex.moves.get(lastAttackedBy.move).id === 'hiddenpower')) {
 				// @ts-ignore
 				return 2 * lastAttackedBy.damage;
 			}
@@ -748,7 +748,7 @@ let BattleMovedex = {
 				let move = moveSlot.id;
 				let pp = moveSlot.pp;
 				let NoSleepTalk = ['assist', 'bide', 'focuspunch', 'metronome', 'mirrormove', 'sleeptalk', 'uproar'];
-				if (move && !(NoSleepTalk.includes(move) || this.dex.getMove(move).flags['charge'])) {
+				if (move && !(NoSleepTalk.includes(move) || this.dex.moves.get(move).flags['charge'])) {
 					moves.push({move: move, pp: pp});
 				}
 			}
@@ -868,7 +868,7 @@ let BattleMovedex = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.getMove(moveSlot.move).category === 'Status') {
+					if (this.dex.moves.get(moveSlot.move).category === 'Status') {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}

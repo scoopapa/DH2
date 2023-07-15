@@ -19,7 +19,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (move.category !== 'Status' && (this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 || move.ohko)) {
 						this.add('-ability', pokemon, 'Anticipation');
@@ -196,7 +196,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             for (const target of pokemon.side.foe.active) {
                 if (!target || target.fainted) continue;
                 for (const moveSlot of target.moveSlots) {
-                    const move = this.dex.getMove(moveSlot.move);
+                    const move = this.dex.moves.get(moveSlot.move);
                     if (move.category === 'Status') continue;
                     const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
                     if (
@@ -212,7 +212,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
         },
         onFoeSwitchIn(target) {
           for (const moveSlot of target.moveSlots) {
-            const move = this.dex.getMove(moveSlot.move);
+            const move = this.dex.moves.get(moveSlot.move);
             if (move.category === 'Status') continue;
             const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
             if (this.dex.getImmunity(moveType, this.effectData.source) && this.dex.getEffectiveness(moveType, this.effectData.source) > 0 || move.ohko) {

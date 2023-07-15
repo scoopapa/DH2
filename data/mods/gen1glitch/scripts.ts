@@ -165,7 +165,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	// It uses the move and then deals with the effects after the move.
 	useMove(moveOrMoveName, pokemon, target, sourceEffect) {
 		if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
-		const baseMove = this.dex.getMove(moveOrMoveName);
+		const baseMove = this.dex.moves.get(moveOrMoveName);
 		let move = this.dex.getActiveMove(baseMove);
 		if (target === undefined) target = this.getRandomTarget(pokemon, move);
 		if (move.target === 'self') {

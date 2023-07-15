@@ -82,7 +82,7 @@ let BattleMovedex = {
 						this.add('-fail', pokemon);
 						return false;
 					}
-					if (!target.isActive) target = this.resolveTarget(pokemon, this.getMove('pound'));
+					if (!target.isActive) target = this.resolveTarget(pokemon, this.moves.get('pound'));
 					if (!this.isAdjacent(pokemon, target)) {
 						this.add('-miss', pokemon, target);
 						return false;
@@ -116,7 +116,7 @@ let BattleMovedex = {
 	counter: {
 		inherit: true,
 		damageCallback: function (pokemon, target) {
-			if (pokemon.lastAttackedBy && pokemon.lastAttackedBy.thisTurn && pokemon.lastAttackedBy.move && (this.getCategory(pokemon.lastAttackedBy.move) === 'Physical' || this.getMove(pokemon.lastAttackedBy.move).id === 'hiddenpower') &&
+			if (pokemon.lastAttackedBy && pokemon.lastAttackedBy.thisTurn && pokemon.lastAttackedBy.move && (this.getCategory(pokemon.lastAttackedBy.move) === 'Physical' || this.moves.get(pokemon.lastAttackedBy.move).id === 'hiddenpower') &&
 				(!target.lastMove || target.lastMove.id !== 'sleeptalk')) {
 				// @ts-ignore
 				return 2 * pokemon.lastAttackedBy.damage;
@@ -377,7 +377,7 @@ let BattleMovedex = {
 		inherit: true,
 		damageCallback: function (pokemon, target) {
 			if (pokemon.lastAttackedBy && pokemon.lastAttackedBy.thisTurn && pokemon.lastAttackedBy.move && this.getCategory(pokemon.lastAttackedBy.move) === 'Special' &&
-				this.getMove(pokemon.lastAttackedBy.move).id !== 'hiddenpower' && (!target.lastMove || target.lastMove.id !== 'sleeptalk')) {
+				this.moves.get(pokemon.lastAttackedBy.move).id !== 'hiddenpower' && (!target.lastMove || target.lastMove.id !== 'sleeptalk')) {
 				// @ts-ignore
 				return 2 * pokemon.lastAttackedBy.damage;
 			}
@@ -585,7 +585,7 @@ let BattleMovedex = {
 			let moves = [];
 			for (const moveSlot of pokemon.moveSlots) {
 				let move = moveSlot.id;
-				if (move && !NoSleepTalk.includes(move) && !this.getMove(move).flags['charge']) {
+				if (move && !NoSleepTalk.includes(move) && !this.moves.get(move).flags['charge']) {
 					moves.push(move);
 				}
 			}

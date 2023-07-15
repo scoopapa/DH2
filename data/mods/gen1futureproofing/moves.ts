@@ -148,7 +148,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (move.category === 'Status' && move.id !== 'mefirst') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -578,7 +578,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// It will fail if the last move selected by the opponent has base power 0 or is not Normal or Fighting Type.
 			// If both are true, counter will deal twice the last damage dealt in battle, no matter what was the move.
 			// That means that, if opponent switches, counter will use last counter damage * 2.
-			const lastUsedMove = target.side.lastMove && this.dex.getMove(target.side.lastMove.id);
+			const lastUsedMove = target.side.lastMove && this.dex.moves.get(target.side.lastMove.id);
 			if (
 				lastUsedMove && lastUsedMove.basePower > 0 && ['Normal', 'Fighting'].includes(lastUsedMove.type) &&
 				this.lastDamage > 0 && !this.queue.willMove(target)
@@ -631,7 +631,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.effectData.duration++;
 				}
 				const moves = pokemon.moves;
-				const move = this.dex.getMove(this.sample(moves));
+				const move = this.dex.moves.get(this.sample(moves));
 				this.add('-start', pokemon, 'Disable', move.name);
 				this.effectData.move = move.id;
 				return;
@@ -885,7 +885,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const moves = target.moves;
 			const moveid = this.sample(moves);
 			if (!moveid) return false;
-			const move = this.dex.getMove(moveid);
+			const move = this.dex.moves.get(moveid);
 			source.moveSlots[moveslot] = {
 				move: move.name,
 				id: move.id,

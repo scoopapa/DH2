@@ -144,7 +144,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (moveSlot.id === 'uturn' || moveSlot.id === 'voltswitch' || moveSlot.id === 'teleport' || moveSlot.id === 'flipturn' || moveSlot.id === 'partingshot' || moveSlot.id === 'batonpass') {
 						pokemon.disableMove(moveSlot.id);
 					}

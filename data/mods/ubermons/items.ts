@@ -7,7 +7,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			for (const pokemon of source.side.foe.active) {
 				if (!pokemon || pokemon.fainted) continue;
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
 					if (
@@ -172,7 +172,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			for (const pokemon of source.side.foe.active) {
 				if (!pokemon || pokemon.fainted) continue;
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.move);
+					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
 					if (

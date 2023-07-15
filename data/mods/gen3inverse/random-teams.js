@@ -115,7 +115,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [i, setMoveid] of moves.entries()) {
-				let move = this.dex.getMove(setMoveid);
+				let move = this.dex.moves.get(setMoveid);
 				let moveid = move.id;
 				let rejected = false;
 				let isSetup = false;
@@ -365,7 +365,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 				if (reqMove) {
 					// reject a move
 					for (let [i, move] of moves.entries()) {
-						if (move === 'weatherball' || this.dex.getMove(move).type in hasType) continue;
+						if (move === 'weatherball' || this.dex.moves.get(move).type in hasType) continue;
 						moves[i] = reqMove;
 						let reqMoveIndex = movePool.indexOf(reqMove);
 						if (reqMoveIndex !== -1) this.fastPop(movePool, reqMoveIndex);

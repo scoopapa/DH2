@@ -56,7 +56,7 @@ class RandomLetsGoTeams extends RandomTeams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [i, setMoveid] of moves.entries()) {
-				let move = this.dex.getMove(setMoveid);
+				let move = this.dex.moves.get(setMoveid);
 				let moveid = move.id;
 				let rejected = false;
 				let isSetup = false;
