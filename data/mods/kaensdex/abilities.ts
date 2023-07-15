@@ -20,7 +20,7 @@ hotknife: {
 			move.secondaries.push({
 				chance: 30,
 				status: 'brn',
-				ability: this.dex.getAbility('hotknife'),
+				ability: this.dex.abilities.get('hotknife'),
 			});
 		},
 		name: "Hot Knife",
@@ -763,7 +763,7 @@ contagious: {
 			move.secondaries.push({
 				chance: 30,
 				status: 'frz',
-				ability: this.dex.getAbility('contagious'),
+				ability: this.dex.abilities.get('contagious'),
 			});
 		},
 		name: "Contagious",

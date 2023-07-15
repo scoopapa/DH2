@@ -466,9 +466,9 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		}
 
 		const abilities = Object.values(species.abilities);
-		abilities.sort((a, b) => this.dex.getAbility(b).rating - this.dex.getAbility(a).rating);
-		let ability0 = this.dex.getAbility(abilities[0]);
-		let ability1 = this.dex.getAbility(abilities[1]);
+		abilities.sort((a, b) => this.dex.abilities.get(b).rating - this.dex.abilities.get(a).rating);
+		let ability0 = this.dex.abilities.get(abilities[0]);
+		let ability1 = this.dex.abilities.get(abilities[1]);
 		if (abilities[1]) {
 			if (ability0.rating <= ability1.rating && this.randomChance(1, 2)) {
 				[ability0, ability1] = [ability1, ability0];

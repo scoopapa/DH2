@@ -59,7 +59,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 100,
 				volatileStatus: 'leechseed',
-				ability: this.dex.getAbility('hostabsorb'),
+				ability: this.dex.abilities.get('hostabsorb'),
 			});
 		},
 		name: "Host Absorb",

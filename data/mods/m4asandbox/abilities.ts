@@ -1693,8 +1693,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const masquerade = pokemon.side.pokemon[i];
 			this.add('-ability', pokemon, 'Masquerade');
 			pokemon.setAbility(masquerade.ability);
-			this.hint(`${pokemon.name} inherited ${this.dex.getAbility(pokemon.ability).name} from ${masquerade.name}!`);
-			this.add('-ability', pokemon, this.dex.getAbility(pokemon.ability).name, '[silent]');
+			this.hint(`${pokemon.name} inherited ${this.dex.abilities.get(pokemon.ability).name} from ${masquerade.name}!`);
+			this.add('-ability', pokemon, this.dex.abilities.get(pokemon.ability).name, '[silent]');
 		},
 		condition: {
 			onDamagingHit(damage, target, source, move) {
@@ -3010,7 +3010,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (target.illusion) {
-				this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, source, move);
+				this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, source, move);
 			}
 		},
 		onEnd(pokemon) {
@@ -4225,7 +4225,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source && source !== target && move && move.category !== 'Status') {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.getAbility('spinaltap'));
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.abilities.get('spinaltap'));
 			}
 		},
 		name: "Spinal Tap",

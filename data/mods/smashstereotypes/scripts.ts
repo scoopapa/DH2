@@ -277,7 +277,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 
 		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		} // only part that's changed
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 

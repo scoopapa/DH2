@@ -58,7 +58,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 					this.effectData.startTime = 3;
 				}
 
-				if(this.dex.getAbility('remaininghope') && this.effectData.startTime == 3) {
+				if(this.dex.abilities.get('remaininghope') && this.effectData.startTime == 3) {
 					this.effectData.startTime += 1;
 				}
 				this.effectData.time = this.effectData.startTime;

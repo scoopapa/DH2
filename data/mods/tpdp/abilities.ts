@@ -1246,7 +1246,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.illusion) {
-				this.singleEvent('End', this.dex.getAbility('Hobgoblin'), target.abilityData, target, source, move);
+				this.singleEvent('End', this.dex.abilities.get('Hobgoblin'), target.abilityData, target, source, move);
 			}
 		},
 		onEnd(pokemon) {
@@ -1826,7 +1826,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('poisonbody'),
+				ability: this.dex.abilities.get('poisonbody'),
 			});
 		},
 	},

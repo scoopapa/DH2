@@ -916,7 +916,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (targetAbility === sourceAbility) {
 				return false;
 			}
-			this.add('-activate', source, 'move: Skill Swap', this.dex.getAbility(targetAbility), this.dex.getAbility(sourceAbility), '[of] ' + target);
+			this.add('-activate', source, 'move: Skill Swap', this.dex.abilities.get(targetAbility), this.dex.abilities.get(sourceAbility), '[of] ' + target);
 			source.setAbility(targetAbility);
 			target.setAbility(sourceAbility);
 		},

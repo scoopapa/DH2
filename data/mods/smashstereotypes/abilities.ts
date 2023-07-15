@@ -918,7 +918,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('nocturnalflash'),
+				ability: this.dex.abilities.get('nocturnalflash'),
 			});
 		},
 	},

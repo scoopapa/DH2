@@ -1437,7 +1437,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'par',
-				ability: this.dex.getAbility('shellshock'),
+				ability: this.dex.abilities.get('shellshock'),
 			});
 		},
 		name: "Shell Shock",

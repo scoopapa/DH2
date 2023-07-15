@@ -1452,7 +1452,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
-					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'lemegeton');
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, pokemon, 'lemegeton');
 				}
 				if (target.volatiles['slowstart']) {
 					delete target.volatiles['slowstart'];
@@ -2442,7 +2442,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFoeTryEatItem: false,
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({spa: length}, source, source, this.dex.getAbility('grimneigh'));
+				this.boost({spa: length}, source, source, this.dex.abilities.get('grimneigh'));
 			}
 		},
 		onAfterMoveSecondary(target, source, move) {
@@ -2528,7 +2528,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'brn',
-				ability: this.dex.getAbility('firestarter'),
+				ability: this.dex.abilities.get('firestarter'),
 			});
 		},
 		name: "Fire Starter",
@@ -2866,7 +2866,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 100,
 				volatileStatus: 'perishsong',
-				ability: this.dex.getAbility('anatidaephobia'),
+				ability: this.dex.abilities.get('anatidaephobia'),
 			});
 		},
 		onBoost(boost, target, source, effect) {
@@ -3046,7 +3046,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityData.ending = false;
 			for (const target of this.getAllActive()) {
 				if (target.illusion) {
-					this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
 				}
 				if (target.volatiles['slowstart']) {
 					delete target.volatiles['slowstart'];
@@ -4569,7 +4569,7 @@ lifedrain: {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('toxinrush'),
+				ability: this.dex.abilities.get('toxinrush'),
 			});
 			if (move.secondaries) {
 				this.debug('doubling secondary chance');
@@ -4840,7 +4840,7 @@ lifedrain: {
 			move.secondaries.push({
 				chance: 30,
 				volatileStatus: 'taunt',
-				ability: this.dex.getAbility('sweettooth'),
+				ability: this.dex.abilities.get('sweettooth'),
 			});
 		},
 		name: "Sweet Tooth",
@@ -5030,7 +5030,7 @@ lifedrain: {
 				boosts: {
 					atk: -1,
 				},
-				ability: this.dex.getAbility('catastrophic'),
+				ability: this.dex.abilities.get('catastrophic'),
 			});
 		},
 	*/
@@ -5556,7 +5556,7 @@ lifedrain: {
 				if (source.side === target.side) {
 					this.add('-activate', source, 'Skill Swap', '', '', '[of] ' + source);
 				} else {
-					this.add('-activate', source, 'ability: Mephisto\'s Pact', this.dex.getAbility(targetAbility).name, 'Mephisto\'s Pact', '[of] ' + source);
+					this.add('-activate', source, 'ability: Mephisto\'s Pact', this.dex.abilities.get(targetAbility).name, 'Mephisto\'s Pact', '[of] ' + source);
 				}
 				source.setAbility(targetAbility);
 			}
@@ -5771,7 +5771,7 @@ lifedrain: {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('nocturnalflash'),
+				ability: this.dex.abilities.get('nocturnalflash'),
 			});
 		},
 	},
@@ -5809,13 +5809,13 @@ lifedrain: {
 				move.secondaries.push({
 					chance: 45,
 					status: 'brn',
-					ability: this.dex.getAbility('abysmalsurge'),
+					ability: this.dex.abilities.get('abysmalsurge'),
 				});
 			} else {
 				move.secondaries.push({
 					chance: 35,
 					status: 'brn',
-					ability: this.dex.getAbility('abysmalsurge'),
+					ability: this.dex.abilities.get('abysmalsurge'),
 				});
 			}
 		},

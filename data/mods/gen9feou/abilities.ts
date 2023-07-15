@@ -1579,7 +1579,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'par',
-				ability: this.dex.getAbility('shellshock'),
+				ability: this.dex.abilities.get('shellshock'),
 			});
 		},
 		name: "Shell Shock",
@@ -1774,7 +1774,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('rebelsblade'),
+				ability: this.dex.abilities.get('rebelsblade'),
 			});
 		},
 		name: "Rebel's Blade",

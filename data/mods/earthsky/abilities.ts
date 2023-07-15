@@ -340,7 +340,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					pokemon.abilityData.ending = false;
 					for (const target of this.getAllActive()) {
 						if (target.illusion) {
-							this.singleEvent('End', this.dex.getAbility('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
+							this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityData, target, pokemon, 'neutralizinggas');
 						}
 					}
 				}
@@ -372,7 +372,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 								this.hint('Own Tempo blocks effects that steal or copy its attributes');
 								return;
 							}
-							pokemon.transformInto(oppositeFoe, this.dex.getAbility('glyphicspell'));
+							pokemon.transformInto(oppositeFoe, this.dex.abilities.get('glyphicspell'));
 						}
 						break;
 					case 'D': //Dry: Desolate Land
@@ -2277,7 +2277,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.hint('Own Tempo blocks effects that steal or copy its attributes');
 					return;
 				}
-				pokemon.transformInto(target, this.dex.getAbility('imposter'));
+				pokemon.transformInto(target, this.dex.abilities.get('imposter'));
 			}
 			this.effectData.switchingIn = false;
 		},
@@ -2861,7 +2861,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.flags['contact']) {
 				const oldAbility = source.setAbility('mummy', target);
 				if (oldAbility) {
-					this.add('-activate', target, 'ability: Mummy', this.dex.getAbility(oldAbility).name, '[of] ' + source);
+					this.add('-activate', target, 'ability: Mummy', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
 				}
 			}
 		},
@@ -2893,7 +2893,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('poisontouch'),
+				ability: this.dex.abilities.get('poisontouch'),
 			});
 		},
 		name: "Poison Touch",
@@ -2938,7 +2938,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (target.side === source.side) {
 					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
 				} else {
-					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.getAbility(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
+					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.abilities.get(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
 				}
 				target.setAbility(sourceAbility);
 			}

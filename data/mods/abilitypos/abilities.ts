@@ -56,7 +56,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				boosts: {
 				atk: -1,
 				},
-				ability: this.dex.getAbility('abhorrent'),
+				ability: this.dex.abilities.get('abhorrent'),
 			});
 		},
 		name: "Abhorrent",
@@ -74,7 +74,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			move.secondaries.push({
 				chance: 100,
 				volatileStatus: 'leechseed',
-				ability: this.dex.getAbility('hostabsorb'),
+				ability: this.dex.abilities.get('hostabsorb'),
 			});
 		},
 		name: "Host Absorb",

@@ -658,7 +658,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (target.illusion) {
-				this.singleEvent('End', this.dex.getAbility('False Dragon'), target.abilityState, target, source, move);
+				this.singleEvent('End', this.dex.abilities.get('False Dragon'), target.abilityState, target, source, move);
 			}
 		},
 		onEnd(pokemon) {

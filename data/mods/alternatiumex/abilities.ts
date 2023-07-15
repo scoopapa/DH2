@@ -618,7 +618,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (target.side === source.side) {
 					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
 				} else {
-					this.add('-activate', target, 'ability: Lingering Aroma', this.dex.getAbility(sourceAbility).name, 'Lingering Aroma', '[of] ' + source);
+					this.add('-activate', target, 'ability: Lingering Aroma', this.dex.abilities.get(sourceAbility).name, 'Lingering Aroma', '[of] ' + source);
 				}
 				target.setAbility(sourceAbility);
 			}

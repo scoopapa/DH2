@@ -322,7 +322,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
 				const oldAbility = source.setAbility('lingeringaroma', target);
 				if (oldAbility) {
-					this.add('-activate', target, 'ability: Lingering Aroma', this.dex.getAbility(oldAbility).name, '[of] ' + source);
+					this.add('-activate', target, 'ability: Lingering Aroma', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
 				}
 			}
 		},

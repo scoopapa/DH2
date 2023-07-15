@@ -575,10 +575,10 @@ export class RandomGen6Teams extends RandomGen7Teams {
 
 		const baseSpecies: Species = species.battleOnly && !species.requiredAbility ? this.dex.species.get(species.battleOnly as string) : species;
 		const abilities = Object.values(baseSpecies.abilities);
-		abilities.sort((a, b) => this.dex.getAbility(b).rating - this.dex.getAbility(a).rating);
-		let ability0 = this.dex.getAbility(abilities[0]);
-		let ability1 = this.dex.getAbility(abilities[1]);
-		let ability2 = this.dex.getAbility(abilities[2]);
+		abilities.sort((a, b) => this.dex.abilities.get(b).rating - this.dex.abilities.get(a).rating);
+		let ability0 = this.dex.abilities.get(abilities[0]);
+		let ability1 = this.dex.abilities.get(abilities[1]);
+		let ability2 = this.dex.abilities.get(abilities[2]);
 		if (abilities[1]) {
 			if (abilities[2] && ability1.rating <= ability2.rating && this.randomChance(1, 2)) {
 				[ability1, ability2] = [ability2, ability1];
@@ -925,7 +925,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 			if (teamData.megaCount > 0 && itemData.megaStone) continue; // reject 2+ mega stones
 			if (itemsMax[itemData.id] && teamData.has[itemData.id] >= itemsMax[itemData.id]) continue;
 
-			const abilityData = this.dex.getAbility(curSet.ability);
+			const abilityData = this.dex.abilities.get(curSet.ability);
 			if (weatherAbilitiesRequire[abilityData.id] && teamData.weather !== weatherAbilitiesRequire[abilityData.id]) continue;
 			if (teamData.weather && weatherAbilities.includes(abilityData.id)) continue; // reject 2+ weather setters
 
@@ -1061,7 +1061,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 				teamData.has[itemData.id] = 1;
 			}
 
-			const abilityData = this.dex.getAbility(set.ability);
+			const abilityData = this.dex.abilities.get(set.ability);
 			if (abilityData.id in weatherAbilitiesSet) {
 				teamData.weather = weatherAbilitiesSet[abilityData.id];
 			}

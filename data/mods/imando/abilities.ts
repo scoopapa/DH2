@@ -104,7 +104,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onFoeTryEatItem: false,
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({spa: length}, source, source, this.dex.getAbility('grimneigh'));
+				this.boost({spa: length}, source, source, this.dex.abilities.get('grimneigh'));
 			}
 		},
 		isPermanent: true,

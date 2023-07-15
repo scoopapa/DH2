@@ -163,7 +163,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('potionmaster'),
+				ability: this.dex.abilities.get('potionmaster'),
 			});
 		},
 

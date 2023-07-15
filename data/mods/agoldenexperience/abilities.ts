@@ -15,7 +15,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 						chance: 100,
 						boosts: {
 							def: -1,
-							ability: this.dex.getAbility('poisonousradula'),
+							ability: this.dex.abilities.get('poisonousradula'),
 						},
 					});
 				} else if (move.category === 'Special') {
@@ -24,7 +24,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 						boosts: {
 							spd: -1,
 						},
-						ability: this.dex.getAbility('poisonousradula'),
+						ability: this.dex.abilities.get('poisonousradula'),
 
 					});
 				}
@@ -1509,7 +1509,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'brn',
-				ability: this.dex.getAbility('searingtouch'),
+				ability: this.dex.abilities.get('searingtouch'),
 			});
 		},
 		name: "Searing Touch",
@@ -1528,7 +1528,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (move.flags['contact']) {
 				const oldAbility = source.setAbility('virality', target);
 				if (oldAbility) {
-					this.add('-activate', target, 'ability: Virality', this.dex.getAbility(oldAbility).name, '[of] ' + source);
+					this.add('-activate', target, 'ability: Virality', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
 				}
 			}
 		},

@@ -247,7 +247,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		if (zMove) {
 			if (pokemon.illusion) {
-				this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+				this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 			}
 			this.add('-zpower', pokemon);
 			pokemon.side.zMoveUsed = true;
@@ -278,7 +278,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (this.faintMessages()) break;
 				if (dancer.fainted) continue;
 				const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
-				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.getAbility(dancer.ability), undefined, true);
+				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.abilities.get(dancer.ability), undefined, true);
 			}
 		}
 		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];

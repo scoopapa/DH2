@@ -212,7 +212,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		} // only part that's changed
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
@@ -417,15 +417,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		setAbility(ability: string | Ability, source?: Pokemon | null, isFromFormeChange?: boolean) { // edited so Megas can have Neutralizing Gas and similar
 			if (!this.hp) return false;
-			if (typeof ability === 'string') ability = this.battle.dex.getAbility(ability);
+			if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
 			const oldAbility = this.ability;
 			if (!isFromFormeChange) {
 				if (ability.isPermanent || this.getAbility().isPermanent) return false;
 			}
 			if (!this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability)) return false;
-			this.battle.singleEvent('End', this.battle.dex.getAbility(oldAbility), this.abilityData, this, source);
+			this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityData, this, source);
 			if (this.battle.effect && this.battle.effect.effectType === 'Move') {
-				this.battle.add('-endability', this, this.battle.dex.getAbility(oldAbility), '[from] move: ' +
+				this.battle.add('-endability', this, this.battle.dex.abilities.get(oldAbility), '[from] move: ' +
 									 this.battle.dex.getMove(this.battle.effect.id));
 			}
 			this.ability = ability.id;

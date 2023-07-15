@@ -360,7 +360,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({atk: length}, source, source, this.dex.getAbility('chillingneigh'));
+				this.boost({atk: length}, source, source, this.dex.abilities.get('chillingneigh'));
 			}
 		},
 		onResidualOrder: 26,
@@ -386,7 +386,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.boost({spa: length}, source, source, this.dex.getAbility('grimneigh'));
+				this.boost({spa: length}, source, source, this.dex.abilities.get('grimneigh'));
 			}
 		},
 		onResidualOrder: 26,
@@ -567,7 +567,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (target.side === source.side) {
 					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
 				} else {
-					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.getAbility(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
+					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.abilities.get(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
 				}
 				target.setAbility(sourceAbility);
 			}

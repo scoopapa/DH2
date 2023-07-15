@@ -51,7 +51,7 @@ export const Formats: {[k: string]: FormatData} = {
 		onAfterMega(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 			const species = this.dex.species.get(pokemon.species);
-			const abilities = this.dex.getAbility(species.abilities[0]).name;
+			const abilities = this.dex.abilities.get(species.abilities[0]).name;
 			const baseStats = species.baseStats;
 			const type = species.types[0];
 			if (species.types[1]) {
@@ -163,7 +163,7 @@ export const Formats: {[k: string]: FormatData} = {
 					if (mega.name === "Mimikyu-Mega") {
 						msg += `; Mega Mimikyu has two forms! If its Disguise is busted, it will Mega Evolve into Mimikyu-Busted-Mega. Use /dt for more info.`;
 					}
-					const ability = this.dex.getAbility(mega.abilities[0]);
+					const ability = this.dex.abilities.get(mega.abilities[0]);
 					let txt = `${mega.name} (${types}); `;
 					txt += `Ability: ${ability.name} (${ability.shortDesc}); `;
 					txt += `Stats: ${baseStats.hp} HP / ${baseStats.atk} Atk / ${baseStats.def} Def / ${baseStats.spa} SpA / ${baseStats.spd} SpD / ${baseStats.spe} Spe;${msg}`;

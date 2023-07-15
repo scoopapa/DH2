@@ -316,7 +316,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	runMegaEvo(pokemon) {
 		if (pokemon.species.isMega || !pokemon.canMegaEvo) return false;
 		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
+			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		}
 		let species = this.dex.deepClone(pokemon.species);
 		species.teraBoost = pokemon.species.types;

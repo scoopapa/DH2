@@ -383,7 +383,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 		getAbility() {
 			const item = this.battle.dex.getItem(this.ability);
-			return item.exists ? item as Effect as Ability : this.battle.dex.getAbility(this.ability);
+			return item.exists ? item as Effect as Ability : this.battle.dex.abilities.get(this.ability);
 		},
 		hasItem(item) {
 			if (this.ignoringItem()) return false;
