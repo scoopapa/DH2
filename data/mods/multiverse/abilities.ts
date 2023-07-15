@@ -28,8 +28,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				this.effectState.lastMove = '';
-				this.effectState.numConsecutive = 0;
+				this.effectData.lastMove = '';
+				this.effectData.numConsecutive = 0;
 			},
 			onTryMovePriority: -2,
 			onTryMove(pokemon, target, move) {
@@ -37,18 +37,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					pokemon.removeVolatile('stubborn');
 					return;
 				}
-				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
-					this.effectState.numConsecutive++;
-				} else if (pokemon.volatiles['twoturnmove'] && this.effectState.lastMove !== move.id) {
-					this.effectState.numConsecutive = 1;
+				if (this.effectData.lastMove === move.id && pokemon.moveLastTurnResult) {
+					this.effectData.numConsecutive++;
+				} else if (pokemon.volatiles['twoturnmove'] && this.effectData.lastMove !== move.id) {
+					this.effectData.numConsecutive = 1;
 				} else {
-					this.effectState.numConsecutive = 0;
+					this.effectData.numConsecutive = 0;
 				}
-				this.effectState.lastMove = move.id;
+				this.effectData.lastMove = move.id;
 			},
 			onModifyDamage(damage, source, target, move) {
 				const dmgMod = [0x1000, 0x1333, 0x1666, 0x1999, 0x1CCC, 0x2000];
-				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
+				const numConsecutive = this.effectData.numConsecutive > 5 ? 5 : this.effectData.numConsecutive;
 				return this.chainModify([dmgMod[numConsecutive], 0x1000]);
 			},
 		},
@@ -69,7 +69,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries) {
-				const effectHolder = this.effectState.target;
+				const effectHolder = this.effectData.target;
 				this.add('-block', target, 'ability: Full Metal Body', '[of] ' + effectHolder);
 			}
 		},
@@ -77,7 +77,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (target.hasType('Steel') && source && target !== source && effect && effect.id !== 'yawn') {
 				this.debug('interrupting setStatus with Full Metal Body');
 				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
-					const effectHolder = this.effectState.target;
+					const effectHolder = this.effectData.target;
 					this.add('-block', target, 'ability: Full Metal Body', '[of] ' + effectHolder);
 				}
 				return null;
@@ -86,7 +86,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAllyTryAddVolatile(status, target) {
 			if (target.hasType('Steel') && status.id === 'yawn') {
 				this.debug('Full Metal Body blocking yawn');
-				const effectHolder = this.effectState.target;
+				const effectHolder = this.effectData.target;
 				this.add('-block', target, 'ability: Full Metal Body', '[of] ' + effectHolder);
 				return null;
 			}

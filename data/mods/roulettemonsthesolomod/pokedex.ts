@@ -174,4 +174,40 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 91, atk: 110, def: 123, spa: 109, spd: 61, spe: 106},
 		abilities: {0: "Analytic", 1: "Stalwart", H: "Synchronize"},
 	},
+	hamstora: {
+		num: 26.5,
+		name: "Hamstora",
+		types: ["Fairy"],
+		baseStats: {hp: 52, atk: 136, def: 151, spa: 97, spd: 137, spe: 27},
+		abilities: {0: "Snow Warning", 1: "Aroma Veil", H: "Drought"},
+	},
+	cabarrage: {
+		num: 27.5,
+		name: "Cabarrage",
+		types: ["Grass", "Ghost"],
+		baseStats: {hp: 80, atk: 99, def: 81, spa: 51, spd: 134, spe: 155},
+		abilities: {0: "Light Metal", 1: "Illusion", H: "Volt Absorb"},
+	},
+	sumouse: {
+		num: 28.5,
+		name: "Sumouse",
+		types: ["Fighting"],
+		baseStats: {hp: 97, atk: 100, def: 74, spa: 123, spd: 125, spe: 81},
+		abilities: {0: "Poison Heal", 1: "Liquid Voice", H: "Punk Rock"},
+	},
+	electrorb: {
+		num: 29.5,
+		name: "Electrorb",
+		types: ["Electric"],
+		baseStats: {hp: 100, atk: 99, def: 91, spa: 99, spd: 127, spe: 84},
+		abilities: {0: "Download", H: "Damp"},
+	},
+	horroling: {
+		num: 30.5,
+		name: "Horroling",
+		types: ["Poison", "Ghost"],
+		baseStats: {hp: 139, atk: 101, def: 100, spa: 80, spd: 70, spe: 110},
+		abilities: {0: "Beast Boost", 1: "Air Lock", H: "Mimicry"},
+	},
+
 };

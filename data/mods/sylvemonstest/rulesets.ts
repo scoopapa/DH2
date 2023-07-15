@@ -1,4 +1,4 @@
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Formats: {[k: string]: FormatData} = {
 	sylvemonsintromod: {
 		effectType: 'Rule',
 		name: 'SylveMons Intro Mod',

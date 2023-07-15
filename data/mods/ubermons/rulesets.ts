@@ -56,7 +56,7 @@ export const Formats: {[k: string]: FormatData} = {
 			if (status.id === 'slp') {
 				for (const pokemon of target.side.pokemon) {
 					if (pokemon.hp && pokemon.status === 'slp') {
-						if (!pokemon.statusState.source || pokemon.statusState.source.side !== pokemon.side) {
+						if (!pokemon.statusData.source || pokemon.statusData.source.side !== pokemon.side) {
 							this.add('-message', 'Sleep Clause Mod activated.');
 							return false;
 						}

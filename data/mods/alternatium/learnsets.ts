@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-export const Learnsets: {["8L1"]: LearnsetData} = {
+export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	pikachu: {
 		learnset: {
 			wish: ["8L1"],

@@ -448,21 +448,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 	},
 	terablast: {
-		num: 851,
+		num: -1024,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
+		shortDesc: "If Terastallized: Phys. if Atk > SpA, type = Tera.",
 		name: "Tera Blast",
-		shortDesc: "Physical if Atk > SpA.",
-		pp: 10,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.species.teraType) move.type = pokemon.species.teraType;
+		},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hidden Power", target);
 		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
+		contestType: "Beautiful",
 	},
 	bleakwindstorm: {
 		num: 846,

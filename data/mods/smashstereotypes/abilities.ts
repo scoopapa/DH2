@@ -883,4 +883,232 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -118,
 		shortDesc: "(Partially functional) When the user switches in, all non-fainted team members regain 1/16 HP.",
 	},
+	"nocturnalflash": {
+		shortDesc: "Attacks have 1.5x power and a 30% chance to Poison if it moves last.",
+		id: "nocturnalflash",
+		name: "Nocturnal Flash",
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Nocturnal Flash boost');
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		onModifyMove(move, pokemon) { 
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (!move || move.target === 'self') return;
+			if (!boosted) return; 
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'psn',
+				ability: this.dex.getAbility('nocturnalflash'),
+			});
+		},
+	},
+	toxicboostjolte: {
+		shortDesc: "1.5x Attack and Defense while poisoned; Immune to poison status damage.",
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				return this.chainModify(1.5);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'psn' || effect.id === 'tox') {
+				return false;
+			 }
+		},
+		name: "Toxic Boost (Jolte)",
+		rating: 2.5,
+	},
+	terabyte: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.flags['bite']) {
+				move.type = 'Electric';
+			}
+		},
+		name: "Terabyte",
+		shortDesc: "This Pokemon's biting moves become Electric-type.",
+	},
+	pillage: {
+		id: "pillage",
+		name: "Pillage",
+		shortDesc: "On switch-in, swaps ability with the opponent.",
+		onSwitchIn(pokemon) {
+			this.effectData.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if ((pokemon.side.foe.active.some(
+				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+			))
+			|| pokemon.species.id !== 'yaciancrowned' && pokemon.species.id !== 'porygrigus' && pokemon.species.id !== 'porymask' && pokemon.species.id !== 'hatterune' && pokemon.species.id !== 'hatamaskgalar') {
+				this.effectData.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
+			if (!this.effectData.switchingIn) return;
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			while (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const ability = target.getAbility();
+				const additionalBannedAbilities = [
+					// Zen Mode included here for compatability with Gen 5-6
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'pillage',
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'magicmissile', 'ecopy', 'lemegeton', 'modeshift', 'rebootsystem', 'concussion',
+				];
+				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
+					possibleTargets.splice(rand, 1);
+					continue;
+				}
+				target.setAbility('pillage', pokemon);
+				pokemon.setAbility(ability);
+				
+				this.add('-activate', pokemon, 'ability: Pillage');
+				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
+				this.add('-activate', pokemon, 'ability: ' + ability.name);
+				this.add('-activate', target, 'ability: Pillage');
+				return;
+			}
+		},
+	},
+	fowlbehavior: {
+		id: "fowlbehavior",
+		name: "Fowl Behavior",
+		shortDesc: "This Pokemon's Sp. Atk is 1.5x, but it can only select the first move it executes.",
+		onStart(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.isZOrMaxPowered || move.id === 'struggle') return;
+			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
+				// Fails unless ability is being ignored (these events will not run), no PP lost.
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Fowl Behavior");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityData.choiceLock = move.id;
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon, move) {
+			if (pokemon.volatiles['dynamax']) return;
+			///////////PLACEHOLDER FOR STURDY MOLD
+			let ignore = false;
+			for (const target of pokemon.side.foe.active) {
+				if (target.hasAbility('sturdymold')) {
+					ignore = true;
+					return;
+				}
+			} 
+			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
+			///////////END PLACEHOLDER
+			// PLACEHOLDER
+			this.debug('Fowl Behavior Sp. Atk Boost');
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.abilityData.choiceLock) return;
+			if (pokemon.volatiles['dynamax']) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.abilityData.choiceLock = "";
+		},
+	},
+	shortcircuit: {
+		shortDesc: "Electric moves fail and instead cause every pokemon to lose 25% of its max HP.",
+		onAnyTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				let activated = false;
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.hasAbility("Short Circuit") && !activated) {
+						this.add('-activate', pokemon, 'ability: Short Circuit');
+						activated = true;
+					}
+				}
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.fainted) continue;
+					this.damage(pokemon.baseMaxhp / 4, pokemon, target);
+				}
+				return null;
+			}
+		},
+		name: "Short Circuit",
+		rating: 3,
+		num: 1003,
+	},
+"ironfistviabilities": {
+  shortDesc: "This Pokemon's punch-based attacks are SE against Fairy-types.",
+  onSourceEffectiveness(move, typeMod, type, pokemon) {
+    if (type == 'Fairy' && move.flags['punch']) {
+      return typeMod > 0 ? typeMod + 1 : 1;
+    } else if (typeMod < 0 && pokemon.hasType('Fairy')) {
+      return 0;
+    }
+  }, 
+  name: "Iron Fist (ViAbilities)",
+  rating: 3,
+  num: 89,     
+},
+	klutzviabilities: {
+		desc: "The user's contact moves will remove the opponent's items, but it will lose its own item upon being hit by any attack.",
+		shortDesc: "Removes Item when making contact, loses Item when receiving contact.",
+		onAfterMoveSecondary(target, source, move) { // inspired to Knock Off
+			if (target !== source && move.flags['contact'] && source.hp) {
+				let item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
+				}
+			}
+		},
+		onDamagingHit(damage, target, source, move) { // inspired to Pickpocket
+			if (target !== source && move.flags['contact'] && source.hp) {
+				let item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
+				}
+			}
+		},
+		id: "klutzviabilities",
+		name: "Klutz (ViAbilities)",
+		rating: -1,
+		num: 103,
+	},
 };

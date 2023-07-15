@@ -3,8 +3,8 @@
 /**@type {ModdedBattleScriptsData} */
 let BattleScripts = {
 	init: function () {
-		for (let id in this.items.all()) {
-			if (!this.items.all()[id].megaStone) continue;
+		for (let id in this.data.Items) {
+			if (!this.data.Items[id].megaStone) continue;
 			this.modData('Items', id).onTakeItem = false;
 		}
 	},

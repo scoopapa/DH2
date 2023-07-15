@@ -871,4 +871,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zapcannon: ["2M"],
 		},
 	},
+	celesteon: {
+		learnset: {
+			
+		}
+	},
 };

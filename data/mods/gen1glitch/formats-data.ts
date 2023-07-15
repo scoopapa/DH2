@@ -583,7 +583,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kangaskhan: {
 		randomBattleMoves: ["bodyslam", "earthquake", "hyperbeam"],
 		exclusiveMoves: ["counter", "rockslide", "rockslide", "surf"],
-		tier: "UU",
+		tier: "Uber",
 	},
 	horsea: {
 		randomBattleMoves: ["agility", "blizzard"],
@@ -1274,7 +1274,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	c0192y: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	c1193y: {
 		tier: "OU",

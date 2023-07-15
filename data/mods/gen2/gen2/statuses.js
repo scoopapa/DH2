@@ -39,12 +39,12 @@ let BattleStatuses = {
 		onStart: function (target) {
 			this.add('-status', target, 'slp');
 			// 1-6 turns
-			this.effectState.time = this.random(2, 8);
+			this.effectData.time = this.random(2, 8);
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove: function (pokemon, target, move) {
-			pokemon.statusState.time--;
-			if (pokemon.statusState.time <= 0) {
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time <= 0) {
 				pokemon.cureStatus();
 				return;
 			}
@@ -102,18 +102,18 @@ let BattleStatuses = {
 		effectType: 'Status',
 		onStart: function (target) {
 			this.add('-status', target, 'tox');
-			this.effectState.stage = 0;
+			this.effectData.stage = 0;
 		},
 		onAfterMoveSelfPriority: 3,
 		onAfterMoveSelf: function (pokemon) {
-			if (this.effectState.stage < 15) {
-				this.effectState.stage++;
+			if (this.effectData.stage < 15) {
+				this.effectData.stage++;
 			}
-			this.damage(this.clampIntRange(pokemon.maxhp / 16, 1) * this.effectState.stage);
+			this.damage(this.clampIntRange(pokemon.maxhp / 16, 1) * this.effectData.stage);
 		},
 		onSwitchIn: function (pokemon) {
 			// Regular poison status and damage after a switchout -> switchin.
-			this.effectState.stage = 0;
+			this.effectData.stage = 0;
 			pokemon.setStatus('psn');
 		},
 		onAfterSwitchInSelf: function (pokemon) {
@@ -129,9 +129,9 @@ let BattleStatuses = {
 				this.add('-start', target, 'confusion');
 			}
 			if (sourceEffect && sourceEffect.id === 'berserkgene') {
-				this.effectState.time = 256;
+				this.effectData.time = 256;
 			} else {
-				this.effectState.time = this.random(2, 6);
+				this.effectData.time = this.random(2, 6);
 			}
 		},
 		onBeforeMove: function (pokemon, target, move) {
@@ -180,7 +180,7 @@ let BattleStatuses = {
 			}
 		},
 		onStart: function (target, source, effect) {
-			this.effectState.move = effect.id;
+			this.effectData.move = effect.id;
 		},
 		onEnd: function (target) {
 			// Confusion begins even if already confused
@@ -188,13 +188,13 @@ let BattleStatuses = {
 			target.addVolatile('confusion');
 		},
 		onLockMove: function (pokemon) {
-			return this.effectState.move;
+			return this.effectData.move;
 		},
 		onMoveAborted: function (pokemon) {
 			delete pokemon.volatiles['lockedmove'];
 		},
 		onBeforeTurn: function (pokemon) {
-			let move = this.moves.get(this.effectState.move);
+			let move = this.getMove(this.effectData.move);
 			if (move.id) {
 				this.debug('Forcing into ' + move.id);
 				this.changeAction(pokemon, {move: move.id});
@@ -213,16 +213,16 @@ let BattleStatuses = {
 		num: 0,
 		duration: 2,
 		onStart: function () {
-			this.effectState.counter = 127;
+			this.effectData.counter = 127;
 		},
 		onStallMove: function () {
-			let counter = Math.floor(this.effectState.counter) || 127;
+			let counter = Math.floor(this.effectData.counter) || 127;
 			this.debug("Success chance: " + Math.round(counter * 1000 / 255) / 10 + "% (" + counter + "/255)");
 			return this.randomChance(counter, 255);
 		},
 		onRestart: function () {
-			this.effectState.counter /= 2;
-			this.effectState.duration = 2;
+			this.effectData.counter /= 2;
+			this.effectData.duration = 2;
 		},
 	},
 };

@@ -54,18 +54,18 @@ let BattleStatuses = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-3 turns
-			this.effectState.startTime = this.random(1, 4);
-			this.effectState.time = this.effectState.startTime;
+			this.effectData.startTime = this.random(1, 4);
+			this.effectData.time = this.effectData.startTime;
 		},
 		onBeforeMovePriority: 2,
 		onBeforeMove(pokemon, target, move) {
-			pokemon.statusState.time--;
+			pokemon.statusData.time--;
 			this.add('cant', pokemon, 'slp');
 			pokemon.lastMove = null;
 			return false;
 		},
 		onAfterMoveSelf(pokemon) {
-			if (pokemon.statusState.time <= 0) pokemon.cureStatus();
+			if (pokemon.statusData.time <= 0) pokemon.cureStatus();
 		},
 	},
 	frz: {
@@ -134,7 +134,7 @@ let BattleStatuses = {
 			this.add('-activate', target, 'move: ' + effect, '[of] ' + source);
 		},
 		onBeforeMove(pokemon) {
-			if (this.effectState.source && (!this.effectState.source.isActive || this.effectState.source.hp <= 0)) {
+			if (this.effectData.source && (!this.effectData.source.isActive || this.effectData.source.hp <= 0)) {
 				pokemon.removeVolatile('partiallytrapped');
 				return;
 			}
@@ -142,7 +142,7 @@ let BattleStatuses = {
 			return false;
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, this.effectState.sourceEffect, '[partiallytrapped]');
+			this.add('-end', pokemon, this.effectData.sourceEffect, '[partiallytrapped]');
 		},
 	},
 };

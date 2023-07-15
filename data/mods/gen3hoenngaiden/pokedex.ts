@@ -2523,7 +2523,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	magnezone: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 70, def: 137, spa: 90, spd: 73, spe: 60},
-		abilities: {0: "Levitate"},
+		abilities: {0: "Volt Absorb"},
 		gen: 3,
 	},
 	magneton: {
@@ -2803,6 +2803,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},*/
 	diglett: {
 		inherit: true,
+		abilities: {0: "Arena Trap"},
 		otherFormes: ["Diglett-Alola"],
 		formeOrder: ["Diglett", "Diglett-Alola"],
 	},
@@ -2823,6 +2824,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	dugtrio: {
 		inherit: true,
+		abilities: {0: "Arena Trap"},
 		otherFormes: ["Dugtrio-Alola"],
 		formeOrder: ["Dugtrio", "Dugtrio-Alola"],
 	},

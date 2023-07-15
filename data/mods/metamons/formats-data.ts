@@ -1,116 +1,284 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+/*Gen 7 MetaMons*/
+   altaria: {
+	   tier: "Gen 7 MetaMons",
+	},
+	ampharos: {
+	   tier: "Gen 7 MetaMons",
+	},
+	archeops: {
+	   tier: "Gen 7 MetaMons",
+	},
+	aurorus: {
+	   tier: "Gen 7 MetaMons",
+	},
+	avalugg: {
+	   tier: "Gen 7 MetaMons",
+	},
+	banette: {
+	   tier: "Gen 7 MetaMons",
+	},
+	bastiodongen7: {
+	   tier: "Gen 7 MetaMons",
+	},
+	bronzong: {
+	   tier: "Gen 7 MetaMons",
+	},
+	decidueye: {
+	   tier: "Gen 7 MetaMons",
+	},
+	delphox: {
+	   tier: "Gen 7 MetaMons",
+	},
+	drampa: {
+	   tier: "Gen 7 MetaMons",
+	},
+	electrode: {
+	   tier: "Gen 7 MetaMons",
+	},
+	exeggutor: {
+	   tier: "Gen 7 MetaMons",
+	},
+	golemalola: {
+	   tier: "Gen 7 MetaMons",
+	},
+	linoone: {
+	   tier: "Gen 7 MetaMons",
+	},
+	mawile: {
+	   tier: "Gen 7 MetaMons",
+	},
+	medicham: {
+	   tier: "Gen 7 MetaMons",
+	},
+	mothim: {
+	   tier: "Gen 7 MetaMons",
+	},
+	necrozmagen7: {
+	   tier: "Gen 7 MetaMons",
+	},
+	pheromosa: {
+	   tier: "Gen 7 MetaMons",
+	},
+	rapidash: {
+	   tier: "Gen 7 MetaMons",
+	},
+	rotomfrost: {
+	   tier: "Gen 7 MetaMons",
+	},
+	salazzlegen7: {
+	   tier: "Gen 7 MetaMons",
+	},
+	scolipede: {
+	   tier: "Gen 7 MetaMons",
+	},
+	smeargle: {
+	   tier: "Gen 7 MetaMons",
+	},
+	swampert: {
+	   tier: "Gen 7 MetaMons",
+	},
+	swellow: {
+	   tier: "Gen 7 MetaMons",
+	},
+	throh: {
+	   tier: "Gen 7 MetaMons",
+	},
+	turtonator: {
+	   tier: "Gen 7 MetaMons",
+	},
+	typenull: {
+	   tier: "Gen 7 MetaMons",
+	},
+	tyrantrum: {
+	   tier: "Gen 7 MetaMons",
+	},
+	whimsicottgen7: {
+	   tier: "Gen 7 MetaMons",
+	},
+	zoroark: {
+	   tier: "Gen 7 MetaMons",
+	},
+/*Gen 8 MetaMons*/
 	whimsicott: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	salazzle: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	kingler: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	ariados: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	sandslash: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	bastiodon: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	slowbrogalar: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	sableye: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	grapploct: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	arcanine: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	eelektross: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	tauros: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	tsareena: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	sylveon: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	perrserker: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	mantine: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	druddigon: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	persianalola: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	duraludon: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	houndoom: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	stunfisk: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	emolga: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	espeon: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	toxicroak: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	eldegoss: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	abomasnow: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	granbull: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	guzzlord: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	necrozma: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	entei: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	xatu: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	jellicent: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	gigalith: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	florges: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	sunflora: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	frogadier: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	articuno: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
 	},
 	passimian: {
-		tier: "metamons",
+		tier: "Gen 8 MetaMons",
+	},
+/*Gen 9 MetaMons*/
+   veluza: {
+	   tier: "MetaMons",
+	},
+	bellossom: {
+	   tier: "MetaMons",
+	},
+	camerupt: {
+	   tier: "MetaMons",
+	},
+   dragalge: {
+	   tier: "MetaMons",
+	},
+	lapras: {
+	   tier: "MetaMons",
+	},
+	boltund: {
+	   tier: "MetaMons",
+	},
+   sudowoodo: {
+	   tier: "MetaMons",
+	},
+	mesprit: {
+	   tier: "MetaMons",
+	},
+	froslass: {
+	   tier: "MetaMons",
+	},
+	beedrill: {
+	   tier: "MetaMons",
+	},
+	beedrillmega: {
+	   tier: "Illegal",
+	},
+	liepard: {
+	   tier: "MetaMons",
+	},
+	emboar: {
+	   tier: "MetaMons",
+	},
+   alcremie: {
+	   tier: "MetaMons",
+	},
+   copperajah: {
+	   tier: "MetaMons",
+	},
+   exeggutoralola: {
+	   tier: "MetaMons",
+	},
+	gogoat: {
+		tier: "MetaMons",
+	}, 
+	ironthorns: {
+		tier: "MetaMons",
+	}, 
+	oricorio: {
+		tier: "MetaMons",
+	}, 
+	oricoriopompom: {
+		tier: "MetaMons",
+	}, 
+	oricoriopau: {
+		tier: "MetaMons",
+	}, 
+	oricoriosensu: {
+		tier: "MetaMons",
 	},
 };

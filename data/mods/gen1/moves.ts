@@ -56,55 +56,55 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.random(3, 4);
 			},
 			onStart(pokemon) {
-				this.effectState.totalDamage = 0;
-				this.effectState.lastDamage = 0;
+				this.effectData.totalDamage = 0;
+				this.effectData.lastDamage = 0;
 				this.add('-start', pokemon, 'Bide');
 			},
 			onHit(target, source, move) {
 				if (source && source !== target && move.category !== 'Physical' && move.category !== 'Special') {
-					const damage = this.effectState.totalDamage;
-					this.effectState.totalDamage += damage;
-					this.effectState.lastDamage = damage;
-					this.effectState.sourcePosition = source.position;
-					this.effectState.sourceSide = source.side;
+					const damage = this.effectData.totalDamage;
+					this.effectData.totalDamage += damage;
+					this.effectData.lastDamage = damage;
+					this.effectData.sourcePosition = source.position;
+					this.effectData.sourceSide = source.side;
 				}
 			},
 			onDamage(damage, target, source, move) {
 				if (!source || source.side === target.side) return;
 				if (!move || move.effectType !== 'Move') return;
-				if (!damage && this.effectState.lastDamage > 0) {
-					damage = this.effectState.totalDamage;
+				if (!damage && this.effectData.lastDamage > 0) {
+					damage = this.effectData.totalDamage;
 				}
-				this.effectState.totalDamage += damage;
-				this.effectState.lastDamage = damage;
-				this.effectState.sourcePosition = source.position;
-				this.effectState.sourceSide = source.side;
+				this.effectData.totalDamage += damage;
+				this.effectData.lastDamage = damage;
+				this.effectData.sourcePosition = source.position;
+				this.effectData.sourceSide = source.side;
 			},
 			onAfterSetStatus(status, pokemon) {
 				// Sleep, freeze, and partial trap will just pause duration.
 				if (pokemon.volatiles['flinch']) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				} else if (pokemon.volatiles['partiallytrapped']) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				} else {
 					switch (status.id) {
 					case 'slp':
 					case 'frz':
-						this.effectState.duration++;
+						this.effectData.duration++;
 						break;
 					}
 				}
 			},
 			onBeforeMove(pokemon, t, move) {
-				if (this.effectState.duration === 1) {
-					if (!this.effectState.totalDamage) {
+				if (this.effectData.duration === 1) {
+					if (!this.effectData.totalDamage) {
 						this.debug("Bide failed due to 0 damage taken");
 						this.add('-fail', pokemon);
 						return false;
 					}
 					this.add('-end', pokemon, 'Bide');
-					const target = this.effectState.sourceSide.active[this.effectState.sourcePosition];
-					this.moveHit(target, pokemon, move, {damage: this.effectState.totalDamage * 2} as ActiveMove);
+					const target = this.effectData.sourceSide.active[this.effectData.sourcePosition];
+					this.moveHit(target, pokemon, move, {damage: this.effectData.totalDamage * 2} as ActiveMove);
 					return false;
 				}
 				this.add('-activate', pokemon, 'Bide');
@@ -253,11 +253,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// - if Counter is used by the opponent, it will succeed if the player's last selected move is Counterable
 			// - (Counter will thus desync if the target's last used move is not as counterable as the target's last selected move)
 			// - if Counter succeeds it will deal twice the last move damage dealt in battle (even if it's from a different pokemon because of a switch)
-			const lastMove = target.side.lastMove && this.dex.moves.get(target.side.lastMove.id);
+			const lastMove = target.side.lastMove && this.dex.getMove(target.side.lastMove.id);
 			const lastMoveIsCounterable = lastMove && lastMove.basePower > 0 &&
 				['Normal', 'Fighting'].includes(lastMove.type) && lastMove.id !== 'counter';
 
-			const lastSelectedMove = target.side.lastSelectedMove && this.dex.moves.get(target.side.lastSelectedMove);
+			const lastSelectedMove = target.side.lastSelectedMove && this.dex.getMove(target.side.lastSelectedMove);
 			const lastSelectedMoveIsCounterable = lastSelectedMove && lastSelectedMove.basePower > 0 &&
 				['Normal', 'Fighting'].includes(lastSelectedMove.type) && lastSelectedMove.id !== 'counter';
 
@@ -322,12 +322,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onStart(pokemon) {
 				if (!this.queue.willMove(pokemon)) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				}
 				const moves = pokemon.moves;
-				const move = this.dex.moves.get(this.sample(moves));
+				const move = this.dex.getMove(this.sample(moves));
 				this.add('-start', pokemon, 'Disable', move.name);
-				this.effectState.move = move.id;
+				this.effectData.move = move.id;
 				return;
 			},
 			onResidualOrder: 14,
@@ -335,14 +335,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-end', pokemon, 'Disable');
 			},
 			onBeforeMove(attacker, defender, move) {
-				if (move.id === this.effectState.move) {
+				if (move.id === this.effectData.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectState.move) {
+					if (moveSlot.id === this.effectData.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -630,7 +630,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const moves = target.moves;
 			const moveid = this.sample(moves);
 			if (!moveid) return false;
-			const move = this.dex.moves.get(moveid);
+			const move = this.dex.getMove(moveid);
 			source.moveSlots[moveslot] = {
 				move: move.name,
 				id: move.id,
@@ -715,7 +715,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// Rage lock
 			duration: 255,
 			onStart(target, source, effect) {
-				this.effectState.move = 'rage';
+				this.effectData.move = 'rage';
 			},
 			onLockMove: 'rage',
 			onTryHit(target, source, move) {
@@ -793,8 +793,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 			if (!target.setStatus('slp', source, move)) return false;
-			target.statusState.time = 2;
-			target.statusState.startTime = 2;
+			target.statusData.time = 2;
+			target.statusData.startTime = 2;
 			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
 	},
@@ -939,7 +939,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectState.hp = Math.floor(target.maxhp / 4) + 1;
+				this.effectData.hp = Math.floor(target.maxhp / 4) + 1;
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryHitPriority: -1,

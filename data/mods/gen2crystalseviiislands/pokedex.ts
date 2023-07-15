@@ -92,7 +92,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 261,
 		name: "Kipuro",
 		types: ["Rock", "Grass"],
-		baseStats: {hp: 100, atk: 90, def: 100, spa: 90, spd: 80, spe: 50},
+		baseStats: {hp: 90, atk: 90, def: 100, spa: 90, spd: 80, spe: 50},
 		abilities: {0: "No Ability"},
 		heightm: 2.1,
 		weightkg: 360,
@@ -173,6 +173,16 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 130,
 		prevo: "Cumulos",
 	},
+	celesteon: {
+		num: 270,
+		name: "Celesteon",
+		types: ["Cosmic"],
+		baseStats: {hp: 65, atk: 130, def: 110, spa: 95, spd: 60, spe: 65},
+		abilities: {0: "No Ability"},
+		heightm: 0.9,
+		weightkg: 26,
+		prevo: "Eevee",
+	},
 	
 	
 // Vanilla Edits
@@ -202,8 +212,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		evos: ["lunaraknid"],
 	},
-	
-	
 	stantler: {
 		inherit: true,
 		types: ["Normal", "Cosmic"],
@@ -212,11 +220,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		types: ["Electric", "Cosmic"],
 	},
-	starmie: {
-		inherit: true,
-		types: ["Water", "Cosmic"],
-	},
 	clefable: {
+		inherit: true,
+		types: ["Cosmic"],
+	},
+	clefairy: {
+		inherit: true,
+		types: ["Cosmic"],
+	},
+	cleffa: {
 		inherit: true,
 		types: ["Cosmic"],
 	},
@@ -224,4 +236,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		types: ["Grass", "Cosmic"],
 	},
+	eevee: {
+		inherit: true,
+		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Celesteon"],
+	}
 };

@@ -71,29 +71,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 3,
 			onLockMove: 'bide',
 			onStart(pokemon) {
-				this.effectState.totalDamage = 0;
+				this.effectData.totalDamage = 0;
 				this.add('-start', pokemon, 'move: Bide');
 			},
 			onDamagePriority: -101,
 			onDamage(damage, target, source, move) {
 				if (!move || move.effectType !== 'Move' || !source) return;
-				this.effectState.totalDamage += damage;
-				this.effectState.lastDamageSource = source;
+				this.effectData.totalDamage += damage;
+				this.effectData.lastDamageSource = source;
 			},
 			onBeforeMove(pokemon, target, move) {
-				if (this.effectState.duration === 1) {
+				if (this.effectData.duration === 1) {
 					this.add('-end', pokemon, 'move: Bide');
-					if (!this.effectState.totalDamage) {
+					if (!this.effectData.totalDamage) {
 						this.add('-fail', pokemon);
 						return false;
 					}
-					target = this.effectState.lastDamageSource;
+					target = this.effectData.lastDamageSource;
 					if (!target) {
 						this.add('-fail', pokemon);
 						return false;
 					}
 					if (!target.isActive) {
-						const possibleTarget = this.getRandomTarget(pokemon, this.dex.moves.get('pound'));
+						const possibleTarget = this.getRandomTarget(pokemon, this.dex.getMove('pound'));
 						if (!possibleTarget) {
 							this.add('-miss', pokemon);
 							return false;
@@ -104,7 +104,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						id: 'bide' as ID,
 						name: "Bide",
 						accuracy: 100,
-						damage: this.effectState.totalDamage * 2,
+						damage: this.effectData.totalDamage * 2,
 						category: "Physical",
 						priority: 0,
 						flags: {contact: 1, protect: 1},
@@ -631,19 +631,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
-				this.effectState.position = null;
-				this.effectState.damage = 0;
+				this.effectData.position = null;
+				this.effectData.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectState.target) return;
-				return source.side.foe.active[this.effectState.position];
+				if (source !== this.effectData.target) return;
+				return source.side.foe.active[this.effectData.position];
 			},
 			onDamagePriority: -101,
 			onDamage(damage, target, source, effect) {
 				if (effect.effectType === 'Move' && source.side !== target.side && this.getCategory(effect.id) === 'Special') {
-					this.effectState.position = source.position;
-					this.effectState.damage = 2 * damage;
+					this.effectData.position = source.position;
+					this.effectData.damage = 2 * damage;
 				}
 			},
 		},

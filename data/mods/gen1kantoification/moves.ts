@@ -56,55 +56,55 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.random(3, 4);
 			},
 			onStart(pokemon) {
-				this.effectState.totalDamage = 0;
-				this.effectState.lastDamage = 0;
+				this.effectData.totalDamage = 0;
+				this.effectData.lastDamage = 0;
 				this.add('-start', pokemon, 'Bide');
 			},
 			onHit(target, source, move) {
 				if (source && source !== target && move.category !== 'Physical' && move.category !== 'Special') {
-					const damage = this.effectState.totalDamage;
-					this.effectState.totalDamage += damage;
-					this.effectState.lastDamage = damage;
-					this.effectState.sourcePosition = source.position;
-					this.effectState.sourceSide = source.side;
+					const damage = this.effectData.totalDamage;
+					this.effectData.totalDamage += damage;
+					this.effectData.lastDamage = damage;
+					this.effectData.sourcePosition = source.position;
+					this.effectData.sourceSide = source.side;
 				}
 			},
 			onDamage(damage, target, source, move) {
 				if (!source || source.side === target.side) return;
 				if (!move || move.effectType !== 'Move') return;
-				if (!damage && this.effectState.lastDamage > 0) {
-					damage = this.effectState.totalDamage;
+				if (!damage && this.effectData.lastDamage > 0) {
+					damage = this.effectData.totalDamage;
 				}
-				this.effectState.totalDamage += damage;
-				this.effectState.lastDamage = damage;
-				this.effectState.sourcePosition = source.position;
-				this.effectState.sourceSide = source.side;
+				this.effectData.totalDamage += damage;
+				this.effectData.lastDamage = damage;
+				this.effectData.sourcePosition = source.position;
+				this.effectData.sourceSide = source.side;
 			},
 			onAfterSetStatus(status, pokemon) {
 				// Sleep, freeze, and partial trap will just pause duration.
 				if (pokemon.volatiles['flinch']) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				} else if (pokemon.volatiles['partiallytrapped']) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				} else {
 					switch (status.id) {
 					case 'slp':
 					case 'frz':
-						this.effectState.duration++;
+						this.effectData.duration++;
 						break;
 					}
 				}
 			},
 			onBeforeMove(pokemon, t, move) {
-				if (this.effectState.duration === 1) {
-					if (!this.effectState.totalDamage) {
+				if (this.effectData.duration === 1) {
+					if (!this.effectData.totalDamage) {
 						this.debug("Bide failed due to 0 damage taken");
 						this.add('-fail', pokemon);
 						return false;
 					}
 					this.add('-end', pokemon, 'Bide');
-					const target = this.effectState.sourceSide.active[this.effectState.sourcePosition];
-					this.moveHit(target, pokemon, move, {damage: this.effectState.totalDamage * 2} as ActiveMove);
+					const target = this.effectData.sourceSide.active[this.effectData.sourcePosition];
+					this.moveHit(target, pokemon, move, {damage: this.effectData.totalDamage * 2} as ActiveMove);
 					return false;
 				}
 				this.add('-activate', pokemon, 'Bide');
@@ -253,11 +253,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// - if Counter is used by the opponent, it will succeed if the player's last selected move is Counterable
 			// - (Counter will thus desync if the target's last used move is not as counterable as the target's last selected move)
 			// - if Counter succeeds it will deal twice the last move damage dealt in battle (even if it's from a different pokemon because of a switch)
-			const lastMove = target.side.lastMove && this.dex.moves.get(target.side.lastMove.id);
+			const lastMove = target.side.lastMove && this.dex.getMove(target.side.lastMove.id);
 			const lastMoveIsCounterable = lastMove && lastMove.basePower > 0 &&
 				['Normal', 'Fighting'].includes(lastMove.type) && lastMove.id !== 'counter';
 
-			const lastSelectedMove = target.side.lastSelectedMove && this.dex.moves.get(target.side.lastSelectedMove);
+			const lastSelectedMove = target.side.lastSelectedMove && this.dex.getMove(target.side.lastSelectedMove);
 			const lastSelectedMoveIsCounterable = lastSelectedMove && lastSelectedMove.basePower > 0 &&
 				['Normal', 'Fighting'].includes(lastSelectedMove.type) && lastSelectedMove.id !== 'counter';
 
@@ -322,12 +322,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onStart(pokemon) {
 				if (!this.queue.willMove(pokemon)) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				}
 				const moves = pokemon.moves;
-				const move = this.dex.moves.get(this.sample(moves));
+				const move = this.dex.getMove(this.sample(moves));
 				this.add('-start', pokemon, 'Disable', move.name);
-				this.effectState.move = move.id;
+				this.effectData.move = move.id;
 				return;
 			},
 			onResidualOrder: 14,
@@ -335,14 +335,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-end', pokemon, 'Disable');
 			},
 			onBeforeMove(attacker, defender, move) {
-				if (move.id === this.effectState.move) {
+				if (move.id === this.effectData.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectState.move) {
+					if (moveSlot.id === this.effectData.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -630,7 +630,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const moves = target.moves;
 			const moveid = this.sample(moves);
 			if (!moveid) return false;
-			const move = this.dex.moves.get(moveid);
+			const move = this.dex.getMove(moveid);
 			source.moveSlots[moveslot] = {
 				move: move.name,
 				id: move.id,
@@ -715,7 +715,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// Rage lock
 			duration: 255,
 			onStart(target, source, effect) {
-				this.effectState.move = 'rage';
+				this.effectData.move = 'rage';
 			},
 			onLockMove: 'rage',
 			onTryHit(target, source, move) {
@@ -793,8 +793,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 			if (!target.setStatus('slp', source, move)) return false;
-			target.statusState.time = 2;
-			target.statusState.startTime = 2;
+			target.statusData.time = 2;
+			target.statusData.startTime = 2;
 			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
 	},
@@ -939,7 +939,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectState.hp = Math.floor(target.maxhp / 4) + 1;
+				this.effectData.hp = Math.floor(target.maxhp / 4) + 1;
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryHitPriority: -1,
@@ -1095,4 +1095,869 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	earthpower: {
+  num: 414,
+  accuracy: 100,
+  basePower: 90,
+  category: 'Special',
+  name: 'Earth Power',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, nonsky: 1 },
+  secondary: { chance: 10, boosts: { spd: -1 } },
+  target: 'normal',
+  type: 'Ground',
+  desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
+  shortDesc: "10% chance to lower the target's Sp. Def by 1.",
+  gen: 1
+},
+	scorchingsands: {
+  num: 815,
+  accuracy: 100,
+  basePower: 70,
+  category: 'Special',
+  name: 'Scorching Sands',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, defrost: 1 },
+  thawsTarget: true,
+  secondary: { chance: 30, status: 'brn' },
+  target: 'normal',
+  type: 'Ground',
+  desc: 'Has a 30% chance to burn the target. The target thaws out if it is frozen.',
+  shortDesc: '30% chance to burn the target. Thaws target.',
+  gen: 1
+},
+	powergem: {
+  num: 408,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Special',
+  name: 'Power Gem',
+  pp: 20,
+  priority: 0,
+  flags: { protect: 1, mirror: 1 },
+  secondary: null,
+  target: 'normal',
+  type: 'Rock',
+  shortDesc: 'No additional effect.',
+  gen: 1
+},
+	rockpolish: {
+  num: 397,
+  accuracy: true,
+  basePower: 0,
+  category: 'Status',
+  name: 'Rock Polish',
+  pp: 20,
+  priority: 0,
+  flags: { snatch: 1 },
+  boosts: { spe: 2 },
+  secondary: null,
+  target: 'self',
+  type: 'Rock',
+  zMove: { effect: 'clearnegativeboost' },
+  desc: "Raises the user's Speed by 2 stages.",
+  shortDesc: "Raises the user's Speed by 2.",
+  gen: 1
+},
+	iciclecrash: {
+  num: 556,
+  accuracy: 90,
+  basePower: 85,
+  category: 'Physical',
+  name: 'Icicle Crash',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1 },
+  secondary: { chance: 30, volatileStatus: 'flinch' },
+  target: 'normal',
+  type: 'Ice',
+  desc: 'Has a 30% chance to make the target flinch.',
+  shortDesc: '30% chance to make the target flinch.',
+  gen: 1
+},
+	wildcharge: {
+  num: 528,
+  accuracy: 100,
+  basePower: 90,
+  category: 'Physical',
+  name: 'Wild Charge',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  recoil: [ 1, 4 ],
+  secondary: null,
+  target: 'normal',
+  type: 'Electric',
+  desc: 'If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.',
+  shortDesc: 'Has 1/4 recoil.',
+  gen: 1
+},
+	scald: {
+  num: 503,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Special',
+  name: 'Scald',
+  pp: 15,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, defrost: 1 },
+  thawsTarget: true,
+  secondary: { chance: 30, status: 'brn' },
+  target: 'normal',
+  type: 'Water',
+  desc: 'Has a 30% chance to burn the target. The target thaws out if it is frozen.',
+  shortDesc: '30% chance to burn the target. Thaws target.',
+  gen: 1
+},
+	flareblitz: {
+  num: 394,
+  accuracy: 100,
+  basePower: 120,
+  category: 'Physical',
+  name: 'Flare Blitz',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1, defrost: 1 },
+  recoil: [ 33, 100 ],
+  secondary: { chance: 10, status: 'brn' },
+  target: 'normal',
+  type: 'Fire',
+  desc: 'Has a 10% chance to burn the target. If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.',
+  shortDesc: 'Has 33% recoil. 10% chance to burn. Thaws user.',
+  gen: 1
+},
+	heatwave: {
+  num: 257,
+  accuracy: 90,
+  basePower: 95,
+  category: 'Special',
+  name: 'Heat Wave',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, wind: 1 },
+  secondary: { chance: 10, status: 'brn' },
+  target: 'allAdjacentFoes',
+  type: 'Fire',
+  desc: 'Has a 10% chance to burn the target.',
+  shortDesc: '10% chance to burn the foe(s).',
+  gen: 1
+},
+	psychocut: {
+  num: 427,
+  accuracy: 100,
+  basePower: 70,
+  category: 'Physical',
+  name: 'Psycho Cut',
+  pp: 20,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, slicing: 1 },
+  critRatio: 2,
+  secondary: null,
+  target: 'normal',
+  type: 'Psychic',
+  desc: 'Has a higher chance for a critical hit.',
+  shortDesc: 'High critical hit ratio.',
+  gen: 1
+},
+	zenheadbutt: {
+  num: 428,
+  accuracy: 90,
+  basePower: 80,
+  category: 'Physical',
+  name: 'Zen Headbutt',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 20, volatileStatus: 'flinch' },
+  target: 'normal',
+  type: 'Psychic',
+  desc: 'Has a 20% chance to make the target flinch.',
+  shortDesc: '20% chance to make the target flinch.',
+  gen: 1
+},
+	hypervoice: {
+  num: 304,
+  accuracy: 100,
+  basePower: 90,
+  category: 'Special',
+  name: 'Hyper Voice',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, sound: 1, bypasssub: 1 },
+  secondary: null,
+  target: 'allAdjacentFoes',
+  type: 'Normal',
+  desc: 'No additional effect.',
+  shortDesc: 'No additional effect. Hits adjacent foes.',
+  gen: 1
+},
+	gigaimpact: {
+  num: 416,
+  accuracy: 90,
+  basePower: 150,
+  category: 'Physical',
+  name: 'Giga Impact',
+  pp: 5,
+  priority: 0,
+  flags: { contact: 1, recharge: 1, protect: 1, mirror: 1 },
+  self: { volatileStatus: 'mustrecharge' },
+  secondary: null,
+  target: 'normal',
+  type: 'Normal',
+  desc: 'If this move is successful, the user must recharge on the following turn and cannot select a move.',
+  shortDesc: 'User cannot move next turn.',
+  gen: 1
+},
+	crunch: {
+  num: 242,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Physical',
+  name: 'Crunch',
+  pp: 15,
+  priority: 0,
+  flags: { bite: 1, contact: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 20, boosts: { def: -1 } },
+  target: 'normal',
+  type: 'Dark',
+  desc: "Has a 20% chance to lower the target's Defense by 1 stage.",
+  shortDesc: "20% chance to lower the target's Defense by 1.",
+  gen: 1
+},
+	darkpulse: {
+  num: 399,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Special',
+  name: 'Dark Pulse',
+  pp: 15,
+  priority: 0,
+  flags: { protect: 1, pulse: 1, mirror: 1, distance: 1 },
+  secondary: { chance: 20, volatileStatus: 'flinch' },
+  target: 'any',
+  type: 'Dark',
+  desc: 'Has a 20% chance to make the target flinch.',
+  shortDesc: '20% chance to make the target flinch.',
+  gen: 1
+},
+	throatchop: {
+  num: 675,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Physical',
+  name: 'Throat Chop',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  condition: { duration: 2, onBeforeMovePriority: 6, onResidualOrder: 22 },
+  secondary: { chance: 100 },
+  target: 'normal',
+  type: 'Dark',
+  desc: 'For 2 turns, the target cannot use sound-based moves.',
+  shortDesc: 'For 2 turns, the target cannot use sound moves.',
+  gen: 1
+},
+	honeclaws: {
+  num: 468,
+  accuracy: true,
+  basePower: 0,
+  category: 'Status',
+  name: 'Hone Claws',
+  pp: 15,
+  priority: 0,
+  flags: { snatch: 1 },
+  boosts: { atk: 1, accuracy: 1 },
+  secondary: null,
+  target: 'self',
+  type: 'Dark',
+  zMove: { boost: { atk: 1 } },
+  desc: "Raises the user's Attack and accuracy by 1 stage.",
+  shortDesc: "Raises the user's Attack and accuracy by 1.",
+  gen: 1
+},
+	nightslash: {
+  num: 400,
+  accuracy: 100,
+  basePower: 70,
+  category: 'Physical',
+  name: 'Night Slash',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
+  critRatio: 2,
+  secondary: null,
+  target: 'normal',
+  type: 'Dark',
+  desc: 'Has a higher chance for a critical hit.',
+  shortDesc: 'High critical hit ratio.',
+  gen: 1
+},
+	autotomize: {
+  num: 475,
+  accuracy: true,
+  basePower: 0,
+  category: 'Status',
+  isNonstandard: 'Past',
+  name: 'Autotomize',
+  pp: 15,
+  priority: 0,
+  flags: { snatch: 1 },
+  boosts: { spe: 2 },
+  secondary: null,
+  target: 'self',
+  type: 'Steel',
+  zMove: { effect: 'clearnegativeboost' },
+  desc: "Raises the user's Speed by 2 stages. If the user's Speed was changed, the user's weight is reduced by 100 kg as long as it remains active. This effect is stackable but cannot reduce the user's weight to less than 0.1 kg.",
+  shortDesc: "Raises the user's Speed by 2; user loses 100 kg.",
+  gen: 1
+},
+	flashcannon: {
+  num: 430,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Special',
+  name: 'Flash Cannon',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1 },
+  secondary: { chance: 10, boosts: { spd: -1 } },
+  target: 'normal',
+  type: 'Steel',
+  desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
+  shortDesc: "10% chance to lower the target's Sp. Def by 1.",
+  gen: 1
+},
+	ironhead: {
+  num: 442,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Physical',
+  name: 'Iron Head',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 30, volatileStatus: 'flinch' },
+  target: 'normal',
+  type: 'Steel',
+  desc: 'Has a 30% chance to make the target flinch.',
+  shortDesc: '30% chance to make the target flinch.',
+  gen: 1
+},
+	smartstrike: {
+  num: 684,
+  accuracy: true,
+  basePower: 70,
+  category: 'Physical',
+  name: 'Smart Strike',
+  pp: 10,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  secondary: null,
+  target: 'normal',
+  type: 'Steel',
+  shortDesc: 'This move does not check accuracy.',
+  gen: 1
+},
+	steelwing: {
+  num: 211,
+  accuracy: 90,
+  basePower: 70,
+  category: 'Physical',
+  name: 'Steel Wing',
+  pp: 25,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 10, self: { boosts: { def: 1 } } },
+  target: 'normal',
+  type: 'Steel',
+  desc: "Has a 10% chance to raise the user's Defense by 1 stage.",
+  shortDesc: "10% chance to raise the user's Defense by 1.",
+  gen: 1
+},
+	dazzlinggleam: {
+  num: 605,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Special',
+  name: 'Dazzling Gleam',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1 },
+  secondary: null,
+  target: 'allAdjacentFoes',
+  type: 'Fairy',
+  desc: 'No additional effect.',
+  shortDesc: 'No additional effect. Hits adjacent foes.',
+  gen: 1
+},
+	moonblast: {
+  num: 585,
+  accuracy: 100,
+  basePower: 95,
+  category: 'Special',
+  name: 'Moonblast',
+  pp: 15,
+  priority: 0,
+  flags: { protect: 1, mirror: 1 },
+  secondary: { chance: 30, boosts: { spa: -1 } },
+  target: 'normal',
+  type: 'Fairy',
+  desc: "Has a 30% chance to lower the target's Special Attack by 1 stage.",
+  shortDesc: "30% chance to lower the target's Sp. Atk by 1.",
+  gen: 1
+},
+	playrough: {
+  num: 583,
+  accuracy: 90,
+  basePower: 90,
+  category: 'Physical',
+  name: 'Play Rough',
+  pp: 10,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 10, boosts: { atk: -1 } },
+  target: 'normal',
+  type: 'Fairy',
+  desc: "Has a 10% chance to lower the target's Attack by 1 stage.",
+  shortDesc: "10% chance to lower the target's Attack by 1.",
+  gen: 1
+},
+	aurasphere: {
+  num: 396,
+  accuracy: true,
+  basePower: 80,
+  category: 'Special',
+  name: 'Aura Sphere',
+  pp: 20,
+  priority: 0,
+  flags: { bullet: 1, protect: 1, pulse: 1, mirror: 1, distance: 1 },
+  secondary: null,
+  target: 'any',
+  type: 'Fighting',
+  shortDesc: 'This move does not check accuracy.',
+  gen: 1
+},
+	brickbreak: {
+  num: 280,
+  accuracy: 100,
+  basePower: 75,
+  category: 'Physical',
+  name: 'Brick Break',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  secondary: null,
+  target: 'normal',
+  type: 'Fighting',
+  desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated.",
+  shortDesc: 'Destroys screens, unless the target is immune.',
+  gen: 1
+},
+	crosschop: {
+  num: 238,
+  accuracy: 80,
+  basePower: 100,
+  category: 'Physical',
+  name: 'Cross Chop',
+  pp: 5,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  critRatio: 2,
+  secondary: null,
+  target: 'normal',
+  type: 'Fighting',
+  desc: 'Has a higher chance for a critical hit.',
+  shortDesc: 'High critical hit ratio.',
+  gen: 1
+},
+	focusblast: {
+  num: 411,
+  accuracy: 70,
+  basePower: 120,
+  category: 'Special',
+  name: 'Focus Blast',
+  pp: 5,
+  priority: 0,
+  flags: { bullet: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 10, boosts: { spd: -1 } },
+  target: 'normal',
+  type: 'Fighting',
+  desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
+  shortDesc: "10% chance to lower the target's Sp. Def by 1.",
+  gen: 1
+},
+	airslash: {
+  num: 403,
+  accuracy: 95,
+  basePower: 75,
+  category: 'Special',
+  name: 'Air Slash',
+  pp: 15,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, distance: 1, slicing: 1 },
+  secondary: { chance: 30, volatileStatus: 'flinch' },
+  target: 'any',
+  type: 'Flying',
+  desc: 'Has a 30% chance to make the target flinch.',
+  shortDesc: '30% chance to make the target flinch.',
+  gen: 1
+},
+	bravebird: {
+  num: 413,
+  accuracy: 100,
+  basePower: 120,
+  category: 'Physical',
+  name: 'Brave Bird',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1, distance: 1 },
+  recoil: [ 33, 100 ],
+  secondary: null,
+  target: 'any',
+  type: 'Flying',
+  desc: 'If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.',
+  shortDesc: 'Has 33% recoil.',
+  gen: 1
+},
+	hurricane: {
+  num: 542,
+  accuracy: 70,
+  basePower: 110,
+  category: 'Special',
+  name: 'Hurricane',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, distance: 1, wind: 1 },
+  secondary: { chance: 30, volatileStatus: 'confusion' },
+  target: 'any',
+  type: 'Flying',
+  desc: "Has a 30% chance to confuse the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If the weather is Desolate Land or Sunny Day, this move's accuracy is 50%. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 70%.",
+  shortDesc: "30% chance to confuse target. Can't miss in rain.",
+  gen: 1
+},
+	dualwingbeat: {
+  num: 814,
+  accuracy: 90,
+  basePower: 40,
+  category: 'Physical',
+  name: 'Dual Wingbeat',
+  pp: 10,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  multihit: 2,
+  secondary: null,
+  target: 'normal',
+  type: 'Flying',
+  maxMove: { basePower: 130 },
+  desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit.",
+  shortDesc: 'Hits 2 times in one turn.',
+  gen: 1
+},
+	energyball: {
+  num: 412,
+  accuracy: 100,
+  basePower: 90,
+  category: 'Special',
+  name: 'Energy Ball',
+  pp: 10,
+  priority: 0,
+  flags: { bullet: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 10, boosts: { spd: -1 } },
+  target: 'normal',
+  type: 'Grass',
+  desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
+  shortDesc: "10% chance to lower the target's Sp. Def by 1.",
+  gen: 1
+},
+	gigadrain: {
+  num: 202,
+  accuracy: 100,
+  basePower: 75,
+  category: 'Special',
+  name: 'Giga Drain',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, heal: 1 },
+  drain: [ 1, 2 ],
+  secondary: null,
+  target: 'normal',
+  type: 'Grass',
+  desc: 'The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.',
+  shortDesc: 'User recovers 50% of the damage dealt.',
+  gen: 1
+},
+	leafblade: {
+  num: 348,
+  accuracy: 100,
+  basePower: 90,
+  category: 'Physical',
+  name: 'Leaf Blade',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
+  critRatio: 2,
+  secondary: null,
+  target: 'normal',
+  type: 'Grass',
+  desc: 'Has a higher chance for a critical hit.',
+  shortDesc: 'High critical hit ratio.',
+  gen: 1
+},
+	powerwhip: {
+  num: 438,
+  accuracy: 85,
+  basePower: 120,
+  category: 'Physical',
+  name: 'Power Whip',
+  pp: 10,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  secondary: null,
+  target: 'normal',
+  type: 'Grass',
+  shortDesc: 'No additional effect.',
+  gen: 1
+},
+	seedbomb: {
+  num: 402,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Physical',
+  name: 'Seed Bomb',
+  pp: 15,
+  priority: 0,
+  flags: { bullet: 1, protect: 1, mirror: 1 },
+  secondary: null,
+  target: 'normal',
+  type: 'Grass',
+  shortDesc: 'No additional effect.',
+  gen: 1
+},
+	synthesis: {
+  num: 235,
+  accuracy: true,
+  basePower: 0,
+  category: 'Status',
+  name: 'Synthesis',
+  pp: 5,
+  priority: 0,
+  flags: { snatch: 1, heal: 1 },
+  secondary: null,
+  target: 'self',
+  type: 'Grass',
+  zMove: { effect: 'clearnegativeboost' },
+  desc: 'The user restores 1/2 of its maximum HP if Delta Stream or no weather conditions are in effect or if the user is holding Utility Umbrella, 2/3 of its maximum HP if the weather is Desolate Land or Sunny Day, and 1/4 of its maximum HP if the weather is Primordial Sea, Rain Dance, Sandstorm, or Snow, all rounded half down.',
+  shortDesc: 'Heals the user by a weather-dependent amount.',
+  gen: 1
+},
+	woodhammer: {
+  num: 452,
+  accuracy: 100,
+  basePower: 120,
+  category: 'Physical',
+  name: 'Wood Hammer',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  recoil: [ 33, 100 ],
+  secondary: null,
+  target: 'normal',
+  type: 'Grass',
+  desc: 'If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.',
+  shortDesc: 'Has 33% recoil.',
+  gen: 1
+},
+	gunkshot: {
+  num: 441,
+  accuracy: 80,
+  basePower: 120,
+  category: 'Physical',
+  name: 'Gunk Shot',
+  pp: 5,
+  priority: 0,
+  flags: { protect: 1, mirror: 1 },
+  secondary: { chance: 30, status: 'psn' },
+  target: 'normal',
+  type: 'Poison',
+  desc: 'Has a 30% chance to poison the target.',
+  shortDesc: '30% chance to poison the target.',
+  gen: 1
+},
+	poisonjab: {
+  num: 398,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Physical',
+  name: 'Poison Jab',
+  pp: 20,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 30, status: 'psn' },
+  target: 'normal',
+  type: 'Poison',
+  desc: 'Has a 30% chance to poison the target.',
+  shortDesc: '30% chance to poison the target.',
+  gen: 1
+},
+	sludgebomb: {
+  num: 188,
+  accuracy: 100,
+  basePower: 90,
+  category: 'Special',
+  name: 'Sludge Bomb',
+  pp: 10,
+  priority: 0,
+  flags: { bullet: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 30, status: 'psn' },
+  target: 'normal',
+  type: 'Poison',
+  desc: 'Has a 30% chance to poison the target.',
+  shortDesc: '30% chance to poison the target.',
+  gen: 1
+},
+	sludgewave: {
+  num: 482,
+  accuracy: 100,
+  basePower: 95,
+  category: 'Special',
+  name: 'Sludge Wave',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1 },
+  secondary: { chance: 10, status: 'psn' },
+  target: 'allAdjacent',
+  type: 'Poison',
+  desc: 'Has a 10% chance to poison the target.',
+  shortDesc: '10% chance to poison adjacent Pokemon.',
+  gen: 1
+},
+	shadowball: {
+  num: 247,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Special',
+  name: 'Shadow Ball',
+  pp: 15,
+  priority: 0,
+  flags: { bullet: 1, protect: 1, mirror: 1 },
+  secondary: { chance: 20, boosts: { spd: -1 } },
+  target: 'normal',
+  type: 'Ghost',
+  desc: "Has a 20% chance to lower the target's Special Defense by 1 stage.",
+  shortDesc: "20% chance to lower the target's Sp. Def by 1.",
+  gen: 1
+},
+	shadowclaw: {
+  num: 421,
+  accuracy: 100,
+  basePower: 70,
+  category: 'Physical',
+  name: 'Shadow Claw',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  critRatio: 2,
+  secondary: null,
+  target: 'normal',
+  type: 'Ghost',
+  desc: 'Has a higher chance for a critical hit.',
+  shortDesc: 'High critical hit ratio.',
+  gen: 1
+},
+	bugbuzz: {
+  num: 405,
+  accuracy: 100,
+  basePower: 90,
+  category: 'Special',
+  name: 'Bug Buzz',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, mirror: 1, sound: 1, bypasssub: 1 },
+  secondary: { chance: 10, boosts: { spd: -1 } },
+  target: 'normal',
+  type: 'Bug',
+  desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
+  shortDesc: "10% chance to lower the target's Sp. Def by 1.",
+  gen: 1
+},
+	signalbeam: {
+  num: 324,
+  accuracy: 100,
+  basePower: 75,
+  category: 'Special',
+  isNonstandard: 'Past',
+  name: 'Signal Beam',
+  pp: 15,
+  priority: 0,
+  flags: { protect: 1, mirror: 1 },
+  secondary: { chance: 10, volatileStatus: 'confusion' },
+  target: 'normal',
+  type: 'Bug',
+  desc: 'Has a 10% chance to confuse the target.',
+  shortDesc: '10% chance to confuse the target.',
+  gen: 1
+},
+	xscissor: {
+  num: 404,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Physical',
+  name: 'X-Scissor',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1, slicing: 1 },
+  secondary: null,
+  target: 'normal',
+  type: 'Bug',
+  shortDesc: 'No additional effect.',
+  gen: 1
+},
+	pollenpuff: {
+  num: 676,
+  accuracy: 100,
+  basePower: 90,
+  category: 'Special',
+  name: 'Pollen Puff',
+  pp: 15,
+  priority: 0,
+  flags: { bullet: 1, protect: 1, mirror: 1, allyanim: 1 },
+  secondary: null,
+  target: 'normal',
+  type: 'Bug',
+  desc: 'If the target is an ally, this move restores 1/2 of its maximum HP, rounded down, instead of dealing damage.',
+  shortDesc: 'If the target is an ally, heals 50% of its max HP.',
+  gen: 1
+},
+	dragonclaw: {
+  num: 337,
+  accuracy: 100,
+  basePower: 80,
+  category: 'Physical',
+  name: 'Dragon Claw',
+  pp: 15,
+  priority: 0,
+  flags: { contact: 1, protect: 1, mirror: 1 },
+  secondary: null,
+  target: 'normal',
+  type: 'Dragon',
+  shortDesc: 'No additional effect.',
+  gen: 1
+},
+	dragonpulse: {
+  num: 406,
+  accuracy: 100,
+  basePower: 85,
+  category: 'Special',
+  name: 'Dragon Pulse',
+  pp: 10,
+  priority: 0,
+  flags: { protect: 1, pulse: 1, mirror: 1, distance: 1 },
+  secondary: null,
+  target: 'any',
+  type: 'Dragon',
+  shortDesc: 'No additional effect.',
+  gen: 1
+},
 };

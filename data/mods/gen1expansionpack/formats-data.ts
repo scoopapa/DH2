@@ -6,7 +6,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	///db   8D Y8b  d8 88 `88. 88   88 88      88      88.     88  .8D   88      `8b  d8' 88 `88. 88.     88  88  88 `8b  d8' 88  V888 
 	///`8888Y'  `Y88P' 88   YD YP   YP 88      88      Y88888P Y8888D'   88       `Y88P'  YP   YD Y88888P YP  YP  YP  `Y88P'  VP   V8P 
 	//LCs and NFEs are given their respective designations
-	///New Pokemon are tiered "New" as if it were a new generation. This should be positioned below OU.
+	//New Pokemon are tiered "New" as if it were a new generation. They are then moved with the next update.
 	//Old Pokemon have been retiered
 	puchikoon: {
 		tier: "LC",
@@ -45,7 +45,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	croakozuna: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	skimper: {
@@ -57,11 +57,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	cryithan: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	nidoreign: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	decilla: {
@@ -69,19 +69,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	gyaoon: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	omega: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	trampel: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	jagg: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	blottle: {
@@ -89,15 +89,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	pendraken: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	deer: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	barunda: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	cheep: {
@@ -105,11 +105,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	jabetta: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	cactus: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	kotora: {
@@ -121,43 +121,43 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	gorotora: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	crocky: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	gorochu: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	guardia: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	totartle: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	buu: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	purakkusu: { //1.1 SW97 additions begin here
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	madaamu: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	tsubomitto: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	animon: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	monja: {
@@ -189,35 +189,35 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	/// `Y88P' 88   YD  `Y88P'  `8888Y' `8888Y'         Y888P  Y88888P VP   V8P   Y88888P    YP     `Y88P'  `8888Y' 
 	///
 	kleavor: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	scizor: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	crobat: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	steelix: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	bellossom: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	slowking: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	slowkinggalar: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	magnezone: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	lickilicky: {
@@ -225,7 +225,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	tangrowth: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	blissey: {
@@ -233,67 +233,67 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	rhyperior: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	hitmontop: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	politoed: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	mrrime: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	kingdra: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	magmortar: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	electivire: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	porygon2: {
 		tier: "Uber",
-		gen: 1, //I really don't think people want to fight this or Porygon-Z. Let's just launch with them banned.
+		gen: 1,
 	},
 	porygonz: {
 		tier: "Uber",
 		gen: 1,
 	},
 	espeon: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	umbreon: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	leafeon: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	glaceon: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	sylveon: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	perrserker: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	sirfetchd: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	pichu: {
@@ -336,6 +336,58 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 		gen: 1,
 	},
+	meltan: {
+		tier: "LC",
+		gen: 1,
+	},
+	melmetal: {
+		tier: "OU",
+		gen: 1,
+	},
+	annihilape: {
+		tier: "OU",
+		gen: 1,
+	},
+	wiglett: {
+		tier: "LC",
+		gen: 1,
+	},
+	wugtrio: {
+		tier: "UU",
+		gen: 1,
+	},
+	toedscool: {
+		tier: "LC",
+		gen: 1,
+	},
+	toedscruel: {
+		tier: "Uber",
+		gen: 1,
+	},
+	screamtail: {
+		tier: "Uber",
+		gen: 1,
+	},
+	sandyshocks: {
+		tier: "OU",
+		gen: 1,
+	},
+	kokana: {
+		tier: "LC",
+		gen: 1,
+	},
+	kasanagi: {
+		tier: "NFE",
+		gen: 1,
+	},
+	carapthor: { // ogasawara name
+		tier: "New",
+		gen: 1,
+	},
+	taaban: {
+		tier: "New",
+		gen: 1,
+	},
 	///d8888b. d88888b  d888b  d888888b  .d88b.  d8b   db  .d8b.  db        db    db  .d8b.  d8888b. d888888b  .d8b.  d8b   db d888888b .d8888. 
 	///88  `8D 88'     88' Y8b   `88'   .8P  Y8. 888o  88 d8' `8b 88        88    88 d8' `8b 88  `8D   `88'   d8' `8b 888o  88 `~~88~~' 88'  YP 
 	///88oobY' 88ooooo 88         88    88    88 88V8o 88 88ooo88 88        Y8    8P 88ooo88 88oobY'    88    88ooo88 88V8o 88    88    `8bo.   
@@ -347,11 +399,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	raticatealola: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	raichualola: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	sandshrewalola: {
@@ -359,7 +411,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	sandslashalola: { //fweezai
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	vulpixalola: {
@@ -367,7 +419,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	ninetalesalola: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	diglettalola: {
@@ -375,7 +427,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	dugtrioalola: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	meowthalola: {
@@ -387,7 +439,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	persianalola: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	growlithehisui: {
@@ -395,7 +447,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	arcaninehisui: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	geodudealola: {
@@ -407,7 +459,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	golemalola: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	ponytagalar: {
@@ -415,7 +467,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	rapidashgalar: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	slowpokegalar: {
@@ -423,7 +475,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	slowbrogalar: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	farfetchdgalar: {
@@ -435,7 +487,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	mukalola: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	voltorbhisui: {
@@ -443,19 +495,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	electrodehisui: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	exeggutoralola: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	marowakalola: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	weezinggalar: {
-		tier: "New",
+		tier: "UU",
 		gen: 1,
 	},
 	mrmimegalar: {
@@ -463,15 +515,27 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	articunogalar: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	zapdosgalar: {
-		tier: "New",
+		tier: "OU",
 		gen: 1,
 	},
 	moltresgalar: {
-		tier: "New",
+		tier: "UU",
+		gen: 1,
+	},
+	taurospaldeacombat: {
+		tier: "UU",
+		gen: 1,
+	},
+	taurospaldeablaze: {
+		tier: "UU",
+		gen: 1,
+	},
+	taurospaldeaaqua: {
+		tier: "UU",
 		gen: 1,
 	},
 	/// .o88b. db       .d8b.  .d8888. .d8888. d888888b  .o88b.   d8888b.  .d88b.  db   dD d88888b d8888b. d88888b db    db 
@@ -851,7 +915,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["bodyslam", "sleeppowder", "stunspore"],
 		essentialMove: "razorleaf",
 		comboMoves: ["hyperbeam", "swordsdance"],
-		tier: "(OU)",
+		tier: "UU",
 	},
 	tentacool: {
 		randomBattleMoves: ["barrier", "hydropump", "surf"],
@@ -1168,7 +1232,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["bodyslam", "confuseray", "rest", "sing", "surf"],
 		essentialMove: "blizzard",
 		exclusiveMoves: ["thunderbolt", "thunderbolt"],
-		tier: "(OU)",
+		tier: "UU",
 	},
 	ditto: {
 		randomBattleMoves: ["transform"],
@@ -1287,5 +1351,156 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	missingno: {
 		isNonstandard: "Unobtainable",
 		tier: "Illegal",
+	},
+	// 8888ba.88ba                    oo dP                                  
+	// 88  `8b  `8b                      88                                  
+	// 88   88   88 .d8888b. .d8888b. dP 88  .dP  .d8888b. 88d888b. 88d888b. 
+	// 88   88   88 88'  `88 88'  `88 88 88888"   88'  `88 88'  `88 88'  `88 
+	// 88   88   88 88.  .88 88.  .88 88 88  `8b. 88.  .88 88       88.  .88 
+	// dP   dP   dP `88888P8 `8888P88 dP dP   `YP `88888P8 dP       88Y888P' 
+	// 						   .88                               88       
+	// 					   d8888P                                dP       
+	// 	   dP                              
+	// 	   88                              
+	// 	   88 dP    dP 88d8b.d8b. 88d888b. 
+	// 	   88 88    88 88'`88'`88 88'  `88 
+	// 88.  .d8P 88.  .88 88  88  88 88.  .88 
+	//  `Y8888'  `88888P' dP  dP  dP 88Y888P' 
+	// 							  88       
+	// 							  dP       
+	//  88888888b                                       
+	//  88                                              
+	// a88aaaa    .d8888b. 88d888b. 88d8b.d8b. .d8888b. 
+	//  88        88'  `88 88'  `88 88'`88'`88 Y8ooooo. 
+	//  88        88.  .88 88       88  88  88       88 
+	//  dP        `88888P' dP       dP  dP  dP `88888P' 
+	// These are the Magikarp formes from Magikarp Jump, done by Albatross on Christmas. She is insane and so am I.
+	magikarpskelly: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpcalicoorange: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpcalicowhite: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpcalicoblack: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpcalicogold: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarporangetwotone: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarporangeorca: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarporangedapples: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarppinktwotone: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarppinkorca: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarppinkdapples: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpgraybubbles: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpgraydiamonds: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpgraypatches: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarppurplebubbles: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarppurplediamonds: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarppurplepatches: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpapricottiger: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpapricotzebra: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpapricotstripes: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpbrowntiger: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpbrownzebra: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpbrownstripes: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarporangeforehead: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarporangemask: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpblackforehead: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpblackmask: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpsaucyblue: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpblueraindrops: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpsaucyviolet: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpvioletraindrops: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
+	},
+	magikarpgold: {
+		randomBattleMoves: ["splash", "tackle"],
+		tier: "LC",
 	},
 };

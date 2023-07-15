@@ -87,7 +87,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				if (target.isSemiInvulnerable() || target.side === source.side) return;
 				if (!target.isGrounded()) {
-					const baseMove = this.dex.moves.get(effect.id);
+					const baseMove = this.dex.getMove(effect.id);
 					if (baseMove.priority > 0) {
 						this.hint("Psychic Terrain doesn't affect Pokémon immune to Ground.");
 					}
@@ -188,7 +188,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onEnd() {
-				if (!this.effectState.duration) this.eachEvent('Terrain');
+				if (!this.effectData.duration) this.eachEvent('Terrain');
 				this.add('-fieldend', 'move: Grassy Terrain');
 			},
 		},
@@ -275,7 +275,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
@@ -297,7 +297,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers = 1;
+				this.effectData.layers = 1;
 				for (const active of this.getAllActive()) {
 					if (active.volatiles['gravitationalpull']) {
 						this.add('-ability', active, 'Gravitational Pull');
@@ -306,20 +306,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onRestart(side) {
-				if (this.effectState.layers >= 3) return false;
+				if (this.effectData.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers++;
+				this.effectData.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
 				}
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
 		},
 	},
@@ -338,7 +338,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onSwitchIn(pokemon) {
 				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
@@ -363,13 +363,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
 				) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
 				}
 				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
+				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
 			},
 		},
 	},
@@ -379,7 +379,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectState.layers = 1;
+				this.effectData.layers = 1;
 				for (const active of this.getAllActive()) {
 					if (active.volatiles['gravitationalpull']) {
 						this.add('-ability', active, 'Gravitational Pull');
@@ -388,9 +388,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 			onRestart(side) {
-				if (this.effectState.layers >= 2) return false;
+				if (this.effectData.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectState.layers++;
+				this.effectData.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
@@ -398,13 +398,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
 				} else if (pokemon.hasType('Steel') || pokemon.hasType('Poison') ||
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())) {
+					pokemon.hasItem('heavydutyboots') || (this.dex.getAbility(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())) {
 					return;
 				} else {
 					for (const active of this.getAllActive()) {
 						if (active.hasAbility('gravitationalpull')) return;
 					}
-					if (this.effectState.layers >= 2) {
+					if (this.effectData.layers >= 2) {
 						pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 					} else {
 						pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
@@ -424,7 +424,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 2;
 			},
 			onRestart(pokemon) {
-				this.effectState.duration = 2;
+				this.effectData.duration = 2;
 			},
 			onBasePowerPriority: 9,
 			onBasePower(basePower, attacker, defender, move) {
@@ -460,7 +460,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					if (this.dex.getMove(moveSlot.id).flags['heal']) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -477,7 +477,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-end', pokemon, 'move: Heal Block');
 			},
 			onTryHeal(damage, target, source, effect) {
-				if ((effect?.id === 'zpower') || this.effectState.isZ) return damage;
+				if ((effect?.id === 'zpower') || this.effectData.isZ) return damage;
 				return false;
 			},
 		},
@@ -1036,7 +1036,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onAnyModifyDamage(damage, source, target, move) {
-				if (target !== source && target.side === this.effectState.target) {
+				if (target !== source && target.side === this.effectData.target) {
 					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
 							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
 						return;
@@ -1206,9 +1206,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					const type = species.types[0];
 					if (species.types[1]) {
 						const type2 = species.types[1];
-						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="http://play.pokemonshowdown.com/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 					} else {
-						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 					}
 				} else {
 					pokemon.formeChange('Meloetta' + meloettaForme, this.effect, false, '[msg]');
@@ -1888,7 +1888,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Tail Glow", target);
 		},
 		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusState.frostbite) return;
+			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite) return;
 			pokemon.cureStatus();
 		},
 		boosts: {
@@ -1904,7 +1904,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	refresh: {
 		inherit: true,
 		onHit(pokemon) {
-			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusState.frostbite) return;
+			if (['', 'slp', 'frz'].includes(pokemon.status) && !pokemon.statusData.frostbite) return;
 			pokemon.cureStatus();
 		},
 	},

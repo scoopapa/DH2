@@ -61,29 +61,29 @@ let BattleMovedex = {
 			},
 			onLockMove: 'bide',
 			onStart: function (pokemon) {
-				this.effectState.totalDamage = 0;
+				this.effectData.totalDamage = 0;
 				this.add('-start', pokemon, 'move: Bide');
 			},
 			onDamagePriority: -101,
 			onDamage: function (damage, target, source, move) {
 				if (!move || move.effectType !== 'Move' || !source) return;
-				this.effectState.totalDamage += damage;
-				this.effectState.lastDamageSource = source;
+				this.effectData.totalDamage += damage;
+				this.effectData.lastDamageSource = source;
 			},
 			onBeforeMove: function (pokemon, target, move) {
-				if (this.effectState.duration === 1) {
+				if (this.effectData.duration === 1) {
 					this.add('-end', pokemon, 'move: Bide');
-					if (!this.effectState.totalDamage) {
+					if (!this.effectData.totalDamage) {
 						this.add('-fail', pokemon);
 						return false;
 					}
-					target = this.effectState.lastDamageSource;
+					target = this.effectData.lastDamageSource;
 					if (!target) {
 						this.add('-fail', pokemon);
 						return false;
 					}
-					if (!target.isActive) target = this.resolveTarget(pokemon, this.moves.get('pound'));
-					if (!pokemon.isAdjacent(target)) {
+					if (!target.isActive) target = this.resolveTarget(pokemon, this.getMove('pound'));
+					if (!this.isAdjacent(pokemon, target)) {
 						this.add('-miss', pokemon, target);
 						return false;
 					}
@@ -93,7 +93,7 @@ let BattleMovedex = {
 						id: 'bide',
 						name: "Bide",
 						accuracy: 100,
-						damage: this.effectState.totalDamage * 2,
+						damage: this.effectData.totalDamage * 2,
 						category: "Physical",
 						priority: 0,
 						flags: {contact: 1, protect: 1},
@@ -116,7 +116,7 @@ let BattleMovedex = {
 	counter: {
 		inherit: true,
 		damageCallback: function (pokemon, target) {
-			if (pokemon.lastAttackedBy && pokemon.lastAttackedBy.thisTurn && pokemon.lastAttackedBy.move && (this.getCategory(pokemon.lastAttackedBy.move) === 'Physical' || this.moves.get(pokemon.lastAttackedBy.move).id === 'hiddenpower') &&
+			if (pokemon.lastAttackedBy && pokemon.lastAttackedBy.thisTurn && pokemon.lastAttackedBy.move && (this.getCategory(pokemon.lastAttackedBy.move) === 'Physical' || this.getMove(pokemon.lastAttackedBy.move).id === 'hiddenpower') &&
 				(!target.lastMove || target.lastMove.id !== 'sleeptalk')) {
 				// @ts-ignore
 				return 2 * pokemon.lastAttackedBy.damage;
@@ -200,18 +200,18 @@ let BattleMovedex = {
 					delete target.volatiles['encore'];
 					return;
 				}
-				this.effectState.move = target.lastMove.id;
+				this.effectData.move = target.lastMove.id;
 				this.add('-start', target, 'Encore');
 				if (!this.willMove(target)) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				}
 			},
 			onOverrideAction: function (pokemon) {
-				return this.effectState.move;
+				return this.effectData.move;
 			},
 			onResidualOrder: 13,
 			onResidual: function (target) {
-				if (target.moves.includes(this.effectState.move) && target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
+				if (target.moves.includes(this.effectData.move) && target.moveSlots[target.moves.indexOf(this.effectData.move)].pp <= 0) {
 					// early termination if you run out of PP
 					delete target.volatiles.encore;
 					this.add('-end', target, 'Encore');
@@ -221,11 +221,11 @@ let BattleMovedex = {
 				this.add('-end', target, 'Encore');
 			},
 			onDisableMove: function (pokemon) {
-				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
+				if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
 					return;
 				}
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id !== this.effectState.move) {
+					if (moveSlot.id !== this.effectData.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -377,7 +377,7 @@ let BattleMovedex = {
 		inherit: true,
 		damageCallback: function (pokemon, target) {
 			if (pokemon.lastAttackedBy && pokemon.lastAttackedBy.thisTurn && pokemon.lastAttackedBy.move && this.getCategory(pokemon.lastAttackedBy.move) === 'Special' &&
-				this.moves.get(pokemon.lastAttackedBy.move).id !== 'hiddenpower' && (!target.lastMove || target.lastMove.id !== 'sleeptalk')) {
+				this.getMove(pokemon.lastAttackedBy.move).id !== 'hiddenpower' && (!target.lastMove || target.lastMove.id !== 'sleeptalk')) {
 				// @ts-ignore
 				return 2 * pokemon.lastAttackedBy.damage;
 			}
@@ -525,9 +525,9 @@ let BattleMovedex = {
 		onHit: function (target) {
 			if (target.hp >= target.maxhp) return false;
 			if (!target.setStatus('slp') && target.status !== 'slp') return false;
-			target.statusState.time = 3;
-			target.statusState.startTime = 3;
-			target.statusState.source = target;
+			target.statusData.time = 3;
+			target.statusData.startTime = 3;
+			target.statusData.source = target;
 			this.heal(target.maxhp);
 			this.add('-status', target, 'slp', '[from] move: Rest');
 		},
@@ -585,7 +585,7 @@ let BattleMovedex = {
 			let moves = [];
 			for (const moveSlot of pokemon.moveSlots) {
 				let move = moveSlot.id;
-				if (move && !NoSleepTalk.includes(move) && !this.moves.get(move).flags['charge']) {
+				if (move && !NoSleepTalk.includes(move) && !this.getMove(move).flags['charge']) {
 					moves.push(move);
 				}
 			}
@@ -609,9 +609,9 @@ let BattleMovedex = {
 		effect: {
 			// this is a side condition
 			onStart: function (side) {
-				if (!this.effectState.layers || this.effectState.layers === 0) {
+				if (!this.effectData.layers || this.effectData.layers === 0) {
 					this.add('-sidestart', side, 'Spikes');
-					this.effectState.layers = 1;
+					this.effectData.layers = 1;
 				} else {
 					return false;
 				}
@@ -619,7 +619,7 @@ let BattleMovedex = {
 			onSwitchIn: function (pokemon) {
 				if (!pokemon.runImmunity('Ground')) return;
 				let damageAmounts = [0, 3];
-				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
 		},
 	},
@@ -628,7 +628,7 @@ let BattleMovedex = {
 		effect: {
 			onStart: function (target) {
 				this.add('-start', target, 'Substitute');
-				this.effectState.hp = Math.floor(target.maxhp / 4);
+				this.effectData.hp = Math.floor(target.maxhp / 4);
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryPrimaryHitPriority: -1,

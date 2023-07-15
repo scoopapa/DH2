@@ -196,6 +196,48 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "porygonz").learnset.confuseray = ["8L1"];
 		this.modData("Learnsets", "porygonz").learnset.shadowsneak = ["8L1"];
 		this.modData("Learnsets", "porygonz").learnset.psyshock = ["8L1"];
+		
+		this.modData("Learnsets", "sylveon").learnset.earthpower = ["8L1"];
+		
+		this.modData('Learnsets', 'breloom').learnset.armthrust = ['8L1'];
+		this.modData('Learnsets', 'breloom').learnset.poisondart = ['8L1'];
+		this.modData('Learnsets', 'breloom').learnset.acidicfists = ['8L1'];
+		this.modData('Learnsets', 'breloom').learnset.payback = ['8L1'];
+		this.modData('Learnsets', 'breloom').learnset.revenge = ['8L1'];
+		this.modData('Learnsets', 'breloom').learnset.enchantedpunch = ['8L1'];
+		this.modData('Learnsets', 'breloom').learnset.rashpowder = ['8L1'];
+
+		this.modData("Learnsets", "mimikyu").learnset.lightblast = ["8L1"];
+		this.modData("Learnsets", "mimikyu").learnset.spiritbreak = ["8L1"];
+		this.modData("Learnsets", "mimikyu").learnset.superpower = ["8L1"];
+		this.modData("Learnsets", "mimikyu").learnset.thunderpunch = ["8L1"];
+		this.modData("Learnsets", "mimikyu").learnset.voltswitch = ["8L1"];
+		this.modData("Learnsets", "mimikyu").learnset.wildcharge = ["8L1"];
+		this.modData("Learnsets", "mimikyu").learnset.zingzap = ["8L1"];
+		delete this.modData('Learnsets', 'mimikyu').learnset.astonish;
+		delete this.modData('Learnsets', 'mimikyu').learnset.grudge;
+		delete this.modData('Learnsets', 'mimikyu').learnset.hex;
+		delete this.modData('Learnsets', 'mimikyu').learnset.phantomforce;
+		delete this.modData('Learnsets', 'mimikyu').learnset.shadowball;
+		delete this.modData('Learnsets', 'mimikyu').learnset.shadowclaw;
+		delete this.modData('Learnsets', 'mimikyu').learnset.shadowsneak;
+		delete this.modData('Learnsets', 'mimikyu').learnset.spite;
+		this.modData("Learnsets", "nihilego").learnset.strengthsap = ["8L1"];
+		this.modData("Learnsets", "nihilego").learnset.flashcannon = ["8L1"];
+		this.modData("Learnsets", "nihilego").learnset.moonblast = ["8L1"];
+		
+		this.modData("Learnsets", "golurk").learnset.swordsdance = ["8L1"];
+		this.modData("Learnsets", "golurk").learnset.shadowsneak = ["8L1"];
+		this.modData("Learnsets", "golurk").learnset.shadowclaw = ["8L1"];
+	
+		this.modData("Learnsets", "eelektross").learnset.gutpunch = ["8L1"];
+		this.modData("Learnsets", "eelektross").learnset.recover = ["8L1"];
+		delete this.modData('Learnsets', 'eelektross').learnset.brickbreak;
+		delete this.modData('Learnsets', 'eelektross').learnset.drainpunch;
+		
+		this.modData("Learnsets", "lugia").learnset.aeroblastubermons = ["8L1"];
+		this.modData("Learnsets", "lugia").learnset.workup = ["8L1"];
+		delete this.modData('Learnsets', 'lugia').learnset.calmmind;
 	},
 	
 	teambuilderConfig: {

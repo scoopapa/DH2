@@ -4,7 +4,7 @@ import RandomGen6Teams from '../gen6/random-teams';
 
 export class RandomGen5Teams extends RandomGen6Teams {
 	randomSet(species: string | Species, teamDetails: RandomTeamsTypes.TeamDetails = {}, isLead = false): RandomTeamsTypes.RandomSet {
-		species = this.dex.species.get(species);
+		species = this.dex.getSpecies(species);
 		let forme = species.name;
 
 		if (species.battleOnly && typeof species.battleOnly === 'string') {
@@ -95,7 +95,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [i, setMoveid] of moves.entries()) {
-				const move = this.dex.moves.get(setMoveid);
+				const move = this.dex.getMove(setMoveid);
 				const moveid = move.id;
 				let rejected = false;
 				let isSetup = false;
@@ -391,10 +391,10 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		}
 
 		const abilities = Object.values(species.abilities);
-		abilities.sort((a, b) => this.dex.abilities.get(b).rating - this.dex.abilities.get(a).rating);
-		let ability0 = this.dex.abilities.get(abilities[0]);
-		let ability1 = this.dex.abilities.get(abilities[1]);
-		let ability2 = this.dex.abilities.get(abilities[2]);
+		abilities.sort((a, b) => this.dex.getAbility(b).rating - this.dex.getAbility(a).rating);
+		let ability0 = this.dex.getAbility(abilities[0]);
+		let ability1 = this.dex.getAbility(abilities[1]);
+		let ability2 = this.dex.getAbility(abilities[2]);
 		if (abilities[1]) {
 			if (abilities[2] && ability1.rating <= ability2.rating && this.randomChance(1, 2)) {
 				[ability1, ability2] = [ability2, ability1];
@@ -549,7 +549,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			// Give Unburden mons a random Gem of the type of one of their damaging moves
 			const eligibleTypes = [];
 			for (const setMoveid of moves) {
-				const move = this.dex.moves.get(setMoveid);
+				const move = this.dex.getMove(setMoveid);
 				if (!move.basePower && !move.basePowerCallback) continue;
 				eligibleTypes.push(move.type);
 			}
@@ -571,7 +571,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		} else if (hasMove['substitute'] && hasMove['reversal']) {
 			const eligibleTypes = [];
 			for (const setMoveid of moves) {
-				const move = this.dex.moves.get(setMoveid);
+				const move = this.dex.getMove(setMoveid);
 				if (!move.basePower && !move.basePowerCallback) continue;
 				eligibleTypes.push(move.type);
 			}
@@ -656,7 +656,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 
 		const pokemonPool = [];
 		for (const id in this.dex.data.FormatsData) {
-			const species = this.dex.species.get(id);
+			const species = this.dex.getSpecies(id);
 			if (!species.isNonstandard && species.randomBattleMoves) {
 				pokemonPool.push(id);
 			}
@@ -669,7 +669,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 
 		while (pokemonPool.length && pokemon.length < 6) {
-			const species = this.dex.species.get(this.sampleNoReplace(pokemonPool));
+			const species = this.dex.getSpecies(this.sampleNoReplace(pokemonPool));
 			if (!species.exists) continue;
 
 			// Limit to one of each species (Species Clause)

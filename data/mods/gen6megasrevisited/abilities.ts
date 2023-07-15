@@ -112,13 +112,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: -1,
 	},
 	parentalbond: {
-		inherit: true,
-		desc: "This Pokemon's damaging moves become multi-hit moves that hit twice. The second hit has its damage halved. Does not affect multi-hit moves or moves that have multiple targets.",
-		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage halved.",
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1 /* && !target.hasAbility('neutralizinggas') */) return this.chainModify(0.5);
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
+			if (['endeavor', 'seismictoss', 'psywave', 'nightshade', 'sonicboom', 'dragonrage', 'superfang', 'naturesmadness', 'bide', 'counter', 'mirrorcoat', 'metalburst'].includes(move.id)) return;
+			if (!move.spreadHit && !move.isZ && !move.isMax) {
+				move.multihit = 2;
+				move.multihitType = 'parentalbond';
+			}
 		},
-		rating: 5,
+		onBasePowerPriority: 7,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.5);
+		},
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		name: "Parental Bond",
+		rating: 4.5,
+		num: 184,
 	},
 	pixilate: {
 		inherit: true,
@@ -446,6 +460,77 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     	shortDesc: "+1 Defense on switch-in. Boost goes away at the end of the next turn.",
 		gen: 6,
 	},
+	confidence: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({spa: length}, source);
+			}
+		},
+		name: "Confidence",
+		rating: 3,
+    	shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage if it attacks and KOes another Pokemon.",
+		gen: 6,
+	},
+	electricsurge: {
+		onStart(source) {
+			this.field.setTerrain('electricterrain');
+		},
+		name: "Electric Surge",
+		rating: 4,
+		num: 226,
+		gen: 6,
+	},				
+	goodasgold: {
+		onTryHit(target, source, move) {
+			if (move.category === 'Status' && target !== source) {
+				this.add('-immune', target, '[from] ability: Good as Gold');
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Good as Gold",
+		rating: 5,
+		num: 283,
+    	shortDesc: "This Pokemon is immune to Status moves.",
+	},
+	opportunist: {
+		onFoeAfterBoost(boost, target, source, effect) {
+			if (effect?.name === 'Opportunist') return;
+			const pokemon = this.effectData.target;
+			const positiveBoosts: Partial<BoostsTable> = {};
+			let i: BoostName;
+			for (i in boost) {
+				if (boost[i]! > 0) {
+					positiveBoosts[i] = boost[i];
+				}
+			}
+			if (Object.keys(positiveBoosts).length < 1) return;
+			this.boost(positiveBoosts, pokemon);
+		},
+		name: "Opportunist",
+		rating: 3,
+		num: 290,
+    	shortDesc: "When an opposing Pokemon has a stat stage raised, this Pokemon copies the effect.",																	
+	},
+	intoxicate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'technoblast', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Poison';
+				move.intoxicateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.intoxicateBoosted) return this.chainModify([0x14CD, 0x1000]);
+		},
+		name: "Intoxicate",
+		rating: 4,
+		shortDesc: "This Pokemon's Normal-type moves become Poison type and have 1.3x power.",
+	},	
 	
 /*	
 // ngas is so cringe

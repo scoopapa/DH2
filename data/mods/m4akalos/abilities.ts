@@ -9,6 +9,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			if (move.category === "Status" && move.type === "Psychic" && !move.selfSwitch) move.selfSwitch = true;
 		},
+		onSourceHit(target, source, move) {
+			if (move.category === "Status" && move.type === "Psychic" && move.selfSwitch && this.canSwitch(source.side)) {
+				this.add('-ability', source, 'Mana Gate');
+				this.add('-message', `${source.name} switches out using Mana Gate!`);
+			}
+		},
 		name: "Mana Gate",
 		rating: 3,
 		num: -1001,
@@ -27,6 +33,43 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Partial Eclipse",
 		rating: 3,
 		num: -1002,
+	},
+	marshlandlord: {
+		shortDesc: "On switch-in, summons Water Sport and Mud Sport.",
+		onStart(source) {
+			this.add('-ability', source, 'Marshland Lord');
+			this.field.addPseudoWeather('watersport');
+			this.field.addPseudoWeather('mudsport');
+		},
+		name: "Marshland Lord",
+		rating: 3.5,
+		num: -1003,
+	},
+	badinfluence: {
+		shortDesc: "If this Pokémon has a stat stage lowered, all Pokémon on the field have the same stat stage lowered.",
+		onBoost(boost, target, source, effect) {
+			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'badinfluence') return;
+			let b: BoostName;
+			const negativeBoost: SparseBoostsTable = {};
+			for (b in boost) {
+				if (boost[b]! < 0) {
+					if (target.boosts[b] === -6) continue;
+					negativeBoost[b] = boost[b];
+				}
+			}
+			let activated = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon === target || pokemon.fainted) continue;
+				if (!activated) {
+					this.add('-ability', target, 'Bad Influence');
+					activated = true;
+				}
+				this.boost(negativeBoost, pokemon, target, null, true);
+			}
+		},
+		name: "Bad Influence",
+		rating: 4,
+		num: -1004,
 	},
 
 	// crossover Megas

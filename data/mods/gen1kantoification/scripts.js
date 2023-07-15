@@ -174,7 +174,7 @@ let BattleScripts = {
 	// @ts-ignore
 	useMove(moveOrMoveName, pokemon, target, sourceEffect) {
 		if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
-		let baseMove = this.dex.moves.get(moveOrMoveName);
+		let baseMove = this.dex.getMove(moveOrMoveName);
 		let move = this.dex.getActiveMove(baseMove);
 		if (target === undefined) target = this.resolveTarget(pokemon, move);
 		if (move.target === 'self') {

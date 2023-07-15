@@ -224,7 +224,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			const prevStatus = this.status;
-			const prevStatusData = this.statusState;
+			const prevStatusData = this.statusData;
 			if (status.id) {
 				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
 				if (!result) {
@@ -234,18 +234,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			this.status = status.id;
-			this.statusState = {id: status.id, target: this};
-			if (source) this.statusState.source = source;
-			if (status.duration) this.statusState.duration = status.duration;
+			this.statusData = {id: status.id, target: this};
+			if (source) this.statusData.source = source;
+			if (status.duration) this.statusData.duration = status.duration;
 			if (status.durationCallback) {
-				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+				this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 			}
 
-			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
+			if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
 				this.battle.debug('status start [' + status.id + '] interrupted');
 				// cancel the setstatus
 				this.status = prevStatus;
-				this.statusState = prevStatusData;
+				this.statusData = prevStatusData;
 				return false;
 			}
 			if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {

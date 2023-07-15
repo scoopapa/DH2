@@ -824,7 +824,7 @@ export const Learnsets = {
 		learnset: {
 			megahorn: ["9L1"],
 			pinmissile: ["9L1"],
-			spikebolt: ["9L1"],
+			attackorder: ["9L1"],
 			closecombat: ["9L1"],
 			superpower: ["9L1"],
 			rockblast: ["9L1"],
@@ -2016,6 +2016,7 @@ export const Learnsets = {
 	},
 	cyllindrake: {
 		learnset: {
+			spinout: ["9L1"],
 			heavyslam: ["9L1"],
 			stealthrock: ["9L1"],
 			steelroller: ["9L1"],
@@ -3516,7 +3517,6 @@ export const Learnsets = {
 	},
 	faerenheit: {
 		learnset: {
-			temperatureburst: ["9L1"],
 			acrobatics: ["9L1"],
 			aerialace: ["9L1"],
 			allyswitch: ["9L1"],
@@ -3587,7 +3587,6 @@ export const Learnsets = {
 	},
 	cellsius: {
 		learnset: {
-			temperatureburst: ["9L1"],
 			hydropump: ["9L1"],
 			scald: ["9L1"],
 			surf: ["9L1"],
@@ -3657,7 +3656,7 @@ export const Learnsets = {
 	},
 	kelven: {
 		learnset: {
-			temperatureburst: ["9L1"],
+			spiritbreak: ["9L1"],
 			tripleaxel: ["9L1"],
 			iciclecrash: ["9L1"],
 			iceshard: ["9L1"],
@@ -3723,6 +3722,7 @@ export const Learnsets = {
 	},
 	salaos: {
 		learnset: {
+			fierywrath: ["9L1"],
 			suckerpunch: ["9L1"],
 			crunch: ["9L1"],
 			bite: ["9L1"],
@@ -3744,7 +3744,6 @@ export const Learnsets = {
 			doubleedge: ["9L1"],
 			bodyslam: ["9L1"],
 			headbutt: ["9L1"],
-			piercinggaze: ["9L1"],
 			darkpulse: ["9L1"],
 			snarl: ["9L1"],
 			sludgebomb: ["9L1"],
@@ -3814,7 +3813,7 @@ export const Learnsets = {
 			doubleedge: ["9L1"],
 			bodyslam: ["9L1"],
 			slash: ["9L1"],
-			dreadwing: ["9L1"],
+			oblivionwing: ["9L1"],
 			hurricane: ["9L1"],
 			airslash: ["9L1"],
 			aircutter: ["9L1"],
@@ -3861,8 +3860,8 @@ export const Learnsets = {
 	},
 	pythos: {
 		learnset: {
-			darkfang: ["9L1"],
 			crunch: ["9L1"],
+			knockoff: ["9L1"],
 			suckerpunch: ["9L1"],
 			bite: ["9L1"],
 			brutalswing: ["9L1"],
@@ -3958,8 +3957,8 @@ export const Learnsets = {
 			slam: ["9L1"],
 			gigaimpact: ["9L1"],
 			meteorbeam: ["9L1"],
+			revelationdance: ["9L1"],
 			powergem: ["9L1"],
-			lodestone: ["9L1"],
 			thunderbolt: ["9L1"],
 			risingvoltage: ["9L1"],
 			voltswitch: ["9L1"],
@@ -4226,6 +4225,8 @@ export const Learnsets = {
 	flocura: {
 		learnset: {
 			allyswitch: ["9L1"],
+			leechseed: ["9L1"],
+			earthpower: ["9L1"],
 			guardswap: ["9L1"],
 			guardsplit: ["9L1"],
 			powerswap: ["9L1"],
@@ -4243,7 +4244,6 @@ export const Learnsets = {
 			pollenpuff: ["9L1"],
 			shadowball: ["9L1"],
 			hex: ["9L1"],
-			secondsight: ["9L1"],
 			psychic: ["9L1"],
 			futuresight: ["9L1"],
 			psyshock: ["9L1"],
@@ -4259,7 +4259,6 @@ export const Learnsets = {
 			hyperbeam: ["9L1"],
 			sleeppowder: ["9L1"],
 			stealthrock: ["9L1"],
-			strengthsap: ["9L1"],
 			thunderwave: ["9L1"],
 			painsplit: ["9L1"],
 			taunt: ["9L1"],

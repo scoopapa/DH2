@@ -8,7 +8,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['New','S1','S2','A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','D1','D2','E1','E2','Unranked','NFE','LC','Uber'],
+		customTiers: ['New','S1','S2','A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','D1','D2','D3','E','Unranked','NFE','LC','Uber'],
 	},
 
 	// Don't remove this function; it handles Silvally's Multi-Attack type
@@ -418,17 +418,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", 'relicanth').learnset.superpower = ['3L1'];
 		this.modData("Learnsets", 'relicanth').learnset.whirlpool = ['3L1'];
 		
-		this.modData('Learnsets', 'blaziken').learnset.knockoff = ['3L1'];
+		// this.modData('Learnsets', 'blaziken').learnset.knockoff = ['3L1'];
 		this.modData('Learnsets', 'donphan').learnset.knockoff = ['3L1'];
 		//this.modData('Learnsets', 'dusclops').learnset.knockoff = ['3L1'];
-		this.modData('Learnsets', 'gardevoir').learnset.knockoff = ['3L1'];
+		// this.modData('Learnsets', 'gardevoir').learnset.knockoff = ['3L1'];
 		this.modData('Learnsets', 'ludicolo').learnset.knockoff = ['3L1'];
-		this.modData('Learnsets', 'machamp').learnset.knockoff = ['3L1'];
+		// this.modData('Learnsets', 'machamp').learnset.knockoff = ['3L1'];
 		//this.modData('Learnsets', 'milotic').learnset.knockoff = ['3L1'];
 		this.modData('Learnsets', 'muk').learnset.knockoff = ['3L1'];
 		this.modData('Learnsets', 'pinsir').learnset.knockoff = ['3L1'];
 		this.modData('Learnsets', 'tentacruel').learnset.knockoff = ['3L1'];
-		this.modData('Learnsets', 'scizor').learnset.knockoff = ['3L1'];
+		// this.modData('Learnsets', 'scizor').learnset.knockoff = ['3L1'];
 		this.modData('Learnsets', 'sudowoodo').learnset.knockoff = ['3L1'];
 		
 		//this.modData('Learnsets', 'skuntank').learnset.tailglow = ['3L1'];
@@ -520,8 +520,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'magmortar').learnset.thunderbolt = ['3L1'];
 		
 		this.modData('Learnsets', 'togekiss').learnset.extremespeed = ['3L1'];
-		
-		delete this.modData('Learnsets', 'deoxys').learnset.knockoff;
 		
 		
 		//Gen 2 Event Moves

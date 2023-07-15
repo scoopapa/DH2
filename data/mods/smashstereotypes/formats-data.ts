@@ -410,4 +410,91 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aegislashancient: {
 		tier: "SSS",
 	},
+	blastor: {
+		tier: "SSS",
+	},
+	valcondor: {
+		tier: "SSS",
+	},
+	sylveon: {
+		tier: "SSS",
+	},
+	norn: {
+		tier: "SSS",
+	},
+	aurorus: {
+		tier: "SSS",
+	},
+	orceyeofgruumsh: {
+		tier: "SSS",
+	},
+	breloom: {
+		tier: "SSS",
+	},
+	abhornet: {
+		tier: "SSS",
+	},
+	aquazelle: {
+		tier: "SSS",
+	},
+	balammit: {
+		tier: "SSS",
+	},
+	golevishalola: {
+		tier: "SSS",
+	},
+	yaciancrowned: {
+		tier: "SSS",
+	},
+	manicunogalar: {
+		tier: "SSS",
+	},
+	dragapultanti: {
+		tier: "SSS",
+	},
+	talonflame: {
+		tier: "SSS",
+	},
+	frozalisk: {
+		tier: "SSS",
+	},
+	mimikyu: {
+		tier: "SSS",
+	},
+	nihilego: {
+		tier: "SSS",
+	},
+	laveel: {
+		tier: "SSS",
+	},
+	hyperoach: {
+		tier: "SSS",
+	},
+	golurk: {
+		tier: "SSS",
+	},
+	baskiron: {
+		tier: "SSS",
+	},
+	baskironmega: {
+		tier: "SSS",
+	},
+	eelektross: {
+		tier: "SSS",
+	},
+	starietta: {
+		tier: "SSS",
+	},
+	tyranitar: {
+		tier: "SSS",
+	},
+	tyranitarmega: {
+		tier: "SSS",
+	},
+	galldrake: {
+		tier: "SSS",
+	},
+	lugia: {
+		tier: "SSS",
+	},
 };

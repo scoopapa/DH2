@@ -66,20 +66,20 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-7 turns
-			this.effectState.startTime = this.random(1, 8);
-			this.effectState.time = this.effectState.startTime;
+			this.effectData.startTime = this.random(1, 8);
+			this.effectData.time = this.effectData.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			pokemon.statusState.time--;
-			if (pokemon.statusState.time > 0) {
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time > 0) {
 				this.add('cant', pokemon, 'slp');
 			}
 			pokemon.lastMove = null;
 			return false;
 		},
 		onAfterMoveSelf(pokemon) {
-			if (pokemon.statusState.time <= 0) pokemon.cureStatus();
+			if (pokemon.statusData.time <= 0) pokemon.cureStatus();
 		},
 	},
 	frz: {
@@ -131,7 +131,7 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 			} else {
 				this.add('-start', target, 'confusion');
 			}
-			this.effectState.time = this.random(2, 6);
+			this.effectData.time = this.random(2, 6);
 		},
 		onEnd(target) {
 			this.add('-end', target, 'confusion');
@@ -177,7 +177,7 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 		name: 'trapped',
 		noCopy: true,
 		onTrapPokemon(pokemon) {
-			if (!this.effectState.source || !this.effectState.source.isActive) {
+			if (!this.effectData.source || !this.effectData.source.isActive) {
 				delete pokemon.volatiles['trapped'];
 				return;
 			}
@@ -205,14 +205,14 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 			}
 		},
 		onStart(target, source, effect) {
-			this.effectState.move = effect.id;
+			this.effectData.move = effect.id;
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.hasMove(this.effectState.move)) {
+			if (!pokemon.hasMove(this.effectData.move)) {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== this.effectState.move) {
+				if (moveSlot.id !== this.effectData.move) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -235,12 +235,12 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 		duration: 2,
 		counterMax: 256,
 		onStart() {
-			this.effectState.counter = 2;
+			this.effectData.counter = 2;
 		},
 		onStallMove() {
-			// this.effectState.counter should never be undefined here.
+			// this.effectData.counter should never be undefined here.
 			// However, just in case, use 1 if it is undefined.
-			const counter = this.effectState.counter || 1;
+			const counter = this.effectData.counter || 1;
 			if (counter >= 256) {
 				// 2^32 - special-cased because Battle.random(n) can't handle n > 2^16 - 1
 				return (this.random() * 4294967296 < 1);
@@ -250,10 +250,10 @@ export const Statuses: {[k: string]: ModdedPureEffectData} = {
 		},
 		onRestart() {
 			// @ts-ignore
-			if (this.effectState.counter < this.effect.counterMax) {
-				this.effectState.counter *= 2;
+			if (this.effectData.counter < this.effect.counterMax) {
+				this.effectData.counter *= 2;
 			}
-			this.effectState.duration = 2;
+			this.effectData.duration = 2;
 		},
 	},
 };

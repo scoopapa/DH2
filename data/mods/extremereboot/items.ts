@@ -60,8 +60,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.moves.get(moveSlot.id);
-				const ability = this.dex.abilities.get(pokemon.ability);
+				const move = this.dex.getMove(moveSlot.id);
+				const ability = this.dex.getAbility(pokemon.ability);
 				if (move.onModifyType) move.onModifyType(move, pokemon);
 				if (ability.onModifyType) ability.onModifyType(move, pokemon);
 				if (pokemon.getTypes()[0] !== move.type) {
@@ -92,7 +92,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source.hasType("Autumn")) return;
 			if (source && source !== target && move && move.category !== 'Status') {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.items.get('fellscythe'));
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('fellscythe'));
 			}
 		},
 		onResidualOrder: 5,

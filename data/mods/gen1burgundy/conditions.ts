@@ -65,21 +65,21 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-status', target, 'slp');
 			}
-			// 1-3 turns
-			this.effectData.startTime = this.random(1, 4);
+			// 2-4 turns
+			this.effectData.startTime = this.random(2, 5);
 			this.effectData.time = this.effectData.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			pokemon.statusState.time--;
-			if (pokemon.statusState.time > 0) {
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time > 0) {
 				this.add('cant', pokemon, 'slp');
 			}
 			pokemon.lastMove = null;
 			return false;
 		},
 		onAfterMoveSelf(pokemon) {
-			if (pokemon.statusState.time <= 0) pokemon.cureStatus();
+			if (pokemon.statusData.time <= 0) pokemon.cureStatus();
 		},
 	},
 	frz: {

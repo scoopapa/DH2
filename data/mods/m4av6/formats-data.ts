@@ -7,13 +7,10 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	ninetalesalolamega: {},
 	parasectmega: {},
 	dugtriomega: {},
-	golduckmega: {},
-	victreebelmega: {},
 	rapidashmega: {},
 	dodriomega: {},
 	electrodemega: {},
 	starmiemega: {},
-	jynxmega: {},
 	vaporeonmega: {},
 	jolteonmega: {},
 	flareonmega: {},
@@ -24,7 +21,6 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	ariadosmega: {},
 	lanturnmega: {},
 	slowkingmega: {},
-	granbullmega: {},
 	magcargomega: {},
 	delibirdmega: {},
 	mightyenamega: {},
@@ -74,7 +70,6 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	klinklangmega: {},
 	eelektrossmega: {},
 	chandeluremega: {},
-	golurkmega: {},
 	bisharpmega: {},
 	hydreigonmega: {},
 	delphoxmega: {},
@@ -139,11 +134,7 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	morpekohangry: { tier: "Underrated" },
 	// slate 39
 	slowkinggalarmega: {},
-	galvantulamega: {},
-	dusknoirmega: {},
 	// slate 40
-	articunomega: {},
-	virizionmega: {},
 	guzzlordmega: {},
 	// slate 41
 	lickilickymega: {},
@@ -219,7 +210,7 @@ randomMoves("persianalola", ["nastyplot", "darkpulse", "powergem", "hypnosis", "
 // randomMoves("persianalolamega, );
 // randomMoves("perrserkermega, );
 randomMoves("golduck", ["hydropump", "scald", "icebeam", "psyshock", "encore", "calmmind", "substitute"]);
-randomMoves("golduckmega", ["hydropump", "scald", "icebeam", "expandingforce", "psyshock", "focusblast", "calmmind", "psychicterrain"]);
+// randomMoves("golduckmega", ["hydropump", "scald", "icebeam", "expandingforce", "psyshock", "focusblast", "calmmind", "psychicterrain"]);
 randomMoves("primeape", ["closecombat", "uturn", "icepunch", "stoneedge", "encore", "earthquake", "gunkshot"]);
 // randomMoves("primeapemega, );
 randomMoves("arcanine", ["flareblitz", "wildcharge", "extremespeed", "closecombat", "morningsun", "willowisp", "toxic", "crunch", "roar"]);
@@ -358,7 +349,7 @@ randomMoves("aerodactylmega", ["honeclaws", "stoneedge", "dualwingbeat", "aquata
 randomMoves("snorlax", ["rest", "curse", "sleeptalk", "bodyslam", "earthquake", "return", "firepunch", "crunch", "pursuit", "whirlwind"]);
 // randomMoves("snorlaxmega, );
 randomMoves("articuno", ["icebeam", "roost", "freezedry", "toxic", "substitute", "hurricane"]);
-randomMoves("articunomega", ["icebeam", "roost", "freezedry", "uturn", "defog", "hurricane"]);
+// randomMoves("articunomega", ["icebeam", "roost", "freezedry", "uturn", "defog", "hurricane"]);
 // randomMoves("articunogalarmega, );
 randomMoves("zapdos", ["thunderbolt", "heatwave", "hiddenpowerice", "roost", "toxic", "uturn", "defog"]);
 // randomMoves("zapdosgalar, );
@@ -429,7 +420,7 @@ randomMoves("dunsparce", ["bodyslam", "rockslide", "bite", "coil", "glare", "hea
 randomMoves("gliscor", ["roost", "taunt", "earthquake", "protect", "toxic", "stealthrock", "knockoff", "uturn"]);
 // randomMoves("gliscormega, );
 randomMoves("granbull", ["thunderwave", "playrough", "crunch", "earthquake", "healbell"]);
-randomMoves("granbullmega", ["thunderwave", "playrough", "crunch", "earthquake", "milkdrink", "healbell"]);
+// randomMoves("granbullmega", ["thunderwave", "playrough", "crunch", "earthquake", "milkdrink", "healbell"]);
 randomMoves("qwilfish", ["toxicspikes", "liquidation", "spikes", "painsplit", "thunderwave", "taunt", "destinybond"]);
 // randomMoves("qwilfishmega, );
 randomMoves("shuckle", ["toxic", "encore", "stealthrock", "knockoff", "stickyweb", "infestation"]);
@@ -891,7 +882,7 @@ randomMoves("mienshao", ["uturn", "fakeout", "highjumpkick", "stoneedge", "poiso
 randomMoves("druddigon", ["outrage", "earthquake", "suckerpunch", "dragontail", "taunt", "glare", "stealthrock", "gunkshot", "firepunch"]);
 // randomMoves("druddigonmega, );
 randomMoves("golurk", ["earthquake", "shadowpunch", "dynamicpunch", "icepunch", "stealthrock", "rockpolish"]);
-randomMoves("golurkmega", ["earthquake", "phantomforce", "dynamicpunch", "icepunch", "stealthrock", "rockpolish"]);
+// randomMoves("golurkmega", ["earthquake", "phantomforce", "dynamicpunch", "icepunch", "stealthrock", "rockpolish"]);
 randomMoves("bisharp", ["swordsdance", "knockoff", "ironhead", "suckerpunch", "lowkick"]);
 randomMoves("bisharpmega", ["swordsdance", "knockoff", "ironhead", "suckerpunch", "lowkick", "pursuit", "stealthrock"]);
 randomMoves("bouffalant", ["headcharge", "earthquake", "stoneedge", "megahorn", "swordsdance", "superpower"]);
@@ -913,7 +904,7 @@ randomMoves("cobalion", ["closecombat", "ironhead", "swordsdance", "substitute",
 randomMoves("terrakion", ["swordsdance", "closecombat", "stoneedge", "earthquake", "stealthrock", "quickattack"]);
 // randomMoves("terrakionmega, );
 randomMoves("virizion", ["swordsdance", "closecombat", "leafblade", "stoneedge", "calmmind", "focusblast", "gigadrain", "hiddenpowerice", "substitute"]);
-randomMoves("virizionmega", ["swordsdance", "sacredsword", "leafblade", "stoneedge", "airslash", "substitute"]);
+// randomMoves("virizionmega", ["swordsdance", "sacredsword", "leafblade", "stoneedge", "airslash", "substitute"]);
 randomMoves("tornadus", ["hurricane", "heatwave", "superpower", "grassknot", "uturn", "defog", "tailwind"]);
 randomMoves("tornadustherian", ["hurricane", "heatwave", "knockoff", "superpower", "uturn", "taunt"]);
 randomMoves("thundurus", ["thunderwave", "nastyplot", "thunderbolt", "hiddenpowerflying", "focusblast", "substitute", "knockoff", "taunt"]);

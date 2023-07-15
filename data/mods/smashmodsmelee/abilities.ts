@@ -4,7 +4,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Ignores stat changes. Sets Electric Terrain when attacked.",
 		name: "Thunderhead",
 		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectState.target;
+			const unawareUser = this.effectData.target;
 			if (unawareUser === pokemon) return;
 			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['def'] = 0;
@@ -34,7 +34,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
@@ -48,12 +48,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnySwitchIn(pokemon) {
-			const source = this.effectState.target;
+			const source = this.effectData.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
@@ -101,7 +101,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyTryMove(target, source, effect) {
 			if (['trickroom'].includes(effect.id)) {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Time Warp', effect, '[of] ' + target);
+				this.add('cant', this.effectData.target, 'ability: Time Warp', effect, '[of] ' + target);
 				return false;
 			}
 		},
@@ -159,7 +159,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'brn',
-				ability: this.dex.abilities.get('flametouch'),
+				ability: this.dex.getAbility('flametouch'),
 			});
 		},
 		name: "Flame Touch",
@@ -310,35 +310,35 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko
 					) {
-						this.add('-ability', this.effectState.target, 'Run Away');
-						this.effectState.target.switchFlag = true;
+						this.add('-ability', this.effectData.target, 'Run Away');
+						this.effectData.target.switchFlag = true;
 						return;
 					}
 				}
 			}
 		},
 		onAnySwitchIn(pokemon) {
-			const source = this.effectState.target;
+			const source = this.effectData.target;
 			if (pokemon === source) return;
 			for (const target of source.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
 						this.dex.getImmunity(moveType, source) && this.dex.getEffectiveness(moveType, source) > 0 ||
 						move.ohko
 					) {
-						this.add('-ability', this.effectState.target, 'Run Away');
-						this.effectState.target.switchFlag = true;
+						this.add('-ability', this.effectData.target, 'Run Away');
+						this.effectData.target.switchFlag = true;
 						return;
 					}
 				}
@@ -354,7 +354,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
 				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
+					const move = this.dex.getMove(moveSlot.move);
 					if (move.category === 'Status') continue;
 					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (

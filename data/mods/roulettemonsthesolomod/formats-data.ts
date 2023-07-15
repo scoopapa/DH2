@@ -74,4 +74,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	jaguaplume: {
 		tier: "RTS",
 	},
+	hamstora: {
+		tier: "RTS",
+	},
+	cabarrage: {
+		tier: "RTS",
+	},
+	sumouse: {
+		tier: "RTS",
+	},
+	electrorb: {
+		tier: "RTS",
+	},
+	horroling: {
+		tier: "RTS",
+	},
 };

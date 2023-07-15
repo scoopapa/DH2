@@ -76,6 +76,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (this.field.isTerrain('grassyterrain')) return this.chainModify(5);
 		},
 		name: "Grass Pelt",
+		shortDesc: "Def is 5x in Grassy Terrain.",
 		rating: 0.5,
 		num: 179,
 	},
@@ -121,6 +122,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Iron Fist",
+		shortDesc: "Punching moves deal 1.3x damage.",
 		rating: 3,
 		num: 89,
 	},
@@ -137,6 +139,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			delete move.stab;
 		},
 		name: "Protean",
+		shortDesc: "User changes type to match its moves. Deletes STAB.",
 		rating: 4.5,
 		num: 168,
 	},
@@ -152,11 +155,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Rattled",
+		shortDesc: "If hit by Dark/Bug/Ghost; Intimidated, raises Spe by 12.",
 		rating: 1.5,
 		num: 155,
 	},
 	synchronize: {
-		shortDesc: "After knocking out target, if user knows less than 12 moves, it learns target's moves.",
 		onModifyDamage(damage, source, target, move) {
 			if (damage >= target.hp) {
 				for (const moveSlot of target.moveSlots) {
@@ -180,6 +183,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Synchronize",
+		shortDesc: "After knocking out target, it learns target's moves.",
 		rating: 2,
 		num: 28,
 	},
@@ -203,12 +207,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Unstoppable Force",
-		shortDesc: "Ice Ball/Rollout are buffed.",
+		shortDesc: "Ice Ball/Rollout go crazy.",
 		rating: 5,
 		num: -1001,
 	},
 	gamble: {
-		shortDesc: "This Pokémon's Metronome hits five times.",
 		onPrepareHit(source, target, move) {
 			if (move.multihit) return;
 			if (move.id === 'metronome') {
@@ -216,6 +219,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Gamble",
+		shortDesc: "This Pokémon's Metronome hits five times.",
 		rating: 3,
 		num: -5001,
 	},
@@ -228,11 +232,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Mycelium Might",
+		shortDesc: "This Pokemon's first move on switch in has +1 priority.",
 		rating: 2,
 		num: 298,
 	},
 	normalize: {
-      shortDesc: "All of this Pokemon's moves are Normal-type and have doubled power.",
 		onModifyTypePriority: 1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
@@ -248,6 +252,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.normalizeBoosted) return this.chainModify(2);
 		},
 		name: "Normalize",
+		shortDesc: "All of this Pokemon's moves are Normal-type and have doubled power.",
 		rating: 2,
 		num: 96,
 	},
@@ -272,6 +277,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Wonder Guard",
+		shortDesc: "Immunity to non-Super Effective damage and indirect damage.",
 		rating: 5,
 		num: 25,
 	},
@@ -343,8 +349,225 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Protosynthesis",
+		shortDesc: "This Pokemon's highest stat is 1.3x in Sun or holding Booster Energy.",
 		rating: 3,
 		num: 281,
+	},
+	protosmosis: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+		},
+		onUpdate(pokemon) {
+			// if (pokemon.transformed) return;
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('raindance') && !pokemon.volatiles['protosmosis']) {
+				pokemon.addVolatile('protosmosis');
+			} else if (pokemon.hasItem('boosterenergy') && !this.field.isWeather('raindance') && pokemon.useItem()) {
+				pokemon.removeVolatile('protosmosis');
+				pokemon.addVolatile('protosmosis', pokemon, Dex.getItem('boosterenergy'));
+				pokemon.volatiles['protosmosis'].fromBooster = true;
+			} else if (!pokemon.volatiles['protosmosis']?.fromBooster && !this.field.isWeather('raindance')) {
+				pokemon.removeVolatile('protosmosis');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protosmosis'];
+			this.add('-end', pokemon, 'Protosmosis', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'boosterenergy') {
+					this.effectData.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Protosmosis', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Protosmosis');
+				}
+				this.effectData.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'protosmosis' + this.effectData.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, source, target, move) {
+				if (this.effectData.bestStat !== 'atk') return;
+				this.debug('Protosmosis atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.effectData.bestStat !== 'def') return;
+				this.debug('Protosmosis def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(relayVar, source, target, move) {
+				if (this.effectData.bestStat !== 'spa') return;
+				this.debug('Protosmosis spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(relayVar, target, source, move) {
+				if (this.effectData.bestStat !== 'spd') return;
+				this.debug('Protosmosis spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectData.bestStat !== 'spe') return;
+				this.debug('Protosmosis spe boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Protosmosis');
+			},
+		},
+		isPermanent: true,
+		name: "Protosmosis",
+		shortDesc: "This Pokemon's highest stat is 1.3x in Rain or holding Booster Energy.",
+		rating: 3,
+		num: -1010,
+	},
+	protocrysalis: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+		},
+		onUpdate(pokemon) {
+			// if (pokemon.transformed) return;
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sandstorm') && !pokemon.volatiles['protocrysalis']) {
+				pokemon.addVolatile('protocrysalis');
+			} else if (pokemon.hasItem('boosterenergy') && !this.field.isWeather('sandstorm') && pokemon.useItem()) {
+				pokemon.removeVolatile('protocrysalis');
+				pokemon.addVolatile('protocrysalis', pokemon, Dex.getItem('boosterenergy'));
+				pokemon.volatiles['protocrysalis'].fromBooster = true;
+			} else if (!pokemon.volatiles['protocrysalis']?.fromBooster && !this.field.isWeather('sandstorm')) {
+				pokemon.removeVolatile('protocrysalis');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protocrysalis'];
+			this.add('-end', pokemon, 'Protocrysalis', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'boosterenergy') {
+					this.effectData.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Protocrysalis', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Protocrysalis');
+				}
+				this.effectData.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'protocrysalis' + this.effectData.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, source, target, move) {
+				if (this.effectData.bestStat !== 'atk') return;
+				this.debug('Protocrysalis atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.effectData.bestStat !== 'def') return;
+				this.debug('Protocrysalis def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(relayVar, source, target, move) {
+				if (this.effectData.bestStat !== 'spa') return;
+				this.debug('Protocrysalis spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(relayVar, target, source, move) {
+				if (this.effectData.bestStat !== 'spd') return;
+				this.debug('Protocrysalis spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectData.bestStat !== 'spe') return;
+				this.debug('Protocrysalis spe boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Protocrysalis');
+			},
+		},
+		isPermanent: true,
+		name: "Protocrysalis",
+		shortDesc: "This Pokemon's highest stat is 1.3x in Sand or holding Booster Energy.",
+		rating: 3,
+		num: -1011,
+	},
+	protostasis: {
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectData, pokemon);
+		},
+		onUpdate(pokemon) {
+			// if (pokemon.transformed) return;
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('hail') && !pokemon.volatiles['protostasis']) {
+				pokemon.addVolatile('protostasis');
+			} else if (pokemon.hasItem('boosterenergy') && !this.field.isWeather('hail') && pokemon.useItem()) {
+				pokemon.removeVolatile('protostasis');
+				pokemon.addVolatile('protostasis', pokemon, Dex.getItem('boosterenergy'));
+				pokemon.volatiles['protostasis'].fromBooster = true;
+			} else if (!pokemon.volatiles['protostasis']?.fromBooster && !this.field.isWeather('hail')) {
+				pokemon.removeVolatile('protostasis');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['protostasis'];
+			this.add('-end', pokemon, 'protostasis', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'boosterenergy') {
+					this.effectData.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Protostasis', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Protostasis');
+				}
+				this.effectData.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'protostasis' + this.effectData.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, source, target, move) {
+				if (this.effectData.bestStat !== 'atk') return;
+				this.debug('Protostasis atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.effectData.bestStat !== 'def') return;
+				this.debug('Protostasis def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(relayVar, source, target, move) {
+				if (this.effectData.bestStat !== 'spa') return;
+				this.debug('Protostasis spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(relayVar, target, source, move) {
+				if (this.effectData.bestStat !== 'spd') return;
+				this.debug('Protostasis spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectData.bestStat !== 'spe') return;
+				this.debug('Protostasis spe boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Protostasis');
+			},
+		},
+		isPermanent: true,
+		name: "Protostasis",
+		shortDesc: "This Pokemon's highest stat is 1.3x in Hail or holding Booster Energy.",
+		rating: 3,
+		num: -1012,
 	},
 	quarkdrive: {
 		onStart(pokemon) {
@@ -414,8 +637,225 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		isPermanent: true,
 		name: "Quark Drive",
+		shortDesc: "This Pokemon's highest stat is 1.3x in Electric Terrain or holding Booster Energy.",
 		rating: 3,
 		num: 282,
+	},
+	photondrive: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectData, pokemon);
+		},
+		onUpdate(pokemon) {
+			// if (pokemon.transformed) return;
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isTerrain('grassyterrain') && !pokemon.volatiles['photondrive']) {
+				pokemon.addVolatile('photondrive');
+			} else if (pokemon.hasItem('photondrive') && !this.field.isTerrain('grassyterrain') && pokemon.useItem()) {
+				pokemon.removeVolatile('photondrive');
+				pokemon.addVolatile('photondrive', pokemon, Dex.getItem('boosterenergy'));
+				pokemon.volatiles['photondrive'].fromBooster = true;
+			} else if (!pokemon.volatiles['photondrive']?.fromBooster && !this.field.isTerrain('grassyterrain')) {
+				pokemon.removeVolatile('photondrive');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['photondrive'];
+			this.add('-end', pokemon, 'Photon Drive', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'boosterenergy') {
+					this.effectData.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Photon Drive', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Photon Drive');
+				}
+				this.effectData.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'photondrive' + this.effectData.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, source, target, move) {
+				if (this.effectData.bestStat !== 'atk') return;
+				this.debug('Photon Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.effectData.bestStat !== 'def') return;
+				this.debug('Photon Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(relayVar, source, target, move) {
+				if (this.effectData.bestStat !== 'spa') return;
+				this.debug('Photon Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(relayVar, target, source, move) {
+				if (this.effectData.bestStat !== 'spd') return;
+				this.debug('Photon Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectData.bestStat !== 'spe') return;
+				this.debug('Photon Drive spe boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Photon Drive');
+			},
+		},
+		isPermanent: true,
+		name: "Photon Drive",
+		shortDesc: "This Pokemon's highest stat is 1.3x in Grassy Terrain or holding Booster Energy.",
+		rating: 3,
+		num: -1100,
+	},
+	neurondrive: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectData, pokemon);
+		},
+		onUpdate(pokemon) {
+			// if (pokemon.transformed) return;
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isTerrain('psychicterrain') && !pokemon.volatiles['neurondrive']) {
+				pokemon.addVolatile('neurondrive');
+			} else if (pokemon.hasItem('neurondrive') && !this.field.isTerrain('psychicterrain') && pokemon.useItem()) {
+				pokemon.removeVolatile('neurondrive');
+				pokemon.addVolatile('neurondrive', pokemon, Dex.getItem('boosterenergy'));
+				pokemon.volatiles['neurondrive'].fromBooster = true;
+			} else if (!pokemon.volatiles['neurondrive']?.fromBooster && !this.field.isTerrain('psychicterrain')) {
+				pokemon.removeVolatile('neurondrive');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['neurondrive'];
+			this.add('-end', pokemon, 'Neuron Drive', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'boosterenergy') {
+					this.effectData.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Neuron Drive', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Neuron Drive');
+				}
+				this.effectData.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'neurondrive' + this.effectData.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, source, target, move) {
+				if (this.effectData.bestStat !== 'atk') return;
+				this.debug('Neuron Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.effectData.bestStat !== 'def') return;
+				this.debug('Neuron Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(relayVar, source, target, move) {
+				if (this.effectData.bestStat !== 'spa') return;
+				this.debug('Neuron Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(relayVar, target, source, move) {
+				if (this.effectData.bestStat !== 'spd') return;
+				this.debug('Neuron Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectData.bestStat !== 'spe') return;
+				this.debug('Neuron Drive spe boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Neuron Drive');
+			},
+		},
+		isPermanent: true,
+		name: "Neuron Drive",
+		shortDesc: "This Pokemon's highest stat is 1.3x in Psychic Terrain or holding Booster Energy.",
+		rating: 3,
+		num: -1200,
+	},
+	runedrive: {
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectData, pokemon);
+		},
+		onUpdate(pokemon) {
+			// if (pokemon.transformed) return;
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isTerrain('mistyterrain') && !pokemon.volatiles['runedrive']) {
+				pokemon.addVolatile('runedrive');
+			} else if (pokemon.hasItem('runedrive') && !this.field.isTerrain('mistyterrain') && pokemon.useItem()) {
+				pokemon.removeVolatile('runedrive');
+				pokemon.addVolatile('runedrive', pokemon, Dex.getItem('boosterenergy'));
+				pokemon.volatiles['runedrive'].fromBooster = true;
+			} else if (!pokemon.volatiles['runedrive']?.fromBooster && !this.field.isTerrain('mistyterrain')) {
+				pokemon.removeVolatile('runedrive');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['runedrive'];
+			this.add('-end', pokemon, 'Rune Drive', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'boosterenergy') {
+					this.effectData.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Rune Drive', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Rune Drive');
+				}
+				this.effectData.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'runedrive' + this.effectData.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, source, target, move) {
+				if (this.effectData.bestStat !== 'atk') return;
+				this.debug('Rune Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.effectData.bestStat !== 'def') return;
+				this.debug('Rune Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(relayVar, source, target, move) {
+				if (this.effectData.bestStat !== 'spa') return;
+				this.debug('Rune Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(relayVar, target, source, move) {
+				if (this.effectData.bestStat !== 'spd') return;
+				this.debug('Rune Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectData.bestStat !== 'spe') return;
+				this.debug('Rune Drive spe boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Rune Drive');
+			},
+		},
+		isPermanent: true,
+		name: "Rune Drive",
+		shortDesc: "This Pokemon's highest stat is 1.3x in Misty Terrain or holding Booster Energy.",
+		rating: 3,
+		num: -1300,
 	},
 	hadronengine: {
 		onModifySpAPriority: 5,
@@ -426,6 +866,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Hadron Engine",
+		shortDesc: "This Pokemon's SpA is 1.5x in ETerrain.",
 		rating: 4.5,
 		num: 289,
 	},
@@ -437,6 +878,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Orichalcum Pulse",
+		shortDesc: "This Pokemon's Att is 1.5x in Sun.",
 		rating: 4.5,
 		num: 288,
 	},
@@ -472,6 +914,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Anger Shell",
+		shortDesc: "Raises this Pokemon's Att/SpA/Spe by 2 & Def/SpD by 1 when falling below 1/2 of its max hp.",
 		rating: 4,
 		num: 271,
 	},
@@ -500,7 +943,91 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			move.stab = 2;
 		},
 		name: "Ultimate Form",
+		shortDesc: "Stakeout + Strong Jaw + Adaptability.",
 		rating: 5,
 		num: -10000,
+	},
+	quickfeet: {
+		onModifySpe(spe, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Quick Feet",
+		shortDesc: "This Pokemon's Spe is 2x if statused.",
+		rating: 2.5,
+		num: 95,
+	},
+	watercompaction: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({def: 1})) {
+					this.add('-immune', target, '[from] ability: Water Compaction');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectData.target || target.side !== source.side) return;
+			if (move.type === 'Water') {
+				this.boost({def: 1}, this.effectData.target);
+			}
+		},
+		name: "Water Compaction",
+		shortDesc: "Raises Def by 1 if hit by a Water move. Water immunity.",
+		rating: 1.5,
+		num: 195,
+	},
+	mountaineer: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
+		isNonstandard: null,
+		name: "Mountaineer",
+		shortDesc: "Immunity to Stealth Rock and Rock moves on switch in.",
+		rating: 3,
+		num: -2,
+	},
+	pressure: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.side === source.side) return;
+			return 2;
+		},
+		name: "Pressure",
+		shortDesc: "Moves targeting this Pokemon loose 2 extra PP.",
+		rating: 2.5,
+		num: 46,
+	},
+	normalnormalize: {
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id)) {
+				move.type = 'Normal';
+				move.normalizeBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.normalizeBoosted) return this.chainModify(1.2);
+		},
+		name: "Normal Normalize",
+		shortDesc: "All moves become Normal-type and deal 1.2x.",
+		rating: 5,
+		num: -2000,
 	},
 }

@@ -1,3 +1,5 @@
+import { consoleips } from "../../../config/config-example";
+
 const slicing = [
 	'cut', 'razorleaf', 'slash', 'furycutter', 'aircutter', 'aerialace',
 	'leafblade', 'nightslash', 'airslash', 'xscissor', 'psychocutter',
@@ -6,6 +8,36 @@ const slicing = [
 	'aquacutter'
 ];
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
+	//Paradoxes abilities
+	cleansingfire: {
+		onAnyFaintPriority: 1,
+		onAnyFaint() {
+			if(!this.effectData.target.hp) return;
+			this.debug('cleansingfire');
+			this.add('-activate', this.effectData.target, 'ability: Cleansing Fire');
+			this.effectData.target.cureStatus();
+		},
+		name: "Cleansing Fire",
+		shortDesc: "When a Pokemon faints, this Pokemon's status is cured.",
+		rating: 3.5,
+		num: -1,
+	},
+	corruptingstorm: {
+		onDamagingHitOrder: 2,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp) {
+				this.add('-activate', target, 'ability: Corrupting Storm');
+				source.addVolatile('storm');
+			}
+		},
+		name: "Corrupting Storm",
+		shortDesc: "When this Pokemon is KOed by another Pokemon, the attacker loses 1/8 max HP every turn until it switches out.",
+		rating: 2.5,
+		num: -2,
+	},
+
+
+	//Gen 9 abilities
 	sharpness: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
@@ -14,6 +46,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Sharpness",
+		shortDesc: "This Pokemon's slicing moves have their power multiplied by 1.5.",
 		rating: 3,
 		num: 178,
 	},
@@ -32,6 +65,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Mycelium Might",
+		shortDesc: "This Pokemon's Status moves go last in their priority bracket and ignore Abilities.",
 		rating: 2,
 		num: 298,
 	},

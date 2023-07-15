@@ -4,6 +4,31 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
         excludeStandardTiers: true,
         customTiers: ['FEOU', 'FENFE', 'FELC'],
 	},
+	
+	canMegaEvo(pokemon) {
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (
+			altForme?.isMega && altForme?.requiredMove &&
+			pokemon.baseMoves.includes(this.toID(altForme.requiredMove)) && !item.zMove
+		) {
+			return altForme.name;
+		}
+		if (item.name === "Salamencite" && pokemon.baseSpecies.name === "Amphamence") {
+			return "Amphamence-Mega-X"; 
+		}
+		if (item.name === "Ampharosite" && pokemon.baseSpecies.name === "Amphamence") {
+			return "Amphamence-Mega-Y"; 
+		}
+		if (item.name === "Tyranitarite" && pokemon.baseSpecies.name === "Tyranix") {
+			return "Tyranix-Mega-X"; 
+		}
+		if (item.name === "Steelixite" && pokemon.baseSpecies.name === "Tyranix") {
+			return "Tyranix-Mega-Y"; 
+		}
+		
+		return item.megaStone;
+	},
 
 	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) {
 		pokemon.activeMoveActions++;
@@ -98,7 +123,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			const dancers = [];
 			for (const currentPoke of this.getAllActive()) {
 				if (pokemon === currentPoke) continue;
-				if ((currentPoke.hasAbility('dancer') || currentPoke.hasAbility('choreography')) && !currentPoke.isSemiInvulnerable()) {
+				if ((currentPoke.hasAbility(['dancer', 'choreography'])) && !currentPoke.isSemiInvulnerable()) {
 					dancers.push(currentPoke);
 				}
 			}
@@ -136,6 +161,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					if (message) {
 						if (this.hasAbility('holygrail')) {
 							this.battle.add('-immune', this, '[from] ability: Holy Grail');
+						} else if (this.hasAbility('risingtension')) {
+							this.battle.add('-immune', this, '[from] ability: Rising Tension');
+						} else if (this.hasAbility('freeflight')) {
+							this.battle.add('-immune', this, '[from] ability: Free Flight');
 						} else {
 							this.battle.add('-immune', this, '[from] ability: Levitate');
 						}
@@ -161,8 +190,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
-				(this.hasAbility('levitate') ||
-				this.hasAbility('holygrail')) &&
+				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight'])) &&
 				!this.battle.suppressingAttackEvents()
 			) return null;
 			if ('magnetrise' in this.volatiles) return false;

@@ -74,6 +74,49 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
+	larvitar: {
+		tier: "NU",
+		randomBattleMoves: ["rockslide", "earthquake", "hyperbeam", "bodyslam"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	pupitar: {
+		tier: "UU",
+		randomBattleMoves: ["rockslide", "earthquake", "hyperbeam", "bodyslam"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	tyranitar: {
+		tier: "OU",
+		randomBattleMoves: ["rockslide", "crunch", "thunderwave", "substitute"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	popplio: {
+		tier: "NU",
+		randomBattleMoves: ["hydropump", "blizzard", "surf", "sing"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	brionne: {
+		tier: "UU",
+		randomBattleMoves: ["hydropump", "blizzard", "sing", "rest"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	primarina: {
+		tier: "OU",
+		randomBattleMoves: ["sparklingaria", "blizzard", "hyperbeam", "rest"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	kingdra: {
+		tier: "OU",
+		randomBattleMoves: ["hydropump", "blizzard", "hyperbeam", "dracometeor"],
+		isNonstandard: null,
+		gen: 1,
+	},
+	
 	
 // Old Mons	
 	bulbasaur: {
@@ -266,7 +309,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	ninetales: {
-		randomBattleMoves: ["bodyslam", "confuseray", "fireblast"],
+		randomBattleMoves: ["bodyslam", "willowisp", "fireblast"],
 		exclusiveMoves: ["flamethrower", "reflect", "hyperbeam", "substitute"],
 		tier: "UU",
 	},
@@ -306,13 +349,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	paras: {
-		randomBattleMoves: ["bodyslam", "megadrain"],
+		randomBattleMoves: ["bodyslam", "megadrain", "junglehealing"],
 		essentialMove: "spore",
 		exclusiveMoves: ["stunspore", "stunspore", "swordsdance", "growth", "slash"],
 		tier: "LC",
 	},
 	parasect: {
-		randomBattleMoves: ["bodyslam", "megadrain"],
+		randomBattleMoves: ["bodyslam", "megadrain", "junglehealing"],
 		essentialMove: "spore",
 		exclusiveMoves: ["stunspore", "stunspore", "swordsdance", "growth", "slash", "hyperbeam"],
 		tier: "UU",
@@ -323,7 +366,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	venomoth: {
-		randomBattleMoves: ["psychic", "sleeppowder", "stunspore"],
+		randomBattleMoves: ["psychic", "sleeppowder", "stunspore", "quiverdance"],
 		exclusiveMoves: ["megadrain", "megadrain", "doubleedge"],
 		tier: "UU",
 	},
@@ -650,7 +693,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	tangela: {
-		randomBattleMoves: ["sleeppowder", "bodyslam", "swordsdance"],
+		randomBattleMoves: ["sleeppowder", "bodyslam", "swordsdance", "junglehealing"],
 		essentialMove: "megadrain",
 		comboMoves: ["growth", "stunspore"],
 		tier: "UU",

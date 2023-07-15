@@ -3,11 +3,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	imterrifiedofdondozo: {
 		onDamagingHit(damage, target, source, move) {
 			if (source.species.dondozo) {
-				this.boost({spe: 1});
+				this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe:2},);
 			}
 		},
 		name: "I'm terrified of Dondozo",
-		shortDesc: "When hit by Dondozo, speed is increased by one stage.",
+		shortDesc: "When hit by Dondozo, all stats are raised by two stages.",
 	},
 	coldcommander: {
 		name: "Cold Commander",
@@ -15,25 +15,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (this.field.isWeather(['hail', 'snow']) &&
 				pokemon.species.id === 'eisugiridondozo' && !pokemon.transformed) {
-				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.add('-activate', pokemon, 'ability: Cold Commander');
 				this.effectData.busted = false;
 				pokemon.formeChange('Eisugiri', this.effect, true);
+				pokemon.setAbility('coldcommander');
 			}
 		},
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
-			if (source.ability !== 'notpayingattentiontodondozoatallsorry' &&
-				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
-				target.species.id === 'eisugiri' && !target.transformed
+			if (effect && effect.effectType === 'Move' &&
+				effect.category === 'Physical' && target.species.id === 'eisugiri' &&
+				!target.transformed && source.ability !== 'notpayingattentiontodondozoatallsorry'
 			) {
 				this.add('-activate', target, 'ability: Cold Commander');
 				this.effectData.busted = true;
+				target.setAbility('coldcommander');
 				return 0;
 			}
 		},
 		onCriticalHit(target, type, move) {
 			if (!target) return;
-			if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
+			//if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (move.category !== 'Physical' || target.species.id !== 'eisugiri' || target.transformed) return;
 			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
 			if (!target.runImmunity(move.type)) return;
@@ -41,7 +43,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target) return;
-			if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
+			//if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (move.category !== 'Physical' || target.species.id !== 'eisugiri' || target.transformed) return;
 
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
@@ -52,15 +54,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'eisugiri' && this.effectData.busted) {
-				pokemon.formeChange('Eisugiri-Dondozo', this.effect, true);
+				pokemon.formeChange('Eisugiri-Dondozo');
+				pokemon.setAbility('coldcommander');
 			}
 		},
-		onWeatherChange(pokemon, source, sourceEffect) {
+		onWeatherStart(pokemon, source, sourceEffect) {
 			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
 			if ((sourceEffect as Ability)?.suppressWeather) return;
 			if (!pokemon.hp) return;
 			if (this.field.isWeather(['hail', 'snow']) &&
-				pokemon.species.id === 'eisugirinoice' && !pokemon.transformed) {
+				pokemon.species.id === 'eisugiridondozo') {
 				this.add('-activate', pokemon, 'ability: Cold Commander');
 				this.effectData.busted = false;
 				pokemon.formeChange('Eisugiri', this.effect, true);
@@ -115,7 +118,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	commanderguard: {
 		onTryHit(target, source, move) {
 			this.debug('Commander Guard immunity: ' + move.id);
-			if (!source.species.dondozo && source.ability !== 'notpayingattentiontodondozoatallsorry') {
+			if (target === source || move.type === '???' || move.id === 'struggle') return;
+			if (!source.species.dondozo && source.species.id !== "shedigiri" && source.ability !== 'notpayingattentiontodondozoatallsorry') {
 				if (move.smartTarget) {
 					move.smartTarget = false;
 				} else {
@@ -447,40 +451,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (randAbil < 1) pokemon.setAbility('unaware');
 			else if (randAbil < 2) pokemon.setAbility('waterveil');
 			else pokemon.setAbility('oblivious');
-			const liquidation = {
-				move: "Liquidation",
-				id: "liquidation",
+			const avalanche = {
+				move: "Avalanche",
+				id: "avalanche",
 				pp: 5,
 				maxpp: 5,
 				target: "normal",
-				disabled: false,
-				used: false,
-			}
-			const curse = {
-				move: "Curse",
-				id: "curse",
-				pp: 5,
-				maxpp: 5,
-				target: "normal",
-				nonGhostTarget: "self",
-				disabled: false,
-				used: false,
-			}
-			const sleeptalk = {
-				move: "Sleep Talk",
-				id: "sleeptalk",
-				pp: 5,
-				maxpp: 5,
-				target: "self",
-				disabled: false,
-				used: false,
-			}
-			const rest = {
-				move: "Rest",
-				id: "rest",
-				pp: 5,
-				maxpp: 5,
-				target: "self",
 				disabled: false,
 				used: false,
 			}
@@ -493,23 +469,51 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				disabled: false,
 				used: false,
 			}
-			pokemon.moveSlots[0] = liquidation;
-			pokemon.baseMoveSlots[0] = liquidation;
+			const earthquake = {
+				move: "Earthquake",
+				id: "earthquake",
+				pp: 5,
+				maxpp: 5,
+				target: "normal",
+				disabled: false,
+				used: false,
+			}
+			const rest = {
+				move: "Rest",
+				id: "rest",
+				pp: 5,
+				maxpp: 5,
+				target: "self",
+				disabled: false,
+				used: false,
+			}
+			const curse = {
+				move: "Curse",
+				id: "curse",
+				pp: 5,
+				maxpp: 5,
+				target: "self",
+				disabled: false,
+				used: false,
+			}
+			pokemon.moveSlots[0] = avalanche;
+			pokemon.baseMoveSlots[0] = avalanche;
 			const randMove = this.random(2);
 			if (randMove < 1) {
-				pokemon.moveSlots[3] = curse;
-				pokemon.baseMoveSlots[3] = curse;
+				pokemon.moveSlots[3] = bodypress;
+				pokemon.baseMoveSlots[3] = bodypress;
 			} else {
-				pokemon.moveSlots[3] = sleeptalk;
-				pokemon.baseMoveSlots[3] = sleeptalk;
+				pokemon.moveSlots[3] = earthquake;
+				pokemon.baseMoveSlots[3] = earthquake;
 			}
 			pokemon.moveSlots[1] = rest;
 			pokemon.baseMoveSlots[1] = rest;
-			pokemon.moveSlots[2] = bodypress;
-			pokemon.baseMoveSlots[2] = bodypress;
+			pokemon.moveSlots[2] = curse;
+			pokemon.baseMoveSlots[2] = curse;
+			this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe:2},);
 		},
 		name: "Emergency Meeting",
-		shortDesc: "On switchin, this Pokemon transforms into Dondozo.",
+		shortDesc: "On switchin, this Pokemon transforms into Dondozo and gains +2 in all stats.",
 	},
 	yeah: {
         onStart(pokemon) {
@@ -786,7 +790,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		//effect in pokedex.ts
+		//dondozo effect in pokedex.ts
 		name: "Commatose",
 		isPermanent: true,
 		shortDesc: "This Pokemon cannot be statused, and is considered to be Dondozo.",
@@ -794,16 +798,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	byeah: {
 		onModifyMovePriority: 1,
 		onModifyMove(move, attacker, defender) {
-			if (attacker.species.baseSpecies !== 'Aegigiri' || attacker.transformed) return;
+			if ((attacker.species.baseSpecies !== 'Aegigiri' && attacker.species.baseSpecies !== 'Aegigiri-Dondozo') || attacker.transformed) return;
 			if (move.category === 'Status' && move.id !== 'kingsshield') return;
 			const targetForme = (move.id === 'kingsshield' ? 'Aegigiri' : 'Aegigiri-Dondozo');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			attacker.setAbility('byeah');
 		},
 		isPermanent: true,
 		name: "byeah",
 		shortDesc: "This Pokemon changes to Dondozo before it attacks.",
 	},
-	facingfears: {
+	dondophobic: {
+		/*
 		onStart(pokemon) {
 			for (const target of pokemon.foes()) {
 				if (target.species.dondozo) {
@@ -812,8 +818,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return;	
 				}
 			}
+		},*/
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.species.dondozo) this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon);
+				else this.heal(pokemon.baseMaxhp / 4);
+			}
 		},
-		name: "Facing Fears",
-		shortDesc: "On switch-in, shudders and gains +2 to all stats if the foe is Dondozo.",
+		name: "Dondophobic",
+		shortDesc: "This Pokemon heals 1/4 max HP against non-Dondozo and damaged 1/8 max HP against Dondozo at the end of each turn.",
 	},
 }

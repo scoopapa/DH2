@@ -186,9 +186,78 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	aggronmega: {
 		inherit: true,
 		types: ["Steel"],
-		baseStats: {hp: 70, atk: 145, def: 185, spa: 90, spd: 85, spe: 60},
+		baseStats: {hp: 70, atk: 145, def: 185, spa: 85, spd: 85, spe: 60},
 		abilities: {0: "Dauntless Shield"},
 	},	
+	kangaskhanmega: {
+		inherit: true,
+		types: ["Normal", "Ground"],
+		baseStats: {hp: 105, atk: 135, def: 105, spa: 40, spd: 105, spe: 100},
+	},
+	salamencemega: {
+		inherit: true,
+		types: ["Dragon", "Flying"],
+		baseStats: {hp: 95, atk: 135, def: 105, spa: 155, spd: 105, spe: 105},
+		abilities: {0: "Confidence"},
+	},	
+	garchompmega: {
+		inherit: true,
+		types: ["Dragon", "Ground"],
+		baseStats: {hp: 108, atk: 150, def: 115, spa: 140, spd: 85, spe: 102},
+		abilities: {0: "Dry Skin"},
+	},	
+	tyranitarmega: {
+		inherit: true,
+		types: ["Rock", "Electric"],
+		baseStats: {hp: 100, atk: 164, def: 120, spa: 90, spd: 144, spe: 82},
+		abilities: {0: "Electric Surge"},
+	},
+	latiasmega: {
+		inherit: true,
+		abilities: {0: "Trace"},
+	},	
+	latiosmega: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 140, def: 100, spa: 150, spd: 120, spe: 110},
+		abilities: {0: "Opportunist"},
+	},
+	dianciemega: {
+		inherit: true,
+		abilities: {0: "Good As Gold"},
+	},	
+	blazikenmega: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 150, def: 80, spa: 120, spd: 90, spe: 110},
+		abilities: {0: "Regenerator"},
+	},
+	mewtwomegax: {
+		inherit: true,
+		types: ["Psychic", "Poison"],
+		baseStats: {hp: 106, atk: 140, def: 130, spa: 154, spd: 120, spe: 130},
+		abilities: {0: "Intoxicate"},
+	},
+	mewtwomegay: {
+		inherit: true,
+		types: ["Psychic", "Water"],
+		baseStats: {hp: 106, atk: 120, def: 110, spa: 194, spd: 130, spe: 120},
+		abilities: {0: "Levitate"},
+	},
+	rayquazamega: {
+		num: 384,
+		name: "Rayquaza-Mega",
+		baseSpecies: "Rayquaza",
+		forme: "Mega",
+		types: ["Dragon", "Flying"],
+		gender: "N",
+		baseStats: {hp: 105, atk: 180, def: 100, spa: 180, spd: 100, spe: 115},
+		abilities: {0: "Delta Stream"},
+		heightm: 10.8,
+		weightkg: 392,
+		color: "Green",
+		eggGroups: ["Undiscovered"],
+		requiredItem: "Meteorite",
+		requiredMove: null,		
+	},
 	
 // Gen 6 Stuff
 	arbok: {

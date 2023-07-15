@@ -559,4 +559,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		shortDesc: "No effect.",
 	},
+	baskironite: {
+		name: "Baskironite",
+		spritenum: 578,
+		megaStone: "Baskiron-Mega",
+		megaEvolves: "Baskiron",
+		itemUser: ["Baskiron"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -37,
+		gen: 8,
+		desc: "If held by a Baskiron, this item allows it to Mega Evolve in battle.",
+	},
 };

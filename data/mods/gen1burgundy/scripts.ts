@@ -723,7 +723,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// Now we check for focus energy volatile.
 			if (pokemon.volatiles['focusenergy']) {
-				// If it exists, crit chance is multiplied by 4 and floored.
+				// If it exists, crit chance is multiplied by 2 and floored.
 				critChance = Math.floor(critChance * 4);
 			} else {
 				// Normally, without focus energy, crit chance is multiplied by 2 and capped at 255 here.
@@ -898,5 +898,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'pinsir').learnset.focuspunch = ['1L1'];
 		this.modData('Learnsets', 'grimer').learnset.focuspunch = ['1L1'];
 		this.modData('Learnsets', 'muk').learnset.focuspunch = ['1L1'];
+		this.modData('Learnsets', 'venomoth').learnset.quiverdance = ['1L1'];
+		this.modData('Learnsets', 'ninetales').learnset.willowisp = ['1L1'];
+		this.modData('Learnsets', 'ninetales').learnset.nightshade = ['1L1'];
+		this.modData('Learnsets', 'kingdra').learnset.dracometeor = ['1L1'];
+		this.modData('Learnsets', 'kingdra').learnset.dragonbreath = ['1L1'];
+		this.modData('Learnsets', 'paras').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'tangela').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'bulbasaur').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'bellsprout').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'exeggcute').learnset.junglehealing = ['1L1'];
+		this.modData('Learnsets', 'venomoth').learnset.sludge = ['1L1'];
+		this.modData('Learnsets', 'venomoth').learnset.recover = ['1L1'];
 	},
 };

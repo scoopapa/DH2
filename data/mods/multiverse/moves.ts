@@ -121,7 +121,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.debug('Huntdown start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectState.sources) {
+				for (const source of this.effectData.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Huntdown');
@@ -277,7 +277,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.debug('Bring Sticks start');
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
-				for (const source of this.effectState.sources) {
+				for (const source of this.effectData.sources) {
 					if (!this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Bring Sticks');

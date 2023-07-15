@@ -54,7 +54,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaAbility: {0: "Solar Power"},
 		megaStats: {hp: 62, atk: 85, def: 62, spa: 129, spd: 114, spe: 129},
 		megaStone: "Heliolite",
-		movepoolAdditions: ["dragontail", "morningsun"],
+		movepoolAdditions: ["dragontail"],
 		megaCreator: "lydian",
 	},
 
@@ -163,6 +163,74 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaStone: "Solrockite",
 		movepoolAdditions: ["corrosivegas", "sacredfire", "uturn"],
 		megaCreator: "Paulluxx and XtheGAMEmaster",
+	},
+
+	// slate 6
+
+	quagsire: {
+		inherit: true,
+		mega: "quagsiremega",
+		megaName: "Quagsire-Mega",
+		megaAbility: {0: "Marshland Lord"},
+		megaStats: {hp: 95, atk: 110, def: 125, spa: 100, spd: 65, spe: 35},
+		megaStone: "Quagsite",
+		movepoolAdditions: ["flipturn"],
+		megaCreator: "Sticky Fingaaa and IsoCon",
+	},
+
+	heatmor: {
+		inherit: true,
+		mega: "heatmormega",
+		megaName: "Heatmor-Mega",
+		megaType: ["Fire", "Ground"],
+		megaAbility: {0: "Stakeout"},
+		megaStats: {hp: 85, atk: 122, def: 76, spa: 105, spd: 106, spe: 90},
+		megaStone: "Heatmorite",
+		movepoolAdditions: ["powerwhip", "yawn"],
+		megaCreator: "War Incarnate and NANI?!",
+	},
+
+	pangoro: {
+		inherit: true,
+		mega: "pangoromega",
+		megaName: "Pangoro-Mega",
+		megaAbility: {0: "Bad Influence"},
+		megaStats: {hp: 95, atk: 134, def: 112, spa: 74, spd: 101, spe: 69},
+		megaStone: "Pangoronite",
+		megaCreator: "jazzmat",
+	},
+
+	// slate 7
+
+	jumpluff: {
+		inherit: true,
+		mega: "jumpluffmega",
+		megaName: "Jumpluff-Mega",
+		megaAbility: {0: "Regenerator"},
+		megaStats: {hp: 75, atk: 60, def: 100, spa: 70, spd: 125, spe: 135},
+		megaStone: "Jumpluffite",
+		movepoolAdditions: ["wish"],
+		megaCreator: "DrPumpkinz and Paulluxx",
+	},
+
+	rhyperior: {
+		inherit: true,
+		mega: "rhyperiormega",
+		megaName: "Rhyperior-Mega",
+		megaAbility: {0: "Sap Sipper"},
+		megaStats: {hp: 115, atk: 150, def: 160, spa: 65, spd: 85, spe: 60},
+		megaStone: "Rhyperiorite",
+		megaCreator: "BlueRay",
+	},
+
+	florges: {
+		inherit: true,
+		mega: "florgesmega",
+		megaName: "Florges-Mega",
+		megaAbility: {0: "Soul-Heart"},
+		megaStats: {hp: 78, atk: 95, def: 78, spa: 132, spd: 184, spe: 85},
+		megaStone: "Florgesite",
+		megaCreator: "DrPumpkinz",
 	},
 
 	// crossover Megas

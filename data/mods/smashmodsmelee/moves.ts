@@ -32,12 +32,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers = 1;
+				this.effectData.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectState.layers >= 3) return false;
+				if (this.effectData.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers++;
+				this.effectData.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
@@ -51,7 +51,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+				this.damage(damageAmounts[this.effectData.layers] * pokemon.maxhp / 24);
 			},
 		},
 	},
@@ -95,7 +95,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				if (pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
+				this.boost({spe: -1}, pokemon, this.effectData.source, this.dex.getActiveMove('stickyweb'));
 			},
 		},
 	},
@@ -105,12 +105,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			// this is a side condition
 			onStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectState.layers = 1;
+				this.effectData.layers = 1;
 			},
 			onRestart(side) {
-				if (this.effectState.layers >= 2) return false;
+				if (this.effectData.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
-				this.effectState.layers++;
+				this.effectData.layers++;
 			},
 			onSwitchIn(pokemon) {
 				if (!pokemon.isGrounded()) return;
@@ -127,7 +127,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					pokemon.side.removeSideCondition('toxicspikes');
 				} else if (pokemon.hasType('Steel') || pokemon.hasType('Poison') || pokemon.hasAbility('trashcompactor') || pokemon.hasItem('heavydutyboots')) {
 					return;
-				} else if (this.effectState.layers >= 2) {
+				} else if (this.effectData.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
 				} else {
 					pokemon.trySetStatus('psn', pokemon.side.foe.active[0]);
@@ -1200,13 +1200,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onStart() {
-				this.effectState.multiplier = 1;
+				this.effectData.multiplier = 1;
 			},
 			onRestart() {
-				if (this.effectState.multiplier < 4) {
-					this.effectState.multiplier <<= 1;
+				if (this.effectData.multiplier < 4) {
+					this.effectData.multiplier <<= 1;
 				}
-				this.effectState.duration = 2;
+				this.effectData.duration = 2;
 			},
 		},
 		secondary: null,
@@ -1830,7 +1830,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			for (const moveSlot of pokemon.moveSlots) {
 				const moveid = moveSlot.id;
 				if (!moveid) continue;
-				const move = this.dex.moves.get(moveid);
+				const move = this.dex.getMove(moveid);
 				if (noSleepTalk.includes(moveid) || (pokemon.species.id === 'claydol' && cfmNoSleepTalk.includes(moveid)) || move.flags['charge'] || (move.isZ && move.basePower !== 1)) {
 					continue;
 				}

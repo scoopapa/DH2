@@ -363,7 +363,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "IDK",
 		doublesTier: "IDK2",
 	},
-		steelfairy: {
+	steelfairy: {
 		tier: "IDK",
 		doublesTier: "IDK2",
 	},
@@ -438,5 +438,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	psychic: {
 		tier: "IDK",
 		doublesTier: "IDK2",
+	},
+	baseball: {
+		tier: "EF",
+		doublesTier: "IDK3",
 	},
 };

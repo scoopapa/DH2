@@ -64,7 +64,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		endFromMove: "  [POKEMON]'s [MOVE] lifted the curse!",
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
-			this.effectState.stage = 0;
+			this.effectData.stage = 0;
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'crs', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
@@ -72,14 +72,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onSwitchIn() {
-			this.effectState.stage = 0;
+			this.effectData.stage = 0;
 		},
 		onResidualOrder: 9,
 		onResidual(pokemon) {
-			if (this.effectState.stage < 15) {
-				this.effectState.stage++;
+			if (this.effectData.stage < 15) {
+				this.effectData.stage++;
 			}
-			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage);
+			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectData.stage);
 		},
 	},
 	fer: {
@@ -92,7 +92,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		endFromMove: "  [POKEMON]'s [MOVE] soothed its fear!",
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
-			this.effectState.stage = 0;
+			this.effectData.stage = 0;
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'fer', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
@@ -130,16 +130,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'slp');
 			}
 			// 1-3 turns
-			this.effectState.startTime = 3;
-			this.effectState.time = this.effectState.startTime;
+			this.effectData.startTime = 3;
+			this.effectData.time = this.effectData.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (pokemon.hasAbility('celestial')) {
-				pokemon.statusState.time--;
+				pokemon.statusData.time--;
 			}
-			pokemon.statusState.time--;
-			if (pokemon.statusState.time <= 0) {
+			pokemon.statusData.time--;
+			if (pokemon.statusData.time <= 0) {
 				pokemon.cureStatus();
 				return;
 			}
@@ -270,26 +270,26 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'futuremove',
 		duration: 3,
 		onStart() {
-			this.effectState.startT = this.turn;
+			this.effectData.startT = this.turn;
 		},
 		onResidualOrder: 3,
 		onResidual(target) {
-			if (this.effectState.move === "dormantpower") {
-				const duration = this.turn - this.effectState.startT;
+			if (this.effectData.move === "dormantpower") {
+				const duration = this.turn - this.effectData.startT;
 				let winterActive = false;
 				for (const pokemon of this.getAllActive()) {
 					if (pokemon.hasType("Winter")) winterActive = true;
 				}
 				if (!winterActive && duration >= 3) {
-					target.removeSlotCondition(this.effectState.position, 'futuremove');
-					if (this.effectState.source.isActive) this.add('-end', this.effectState.source, 'dormantpower');
+					target.removeSlotCondition(this.effectData.position, 'futuremove');
+					if (this.effectData.source.isActive) this.add('-end', this.effectData.source, 'dormantpower');
 				}
 			}
 		},
 		onEnd(target) {
-			const data = this.effectState;
+			const data = this.effectData;
 			// time's up; time to hit! :D
-			const move = this.dex.moves.get(data.move);
+			const move = this.dex.getMove(data.move);
 			if (target.fainted || target === data.source) {
 				this.hint(`${move.name} did not hit because the target is ${(data.fainted ? 'fainted' : 'the user')}.`);
 				return;
@@ -317,7 +317,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'temporarytrap',
 		duration: 4,
 		onTrapPokemon(pokemon) {
-			if (this.effectState.source?.isActive) {
+			if (this.effectData.source?.isActive) {
 				pokemon.tryTrap();
 			} else {
 				pokemon.removeVolatile('temporarytrap');
@@ -358,14 +358,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onStart(target, source, effect) {
-			this.effectState.move = effect.id;
+			this.effectData.move = effect.id;
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.hasMove(this.effectState.move)) {
+			if (!pokemon.hasMove(this.effectData.move)) {
 				return;
 			}
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== this.effectState.move) {
+				if (moveSlot.id !== this.effectData.move) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -383,24 +383,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 				// don't lock, and bypass confusion for calming
 				delete target.volatiles['lockedmove'];
 			}
-			this.effectState.trueDuration--;
+			this.effectData.trueDuration--;
 		},
 		onStart(target, source, effect) {
-			this.effectState.trueDuration = this.random(2, 4);
-			this.effectState.move = effect.id;
+			this.effectData.trueDuration = this.random(2, 4);
+			this.effectData.move = effect.id;
 		},
 		onRestart() {
-			if (this.effectState.trueDuration >= 2) {
-				this.effectState.duration = 2;
+			if (this.effectData.trueDuration >= 2) {
+				this.effectData.duration = 2;
 			}
 		},
 		onEnd(target) {
-			if (this.effectState.trueDuration > 1) return;
-			if (this.effectState.move === 'rampage') target.trySetStatus('slp');
+			if (this.effectData.trueDuration > 1) return;
+			if (this.effectData.move === 'rampage') target.trySetStatus('slp');
 		},
 		onLockMove(pokemon) {
 			if (pokemon.volatiles['dynamax']) return;
-			return this.effectState.move;
+			return this.effectData.move;
 		},
 	},
 };

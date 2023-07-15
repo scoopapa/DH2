@@ -19,7 +19,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFoeBasePowerPriority: 17,
 		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.target !== defender) return;
+			if (this.effectData.target !== defender) return;
 			if (move.type === 'Water') {
 				return this.chainModify(1.25);
 			}
@@ -77,7 +77,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Blood Scent', 'boost');
 					activated = true;

@@ -11,6 +11,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Raichu-Alola"],
 		num: 803,
 		gen: 7,
+		desc: "Makes Raichu-Alola use Stoked Sparksurfer.",
 	},
 	assaultvest: {
 		name: "Assault Vest",
@@ -31,6 +32,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 640,
 		gen: 6,
+		desc: "User's SpD is 1.8x but can't use status moves.",
 	},
 	brightpowder: {
 		name: "Bright Powder",
@@ -40,9 +42,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onStart(pokemon) {
 			this.boost({accuracy: -1}, pokemon);
+			pokemon.setItem('');
 		},
 		num: 213,
 		gen: 2,
+		desc: "Lowers user's Acc by 1. Consumable.",
 	},
 	decidiumz: {
 		name: "Decidium Z",
@@ -56,6 +60,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Decidueye"],
 		num: 798,
 		gen: 7,
+		desc: "Makes Decidueye use Sinister Arrow Raid.",
 	},
 	eeviumz: {
 		name: "Eevium Z",
@@ -69,6 +74,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Eevee"],
 		num: 805,
 		gen: 7,
+		desc: "Makes Eevee use Extreme Evoboost.",
 	},
 	expertbelt: {
 		name: "Expert Belt",
@@ -83,6 +89,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 268,
 		gen: 4,
+		desc: "User's Super Effective moves deal 1.3x damage.",
 	},
 	inciniumz: {
 		name: "Incinium Z",
@@ -96,6 +103,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Incineroar"],
 		num: 799,
 		gen: 7,
+		desc: "Makes Incineroar use Malicious Moonsault.",
 	},
 	kingsrock: {
 		name: "King's Rock",
@@ -112,6 +120,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 221,
 		gen: 2,
+		desc: "Nullifies non-Struggle recoil.",
 	},
 	kommoniumz: {
 		name: "Kommonium Z",
@@ -125,6 +134,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Kommo-o"],
 		num: 926,
 		gen: 7,
+		desc: "Makes Kommo-O use Clangorous Soulblaze.",
 	},
 	laxincense: {
 		name: "Lax Incense",
@@ -149,6 +159,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 255,
 		gen: 3,
+		desc: "Deals 1.25x damage if moving last.",
 	},
 	leppaberry: {
 		name: "Leppa Berry",
@@ -170,6 +181,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 154,
 		gen: 3,
+		desc: "Leppa Berry is no longer consumable.",
 	},
 	lunaliumz: {
 		name: "Lunalium Z",
@@ -183,6 +195,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Lunala", "Necrozma-Dawn-Wings"],
 		num: 922,
 		gen: 7,
+		desc: "Makes Lunala/NDW use Menacing Moonraze Maelstrom.",
 	},
 	lycaniumz: {
 		name: "Lycanium Z",
@@ -196,6 +209,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
 		num: 925,
 		gen: 7,
+		desc: "Makes Lycanroc (any) use Splintered Stormshards.",
 	},
 	marshadiumz: {
 		name: "Marshadium Z",
@@ -209,6 +223,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Marshadow"],
 		num: 802,
 		gen: 7,
+		desc: "Makes Marshadow use Soul-Stealing 7-Star Strike.",
 	},
 	metronome: {
 		name: "Metronome",
@@ -225,6 +240,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 277,
 		gen: 4,
+		desc: "the almighty lord of all.",
 	},
 	mewniumz: {
 		name: "Mewnium Z",
@@ -238,6 +254,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Mew"],
 		num: 806,
 		gen: 7,
+		desc: "Makes Mew use Genesis Supernova.",
 	},
 	mimikiumz: {
 		name: "Mimikium Z",
@@ -251,6 +268,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Mimikyu", "Mimikyu-Busted"],
 		num: 924,
 		gen: 7,
+		desc: "Makes Mimikyu use Let's Snuggle Forever. (unworking)",
 	},
 	pikaniumz: {
 		name: "Pikanium Z",
@@ -264,6 +282,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Pikachu"],
 		num: 794,
 		gen: 7,
+		desc: "Makes Pikachu use Catastropika.",
 	},
 	pikashuniumz: {
 		name: "Pikashunium Z",
@@ -277,6 +296,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner"],
 		num: 836,
 		gen: 7,
+		desc: "Makes Pikachu-Cap use 10,000,000 Volt Thunderbolt.",
 	},
 	primariumz: {
 		name: "Primarium Z",
@@ -290,6 +310,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Primarina"],
 		num: 800,
 		gen: 7,
+		desc: "Makes Primarina use Sparkling Aria.",
 	},
 	punchingglove: {
 		name: "Punching Glove",
@@ -307,6 +328,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 1884,
 		gen: 9,
+		desc: "Punch moves deal 1.2x damage and don't make contact.",
 	},
 	quickclaw: {
 		name: "Quick Claw",
@@ -315,10 +337,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 80,
 		},
 		onModifySpe(spe, pokemon) {
-			this.chainModify(1.05);
+			this.chainModify(1.01);
 		},
 		num: 217,
 		gen: 2,
+		desc: "User's Spe is 1.01x.",
 	},
 	shellbell: {
 		name: "Shell Bell",
@@ -334,6 +357,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 253,
 		gen: 3,
+		desc: "User restores 1/3 of the damage delt from attacks.",
+	},
+	silkscarf: {
+		name: "Silk Scarf",
+		spritenum: 444,
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move.type === 'Normal') {
+				return this.chainModify(1.3);
+			}
+		},
+		num: 251,
+		gen: 3,
+		desc: "User's Normal moves deal 1.3x damage.",
 	},
 	snorliumz: {
 		name: "Snorlium Z",
@@ -347,6 +387,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Snorlax"],
 		num: 804,
 		gen: 7,
+		desc: "Makes Snorlax use Pulverizing Pancake.",
 	},
 	solganiumz: {
 		name: "Solganium Z",
@@ -360,6 +401,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Solgaleo", "Necrozma-Dusk-Mane"],
 		num: 921,
 		gen: 7,
+		desc: "Makes Solgaleo/NDM use Searing Sunraze Smash.",
 	},
 	tapuniumz: {
 		name: "Tapunium Z",
@@ -373,6 +415,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Tapu Koko", "Tapu Lele", "Tapu Bulu", "Tapu Fini"],
 		num: 801,
 		gen: 7,
+		desc: "Makes Tapus use Guardian of Alola.",
 	},
 	ultranecroziumz: {
 		name: "Ultranecrozium Z",
@@ -386,6 +429,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Necrozma-Ultra"],
 		num: 923,
 		gen: 7,
+		desc: "Makes Necrozma-Ultra use Light That Burns the Sky.",
 	},
 	widelens: {
 		name: "Wide Lens",
@@ -401,6 +445,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 265,
 		gen: 4,
+		desc: "Holder's Acc is 1.3x.",
 	},
 	zoomlens: {
 		name: "Zoom Lens",
@@ -417,5 +462,46 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 276,
 		gen: 4,
+		desc: "Holder's Acc is 1.5x when moving last.",
+	},
+	boosterenergy: {
+		name: "Booster Energy",
+		spritenum: 0, // TODO
+		onUpdate(pokemon) {
+			if (pokemon.transformed) return;
+			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+
+			if (pokemon.hasAbility('protosynthesis') && !pokemon.volatiles['protosynthesis'] && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
+				pokemon.addVolatile('protosynthesis');
+			}
+			if (pokemon.hasAbility('protosmosis') && !pokemon.volatiles['protosmosis'] && !this.field.isWeather('raindance') && pokemon.useItem()) {
+				pokemon.addVolatile('protosmosis');
+			}
+			if (pokemon.hasAbility('protocrysalis') && !pokemon.volatiles['protocrysalis'] && !this.field.isWeather('sandstorm') && pokemon.useItem()) {
+				pokemon.addVolatile('protocrysalis');
+			}
+			if (pokemon.hasAbility('protostasis') && !pokemon.volatiles['protostasis'] && !this.field.isWeather('hail') && pokemon.useItem()) {
+				pokemon.addVolatile('protostasis');
+			}
+			if (pokemon.hasAbility('quarkdrive') && !pokemon.volatiles['quarkdrive'] && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
+				pokemon.addVolatile('quarkdrive');
+			}
+			if (pokemon.hasAbility('photondrive') && !pokemon.volatiles['photondrive'] && !this.field.isTerrain('grassyterrain') && pokemon.useItem()) {
+				pokemon.addVolatile('photondrive');
+			}
+			if (pokemon.hasAbility('neurondrive') && !pokemon.volatiles['neurondrive'] && !this.field.isTerrain('psychicterrain') && pokemon.useItem()) {
+				pokemon.addVolatile('neurondrive');
+			}
+			if (pokemon.hasAbility('runedrive') && !pokemon.volatiles['runedrive'] && !this.field.isTerrain('mistyterrain') && pokemon.useItem()) {
+				pokemon.addVolatile('runedrive');
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.tags.includes("Paradox")) return false;
+			return true;
+		},
+		num: 1880,
+		desc: "Activates the Protosynthesis/Quark Drive Variants. Single use.",
+		gen: 9,
 	},
 }

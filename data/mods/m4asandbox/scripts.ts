@@ -6,7 +6,7 @@ const uber = ["butterfreemega", "cinderacemega", "rillaboommega", "dragapultmega
 const newest = ["grapploctmega", "lickilickymega", "tsareenamega", "snorlaxmega", "swalotmega", "wailordmega"];
 const aprilfools = ["floetteeternalmega", "meltanmega", "pichuspikyearedmega", "porygodzmega"];
 const hisui = ["arcaninehisui", "avalugghisui", "basculegion", "basculegionf", "braviaryhisui", "decidueyehisui", "dialgaorigin", "electrodehisui", "enamorus", "enamorustherian", "goodrahisui", "kleavor", "lilliganthisui", "overqwil", "palkiaorigin", "samurotthisui", "sneasler", "typhlosionhisui", "ursaluna", "wyrdeer", "zoroarkhisui"]; // only fully-evolved Pokémon from Legends: Arceus
-const tourbanned = ["clefablemega", "dodriomega", "empoleonmega", "goodramega", "gourgeistsmallmega", "gourgeistmega", "hydreigonmega", "jolteonmega", "meowsticfmega", "slowkinggalarmega", "starmiemega", "tapulele", "tornadustherian", "toucannonmega", "toxtricitylowkeymega", "trevenantmega", "walreinmega"];
+const tourbanned = ["bisharpmega", "clefablemega", "dodriomega", "empoleonmega", "goodramega", "gourgeistmega", "hydreigonmega", "meowsticfmega", "slowkinggalarmega", "starmiemega", "tapulele", "tornadustherian", "toxtricitylowkeymega", "trevenantmega", "walreinmega"];
 const tier1mega = ["corviknightmega", "dhelmisemega", "mudsdalemega"];
 const tier1 = ["blissey", "clefable", "corviknight", "ferrothorn", "gliscor", "heatran", "landorustherian", "rillaboom", "slowbro", "tapufini", "toxapex"];
 const tier2mega = ["dragalgemega", "latiasmega", "lopunnymega", "mawilemega", "medichammega", "raichumega", "reuniclusmega", "scizormega", "talonflamemega", "vikavoltmega"];
@@ -206,7 +206,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		lostItemForDelibird: null,
 		setItem(item: string | Item, source?: Pokemon, effect?: Effect) {
 			if (!this.hp) return false;
-			if (typeof item === 'string') item = this.battle.dex.items.get(item);
+			if (typeof item === 'string') item = this.battle.dex.getItem(item);
 
 			const effectid = this.battle.effect ? this.battle.effect.id : '';
 			const RESTORATIVE_BERRIES = new Set([
@@ -228,16 +228,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 		setAbility(ability: string | Ability, source?: Pokemon | null, isFromFormeChange?: boolean) { // edited so Megas can have Neutralizing Gas and similar
 			if (!this.hp) return false;
-			if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
+			if (typeof ability === 'string') ability = this.battle.dex.getAbility(ability);
 			const oldAbility = this.ability;
 			if (!isFromFormeChange) {
 				if (ability.isPermanent || this.getAbility().isPermanent) return false;
 			}
 			if (!this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability)) return false;
-			this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityData, this, source);
+			this.battle.singleEvent('End', this.battle.dex.getAbility(oldAbility), this.abilityData, this, source);
 			if (this.battle.effect && this.battle.effect.effectType === 'Move') {
-				this.battle.add('-endability', this, this.battle.dex.abilities.get(oldAbility), '[from] move: ' +
-									 this.battle.dex.moves.get(this.battle.effect.id));
+				this.battle.add('-endability', this, this.battle.dex.getAbility(oldAbility), '[from] move: ' +
+									 this.battle.dex.getMove(this.battle.effect.id));
 			}
 			this.ability = ability.id;
 			this.abilityData = {id: ability.id, target: this};
@@ -373,12 +373,52 @@ export const Scripts: ModdedBattleScriptsData = {
 		// from main M4A
 		
 		for (const id in this.dataCache.Pokedex) {
-			const pokemon = this.dataCache.Pokedex[id];
+			let pokemon = this.dataCache.Pokedex[id];
+
+			// modding
 			if (pokemon.movepoolAdditions) {
 				for (const move of pokemon.movepoolAdditions) {
 					this.modData('Learnsets', this.toID(id)).learnset[this.toID(move)] = ["8M"];
 				}
 			}
+
+			// generating Megas
+			if (pokemon && pokemon.mega) {
+				const newMega = this.dataCache.Pokedex[pokemon.mega] = { name: pokemon.megaName };
+
+				pokemon.otherFormes = pokemon.otherFormes ? pokemon.otherFormes.concat([newMega.name]) : [pokemon.megaName];
+				pokemon.formeOrder = pokemon.formeOrder ? pokemon.formeOrder.concat([newMega.name]) : [pokemon.name, pokemon.megaName];
+
+				newMega.num = pokemon.num;
+				newMega.baseSpecies = pokemon.name;
+				newMega.forme = "Mega";
+
+				newMega.types = pokemon.megaType || pokemon.types;
+				newMega.abilities = pokemon.megaAbility || pokemon.abilities;
+				newMega.baseStats = pokemon.megaStats || pokemon.baseStats;
+				newMega.heightm = pokemon.megaHeightm || pokemon.heightm;
+				newMega.weightkg = pokemon.megaWeightkg || pokemon.weightkg;
+				newMega.eggGroups = pokemon.eggGroups;
+				newMega.color = pokemon.megaColor || pokemon.color;
+				newMega.battleOnly = pokemon.name; // just in case
+
+				newMega.creator = pokemon.megaCreator || null;
+				newMega.requiredItem = pokemon.megaStone || null;
+				if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { };
+				else if (uber.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Uber";
+				else if (aprilfools.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "April Fools";
+				else if (tourbanned.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Tourbanned";
+				else if (tier1mega.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Tier 1 Mega";
+				else if (tier2mega.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Tier 2 Mega";
+				else if (tier3mega.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Tier 3 Mega";
+				else if (tier4mega.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Tier 4 Mega";
+				else if (nichemega.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Uncommon Mega";
+				else if (illegal.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Illegal";
+				else if (notier.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = null; // special exception for Wishiwashi, Falinks, et cetera
+				else this.modData('FormatsData', pokemon.mega).tier = "Undecided";
+			}
+
+			// tiering
 			if (this.modData('FormatsData', id)) {
 				if (this.modData('FormatsData', id).isNonstandard === 'Past') this.modData('FormatsData', id).isNonstandard = null;
 				// singles tiers
@@ -399,7 +439,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				else if (nichemega.includes(id)) this.modData('FormatsData', id).tier = "Uncommon Mega";
 				else if (niche.includes(id)) this.modData('FormatsData', id).tier = "Uncommon";
 				else if (illegal.includes(id)) this.modData('FormatsData', id).tier = "Illegal";
-				else if (notier.includes(id)) this.modData('FormatsData', id).tier = ""; // special exception for Wishiwashi, Falinks, et cetera
+				else if (notier.includes(id)) this.modData('FormatsData', id).tier = null; // special exception for Wishiwashi, Falinks, et cetera
 				else if (heat.includes(id) || canonmega.includes(id)) this.modData('FormatsData', id).tier = "Underrated"; // special exception for Yanmega
 				else if (id.endsWith('mega')) this.modData('FormatsData', id).tier = "Undecided"; // guaranteeing M4A Megas that haven't been tiered appear in their own place
 				else if (!this.modData('FormatsData', id).isNonstandard) this.modData('FormatsData', id).tier = "Underrated"; // default (untiered)
@@ -418,11 +458,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		};
 		
 		// MnM4A
-		for (const i in this.items.all()) {
-			let id = this.items.all()[i].id;
-			if (!this.items.all()[i].megaStone) continue;
-			this.modData('Items', id).onTakeItem = false;
-			id = this.toID(this.items.all()[i].megaStone);
+		for (const i in this.data.Items) {
+			if (!this.data.Items[i].megaStone) continue;
+			this.modData('Items', i).onTakeItem = false;
+			const id = this.toID(this.data.Items[i].megaStone);
 			if (this.modData('FormatsData', id)) this.modData('FormatsData', id).isNonstandard = null;
 		}
 		// some slight changes around here to account for Legends: Arceus, which I am meant to be adding to the sandbox as convenient presets of sorts (:
@@ -711,7 +750,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 
-		if (pokemon.status === 'frz' && pokemon.statusState.frostbite && move.category === 'Special') { // the only changed section
+		if (pokemon.status === 'frz' && pokemon.statusData.frostbite && move.category === 'Special') { // the only changed section
 			baseDamage = this.modify(baseDamage, 0.5);
 		}
 
@@ -741,7 +780,20 @@ export const Scripts: ModdedBattleScriptsData = {
 		const item = pokemon.getItem();
 		if (item.megaStone) {
 			if (item.megaStone === pokemon.baseSpecies.name) return null;
-			return item.megaStone;
+			else if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Midnight") return "Lycanroc-Midnight-Mega";
+			else if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Dusk") return "Lycanroc-Dusk-Mega";
+			else if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Galar") return "Slowking-Galar-Mega";
+			else if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Small") return "Gourgeist-Small-Mega";
+			else if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Large") return "Gourgeist-Large-Mega";
+			else if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Super") return "Gourgeist-Super-Mega";
+			else if (item.name === "Reginite" && pokemon.baseSpecies.name === "Regice") return "Regice-Mega";
+			else if (item.name === "Reginite" && pokemon.baseSpecies.name === "Registeel") return "Registeel-Mega";
+			else if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") return "Meowstic-F-Mega";
+			else if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbucksummer") return "Sawsbuck-Summer-Mega";
+			else if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckautumn") return "Sawsbuck-Autumn-Mega";
+			else if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckwinter") return "Sawsbuck-Winter-Mega";
+			else if (item.name === "Toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") return "Toxtricity-Low-Key-Mega";
+			else return item.megaStone;
 		} else {
 			return null;
 		}
@@ -749,23 +801,12 @@ export const Scripts: ModdedBattleScriptsData = {
 	runMegaEvo(pokemon) {
 		if (pokemon.species.isMega) return false;
 		if (pokemon.illusion) {
-			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
+			this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
 		}
 
 		// @ts-ignore
 		let species: Species = this.getMixedSpecies(pokemon.species, pokemon.canMegaEvo);
-		if (pokemon.m.moddedSpecies) species = this.getMixedSpecies(pokemon.m.moddedSpecies, pokemon.canMegaEvo);
-		if (pokemon.getItem().name === 'RKS Megamemory') {
-			let silvallyType = pokemon.hpType || 'Dark';
-			if (species.types[1] === silvallyType) {
-				species.types = [silvallyType];
-			} else if (!species.types[1] && species.types[0] !== silvallyType) {
-				// single-typed Pokémon can still have a primary type as their secondary type
-				species.types = [species.types[0], silvallyType];
-			} else {
-				species.types = [silvallyType, species.types[1]];
-			}
-		}
+		species.isMega = true;
 		const side = pokemon.side;
 
 		// Pokémon affected by Sky Drop cannot Mega Evolve. Enforce it here for now.
@@ -776,7 +817,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		// Do we have a proper sprite for it?
-		if (this.dex.species.get(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
+		if (this.dex.getSpecies(pokemon.canMegaEvo!).baseSpecies === pokemon.m.originalSpecies) {
+			species.id = this.dex.getSpecies(pokemon.canMegaEvo!).id ? this.dex.getSpecies(pokemon.canMegaEvo!).id : species.id;
+			species.name = this.dex.getSpecies(pokemon.canMegaEvo!).name ? this.dex.getSpecies(pokemon.canMegaEvo!).name : species.name;
 			pokemon.formeChange(species, pokemon.getItem(), true);
 			this.add('-start', pokemon, pokemon.getItem(), '[silent]');
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
@@ -785,14 +828,14 @@ export const Scripts: ModdedBattleScriptsData = {
 			const type = species.types[0];
 			if (species.types[1]) {
 				const type2 = species.types[1];
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="http://play.pokemonshowdown.com/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			} else {
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			}
 		} else {
 			let oSpecies = pokemon.m.originalSpecies;
 			// @ts-ignore
-			const oMegaSpecies = this.dex.species.get(species.originalMega);
+			const oMegaSpecies = this.dex.getSpecies(species.originalMega);
 			pokemon.formeChange(species, pokemon.getItem(), true);
 			if (oMegaSpecies.requiredItem) this.add('-start', pokemon, oMegaSpecies.requiredItem, '[silent]');
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
@@ -801,9 +844,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			const type = species.types[0];
 			if (species.types[1]) {
 				const type2 = species.types[1];
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="http://play.pokemonshowdown.com/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			} else {
-				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			}
 		}
 		pokemon.canMegaEvo = null;
@@ -812,13 +855,13 @@ export const Scripts: ModdedBattleScriptsData = {
 	getMixedSpecies(originalForme, megaForme) {
 		let originalSpecies = originalForme;
 		// @ts-ignore
-		const deltas = this.getMegaDeltas(this.dex.species.get(megaForme));
+		const deltas = this.getMegaDeltas(this.dex.getSpecies(megaForme));
 		// @ts-ignore
 		const species = this.doGetMixedSpecies(originalSpecies, deltas);
 		return species;
 	},
 	getMegaDeltas(megaSpecies) {
-		const baseSpecies = this.dex.species.get(megaSpecies.baseSpecies);
+		const baseSpecies = this.dex.getSpecies(megaSpecies.baseSpecies);
 		const deltas: {
 			ability: string,
 			baseStats: SparseStatsTable,
@@ -855,7 +898,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	doGetMixedSpecies(speciesOrForme, deltas) {
 		if (!deltas) throw new TypeError("Must specify deltas!");
-		const preMegaForme = this.dex.species.get(speciesOrForme);
+		const preMegaForme = this.dex.getSpecies(speciesOrForme);
 		let species = this.dex.deepClone(preMegaForme);
 		species.abilities = {'0': deltas.ability};
 		if (deltas.type === 'mono') {

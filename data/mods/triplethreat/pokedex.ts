@@ -1,0 +1,61 @@
+export const Pokedex: {[speciesid: string]: SpeciesData} = {
+	roserade: {
+		inherit: true,
+		types: ["Grass", "Dark", "Fairy"],
+		baseStats: {hp: 70, atk: 70, def: 75, spa: 115, spd: 105, spe: 90},
+		abilities: {0: "Natural Cure", 1: "Immunity", H: "Grassy Surge"},
+	},
+	darmanitanzen: {
+		inherit: true,
+		baseSpecies: null,
+		forme: null,
+		types: ["Fire", "Psychic", "Fighting"],
+		baseStats: {hp: 105, atk: 55, def: 105, spa: 140, spd: 105, spe: 30},
+		abilities: {0: "Inner Focus", H: "Solid Rock"},
+	},
+	hammerhelm: {
+		num: -1,
+		species: "Hammerhelm",
+		types: ["Water", "Fighting", "Steel"],
+		baseStats: {hp: 80, atk: 130, def: 120, spa: 65, spd: 60, spe: 50},
+		abilities: {0: "Heavy Metal", 1: "Iron Fist", H: "Flash Fire"},
+		weightkg: 200,
+	},
+	dondozo: {
+		inherit: true,
+		types: ["Dragon", "Water", "Ground"],
+		baseStats: {hp: 130, atk: 100, def: 115, spa: 65, spd: 70, spe: 55},
+		abilities: {0: "Oblivious", 1: "Early Bird", H: "Marvel Scale"},
+	},
+	delphox: {
+		inherit: true,
+		types: ["Fairy", "Fire", "Psychic"],
+		baseStats: {hp: 75, atk: 83, def: 69, spa: 114, spd: 90, spe: 105},
+		abilities: {0: "Blaze", H: "Fur Coat"},
+	},
+	genesectshock: {
+		inherit: true,
+		baseSpecies: null,
+		forme: null,
+		types: ["Bug", "Steel", "Electric"],
+		baseStats: {hp: 71, atk: 100, def: 90, spa: 100, spd: 90, spe: 99},
+		abilities: {0: "Regenerator"},
+		requiredItem: null,
+		changesFrom: null,
+	},
+	grafaiai: {
+		inherit: true,
+		types: ["Poison", "Dark", "Flying"],
+		baseStats: {hp: 83, atk: 93, def: 75, spa: 85, spd: 92, spe: 119},
+	},
+	dhelmise: {
+		inherit: true,
+		types: ["Ghost", "Grass", "Water"],
+	},
+	ironjugulis: {
+		inherit: true,
+		types: ["Flying", "Dragon", "Dark"],
+		baseStats: {hp: 104, atk: 80, def: 86, spa: 112, spd: 80, spe: 108},
+		abilities: {0: "Quark Drive", H: "Multiscale"},
+	},
+};

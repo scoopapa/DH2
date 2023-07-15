@@ -11,7 +11,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				if (this.gen <= 5) this.effectState.duration = 0;
+				if (this.gen <= 5) this.effectData.duration = 0;
 				this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
 				this.add('-weather', 'Hail');
@@ -28,6 +28,19 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnd() {
 			this.add('-weather', 'none');
+		},
+	},
+	storm: {
+		name: 'storm',
+		onStart(pokemon) {
+			this.add('-start', pokemon, 'storm');
+		},
+		onResidualOrder: 14,
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'storm');
 		},
 	},
 };

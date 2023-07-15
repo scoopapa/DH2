@@ -6,38 +6,38 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(battle) {
 			this.add('-weather', 'Hail');
 			if (!battle.activeTurns) {
-				this.effectState.layers = 1; 
+				this.effectData.layers = 1; 
 			}
-			this.effectState.stage = 0;
+			this.effectData.stage = 0;
 		},
 		onResidualOrder: 1,
 		onResidual() {
-			if (this.effectState.layers < 1) {
+			if (this.effectData.layers < 1) {
 				this.hint("The snow is falling gently.");
 			} else this.add('-weather', 'Hail', '[upkeep]');
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
-			this.effectState.stage++;
+			this.effectData.stage++;
 			
-			if (this.effectState.stage > 2) {
+			if (this.effectData.stage > 2) {
 				if (this.randomChance(1,4)) {
-					this.effectState.layers = 0; 
+					this.effectData.layers = 0; 
 					this.hint("The snow falls gently.");
 				} else if (this.randomChance(1,4)) {
-					this.effectState.layers = 1; 
+					this.effectData.layers = 1; 
 					this.hint("Hail is falling on the battlefield.");
 				} else if (this.randomChance(1,4)) {
-					this.effectState.layers = 2; 
+					this.effectData.layers = 2; 
 					this.hint("The hail is getting treacherous.");
 				} else {
-					this.effectState.layers = 3; 
+					this.effectData.layers = 3; 
 					this.hint("The hailstorm is blowing wildly!");
 				}
-				this.effectState.stage = 0;
+				this.effectData.stage = 0;
 			}
 		},
 		onWeather(target) {
-			if (this.effectState.layers > 0) {
-				this.damage(target.baseMaxhp * (this.effectState.layers / 16));
+			if (this.effectData.layers > 0) {
+				this.damage(target.baseMaxhp * (this.effectData.layers / 16));
 			}
 		},
 		onEnd() {
@@ -146,17 +146,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
 				target.formeChange('Shaymin', this.effect, true); 
 			}
-			this.effectState.startTime = 2;
-			this.effectState.time = this.effectState.startTime;
+			this.effectData.startTime = 2;
+			this.effectData.time = this.effectData.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (move.flags['defrost']) return;
-			if (this.effectState.time === 0) {
+			if (this.effectData.time === 0) {
 				pokemon.cureStatus();
 				return;
 			}
-			this.effectState.time --;  
+			this.effectData.time --;  
 			this.add('cant', pokemon, 'frz');
 			return false;
 		},
@@ -173,7 +173,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onCriticalHit(target, source, move) {
 			if (move.category !== 'Status') {
 				this.hint('The attack shattered the ice!');
-				this.effectState.target.setStatus('');
+				this.effectData.target.setStatus('');
 			}
 		},
 		onHit(target, source, move) {

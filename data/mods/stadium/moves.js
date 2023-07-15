@@ -61,7 +61,7 @@ let BattleMovedex = {
 			// Rage lock
 			duration: 255,
 			onStart(target, source, effect) {
-				this.effectState.move = 'rage';
+				this.effectData.move = 'rage';
 			},
 			onLockMove: 'rage',
 			onTryHit(target, source, move) {
@@ -93,8 +93,8 @@ let BattleMovedex = {
 			// max HP and current HP is 0, 255, or 511
 			if (target.hp >= target.maxhp) return false;
 			if (!target.setStatus('slp', source, move)) return false;
-			target.statusState.time = 2;
-			target.statusState.startTime = 2;
+			target.statusData.time = 2;
+			target.statusData.startTime = 2;
 			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
 	},
@@ -114,7 +114,7 @@ let BattleMovedex = {
 		effect: {
 			onStart(target) {
 				this.add('-start', target, 'Substitute');
-				this.effectState.hp = Math.floor(target.maxhp / 4);
+				this.effectData.hp = Math.floor(target.maxhp / 4);
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryHitPriority: -1,

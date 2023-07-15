@@ -60,13 +60,13 @@ exports.BattleAbilities = {
 	"entomb": {
 		shortDesc: "Traps Ghost types and has +4 priority when targeting them.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (pokemon.hasType('Ghost') && pokemon.isAdjacent(this.effectState.target)) {
+			if (pokemon.hasType('Ghost') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Ghost')) && pokemon.isAdjacent(source)) {
+			if (!source) source = this.effectData.target;
+			if ((!pokemon.knownType || pokemon.hasType('Ghost')) && this.isAdjacent(pokemon, source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -79,7 +79,7 @@ exports.BattleAbilities = {
 	/*	onFoeSwitchOut: function (pokemon) {
 			for (const source of pokemon.side.foe.active) {
 			if (!source || source.fainted) continue;
-			if (pokemon.hasType('Ghost') && pokemon.isAdjacent(this.effectState.target)) {
+			if (pokemon.hasType('Ghost') && this.isAdjacent(pokemon, this.effectData.target)) {
 				this.add('-ability', source, 'Entomb');
 				return null;
 			}
@@ -239,7 +239,7 @@ regalreversal: {
 			for (let i = 0; i < targets.length; i++) {
 				if (!targets[i] || targets[i].fainted) continue;
 				for (let j = 0; j < targets[i].moveset.length; j++) {
-					let move = this.moves.get(targets[i].moveset[j].move);
+					let move = this.getMove(targets[i].moveset[j].move);
 					if (move.category !== 'Status' && (this.getImmunity(move.type, pokemon) && this.getEffectiveness(move.type, pokemon) > 0 || move.ohko)) {
 						this.add('-ability', pokemon, 'Anticipation');
 						return;
@@ -269,14 +269,14 @@ regalreversal: {
 		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or are airborne.",
 		shortDesc: "Prevents adjacent foes from choosing to switch unless they are airborne.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (!pokemon.isAdjacent(this.effectState.target)) return;
+			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
 			if (pokemon.isGrounded()) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if (!pokemon.isAdjacent(source)) return;
+			if (!source) source = this.effectData.target;
+			if (!this.isAdjacent(pokemon, source)) return;
 			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
 				pokemon.maybeTrapped = true;
 			}
@@ -292,7 +292,7 @@ regalreversal: {
 		onAllyTryAddVolatile: function (status, target, source, effect) {
 			if (status.id in {attract:1, disable:1, encore:1, healblock:1, taunt:1, torment:1}) {
 				if (effect.effectType === 'Move') {
-					this.add('-activate', this.effectState.target, 'ability: Aroma Veil', '[of] ' + target);
+					this.add('-activate', this.effectData.target, 'ability: Aroma Veil', '[of] ' + target);
 				}
 				return null;
 			}
@@ -344,7 +344,7 @@ regalreversal: {
 		shortDesc: "This Pokemon's allies have the power of their special attacks multiplied by 1.3.",
 		onBasePowerPriority: 8,
 		onAllyBasePower: function (basePower, attacker, defender, move) {
-			if (attacker !== this.effectState.target && move.category === 'Special') {
+			if (attacker !== this.effectData.target && move.category === 'Special') {
 				this.debug('Battery boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -637,7 +637,7 @@ regalreversal: {
 			if (!source || source.volatiles['disable']) return;
 			if (source !== target && move && move.effectType === 'Move' && !move.isFutureMove) {
 				if (this.random(10) < 3) {
-					source.addVolatile('disable', this.effectState.target);
+					source.addVolatile('disable', this.effectData.target);
 				}
 			}
 		},
@@ -652,7 +652,7 @@ regalreversal: {
 		onAfterDamage: function (damage, target, source, move) {
 			if (move && move.flags['contact']) {
 				if (this.random(10) < 3) {
-					source.addVolatile('attract', this.effectState.target);
+					source.addVolatile('attract', this.effectData.target);
 				}
 			}
 		},
@@ -668,7 +668,7 @@ regalreversal: {
 		onAnyTryMove: function (target, source, effect) {
 			if (effect.id === 'selfdestruct' || effect.id === 'explosion') {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Damp', effect, '[of] ' + target);
+				this.add('cant', this.effectData.target, 'ability: Damp', effect, '[of] ' + target);
 				return false;
 			}
 		},
@@ -686,11 +686,11 @@ regalreversal: {
 		shortDesc: "After another Pokemon uses a dance move, this Pokemon uses the same move.",
 		id: "dancer",
 		onAnyAfterMove: function (source, target, move) {
-			if (!this.effectState.target.hp || source === this.effectState.target || move.isExternal) return;
+			if (!this.effectData.target.hp || source === this.effectData.target || move.isExternal) return;
 			if (move.flags['dance']) {
 				this.faintMessages();
-				this.add('-activate', this.effectState.target, 'ability: Dancer');
-				this.runMove(move.id, this.effectState.target, 0, this.getAbility('dancer'), undefined, true);
+				this.add('-activate', this.effectData.target, 'ability: Dancer');
+				this.runMove(move.id, this.effectData.target, 0, this.getAbility('dancer'), undefined, true);
 			}
 		},
 		name: "Dancer",
@@ -728,9 +728,9 @@ regalreversal: {
 		desc: "While this Pokemon is active, priority moves from opposing Pokemon targeted at allies are prevented from having an effect.",
 		shortDesc: "While this Pokemon is active, allies are protected from opposing priority moves.",
 		onFoeTryMove: function (target, source, effect) {
-			if ((source.side === this.effectState.target.side || effect.id === 'perishsong') && effect.priority > 0.1 && effect.target !== 'foeSide') {
+			if ((source.side === this.effectData.target.side || effect.id === 'perishsong') && effect.priority > 0.1 && effect.target !== 'foeSide') {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Dazzling', effect, '[of] ' + target);
+				this.add('cant', this.effectData.target, 'ability: Dazzling', effect, '[of] ' + target);
 				return false;
 			}
 		},
@@ -844,7 +844,7 @@ regalreversal: {
 		onDamage: function (damage, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && target.template.speciesid === 'mimikyu' && !target.transformed) {
 				this.add('-activate', target, 'ability: Disguise');
-				this.effectState.busted = true;
+				this.effectData.busted = true;
 				return 0;
 			}
 		},
@@ -856,7 +856,7 @@ regalreversal: {
 			return 0;
 		},
 		onUpdate: function (pokemon) {
-			if (pokemon.template.speciesid === 'mimikyu' && this.effectState.busted) {
+			if (pokemon.template.speciesid === 'mimikyu' && this.effectData.busted) {
 				let template = this.getTemplate('Mimikyu-Busted');
 				pokemon.formeChange(template);
 				pokemon.baseTemplate = template;
@@ -933,7 +933,7 @@ regalreversal: {
 		},
 		onBasePowerPriority: 7,
 		onFoeBasePower: function (basePower, attacker, defender, move) {
-			if (this.effectState.target !== defender) return;
+			if (this.effectData.target !== defender) return;
 			if (move.type === 'Fire') {
 				return this.chainModify(1.25);
 			}
@@ -1176,7 +1176,7 @@ regalreversal: {
 		desc: "If this Pokemon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5.",
 		shortDesc: "If user is Cherrim and Sunny Day is active, it and allies' Attack and Sp. Def are 1.5x.",
 		onStart: function (pokemon) {
-			delete this.effectState.forme;
+			delete this.effectData.forme;
 		},
 		onUpdate: function (pokemon) {
 			if (!pokemon.isActive || pokemon.baseTemplate.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
@@ -1194,14 +1194,14 @@ regalreversal: {
 		},
 		onModifyAtkPriority: 3,
 		onAllyModifyAtk: function (atk) {
-			if (this.effectState.target.baseTemplate.baseSpecies !== 'Cherrim') return;
+			if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherrim') return;
 			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 4,
 		onAllyModifySpD: function (spd) {
-			if (this.effectState.target.baseTemplate.baseSpecies !== 'Cherrim') return;
+			if (this.effectData.target.baseTemplate.baseSpecies !== 'Cherrim') return;
 			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				return this.chainModify(1.5);
 			}
@@ -1223,12 +1223,12 @@ regalreversal: {
 					showMsg = true;
 				}
 			}
-			if (showMsg && !effect.secondaries) this.add('-fail', this.effectState.target, 'unboost', '[from] ability: Flower Veil', '[of] ' + target);
+			if (showMsg && !effect.secondaries) this.add('-fail', this.effectData.target, 'unboost', '[from] ability: Flower Veil', '[of] ' + target);
 		},
 		onAllySetStatus: function (status, target, source, effect) {
 			if (target.hasType('Grass')) {
 				if (!effect || !effect.status) return false;
-				this.add('-activate', this.effectState.target, 'ability: Flower Veil', '[of] ' + target);
+				this.add('-activate', this.effectData.target, 'ability: Flower Veil', '[of] ' + target);
 				return null;
 			}
 		},
@@ -1294,7 +1294,7 @@ regalreversal: {
 			for (let i = 0; i < targets.length; i++) {
 				if (targets[i].fainted) continue;
 				for (let j = 0; j < targets[i].moveset.length; j++) {
-					let move = this.moves.get(targets[i].moveset[j].move);
+					let move = this.getMove(targets[i].moveset[j].move);
 					let bp = move.basePower;
 					if (move.ohko) bp = 160;
 					if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
@@ -1321,7 +1321,7 @@ regalreversal: {
 		id: "friendguard",
 		name: "Friend Guard",
 		onAnyModifyDamage: function (damage, source, target, move) {
-			if (target !== this.effectState.target && target.side === this.effectState.target.side) {
+			if (target !== this.effectData.target && target.side === this.effectData.target.side) {
 				this.debug('Friend Guard weaken');
 				return this.chainModify(0.75);
 			}
@@ -1499,7 +1499,7 @@ regalreversal: {
 		onResidualSubOrder: 1,
 		onResidual: function (pokemon) {
 			if (this.field.isWeather(['sunnyday', 'desolateland']) || this.random(2) === 0) {
-				if (pokemon.hp && !pokemon.item && this.items.get(pokemon.lastItem).isBerry) {
+				if (pokemon.hp && !pokemon.item && this.getItem(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Harvest');
 				}
@@ -1521,7 +1521,7 @@ regalreversal: {
 				return;
 			}
 			for (let i = 0; i < allyActive.length; i++) {
-				if (allyActive[i] && allyActive[i].hp && pokemon.isAdjacent(allyActive[i]) && allyActive[i].status && this.random(10) < 3) {
+				if (allyActive[i] && allyActive[i].hp && this.isAdjacent(pokemon, allyActive[i]) && allyActive[i].status && this.random(10) < 3) {
 					this.add('-activate', pokemon, 'ability: Healer');
 					allyActive[i].cureStatus();
 				}
@@ -1791,7 +1791,7 @@ regalreversal: {
 			let foeactive = pokemon.side.foe.active;
 			let activated = false;
 			for (let i = 0; i < foeactive.length; i++) {
-				if (!foeactive[i] || !pokemon.isAdjacent(foeactive[i])) continue;
+				if (!foeactive[i] || !this.isAdjacent(foeactive[i], pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Intimidate', 'boost');
 					activated = true;
@@ -1944,11 +1944,11 @@ regalreversal: {
 		},
 		onAnyRedirectTarget: function (target, source, source2, move) {
 			if (move.type !== 'Electric' || move.id in {firepledge:1, grasspledge:1, waterpledge:1}) return;
-			if (this.validTarget(this.effectState.target, source, move.target)) {
-				if (this.effectState.target !== target) {
-					this.add('-activate', this.effectState.target, 'ability: Lightning Rod');
+			if (this.validTarget(this.effectData.target, source, move.target)) {
+				if (this.effectData.target !== target) {
+					this.add('-activate', this.effectData.target, 'ability: Lightning Rod');
 				}
-				return this.effectState.target;
+				return this.effectData.target;
 			}
 		},
 		id: "lightningrod",
@@ -2008,13 +2008,13 @@ regalreversal: {
 		desc: "Prevents adjacent opposing Bug and Grass-type Pokemon from choosing to switch out unless they are immune to trapping.",
 		shortDesc: "Prevents adjacent Bug and Grass-type foes from choosing to switch.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (pokemon.hasType('Bug') || pokemon.hasType('Grass') && pokemon.isAdjacent(this.effectState.target)) {
+			if (pokemon.hasType('Bug') || pokemon.hasType('Grass') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Bug')) || pokemon.hasType('Gras') && pokemon.isAdjacent(source)) {
+			if (!source) source = this.effectData.target;
+			if ((!pokemon.knownType || pokemon.hasType('Bug')) || pokemon.hasType('Gras') && this.isAdjacent(pokemon, source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -2095,7 +2095,7 @@ regalreversal: {
 			let newMove = this.getMoveCopy(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectState.target, source);
+			this.useMove(newMove, this.effectData.target, source);
 			return null;
 		},
 		effect: {
@@ -2158,13 +2158,13 @@ regalreversal: {
 		desc: "Prevents adjacent opposing Steel-type Pokemon from choosing to switch out unless they are immune to trapping.",
 		shortDesc: "Prevents adjacent Steel-type foes from choosing to switch.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
+			if (pokemon.hasType('Steel') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Steel')) && pokemon.isAdjacent(source)) {
+			if (!source) source = this.effectData.target;
+			if ((!pokemon.knownType || pokemon.hasType('Steel')) && this.isAdjacent(pokemon, source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -2468,7 +2468,7 @@ regalreversal: {
 	"noguard": {
 		shortDesc: "Every move used by or against this Pokemon will always hit.",
 		onAnyAccuracy: function (accuracy, target, source, move) {
-			if (move && (source === this.effectState.target || target === this.effectState.target)) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) {
 				return true;
 			}
 			return accuracy;
@@ -2483,7 +2483,7 @@ regalreversal: {
 		shortDesc: "This Pokemon's moves are changed to be Normal type and have 1.2x power.",
 		onModifyMovePriority: 1,
 		onModifyMove: function (move, pokemon) {
-			if (!move.isZ && move.id !== 'struggle' && this.moves.get(move.id).type !== 'Normal') {
+			if (!move.isZ && move.id !== 'struggle' && this.getMove(move.id).type !== 'Normal') {
 				move.type = 'Normal';
 			}
 			if (move.category !== 'Status') pokemon.addVolatile('normalize');
@@ -2603,21 +2603,21 @@ regalreversal: {
 			duration: 1,
 			onBasePowerPriority: 8,
 			onBasePower: function (basePower) {
-				if (this.effectState.hit) {
-					this.effectState.hit++;
+				if (this.effectData.hit) {
+					this.effectData.hit++;
 					return this.chainModify(0.25);
 				} else {
-					this.effectState.hit = 1;
+					this.effectData.hit = 1;
 				}
 			},
 			onSourceModifySecondaries: function (secondaries, target, source, move) {
-				if (move.id === 'secretpower' && this.effectState.hit < 2) {
+				if (move.id === 'secretpower' && this.effectData.hit < 2) {
 					// hack to prevent accidentally suppressing King's Rock/Razor Fang
 					return secondaries.filter(effect => effect.volatileStatus === 'flinch');
 				}
 			},
 			onAnyAfterMove: function () {
-				this.effectState.target.removeVolatile('parentalbond');
+				this.effectData.target.removeVolatile('parentalbond');
 			},
 		},
 		id: "parentalbond",
@@ -2635,7 +2635,7 @@ regalreversal: {
 			let allActives = pokemon.side.active.concat(pokemon.side.foe.active);
 			for (let i = 0; i < allActives.length; i++) {
 				let target = allActives[i];
-				if (target.lastItem && target.usedItemThisTurn && pokemon.isAdjacent(target)) {
+				if (target.lastItem && target.usedItemThisTurn && this.isAdjacent(pokemon, target)) {
 					pickupTargets.push(target);
 				}
 			}
@@ -2807,12 +2807,12 @@ regalreversal: {
 		desc: "This Pokemon copies the Ability of an ally that faints. Abilities that cannot be copied are Flower Gift, Forecast, Illusion, Imposter, Multitype, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "This Pokemon copies the Ability of an ally that faints.",
 		onAllyFaint: function (target) {
-			if (!this.effectState.target.hp) return;
+			if (!this.effectData.target.hp) return;
 			let ability = this.getAbility(target.ability);
 			let bannedAbilities = {comatose:1, flowergift:1, forecast:1, illusion:1, imposter:1, multitype:1, stancechange:1, trace:1, wonderguard:1, zenmode:1};
 			if (bannedAbilities[target.ability]) return;
-			this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
-			this.effectState.target.setAbility(ability);
+			this.add('-ability', this.effectData.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectData.target.setAbility(ability);
 		},
 		id: "powerofalchemy",
 		name: "Power of Alchemy",
@@ -2972,9 +2972,9 @@ regalreversal: {
 		desc: "While this Pokemon is active, priority moves from opposing Pokemon targeted at allies are prevented from having an effect.",
 		shortDesc: "While this Pokemon is active, allies are protected from opposing priority moves.",
 		onFoeTryMove: function (target, source, effect) {
-			if ((source.side === this.effectState.target.side || effect.id === 'perishsong') && effect.priority > 0.1 && effect.target !== 'foeSide') {
+			if ((source.side === this.effectData.target.side || effect.id === 'perishsong') && effect.priority > 0.1 && effect.target !== 'foeSide') {
 				this.attrLastMove('[still]');
-				this.add('cant', this.effectState.target, 'ability: Queenly Majesty', effect, '[of] ' + target);
+				this.add('cant', this.effectData.target, 'ability: Queenly Majesty', effect, '[of] ' + target);
 				return false;
 			}
 		},
@@ -3026,12 +3026,12 @@ regalreversal: {
 		desc: "This Pokemon copies the Ability of an ally that faints. Abilities that cannot be copied are Flower Gift, Forecast, Illusion, Imposter, Multitype, Stance Change, Trace, Wonder Guard, and Zen Mode.",
 		shortDesc: "This Pokemon copies the Ability of an ally that faints.",
 		onAllyFaint: function (target) {
-			if (!this.effectState.target.hp) return;
+			if (!this.effectData.target.hp) return;
 			let ability = this.getAbility(target.ability);
 			let bannedAbilities = {comatose:1, flowergift:1, forecast:1, illusion:1, imposter:1, multitype:1, stancechange:1, trace:1, wonderguard:1, zenmode:1};
 			if (bannedAbilities[target.ability]) return;
-			this.add('-ability', this.effectState.target, ability, '[from] ability: Receiver', '[of] ' + target);
-			this.effectState.target.setAbility(ability);
+			this.add('-ability', this.effectData.target, ability, '[from] ability: Receiver', '[of] ' + target);
+			this.effectData.target.setAbility(ability);
 		},
 		id: "receiver",
 		name: "Receiver",
@@ -3243,9 +3243,9 @@ regalreversal: {
 			}
 		},
 		onAllyTryHitSide: function (target, source, move) {
-			if (target === this.effectState.target || target.side !== source.side) return;
+			if (target === this.effectData.target || target.side !== source.side) return;
 			if (move.type === 'Grass') {
-				this.boost({atk:1}, this.effectState.target);
+				this.boost({atk:1}, this.effectData.target);
 			}
 		},
 		id: "sapsipper",
@@ -3340,13 +3340,13 @@ regalreversal: {
 		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or also have this Ability.",
 		shortDesc: "Prevents adjacent foes from choosing to switch unless they also have this Ability.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (!pokemon.hasAbility('shadowtag') && pokemon.isAdjacent(this.effectState.target)) {
+			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectData.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
-			if (!source) source = this.effectState.target;
-			if (!pokemon.hasAbility('shadowtag') && pokemon.isAdjacent(source)) {
+			if (!source) source = this.effectData.target;
+			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -3610,7 +3610,7 @@ regalreversal: {
 		desc: "This Pokemon's Special Attack is raised by 1 stage when another Pokemon faints.",
 		shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage when another Pokemon faints.",
 		onAnyFaint: function () {
-			this.boost({spa:1}, this.effectState.target);
+			this.boost({spa:1}, this.effectData.target);
 		},
 		id: "soulheart",
 		name: "Soul-Heart",
@@ -3627,7 +3627,7 @@ regalreversal: {
 		},
 		onAllyTryHitSide: function (target, source, move) {
 			if (move.flags['sound']) {
-				this.add('-immune', this.effectState.target, '[msg]', '[from] ability: Soundproof');
+				this.add('-immune', this.effectData.target, '[msg]', '[from] ability: Soundproof');
 			}
 		},
 		id: "soundproof",
@@ -3806,11 +3806,11 @@ regalreversal: {
 		},
 		onAnyRedirectTarget: function (target, source, source2, move) {
 			if (move.type !== 'Water' || move.id in {firepledge:1, grasspledge:1, waterpledge:1}) return;
-			if (this.validTarget(this.effectState.target, source, move.target)) {
-				if (this.effectState.target !== target) {
-					this.add('-activate', this.effectState.target, 'ability: Storm Drain');
+			if (this.validTarget(this.effectData.target, source, move.target)) {
+				if (this.effectData.target !== target) {
+					this.add('-activate', this.effectData.target, 'ability: Storm Drain');
 				}
-				return this.effectState.target;
+				return this.effectData.target;
 			}
 		},
 		id: "stormdrain",
@@ -3916,14 +3916,14 @@ regalreversal: {
 		onAllySetStatus: function (status, target, source, effect) {
 			if (status.id === 'slp') {
 				this.debug('Sweet Veil interrupts sleep');
-				this.add('-activate', this.effectState.target, 'ability: Sweet Veil', '[of] ' + target);
+				this.add('-activate', this.effectData.target, 'ability: Sweet Veil', '[of] ' + target);
 				return null;
 			}
 		},
 		onAllyTryAddVolatile: function (status, target) {
 			if (status.id === 'yawn') {
 				this.debug('Sweet Veil blocking yawn');
-				this.add('-activate', this.effectState.target, 'ability: Sweet Veil', '[of] ' + target);
+				this.add('-activate', this.effectData.target, 'ability: Sweet Veil', '[of] ' + target);
 				return null;
 			}
 		},
@@ -3946,15 +3946,15 @@ regalreversal: {
 		desc: "If an ally uses its item, this Pokemon gives its item to that ally immediately. Does not activate if the ally's item was stolen or knocked off.",
 		shortDesc: "If an ally uses its item, this Pokemon gives its item to that ally immediately.",
 		onAllyAfterUseItem: function (item, pokemon) {
-			let sourceItem = this.effectState.target.getItem();
+			let sourceItem = this.effectData.target.getItem();
 			if (!sourceItem) return;
-			if (!this.singleEvent('TakeItem', item, this.effectState.target.itemData, this.effectState.target, pokemon, this.effectState, item)) return;
-			sourceItem = this.effectState.target.takeItem();
+			if (!this.singleEvent('TakeItem', item, this.effectData.target.itemData, this.effectData.target, pokemon, this.effectData, item)) return;
+			sourceItem = this.effectData.target.takeItem();
 			if (!sourceItem) {
 				return;
 			}
 			if (pokemon.setItem(sourceItem)) {
-				this.add('-activate', this.effectState.target, 'ability: Symbiosis', sourceItem, '[of] ' + pokemon);
+				this.add('-activate', this.effectData.target, 'ability: Symbiosis', sourceItem, '[of] ' + pokemon);
 			}
 		},
 		id: "symbiosis",
@@ -4134,7 +4134,7 @@ regalreversal: {
 		shortDesc: "On switch-in, or when it can, this Pokemon copies a random adjacent foe's Ability.",
 		onUpdate: function (pokemon) {
 			if (!pokemon.isStarted) return;
-			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
+			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -4202,7 +4202,7 @@ regalreversal: {
 		id: "unaware",
 		name: "Unaware",
 		onAnyModifyBoost: function (boosts, target) {
-			let source = this.effectState.target;
+			let source = this.effectData.target;
 			if (source === target) return;
 			if (source === this.activePokemon && target === this.activeTarget) {
 				boosts['def'] = 0;
@@ -4222,7 +4222,7 @@ regalreversal: {
 		desc: "If this Pokemon loses its held item for any reason, its Speed is doubled. This boost is lost if it switches out or gains a new item or Ability.",
 		shortDesc: "Speed is doubled on held item loss; boost is lost if it switches, gets new item/Ability.",
 		onAfterUseItem: function (item, pokemon) {
-			if (pokemon !== this.effectState.target) return;
+			if (pokemon !== this.effectData.target) return;
 			pokemon.addVolatile('unburden');
 		},
 		onTakeItem: function (item, pokemon) {
@@ -4554,7 +4554,7 @@ regalreversal: {
 		name: "Rebound",
 		onTryHitPriority: 1,
 		onTryHit: function (target, source, move) {
-			if (this.effectState.target.activeTurns) return;
+			if (this.effectData.target.activeTurns) return;
 
 			if (target === source || move.hasBounced || !move.flags['reflectable']) {
 				return;
@@ -4565,14 +4565,14 @@ regalreversal: {
 			return null;
 		},
 		onAllyTryHitSide: function (target, source, move) {
-			if (this.effectState.target.activeTurns) return;
+			if (this.effectData.target.activeTurns) return;
 
 			if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
 				return;
 			}
 			let newMove = this.getMoveCopy(move.id);
 			newMove.hasBounced = true;
-			this.useMove(newMove, this.effectState.target, source);
+			this.useMove(newMove, this.effectData.target, source);
 			return null;
 		},
 		effect: {
@@ -4597,7 +4597,7 @@ regalreversal: {
 			let foeactive = pokemon.side.foe.active;
 			let activated = false;
 			for (let i = 0; i < foeactive.length; i++) {
-				if (!foeactive[i] || !pokemon.isAdjacent(foeactive[i])) continue;
+				if (!foeactive[i] || !this.isAdjacent(foeactive[i], pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Volcanic Haze', 'boost');
 					activated = true;

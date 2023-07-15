@@ -173,7 +173,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
+			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('electricterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
@@ -209,7 +209,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
+			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('psychicterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
@@ -245,7 +245,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
+			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('mistyterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
@@ -281,7 +281,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
+			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('grassyterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
@@ -905,7 +905,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
+			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('acidicterrain')) {
 				for (const target of this.getAllActive()) {
 					if (target.hasAbility('downtoearth')) {
@@ -1486,49 +1486,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by an Electrode, this item allows it to Mega Evolve in battle.",
 	},
-	golurkite: {
-		name: "Golurkite",
-		spritenum: 578,
-		megaStone: "Golurk-Mega",
-		megaEvolves: "Golurk",
-		itemUser: ["Golurk"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1095,
-		gen: 8,
-		desc: "If held by a Golurk, this item allows it to Mega Evolve in battle.",
-	},
-	rksmegamemory: {
-		name: "RKS Megamemory",
-		spritenum: 578,
-		megaStone: "Silvally-Mega",
-		megaEvolves: "Silvally",
-		itemUser: ["Silvally"],
-		onTakeItem(item, source) {
-			if (source.species.name.startsWith('Silvally')) return false;
-			return true;
-		},
-		num: -1096,
-		gen: 8,
-		desc: "If held by a Silvally, this item allows it to Mega Evolve in battle. The form it takes depends on its Hidden Power type.",
-		shortDesc: "Silvally Mega Evolves according to its Hidden Power type.",
-	},
-	golduckite: {
-		name: "Golduckite",
-		spritenum: 578,
-		megaStone: "Golduck-Mega",
-		megaEvolves: "Golduck",
-		itemUser: ["Golduck"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1097,
-		gen: 8,
-		desc: "If held by a Golduck, this item allows it to Mega Evolve in battle.",
-	},
 	porygonitez: {
 		name: "Porygonite-Z",
 		spritenum: 578,
@@ -1599,20 +1556,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Primarina, this item allows it to Mega Evolve in battle.",
 	},
-	jynxite: {
-		name: "Jynxite",
-		spritenum: 578,
-		megaStone: "Jynx-Mega",
-		megaEvolves: "Jynx",
-		itemUser: ["Jynx"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1103,
-		gen: 8,
-		desc: "If held by a Jynx, this item allows it to Mega Evolve in battle.",
-	},
 	electivirite: {
 		name: "Electivirite",
 		spritenum: 578,
@@ -1641,20 +1584,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Magmortar, this item allows it to Mega Evolve in battle.",
 	},
-	granbite: {
-		name: "Granbite",
-		spritenum: 578,
-		megaStone: "Granbull-Mega",
-		megaEvolves: "Granbull",
-		itemUser: ["Granbull"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1106,
-		gen: 8,
-		desc: "If held by a Granbull, this item allows it to Mega Evolve in battle.",
-	},
 	mightyenite: {
 		name: "Mightyenite",
 		spritenum: 578,
@@ -1682,20 +1611,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1108,
 		gen: 8,
 		desc: "If held by a Stoutland, this item allows it to Mega Evolve in battle.",
-	},
-	victreebite: {
-		name: "Victreebite",
-		spritenum: 578,
-		megaStone: "Victreebel-Mega",
-		megaEvolves: "Victreebel",
-		itemUser: ["Victreebel"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1109,
-		gen: 8,
-		desc: "If held by a Victreebel, this item allows it to Mega Evolve in battle.",
 	},
 	dodrionite: {
 		name: "Dodrionite",
@@ -1738,62 +1653,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1112,
 		gen: 8,
 		desc: "If held by an Obstagoon, this item allows it to Mega Evolve in battle.",
-	},
-	dusknite: {
-		name: "Dusknite",
-		spritenum: 578,
-		megaStone: "Dusknoir-Mega",
-		megaEvolves: "Dusknoir",
-		itemUser: ["Dusknoir"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1113,
-		gen: 8,
-		desc: "If held by a Dusknoir, this item allows it to Mega Evolve in battle.",
-	},
-	galvantulite: {
-		name: "Galvantulite",
-		spritenum: 578,
-		megaStone: "Galvantula-Mega",
-		megaEvolves: "Galvantula",
-		itemUser: ["Galvantula"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1114,
-		gen: 8,
-		desc: "If held by a Galvantula, this item allows it to Mega Evolve in battle.",
-	},
-	articunite: {
-		name: "Articunite",
-		spritenum: 578,
-		megaStone: "Articuno-Mega",
-		megaEvolves: "Articuno",
-		itemUser: ["Articuno"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1115,
-		gen: 8,
-		desc: "If held by an Articuno, this item allows it to Mega Evolve in battle.",
-	},
-	virizionite: {
-		name: "Virizionite",
-		spritenum: 578,
-		megaStone: "Virizion-Mega",
-		megaEvolves: "Virizion",
-		itemUser: ["Virizion"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1116,
-		gen: 8,
-		desc: "If held by a Virizion, this item allows it to Mega Evolve in battle.",
 	},
 	guzzlordite: {
 		name: "Guzzlordite",

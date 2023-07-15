@@ -1,13 +1,13 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-   soaperior: {
+	soaperior: {
       tier: "Poketypos",
       doublesTier: "Poketypos", 
    }, 
-   starizard: {
+    starizard: {
       tier: "Poketypos",
       doublesTier: "Poketypos", 
    }, 
-   smoninja: {
+    smoninja: {
       tier: "Poketypos",
       doublesTier: "Poketypos", 
    }, 
@@ -87,7 +87,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
       tier: "Poketypos",
       doublesTier: "Poketypos", 
 	},
-   zarune: {
+    zarune: {
       tier: "Poketypos",
       doublesTier: "Poketypos", 
 	},
@@ -107,16 +107,64 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
       tier: "Poketypos",
       doublesTier: "Poketypos", 
 	},
-   nabscar: {
+    nabscar: {
       tier: "Poketypos",
       doublesTier: "Poketypos", 
 	},
-   kabluxie: {
+    kabluxie: {
       tier: "Poketypos",
       doublesTier: "Poketypos", 
 	},
-   deoxin: {
+    deoxin: {
       tier: "Poketypos",
       doublesTier: "Poketypos", 
+	},
+	mirroar: {
+      tier: "Poketypos",
+      doublesTier: "Poketypos", 
+	},
+    sparkeops: {
+      tier: "Poketypos",
+      doublesTier: "Poketypos", 
+	},
+    mielmetal: {
+      tier: "Poketypos",
+      doublesTier: "Poketypos", 
+	},
+    abomarang: {
+      tier: "Poketypos",
+      doublesTier: "Poketypos", 
+	},
+    zapoark: {
+      tier: "Poketypos",
+      doublesTier: "Poketypos", 
+	},
+    graceon: {
+      tier: "Poketypos",
+      doublesTier: "Poketypos", 
+	},
+	dragsire: {
+      tier: "Poketypos",
+      doublesTier: "Poketypos", 
+	},
+    rotox: {
+      tier: "Poketypos",
+      doublesTier: "Poketypos", 
+	},
+    condorus: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos", 
+	},
+	mrtime: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos", 
+	},
+	bruteboreas: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos", 
+	},
+	ironavian: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos", 
 	},
 };

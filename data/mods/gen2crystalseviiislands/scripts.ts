@@ -1,4 +1,4 @@
-const csi = ["horatekku", "aroofaondo", "exoltol", "animon", "esscargoo", "tunguru", "terricks", "skunkle", "skunking", "kipuro", "kamebi", "pyronoir", "kazappelin", "pierzer", "oatu", "lunaraknid", "cumulos", "altocumulos"];
+const csi = ["horatekku", "aroofaondo", "exoltol", "animon", "esscargoo", "tunguru", "terricks", "skunkle", "skunking", "kipuro", "kamebi", "pyronoir", "kazappelin", "pierzer", "oatu", "lunaraknid", "cumulos", "altocumulos", "celesteon"];
 
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
@@ -8,12 +8,12 @@ export const Scripts: ModdedBattleScriptsData = {
 	init: function () {
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Cosmic'];
 		let newCategory = '';
-		for (const i in this.moves.all()) {
-			if (!this.moves.all()[i]) console.log(i);
-			if (this.moves.all()[i].category === 'Status') continue;
-			newCategory = specialTypes.includes(this.moves.all()[i].type) ? 'Special' : 'Physical';
-			if (newCategory !== this.moves.all()[i].category) {
-				this.modData('Moves', this.moves.all()[i].id).category = newCategory;
+		for (const i in this.data.Moves) {
+			if (!this.data.Moves[i]) console.log(i);
+			if (this.data.Moves[i].category === 'Status') continue;
+			newCategory = specialTypes.includes(this.data.Moves[i].type) ? 'Special' : 'Physical';
+			if (newCategory !== this.data.Moves[i].category) {
+				this.modData('Moves', i).category = newCategory;
 			}
 		}
 		for (const id in this.dataCache.Pokedex) {
@@ -183,7 +183,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'weezing').learnset.softshell = ['2L1'];
 		
 		this.modData('Learnsets', 'venusaur').learnset.malnourish = ['2L1'];
-		this.modData('Learnsets', 'muk').learnset.malnourish = ['2L1'];
+		this.modData('Learnsets', 'crobat').learnset.malnourish = ['2L1'];
 		this.modData('Learnsets', 'tentacruel').learnset.malnourish = ['2L1'];
 
 		this.modData('Learnsets', 'aerodactyl').learnset.boulderrush = ['2L1'];
@@ -204,6 +204,56 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'arcanine').learnset.boulderrush = ['2L1'];
 		this.modData('Learnsets', 'donphan').learnset.boulderrush = ['2L1'];
 		this.modData('Learnsets', 'kingler').learnset.boulderrush = ['2L1'];
+
+		this.modData('Learnsets', 'cleffa').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'clefairy').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'staryu').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'ariados').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'lunaraknid').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'nidoking').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'nidoqueen').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'mewtwo').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'mew').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'oatu').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'altocumulos').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'ledian').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'persian').learnset.starstorm = ['2L1'];
+		this.modData('Learnsets', 'tangela').learnset.starstorm = ['2L1'];
+
+		this.modData('Learnsets', 'altocumulos').learnset.celestialbeam = ['2L1'];
+		this.modData('Learnsets', 'lunaraknid').learnset.celestialbeam = ['2L1'];
+		this.modData('Learnsets', 'clefairy').learnset.celestialbeam = ['2L1'];
+		this.modData('Learnsets', 'ampharos').learnset.celestialbeam = ['2L1'];
+		this.modData('Learnsets', 'stantler').learnset.celestialbeam = ['2L1'];
+		this.modData('Learnsets', 'tangela').learnset.celestialbeam = ['2L1'];
+		this.modData('Learnsets', 'oatu').learnset.celestialbeam = ['2L1'];
+		this.modData('Learnsets', 'celesteon').learnset.celestialbeam = ['2L1'];
+
+		this.modData('Learnsets', 'natu').learnset.vacuum = ['2L1'];
+		this.modData('Learnsets', 'xatu').learnset.vacuum = ['2L1'];
+		this.modData('Learnsets', 'oatu').learnset.vacuum = ['2L1'];
+		this.modData('Learnsets', 'kadabra').learnset.vacuum = ['2L1'];
+		this.modData('Learnsets', 'alakazam').learnset.vacuum = ['2L1'];
+		this.modData('Learnsets', 'lunaraknid').learnset.vacuum = ['2L1'];
+		this.modData('Learnsets', 'mew').learnset.vacuum = ['2L1'];
+		this.modData('Learnsets', 'porygon').learnset.vacuum = ['2L1'];
+		this.modData('Learnsets', 'porygon2').learnset.vacuum = ['2L1'];
+		this.modData('Learnsets', 'lugia').learnset.vacuum = ['2L1'];
+
+		this.modData('Learnsets', 'cleffa').learnset.meteorshard = ['2L1'];
+		this.modData('Learnsets', 'clefairy').learnset.meteorshard = ['2L1'];
+		this.modData('Learnsets', 'natu').learnset.meteorshard = ['2L1'];
+		this.modData('Learnsets', 'celesteon').learnset.meteorshard = ['2L1'];
+		this.modData('Learnsets', 'cumulos').learnset.meteorshard = ['2L1'];
+		this.modData('Learnsets', 'geodude').learnset.meteorshard = ['2L1'];
+		this.modData('Learnsets', 'larvitar').learnset.meteorshard = ['2L1'];
+		this.modData('Learnsets', 'onix').learnset.meteorshard = ['2L1'];
+		this.modData('Learnsets', 'rhyhorn').learnset.meteorshard = ['2L1'];
+		this.modData('Learnsets', 'terricks').learnset.meteorshard = ['2L1'];
+
+		this.modData('Learnsets', 'celesteon').learnset.swordsdance = ['2L1'];
+		this.modData('Learnsets', 'celesteon').learnset.moonlight = ['2L1'];
+		this.modData('Learnsets', 'celesteon').learnset.morningsun = ['2L1'];
 
 	},
 
@@ -321,7 +371,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let lacksTarget = !target || target.fainted;
 			if (!lacksTarget) {
 				if (['adjacentFoe', 'adjacentAlly', 'normal', 'randomNormal'].includes(move.target)) {
-					lacksTarget = !target.isAdjacent(pokemon);
+					lacksTarget = !this.isAdjacent(target, pokemon);
 				}
 			}
 			if (lacksTarget && !move.isFutureMove) {

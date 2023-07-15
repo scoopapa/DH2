@@ -59,29 +59,29 @@ let BattleMovedex = {
 			duration: 3,
 			onLockMove: 'bide',
 			onStart(pokemon) {
-				this.effectState.totalDamage = 0;
+				this.effectData.totalDamage = 0;
 				this.add('-start', pokemon, 'move: Bide');
 			},
 			onDamagePriority: -101,
 			onDamage(damage, target, source, move) {
 				if (!move || move.effectType !== 'Move' || !source) return;
-				this.effectState.totalDamage += damage;
-				this.effectState.lastDamageSource = source;
+				this.effectData.totalDamage += damage;
+				this.effectData.lastDamageSource = source;
 			},
 			onBeforeMove(pokemon, target, move) {
-				if (this.effectState.duration === 1) {
+				if (this.effectData.duration === 1) {
 					this.add('-end', pokemon, 'move: Bide');
-					if (!this.effectState.totalDamage) {
+					if (!this.effectData.totalDamage) {
 						this.add('-fail', pokemon);
 						return false;
 					}
-					target = this.effectState.lastDamageSource;
+					target = this.effectData.lastDamageSource;
 					if (!target) {
 						this.add('-fail', pokemon);
 						return false;
 					}
 					if (!target.isActive) {
-						const possibleTarget = this.resolveTarget(pokemon, this.dex.moves.get('pound'));
+						const possibleTarget = this.resolveTarget(pokemon, this.dex.getMove('pound'));
 						if (!possibleTarget) {
 							this.add('-miss', pokemon);
 							return false;
@@ -94,7 +94,7 @@ let BattleMovedex = {
 						id: /** @type {ID} */('bide'),
 						name: "Bide",
 						accuracy: 100,
-						damage: this.effectState.totalDamage * 2,
+						damage: this.effectData.totalDamage * 2,
 						category: "Physical",
 						priority: 0,
 						flags: {contact: 1, protect: 1},
@@ -167,7 +167,7 @@ let BattleMovedex = {
 		desc: "The user's type changes to match the original type of one of its known moves besides Curse, at random, but not either of its current types. Fails if the user cannot change its type, or if this move would only be able to select one of the user's current types.",
 		onHit(target) {
 			let possibleTypes = target.moveSlots.map(moveSlot => {
-				let move = this.dex.moves.get(moveSlot.id);
+				let move = this.dex.getMove(moveSlot.id);
 				if (move.id !== 'curse' && !target.hasType(move.type)) {
 					return move.type;
 				}
@@ -191,7 +191,7 @@ let BattleMovedex = {
 		desc: "Deals damage to the last opposing Pokemon to hit the user with a physical attack this turn equal to twice the HP lost by the user from that attack. If that opposing Pokemon's position is no longer in use and there is another opposing Pokemon on the field, the damage is done to it instead. This move considers Hidden Power as Normal type, and only the last hit of a multi-hit attack is counted. Fails if the user was not hit by an opposing Pokemon's physical attack this turn, or if the user did not lose HP from the attack.",
 		damageCallback(pokemon) {
 			let lastAttackedBy = pokemon.getLastAttackedBy();
-			if (lastAttackedBy && lastAttackedBy.move && lastAttackedBy.thisTurn && (this.getCategory(lastAttackedBy.move) === 'Physical' || this.dex.moves.get(lastAttackedBy.move).id === 'hiddenpower')) {
+			if (lastAttackedBy && lastAttackedBy.move && lastAttackedBy.thisTurn && (this.getCategory(lastAttackedBy.move) === 'Physical' || this.dex.getMove(lastAttackedBy.move).id === 'hiddenpower')) {
 				// @ts-ignore
 				return 2 * lastAttackedBy.damage;
 			}
@@ -201,19 +201,19 @@ let BattleMovedex = {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
-				this.effectState.position = null;
-				this.effectState.damage = 0;
+				this.effectData.position = null;
+				this.effectData.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectState.target) return;
-				return source.side.foe.active[this.effectState.position];
+				if (source !== this.effectData.target) return;
+				return source.side.foe.active[this.effectData.position];
 			},
 			onDamagePriority: -101,
 			onDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && source.side !== target.side && this.getCategory(effect.id) === 'Physical') {
-					this.effectState.position = source.position;
-					this.effectState.damage = 2 * damage;
+					this.effectData.position = source.position;
+					this.effectData.damage = 2 * damage;
 				}
 			},
 		},
@@ -257,7 +257,7 @@ let BattleMovedex = {
 			noCopy: true,
 			onStart(pokemon) {
 				if (!this.willMove(pokemon)) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				}
 				if (!pokemon.lastMove) {
 					return false;
@@ -268,7 +268,7 @@ let BattleMovedex = {
 							return false;
 						} else {
 							this.add('-start', pokemon, 'Disable', moveSlot.move);
-							this.effectState.move = pokemon.lastMove.id;
+							this.effectData.move = pokemon.lastMove.id;
 							return;
 						}
 					}
@@ -279,14 +279,14 @@ let BattleMovedex = {
 				this.add('-end', pokemon, 'move: Disable');
 			},
 			onBeforeMove(attacker, defender, move) {
-				if (move.id === this.effectState.move) {
+				if (move.id === this.effectData.move) {
 					this.add('cant', attacker, 'Disable', move);
 					return false;
 				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id === this.effectState.move) {
+					if (moveSlot.id === this.effectData.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -364,18 +364,18 @@ let BattleMovedex = {
 					delete target.volatiles['encore'];
 					return;
 				}
-				this.effectState.move = target.lastMove.id;
+				this.effectData.move = target.lastMove.id;
 				this.add('-start', target, 'Encore');
 				if (!this.willMove(target)) {
-					this.effectState.duration++;
+					this.effectData.duration++;
 				}
 			},
 			onOverrideAction(pokemon) {
-				return this.effectState.move;
+				return this.effectData.move;
 			},
 			onResidualOrder: 13,
 			onResidual(target) {
-				if (target.moves.includes(this.effectState.move) && target.moveSlots[target.moves.indexOf(this.effectState.move)].pp <= 0) {
+				if (target.moves.includes(this.effectData.move) && target.moveSlots[target.moves.indexOf(this.effectData.move)].pp <= 0) {
 					// early termination if you run out of PP
 					delete target.volatiles.encore;
 					this.add('-end', target, 'Encore');
@@ -385,11 +385,11 @@ let BattleMovedex = {
 				this.add('-end', target, 'Encore');
 			},
 			onDisableMove(pokemon) {
-				if (!this.effectState.move || !pokemon.hasMove(this.effectState.move)) {
+				if (!this.effectData.move || !pokemon.hasMove(this.effectData.move)) {
 					return;
 				}
 				for (const moveSlot of pokemon.moveSlots) {
-					if (moveSlot.id !== this.effectState.move) {
+					if (moveSlot.id !== this.effectData.move) {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}
@@ -575,19 +575,19 @@ let BattleMovedex = {
 			duration: 1,
 			noCopy: true,
 			onStart(target, source, move) {
-				this.effectState.position = null;
-				this.effectState.damage = 0;
+				this.effectData.position = null;
+				this.effectData.damage = 0;
 			},
 			onRedirectTargetPriority: -1,
 			onRedirectTarget(target, source, source2) {
-				if (source !== this.effectState.target) return;
-				return source.side.foe.active[this.effectState.position];
+				if (source !== this.effectData.target) return;
+				return source.side.foe.active[this.effectData.position];
 			},
 			onDamagePriority: -101,
 			onDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && source.side !== target.side && this.getCategory(effect.id) === 'Special') {
-					this.effectState.position = source.position;
-					this.effectState.damage = 2 * damage;
+					this.effectData.position = source.position;
+					this.effectData.damage = 2 * damage;
 				}
 			},
 		},
@@ -748,7 +748,7 @@ let BattleMovedex = {
 				let move = moveSlot.id;
 				let pp = moveSlot.pp;
 				let NoSleepTalk = ['assist', 'bide', 'focuspunch', 'metronome', 'mirrormove', 'sleeptalk', 'uproar'];
-				if (move && !(NoSleepTalk.includes(move) || this.dex.moves.get(move).flags['charge'])) {
+				if (move && !(NoSleepTalk.includes(move) || this.dex.getMove(move).flags['charge'])) {
 					moves.push({move: move, pp: pp});
 				}
 			}
@@ -809,16 +809,16 @@ let BattleMovedex = {
 		effect: {
 			noCopy: true,
 			onStart(target) {
-				this.effectState.layers = 1;
-				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				this.effectData.layers = 1;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
 			},
 			onRestart(target) {
-				if (this.effectState.layers >= 3) return false;
-				this.effectState.layers++;
-				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				if (this.effectData.layers >= 3) return false;
+				this.effectData.layers++;
+				this.add('-start', target, 'stockpile' + this.effectData.layers);
 			},
 			onEnd(target) {
-				this.effectState.layers = 0;
+				this.effectData.layers = 0;
 				this.add('-end', target, 'Stockpile');
 			},
 		},
@@ -868,7 +868,7 @@ let BattleMovedex = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					if (this.dex.moves.get(moveSlot.move).category === 'Status') {
+					if (this.dex.getMove(moveSlot.move).category === 'Status') {
 						pokemon.disableMove(moveSlot.id);
 					}
 				}

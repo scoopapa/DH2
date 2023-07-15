@@ -16,10 +16,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "oricorio").learnset.willowisp = ["8L1"];
 		this.modData("Learnsets", "oricorio").learnset.twirlingdance = ["8L1"];
 		this.modData("Learnsets", "oricorio").learnset.dualwingbeat = ["8L1"];
+		this.modData("Learnsets", "oricorio").learnset.quiverdance = ["8L1"];
+		this.modData("Learnsets", "oricorio").learnset.bravebird = ["8L1"];
 		
 		this.modData("Learnsets", "ribombee").learnset.gigadrain = ["8L1"];
 		this.modData("Learnsets", "ribombee").learnset.thunderwave = ["8L1"];
 		this.modData("Learnsets", "ribombee").learnset.magiccoat = ["8L1"];
+		this.modData("Learnsets", "ribombee").learnset.pounce = ["8L1"];
 
 		this.modData("Learnsets", "ribombeetotem").learnset.acidspray = ["8L1"];
 		this.modData("Learnsets", "ribombeetotem").learnset.corrosivegas = ["8L1"];
@@ -28,9 +31,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "ribombeetotem").learnset.sludgewave = ["8L1"];
 		this.modData("Learnsets", "ribombeetotem").learnset.strengthsap = ["8L1"];
 		this.modData("Learnsets", "ribombeetotem").learnset.venoshock = ["8L1"];
+		this.modData("Learnsets", "ribombeetotem").learnset.trailblaze = ["8L1"];
+		this.modData("Learnsets", "ribombeetotem").learnset.toxicspikes = ["8L1"];
 
 		this.modData("Learnsets", "araquanid").learnset.uturn = ["8L1"];
 		this.modData("Learnsets", "araquanid").learnset.recover = ["8L1"];
+		this.modData("Learnsets", "araquanid").learnset.chillingwater = ["8L1"];
+		this.modData("Learnsets", "araquanid").learnset.aquacutter = ["8L1"];
+		this.modData("Learnsets", "araquanid").learnset.pounce = ["8L1"];
 
 		this.modData("Learnsets", "araquanidtotem").learnset.airslash = ["8L1"];
 		this.modData("Learnsets", "araquanidtotem").learnset.healorder = ["8L1"];
@@ -41,6 +49,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "araquanidtotem").learnset.toxic = ["8L1"];
 		this.modData("Learnsets", "araquanidtotem").learnset.venomdrench = ["8L1"];
 		this.modData("Learnsets", "araquanidtotem").learnset.venoshock = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.chillingwater = ["8L1"];
+		this.modData("Learnsets", "araquanidtotem").learnset.toxicspikes = ["8L1"];
 		
 		this.modData("Learnsets", "vikavolt").learnset.geargrind = ["8L1"];
 		this.modData("Learnsets", "vikavolt").learnset.irontail = ["8L1"];
@@ -51,12 +61,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "vikavolt").learnset.brickbreak = ["8L1"];
 		this.modData("Learnsets", "vikavolt").learnset.zingzap = ["8L1"];
 		this.modData("Learnsets", "vikavolt").learnset.stompingtantrum = ["8L1"];
+		this.modData("Learnsets", "vikavolt").learnset.doubleshock = ["8L1"];
 		delete this.modData('Learnsets', 'grubbin').learnset.stickyweb;
 		delete this.modData('Learnsets', 'charjabug').learnset.stickyweb;
 		delete this.modData('Learnsets', 'vikavolt').learnset.stickyweb;
 
 		this.modData("Learnsets", "vikavolttotem").learnset.earthquake = ["8L1"];
 		this.modData("Learnsets", "vikavolttotem").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "vikavolttotem").learnset.pounce = ["8L1"];
+		this.modData("Learnsets", "vikavolttotem").learnset.volttackle = ["8L1"];
+		this.modData("Learnsets", "vikavolttotem").learnset.superpower = ["8L1"];
 		delete this.modData('Learnsets', 'vikavolttotem').learnset.agility;
 		
 		this.modData("Learnsets", "urshifu").learnset.stealthrock = ["8L1"];
@@ -69,6 +83,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "urshifu").learnset.earthpower = ["8L1"];
 		this.modData("Learnsets", "urshifu").learnset.nastyplot = ["8L1"];
 		this.modData("Learnsets", "urshifu").learnset.bulldoze = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.spikes = ["8L1"];
+		this.modData("Learnsets", "urshifu").learnset.comeuppance = ["8L1"];
 		delete this.modData('Learnsets', 'urshifu').learnset.closecombat;
 		delete this.modData('Learnsets', 'urshifu').learnset.superpower;
 		delete this.modData('Learnsets', 'urshifu').learnset.focuspunch;
@@ -92,6 +108,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "salazzle").learnset.sandattack = ["8L1"];
 		this.modData("Learnsets", "salazzle").learnset.fakeout = ["8L1"];
 		this.modData("Learnsets", "salazzle").learnset.mudslap = ["8L1"];
+		this.modData("Learnsets", "salazzle").learnset.swordsdance = ["8L1"];
 		delete this.modData('Learnsets', 'salandit').learnset.gunkshot;
 		delete this.modData('Learnsets', 'salandit').learnset.poisonjab;
 		delete this.modData('Learnsets', 'salandit').learnset.sludgebomb;
@@ -134,6 +151,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lurantis").learnset.bulkup = ["8L1"];
 		this.modData("Learnsets", "lurantis").learnset.healorder = ["8L1"];
 		this.modData("Learnsets", "lurantis").learnset.defendorder = ["8L1"];
+		this.modData("Learnsets", "lurantis").learnset.pounce = ["8L1"];
 		delete this.modData('Learnsets', 'lurantis').learnset.leafblade;
 		delete this.modData('Learnsets', 'lurantis').learnset.petalblizzard;
 		delete this.modData('Learnsets', 'lurantis').learnset.seedbomb;
@@ -181,6 +199,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "polteageist").learnset.venoshock = ["8L1"];
 		this.modData("Learnsets", "polteageist").learnset.toxicspikes = ["8L1"];
 		this.modData("Learnsets", "polteageist").learnset.calmmind = ["8L1"];
+		this.modData("Learnsets", "polteageist").learnset.sludgebomb = ["8L1"];
 		delete this.modData('Learnsets', 'sinistea').learnset.shellsmash;
 		delete this.modData('Learnsets', 'sinistea').learnset.nastyplot;
 		delete this.modData('Learnsets', 'sinistea').learnset.storedpower;
@@ -199,6 +218,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "zapdos").learnset.surf = ["8L1"];
 		this.modData("Learnsets", "zapdos").learnset.lifedew = ["8L1"];
 		this.modData("Learnsets", "zapdos").learnset.drainpunch = ["8L1"];
+		this.modData("Learnsets", "zapdos").learnset.aquacutter = ["8L1"];
 		delete this.modData('Learnsets', 'zapdos').learnset.discharge;
 		delete this.modData('Learnsets', 'zapdos').learnset.thunderbolt;
 		delete this.modData('Learnsets', 'zapdos').learnset.voltswitch;
@@ -227,6 +247,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "moltres").learnset.beakblast = ["8L1"];
 		this.modData("Learnsets", "moltres").learnset.superpower = ["8L1"];
 		this.modData("Learnsets", "moltres").learnset.turkeybarrage = ["8L1"];
+		this.modData("Learnsets", "moltres").learnset.closecombat = ["8L1"];
 		delete this.modData('Learnsets', 'moltres').learnset.fireblast;
 		delete this.modData('Learnsets', 'moltres').learnset.flamecharge;
 		delete this.modData('Learnsets', 'moltres').learnset.flamethrower;
@@ -248,6 +269,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "marowak").learnset.dragonpulse = ["8L1"];
 		this.modData("Learnsets", "marowak").learnset.dragonrush = ["8L1"];
 		this.modData("Learnsets", "marowak").learnset.scaleshot = ["8L1"];
+		this.modData("Learnsets", "marowak").learnset.spikes = ["8L1"];
 		
 		this.modData("Learnsets", "marowakalolatotem").learnset.headsmash = ["8L1"];
 		this.modData("Learnsets", "marowakalolatotem").learnset.meteorbeam = ["8L1"];
@@ -265,6 +287,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		
 		this.modData("Learnsets", "dialga").learnset.doomdesire = ["8L1"];
 		this.modData("Learnsets", "dialga").learnset.teleport = ["8L1"];
+		this.modData("Learnsets", "dialga").learnset.focusblast = ["8L1"];
+		this.modData("Learnsets", "dialga").learnset.trick = ["8L1"];
 		
 		this.modData("Learnsets", "palkia").learnset.cosmicpower = ["8L1"];
 		this.modData("Learnsets", "palkia").learnset.calmmind = ["8L1"];
@@ -277,6 +301,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "palkia").learnset.psychic = ["8L1"];
 		this.modData("Learnsets", "palkia").learnset.psyshock = ["8L1"];
 		this.modData("Learnsets", "palkia").learnset.psychoboost = ["8L1"];
+		this.modData("Learnsets", "palkia").learnset.trick = ["8L1"];
 		delete this.modData('Learnsets', 'palkia').learnset.aquaring;
 		delete this.modData('Learnsets', 'palkia').learnset.raindance;
 		delete this.modData('Learnsets', 'palkia').learnset.aquatail;
@@ -317,6 +342,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "gumshoostotem").learnset.rockblast = ["8L1"];
 		this.modData("Learnsets", "gumshoostotem").learnset.powergem = ["8L1"];
 		this.modData("Learnsets", "gumshoostotem").learnset.stealthrock = ["8L1"];
+		this.modData("Learnsets", "gumshoostotem").learnset.swordsdance = ["8L1"];
 		delete this.modData('Learnsets', 'gumshoostotem').learnset.firepunch;
 		delete this.modData('Learnsets', 'gumshoostotem').learnset.icepunch;
 		delete this.modData('Learnsets', 'gumshoostotem').learnset.thunderpunch;
@@ -333,6 +359,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "togedemaru").learnset.energyball = ["8L1"];
 		this.modData("Learnsets", "togedemaru").learnset.bulkup = ["8L1"];
 		this.modData("Learnsets", "togedemaru").learnset.stealthrock = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.powerwhip = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.seedbomb = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.trailblaze = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.bulletseed = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.gigadrain = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.megadrain = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.absorb = ["8L1"];
+		this.modData("Learnsets", "togedemaru").learnset.leechseed = ["8L1"];
 		this.modData("Learnsets", "togedemaru").learnset.swordsdance = ["8L1"];
 		delete this.modData('Learnsets', 'togedemaru').learnset.spark;
 		delete this.modData('Learnsets', 'togedemaru').learnset.wildcharge;
@@ -352,6 +386,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "tauros").learnset.stealthrock = ["8L1"];
 		this.modData("Learnsets", "tauros").learnset.uturn = ["8L1"];
 		this.modData("Learnsets", "tauros").learnset.headcharge = ["8L1"];
+		this.modData("Learnsets", "tauros").learnset.earthpower = ["8L1"];
+		this.modData("Learnsets", "tauros").learnset.headsmash = ["8L1"];
 		
 		this.modData("Learnsets", "raichu").learnset.icepunch = ["8L1"];
 		this.modData("Learnsets", "raichu").learnset.moonblast = ["8L1"];
@@ -365,6 +401,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "rapidash").learnset.poisonjab = ["8L1"];
 		this.modData("Learnsets", "rapidash").learnset.jumpkick = ["8L1"];
 		this.modData("Learnsets", "rapidash").learnset.uturn = ["8L1"];
+		this.modData("Learnsets", "rapidash").learnset.voltswitch = ["8L1"];
+		this.modData("Learnsets", "rapidash").learnset.zingzap = ["8L1"];
 		delete this.modData('Learnsets', 'rapidash').learnset.swordsdance;
 
 		this.modData("Learnsets", "rapidashgalar").learnset.earthquake = ["8L1"];
@@ -409,6 +447,41 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'ponytagalar').learnset.psybeam;
 		
 		this.modData("Learnsets", "golemalola").learnset.shiftgear = ["8L1"];
+		
+		this.modData("Learnsets", "cherrim").learnset.solarblade = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.powerwhip = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.leafblade = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.headlongrush = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.earthquake = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.highhorsepower = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.dig = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.bulldoze = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.earthpower = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.stealthrock = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.superpower = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.bodypress = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "cherrim").learnset.uturn = ["8L1"];
+
+		this.modData("Learnsets", "minior").learnset.dragonhammer = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.meteorbeam = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.dracometeor = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.dragonpulse = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.wish = ["8L1"];
+		this.modData("Learnsets", "minior").learnset.earthpower = ["8L1"];
+		delete this.modData('Learnsets', 'minior').learnset.acrobatics;
+		delete this.modData('Learnsets', 'minior').learnset.shellsmash;
+
+		this.modData("Learnsets", "eevee").learnset.extremeevoboost = ["8L1"];
+		this.modData("Learnsets", "eevee").learnset.knockoff = ["8L1"];
+		this.modData("Learnsets", "eevee").learnset.hydropump = ["8L1"];
+		this.modData("Learnsets", "eevee").learnset.thunderbolt = ["8L1"];
+		this.modData("Learnsets", "eevee").learnset.icebeam = ["8L1"];
+		this.modData("Learnsets", "eevee").learnset.psychic = ["8L1"];
+		this.modData("Learnsets", "eevee").learnset.gigadrain = ["8L1"];
+		this.modData("Learnsets", "eevee").learnset.flamethrower = ["8L1"];
+		this.modData("Learnsets", "eevee").learnset.moonblast = ["8L1"];
+		delete this.modData('Learnsets', 'eevee').learnset.storedpower;
 	},
 	
 	pokemon: {
@@ -427,34 +500,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return item !== 'airballoon';
 		},
 		ignoringAbility() {
-			// Check if any active pokemon have the ability Neutralizing Gas
-			let neutralizinggas = false;
-			let rubberarmor = false;
-			/*const aurabreakAbilities = ["adaptability", "aerilate", "analytic", "darkaura", "flareboost", "fairyaura", "galvanize", "guts", 
-				"hustle", "ironfist", "packleader", "pixilate", "poisontouch", "punkrock", "refrigerate", "sandforce", "shadowworld", "sheerforce",
-				"solarpower", "steelworker", "strongjaw", "technician", "toughclaws", "transistor", "waterbubble", "watercycle", "forecast"];*/
-			const rubberarmorAbilities = ["blaze", "infiltrator", "libero", "overgrow", "sandforce", "soulreap", "splitsystem", "steelworker", 
-				"swarm", "torrent", "unseenfist", "victorystar", "waterbubble"];
-			for (const pokemon of this.battle.getAllActive()) {
-				// can't use hasAbility because it would lead to infinite recursion
-				if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
-					!pokemon.transformed && !pokemon.abilityData.ending) {
-					neutralizinggas = true;
-					break;
-				}
-				if (pokemon.ability === ('rubberarmor' as ID) && !pokemon.volatiles['gastroacid'] &&
-					!pokemon.transformed) {
-					rubberarmor = true;
-				}
-			}
+			if (this.battle.gen >= 5 && !this.isActive) return true;
+			if (this.getAbility().isPermanent) return false;
+			if (this.volatiles['gastroacid']) return true;
+			if (this.ability === ('rubberarmor' as ID)) return false;
+			if (this.volatiles['rubberarmor']) return true;
 
-			return !!(
-				(this.battle.gen >= 5 && !this.isActive) ||
-				((this.volatiles['gastroacid'] || this.volatiles['rubberarmor'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) ||
-					(rubberarmor && rubberarmorAbilities.includes(this.ability))) &&
-				!this.getAbility().isPermanent
-				)
-			);
+			return false;
 		},
 	},
 	hitStepMoveHitLoop(targets, pokemon, move) { // Temporary name

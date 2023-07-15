@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 755,
-		desc: "If held by a Muktaria-Alola, this item allows it to Mega Evolve in battle.",
+		desc: "If held by an Alolan Muktaria, this item allows it to Mega Evolve in battle.",
 	},
 	metagrossite: {
 		name: "Metagrossite",
@@ -32,26 +32,25 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.transformed) return;
 			if (this.queue.peek(true)?.choice === 'runSwitch') return;
 
-			if (pokemon.hasAbility('protosynthesis') && !pokemon.volatiles['protosynthesis'] && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
-				pokemon.addVolatile('protosynthesis');
+			if (!this.field.isWeather('sunnyday')) {
+				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife']) { 
+					if (pokemon.hasAbility(proto)) {
+						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
+							pokemon.addVolatile(proto);
+						}
+						return;
+					}
+				}
 			}
-			if (pokemon.hasAbility('quarkdrive') && !pokemon.volatiles['quarkdrive'] && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
-				pokemon.addVolatile('quarkdrive');
-			}
-			if (pokemon.hasAbility('lightdrive') && !pokemon.volatiles['lightdrive'] && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
-				pokemon.addVolatile('lightdrive');
-			}
-			if (pokemon.hasAbility('quarksurge') && !pokemon.volatiles['quarksurge'] && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
-				pokemon.addVolatile('quarksurge');
-			}
-			if (pokemon.hasAbility('openingact') && !pokemon.volatiles['openingact'] && !this.field.isTerrain('sunnyday') && pokemon.useItem()) {
-				pokemon.addVolatile('openingact');
-			}
-			if (pokemon.hasAbility('onceuponatime') && !pokemon.volatiles['onceuponatime'] && !this.field.isTerrain('sunnyday') && pokemon.useItem()) {
-				pokemon.addVolatile('onceuponatime');
-			}
-			if (pokemon.hasAbility('primitive') && !pokemon.volatiles['primitive'] && !this.field.isTerrain('sunnyday') && pokemon.useItem()) {
-				pokemon.addVolatile('primitive');
+			if (!this.field.isTerrain('electricterrain')) {
+				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'dyschronometria', 'faultyphoton']) { 
+					if (pokemon.hasAbility(quark)) {
+						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
+							pokemon.addVolatile(quark);
+						}
+						return;
+					}
+				}
 			}
 			if (pokemon.hasAbility('systempurge') && !pokemon.volatiles['systempurge'] && pokemon.useItem()) {
 				pokemon.addVolatile('systempurge');
@@ -89,5 +88,83 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 683,
 		desc: "If held by a Garpyuku, this item allows it to Mega Evolve in battle.",
+	},
+	gengarite: {
+		name: "Gengarite",
+		spritenum: 588,
+		megaStone: "Crygargonal-Mega",
+		megaEvolves: "Crygargonal",
+		itemUser: ["Crygargonal"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 656,
+		desc: "If held by a Crygargonal, this item allows it to Mega Evolve in battle.",
+	},
+	ampharosite: {
+		name: "Ampharosite",
+		spritenum: 580,
+		megaStone: "Amphamence-Mega-Y",
+		megaEvolves: "Amphamence",
+		itemUser: ["Amphamence"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 658,
+		desc: "If held by an Amphamence, this item allows it to Mega Evolve in battle.",
+	},
+	salamencite: {
+		name: "Salamencite",
+		spritenum: 627,
+		megaStone: "Amphamence-Mega-X",
+		megaEvolves: "Amphamence",
+		itemUser: ["Amphamence"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 769,
+		desc: "If held by an Amphamence, this item allows it to Mega Evolve in battle.",
+	},
+	swampertite: {
+		name: "Swampertite",
+		spritenum: 612,
+		megaStone: "Goopert-Hisui-Mega",
+		megaEvolves: "Goopert-Hisui",
+		itemUser: ["Goopert-Hisui"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 752,
+		desc: "If held by a Goopert, this item allows it to Mega Evolve in battle.",
+	},
+	tyranitarite: {
+		name: "Tyranitarite",
+		spritenum: 607,
+		megaStone: "Tyranix-Mega-X",
+		megaEvolves: "Tyranix",
+		itemUser: ["Tyranix"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 669,
+		desc: "If held by a Tyranix, this item allows it to Mega Evolve in battle.",
+	},
+	steelixite: {
+		name: "Steelixite",
+		spritenum: 621,
+		megaStone: "Tyranix-Mega-Y",
+		megaEvolves: "Tyranix",
+		itemUser: ["Tyranix"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 761,
+		desc: "If held by a Tyranix, this item allows it to Mega Evolve in battle.",
 	},
 };

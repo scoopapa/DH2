@@ -1,4 +1,4 @@
-export const Rulesets: {[k: string]: ModdedFormatData} = {
+export const Formats: {[k: string]: FormatData} = {
 	megadatamod: {
 		effectType: 'Rule',
 		name: 'Mega Data Mod',
@@ -28,7 +28,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		},
 		onAfterMega(pokemon) {
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-			const species = this.dex.species.get(pokemon.species.name);
+			const species = this.dex.getSpecies(pokemon.species.name);
 			const abilities = species.abilities;
 			const baseStats = species.baseStats;
 			const type = species.types[0];

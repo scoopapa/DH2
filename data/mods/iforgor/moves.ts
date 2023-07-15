@@ -254,6 +254,56 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fairy",
 		contestType: "Tough",
 	},
+	slipstream: {
+		num: 3020,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Slipstream",
+		shortDesc: "User heals HP equal to the target's Spe stat. Lowers Spe by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, heal: 1},
+		onPrepareHit: function(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Gust", target);
+		},
+		onHit(target, source) {
+			if (target.boosts.spe === -6) return false;
+			const spe = target.getStat('spe', false, true);
+			const success = this.boost({atk: -1}, target, source, null, false, true);
+			return !!(this.heal(spe, source, target) || success);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		zMove: {boost: {spe: 1}},
+		contestType: "Cute",
+	},
+	takersflame: {
+		num: 3021,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Taker's Flame",
+		shortDesc: "User heals 1/8 max HP.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		onPrepareHit: function(target, source, move) {
+		    this.attrLastMove('[still]');
+		    this.add('-anim', source, "Fire Lash", target);
+		},
+		onAfterHit(target, source) {
+			this.heal(source.maxhp/8, source, target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	
+	//buffed moves
 	acid: {
 		inherit: true,
 		basePower: 60,
@@ -586,6 +636,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return success;
 		},
 	},
+	rest: {
+		inherit: true,
+		pp: 10,
+	},
 	sheercold: {
 		inherit: true,
 		accuracy: 90,
@@ -823,6 +877,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 25,
 		shortDesc: "Hits 5 times. 10% chance to lower the target's Defense by 1.",
+		multihit: 5,
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -1018,64 +1073,107 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
 	},
-	aerialace: {
+	ragefist: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		basePowerCallback(pokemon) {
+			if (!pokemon.m.timesAttacked) pokemon.m.timesAttacked = 0;
+			return Math.min(200, 50 + 25 * pokemon.m.timesAttacked);
+		},
+		shortDesc: "+25 power for each time user was hit. Max 6 hits.",
 	},
-	aircutter: {
+	tarshot: {
 		inherit: true,
-		flags: {protect: 1, mirror: 1, slicing: 1},
+		basePower: 75,
+		category: "Special",
+		shortDesc: "Target becomes weaker to Fire.",
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		boosts: null,
+		type: "Ground",
 	},
-	behemothblade: {
-		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+	thousandwaves: {
+		num: 615,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Thousand Waves",
+		shortDesc: "Hits twice. 100% chance to lower the target's Defense by 1. Ignores changes to the Defense stat.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		multihit: 2,
+		ignoreEvasion: true,
+		ignoreDefensive: true,
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Ground",
+		contestType: "Tough",
 	},
-	crosspoison: {
+	tidyup: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		pp: 15,
 	},
-	cut: {
+	
+	//beam moves
+	twinbeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		basePower: 50,
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	furycutter: {
+	aurorabeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	leafblade: {
+	bubblebeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	nightslash: {
+	chargebeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	psychocut: {
+	eternabeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	razorleaf: {
+	hyperbeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	razorshell: {
+	icebeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	sacredsword: {
+	meteorbeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	slash: {
+	moongeistbeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	solarblade: {
+	psybeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
-	xscissor: {
+	signalbeam: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		flags: {protect: 1, mirror: 1, beam: 1},
+	},
+	simplebeam: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, beam: 1},
+	},
+	solarbeam: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, beam: 1},
+	},
+	steelbeam: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, beam: 1},
 	},
 };

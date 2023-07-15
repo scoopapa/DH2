@@ -197,6 +197,90 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Solrock, this item allows it to Mega Evolve in battle.",
 	},
+	quagsite: {
+		name: "Quagsite",
+		spritenum: 578,
+		megaStone: "Quagsire-Mega",
+		megaEvolves: "Quagsire",
+		itemUser: ["Quagsire"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1015,
+		gen: 8,
+		desc: "If held by a Quagsire, this item allows it to Mega Evolve in battle.",
+	},
+	heatmorite: {
+		name: "Heatmorite",
+		spritenum: 578,
+		megaStone: "Heatmor-Mega",
+		megaEvolves: "Heatmor",
+		itemUser: ["Heatmor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1016,
+		gen: 8,
+		desc: "If held by a Heatmor, this item allows it to Mega Evolve in battle.",
+	},
+	pangoronite: {
+		name: "Pangoronite",
+		spritenum: 578,
+		megaStone: "Pangoro-Mega",
+		megaEvolves: "Pangoro",
+		itemUser: ["Pangoro"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1017,
+		gen: 8,
+		desc: "If held by a Pangoro, this item allows it to Mega Evolve in battle.",
+	},
+	jumpluffite: {
+		name: "Jumpluffite",
+		spritenum: 578,
+		megaStone: "Jumpluff-Mega",
+		megaEvolves: "Jumpluff",
+		itemUser: ["Jumpluff"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1018,
+		gen: 8,
+		desc: "If held by a Jumpluff, this item allows it to Mega Evolve in battle.",
+	},
+	rhyperiorite: {
+		name: "Rhyperiorite",
+		spritenum: 578,
+		megaStone: "Rhyperior-Mega",
+		megaEvolves: "Rhyperior",
+		itemUser: ["Rhyperior"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1019,
+		gen: 8,
+		desc: "If held by a Rhyperior, this item allows it to Mega Evolve in battle.",
+	},
+	florgesite: {
+		name: "Florgesite",
+		spritenum: 578,
+		megaStone: "Florges-Mega",
+		megaEvolves: "Florges",
+		itemUser: ["Florges"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1020,
+		gen: 8,
+		desc: "If held by a Florges, this item allows it to Mega Evolve in battle.",
+	},
 
 	// crossover Megas
 

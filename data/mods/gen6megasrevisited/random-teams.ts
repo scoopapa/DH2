@@ -7,7 +7,6 @@ import {PRNG, PRNGSeed} from '../../../sim/prng';
 export class RandomGen6Teams extends RandomGen7Teams {
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
-		this.randomFactorySets = require('./factory-sets.json');
 	}
 
 	randomSet(species: string | Species, teamDetails: RandomTeamsTypes.TeamDetails = {}, isLead = false): RandomTeamsTypes.RandomSet {
@@ -842,7 +841,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 		}
 
 		const levelScale: {[k: string]: number} = {
-			uber: 78, ou: 80, uu: 82, ru: 84, nu: 86, pu: 88,
+			uber: 78, ou: 80, uubl: 81, uu: 82, rubl: 83, ru: 84, nubl: 85, nu: 86, publ: 87, pu: 88,
 		};
 		const customScale: {[k: string]: number} = {
 			// Banned Ability
@@ -850,7 +849,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 			// Holistic judgement
 			Castform: 100, Delibird: 100, 'Genesect-Douse': 80, Spinda: 100, Unown: 100,
 		};
-		const tier = toID(species.tier).replace('bl', '');
+		const tier = species.tier;
 		let level = levelScale[tier] || (species.nfe ? 90 : 80);
 		if (customScale[forme]) level = customScale[forme];
 

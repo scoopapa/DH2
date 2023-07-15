@@ -100,12 +100,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 			duration: 1,
 			onDamage(damage, target, source, effect) {
 				if (effect && effect.effectType === 'Move' && damage >= target.hp) {
-					this.effectState.activated = true;
+					this.effectData.activated = true;
 					return target.hp - 1;
 				}
 			},
 			onAfterMoveSecondary(target) {
-				if (this.effectState.activated) target.useItem();
+				if (this.effectData.activated) target.useItem();
 				target.removeVolatile('focussash');
 			},
 		},
@@ -156,7 +156,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			duration: 1,
 			onAfterMoveSecondarySelf(source, target, move) {
 				if (move && move.effectType === 'Move' && source && source.volatiles['lifeorb']) {
-					this.damage(source.baseMaxhp / 10, source, source, this.dex.items.get('lifeorb'));
+					this.damage(source.baseMaxhp / 10, source, source, this.dex.getItem('lifeorb'));
 					source.removeVolatile('lifeorb');
 				}
 			},
@@ -214,8 +214,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "Damage of moves used on consecutive turns is increased. Max 2x after 10 turns.",
 		effect: {
 			onStart(pokemon) {
-				this.effectState.numConsecutive = 0;
-				this.effectState.lastMove = '';
+				this.effectData.numConsecutive = 0;
+				this.effectData.lastMove = '';
 			},
 			onTryMovePriority: -2,
 			onTryMove(pokemon, target, move) {
@@ -223,15 +223,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 					pokemon.removeVolatile('metronome');
 					return;
 				}
-				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
-					this.effectState.numConsecutive++;
+				if (this.effectData.lastMove === move.id && pokemon.moveLastTurnResult) {
+					this.effectData.numConsecutive++;
 				} else {
-					this.effectState.numConsecutive = 0;
+					this.effectData.numConsecutive = 0;
 				}
-				this.effectState.lastMove = move.id;
+				this.effectData.lastMove = move.id;
 			},
 			onModifyDamagePhase2(damage, source, target, move) {
-				return damage * (1 + (this.effectState.numConsecutive / 10));
+				return damage * (1 + (this.effectData.numConsecutive / 10));
 			},
 		},
 	},

@@ -13,7 +13,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Focus Punch",
 		pp: 20,
 		priority: -3,
-		flags: {contact: 1, protect: 1, punch: 1},
+		flags: {},
 		beforeTurnCallback(pokemon) {
 			pokemon.addVolatile('focuspunch');
 		},
@@ -48,7 +48,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Blast Burn",
 		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1},
+		flags: {recharge: 1},
 		self: null,
 		onHit(target, source) {
 			if (target.hp) {
@@ -69,7 +69,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Frenzy Plant",
 		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1},
+		flags: {recharge: 1},
 		self: null,
 		onHit(target, source) {
 			if (target.hp) {
@@ -90,7 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Hydro Cannon",
 		pp: 5,
 		priority: 0,
-		flags: {recharge: 1, protect: 1, mirror: 1},
+		flags: {recharge: 1},
 		self: null,
 		onHit(target, source) {
 			if (target.hp) {
@@ -107,7 +107,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		num: 434,
 		shortDesc: "Lowers the user's Special by 2 stages after use.",
 		accuracy: 90,
-		basePower: 150,
+		basePower: 140,
 		category: "Special",
 		name: "Draco Meteor",
 		pp: 5,
@@ -125,6 +125,120 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 		gen: 1,
 	},
+	crunch: {
+		num: 242,
+		accuracy: 100,
+		basePower: 80,
+		shortDesc: "20% chance to lower the foe's Defense by 1 stage.",
+		category: "Physical",
+		name: "Crunch",
+		pp: 15,
+		priority: 0,
+		flags: {},
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+		gen: 1,
+	},
+	dragonbreath: {
+		num: 225,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Dragon Breath",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+		gen: 1,
+	},
+	willowisp: {
+		num: 261,
+		accuracy: 85,
+		basePower: 0,
+		category: "Status",
+		name: "Will-O-Wisp",
+		pp: 20,
+		priority: 0,
+		flags: {},
+		status: 'brn',
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMove: {boost: {atk: 1}},
+		contestType: "Beautiful",
+		gen: 1,
+	},
+	sparklingaria: {
+		num: 664,
+		accuracy: 100,
+		basePower: 90,
+		shortDesc: "Hits through substitutes.",
+		category: "Special",
+		name: "Sparkling Aria",
+		pp: 10,
+		priority: 0,
+		flags: {sound: 1, authentic: 1},
+		onTryHit(target, source, move) {
+			move.infiltrates = true;
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Water",
+		contestType: "Tough",
+		gen: 1,
+	},
+	quiverdance: {
+		num: 483,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Quiver Dance",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, dance: 1},
+		boosts: {
+			spa: 1,
+			spd: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+		gen: 1,
+	},
+	junglehealing: {
+		num: 816,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Jungle Healing",
+		pp: 10,
+		priority: 0,
+		flags: {heal: 1, authentic: 1, mystery: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return pokemon.cureStatus() || success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		gen: 1,
+	},	
 	
 // Old Moves	
 	acid: {
@@ -808,8 +922,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			// max HP and current HP is 0
 			if (target.hp >= target.maxhp) return false;
 			if (!target.setStatus('slp')) return false;
-			target.statusState.time = 2;
-			target.statusState.startTime = 2;
+			target.statusData.time = 2;
+			target.statusData.startTime = 2;
 			this.heal(target.maxhp); // Aeshetic only as the healing happens after you fall asleep in-game
 			this.add('-status', target, 'slp', '[from] move: Rest');
 		},
@@ -1016,6 +1130,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHitPriority: -1,
 			onTryHit(target, source, move) {
+				if (move.flags['authentic'] || move.infiltrates) {
+					return;
+				}
 				if (move.drain) {
 					this.add('-miss', source);
 					return null;

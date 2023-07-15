@@ -56,7 +56,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				boosts: {
 				atk: -1,
 				},
-				ability: this.dex.abilities.get('abhorrent'),
+				ability: this.dex.getAbility('abhorrent'),
 			});
 		},
 		name: "Abhorrent",
@@ -74,7 +74,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			move.secondaries.push({
 				chance: 100,
 				volatileStatus: 'leechseed',
-				ability: this.dex.abilities.get('hostabsorb'),
+				ability: this.dex.getAbility('hostabsorb'),
 			});
 		},
 		name: "Host Absorb",
@@ -155,7 +155,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !target.isAdjacent(pokemon)) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Mean Eye', 'boost');
 					activated = true;

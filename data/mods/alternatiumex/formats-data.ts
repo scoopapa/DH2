@@ -523,4 +523,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},
+	cherrim: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	cherrine: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	minior: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	miniormeteor: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	eevee: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
+	eeveestarter: {
+		tier: "Alternatium EX",
+		doublesTier: "Alternatium EX",
+	},
 };

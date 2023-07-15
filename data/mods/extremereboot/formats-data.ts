@@ -1,13 +1,21 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	// ToDo: Random Battle Rules:
+	// - No Guard Up without Floral Breeze or Withering Breeze
+	// - No Field or Weather moves unless something on the team can abuse it
+	// - No Uproot or Hard Reset at the same time as Rubbles or Field
+	
 	extremeribbit: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	baobloss: {
+		randomBattleMoves: ['blossomout', 'floralbreeze', 'guardup', 'purification', 'soothingtune', 'growthpower'],
+        randomBattleLevel: 100,
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	tenquarrel: {
+        randomBattleLevel: 100,
 		tier: "OU",
 		doublesTier: "DOU",
 	},

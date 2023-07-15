@@ -11,8 +11,42 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	*/
 
 	// paradox mons start here
-
-
+	flyingspecter: {
+		tier: "BoE OU",
+	},
+	gildedfleece: {
+		tier: "BoE OU",
+	},
+	weepingvine: {
+		tier: "BoE OU",
+	},
+	ragingtempest: {
+		tier: "BoE OU",
+	},
+	pistilwhip: {
+		tier: "BoE OU",
+	},
+	terracottaidol: {
+		tier: "BoE OU",
+	},
+	aureatefin: {
+		tier: "BoE OU",
+	},
+	spindleclaw: {
+		tier: "BoE OU",
+	},
+	tripoddrill: {
+		tier: "BoE OU",
+	},
+	twintoxin: {
+		tier: "BoE OU",
+	},
+	oraclehelix: {
+		tier: "BoE OU",
+	},
+	wittykitty: {
+		tier: "BoE OU",
+	},
 
 
 
@@ -21,134 +55,82 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	// canon mons start here
 
 	bulbasaur: {
-		
 		tier: "BoE LC",
-		
 	},
 	ivysaur: {
-		
 		tier: "BoE NFE",
-		
 	},
 	venusaur: {
-		
 		tier: "BoE OU",
-		
 	},
 	charmander: {
-		
 		tier: "BoE LC",
-		
 	},
 	charmeleon: {
-		
 		tier: "BoE NFE",
-		
 	},
 	charizard: {
-		
 		tier: "BoE OU",
-		
 	},
 	squirtle: {
-		
 		tier: "BoE LC",
-		
 	},
 	wartortle: {
-		
 		tier: "BoE NFE",
-		
 	},
 	blastoise: {
-		
 		tier: "BoE OU",
-		
 	},
 	caterpie: {
-		
 		tier: "BoE LC",
-		
 	},
 	metapod: {
-		
 		tier: "BoE NFE",
-		
 	},
 	butterfree: {
-		
 		tier: "BoE OU",
-		
 	},
 	weedle: {
-		
 		tier: "BoE LC",
-		
 	},
 	kakuna: {
-		
 		tier: "BoE NFE",
-		
 	},
 	beedrill: {
-		
 		tier: "BoE OU",
-		
 	},
 	pidgey: {
-		
 		tier: "BoE LC",
-		
 	},
 	pidgeotto: {
-		
 		tier: "BoE NFE",
-		
 	},
 	pidgeot: {
-		
 		tier: "BoE OU",
-		
 	},
 	rattata: {
-		
 		tier: "BoE LC",
-		
 	},
 	rattataalola: {
-		
 		tier: "BoE LC",
-		
 	},
 	raticate: {
-		
 		tier: "BoE OU",
-		
 	},
 	raticatealola: {
-		
 		tier: "BoE OU",
-		
 	},
 	spearow: {
-		
 		tier: "BoE LC",
-		
 	},
 	fearow: {
-		
 		tier: "BoE OU",
-		
 	},
 	ekans: {
-		
 		tier: "BoE LC",
-		
 	},
 	arbok: {
-		
 		tier: "BoE OU",
-		
 	},
 	pichu: {
 		tier: "BoE LC",
@@ -157,98 +139,61 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE NFE",
 	},
 	raichu: {
-		
 		tier: "BoE OU",
 	},
 	raichualola: {
-		
 		tier: "BoE OU",
-		
 	},
 	sandshrew: {
-		
 		tier: "BoE LC",
-		
 	},
 	sandshrewalola: {
-		
 		tier: "BoE LC",
-		
 	},
 	sandslash: {
-		
 		tier: "BoE OU",
-		
 	},
 	sandslashalola: {
-		
 		tier: "BoE OU",
-		
 	},
 	nidoranf: {
-		
 		tier: "BoE LC",
-		
 	},
 	nidorina: {
-		
 		tier: "BoE NFE",
-		
 	},
 	nidoqueen: {
-		
 		tier: "BoE OU",
-		
 	},
 	nidoranm: {
-		
 		tier: "BoE LC",
-		
 	},
 	nidorino: {
-		
 		tier: "BoE NFE",
-		
 	},
 	nidoking: {
-		
 		tier: "BoE OU",
-		
 	},
 	cleffa: {
-		
 		tier: "BoE LC",
-		
 	},
 	clefairy: {
-		
 		tier: "BoE NFE",
-		
 	},
 	clefable: {
-		
 		tier: "BoE OU",
-		
 	},
 	vulpix: {
-		
 		tier: "BoE LC",
-		
 	},
 	vulpixalola: {
-		
 		tier: "BoE LC",
-		
 	},
 	ninetales: {
-		
 		tier: "BoE OU",
-		
 	},
 	ninetalesalola: {
-		
 		tier: "BoE OU",
-		
 	},
 	igglybuff: {
 		tier: "BoE LC",
@@ -258,83 +203,57 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	wigglytuff: {
 		tier: "BoE OU",
-		
 	},
 	zubat: {
-		
 		tier: "BoE LC",
-		
 	},
 	golbat: {
-		
 		tier: "BoE NFE",
-		
 	},
 	crobat: {
-		
 		tier: "BoE OU",
-		
 	},
 	oddish: {
-		
 		tier: "BoE LC",
-		
 	},
 	gloom: {
-		
 		tier: "BoE NFE",
-		
 	},
 	vileplume: {
-		
 		tier: "BoE OU",
-		
 	},
 	bellossom: {
-		
 		tier: "BoE OU",
-		
 	},
 	paras: {
-		
 		tier: "BoE LC",
-		
 	},
 	parasect: {
-		
 		tier: "BoE OU",
-		
 	},
 	venonat: {
 		tier: "BoE LC",
 	},
 	venomoth: {
 		tier: "BoE OU",
-		
 	},
 	diglett: {
 		tier: "BoE LC",
 	},
 	diglettalola: {
-		
 		tier: "BoE LC",
-		
 	},
 	dugtrio: {
 		tier: "BoE OU",
 	},
 	dugtrioalola: {
-		
 		tier: "BoE OU",
-		
 	},
 	meowth: {
 		tier: "BoE LC",
 	},
 	meowthalola: {
-		
 		tier: "BoE LC",
-		
 	},
 	meowthgalar: {
 		tier: "BoE LC",
@@ -343,9 +262,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	persianalola: {
-		
 		tier: "BoE OU",
-		
 	},
 	perrserker: {
 		tier: "BoE OU",
@@ -373,157 +290,100 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	arcaninehisui: {
-		
 		tier: "BoE OU",
 	},
 	poliwag: {
-		
 		tier: "BoE LC",
-		
 	},
 	poliwhirl: {
-		
 		tier: "BoE NFE",
-		
 	},
 	poliwrath: {
-		
 		tier: "BoE OU",
-		
 	},
 	politoed: {
-		
 		tier: "BoE OU",
-		
 	},
 	abra: {
-		
 		tier: "BoE LC",
-		
 	},
 	kadabra: {
-		
 		tier: "BoE NFE",
-		
 	},
 	alakazam: {
-		
 		tier: "BoE OU",
-		
 	},
 	machop: {
-		
 		tier: "BoE LC",
-		
 	},
 	machoke: {
-		
 		tier: "BoE NFE",
-		
 	},
 	machamp: {
-		
 		tier: "BoE OU",
-		
 	},
 	bellsprout: {
-		
 		tier: "BoE LC",
-		
 	},
 	weepinbell: {
-		
 		tier: "BoE NFE",
-		
 	},
 	victreebel: {
-		
 		tier: "BoE OU",
-		
 	},
 	tentacool: {
-		
 		tier: "BoE LC",
-		
 	},
 	tentacruel: {
-		
 		tier: "BoE OU",
-		
 	},
 	geodude: {
-		
 		tier: "BoE LC",
-		
 	},
 	geodudealola: {
-		
 		tier: "BoE LC",
-		
 	},
 	graveler: {
-		
 		tier: "BoE NFE",
-		
 	},
 	graveleralola: {
-		
 		tier: "BoE NFE",
-		
 	},
 	golem: {
-		
 		tier: "BoE OU",
-		
 	},
 	golemalola: {
-		
 		tier: "BoE OU",
-		
 	},
 	ponyta: {
-		
 		tier: "BoE LC",
-		
 	},
 	ponytagalar: {
-		
 		tier: "BoE LC",
-		
 	},
 	rapidash: {
-		
 		tier: "BoE OU",
-		
 	},
 	rapidashgalar: {
-		
 		tier: "BoE OU",
-		
 	},
 	slowpoke: {
 		tier: "BoE LC",
 	},
 	slowpokegalar: {
-		
 		tier: "BoE LC",
-		
 	},
 	slowbro: {
 		tier: "BoE OU",
 	},
 	slowbrogalar: {
-		
 		tier: "BoE OU",
-		
 	},
 	slowking: {
 		tier: "BoE OU",
 	},
 	slowkinggalar: {
-		
 		tier: "BoE OU",
-		
 	},
 	magnemite: {
 		tier: "BoE LC",
@@ -535,55 +395,37 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	farfetchd: {
-		
 		tier: "BoE OU",
-		
 	},
 	farfetchdgalar: {
-		
 		tier: "BoE LC",
-		
 	},
 	sirfetchd: {
-		
 		tier: "BoE OU",
-		
 	},
 	doduo: {
-		
 		tier: "BoE LC",
-		
 	},
 	dodrio: {
-		
 		tier: "BoE OU",
-		
 	},
 	seel: {
-		
 		tier: "BoE LC",
-		
 	},
 	dewgong: {
-		
 		tier: "BoE OU",
-		
 	},
 	grimer: {
 		tier: "BoE LC",
 	},
 	grimeralola: {
-		
 		tier: "BoE LC",
-		
 	},
 	muk: {
 		tier: "BoE OU",
 	},
 	mukalola: {
-		
 		tier: "BoE OU",
-		
 	},
 	shellder: {
 		tier: "BoE LC",
@@ -601,14 +443,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	onix: {
-		
 		tier: "BoE LC",
-		
 	},
 	steelix: {
-		
 		tier: "BoE OU",
-		
 	},
 	drowzee: {
 		tier: "BoE LC",
@@ -617,14 +455,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	krabby: {
-		
 		tier: "BoE LC",
-		
 	},
 	kingler: {
-		
 		tier: "BoE OU",
-		
 	},
 	voltorb: {
 		tier: "BoE LC",
@@ -637,177 +471,112 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	electrodehisui: {
-		
 		tier: "BoE OU",
 	},
 	exeggcute: {
-		
 		tier: "BoE LC",
-		
 	},
 	exeggutor: {
-		
 		tier: "BoE OU",
-		
 	},
 	exeggutoralola: {
-		
 		tier: "BoE OU",
-		
 	},
 	cubone: {
-		
 		tier: "BoE LC",
-		
 	},
 	marowak: {
-		
 		tier: "BoE OU",
-		
 	},
 	marowakalola: {
-		
 		tier: "BoE OU",
-		
 	},
 	tyrogue: {
-		
 		tier: "BoE LC",
-		
 	},
 	hitmonlee: {
-		
 		tier: "BoE OU",
-		
 	},
 	hitmonchan: {
-		
 		tier: "BoE OU",
-		
 	},
 	hitmontop: {
-		
 		tier: "BoE OU",
-		
 	},
 	lickitung: {
-		
 		tier: "BoE LC",
-		
 	},
 	lickilicky: {
-		
 		tier: "BoE OU",
-		
 	},
 	koffing: {
-		
 		tier: "BoE LC",
-		
 	},
 	weezing: {
-		
 		tier: "BoE OU",
-		
 	},
 	weezinggalar: {
-		
 		tier: "BoE OU",
-		
 	},
 	rhyhorn: {
-		
 		tier: "BoE LC",
-		
 	},
 	rhydon: {
-		
 		tier: "BoE NFE",
-		
 	},
 	rhyperior: {
-		
 		tier: "BoE OU",
-		
 	},
 	happiny: {
 		tier: "BoE LC",
 	},
 	chansey: {
-		tier: "BoE NFE",
+		tier: "BoE OU",
 	},
 	blissey: {
 		tier: "BoE OU",
 	},
 	tangela: {
-		
 		tier: "BoE LC",
-		
 	},
 	tangrowth: {
-		
 		tier: "BoE OU",
-		
 	},
 	kangaskhan: {
-		
 		tier: "BoE OU",
-		
 	},
 	horsea: {
-		
 		tier: "BoE LC",
-		
 	},
 	seadra: {
-		
 		tier: "BoE NFE",
-		
 	},
 	kingdra: {
-		
 		tier: "BoE OU",
-		
 	},
 	goldeen: {
-		
 		tier: "BoE LC",
-		
 	},
 	seaking: {
-		
 		tier: "BoE OU",
-		
 	},
 	staryu: {
-		
 		tier: "BoE LC",
-		
 	},
 	starmie: {
-		
 		tier: "BoE OU",
-		
 	},
 	mimejr: {
-		
 		tier: "BoE LC",
-		
 	},
 	mrmime: {
-		
 		tier: "BoE OU",
-		
 	},
 	mrmimegalar: {
-		
 		tier: "BoE NFE",
-		
 	},
 	mrrime: {
-		
 		tier: "BoE OU",
-		
 	},
 	scyther: {
 		tier: "BoE LC",
@@ -816,66 +585,46 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	kleavor: {
-		
 		tier: "BoE OU",
+		isModded: true,
 	},
 	smoochum: {
-		
 		tier: "BoE LC",
-		
 	},
 	jynx: {
-		
 		tier: "BoE OU",
-		
 	},
 	elekid: {
-		
 		tier: "BoE LC",
-		
 	},
 	electabuzz: {
-		
 		tier: "BoE NFE",
-		
 	},
 	electivire: {
-		
 		tier: "BoE OU",
-		
 	},
 	magby: {
-		
 		tier: "BoE LC",
-		
 	},
 	magmar: {
-		
 		tier: "BoE NFE",
-		
 	},
 	magmortar: {
-		
 		tier: "BoE OU",
-		
 	},
 	pinsir: {
-		
 		tier: "BoE OU",
-		
 	},
 	tauros: {
-		
-		tier: "BoE OU",
-		
-	},
-	taurospaldea: {
 		tier: "BoE OU",
 	},
-	taurospaldeafire: {
+	taurospaldeacombat: {
 		tier: "BoE OU",
 	},
-	taurospaldeawater: {
+	taurospaldeablaze: {
+		tier: "BoE OU",
+	},
+	taurospaldeaaqua: {
 		tier: "BoE OU",
 	},
 	magikarp: {
@@ -885,9 +634,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	lapras: {
-		
 		tier: "BoE OU",
-		
 	},
 	ditto: {
 		tier: "BoE OU",
@@ -900,7 +647,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	jolteon: {
 		tier: "BoE OU",
-		
 	},
 	flareon: {
 		tier: "BoE OU",
@@ -921,84 +667,52 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	porygon: {
-		
 		tier: "BoE LC",
-		
 	},
 	porygon2: {
-		
 		tier: "BoE NFE",
-		
 	},
 	porygonz: {
-		
 		tier: "BoE OU",
-		
 	},
 	omanyte: {
-		
 		tier: "BoE LC",
-		
 	},
 	omastar: {
-		
 		tier: "BoE OU",
-		
 	},
 	kabuto: {
-		
 		tier: "BoE LC",
-		
 	},
 	kabutops: {
-		
 		tier: "BoE OU",
-		
 	},
 	aerodactyl: {
-		
 		tier: "BoE OU",
-		
 	},
 	munchlax: {
-		
 		tier: "BoE LC",
-		
 	},
 	snorlax: {
-		
 		tier: "BoE OU",
-		
 	},
 	articuno: {
-		
 		tier: "BoE OU",
-		
 	},
 	articunogalar: {
-		
 		tier: "BoE OU",
-		
 	},
 	zapdos: {
-		
 		tier: "BoE OU",
-		
 	},
 	zapdosgalar: {
-		
 		tier: "BoE OU",
-		
 	},
 	moltres: {
-		
 		tier: "BoE OU",
-		
 	},
 	moltresgalar: {
-		
 		tier: "BoE OU",
-		
 	},
 	dratini: {
 		tier: "BoE LC",
@@ -1010,138 +724,85 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	mewtwo: {
-		
 		tier: "BoE Uber",
-		
 	},
 	mew: {
-		
 		tier: "BoE OU",
-		
 	},
 	chikorita: {
-		
 		tier: "BoE LC",
-		
 	},
 	bayleef: {
-		
 		tier: "BoE NFE",
-		
 	},
 	meganium: {
-		
 		tier: "BoE OU",
-		
 	},
 	cyndaquil: {
-		
 		tier: "BoE LC",
-		
 	},
 	quilava: {
-		
 		tier: "BoE NFE",
-		
 	},
 	typhlosion: {
-		
 		tier: "BoE OU",
-		
 	},
 	typhlosionhisui: {
-		
 		tier: "BoE OU",
 	},
 	totodile: {
-		
 		tier: "BoE LC",
-		
 	},
 	croconaw: {
-		
 		tier: "BoE NFE",
-		
 	},
 	feraligatr: {
-		
 		tier: "BoE OU",
-		
 	},
 	sentret: {
-		
 		tier: "BoE LC",
-		
 	},
 	furret: {
-		
 		tier: "BoE OU",
-		
 	},
 	hoothoot: {
-		
 		tier: "BoE LC",
-		
 	},
 	noctowl: {
-		
 		tier: "BoE OU",
-		
 	},
 	ledyba: {
-		
 		tier: "BoE LC",
-		
 	},
 	ledian: {
-		
 		tier: "BoE OU",
-		
 	},
 	spinarak: {
-		
 		tier: "BoE LC",
-		
 	},
 	ariados: {
-		
 		tier: "BoE OU",
-		
 	},
 	chinchou: {
-		
 		tier: "BoE LC",
-		
 	},
 	lanturn: {
-		
 		tier: "BoE OU",
-		
 	},
 	togepi: {
-		
 		tier: "BoE LC",
-		
 	},
 	togetic: {
-		
 		tier: "BoE NFE",
-		
 	},
 	togekiss: {
-		
 		tier: "BoE OU",
-		
 	},
 	natu: {
-		
 		tier: "BoE LC",
-		
 	},
 	xatu: {
-		
 		tier: "BoE OU",
-		
 	},
 	mareep: {
 		tier: "BoE LC",
@@ -1177,14 +838,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	aipom: {
-		
 		tier: "BoE LC",
-		
 	},
 	ambipom: {
-		
 		tier: "BoE OU",
-		
 	},
 	sunkern: {
 		tier: "BoE LC",
@@ -1193,14 +850,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	yanma: {
-		
 		tier: "BoE LC",
-		
 	},
 	yanmega: {
-		
 		tier: "BoE OU",
-		
 	},
 	wooper: {
 		tier: "BoE LC",
@@ -1224,25 +877,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	unown: {
-		
 		tier: "BoE OU",
-		
 	},
 	wynaut: {
-		
 		tier: "BoE LC",
-		
 	},
 	wobbuffet: {
-		
 		tier: "BoE OU",
-		
 	},
 	girafarig: {
 		tier: "BoE LC",
 	},
 	farigiraf: {
 		tier: "BoE OU",
+		isModded: true,
 	},
 	pineco: {
 		tier: "BoE LC",
@@ -1257,40 +905,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	gligar: {
-		
 		tier: "BoE LC",
-		
 	},
 	gliscor: {
-		
 		tier: "BoE OU",
-		
 	},
 	snubbull: {
-		
 		tier: "BoE LC",
-		
 	},
 	granbull: {
-		
 		tier: "BoE OU",
-		
 	},
 	qwilfish: {
-		tier: "BoE LC",
+		tier: "BoE OU",
 	},
 	qwilfishhisui: {
-		
 		tier: "BoE LC",
 	},
 	overqwil: {
-		
 		tier: "BoE OU",
 	},
 	shuckle: {
-		
 		tier: "BoE OU",
-		
 	},
 	heracross: {
 		tier: "BoE OU",
@@ -1299,14 +935,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE LC",
 	},
 	sneaselhisui: {
-		
 		tier: "BoE LC",
 	},
 	weavile: {
-		tier: "BoE OU",
+		tier: "BoE Uber",
 	},
 	sneasler: {
-		
 		tier: "BoE OU",
 	},
 	teddiursa: {
@@ -1316,76 +950,50 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE NFE",
 	},
 	ursaluna: {
-		
 		tier: "BoE OU",
+		isModded: true,
 	},
 	slugma: {
-		
 		tier: "BoE LC",
-		
 	},
 	magcargo: {
-		
 		tier: "BoE OU",
-		
 	},
 	swinub: {
-		
 		tier: "BoE LC",
-		
 	},
 	piloswine: {
-		
 		tier: "BoE NFE",
-		
 	},
 	mamoswine: {
-		
 		tier: "BoE OU",
-		
 	},
 	corsola: {
-		
-		tier: "BoE LC",
-		
+		tier: "BoE OU",
 	},
 	corsolagalar: {
-		
 		tier: "BoE LC",
-		
 	},
 	cursola: {
-		
 		tier: "BoE OU",
-		
 	},
 	remoraid: {
-		
 		tier: "BoE LC",
-		
 	},
 	octillery: {
-		
 		tier: "BoE OU",
-		
 	},
 	delibird: {
 		tier: "BoE OU",
 	},
 	mantyke: {
-		
 		tier: "BoE LC",
-		
 	},
 	mantine: {
-		
 		tier: "BoE OU",
-		
 	},
 	skarmory: {
-		
 		tier: "BoE OU",
-		
 	},
 	houndour: {
 		tier: "BoE LC",
@@ -1403,33 +1011,23 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE LC",
 	},
 	wyrdeer: {
-		
 		tier: "BoE OU",
+		isModded: true,
 	},
 	smeargle: {
-		
 		tier: "BoE OU",
-		
 	},
 	miltank: {
-		
 		tier: "BoE OU",
-		
 	},
 	raikou: {
-		
 		tier: "BoE OU",
-		
 	},
 	entei: {
-		
 		tier: "BoE OU",
-		
 	},
 	suicune: {
-		
 		tier: "BoE OU",
-		
 	},
 	larvitar: {
 		tier: "BoE LC",
@@ -1441,29 +1039,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 	},
 	lugia: {
-		
-		tier: "BoE Ubers",
-		
+		tier: "BoE Uber",
 	},
 	hooh: {
-		
-		tier: "BoE Ubers",
-		
+		tier: "BoE Uber",
 	},
 	celebi: {
-		
 		tier: "BoE OU",
-		
 	},
 	clodsire: {
 		tier: "BoE OU",
 		isModded: true,
 	},
 	annihilape: {
-		tier: "BoE OU",
-		isModded: true,
-	},
-	farigiraf: {
 		tier: "BoE OU",
 		isModded: true,
 	},
@@ -1484,18 +1072,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isModded: true,
 	},
 	dudunspare: {
-		tier: "BoE OU",
-		isModded: true,
-	},
-	wyrdeer: {
-		tier: "BoE OU",
-		isModded: true,
-	},
-	kleavor: {
-		tier: "BoE OU",
-		isModded: true,
-	},
-	ursaluna: {
 		tier: "BoE OU",
 		isModded: true,
 	},

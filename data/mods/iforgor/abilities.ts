@@ -341,15 +341,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1020,
 	},
 	absolutezero: {
-		shortDesc: "This Pokemon is immune to Fire-type moves.",
+		shortDesc: "This Pokemon is immune to Fire-type moves. This Pokemon has 1.3x Special Attack in Snow.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				this.add('-immune', target, '[from] ability: Absolute Zero');
 				return null;
 			}
 		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (this.field.isWeather(['hail', 'snow'])) {
+				return this.chainModify(1.3);
+			}
+		},
 		name: "Absolute Zero",
-		rating: 3,
+		rating: 4.5,
 		num: -1021,
 	},
 	toxicboost: {
@@ -417,7 +423,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.boost({eva: -1}, target, pokemon, null, true);
+					this.boost({evasion: -1}, target, pokemon, null, true);
 				}
 			}
 		},
@@ -438,10 +444,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's slicing moves lower the target's Defense by 1.",
 		onAfterMove(target, source, move) {
 			if (move?.flags['slicing']) {
-				target.boost({def: -1});
+				this.boost({def: -1}, source, target, null, true);
 			}
 		},
 		name: "Akashi Arts",
+		rating: 3.5,
+		num: -1025,
+	},
+	railgunner: {
+		shortDesc: "This Pokemon's beam moves lower the target's SpD by 1.",
+		onAfterMove(target, source, move) {
+			if (move?.flags['beam']) {
+				this.boost({spd: -1}, source, target, null, true);
+			}
+		},
+		name: "Railgunner",
 		rating: 3.5,
 		num: -1025,
 	},
@@ -456,5 +473,33 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Overripe",
 		rating: 4.5,
 		num: -1026,
+	},
+	protean: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		name: "Protean",
+		shortDesc: "This Pokemon's type changes to the type of the move it is using.",
+		rating: 4,
+		num: 168,
+	},
+	libero: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
+			}
+		},
+		name: "Libero",
+		shortDesc: "This Pokemon's type changes to the type of the move it is using.",
+		rating: 4,
+		num: 168,
 	},
 };

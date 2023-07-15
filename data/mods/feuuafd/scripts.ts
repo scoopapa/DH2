@@ -1,6 +1,4 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	inherit: 'gen8',
-	gen: 8,
 	init(){ 
 		// Automatically construct fusion learnsets! (Thank u scoopapa)
 		for (const id in this.dataCache.Pokedex) {//check the dex for fusions
@@ -48,7 +46,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	
 	canMegaEvo(pokemon) {
-		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
+		const altForme = pokemon.baseSpecies.otherFormes && this.dex.getSpecies(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
 		if (
 			altForme?.isMega && altForme?.requiredMove &&
@@ -218,7 +216,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		if (zMove) {
 			if (pokemon.illusion) {
-				this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
+				this.singleEvent('End', this.dex.getAbility('Illusion'), pokemon.abilityData, pokemon);
 			}
 			this.add('-zpower', pokemon);
 			pokemon.side.zMoveUsed = true;
@@ -249,7 +247,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (this.faintMessages()) break;
 				if (dancer.fainted) continue;
 				const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
-				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.abilities.get(dancer.ability), undefined, true);
+				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.getAbility(dancer.ability), undefined, true);
 			}
 		}
 		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
@@ -398,7 +396,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					}
 			  }
 			  const prevStatus = this.status;
-			  const prevStatusData = this.statusState;
+			  const prevStatusData = this.statusData;
 			  if (status.id) {
 					const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
 					if (!result) {
@@ -408,18 +406,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			  }
 
 			  this.status = status.id;
-			  this.statusState = {id: status.id, target: this};
-			  if (source) this.statusState.source = source;
-			  if (status.duration) this.statusState.duration = status.duration;
+			  this.statusData = {id: status.id, target: this};
+			  if (source) this.statusData.source = source;
+			  if (status.duration) this.statusData.duration = status.duration;
 			  if (status.durationCallback) {
-					this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+					this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 			  }
 
-			  if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
+			  if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
 					this.battle.debug('status start [' + status.id + '] interrupted');
 					// cancel the setstatus
 					this.status = prevStatus;
-					this.statusState = prevStatusData;
+					this.statusData = prevStatusData;
 					return false;
 			  }
 			  if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
@@ -710,7 +708,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		let nullDamage = true;
 		let moveDamage: (number | boolean | undefined)[];
 		// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-		const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
+		const isSleepUsable = move.sleepUsable || this.dex.getMove(move.sourceEffect).sleepUsable;
 
 		let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
 		let hit: number;

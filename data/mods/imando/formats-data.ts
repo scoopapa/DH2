@@ -6,7 +6,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	venusaur: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	venusaurmega: {
 		tier: "UU",
@@ -22,7 +22,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	charizard: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	charizardmegax: {
 		tier: "UUBL",
@@ -54,7 +54,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	metapod: {
-		tier: "NFE",
+		tier: "NEW",
 	},
 	butterfree: {
 		tier: "RU",
@@ -67,13 +67,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	kakuna: {
-		tier: "NFE",
+		tier: "NEW",
 	},
 	beedrill: {
 		tier: "RU",
 	},
 	beedrillmega: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	pidgey: {
 		tier: "LC",
@@ -97,7 +97,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NEW",
 	},
 	raticatealola: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	raticatealolatotem: {
 		tier: "NEW",
@@ -106,7 +106,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	fearow: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	ekans: {
 		tier: "LC",
@@ -197,7 +197,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	nidoqueen: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	nidoranm: {
 		tier: "LC",
@@ -206,7 +206,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	nidoking: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	cleffa: {
 		tier: "LC",
@@ -236,7 +236,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	wigglytuff: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	zubat: {
 		tier: "LC",
@@ -263,7 +263,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	parasect: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	venonat: {
 		tier: "LC",
@@ -339,7 +339,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	poliwrath: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	politoed: {
 		tier: "RU",
@@ -481,7 +481,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	cloyster: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	gastly: {
 		tier: "LC",
@@ -975,7 +975,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NEW",
 	},
 	honchkrow: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	misdreavus: {
 		tier: "NFE",
@@ -1446,7 +1446,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NEW",
 	},
 	trapinch: {
-		tier: "LC",
+		tier: "NEW",
 	},
 	vibrava: {
 		tier: "NFE",
@@ -1458,7 +1458,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	cacturne: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	swablu: {
 		tier: "LC",
@@ -3032,7 +3032,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	palossand: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	pyukumuku: {
 		tier: "NEW",
@@ -3173,22 +3173,22 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NEW",
 	},
 	buzzwole: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	pheromosa: {
 		tier: "Uber",
 	},
 	xurkitree: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	celesteela: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	kartana: {
-		tier: "OU",
+		tier: "NEW",
 	},
 	guzzlord: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	necrozma: {
 		tier: "RU",
@@ -3218,10 +3218,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	stakataka: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	blacephalon: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	zeraora: {
 		tier: "RU",
@@ -3256,7 +3256,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	cinderace: {
-		tier: "UU",
+		tier: "NEW",
 	},
 	cinderacegmax: {
 		isNonstandard: "Past",
@@ -3752,7 +3752,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LC",
 	},
 	scovillain: {
-		tier: "RU",
+		tier: "NEW",
 	},
 	rellor: {
 		tier: "LC",
@@ -4276,6 +4276,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	pokat: {
-		tier: "OU",
+		tier: "NEW",
 	},
 };

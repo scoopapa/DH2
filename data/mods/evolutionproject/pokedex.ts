@@ -2024,7 +2024,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Dark"],
 		baseStats: {hp: 75, atk: 39, def: 120, spa: 39, spd: 120, spe: 115},
 		abilities: {0: "Stance Change"},
-		movepoolAdditions: ["jawlock", "partingshot", "taunt"],
+		movepoolAdditions: ["jawlock", "taunt"],
 
 		prevo: "Arbok",
 		evoType: "other",
@@ -2040,7 +2040,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Dark"],
 		baseStats: {hp: 75, atk: 135, def: 49, spa: 135, spd: 49, spe: 65},
 		abilities: {0: "Stance Change"},
-		movepoolAdditions: ["jawlock", "partingshot", "taunt"],
+		movepoolAdditions: ["jawlock", "taunt"],
 
 		requiredAbility: "Stance Change",
 		battleOnly: "Condana",

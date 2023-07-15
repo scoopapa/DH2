@@ -3702,9 +3702,9 @@ this.modData('Learnsets', 'snover').learnset.iceball = ['7L1'];
 this.modData('Learnsets', 'abomasnow').learnset.iceball = ['7L1'];
 	
 
-    /*for (let i in this.species.all()) {
+    /*for (let i in this.data.Pokedex) {
     let learnset = (this.data.Learnsets[i]) ? this.data.Learnsets[i].learnset : false;
-    let pokemon = this.species.all()[i];
+    let pokemon = this.data.Pokedex[i];
     if (pokemon.hasType('Rock')) {
             if (learnset.meteorshower) {
               this.modData('Learnsets', i).learnset.meteorshower = learnset.meteorshower.push('7L1');
