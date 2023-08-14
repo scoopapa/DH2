@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	growlithehisui: {
 		learnset: {
 			aerialace: ["8M"],

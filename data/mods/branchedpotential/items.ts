@@ -155,7 +155,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 919,
 		gen: 7,
 	},
-    dragonmemory: {
+	dragonmemory: {
 		name: "Dragon Memory",
 		spritenum: 682,
 		onMemory: 'Dragon',
@@ -170,7 +170,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 918,
 		gen: 7,
 	},
-    electricmemory: {
+	electricmemory: {
 		name: "Electric Memory",
 		spritenum: 679,
 		onMemory: 'Electric',
@@ -185,7 +185,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 915,
 		gen: 7,
 	},
-    fairymemory: {
+	fairymemory: {
 		name: "Fairy Memory",
 		spritenum: 684,
 		onMemory: 'Fairy',
@@ -200,7 +200,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 920,
 		gen: 7,
 	},
-    fightingmemory: {
+	fightingmemory: {
 		name: "Fighting Memory",
 		spritenum: 668,
 		onMemory: 'Fighting',
@@ -215,7 +215,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 904,
 		gen: 7,
 	},
-    firememory: {
+	firememory: {
 		name: "Fire Memory",
 		spritenum: 676,
 		onMemory: 'Fire',
@@ -230,7 +230,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 912,
 		gen: 7,
 	},
-    flyingmemory: {
+	flyingmemory: {
 		name: "Flying Memory",
 		spritenum: 669,
 		onMemory: 'Flying',
@@ -245,7 +245,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 905,
 		gen: 7,
 	},
-    ghostmemory: {
+	ghostmemory: {
 		name: "Ghost Memory",
 		spritenum: 674,
 		onMemory: 'Ghost',
@@ -260,7 +260,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 910,
 		gen: 7,
 	},
-    grassmemory: {
+	grassmemory: {
 		name: "Grass Memory",
 		spritenum: 678,
 		onMemory: 'Grass',
@@ -275,7 +275,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 914,
 		gen: 7,
 	},
-    groundmemory: {
+	groundmemory: {
 		name: "Ground Memory",
 		spritenum: 671,
 		onMemory: 'Ground',
@@ -290,7 +290,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 907,
 		gen: 7,
 	},
-    icememory: {
+	icememory: {
 		name: "Ice Memory",
 		spritenum: 681,
 		onMemory: 'Ice',
@@ -305,7 +305,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 917,
 		gen: 7,
 	},
-    poisonmemory: {
+	poisonmemory: {
 		name: "Poison Memory",
 		spritenum: 670,
 		onMemory: 'Poison',
@@ -320,7 +320,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 906,
 		gen: 7,
 	},
-    psychicmemory: {
+	psychicmemory: {
 		name: "Psychic Memory",
 		spritenum: 680,
 		onMemory: 'Psychic',
@@ -335,7 +335,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 916,
 		gen: 7,
 	},
-    rockmemory: {
+	rockmemory: {
 		name: "Rock Memory",
 		spritenum: 672,
 		onMemory: 'Rock',
@@ -350,7 +350,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 908,
 		gen: 7,
 	},
-    steelmemory: {
+	steelmemory: {
 		name: "Steel Memory",
 		spritenum: 675,
 		onMemory: 'Steel',
@@ -365,7 +365,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 911,
 		gen: 7,
 	},
-    watermemory: {
+	watermemory: {
 		name: "Water Memory",
 		spritenum: 677,
 		onMemory: 'Water',

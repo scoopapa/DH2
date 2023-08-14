@@ -8,7 +8,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Bullet Seed", target);
 		},
@@ -20,7 +20,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 
-  citrusblast: {
+	citrusblast: {
 		num: 9002,
 		accuracy: 90,
 		basePower: 120,
@@ -29,23 +29,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Apple Acid", target);
 		},
-    onTry(pokemon) {
-      if (!pokemon.ateBerry) {
-        this.add('-fail', pokemon, 'move: Citrus Blast');
-        return null;
-      }
-    },
-    secondary: null,
+		onTry(pokemon) {
+			if (!pokemon.ateBerry) {
+				this.add('-fail', pokemon, 'move: Citrus Blast');
+				return null;
+			}
+		},
+		secondary: null,
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
 	},
 
-  herosignal: {
+	herosignal: {
 		num: 9003,
 		accuracy: true,
 		basePower: 0,
@@ -54,7 +54,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Extreme Evoboost", target);
 		},
@@ -78,7 +78,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, contact: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Bulldoze", target);
 		},
@@ -114,7 +114,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 
-  magmamash: {
+	magmamash: {
 		num: 9005,
 		accuracy: 100,
 		basePower: 80,
@@ -123,7 +123,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Fire Punch", target);
 		},
@@ -138,7 +138,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cute",
 	},
 
-  naturesbounty: {
+	naturesbounty: {
 		num: 9006,
 		accuracy: 100,
 		basePower: 100,
@@ -148,7 +148,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {nonsky: 1},
 		terrain: 'grassyterrain',
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Bloom Doom", target);
 		},
@@ -202,7 +202,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 
-  triwavebeam: {
+	triwavebeam: {
 		num: 9007,
 		accuracy: true,
 		basePower: 20,
@@ -212,7 +212,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, pulse: 1, mirror: 1, distance: 1},
    	multihit: 3,
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Tri Attack", target);
 		},
@@ -223,7 +223,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 
-  wheatshield: {
+	wheatshield: {
 		num: 588,
 		accuracy: true,
 		basePower: 0,
@@ -234,7 +234,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {},
 		stallingMove: true,
 		volatileStatus: 'wheatshield',
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Protect", target);
 		},

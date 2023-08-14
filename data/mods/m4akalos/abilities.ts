@@ -73,7 +73,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 	// crossover Megas
-	
+
 	alluring: {
 		shortDesc: "This Pokémon removes the pivoting effect of opposing Pokémon's moves.",
 		onStart(pokemon) {
@@ -238,8 +238,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyWeatherStart() {
 			const pokemon = this.effectState.target;
 			if (
-				(this.field.isWeather('hail') || this.field.isWeather('diamonddust'))
-				&& pokemon.species.id === 'eiscuenoice' && !pokemon.transformed
+				(this.field.isWeather('hail') || this.field.isWeather('diamonddust')) &&
+				pokemon.species.id === 'eiscuenoice' && !pokemon.transformed
 			) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;

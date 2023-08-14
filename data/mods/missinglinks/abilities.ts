@@ -1,14 +1,14 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	 oceanicveil: {
-       shortDesc: "On switch-in, this Pokemon uses Aqua Ring.",
-       onStart(source) {
-           this.useMove("Aqua Ring", source);
-       },
-       name: "Oceanic Veil",
-       rating: 3,
-    },
+		shortDesc: "On switch-in, this Pokemon uses Aqua Ring.",
+		onStart(source) {
+			this.useMove("Aqua Ring", source);
+		},
+		name: "Oceanic Veil",
+		rating: 3,
+	},
 	bask: {
-      shortDesc: "This Pokemon is healed 1/4 by Fire, 1/8 by Sun; is hurt 1.25x by Water, 1/8 by Rain.",
+		shortDesc: "This Pokemon is healed 1/4 by Fire, 1/8 by Sun; is hurt 1.25x by Water, 1/8 by Rain.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (!this.heal(target.baseMaxhp / 4)) {
@@ -65,15 +65,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 210,
 	},
 	 alienaura: {
-       shortDesc: "On switch-in, this Pokemon summons Gravity.",
-       onStart(source) {
-           this.useMove("Gravity", source);
-       },
-       name: "Alien Aura",
-       rating: 4,
-    },
+		shortDesc: "On switch-in, this Pokemon summons Gravity.",
+		onStart(source) {
+			this.useMove("Gravity", source);
+		},
+		name: "Alien Aura",
+		rating: 4,
+	},
 	bloodscent: {
-      shortDesc: "Lowers the foe's Evasion by 1 on switch-in.",
+		shortDesc: "Lowers the foe's Evasion by 1 on switch-in.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
@@ -99,7 +99,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Inner Focus');
 			} else if (effect.id === 'bloodscent') {
-				delete boost.evasion; 
+				delete boost.evasion;
 				this.add('-immune', target, '[from] ability: Inner Focus');
 			}
 		},
@@ -111,7 +111,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Oblivious');
 			} else if (effect.id === 'bloodscent') {
-				delete boost.evasion; 
+				delete boost.evasion;
 				this.add('-immune', target, '[from] ability: Oblivious');
 			}
 		},
@@ -123,7 +123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Own Tempo');
 			} else if (effect.id === 'bloodscent') {
-				delete boost.evasion; 
+				delete boost.evasion;
 				this.add('-immune', target, '[from] ability: Own Tempo');
 			}
 		},
@@ -150,7 +150,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Scrappy');
 			} else if (effect.id === 'bloodscent') {
-				delete boost.evasion; 
+				delete boost.evasion;
 				this.add('-immune', target, '[from] ability: Scrappy');
 			}
 		},

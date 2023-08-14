@@ -1,4 +1,4 @@
-/*namespace TierTypes {
+/* namespace TierTypes {
 	export type Singles = "AG" | "Uber" | "(Uber)" | "OU" | "(OU)" | "UUBL" | "UU" | "RUBL" | "RU" | "NUBL" | "NU" |
 	"(NU)" | "PUBL" | "PU" | "(PU)" | "NFE" | "LC Uber" | "LC";
 	export type Doubles = "DUber" | "(DUber)" | "DOU" | "(DOU)" | "DBL" | "DUU" | "(DUU)" | "NFE" | "LC Uber" | "LC";
@@ -9,9 +9,9 @@ import {Battle} from '../../../sim/battle';
 
 export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
-		customTiers: ['earthsky'/*, 'esuber', 'esou', 'esnfe', 'eslc'*/],
+		customTiers: ['earthsky'/* , 'esuber', 'esou', 'esnfe', 'eslc'*/],
 	},
-	//readonly Pokemon = Pokemon;
+	// readonly Pokemon = Pokemon;
 	/* sim edits */
 	pokemon: {
 		getMoves(lockedMove?: string | null, restrictData?: boolean): {
@@ -62,7 +62,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						target = 'allAdjacentFoes';
 					}
 				}
-				if(this.tacticianBoosted && target === 'normal'){
+				if (this.tacticianBoosted && target === 'normal') {
 					target = 'any';
 				}
 				let disabled = moveSlot.disabled;
@@ -92,23 +92,23 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return hasValidMove ? moves : [];
 		},
-		getTypes(excludeAdded?: boolean): string[] { //Roost allows complete typelessness. Also, added types no longer exist.
+		getTypes(excludeAdded?: boolean): string[] { // Roost allows complete typelessness. Also, added types no longer exist.
 			const types = this.battle.runEvent('Type', this, null, null, this.types);
 			if (types.length) return types;
 			return '???';
 		},
-		isGrounded(negateImmunity = false, smackDownCheck = false) { //Has additional conditions. See also canFloat() below
+		isGrounded(negateImmunity = false, smackDownCheck = false) { // Has additional conditions. See also canFloat() below
 			if (!this.canFloat()) return true;
 			if (this.volatiles['roost'] || this.volatiles['dig'] || this.volatiles['dive']) return true;
 			if (this.volatiles['magnetrise'] || this.volatiles['risingchorus'] || this.volatiles['telekinesis']) return false;
-			if (!smackDownCheck && this.volatiles['smackdown']) return true; //Smack Down checks this to see if it should stay applied, so this fixes it seeing itself and saying no
+			if (!smackDownCheck && this.volatiles['smackdown']) return true; // Smack Down checks this to see if it should stay applied, so this fixes it seeing itself and saying no
 			if (!negateImmunity && this.hasType('Flying')) return false; // ???/Flying from Burn Up is no longer typeless.
 			if (this.hasAbility('levitate') && !this.battle.suppressingAttackEvents()) return false;
 			const item = (this.ignoringItem() ? '' : this.item);
 			return item !== 'airballoon';
 		},
-		canFloat(){ //New method. Not all effects that ground a Pokemon force it to stay grounded. Pokemon immune to Telekinesis are now immune to all floating.
-			if (['Burrorm', 'Burryrm', 'Colossoil', 'Diglett', 'Dorsoil', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies)){
+		canFloat() { // New method. Not all effects that ground a Pokemon force it to stay grounded. Pokemon immune to Telekinesis are now immune to all floating.
+			if (['Burrorm', 'Burryrm', 'Colossoil', 'Diglett', 'Dorsoil', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies)) {
 				this.battle.hint("The Burrorm, Diglett, and Sandygast families are unable to float.");
 				return false;
 			}
@@ -119,9 +119,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.hasAbility('suctioncups') || this.hasAbility('heavymetal')) return false;
 			return true;
 		},
-		getMoveRequestData() { //Disable Mega Evolve/Ultra Burst button if Magic Room suppresses
+		getMoveRequestData() { // Disable Mega Evolve/Ultra Burst button if Magic Room suppresses
 			let lockedMove = this.getLockedMove();
-			let magicRoom = 'magicroom' in this.battle.field.pseudoWeather;
+			const magicRoom = 'magicroom' in this.battle.field.pseudoWeather;
 
 			// Information should be restricted for the last active Pokémon
 			const isLastActive = this.isLastActive();
@@ -175,7 +175,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			return data;
 		},
-		cureStatus(silent = false) { //Adds a runEvent to the cure for effects (namely, Stasis) that prevent it.
+		cureStatus(silent = false) { // Adds a runEvent to the cure for effects (namely, Stasis) that prevent it.
 			if (!this.hp || !this.status) return false;
 			const result: boolean = this.battle.runEvent('RemoveStatus', this, null, null, this.status);
 			if (!result) {
@@ -189,7 +189,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.setStatus('');
 			return true;
 		},
-		setStatus( //Toxic Orb can't poison self with Corrosion.
+		setStatus( // Toxic Orb can't poison self with Corrosion.
 			status: string | Condition,
 			source: Pokemon | null = null,
 			sourceEffect: Effect | null = null,
@@ -214,7 +214,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			if (!ignoreImmunities && status.id &&
-					!((source?.hasAbility('corrosion') && source !== this) && ['tox', 'psn'].includes(status.id))) { //Modded: Toxic Orb can't poison self with Corrosion
+					!((source?.hasAbility('corrosion') && source !== this) && ['tox', 'psn'].includes(status.id))) { // Modded: Toxic Orb can't poison self with Corrosion
 				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 					this.battle.debug('immune to status');
 					if ((sourceEffect as Move)?.status) {
@@ -253,16 +253,16 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return true;
 		},
-		removeVolatile(status: string | Effect) { //Adds a runEvent to the removal for effects (namely, Stasis) that prevent it.
+		removeVolatile(status: string | Effect) { // Adds a runEvent to the removal for effects (namely, Stasis) that prevent it.
 			if (!this.hp) return false;
 			status = this.battle.dex.conditions.get(status) as Effect;
 			if (!this.volatiles[status.id]) return false;
-			if(this.volatiles['stasis']?.affectedStatuses.includes(status.id)){ //Can't get the RemoveVolatile event to fail, so I'm hardcoding it beforehand
+			if (this.volatiles['stasis']?.affectedStatuses.includes(status.id)) { // Can't get the RemoveVolatile event to fail, so I'm hardcoding it beforehand
 				this.battle.debug('remove volatile [' + status.id + '] interrupted');
 				return false;
 			}
 			const result: boolean = this.battle.singleEvent('TryRemoveVolatile', this, null, null, this.status);
-			if(!result){
+			if (!result) {
 				this.battle.debug('remove volatile [' + status.id + '] interrupted');
 				return false;
 			}
@@ -275,7 +275,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return true;
 		},
-		ignoringAbility() { //Added Glyphic Spell's Negate to this.
+		ignoringAbility() { // Added Glyphic Spell's Negate to this.
 			// Check if any active pokemon have the ability Neutralizing Gas (MODDED: or Glyphic Spell's Negate)
 			let neutralizinggas = false;
 			for (const pokemon of this.battle.getAllActive()) {
@@ -297,7 +297,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	field: {
 		suppressingWeather() {
-			if('midnight' in this.pseudoWeather) return true;
+			if ('midnight' in this.pseudoWeather) return true;
 			for (const side of this.battle.sides) {
 				for (const pokemon of side.active) {
 					if (pokemon && !pokemon.ignoringAbility() && pokemon.getAbility().suppressWeather) {
@@ -307,13 +307,13 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return false;
 		},
-		suppressingTerrain(){
-			if('midnight' in this.pseudoWeather) return true;
+		suppressingTerrain() {
+			if ('midnight' in this.pseudoWeather) return true;
 			return false;
 		},
 		effectiveTerrain(target?: Pokemon | Side | Battle) {
-			if (this.suppressingTerrain()){
-				//console.log("Terrain is suppressed");
+			if (this.suppressingTerrain()) {
+				// console.log("Terrain is suppressed");
 				return '';
 			}
 			if (this.battle.event && !target) target = this.battle.event.target;
@@ -321,542 +321,542 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	side: {
-		randomActive() { //Play Dead exclusion
+		randomActive() { // Play Dead exclusion
 			const actives = this.active.filter(active => active && !active.fainted && !active.volatiles['playdead']);
 			if (!actives.length) return null;
 			return this.battle.sample(actives);
-		}
+		},
 	},
-	//battle: {
-		validTargetLoc(targetLoc: number, source: Pokemon, targetType: string) { //Tactician and Play Dead
-			if (targetLoc === 0) return true;
-			const numSlots = source.side.active.length;
-			if (Math.abs(targetLoc) > numSlots) return false;
+	// battle: {
+	validTargetLoc(targetLoc: number, source: Pokemon, targetType: string) { // Tactician and Play Dead
+		if (targetLoc === 0) return true;
+		const numSlots = source.side.active.length;
+		if (Math.abs(targetLoc) > numSlots) return false;
 
-			const sourceLoc = -(source.position + 1);
-			const isFoe = (targetLoc > 0);
-			const acrossFromTargetLoc = -(numSlots + 1 - targetLoc);
-			const isAdjacent = (isFoe ?
-				Math.abs(acrossFromTargetLoc - sourceLoc) <= 1 :
-				Math.abs(targetLoc - sourceLoc) === 1);
-			const isSelf = (sourceLoc === targetLoc);
-			const canTargetAny = source.tacticianBoosted;
+		const sourceLoc = -(source.position + 1);
+		const isFoe = (targetLoc > 0);
+		const acrossFromTargetLoc = -(numSlots + 1 - targetLoc);
+		const isAdjacent = (isFoe ?
+			Math.abs(acrossFromTargetLoc - sourceLoc) <= 1 :
+			Math.abs(targetLoc - sourceLoc) === 1);
+		const isSelf = (sourceLoc === targetLoc);
+		const canTargetAny = source.tacticianBoosted;
 
-			switch (targetType) {
-			case 'randomNormal':
-			case 'scripted':
-			case 'normal':
-				return canTargetAny || isAdjacent;
-			case 'adjacentAlly':
-				return (canTargetAny || isAdjacent) && !isFoe;
-			case 'adjacentAllyOrSelf':
-				return (canTargetAny || isAdjacent) && !isFoe || isSelf;
-			case 'adjacentFoe':
-				return (canTargetAny || isAdjacent) && isFoe;
-			case 'any':
-				return !isSelf;
-			}
-			return false;
-		},
-		getTarget(pokemon: Pokemon, move: string | Move, targetLoc: number, originalTarget?: Pokemon) { //Play Dead, Ally Switch
-			move = this.dex.moves.get(move);
+		switch (targetType) {
+		case 'randomNormal':
+		case 'scripted':
+		case 'normal':
+			return canTargetAny || isAdjacent;
+		case 'adjacentAlly':
+			return (canTargetAny || isAdjacent) && !isFoe;
+		case 'adjacentAllyOrSelf':
+			return (canTargetAny || isAdjacent) && !isFoe || isSelf;
+		case 'adjacentFoe':
+			return (canTargetAny || isAdjacent) && isFoe;
+		case 'any':
+			return !isSelf;
+		}
+		return false;
+	},
+	getTarget(pokemon: Pokemon, move: string | Move, targetLoc: number, originalTarget?: Pokemon) { // Play Dead, Ally Switch
+		move = this.dex.moves.get(move);
 
-			let tracksTarget = move.tracksTarget;
-			// Stalwart sets trackTarget in ModifyMove, but ModifyMove happens after getTarget, so
-			// we need to manually check for Stalwart here
-			if (pokemon.hasAbility(['stalwart', 'propellertail'])){
-				tracksTarget = true;
-				//console.log("Targeting spot " + targetLoc);
-				//console.log("Target is " + originalTarget + " at " + originalTarget.position);
-			}
-			if (tracksTarget && originalTarget && originalTarget.isActive && (targetLoc === originalTarget.position + 1) && !originalTarget.volatiles['playdead']) {
-				// smart-tracking: move's original target is on the field, not Ally Switched, and not Playing Dead: target it
-				return originalTarget;
-			}
+		let tracksTarget = move.tracksTarget;
+		// Stalwart sets trackTarget in ModifyMove, but ModifyMove happens after getTarget, so
+		// we need to manually check for Stalwart here
+		if (pokemon.hasAbility(['stalwart', 'propellertail'])) {
+			tracksTarget = true;
+			// console.log("Targeting spot " + targetLoc);
+			// console.log("Target is " + originalTarget + " at " + originalTarget.position);
+		}
+		if (tracksTarget && originalTarget && originalTarget.isActive && (targetLoc === originalTarget.position + 1) && !originalTarget.volatiles['playdead']) {
+			// smart-tracking: move's original target is on the field, not Ally Switched, and not Playing Dead: target it
+			return originalTarget;
+		}
 
-			// banning Dragon Darts from directly targeting itself is done in side.ts, but
-			// Dragon Darts can target itself if Ally Switch is used afterwards
-			if (move.smartTarget) return this.getAtLoc(pokemon, targetLoc);
+		// banning Dragon Darts from directly targeting itself is done in side.ts, but
+		// Dragon Darts can target itself if Ally Switch is used afterwards
+		if (move.smartTarget) return this.getAtLoc(pokemon, targetLoc);
 
-			// Fails if the target is the user and the move can't target its own position
-			if (['adjacentAlly', 'any', 'normal'].includes(move.target) && targetLoc === -(pokemon.position + 1) &&
+		// Fails if the target is the user and the move can't target its own position
+		if (['adjacentAlly', 'any', 'normal'].includes(move.target) && targetLoc === -(pokemon.position + 1) &&
 					!pokemon.volatiles['twoturnmove'] && !pokemon.volatiles['rollout']) {
-				return move.isFutureMove ? pokemon : null;
+			return move.isFutureMove ? pokemon : null;
+		}
+		if (move.target !== 'randomNormal' && this.validTargetLoc(targetLoc, pokemon, move.target)) {
+			const target = this.getAtLoc(pokemon, targetLoc);
+			if (target?.fainted && target.side === pokemon.side) {
+				// Target is a fainted ally: attack shouldn't retarget
+				return target;
 			}
-			if (move.target !== 'randomNormal' && this.validTargetLoc(targetLoc, pokemon, move.target)) {
-				const target = this.getAtLoc(pokemon, targetLoc);
-				if (target?.fainted && target.side === pokemon.side) {
-					// Target is a fainted ally: attack shouldn't retarget
-					return target;
-				}
-				if (target && !target.fainted && !target.volatiles['playdead']) {
-					// Target is unfainted and not Playing Dead: use selected target location
-					return target;
-				}
-
-				// Chosen target not valid,
-				// retarget randomly with getRandomTarget
+			if (target && !target.fainted && !target.volatiles['playdead']) {
+				// Target is unfainted and not Playing Dead: use selected target location
+				return target;
 			}
-			return this.getRandomTarget(pokemon, move);
-		},
-		getRandomTarget(pokemon: Pokemon, move: string | Move) { //Tactician and Play Dead
-			// A move was used without a chosen target
 
-			// For instance: Metronome chooses Ice Beam. Since the user didn't
-			// choose a target when choosing Metronome, Ice Beam's target must
-			// be chosen randomly.
+			// Chosen target not valid,
+			// retarget randomly with getRandomTarget
+		}
+		return this.getRandomTarget(pokemon, move);
+	},
+	getRandomTarget(pokemon: Pokemon, move: string | Move) { // Tactician and Play Dead
+		// A move was used without a chosen target
 
-			// The target is chosen randomly from possible targets, EXCEPT that
-			// moves that can target either allies or foes will only target foes
-			// when used without an explicit target.
+		// For instance: Metronome chooses Ice Beam. Since the user didn't
+		// choose a target when choosing Metronome, Ice Beam's target must
+		// be chosen randomly.
 
-			move = this.dex.moves.get(move);
-			if (move.target === 'adjacentAlly') {
-				const allyActives = pokemon.side.active;
-				let adjacentAllies = [allyActives[pokemon.position - 1], allyActives[pokemon.position + 1]];
-				adjacentAllies = adjacentAllies.filter(active => active && !active.fainted);
-				return adjacentAllies.length ? this.sample(adjacentAllies) : null;
-			}
-			if (move.target === 'self' || move.target === 'all' || move.target === 'allySide' ||
+		// The target is chosen randomly from possible targets, EXCEPT that
+		// moves that can target either allies or foes will only target foes
+		// when used without an explicit target.
+
+		move = this.dex.moves.get(move);
+		if (move.target === 'adjacentAlly') {
+			const allyActives = pokemon.side.active;
+			let adjacentAllies = [allyActives[pokemon.position - 1], allyActives[pokemon.position + 1]];
+			adjacentAllies = adjacentAllies.filter(active => active && !active.fainted);
+			return adjacentAllies.length ? this.sample(adjacentAllies) : null;
+		}
+		if (move.target === 'self' || move.target === 'all' || move.target === 'allySide' ||
 					move.target === 'allyTeam' || move.target === 'adjacentAllyOrSelf') {
-				return pokemon;
+			return pokemon;
+		}
+		if (pokemon.side.active.length > 2) {
+			if (!pokemon.tacticianBoosted && (move.target === 'adjacentFoe' || move.target === 'normal' || move.target === 'randomNormal')) {
+				// even if a move can target an ally, auto-resolution will never make it target an ally
+				// i.e. if both your opponents faint before you use Flamethrower, it will fail instead of targeting your all
+				const foeActives = pokemon.side.foe.active;
+				const frontPosition = foeActives.length - 1 - pokemon.position;
+				let adjacentFoes = foeActives.slice(frontPosition < 1 ? 0 : frontPosition - 1, frontPosition + 2);
+				adjacentFoes = adjacentFoes.filter(active => active && !active.fainted && !active.volatiles['playdead']);
+				if (adjacentFoes.length) return this.sample(adjacentFoes);
+				// no valid target at all, return a foe for any possible redirection
+				return foeActives[frontPosition];
 			}
-			if (pokemon.side.active.length > 2) {
-				if (!pokemon.tacticianBoosted && (move.target === 'adjacentFoe' || move.target === 'normal' || move.target === 'randomNormal')) {
-					// even if a move can target an ally, auto-resolution will never make it target an ally
-					// i.e. if both your opponents faint before you use Flamethrower, it will fail instead of targeting your all
-					const foeActives = pokemon.side.foe.active;
-					const frontPosition = foeActives.length - 1 - pokemon.position;
-					let adjacentFoes = foeActives.slice(frontPosition < 1 ? 0 : frontPosition - 1, frontPosition + 2);
-					adjacentFoes = adjacentFoes.filter(active => active && !active.fainted && !active.volatiles['playdead']);
-					if (adjacentFoes.length) return this.sample(adjacentFoes);
-					// no valid target at all, return a foe for any possible redirection
-					return foeActives[frontPosition];
+		}
+		if (pokemon.side.foe.active.length === 1 && pokemon.side.foe.active[0].volatiles['playdead']) return null; // Ran out of retarget checks, except for randomActive() which will get nothing in Singles
+		return pokemon.side.foe.randomActive() || pokemon.side.foe.active[0];
+	},
+	modifyDamage( // Tactician, Dual-type STAB, Terrain change
+		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
+	) {
+		const tr = this.trunc;
+		if (!move.type) move.type = '???';
+		const type = move.type;
+
+		baseDamage += 2;
+
+		// multi-target modifier (doubles only)
+		if (move.spreadHit) {
+			// MODDED: Tactician removes spread reduction
+			let canTargetAny = false;
+			for (const ally of pokemon.side.active) {
+				if (ally.hasAbility('tactician')) {
+					canTargetAny = true;
+					break;
 				}
 			}
-			if(pokemon.side.foe.active.length === 1 && pokemon.side.foe.active[0].volatiles['playdead']) return null; //Ran out of retarget checks, except for randomActive() which will get nothing in Singles
-			return pokemon.side.foe.randomActive() || pokemon.side.foe.active[0];
-		},
-		modifyDamage( //Tactician, Dual-type STAB, Terrain change
-			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
-		) {
-			const tr = this.trunc;
-			if (!move.type) move.type = '???';
-			const type = move.type;
+			if (!canTargetAny) {
+				const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
+				this.debug('Spread modifier: ' + spreadModifier);
+				baseDamage = this.modify(baseDamage, spreadModifier);
+			}
+		}
 
-			baseDamage += 2;
+		// field modifier
+		baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+		baseDamage = this.runEvent('TerrainModifyDamage', pokemon, target, move, baseDamage);
 
-			// multi-target modifier (doubles only)
-			if (move.spreadHit) {
-				//MODDED: Tactician removes spread reduction
-				let canTargetAny = false;
-				for(const ally of pokemon.side.active){
-					if (ally.hasAbility('tactician')){ 
-						canTargetAny = true;
+		// crit - not a modifier
+		const isCrit = target.getMoveHitData(move).crit;
+		if (isCrit) {
+			baseDamage = tr(baseDamage * (move.critModifier || (this.gen >= 6 ? 1.5 : 2)));
+		}
+
+		// random factor - also not a modifier
+		baseDamage = this.randomizer(baseDamage);
+
+		// STAB
+		if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
+			// The "???" type never gets STAB
+			// Not even if you Roost in Gen 4 and somehow manage to use
+			// Struggle in the same turn.
+			// (On second thought, it might be easier to get a MissingNo.)
+			baseDamage = this.modify(baseDamage, move.stab || 1.5);
+		}
+		if (move.twoType && pokemon.hasType(move.twoType)) { // MODDED: Second move typing also gets STAB.
+			baseDamage = this.modify(baseDamage, move.stab || 1.5);
+		}
+		// types
+		let typeMod = target.runEffectiveness(move);
+		typeMod = this.clampIntRange(typeMod, -6, 6);
+		target.getMoveHitData(move).typeMod = typeMod;
+		if (typeMod > 0) {
+			if (!suppressMessages) this.add('-supereffective', target);
+
+			for (let i = 0; i < typeMod; i++) {
+				baseDamage *= 2;
+			}
+		}
+		if (typeMod < 0) {
+			if (!suppressMessages) this.add('-resisted', target);
+
+			for (let i = 0; i > typeMod; i--) {
+				baseDamage = tr(baseDamage / 2);
+			}
+		}
+
+		if (isCrit && !suppressMessages) this.add('-crit', target);
+
+		if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
+			if (this.gen < 6 || move.id !== 'facade') {
+				baseDamage = this.modify(baseDamage, 0.5);
+			}
+		}
+
+		// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
+		if (this.gen === 5 && !baseDamage) baseDamage = 1;
+
+		// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
+		baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+
+		if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
+			baseDamage = this.modify(baseDamage, 0.25);
+			this.add('-zbroken', target);
+		}
+
+		// Generation 6-7 moves the check for minimum 1 damage after the final modifier...
+		if (this.gen !== 5 && !baseDamage) return 1;
+
+		// ...but 16-bit truncation happens even later, and can truncate to 0
+		return tr(baseDamage, 16);
+	},
+	singleEvent(
+		eventid: string, effect: Effect, effectState: AnyObject | null,
+		target: string | Pokemon | Side | Field | Battle | null, source?: string | Pokemon | Effect | false | null,
+		sourceEffect?: Effect | string | null, relayVar?: any
+	) {
+		if (this.eventDepth >= 8) {
+			// oh fuck
+			this.add('message', 'STACK LIMIT EXCEEDED');
+			this.add('message', 'PLEASE REPORT IN BUG THREAD');
+			this.add('message', 'Event: ' + eventid);
+			this.add('message', 'Parent event: ' + this.event.id);
+			throw new Error("Stack overflow");
+		}
+		if (this.log.length - this.sentLogPos > 1000) {
+			this.add('message', 'LINE LIMIT EXCEEDED');
+			this.add('message', 'PLEASE REPORT IN BUG THREAD');
+			this.add('message', 'Event: ' + eventid);
+			this.add('message', 'Parent event: ' + this.event.id);
+			throw new Error("Infinite loop");
+		}
+		// this.add('Event: ' + eventid + ' (depth ' + this.eventDepth + ')');
+		let hasRelayVar = true;
+		if (relayVar === undefined) {
+			relayVar = true;
+			hasRelayVar = false;
+		}
+
+		if (effect.effectType === 'Status' && (target instanceof Pokemon) && target.status !== effect.id) {
+			// it's changed; call it off
+			return relayVar;
+		}
+		if (eventid !== 'Start' && eventid !== 'TakeItem' && eventid !== 'Primal' &&
+				effect.effectType === 'Item' && (target instanceof Pokemon) && target.ignoringItem()) {
+			this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
+			return relayVar;
+		}
+		if (eventid !== 'End' && effect.effectType === 'Ability' && (target instanceof Pokemon) && target.ignoringAbility()) {
+			this.debug(eventid + ' handler suppressed by Gastro Acid');
+			return relayVar;
+		}
+		if (effect.effectType === 'Weather' && eventid !== 'Start' && eventid !== 'Residual' &&
+				eventid !== 'End' && this.field.suppressingWeather()) {
+			this.debug(eventid + ' handler suppressed by Air Lock');
+			return relayVar;
+		}
+		if ((effect.effectType === 'Terrain' || eventid === 'Terrain') &&
+				eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingTerrain()) {
+			this.debug(eventid + ' handler suppressed by Midnight');
+			return relayVar;
+		}
+
+		// @ts-ignore - dynamic lookup
+		const callback = effect[`on${eventid}`];
+		if (callback === undefined) return relayVar;
+
+		const parentEffect = this.effect;
+		const parentEffectData = this.effectState;
+		const parentEvent = this.event;
+
+		this.effect = effect;
+		this.effectState = effectState || {};
+		this.event = {id: eventid, target, source, effect: sourceEffect};
+		this.eventDepth++;
+
+		const args = [target, source, sourceEffect];
+		if (hasRelayVar) args.unshift(relayVar);
+
+		let returnVal;
+		if (typeof callback === 'function') {
+			returnVal = callback.apply(this, args);
+		} else {
+			returnVal = callback;
+		}
+
+		this.eventDepth--;
+		this.effect = parentEffect;
+		this.effectState = parentEffectData;
+		this.event = parentEvent;
+
+		return returnVal === undefined ? relayVar : returnVal;
+	},
+	runEvent(
+		eventid: string, target?: Pokemon | Pokemon[] | Side | Battle | null, source?: string | Pokemon | false | null,
+		sourceEffect?: Effect | null, relayVar?: any, onEffect?: boolean, fastExit?: boolean
+	) {
+		// if (Battle.eventCounter) {
+		// 	if (!Battle.eventCounter[eventid]) Battle.eventCounter[eventid] = 0;
+		// 	Battle.eventCounter[eventid]++;
+		// }
+		if (this.eventDepth >= 8) {
+			// oh fuck
+			this.add('message', 'STACK LIMIT EXCEEDED');
+			this.add('message', 'PLEASE REPORT IN BUG THREAD');
+			this.add('message', 'Event: ' + eventid);
+			this.add('message', 'Parent event: ' + this.event.id);
+			throw new Error("Stack overflow");
+		}
+		if (!target) target = this;
+		let effectSource = null;
+		if (source instanceof Pokemon) effectSource = source;
+		const handlers = this.findEventHandlers(target, eventid, effectSource);
+		if (eventid === 'Invulnerability' || eventid === 'TryHit' || eventid === 'DamagingHit') {
+			handlers.sort(Battle.compareLeftToRightOrder);
+		} else if (fastExit) {
+			handlers.sort(Battle.compareRedirectOrder);
+		} else {
+			this.speedSort(handlers);
+		}
+		let hasRelayVar = 1;
+		const args = [target, source, sourceEffect];
+		// console.log('Event: ' + eventid + ' (depth ' + this.eventDepth + ') t:' + target.id + ' s:' + (!source || source.id) + ' e:' + effect.id);
+		if (relayVar === undefined || relayVar === null) {
+			relayVar = true;
+			hasRelayVar = 0;
+		} else {
+			args.unshift(relayVar);
+		}
+
+		const parentEvent = this.event;
+		this.event = {id: eventid, target, source, effect: sourceEffect, modifier: 1};
+		this.eventDepth++;
+
+		if (onEffect) {
+			if (!sourceEffect) throw new Error("onEffect passed without an effect");
+			// @ts-ignore - dynamic lookup
+			const callback = sourceEffect[`on${eventid}`];
+			if (callback !== undefined) {
+				if (Array.isArray(target)) throw new Error("");
+				handlers.unshift(this.resolvePriority({
+					effect: sourceEffect, callback, state: {}, end: null, effectHolder: target,
+				}, `on${eventid}`));
+			}
+		}
+
+		let targetRelayVars = [];
+		if (Array.isArray(target)) {
+			if (Array.isArray(relayVar)) {
+				targetRelayVars = relayVar;
+			} else {
+				for (let i = 0; i < target.length; i++) targetRelayVars[i] = true;
+			}
+		}
+		for (const handler of handlers) {
+			if (handler.index !== undefined) {
+				// TODO: find a better way to do this
+				if (!targetRelayVars[handler.index] && !(targetRelayVars[handler.index] === 0 &&
+						eventid === 'DamagingHit')) continue;
+				if (handler.target) {
+					args[hasRelayVar] = handler.target;
+					this.event.target = handler.target;
+				}
+				if (hasRelayVar) args[0] = targetRelayVars[handler.index];
+			}
+			const effect = handler.effect;
+			const effectHolder = handler.effectHolder;
+			// this.debug('match ' + eventid + ': ' + status.id + ' ' + status.effectType);
+			if (effect.effectType === 'Status' && (effectHolder as Pokemon).status !== effect.id) {
+				// it's changed; call it off
+				continue;
+			}
+			if (effect.effectType === 'Ability' && !effect.isUnbreakable &&
+						this.suppressingAttackEvents(effectHolder as Pokemon)) {
+				// ignore attacking events
+				const AttackingEvents = {
+					BeforeMove: 1,
+					BasePower: 1,
+					Immunity: 1,
+					RedirectTarget: 1,
+					Heal: 1,
+					SetStatus: 1,
+					CriticalHit: 1,
+					ModifyAtk: 1, ModifyDef: 1, ModifySpA: 1, ModifySpD: 1, ModifySpe: 1, ModifyAccuracy: 1,
+					ModifyBoost: 1,
+					ModifyDamage: 1,
+					ModifySecondaries: 1,
+					ModifyWeight: 1,
+					TryAddVolatile: 1,
+					TryHit: 1,
+					TryHitSide: 1,
+					TryMove: 1,
+					Boost: 1,
+					DragOut: 1,
+					Effectiveness: 1,
+				};
+				if (eventid in AttackingEvents) {
+					this.debug(eventid + ' handler suppressed by Mold Breaker');
+					continue;
+				} else if (eventid === 'Damage' && sourceEffect && sourceEffect.effectType === 'Move') {
+					this.debug(eventid + ' handler suppressed by Mold Breaker');
+					continue;
+				}
+			}
+			if (eventid !== 'Start' && eventid !== 'SwitchIn' && eventid !== 'TakeItem' &&
+					effect.effectType === 'Item' && (effectHolder instanceof Pokemon) && effectHolder.ignoringItem()) {
+				if (eventid !== 'Update') {
+					this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
+				}
+				continue;
+			} else if (eventid !== 'End' && effect.effectType === 'Ability' &&
+						(effectHolder instanceof Pokemon) && effectHolder.ignoringAbility()) {
+				if (eventid !== 'Update') {
+					this.debug(eventid + ' handler suppressed by Gastro Acid');
+				}
+				continue;
+			}
+			if ((effect.effectType === 'Weather' || eventid === 'Weather') &&
+					eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingWeather()) {
+				this.debug(eventid + ' handler suppressed by Air Lock');
+				continue;
+			}
+			if ((effect.effectType === 'Terrain' || eventid === 'Terrain') &&
+					eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingTerrain()) {
+				this.debug(eventid + ' handler suppressed by Midnight');
+				continue;
+			}
+			let returnVal;
+			if (typeof handler.callback === 'function') {
+				const parentEffect = this.effect;
+				const parentEffectData = this.effectState;
+				this.effect = handler.effect;
+				this.effectState = handler.state || {};
+				this.effectState.target = effectHolder;
+
+				returnVal = handler.callback.apply(this, args);
+
+				this.effect = parentEffect;
+				this.effectState = parentEffectData;
+			} else {
+				returnVal = handler.callback;
+			}
+
+			if (returnVal !== undefined) {
+				relayVar = returnVal;
+				if (!relayVar || fastExit) {
+					if (handler.index !== undefined) {
+						targetRelayVars[handler.index] = relayVar;
+						if (targetRelayVars.every(val => !val)) break;
+					} else {
 						break;
 					}
 				}
-				if(!canTargetAny){
-					const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
-					this.debug('Spread modifier: ' + spreadModifier);
-					baseDamage = this.modify(baseDamage, spreadModifier);
+				if (hasRelayVar) {
+					args[0] = relayVar;
 				}
 			}
+		}
 
-			// field modifier
-			baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
-			baseDamage = this.runEvent('TerrainModifyDamage', pokemon, target, move, baseDamage);
+		this.eventDepth--;
+		if (typeof relayVar === 'number' && relayVar === Math.abs(Math.floor(relayVar))) {
+			// this.debug(eventid + ' modifier: 0x' +
+			// 	('0000' + (this.event.modifier * 4096).toString(16)).slice(-4).toUpperCase());
+			relayVar = this.modify(relayVar, this.event.modifier);
+		}
+		this.event = parentEvent;
 
-			// crit - not a modifier
-			const isCrit = target.getMoveHitData(move).crit;
-			if (isCrit) {
-				baseDamage = tr(baseDamage * (move.critModifier || (this.gen >= 6 ? 1.5 : 2)));
-			}
-
-			// random factor - also not a modifier
-			baseDamage = this.randomizer(baseDamage);
-
-			// STAB
-			if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
-				// The "???" type never gets STAB
-				// Not even if you Roost in Gen 4 and somehow manage to use
-				// Struggle in the same turn.
-				// (On second thought, it might be easier to get a MissingNo.)
-				baseDamage = this.modify(baseDamage, move.stab || 1.5);
-			}
-			if (move.twoType && pokemon.hasType(move.twoType)) { //MODDED: Second move typing also gets STAB.
-				baseDamage = this.modify(baseDamage, move.stab || 1.5);
-			}
-			// types
-			let typeMod = target.runEffectiveness(move);
-			typeMod = this.clampIntRange(typeMod, -6, 6);
-			target.getMoveHitData(move).typeMod = typeMod;
-			if (typeMod > 0) {
-				if (!suppressMessages) this.add('-supereffective', target);
-
-				for (let i = 0; i < typeMod; i++) {
-					baseDamage *= 2;
+		return Array.isArray(target) ? targetRelayVars : relayVar;
+	},
+	residualEvent(eventid: string, relayVar?: any) { // Stasis
+		const stasisMons: Pokemon[] = [];
+		const callbackName = `on${eventid}`;
+		let handlers = this.findBattleEventHandlers(callbackName, 'duration');
+		handlers = handlers.concat(this.findFieldEventHandlers(this.field, callbackName, 'duration'));
+		for (const side of this.sides) {
+			handlers = handlers.concat(this.findSideEventHandlers(side, callbackName, 'duration'));
+			for (const active of side.active) {
+				if (!active) continue;
+				if (active.volatiles['stasis']) {
+					stasisMons.push(active);
 				}
+				handlers = handlers.concat(this.findPokemonEventHandlers(active, callbackName, 'duration'));
 			}
-			if (typeMod < 0) {
-				if (!suppressMessages) this.add('-resisted', target);
-
-				for (let i = 0; i > typeMod; i--) {
-					baseDamage = tr(baseDamage / 2);
-				}
-			}
-
-			if (isCrit && !suppressMessages) this.add('-crit', target);
-
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
-				if (this.gen < 6 || move.id !== 'facade') {
-					baseDamage = this.modify(baseDamage, 0.5);
-				}
-			}
-
-			// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
-			if (this.gen === 5 && !baseDamage) baseDamage = 1;
-
-			// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
-			baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
-
-			if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
-				baseDamage = this.modify(baseDamage, 0.25);
-				this.add('-zbroken', target);
-			}
-
-			// Generation 6-7 moves the check for minimum 1 damage after the final modifier...
-			if (this.gen !== 5 && !baseDamage) return 1;
-
-			// ...but 16-bit truncation happens even later, and can truncate to 0
-			return tr(baseDamage, 16);
-		},
-		singleEvent(
-			eventid: string, effect: Effect, effectState: AnyObject | null,
-			target: string | Pokemon | Side | Field | Battle | null, source?: string | Pokemon | Effect | false | null,
-			sourceEffect?: Effect | string | null, relayVar?: any
-		) {
-			if (this.eventDepth >= 8) {
-				// oh fuck
-				this.add('message', 'STACK LIMIT EXCEEDED');
-				this.add('message', 'PLEASE REPORT IN BUG THREAD');
-				this.add('message', 'Event: ' + eventid);
-				this.add('message', 'Parent event: ' + this.event.id);
-				throw new Error("Stack overflow");
-			}
-			if (this.log.length - this.sentLogPos > 1000) {
-				this.add('message', 'LINE LIMIT EXCEEDED');
-				this.add('message', 'PLEASE REPORT IN BUG THREAD');
-				this.add('message', 'Event: ' + eventid);
-				this.add('message', 'Parent event: ' + this.event.id);
-				throw new Error("Infinite loop");
-			}
-			// this.add('Event: ' + eventid + ' (depth ' + this.eventDepth + ')');
-			let hasRelayVar = true;
-			if (relayVar === undefined) {
-				relayVar = true;
-				hasRelayVar = false;
-			}
-
-			if (effect.effectType === 'Status' && (target instanceof Pokemon) && target.status !== effect.id) {
-				// it's changed; call it off
-				return relayVar;
-			}
-			if (eventid !== 'Start' && eventid !== 'TakeItem' && eventid !== 'Primal' &&
-				effect.effectType === 'Item' && (target instanceof Pokemon) && target.ignoringItem()) {
-				this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
-				return relayVar;
-			}
-			if (eventid !== 'End' && effect.effectType === 'Ability' && (target instanceof Pokemon) && target.ignoringAbility()) {
-				this.debug(eventid + ' handler suppressed by Gastro Acid');
-				return relayVar;
-			}
-			if (effect.effectType === 'Weather' && eventid !== 'Start' && eventid !== 'Residual' &&
-				eventid !== 'End' && this.field.suppressingWeather()) {
-				this.debug(eventid + ' handler suppressed by Air Lock');
-				return relayVar;
-			}
-			if ((effect.effectType === 'Terrain' || eventid === 'Terrain') &&
-				eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingTerrain()) {
-				this.debug(eventid + ' handler suppressed by Midnight');
-				return relayVar;
-			}
-
-			// @ts-ignore - dynamic lookup
-			const callback = effect[`on${eventid}`];
-			if (callback === undefined) return relayVar;
-
-			const parentEffect = this.effect;
-			const parentEffectData = this.effectState;
-			const parentEvent = this.event;
-
-			this.effect = effect;
-			this.effectState = effectState || {};
-			this.event = {id: eventid, target, source, effect: sourceEffect};
-			this.eventDepth++;
-
-			const args = [target, source, sourceEffect];
-			if (hasRelayVar) args.unshift(relayVar);
-
-			let returnVal;
-			if (typeof callback === 'function') {
-				returnVal = callback.apply(this, args);
-			} else {
-				returnVal = callback;
-			}
-
-			this.eventDepth--;
-			this.effect = parentEffect;
-			this.effectState = parentEffectData;
-			this.event = parentEvent;
-
-			return returnVal === undefined ? relayVar : returnVal;
-		},
-		runEvent(
-			eventid: string, target?: Pokemon | Pokemon[] | Side | Battle | null, source?: string | Pokemon | false | null,
-			sourceEffect?: Effect | null, relayVar?: any, onEffect?: boolean, fastExit?: boolean
-		) {
-			// if (Battle.eventCounter) {
-			// 	if (!Battle.eventCounter[eventid]) Battle.eventCounter[eventid] = 0;
-			// 	Battle.eventCounter[eventid]++;
-			// }
-			if (this.eventDepth >= 8) {
-				// oh fuck
-				this.add('message', 'STACK LIMIT EXCEEDED');
-				this.add('message', 'PLEASE REPORT IN BUG THREAD');
-				this.add('message', 'Event: ' + eventid);
-				this.add('message', 'Parent event: ' + this.event.id);
-				throw new Error("Stack overflow");
-			}
-			if (!target) target = this;
-			let effectSource = null;
-			if (source instanceof Pokemon) effectSource = source;
-			const handlers = this.findEventHandlers(target, eventid, effectSource);
-			if (eventid === 'Invulnerability' || eventid === 'TryHit' || eventid === 'DamagingHit') {
-				handlers.sort(Battle.compareLeftToRightOrder);
-			} else if (fastExit) {
-				handlers.sort(Battle.compareRedirectOrder);
-			} else {
-				this.speedSort(handlers);
-			}
-			let hasRelayVar = 1;
-			const args = [target, source, sourceEffect];
-			// console.log('Event: ' + eventid + ' (depth ' + this.eventDepth + ') t:' + target.id + ' s:' + (!source || source.id) + ' e:' + effect.id);
-			if (relayVar === undefined || relayVar === null) {
-				relayVar = true;
-				hasRelayVar = 0;
-			} else {
-				args.unshift(relayVar);
-			}
-
-			const parentEvent = this.event;
-			this.event = {id: eventid, target, source, effect: sourceEffect, modifier: 1};
-			this.eventDepth++;
-
-			if (onEffect) {
-				if (!sourceEffect) throw new Error("onEffect passed without an effect");
-				// @ts-ignore - dynamic lookup
-				const callback = sourceEffect[`on${eventid}`];
-				if (callback !== undefined) {
-					if (Array.isArray(target)) throw new Error("");
-					handlers.unshift(this.resolvePriority({
-						effect: sourceEffect, callback, state: {}, end: null, effectHolder: target,
-					}, `on${eventid}`));
-				}
-			}
-
-			let targetRelayVars = [];
-			if (Array.isArray(target)) {
-				if (Array.isArray(relayVar)) {
-					targetRelayVars = relayVar;
-				} else {
-					for (let i = 0; i < target.length; i++) targetRelayVars[i] = true;
-				}
-			}
-			for (const handler of handlers) {
-				if (handler.index !== undefined) {
-					// TODO: find a better way to do this
-					if (!targetRelayVars[handler.index] && !(targetRelayVars[handler.index] === 0 &&
-						eventid === 'DamagingHit')) continue;
-					if (handler.target) {
-						args[hasRelayVar] = handler.target;
-						this.event.target = handler.target;
-					}
-					if (hasRelayVar) args[0] = targetRelayVars[handler.index];
-				}
-				const effect = handler.effect;
-				const effectHolder = handler.effectHolder;
-				// this.debug('match ' + eventid + ': ' + status.id + ' ' + status.effectType);
-				if (effect.effectType === 'Status' && (effectHolder as Pokemon).status !== effect.id) {
-					// it's changed; call it off
-					continue;
-				}
-				if (effect.effectType === 'Ability' && !effect.isUnbreakable &&
-						this.suppressingAttackEvents(effectHolder as Pokemon)) {
-					// ignore attacking events
-					const AttackingEvents = {
-						BeforeMove: 1,
-						BasePower: 1,
-						Immunity: 1,
-						RedirectTarget: 1,
-						Heal: 1,
-						SetStatus: 1,
-						CriticalHit: 1,
-						ModifyAtk: 1, ModifyDef: 1, ModifySpA: 1, ModifySpD: 1, ModifySpe: 1, ModifyAccuracy: 1,
-						ModifyBoost: 1,
-						ModifyDamage: 1,
-						ModifySecondaries: 1,
-						ModifyWeight: 1,
-						TryAddVolatile: 1,
-						TryHit: 1,
-						TryHitSide: 1,
-						TryMove: 1,
-						Boost: 1,
-						DragOut: 1,
-						Effectiveness: 1,
-					};
-					if (eventid in AttackingEvents) {
-						this.debug(eventid + ' handler suppressed by Mold Breaker');
-						continue;
-					} else if (eventid === 'Damage' && sourceEffect && sourceEffect.effectType === 'Move') {
-						this.debug(eventid + ' handler suppressed by Mold Breaker');
+		}
+		this.speedSort(handlers);
+		while (handlers.length) {
+			const handler = handlers[0];
+			handlers.shift();
+			const effect = handler.effect;
+			const pokemon = (handler.effectHolder as Pokemon);
+			if (pokemon.fainted) continue;
+			if (handler.state && handler.state.duration) {
+				if (stasisMons.includes(pokemon)) {
+					if (pokemon.volatiles['stasis']?.affectedStatuses.includes(effect.id)) {
 						continue;
 					}
 				}
-				if (eventid !== 'Start' && eventid !== 'SwitchIn' && eventid !== 'TakeItem' &&
-					effect.effectType === 'Item' && (effectHolder instanceof Pokemon) && effectHolder.ignoringItem()) {
-					if (eventid !== 'Update') {
-						this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
-					}
-					continue;
-				} else if (eventid !== 'End' && effect.effectType === 'Ability' &&
-						(effectHolder instanceof Pokemon) && effectHolder.ignoringAbility()) {
-					if (eventid !== 'Update') {
-						this.debug(eventid + ' handler suppressed by Gastro Acid');
-					}
+				handler.state.duration--;
+				if (!handler.state.duration) {
+					const endCallArgs = handler.endCallArgs || [handler.effectHolder, effect.id];
+					handler.end!.call(...endCallArgs as [any, ...any[]]);
 					continue;
 				}
-				if ((effect.effectType === 'Weather' || eventid === 'Weather') &&
-					eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingWeather()) {
-					this.debug(eventid + ' handler suppressed by Air Lock');
-					continue;
-				}
-				if ((effect.effectType === 'Terrain' || eventid === 'Terrain') &&
-					eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingTerrain()) {
-					this.debug(eventid + ' handler suppressed by Midnight');
-					continue;
-				}
-				let returnVal;
-				if (typeof handler.callback === 'function') {
-					const parentEffect = this.effect;
-					const parentEffectData = this.effectState;
-					this.effect = handler.effect;
-					this.effectState = handler.state || {};
-					this.effectState.target = effectHolder;
-
-					returnVal = handler.callback.apply(this, args);
-
-					this.effect = parentEffect;
-					this.effectState = parentEffectData;
-				} else {
-					returnVal = handler.callback;
-				}
-
-				if (returnVal !== undefined) {
-					relayVar = returnVal;
-					if (!relayVar || fastExit) {
-						if (handler.index !== undefined) {
-							targetRelayVars[handler.index] = relayVar;
-							if (targetRelayVars.every(val => !val)) break;
-						} else {
-							break;
-						}
-					}
-					if (hasRelayVar) {
-						args[0] = relayVar;
-					}
-				}
 			}
+			this.singleEvent(eventid, effect, handler.state, handler.effectHolder, relayVar);
+			this.faintMessages();
+			if (this.ended) return;
+		}
+	},
+	// }
+	// actions: {
+	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) { // Tactician, Full Collide on 0 PP
+		pokemon.activeMoveActions++;
 
-			this.eventDepth--;
-			if (typeof relayVar === 'number' && relayVar === Math.abs(Math.floor(relayVar))) {
-				// this.debug(eventid + ' modifier: 0x' +
-				// 	('0000' + (this.event.modifier * 4096).toString(16)).slice(-4).toUpperCase());
-				relayVar = this.modify(relayVar, this.event.modifier);
+		// Tactician allows targeting non-adjacents in any case
+		let target = this.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
+		let baseMove = this.dex.getActiveMove(moveOrMoveName);
+		const pranksterBoosted = baseMove.pranksterBoosted;
+		if (baseMove.id !== 'struggle' && !zMove && !maxMove && !externalMove) {
+			const changedMove = this.runEvent('OverrideAction', pokemon, target, baseMove);
+			if (changedMove && changedMove !== true) {
+				baseMove = this.dex.getActiveMove(changedMove);
+				if (pranksterBoosted) baseMove.pranksterBoosted = pranksterBoosted;
+				target = this.getRandomTarget(pokemon, baseMove);
 			}
-			this.event = parentEvent;
+		}
+		let move = baseMove;
+		if (zMove) {
+			move = this.getActiveZMove(baseMove, pokemon);
+		} else if (maxMove) {
+			move = this.getActiveMaxMove(baseMove, pokemon);
+		}
 
-			return Array.isArray(target) ? targetRelayVars : relayVar;
-		},
-		residualEvent(eventid: string, relayVar?: any) { //Stasis
-			let stasisMons: Pokemon[] = [];
-			const callbackName = `on${eventid}`;
-			let handlers = this.findBattleEventHandlers(callbackName, 'duration');
-			handlers = handlers.concat(this.findFieldEventHandlers(this.field, callbackName, 'duration'));
-			for (const side of this.sides) {
-				handlers = handlers.concat(this.findSideEventHandlers(side, callbackName, 'duration'));
-				for (const active of side.active) {
-					if (!active) continue;
-					if(active.volatiles['stasis']){
-						stasisMons.push(active);
-					}
-					handlers = handlers.concat(this.findPokemonEventHandlers(active, callbackName, 'duration'));
-				}
-			}
-			this.speedSort(handlers);
-			while (handlers.length) {
-				const handler = handlers[0];
-				handlers.shift();
-				const effect = handler.effect;
-				const pokemon = (handler.effectHolder as Pokemon);
-				if (pokemon.fainted) continue;
-				if (handler.state && handler.state.duration) {
-					if(stasisMons.includes(pokemon)){
-						if(pokemon.volatiles['stasis']?.affectedStatuses.includes(effect.id)){
-							continue;
-						}
-					}
-					handler.state.duration--;
-					if (!handler.state.duration) {
-						const endCallArgs = handler.endCallArgs || [handler.effectHolder, effect.id];
-						handler.end!.call(...endCallArgs as [any, ...any[]]);
-						continue;
-					}
-				}
-				this.singleEvent(eventid, effect, handler.state, handler.effectHolder, relayVar);
-				this.faintMessages();
-				if (this.ended) return;
-			}
-		},
-	//}
-	//actions: {
-		runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) { //Tactician, Full Collide on 0 PP
-			pokemon.activeMoveActions++;
+		move.isExternal = externalMove;
 
-			// Tactician allows targeting non-adjacents in any case
-			let target = this.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
-			let baseMove = this.dex.getActiveMove(moveOrMoveName);
-			const pranksterBoosted = baseMove.pranksterBoosted;
-			if (baseMove.id !== 'struggle' && !zMove && !maxMove && !externalMove) {
-				const changedMove = this.runEvent('OverrideAction', pokemon, target, baseMove);
-				if (changedMove && changedMove !== true) {
-					baseMove = this.dex.getActiveMove(changedMove);
-					if (pranksterBoosted) baseMove.pranksterBoosted = pranksterBoosted;
-					target = this.getRandomTarget(pokemon, baseMove);
-				}
-			}
-			let move = baseMove;
-			if (zMove) {
-				move = this.getActiveZMove(baseMove, pokemon);
-			} else if (maxMove) {
-				move = this.getActiveMaxMove(baseMove, pokemon);
-			}
+		this.setActiveMove(move, pokemon, target);
 
-			move.isExternal = externalMove;
-
-			this.setActiveMove(move, pokemon, target);
-
-			/* if (pokemon.moveThisTurn) {
+		/* if (pokemon.moveThisTurn) {
 				// THIS IS PURELY A SANITY CHECK
 				// DO NOT TAKE ADVANTAGE OF THIS TO PREVENT A POKEMON FROM MOVING;
 				// USE this.queue.cancelMove INSTEAD
@@ -864,570 +864,570 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.clearActiveMove(true);
 				return;
 			} */
-			const willTryMove = this.runEvent('BeforeMove', pokemon, target, move);
-			if (!willTryMove) {
-				this.runEvent('MoveAborted', pokemon, target, move);
+		const willTryMove = this.runEvent('BeforeMove', pokemon, target, move);
+		if (!willTryMove) {
+			this.runEvent('MoveAborted', pokemon, target, move);
+			this.clearActiveMove(true);
+			// The event 'BeforeMove' could have returned false or null
+			// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
+			// null indicates the opposite, as the Pokemon didn't have an option to choose anything
+			pokemon.moveThisTurnResult = willTryMove;
+			return;
+		}
+		if (move.beforeMoveCallback) {
+			if (move.beforeMoveCallback.call(this, pokemon, target, move)) {
 				this.clearActiveMove(true);
-				// The event 'BeforeMove' could have returned false or null
-				// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
-				// null indicates the opposite, as the Pokemon didn't have an option to choose anything
-				pokemon.moveThisTurnResult = willTryMove;
+				pokemon.moveThisTurnResult = false;
 				return;
 			}
-			if (move.beforeMoveCallback) {
-				if (move.beforeMoveCallback.call(this, pokemon, target, move)) {
+		}
+		pokemon.lastDamage = 0;
+		let lockedMove;
+		if (!externalMove) {
+			lockedMove = this.runEvent('LockMove', pokemon);
+			if (lockedMove === true) lockedMove = false;
+			if (!lockedMove) {
+				if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle') && !pokemon.volatiles['fullcollide']) { // Since natural PP deduction will disable move selection, having FC means it was forced down
+					this.add('cant', pokemon, 'nopp', move);
+					const gameConsole = [
+						null, 'Game Boy', 'Game Boy Color', 'Game Boy Advance', 'DS', 'DS', '3DS', '3DS',
+					][this.gen] || 'Switch';
+					this.hint(`This is not a bug, this is really how it works on the ${gameConsole}; try it yourself if you don't believe us.`);
 					this.clearActiveMove(true);
 					pokemon.moveThisTurnResult = false;
 					return;
 				}
+			} else {
+				sourceEffect = this.dex.conditions.get('lockedmove');
 			}
-			pokemon.lastDamage = 0;
-			let lockedMove;
-			if (!externalMove) {
-				lockedMove = this.runEvent('LockMove', pokemon);
-				if (lockedMove === true) lockedMove = false;
-				if (!lockedMove) {
-					if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle') && !pokemon.volatiles['fullcollide']) { //Since natural PP deduction will disable move selection, having FC means it was forced down
-						this.add('cant', pokemon, 'nopp', move);
-						const gameConsole = [
-							null, 'Game Boy', 'Game Boy Color', 'Game Boy Advance', 'DS', 'DS', '3DS', '3DS',
-						][this.gen] || 'Switch';
-						this.hint(`This is not a bug, this is really how it works on the ${gameConsole}; try it yourself if you don't believe us.`);
-						this.clearActiveMove(true);
-						pokemon.moveThisTurnResult = false;
-						return;
-					}
-				} else {
-					sourceEffect = this.dex.conditions.get('lockedmove');
-				}
-				pokemon.moveUsed(move, targetLoc);
-			}
+			pokemon.moveUsed(move, targetLoc);
+		}
 
-			// Dancer Petal Dance hack
-			// TODO: implement properly
-			const noLock = externalMove && !pokemon.volatiles['lockedmove'];
+		// Dancer Petal Dance hack
+		// TODO: implement properly
+		const noLock = externalMove && !pokemon.volatiles['lockedmove'];
 
-			if (zMove) {
-				if (pokemon.illusion) {
-					this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
-				}
-				this.add('-zpower', pokemon);
-				pokemon.side.zMoveUsed = true;
+		if (zMove) {
+			if (pokemon.illusion) {
+				this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 			}
-			const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove);
-			this.lastSuccessfulMoveThisTurn = moveDidSomething ? this.activeMove && this.activeMove.id : null;
-			if (this.activeMove) move = this.activeMove;
-			this.singleEvent('AfterMove', move, null, pokemon, target, move);
-			this.runEvent('AfterMove', pokemon, target, move);
+			this.add('-zpower', pokemon);
+			pokemon.side.zMoveUsed = true;
+		}
+		const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove);
+		this.lastSuccessfulMoveThisTurn = moveDidSomething ? this.activeMove && this.activeMove.id : null;
+		if (this.activeMove) move = this.activeMove;
+		this.singleEvent('AfterMove', move, null, pokemon, target, move);
+		this.runEvent('AfterMove', pokemon, target, move);
 
-			// Dancer's activation order is completely different from any other event, so it's handled separately
-			if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
-				const dancers = [];
-				for (const currentPoke of this.getAllActive()) {
-					if (pokemon === currentPoke) continue;
-					if (currentPoke.hasAbility('dancer') && !currentPoke.isSemiInvulnerable()) {
-						dancers.push(currentPoke);
-					}
-				}
-				// Dancer activates in order of lowest speed stat to highest
-				// Note that the speed stat used is after any volatile replacements like Speed Swap,
-				// but before any multipliers like Agility or Choice Scarf
-				// Ties go to whichever Pokemon has had the ability for the least amount of time
-				dancers.sort(
-					(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
-				);
-				for (const dancer of dancers) {
-					if (this.faintMessages()) break;
-					if (dancer.fainted) continue;
-					this.add('-activate', dancer, 'ability: Dancer');
-					const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
-					this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.abilities.get('dancer'), undefined, true);
+		// Dancer's activation order is completely different from any other event, so it's handled separately
+		if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
+			const dancers = [];
+			for (const currentPoke of this.getAllActive()) {
+				if (pokemon === currentPoke) continue;
+				if (currentPoke.hasAbility('dancer') && !currentPoke.isSemiInvulnerable()) {
+					dancers.push(currentPoke);
 				}
 			}
-			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
-		},
-		canMegaEvo(pokemon) { //Magic Room suppression, Mega-Ray change
-			if('magicroom' in this.field.pseudoWeather) return null;
-			const species = pokemon.baseSpecies;
-			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
-			const item = pokemon.getItem();
-			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
-				//Additional check for required move
-				if (altForme?.isMega && altForme?.requiredMove) {
-					if(pokemon.baseMoves.includes(this.toID(altForme.requiredMove))){
-						return item.megaStone;
-					}
-				} else {
+			// Dancer activates in order of lowest speed stat to highest
+			// Note that the speed stat used is after any volatile replacements like Speed Swap,
+			// but before any multipliers like Agility or Choice Scarf
+			// Ties go to whichever Pokemon has had the ability for the least amount of time
+			dancers.sort(
+				(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+			);
+			for (const dancer of dancers) {
+				if (this.faintMessages()) break;
+				if (dancer.fainted) continue;
+				this.add('-activate', dancer, 'ability: Dancer');
+				const dancersTarget = target.side !== dancer.side && pokemon.side === dancer.side ? target : pokemon;
+				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.abilities.get('dancer'), undefined, true);
+			}
+		}
+		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
+	},
+	canMegaEvo(pokemon) { // Magic Room suppression, Mega-Ray change
+		if ('magicroom' in this.field.pseudoWeather) return null;
+		const species = pokemon.baseSpecies;
+		const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
+		const item = pokemon.getItem();
+		if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
+			// Additional check for required move
+			if (altForme?.isMega && altForme?.requiredMove) {
+				if (pokemon.baseMoves.includes(this.toID(altForme.requiredMove))) {
 					return item.megaStone;
 				}
+			} else {
+				return item.megaStone;
 			}
-			return null;
-		},
-		canUltraBurst(pokemon) { //Magic Room suppression
-			if('magicroom' in this.field.pseudoWeather) return null;
-			if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
+		}
+		return null;
+	},
+	canUltraBurst(pokemon) { // Magic Room suppression
+		if ('magicroom' in this.field.pseudoWeather) return null;
+		if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
 				pokemon.getItem().id === 'ultranecroziumz') {
-				return "Necrozma-Ultra";
-			}
-			return null;
-		},
-		runMegaEvo(pokemon) { //Extra Magic Room suppression since it doesn't seem to work
-			if('magicroom' in this.field.pseudoWeather) return false;
-			const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
-			if (!speciesid) return false;
-			const side = pokemon.side;
+			return "Necrozma-Ultra";
+		}
+		return null;
+	},
+	runMegaEvo(pokemon) { // Extra Magic Room suppression since it doesn't seem to work
+		if ('magicroom' in this.field.pseudoWeather) return false;
+		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
+		if (!speciesid) return false;
+		const side = pokemon.side;
 
-			// Pokémon affected by Sky Drop cannot mega evolve. Enforce it here for now.
-			for (const foeActive of side.foe.active) {
-				if (foeActive.volatiles['skydrop'] && foeActive.volatiles['skydrop'].source === pokemon) {
-					return false;
-				}
-			}
-
-			pokemon.formeChange(speciesid, pokemon.getItem(), true);
-
-			// Limit one mega evolution
-			const wasMega = pokemon.canMegaEvo;
-			for (const ally of side.pokemon) {
-				if (wasMega) {
-					ally.canMegaEvo = null;
-				} else {
-					ally.canUltraBurst = null;
-				}
-			}
-
-			this.runEvent('AfterMega', pokemon);
-			return true;
-		},
-		useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove, maxMove) { //Curse, Sheer Force post-secondary change
-			if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
-			if (sourceEffect && ['instruct', 'custapberry'].includes(sourceEffect.id)) sourceEffect = null;
-
-			let move = this.dex.getActiveMove(moveOrMoveName);
-			if (move.id === 'weatherball' && zMove) {
-				// Z-Weather Ball only changes types if it's used directly,
-				// not if it's called by Z-Sleep Talk or something.
-				this.singleEvent('ModifyType', move, null, pokemon, target, move, move);
-				if (move.type !== 'Normal') sourceEffect = move;
-			}
-			if (zMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isZ)) {
-				move = this.getActiveZMove(move, pokemon);
-			}
-			if (maxMove && move.category !== 'Status') {
-				// Max move outcome is dependent on the move type after type modifications from ability and the move itself
-				this.singleEvent('ModifyType', move, null, pokemon, target, move, move);
-				this.runEvent('ModifyType', pokemon, target, move, move);
-			}
-			if (maxMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isMax)) {
-				move = this.getActiveMaxMove(move, pokemon);
-			}
-
-			if (this.activeMove) {
-				move.priority = this.activeMove.priority;
-				if (!move.hasBounced) move.pranksterBoosted = this.activeMove.pranksterBoosted;
-			}
-			const baseTarget = move.target;
-			if (target === undefined) target = this.getRandomTarget(pokemon, move);
-			if (move.target === 'self' || move.target === 'allies') {
-				target = pokemon;
-			}
-			if (sourceEffect) {
-				move.sourceEffect = sourceEffect.id;
-				move.ignoreAbility = false;
-			}
-			let moveResult = false;
-
-			this.setActiveMove(move, pokemon, target);
-
-			this.singleEvent('ModifyType', move, null, pokemon, target, move, move);
-			this.singleEvent('ModifyMove', move, null, pokemon, target, move, move);
-			if (baseTarget !== move.target) {
-				// Target changed in ModifyMove, so we must adjust it here
-				// Adjust before the next event so the correct target is passed to the
-				// event
-				target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position]; //Direct opposite foe
-			}
-			move = this.runEvent('ModifyType', pokemon, target, move, move);
-			move = this.runEvent('ModifyMove', pokemon, target, move, move);
-			if (baseTarget !== move.target) {
-				// Adjust again
-				target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
-			}
-			if (!move || pokemon.fainted) {
+		// Pokémon affected by Sky Drop cannot mega evolve. Enforce it here for now.
+		for (const foeActive of side.foe.active) {
+			if (foeActive.volatiles['skydrop'] && foeActive.volatiles['skydrop'].source === pokemon) {
 				return false;
 			}
+		}
 
-			let attrs = '';
+		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
-			let movename = move.name;
-			if (move.id === 'hiddenpower') movename = 'Hidden Power';
-			if (sourceEffect) attrs += `|[from]${sourceEffect.fullname}`;
-			if (zMove && move.isZ === true) {
-				attrs = '|[anim]' + movename + attrs;
-				movename = 'Z-' + movename;
+		// Limit one mega evolution
+		const wasMega = pokemon.canMegaEvo;
+		for (const ally of side.pokemon) {
+			if (wasMega) {
+				ally.canMegaEvo = null;
+			} else {
+				ally.canUltraBurst = null;
 			}
-			this.addMove('move', pokemon, movename, target + attrs);
+		}
 
-			if (zMove) this.runZPower(move, pokemon);
+		this.runEvent('AfterMega', pokemon);
+		return true;
+	},
+	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove, maxMove) { // Curse, Sheer Force post-secondary change
+		if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
+		if (sourceEffect && ['instruct', 'custapberry'].includes(sourceEffect.id)) sourceEffect = null;
 
-			if (!target) {
+		let move = this.dex.getActiveMove(moveOrMoveName);
+		if (move.id === 'weatherball' && zMove) {
+			// Z-Weather Ball only changes types if it's used directly,
+			// not if it's called by Z-Sleep Talk or something.
+			this.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+			if (move.type !== 'Normal') sourceEffect = move;
+		}
+		if (zMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isZ)) {
+			move = this.getActiveZMove(move, pokemon);
+		}
+		if (maxMove && move.category !== 'Status') {
+			// Max move outcome is dependent on the move type after type modifications from ability and the move itself
+			this.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+			this.runEvent('ModifyType', pokemon, target, move, move);
+		}
+		if (maxMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isMax)) {
+			move = this.getActiveMaxMove(move, pokemon);
+		}
+
+		if (this.activeMove) {
+			move.priority = this.activeMove.priority;
+			if (!move.hasBounced) move.pranksterBoosted = this.activeMove.pranksterBoosted;
+		}
+		const baseTarget = move.target;
+		if (target === undefined) target = this.getRandomTarget(pokemon, move);
+		if (move.target === 'self' || move.target === 'allies') {
+			target = pokemon;
+		}
+		if (sourceEffect) {
+			move.sourceEffect = sourceEffect.id;
+			move.ignoreAbility = false;
+		}
+		let moveResult = false;
+
+		this.setActiveMove(move, pokemon, target);
+
+		this.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+		this.singleEvent('ModifyMove', move, null, pokemon, target, move, move);
+		if (baseTarget !== move.target) {
+			// Target changed in ModifyMove, so we must adjust it here
+			// Adjust before the next event so the correct target is passed to the
+			// event
+			target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position]; // Direct opposite foe
+		}
+		move = this.runEvent('ModifyType', pokemon, target, move, move);
+		move = this.runEvent('ModifyMove', pokemon, target, move, move);
+		if (baseTarget !== move.target) {
+			// Adjust again
+			target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+		}
+		if (!move || pokemon.fainted) {
+			return false;
+		}
+
+		let attrs = '';
+
+		let movename = move.name;
+		if (move.id === 'hiddenpower') movename = 'Hidden Power';
+		if (sourceEffect) attrs += `|[from]${sourceEffect.fullname}`;
+		if (zMove && move.isZ === true) {
+			attrs = '|[anim]' + movename + attrs;
+			movename = 'Z-' + movename;
+		}
+		this.addMove('move', pokemon, movename, target + attrs);
+
+		if (zMove) this.runZPower(move, pokemon);
+
+		if (!target) {
+			this.attrLastMove('[notarget]');
+			this.add(this.gen >= 5 ? '-fail' : '-notarget', pokemon);
+			return false;
+		}
+
+		const {targets, pressureTargets} = pokemon.getMoveTargets(move, target);
+		if (targets.length) {
+			target = targets[targets.length - 1]; // in case of redirection
+		}
+
+		if (!sourceEffect || sourceEffect.id === 'pursuit') {
+			let extraPP = 0;
+			for (const source of pressureTargets) {
+				const ppDrop = this.runEvent('DeductPP', source, pokemon, move);
+				if (ppDrop !== true) {
+					extraPP += ppDrop || 0;
+				}
+			}
+			if (extraPP > 0) {
+				pokemon.deductPP(move, extraPP);
+			}
+		}
+
+		if (!this.singleEvent('TryMove', move, null, pokemon, target, move) ||
+				!this.runEvent('TryMove', pokemon, target, move)) {
+			move.mindBlownRecoil = false;
+			return false;
+		}
+
+		this.singleEvent('UseMoveMessage', move, null, pokemon, target, move);
+
+		if (move.ignoreImmunity === undefined) {
+			move.ignoreImmunity = (move.category === 'Status');
+		}
+
+		if (this.gen !== 4 && move.selfdestruct === 'always') {
+			this.faint(pokemon, pokemon, move);
+		}
+
+		let damage: number | false | undefined | '' = false;
+		if (move.target === 'all' || move.target === 'foeSide' || move.target === 'allySide' || move.target === 'allyTeam') {
+			damage = this.tryMoveHit(target, pokemon, move);
+			if (damage === this.NOT_FAIL) pokemon.moveThisTurnResult = null;
+			if (damage || damage === 0 || damage === undefined) moveResult = true;
+		} else {
+			if (!targets.length) {
 				this.attrLastMove('[notarget]');
 				this.add(this.gen >= 5 ? '-fail' : '-notarget', pokemon);
 				return false;
 			}
-
-			const {targets, pressureTargets} = pokemon.getMoveTargets(move, target);
-			if (targets.length) {
-				target = targets[targets.length - 1]; // in case of redirection
-			}
-
-			if (!sourceEffect || sourceEffect.id === 'pursuit') {
-				let extraPP = 0;
-				for (const source of pressureTargets) {
-					const ppDrop = this.runEvent('DeductPP', source, pokemon, move);
-					if (ppDrop !== true) {
-						extraPP += ppDrop || 0;
-					}
-				}
-				if (extraPP > 0) {
-					pokemon.deductPP(move, extraPP);
-				}
-			}
-
-			if (!this.singleEvent('TryMove', move, null, pokemon, target, move) ||
-				!this.runEvent('TryMove', pokemon, target, move)) {
-				move.mindBlownRecoil = false;
-				return false;
-			}
-
-			this.singleEvent('UseMoveMessage', move, null, pokemon, target, move);
-
-			if (move.ignoreImmunity === undefined) {
-				move.ignoreImmunity = (move.category === 'Status');
-			}
-
-			if (this.gen !== 4 && move.selfdestruct === 'always') {
+			if (this.gen === 4 && move.selfdestruct === 'always') {
 				this.faint(pokemon, pokemon, move);
 			}
+			moveResult = this.trySpreadMoveHit(targets, pokemon, move);
+		}
+		if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
+		if (!pokemon.hp) {
+			this.faint(pokemon, pokemon, move);
+		}
 
-			let damage: number | false | undefined | '' = false;
-			if (move.target === 'all' || move.target === 'foeSide' || move.target === 'allySide' || move.target === 'allyTeam') {
-				damage = this.tryMoveHit(target, pokemon, move);
-				if (damage === this.NOT_FAIL) pokemon.moveThisTurnResult = null;
-				if (damage || damage === 0 || damage === undefined) moveResult = true;
-			} else {
-				if (!targets.length) {
-					this.attrLastMove('[notarget]');
-					this.add(this.gen >= 5 ? '-fail' : '-notarget', pokemon);
-					return false;
-				}
-				if (this.gen === 4 && move.selfdestruct === 'always') {
-					this.faint(pokemon, pokemon, move);
-				}
-				moveResult = this.trySpreadMoveHit(targets, pokemon, move);
+		if (!moveResult) {
+			this.singleEvent('MoveFail', move, null, target, pokemon, move);
+			return false;
+		}
+
+		const originalHp = pokemon.hp;
+		this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
+		this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
+		if (pokemon && pokemon !== target && move.category !== 'Status') {
+			if (pokemon.hp <= pokemon.maxhp / 2 && originalHp > pokemon.maxhp / 2) {
+				this.runEvent('EmergencyExit', target, pokemon);
 			}
-			if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
-			if (!pokemon.hp) {
-				this.faint(pokemon, pokemon, move);
-			}
+		}
 
-			if (!moveResult) {
-				this.singleEvent('MoveFail', move, null, target, pokemon, move);
-				return false;
-			}
-
-			const originalHp = pokemon.hp;
-			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
-			this.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
-			if (pokemon && pokemon !== target && move.category !== 'Status') {
-				if (pokemon.hp <= pokemon.maxhp / 2 && originalHp > pokemon.maxhp / 2) {
-					this.runEvent('EmergencyExit', target, pokemon);
-				}
-			}
-
-			return true;
-		},
-		hitStepMoveHitLoop(targets, pokemon, move) { //Sheer Force post-secondary change
-			const damage: (number | boolean | undefined)[] = [];
-			for (const i of targets.keys()) {
-				damage[i] = 0;
-			}
-			move.totalDamage = 0;
-			pokemon.lastDamage = 0;
-			let targetHits = move.multihit || 1;
-			if (Array.isArray(targetHits)) {
-				// yes, it's hardcoded... meh
-				if (targetHits[0] === 2 && targetHits[1] === 5) {
-					if (this.gen >= 5) {
-						// 35-35-15-15 out of 100 for 2-3-4-5 hits
-						targetHits = this.sample([2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5]);
-					} else {
-						targetHits = this.sample([2, 2, 2, 3, 3, 3, 4, 5]);
-					}
-				} else {
-					targetHits = this.random(targetHits[0], targetHits[1] + 1);
-				}
-			}
-			targetHits = Math.floor(targetHits);
-			let nullDamage = true;
-			let moveDamage: (number | boolean | undefined)[];
-			// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-			const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
-
-			let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
-			let hit: number;
-			for (hit = 1; hit <= targetHits; hit++) {
-				if (damage.includes(false)) break;
-				if (hit > 1 && pokemon.status === 'slp' && !isSleepUsable) break;
-				if (targets.every(target => !target || !target.hp)) break;
-				move.hit = hit;
-				if (move.smartTarget && targets.length > 1) {
-					targetsCopy = [targets[hit - 1]];
-				} else {
-					targetsCopy = targets.slice(0);
-				}
-				const target = targetsCopy[0]; // some relevant-to-single-target-moves-only things are hardcoded
-				if (target && typeof move.smartTarget === 'boolean') {
-					if (hit > 1) {
-						this.addMove('-anim', pokemon, move.name, target);
-					} else {
-						this.retargetLastMove(target);
-					}
-				}
-
-				// like this (Triple Kick)
-				if (target && move.multiaccuracy && hit > 1) {
-					let accuracy = move.accuracy;
-					const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
-					if (accuracy !== true) {
-						if (!move.ignoreAccuracy) {
-							const boosts = this.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
-							const boost = this.clampIntRange(boosts['accuracy'], -6, 6);
-							if (boost > 0) {
-								accuracy *= boostTable[boost];
-							} else {
-								accuracy /= boostTable[-boost];
-							}
-						}
-						if (!move.ignoreEvasion) {
-							const boosts = this.runEvent('ModifyBoost', target, null, null, {...target.boosts});
-							const boost = this.clampIntRange(boosts['evasion'], -6, 6);
-							if (boost > 0) {
-								accuracy /= boostTable[boost];
-							} else if (boost < 0) {
-								accuracy *= boostTable[-boost];
-							}
-						}
-					}
-					accuracy = this.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
-					if (!move.alwaysHit) {
-						accuracy = this.runEvent('Accuracy', target, pokemon, move, accuracy);
-						if (accuracy !== true && !this.randomChance(accuracy, 100)) break;
-					}
-				}
-
-				const moveData = move;
-				if (!moveData.flags) moveData.flags = {};
-
-				// Modifies targetsCopy (which is why it's a copy)
-				[moveDamage, targetsCopy] = this.spreadMoveHit(targetsCopy, pokemon, move, moveData);
-
-				if (!moveDamage.some(val => val !== false)) break;
-				nullDamage = false;
-
-				for (const [i, md] of moveDamage.entries()) {
-					// Damage from each hit is individually counted for the
-					// purposes of Counter, Metal Burst, and Mirror Coat.
-					damage[i] = md === true || !md ? 0 : md;
-					// Total damage dealt is accumulated for the purposes of recoil (Parental Bond).
-					move.totalDamage += damage[i] as number;
-				}
-				if (move.mindBlownRecoil) {
-					this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Mind Blown'), true);
-					move.mindBlownRecoil = false;
-				}
-				this.eachEvent('Update');
-				if (!pokemon.hp && targets.length === 1) {
-					hit++; // report the correct number of hits for multihit moves
-					break;
-				}
-			}
-			// hit is 1 higher than the actual hit count
-			if (hit === 1) return damage.fill(false);
-			if (nullDamage) damage.fill(false);
-			if (move.multihit && typeof move.smartTarget !== 'boolean') {
-				this.add('-hitcount', targets[0], hit - 1);
-			}
-
-			if (move.recoil && move.totalDamage) {
-				this.damage(this.calcRecoilDamage(move.totalDamage, move), pokemon, pokemon, 'recoil');
-			}
-
-			if (move.struggleRecoil) {
-				let recoilDamage;
-				if (this.dex.gen >= 5) {
-					recoilDamage = this.clampIntRange(Math.round(pokemon.baseMaxhp / 4), 1);
-				} else {
-					recoilDamage = this.trunc(pokemon.maxhp / 4);
-				}
-				this.directDamage(recoilDamage, pokemon, pokemon, {id: 'strugglerecoil'} as Condition);
-			}
-
-			// smartTarget messes up targetsCopy, but smartTarget should in theory ensure that targets will never fail, anyway
-			if (move.smartTarget) targetsCopy = targets.slice(0);
-
-			for (const [i, target] of targetsCopy.entries()) {
-				if (target && pokemon !== target) {
-					target.gotAttacked(move, damage[i] as number | false | undefined, pokemon);
-				}
-			}
-
-			if (move.ohko && !targets[0].hp) this.add('-ohko');
-
-			if (!damage.some(val => !!val || val === 0)) return damage;
-
-			this.eachEvent('Update');
-
-			this.afterMoveSecondaryEvent(targetsCopy.filter(val => !!val) as Pokemon[], pokemon, move);
-
-			for (const [i, d] of damage.entries()) {
-				// There are no multihit spread moves, so it's safe to use move.totalDamage for multihit moves
-				// The previous check was for `move.multihit`, but that fails for Dragon Darts
-				const curDamage = targets.length === 1 ? move.totalDamage : d;
-				if (typeof curDamage === 'number' && targets[i].hp) {
-					const targetHPBeforeDamage = (targets[i].hurtThisTurn || 0) + curDamage;
-					if (targets[i].hp <= targets[i].maxhp / 2 && targetHPBeforeDamage > targets[i].maxhp / 2) {
-						this.runEvent('EmergencyExit', targets[i], pokemon);
-					}
-				}
-			}
-
-			return damage;
-		},
-		hitStepInvulnerabilityEvent(targets, pokemon, move) { //Toxic buff revert
-			if (move.id === 'helpinghand') {
-				return new Array(targets.length).fill(true);
-			}
-			const hitResults = this.runEvent('Invulnerability', targets, pokemon, move);
-			for (const [i, target] of targets.entries()) {
-				if (hitResults[i] === false) {
-					if (move.smartTarget) {
-						move.smartTarget = false;
-					} else {
-						if (!move.spreadHit) this.attrLastMove('[miss]');
-						this.add('-miss', pokemon, target);
-					}
-				}
-			}
-			return hitResults;
+		return true;
 	},
-		hitStepAccuracy(targets, pokemon, move) { //Sheer Cold nerf/Toxic buff revert
-			const hitResults = [];
-			for (const [i, target] of targets.entries()) {
-				this.activeTarget = target;
-				// calculate true accuracy
+	hitStepMoveHitLoop(targets, pokemon, move) { // Sheer Force post-secondary change
+		const damage: (number | boolean | undefined)[] = [];
+		for (const i of targets.keys()) {
+			damage[i] = 0;
+		}
+		move.totalDamage = 0;
+		pokemon.lastDamage = 0;
+		let targetHits = move.multihit || 1;
+		if (Array.isArray(targetHits)) {
+			// yes, it's hardcoded... meh
+			if (targetHits[0] === 2 && targetHits[1] === 5) {
+				if (this.gen >= 5) {
+					// 35-35-15-15 out of 100 for 2-3-4-5 hits
+					targetHits = this.sample([2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5]);
+				} else {
+					targetHits = this.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+				}
+			} else {
+				targetHits = this.random(targetHits[0], targetHits[1] + 1);
+			}
+		}
+		targetHits = Math.floor(targetHits);
+		let nullDamage = true;
+		let moveDamage: (number | boolean | undefined)[];
+		// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
+		const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
+
+		let targetsCopy: (Pokemon | false | null)[] = targets.slice(0);
+		let hit: number;
+		for (hit = 1; hit <= targetHits; hit++) {
+			if (damage.includes(false)) break;
+			if (hit > 1 && pokemon.status === 'slp' && !isSleepUsable) break;
+			if (targets.every(target => !target || !target.hp)) break;
+			move.hit = hit;
+			if (move.smartTarget && targets.length > 1) {
+				targetsCopy = [targets[hit - 1]];
+			} else {
+				targetsCopy = targets.slice(0);
+			}
+			const target = targetsCopy[0]; // some relevant-to-single-target-moves-only things are hardcoded
+			if (target && typeof move.smartTarget === 'boolean') {
+				if (hit > 1) {
+					this.addMove('-anim', pokemon, move.name, target);
+				} else {
+					this.retargetLastMove(target);
+				}
+			}
+
+			// like this (Triple Kick)
+			if (target && move.multiaccuracy && hit > 1) {
 				let accuracy = move.accuracy;
-				if (move.ohko) { // bypasses accuracy modifiers
-					if (!target.isSemiInvulnerable()) {
-						//MODDED: Removed Sheer Cold's accuracy drop
-						if (!target.volatiles['dynamax'] && pokemon.level >= target.level &&
-							(move.ohko === true || !target.hasType(move.ohko))) {
-							accuracy += (pokemon.level - target.level);
+				const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
+				if (accuracy !== true) {
+					if (!move.ignoreAccuracy) {
+						const boosts = this.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
+						const boost = this.clampIntRange(boosts['accuracy'], -6, 6);
+						if (boost > 0) {
+							accuracy *= boostTable[boost];
 						} else {
-							this.add('-immune', target, '[ohko]');
-							hitResults[i] = false;
-							continue;
+							accuracy /= boostTable[-boost];
 						}
 					}
-				} else {
-					const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
-
-					let boosts;
-					let boost!: number;
-					if (accuracy !== true) {
-						if (!move.ignoreAccuracy) {
-							boosts = this.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
-							boost = this.clampIntRange(boosts['accuracy'], -6, 6);
-							if (boost > 0) {
-								accuracy *= boostTable[boost];
-							} else {
-								accuracy /= boostTable[-boost];
-							}
-						}
-						if (!move.ignoreEvasion) {
-							boosts = this.runEvent('ModifyBoost', target, null, null, {...target.boosts});
-							boost = this.clampIntRange(boosts['evasion'], -6, 6);
-							if (boost > 0) {
-								accuracy /= boostTable[boost];
-							} else if (boost < 0) {
-								accuracy *= boostTable[-boost];
-							}
+					if (!move.ignoreEvasion) {
+						const boosts = this.runEvent('ModifyBoost', target, null, null, {...target.boosts});
+						const boost = this.clampIntRange(boosts['evasion'], -6, 6);
+						if (boost > 0) {
+							accuracy /= boostTable[boost];
+						} else if (boost < 0) {
+							accuracy *= boostTable[-boost];
 						}
 					}
-					accuracy = this.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
 				}
-				if (move.alwaysHit) { //MODDED: Removed Toxic's accuracy bypass on Poison-types
-					accuracy = true;
-				} else {
+				accuracy = this.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
+				if (!move.alwaysHit) {
 					accuracy = this.runEvent('Accuracy', target, pokemon, move, accuracy);
+					if (accuracy !== true && !this.randomChance(accuracy, 100)) break;
 				}
-				if (accuracy !== true && !this.randomChance(accuracy, 100)) {
-					if (move.smartTarget) {
-						move.smartTarget = false;
-					} else {
-						if (!move.spreadHit) this.attrLastMove('[miss]');
-						this.add('-miss', pokemon, target);
-					}
-					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
-						this.boost({spe: 2}, pokemon);
-					}
-					hitResults[i] = false;
-					continue;
-				}
-				hitResults[i] = true;
 			}
-			return hitResults;
-		},
-		hitStepStealBoosts(targets, pokemon, move) { //Own Tempo
-			const target = targets[0]; // hardcoded
-			if (move.stealsBoosts) {
-				const boosts: SparseBoostsTable = {};
-				let stolen = false;
-				let statName: BoostName;
-				for (statName in target.boosts) {
-					const stage = target.boosts[statName];
-					if (stage > 0) {
-						boosts[statName] = stage;
-						stolen = true;
-					}
-				}
-				if (stolen) {
-					if(target.hasAbility('owntempo')){
-						this.add('-activate', target, 'ability: Own Tempo');
-						this.hint('Own Tempo blocks effects that steal, copy, or overwrite its attributes');
-						return;
-					}
-					this.attrLastMove('[still]');
-					this.add('-clearpositiveboost', target, pokemon, 'move: ' + move.name);
-					this.boost(boosts, pokemon, pokemon);
 
-					let statName2: BoostName;
-					for (statName2 in boosts) {
-						boosts[statName2] = 0;
-					}
-					target.setBoost(boosts);
-					this.addMove('-anim', pokemon, "Spectral Thief", target);
+			const moveData = move;
+			if (!moveData.flags) moveData.flags = {};
+
+			// Modifies targetsCopy (which is why it's a copy)
+			[moveDamage, targetsCopy] = this.spreadMoveHit(targetsCopy, pokemon, move, moveData);
+
+			if (!moveDamage.some(val => val !== false)) break;
+			nullDamage = false;
+
+			for (const [i, md] of moveDamage.entries()) {
+				// Damage from each hit is individually counted for the
+				// purposes of Counter, Metal Burst, and Mirror Coat.
+				damage[i] = md === true || !md ? 0 : md;
+				// Total damage dealt is accumulated for the purposes of recoil (Parental Bond).
+				move.totalDamage += damage[i] as number;
+			}
+			if (move.mindBlownRecoil) {
+				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Mind Blown'), true);
+				move.mindBlownRecoil = false;
+			}
+			this.eachEvent('Update');
+			if (!pokemon.hp && targets.length === 1) {
+				hit++; // report the correct number of hits for multihit moves
+				break;
+			}
+		}
+		// hit is 1 higher than the actual hit count
+		if (hit === 1) return damage.fill(false);
+		if (nullDamage) damage.fill(false);
+		if (move.multihit && typeof move.smartTarget !== 'boolean') {
+			this.add('-hitcount', targets[0], hit - 1);
+		}
+
+		if (move.recoil && move.totalDamage) {
+			this.damage(this.calcRecoilDamage(move.totalDamage, move), pokemon, pokemon, 'recoil');
+		}
+
+		if (move.struggleRecoil) {
+			let recoilDamage;
+			if (this.dex.gen >= 5) {
+				recoilDamage = this.clampIntRange(Math.round(pokemon.baseMaxhp / 4), 1);
+			} else {
+				recoilDamage = this.trunc(pokemon.maxhp / 4);
+			}
+			this.directDamage(recoilDamage, pokemon, pokemon, {id: 'strugglerecoil'} as Condition);
+		}
+
+		// smartTarget messes up targetsCopy, but smartTarget should in theory ensure that targets will never fail, anyway
+		if (move.smartTarget) targetsCopy = targets.slice(0);
+
+		for (const [i, target] of targetsCopy.entries()) {
+			if (target && pokemon !== target) {
+				target.gotAttacked(move, damage[i] as number | false | undefined, pokemon);
+			}
+		}
+
+		if (move.ohko && !targets[0].hp) this.add('-ohko');
+
+		if (!damage.some(val => !!val || val === 0)) return damage;
+
+		this.eachEvent('Update');
+
+		this.afterMoveSecondaryEvent(targetsCopy.filter(val => !!val) as Pokemon[], pokemon, move);
+
+		for (const [i, d] of damage.entries()) {
+			// There are no multihit spread moves, so it's safe to use move.totalDamage for multihit moves
+			// The previous check was for `move.multihit`, but that fails for Dragon Darts
+			const curDamage = targets.length === 1 ? move.totalDamage : d;
+			if (typeof curDamage === 'number' && targets[i].hp) {
+				const targetHPBeforeDamage = (targets[i].hurtThisTurn || 0) + curDamage;
+				if (targets[i].hp <= targets[i].maxhp / 2 && targetHPBeforeDamage > targets[i].maxhp / 2) {
+					this.runEvent('EmergencyExit', targets[i], pokemon);
 				}
 			}
-			return undefined;
-		},
-		afterMoveSecondaryEvent(targets, pokemon, move) { //Sheer Force post-secondary change
-			this.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);
-			this.runEvent('AfterMoveSecondary', targets, pokemon, move);
-			return undefined;
-		},
-	//},
-	/*dex: { //Can't actually be edited here, but these are the functions that got changed
+		}
+
+		return damage;
+	},
+	hitStepInvulnerabilityEvent(targets, pokemon, move) { // Toxic buff revert
+		if (move.id === 'helpinghand') {
+			return new Array(targets.length).fill(true);
+		}
+		const hitResults = this.runEvent('Invulnerability', targets, pokemon, move);
+		for (const [i, target] of targets.entries()) {
+			if (hitResults[i] === false) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					if (!move.spreadHit) this.attrLastMove('[miss]');
+					this.add('-miss', pokemon, target);
+				}
+			}
+		}
+		return hitResults;
+	},
+	hitStepAccuracy(targets, pokemon, move) { // Sheer Cold nerf/Toxic buff revert
+		const hitResults = [];
+		for (const [i, target] of targets.entries()) {
+			this.activeTarget = target;
+			// calculate true accuracy
+			let accuracy = move.accuracy;
+			if (move.ohko) { // bypasses accuracy modifiers
+				if (!target.isSemiInvulnerable()) {
+					// MODDED: Removed Sheer Cold's accuracy drop
+					if (!target.volatiles['dynamax'] && pokemon.level >= target.level &&
+							(move.ohko === true || !target.hasType(move.ohko))) {
+						accuracy += (pokemon.level - target.level);
+					} else {
+						this.add('-immune', target, '[ohko]');
+						hitResults[i] = false;
+						continue;
+					}
+				}
+			} else {
+				const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
+
+				let boosts;
+				let boost!: number;
+				if (accuracy !== true) {
+					if (!move.ignoreAccuracy) {
+						boosts = this.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
+						boost = this.clampIntRange(boosts['accuracy'], -6, 6);
+						if (boost > 0) {
+							accuracy *= boostTable[boost];
+						} else {
+							accuracy /= boostTable[-boost];
+						}
+					}
+					if (!move.ignoreEvasion) {
+						boosts = this.runEvent('ModifyBoost', target, null, null, {...target.boosts});
+						boost = this.clampIntRange(boosts['evasion'], -6, 6);
+						if (boost > 0) {
+							accuracy /= boostTable[boost];
+						} else if (boost < 0) {
+							accuracy *= boostTable[-boost];
+						}
+					}
+				}
+				accuracy = this.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
+			}
+			if (move.alwaysHit) { // MODDED: Removed Toxic's accuracy bypass on Poison-types
+				accuracy = true;
+			} else {
+				accuracy = this.runEvent('Accuracy', target, pokemon, move, accuracy);
+			}
+			if (accuracy !== true && !this.randomChance(accuracy, 100)) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					if (!move.spreadHit) this.attrLastMove('[miss]');
+					this.add('-miss', pokemon, target);
+				}
+				if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					this.boost({spe: 2}, pokemon);
+				}
+				hitResults[i] = false;
+				continue;
+			}
+			hitResults[i] = true;
+		}
+		return hitResults;
+	},
+	hitStepStealBoosts(targets, pokemon, move) { // Own Tempo
+		const target = targets[0]; // hardcoded
+		if (move.stealsBoosts) {
+			const boosts: SparseBoostsTable = {};
+			let stolen = false;
+			let statName: BoostName;
+			for (statName in target.boosts) {
+				const stage = target.boosts[statName];
+				if (stage > 0) {
+					boosts[statName] = stage;
+					stolen = true;
+				}
+			}
+			if (stolen) {
+				if (target.hasAbility('owntempo')) {
+					this.add('-activate', target, 'ability: Own Tempo');
+					this.hint('Own Tempo blocks effects that steal, copy, or overwrite its attributes');
+					return;
+				}
+				this.attrLastMove('[still]');
+				this.add('-clearpositiveboost', target, pokemon, 'move: ' + move.name);
+				this.boost(boosts, pokemon, pokemon);
+
+				let statName2: BoostName;
+				for (statName2 in boosts) {
+					boosts[statName2] = 0;
+				}
+				target.setBoost(boosts);
+				this.addMove('-anim', pokemon, "Spectral Thief", target);
+			}
+		}
+		return undefined;
+	},
+	afterMoveSecondaryEvent(targets, pokemon, move) { // Sheer Force post-secondary change
+		this.singleEvent('AfterMoveSecondary', move, null, targets[0], pokemon, move);
+		this.runEvent('AfterMoveSecondary', targets, pokemon, move);
+		return undefined;
+	},
+	// },
+	/* dex: { //Can't actually be edited here, but these are the functions that got changed
 		getImmunity(
 			source: {type: string} | string,
 			target: {getTypes: () => string[]} | {types: string[]} | string[] | string
@@ -1496,7 +1496,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		const unavailablePokemon = [
 			"pikachubelle", "pikachucosplay", "pikachulibre", "pikachuphd", "pikachupopstar", "pikachurockstar", "pikachustarter", "slowpokegalar", "slowbrogalar", "victreebel", "eeveestarter", "articunogalar", "zapdosgalar", "moltresgalar", "pichuspikyeared", "slowkinggalar", "darmanitangalarzen", "floetteeternal", "lycanrocdusk", "eternatuseternamax", "kubfu", "urshifu", "urshifurapidstrike", "zarudedada", "regieleki", "regidrago", "calyrex", "glastrier", "spectrier", "calyrexshadow", "calyrexice",
 		];
-		const baseEight = [ //Pokemon using their Gen VIII learnsets as a base
+		const baseEight = [ // Pokemon using their Gen VIII learnsets as a base
 			"charmander", "charmeleon", "charizard", "vileplume", "farfetchd", "farfetchdgalar", "hitmonlee", "hitmonchan", "mrmime", "mrmimegalar", "scyther", "bellossom", "qwilfish", "scizor", "remoraid", "octillery", "tyrogue", "hitmontop", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "zigzagoon", "zigzagoongalar", "linoone", "linoonegalar", "lotad", "lombre", "lunatone", "solrock", "bagon", "shelgon", "salamence", "kyogre", "groudon", "rayquaza", "mimejr", "uxie", "mesprit", "azelf", "dialga", "palkia", "giratina", "basculin", "basculinbluestriped", "reshiram", "zekrom", "kyurem", "fletchling", "fletchinder", "talonflame", "swirlix", "slurpuff", "bergmite", "avalugg", "xerneas", "yveltal", "zygarde",
 		];
 		const deletedItems = [
@@ -1512,120 +1512,119 @@ export const Scripts: ModdedBattleScriptsData = {
 			"escapeplan", "escapeplan", "induction", "induction", "alchemy", "poweraura", "majesty", "snowplow", "tangling",
 		];
 		const deletedMoves = [
-			"appleacid","astralbarrage","burningjealousy","coaching","corrosivegas","decorate","dragonenergy","dualwingbeat","eeriespell","expandingforce","falsesurrender","fierywrath","freezingglare","glaciallance","grassyglide","gravapple","kinesis","mistyexplosion","risingvoltage","scaleshot","scorchingsands","shellsidearm","skittersmack","steelroller","surgingstrikes","terrainpulse","thundercage","thunderouskick","tripleaxel","wickedblow",
+			"appleacid", "astralbarrage", "burningjealousy", "coaching", "corrosivegas", "decorate", "dragonenergy", "dualwingbeat", "eeriespell", "expandingforce", "falsesurrender", "fierywrath", "freezingglare", "glaciallance", "grassyglide", "gravapple", "kinesis", "mistyexplosion", "risingvoltage", "scaleshot", "scorchingsands", "shellsidearm", "skittersmack", "steelroller", "surgingstrikes", "terrainpulse", "thundercage", "thunderouskick", "tripleaxel", "wickedblow",
 		];
-		const addedMachines = [ //Machines added in Gen VIII and retained in Earth & Sky
-			"amnesia", "assurance", "avalanche", "brine", "charm", "eerieimpulse", "electricterrain", "electroball", "encore", "faketears", "futuresight", "grassyterrain", "hex", "hurricane", "hydropump", "mistyterrain", "nastyplot", "phantomforce", "powergem", "psychicterrain", "screech", "whirlpool"
+		const addedMachines = [ // Machines added in Gen VIII and retained in Earth & Sky
+			"amnesia", "assurance", "avalanche", "brine", "charm", "eerieimpulse", "electricterrain", "electroball", "encore", "faketears", "futuresight", "grassyterrain", "hex", "hurricane", "hydropump", "mistyterrain", "nastyplot", "phantomforce", "powergem", "psychicterrain", "screech", "whirlpool",
 		];
-		const droppedMachines = [ //Machines dropped from Earth & Sky
-			"agility","airslash","aurasphere","batonpass","beatup","blazekick","bodyslam","bravebird","bugbuzz","bulletseed","closecombat","confide","cosmicpower","covet","crosspoison","crunch","cut","darkestlariat","doubleteam","dragondance","drainingkiss","firefang","firespin","flareblitz","flash","focusenergy","focuspunch","guardswap","heatcrash","heavyslam","highhorsepower","icefang","iciclespear","imprison","leafblade","leafstorm","liquidation","magicalleaf","megakick","megapunch","megahorn","metronome","mudshot","muddywater","mysticalfire","payday","pinmissile","playrough","pollenpuff","powerswap","poweruppunch","powerwhip","psychicfang","psychocut","razorshell","revenge","reversal","rockblast","sandtomb","scaryface","self-destruct","solarblade","speedswap","spikes","storedpower","strugglebug","swagger","swift","tailslap","throatchop","thunderfang","toxicspikes","triattack","venomdrench","weatherball",
+		const droppedMachines = [ // Machines dropped from Earth & Sky
+			"agility", "airslash", "aurasphere", "batonpass", "beatup", "blazekick", "bodyslam", "bravebird", "bugbuzz", "bulletseed", "closecombat", "confide", "cosmicpower", "covet", "crosspoison", "crunch", "cut", "darkestlariat", "doubleteam", "dragondance", "drainingkiss", "firefang", "firespin", "flareblitz", "flash", "focusenergy", "focuspunch", "guardswap", "heatcrash", "heavyslam", "highhorsepower", "icefang", "iciclespear", "imprison", "leafblade", "leafstorm", "liquidation", "magicalleaf", "megakick", "megapunch", "megahorn", "metronome", "mudshot", "muddywater", "mysticalfire", "payday", "pinmissile", "playrough", "pollenpuff", "powerswap", "poweruppunch", "powerwhip", "psychicfang", "psychocut", "razorshell", "revenge", "reversal", "rockblast", "sandtomb", "scaryface", "self-destruct", "solarblade", "speedswap", "spikes", "storedpower", "strugglebug", "swagger", "swift", "tailslap", "throatchop", "thunderfang", "toxicspikes", "triattack", "venomdrench", "weatherball",
 		];
 		const renamedMoves = [
-			"banefulbunker","clangoroussoul","moongeistbeam","psychicfangs","stompingtantrum","strangesteam","sunsteelstrike",
+			"banefulbunker", "clangoroussoul", "moongeistbeam", "psychicfangs", "stompingtantrum", "strangesteam", "sunsteelstrike",
 		];
 		const newNameMoves = [
-			"bunkerdown","warriorssoul","lunarray","psychicfang","tantrum","strangesmoke","solarimpact",
+			"bunkerdown", "warriorssoul", "lunarray", "psychicfang", "tantrum", "strangesmoke", "solarimpact",
 		];
-		const noUniversalTMs = [ //Only Gen 5+ since it's the earliest to lose a universal TM
-			"tynamo", "scatterbug", "spewpa", "cosmog", "cosmoem", "blipbug", "applin"
+		const noUniversalTMs = [ // Only Gen 5+ since it's the earliest to lose a universal TM
+			"tynamo", "scatterbug", "spewpa", "cosmog", "cosmoem", "blipbug", "applin",
 		];
 		/* Wide-spread changes */
 		const esrules = this.formats.getRuleTable(this.formats.get('gen8earthskyou'));
-		//console.log(esrules);
-		for (let pokemonID in this.data.Pokedex) {
+		// console.log(esrules);
+		for (const pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];
-			const learnsetTest = false;//["farfetchd"].includes(pokemonID);
-			 //Don't do anything with the new Pokemon, Totems, and Pokestar Studios opponents
-			if(pokemon.num <= -500 || pokemonID.endsWith('totem')) continue;
-			//Change generational accessibility
-			if(unavailablePokemon.includes(pokemonID) || pokemonID.endsWith('gmax')){
+			const learnsetTest = false;// ["farfetchd"].includes(pokemonID);
+			 // Don't do anything with the new Pokemon, Totems, and Pokestar Studios opponents
+			if (pokemon.num <= -500 || pokemonID.endsWith('totem')) continue;
+			// Change generational accessibility
+			if (unavailablePokemon.includes(pokemonID) || pokemonID.endsWith('gmax')) {
 				pokemon.isNonstandard = "Past";
-				if(this.data.FormatsData[pokemonID]) this.data.FormatsData[pokemonID].tier = "Illegal";
+				if (this.data.FormatsData[pokemonID]) this.data.FormatsData[pokemonID].tier = "Illegal";
 				continue;
-			} else if(this.data.FormatsData[pokemonID]) {
-				if(this.data.FormatsData[pokemonID].isNonstandard === "Past"){
-					//console.log(pokemon.name + " restoration");
+			} else if (this.data.FormatsData[pokemonID]) {
+				if (this.data.FormatsData[pokemonID].isNonstandard === "Past") {
+					// console.log(pokemon.name + " restoration");
 					delete this.modData('FormatsData', pokemonID).isNonstandard;
 				}
-				if(this.modData('FormatsData', pokemonID).isNonstandard) continue; //All other non-standard Pokemon are to remain unusable
-				if(!pokemon.battleOnly){ //Reset tiers for all Pokemon that have their own tiering data
-					if(pokemon.evos) {
+				if (this.modData('FormatsData', pokemonID).isNonstandard) continue; // All other non-standard Pokemon are to remain unusable
+				if (!pokemon.battleOnly) { // Reset tiers for all Pokemon that have their own tiering data
+					if (pokemon.evos) {
 						this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 					} else {
 						this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(this.species.get(pokemonID)) ? "Uber" : "OU";
-						if(learnsetTest){
+						if (learnsetTest) {
 							console.log(pokemon.name + "'s mod tier: " + this.modData('FormatsData', pokemonID).tier);
 							console.log(pokemon.name + "'s format tier: " + this.data.FormatsData[pokemonID].tier);
 						}
 					}
 				}
 			}
-			//Don't do move stuff with formes that don't have their own movesets (and Xerneas)
-			if(pokemon.battleOnly || ["Egelas", "Mega", "Mega-X", "Mega-Y", "Primal"].includes(pokemon.forme) || 
-				["Deoxys", "Rotom", "Giratina", "Shaymin", "Arceus", "Keldeo", "Meloetta", "Genesect", "Vivillon", "Aegislash", "Pumpkaboo", "Gourgeist", "Xerneas", "Hoopa", 
-				"Oricorio", "Silvally", "Magearna", "Sinistea", "Polteageist", "Eternatus", "Zarude"].includes(pokemon.baseSpecies))
-				continue;
-			if(learnsetTest) {
+			// Don't do move stuff with formes that don't have their own movesets (and Xerneas)
+			if (pokemon.battleOnly || ["Egelas", "Mega", "Mega-X", "Mega-Y", "Primal"].includes(pokemon.forme) ||
+				["Deoxys", "Rotom", "Giratina", "Shaymin", "Arceus", "Keldeo", "Meloetta", "Genesect", "Vivillon", "Aegislash", "Pumpkaboo", "Gourgeist", "Xerneas", "Hoopa",
+					"Oricorio", "Silvally", "Magearna", "Sinistea", "Polteageist", "Eternatus", "Zarude"].includes(pokemon.baseSpecies)) { continue; }
+			if (learnsetTest) {
 				console.log("Modifying learnset of " + pokemon.name);
 				console.log(this.modData('Learnsets', pokemonID).learnset);
 			}
 			/* Moves */
-			let moveLearn; //store move learnset to save memory/time
+			let moveLearn; // store move learnset to save memory/time
 			let moveDropped = false;
-			let startGen = (((pokemon.num > 807 || pokemon.num < -60) || baseEight.includes(pokemonID)) ? 8 : 7); //Tags Gen 7 or 8 for level/egg moves
+			const startGen = (((pokemon.num > 807 || pokemon.num < -60) || baseEight.includes(pokemonID)) ? 8 : 7); // Tags Gen 7 or 8 for level/egg moves
 			const levelString = new RegExp(startGen + 'L[0-9]+');
-			if(learnsetTest) console.log("Starting with Gen " + startGen);
-			
+			if (learnsetTest) console.log("Starting with Gen " + startGen);
+
 			// For Stone Evolutions, import prevo's level-up learnset at level 1
-			const stoneCheck = (startGen === 7 && pokemon.prevo && !(["Eevee", "Sunkern", "Charjabug", "Darumaka-Galar"].includes(pokemon.prevo)) && pokemon.evoItem && 
+			const stoneCheck = (startGen === 7 && pokemon.prevo && !(["Eevee", "Sunkern", "Charjabug", "Darumaka-Galar"].includes(pokemon.prevo)) && pokemon.evoItem &&
 				["Fire Stone", "Water Stone", "Thunder Stone", "Leaf Stone", "Moon Stone", "Sun Stone", "Shiny Stone", "Dusk Stone", "Ice Stone"].includes(pokemon.evoItem));
-			if(stoneCheck){
-				if(learnsetTest) console.log("This Pokemon evolves by Evolution Stone and needs its prevo's level-up moves");
-				for(const moveID in this.modData('Learnsets', this.toID(pokemon.prevo)).learnset){
+			if (stoneCheck) {
+				if (learnsetTest) console.log("This Pokemon evolves by Evolution Stone and needs its prevo's level-up moves");
+				for (const moveID in this.modData('Learnsets', this.toID(pokemon.prevo)).learnset) {
 					const prevoMove = this.modData('Learnsets', this.toID(pokemon.prevo)).learnset[moveID];
-					const esLevelString = new RegExp('8L[0-9]+'); //Prevos will have updated their movepool first (no Pokemon evolves by Stone from one introduced later than it), so moves will always be stored as Gen 8
-					if(esLevelString.test(prevoMove[0])){ //Level-up will always be first in updated learnset and we only need it once
-						if(learnsetTest) console.log("Importing " + moveID);
-						if(this.modData('Learnsets', pokemonID).learnset[moveID]) this.modData('Learnsets', pokemonID).learnset[moveID].unshift("7L1");
+					const esLevelString = new RegExp('8L[0-9]+'); // Prevos will have updated their movepool first (no Pokemon evolves by Stone from one introduced later than it), so moves will always be stored as Gen 8
+					if (esLevelString.test(prevoMove[0])) { // Level-up will always be first in updated learnset and we only need it once
+						if (learnsetTest) console.log("Importing " + moveID);
+						if (this.modData('Learnsets', pokemonID).learnset[moveID]) this.modData('Learnsets', pokemonID).learnset[moveID].unshift("7L1");
 						else this.modData('Learnsets', pokemonID).learnset[moveID] = ["7L1"];
 					}
 				}
-				if(learnsetTest) console.log("Commencing update");
+				if (learnsetTest) console.log("Commencing update");
 			}
-			
-			for(let moveID in this.data.Moves) { //TODO: change to Dex.moves.all() when DH updates to it
+
+			for (const moveID in this.data.Moves) { // TODO: change to Dex.moves.all() when DH updates to it
 				const move = this.data.Moves[moveID];
-				if(move.isZ || move.isMax) continue;
+				if (move.isZ || move.isMax) continue;
 				moveLearn = this.modData('Learnsets', pokemonID).learnset[moveID];
-				if(!moveLearn){
+				if (!moveLearn) {
 					// checks for new universal machines
-					if(!(noUniversalTMs.includes(pokemonID))){
-						if(moveID === "endure" && (pokemon.num > 493 || pokemon.num < -23)){
-							if(learnsetTest) console.log("Adding universal TM Endure");
+					if (!(noUniversalTMs.includes(pokemonID))) {
+						if (moveID === "endure" && (pokemon.num > 493 || pokemon.num < -23)) {
+							if (learnsetTest) console.log("Adding universal TM Endure");
 							this.modData('Learnsets', pokemonID).learnset[moveID] = ["8M"];
-						} else if(["hiddenpower", "secretpower", "return", "frustration"].includes(moveID) && (pokemon.num > 809 || pokemon.num < -60)){
-							if(learnsetTest) console.log("Adding universal TM " + move.name);
+						} else if (["hiddenpower", "secretpower", "return", "frustration"].includes(moveID) && (pokemon.num > 809 || pokemon.num < -60)) {
+							if (learnsetTest) console.log("Adding universal TM " + move.name);
 							this.modData('Learnsets', pokemonID).learnset[moveID] = ["8M"];
 						}
 					}
 					continue;
 				}
-				if(learnsetTest) console.log("Found move " + move.name);
-				if(learnsetTest) console.log(moveLearn);
+				if (learnsetTest) console.log("Found move " + move.name);
+				if (learnsetTest) console.log(moveLearn);
 				/* drops deleted moves */
-				if(deletedMoves.includes(moveID)) {
-					if(learnsetTest) console.log("This move is deleted!");
+				if (deletedMoves.includes(moveID)) {
+					if (learnsetTest) console.log("This move is deleted!");
 					delete this.modData('Learnsets', pokemonID).learnset[moveID];
 					continue;
 				}
 				/* Collects means of learning the move in Earth & Sky */
-				let moveMeans: string[] = [];
+				const moveMeans: string[] = [];
 				// Level and egg moves of base gen
-				for(const learnType of moveLearn){
-					if(levelString.test(learnType)){
-						if(stoneCheck) { //Most Stone Evolutions only learn moves at level 1 and therefore we must also make sure they only learn moves once by level
-							if(!moveMeans.includes("8L1")) moveMeans.push("8L1");
-						/*} else if(learnType === (startGen + "L1") && pokemon.prevo && this.modData('Learnsets', prevo).learnset){ //Removes all instances of evolutions moving moves to level 1
+				for (const learnType of moveLearn) {
+					if (levelString.test(learnType)) {
+						if (stoneCheck) { // Most Stone Evolutions only learn moves at level 1 and therefore we must also make sure they only learn moves once by level
+							if (!moveMeans.includes("8L1")) moveMeans.push("8L1");
+						/* } else if(learnType === (startGen + "L1") && pokemon.prevo && this.modData('Learnsets', prevo).learnset){ //Removes all instances of evolutions moving moves to level 1
 							const prevoLearn = this.modData('Learnsets', prevo).learnset[moveID];
 							for(const prevoMeans of prevoLearn){
 								if(levelString.test(prevoMeans) && prevoMeans !== (startGen + "L1")){ //Showdown only stores the earliest level, so we only have to check for prevos not having it at 1
@@ -1634,132 +1633,131 @@ export const Scripts: ModdedBattleScriptsData = {
 								}
 							}*/
 						} else {
-							if(learnsetTest) console.log("This move is learned by level");
+							if (learnsetTest) console.log("This move is learned by level");
 							moveMeans.push("8" + learnType.substring(1));
 						}
 					}
 				}
-				if(moveLearn.includes("".concat(startGen,"E"))){
-					if(learnsetTest) console.log("This move is learned by egg");
+				if (moveLearn.includes("".concat(startGen, "E"))) {
+					if (learnsetTest) console.log("This move is learned by egg");
 					moveMeans.push("8E");
 				}
-				if(moveLearn.includes("".concat(startGen,"R"))){
-					if(learnsetTest) console.log("This move is learned on forme change");
+				if (moveLearn.includes("".concat(startGen, "R"))) {
+					if (learnsetTest) console.log("This move is learned on forme change");
 					moveMeans.push("8R");
 				}
 				// Pulls combined TMs and the three retained Isle Tutors
-				if((moveLearn.includes("6M") || moveLearn.includes("7M") || moveLearn.includes("7T") || moveLearn.includes("8M"))){
-					if(learnsetTest) console.log("This move is taught by machine");
+				if ((moveLearn.includes("6M") || moveLearn.includes("7M") || moveLearn.includes("7T") || moveLearn.includes("8M"))) {
+					if (learnsetTest) console.log("This move is taught by machine");
 					moveMeans.push("8M");
 				}
-				if((moveID === "lashout" || moveID === "poltergeist") && moveLearn.includes("8T")){
-					if(learnsetTest) console.log("This move is taught by machine");
+				if ((moveID === "lashout" || moveID === "poltergeist") && moveLearn.includes("8T")) {
+					if (learnsetTest) console.log("This move is taught by machine");
 					moveMeans.push("8M");
 				}
-				if(['grasspledge', 'firepledge', 'waterpledge', 'frenzyplant', 'blastburn', 'hydrocannon', 'dracometeor', 'steelbeam', 'meteorbeam'].includes(moveID) && moveLearn.includes("8T")){
-					if(learnsetTest) console.log("This move is taught by tutor");
+				if (['grasspledge', 'firepledge', 'waterpledge', 'frenzyplant', 'blastburn', 'hydrocannon', 'dracometeor', 'steelbeam', 'meteorbeam'].includes(moveID) && moveLearn.includes("8T")) {
+					if (learnsetTest) console.log("This move is taught by tutor");
 					moveMeans.push("8T");
 				}
-				if(startGen === 8 && !moveMeans.length && moveLearn.includes("7E")){
-					if(learnsetTest) console.log("This move was learned by egg before it got removed");
+				if (startGen === 8 && !moveMeans.length && moveLearn.includes("7E")) {
+					if (learnsetTest) console.log("This move was learned by egg before it got removed");
 					moveMeans.push("8E");
 				}
-				if(learnsetTest) console.log("Compiled: " + moveMeans);
+				if (learnsetTest) console.log("Compiled: " + moveMeans);
 				/* drops removed teachables */
-				if(droppedMachines.includes(moveID) && moveMeans.includes("8M")){
-					if(learnsetTest) console.log("This move is actually no longer taught"); //Note: Flash is in this list because it's restricted and gets re-added manually
-					moveMeans.splice(moveMeans.indexOf("8M"),1);
-					if(moveMeans.length === 0){
+				if (droppedMachines.includes(moveID) && moveMeans.includes("8M")) {
+					if (learnsetTest) console.log("This move is actually no longer taught"); // Note: Flash is in this list because it's restricted and gets re-added manually
+					moveMeans.splice(moveMeans.indexOf("8M"), 1);
+					if (moveMeans.length === 0) {
 						delete this.modData('Learnsets', pokemonID).learnset[moveID];
-						if(learnsetTest) console.log("This move is not learned anymore");
+						if (learnsetTest) console.log("This move is not learned anymore");
 						continue;
 					}
 				}
 				/* drops egg moves learned by other means */
-				if(moveMeans.length > 1 && moveMeans.includes("8E")){
-					if(learnsetTest) console.log("This move is redundantly an egg move");
-					moveMeans.splice(moveMeans.indexOf("8E"),1);
+				if (moveMeans.length > 1 && moveMeans.includes("8E")) {
+					if (learnsetTest) console.log("This move is redundantly an egg move");
+					moveMeans.splice(moveMeans.indexOf("8E"), 1);
 				}
 				/* Move renames */
-				//Lash Out - differentiating between old and new
-				if(moveID === "lashout" && moveMeans == "8M"){ //Old is machine, new is not
-					//console.log("Renaming old Lash Out to Compensation");
+				// Lash Out - differentiating between old and new
+				if (moveID === "lashout" && moveMeans == "8M") { // Old is machine, new is not
+					// console.log("Renaming old Lash Out to Compensation");
 					this.modData('Learnsets', pokemonID).learnset[this.toID('compensation')] = ["8M"];
 					delete this.modData('Learnsets', pokemonID).learnset[moveID];
 					continue;
 				}
-				//Other
-				for(let i = 0; i < renamedMoves.length; i++){
-					if(moveID === renamedMoves[i]){
-						//console.log("Renaming " + move.name);
+				// Other
+				for (let i = 0; i < renamedMoves.length; i++) {
+					if (moveID === renamedMoves[i]) {
+						// console.log("Renaming " + move.name);
 						this.modData('Learnsets', pokemonID).learnset[this.toID(newNameMoves[i])] = moveMeans;
 						delete this.modData('Learnsets', pokemonID).learnset[moveID];
-						moveDropped = true; //We can't use continue to skip the last line because we're inside another for loop
+						moveDropped = true; // We can't use continue to skip the last line because we're inside another for loop
 						continue;
 					}
 				}
-				if(!moveDropped) this.modData('Learnsets', pokemonID).learnset[moveID] = moveMeans;
-				else {
+				if (!moveDropped) { this.modData('Learnsets', pokemonID).learnset[moveID] = moveMeans; } else {
 					moveDropped = false;
 				}
 			}
 			// Ability renames
-			for(let i = 0; i < renamedAbilities.length; i++){ //Abilities
+			for (let i = 0; i < renamedAbilities.length; i++) { // Abilities
 				const pokeAbilities = this.modData('Pokedex', pokemonID).abilities;
-				for(const abilityKey in pokeAbilities){
-					if(this.toID(pokeAbilities[abilityKey]) === renamedAbilities[i]){
-						//console.log(this.data.Abilities[renamedAbilities[i]].name + " name change");
+				for (const abilityKey in pokeAbilities) {
+					if (this.toID(pokeAbilities[abilityKey]) === renamedAbilities[i]) {
+						// console.log(this.data.Abilities[renamedAbilities[i]].name + " name change");
 						this.modData('Pokedex', pokemonID).abilities[abilityKey] = this.data.Abilities[newNameAbilities[i]].name;
-						//console.log(this.modData('Pokedex', pokemonID).abilities[abilityKey]);
+						// console.log(this.modData('Pokedex', pokemonID).abilities[abilityKey]);
 						break;
 					}
 				}
 			}
-			if(learnsetTest){
+			if (learnsetTest) {
 				console.log("Final: ");
 				console.log(this.modData('Learnsets', pokemonID).learnset);
 				console.log("");
 			}
 		}
-		
+
 		/* Delete stuff */
-		for(let moveID in this.data.Moves) { //marks all moves as current gen, except renamed ones
+		for (const moveID in this.data.Moves) { // marks all moves as current gen, except renamed ones
 			const move = this.modData('Moves', moveID);
-			if(move.isNonstandard === "Past" && !renamedMoves.includes(moveID)) delete move.isNonstandard;
-			if(move.zMove) delete move.zMove;
+			if (move.isNonstandard === "Past" && !renamedMoves.includes(moveID)) delete move.isNonstandard;
+			if (move.zMove) delete move.zMove;
 		}
-		for(const moveID of deletedMoves) { //then drops removed moves as past-gen so they can't be used
+		for (const moveID of deletedMoves) { // then drops removed moves as past-gen so they can't be used
 			const move = this.modData('Moves', moveID);
 			move.isNonstandard = "Past";
 		}
-		for(const abilityID of renamedAbilities) {
+		for (const abilityID of renamedAbilities) {
 			const ability = this.modData('Abilities', abilityID);
 			ability.isNonstandard = "Past";
 		}
-		for(const abilityID of deletedAbilities) {
+		for (const abilityID of deletedAbilities) {
 			const ability = this.modData('Abilities', abilityID);
 			ability.isNonstandard = "Past";
 		}
-		for(let itemID in this.data.Items) { //marks all items as current gen, except Z-Crystals
+		for (const itemID in this.data.Items) { // marks all items as current gen, except Z-Crystals
 			const item = this.modData('Items', itemID);
-			if((item.isNonstandard === "Past" || item.isNonstandard === "Unobtainable") && !item.zMove) delete item.isNonstandard;
+			if ((item.isNonstandard === "Past" || item.isNonstandard === "Unobtainable") && !item.zMove) delete item.isNonstandard;
 		}
-		for(const itemID of deletedItems) { //then drops removed items as past-gen so they can't be used
+		for (const itemID of deletedItems) { // then drops removed items as past-gen so they can't be used
 			const item = this.modData('Items', itemID);
 			item.isNonstandard = "Past";
 		}
-		
+
 		/* Item adjustments */
-		for(let itemID in this.data.Items){
+		for (const itemID in this.data.Items) {
 			const item = this.modData('Items', itemID);
-			if(item.isBerry && !item.consumable) item.consumable = true; //I manually added the flag to the ones I edited, but there are some I didn't edit.
-			if(item.fling && item.fling.basePower === 10){ //Fling BP buffs
-				if(item.isBerry || item === "airballoon") continue;
+			if (item.isBerry && !item.consumable) item.consumable = true; // I manually added the flag to the ones I edited, but there are some I didn't edit.
+			if (item.fling && item.fling.basePower === 10) { // Fling BP buffs
+				if (item.isBerry || item === "airballoon") continue;
 				item.fling.basePower = 20;
 			}
-			if(itemID.startsWith('tr')) delete item.fling; //TRs can't be Flung anymore.
+			if (itemID.startsWith('tr')) delete item.fling; // TRs can't be Flung anymore.
 		}
-		
+
 		/* individual Pokemon moveset edits */
 		// Bulbasaur
 		this.modData("Learnsets", "bulbasaur").learnset.belch = ["8D"];
@@ -1988,15 +1986,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'wigglytuff').learnset.nightmare;
 		// Zubat
 		this.modData("Learnsets", "zubat").learnset.synchronoise = ["8D"];
-		this.modData("Learnsets", "zubat").learnset.acrobatics = ["8L31","8M"];
+		this.modData("Learnsets", "zubat").learnset.acrobatics = ["8L31", "8M"];
 		this.modData("Learnsets", "zubat").learnset.venoshock = ["8M"];
-		this.modData("Learnsets", "zubat").learnset.vitaldrain = ["8L37","8M"];
+		this.modData("Learnsets", "zubat").learnset.vitaldrain = ["8L37", "8M"];
 		delete this.modData('Learnsets', 'zubat').learnset.absorb;
 		// Golbat
 		this.modData("Learnsets", "golbat").learnset.synchronoise = ["8D"];
-		this.modData("Learnsets", "golbat").learnset.acrobatics = ["8L25","8M"];
+		this.modData("Learnsets", "golbat").learnset.acrobatics = ["8L25", "8M"];
 		this.modData("Learnsets", "golbat").learnset.venoshock = ["8M"];
-		this.modData("Learnsets", "golbat").learnset.vitaldrain = ["8L43","8M"];
+		this.modData("Learnsets", "golbat").learnset.vitaldrain = ["8L43", "8M"];
 		delete this.modData('Learnsets', 'golbat').learnset.absorb;
 		// Oddish
 		this.modData("Learnsets", "oddish").learnset.minimize = ["8D"];
@@ -2289,9 +2287,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "gastly").learnset.nightshade = ["8L19"];
 		this.modData("Learnsets", "gastly").learnset.confuseray = ["8L22"];
 		this.modData("Learnsets", "gastly").learnset.suckerpunch = ["8L26"];
-		this.modData("Learnsets", "gastly").learnset.payback = ["8L29","8M"];
-		this.modData("Learnsets", "gastly").learnset.shadowball = ["8L33","8M"];
-		this.modData("Learnsets", "gastly").learnset.dreameater = ["8L36","8M"];
+		this.modData("Learnsets", "gastly").learnset.payback = ["8L29", "8M"];
+		this.modData("Learnsets", "gastly").learnset.shadowball = ["8L33", "8M"];
+		this.modData("Learnsets", "gastly").learnset.dreameater = ["8L36", "8M"];
 		delete this.modData('Learnsets', 'gastly').learnset.firepunch;
 		delete this.modData('Learnsets', 'gastly').learnset.icepunch;
 		delete this.modData('Learnsets', 'gastly').learnset.thunderpunch;
@@ -2303,9 +2301,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "haunter").learnset.nightshade = ["8L19"];
 		this.modData("Learnsets", "haunter").learnset.confuseray = ["8L22"];
 		this.modData("Learnsets", "haunter").learnset.suckerpunch = ["8L28"];
-		this.modData("Learnsets", "haunter").learnset.payback = ["8L33","8M"];
-		this.modData("Learnsets", "haunter").learnset.shadowball = ["8L39","8M"];
-		this.modData("Learnsets", "haunter").learnset.dreameater = ["8L44","8M"];
+		this.modData("Learnsets", "haunter").learnset.payback = ["8L33", "8M"];
+		this.modData("Learnsets", "haunter").learnset.shadowball = ["8L39", "8M"];
+		this.modData("Learnsets", "haunter").learnset.dreameater = ["8L44", "8M"];
 		// Gengar
 		this.modData("Learnsets", "gengar").learnset.poisonfang = ["8D"];
 		this.modData("Learnsets", "gengar").learnset.smog = ["8L1"];
@@ -2314,9 +2312,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "gengar").learnset.nightshade = ["8L19"];
 		this.modData("Learnsets", "gengar").learnset.confuseray = ["8L22"];
 		this.modData("Learnsets", "gengar").learnset.suckerpunch = ["8L28"];
-		this.modData("Learnsets", "gengar").learnset.payback = ["8L33","8M"];
-		this.modData("Learnsets", "gengar").learnset.shadowball = ["8L39","8M"];
-		this.modData("Learnsets", "gengar").learnset.dreameater = ["8L44","8M"];
+		this.modData("Learnsets", "gengar").learnset.payback = ["8L33", "8M"];
+		this.modData("Learnsets", "gengar").learnset.shadowball = ["8L39", "8M"];
+		this.modData("Learnsets", "gengar").learnset.dreameater = ["8L44", "8M"];
 		// Onix
 		this.modData("Learnsets", "onix").learnset.sharpen = ["8D"];
 		this.modData("Learnsets", "onix").learnset.tussle = ["8L20"];
@@ -2362,10 +2360,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Electrode
 		this.modData("Learnsets", "electrode").learnset.overdrive = ["8D"];
 		this.modData("Learnsets", "electrode").learnset.rapidspin = ["8L29"];
-		this.modData("Learnsets", "electrode").learnset.lightscreen = ["8L36","8M"];
-		this.modData("Learnsets", "electrode").learnset.magnetrise = ["8L41","8M"];
-		this.modData("Learnsets", "electrode").learnset.discharge = ["8L47","8M"];
-		this.modData("Learnsets", "electrode").learnset.explosion = ["8L54","8M"];
+		this.modData("Learnsets", "electrode").learnset.lightscreen = ["8L36", "8M"];
+		this.modData("Learnsets", "electrode").learnset.magnetrise = ["8L41", "8M"];
+		this.modData("Learnsets", "electrode").learnset.discharge = ["8L47", "8M"];
+		this.modData("Learnsets", "electrode").learnset.explosion = ["8L54", "8M"];
 		this.modData("Learnsets", "electrode").learnset.electricterrain = ["8M"];
 		this.modData("Learnsets", "electrode").learnset.flash = ["8M"];
 		this.modData("Learnsets", "electrode").learnset.gyroball = ["8M"];
@@ -2404,7 +2402,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "hitmonlee").learnset.tropkick = ["8D"];
 		this.modData("Learnsets", "hitmonlee").learnset.meditate = ["8L8"];
 		this.modData("Learnsets", "hitmonlee").learnset.lowkick = ["8L12"];
-		this.modData("Learnsets", "hitmonlee").learnset.endure = ["8L16","8M"];
+		this.modData("Learnsets", "hitmonlee").learnset.endure = ["8L16", "8M"];
 		this.modData("Learnsets", "hitmonlee").learnset.revenge = ["8L21"];
 		this.modData("Learnsets", "hitmonlee").learnset.jumpkick = ["8L24"];
 		this.modData("Learnsets", "hitmonlee").learnset.wideguard = ["8L28"];
@@ -2424,9 +2422,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "hitmonchan").learnset.revenge = ["8L21"];
 		this.modData("Learnsets", "hitmonchan").learnset.skyuppercut = ["8L24"];
 		this.modData("Learnsets", "hitmonchan").learnset.quickguard = ["8L28"];
-		this.modData("Learnsets", "hitmonchan").learnset.firepunch = ["8L32","8M"];
-		this.modData("Learnsets", "hitmonchan").learnset.icepunch = ["8L32","8M"];
-		this.modData("Learnsets", "hitmonchan").learnset.thunderpunch = ["8L32","8M"];
+		this.modData("Learnsets", "hitmonchan").learnset.firepunch = ["8L32", "8M"];
+		this.modData("Learnsets", "hitmonchan").learnset.icepunch = ["8L32", "8M"];
+		this.modData("Learnsets", "hitmonchan").learnset.thunderpunch = ["8L32", "8M"];
 		this.modData("Learnsets", "hitmonchan").learnset.agility = ["8L36"];
 		this.modData("Learnsets", "hitmonchan").learnset.megapunch = ["8L40"];
 		this.modData("Learnsets", "hitmonchan").learnset.closecombat = ["8L44"];
@@ -2612,12 +2610,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "kabuto").learnset.leer = ["8L21"];
 		this.modData("Learnsets", "kabuto").learnset.mudshot = ["8L26"];
 		this.modData("Learnsets", "kabuto").learnset.ancientpower = ["8L31"];
-		this.modData("Learnsets", "kabuto").learnset.brine = ["8L36","8M"];
-		this.modData("Learnsets", "kabuto").learnset.protect = ["8L41","8M"];
-		this.modData("Learnsets", "kabuto").learnset.vitaldrain = ["8L46","8M"];
+		this.modData("Learnsets", "kabuto").learnset.brine = ["8L36", "8M"];
+		this.modData("Learnsets", "kabuto").learnset.protect = ["8L41", "8M"];
+		this.modData("Learnsets", "kabuto").learnset.vitaldrain = ["8L46", "8M"];
 		this.modData("Learnsets", "kabuto").learnset.liquidation = ["8L51"];
 		this.modData("Learnsets", "kabuto").learnset.metalsound = ["8L56"];
-		this.modData("Learnsets", "kabuto").learnset.stoneedge = ["8L61","8M"];
+		this.modData("Learnsets", "kabuto").learnset.stoneedge = ["8L61", "8M"];
 		delete this.modData('Learnsets', 'kabuto').learnset.absorb;
 		delete this.modData('Learnsets', 'kabuto').learnset.toxic;
 		// Kabutops
@@ -2630,22 +2628,22 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "kabutops").learnset.leer = ["8L21"];
 		this.modData("Learnsets", "kabutops").learnset.mudshot = ["8L26"];
 		this.modData("Learnsets", "kabutops").learnset.ancientpower = ["8L31"];
-		this.modData("Learnsets", "kabutops").learnset.brine = ["8L36","8M"];
+		this.modData("Learnsets", "kabutops").learnset.brine = ["8L36", "8M"];
 		delete this.modData('Learnsets', 'kabutops').learnset.absorb;
 		delete this.modData('Learnsets', 'kabutops').learnset.toxic;
 		// Aerodactyl
 		this.modData("Learnsets", "aerodactyl").learnset.twister = ["8D"];
-		this.modData("Learnsets", "aerodactyl").learnset.roar = ["8L7","8M"];
+		this.modData("Learnsets", "aerodactyl").learnset.roar = ["8L7", "8M"];
 		this.modData("Learnsets", "aerodactyl").learnset.ancientpower = ["8L13"];
 		this.modData("Learnsets", "aerodactyl").learnset.agility = ["8L19"];
-		this.modData("Learnsets", "aerodactyl").learnset.rockslide = ["8L25","8M"];
+		this.modData("Learnsets", "aerodactyl").learnset.rockslide = ["8L25", "8M"];
 		this.modData("Learnsets", "aerodactyl").learnset.skydrop = ["8L31"];
 		this.modData("Learnsets", "aerodactyl").learnset.crunch = ["8L37"];
-		this.modData("Learnsets", "aerodactyl").learnset.ironhead = ["8L43","8M"];
+		this.modData("Learnsets", "aerodactyl").learnset.ironhead = ["8L43", "8M"];
 		this.modData("Learnsets", "aerodactyl").learnset.takedown = ["8L49"];
 		this.modData("Learnsets", "aerodactyl").learnset.fellswoop = ["8L55"];
-		this.modData("Learnsets", "aerodactyl").learnset.hyperbeam = ["8L61","8M"];
-		this.modData("Learnsets", "aerodactyl").learnset.gigaimpact = ["8L67","8M"];
+		this.modData("Learnsets", "aerodactyl").learnset.hyperbeam = ["8L61", "8M"];
+		this.modData("Learnsets", "aerodactyl").learnset.gigaimpact = ["8L67", "8M"];
 		this.modData("Learnsets", "aerodactyl").learnset.breakingswipe = ["8M"];
 		this.modData("Learnsets", "aerodactyl").learnset.screech = ["8M"];
 		delete this.modData('Learnsets', 'aerodactyl').learnset.toxic;
@@ -2653,7 +2651,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "snorlax").learnset.selfdestruct = ["8D"];
 		// Articuno
 		this.modData("Learnsets", "articuno").learnset.extrasensory = ["8D"];
-		this.modData("Learnsets", "articuno").learnset.icebeam = ["8L43","8M"];
+		this.modData("Learnsets", "articuno").learnset.icebeam = ["8L43", "8M"];
 		this.modData("Learnsets", "articuno").learnset.freezedry = ["8L71"];
 		delete this.modData('Learnsets', 'articuno').learnset.toxic;
 		// Zapdos
@@ -2661,7 +2659,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "zapdos").learnset.pluck = ["8L15"];
 		this.modData("Learnsets", "zapdos").learnset.detect = ["8L22"];
 		this.modData("Learnsets", "zapdos").learnset.agility = ["8L36"];
-		this.modData("Learnsets", "zapdos").learnset.lightscreen = ["8L50","8M"];
+		this.modData("Learnsets", "zapdos").learnset.lightscreen = ["8L50", "8M"];
 		this.modData("Learnsets", "zapdos").learnset.charge = ["8L64"];
 		this.modData("Learnsets", "zapdos").learnset.boltbeak = ["8L71"];
 		this.modData("Learnsets", "zapdos").learnset.drillpeck = ["8L92"];
@@ -2670,13 +2668,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'zapdos').learnset.toxic;
 		// Moltres
 		this.modData("Learnsets", "moltres").learnset.extrasensory = ["8D"];
-		this.modData("Learnsets", "moltres").learnset.airslash = ["8L15","8M"];
+		this.modData("Learnsets", "moltres").learnset.airslash = ["8L15", "8M"];
 		this.modData("Learnsets", "moltres").learnset.agility = ["8L36"];
-		this.modData("Learnsets", "moltres").learnset.flamethrower = ["8L43","8M"];
-		this.modData("Learnsets", "moltres").learnset.safeguard = ["8L50","8M"];
+		this.modData("Learnsets", "moltres").learnset.flamethrower = ["8L43", "8M"];
+		this.modData("Learnsets", "moltres").learnset.safeguard = ["8L50", "8M"];
 		this.modData("Learnsets", "moltres").learnset.preheat = ["8L64"];
-		this.modData("Learnsets", "moltres").learnset.heatwave = ["8L71","8M"];
-		this.modData("Learnsets", "moltres").learnset.solarbeam = ["8L78","8M"];
+		this.modData("Learnsets", "moltres").learnset.heatwave = ["8L71", "8M"];
+		this.modData("Learnsets", "moltres").learnset.solarbeam = ["8L78", "8M"];
 		this.modData("Learnsets", "moltres").learnset.flash = ["8M"];
 		this.modData("Learnsets", "moltres").learnset.hurricane = ["8M"];
 		delete this.modData('Learnsets', 'moltres').learnset.toxic;
@@ -2889,7 +2887,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'marill').learnset.toxic;
 		// Azumarill
 		this.modData("Learnsets", "azumarill").learnset.seismictoss = ["8D"];
-		this.modData("Learnsets", "azumarill").learnset.hydropump = ["8L52","8M"];
+		this.modData("Learnsets", "azumarill").learnset.hydropump = ["8L52", "8M"];
 		this.modData("Learnsets", "azumarill").learnset.liquidation = ["8L56"];
 		delete this.modData('Learnsets', 'azumarill').learnset.toxic;
 		// Sudowoodo
@@ -3003,11 +3001,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "qwilfish").learnset.fellstinger = ["8D"];
 		this.modData("Learnsets", "qwilfish").learnset.whitewater = ["8L12"];
 		this.modData("Learnsets", "qwilfish").learnset.pinmissile = ["8L24"];
-		this.modData("Learnsets", "qwilfish").learnset.brine = ["8L32","8M"];
-		this.modData("Learnsets", "qwilfish").learnset.aquatail = ["8L48","8M"];
+		this.modData("Learnsets", "qwilfish").learnset.brine = ["8L32", "8M"];
+		this.modData("Learnsets", "qwilfish").learnset.aquatail = ["8L48", "8M"];
 		this.modData("Learnsets", "qwilfish").learnset.destinybond = ["8L53"];
 		this.modData("Learnsets", "qwilfish").learnset.liquidation = ["8L56"];
-		this.modData("Learnsets", "qwilfish").learnset.hydropump = ["8L57","8M"];
+		this.modData("Learnsets", "qwilfish").learnset.hydropump = ["8L57", "8M"];
 		this.modData("Learnsets", "qwilfish").learnset.rebound = ["8L60"];
 		this.modData("Learnsets", "qwilfish").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'qwilfish').learnset.acupressure;
@@ -3058,7 +3056,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "swinub").learnset.headbutt = ["8D"];
 		this.modData("Learnsets", "swinub").learnset.tussle = ["8L18"];
 		this.modData("Learnsets", "swinub").learnset.mudbomb = ["8L21"];
-		this.modData("Learnsets", "swinub").learnset.icywind = ["8L24","8M"];
+		this.modData("Learnsets", "swinub").learnset.icywind = ["8L24", "8M"];
 		this.modData("Learnsets", "swinub").learnset.iceshard = ["8L28"];
 		this.modData("Learnsets", "swinub").learnset.takedown = ["8L33"];
 		this.modData("Learnsets", "swinub").learnset.charm = ["8M"];
@@ -3067,7 +3065,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "piloswine").learnset.highhorsepower = ["8D"];
 		this.modData("Learnsets", "piloswine").learnset.tussle = ["8L18"];
 		this.modData("Learnsets", "piloswine").learnset.mudbomb = ["8L21"];
-		this.modData("Learnsets", "piloswine").learnset.icywind = ["8L24","8M"];
+		this.modData("Learnsets", "piloswine").learnset.icywind = ["8L24", "8M"];
 		this.modData("Learnsets", "piloswine").learnset.iceshard = ["8L28"];
 		this.modData("Learnsets", "piloswine").learnset.takedown = ["8L33"];
 		this.modData("Learnsets", "piloswine").learnset.charm = ["8M"];
@@ -3112,14 +3110,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'octillery').learnset.toxic;
 		// Delibird
 		this.modData("Learnsets", "delibird").learnset.payday = ["8D"];
-		this.modData("Learnsets", "delibird").learnset.present = ["8L1","8L15","8L30","8L45"];
+		this.modData("Learnsets", "delibird").learnset.present = ["8L1", "8L15", "8L30", "8L45"];
 		this.modData("Learnsets", "delibird").learnset.powdersnow = ["8L5"];
 		this.modData("Learnsets", "delibird").learnset.peck = ["8L10"];
-		this.modData("Learnsets", "delibird").learnset.icywind = ["8L20","8M"];
+		this.modData("Learnsets", "delibird").learnset.icywind = ["8L20", "8M"];
 		this.modData("Learnsets", "delibird").learnset.drillpeck = ["8L25"];
-		this.modData("Learnsets", "delibird").learnset.blizzard = ["8L35","8M"];
-		this.modData("Learnsets", "delibird").learnset.fly = ["8L40","8M"];
-		this.modData("Learnsets", "delibird").learnset.hail = ["8L50","8M"];
+		this.modData("Learnsets", "delibird").learnset.blizzard = ["8L35", "8M"];
+		this.modData("Learnsets", "delibird").learnset.fly = ["8L40", "8M"];
+		this.modData("Learnsets", "delibird").learnset.hail = ["8L50", "8M"];
 		this.modData("Learnsets", "delibird").learnset.endeavor = ["8M"];
 		this.modData("Learnsets", "delibird").learnset.knockoff = ["8M"];
 		this.modData("Learnsets", "delibird").learnset.snatch = ["8M"];
@@ -3129,7 +3127,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'delibird').learnset.toxic;
 		// Mantine
 		this.modData("Learnsets", "mantine").learnset.skydrop = ["8D"];
-		this.modData("Learnsets", "mantine").learnset.waterpulse = ["8L7","8M"];
+		this.modData("Learnsets", "mantine").learnset.waterpulse = ["8L7", "8M"];
 		this.modData("Learnsets", "mantine").learnset.bubblebeam = ["8L19"];
 		delete this.modData('Learnsets', 'mantine').learnset.roost;
 		delete this.modData('Learnsets', 'mantine').learnset.stringshot;
@@ -3192,15 +3190,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Hitmontop
 		this.modData("Learnsets", "hitmontop").learnset.entrainment = ["8D"];
 		this.modData("Learnsets", "hitmontop").learnset.teeterdance = ["8L8"];
-		this.modData("Learnsets", "hitmontop").learnset.gyroball = ["8L12","8M"];
+		this.modData("Learnsets", "hitmontop").learnset.gyroball = ["8L12", "8M"];
 		this.modData("Learnsets", "hitmontop").learnset.detect = ["8L16"];
 		this.modData("Learnsets", "hitmontop").learnset.revenge = ["8L21"];
-		this.modData("Learnsets", "hitmontop").learnset.chipaway = ["8L24","8M"];
+		this.modData("Learnsets", "hitmontop").learnset.chipaway = ["8L24", "8M"];
 		this.modData("Learnsets", "hitmontop").learnset.wideguard = ["8L28"];
 		this.modData("Learnsets", "hitmontop").learnset.quickguard = ["8L28"];
 		this.modData("Learnsets", "hitmontop").learnset.suckerpunch = ["8L32"];
 		this.modData("Learnsets", "hitmontop").learnset.agility = ["8L36"];
-		this.modData("Learnsets", "hitmontop").learnset.dig = ["8L40","8M"];
+		this.modData("Learnsets", "hitmontop").learnset.dig = ["8L40", "8M"];
 		this.modData("Learnsets", "hitmontop").learnset.closecombat = ["8L44"];
 		this.modData("Learnsets", "hitmontop").learnset.counter = ["8L48"];
 		this.modData("Learnsets", "hitmontop").learnset.lashout = ["8L52"];
@@ -3228,14 +3226,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Miltank
 		this.modData("Learnsets", "miltank").learnset.megakick = ["8D"];
 		this.modData("Learnsets", "miltank").learnset.steamroller = ["8L24"];
-		this.modData("Learnsets", "miltank").learnset.safeguard = ["8L29","8M"];
+		this.modData("Learnsets", "miltank").learnset.safeguard = ["8L29", "8M"];
 		this.modData("Learnsets", "miltank").learnset.bodyslam = ["8L35"];
-		this.modData("Learnsets", "miltank").learnset.zenheadbutt = ["8L41","8M"];
+		this.modData("Learnsets", "miltank").learnset.zenheadbutt = ["8L41", "8M"];
 		this.modData("Learnsets", "miltank").learnset.captivate = ["8L47"];
 		this.modData("Learnsets", "miltank").learnset.playrough = ["8L53"];
-		this.modData("Learnsets", "miltank").learnset.healbell = ["8L59","8M"];
+		this.modData("Learnsets", "miltank").learnset.healbell = ["8L59", "8M"];
 		this.modData("Learnsets", "miltank").learnset.highhorsepower = ["8L65"];
-		this.modData("Learnsets", "miltank").learnset.endeavor = ["8L71","8M"];
+		this.modData("Learnsets", "miltank").learnset.endeavor = ["8L71", "8M"];
 		delete this.modData('Learnsets', 'miltank').learnset.toxic;
 		delete this.modData('Learnsets', 'miltank').learnset.wakeupslap;
 		// Blissey
@@ -3408,8 +3406,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'linoonegalar').learnset.pinmissile;
 		// Beautifly
 		this.modData("Learnsets", "beautifly").learnset.drainingkiss = ["8D"];
-		this.modData("Learnsets", "beautifly").learnset.leechlife = ["8L20","8M"];
-		this.modData("Learnsets", "beautifly").learnset.vitaldrain = ["8L37","8M"];
+		this.modData("Learnsets", "beautifly").learnset.leechlife = ["8L20", "8M"];
+		this.modData("Learnsets", "beautifly").learnset.vitaldrain = ["8L37", "8M"];
 		this.modData("Learnsets", "beautifly").learnset.charm = ["8M"];
 		this.modData("Learnsets", "beautifly").learnset.flash = ["8M"];
 		this.modData("Learnsets", "beautifly").learnset.naturalgift = ["8M"];
@@ -3543,12 +3541,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'exploud').learnset.toxic;
 		// Makuhita
 		this.modData("Learnsets", "makuhita").learnset.matblock = ["8D"];
-		this.modData("Learnsets", "makuhita").learnset.bodypress = ["8L34","8M"];
+		this.modData("Learnsets", "makuhita").learnset.bodypress = ["8L34", "8M"];
 		delete this.modData('Learnsets', 'makuhita').learnset.toxic;
 		delete this.modData('Learnsets', 'makuhita').learnset.wakeupslap;
 		// Hariyama
 		this.modData("Learnsets", "hariyama").learnset.matblock = ["8D"];
-		this.modData("Learnsets", "hariyama").learnset.bodypress = ["8L34","8M"];
+		this.modData("Learnsets", "hariyama").learnset.bodypress = ["8L34", "8M"];
 		delete this.modData('Learnsets', 'hariyama').learnset.toxic;
 		delete this.modData('Learnsets', 'hariyama').learnset.wakeupslap;
 		// Azurill
@@ -3635,9 +3633,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "roselia").learnset.gigadrain = ["8L31"];
 		this.modData("Learnsets", "roselia").learnset.lifedew = ["8L37"];
 		this.modData("Learnsets", "roselia").learnset.petalblizzard = ["8L40"];
-		this.modData("Learnsets", "roselia").learnset.toxic = ["8L43","8M"];
+		this.modData("Learnsets", "roselia").learnset.toxic = ["8L43", "8M"];
 		this.modData("Learnsets", "roselia").learnset.aromatherapy = ["8L46"];
-		this.modData("Learnsets", "roselia").learnset.synthesis = ["8L49","8M"];
+		this.modData("Learnsets", "roselia").learnset.synthesis = ["8L49", "8M"];
 		this.modData("Learnsets", "roselia").learnset.petaldance = ["8L52"];
 		this.modData("Learnsets", "roselia").learnset.naturalgift = ["8M"];
 		// Gulpin
@@ -3737,7 +3735,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "lunatone").learnset.futuresight = ["8M"];
 		this.modData("Learnsets", "lunatone").learnset.healblock = ["8L1"];
 		this.modData("Learnsets", "lunatone").learnset.moonblast = ["8L40"];
-		this.modData("Learnsets", "lunatone").learnset.powergem = ["8L35","8M"];
+		this.modData("Learnsets", "lunatone").learnset.powergem = ["8L35", "8M"];
 		this.modData("Learnsets", "lunatone").learnset.stoneedge = ["8M"];
 		this.modData("Learnsets", "lunatone").learnset.flash = ["8M"];
 		// Solrock
@@ -3829,8 +3827,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Tropius
 		this.modData("Learnsets", "tropius").learnset.rejuvenate = ["8D"];
 		this.modData("Learnsets", "tropius").learnset.leafstorm = ["8L1"];
-		this.modData("Learnsets", "tropius").learnset.airslash = ["8L30","8M"];
-		this.modData("Learnsets", "tropius").learnset.naturalgift = ["8L36","8M"];
+		this.modData("Learnsets", "tropius").learnset.airslash = ["8L30", "8M"];
+		this.modData("Learnsets", "tropius").learnset.naturalgift = ["8L36", "8M"];
 		this.modData("Learnsets", "tropius").learnset.fellswoop = ["8L41"];
 		this.modData("Learnsets", "tropius").learnset.woodhammer = ["8L61"];
 		this.modData("Learnsets", "tropius").learnset.bodypress = ["8M"];
@@ -3973,9 +3971,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'jirachi').learnset.toxic;
 		// Deoxys Normal
 		this.modData("Learnsets", "deoxys").learnset.refresh = ["8D"];
-		this.modData("Learnsets", "deoxys").learnset.workup = ["8D"]; //Deoxys Attack
-		this.modData("Learnsets", "deoxys").learnset.metalburst = ["8D"]; //Deoxys Defense
-		this.modData("Learnsets", "deoxys").learnset.feint = ["8D"]; //Deoxys Speed
+		this.modData("Learnsets", "deoxys").learnset.workup = ["8D"]; // Deoxys Attack
+		this.modData("Learnsets", "deoxys").learnset.metalburst = ["8D"]; // Deoxys Defense
+		this.modData("Learnsets", "deoxys").learnset.feint = ["8D"]; // Deoxys Speed
 		this.modData("Learnsets", "deoxys").learnset.knockoff = ["8L19"];
 		this.modData("Learnsets", "deoxys").learnset.zapcannon = ["8L55"];
 		this.modData("Learnsets", "deoxys").learnset.teleport = ["8L13"];
@@ -4115,7 +4113,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "wormadamsandy").learnset.camouflage = ["8D"];
 		this.modData("Learnsets", "wormadamsandy").learnset.amnesia = ["8M"];
 		this.modData("Learnsets", "wormadamsandy").learnset.faketears = ["8M"];
-		this.modData("Learnsets", "wormadamsandy").learnset.irondefense = ["8L29","8M"];
+		this.modData("Learnsets", "wormadamsandy").learnset.irondefense = ["8L29", "8M"];
 		this.modData("Learnsets", "wormadamsandy").learnset.naturalgift = ["8M"];
 		this.modData("Learnsets", "wormadamsandy").learnset.sandtomb = ["8L26"];
 		this.modData("Learnsets", "wormadamsandy").learnset.shoreup = ["8L1"];
@@ -4328,7 +4326,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'lumineon').learnset.toxic;
 		// Mantyke
 		this.modData("Learnsets", "mantyke").learnset.skydrop = ["8D"];
-		this.modData("Learnsets", "mantyke").learnset.waterpulse = ["8L7","8M"];
+		this.modData("Learnsets", "mantyke").learnset.waterpulse = ["8L7", "8M"];
 		this.modData("Learnsets", "mantyke").learnset.bubblebeam = ["8L19"];
 		delete this.modData('Learnsets', 'mantyke').learnset.toxic;
 		// Snover
@@ -4387,7 +4385,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "leafeon").learnset.camouflage = ["8D"];
 		this.modData("Learnsets", "leafeon").learnset.leafage = ["8L0"];
 		this.modData("Learnsets", "leafeon").learnset.razorleaf = ["8L20"];
-		this.modData("Learnsets", "leafeon").learnset.sunnyday = ["8L27","8M"];
+		this.modData("Learnsets", "leafeon").learnset.sunnyday = ["8L27", "8M"];
 		this.modData("Learnsets", "leafeon").learnset.leafblade = ["8L37"];
 		this.modData("Learnsets", "leafeon").learnset.solarblade = ["8L45"];
 		this.modData("Learnsets", "leafeon").learnset.naturalgift = ["8M"];
@@ -4395,8 +4393,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'leafeon').learnset.toxic;
 		// Glaceon
 		this.modData("Learnsets", "glaceon").learnset.spikyshield = ["8D"];
-		this.modData("Learnsets", "glaceon").learnset.hail = ["8L25","8M"];
-		this.modData("Learnsets", "glaceon").learnset.icebeam = ["8L37","8M"];
+		this.modData("Learnsets", "glaceon").learnset.hail = ["8L25", "8M"];
+		this.modData("Learnsets", "glaceon").learnset.icebeam = ["8L37", "8M"];
 		delete this.modData('Learnsets', 'glaceon').learnset.iceshard;
 		delete this.modData('Learnsets', 'glaceon').learnset.toxic;
 		// Gliscor
@@ -4408,7 +4406,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "mamoswine").learnset.doublehit = ["8L0"];
 		this.modData("Learnsets", "mamoswine").learnset.tussle = ["8L18"];
 		this.modData("Learnsets", "mamoswine").learnset.mudbomb = ["8L21"];
-		this.modData("Learnsets", "mamoswine").learnset.hail = ["8L24","8M"];
+		this.modData("Learnsets", "mamoswine").learnset.hail = ["8L24", "8M"];
 		this.modData("Learnsets", "mamoswine").learnset.icefang = ["8L28"];
 		this.modData("Learnsets", "mamoswine").learnset.takedown = ["8L33"];
 		delete this.modData('Learnsets', 'mamoswine').learnset.toxic;
@@ -4439,7 +4437,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "dusknoir").learnset.phantomforce = ["8M"];
 		// Froslass
 		this.modData("Learnsets", "froslass").learnset.sheercold = ["8D"];
-		this.modData("Learnsets", "froslass").learnset.frostbreath = ["8L37","8M"];
+		this.modData("Learnsets", "froslass").learnset.frostbreath = ["8L37", "8M"];
 		this.modData("Learnsets", "froslass").learnset.flash = ["8M"];
 		this.modData("Learnsets", "froslass").learnset.nightmare = ["8M"];
 		delete this.modData('Learnsets', 'froslass').learnset.toxic;
@@ -4447,7 +4445,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Rotom
 		this.modData("Learnsets", "rotom").learnset.electrify = ["8D"];
 		this.modData("Learnsets", "rotom").learnset.charge = ["8L1"];
-		this.modData("Learnsets", "rotom").learnset.eerieimpulse = ["8L57","8M"];
+		this.modData("Learnsets", "rotom").learnset.eerieimpulse = ["8L57", "8M"];
 		this.modData("Learnsets", "rotom").learnset.flash = ["8M"];
 		delete this.modData('Learnsets', 'rotom').learnset.defog;
 		delete this.modData('Learnsets', 'rotom').learnset.toxic;
@@ -4545,7 +4543,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "dialga").learnset.doomdesire = ["8D"];
 		this.modData("Learnsets", "dialga").learnset.teleport = ["8L1"];
 		this.modData("Learnsets", "dialga").learnset.metalburst = ["8L32"];
-		this.modData("Learnsets", "dialga").learnset.flashcannon = ["8L64","8M"];
+		this.modData("Learnsets", "dialga").learnset.flashcannon = ["8L64", "8M"];
 		this.modData("Learnsets", "dialga").learnset.flash = ["8M"];
 		this.modData("Learnsets", "dialga").learnset.futuresight = ["8M"];
 		this.modData("Learnsets", "dialga").learnset.screech = ["8M"];
@@ -4574,12 +4572,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "giratina").learnset.dragonbreath = ["8L8"];
 		this.modData("Learnsets", "giratina").learnset.ancientpower = ["8L16"];
 		this.modData("Learnsets", "giratina").learnset.slash = ["8L24"];
-		this.modData("Learnsets", "giratina").learnset.painsplit = ["8L32","8M"];
-		this.modData("Learnsets", "giratina").learnset.dragonclaw = ["8L40","8M"];
+		this.modData("Learnsets", "giratina").learnset.painsplit = ["8L32", "8M"];
+		this.modData("Learnsets", "giratina").learnset.dragonclaw = ["8L40", "8M"];
 		this.modData("Learnsets", "giratina").learnset.aurasphere = ["8L48"];
 		this.modData("Learnsets", "giratina").learnset.destinybond = ["8L56"];
-		this.modData("Learnsets", "giratina").learnset.shadowclaw = ["8L64","8M"];
-		this.modData("Learnsets", "giratina").learnset.earthpower = ["8L72","8M"];
+		this.modData("Learnsets", "giratina").learnset.shadowclaw = ["8L64", "8M"];
+		this.modData("Learnsets", "giratina").learnset.earthpower = ["8L72", "8M"];
 		this.modData("Learnsets", "giratina").learnset.shadowforce = ["8L80"];
 		this.modData("Learnsets", "giratina").learnset.dragonhammer = ["8L88"];
 		this.modData("Learnsets", "giratina").learnset.bodypress = ["8M"];
@@ -4617,7 +4615,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "shaymin").learnset.cottonguard = ["8D"];
 		this.modData("Learnsets", "shaymin").learnset.amnesia = ["8M"];
 		this.modData("Learnsets", "shaymin").learnset.flash = ["8M"];
-		this.modData("Learnsets", "shaymin").learnset.grassyterrain = ["8L1","8M"];
+		this.modData("Learnsets", "shaymin").learnset.grassyterrain = ["8L1", "8M"];
 		// Shaymin Sky
 		this.modData("Learnsets", "shayminsky").learnset.cottonspore = ["8D"];
 		delete this.modData("Learnsets", "shayminsky").learnset.cottonguard;
@@ -5011,7 +5009,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Yamask Galar
 		this.modData("Learnsets", "yamaskgalar").learnset.tearfullook = ["8D"];
 		this.modData("Learnsets", "yamaskgalar").learnset.craftyshield = ["8E"];
-		this.modData("Learnsets", "yamaskgalar").learnset.nightmare = ["8E","8M"];
+		this.modData("Learnsets", "yamaskgalar").learnset.nightmare = ["8E", "8M"];
 		delete this.modData('Learnsets', 'yamaskgalar').learnset.toxic;
 		// Cofagrigus
 		this.modData("Learnsets", "cofagrigus").learnset.metalburst = ["8D"];
@@ -5443,14 +5441,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "kyurem").learnset.triattack = ["8D"];
 		this.modData("Learnsets", "kyurem").learnset.scaryface = ["8L8"];
 		this.modData("Learnsets", "kyurem").learnset.slash = ["8L16"];
-		this.modData("Learnsets", "kyurem").learnset.endeavor = ["8L24","8M"];
-		this.modData("Learnsets", "kyurem").learnset.dragonpulse = ["8L32","8M"];
-		this.modData("Learnsets", "kyurem").learnset.icebeam = ["8L40","8M"];
+		this.modData("Learnsets", "kyurem").learnset.endeavor = ["8L24", "8M"];
+		this.modData("Learnsets", "kyurem").learnset.dragonpulse = ["8L32", "8M"];
+		this.modData("Learnsets", "kyurem").learnset.icebeam = ["8L40", "8M"];
 		this.modData("Learnsets", "kyurem").learnset.sheercold = ["8L48"];
-		this.modData("Learnsets", "kyurem").learnset.hypervoice = ["8L56","8M"];
-		this.modData("Learnsets", "kyurem").learnset.blizzard = ["8L64","8M"];
+		this.modData("Learnsets", "kyurem").learnset.hypervoice = ["8L56", "8M"];
+		this.modData("Learnsets", "kyurem").learnset.blizzard = ["8L64", "8M"];
 		this.modData("Learnsets", "kyurem").learnset.imprison = ["8L72"];
-		this.modData("Learnsets", "kyurem").learnset.outrage = ["8L80","8M"];
+		this.modData("Learnsets", "kyurem").learnset.outrage = ["8L80", "8M"];
 		this.modData("Learnsets", "kyurem").learnset.glaciate = ["8L88"];
 		this.modData("Learnsets", "kyurem").learnset.frostbreath = ["8M"];
 		this.modData("Learnsets", "kyurem").learnset.icepunch = ["8M"];
@@ -5460,14 +5458,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "kyuremblack").learnset.fusionbolt = ["8R"];
 		this.modData("Learnsets", "kyuremblack").learnset.scaryface = ["8L8"];
 		this.modData("Learnsets", "kyuremblack").learnset.slash = ["8L16"];
-		this.modData("Learnsets", "kyuremblack").learnset.endeavor = ["8L24","8M"];
-		this.modData("Learnsets", "kyuremblack").learnset.dragonpulse = ["8L32","8M"];
-		this.modData("Learnsets", "kyuremblack").learnset.icebeam = ["8L40","8M"];
+		this.modData("Learnsets", "kyuremblack").learnset.endeavor = ["8L24", "8M"];
+		this.modData("Learnsets", "kyuremblack").learnset.dragonpulse = ["8L32", "8M"];
+		this.modData("Learnsets", "kyuremblack").learnset.icebeam = ["8L40", "8M"];
 		this.modData("Learnsets", "kyuremblack").learnset.sheercold = ["8L48"];
-		this.modData("Learnsets", "kyuremblack").learnset.hypervoice = ["8L56","8M"];
-		this.modData("Learnsets", "kyuremblack").learnset.blizzard = ["8L64","8M"];
+		this.modData("Learnsets", "kyuremblack").learnset.hypervoice = ["8L56", "8M"];
+		this.modData("Learnsets", "kyuremblack").learnset.blizzard = ["8L64", "8M"];
 		this.modData("Learnsets", "kyuremblack").learnset.imprison = ["8L72"];
-		this.modData("Learnsets", "kyuremblack").learnset.outrage = ["8L80","8M"];
+		this.modData("Learnsets", "kyuremblack").learnset.outrage = ["8L80", "8M"];
 		this.modData("Learnsets", "kyuremblack").learnset.freezeshock = ["8L88"];
 		this.modData("Learnsets", "kyuremblack").learnset.frostbreath = ["8M"];
 		this.modData("Learnsets", "kyuremblack").learnset.icepunch = ["8M"];
@@ -5477,14 +5475,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "kyuremwhite").learnset.fusionflare = ["8R"];
 		this.modData("Learnsets", "kyuremwhite").learnset.scaryface = ["8L8"];
 		this.modData("Learnsets", "kyuremwhite").learnset.slash = ["8L16"];
-		this.modData("Learnsets", "kyuremwhite").learnset.endeavor = ["8L24","8M"];
-		this.modData("Learnsets", "kyuremwhite").learnset.dragonpulse = ["8L32","8M"];
-		this.modData("Learnsets", "kyuremwhite").learnset.icebeam = ["8L40","8M"];
+		this.modData("Learnsets", "kyuremwhite").learnset.endeavor = ["8L24", "8M"];
+		this.modData("Learnsets", "kyuremwhite").learnset.dragonpulse = ["8L32", "8M"];
+		this.modData("Learnsets", "kyuremwhite").learnset.icebeam = ["8L40", "8M"];
 		this.modData("Learnsets", "kyuremwhite").learnset.sheercold = ["8L48"];
-		this.modData("Learnsets", "kyuremwhite").learnset.hypervoice = ["8L56","8M"];
-		this.modData("Learnsets", "kyuremwhite").learnset.blizzard = ["8L64","8M"];
+		this.modData("Learnsets", "kyuremwhite").learnset.hypervoice = ["8L56", "8M"];
+		this.modData("Learnsets", "kyuremwhite").learnset.blizzard = ["8L64", "8M"];
 		this.modData("Learnsets", "kyuremwhite").learnset.imprison = ["8L72"];
-		this.modData("Learnsets", "kyuremwhite").learnset.outrage = ["8L80","8M"];
+		this.modData("Learnsets", "kyuremwhite").learnset.outrage = ["8L80", "8M"];
 		this.modData("Learnsets", "kyuremwhite").learnset.iceburn = ["8L88"];
 		this.modData("Learnsets", "kyuremwhite").learnset.frostbreath = ["8M"];
 		this.modData("Learnsets", "kyuremwhite").learnset.icepunch = ["8M"];
@@ -5557,7 +5555,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Bunnelby
 		this.modData("Learnsets", "bunnelby").learnset.crosschop = ["8D"];
 		this.modData("Learnsets", "bunnelby").learnset.tussle = ["8L12"];
-		this.modData("Learnsets", "bunnelby").learnset.bulldoze = ["8L22","8M"];
+		this.modData("Learnsets", "bunnelby").learnset.bulldoze = ["8L22", "8M"];
 		this.modData("Learnsets", "bunnelby").learnset.naturalgift = ["8M"];
 		delete this.modData('Learnsets', 'bunnelby').learnset.mudshot;
 		delete this.modData('Learnsets', 'bunnelby').learnset.toxic;
@@ -5565,7 +5563,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "diggersby").learnset.crosschop = ["8D"];
 		this.modData("Learnsets", "diggersby").learnset.doubleslap = ["8L10"];
 		this.modData("Learnsets", "diggersby").learnset.tussle = ["8L12"];
-		this.modData("Learnsets", "diggersby").learnset.bulldoze = ["8L24","8M"];
+		this.modData("Learnsets", "diggersby").learnset.bulldoze = ["8L24", "8M"];
 		this.modData("Learnsets", "diggersby").learnset.naturalgift = ["8M"];
 		this.modData("Learnsets", "diggersby").learnset.rockclimb = ["8M"];
 		delete this.modData('Learnsets', 'diggersby').learnset.mudshot;
@@ -5747,13 +5745,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "tyrunt").learnset.quash = ["8D"];
 		this.modData("Learnsets", "tyrunt").learnset.assurance = ["8M"];
 		this.modData("Learnsets", "tyrunt").learnset.rockclimb = ["8M"];
-		this.modData("Learnsets", "tyrunt").learnset.tantrum = ["8L49","8M"];
+		this.modData("Learnsets", "tyrunt").learnset.tantrum = ["8L49", "8M"];
 		delete this.modData('Learnsets', 'tyrunt').learnset.horndrill;
 		delete this.modData('Learnsets', 'tyrunt').learnset.toxic;
 		// Tyrantrum
 		this.modData("Learnsets", "tyrantrum").learnset.quash = ["8D"];
 		this.modData("Learnsets", "tyrantrum").learnset.rockclimb = ["8M"];
-		this.modData("Learnsets", "tyrantrum").learnset.tantrum = ["8L53","8M"];
+		this.modData("Learnsets", "tyrantrum").learnset.tantrum = ["8L53", "8M"];
 		delete this.modData('Learnsets', 'tyrantrum').learnset.horndrill;
 		delete this.modData('Learnsets', 'tyrantrum').learnset.toxic;
 		// Amaura
@@ -5833,14 +5831,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'gourgeist').learnset.toxic;
 		// Bergmite
 		this.modData("Learnsets", "bergmite").learnset.surf = ["8D"];
-		this.modData("Learnsets", "bergmite").learnset.icywind = ["8L6","8M"];
+		this.modData("Learnsets", "bergmite").learnset.icywind = ["8L6", "8M"];
 		this.modData("Learnsets", "bergmite").learnset.iceball = ["8L12"];
 		this.modData("Learnsets", "bergmite").learnset.flash = ["8M"];
 		delete this.modData('Learnsets', 'bergmite').learnset.powdersnow;
 		delete this.modData('Learnsets', 'bergmite').learnset.toxic;
 		// Avalugg
 		this.modData("Learnsets", "avalugg").learnset.surf = ["8D"];
-		this.modData("Learnsets", "avalugg").learnset.icywind = ["8L6","8M"];
+		this.modData("Learnsets", "avalugg").learnset.icywind = ["8L6", "8M"];
 		this.modData("Learnsets", "avalugg").learnset.iceball = ["8L12"];
 		this.modData("Learnsets", "avalugg").learnset.flash = ["8M"];
 		this.modData("Learnsets", "avalugg").learnset.rockclimb = ["8M"];
@@ -5864,10 +5862,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "xerneas").learnset.naturesmadness = ["8D"];
 		this.modData("Learnsets", "xerneas").learnset.aromatherapy = ["8L1"];
 		this.modData("Learnsets", "xerneas").learnset.ingrain = ["8L1"];
-		this.modData("Learnsets", "xerneas").learnset.psychup = ["8L25","8M"];
+		this.modData("Learnsets", "xerneas").learnset.psychup = ["8L25", "8M"];
 		this.modData("Learnsets", "xerneas").learnset.healpulse = ["8L30"];
-		this.modData("Learnsets", "xerneas").learnset.dazzlinggleam = ["8L40","8M"];
-		this.modData("Learnsets", "xerneas").learnset.mistyterrain = ["8L45","8M"];
+		this.modData("Learnsets", "xerneas").learnset.dazzlinggleam = ["8L40", "8M"];
+		this.modData("Learnsets", "xerneas").learnset.mistyterrain = ["8L45", "8M"];
 		this.modData("Learnsets", "xerneas").learnset.geomancy = ["8L50"];
 		this.modData("Learnsets", "xerneas").learnset.takedown = ["8L55"];
 		this.modData("Learnsets", "xerneas").learnset.megahorn = ["8L65"];
@@ -5886,24 +5884,24 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Zygarde 50%
 		this.modData("Learnsets", "zygarde").learnset.acidarmor = ["8D"];
 		this.modData("Learnsets", "zygarde").learnset.bind = ["8L1"];
-		this.modData("Learnsets", "zygarde").learnset.dig = ["8L1","8M"];
+		this.modData("Learnsets", "zygarde").learnset.dig = ["8L1", "8M"];
 		this.modData("Learnsets", "zygarde").learnset.dragonbreath = ["8L1"];
 		this.modData("Learnsets", "zygarde").learnset.bite = ["8L1"];
 		this.modData("Learnsets", "zygarde").learnset.haze = ["8L5"];
-		this.modData("Learnsets", "zygarde").learnset.bulldoze = ["8L10","8M"];
+		this.modData("Learnsets", "zygarde").learnset.bulldoze = ["8L10", "8M"];
 		this.modData("Learnsets", "zygarde").learnset.camouflage = ["8L15"];
 		this.modData("Learnsets", "zygarde").learnset.crunch = ["8L20"];
-		this.modData("Learnsets", "zygarde").learnset.safeguard = ["8L25","8M"];
+		this.modData("Learnsets", "zygarde").learnset.safeguard = ["8L25", "8M"];
 		this.modData("Learnsets", "zygarde").learnset.glare = ["8L30"];
-		this.modData("Learnsets", "zygarde").learnset.sandstorm = ["8L35","8M"];
-		this.modData("Learnsets", "zygarde").learnset.dragonpulse = ["8L40","8M"];
+		this.modData("Learnsets", "zygarde").learnset.sandstorm = ["8L35", "8M"];
+		this.modData("Learnsets", "zygarde").learnset.dragonpulse = ["8L40", "8M"];
 		this.modData("Learnsets", "zygarde").learnset.coil = ["8L45"];
 		this.modData("Learnsets", "zygarde").learnset.landswrath = ["8L50"];
 		this.modData("Learnsets", "zygarde").learnset.extremespeed = ["8L55"];
 		this.modData("Learnsets", "zygarde").learnset.dragonrush = ["8L60"];
 		this.modData("Learnsets", "zygarde").learnset.dragondance = ["8L65"];
-		this.modData("Learnsets", "zygarde").learnset.earthquake = ["8L70","8M"];
-		this.modData("Learnsets", "zygarde").learnset.outrage = ["8L75","8M"];
+		this.modData("Learnsets", "zygarde").learnset.earthquake = ["8L70", "8M"];
+		this.modData("Learnsets", "zygarde").learnset.outrage = ["8L75", "8M"];
 		this.modData("Learnsets", "zygarde").learnset.thousandwaves = ["8L80"];
 		this.modData("Learnsets", "zygarde").learnset.thousandarrows = ["8L80"];
 		this.modData("Learnsets", "zygarde").learnset.coreenforcer = ["8L85"];
@@ -5915,24 +5913,24 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Zygarde 10%
 		this.modData("Learnsets", "zygarde10").learnset.acidarmor = ["8D"];
 		this.modData("Learnsets", "zygarde10").learnset.bind = ["8L1"];
-		this.modData("Learnsets", "zygarde10").learnset.dig = ["8L1","8M"];
+		this.modData("Learnsets", "zygarde10").learnset.dig = ["8L1", "8M"];
 		this.modData("Learnsets", "zygarde10").learnset.dragonbreath = ["8L1"];
 		this.modData("Learnsets", "zygarde10").learnset.bite = ["8L1"];
 		this.modData("Learnsets", "zygarde10").learnset.haze = ["8L5"];
-		this.modData("Learnsets", "zygarde10").learnset.bulldoze = ["8L10","8M"];
+		this.modData("Learnsets", "zygarde10").learnset.bulldoze = ["8L10", "8M"];
 		this.modData("Learnsets", "zygarde10").learnset.camouflage = ["8L15"];
 		this.modData("Learnsets", "zygarde10").learnset.crunch = ["8L20"];
-		this.modData("Learnsets", "zygarde10").learnset.safeguard = ["8L25","8M"];
+		this.modData("Learnsets", "zygarde10").learnset.safeguard = ["8L25", "8M"];
 		this.modData("Learnsets", "zygarde10").learnset.glare = ["8L30"];
-		this.modData("Learnsets", "zygarde10").learnset.sandstorm = ["8L35","8M"];
-		this.modData("Learnsets", "zygarde10").learnset.dragonpulse = ["8L40","8M"];
+		this.modData("Learnsets", "zygarde10").learnset.sandstorm = ["8L35", "8M"];
+		this.modData("Learnsets", "zygarde10").learnset.dragonpulse = ["8L40", "8M"];
 		this.modData("Learnsets", "zygarde10").learnset.coil = ["8L45"];
 		this.modData("Learnsets", "zygarde10").learnset.landswrath = ["8L50"];
 		this.modData("Learnsets", "zygarde10").learnset.extremespeed = ["8L55"];
 		this.modData("Learnsets", "zygarde10").learnset.dragonrush = ["8L60"];
 		this.modData("Learnsets", "zygarde10").learnset.dragondance = ["8L65"];
-		this.modData("Learnsets", "zygarde10").learnset.earthquake = ["8L70","8M"];
-		this.modData("Learnsets", "zygarde10").learnset.outrage = ["8L75","8M"];
+		this.modData("Learnsets", "zygarde10").learnset.earthquake = ["8L70", "8M"];
+		this.modData("Learnsets", "zygarde10").learnset.outrage = ["8L75", "8M"];
 		this.modData("Learnsets", "zygarde10").learnset.thousandwaves = ["8L80"];
 		this.modData("Learnsets", "zygarde10").learnset.thousandarrows = ["8L80"];
 		this.modData("Learnsets", "zygarde10").learnset.coreenforcer = ["8L85"];
@@ -6154,18 +6152,18 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Dewpider
 		this.modData("Learnsets", "dewpider").learnset.acidarmor = ["8D"];
 		this.modData("Learnsets", "dewpider").learnset.leechlife = ["8L13"];
-		this.modData("Learnsets", "dewpider").learnset.bugbite = ["8L21","8M"];
-		this.modData("Learnsets", "dewpider").learnset.vitaldrain = ["8L29","8M"];
-		this.modData("Learnsets", "dewpider").learnset.dive = ["8L32","8M"];
+		this.modData("Learnsets", "dewpider").learnset.bugbite = ["8L21", "8M"];
+		this.modData("Learnsets", "dewpider").learnset.vitaldrain = ["8L29", "8M"];
+		this.modData("Learnsets", "dewpider").learnset.dive = ["8L32", "8M"];
 		this.modData("Learnsets", "dewpider").learnset.stringshot = ["8M"];
 		delete this.modData('Learnsets', 'dewpider').learnset.bite;
 		delete this.modData('Learnsets', 'dewpider').learnset.toxic;
 		// Araquanid
 		this.modData("Learnsets", "araquanid").learnset.acidarmor = ["8D"];
 		this.modData("Learnsets", "araquanid").learnset.leechlife = ["8L13"];
-		this.modData("Learnsets", "araquanid").learnset.bugbite = ["8L21","8M"];
-		this.modData("Learnsets", "araquanid").learnset.vitaldrain = ["8L33","8M"];
-		this.modData("Learnsets", "araquanid").learnset.dive = ["8L38","8M"];
+		this.modData("Learnsets", "araquanid").learnset.bugbite = ["8L21", "8M"];
+		this.modData("Learnsets", "araquanid").learnset.vitaldrain = ["8L33", "8M"];
+		this.modData("Learnsets", "araquanid").learnset.dive = ["8L38", "8M"];
 		this.modData("Learnsets", "araquanid").learnset.stringshot = ["8M"];
 		delete this.modData('Learnsets', 'araquanid').learnset.bite;
 		delete this.modData('Learnsets', 'araquanid').learnset.toxic;
@@ -6827,7 +6825,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'coalossal').learnset.meteorbeam;
 		// Flapple
 		this.modData("Learnsets", "flapple").learnset.uproar = ["8D"];
-		this.modData("Learnsets", "flapple").learnset.seedbomb = ["8L32","8M"];
+		this.modData("Learnsets", "flapple").learnset.seedbomb = ["8L32", "8M"];
 		this.modData("Learnsets", "flapple").learnset.aerialace = ["8M"];
 		this.modData("Learnsets", "flapple").learnset.bodypress = ["8M"];
 		this.modData("Learnsets", "flapple").learnset.bugbite = ["8M"];
@@ -6844,7 +6842,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'flapple').learnset.gravapple;
 		// Appletun
 		this.modData("Learnsets", "appletun").learnset.yawn = ["8D"];
-		this.modData("Learnsets", "appletun").learnset.energyball = ["8L32","8M"];
+		this.modData("Learnsets", "appletun").learnset.energyball = ["8L32", "8M"];
 		this.modData("Learnsets", "appletun").learnset.bugbite = ["8M"];
 		this.modData("Learnsets", "appletun").learnset.dragontail = ["8M"];
 		this.modData("Learnsets", "appletun").learnset.infestation = ["8M"];
@@ -7709,7 +7707,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'aurumoth').learnset.toxic;
 		// Brattler
 		this.modData("Learnsets", "brattler").learnset.spikyshield = ["8D"];
-		this.modData("Learnsets", "brattler").learnset.powertrip = ["8L52"]; //Will update when Brattler itself is
+		this.modData("Learnsets", "brattler").learnset.powertrip = ["8L52"]; // Will update when Brattler itself is
 		this.modData("Learnsets", "brattler").learnset.coil = ["8E"];
 		this.modData("Learnsets", "brattler").learnset.compensation = ["8M"];
 		this.modData("Learnsets", "brattler").learnset.nastyplot = ["8M"];
@@ -7899,7 +7897,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "chromera").learnset.signalbeam = ["8M"];
 		this.modData("Learnsets", "chromera").learnset.strength = ["8M"];
 		delete this.modData('Learnsets', 'chromera').learnset.decorate;
-		//Venomicon
+		// Venomicon
 		this.modData("Learnsets", "venomicon").learnset.jawlock = ["8D"];
 		this.modData("Learnsets", "venomicon").learnset.curse = ["8L50"];
 		this.modData("Learnsets", "venomicon").learnset.fellswoop = ["8L55"];

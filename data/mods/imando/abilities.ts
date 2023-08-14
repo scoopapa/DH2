@@ -1,7 +1,7 @@
 const rollMoves = [
 	'rollout', 'iceball',
 ];
-import { consoleips } from "../../../config/config-example";
+import {consoleips} from "../../../config/config-example";
 
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	advking: {
@@ -175,7 +175,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							target: moveSlot.target,
 							disabled: false,
 							used: false,
-						};	
+						};
 						source.moveSlots[source.moveSlots.length] = learnedMove;
 						source.baseMoveSlots[source.moveSlots.length - 1] = learnedMove;
 					}
@@ -1030,4 +1030,4 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 5,
 		num: -2000,
 	},
-}
+};

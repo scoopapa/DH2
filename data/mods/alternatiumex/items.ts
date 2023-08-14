@@ -32,7 +32,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (source.baseSpecies.baseSpecies === 'Marowak') {
 				if (effect && effect.effectType === 'Move') {
-					this.add('-activate', source, 'item: Draconic Club'); 
+					this.add('-activate', source, 'item: Draconic Club');
 					this.heal(source.baseMaxhp / 3, source, source, effect);
 				}
 			}

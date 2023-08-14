@@ -19,4 +19,4 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.queue.cancelAction(pokemon);
 		},
 	},
-}
+};

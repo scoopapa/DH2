@@ -8,7 +8,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
-		onHit(target, source){
+		onHit(target, source) {
 			let statName = 'atk';
 			let bestStat = 0;
 			let s: StatNameExceptHP;

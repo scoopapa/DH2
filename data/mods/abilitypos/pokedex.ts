@@ -1,5 +1,5 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
-		sceptile: {
+	sceptile: {
 		num: 1001,
 		name: "Sceptile",
 		types: ["Grass", "Ground"],
@@ -14,8 +14,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		otherFormes: ["Sceptile-Mega"],
 		formeOrder: ["Sceptile", "Sceptile-Mega"],
-		},
-		charizard: {
+	},
+	charizard: {
 		num: 1002,
 		name: "Charizard",
 		types: ["Fire", "Flying"],
@@ -31,8 +31,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		otherFormes: ["Charizard-Mega-X", "Charizard-Mega-Y"],
 		formeOrder: ["Charizard", "Charizard-Mega-X", "Charizard-Mega-Y"],
 		canGigantamax: "G-Max Wildfire",
-		},
-		inteleon: {
+	},
+	inteleon: {
 		num: 1003,
 		name: "Inteleon",
 		types: ["Water", "Poison"],
@@ -46,8 +46,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 35,
 		eggGroups: ["Water 1", "Field"],
 		canGigantamax: "G-Max Hydrosnipe",
-		},
-		lanturn: {
+	},
+	lanturn: {
 		num: 1004,
 		name: "Lanturn",
 		types: ["Water", "Electric"],
@@ -59,8 +59,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Chinchou",
 		evoLevel: 27,
 		eggGroups: ["Water 2"],
-		},
-		larvesta: {
+	},
+	larvesta: {
 		num: 1005,
 		name: "Larvesta",
 		types: ["Bug", "Fire"],
@@ -70,8 +70,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 28.8,
 		color: "White",
 		eggGroups: ["Bug"],
-		},
-		aggron: {
+	},
+	aggron: {
 		num: 1006,
 		name: "Aggron",
 		types: ["Steel", "Dragon"],
@@ -85,8 +85,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Monster"],
 		otherFormes: ["Aggron-Mega"],
 		formeOrder: ["Aggron", "Aggron-Mega"],
-		},
-		sableye: {
+	},
+	sableye: {
 		num: 302,
 		name: "Sableye",
 		types: ["Dark", "Ghost"],
@@ -98,8 +98,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Human-Like"],
 		otherFormes: ["Sableye-Mega"],
 		formeOrder: ["Sableye", "Sableye-Mega"],
-		},
-		carbink: {
+	},
+	carbink: {
 		num: 703,
 		name: "Carbink",
 		types: ["Rock", "Fairy"],
@@ -110,8 +110,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 5.7,
 		color: "Gray",
 		eggGroups: ["Fairy", "Mineral"],
-		},
-		entei: {
+	},
+	entei: {
 		num: 244,
 		name: "Entei",
 		types: ["Fire"],
@@ -123,8 +123,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Brown",
 		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
-		},
-		hatterene: {
+	},
+	hatterene: {
 		num: 858,
 		name: "Hatterene",
 		types: ["Psychic", "Fairy"],
@@ -138,8 +138,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 42,
 		eggGroups: ["Fairy"],
 		canGigantamax: "G-Max Smite",
-		},
-		raticatealola: {
+	},
+	raticatealola: {
 		num: 20,
 		name: "Raticate-Alola",
 		baseSpecies: "Raticate",
@@ -154,8 +154,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 20,
 		evoCondition: "at night",
 		eggGroups: ["Field"],
-		},
-		lapras: {
+	},
+	lapras: {
 		num: 131,
 		name: "Lapras",
 		types: ["Water", "Ice"],
@@ -166,6 +166,5 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
 		canGigantamax: "G-Max Resonance",
-		},
+	},
 };
-		

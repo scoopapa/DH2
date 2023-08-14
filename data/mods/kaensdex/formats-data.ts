@@ -1,6 +1,6 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
-    woodite: {
+	woodite: {
 		tier: "LC",
 		doublesTier: "KDD",
 	},

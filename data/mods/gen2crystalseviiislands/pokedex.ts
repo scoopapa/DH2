@@ -183,10 +183,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 26,
 		prevo: "Eevee",
 	},
-	
-	
-// Vanilla Edits
-	
+
+
+	// Vanilla Edits
+
 
 	quagsire: {
 		inherit: true,
@@ -239,5 +239,5 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	eevee: {
 		inherit: true,
 		evos: ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Celesteon"],
-	}
+	},
 };

@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	vulcaraptor: {
 		learnset: {
 			rockblast: ["8L1"],
@@ -418,7 +419,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			venoshock: ["8L1"],
 			poisonjab: ["8L1"],
 			attract: ["8L1"],
-			facade: ["8L1"],
 			protect: ["8L1"],
 			substitute: ["8L1"],
 			rest: ["8L1"],
@@ -486,7 +486,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			sleeptalk: ["8L1"],
 			protect: ["8L1"],
 			attract: ["8L1"],
-			facade: ["8L1"],
 			round: ["8L1"],
 			snore: ["8L1"],
 			endure: ["8L1"],
@@ -519,7 +518,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			bulkup: ["8L1"],
 			drainpunch: ["8L1"],
 			icepunch: ["8L1"],
-			thunderpunch: ["8L1"],
 			superpower: ["8L1"],
 			closecombat: ["8L1"],
 			attract: ["8L1"],
@@ -1196,7 +1194,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			substitute: ["8L1"],
 			rest: ["8L1"],
 			sleeptalk: ["8L1"],
-			round: ["8L1"],
 			snore: ["8L1"],
 			endure: ["8L1"],
 		},
@@ -1343,7 +1340,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8L1"],
 			moonblast: ["8L1"],
 			playrough: ["8L1"],
-			overheat: ["8L1"],
 			dragonpulse: ["8L1"],
 			hypervoice: ["8L1"],
 			calmmind: ["8L1"],
@@ -2147,7 +2143,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wildcharge: ["8L1"],
 			avalanche: ["8L1"],
 			iceball: ["8L1"],
-			icefang: ["8L1"],
 			blizzard: ["8L1"],
 			icebeam: ["8L1"],
 			frostbreath: ["8L1"],

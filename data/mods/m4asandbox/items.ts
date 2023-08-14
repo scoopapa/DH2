@@ -1753,7 +1753,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Wailord, this item allows it to Mega Evolve in battle.",
 	},
 
-// SANDBOX CONTENT STARTS HERE
+	// SANDBOX CONTENT STARTS HERE
 
 	megastone1: {
 		name: "Mega Stone 1",

@@ -1,16 +1,16 @@
 'use strict';
 
 /**@type {ModdedBattleScriptsData} */
-let BattleScripts = {
+const BattleScripts = {
 	inherit: 'gen4',
 	gen: 3,
 	init() {
-		for (let i in this.data.Pokedex) {
+		for (const i in this.data.Pokedex) {
 			delete this.data.Pokedex[i].abilities['H'];
 		}
-		let specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
+		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 		let newCategory = '';
-		for (let i in this.data.Movedex) {
+		for (const i in this.data.Movedex) {
 			if (!this.data.Movedex[i]) console.log(i);
 			if (this.data.Movedex[i].category === 'Status') continue;
 			newCategory = specialTypes.includes(this.data.Movedex[i].type) ? 'Special' : 'Physical';
@@ -217,7 +217,7 @@ let BattleScripts = {
 			}
 		}
 
-		let boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
+		const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
 
 		// calculate true accuracy
 		/**@type {number | true} */
@@ -306,7 +306,7 @@ let BattleScripts = {
 			/** @type {number | undefined | false} */
 			let moveDamage;
 			// There is no need to recursively check the ´sleepUsable´ flag as Sleep Talk can only be used while asleep.
-			let isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
+			const isSleepUsable = move.sleepUsable || this.dex.moves.get(move.sourceEffect).sleepUsable;
 			let i;
 			for (i = 0; i < hits && target.hp && pokemon.hp; i++) {
 				if (pokemon.status === 'slp' && !isSleepUsable) break;

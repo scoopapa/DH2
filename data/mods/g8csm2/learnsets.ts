@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	missingno: {
 		learnset: {
 			blizzard: ["1L1"],
@@ -32295,6 +32296,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
 			acrobatics: ["1M", "1M", "1M", "1M"],
 			aerialace: ["1L10", "1M", "1M", "1M", "1M", "1M"],
+
 			agility: ["1M"],
 			assurance: ["1M"],
 			attract: ["1M", "1M", "1M", "1M", "1M", "1M"],

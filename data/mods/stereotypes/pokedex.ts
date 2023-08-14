@@ -1,5 +1,5 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
-	//Slate 1: Grass, Fire, Water
+	// Slate 1: Grass, Fire, Water
 	sproutsel: {
 		num: 1,
 		name: "Sproutsel",
@@ -71,7 +71,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 371.1,
 		prevo: "Tridolphin",
 	},
-	//Slate 2: Dragon, Fairy, Steel
+	// Slate 2: Dragon, Fairy, Steel
 	drakotomy: {
 		num: 1004,
 		name: "Drakotomy",
@@ -99,7 +99,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.0,
 		weightkg: 205.0,
 	},
-	//Slate 3: Psychic, Dark, Fighting
+	// Slate 3: Psychic, Dark, Fighting
 	correept: {
 		num: 1007,
 		name: "Correept",
@@ -126,7 +126,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.1,
 		weightkg: 26.1,
 	},
-	//Slate 4: Flying, Ground, Rock
+	// Slate 4: Flying, Ground, Rock
 	nimbustorm: {
 		num: 1010,
 		name: "Nimbustorm",
@@ -152,7 +152,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.6,
 		weightkg: 160,
 	},
-	//Slate 5: Electric, Ghost, Ice
+	// Slate 5: Electric, Ghost, Ice
 	storvark: {
 		num: 1013,
 		name: "Storvark",
@@ -179,7 +179,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 24.3,
 	},
-	//Slate 6: Bug, Normal, Poison
+	// Slate 6: Bug, Normal, Poison
 	magroach: {
 		num: 1016,
 		name: "Magroach",
@@ -205,7 +205,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Sticky Hold", 1: "Clear Body", H: "Healer"},
 		weightkg: 58.1,
 	},
-	//Slate 7: Electric/Water, Poison/Dragon, Steel/Ghost
+	// Slate 7: Electric/Water, Poison/Dragon, Steel/Ghost
 	whiscamp: {
 		num: 1019,
 		name: "Whiscamp",
@@ -231,7 +231,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Limber", H: "Cursed Body"},
 		weightkg: 24,
 	},
-	//Slate 8: Flying/Dark, Normal/Grass, Rock/Fairy
+	// Slate 8: Flying/Dark, Normal/Grass, Rock/Fairy
 	spincaba: {
 		num: 1022,
 		name: "Spincaba",
@@ -256,7 +256,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Beast Boost"},
 		weightkg: 21.6,
 	},
-	//Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
+	// Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
 	beetilient: {
 		num: 1025,
 		name: "Beetilient",
@@ -273,7 +273,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Flash Fire", 1: "White Smoke", H: "Perish Body"},
 		weightkg: 122.3,
 	},
-	cosmole : {
+	cosmole: {
 		num: 1027,
 		name: "Cosmole",
 		types: ["Ground", "Psychic"],
@@ -281,7 +281,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Anticipation", 1: "Tough Claws", H: "Prism Armor"},
 		weightkg: 24.9,
 	},
-	//Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
+	// Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
 	slashowa: {
 		num: 1028,
 		name: "Slashowa",
@@ -298,7 +298,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Drought"},
 		weightkg: 36.2,
 	},
-	fuscicea : {
+	fuscicea: {
 		num: 1030,
 		name: "Fuscicea",
 		types: ["Water", "Fairy"],
@@ -306,7 +306,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Natural Cure", H: "Adaptability"},
 		weightkg: 16,
 	},
-	//Slate 11: Grass/Ground, Ice/Dragon, Psychic/Fighting
+	// Slate 11: Grass/Ground, Ice/Dragon, Psychic/Fighting
 	akanalud: {
 		num: 1031,
 		name: "Akanalud",
@@ -323,7 +323,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Vital Spirit", 1: "Skill Link", H: "Clear Body"},
 		weightkg: 107.9,
 	},
-	gorilax : {
+	gorilax: {
 		num: 1033,
 		name: "Gorilax",
 		types: ["Psychic", "Fighting"],
@@ -331,7 +331,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Aroma Veil", H: "Sniper"},
 		weightkg: 193,
 	},
-	//Slate 12: Bug/Ghost, Fire/Electric, Rock/Poison
+	// Slate 12: Bug/Ghost, Fire/Electric, Rock/Poison
 	pharaoach: {
 		num: 1034,
 		name: "Pharaoach",
@@ -362,7 +362,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.8,
 		weightkg: 147,
 	},
-	//Slate 13: Electric/Rock, Grass/Poison, Water/Dragon
+	// Slate 13: Electric/Rock, Grass/Poison, Water/Dragon
 	corundell: {
 		num: 1036,
 		name: "Corundell",
@@ -387,7 +387,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Shed Skin", 1: "Fluffy", H: "Natural Cure"},
 		weightkg: 210,
 	},
-	//Slate 14: Dark/Steel, Ground/Fighting, Ice/Fairy
+	// Slate 14: Dark/Steel, Ground/Fighting, Ice/Fairy
 	despertur: {
 		num: 1039,
 		name: "Despertur",
@@ -412,7 +412,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Unaware", H: "Levitate"},
 		weightkg: 50,
 	},
-	//Slate 15: Bug/Psychic, Ghost/Flying, Normal/Fire
+	// Slate 15: Bug/Psychic, Ghost/Flying, Normal/Fire
 	jaegorm: {
 		num: 1042,
 		name: "Jaegorm",
@@ -452,7 +452,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Prankster"},
 		weightkg: 20,
 	},
-	//Slate 16: Fairy/Flying, Poison/Electric, Water/Grass
+	// Slate 16: Fairy/Flying, Poison/Electric, Water/Grass
 	puffoon: {
 		num: 1045,
 		name: "Puffoon",
@@ -477,7 +477,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Water Absorb", 1: "Hydration", H: "Flower Gift"},
 		weightkg: 38,
 	},
-	//Slate 17: Bug/Ground, Dark/Dragon, Ice/Ghost
+	// Slate 17: Bug/Ground, Dark/Dragon, Ice/Ghost
 	dunipede: {
 		num: 1048,
 		name: "Dunipede",
@@ -502,7 +502,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Mirror Armor", 1: "Dazzling", H: "Snow Cloak"},
 		weightkg: 426,
 	},
-	//Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
+	// Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
 	volcarupt: {
 		num: 1051,
 		name: "Volcarupt",
@@ -517,7 +517,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Normal", "Fighting"],
 		baseStats: {hp: 75, atk: 110, def: 75, spa: 65, spd: 85, spe: 120},
 		abilities: {0: "Inner focus", 1: "Anticipation", H: "Sand Rush"},
-		//weightkg: Weight,
+		// weightkg: Weight,
 	},
 	witchwach: {
 		num: 1053,
@@ -527,7 +527,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Telepathy", 1: "Light Metal", H: "Magician"},
 		weightkg: 71,
 	},
-	//Slate 19: Rock/Water, Ground/Electric, Poison/Flying
+	// Slate 19: Rock/Water, Ground/Electric, Poison/Flying
 	groundingo: {
 		num: 1054,
 		name: "Groundingo",
@@ -552,7 +552,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Stamina", H: "Power of Alchemy"},
 		weightkg: 1,
 	},
-	//Slate 20: Dragon/Fighting, Ice/Dark, Steel/Fairy
+	// Slate 20: Dragon/Fighting, Ice/Dark, Steel/Fairy
 	tinkixie: {
 		num: 1057,
 		name: "Tinkixie",

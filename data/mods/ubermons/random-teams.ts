@@ -580,7 +580,7 @@ export class RandomTeams {
 		species = this.dex.species.get(species);
 		let forme = species.name;
 		let gmax = false;
-		let mega = false; 
+		let mega = false;
 
 		if (typeof species.battleOnly === 'string') {
 			// Only change the forme. The species has custom moves, and may have different typing and requirements.
@@ -596,8 +596,7 @@ export class RandomTeams {
 		if (species.name.endsWith('-Mega')) {
 			forme = species.name.slice(0, -5);
 			mega = true;
-		}
-		else if (species.name.endsWith('-Mega-X') || species.name.endsWith('-Mega-Y')) {
+		} else if (species.name.endsWith('-Mega-X') || species.name.endsWith('-Mega-Y')) {
 			forme = species.name.slice(0, -7);
 			mega = true;
 		}
@@ -1426,7 +1425,7 @@ export class RandomTeams {
 			item = 'Heavy-Duty Boots';
 		} else if (hasMove['teatime']) {
 			item = hasMove['astralbarrage'] ? 'Sitrus Berry' : 'Starf Berry';
-		
+
 		// Doubles
 		} else if (isDoubles && (hasMove['dragonenergy'] || hasMove['eruption'] || hasMove['waterspout']) && counter.damagingMoves.length >= 4) {
 			item = 'Choice Scarf';
@@ -1597,8 +1596,8 @@ export class RandomTeams {
 		const typeComboCount: {[k: string]: number} = {};
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 
-		let megaCount = 0; 
-		
+		let megaCount = 0;
+
 		// We make at most two passes through the potential Pokemon pool when creating a team - if the first pass doesn't
 		// result in a team of six Pokemon we perform a second iteration relaxing as many restrictions as possible.
 		for (const restrict of [true, false]) {
@@ -1666,11 +1665,11 @@ export class RandomTeams {
 
 					// Limit one of any type combination, two in Monotype
 					if (typeComboCount[typeCombo] >= (isMonotype ? 2 : 1)) continue;
-					
+
 					if (isMega) {
 						if (megaCount >= 1) continue;
 						else megaCount++;
-					} 
+					}
 				}
 
 				// The Pokemon of the Day

@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 perdemos1anaconja: {learnset: {
 	drillrun: ["7L1"],
 	mudshot: ["7L1"],

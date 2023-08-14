@@ -377,7 +377,6 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	declare readonly queue?: ModdedBattleQueue;
 	declare readonly field?: ModdedField;
 	declare readonly actions?: ModdedBattleActions;
-	declare readonly cannotMega?: string[];
 	declare readonly challengeShow?: boolean;
 	declare readonly searchShow?: boolean;
 	declare readonly threads?: string[];
@@ -434,7 +433,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 }
 
 /** merges format lists from config/formats and config/custom-formats */
-export function mergeFormatLists(main: FormatList, custom: FormatList | undefined): FormatList {
+function mergeFormatLists(main: FormatList, custom: FormatList | undefined): FormatList {
 	// interface for the builder.
 	interface FormatSection {
 		section: string;
@@ -813,6 +812,16 @@ export class DexFormats {
 		ruleTable.getTagRules();
 
 		ruleTable.resolveNumbers(format, this.dex);
+
+		const canMegaEvo = this.dex.gen <= 7 || ruleTable.has('+pokemontag:past');
+		if (ruleTable.has('obtainableformes') && canMegaEvo &&
+			ruleTable.isBannedSpecies(this.dex.species.get('rayquazamega')) &&
+			!ruleTable.isBannedSpecies(this.dex.species.get('rayquaza'))
+		) {
+			// Banning Rayquaza-Mega implicitly adds Mega Rayquaza Clause
+			// note that already having it explicitly in the ruleset is ok
+			ruleTable.set('megarayquazaclause', '');
+		}
 
 		for (const rule of ruleTable.keys()) {
 			if ("+*-!".includes(rule.charAt(0))) continue;

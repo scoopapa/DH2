@@ -198,7 +198,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	yveltox: {
 		tier: "FEOU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["quiverdance", "oblivionwing", "sludgebomb", "heatwave","hurricane"],
+		randomBattleMoves: ["quiverdance", "oblivionwing", "sludgebomb", "heatwave", "hurricane"],
 		randomBattleLevel: 75,
 	},
 	ironmimic: {
@@ -387,7 +387,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		requiredItem: "Steelixite",
 		randomBattleMoves: ["curse", "stoneedge", "earthquake", "icepunch"],
 		randomBattleLevel: 75,
-	},	
+	},
 	gooperthisui: {
 		tier: "FEOU",
 		doublesTier: "DOU",

@@ -345,8 +345,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SSS",
 	},
 	lycanperiordusk: {
-        tier: "SSS",
-    },
+		tier: "SSS",
+	},
 	yoshiblaze: {
 		tier: "SSS",
 	},

@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	charmander: {
 		learnset: {
 			ancientpower: ["8E", "8E", "7E", "7V", "6E", "5E", "4E", "3E"],

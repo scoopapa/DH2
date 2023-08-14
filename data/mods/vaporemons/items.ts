@@ -1,139 +1,4 @@
-export const Items: {[k: string]: ModdedItemData} = {
-	//---------Gen 9 Items----------//
-	abilityshield: {
-		name: "Ability Shield",
-		spritenum: 0, // TODO
-		ignoreKlutz: true,
-		// Neutralizing Gas protection implemented in Pokemon.ignoringAbility() within sim/pokemon.ts
-		// and in Neutralizing Gas itself within data/abilities.ts
-		onSetAbility(ability, target, source, effect) {
-			if (effect && effect.effectType === 'Ability' && effect.name !== 'Trace') {
-				this.add('-ability', source, effect);
-			}
-			this.add('-block', target, 'item: Ability Shield');
-			return null;
-		},
-		// Mold Breaker protection implemented in Battle.suppressingAbility() within sim/battle.ts
-		num: 1881,
-		desc: "Holder's Ability cannot be changed by any effect.",
-		gen: 8,
-	},
-	clearamulet: {
-		name: "Clear Amulet",
-		spritenum: 0, // TODO
-		onTryBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			let showMsg = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					delete boost[i];
-					showMsg = true;
-				}
-			}
-			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add('-fail', target, 'unboost', '[from] item: Clear Amulet', '[of] ' + target);
-			}
-		},
-		num: 1882,
-		desc: "Prevents other Pokemon from lowering the holder's stat stages.",
-		gen: 8,
-	},
-	mirrorherb: {
-		name: "Mirror Herb",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 0, // TODO
-		onFoeAfterBoost(boost, target, source, effect) {
-			if (effect?.name === 'Opportunist' || effect?.name === 'Mirror Herb') return;
-			const boostPlus: SparseBoostsTable = {};
-			let statsRaised = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! > 0) {
-					boostPlus[i] = boost[i];
-					statsRaised = true;
-				}
-			}
-			if (!statsRaised) return;
-			const pokemon: Pokemon = this.effectState.target;
-			pokemon.useItem();
-			this.boost(boostPlus, pokemon);
-		},
-		num: 1883,
-		desc: "When an opposing Pokemon raises a stat stage, the holder copies it. Single use.",
-		gen: 8,
-	},
-	punchingglove: {
-		name: "Punching Glove",
-		spritenum: 0, // TODO
-		onBasePowerPriority: 23,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['punch']) {
-				this.debug('Punching Glove boost');
-				return this.chainModify([4506, 4096]);
-			}
-		},
-		onModifyMovePriority: 1,
-		onModifyMove(move) {
-			if (move.flags['punch']) delete move.flags['contact'];
-		},
-		num: 1884,
-		desc: "Holder's punch-based attacks have 1.1x power and do not make contact.",
-		gen: 8,
-	},
-	covertcloak: {
-		name: "Covert Cloak",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 0, // TODO
-		onModifySecondaries(secondaries) {
-			this.debug('Covert Cloak prevent secondary');
-			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
-		},
-		num: 1885,
-		desc: "Holder is not affected by the secondary effect of another Pokemon's attack.",
-		gen: 8,
-	},
-	loadeddice: {
-		name: "Loaded Dice",
-		spritenum: 0, // TODO
-		// partially implemented in sim/battle-actions.ts:BattleActions#hitStepMoveHitLoop
-		onModifyMove(move) {
-			if (move.multiaccuracy) {
-				delete move.multiaccuracy;
-			}
-		},
-		num: 1886,
-		desc: "Holder's moves that hit 2-5 times hit 4-5 times; Population Bomb hits 4-10 times.",
-		gen: 8,
-	},
-	boosterenergy: {
-		name: "Booster Energy",
-		spritenum: 0, // TODO
-		onUpdate(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.queue.peek(true)?.choice === 'runSwitch') return;
-
-			if (pokemon.hasAbility('protosynthesis') && !pokemon.volatiles['protosynthesis'] && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
-				pokemon.addVolatile('protosynthesis');
-			}
-			if (pokemon.hasAbility('quarkdrive') && !pokemon.volatiles['quarkdrive'] && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
-				pokemon.addVolatile('quarkdrive');
-			}
-		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.tags.includes("Paradox")) return false;
-			return true;
-		},
-		num: 1880,
-		desc: "Activates the Protosynthesis or Quark Drive Abilities. Single use.",
-		gen: 8,
-	},
-
-// new stuff
+export const Items: {[itemid: string]: ModdedItemData} = {
 	bigroot: {
 		name: "Big Root",
 		spritenum: 29,
@@ -143,27 +8,27 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['heal'] || move.id === 'bitterblade') {
-				this.debug('Punching Glove boost');
-				return this.chainModify([0x14CC, 0x1000]);
+				this.debug('Big Root boost');
+				return this.chainModify([5324, 4096]);
 			}
 		},
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
 			const heals = ['leechseed', 'ingrain', 'aquaring', 'strengthsap', 'healingstones'];
 			if (heals.includes(effect.id)) {
-				return this.chainModify([0x14CC, 0x1000]);
+				return this.chainModify([5324, 4096]);
 			}
 		},
 		num: 296,
 		desc: "Damaging draining moves deal 30% more damage, status draining moves heal 30% more.",
 		gen: 4,
-	}, /*
+	},
 	terashard: {
 		name: "Tera Shard",
 		spritenum: 658,
 		onTakeItem: false,
 		onStart(pokemon) {
-			const type = pokemon.hpType;
+			const type = pokemon.teraType;
 			this.add('-item', pokemon, 'Tera Shard');
 			this.add('-anim', pokemon, "Cosmic Power", pokemon);
 			if (type && type !== '???') {
@@ -179,57 +44,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		num: -1000,
-		gen: 8,
+		gen: 9,
 		desc: "Holder becomes its Tera Type on switch-in.",
 	},
-	terashardnormal: {
-		name: "Tera Shard (Normal)",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Normal')) return;
-				this.add('-start', pokemon, 'typechange', 'Normal', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1007,
-		gen: 8,
-		desc: "Holder becomes its Tera Type on switch-in. (Use this if you want to Tera Normal)",
-	},	
-	terashardfairy: {
-		name: "Tera Shard (Fairy)",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Fairy')) return;
-				this.add('-start', pokemon, 'typechange', 'Fairy', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1008,
-		gen: 8,
-		desc: "Holder becomes its Tera Type on switch-in. (Use this if you want to Tera Fairy)",
-	},	*/
 	seginstarshard: {
 		name: "Segin Star Shard",
 		spritenum: 658,
@@ -237,8 +54,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 20,
 			status: 'slp',
 		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Revavroom') return false;
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === 966 || pokemon.baseSpecies.num === 966) {
+				return false;
+			}
 			return true;
 		},
 		onSwitchIn(pokemon) {
@@ -250,8 +69,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.num === 966 && (move.type === 'Dark' || move.type === 'Steel' || move.type === 'Poison')) {
-				return this.chainModify([0x1333, 0x1000]);
+			if (user.baseSpecies.num === 966 && (move.type === 'Dark' || move.type === 'Steel' || move.type === 'Poison')) {
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		onTryHit(pokemon, target, move) {
@@ -263,7 +82,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Revavroom-Segin",
 		itemUser: ["Revavroom-Segin"],
 		num: -1001,
-		gen: 8,
+		gen: 9,
 		desc: "Revavroom: Becomes Dark-type, Ability: Intimidate, 1.2x Dark/Poison/Steel power.",
 	},	
 	schedarstarshard: {
@@ -273,8 +92,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 20,
 			status: 'brn',
 		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Revavroom') return false;
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === 966 || pokemon.baseSpecies.num === 966) {
+				return false;
+			}
 			return true;
 		},
 		onSwitchIn(pokemon) {
@@ -286,8 +107,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.num === 966 && (move.type === 'Fire' || move.type === 'Steel' || move.type === 'Poison')) {
-				return this.chainModify([0x1333, 0x1000]);
+			if (user.baseSpecies.num === 966 && (move.type === 'Fire' || move.type === 'Steel' || move.type === 'Poison')) {
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		onTryHit(pokemon, target, move) {
@@ -299,7 +120,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Revavroom-Schedar",
 		itemUser: ["Revavroom-Schedar"],
 		num: -1002,
-		gen: 8,
+		gen: 9,
 		desc: "Revavroom: Becomes Fire-type, Ability: Speed Boost, 1.2x Fire/Poison/Steel power.",
 	},	
 	navistarshard: {
@@ -309,8 +130,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 20,
 			status: 'psn',
 		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Revavroom') return false;
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === 966 || pokemon.baseSpecies.num === 966) {
+				return false;
+			}
 			return true;
 		},
 		onSwitchIn(pokemon) {
@@ -322,8 +145,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.num === 966 && (move.type === 'Steel' || move.type === 'Poison')) {
-				return this.chainModify([0x1333, 0x1000]);
+			if (user.baseSpecies.num === 966 && (move.type === 'Steel' || move.type === 'Poison')) {
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		onTryHit(pokemon, target, move) {
@@ -335,7 +158,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Revavroom-Navi",
 		itemUser: ["Revavroom-Navi"],
 		num: -1003,
-		gen: 8,
+		gen: 9,
 		desc: "Revavroom: Becomes Poison-type, Ability: Toxic Debris, 1.2x Poison/Steel power.",
 	},	
 	ruchbahstarshard: {
@@ -345,8 +168,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 20,
 			volatilestatus: 'confusion',
 		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Revavroom') return false;
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === 966 || pokemon.baseSpecies.num === 966) {
+				return false;
+			}
 			return true;
 		},
 		onSwitchIn(pokemon) {
@@ -358,8 +183,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.num === 966 && (move.type === 'Fairy' || move.type === 'Steel' || move.type === 'Poison')) {
-				return this.chainModify([0x1333, 0x1000]);
+			if (user.baseSpecies.num === 966 && (move.type === 'Fairy' || move.type === 'Steel' || move.type === 'Poison')) {
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		onTryHit(pokemon, target, move) {
@@ -371,7 +196,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Revavroom-Ruchbah",
 		itemUser: ["Revavroom-Ruchbah"],
 		num: -1004,
-		gen: 8,
+		gen: 9,
 		desc: "Revavroom: Becomes Fairy-type, Ability: Misty Surge, 1.2x Fairy/Poison/Steel power.",
 	},	
 	caphstarshard: {
@@ -381,8 +206,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 20,
 			status: 'par',
 		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Revavroom') return false;
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === 966 || pokemon.baseSpecies.num === 966) {
+				return false;
+			}
 			return true;
 		},
 		onSwitchIn(pokemon) {
@@ -394,8 +221,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.num === 966 && (move.type === 'Fighting' || move.type === 'Steel' || move.type === 'Poison')) {
-				return this.chainModify([0x1333, 0x1000]);
+			if (user.baseSpecies.num === 966 && (move.type === 'Fighting' || move.type === 'Steel' || move.type === 'Poison')) {
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		onTryHit(pokemon, target, move) {
@@ -407,7 +234,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		forcedForme: "Revavroom-Caph",
 		itemUser: ["Revavroom-Caph"],
 		num: -1005,
-		gen: 8,
+		gen: 9,
 		desc: "Revavroom: Becomes Fighting-type, Ability: Stamina, 1.2x Fighting/Poison/Steel power.",
 	},	
 	tuffytuff: {
@@ -435,18 +262,11 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "Igglybuff line: 2x Defense & Special Defense.",
 		itemUser: ["Igglybuff", "Jigglypuff", "Wigglytuff"],
 		num: -1006,
-		gen: 8,
+		gen: 9,
 	},
 	blunderpolicy: {
-		name: "Blunder Policy",
-		spritenum: 716,
-		fling: {
-			basePower: 80,
-		},
-		// Item activation located in scripts.js
+		inherit: true,
 		desc: "If the holder misses due to accuracy, its Speed and accuracy are raised by 2 stages. Single use.",
-		num: 1121,
-		gen: 8,
 	},
 	punchingglove: {
 		name: "Punching Glove",
@@ -455,16 +275,16 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
 				this.debug('Punching Glove boost');
-				return this.chainModify([0x1333, 0x1000]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
 			if (move.flags['punch']) delete move.flags['contact'];
-		},		
+		},
 		desc: "Holder's punch-based attacks have 1.2x power and do not make contact.",
 		num: 1884,
-		gen: 8,
+		gen: 9,
 	},
 	razorclaw: {
 		name: "Razor Claw",
@@ -476,13 +296,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['slicing']) {
 				this.debug('Razor Claw boost');
-				return this.chainModify([0x1333, 0x1000]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
 			if (move.flags['slicing']) delete move.flags['contact'];
-		},		
+		},
 		desc: "Holder's slicing-based attacks have 1.2x power and do not make contact.",
 		num: 326,
 		gen: 4,
@@ -498,16 +318,17 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['bite']) {
 				this.debug('Razor Fang boost');
-				return this.chainModify([0x1333, 0x1000]);
+				return this.chainModify([4915, 4096]);
 			}
 		},
 		onModifyMovePriority: 1,
 		onModifyMove(move) {
 			if (move.flags['bite']) delete move.flags['contact'];
-		},		
-		desc: "Holder's bite-based attacks have 1.2x power and do not make contact.",
+		},
+		desc: "Holder's biting-based attacks have 1.2x power and do not make contact.",
 		num: 327,
 		gen: 4,
+		isNonstandard: null,
 	},
 	baseballbat: {
 		name: "Baseball Bat",
@@ -516,7 +337,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['contact']) {
 				this.debug('Baseball Bat boost');
-				return this.chainModify([0x1400, 0x1000]);
+				return this.chainModify([5120, 4096]);
 			}
 		},
 		onTryHitPriority: 1,
@@ -527,8 +348,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, target, source);
-			target.useItem();			
+			this.actions.useMove(newMove, target, source);
+			target.useItem();
+			this.add('-message', `${target.name}'s Baseball Bat broke!`);
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
@@ -538,8 +360,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.useMove(newMove, this.effectState.target, source);
-			target.useItem();			
+			this.actions.useMove(newMove, this.effectState.target, source);
+			target.useItem();
+			this.add('-message', `${pokemon.name}'s Baseball Bat broke!`);
 			return null;
 		},
 		condition: {
@@ -547,7 +370,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		desc: "Holder's contact moves have 1.25x power. Bounces back bullet/ball moves and breaks when it does.",
 		num: -1007,
-		gen: 8,
+		gen: 9,
 	}, 
 	walkietalkie: {
 		name: "Walkie-Talkie",
@@ -589,69 +412,354 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "(Mostly non-functional placeholder) Before using a sound move, holder switches. Switch-in uses move.",
 		num: -1008,
 		gen: 8,
-	}, /*
-	walkietalkie: {
-		name: "Walkie-Talkie",
-		spritenum: 713,
-		fling: {
-			basePower: 20,
-		},
-		onModifyMove(move, pokemon) {
-			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag ||
-				 !move.flags['sound'] || pokemon.side.getSideCondition('walkietalkie')) return;
-			delete move.flags['contact'];
-			delete move.flags['wind'];
-			delete move.flags['bullet'];
-			move.basePower = 0;
-			move.accuracy = true;
-			move.selfSwitch = true;
-			move.ignoreImmunity = true;
-			pokemon.side.addSlotCondition(pokemon, 'walkietalkie');
-			this.add('-activate', pokemon, 'item: Walkie-Talkie');
-			this.add('-message', `${pokemon.name} is calling in one of its allies!`);
-		},
-		slotCondition: 'walkietalkie',
-		condition: {
-			duration: 1,
-			onFaint(target) {
-				target.side.removeSlotCondition(target, 'walkietalkie');
-			},
-			onSwitchIn(target) {
-				if (!target.fainted && this.effectState.moveTarget && this.effectState.moveTarget.isActive) {
-					this.useMove("Copycat", target, this.effectState.moveTarget);
-				}
-				target.side.removeSlotCondition(target, 'walkietalkie');
-			},
-		},
-		desc: "Before using a sound move, holder switches. Switch-in uses move.",
-		num: -1008,
-		gen: 8,
-	}, */
-	walkietalkie: {
-		name: "Walkie-Talkie",
-		spritenum: 713,
-		fling: {
-			basePower: 20,
-		},
-		onModifyMove(move, pokemon) {
-			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag ||
-				 !move.flags['sound'] || pokemon.side.getSideCondition('walkietalkie')) return;
-			this.effectState.move = this.dex.moves.get(move.id);
-			delete move.flags['contact'];
-			delete move.flags['wind'];
-			delete move.flags['bullet'];
-			move.basePower = 0;
-			move.accuracy = true;
-			move.selfSwitch = true;
-			move.ignoreImmunity = true;
-			pokemon.side.addSlotCondition(pokemon, 'walkietalkie');
-			this.add('-activate', pokemon, 'item: Walkie-Talkie');
-			this.add('-message', `${pokemon.name} is calling in one of its allies!`);
-		},
-		desc: "(Mostly non-functional placeholder) Before using a sound move, holder switches. Switch-in uses move.",
-		num: -1008,
-		gen: 8,
 	},
+	airfreshener: {
+		name: "Air Freshener",
+		spritenum: 383,
+		fling: {
+			basePower: 30,
+		},
+		// effect coded into the moves themselves
+		desc: "Holder's wind-based attacks heal the party's status.",
+		num: -1009,
+		gen: 9,
+	},
+	dancingshoes: {
+		name: "Dancing Shoes",
+		spritenum: 390,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
+				pokemon.formeChange('Meloetta-Pirouette');
+				if (pokemon.hasAbility('trace')) {
+					pokemon.setAbility('noguard', pokemon, true);
+					this.add('-activate', pokemon, 'ability: No Guard');
+				}
+			}
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['sound']) {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] item: Dancing Shoes');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target === this.effectState.target || target.side !== source.side) return;
+			if (move.flags['sound']) {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
+			return true;
+		},
+		itemUser: ["Meloetta"],
+		num: -1010,
+		gen: 9,
+		desc: "If held by Meloetta: Pirouette Forme on entry, hazard immunity, Sound immunity, +1 Attack when hit by Sound.",
+	},
+	charizarditeshardx: {
+		name: "Charizardite Shard X",
+		spritenum: 658,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Charizard') return false;
+			return true;
+		},
+		onSwitchIn(pokemon) {
+			const type = pokemon.hpType;
+			if (pokemon.baseSpecies.baseSpecies === 'Charizard') {			
+				this.add('-item', pokemon, 'Charizardite Shard X');
+				this.add('-anim', pokemon, "Cosmic Power", pokemon);
+				if (type && type !== '???') {
+					if (!pokemon.setType('Dragon')) return;
+					this.add('-start', pokemon, 'typechange', 'Dragon', '[from] item: Charizardite Shard X');
+				}
+				this.add('-message', `${pokemon.name}'s Charizardite Shard X changed its type!`);
+				pokemon.setAbility('toughclaws', pokemon, true);
+				this.add('-activate', pokemon, 'ability: Tough Claws');
+				this.boost({atk: 1});
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && user.baseSpecies.num === 6 && (move.type === 'Dragon' || move.type === 'Fire')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'soak' || move.id === 'magicpowder') {
+				this.add('-immune', pokemon, '[from] item: Charizardite Shard X');
+				return null;
+			}
+		},
+		itemUser: ["Charizard"],
+		num: -1011,
+		gen: 9,
+		desc: "Charizard: Becomes Dragon-type, Ability: Tough Claws, +1 Atk, 1.2x Dragon/Fire power.",
+	},	
+	charizarditeshardy: {
+		name: "Charizardite Shard Y",
+		spritenum: 658,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Charizard') return false;
+			return true;
+		},
+		onSwitchIn(pokemon) {
+			const type = pokemon.hpType;
+			if (pokemon.baseSpecies.baseSpecies === 'Charizard') {			
+				this.add('-item', pokemon, 'Charizardite Shard Y');
+				this.add('-anim', pokemon, "Cosmic Power", pokemon);
+				if (type && type !== '???') {
+					if (!pokemon.setType('Fire')) return;
+					this.add('-start', pokemon, 'typechange', 'Fire', '[from] item: Charizardite Shard Y');
+				}
+				this.add('-message', `${pokemon.name}'s Charizardite Shard Y changed its type!`);
+				pokemon.setAbility('drought', pokemon, true);
+				this.boost({spa: 1});
+			}
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && user.baseSpecies.num === 6 && (move.type === 'Flying' || move.type === 'Fire')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'soak' || move.id === 'magicpowder') {
+				this.add('-immune', pokemon, '[from] item: Charizardite Shard Y');
+				return null;
+			}
+		},
+		itemUser: ["Charizard"],
+		num: -1012,
+		gen: 9,
+		desc: "Charizard: Becomes Fire-type, Ability: Drought, +1 SpA, 1.2x Fire/Flying power.",
+	},	
+	oddkeystone: {
+		name: "Odd Keystone",
+		spritenum: 390,
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.name === 'Spiritomb') {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fairy' && defender.baseSpecies.baseSpecies === 'Spiritomb') {
+				this.debug('Odd Keystone weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fairy' && defender.baseSpecies.baseSpecies === 'Spiritomb') {
+				this.debug('Odd Keystone weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['healblock'] && pokemon.baseSpecies.baseSpecies === 'Spiritomb') {
+				this.add('-activate', pokemon, 'item: Odd Keystone');
+				pokemon.removeVolatile('healblock');
+				this.add('-end', pokemon, 'move: Heal Block', '[from] item: Odd Keystone');
+			}
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'healblock' && target.baseSpecies.baseSpecies === 'Spiritomb') {
+				this.add('-immune', target, 'healblock', '[from] item: Odd Keystone');
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'healblock' && pokemon.baseSpecies.baseSpecies === 'Spiritomb') {
+				this.add('-immune', pokemon, '[from] item: Odd Keystone');
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target, source, effect) {
+			if (['healblock'].includes(status.id)) {
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'item: Odd Keystone', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Spiritomb') return false;
+			return true;
+		},
+		itemUser: ["Spiritomb"],
+		num: -1029,
+		gen: 8,
+		desc: "If held by Spiritomb: Heal 12.5% per turn, 50% damage from Fairy attacks, immune to Heal Block.",
+	},
+	mithrilarmor: {
+		name: "Mithril Armor",
+		spritenum: 390,
+		fling: {
+			basePower: 80,
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			return this.chainModify(1.2);
+		},
+		onModifyMove(move) {
+			move.willCrit = false;
+		},
+		onCriticalHit: false,
+		onSourceCriticalHit: false,
+		num: -1030,
+		gen: 8,
+		desc: "(Mostly functional placeholder) Holder is immune to critical hits and has 1.2x Defense, but its own moves can't crit.",
+	},
+	tiedyeband: {
+		name: "Tie-Dye Band",
+		spritenum: 390,
+		fling: {
+			basePower: 30,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(1.5);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (pokemon.hasType(this.dex.moves.get(moveSlot.move).type) && this.dex.moves.get(moveSlot.move).category !== 'Status') {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onBeforeMovePriority: 9,
+		onBeforeMove(pokemon, target, move) {
+			if (pokemon.hasType(move.type) && move.category !== 'Status') {
+				this.add('cant', pokemon, 'item: Tie-Dye Band');
+				return false;
+			}
+		},
+		num: -1031,
+		gen: 8,
+		desc: "Holder's moves deal 50% more damage, but it can't select attacking moves of its type.",
+	},
+	herosbubble: {
+		name: "Hero's Bubble",
+		spritenum: 390,
+		fling: {
+			basePower: 30,
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water' && 
+				 attacker.baseSpecies.baseSpecies === 'Palafin' && 
+				 attacker.species.forme !== 'Hero') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water' && 
+				 attacker.baseSpecies.baseSpecies === 'Palafin' && 
+				 attacker.species.forme !== 'Hero') {
+				return this.chainModify(2);
+			}
+		},
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if ((move.type === 'Dark' || move.type === 'Fighting') && 
+				 defender.baseSpecies.baseSpecies === 'Palafin' && 
+				 defender.species.forme === 'Hero') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if ((move.type === 'Dark' || move.type === 'Fighting') && 
+				 defender.baseSpecies.baseSpecies === 'Palafin' && 
+				 defender.species.forme === 'Hero') {
+				return this.chainModify(0.5);
+			}
+		},
+		itemUser: ["Palafin"],
+		num: -1032,
+		gen: 8,
+		desc: "If Palafin-Zero: 2x Water power. If Palafin-Hero: takes 50% damage from Dark and Fighting.",
+	},
+	sandclock: {
+		name: "Sand Clock",
+		spritenum: 390,
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Sand Clock');
+			this.add('-message', `${pokemon.name}'s is under the effects of Sand!`);
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (!this.field.isWeather('sandstorm') && pokemon.hasType('Rock')) {
+				return this.chainModify(1.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.transformed) return;
+			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+			if (pokemon.hasAbility('protocrysalis') && !pokemon.volatiles['protocrysalis'] && !this.field.isWeather('sandstorm') && pokemon.useItem()) {
+				pokemon.addVolatile('protocrysalis');
+			}
+		},
+		// All other effects coded in the moves and abilities themselves
+		num: -1033,
+		gen: 8,
+		desc: "Holder is considered to be under the effects of Sandstorm.",
+	},
+	snowglobe: {
+		name: "Snow Globe",
+		spritenum: 390,
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Snow Globe');
+			this.add('-message', `${pokemon.name}'s is under the effects of Snow!`);
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (!this.field.isWeather('snow') && pokemon.hasType('Ice')) {
+				return this.chainModify(1.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.transformed) return;
+			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+			if (pokemon.hasAbility('protostasis') && !pokemon.volatiles['protostasis'] && !this.field.isWeather('snow') && pokemon.useItem()) {
+				pokemon.addVolatile('protostasis');
+			}
+		},
+		// All other effects coded in the moves and abilities themselves
+		num: -1034,
+		gen: 8,
+		desc: "Holder is considered to be under the effects of Snow.",
+	},
+	handmirror: {
+		name: "Hand Mirror",
+		spritenum: 390,
+		fling: {
+			basePower: 30,
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hasType(source.getTypes())) {
+				return this.chainModify(0.66);
+			}
+		},
+		num: -1035,
+		gen: 8,
+		desc: "Holder takes 2/3 damage from foes that share a type.",
+	},
+
+// unchanged items
 	boosterenergy: {
 		name: "Booster Energy",
 		spritenum: 0, // TODO
@@ -689,151 +797,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		num: 1880,
 		desc: "Activates the Paradox Abilities. Single use.",
-		gen: 8,
+		gen: 9,
 	},
-	airfreshener: {
-		name: "Air Freshener",
-		spritenum: 383,
-		fling: {
-			basePower: 30,
-		},
-		onHit(pokemon, source, move) {
-			if (move.flags['wind']) {
-				this.add('-activate', source, 'move: Aromatherapy');
-				for (const ally of source.side.pokemon) {
-					if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
-						continue;
-					}
-					ally.cureStatus();
-				}
-			}
-		},		
-		desc: "Holder's wind-based attacks heal the party's status.",
-		num: -1009,
-		gen: 8,
-	},
-	dancingshoes: {
-		name: "Dancing Shoes",
-		spritenum: 390,
-		onSwitchIn(pokemon) {
-			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
-				pokemon.formeChange('Meloetta-Pirouette');
-				if (pokemon.hasAbility('trace')) {
-					let oldAbility = pokemon.setAbility('noguard', pokemon, 'noguard', true);
-					if (oldAbility) {
-						this.add('-activate', pokemon, 'ability: No Guard', oldAbility, '[of] ' + pokemon);
-					}
-				}
-			}
-		},
-		onTryHitPriority: 1,
-		onTryHit(target, source, move) {
-			if (target !== source && move.flags['sound']) {
-				if (!this.boost({atk: 1})) {
-					this.add('-immune', target, '[from] item: Dancing Shoes');
-				}
-				return null;
-			}
-		},
-		onAllyTryHitSide(target, source, move) {
-			if (target === this.effectState.target || target.side !== source.side) return;
-			if (move.flags['sound']) {
-				this.boost({atk: 1}, this.effectState.target);
-			}
-		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Meloetta') return false;
-			return true;
-		},
-		itemUser: ["Meloetta"],
-		num: -1010,
-		gen: 8,
-		desc: "If held by Meloetta: Pirouette Forme on entry, hazard immunity, Sound immunity, +1 Attack when hit by Sound.",
-	},
-	charizarditeshardx: {
-		name: "Charizardite Shard X",
-		spritenum: 658,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Charizard') return false;
-			return true;
-		},
-		onSwitchIn(pokemon) {
-			const type = pokemon.hpType;
-			if (pokemon.baseSpecies.baseSpecies === 'Charizard') {			
-				this.add('-item', pokemon, 'Charizardite Shard X');
-				this.add('-anim', pokemon, "Cosmic Power", pokemon);
-				if (type && type !== '???') {
-					if (!pokemon.setType('Dragon')) return;
-					this.add('-start', pokemon, 'typechange', 'Dragon', '[from] item: Charizardite Shard X');
-				}
-				this.add('-message', `${pokemon.name}'s Charizardite Shard X changed its type!`);
-				let oldAbility = pokemon.setAbility('toughclaws', pokemon, 'toughclaws', true);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Tough Claws', oldAbility, '[of] ' + pokemon);
-				}
-				this.boost({atk: 1});
-			}
-		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.num === 6 && (move.type === 'Dragon' || move.type === 'Fire')) {
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Charizardite Shard X');
-				return null;
-			}
-		},
-		forcedForme: "Charizard",
-		itemUser: ["Charizard"],
-		num: -1011,
-		gen: 8,
-		desc: "Charizard: Becomes Dragon-type, Ability: Tough Claws, +1 Atk, 1.2x Dragon/Fire power.",
-	},	
-	charizarditeshardy: {
-		name: "Charizardite Shard Y",
-		spritenum: 658,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Charizard') return false;
-			return true;
-		},
-		onSwitchIn(pokemon) {
-			const type = pokemon.hpType;
-			if (pokemon.baseSpecies.baseSpecies === 'Charizard') {			
-				this.add('-item', pokemon, 'Charizardite Shard Y');
-				this.add('-anim', pokemon, "Cosmic Power", pokemon);
-				if (type && type !== '???') {
-					if (!pokemon.setType('Fire')) return;
-					this.add('-start', pokemon, 'typechange', 'Fire', '[from] item: Charizardite Shard Y');
-				}
-				this.add('-message', `${pokemon.name}'s Charizardite Shard Y changed its type!`);
-				let oldAbility = pokemon.setAbility('drought', pokemon, 'drought', true);
-				if (oldAbility) {
-					this.add('-activate', pokemon, 'ability: Drought', oldAbility, '[of] ' + pokemon);
-				}
-				this.boost({spa: 1});
-			}
-		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (move && user.baseSpecies.num === 6 && (move.type === 'Flying' || move.type === 'Fire')) {
-				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Charizardite Shard Y');
-				return null;
-			}
-		},
-		forcedForme: "Charizard",
-		itemUser: ["Charizard"],
-		num: -1012,
-		gen: 8,
-		desc: "Charizard: Becomes Fire-type, Ability: Drought, +1 SpA, 1.2x Fire/Flying power.",
-	},	
 	electricseed: {
 		name: "Electric Seed",
 		spritenum: 664,
@@ -977,468 +942,5 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 884,
 		gen: 7,
 		desc: "If the terrain is Grassy Terrain, raises holder's Defense by 1 stage. Single use.",
-	},
-	pixieplate: {
-		inherit: true,
-		isNonstandard: null,
-	},
-// new stuff should start numbering at -1029
-
-// Tera Shards
-	bugterashard: {
-		name: "Bug Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Bug')) return;
-				this.add('-start', pokemon, 'typechange', 'Bug', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1013,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Bug, on switch-in.",
-	},	
-	darkterashard: {
-		name: "Dark Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Dark')) return;
-				this.add('-start', pokemon, 'typechange', 'Dark', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1014,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Dark, on switch-in.",
-	},	
-	dragonterashard: {
-		name: "Dragon Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Dragon')) return;
-				this.add('-start', pokemon, 'typechange', 'Dragon', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1028,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Dragon, on switch-in.",
-	},	
-	electricterashard: {
-		name: "Electric Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Electric')) return;
-				this.add('-start', pokemon, 'typechange', 'Electric', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1015,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Electric, on switch-in.",
-	},	
-	fairyterashard: {
-		name: "Fairy Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Fairy')) return;
-				this.add('-start', pokemon, 'typechange', 'Fairy', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1008,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Fairy, on switch-in.",
-	},	
-	fightingterashard: {
-		name: "Fighting Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Fighting')) return;
-				this.add('-start', pokemon, 'typechange', 'Fighting', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1016,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Fighting, on switch-in.",
-	},	
-	fireterashard: {
-		name: "Fire Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Fire')) return;
-				this.add('-start', pokemon, 'typechange', 'Fire', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1017,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Fire, on switch-in.",
-	},	
-	flyingterashard: {
-		name: "Flying Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Flying')) return;
-				this.add('-start', pokemon, 'typechange', 'Flying', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1018,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Flying, on switch-in.",
-	},	
-	ghostterashard: {
-		name: "Ghost Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Ghost')) return;
-				this.add('-start', pokemon, 'typechange', 'Ghost', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1019,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Ghost, on switch-in.",
-	},	
-	grassterashard: {
-		name: "Grass Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Grass')) return;
-				this.add('-start', pokemon, 'typechange', 'Grass', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1020,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Grass, on switch-in.",
-	},	
-	groundterashard: {
-		name: "Ground Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Ground')) return;
-				this.add('-start', pokemon, 'typechange', 'Ground', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1021,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Ground, on switch-in.",
-	},	
-	iceterashard: {
-		name: "Ice Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Ice')) return;
-				this.add('-start', pokemon, 'typechange', 'Ice', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1022,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Ice, on switch-in.",
-	},	
-	normalterashard: {
-		name: "Normal Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Normal')) return;
-				this.add('-start', pokemon, 'typechange', 'Normal', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1007,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Normal, on switch-in.",
-	},	
-	poisonterashard: {
-		name: "Poison Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Poison')) return;
-				this.add('-start', pokemon, 'typechange', 'Poison', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1023,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Poison, on switch-in.",
-	},	
-	psychicterashard: {
-		name: "Psychic Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Psychic')) return;
-				this.add('-start', pokemon, 'typechange', 'Psychic', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1024,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Psychic, on switch-in.",
-	},	
-	rockterashard: {
-		name: "Rock Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Rock')) return;
-				this.add('-start', pokemon, 'typechange', 'Rock', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1025,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Rock, on switch-in.",
-	},	
-	steelterashard: {
-		name: "Steel Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Steel')) return;
-				this.add('-start', pokemon, 'typechange', 'Steel', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1026,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Steel, on switch-in.",
-	},	
-	waterterashard: {
-		name: "Water Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType('Water')) return;
-				this.add('-start', pokemon, 'typechange', 'Water', '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1027,
-		gen: 8,
-		desc: "Holder becomes its Tera Type, Water, on switch-in.",
-	},	
-	terashard: {
-		name: "Tera Shard",
-		spritenum: 658,
-		onTakeItem: false,
-		onStart(pokemon) {
-			const type = pokemon.hpType;
-			this.add('-item', pokemon, 'Tera Shard');
-			this.add('-anim', pokemon, "Cosmic Power", pokemon);
-			if (type && type !== '???') {
-				if (!pokemon.setType(type)) return;
-				this.add('-start', pokemon, 'typechange', type, '[from] item: Tera Shard');
-			}
-			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
-		},
-		onTryHit(pokemon, target, move) {
-			if (move.id === 'soak' || move.id === 'magicpowder') {
-				this.add('-immune', pokemon, '[from] item: Tera Shard');
-				return null;
-			}
-		},
-		num: -1000,
-		gen: 8,
-		desc: "Holder becomes its Tera Type (Hidden Power type) on switch-in.",
 	},
 };

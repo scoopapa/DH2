@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	decidueyehermit: {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
@@ -444,10 +444,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "Alternatium EX",
 	},
 	squawkabillyyellow: {
-		tier: "Alternatium EX",
-		doublesTier: "Alternatium EX",
-	},
-	squawkabilly: {
 		tier: "Alternatium EX",
 		doublesTier: "Alternatium EX",
 	},

@@ -6,7 +6,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(battle) {
 			this.add('-weather', 'Hail');
 			if (!battle.activeTurns) {
-				this.effectState.layers = 1; 
+				this.effectState.layers = 1;
 			}
 			this.effectState.stage = 0;
 		},
@@ -14,22 +14,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual() {
 			if (this.effectState.layers < 1) {
 				this.hint("The snow is falling gently.");
-			} else this.add('-weather', 'Hail', '[upkeep]');
+			} else { this.add('-weather', 'Hail', '[upkeep]'); }
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
 			this.effectState.stage++;
-			
+
 			if (this.effectState.stage > 2) {
-				if (this.randomChance(1,4)) {
-					this.effectState.layers = 0; 
+				if (this.randomChance(1, 4)) {
+					this.effectState.layers = 0;
 					this.hint("The snow falls gently.");
-				} else if (this.randomChance(1,4)) {
-					this.effectState.layers = 1; 
+				} else if (this.randomChance(1, 4)) {
+					this.effectState.layers = 1;
 					this.hint("Hail is falling on the battlefield.");
-				} else if (this.randomChance(1,4)) {
-					this.effectState.layers = 2; 
+				} else if (this.randomChance(1, 4)) {
+					this.effectState.layers = 2;
 					this.hint("The hail is getting treacherous.");
 				} else {
-					this.effectState.layers = 3; 
+					this.effectState.layers = 3;
 					this.hint("The hailstorm is blowing wildly!");
 				}
 				this.effectState.stage = 0;
@@ -43,13 +43,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnd() {
 			this.add('-weather', 'none');
 		},
-			
+
 	},
-	
+
 	sandstorm: {
 		name: 'Sandstorm',
 		effectType: 'Weather',
-		duration: 0, 
+		duration: 0,
 		// This should be applied directly to the stat before any of the other modifiers are chained
 		// So we give it increased priority.
 		onModifySpDPriority: 10,
@@ -73,7 +73,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
-	
+
 	sunnyday: {
 		name: 'SunnyDay',
 		effectType: 'Weather',
@@ -105,7 +105,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
-	
+
 	raindance: {
 		name: 'RainDance',
 		effectType: 'Weather',
@@ -133,7 +133,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-weather', 'none');
 		},
 	},
-	
+
 	frz: {
 		name: 'frz',
 		effectType: 'Status',
@@ -144,7 +144,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'frz');
 			}
 			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
-				target.formeChange('Shaymin', this.effect, true); 
+				target.formeChange('Shaymin', this.effect, true);
 			}
 			this.effectState.startTime = 2;
 			this.effectState.time = this.effectState.startTime;
@@ -156,7 +156,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				pokemon.cureStatus();
 				return;
 			}
-			this.effectState.time --;  
+			this.effectState.time--;
 			this.add('cant', pokemon, 'frz');
 			return false;
 		},
@@ -168,7 +168,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onSourceModifyCritRatio(target, source, move) {
 			if (!target) return;
-			return 5; 
+			return 5;
 		},
 		onCriticalHit(target, source, move) {
 			if (move.category !== 'Status') {

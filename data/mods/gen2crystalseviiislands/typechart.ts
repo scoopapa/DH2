@@ -23,7 +23,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 		HPivs: {atk: 30, def: 30, spd: 30},
 		HPdvs: {atk: 13, def: 13},
 	},
-  Cosmic: {
+	Cosmic: {
 		damageTaken: {
 			Bug: 1,
      	   Cosmic: 1,

@@ -1,10 +1,10 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	inherit: 'gen9',
 	teambuilderConfig: {
-        excludeStandardTiers: true,
-        customTiers: ['CC OU', 'CC Ubers'],
+		excludeStandardTiers: true,
+		customTiers: ['CC OU', 'CC Ubers'],
 	},
-	
+
 	getDamage(
 		pokemon: Pokemon, target: Pokemon, move: string | number | ActiveMove,
 		suppressMessages = false
@@ -99,15 +99,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.hint("Body Press uses Sp. Def boosts when Wonder Room is active.");
 				}
 			}
-		}
-		else if (move.useSourceAlternateDefensiveAsOffensive) {
+		} else if (move.useSourceAlternateDefensiveAsOffensive) {
 			attackStat = defenseStat;
 			// Swaps which defensive stat is used
 			// Good for special moves whose secondary is that they rely on Def, not SpD
 			if (attackStat === 'def') {
 				attackStat === 'spd';
-			}
-			else {
+			} else {
 				attackStat === 'def';
 			}
 			// Body press really wants to use the def stat,

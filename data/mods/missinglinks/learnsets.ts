@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	canonbell: {
 		learnset: {
 			acid: ["8V", "7L24", "7V", "6L23", "5L23", "4L23", "3L24"],
@@ -1167,7 +1168,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			laserfocus: ["8L1"],
 			mindreader: ["8L1"],
 			trickroom: ["8L1"],
-			grasswhistle: ["8L1"],
 			coaching: ["8L1"],
 			nastyplot: ["8L1"],
 		},
@@ -1405,7 +1405,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			faketears: ["8L1"],
 			knockoff: ["8L1"],
 			closecombat: ["8L1"],
-			throatchop: ["8L1"],
 			hyperbeam: ["8L1"],
 			gigaimpact: ["8L1"],
 			shadowball: ["8L1"],
@@ -1753,7 +1752,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			barrier: ["8L1"],
 			blizzard: ["8L1"],
 			cosmicpower: ["8L1"],
-			crosspoison: ["8L1"],
 			expandingforce: ["8L1"],
 			futuresight: ["8L1"],
 			guardswap: ["8L1"],
@@ -1771,7 +1769,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			mist: ["8L1"],
 			powerswap: ["8L1"],
 			psybeam: ["8L1"],
-			psychic: ["8L1"],
 			psychicterrain: ["8L1"],
 			psychocut: ["8L1"],
 			psyshock: ["8L1"],

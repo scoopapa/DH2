@@ -16,7 +16,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	  name: "Unfiltered",
-    },
+	},
 	quickstart: {
 	  shortDesc: "On switch-in, this Pokemon's Attack and Speed are doubled for 5 turns.",
 		onStart(pokemon) {
@@ -43,7 +43,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 		},
 	  name: "Quickstart",
-    },
+	},
 	holygrail: {
 	  shortDesc: "Good As Gold + Levitate",
 		onTryHit(target, source, move) {
@@ -54,7 +54,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isBreakable: true,
 	  name: "Holy Grail",
-    },
+	},
 	alldevouring: {
 	  shortDesc: "Beast Boost + Serene Grace",
 		onSourceAfterFaint(length, target, source, effect) {
@@ -81,7 +81,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.self?.chance) move.self.chance *= 2;
 		},
 	  name: "All-Devouring",
-    },
+	},
 	galvanicrelay: {
 	  shortDesc: "Mycelium Might + Transistor; Mycelium Might effects extend to Electric-type attacks.",
 		onModifyAtkPriority: 5,
@@ -110,7 +110,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	  name: "Galvanic Relay",
-    },
+	},
 	forestfury: {
 	  shortDesc: "Effects of Intimidate and Hyper Cutter + This Pokemon can't be statused by opponents.",
 		onStart(pokemon) {
@@ -150,7 +150,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	  name: "Forest Fury",
-    },
+	},
 	growthspurt: {
 	  shortDesc: "Effects of Harvest; Berry is restored at 1/3 or less of its max HP.",
 		onResidualOrder: 26,
@@ -170,13 +170,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!lastAttackedBy) return;
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
 			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3 && !target.item && this.dex.items.get(target.lastItem).isBerry) {
-					target.setItem(target.lastItem);
-					target.lastItem = '';
-					this.add('-item', target, target.getItem(), '[from] ability: Growth Spurt');
+				target.setItem(target.lastItem);
+				target.lastItem = '';
+				this.add('-item', target, target.getItem(), '[from] ability: Growth Spurt');
 			}
 		},
 	  name: "Growth Spurt",
-    },
+	},
 	lightdrive: {
 	  shortDesc: "Light Metal + Quark Drive. Quark Drive activates if the user is lighter.",
 		onModifyWeight(weighthg) {
@@ -290,7 +290,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor'].includes(effect.id)) {
+			if (['intimidate', 'forestfury', 'shockfactor'].includes(effect.id)) {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Scrap Rock');
 			}
@@ -610,13 +610,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'attract') return false;
 		},
 		onTryHit(pokemon, target, move) {
-			if (['attract','captivate','taunt'].includes(move.id)) {
+			if (['attract', 'captivate', 'taunt'].includes(move.id)) {
 				this.add('-immune', pokemon, '[from] ability: Primitive');
 				return null;
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor'].includes(effect.id)) {
+			if (['intimidate', 'forestfury', 'shockfactor'].includes(effect.id)) {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Primitive');
 			}
@@ -784,7 +784,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onEnd(pokemon) {
 				this.add('-ability', pokemon, 'Delayed Reaction');
 				this.add('-message', `${pokemon.name} ejected itself from the battle!`);
-				pokemon.switchFlag = true;				
+				pokemon.switchFlag = true;
 			},
 		},
 		name: "Delayed Reaction",
@@ -894,8 +894,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				} else {
 					this.damage(source.baseMaxhp / 8, source, target);
 				}
-			}
-			else if (!target.hp) {
+			} else if (!target.hp) {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
@@ -954,12 +953,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'ironmimic' && this.effectState.busted) {
-				const speciesid = /*pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' :*/ 'Iron Mimic-Busted';
+				const speciesid = /* pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' :*/ 'Iron Mimic-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 				pokemon.addVolatile('faultyphoton');
-				//pokemon.volatiles['faultyphoton'].fromBooster = true;
+				// pokemon.volatiles['faultyphoton'].fromBooster = true;
 			}
 		},
 		onEnd(pokemon) {
@@ -968,7 +967,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			noCopy: true,
-			onStart(pokemon, source, effect) {/*
+			onStart(pokemon, source, effect) { /*
 				if (effect?.id === 'boosterenergy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Faulty Photon', '[fromitem]');
@@ -1024,21 +1023,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts['def'] = 0;
 				boosts['spd'] = 0;
 				boosts['evasion'] = 0;
-			}
-			else if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+			} else if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
 				boosts['spa'] = 0;
 				boosts['accuracy'] = 0;
 			}
 		},
-		/*onSourceModifyAtkPriority: 6,
+		/* onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			if (attacker.getBestStat(false, true) !== 'atk') return;
-			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-										'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-										'weightoflife', 'circuitbreaker']) { 
+			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
+										'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
+										'weightoflife', 'circuitbreaker']) {
 				if (attacker.volatiles[paradox]) {
 					this.debug('Dyschronometria weaken');
 					return this.chainModify([3151, 4096]);
@@ -1049,9 +1047,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifySpA(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			if (attacker.getBestStat(false, true) !== 'spa') return;
-			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-										'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-										'weightoflife', 'circuitbreaker']) { 
+			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
+										'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
+										'weightoflife', 'circuitbreaker']) {
 					if (attacker.volatiles[paradox]) {
 					this.debug('Dyschronometria weaken');
 					return this.chainModify([3151, 4096]);
@@ -1063,9 +1061,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (['def','spd','spe'].includes(bestStat)) return;
 			if (bestStat === 'atk' && move.category !== 'Physical') return;
 			if (bestStat === 'spa' && move.category !== 'Special') return;
-			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
+			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
 										'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
-											'weightoflife', 'circuitbreaker']) { 
+											'weightoflife', 'circuitbreaker']) {
 					if (source.volatiles[paradox]) {
 					this.debug('Dyschronometria nullify');
 					return this.chainModify([3151, 4096]);
@@ -1077,9 +1075,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const bestStat = defender.getBestStat(false,true);
 			if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
 			if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
-			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
+			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
 									   'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
-											'weightoflife', 'circuitbreaker']) { 
+											'weightoflife', 'circuitbreaker']) {
 				if (defender.volatiles[paradox]) {
 					this.debug('Dyschronometria nullify');
 					return this.chainModify([5325, 4096]);
@@ -1091,37 +1089,37 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const bestStat = defender.getBestStat(false,true);
 			if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
 			if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
-			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
+			for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
 										'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
-											'weightoflife', 'circuitbreaker']) { 
+											'weightoflife', 'circuitbreaker']) {
 				if (defender.volatiles[paradox]) {
 					this.debug('Dyschronometria nullify');
 					return this.chainModify([5325, 4096]);
 				}
 			}
 		},*/
-		
+
 		onAnyModifyAtkPriority: 6,
 		onAnyModifyAtk(atk, attacker, defender, move) {
-			//this.effectState.bestStat = attacker.getBestStat(false, true);
+			// this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
 			if (defender == dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker']) { 
+				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
+					'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
+					'weightoflife', 'circuitbreaker']) {
 					if (attacker.volatiles[paradox]) {
 						this.debug('Dyschronometria weaken');
 						return this.chainModify([3151, 4096]);
 					}
 				}
 			} else if (attacker == dyschronoUser) {
-				const bestStat = defender.getBestStat(false,true);
+				const bestStat = defender.getBestStat(false, true);
 				if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
 				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
-												'weightoflife', 'circuitbreaker']) { 
+				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
+					'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
+					'weightoflife', 'circuitbreaker']) {
 					if (defender.volatiles[paradox]) {
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([5325, 4096]);
@@ -1131,25 +1129,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyModifySpAPriority: 5,
 		onAnyModifySpA(atk, attacker, defender, move) {
-			//this.effectState.bestStat = attacker.getBestStat(false, true);
+			// this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
 			if (defender == dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker']) { 
+				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
+					'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
+					'weightoflife', 'circuitbreaker']) {
 					if (attacker.volatiles[paradox]) {
 						this.debug('Dyschronometria weaken');
 						return this.chainModify([3151, 4096]);
 					}
 				}
 			} else if (attacker == dyschronoUser) {
-				const bestStat = defender.getBestStat(false,true);
+				const bestStat = defender.getBestStat(false, true);
 				if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
 				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
-												'weightoflife', 'circuitbreaker']) { 
+				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
+					'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
+					'weightoflife', 'circuitbreaker']) {
 					if (defender.volatiles[paradox]) {
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([5325, 4096]);
@@ -1293,7 +1291,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					continue;
 				}
 
-				if (curPoke.hasAbility(['naturalcure','rejuvenate'])) {
+				if (curPoke.hasAbility(['naturalcure', 'rejuvenate'])) {
 					// this.add('-message', "" + curPoke + " confirmed: could be Rejuvenate (and is)");
 					cureList.push(curPoke);
 				} else {
@@ -1415,7 +1413,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact'] && this.randomChance(3, 10)) {
-					source.trySetStatus('par', target);
+				source.trySetStatus('par', target);
 			}
 		},
 		name: "Shock Factor",
@@ -1522,7 +1520,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Heavy Metal + Protosynthesis. Protosynthesis activates if the user is heavier.",
 		onModifyWeightPriority: 1,
 		onModifyWeight(weighthg) {
-			return weighthg*2
+			return weighthg * 2;
 		},
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
@@ -1615,7 +1613,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 1,
 		num: 135,
 	},
-	//Vanilla abilities
+	// Vanilla abilities
 	naturalcure: {
 		onCheckShow(pokemon) {
 			// This is complicated
@@ -1655,7 +1653,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					continue;
 				}
 
-				if (curPoke.hasAbility(['naturalcure','rejuvenate'])) {
+				if (curPoke.hasAbility(['naturalcure', 'rejuvenate'])) {
 					// this.add('-message', "" + curPoke + " confirmed: could be Natural Cure (and is)");
 					cureList.push(curPoke);
 				} else {
@@ -1698,7 +1696,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 30,
 	},
-	//Mainly did this so we could try to see if Quark Drive would work
+	// Mainly did this so we could try to see if Quark Drive would work
 	protosynthesis: {
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);

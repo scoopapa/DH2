@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	rotomheat: {
 		learnset: {
 			allyswitch: ["8L1"],

@@ -19,7 +19,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	
+
 	smackdown: {
 		num: 479,
 		accuracy: 100,
@@ -35,12 +35,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onStart(pokemon) {
 				let applies = false;
 				if (
-					pokemon.hasType('Flying') || pokemon.hasAbility('levitate') 
-					|| pokemon.hasAbility('magneticwaves') || pokemon.hasAbility('leviflame') 
-					|| pokemon.hasAbility('levitability') || pokemon.hasAbility('stickyfloat') 
-					|| pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') 
-					|| pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('floatguise') 
-					|| pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram') || pokemon.hasAbility('floatingreach')
+					pokemon.hasType('Flying') || pokemon.hasAbility('levitate') ||
+					pokemon.hasAbility('magneticwaves') || pokemon.hasAbility('leviflame') ||
+					pokemon.hasAbility('levitability') || pokemon.hasAbility('stickyfloat') ||
+					pokemon.hasAbility('etativel') || pokemon.hasAbility('lighthearted') ||
+					pokemon.hasAbility('clearlyfloating') || pokemon.hasAbility('floatguise') ||
+					pokemon.hasAbility('aerialbreak') || pokemon.hasAbility('levimetal') || pokemon.hasAbility('hoverboard') || pokemon.hasAbility('levistatic') || pokemon.hasAbility('lovelessfloat') || pokemon.hasAbility('ghoulaway') || pokemon.hasAbility('spiritascent') || pokemon.hasAbility('testcram') || pokemon.hasAbility('floatingreach')
 				) applies = true;
 				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
 					this.field.getPseudoWeather('gravity')) applies = false;
@@ -91,11 +91,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		onModifyMove(move, source, target) {
-			if (target.hasAbility('magneticwaves') || target.hasAbility('leviflame') 
-					|| target.hasAbility('levitability') || target.hasAbility('stickyfloat') 
-					|| target.hasAbility('etativel') || target.hasAbility('lighthearted') 
-					|| target.hasAbility('clearlyfloating') || target.hasAbility('floatguise') 
-					|| target.hasAbility('aerialbreak') || target.hasAbility('levimetal') || target.hasAbility('hoverboard') || target.hasAbility('levistatic') || target.hasAbility('lovelessfloat') || target.hasAbility('ghoulaway') || target.hasAbility('spiritascent') || target.hasAbility('testcram') || target.hasAbility('floatingreach')) {
+			if (target.hasAbility('magneticwaves') || target.hasAbility('leviflame') ||
+					target.hasAbility('levitability') || target.hasAbility('stickyfloat') ||
+					target.hasAbility('etativel') || target.hasAbility('lighthearted') ||
+					target.hasAbility('clearlyfloating') || target.hasAbility('floatguise') ||
+					target.hasAbility('aerialbreak') || target.hasAbility('levimetal') || target.hasAbility('hoverboard') || target.hasAbility('levistatic') || target.hasAbility('lovelessfloat') || target.hasAbility('ghoulaway') || target.hasAbility('spiritascent') || target.hasAbility('testcram') || target.hasAbility('floatingreach')) {
 				move.ignoreAbility = true;
 			}
 		},

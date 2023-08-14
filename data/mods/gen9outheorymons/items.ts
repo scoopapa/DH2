@@ -1,5 +1,5 @@
 export const Items: {[k: string]: ModdedItemData} = {
-	//---------Gen 9 Moves----------//
+	// ---------Gen 9 Moves----------//
 	abilityshield: {
 		name: "Ability Shield",
 		shortDesc: "Holder's Ability can't be changed by any effect.",

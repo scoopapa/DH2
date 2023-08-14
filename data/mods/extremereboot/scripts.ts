@@ -1,10 +1,10 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	teambuilderConfig: {
-        // for micrometas to only show custom tiers
-        // excludeStandardTiers: true,
-        // only to specify the order of custom tiers
+		// for micrometas to only show custom tiers
+		// excludeStandardTiers: true,
+		// only to specify the order of custom tiers
 	},
-	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) { // used for 
+	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) { // used for
 		pokemon.activeMoveActions++;
 		let target = this.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
 		let baseMove = this.dex.getActiveMove(moveOrMoveName);
@@ -92,7 +92,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (this.faintMessages()) break;
 				if (waveCrasher.fainted) continue;
 				this.add('-activate', waveCrasher, 'ability: Wave Crasher');
-				const dancersTarget = target!.side !== waveCrasher.side && pokemon.side === waveCrasher.side ? target! : pokemon;
+				const dancersTarget = target.side !== waveCrasher.side && pokemon.side === waveCrasher.side ? target : pokemon;
 				this.runMove(move.id, waveCrasher, this.getTargetLoc(dancersTarget, waveCrasher), this.dex.abilities.get('wavecrasher'), undefined, true);
 			}
 		}
@@ -132,8 +132,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				(move.id === 'sunkiss' && pokemon.hasType('Summer')) || // Extreme Reboot code
 				(move.id === 'coldstare' && pokemon.hasType('Winter')) ||
 				(move.id === 'incantation' && pokemon.hasType('Folklore')) ||
-				(move.id === 'incantation' && pokemon.hasType('Folklore')))
-			{
+				(move.id === 'incantation' && pokemon.hasType('Folklore'))) {
 				accuracy = true; // bypasses ohko accuracy modifiers
 			} else {
 				accuracy = this.runEvent('Accuracy', target, pokemon, move, accuracy);

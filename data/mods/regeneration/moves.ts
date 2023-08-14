@@ -7,13 +7,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			return move.basePower * pokemon.hp / pokemon.maxhp;
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Seed Flare", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Seed Flare", target);
 		},
 		category: "Special",
 		name: "Vital Energy",
-      shortDesc: "Less power as user's HP decreases. Hits foe(s).",
+		shortDesc: "Less power as user's HP decreases. Hits foe(s).",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -28,16 +28,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 75,
 		category: "Physical",
 		name: "Smoky Torment",
-      shortDesc: "Applies the Torment effect on opponent.",
+		shortDesc: "Applies the Torment effect on opponent.",
 		pp: 10,
 		priority: 0,
 		flags: {},
 		onHit(pokemon) {
-         pokemon.addVolatile('torment');
+			pokemon.addVolatile('torment');
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Outrage", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Outrage", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -50,7 +50,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Special",
 		name: "Power Wash",
-      shortDesc: "Removes all hazards in the field. If any hazards are cleared, the user heals for 50% of its maximum HP.",
+		shortDesc: "Removes all hazards in the field. If any hazards are cleared, the user heals for 50% of its maximum HP.",
 		pp: 40,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -64,13 +64,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Power Wash', '[of] ' + source);
 					success = true;
 				}
-			} 
+			}
 			this.heal(Math.ceil(source.maxhp * 0.5), source);
 			return success;
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Volt Switch", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Volt Switch", target);
 		},
 		target: "normal",
 		type: "Water",
@@ -81,14 +81,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Special",
 		name: "Brainwave",
-      shortDesc: "Uses user's Special Defense stat as Special Attack in damage calculation.",
+		shortDesc: "Uses user's Special Defense stat as Special Attack in damage calculation.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		useSourceDefensiveAsOffensive: true,
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Expanding Force", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Expanding Force", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -100,7 +100,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Special",
 		name: "Ill Wind",
-      shortDesc: "Lowers the user's Sp. Atk by 1. Heals 25% of the damage done. Heals another 25% for each stage the user's Special Attack is lowered.",
+		shortDesc: "Lowers the user's Sp. Atk by 1. Heals 25% of the damage done. Heals another 25% for each stage the user's Special Attack is lowered.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1},
@@ -110,12 +110,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		drain: [1, 4],
-      onModifyMove(move, pokemon) {
-         move.drain += [pokemon.negativeBoosts().spa, 4]
-      },
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Icy Wind", target);
+		onModifyMove(move, pokemon) {
+			move.drain += [pokemon.negativeBoosts().spa, 4];
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Icy Wind", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -127,14 +127,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 75,
 		category: "Physical",
 		name: "Guardian Dive",
-      shortDesc: "Uses user's Defense stat as Attack in damage calculation.",
+		shortDesc: "Uses user's Defense stat as Attack in damage calculation.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		useSourceDefensiveAsOffensive: true,
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Acrobatics", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acrobatics", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -153,9 +153,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 10,
 			status: 'psn',
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Aqua Tail", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aqua Tail", target);
 		},
 		recoil: [33, 100],
 		secondary: null,
@@ -178,9 +178,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				delete move.selfSwitch;
 			}
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Aqua Tail", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aqua Tail", target);
 		},
 		selfSwitch: true,
 		secondary: null,
@@ -204,9 +204,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				delete move.selfSwitch;
 			}
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Flame Charge", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flame Charge", target);
 		},
 		selfSwitch: true,
 		secondary: null,
@@ -230,9 +230,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				delete move.selfSwitch;
 			}
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Volt Switch", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Volt Switch", target);
 		},
 		selfSwitch: true,
 		secondary: null,
@@ -241,7 +241,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'healreplacement'},
 		contestType: "Cool",
 	},
-// Gen 9 Moves
+	// Gen 9 Moves
 	hail: {
 		inherit: true,
 		isNonstandard: true,
@@ -314,7 +314,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	//PL:A
+	// PL:A
 	ragingfury: {
 		num: -1001,
 		accuracy: 100,
@@ -358,7 +358,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Crush Claw", target);
 		},
-		//critRatio: 2,
+		// critRatio: 2,
 		secondary: {
 			chance: 50,
 			onHit(target, source) {
@@ -640,7 +640,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
-	//SV
+	// SV
 	spicyextract: {
 		num: 858,
 		accuracy: true,
@@ -771,7 +771,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		isNonstandard: "Unobtainable",
 		name: "Wildbolt Storm",
-      shortDesc: "20% chance to paralyze foe(s).",
+		shortDesc: "20% chance to paralyze foe(s).",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
@@ -981,7 +981,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Jet Punch",
-      shortDesc: "Usually goes first.",
+		shortDesc: "Usually goes first.",
 		pp: 15,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
@@ -1521,7 +1521,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Hyper Drill",
-      shortDesc: "Bypasses protection without breaking it.",
+		shortDesc: "Bypasses protection without breaking it.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, mirror: 1},
@@ -1636,7 +1636,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "gigatonhammer",
 		},
 		condition: {
@@ -1648,9 +1648,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.addVolatile('gigatonhammer');
 		},
 		// onAfterMove(pokemon) {
-			// if (pokemon.removeVolatile('gigatonhammer')) {
-				// this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
-			// }
+		// if (pokemon.removeVolatile('gigatonhammer')) {
+		// this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
+		// }
 		// },
 		secondary: null,
 		target: "normal",
@@ -1694,7 +1694,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Aqua Cutter",
-		shortDesc: "High critical hit ratio.", 
+		shortDesc: "High critical hit ratio.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, slicing: 1},
@@ -1819,7 +1819,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!source.side.pokemon.filter(ally => ally.fainted).length) {
 				return false;
 			}
-			this.add("-message","Warning: this move is bugged. You can use the \"/switch\" command to pick which pokemon you want to revive. Syntax: /switch [number], where [number] is the position of the pokemon in your party that you want to revive.");
+			this.add("-message", "Warning: this move is bugged. You can use the \"/switch\" command to pick which pokemon you want to revive. Syntax: /switch [number], where [number] is the position of the pokemon in your party that you want to revive.");
 		},
 		slotCondition: 'revivalblessing',
 		// No this not a real switchout move

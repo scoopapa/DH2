@@ -9,12 +9,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
-			let heals = {
+			const heals = {
 				drain: 1,
 				leechseed: 1,
 				ingrain: 1,
 				aquaring: 1,
-				strengthsap: 1
+				strengthsap: 1,
 			};
 			if (heals[effect.id]) {
 				return Math.ceil((damage * 1.3) - 0.5);
@@ -26,7 +26,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	ecopy: {
 		onStart(pokemon) {
 			this.field.setTerrain('electricterrain');
-			
+
 			if (pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
 			)) {
@@ -43,9 +43,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				const ability = target.getAbility();
 				const additionalBannedAbilities = [
 					// Zen Mode included here for compatability with Gen 5-6
-					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 
+					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion',
 					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
-					'magicmissile', 'pillage', 'ecopy', 'lemegeton', 'modeshift', 
+					'magicmissile', 'pillage', 'ecopy', 'lemegeton', 'modeshift',
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -112,12 +112,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Moves <=60 BP: 1.5x power. If hitting something with such a move: changes their ability to Teaching Tech.",
 	},
 	justifiedsylve: {
-		onFoeTrapPokemon (pokemon) {
+		onFoeTrapPokemon(pokemon) {
 			if (pokemon.hasType('Dark') && this.isAdjacent(pokemon, this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
-		onFoeMaybeTrapPokemon (pokemon, source) {
+		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
 			if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
 				pokemon.maybeTrapped = true;
@@ -325,8 +325,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (!target.activeTurns) {
 				this.debug('Low Flight weaken');
 				return this.chainModify(0.5);
-			}
-			else if (target.hp >= target.maxhp) {
+			} else if (target.hp >= target.maxhp) {
 				this.debug('Low Flight weaken');
 				return this.chainModify(0.5);
 			}
@@ -357,12 +356,11 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	kalibersfury: {
 		shortDesc: "Any attacks with 60 bp or less get a +1 to priority.",
-		onModifyPriority: function(priority, pokemon, target, move, basePower) {
-			if (move.category !== "Status" && move.basePower <= 60)
-			return priority + 1;
+		onModifyPriority(priority, pokemon, target, move, basePower) {
+			if (move.category !== "Status" && move.basePower <= 60) { return priority + 1; }
 		},
 		id: "kalibersfury",
-		name: "Kaliber's Fury"
+		name: "Kaliber's Fury",
 	},
 	persistent: {
 		isNonstandard: null,
@@ -425,7 +423,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 241,
 	},
-	ultraimpulse: { 
+	ultraimpulse: {
 		shortDesc: "If this Pokemon is statused, its highest stat is 1.5x; ignores burn halving physical damage.",
 		name: "Ultra Impulse",
 		onModifyAtkPriority: 5,
@@ -519,7 +517,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ground' && !target.volatiles['smackdown'] ) {
+			if (target !== source && move.type === 'Ground' && !target.volatiles['smackdown']) {
 				this.add('-immune', target, '[from] ability: Leviflame');
 				return null;
 			}
@@ -663,8 +661,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Oblivious');
-			}
-			else if (effect.id === 'debilitate') {
+			} else if (effect.id === 'debilitate') {
 				delete boost.spa;
 				this.add('-immune', target, '[from] ability: Oblivious');
 			}
@@ -676,8 +673,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Inner Focus');
-			}
-			else if (effect.id === 'debilitate') {
+			} else if (effect.id === 'debilitate') {
 				delete boost.spa;
 				this.add('-immune', target, '[from] ability: Inner Focus');
 			}
@@ -689,8 +685,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Own Tempo');
-			}
-			else if (effect.id === 'debilitate') {
+			} else if (effect.id === 'debilitate') {
 				delete boost.spa;
 				this.add('-immune', target, '[from] ability: Own Tempo');
 			}
@@ -710,8 +705,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (effect.id === 'intimidate') {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Scrappy');
-			}
-			else if (effect.id === 'debilitate') {
+			} else if (effect.id === 'debilitate') {
 				delete boost.spa;
 				this.add('-immune', target, '[from] ability: Scrappy');
 			}
@@ -816,7 +810,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1020,
 	},
 	allseeingeye: {
-        onAfterMove(target, source, move) {
+		onAfterMove(target, source, move) {
 			if (move.type === 'Psychic' && move.category === 'Status') {
 				this.heal(target.baseMaxhp / 4);
 			}
@@ -863,7 +857,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	tacticschange: {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
-			if ((attacker.species.baseSpecies !== 'Aegislash' && !attacker.species.name.includes('Ancient'))|| attacker.transformed) return;
+			if ((attacker.species.baseSpecies !== 'Aegislash' && !attacker.species.name.includes('Ancient')) || attacker.transformed) return;
 			if (move.category === 'Status' && move.id !== 'foragerspoise') return;
 			const targetForme = (move.id === 'foragerspoise' ? 'Aegislash-Ancient' : 'Aegislash-Ancient-Hunter');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
@@ -872,7 +866,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Tactics Change",
 		shortDesc: "If Aegislash-Ancient, changes Forme to Ancient-Hunter before attacks and Ancient before King's Shield.",
 		rating: 5,
-		num: -117
+		num: -117,
 	},
 	refreshment: {
 		onSwitchIn(pokemon) {
@@ -901,7 +895,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
-		onModifyMove(move, pokemon) { 
+		onModifyMove(move, pokemon) {
 			let boosted = true;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
@@ -911,7 +905,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 			}
 			if (!move || move.target === 'self') return;
-			if (!boosted) return; 
+			if (!boosted) return;
 			if (!move.secondaries) {
 				move.secondaries = [];
 			}
@@ -965,8 +959,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
-			))
-			|| pokemon.species.id !== 'yaciancrowned' && pokemon.species.id !== 'porygrigus' && pokemon.species.id !== 'porymask' && pokemon.species.id !== 'hatterune' && pokemon.species.id !== 'hatamaskgalar') {
+			)) ||
+			pokemon.species.id !== 'yaciancrowned' && pokemon.species.id !== 'porygrigus' && pokemon.species.id !== 'porymask' && pokemon.species.id !== 'hatterune' && pokemon.species.id !== 'hatamaskgalar') {
 				this.effectState.gaveUp = true;
 			}
 		},
@@ -991,7 +985,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				target.setAbility('pillage', pokemon);
 				pokemon.setAbility(ability);
-				
+
 				this.add('-activate', pokemon, 'ability: Pillage');
 				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
 				this.add('-activate', pokemon, 'ability: ' + ability.name);
@@ -1025,16 +1019,16 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(atk, pokemon, move) {
 			if (pokemon.volatiles['dynamax']) return;
-			///////////PLACEHOLDER FOR STURDY MOLD
+			// /////////PLACEHOLDER FOR STURDY MOLD
 			let ignore = false;
 			for (const target of pokemon.side.foe.active) {
 				if (target.hasAbility('sturdymold')) {
 					ignore = true;
 					return;
 				}
-			} 
+			}
 			if ((move.target === 'allAdjacentFoes' || move.target === 'allAdjacent') && ignore) return;
-			///////////END PLACEHOLDER
+			// /////////END PLACEHOLDER
 			// PLACEHOLDER
 			this.debug('Fowl Behavior Sp. Atk Boost');
 			return this.chainModify(1.5);
@@ -1074,25 +1068,25 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 1003,
 	},
-"ironfistviabilities": {
-  shortDesc: "This Pokemon's punch-based attacks are SE against Fairy-types.",
-  onSourceEffectiveness(move, typeMod, type, pokemon) {
-    if (type == 'Fairy' && move.flags['punch']) {
-      return typeMod > 0 ? typeMod + 1 : 1;
-    } else if (typeMod < 0 && pokemon.hasType('Fairy')) {
-      return 0;
-    }
-  }, 
-  name: "Iron Fist (ViAbilities)",
-  rating: 3,
-  num: 89,     
-},
+	"ironfistviabilities": {
+		shortDesc: "This Pokemon's punch-based attacks are SE against Fairy-types.",
+		onSourceEffectiveness(move, typeMod, type, pokemon) {
+			if (type == 'Fairy' && move.flags['punch']) {
+				return typeMod > 0 ? typeMod + 1 : 1;
+			} else if (typeMod < 0 && pokemon.hasType('Fairy')) {
+				return 0;
+			}
+		},
+		name: "Iron Fist (ViAbilities)",
+		rating: 3,
+		num: 89,
+	},
 	klutzviabilities: {
 		desc: "The user's contact moves will remove the opponent's items, but it will lose its own item upon being hit by any attack.",
 		shortDesc: "Removes Item when making contact, loses Item when receiving contact.",
 		onAfterMoveSecondary(target, source, move) { // inspired to Knock Off
 			if (target !== source && move.flags['contact'] && source.hp) {
-				let item = target.takeItem();
+				const item = target.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
 				}
@@ -1100,7 +1094,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) { // inspired to Pickpocket
 			if (target !== source && move.flags['contact'] && source.hp) {
-				let item = target.takeItem();
+				const item = target.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
 				}

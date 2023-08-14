@@ -7,9 +7,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customTiers: ['Alternatium EX'],
 		customDoublesTiers: ['Alternatium EX'],
 	},
-	
-	init: function () {
-		//idk if this is needed
+
+	init() {
+		// idk if this is needed
 		this.modData('Moves', 'aerialace').flags.slicing = 1;
 		this.modData('Moves', 'aircutter').flags.slicing = 1;
 		this.modData('Moves', 'airslash').flags.slicing = 1;
@@ -31,8 +31,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Moves', 'solarblade').flags.slicing = 1;
 		this.modData('Moves', 'stoneaxe').flags.slicing = 1;
 		this.modData('Moves', 'xscissor').flags.slicing = 1;
-	
-		//alt ex
+
+		// alt ex
 		this.modData("Learnsets", "urshifu").learnset.stealthrock = ["8L1"];
 		this.modData("Learnsets", "urshifu").learnset.earthquake = ["8L1"];
 		this.modData("Learnsets", "urshifu").learnset.powertrip = ["8L1"];
@@ -51,7 +51,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'urshifu').learnset.focusblast;
 		delete this.modData('Learnsets', 'urshifu').learnset.aurasphere;
 		delete this.modData('Learnsets', 'urshifu').learnset.thunderpunch;
-		
+
 		this.modData("Learnsets", "salazzle").learnset.outrage = ["8L1"];
 		this.modData("Learnsets", "salazzle").learnset.thunderwave = ["8L1"];
 		this.modData("Learnsets", "salazzle").learnset.bulkup = ["8L1"];
@@ -83,7 +83,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'salazzle').learnset.venomdrench;
 		delete this.modData('Learnsets', 'salazzle').learnset.venoshock;
 		delete this.modData('Learnsets', 'salazzle').learnset.dragondance;
-		
+
 		this.modData("Learnsets", "zapdos").learnset.closecombat = ["8L1"];
 		this.modData("Learnsets", "zapdos").learnset.brickbreak = ["8L1"];
 		this.modData("Learnsets", "zapdos").learnset.vacuumwave = ["8L1"];
@@ -119,7 +119,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'zapdos').learnset.pluck;
 		delete this.modData('Learnsets', 'zapdos').learnset.skyattack;
 		delete this.modData('Learnsets', 'zapdos').learnset.heatwave;
-		
+
 		this.modData("Learnsets", "moltres").learnset.beakblast = ["8L1"];
 		this.modData("Learnsets", "moltres").learnset.superpower = ["8L1"];
 		this.modData("Learnsets", "moltres").learnset.turkeybarrage = ["8L1"];
@@ -137,28 +137,28 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'moltres').learnset.mysticalfire;
 		delete this.modData('Learnsets', 'moltres').learnset.sunnyday;
 		delete this.modData('Learnsets', 'moltres').learnset.skyattack;
-		
-		//csm2
+
+		// csm2
 		this.modData("Learnsets", "virizion").learnset.anchorshot = ["9L1"];
 		this.modData("Learnsets", "virizion").learnset.leechseed = ["9L1"];
 		this.modData("Learnsets", "virizion").learnset.taunt = ["9L1"];
 		this.modData("Learnsets", "virizion").learnset.hornleech = ["9L1"];
 		delete this.modData('Learnsets', 'virizion').learnset.closecombat;
-		
+
 		this.modData("Learnsets", "talonflame").learnset.lavaplume = ["9L1"];
 		delete this.modData('Learnsets', 'talonflame').learnset.uturn;
-		
-		//megas revisted
+
+		// megas revisted
 		this.modData("Learnsets", "houndoom").learnset.toxicspikes = ["6L1"];
 		this.modData("Learnsets", "houndoom").learnset.venoshock = ["6L1"];
 		this.modData("Learnsets", "houndoom").learnset.hex = ["6L1"];
-		
+
 		this.modData("Learnsets", "audino").learnset.discharge = ["6L1"];
 		this.modData("Learnsets", "audino").learnset.voltswitch = ["6L1"];
 		this.modData("Learnsets", "audino").learnset.chargebeam = ["6L1"];
 		this.modData("Learnsets", "audino").learnset.charge = ["6L1"];
 		this.modData("Learnsets", "audino").learnset.zapcannon = ["6L1"];
-		
+
 		this.modData("Learnsets", "pinsir").learnset.hail = ["6L1"];
 		this.modData("Learnsets", "pinsir").learnset.megahorn = ["6L1"];
 		this.modData("Learnsets", "pinsir").learnset.uturn = ["6L1"];
@@ -168,22 +168,22 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "pinsir").learnset.blizzard = ["6L1"];
 		this.modData("Learnsets", "pinsir").learnset.roost = ["6L1"];
 		this.modData("Learnsets", "pinsir").learnset.iciclespear = ["6L1"];
-		
+
 		this.modData("Learnsets", "sceptile").learnset.calmmind = ["6L1"];
 		this.modData("Learnsets", "sceptile").learnset.sludgewave = ["6L1"];
-		
+
 		this.modData("Learnsets", "swampert").learnset.sludgebomb = ["6L1"];
 		this.modData("Learnsets", "swampert").learnset.bulkup = ["6L1"];
 		this.modData("Learnsets", "swampert").learnset.toxicspikes = ["6L1"];
 		this.modData("Learnsets", "swampert").learnset.aquajet = ["6L1"];
 		this.modData("Learnsets", "swampert").learnset.gunkshot = ["6L1"];
 		this.modData("Learnsets", "swampert").learnset.poisonjab = ["6L1"];
-		
+
 		this.modData("Learnsets", "gallade").learnset.sacredsword = ["6L1"];
 		this.modData("Learnsets", "gallade").learnset.machpunch = ["6L1"];
-		
+
 		this.modData("Learnsets", "aggron").learnset.voltswitch = ["6L1"];
-		
+
 		this.modData("Learnsets", "blaziken").learnset.uturn = ["6L1"];
 		this.modData("Learnsets", "blaziken").learnset.spikes = ["6L1"];
 		this.modData("Learnsets", "blaziken").learnset.roost = ["6L1"];
@@ -198,20 +198,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "mewtwo").learnset.scald = ["6L1"];
 		this.modData("Learnsets", "mewtwo").learnset.surf = ["6L1"];
 		this.modData("Learnsets", "mewtwo").learnset.hydropump = ["6L1"];
-		
-		//metamons
+
+		// metamons
 		this.modData("Learnsets", "camerupt").learnset.spikes = ["8L1"];
 		this.modData("Learnsets", "camerupt").learnset.taunt = ["8L1"];
 		this.modData("Learnsets", "camerupt").learnset.magmastorm = ["8L1"];
-		
+
 		this.modData("Learnsets", "mesprit").learnset.swordsdance = ["8L1"];
 		this.modData("Learnsets", "mesprit").learnset.closecombat = ["8L1"];
 		this.modData("Learnsets", "mesprit").learnset.psychicfangs = ["8L1"];
 		this.modData("Learnsets", "mesprit").learnset.focusblast = ["8L1"];
 		this.modData("Learnsets", "mesprit").learnset.vacuumwave = ["8L1"];
-		
-		//triple threat
-		//grafaiai
+
+		// triple threat
+		// grafaiai
 		this.modData("Learnsets", "grafaiai").learnset.suckerpunch = ["9L1"];
 		this.modData("Learnsets", "grafaiai").learnset.nightslash = ["9L1"];
 		this.modData("Learnsets", "grafaiai").learnset.entrainment = ["9L1"];
@@ -226,8 +226,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "grafaiai").learnset.airslash = ["9L1"];
 		this.modData("Learnsets", "grafaiai").learnset.bounce = ["9L1"];
 		this.modData("Learnsets", "grafaiai").learnset.skyattack = ["9L1"];
-		
-		//iron jugulis
+
+		// iron jugulis
 		this.modData("Learnsets", "grafaiai").learnset.dracometeor = ["9L1"];
 		this.modData("Learnsets", "grafaiai").learnset.dragonpulse = ["9L1"];
 		this.modData("Learnsets", "grafaiai").learnset.dragondance = ["9L1"];
@@ -236,8 +236,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "grafaiai").learnset.defog = ["9L1"];
 		this.modData("Learnsets", "grafaiai").learnset.nastyplot = ["9L1"];
 		this.modData("Learnsets", "grafaiai").learnset.dragontail = ["9L1"];
-		
-		//vape
+
+		// vape
 		this.modData("Learnsets", "crabominable").learnset.jetpunch = ["8L1"];
 		this.modData("Learnsets", "crabominable").learnset.bulletpunch = ["8L1"];
 		this.modData("Learnsets", "crabominable").learnset.machpunch = ["8L1"];
@@ -246,7 +246,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "crabominable").learnset.slackoff = ["8L1"];
 		this.modData("Learnsets", "crabominable").learnset.swordsdance = ["8L1"];
 	},
-	
+
 
 	hitStepMoveHitLoop(targets, pokemon, move) { // Temporary name
 		const damage: (number | boolean | undefined)[] = [];
@@ -388,7 +388,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 		}
-		
+
 		if (move.ohko && !targets[0].hp) this.add('-ohko');
 
 		if (!damage.some(val => !!val || val === 0)) return damage;

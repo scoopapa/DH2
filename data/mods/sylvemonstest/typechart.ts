@@ -145,7 +145,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	"Fire": {
 		damageTaken: {
 			brn: 3,
-      hail: 3,
+			hail: 3,
 			"Bug": 2,
 			"Dark": 0,
 			"Dragon": 0,
@@ -419,7 +419,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	},
 	"Water": {
 		damageTaken: {
-    hail: 3,
+			hail: 3,
 			"Bug": 0,
 			"Dark": 0,
 			"Dragon": 0,

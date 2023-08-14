@@ -1,5 +1,5 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	//Custom tiers are "RDex Uber", "RDex OU", "RDex UUBL", and "RDex UU" (and "RDex LC" and "RDex NFE")
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	// Custom tiers are "RDex Uber", "RDex OU", "RDex UUBL", and "RDex UU" (and "RDex LC" and "RDex NFE")
 	pichu: {
 		tier: "LLC",
 	},

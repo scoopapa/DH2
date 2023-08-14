@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	zmoveclause: {
 		effectType: 'ValidatorRule',
 		name: 'Z-Move Clause',
@@ -46,7 +46,7 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onSwitchIn(pokemon) {
 			let species = this.dex.species.get(pokemon.species.name);
-			let switchedIn = pokemon.switchedIn;
+			const switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
 				species = this.dex.species.get(pokemon.illusion.species.name);
 				// console.log(pokemon.illusion.name + " is being reported");
@@ -88,7 +88,7 @@ export const Formats: {[k: string]: FormatData} = {
 					this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
 					if (!target.switchedIn) {
 						target.switchedIn = true;
-						let species = this.dex.species.get(target.species.name);
+						const species = this.dex.species.get(target.species.name);
 						let abilities = species.abilities[0];
 						if (species.abilities[1]) {
 							abilities += ` / ${species.abilities[1]}`;

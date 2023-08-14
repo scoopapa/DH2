@@ -187,7 +187,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 
-// restored official moves
+	// restored official moves
 
 	baddybad: { // Gen VII Baddy Bad for Curski
 		inherit: true,

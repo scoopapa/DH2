@@ -1,6 +1,6 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	init: function(){
+	init() {
 		this.modData('Moves', 'aerialace').flags.slicing = 1;
 		this.modData('Moves', 'aircutter').flags.slicing = 1;
 		this.modData('Moves', 'airslash').flags.slicing = 1;
@@ -22,7 +22,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Moves', 'solarblade').flags.slicing = 1;
 		this.modData('Moves', 'stoneaxe').flags.slicing = 1;
 		this.modData('Moves', 'xscissor').flags.slicing = 1;
-		
+
 		this.modData('Moves', 'aircutter').flags.wind = 1;
 		this.modData('Moves', 'bleakwindstorm').flags.wind = 1;
 		this.modData('Moves', 'blizzard').flags.wind = 1;
@@ -181,7 +181,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 		}
-		
+
 		if (move.ohko && !targets[0].hp) this.add('-ohko');
 
 		if (!damage.some(val => !!val || val === 0)) return damage;
@@ -297,7 +297,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		return true;
 	},
-	
+
 	side: {
 		// For Revival Blessing Part 1
 		getChoice() {
@@ -352,7 +352,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					while (this.choice.switchIns.has(slot) || this.pokemon[slot].fainted) slot++;
 				}
 			} else {
-				slot = parseInt(slotText!) - 1;
+				slot = parseInt(slotText) - 1;
 			}
 			if (isNaN(slot) || slot < 0) {
 				// maybe it's a name/species id!
@@ -378,7 +378,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (this.slotConditions[pokemon.position]['revivalblessing']) {
 				if (!targetPokemon.fainted) {
-						return this.emitChoiceError(`Can't switch: You have to pass to a fainted Pokémon`);
+					return this.emitChoiceError(`Can't switch: You have to pass to a fainted Pokémon`);
 				}
 				// Should always subtract, but stop at 0 to prevent errors.
 				this.choice.forcedSwitchesLeft = this.battle.clampIntRange(this.choice.forcedSwitchesLeft - 1, 0);
@@ -431,7 +431,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			} as ChosenAction);
 
 			return true;
-		}
+		},
 	},
 	queue: {
 		// For Revival Blessing Part 2
@@ -552,6 +552,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				entry.reviving = this.isActive && !!this.side.slotConditions[this.position]['revivalblessing'];
 			}
 			return entry;
-		}
+		},
 	},
 };

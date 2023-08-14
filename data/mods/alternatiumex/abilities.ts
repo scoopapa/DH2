@@ -115,7 +115,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: -5,
 	},
-	splitsystem: { //Not used in this mod, but the code can be helpful
+	splitsystem: { // Not used in this mod, but the code can be helpful
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.type === "Dark") {
@@ -352,7 +352,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	snowcloak: {
 		onBoost(boost, target, source, effect) {
-			if(!this.field.isWeather('snow') || !this.field.isWeather('hail')) return;
+			if (!this.field.isWeather('snow') || !this.field.isWeather('hail')) return;
 			let showMsg = false;
 			let i: BoostName;
 			for (i in boost) {
@@ -381,7 +381,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	energyloop: {
 		onPrepareHit(source, target, move) {
-			if(move?.category !== 'Status') {
+			if (move?.category !== 'Status') {
 				this.heal(target.baseMaxhp / 16);
 			}
 		},
@@ -480,7 +480,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifyDamage(damage, source, target, move) {
 			if (
-			((move.type === 'Fighting' || move.type === 'Normal') && target.hasType('Ghost')) ||
+				((move.type === 'Fighting' || move.type === 'Normal') && target.hasType('Ghost')) ||
 			move.type === 'Poison' && target.hasType('Steel') ||
 			move.type === 'Ground' && target.hasType('Flying') ||
 			move.type === 'Ghost' && target.hasType('Normal') ||
@@ -499,8 +499,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	rewind: {
 		onSwitchOut(pokemon) {
-            this.useMove('Recycle', pokemon);
-        },
+			this.useMove('Recycle', pokemon);
+		},
 		name: "Rewind",
 		shortDesc: "(Semifunctional placeholder) This Pokemon restores its held item upon switching out.",
 		rating: 3.5,
@@ -550,24 +550,24 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -19,
 	},
 	windupkey: {
-        onAnyFaintPriority: 1,
-        onAnyFaint(target, source) {
-                const boosts: SparseBoostsTable = {};
-                let i: BoostName;
-                for (i in source.boosts) {
-                    if (source.boosts[i] < 0) {
-                        boosts[i] = 0;
-                    }
-                }
-                source.setBoost(boosts);
-                this.add('-clearnegativeboost', source, '[silent]');
-                this.add('-message', source.name + "'s negative stat changes were removed!");
-        },
-        name: "Wind-up Key",
-        shortDesc: "This Pokemon's negative stat changes are removed when a Pokemon faints.",
-        rating: 3,
-        num: -20,
-    },
+		onAnyFaintPriority: 1,
+		onAnyFaint(target, source) {
+			const boosts: SparseBoostsTable = {};
+			let i: BoostName;
+			for (i in source.boosts) {
+				if (source.boosts[i] < 0) {
+					boosts[i] = 0;
+				}
+			}
+			source.setBoost(boosts);
+			this.add('-clearnegativeboost', source, '[silent]');
+			this.add('-message', source.name + "'s negative stat changes were removed!");
+		},
+		name: "Wind-up Key",
+		shortDesc: "This Pokemon's negative stat changes are removed when a Pokemon faints.",
+		rating: 3,
+		num: -20,
+	},
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock') {
@@ -630,13 +630,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	bubblemane: {
 		onAnyTryMove(target, source, effect) {
-            if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
-                this.attrLastMove('[still]');
+			if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
+				this.attrLastMove('[still]');
 				this.boost({spa: 1}, source);
-                this.add('cant', this.effectState.target, 'ability: Bubble Mane', effect, '[of] ' + target);
-                return false;
-            }
-        },
+				this.add('cant', this.effectState.target, 'ability: Bubble Mane', effect, '[of] ' + target);
+				return false;
+			}
+		},
 		name: "Bubble Mane",
 		shortDesc: "If a hazard move is used on this Pokemon, it fails and this Pokemon's Special Attack is raised by 1.",
 		rating: 3.5,
@@ -657,10 +657,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	reflectivesurface: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
-				this.add('-immune', target, '[from] ability: Reflective Surface')
-				if (this.runEvent('DragOut', source, target, move)){
-                        source.forceSwitchFlag = true;
-                    }
+				this.add('-immune', target, '[from] ability: Reflective Surface');
+				if (this.runEvent('DragOut', source, target, move)) {
+					source.forceSwitchFlag = true;
+				}
 				return null;
 			}
 		},
@@ -699,7 +699,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -27,
 	},
 	flock: {
-        onModifyAtkPriority: 5,
+		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Flying' && attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Flock boost');
@@ -727,7 +727,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					activated = true;
 				}
 				console.log(target.boosts);
-				this.boost({spe: target.boosts.spe}, pokemon)
+				this.boost({spe: target.boosts.spe}, pokemon);
 			}
 		},
 		name: "Costar",
@@ -772,7 +772,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	zerotohero: {
 		onTryAddVolatile(status, pokemon) {
 			if (pokemon.species.id !== 'palafin') return;
-            if (status.id === 'flinch' ||
+			if (status.id === 'flinch' ||
 				status.id === 'trapped' ||
 				status.id === 'partiallytrapped' ||
 				status.id === 'leechseed' ||
@@ -792,7 +792,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-immune', pokemon, '[from] ability: Zero to Hero');
 				return null;
 			}
-        },
+		},
 		onCheckShow(pokemon) {
 			if (target.species.id !== 'palafin') return;
 			// This is complicated
@@ -879,27 +879,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 278,
 	},
 	moody: {
-      shortDesc: "This Pokemon's lowest stat goes up by 1 every turn.",
-        onResidualOrder: 26,
-        onResidualSubOrder: 1,
-        onResidual(pokemon) {
-            if (pokemon.activeTurns) {
-            let statName = 'atk';
-            let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
-            let s: StatNameExceptHP;
-            for (s in pokemon.storedStats) {
-                if (pokemon.storedStats[s] < worstStat) {
-                    statName = s;
-                    worstStat = pokemon.storedStats[s];
-                }
-            }
-            this.boost({[statName]: 1}, pokemon);
-            }
-        },
-        name: "Moody",
-        rating: 3,
-        num: 141,
-    },
+		shortDesc: "This Pokemon's lowest stat goes up by 1 every turn.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				let statName = 'atk';
+				let worstStat = 3000; // The highest possible stat number (with boosts) is 2,676
+				let s: StatNameExceptHP;
+				for (s in pokemon.storedStats) {
+					if (pokemon.storedStats[s] < worstStat) {
+						statName = s;
+						worstStat = pokemon.storedStats[s];
+					}
+				}
+				this.boost({[statName]: 1}, pokemon);
+			}
+		},
+		name: "Moody",
+		rating: 3,
+		num: 141,
+	},
 	spikyandround: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
@@ -1011,7 +1011,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			} else if (!move.flags['flags']) {
 				thermofistBoost.atk = -1 * pokemon.boosts['atk'];
 				this.boost(thermofistBoost, pokemon, pokemon);
-            }
+			}
 		},
 		onUpdate(pokemon) {
 			const boost: SparseBoostsTable = {};
@@ -1129,15 +1129,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					pokemon.setItem('watergem');
 					break;
 				}
-			}			
+			}
 		},
 		name: "Gem Power",
 		shortDesc: "If this Pokemon has no item, it will gain a Gem based on the type it uses.",
 		rating: 1.5,
 		num: -36,
 	},
-	
-	//SV Ability Descriptions
+
+	// SV Ability Descriptions
 	quarkdrive: {
 		inherit: true,
 		condition: {
@@ -1234,8 +1234,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			},
 		},
 	},
-	
-	//Gen 8 Version of abilities
+
+	// Gen 8 Version of abilities
 	protean: {
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
@@ -1265,8 +1265,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: 234,
 	},
-	
-	//Rubber Armor Interaction
+
+	// Rubber Armor Interaction
 	galewings: {
 		inherit: true,
 		onModifyPriority(priority, pokemon, target, move) {

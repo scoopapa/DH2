@@ -1,10 +1,10 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	inherit: 'gen9',
 	teambuilderConfig: {
-        excludeStandardTiers: true,
-        customTiers: ['FEOU', 'FENFE', 'FELC'],
+		excludeStandardTiers: true,
+		customTiers: ['FEOU', 'FENFE', 'FELC'],
 	},
-	
+
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
@@ -15,12 +15,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return altForme.name;
 		}
 		if (item.name === "Salamencite" && pokemon.baseSpecies.name === "Amphamence") {
-			return "Amphamence-Mega-X"; 
+			return "Amphamence-Mega-X";
 		}
 		if (item.name === "Ampharosite" && pokemon.baseSpecies.name === "Amphamence") {
-			return "Amphamence-Mega-Y"; 
+			return "Amphamence-Mega-Y";
 		}
-		
+
 		return item.megaStone;
 	},
 
@@ -131,13 +131,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			for (const dancer of dancers) {
 				if (this.faintMessages()) break;
 				if (dancer.fainted) continue;
-				const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
+				const dancersTarget = target.side !== dancer.side && pokemon.side === dancer.side ? target : pokemon;
 				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.abilities.get(dancer.ability), undefined, true);
 			}
 		}
 		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 	},
-	
+
 	pokemon: {
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
@@ -189,5 +189,5 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
 		},
-    },
+	},
 };

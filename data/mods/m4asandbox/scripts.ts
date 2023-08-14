@@ -285,68 +285,68 @@ export const Scripts: ModdedBattleScriptsData = {
 			let pressureTargets;
 
 			switch (move.target) {
-				case 'all':
-				case 'foeSide':
-				case 'allySide':
-				case 'allyTeam':
-					if (!move.target.startsWith('foe')) {
-						targets.push(...this.allies());
-					}
-					if (!move.target.startsWith('ally')) {
-						targets.push(...this.foes());
-					}
-					if (targets.length && !targets.includes(target)) {
-						this.battle.retargetLastMove(targets[targets.length - 1]);
-					}
-					break;
-				case 'allAdjacent':
-					targets.push(...this.nearbyAllies());
-					// falls through
-				case 'allAdjacentFoes':
-					targets.push(...this.nearbyFoes());
-					if (targets.length && !targets.includes(target)) {
-						this.battle.retargetLastMove(targets[targets.length - 1]);
-					}
-					break;
-				case 'allies':
-					targets = this.allies();
-					break;
-				default:
-					const selectedTarget = target;
-					if (!target || (target.fainted && target.side !== this.side)) {
-						// If a targeted foe faints, the move is retargeted
-						const possibleTarget = this.battle.getRandomTarget(this, move);
-						if (!possibleTarget) return {targets: [], pressureTargets: []};
-						target = possibleTarget;
-					}
-					if (target.side.active.length > 1 && !move.tracksTarget) {
-						const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
+			case 'all':
+			case 'foeSide':
+			case 'allySide':
+			case 'allyTeam':
+				if (!move.target.startsWith('foe')) {
+					targets.push(...this.allies());
+				}
+				if (!move.target.startsWith('ally')) {
+					targets.push(...this.foes());
+				}
+				if (targets.length && !targets.includes(target)) {
+					this.battle.retargetLastMove(targets[targets.length - 1]);
+				}
+				break;
+			case 'allAdjacent':
+				targets.push(...this.nearbyAllies());
+				// falls through
+			case 'allAdjacentFoes':
+				targets.push(...this.nearbyFoes());
+				if (targets.length && !targets.includes(target)) {
+					this.battle.retargetLastMove(targets[targets.length - 1]);
+				}
+				break;
+			case 'allies':
+				targets = this.allies();
+				break;
+			default:
+				const selectedTarget = target;
+				if (!target || (target.fainted && target.side !== this.side)) {
+					// If a targeted foe faints, the move is retargeted
+					const possibleTarget = this.battle.getRandomTarget(this, move);
+					if (!possibleTarget) return {targets: [], pressureTargets: []};
+					target = possibleTarget;
+				}
+				if (target.side.active.length > 1 && !move.tracksTarget) {
+					const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
 								!((move.id.startsWith('solarb') || this.hasAbility('solarcore')) && this.battle.field.isWeather(['sunnyday', 'desolateland'])) &&
 								!(this.hasItem('powerherb') && move.id !== 'skydrop');
-						if (!isCharging) {
-							target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);
-						}
+					if (!isCharging) {
+						target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);
 					}
-					if (move.smartTarget) {
-						targets = this.getSmartTargets(target, move);
-						target = targets[0];
-					} else {
-						targets.push(target);
-					}
-					if (target.fainted) {
-						return {targets: [], pressureTargets: []};
-					}
-					if (selectedTarget !== target) {
-						this.battle.retargetLastMove(target);
-					}
+				}
+				if (move.smartTarget) {
+					targets = this.getSmartTargets(target, move);
+					target = targets[0];
+				} else {
+					targets.push(target);
+				}
+				if (target.fainted) {
+					return {targets: [], pressureTargets: []};
+				}
+				if (selectedTarget !== target) {
+					this.battle.retargetLastMove(target);
+				}
 
-					// Resolve apparent targets for Pressure.
-					if (move.pressureTarget) {
-						// At the moment, this is the only supported target.
-						if (move.pressureTarget === 'foeSide') {
-							pressureTargets = this.foes();
-						}
+				// Resolve apparent targets for Pressure.
+				if (move.pressureTarget) {
+					// At the moment, this is the only supported target.
+					if (move.pressureTarget === 'foeSide') {
+						pressureTargets = this.foes();
 					}
+				}
 			}
 
 			return {targets, pressureTargets: pressureTargets || targets};
@@ -360,20 +360,19 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.setStatus('');
 			if (this.volatiles['staccato']) {
 				this.volatiles['staccato'].busted = true;
-				this.removeVolatile('staccato')
+				this.removeVolatile('staccato');
 			}
 			return true;
 		},
 	},
 
-// SANDBOX CONTENT STARTS HERE
+	// SANDBOX CONTENT STARTS HERE
 
 	init() {
-		
 		// from main M4A
-		
+
 		for (const id in this.dataCache.Pokedex) {
-			let pokemon = this.dataCache.Pokedex[id];
+			const pokemon = this.dataCache.Pokedex[id];
 
 			// modding
 			if (pokemon.movepoolAdditions) {
@@ -384,7 +383,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// generating Megas
 			if (pokemon && pokemon.mega) {
-				const newMega = this.dataCache.Pokedex[pokemon.mega] = { name: pokemon.megaName };
+				const newMega = this.dataCache.Pokedex[pokemon.mega] = {name: pokemon.megaName};
 
 				pokemon.otherFormes = pokemon.otherFormes ? pokemon.otherFormes.concat([newMega.name]) : [pokemon.megaName];
 				pokemon.formeOrder = pokemon.formeOrder ? pokemon.formeOrder.concat([newMega.name]) : [pokemon.name, pokemon.megaName];
@@ -455,8 +454,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				else if (!this.modData('FormatsData', id).isNonstandard) this.modData('FormatsData', id).doublesTier = "Unranked";
 				*/
 			}
-		};
-		
+		}
+
 		// MnM4A
 		for (const i in this.data.Items) {
 			if (!this.data.Items[i].megaStone) continue;
@@ -663,7 +662,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!newMon) continue; // weeding out Pokémon that aren't new
 
 			if (newMon.copyData) {
-				let copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
+				const copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
 				if (!newMon.types && copyData.types) newMon.types = copyData.types;
 				if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
 				if (!newMon.abilities && copyData.abilities) newMon.abilities = copyData.abilities;
@@ -673,7 +672,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (!newMon.weightkg && copyData.weightkg) newMon.weightkg = copyData.weightkg;
 				if (!newMon.color && copyData.color) newMon.color = copyData.color;
 				if (!newMon.eggGroups && copyData.eggGroups) newMon.eggGroups = copyData.eggGroups;
-			} else if (!newMon.name.startsWith('Enamorus')) continue;
+			} else if (!newMon.name.startsWith('Enamorus')) { continue; }
 
 			if (!this.dataCache.Learnsets[id]) continue; // just in case
 			const movepoolAdditions = ["attract", "endure", "facade", "protect", "rest", "round", "sleeptalk", "snore", "substitute"];
@@ -805,7 +804,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		// @ts-ignore
-		let species: Species = this.getMixedSpecies(pokemon.species, pokemon.canMegaEvo);
+		const species: Species = this.getMixedSpecies(pokemon.species, pokemon.canMegaEvo);
 		species.isMega = true;
 		const side = pokemon.side;
 
@@ -833,7 +832,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 			}
 		} else {
-			let oSpecies = pokemon.m.originalSpecies;
+			const oSpecies = pokemon.m.originalSpecies;
 			// @ts-ignore
 			const oMegaSpecies = this.dex.species.get(species.originalMega);
 			pokemon.formeChange(species, pokemon.getItem(), true);
@@ -853,7 +852,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		return true;
 	},
 	getMixedSpecies(originalForme, megaForme) {
-		let originalSpecies = originalForme;
+		const originalSpecies = originalForme;
 		// @ts-ignore
 		const deltas = this.getMegaDeltas(this.dex.species.get(megaForme));
 		// @ts-ignore
@@ -899,7 +898,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	doGetMixedSpecies(speciesOrForme, deltas) {
 		if (!deltas) throw new TypeError("Must specify deltas!");
 		const preMegaForme = this.dex.species.get(speciesOrForme);
-		let species = this.dex.deepClone(preMegaForme);
+		const species = this.dex.deepClone(preMegaForme);
 		species.abilities = {'0': deltas.ability};
 		if (deltas.type === 'mono') {
 			species.types = [species.types[0]];
@@ -930,5 +929,5 @@ export const Scripts: ModdedBattleScriptsData = {
 		species.deltas = deltas; // preserving deltas for potential form change compatibility
 		return species;
 	},
-	
+
 };

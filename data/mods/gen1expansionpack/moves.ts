@@ -38,24 +38,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		ignoreEvasion: true,
 		condition: {
 			duration: 2,
-			durationCallback: function (target, source, effect) {
+			durationCallback(target, source, effect) {
 				return this.random(3, 4);
 			},
-			onStart: function (pokemon) {
+			onStart(pokemon) {
 				this.effectState.totalDamage = 0;
 				this.effectState.lastDamage = 0;
 				this.add('-start', pokemon, 'Bide');
 			},
-			onHit: function (target, source, move) {
+			onHit(target, source, move) {
 				if (source && source !== target && move.category !== 'Physical' && move.category !== 'Special') {
-					let damage = this.effectState.totalDamage;
+					const damage = this.effectState.totalDamage;
 					this.effectState.totalDamage += damage;
 					this.effectState.lastDamage = damage;
 					this.effectState.sourcePosition = source.position;
 					this.effectState.sourceSide = source.side;
 				}
 			},
-			onDamage: function (damage, target, source, move) {
+			onDamage(damage, target, source, move) {
 				if (!source || source.side === target.side) return;
 				if (!move || move.effectType !== 'Move') return;
 				if (!damage && this.effectState.lastDamage > 0) {
@@ -66,7 +66,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.effectState.sourcePosition = source.position;
 				this.effectState.sourceSide = source.side;
 			},
-			onAfterSetStatus: function (status, pokemon) {
+			onAfterSetStatus(status, pokemon) {
 				// Sleep, freeze, and partial trap will just pause duration.
 				if (pokemon.volatiles['flinch']) {
 					this.effectState.duration++;
@@ -81,14 +81,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onBeforeMove: function (pokemon) {
+			onBeforeMove(pokemon) {
 				if (this.effectState.duration === 1) {
 					if (!this.effectState.totalDamage) {
 						this.add('-fail', pokemon);
 						return false;
 					}
 					this.add('-end', pokemon, 'Bide');
-					let target = this.effectState.sourceSide.active[this.effectState.sourcePosition];
+					const target = this.effectState.sourceSide.active[this.effectState.sourcePosition];
 					// @ts-ignore
 					this.moveHit(target, pokemon, 'bide', {damage: this.effectState.totalDamage * 2});
 					return false;
@@ -96,7 +96,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-activate', pokemon, 'Bide');
 				return false;
 			},
-			onDisableMove: function (pokemon) {
+			onDisableMove(pokemon) {
 				if (!pokemon.hasMove('bide')) {
 					return;
 				}
@@ -707,16 +707,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			// Rage lock
 			duration: 255,
-			onStart: function (target, source, effect) {
+			onStart(target, source, effect) {
 				this.effectState.move = 'rage';
 			},
 			onLockMove: 'rage',
-			onTryHit: function (target, source, move) {
+			onTryHit(target, source, move) {
 				if (target.boosts.atk < 6 && move.id === 'disable') {
 					this.boost({atk: 1});
 				}
 			},
-			onHit: function (target, source, move) {
+			onHit(target, source, move) {
 				if (target.boosts.atk < 6 && move.category !== 'Status') {
 					this.boost({atk: 1});
 				}
@@ -899,7 +899,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		volatileStatus: 'Substitute',
-		onTryHit: function (target) {
+		onTryHit(target) {
 			if (target.volatiles['substitute']) {
 				this.add('-fail', target, 'move: Substitute');
 				return null;
@@ -912,24 +912,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return null;
 			}
 		},
-		onHit: function (target) {
+		onHit(target) {
 			// If max HP is 3 or less substitute makes no damage
 			if (target.maxhp > 3) {
 				this.directDamage(target.maxhp / 4, target, target);
 			}
 		},
 		condition: {
-			onStart: function (target) {
+			onStart(target) {
 				this.add('-start', target, 'Substitute');
 				this.effectState.hp = Math.floor(target.maxhp / 4) + 1;
 				delete target.volatiles['partiallytrapped'];
 			},
 			onTryHitPriority: -1,
-			onTryHit: function (target, source, move) {
+			onTryHit(target, source, move) {
 				if (move.category === 'Status') {
 					// In gen 1 it only blocks:
 					// poison, confusion, secondary effect confusion, stat reducing moves and Leech Seed.
-					let SubBlocked = ['lockon', 'meanlook', 'mindreader', 'nightmare'];
+					const SubBlocked = ['lockon', 'meanlook', 'mindreader', 'nightmare'];
 					if (move.status === 'psn' || move.status === 'tox' || (move.boosts && target !== source) || move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)) {
 						return false;
 					}
@@ -964,7 +964,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				target.lastAttackedBy.damage = damage;
 				return 0;
 			},
-			onEnd: function (target) {
+			onEnd(target) {
 				this.add('-end', target, 'Substitute');
 			},
 		},
@@ -1029,11 +1029,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			volatileStatus: 'partialtrappinglock',
 		},
-		onBeforeMove: function (pokemon, target, move) {
+		onBeforeMove(pokemon, target, move) {
 			// Removes must recharge volatile even if it misses
 			target.removeVolatile('mustrecharge');
 		},
-		onHit: function (target, source) {
+		onHit(target, source) {
 			/**
 			 * The duration of the partially trapped must be always renewed to 2
 			 * so target doesn't move on trapper switch out as happens in gen 1.

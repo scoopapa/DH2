@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	berribat: {
 		learnset: {
 			absorb: ["8L1"],
@@ -334,7 +335,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			heatcrash: ["8L1"],
 			hypervoice: ["8L1"],
 			megapunch: ["8L1"],
-			mudslap: ["8L1"],
 			rockslide: ["8L1"],
 			rocktomb: ["8L1"],
 			sandstorm: ["8L1"],
@@ -409,7 +409,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			heatcrash: ["8L1"],
 			hypervoice: ["8L1"],
 			megapunch: ["8L1"],
-			mudslap: ["8L1"],
 			rockslide: ["8L1"],
 			rocktomb: ["8L1"],
 			sandstorm: ["8L1"],
@@ -6996,8 +6995,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			visegrip: ["8L1"],
 			wideguard: ["8L1"],
 			xscissor: ["8L1"],
-			sunnyday: ["8L1"],
-			raindance: ["8L1"],
 		},
 	},
 	ostrata: {
@@ -8159,7 +8156,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			twister: ["8L1"],
 			zenheadbutt: ["8L1"],
 			sunnyday: ["8L1"],
-			snore: ["8L1"],
 		},
 	},
 	diaptile: {

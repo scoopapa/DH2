@@ -5,8 +5,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
-			}
-			else if (this.field.isWeather('hail') && (this.field.weatherData.layers !== 0) && pokemon.species.id === 'castform' && !pokemon.transformed) {
+			} else if (this.field.isWeather('hail') && (this.field.weatherData.layers !== 0) && pokemon.species.id === 'castform' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Castform-Snowy', this.effect, true);
@@ -16,7 +15,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onDamage(damage, target, source, effect) {
 			if (
 				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
-				 target.species.id === 'eiscue' || target.species.id === 'castformsnowy'  && !target.transformed
+				 target.species.id === 'eiscue' || target.species.id === 'castformsnowy' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Ice Face');
 				this.effectState.busted = true;
@@ -25,7 +24,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onCriticalHit(target, type, move) {
 			if (!target) return;
-			if (move.category !== 'Physical' ||  target.species.id === 'eiscuenoice' || target.species.id === 'castform'  || target.transformed) return;
+			if (move.category !== 'Physical' || target.species.id === 'eiscuenoice' || target.species.id === 'castform' || target.transformed) return;
 			if (target.volatiles['substitute'] && !(move.flags['authentic'] || move.infiltrates)) return;
 			if (!target.runImmunity(move.type)) return;
 			return false;
@@ -40,8 +39,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'eiscue' && this.effectState.busted) {
 				pokemon.formeChange('Eiscue-Noice', this.effect, true);
-			}
-			else if (pokemon.species.id === 'castformsnowy' && this.effectState.busted) {
+			} else if (pokemon.species.id === 'castformsnowy' && this.effectState.busted) {
 				pokemon.formeChange('Castform', this.effect, true);
 			}
 		},
@@ -63,10 +61,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 248,
 	},
-	
+
 	snowwarning: {
 		onStart(source) {
-			this.field.weatherData.layers ++; 
+			this.field.weatherData.layers++;
 			this.add('-activate', source, 'ability: Snow Warning');
 			this.hint("The hailstorm has worsened!");
 		},
@@ -74,34 +72,34 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: 117,
 	},
-	
+
 	drought: {
-		onStart(source) { //Nullify hail
-			this.field.weatherData.layers = 0; 
+		onStart(source) { // Nullify hail
+			this.field.weatherData.layers = 0;
 			this.add('-activate', source, 'ability: Drought');
 			this.hint("The hailstorm has eased!");
 		},
-		onSourceModifyDamage(damage, source, target, move) { //Water resist
+		onSourceModifyDamage(damage, source, target, move) { // Water resist
 			if (move.type === 'Water') {
 				this.debug('Drought resist');
 				return this.chainModify(0.5);
 			}
 		},
-		onUpdate(pokemon) { //Cannot be frozen
+		onUpdate(pokemon) { // Cannot be frozen
 			if (pokemon.status === 'frz') {
 				this.add('-activate', pokemon, 'ability: Drought');
 				pokemon.cureStatus();
 			}
 		},
-		onImmunity(type, pokemon) { //Cannot be frozen
+		onImmunity(type, pokemon) { // Cannot be frozen
 			if (type === 'frz') return false;
 		},
 		name: "Drought",
 		rating: 4,
 		num: 70,
 	},
-	
-	slushrush: { //Doesn't activate on level 0 hail
+
+	slushrush: { // Doesn't activate on level 0 hail
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('hail') && (this.field.weatherData.layers !== 0)) {
 				return this.chainModify(2);
@@ -111,8 +109,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 202,
 	},
-	
-	snowcloak: { //Doesn't activate on level 0 hail
+
+	snowcloak: { // Doesn't activate on level 0 hail
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
@@ -128,8 +126,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: 81,
 	},
-	
-	icebody: { //Doesn't activate on level 0 hail
+
+	icebody: { // Doesn't activate on level 0 hail
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail' && (this.field.weatherData.layers !== 0)) {
 				this.heal(target.baseMaxhp / 16);
@@ -142,23 +140,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: 115,
 	},
-	
-	flurryrush: { //Doesn't activate on level 0 hail
+
+	flurryrush: { // Doesn't activate on level 0 hail
 		onModifySpe(spe, pokemon) {
 			if (this.field.isWeather('hail')) {
 				if (this.field.weatherData.layers > 3) return this.chainModify(2.5);
 				else if (this.field.weatherData.layers === 3) return this.chainModify(2);
-				else if (this.field.weatherData.layers === 2) return this.chainModify(1.5); 
-				else if (this.field.weatherData.layers === 1) return; 
-				else return this.chainModify(0.75); 
+				else if (this.field.weatherData.layers === 2) return this.chainModify(1.5);
+				else if (this.field.weatherData.layers === 1) return;
+				else return this.chainModify(0.75);
 			}
 		},
 		name: "Flurry Rush",
 		rating: 3,
 		num: 202,
 	},
-	
-	icebody: { //Alt version of Ice Body, that uses the variable hail damage amount, for something that REALLY needs a buff
+
+	icebody: { // Alt version of Ice Body, that uses the variable hail damage amount, for something that REALLY needs a buff
 		onWeather(target, source, effect) {
 			if (effect.id === 'hail' && (this.field.weatherData.layers !== 0)) {
 				this.heal(target.baseMaxhp * (this.field.weatherData.layers / 16));
@@ -171,4 +169,4 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: 115,
 	},
-}; 
+};

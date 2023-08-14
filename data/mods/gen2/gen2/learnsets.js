@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: {learnset: {[k: string]: MoveSource[]}}}} */
-let BattleLearnsets = {
+const BattleLearnsets = {
 	bulbasaur: {learnset: {
 		ancientpower: ["2S0"],
 		attract: ["2M"],

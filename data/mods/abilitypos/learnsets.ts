@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 		sceptile: {
 		learnset: {
 			absorb: ["7L1", "6L1", "5L1", "4L1", "3L1"],

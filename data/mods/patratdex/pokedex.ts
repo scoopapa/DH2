@@ -2,7 +2,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 	onix: {
 		inherit: true,
 		otherFormes: ["Onix-Patratdex"],
-		formeOrder: ["Onix", "Onix-Patratdex"], 
+		formeOrder: ["Onix", "Onix-Patratdex"],
 	},
 	onixpatratdex: {
 		num: 95,
@@ -13,12 +13,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 35, atk: 65, def: 120, spa: 40, spd: 45, spe: 80},
 		abilities: {0: "Clear Body", 1: "Ice Body", H: "Water Absorb"},
 		weightkg: 180,
-		evos: ["Antarctix"]
+		evos: ["Antarctix"],
 	},
 	wobbuffet: {
 		inherit: true,
 		otherFormes: ["Wobbuffet-Patratdex"],
-		formeOrder: ["Wobbuffet", "Wobbuffet-Patratdex"], 
+		formeOrder: ["Wobbuffet", "Wobbuffet-Patratdex"],
 	},
 	wobbuffetpatratdex: {
 		num: 202,
@@ -29,12 +29,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 170, atk: 63, def: 58, spa: 23, spd: 48, spe: 43},
 		abilities: {0: "No Guard", 1: "Contrary", H: "Scrappy"},
 		weightkg: 28.5,
-		evos: ["Lemiadim"], 
+		evos: ["Lemiadim"],
 	},
 	spoink: {
 		inherit: true,
 		otherFormes: ["Spoink-Patratdex"],
-		formeOrder: ["Spoink", "Spoink-Patratdex"], 
+		formeOrder: ["Spoink", "Spoink-Patratdex"],
 	},
 	spoinkpatratdex: {
 		num: 325,
@@ -45,12 +45,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 25, def: 35, spa: 60, spd: 80, spe: 70},
 		abilities: {0: "Thick Fat", 1: "Cute Charm", H: "Gluttony"},
 		weightkg: 25.5,
-		evos: ["Hammicane"], 
+		evos: ["Hammicane"],
 	},
 	wynaut: {
 		inherit: true,
 		otherFormes: ["Wynaut-Patratdex"],
-		formeOrder: ["Wynaut", "Wynaut-Patratdex"], 
+		formeOrder: ["Wynaut", "Wynaut-Patratdex"],
 	},
 	wynautpatratdex: {
 		num: 360,
@@ -61,15 +61,15 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 75, atk: 53, def: 48, spa: 13, spd: 38, spe: 33},
 		abilities: {0: "No Guard", 1: "Contrary", H: "Scrappy"},
 		weightkg: 14,
-		evos: ["Wobbuffet-Patratdex"], 
+		evos: ["Wobbuffet-Patratdex"],
 	},
 	luvdisc: {
 		inherit: true,
 		otherFormes: ["Luvdisc-Patratdex"],
-		formeOrder: ["Luvdisc", "Luvdisc-Patratdex"], 
+		formeOrder: ["Luvdisc", "Luvdisc-Patratdex"],
 	},
 	luvdiscpatratdex: {
-		num:370,
+		num: 370,
 		name: "Luvdisc-Patratdex",
 		baseSpecies: "Luvdisc",
 		forme: "Patratdex",
@@ -77,7 +77,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 43, atk: 40, def: 45, spa: 40, spd: 65, spe: 97},
 		abilities: {0: "Rattled", H: "Hydration"},
 		weightkg: 8.7,
-		evos: ["Nomoray"]
+		evos: ["Nomoray"],
 	},
 	carnivine: {
 		inherit: true,
@@ -109,7 +109,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 	patrat: {
 		inherit: true,
 		otherFormes: ["Patrat-Patratdex"],
-		formeOrder: ["Patrat", "Patrat-Patratdex"], 
+		formeOrder: ["Patrat", "Patrat-Patratdex"],
 	},
 	patratpatratdex: {
 		num: 504,
@@ -120,12 +120,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 45, atk: 35, def: 39, spa: 55, spd: 39, spe: 42},
 		abilities: {0: "Illuminate", 1: "Insomnia", H: "Justified"},
 		weightkg: 11.6,
-		evos: ["Watchog-Patratdex"], 
+		evos: ["Watchog-Patratdex"],
 	},
 	watchog: {
 		inherit: true,
 		otherFormes: ["Watchog-Patratdex"],
-		formeOrder: ["Watchog", "Watchog-Patratdex"], 
+		formeOrder: ["Watchog", "Watchog-Patratdex"],
 	},
 	watchogpatratdex: {
 		num: 9033,
@@ -140,7 +140,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 	vanillite: {
 		inherit: true,
 		otherFormes: ["Vanillite-Patratdex"],
-		formeOrder: ["Vanillite", "Vanillite-Patratdex"], 
+		formeOrder: ["Vanillite", "Vanillite-Patratdex"],
 	},
 	vanillitepatratdex: {
 		num: 582,
@@ -151,12 +151,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 36, atk: 60, def: 60, spa: 55, spd: 50, spe: 44},
 		abilities: {0: "Levitate"},
 		weightkg: 10.5,
-		evos: ["Vanillish-Patratdex"], 
+		evos: ["Vanillish-Patratdex"],
 	},
 	vanillish: {
 		inherit: true,
 		otherFormes: ["Vanillish-Patratdex"],
-		formeOrder: ["Vanillish", "Vanillish-Patratdex"], 
+		formeOrder: ["Vanillish", "Vanillish-Patratdex"],
 	},
 	vanillishpatratdex: {
 		num: 583,
@@ -167,12 +167,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 51, atk: 80, def: 85, spa: 75, spd: 55, spe: 59},
 		abilities: {0: "Levitate"},
 		weightkg: 80,
-		evos: ["Vanilluxe-Patratdex"], 
+		evos: ["Vanilluxe-Patratdex"],
 	},
 	vanilluxe: {
 		inherit: true,
 		otherFormes: ["Vanilluxe-Patratdex"],
-		formeOrder: ["Vanilluxe", "Vanilluxe-Patratdex"], 
+		formeOrder: ["Vanilluxe", "Vanilluxe-Patratdex"],
 	},
 	vanilluxepatratdex: {
 		num: 584,
@@ -187,7 +187,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 	litwick: {
 		inherit: true,
 		otherFormes: ["Litwick-Patratdex"],
-		formeOrder: ["Litwick", "Litwick-Patratdex"], 
+		formeOrder: ["Litwick", "Litwick-Patratdex"],
 	},
 	litwickpatratdex: {
 		num: 607,
@@ -198,12 +198,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 50, atk: 30, def: 55, spa: 55, spd: 55, spe: 30},
 		abilities: {0: "Illuminate", 1: "Volt Absorb", H: "Infiltrator"},
 		weightkg: 4.5,
-		evos: ["Lampent-Patratdex"]
+		evos: ["Lampent-Patratdex"],
 	},
 	lampent: {
 		inherit: true,
 		otherFormes: ["Lampent-Patratdex"],
-		formeOrder: ["Lampent", "Lampent-Patratdex"], 
+		formeOrder: ["Lampent", "Lampent-Patratdex"],
 	},
 	lampentpatratdex: {
 		num: 608,
@@ -214,12 +214,12 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 55, atk: 40, def: 65, spa: 85, spd: 60, spe: 65},
 		abilities: {0: "Illuminate", 1: "Volt Absorb", H: "Infiltrator"},
 		weightkg: 20,
-		evos: ["Chandelure-Patratdex"]
+		evos: ["Chandelure-Patratdex"],
 	},
 	chandelure: {
 		inherit: true,
 		otherFormes: ["Chandelure-Patratdex"],
-		formeOrder: ["Chandelure", "Chandelure-Patratdex"], 
+		formeOrder: ["Chandelure", "Chandelure-Patratdex"],
 	},
 	chandelurepatratdex: {
 		num: 609,
@@ -239,7 +239,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 40, atk: 55, def: 40, spa: 55, spd: 45, spe: 75},
 		abilities: {0: "Overgrow", H: "Ripen"},
 		weightkg: 0.9,
-		evos: ["Apricount"], 
+		evos: ["Apricount"],
 	},
 	apricount: {
 		num: 9002,
@@ -249,7 +249,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 70, def: 55, spa: 70, spd: 60, spe: 90},
 		abilities: {0: "Overgrow", H: "Ripen"},
 		weightkg: 3,
-		evos: ["Noctureen"], 
+		evos: ["Noctureen"],
 	},
 	noctureen: {
 		num: 9003,
@@ -268,7 +268,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 45, atk: 65, def: 50, spa: 60, spd: 40, spe: 50},
 		abilities: {0: "Blaze", H: "Immunity"},
 		weightkg: 6.4,
-		evos: ["Gilatoa"], 
+		evos: ["Gilatoa"],
 	},
 	gilatoa: {
 		num: 9005,
@@ -278,7 +278,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 85, def: 70, spa: 80, spd: 50, spe: 60},
 		abilities: {0: "Blaze", H: "Immunity"},
 		weightkg: 51,
-		evos: ["Gilabora"], 
+		evos: ["Gilabora"],
 	},
 	gilabora: {
 		num: 9006,
@@ -297,7 +297,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 40, atk: 50, def: 65, spa: 60, spd: 45, spe: 50},
 		abilities: {0: "Torrent", H: "Hyper Cutter"},
 		weightkg: 4,
-		evos: ["Clawtuu"], 
+		evos: ["Clawtuu"],
 	},
 	clawtuu: {
 		num: 9008,
@@ -307,7 +307,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 55, atk: 65, def: 85, spa: 80, spd: 60, spe: 60},
 		abilities: {0: "Torrent", H: "Hyper Cutter"},
 		weightkg: 22,
-		evos: ["Clawsmos"], 
+		evos: ["Clawsmos"],
 	},
 	clawsmos: {
 		num: 9009,
@@ -325,7 +325,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 45, atk: 55, def: 45, spa: 40, spd: 45, spe: 40},
 		abilities: {0: "Pickup", 1: "Unburden", H: "Hustle"},
 		weightkg: 7,
-		evos: ["Posscour"], 
+		evos: ["Posscour"],
 	},
 	posscour: {
 		num: 9011,
@@ -344,7 +344,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 90, atk: 50, def: 35, spa: 45, spd: 20, spe: 30},
 		abilities: {0: "Keen Eye", 1: "Big Pecks", H: "Thick Fat"},
 		weightkg: 20,
-		evos: ["Chipperdee"], 
+		evos: ["Chipperdee"],
 	},
 	chipperdee: {
 		num: 9013,
@@ -363,7 +363,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 45, atk: 55, def: 35, spa: 40, spd: 40, spe: 55},
 		abilities: {0: "Keen Eye", 1: "Inner Focus", H: "Hydration"},
 		weightkg: 0.9,
-		evos: ["Ganderon"], 
+		evos: ["Ganderon"],
 	},
 	ganderon: {
 		num: 9015,
@@ -373,7 +373,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 75, def: 55, spa: 60, spd: 60, spe: 70},
 		abilities: {0: "Keen Eye", 1: "Inner Focus", H: "Hydration"},
 		weightkg: 9,
-		evos: ["Heraptor"], 
+		evos: ["Heraptor"],
 	},
 	heraptor: {
 		num: 9016,
@@ -391,7 +391,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 45, atk: 55, def: 40, spa: 31, spd: 40, spe: 79},
 		abilities: {0: "Pickup", 1: "Pickpocket", H: "Limber"},
 		weightkg: 2,
-		evos: ["Veslesnatch"], 
+		evos: ["Veslesnatch"],
 	},
 	veslesnatch: {
 		num: 9018,
@@ -410,7 +410,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 55, atk: 50, def: 50, spa: 50, spd: 65, spe: 40},
 		abilities: {0: "Shed Skin", H: "Healer"},
 		weightkg: 9.6,
-		evos: ["Doconda"], 
+		evos: ["Doconda"],
 	},
 	doconda: {
 		num: 9020,
@@ -429,7 +429,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 65, atk: 50, def: 50, spa: 50, spd: 50, spe: 30},
 		abilities: {0: "Cheek Pouch", H: "Mimicry"},
 		weightkg: 23,
-		evos: ["Augrhog"], 
+		evos: ["Augrhog"],
 	},
 	augrhog: {
 		num: 9022,
@@ -448,7 +448,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 30, atk: 40, def: 45, spa: 30, spd: 25, spe: 20},
 		abilities: {0: "Shield Dust"},
 		weightkg: 1.6,
-		evos: ["Stitchalis"], 
+		evos: ["Stitchalis"],
 	},
 	stitchalis: {
 		num: 9024,
@@ -458,7 +458,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 40, atk: 35, def: 55, spa: 35, spd: 30, spe: 10},
 		abilities: {0: "Overcoat"},
 		weightkg: 2,
-		evos: ["Scarflutter"], 
+		evos: ["Scarflutter"],
 	},
 	scarflutter: {
 		num: 9025,
@@ -477,7 +477,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 40, atk: 50, def: 30, spa: 55, spd: 40, spe: 60},
 		abilities: {0: "Pickup"},
 		weightkg: 2,
-		evos: ["Incrownito"], 
+		evos: ["Incrownito"],
 	},
 	incrownito: {
 		num: 9027,
@@ -488,7 +488,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Hay Veil"},
 		weightkg: 60,
 		otherFormes: ["Incrownito-Flock"],
-		formeOrder: ["Incrownito", "Incrownito-Flock"], 
+		formeOrder: ["Incrownito", "Incrownito-Flock"],
 	},
 	incrownitoflock: {
 		num: 9027,
@@ -510,7 +510,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 40, atk: 42, def: 35, spa: 45, spd: 40, spe: 63},
 		abilities: {0: "Chlorophyll", 1: "Sap Sipper", H: "Chitinize"},
 		weightkg: 0.1,
-		evos: ["Imitwig"], 
+		evos: ["Imitwig"],
 	},
 	imitwig: {
 		num: 9029,
@@ -520,7 +520,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 60, def: 70, spa: 55, spd: 60, spe: 75},
 		abilities: {0: "Chlorophyll", 1: "Sap Sipper", H: "Chitinize"},
 		weightkg: 0.5,
-		evos: ["Timberuse"], 
+		evos: ["Timberuse"],
 	},
 	timberuse: {
 		num: 9030,
@@ -548,7 +548,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 50, atk: 50, def: 42, spa: 65, spd: 73, spe: 40},
 		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Harvest"},
 		weightkg: 0.1,
-		evos: ["Stalkern"], 
+		evos: ["Stalkern"],
 	},
 	stalkern: {
 		num: 9035,
@@ -558,7 +558,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 60, def: 52, spa: 90, spd: 83, spe: 50},
 		abilities: {0: "Chlorophyll", 1: "Solar Power", H: "Harvest"},
 		weightkg: 10,
-		evos: ["Trikern"], 
+		evos: ["Trikern"],
 	},
 	trikern: {
 		num: 9036,
@@ -577,7 +577,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 30, atk: 50, def: 45, spa: 20, spd: 20, spe: 25},
 		abilities: {0: "Gluttony", 1: "Cotton Down", H: "Adaptability"},
 		weightkg: 1.6,
-		evos: ["Bollevil"], 
+		evos: ["Bollevil"],
 	},
 	bollevil: {
 		num: 9038,
@@ -605,7 +605,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 70, atk: 45, def: 43, spa: 53, spd: 55, spe: 30},
 		abilities: {0: "Sticky Hold", H: "Gooey"},
 		weightkg: 45,
-		evos: ["S\u2019molossus"], 
+		evos: ["S\u2019molossus"],
 	},
 	smolossus: {
 		num: 9042,
@@ -624,7 +624,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 70, atk: 43, def: 41, spa: 42, spd: 40, spe: 40},
 		abilities: {0: "Early Bird", 1: "Cloud Nine", H: "Normalize"},
 		weightkg: 8,
-		evos: ["Commaery"], 
+		evos: ["Commaery"],
 	},
 	commaery: {
 		num: 9044,
@@ -633,7 +633,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 100, atk: 64, def: 62, spa: 63, spd: 61, spe: 60},
 		abilities: {0: "Early Bird", 1: "Cloud Nine", H: "Normalize"},
 		weightkg: 20,
-		evos: ["Symbaery"], 
+		evos: ["Symbaery"],
 	},
 	symbaery: {
 		num: 9045,
@@ -650,9 +650,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 51, atk: 56, def: 40, spa: 60, spd: 44, spe: 64},
 		abilities: {0: "Solar Power", 1: "Pickup", H: "Ball Fetch"},
 		weightkg: 30,
-		evos: ["Endoberus"], 
+		evos: ["Endoberus"],
 		otherFormes: ["Temperpup-Ice"],
-		formeOrder: ["Temperpup", "Temperpup-Ice"], 
+		formeOrder: ["Temperpup", "Temperpup-Ice"],
 	},
 	temperpupice: {
 		num: 9046,
@@ -663,7 +663,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 51, atk: 56, def: 40, spa: 60, spd: 44, spe: 64},
 		abilities: {0: "Pickup", 1: "Ice Body", H: "Ball Fetch"},
 		weightkg: 30,
-		evos: ["Endoberus"], 
+		evos: ["Endoberus"],
 	},
 	endoberus: {
 		num: 9047,
@@ -680,7 +680,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 58, atk: 52, def: 57, spa: 54, spd: 59, spe: 33},
 		abilities: {0: "Cute Charm", H: "Klutz"},
 		weightkg: 20,
-		evos: ["Faunifiend"], 
+		evos: ["Faunifiend"],
 	},
 	faunifiend: {
 		num: 9049,
@@ -689,7 +689,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 62, atk: 58, def: 55, spa: 74, spd: 61, spe: 80},
 		abilities: {0: "Intimidate", H: "Klutz"},
 		weightkg: 50,
-		evos: ["Delioram"], 
+		evos: ["Delioram"],
 	},
 	delioram: {
 		num: 9050,
@@ -707,7 +707,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 70, atk: 55, def: 45, spa: 55, spd: 45, spe: 20},
 		abilities: {0: "Comatose"},
 		weightkg: 60,
-		evos: ["Groozly"], 
+		evos: ["Groozly"],
 	},
 	groozly: {
 		num: 9053,
@@ -725,7 +725,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 68, atk: 60, def: 50, spa: 55, spd: 50, spe: 40},
 		abilities: {0: "Rattled", 1: "Honey Gather", H: "Reckless"},
 		weightkg: 60,
-		evos: ["Thundursa"], 
+		evos: ["Thundursa"],
 	},
 	thundursa: {
 		num: 9055,
@@ -743,7 +743,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 52, atk: 45, def: 48, spa: 55, spd: 70, spe: 30},
 		abilities: {0: "Overcoat", 1: "Magician", H: "Healer"},
 		weightkg: 25,
-		evos: ["Babayushka"], 
+		evos: ["Babayushka"],
 	},
 	babayushka: {
 		num: 9057,
@@ -761,7 +761,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 50, atk: 60, def: 72, spa: 40, spd: 40, spe: 45},
 		abilities: {0: "Keen Eye", H: "Sand Force"},
 		weightkg: 100,
-		evos: ["Alpuma"], 
+		evos: ["Alpuma"],
 	},
 	alpuma: {
 		num: 9059,
@@ -779,7 +779,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 55, atk: 30, def: 40, spa: 65, spd: 93, spe: 7},
 		abilities: {0: "Ice Body", 1: "Stall", H: "Sticky Hold"},
 		weightkg: 30,
-		evos: ["Glasstropod"], 
+		evos: ["Glasstropod"],
 	},
 	glasstropod: {
 		num: 9064,
@@ -797,7 +797,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 40, atk: 67, def: 50, spa: 57, spd: 40, spe: 55},
 		abilities: {0: "Aftermath", 1: "Flash Fire", H: "Chitinize"},
 		weightkg: 4,
-		evos: ["Blastula"], 
+		evos: ["Blastula"],
 	},
 	blastula: {
 		num: 9066,
@@ -822,7 +822,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 45, atk: 40, def: 40, spa: 53, spd: 55, spe: 50},
 		abilities: {0: "Damp", 1: "Electroreception", H: "Water Absorb"},
 		weightkg: 14,
-		evos: ["Mholm"], 
+		evos: ["Mholm"],
 	},
 	mholm: {
 		num: 9071,
@@ -839,7 +839,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 38, atk: 20, def: 68, spa: 20, spd: 60, spe: 41},
 		abilities: {0: "Water Bubble", H: "Clear Body"},
 		weightkg: 80,
-		evos: ["Mecherel"], 
+		evos: ["Mecherel"],
 	},
 	mecherel: {
 		num: 9073,
@@ -857,7 +857,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Raingrow"},
 		weightkg: 0.1,
 		otherFormes: ["Monsoonura-Chunky"],
-		formeOrder: ["Monsoonura", "Monsoonura-Chunky"], 
+		formeOrder: ["Monsoonura", "Monsoonura-Chunky"],
 	},
 	monsoonurachunky: {
 		num: 9074,
@@ -878,7 +878,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 49, atk: 71, def: 51, spa: 40, spd: 40, spe: 59},
 		abilities: {0: "Guts", H: "Swift Swim"},
 		weightkg: 80,
-		evos: ["Abdomidile"], 
+		evos: ["Abdomidile"],
 	},
 	abdomidile: {
 		num: 9076,
@@ -895,7 +895,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 25, atk: 12, def: 38, spa: 15, spd: 30, spe: 60},
 		abilities: {0: "Damp", 1: "Oblivious", H: "Water Absorb"},
 		weightkg: 0.1,
-		evos: ["Walload"], 
+		evos: ["Walload"],
 	},
 	walload: {
 		num: 9078,
@@ -904,7 +904,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 53, def: 80, spa: 58, spd: 60, spe: 53},
 		abilities: {0: "Damp", 1: "Oblivious", H: "Dry Skin"},
 		weightkg: 10,
-		evos: ["Croake\u0301o"], 
+		evos: ["Croake\u0301o"],
 	},
 	croakeo: {
 		num: 9079,
@@ -922,7 +922,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 53, atk: 63, def: 45, spa: 45, spd: 42, spe: 73},
 		abilities: {0: "Sniper", 1: "Justified", H: "Defiant"},
 		weightkg: 7,
-		evos: ["Vinarret"], 
+		evos: ["Vinarret"],
 	},
 	vinarret: {
 		num: 9081,
@@ -940,7 +940,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 45, def: 30, spa: 55, spd: 55, spe: 43},
 		abilities: {0: "Natural Cure", 1: "Leaf Guard", H: "Gluttony"},
 		weightkg: 40,
-		evos: ["Triarum"]
+		evos: ["Triarum"],
 	},
 	triarum: {
 		num: 9083,
@@ -949,7 +949,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 90, atk: 55, def: 42, spa: 70, spd: 73, spe: 55},
 		abilities: {0: "Natural Cure", 1: "Leaf Guard", H: "Gluttony"},
 		weightkg: 100,
-		evos: ["Hydrarum"]
+		evos: ["Hydrarum"],
 	},
 	hydrarum: {
 		num: 9084,
@@ -966,7 +966,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 45, atk: 50, def: 44, spa: 43, spd: 40, spe: 70},
 		abilities: {0: "Swift Swim", H: "Anticipation"},
 		weightkg: 24,
-		evos: ["Alecore"]
+		evos: ["Alecore"],
 	},
 	alecore: {
 		num: 9086,
@@ -983,7 +983,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 55, atk: 60, def: 80, spa: 40, spd: 40, spe: 40},
 		abilities: {0: "Sand Rush", H: "Shell Armor"},
 		weightkg: 16,
-		evos: ["Terratudo"]
+		evos: ["Terratudo"],
 	},
 	terratudo: {
 		num: 9088,
@@ -1000,7 +1000,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 62, atk: 50, def: 93, spa: 50, spd: 33, spe: 35},
 		abilities: {0: "Damp", 1: "Water Veil", H: "Healer"},
 		weightkg: 50,
-		evos: ["Shareef"]
+		evos: ["Shareef"],
 	},
 	shareef: {
 		num: 9090,
@@ -1025,7 +1025,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 55, atk: 70, def: 80, spa: 50, spd: 40, spe: 20},
 		abilities: {0: "Dry Skin", H: "Storm Drain"},
 		weightkg: 130,
-		evos: ["Gargothorn"]
+		evos: ["Gargothorn"],
 	},
 	gargothorn: {
 		num: 9094,
@@ -1042,7 +1042,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 64, atk: 80, def: 82, spa: 50, spd: 55, spe: 31},
 		abilities: {0: "Run Away", H: "Heavy Metal"},
 		weightkg: 150,
-		evos: ["Rallion"]
+		evos: ["Rallion"],
 	},
 	rallion: {
 		num: 9096,
@@ -1060,7 +1060,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 49, atk: 50, def: 70, spa: 50, spd: 60, spe: 30},
 		abilities: {0: "Battle Armor", H: "Synchronize"},
 		weightkg: 50,
-		evos: ["Maginight"]
+		evos: ["Maginight"],
 	},
 	maginight: {
 		num: 9098,
@@ -1070,7 +1070,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 59, atk: 90, def: 80, spa: 55, spd: 80, spe: 50},
 		abilities: {0: "Battle Armor", H: "Synchronize"},
 		weightkg: 100,
-		evos: ["Millusion"]
+		evos: ["Millusion"],
 	},
 	millusion: {
 		num: 9099,
@@ -1089,7 +1089,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 50, atk: 41, def: 70, spa: 62, spd: 50, spe: 28},
 		abilities: {0: "Sticky Hold", 1: "Liquid Ooze", H: "Water Absorb"},
 		weightkg: 14,
-		evos: ["Moldilox"]
+		evos: ["Moldilox"],
 	},
 	moldilox: {
 		num: 9101,
@@ -1107,7 +1107,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 55, atk: 40, def: 70, spa: 70, spd: 57, spe: 45},
 		abilities: {0: "White Smoke", H: "Mirror Armor"},
 		weightkg: 65,
-		evos: ["Carbadillo"]
+		evos: ["Carbadillo"],
 	},
 	carbadillo: {
 		num: 9103,
@@ -1125,7 +1125,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 50, atk: 55, def: 90, spa: 50, spd: 50, spe: 40},
 		abilities: {0: "Own Tempo", H: "Light Metal"},
 		weightkg: 20,
-		evos: ["Clangagang"]
+		evos: ["Clangagang"],
 	},
 	clangagang: {
 		num: 9105,
@@ -1143,7 +1143,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 50, atk: 65, def: 50, spa: 70, spd: 60, spe: 40},
 		abilities: {0: "Forewarn", H: "Light Metal"},
 		weightkg: 35,
-		evos: ["Warnyx"]
+		evos: ["Warnyx"],
 	},
 	warnyx: {
 		num: 9107,
@@ -1161,7 +1161,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 30, atk: 35, def: 55, spa: 50, spd: 60, spe: 50},
 		abilities: {0: "Unnerve", H: "Prankster"},
 		weightkg: 0.1,
-		evos: ["Phantatter"]
+		evos: ["Phantatter"],
 	},
 	phantatter: {
 		num: 9109,
@@ -1180,7 +1180,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 65, atk: 55, def: 40, spa: 55, spd: 40, spe: 38},
 		abilities: {0: "Analytic", 1: "Gluttony", H: "Merciless"},
 		weightkg: 30,
-		evos: ["Servicide"]
+		evos: ["Servicide"],
 	},
 	servicide: {
 		num: 9114,
@@ -1198,7 +1198,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 43, atk: 63, def: 33, spa: 53, spd: 43, spe: 83},
 		abilities: {0: "Anticipation", H: "Limber"},
 		weightkg: 3.5,
-		evos: ["Cataver"]
+		evos: ["Cataver"],
 	},
 	cataver: {
 		num: 9116,
@@ -1215,7 +1215,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 64, atk: 44, def: 34, spa: 54, spd: 44, spe: 24},
 		abilities: {0: "Power of Alchemy", 1: "Oblivious", H: "Unaware"},
 		weightkg: 80,
-		evos: ["Mollopus"]
+		evos: ["Mollopus"],
 	},
 	mollopus: {
 		num: 9118,
@@ -1232,7 +1232,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 50, atk: 53, def: 48, spa: 53, spd: 48, spe: 64},
 		abilities: {0: "Gluttony", H: "Static"},
 		weightkg: 11,
-		evos: ["Simivolt"]
+		evos: ["Simivolt"],
 	},
 	simivolt: {
 		num: 9120,
@@ -1258,7 +1258,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Hammer Head"},
 		weightkg: 125,
 		otherFormes: ["Ostrata-Hammer"],
-		formeOrder: ["Ostrata", "Ostrata-Hammer"], 
+		formeOrder: ["Ostrata", "Ostrata-Hammer"],
 	},
 	ostratahammer: {
 		num: 9122,
@@ -1285,7 +1285,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 31, def: 45, spa: 55, spd: 45, spe: 25},
 		abilities: {0: "Levitate"},
 		weightkg: 15,
-		evos: ["Oculet"]
+		evos: ["Oculet"],
 	},
 	oculet: {
 		num: 9126,
@@ -1294,7 +1294,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 90, atk: 41, def: 65, spa: 85, spd: 60, spe: 40},
 		abilities: {0: "Levitate"},
 		weightkg: 55,
-		evos: ["Ocularroth"]
+		evos: ["Ocularroth"],
 	},
 	ocularroth: {
 		num: 9127,
@@ -1353,7 +1353,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 50, atk: 50, def: 40, spa: 65, spd: 40, spe: 55},
 		abilities: {0: "Keen Eye", 1: "Unnerve", H: "Color Change"},
 		weightkg: 9,
-		evos: ["Paindra"]
+		evos: ["Paindra"],
 	},
 	paindra: {
 		num: 9134,
@@ -1370,7 +1370,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 50, atk: 40, def: 40, spa: 65, spd: 75, spe: 30},
 		abilities: {0: "Levitate"},
 		weightkg: 9,
-		evos: ["Apollodon"]
+		evos: ["Apollodon"],
 	},
 	apollodon: {
 		num: 9136,
@@ -1388,7 +1388,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 65, atk: 63, def: 95, spa: 40, spd: 57, spe: 35},
 		abilities: {0: "Clear Body", H: "Solid Rock"},
 		weightkg: 300,
-		evos: ["Bouldodon"]
+		evos: ["Bouldodon"],
 	},
 	bouldodon: {
 		num: 9138,
@@ -1407,7 +1407,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 53, atk: 63, def: 54, spa: 75, spd: 48, spe: 62},
 		abilities: {0: "Limber", H: "Dazzling"},
 		weightkg: 45,
-		evos: ["Diaptile"]
+		evos: ["Diaptile"],
 	},
 	diaptile: {
 		num: 9140,
@@ -1425,7 +1425,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 53, def: 55, spa: 65, spd: 65, spe: 23},
 		abilities: {0: "Clear Body", 1: "Suction Cups", H: "Sticky Hold"},
 		weightkg: 33,
-		evos: ["Bellumari"]
+		evos: ["Bellumari"],
 	},
 	bellumari: {
 		num: 9142,
@@ -1434,7 +1434,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 70, atk: 75, def: 60, spa: 90, spd: 90, spe: 42},
 		abilities: {0: "Clear Body", 1: "Suction Cups", H: "Sticky Hold"},
 		weightkg: 75,
-		evos: ["Cephalobe"]
+		evos: ["Cephalobe"],
 	},
 	cephalobe: {
 		num: 9143,

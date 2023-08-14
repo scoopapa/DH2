@@ -1,22 +1,22 @@
 export const Natures: {[k: string]: NatureData} = {
 	red: {
 		name: "Red",
-		plus: "atk"
+		plus: "atk",
 	},
 	blue: {
 		name: "Blue",
-		plus: "def"
+		plus: "def",
 	},
 	black: {
 		name: "Black",
-		plus: "spa"
+		plus: "spa",
 	},
 	white: {
 		name: "White",
-		plus: "spd"
+		plus: "spd",
 	},
 	green: {
 		name: "Green",
-		plus: "spe"
+		plus: "spe",
 	},
 };

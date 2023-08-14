@@ -1,4 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
+  gen: 6,
 	inherit: 'gen6',
 	pokemon: {
 		// for neutralizing gas
@@ -8,7 +9,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.volatiles['gastroacid']) return true;
 			if (this.ability === ('neutralizinggas' as ID)) return false;
 			if (this.volatiles['neutralizinggas']) return true;
-
 			return false;
 		},
 	},

@@ -1,4 +1,4 @@
-  
+
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	/* Commenting these out because they are not functional in the current version
 	sawsbuckautumn: {
@@ -1482,7 +1482,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dracovish: {
 		randomBattleMoves: ["fishiousrend", "riverstream", "dragonfang", "earthquake", "crunch", "psychicfangs"],
 		tier: "OU",
-  },
+	},
 	xurkitree: {
 		randomBattleMoves: ["sleeppowder", "ionabsorb", "energyball", "tailglow", "dazzlinggleam"],
 		tier: "UUBL",
@@ -2613,19 +2613,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rhydon: {
 		randomBattleMoves: ["stoneedge", "earthquake", "icefang", "stealthrock", "mudslap", "swordsdance", "megahorn"],
 		tier: "PUBL",
-	},	
+	},
 	abra: {
 		tier: "PU",
-	},	
+	},
 	elgyem: {
 		tier: "PUBL",
-	},	
+	},
 	hattrem: {
 		tier: "PUBL",
-	},	
+	},
 	klang: {
 		tier: "PUBL",
-	},	
+	},
 	/* Leaving this commented out still allows the random team builder to roll a normal Zygarde with Power Construct
 	zygardecomplete: {
 		randomBattleMoves: ["coil", "extremespeed", "thousandarrows", "crunch", "dragonfang", "glare"],

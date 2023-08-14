@@ -1,5 +1,5 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	//Slate 1 Grass, Fire, Water
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	// Slate 1 Grass, Fire, Water
 	prairret: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -12,7 +12,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 2: Dragon, Fairy, Steel
+	// Slate 2: Dragon, Fairy, Steel
 	drakotomy: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -25,7 +25,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 3: Dark, Fighting, Psychic
+	// Slate 3: Dark, Fighting, Psychic
 	correept: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -38,7 +38,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 4: Flying, Ground, Rock
+	// Slate 4: Flying, Ground, Rock
 	nimbustorm: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -51,7 +51,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 5: Electric, Ghost, Ice
+	// Slate 5: Electric, Ghost, Ice
 	storvark: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -64,7 +64,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 6: Bug, Normal, Poison
+	// Slate 6: Bug, Normal, Poison
 	magroach: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -77,7 +77,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 7: Ghost/Steel, Poison/Steel, Water/Electric
+	// Slate 7: Ghost/Steel, Poison/Steel, Water/Electric
 	whiscamp: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -90,33 +90,33 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 8: Dark/Flying, Grass/Normal, Rock/Fairy
+	// Slate 8: Dark/Flying, Grass/Normal, Rock/Fairy
 	spincaba: {
 		tier: "ST",
-		doublesTier: "ST",	
+		doublesTier: "ST",
 	},
 	jungape: {
 		tier: "ST",
-		doublesTier: "ST",	
+		doublesTier: "ST",
 	},
 	nympheral: {
 		tier: "ST",
-		doublesTier: "ST",	
+		doublesTier: "ST",
 	},
-	//Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
+	// Slate 9: Bug/Fighting, Ice/Fire, Ground/Psychic
 	beetilient: {
 		tier: "ST",
-		doublesTier: "ST",	
+		doublesTier: "ST",
 	},
 	thermasorb: {
 		tier: "ST",
-		doublesTier: "ST",	
+		doublesTier: "ST",
 	},
 	cosmole: {
 		tier: "ST",
-		doublesTier: "ST",	
+		doublesTier: "ST",
 	},
-	//Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
+	// Slate 10: Dark/Normal, Steel/Flying, Water/Fairy
 	slashowa: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -125,11 +125,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	fuscicea : {
+	fuscicea: {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 11: Grass/Ground, Ice/Dragon, Psychic/Fighting
+	// Slate 11: Grass/Ground, Ice/Dragon, Psychic/Fighting
 	akanalud: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -138,11 +138,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	gorilax : {
+	gorilax: {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 12: Bug/Ghost, Electric/Fire, Rock/Poison
+	// Slate 12: Bug/Ghost, Electric/Fire, Rock/Poison
 	pharaoach: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -155,7 +155,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 13: Electric/Rock, Grass/Poison, Water/Dragon
+	// Slate 13: Electric/Rock, Grass/Poison, Water/Dragon
 	corundell: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -168,7 +168,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 14: Dark/Steel, Ground/Fighting, Ice/Fairy
+	// Slate 14: Dark/Steel, Ground/Fighting, Ice/Fairy
 	despertur: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -181,7 +181,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 15: Bug/Psychic, Ghost/Flying, Normal/Fire
+	// Slate 15: Bug/Psychic, Ghost/Flying, Normal/Fire
 	jaegorm: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -196,7 +196,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 16: Fairy/Flying, Poison/Electric, Water/Grass
+	// Slate 16: Fairy/Flying, Poison/Electric, Water/Grass
 	puffoon: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -209,7 +209,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 17: Bug/Ground, Dark/Dragon, Ice/Ghost
+	// Slate 17: Bug/Ground, Dark/Dragon, Ice/Ghost
 	dunipede: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -222,7 +222,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
+	// Slate 18: Fire/Rock, Normal/Fighting, Steel/Psychic
 	volcarupt: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -235,7 +235,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 19: Rock/Water, Ground/Electric, Poison/Flying
+	// Slate 19: Rock/Water, Ground/Electric, Poison/Flying
 	groundingo: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -248,7 +248,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	//Slate 20: Dragon/Fighting, Ice/Dark, Steel/Fairy
+	// Slate 20: Dragon/Fighting, Ice/Dark, Steel/Fairy
 	tinkixie: {
 		tier: "ST",
 		doublesTier: "ST",
@@ -261,10 +261,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "ST",
 		doublesTier: "ST",
 	},
-	
-	
-	
-	//LC Slate 1
+
+
+	// LC Slate 1
 	sproutsel: {
 		tier: "ST LC",
 		doublesTier: "ST LC",
@@ -272,11 +271,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	triluga: {
 		tier: "ST LC",
 		doublesTier: "ST LC",
-	},	
-	
-	
-	
-	//NFE Slate 1
+	},
+
+
+	// NFE Slate 1
 	mestela: {
 		tier: "ST NFE",
 		doublesTier: "ST NFE",

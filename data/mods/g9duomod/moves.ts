@@ -1,5 +1,5 @@
 export const Moves: {[moveid: string]: MoveData} = {
-  blueshell: {
+	blueshell: {
 		num: 9001,
 		accuracy: 100,
 		basePower: 80,
@@ -9,15 +9,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Rock Throw", target);
 		},
    	onModifyMove(move, source, target) {
       	const userSide = source.side.pokemon.filter(ally => ally === source || !ally.fainted && !ally.status);
       	const targetSide = target.side.pokemon.filter(ally => ally === target || !ally.fainted && !ally.status);
-			if (userSide.length < targetSide.length) {move.basePower = 120;}
-      	else {move.basePower = 80;}
+			if (userSide.length < targetSide.length) { move.basePower = 120; } else { move.basePower = 80; }
     	},
 		secondary: null,
 		target: "allAdjacent",
@@ -38,7 +37,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		noPPBoosts: true,
 		priority: 1,
 		flags: {protect: 1, mirror: 1, contact: 1, punch: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "X-Scissor", target);
 		},
@@ -70,7 +69,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Double-Edge", target);
 		},
@@ -81,7 +80,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Cool",
 	},
-	
+
 	extremebeam: {
 		num: 9004,
 		accuracy: 99,
@@ -93,7 +92,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: -6,
 		flags: {recharge: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Photon Geyser", target);
 		},
@@ -103,12 +102,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 2,
 			onLockMove: 'bide',
-		},		
+		},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
 		contestType: "Cool",
-	},	
+	},
 
 	gelatinize: {
 		num: 9005,
@@ -120,7 +119,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 1,
 		flags: {snatch: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Acid Armor", target);
 		},
@@ -143,7 +142,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Cute",
 	},
-	
+
 	incense: {
 		num: 9008,
 		accuracy: true,
@@ -154,7 +153,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Aromatherapy", target);
 		},
@@ -184,7 +183,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
-	
+
 	hyperwind: {
 		num: 9009,
 		accuracy: 100,
@@ -198,7 +197,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Aeroblast", target);
 		},
@@ -217,23 +216,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	
+
 	impostorblade: {
 		num: 9010,
 		accuracy: 100,
-		basePower: 120, 
+		basePower: 120,
 		category: "Physical",
 		name: "Impostor Blade",
 		shortDesc: "kill with this move or you die (pretty sus)",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Night Slash", target);
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (pokemon.species.id === 'impsaustor') {return;}
+			if (pokemon.species.id === 'impsaustor') { return; }
 			if (!target || target.fainted || target.hp <= 0) {
 				this.add('-message', `${pokemon.name} has been acting kiiiiiinda sus lately...`);
 				pokemon.formeChange('Impsaustor', this.effect, true);
@@ -256,8 +255,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
 				}
 				this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-			}
-			else {
+			} else {
 				this.add('-message', "VOTE 'EM OUT!!!");
 				this.damage(pokemon.baseMaxhp, pokemon);
 			}
@@ -267,7 +265,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
-	
+
 	inkbrush: {
 		num: 9011,
 		accuracy: 100,
@@ -278,7 +276,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Gunk Shot", target);
 		},
@@ -290,7 +288,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Tough",
 	},
-	
+
 	kamikaze: {
 		num: 9012,
 		accuracy: 50,
@@ -307,7 +305,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Dragon Rush", target);
 		},
@@ -317,7 +315,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 		contestType: "Tough",
 	},
-	
+
 	onetrillionarrows: {
 		num: 9013,
 		accuracy: 100,
@@ -328,7 +326,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Thousand Arrows", target);
 		},
@@ -358,8 +356,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		zMove: {basePower: 180},
 		contestType: "Beautiful",
-	},	
-		
+	},
+
 	outburst: {
 		num: 9014,
 		accuracy: 100,
@@ -370,7 +368,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, mystery: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Luster Purge", target);
 		},
@@ -393,7 +391,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Cute",
 	},
-	
+
 	// test this one especially
 	pharaohshot: {
 		num: 9015,
@@ -405,16 +403,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: -3,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			if (!source.volatiles['pharaohshot']) {
 				move.basePower = 140;
 				this.attrLastMove('[still]');
 				this.add('-anim', source, "Fusion Flare", target);
-			}
-			else {
+			} else {
 				this.attrLastMove('[still]');
 				this.add('-anim', source, "Incinerate", target);
-			}	
+			}
 		},
 		beforeTurnCallback(pokemon) {
 			this.add('-message', "The temperature is rising...");
@@ -437,7 +434,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-	
+
 	polarpounce: {
 		num: 9016,
 		accuracy: 100,
@@ -448,7 +445,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Body Slam", target);
 		},
@@ -463,7 +460,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
-	
+
 	remotemine: {
 		num: 9017,
 		accuracy: 100,
@@ -472,7 +469,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onTryMove(pokemon, target, move) {
 			const callerMoveId = move.sourceEffect || move.id;
 			const moveSlot = callerMoveId === 'instruct' ? pokemon.getMoveData(move.id) : pokemon.getMoveData(callerMoveId);
-			if (!moveSlot) {return false;}
+			if (!moveSlot) { return false; }
 			if (moveSlot.pp % 2 === 1) {
 				this.add('-message', `It readied a mine!`);
 				return false;
@@ -485,19 +482,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			const callerMoveId = move.sourceEffect || move.id;
 			const moveSlot = callerMoveId === 'instruct' ? source.getMoveData(move.id) : source.getMoveData(callerMoveId);
-			if (!moveSlot) {return false;}	
+			if (!moveSlot) { return false; }
 			if (moveSlot.pp % 2 === 1) {
 				this.attrLastMove('[still]');
 				this.add('-anim', source, "Worry Seed", target);
-			}
-			else {
+			} else {
 				this.attrLastMove('[still]');
 				this.add('-anim', target, "Seed Bomb", target);
 			}
-
 		},
 		secondary: null,
 		target: "normal",
@@ -506,7 +501,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Cool",
 	},
-	
+
 	stupidcannon: {
 		num: 9020,
 		accuracy: 100,
@@ -518,7 +513,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Bulk Up", target);
 		    this.add('-anim', source, "Dragon Dance", target);
@@ -549,16 +544,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Aerial Ace", target);
 		},
 		onBasePower(basePower, pokemon, target) {
-			if (target.hp * 4 <= target.maxhp * 3) {return this.chainModify(1.5);}
-			else if (target.hp * 2 <= target.maxhp) {return this.chainModify(2);}
-			else if (target.hp * 4 <= target.maxhp) {return this.chainModify(3);}
-			else if (target.hp * 10 <= target.maxhp) {return this.chainModify(10);}
-			else {
+			if (target.hp * 4 <= target.maxhp * 3) { return this.chainModify(1.5); } else if (target.hp * 2 <= target.maxhp) { return this.chainModify(2); } else if (target.hp * 4 <= target.maxhp) { return this.chainModify(3); } else if (target.hp * 10 <= target.maxhp) { return this.chainModify(10); } else {
 				this.boost({def: -1}, target);
 				return this.chainModify(1);
 			}
@@ -586,7 +577,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
-	
+
 	milkdrink: {
 		num: 208,
 		accuracy: true,
@@ -603,7 +594,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	
+
 	recover: {
 		num: 105,
 		accuracy: true,
@@ -620,7 +611,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
-	
+
 	roost: {
 		num: 355,
 		accuracy: true,
@@ -652,7 +643,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
-	
+
 	slackoff: {
 		num: 303,
 		accuracy: true,
@@ -669,7 +660,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	
+
 	softboiled: {
 		num: 135,
 		accuracy: true,
@@ -686,7 +677,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	
+
 	synthesis: {
 		num: 235,
 		accuracy: true,
@@ -718,7 +709,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
-	
+
 	moonlight: {
 		num: 236,
 		accuracy: true,
@@ -750,7 +741,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	
+
 	morningsun: {
 		num: 234,
 		accuracy: true,
@@ -782,7 +773,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	
+
 	shoreup: {
 		num: 659,
 		accuracy: true,
@@ -805,7 +796,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	
+
 	rest: {
 		num: 156,
 		accuracy: true,
@@ -837,7 +828,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	
+
 	chillyreception: {
 		num: 881,
 		accuracy: true,
@@ -856,7 +847,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Ice",
 	},
-	
+
 	gigatonhammer: {
 		num: 893,
 		accuracy: 100,
@@ -884,7 +875,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
-	
+
 	wavecrash: {
 		num: 834,
 		accuracy: 100,
@@ -899,7 +890,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 	},
-	
+
 	chloroblast: {
 		num: 835,
 		accuracy: 95,
@@ -914,7 +905,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 	},
-	
+
 	luminacrash: {
 		num: 855,
 		accuracy: 100,
@@ -933,7 +924,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
-		
+
 	lunarblessing: {
 		num: 849,
 		accuracy: true,
@@ -951,7 +942,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allies",
 		type: "Psychic",
 	},
-	
+
 	glaiverush: {
 		num: 862,
 		accuracy: 100,
@@ -986,7 +977,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 	},
-	
+
 	ceaselessedge: {
 		num: 845,
 		accuracy: 90,
@@ -1006,7 +997,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-		
+
 	stoneaxe: {
 		num: 830,
 		accuracy: 90,
@@ -1026,7 +1017,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
-	
+
 	jetpunch: {
 		num: 857,
 		accuracy: 100,
@@ -1040,8 +1031,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
-	}, 
-	
+	},
+
 	direclaw: {
 		shortDesc: "50% to paralyze, poison, or sleep target. High crit ratio.",
 		num: 10011,
@@ -1063,13 +1054,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const result = this.random(3);
 				if (result === 0) {
 					target.trySetStatus('psn', source);
-					if ((target) && source.ability === "unstableclaws") {this.add('-start', source, 'typechange', 'Poison');}
+					if ((target) && source.ability === "unstableclaws") { this.add('-start', source, 'typechange', 'Poison'); }
 				} else if (result === 1) {
 					target.trySetStatus('par', source);
-					if ((target) && source.ability === "unstableclaws") {this.add('-start', source, 'typechange', 'Electric');}
+					if ((target) && source.ability === "unstableclaws") { this.add('-start', source, 'typechange', 'Electric'); }
 				} else {
 					target.trySetStatus('slp', source);
-					if ((target) && source.ability === "unstableclaws") {this.add('-start', source, 'typechange', 'Psychic');}
+					if ((target) && source.ability === "unstableclaws") { this.add('-start', source, 'typechange', 'Psychic'); }
 				}
 			},
 		},
@@ -1077,7 +1068,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		contestType: "Clever",
 	},
-	
+
 	shedtail: {
 		num: 10111,
 		accuracy: true,
@@ -1123,7 +1114,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'heal'},
 		contestType: "Cute",
 	},
-	
+
 	infernalparade: {
 		num: 844,
 		accuracy: 100,
@@ -1134,7 +1125,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onHit(target, source) {
 			const result = this.random(10);
-			if (result <= 2) {target.trySetStatus('brn', source);}
+			if (result <= 2) { target.trySetStatus('brn', source); }
 		},
 		category: "Special",
 		name: "Infernal Parade",
@@ -1145,7 +1136,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ghost",
 	},
-	
+
 	makeitrain: {
 		num: 874,
 		accuracy: 100,
@@ -1165,7 +1156,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		contestType: "Beautiful",
 	},
-	
+
 	roulettespin: {
 		accuracy: true,
 		basePower: 0,
@@ -1180,512 +1171,422 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		contestType: "Cute",
 
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Metronome", target);
 		},
 		onHit(source) {
-					var result: number;
-		const pickSide = this.random(2);
+			let result: number;
+			const pickSide = this.random(2);
 
-		for (const allPokemon of this.getAllActive()) {
-			if (allPokemon.hasAbility('obtrusive')) {
-				return;
+			for (const allPokemon of this.getAllActive()) {
+				if (allPokemon.hasAbility('obtrusive')) {
+					return;
+				}
 			}
-		} 
 
-		this.add('-message', "Time for the Roulette Wheel!");
-		
-		result = this.random(35);
+			this.add('-message', "Time for the Roulette Wheel!");
 
-		if (result === 0) {
-			this.hint("Roulette Wheel Result 1 - Both Pokemon trade Speed stats.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Speed Swap", target);
-				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Speed Swap", target);
-				}
-				}
-			}
-		}
-    
-		else if (result === 1) {
-			this.hint("Roulette Wheel Result 2 - Both Pokemon will crit next turn.");
-			for (const pokemon of this.getAllActive()) {
-				this.useMove("Laser Focus", pokemon);
-			}
-		}    
+			result = this.random(35);
 
-		else if (result === 2) {
-			this.hint("Roulette Wheel Result 3 - Make all Pokemon drowsy.");
-			for (const pokemon of this.getAllActive()) {
-				pokemon.addVolatile('yawn');
-			}
-		}  
-        
-		else if (result === 3) {
-			this.hint("Roulette Wheel Result 4 - Make one Pokemon Transform and raise its Speed.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Transform", target);
-          this.boost({spe: 1}, target);
-				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Transform", target);
-          this.boost({spe: 1}, target);
-				}
-				}
-			}
-		}
-        
-		else if (result === 4) {
-			this.hint("Roulette Wheel Result 5 - Someone gets a Substitute.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					target.addVolatile('substitute');
-				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					target.addVolatile('substitute');
-				}
-				}
-			}	
-		} 
-        
-		else if (result === 5) {
-			this.hint("Roulette Wheel Result 6 - Both Pokemon get Encored.");
-			for (const pokemon of this.getAllActive()) {
-				pokemon.addVolatile('encore');
-			}
-		}   
-
-		else if (result === 6) {
-			this.hint("Roulette Wheel Result 7 - octolock was too much guys");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Fairy Lock", target);
-				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Fairy Lock", target);
-				}
-				}
-			}
-		}  
-        
-		else if (result === 7) {
-			this.hint("Roulette Wheel Result 8 - Both Pokemon get Taunted.");
-			for (const pokemon of this.getAllActive()) {
-				pokemon.addVolatile('taunt');
-			}
-		}   
-
-		else if (result === 8) { // might need to change the name for this one later.
-			this.hint("Roulette Wheel Result 9 - Both Pokemon change their types.");
-			for (const pokemon of this.getAllActive()) {
-				this.useMove("Conversion", pokemon);
-			}
-		}         
-        
-		else if (result === 9) {
-			this.hint("Roulette Wheel Result 10 - How do you like THIS one, Game Freak?");
-			for (const pokemon of this.getAllActive()) {
-				this.useMove("Recover", pokemon);
-			}
-		}   
-		
-		else if (result === 10) { 
-			this.hint("Roulette Wheel Result 11 - lmao x2");
-			for (const pokemon of this.getAllActive()) {
-				this.damage(1, pokemon);
-			}
-		}  	
-		
-		else if (result === 11) { 
-			this.hint("Roulette Wheel Result 12 - Everyone gets their ability replaced with Defeatist.");
-			for (const s1 of this.sides[0].active) {
-				for (const s2 of this.sides[1].active) {
-					const oldAbility1 = s1.setAbility('Defeatist');
-					if (oldAbility1) {
-						this.add('-ability', s1, 'Defeatist', '[from] move: Roulette Spin');
+			if (result === 0) {
+				this.hint("Roulette Wheel Result 1 - Both Pokemon trade Speed stats.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Speed Swap", target);
+						}
 					}
-					const oldAbility2 = s2.setAbility('Defeatist');
-					if (oldAbility2) {
-						this.add('-ability', s2, 'Defeatist', '[from] move: Roulette Spin');
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Speed Swap", target);
+						}
 					}
 				}
-			}
-		} 			
-
-		else if (result === 12) {
-			this.hint("Roulette Wheel Result 13 - I felt like being mean today");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.boost({atk: 4, spa: 4, spe: -12}, target);
+			} else if (result === 1) {
+				this.hint("Roulette Wheel Result 2 - Both Pokemon will crit next turn.");
+				for (const pokemon of this.getAllActive()) {
+					this.useMove("Laser Focus", pokemon);
 				}
+			} else if (result === 2) {
+				this.hint("Roulette Wheel Result 3 - Make all Pokemon drowsy.");
+				for (const pokemon of this.getAllActive()) {
+					pokemon.addVolatile('yawn');
 				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.boost({atk: 4, spa: 4, spe: -12}, target);
-				}
-				}
-			}	
-		}
-		
-		else if (result === 13) { 
-			this.hint("Roulette Wheel Result 14 - Everyone gets perfect accuracy.");
-			for (const pokemon of this.getAllActive()) {
-				this.boost({accuracy: 12}, pokemon);
-			}
-		} 		
-
-		else if (result === 14) {
-			this.hint("Roulette Wheel Result 15 - One Pokemon gets to Baton Pass.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Baton Pass", target);
-				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Baton Pass", target);
-				}
-				}
-			}
-		}  
-		
-		else if (result === 15) { 
-			this.hint("Roulette Wheel Result 16 - your boosts are mine");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Heart Swap", target);
-				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Heart Swap", target);
-				}
-				}
-			}
-		} 
-		
-		else if (result === 16) {
-			this.hint("Roulette Wheel Result 17 - One side sets webs.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Sticky Web", target);
-				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Sticky Web", target);
-				}
-				}
-			}
-		}  	
-		
-		else if (result === 17) {
-			this.hint("Roulette Wheel Result 18 - i felt like it would be funny");
-			for (const s1 of this.sides[0].active) {
-				for (const s2 of this.sides[1].active) {
-					if (pickSide === 0) {
-						this.damage(s2.baseMaxhp / 4, s2);
-						this.heal(s1.baseMaxhp / 4, s1);
-						
+			} else if (result === 3) {
+				this.hint("Roulette Wheel Result 4 - Make one Pokemon Transform and raise its Speed.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Transform", target);
+							this.boost({spe: 1}, target);
+						}
 					}
-					else if (pickSide === 1) {
-						this.damage(s1.baseMaxhp / 4, s1);
-						this.heal(s2.baseMaxhp / 4, s2);
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Transform", target);
+							this.boost({spe: 1}, target);
+						}
 					}
 				}
-			}
-		}  
-			
-		else if (result === 18) { 
-			this.hint("Roulette Wheel Result 19 - MISTERRRRRRRR BEAAAAAAAAAAAAST");
-			for (const s1 of this.sides[0].active) {
-				for (const s2 of this.sides[1].active) {
-					const oldAbility1 = s1.setAbility('beastboost', s1);
-					if (oldAbility1) {
-						this.add('-ability', s1, 'Beast Boost', '[from] move: Roulette Spin');
+			} else if (result === 4) {
+				this.hint("Roulette Wheel Result 5 - Someone gets a Substitute.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							target.addVolatile('substitute');
+						}
 					}
-					const oldAbility2 = s2.setAbility('beastboost', s2);
-					if (oldAbility2) {
-						this.add('-ability', s2, 'Beast Boost', '[from] move: Roulette Spin');
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							target.addVolatile('substitute');
+						}
 					}
 				}
-			}
-		}			
-		
-		else if (result === 19) {
-			this.hint("Roulette Wheel Result 20 - Give one Pokemon an omniboost.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, target, target, null, true);
+			} else if (result === 5) {
+				this.hint("Roulette Wheel Result 6 - Both Pokemon get Encored.");
+				for (const pokemon of this.getAllActive()) {
+					pokemon.addVolatile('encore');
 				}
+			} else if (result === 6) {
+				this.hint("Roulette Wheel Result 7 - octolock was too much guys");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Fairy Lock", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Fairy Lock", target);
+						}
+					}
 				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, target, target, null, true);
+			} else if (result === 7) {
+				this.hint("Roulette Wheel Result 8 - Both Pokemon get Taunted.");
+				for (const pokemon of this.getAllActive()) {
+					pokemon.addVolatile('taunt');
 				}
+			} else if (result === 8) { // might need to change the name for this one later.
+				this.hint("Roulette Wheel Result 9 - Both Pokemon change their types.");
+				for (const pokemon of this.getAllActive()) {
+					this.useMove("Conversion", pokemon);
 				}
-			}
-		} 
-			
-		else if (result === 20) {
-			this.hint("Roulette Wheel Result 21 - Switch both sides' field effects.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Court Change", target);
+			} else if (result === 9) {
+				this.hint("Roulette Wheel Result 10 - How do you like THIS one, Game Freak?");
+				for (const pokemon of this.getAllActive()) {
+					this.useMove("Recover", pokemon);
 				}
+			} else if (result === 10) {
+				this.hint("Roulette Wheel Result 11 - lmao x2");
+				for (const pokemon of this.getAllActive()) {
+					this.damage(1, pokemon);
 				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Court Change", target);
+			} else if (result === 11) {
+				this.hint("Roulette Wheel Result 12 - Everyone gets their ability replaced with Defeatist.");
+				for (const s1 of this.sides[0].active) {
+					for (const s2 of this.sides[1].active) {
+						const oldAbility1 = s1.setAbility('Defeatist');
+						if (oldAbility1) {
+							this.add('-ability', s1, 'Defeatist', '[from] move: Roulette Spin');
+						}
+						const oldAbility2 = s2.setAbility('Defeatist');
+						if (oldAbility2) {
+							this.add('-ability', s2, 'Defeatist', '[from] move: Roulette Spin');
+						}
+					}
 				}
+			} else if (result === 12) {
+				this.hint("Roulette Wheel Result 13 - I felt like being mean today");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.boost({atk: 4, spa: 4, spe: -12}, target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.boost({atk: 4, spa: 4, spe: -12}, target);
+						}
+					}
 				}
-			}	
-		}
-			
-		else if (result === 21) {
-			this.hint("Roulette Wheel Result 22 - Averages out the HP of active Pokemon.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Pain Split", target);
+			} else if (result === 13) {
+				this.hint("Roulette Wheel Result 14 - Everyone gets perfect accuracy.");
+				for (const pokemon of this.getAllActive()) {
+					this.boost({accuracy: 12}, pokemon);
 				}
+			} else if (result === 14) {
+				this.hint("Roulette Wheel Result 15 - One Pokemon gets to Baton Pass.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Baton Pass", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Baton Pass", target);
+						}
+					}
 				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Pain Split", target);
+			} else if (result === 15) {
+				this.hint("Roulette Wheel Result 16 - your boosts are mine");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Heart Swap", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Heart Swap", target);
+						}
+					}
 				}
+			} else if (result === 16) {
+				this.hint("Roulette Wheel Result 17 - One side sets webs.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Sticky Web", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Sticky Web", target);
+						}
+					}
 				}
-			}	
-		}
-		
-		else if (result === 22) {
-			this.hint("Roulette Wheel Result 23 - One active Pokemon Defogs.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Defog", target);
+			} else if (result === 17) {
+				this.hint("Roulette Wheel Result 18 - i felt like it would be funny");
+				for (const s1 of this.sides[0].active) {
+					for (const s2 of this.sides[1].active) {
+						if (pickSide === 0) {
+							this.damage(s2.baseMaxhp / 4, s2);
+							this.heal(s1.baseMaxhp / 4, s1);
+						} else if (pickSide === 1) {
+							this.damage(s1.baseMaxhp / 4, s1);
+							this.heal(s2.baseMaxhp / 4, s2);
+						}
+					}
 				}
+			} else if (result === 18) {
+				this.hint("Roulette Wheel Result 19 - MISTERRRRRRRR BEAAAAAAAAAAAAST");
+				for (const s1 of this.sides[0].active) {
+					for (const s2 of this.sides[1].active) {
+						const oldAbility1 = s1.setAbility('beastboost', s1);
+						if (oldAbility1) {
+							this.add('-ability', s1, 'Beast Boost', '[from] move: Roulette Spin');
+						}
+						const oldAbility2 = s2.setAbility('beastboost', s2);
+						if (oldAbility2) {
+							this.add('-ability', s2, 'Beast Boost', '[from] move: Roulette Spin');
+						}
+					}
 				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Defog", target);
+			} else if (result === 19) {
+				this.hint("Roulette Wheel Result 20 - Give one Pokemon an omniboost.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, target, target, null, true);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, target, target, null, true);
+						}
+					}
 				}
+			} else if (result === 20) {
+				this.hint("Roulette Wheel Result 21 - Switch both sides' field effects.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Court Change", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Court Change", target);
+						}
+					}
 				}
-			}
-		}
-			
-		else if (result === 23) {
-			this.hint("Roulette Wheel Result 24 - Both sides set Stealth Rock.");
-			for (const pokemon of this.getAllActive()) {
-				this.useMove("Stealth Rock", pokemon);
-			}
-		}
-			
-		else if (result === 24) {
-			this.hint("Roulette Wheel Result 25 - Make both Pokemon swap abilities.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Skill Swap", target);
+			} else if (result === 21) {
+				this.hint("Roulette Wheel Result 22 - Averages out the HP of active Pokemon.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Pain Split", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Pain Split", target);
+						}
+					}
 				}
+			} else if (result === 22) {
+				this.hint("Roulette Wheel Result 23 - One active Pokemon Defogs.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Defog", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Defog", target);
+						}
+					}
 				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Skill Swap", target);
+			} else if (result === 23) {
+				this.hint("Roulette Wheel Result 24 - Both sides set Stealth Rock.");
+				for (const pokemon of this.getAllActive()) {
+					this.useMove("Stealth Rock", pokemon);
 				}
+			} else if (result === 24) {
+				this.hint("Roulette Wheel Result 25 - Make both Pokemon swap abilities.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Skill Swap", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Skill Swap", target);
+						}
+					}
 				}
-			}	
-		}
-			
-		else if (result === 25) {
-			this.hint("Roulette Wheel Result 26 - Both active Pokemon swap items.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Trick", target);
+			} else if (result === 25) {
+				this.hint("Roulette Wheel Result 26 - Both active Pokemon swap items.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Trick", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Switcheroo", target);
+						}
+					}
 				}
+			} else if (result === 26) {
+				this.hint("Roulette Wheel Result 27 - Sets Trick Room.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Trick Room", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Trick Room", target);
+						}
+					}
 				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Switcheroo", target);
+			} else if (result === 27) {
+				this.hint("Roulette Wheel Result 28 - Sets Magic Room.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Magic Room", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Magic Room", target);
+						}
+					}
 				}
+			} else if (result === 28) {
+				this.hint("Roulette Wheel Result 29 - Sets Wonder Room.");
+				if (pickSide === 0) {
+					for (const target of this.sides[0].pokemon) {
+						if (target.isActive) {
+							this.useMove("Wonder Room", target);
+						}
+					}
+				} else if (pickSide === 1) {
+					for (const target of this.sides[1].pokemon) {
+						if (target.isActive) {
+							this.useMove("Wonder Room", target);
+						}
+					}
 				}
-			}	
-		}
-			
-		else if (result === 26) {
-			this.hint("Roulette Wheel Result 27 - Sets Trick Room.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Trick Room", target);
+			} else if (result === 29) {
+				this.hint("Roulette Wheel Result 30 - glhf");
+				for (const pokemon of this.getAllActive()) {
+					this.useMove("Sheer Cold", pokemon);
 				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Trick Room", target);
-				}
-				}
-			}	
-		}
-			
-		else if (result === 27) {
-			this.hint("Roulette Wheel Result 28 - Sets Magic Room.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Magic Room", target);
-				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Magic Room", target);
-				}
-				}
-			}	
-		}
-
-		else if (result === 28) {
-			this.hint("Roulette Wheel Result 29 - Sets Wonder Room.");
-			if (pickSide === 0) {
-				for (const target of this.sides[0].pokemon) {
-				if (target.isActive) {
-					this.useMove("Wonder Room", target);
-				}
-				}
-			}
-			else if (pickSide === 1) {
-				for (const target of this.sides[1].pokemon) {
-				if (target.isActive) {
-					this.useMove("Wonder Room", target);
-				}
-				}
-			}	
-		}
-			
-		else if (result === 29) {
-			this.hint("Roulette Wheel Result 30 - glhf");
-			for (const pokemon of this.getAllActive()) {
-				this.useMove("Sheer Cold", pokemon);
-			}
-		}
-			
-	   else if (result === 30) {
-			this.hint("Roulette Wheel Result 31 - screw you both");
+			} else if (result === 30) {
+				this.hint("Roulette Wheel Result 31 - screw you both");
 	            for (const pokemon of this.getAllActive()) {
-			this.directDamage(pokemon.hp, pokemon);
+					this.directDamage(pokemon.hp, pokemon);
 		    }
-		}			
-			
-		else if (result === 31) {
-			this.hint("Roulette Wheel Result 32 - Attempts to Freeze all active Pokemon.");
-			for (const pokemon of this.getAllActive()) {
-				pokemon.trySetStatus('frz', pokemon);
+			} else if (result === 31) {
+				this.hint("Roulette Wheel Result 32 - Attempts to Freeze all active Pokemon.");
+				for (const pokemon of this.getAllActive()) {
+					pokemon.trySetStatus('frz', pokemon);
 	        	}
-		}	
-			
-		else if (result === 32) {
-			this.hint("Roulette Wheel Result 33 - Funeral service...");
-			var deez: number;
-			deez = this.random(32);
-			if (deez === 0) {
-				for (const pokemon of this.sides[0].active) {
-					this.directDamage(pokemon.hp, pokemon);
-					this.add('-message', "rip bozo LMAOOOOOOOOO");
+			} else if (result === 32) {
+				this.hint("Roulette Wheel Result 33 - Funeral service...");
+				let deez: number;
+				deez = this.random(32);
+				if (deez === 0) {
+					for (const pokemon of this.sides[0].active) {
+						this.directDamage(pokemon.hp, pokemon);
+						this.add('-message', "rip bozo LMAOOOOOOOOO");
+					}
+				} else if (deez === 1) {
+					for (const pokemon of this.sides[0].active) {
+						this.directDamage(pokemon.hp, pokemon);
+						this.add('-message', "rip bozo LMAOOOOOOOOO");
+					}
+				} else {
+					this.add(`raw|<img src="https://cdn.discordapp.com/attachments/884947038788276264/1043172263291269120/goriplax.png" height="454" width="411">`);
+					this.add('-message', "Good day, ladies and gentlemen.");
+					this.add('-message', "Many of you may be wondering why Gorilax wasn't included in Gen 9 Duomod.");
+					this.add('-message', "Today, I have to bear the unfortunate news that Gorilax has passed away.");
+					this.add('-message', "Over the years, Gorilax has graced our lives with his 116/101/117 bulk, awful typing, and cool offensive sets.");
+					this.add('-message', "His abilities of Forewarn and Mental Note may not have been the best, but we loved him for them all the same.");
+					this.add('-message', "Some may have found his looks creepy, but in spite of that, his face always had that unbreakable smile.");
+					this.add('-message', "Let us not grieve over the fact that he is gone, but celebrate the fact that we were able to have so many good times with him.");
+					this.add('-message', "We will forever miss you, Gorilax.");
+					this.add('-message', "R.I.P. 2019 - 2022");
+				}
+			} else if (result === 33) {
+				this.hint("Roulette Wheel Result 34 - Both active Pokemon use Metronome.");
+				for (const pokemon of this.getAllActive()) {
+					this.useMove("Metronome", pokemon);
+				}
+			} else {
+				this.hint("Roulette Wheel Result 35 - THE ULTIMATE EFFECT!!!");
+				for (const pokemon of this.getAllActive()) {
+					this.useMove("Ultranome", pokemon);
 				}
 			}
-			else if (deez === 1) {
-				for (const pokemon of this.sides[0].active) {
-					this.directDamage(pokemon.hp, pokemon);
-					this.add('-message', "rip bozo LMAOOOOOOOOO");
-				}
-			}
-			else {	
-				this.add(`raw|<img src="https://cdn.discordapp.com/attachments/884947038788276264/1043172263291269120/goriplax.png" height="454" width="411">`);
-				this.add('-message', "Good day, ladies and gentlemen.");
-				this.add('-message', "Many of you may be wondering why Gorilax wasn't included in Gen 9 Duomod.");
-				this.add('-message', "Today, I have to bear the unfortunate news that Gorilax has passed away.");
-				this.add('-message', "Over the years, Gorilax has graced our lives with his 116/101/117 bulk, awful typing, and cool offensive sets.");
-				this.add('-message', "His abilities of Forewarn and Mental Note may not have been the best, but we loved him for them all the same.");
-				this.add('-message', "Some may have found his looks creepy, but in spite of that, his face always had that unbreakable smile.");
-				this.add('-message', "Let us not grieve over the fact that he is gone, but celebrate the fact that we were able to have so many good times with him.");
-				this.add('-message', "We will forever miss you, Gorilax.");
-				this.add('-message', "R.I.P. 2019 - 2022");
-			}
-		}
-
-		else if (result === 33) {
-			this.hint("Roulette Wheel Result 34 - Both active Pokemon use Metronome.");
-			for (const pokemon of this.getAllActive()) {
-				this.useMove("Metronome", pokemon);
-			}
-		}
-		
-		else {
-			this.hint("Roulette Wheel Result 35 - THE ULTIMATE EFFECT!!!");
-			for (const pokemon of this.getAllActive()) {
-				this.useMove("Ultranome", pokemon);
-			}
-		}
-			
 		},
 	},
-		
+
 	ultranome: {
 		num: 118,
 		accuracy: true,
@@ -1697,7 +1598,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		noPPBoosts: true,
 		priority: 0,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Metronome", target);
 		},
@@ -1767,7 +1668,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add('-activate', source, 'ability: Persistent', effect);
 					return 7;
 				}
-				if (!source.hasMove('trickroom')) {return 4;}
+				if (!source.hasMove('trickroom')) { return 4; }
 				return 5;
 			},
 			onStart(target, source) {
@@ -1788,7 +1689,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Clever",
 	},
-	
+
 	fairylock: {
 		num: 587,
 		accuracy: true,
@@ -1802,7 +1703,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 2,
 			durationCallback(source, effect) {
-				if (!source.hasMove('fairylock')) {return 1;}
+				if (!source.hasMove('fairylock')) { return 1; }
 				return 2;
 			},
 			onStart(target) {
@@ -1836,7 +1737,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add('-activate', source, 'ability: Persistent', effect);
 					return 7;
 				}
-				if (!source.hasMove('wonderroom')) {return 4;}
+				if (!source.hasMove('wonderroom')) { return 4; }
 				return 5;
 			},
 			onStart(side, source) {
@@ -1875,7 +1776,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add('-activate', source, 'ability: Persistent', effect);
 					return 7;
 				}
-				if (!source.hasMove('magicroom')) {return 4;}
+				if (!source.hasMove('magicroom')) { return 4; }
 				return 5;
 			},
 			onStart(target, source) {
@@ -1910,7 +1811,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 2,
 			durationCallback(source, effect) {
-				if (!source.hasMove('laserfocus')) {return 1;}
+				if (!source.hasMove('laserfocus')) { return 1; }
 				return 2;
 			},
 			onStart(pokemon, source, effect) {
@@ -1959,8 +1860,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onStart(target, source) {
 				this.add('-start', target, 'move: Yawn', '[of] ' + source);
 				if (source.lastMove) {
-					if (source.lastMove.id != 'yawn') {this.effectState.duration = 1;}
-				} 
+					if (source.lastMove.id != 'yawn') { this.effectState.duration = 1; }
+				}
 			},
 			onResidualOrder: 19,
 			onEnd(target) {
@@ -1984,7 +1885,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Heart Swap", target);
 		},
@@ -2021,7 +1922,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					this.add('-activate', source, 'ability: Persistent', effect);
 					return 7;
 				}
-				if (!source.hasMove('guardingroom')) {return 4;}
+				if (!source.hasMove('guardingroom')) { return 4; }
 				return 5;
 			},
 			onStart(target, source) {
@@ -2059,12 +1960,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		noPPBoosts: true,
 		priority: -7,
 		flags: {mirror: 1, authentic: 1, mystery: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Acupressure", target);
 		},
-		onHit (target) {
-			if (target.moveSlots.length >= 8) {return;}
+		onHit(target) {
+			if (target.moveSlots.length >= 8) { return; }
 			const ms = {
 				move: "Metronome",
 				id: "metronome",
@@ -2154,7 +2055,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
-				if (!source.hasMove('embargo')) {return 4;}
+				if (!source.hasMove('embargo')) { return 4; }
 				return 5;
 			},
 			onStart(pokemon) {

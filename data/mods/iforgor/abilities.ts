@@ -186,8 +186,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
-			))
-			|| pokemon.species.id !== 'normalghost') {
+			)) ||
+			pokemon.species.id !== 'normalghost') {
 				this.effectState.gaveUp = true;
 			}
 		},
@@ -202,7 +202,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				const ability = target.getAbility();
 				const additionalBannedAbilities = [
 					// Zen Mode included here for compatability with Gen 5-6
-					'noability', 'flowergift', 'forecast','illusion', 'pillage','imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'noability', 'flowergift', 'forecast', 'illusion', 'pillage', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -210,7 +210,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				target.setAbility('pillage', pokemon);
 				pokemon.setAbility(ability);
-				
+
 				this.add('-activate', pokemon, 'ability: Pillage');
 				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
 				this.add('-activate', pokemon, 'ability: ' + ability.name);
@@ -268,10 +268,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1014,
 	},
 	mortem: {
-        onModifyMove(move, target) {
+		onModifyMove(move, target) {
 			const def = target.getStat('def', false, true);
 			const spd = target.getStat('spd', false, true);
-            if (move.type === 'Ghost') {
+			if (move.type === 'Ghost') {
 				if (!move.secondaries) move.secondaries = [];
 				if (def < spd) {
 					move.secondaries.push({
@@ -288,24 +288,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						},
 					});
 				}
-            }
-        },
+			}
+		},
 		name: "Mortem",
 		shortDesc: "This Pokemon's Ghost-type attacks have an added 20% to lower the target's Defense or Special Defense, whichever is higher.",
 		num: -1015,
 	},
 	risingsun: {
-        onSourceHit(target, source, move) {
+		onSourceHit(target, source, move) {
 			if (!move || !target) return;
 			if (move.category === 'Physical') this.boost({spa: 1}, source, source);
 			if (move.category === 'Special') this.boost({atk: 1}, source, source);
-        },
+		},
 		name: "Rising Sun",
 		shortDesc: "This Pokemon raises its Attack by 1 stage when using a special attack and vice versa.",
 		num: -1016,
 	},
 	allseeingeye: {
-        onAfterMove(target, source, move) {
+		onAfterMove(target, source, move) {
 			if (move.type === 'Psychic' && move.category === 'Status') {
 				this.heal(target.baseMaxhp / 4);
 			}
@@ -315,7 +315,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -1017,
 	},
 	uptospeed: {
-        onStart(pokemon, target) {
+		onStart(pokemon, target) {
 			pokemon.boosts.spe = target.boosts.spe;
 		},
 		name: "Up to Speed",

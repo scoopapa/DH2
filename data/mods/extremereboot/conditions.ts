@@ -107,7 +107,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			let s: StatNameExceptHP;
 			for (s in pokemon.storedStats) {
 				if (s === 'def' || s === 'spd') continue;
-				let realStat = pokemon.storedStats[s] * (1 + (boosts[s] / 2));
+				const realStat = pokemon.storedStats[s] * (1 + (boosts[s] / 2));
 				if (realStat > bestStat) {
 					statName = s;
 					bestStat = realStat;
@@ -116,7 +116,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (pokemon.hasAbility('unstable')) this.boost({[statName]: -2}, pokemon);
 			else this.boost({[statName]: -1}, pokemon);
 		},
-		
+
 	},
 	slp: {
 		name: 'slp',

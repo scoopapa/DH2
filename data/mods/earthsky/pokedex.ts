@@ -899,7 +899,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	pikeral: {
 		num: -567,
 		name: "Pikeral",
-		//forme: "Red-Striped",
+		// forme: "Red-Striped",
 		types: ["Water", "Fighting"],
 		baseStats: {hp: 70, atk: 112, def: 75, spa: 100, spd: 65, spe: 108},
 		abilities: {0: "Reckless", 1: "Adaptability", H: "Mold Breaker"},
@@ -2614,15 +2614,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 	},
-	klink: { //hardcoding Induction because I don't want to add a check to the algo that only affects these three
+	klink: { // hardcoding Induction because I don't want to add a check to the algo that only affects these three
 		inherit: true,
 		abilities: {0: "Induction", H: "Clear Body"},
 	},
-	klang: { 
+	klang: {
 		inherit: true,
 		abilities: {0: "Induction", H: "Clear Body"},
 	},
-	klinklang: { 
+	klinklang: {
 		inherit: true,
 		abilities: {0: "Induction", H: "Clear Body"},
 	},
@@ -2649,7 +2649,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	//CAP
+	// CAP
 	syclant: {
 		inherit: true,
 		abilities: {0: "Compound Eyes", 1: "Limber", H: "Ice Body"},
@@ -2662,7 +2662,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Shed Skin", 1: "Air Lock", H: "Soul Drain"},
 	},
-	/*nohface: { //CAPs should be renumbered this way, but it interferes with sprites at the moment
+	/* nohface: { //CAPs should be renumbered this way, but it interferes with sprites at the moment
 		inherit: true,
 		number: -14,
 	},
@@ -2688,10 +2688,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},*/
 	colossoil: {
 		inherit: true,
-		//number: -20,
+		// number: -20,
 		abilities: {0: "Emergence", 1: "Guts", H: "Unnerve"},
 	},
-	/*protowatt: {
+	/* protowatt: {
 		inherit: true,
 		number: -21,
 	},
@@ -2717,10 +2717,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},*/
 	necturine: {
 		inherit: true,
-		//number: -27,
+		// number: -27,
 		abilities: {0: "Forewarn", H: "Telepathy"},
 	},
-	/*necturna: {
+	/* necturna: {
 		inherit: true,
 		number: -28,
 	},
@@ -2758,10 +2758,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},*/
 	volkritter: {
 		inherit: true,
-		//number: -37,
+		// number: -37,
 		abilities: {0: "Analytic", 1: "Unnerve", H: "Infiltrator"},
 	},
-	/*volkraken: {
+	/* volkraken: {
 		inherit: true,
 		number: -38,
 	},

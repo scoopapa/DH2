@@ -1,10 +1,10 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-   teambuilderConfig: {
+	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['ReGeneration', 'ReGeneration NFE', 'ReGeneration LC'],
 		customDoublesTiers: ['ReGeneration', 'ReGeneration NFE', 'ReGeneration LC'],
-   },	
-// Terastal (taken from SV Speculative)
+	},
+	// Terastal (taken from SV Speculative)
 
 	canMegaEvo(pokemon) {
 		if (pokemon.species.isMega) return null;
@@ -15,12 +15,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (pokemon.illusion) {
 			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		}
-		let species = this.dex.deepClone(pokemon.species);
+		const species = this.dex.deepClone(pokemon.species);
 		species.teraBoost = pokemon.species.types;
 		species.teraType = pokemon.canMegaEvo; // remember that the species is Terastal
 		species.types = [species.teraType];
 		species.nonTeraForm = pokemon.species;
-		
+
 		// Pokémon affected by Sky Drop cannot Terastallize
 		const side = pokemon.side;
 		for (const foeActive of side.foe.active) {
@@ -78,8 +78,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.apparentType = this.types.join('/');
 
 			return true;
-		}
-   },
+		},
+	},
 	modifyDamage(
 		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 	) {
@@ -174,7 +174,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// ...but 16-bit truncation happens even later, and can truncate to 0
 		return tr(baseDamage, 16);
 	},
-   init: function () {
+	init() {
 		   this.modData("Learnsets", "alakazam").learnset.brainwave = ["8L1"];
 
 		   this.modData("Learnsets", "gengar").learnset.avalanche = ["8L1"];
@@ -268,97 +268,96 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		   this.modData("Learnsets", "jolteon").learnset.buzzoff = ["8L1"];
 
-			delete this.modData('Learnsets', 'alakazam').learnset.focusblast;	
-			delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;	
+		delete this.modData('Learnsets', 'alakazam').learnset.focusblast;
+		delete this.modData('Learnsets', 'alakazam').learnset.nastyplot;
 
-			delete this.modData('Learnsets', 'gengar').learnset.focusblast;	
-			delete this.modData('Learnsets', 'gengar').learnset.nastyplot;	
-			delete this.modData('Learnsets', 'gengar').learnset.terablast;	
-			delete this.modData('Learnsets', 'gengar').learnset.thunderbolt;	
-			delete this.modData('Learnsets', 'gengar').learnset.thunder;	
+		delete this.modData('Learnsets', 'gengar').learnset.focusblast;
+		delete this.modData('Learnsets', 'gengar').learnset.nastyplot;
+		delete this.modData('Learnsets', 'gengar').learnset.terablast;
+		delete this.modData('Learnsets', 'gengar').learnset.thunderbolt;
+		delete this.modData('Learnsets', 'gengar').learnset.thunder;
 
-			delete this.modData('Learnsets', 'dragonite').learnset.dragonclaw;	
-			delete this.modData('Learnsets', 'dragonite').learnset.dragondance;	
-			delete this.modData('Learnsets', 'dragonite').learnset.dragonrush;	
-			delete this.modData('Learnsets', 'dragonite').learnset.dualwingbeat;
-			delete this.modData('Learnsets', 'dragonite').learnset.honeclaws;
-			delete this.modData('Learnsets', 'dragonite').learnset.outrage;	
-			delete this.modData('Learnsets', 'dragonite').learnset.poweruppunch;
-			delete this.modData('Learnsets', 'dragonite').learnset.terablast;		
+		delete this.modData('Learnsets', 'dragonite').learnset.dragonclaw;
+		delete this.modData('Learnsets', 'dragonite').learnset.dragondance;
+		delete this.modData('Learnsets', 'dragonite').learnset.dragonrush;
+		delete this.modData('Learnsets', 'dragonite').learnset.dualwingbeat;
+		delete this.modData('Learnsets', 'dragonite').learnset.honeclaws;
+		delete this.modData('Learnsets', 'dragonite').learnset.outrage;
+		delete this.modData('Learnsets', 'dragonite').learnset.poweruppunch;
+		delete this.modData('Learnsets', 'dragonite').learnset.terablast;
 
-			delete this.modData('Learnsets', 'venusaur').learnset.earthpower;	
-			delete this.modData('Learnsets', 'venusaur').learnset.weatherball;
+		delete this.modData('Learnsets', 'venusaur').learnset.earthpower;
+		delete this.modData('Learnsets', 'venusaur').learnset.weatherball;
 
-			delete this.modData('Learnsets', 'blastoise').learnset.aurasphere;	
-			delete this.modData('Learnsets', 'blastoise').learnset.avalanche;	
-			delete this.modData('Learnsets', 'blastoise').learnset.blizzard;	
-			delete this.modData('Learnsets', 'blastoise').learnset.focusblast;	
-			delete this.modData('Learnsets', 'blastoise').learnset.hail;
-			delete this.modData('Learnsets', 'blastoise').learnset.icebeam;
-			delete this.modData('Learnsets', 'blastoise').learnset.icepunch;		
-			delete this.modData('Learnsets', 'blastoise').learnset.icywind;
-			delete this.modData('Learnsets', 'blastoise').learnset.mist;
-			delete this.modData('Learnsets', 'blastoise').learnset.shellsmash;	
+		delete this.modData('Learnsets', 'blastoise').learnset.aurasphere;
+		delete this.modData('Learnsets', 'blastoise').learnset.avalanche;
+		delete this.modData('Learnsets', 'blastoise').learnset.blizzard;
+		delete this.modData('Learnsets', 'blastoise').learnset.focusblast;
+		delete this.modData('Learnsets', 'blastoise').learnset.hail;
+		delete this.modData('Learnsets', 'blastoise').learnset.icebeam;
+		delete this.modData('Learnsets', 'blastoise').learnset.icepunch;
+		delete this.modData('Learnsets', 'blastoise').learnset.icywind;
+		delete this.modData('Learnsets', 'blastoise').learnset.mist;
+		delete this.modData('Learnsets', 'blastoise').learnset.shellsmash;
 
-			delete this.modData('Learnsets', 'pidgeot').learnset.toxic;	
+		delete this.modData('Learnsets', 'pidgeot').learnset.toxic;
 
-			delete this.modData('Learnsets', 'dodrio').learnset.fly;	
+		delete this.modData('Learnsets', 'dodrio').learnset.fly;
 
-			delete this.modData('Learnsets', 'seadra').learnset.blizzard;	
-			delete this.modData('Learnsets', 'seadra').learnset.icebeam;	
+		delete this.modData('Learnsets', 'seadra').learnset.blizzard;
+		delete this.modData('Learnsets', 'seadra').learnset.icebeam;
 
-// Removing the prevos' moves 			
-			delete this.modData('Learnsets', 'gastly').learnset.nastyplot;	
-			delete this.modData('Learnsets', 'gastly').learnset.terablast;	
-			delete this.modData('Learnsets', 'gastly').learnset.thunderbolt;	
-			delete this.modData('Learnsets', 'gastly').learnset.thunder;	
+		// Removing the prevos' moves
+		delete this.modData('Learnsets', 'gastly').learnset.nastyplot;
+		delete this.modData('Learnsets', 'gastly').learnset.terablast;
+		delete this.modData('Learnsets', 'gastly').learnset.thunderbolt;
+		delete this.modData('Learnsets', 'gastly').learnset.thunder;
 
-			delete this.modData('Learnsets', 'haunter').learnset.focusblast;	
-			delete this.modData('Learnsets', 'haunter').learnset.nastyplot;	
-			delete this.modData('Learnsets', 'haunter').learnset.terablast;	
-			delete this.modData('Learnsets', 'haunter').learnset.thunderbolt;	
-			delete this.modData('Learnsets', 'haunter').learnset.thunder;	
+		delete this.modData('Learnsets', 'haunter').learnset.focusblast;
+		delete this.modData('Learnsets', 'haunter').learnset.nastyplot;
+		delete this.modData('Learnsets', 'haunter').learnset.terablast;
+		delete this.modData('Learnsets', 'haunter').learnset.thunderbolt;
+		delete this.modData('Learnsets', 'haunter').learnset.thunder;
 
-			delete this.modData('Learnsets', 'dratini').learnset.dragondance;	
-			delete this.modData('Learnsets', 'dratini').learnset.dragonrush;	
-			delete this.modData('Learnsets', 'dratini').learnset.outrage;	
-			delete this.modData('Learnsets', 'dratini').learnset.terablast;
+		delete this.modData('Learnsets', 'dratini').learnset.dragondance;
+		delete this.modData('Learnsets', 'dratini').learnset.dragonrush;
+		delete this.modData('Learnsets', 'dratini').learnset.outrage;
+		delete this.modData('Learnsets', 'dratini').learnset.terablast;
 
-			delete this.modData('Learnsets', 'dragonair').learnset.dragondance;	
-			delete this.modData('Learnsets', 'dragonair').learnset.dragonrush;	
-			delete this.modData('Learnsets', 'dragonair').learnset.outrage;	
-			delete this.modData('Learnsets', 'dragonair').learnset.terablast;
+		delete this.modData('Learnsets', 'dragonair').learnset.dragondance;
+		delete this.modData('Learnsets', 'dragonair').learnset.dragonrush;
+		delete this.modData('Learnsets', 'dragonair').learnset.outrage;
+		delete this.modData('Learnsets', 'dragonair').learnset.terablast;
 
-			delete this.modData('Learnsets', 'bulbasaur').learnset.weatherball;
+		delete this.modData('Learnsets', 'bulbasaur').learnset.weatherball;
 
-			delete this.modData('Learnsets', 'ivysaur').learnset.weatherball;
+		delete this.modData('Learnsets', 'ivysaur').learnset.weatherball;
 
-			delete this.modData('Learnsets', 'squirtle').learnset.aurasphere;	
-			delete this.modData('Learnsets', 'squirtle').learnset.blizzard;	
-			delete this.modData('Learnsets', 'squirtle').learnset.hail;
-			delete this.modData('Learnsets', 'squirtle').learnset.icebeam;
-			delete this.modData('Learnsets', 'squirtle').learnset.icepunch;		
-			delete this.modData('Learnsets', 'squirtle').learnset.mist;
-			delete this.modData('Learnsets', 'squirtle').learnset.shellsmash;	
+		delete this.modData('Learnsets', 'squirtle').learnset.aurasphere;
+		delete this.modData('Learnsets', 'squirtle').learnset.blizzard;
+		delete this.modData('Learnsets', 'squirtle').learnset.hail;
+		delete this.modData('Learnsets', 'squirtle').learnset.icebeam;
+		delete this.modData('Learnsets', 'squirtle').learnset.icepunch;
+		delete this.modData('Learnsets', 'squirtle').learnset.mist;
+		delete this.modData('Learnsets', 'squirtle').learnset.shellsmash;
 
-			delete this.modData('Learnsets', 'wartortle').learnset.aurasphere;	
-			delete this.modData('Learnsets', 'wartortle').learnset.blizzard;	
-			delete this.modData('Learnsets', 'wartortle').learnset.hail;
-			delete this.modData('Learnsets', 'wartortle').learnset.icebeam;
-			delete this.modData('Learnsets', 'wartortle').learnset.icepunch;		
-			delete this.modData('Learnsets', 'wartortle').learnset.mist;
-			delete this.modData('Learnsets', 'wartortle').learnset.shellsmash;	
+		delete this.modData('Learnsets', 'wartortle').learnset.aurasphere;
+		delete this.modData('Learnsets', 'wartortle').learnset.blizzard;
+		delete this.modData('Learnsets', 'wartortle').learnset.hail;
+		delete this.modData('Learnsets', 'wartortle').learnset.icebeam;
+		delete this.modData('Learnsets', 'wartortle').learnset.icepunch;
+		delete this.modData('Learnsets', 'wartortle').learnset.mist;
+		delete this.modData('Learnsets', 'wartortle').learnset.shellsmash;
 
-			delete this.modData('Learnsets', 'pidgey').learnset.toxic;	
+		delete this.modData('Learnsets', 'pidgey').learnset.toxic;
 
-			delete this.modData('Learnsets', 'pidgeotto').learnset.toxic;	
+		delete this.modData('Learnsets', 'pidgeotto').learnset.toxic;
 
-			delete this.modData('Learnsets', 'doduo').learnset.fly;	
+		delete this.modData('Learnsets', 'doduo').learnset.fly;
 
-			delete this.modData('Learnsets', 'horsea').learnset.blizzard;	
-			delete this.modData('Learnsets', 'horsea').learnset.icebeam;	
-         },
-			
-			
-			
+		delete this.modData('Learnsets', 'horsea').learnset.blizzard;
+		delete this.modData('Learnsets', 'horsea').learnset.icebeam;
+	},
+
+
 };

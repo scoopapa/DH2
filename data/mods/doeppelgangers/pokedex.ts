@@ -83,7 +83,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 46.8,
 	},
 	swampert: {
-		inherit: true,		
+		inherit: true,
 		otherFormes: ["Swampert-Anti"],
 		formeOrder: ["Swampert", "Swampert-Anti"],
 	},

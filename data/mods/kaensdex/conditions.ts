@@ -1,5 +1,5 @@
 export const Conditions: {[k: string]: ConditionData} = {
-hail: {
+	hail: {
 		name: 'Hail',
 		effectType: 'Weather',
 		duration: 5,
@@ -35,8 +35,8 @@ hail: {
 			this.add('-weather', 'none');
 		},
 	},
-	
-frz: {
+
+	frz: {
 		name: 'frz',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
@@ -68,8 +68,8 @@ frz: {
 			}
 		},
 	},
-	
-slp: {
+
+	slp: {
 		name: 'slp',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {

@@ -209,14 +209,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			let newtype = null;
 			for (const ally of pokemon.side.active) {
 				if (
-					ally !== pokemon && !ally.hasAbility('scaleshift') && ally.types[0] !== pokemon.baseSpecies.types[0]
-					&& ally.types[0] !== pokemon.baseSpecies.types[1]
+					ally !== pokemon && !ally.hasAbility('scaleshift') && ally.types[0] !== pokemon.baseSpecies.types[0] &&
+					ally.types[0] !== pokemon.baseSpecies.types[1]
 				) {
 					newtype = ally.types[0];
 				}
 			}
 			if (newtype) {
-				let typecombo = [newtype, pokemon.baseSpecies.types[1]];
+				const typecombo = [newtype, pokemon.baseSpecies.types[1]];
 				if (pokemon.getTypes().join() === typecombo.join() || !pokemon.setType(typecombo)) return;
 				this.add('-ability', pokemon, 'Scale Shift');
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'));
@@ -271,7 +271,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -9,
 	},
 
-// modded form-changing Abilities
+	// modded form-changing Abilities
 
 	stancechange: {
 		shortDesc: "Changes Aegislash/Condana to Blade/Coiled before attack, Aegislash to Shield before King's Shield.",
@@ -325,7 +325,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					this.add('-message', `${pokemon.name} changed to Revealed Mode!`);
 				}
 				if (!this.effectState.busted && pokemon.species.baseSpecies !== 'Morpeko') { // this is just to make a dt that only shows up once per Klefki
-					const species = this.dex.species.get(pokemon.species.name); 
+					const species = this.dex.species.get(pokemon.species.name);
 					const abilities = species.abilities;
 					const baseStats = species.baseStats;
 					const type = species.types[0];

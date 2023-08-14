@@ -1,5 +1,5 @@
 export const Items: {[k: string]: ModdedItemData} = {
-	//---------Gen 9 Moves----------//
+	// ---------Gen 9 Moves----------//
 	abilityshield: {
 		name: "Ability Shield",
 		spritenum: 0, // TODO

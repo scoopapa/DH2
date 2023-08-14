@@ -1,5 +1,5 @@
-import { Streams } from "pokemon-showdown";
-import { TriumvirateModeTrivia } from "../../../server/chat-plugins/trivia";
+import {Streams} from "pokemon-showdown";
+import {TriumvirateModeTrivia} from "../../../server/chat-plugins/trivia";
 
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	altaria: {
@@ -246,4 +246,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Sap Sipper"},
 	},
-}
+};

@@ -6,23 +6,23 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -1001,
 		gen: 8,
-		desc: "Comes back to the user when flung.", 
+		desc: "Comes back to the user when flung.",
 	},
- momentumarmor: {
-        name: "Momentum Armor",
-        fling: {
-            basePower: 80,
-        },
-        onModifyAtkPriority: 1,
-        onModifyAtk(atk, pokemon) {
-          const def = pokemon.getStat('def', false, true);
-          const newAtk = atk + (def / 4);
-          return newAtk;
-        },
-        num: -1002,
-        gen: 8,
-        desc: "Boosts the user's Attack by 25% of its Defense.", 
-    },
+	momentumarmor: {
+		name: "Momentum Armor",
+		fling: {
+			basePower: 80,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			const def = pokemon.getStat('def', false, true);
+			const newAtk = atk + (def / 4);
+			return newAtk;
+		},
+		num: -1002,
+		gen: 8,
+		desc: "Boosts the user's Attack by 25% of its Defense.",
+	},
  	shellbell: {
 		name: "Shell Bell",
 		spritenum: 438,
@@ -32,12 +32,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
-			this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		num: 253,
 		gen: 3,
-		desc: "The holder heals 12.5% of their max HP upon successfully damaging a Pokemon with an attack.", 
+		desc: "The holder heals 12.5% of their max HP upon successfully damaging a Pokemon with an attack.",
 	},
 	honey: {
 		name: "Honey",
@@ -46,7 +46,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: -1003,
 		gen: 4,
-    shortDesc: "Pokemon with the ability Honey Gather or Sweet Veil heal 12.5% when holding this item.",
+		shortDesc: "Pokemon with the ability Honey Gather or Sweet Veil heal 12.5% when holding this item.",
 	},
 	eviolith: {
 		name: "Eviolith",
@@ -66,9 +66,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-     num: -1004,
-     gen: 8,
-     desc: "If holder's species can evolve, its Atk and Sp. Atk are 1.5x.",
+		num: -1004,
+		gen: 8,
+		desc: "If holder's species can evolve, its Atk and Sp. Atk are 1.5x.",
 	},
 	reliccharm: {
 		name: "Relic Charm",
@@ -99,10 +99,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Darmanitan') {
 				if (!pokemon.species.name.includes('Galar')) {
 					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
-					let oldAbility = pokemon.setAbility('psychicsurge', pokemon, 'psychicsurge', true);
+					const oldAbility = pokemon.setAbility('psychicsurge', pokemon, 'psychicsurge', true);
 				} else {
 					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
-					let oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
+					const oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
 				}
 			}
 		},
@@ -126,12 +126,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	chillpillg: {
 		name: "Chill Pill G",
 		spritenum: 390,
-		onStart: function(pokemon) {
+		onStart(pokemon) {
 			this.add('-item', pokemon, 'Chill Pill');
 			if (pokemon.baseSpecies.baseSpecies === 'Darmanitan' && pokemon.species.name.includes('Galar')) {
 				this.add('-formechange', pokemon, 'Darmanitan-Galar-Zen', '[msg]');
 				pokemon.formeChange("Darmanitan-Galar-Zen");
-				let oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
+				const oldAbility = pokemon.setAbility('snowwarning', pokemon, 'snowwarning', true);
 				if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Snow Warning', oldAbility, '[of] ' + pokemon);
 				}
@@ -154,18 +154,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	"graduationscale": {
 		id: "graduationscale",
 		name: "Graduation Scale",
-		onStart: function(pokemon) {
-			/*this.add('-item', pokemon, 'Graduation Scale');
+		onStart(pokemon) {
+			/* this.add('-item', pokemon, 'Graduation Scale');
 			if (pokemon.baseSpecies.baseSpecies === 'Wishiwashi') {
 				this.add('-formechange', pokemon, 'Wishiwashi-School', '[msg]');
 				pokemon.formeChange("Wishiwashi-School");*/
-				let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
-				/*if (oldAbility) {
+			const oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
+			/* if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Intimidate', oldAbility, '[of] ' + pokemon);
 				}
 			}*/
 		},
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Wishiwashi' || source.baseSpecies.baseSpecies === 'Wishiwashi-School') return false;
 			return true;
 		},
@@ -173,7 +173,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 20,
 		},
 		onBasePowerPriority: 6,
-		onBasePower: function(basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move && (user.baseSpecies.num === 746) && (move.type === 'Water')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
@@ -240,7 +240,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 2,
 		desc: "If held by Pikachu, Raichu, or a Pikaclone, 2 of its stats are boosted 1.5x.",
 	},
-/*
+	/*
 	soulblade: {
 		name: "Soul Blade",
 		spritenum: 297,
@@ -430,10 +430,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				  let bestStat = 0;
 				  let s: StatNameExceptHP;
 				  for (s in pokemon.storedStats) {
-						if (pokemon.storedStats[s] > bestStat) {
+					if (pokemon.storedStats[s] > bestStat) {
 							 statName = s;
 							 bestStat = pokemon.storedStats[s];
-						}
+					}
 				  }
 				  this.boost({[statName]: 1}, pokemon);
 			 }
@@ -523,7 +523,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return false; // skip charge turn
 			}
 		},
-		onUpdate (pokemon) {
+		onUpdate(pokemon) {
 			if (pokemon.volatiles['mustrecharge']) {
 				pokemon.removeVolatile('mustrecharge');
 				pokemon.useItem();
@@ -543,7 +543,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 242,
 		fling: {
 			basePower: 10,
-			//status: 'slp', Fixed
+			// status: 'slp', Fixed
 		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
@@ -552,7 +552,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
-/*
+		/*
 		onStart(pokemon) {
 			if ((pokemon.status === 'slp' || pokemon.hasAbility('comatose'))) {
 				pokemon.addVolatile('pillow');
@@ -586,7 +586,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (this.field.isTerrain('grassyterrain')) return;
 			if (pokemon.hasType('Ghost')) {
 				this.heal(pokemon.baseMaxhp / 16);
-			} 
+			}
 		},
 		onTerrain(pokemon) {
 			if (!this.field.isTerrain('grassyterrain')) return;
@@ -594,7 +594,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.heal(pokemon.baseMaxhp / 16);
 			}
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove(pokemon) {
 			if (!pokemon.hasType('Ghost') && pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onTakeItem(item, source) {
@@ -805,7 +805,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.baseSpecies === 'Regigigas') {
-					let oldAbility = pokemon.setAbility('thickfat', pokemon, 'thickfat', true);
+				const oldAbility = pokemon.setAbility('thickfat', pokemon, 'thickfat', true);
 				if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Thick Fat', oldAbility, '[of] ' + pokemon);
 				}
@@ -833,10 +833,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by Regigigas: Ability becomes Thick Fat, takes 0.75x damage from Fighting and Rock moves.",
 	},
 
-	
-// making things harder for myself by not learning how to code script.ts part 2
-// lol scavenge
-/*
+
+	// making things harder for myself by not learning how to code script.ts part 2
+	// lol scavenge
+	/*
 		aguavberry: {
 		name: "Aguav Berry",
 		spritenum: 5,
@@ -1162,7 +1162,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 	},
 */
-// soul blades
+	// soul blades
 	soulblade: {
 		name: "Soul Blade",
 		spritenum: 297,
@@ -1170,11 +1170,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		onModifyDamage(damage, source, target, move) {
-				return this.chainModify([0x1199, 0x1000]);
+			return this.chainModify([0x1199, 0x1000]);
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setItem('soulbladelvl2');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
@@ -1189,11 +1189,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		onModifyDamage(damage, source, target, move) {
-				return this.chainModify([0x14CC, 0x1000]);
+			return this.chainModify([0x14CC, 0x1000]);
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setItem('soulbladelvl3');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
@@ -1208,11 +1208,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		onModifyDamage(damage, source, target, move) {
-				return this.chainModify(1.5);
+			return this.chainModify(1.5);
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setItem('soulbladelvl4');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
@@ -1227,11 +1227,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		onModifyDamage(damage, source, target, move) {
-				return this.chainModify(1.7);
+			return this.chainModify(1.7);
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setItem('soulbladelvl5');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
@@ -1246,11 +1246,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		onModifyDamage(damage, source, target, move) {
-				return this.chainModify(1.9);
+			return this.chainModify(1.9);
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setItem('ultrasoulblade');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
@@ -1265,7 +1265,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 		},
 		onModifyDamage(damage, source, target, move) {
-				return this.chainModify(2.1);
+			return this.chainModify(2.1);
 		},
 		gen: 8,
 		desc: "Strongest Soul Blade. The holder's moves deal 2.1x damage.",

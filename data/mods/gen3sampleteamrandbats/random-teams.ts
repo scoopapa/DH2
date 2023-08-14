@@ -35914,23 +35914,23 @@ const SampleTeamsData = {
 			},
 		},
 	},
-}
+};
 
-function randomIntFromInterval(min, max) { // min and max included 
-  return Math.floor(Math.random() * (max - min) + min)
+function randomIntFromInterval(min, max) { // min and max included
+	return Math.floor(Math.random() * (max - min) + min);
 }
 
 export class RandomGen3Teams extends RandomGen4Teams {
 	randomTeam() {
-		var pokemon = [];
-		var genders = ["Male", "Female"];
-		var randomTeam = randomIntFromInterval(0, 377);
-		var team = Object.keys(SampleTeamsData)[randomTeam];
-		var sampleTeamName = SampleTeamsData[team]['teamName'];
-		for (var setNo in SampleTeamsData[team]['teamData']) {
-			var name = SampleTeamsData[team]['teamData'][setNo]['name'];
+		const pokemon = [];
+		const genders = ["Male", "Female"];
+		const randomTeam = randomIntFromInterval(0, 377);
+		const team = Object.keys(SampleTeamsData)[randomTeam];
+		const sampleTeamName = SampleTeamsData[team]['teamName'];
+		for (const setNo in SampleTeamsData[team]['teamData']) {
+			let name = SampleTeamsData[team]['teamData'][setNo]['name'];
 			if (name == '') name = SampleTeamsData[team]['teamData'][setNo]['species'];
-			var set = {
+			const set = {
 				name: name,
 				species: SampleTeamsData[team]['teamData'][setNo]['species'],
 				gender: genders[randomIntFromInterval(0, 1)],
@@ -35943,7 +35943,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 				level: 100,
 				shiny: this.randomChance(1, 1024),
 				sampleTeamName: sampleTeamName,
-			}
+			};
 			pokemon.push(set);
 		}
 		return pokemon;

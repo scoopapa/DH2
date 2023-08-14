@@ -14,11 +14,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Masked Dedede"],
 		num: -1,
 		gen: 9,
-		desc: "If held by King Dedede, this item changes its forme to Masked Dedede. Holder is immune to flinching.", 
+		desc: "If held by King Dedede, this item changes its forme to Masked Dedede. Holder is immune to flinching.",
 	},
 	dracocentauriumz: {
 		name: "Dracocentaurium Z",
-		desc: "If held by a Draco Centauros with Draco Burning, it can use Great Fire.", 
+		desc: "If held by a Draco Centauros with Draco Burning, it can use Great Fire.",
 		spritenum: 632,
 		onTakeItem: false,
 		zMove: "Great Fire",
@@ -29,7 +29,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	wriggliumz: {
 		name: "Wrigglium Z",
-		desc: "If held by a Wriggle Nightbug with Centipede Assault, it can use Luciola Cruciata.", 
+		desc: "If held by a Wriggle Nightbug with Centipede Assault, it can use Luciola Cruciata.",
 		spritenum: 642,
 		onTakeItem: false,
 		zMove: "Luciola Cruciata",
@@ -40,7 +40,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	maannaniumz: {
 		name: "Maannanium Z",
-		desc: "If held by an Ishtar with Meteor Beam, it can use Mountain Range-Shaking Firewood of Venus.", 
+		desc: "If held by an Ishtar with Meteor Beam, it can use Mountain Range-Shaking Firewood of Venus.",
 		spritenum: 643,
 		onTakeItem: false,
 		zMove: "Mountain Range-Shaking Firewood of Venus",
@@ -51,7 +51,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	hecatiumz: {
 		name: "Hecatium Z",
-		desc: "If held by an Hecatia-Tropical with Life Soup, it can use Water Planet.", 
+		desc: "If held by an Hecatia-Tropical with Life Soup, it can use Water Planet.",
 		spritenum: 633,
 		onTakeItem: false,
 		zMove: "Water Planet",

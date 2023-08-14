@@ -1066,7 +1066,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mrb: {
 		tier: "OU",
 	},
-    missingnorb: {
+	missingnorb: {
 		tier: "OU",
 	},
 	bf191rb: {
@@ -1264,7 +1264,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ff255rb: {
 		tier: "OU",
 	},
-    my: {
+	my: {
 		tier: "OU",
 	},
 	missingnoy: {

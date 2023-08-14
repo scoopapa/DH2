@@ -12,7 +12,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Block", target);
 		},
@@ -29,7 +29,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 			},
-				
+
 		},
 		secondary: null,
 		target: "normal",
@@ -48,7 +48,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Bulk Up", target);
 		    this.add('-anim', source, "Dragon Dance", target);
@@ -79,7 +79,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noPPBoosts: true,
 		priority: -6,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Teleport", target);
 		},
@@ -101,7 +101,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: -6,
 		flags: {recharge: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Photon Geyser", target);
 		},
@@ -111,7 +111,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 2,
 			onLockMove: 'bide',
-		},		
+		},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -131,7 +131,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Triple Axel", target);
 		},
@@ -158,10 +158,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			let success = false;
 			if (!target.volatiles['substitute'] || move.infiltrates) success = !!this.boost({evasion: -1});
 			const removeTarget = [
-				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'dewyflowers', 'spikes'
+				'reflect', 'lightscreen', 'auroraveil', 'safeguard', 'mist', 'dewyflowers', 'spikes',
 			];
 			const removeAll = [
-				'dewyflowers', 'spikes'
+				'dewyflowers', 'spikes',
 			];
 			for (const targetCondition of removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
@@ -195,7 +195,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Dual Chop", target);
 		},
@@ -220,7 +220,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Mirror Shot", target);
 		},
@@ -258,7 +258,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Earthquake", target);
 		},
@@ -277,14 +277,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Ingrain", target);
 		},
 		sideCondition: 'Dewy Flowers',
 		condition: {
 			onStart(side) {
-				this.add('-sidestart', side, 'Dewy Flowers');				
+				this.add('-sidestart', side, 'Dewy Flowers');
 			},
 			onResidualOrder: 6,
 			onResidual(side) {
@@ -311,7 +311,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Ember", target);
 		},
@@ -334,7 +334,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {charge: 1, nonsky: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Dragon Dance", source);
 		},
@@ -532,11 +532,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.setItem('Light Ball');
 			},
 
-		boosts: {
-			atk: 1,
-			spa: 1,
-			spe: 1,
-		},
+			boosts: {
+				atk: 1,
+				spa: 1,
+				spe: 1,
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -884,7 +884,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		heal: [1, 2],
-		onHit(target, source, move){
+		onHit(target, source, move) {
 			let b: BoostName;
 			for (b in source.boosts) {
 				if (source.boosts[b] < 0) source.boosts[b] = 0;
@@ -913,7 +913,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.directDamage(target.maxhp / 2);
 			this.boost({spa: 12}, target);
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Work Up", target);
 		},
@@ -3084,4 +3084,4 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
-}
+};

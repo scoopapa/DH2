@@ -9,7 +9,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTypeData | null}} */
-let BattleTypeChart = {
+const BattleTypeChart = {
 	"Bug": {
 		damageTaken: {
 			"Bug": 0,

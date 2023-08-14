@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedMoveData}} */
-let BattleMovedex = {
+const BattleMovedex = {
 	bind: {
 		inherit: true,
 		// FIXME: onBeforeMove() {},
@@ -41,13 +41,13 @@ let BattleMovedex = {
 			},
 			onAfterMoveSelfPriority: 1,
 			onAfterMoveSelf(pokemon) {
-				let leecher = pokemon.side.foe.active[pokemon.volatiles['leechseed'].sourcePosition];
+				const leecher = pokemon.side.foe.active[pokemon.volatiles['leechseed'].sourcePosition];
 				if (!leecher || leecher.fainted || leecher.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
 				}
-				let toLeech = this.dex.clampIntRange(Math.floor(pokemon.maxhp / 16), 1);
-				let damage = this.damage(toLeech, pokemon, leecher);
+				const toLeech = this.dex.clampIntRange(Math.floor(pokemon.maxhp / 16), 1);
+				const damage = this.damage(toLeech, pokemon, leecher);
 				if (damage) this.heal(damage, leecher, pokemon);
 			},
 		},
@@ -128,7 +128,7 @@ let BattleMovedex = {
 					return null;
 				}
 				if (move.category === 'Status') {
-					let SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare'];
+					const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare'];
 					if (move.status || move.boosts || move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)) {
 						this.add('-activate', target, 'Substitute', '[block] ' + move.name);
 						return null;
@@ -157,7 +157,7 @@ let BattleMovedex = {
 				}
 				this.runEvent('AfterSubDamage', target, source, move, damage);
 				// Add here counter damage
-				let lastAttackedBy = target.getLastAttackedBy();
+				const lastAttackedBy = target.getLastAttackedBy();
 				if (!lastAttackedBy) {
 					target.attackedBy.push({source: source, move: move.id, damage: damage, thisTurn: true});
 				} else {

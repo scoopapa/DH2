@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	flamester: {
 		tier: "R2OU",
 		doublesTier: "R2OU",
@@ -275,7 +275,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "R2Uber",
 		doublesTier: "R2Uber",
 	},
-		groodo: {
+	groodo: {
 		tier: "R2Uber",
 		doublesTier: "R2Uber",
 	},
@@ -314,5 +314,5 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	crabtle: {
 		tier: "R2Uber",
 		doublesTier: "R2Uber",
-	},	
+	},
 };

@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	solrock: {
 		tier: "CSM2",
 		DCSM2blesTier: "DCSM2",

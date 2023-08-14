@@ -782,8 +782,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gen: 1,
 	},
 
-	
-// don't touch
+
+	// don't touch
 	missingno: {
 		inherit: true,
 		baseStats: {hp: 33, atk: 136, def: 0, spa: 6, spd: 6, spe: 29},

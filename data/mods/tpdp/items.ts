@@ -9,8 +9,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "This Puppet heals 18% max HP when hit by a not-very-effective skill.",
 		category: 'great',
 		onDamagingHit(damage, target, source, move) {
-			if (target.getMoveHitData(move).typeMod < 0)
-				this.heal(target.baseMaxhp * 0.18);
+			if (target.getMoveHitData(move).typeMod < 0) { this.heal(target.baseMaxhp * 0.18); }
 		},
 	},
 	almightygodstone: {
@@ -68,12 +67,12 @@ export const Items: {[itemid: string]: ItemData} = {
 	ancientcoin: { // Useless
 		name: "Ancient Coin",
 		shortDesc: "You can't continue if you only have one! When held, the chances of successful Puppet sealing is increased.",
-		category: 'bad'
+		category: 'bad',
 	},
 	ancientlunarsake: {
 		name: "Ancient Lunar Sake",
 		shortDesc: "Millennium brewed sake. When held by the first Puppet in your party, Puppet encounters will decrease.",
-		category: 'bad'
+		category: 'bad',
 	},
 	antiaquacharm: {
 		name: "Anti-Aqua Charm",
@@ -404,10 +403,10 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 	},
-	bellhairpin: { //Useless
+	bellhairpin: { // Useless
 		name: "Bell Hairpin",
 		shortDesc: "A small, bell-shaped hairpin. When held by the first Puppet in your party, Puppet encounters will increase.",
-		category: 'bad'
+		category: 'bad',
 	},
 	binoculars: {
 		name: "Binoculars",
@@ -516,7 +515,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.add('-message', `${pokemon.name} has set the sealing thread!`);
 		},
 		onFoeModifyMove(move, pokemon, target) {
-			if(!pokemon.ability.includes('shadowstich', 'poisonlabryinth', 'battlemania', 'adversewind')) move.selfSwitch = false;
+			if (!pokemon.ability.includes('shadowstich', 'poisonlabryinth', 'battlemania', 'adversewind')) move.selfSwitch = false;
 		},
 	},
 	championsmedal: {
@@ -542,8 +541,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Boosts Speed, but you're locked into using the first skill used.",
 		category: 'great',
 		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock'])
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
+			if (pokemon.volatiles['choicelock']) { this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']); }
 			pokemon.removeVolatile('choicelock');
 		},
 		onModifyMove(move, pokemon) {
@@ -560,8 +558,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Boosts the power of Spread Attack skills but you're locked into using the first skill used.",
 		category: 'great',
 		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock'])
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
+			if (pokemon.volatiles['choicelock']) { this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']); }
 			pokemon.removeVolatile('choicelock');
 		},
 		onModifyMove(move, pokemon) {
@@ -578,8 +575,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Boosts the power of Focus Attack skills but you're locked into using the first skill used.",
 		category: 'great',
 		onStart(pokemon) {
-			if (pokemon.volatiles['choicelock'])
-				this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']);
+			if (pokemon.volatiles['choicelock']) { this.debug('removing choicelock: ' + pokemon.volatiles['choicelock']); }
 			pokemon.removeVolatile('choicelock');
 		},
 		onModifyMove(move, pokemon) {
@@ -594,7 +590,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	circularamulet: { // Unimplemented
 		name: "Circular Amulet",
 		shortDesc: "A round amulet. A Puppet holding this will recover HP if it is attacked by its foe. Unimplemented.",
-		category: 'bad'
+		category: 'bad',
 	},
 	claritycharm: {
 		name: "Clarity Charm",
@@ -639,7 +635,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	combathandbook: { // Useless
 		name: "Combat Handbook",
 		shortDesc: "A fighting manual. When held, it increases EXP gained in battle.",
-		category: 'bad'
+		category: 'bad',
 	},
 	counterbit: {
 		name: "Counter Bit",
@@ -673,8 +669,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "This Puppet's skills bypass immunities while Byakko is active.",
 		category: 'good',
 		onFoeImmunity(type, pokemon) {
-			if (this.field.isTerrain("byakko") && this.dex.types.isName(type))
-				return false;
+			if (this.field.isTerrain("byakko") && this.dex.types.isName(type)) { return false; }
 		},
 	},
 	curingcharm: {
@@ -697,8 +692,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "When held skills that wouldn't hit due to type immunity will now work.",
 		category: 'poor',
 		onFoeImmunity(type, pokemon) {
-			if (this.dex.types.get(type))
-				return false;
+			if (this.dex.types.get(type)) { return false; }
 		},
 	},
 	deadlysecrets: {
@@ -851,7 +845,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Fluorite",
 		shortDesc: "Protection moves used by the holder get their duration increased in battle.",
 		category: 'good',
-		//Implemented in moves.ts
+		// Implemented in moves.ts
 	},
 	foodrations: {
 		name: "Food Rations",
@@ -868,8 +862,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "When this Puppet is hit by a 100 BP or higher move, the attacker loses 1/8 max HP.",
 		category: 'good',
 		onDamagingHit(damage, target, source, move) {
-			if (move.basePower >= 100)
-				source.damage(source.baseMaxhp / 8);
+			if (move.basePower >= 100) { source.damage(source.baseMaxhp / 8); }
 		},
 	},
 	goldtalisman: {
@@ -877,8 +870,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "When held, if the user receives a Fo.Atk, Fo.Def is raised.",
 		category: 'good',
 		onAfterBoost(boost, target, source, effect) {
-			if (boost.atk && target.useItem())
-				this.boost({def: boost.atk});
+			if (boost.atk && target.useItem()) { this.boost({def: boost.atk}); }
 		},
 	},
 	goldenhairpin: {
@@ -890,8 +882,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.chainModify(1.5);
 		},
 		onTryMove(source, target, move) {
-			if (move.category === "Status")
-				return null;
+			if (move.category === "Status") { return null; }
 		},
 	},
 	hakureiamulet: { // Useless
@@ -997,12 +988,11 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "If the Puppet holding this only knows 3 skills, the damage received will be reduced.",
 		category: 'poor',
 		onFoeModifyDamage(relayVar, target, source, move) {
-			var moveCount:number = 0;
+			let moveCount = 0;
 			for (const move in target.moveSlots) {
 				if (move) moveCount++;
 			}
-			if (moveCount === 3)
-				this.chainModify(0.9);
+			if (moveCount === 3) { this.chainModify(0.9); }
 		},
 	},
 	izanagiobject: {
@@ -1011,8 +1001,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		category: 'good',
 		ignoreKlutz: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isTerrain("kohryu"))
-				this.chainModify(1.5);
+			if (this.field.isTerrain("kohryu")) { this.chainModify(1.5); }
 		},
 	},
 	jade: {
@@ -1057,8 +1046,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "A book detailing the tricks of battle. When held, the power of Javelin-type skills will be increased.",
 		category: 'good',
 		onBasePower(relayVar, source, target, move) {
-			if (move.flags.javelin)
-				this.chainModify(1.2);
+			if (move.flags.javelin) { this.chainModify(1.2); }
 		},
 	},
 	lapishairpin: {
@@ -1091,12 +1079,12 @@ export const Items: {[itemid: string]: ItemData} = {
 		onSourceModifyDamage(relayVar, source, target, move) {
 			if (move) {
 				switch (target.getMoveHitData(move).typeMod) {
-					case 1:
-						this.chainModify(2);
-						break;
-					case -1:
-						this.chainModify(0.5);
-						break;
+				case 1:
+					this.chainModify(2);
+					break;
+				case -1:
+					this.chainModify(0.5);
+					break;
 				}
 			}
 		},
@@ -1104,7 +1092,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	laylasamulet: { // Useless
 		name: "Layla's Amulet",
 		shortDesc: "Hidden under an old photograph. When held by a Puppet, the item drop rates from battle are doubled.",
-		category: 'bad'
+		category: 'bad',
 	},
 	lifecharm: {
 		name: "Life Charm",
@@ -1178,7 +1166,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	nativegrace: { // Useless
 		name: "Native Grace",
 		shortDesc: "A charm given by Suwako. If held, EXP and PP gain in battle will be doubled.",
-		category: 'bad'
+		category: 'bad',
 	},
 	obsidian: {
 		name: "Obsidian",
@@ -1274,8 +1262,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				if (target.item) {
 					this.add('-message', `${pokemon.name} can see the foe's ${target.getItem().name} with their Outlook Glasses!`);
 					this.add('-item', target, target.getItem().name, '[from] item: Outlook Glasses', '[of] ' + pokemon, '[identify]', '[silent]');
-				}
-				else {
+				} else {
 					this.add('-message', `${pokemon.name} can see the foe has no item with their Outlook Glasses!`);
 				}
 			}
@@ -1301,8 +1288,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "This Puppet has 1.5x accuracy while Genbu is active.",
 		category: 'good',
 		onFoeModifyAccuracy(relayVar, target, source, move) {
-			if (this.field.isTerrain("genbu"))
-				this.chainModify(0.5);
+			if (this.field.isTerrain("genbu")) { this.chainModify(0.5); }
 		},
 	},
 	purifycharm: {
@@ -1311,11 +1297,11 @@ export const Items: {[itemid: string]: ItemData} = {
 		category: 'good',
 		isBerry: true,
 		onAfterBoost(boost, target, source, effect) {
-			const revertBoosts:Partial<BoostsTable> = {};
+			const revertBoosts: Partial<BoostsTable> = {};
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					revertBoosts[i]! = boost[i]! * -1;
+					revertBoosts[i] = boost[i]! * -1;
 				}
 			}
 			this.boost(revertBoosts);
@@ -1339,14 +1325,11 @@ export const Items: {[itemid: string]: ItemData} = {
 		category: 'great',
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			function remap(value:number, low1:number, high1:number, low2:number, high2:number):number {
+			function remap(value: number, low1: number, high1: number, low2: number, high2: number): number {
 				return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 			}
 
-			if (user.hp >= user.maxhp * 0.99) 
-				return this.chainModify(remap(user.hp/user.maxhp, 0.99, 1, 1.2, 1.3));
-			else
-				return this.chainModify(remap(user.hp/user.maxhp, 0, 0.99, 0, 1.2));
+			if (user.hp >= user.maxhp * 0.99) { return this.chainModify(remap(user.hp / user.maxhp, 0.99, 1, 1.2, 1.3)); } else { return this.chainModify(remap(user.hp / user.maxhp, 0, 0.99, 0, 1.2)); }
 		},
 	},
 	rebelliontome: {
@@ -1354,8 +1337,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "When held, if the user receives a barrier-piercing attack, FoAtk and SpAtk sharply raise.",
 		category: 'good',
 		onDamagingHit(damage, target, source, move) {
-			if (target.getMoveHitData(move).typeMod > 0)
-				this.boost({atk: 2, spa: 2});
+			if (target.getMoveHitData(move).typeMod > 0) { this.boost({atk: 2, spa: 2}); }
 		},
 	},
 	redring: {
@@ -1556,8 +1538,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.chainModify(1.5);
 		},
 		onTryMove(source, target, move) {
-			if (move.category === "Status")
-				return null;
+			if (move.category === "Status") { return null; }
 		},
 	},
 	silvertalisman: {
@@ -1565,8 +1546,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "When held, if the user receives a Sp.Atk, Sp.Def is raised.",
 		category: 'good',
 		onAfterBoost(boost, target, source, effect) {
-			if (boost.spa && target.useItem())
-				this.boost({spd: boost.spa});
+			if (boost.spa && target.useItem()) { this.boost({spd: boost.spa}); }
 		},
 	},
 	skirmishercharm: {
@@ -1589,8 +1569,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "If the holder is hit with a low-power skill the opponent also takes damage.",
 		category: 'good',
 		onDamagingHit(damage, target, source, move) {
-			if (move.basePower <= 70)
-				source.damage(source.baseMaxhp / 8);
+			if (move.basePower <= 70) { source.damage(source.baseMaxhp / 8); }
 		},
 	},
 	spirittorch: {
@@ -1602,7 +1581,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onResidual(pokemon) {
 			if (this.field.isTerrain("suzaku")) {
 				for (const foe of pokemon.foes()) {
-					foe.damage(foe.baseMaxhp/8);
+					foe.damage(foe.baseMaxhp / 8);
 				}
 			}
 		},
@@ -1624,7 +1603,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sturdy Rope",
 		shortDesc: "A sturdy rope that increases the power of binding moves when held.",
 		category: 'poor',
-		//Implemented in conditions.ts
+		// Implemented in conditions.ts
 	},
 	substitutetag: {
 		name: "Substitute Tag",
@@ -1689,7 +1668,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		isBerry: true,
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === "Physical") {
-				source.damage(source.baseMaxhp/8);
+				source.damage(source.baseMaxhp / 8);
 			}
 		},
 	},
@@ -1735,7 +1714,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			for (const moveSlot of user.moveSlots) {
-				var moveData = this.dex.moves.get(moveSlot.move);
+				const moveData = this.dex.moves.get(moveSlot.move);
 				if (moveData.category !== 'Status' && user.hasType(moveData.type)) {
 					return;
 				}
@@ -1792,7 +1771,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	woodensword: { // Useless
 		name: "Wooden Sword",
 		shortDesc: "A wooden sword designed for training. A Puppet holding this will increase the amount of PP it earns from battle.",
-		category: 'bad'
+		category: 'bad',
 	},
 	yggdrasilseed: {
 		name: "Yggdrasil Seed",
@@ -1800,37 +1779,35 @@ export const Items: {[itemid: string]: ItemData} = {
 		category: 'good',
 		onBasePowerPriority: 15,
 		onBasePower(relayVar, source, target, move) {
-			if (this.field.isTerrain('seiryu'))
-				this.chainModify(1.5);
+			if (this.field.isTerrain('seiryu')) { this.chainModify(1.5); }
 		},
 		onFoeBasePowerPriority: 15,
 		onFoeBasePower(relayVar, source, target, move) {
-			if (this.field.isTerrain('seiryu'))
-				this.chainModify(1.5);
+			if (this.field.isTerrain('seiryu')) { this.chainModify(1.5); }
 		},
 	},
 	youmascrollblack: {
 		name: "Youma Scroll: Black",
 		shortDesc: "A scroll with a black hemming written by various youkai. This item cannot be disposed.",
-		category: 'specific'
-		//Handled in Bibliophilia ability
+		category: 'specific',
+		// Handled in Bibliophilia ability
 	},
 	youmascrollblue: {
 		name: "Youma Scroll: Blue",
 		shortDesc: "A scroll with a blue hemming written by various youkai. This item cannot be disposed.",
-		category: 'specific'
-		//Handled in Bibliophilia ability
+		category: 'specific',
+		// Handled in Bibliophilia ability
 	},
 	youmascrollred: {
 		name: "Youma Scroll: Red",
 		shortDesc: "A scroll with a red hemming written by various youkai. This item cannot be disposed.",
-		category: 'specific'
-		//Handled in Bibliophilia ability
+		category: 'specific',
+		// Handled in Bibliophilia ability
 	},
 	youmascrollwhite: {
 		name: "Youma Scroll: White",
 		shortDesc: "A scroll with a white hemming written by various youkai. This item cannot be disposed.",
-		category: 'specific'
-		//Handled in Bibliophilia ability
+		category: 'specific',
+		// Handled in Bibliophilia ability
 	},
 };

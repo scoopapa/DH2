@@ -1,5 +1,5 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
-	//Paradoxes moves
+	// Paradoxes moves
 
 	crystalwave: {
 		num: -1,
@@ -17,13 +17,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target) {
 			if (target.getAbility().isPermanent) return;
-			if (target.status || target.hasAbility('comatose')){
+			if (target.status || target.hasAbility('comatose')) {
 				target.addVolatile('gastroacid');
 			}
 		},
 		onAfterSubDamage(damage, target) {
 			if (target.getAbility().isPermanent) return;
-			if (target.status || target.hasAbility('comatose')){
+			if (target.status || target.hasAbility('comatose')) {
 				target.addVolatile('gastroacid');
 			}
 		},
@@ -108,9 +108,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		onHit(pokemon) {
-			let factor = 1/3;
+			let factor = 1 / 3;
 			if (pokemon.status) {
-				factor = 1/6;
+				factor = 1 / 6;
 				pokemon.cureStatus();
 			}
 			return !!this.heal(this.modify(pokemon.maxhp, factor));
@@ -121,8 +121,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	
-	//Gen 9 moves
+
+	// Gen 9 moves
 	spicyextract: {
 		num: 858,
 		accuracy: true,
@@ -184,7 +184,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Crush Claw", target);
 		},
-		//critRatio: 2,
+		// critRatio: 2,
 		secondary: {
 			chance: 50,
 			onHit(target, source) {
@@ -483,7 +483,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		onPrepareHit: function(target, source) {	
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hidden Power", target);
 		},
@@ -543,7 +543,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Normal"
+		type: "Normal",
 	},
 	trailblaze: {
 		num: -1027,

@@ -10,7 +10,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoType: "trade",
 	},
 
-// Future Mons
+	// Future Mons
 	anorith: {
 		num: 347,
 		name: "Anorith",
@@ -248,8 +248,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoLevel: 34,
 		gen: 1,
 	},
-	
-// Old Mons
+
+	// Old Mons
 	missingno: {
 		inherit: true,
 		baseStats: {hp: 33, atk: 136, def: 0, spa: 6, spd: 6, spe: 29},

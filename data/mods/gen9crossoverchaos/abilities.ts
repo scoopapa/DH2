@@ -26,8 +26,8 @@ Ratings and how they work:
 export const Abilities: {[abilityid: string]: AbilityData} = {
 	adeptprowess: {
 		shortDesc: "Gains secondary type based on held berry. Psy Blast doesn't consume berry.",
-		onStart(pokemon){
-			if(pokemon.ignoringItem()) return;
+		onStart(pokemon) {
+			if (pokemon.ignoringItem()) return;
 			const item = pokemon.getItem();
 			if (!item.naturalGift) return;
 			let type: string;
@@ -71,7 +71,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	funkymode: {
 		shortDesc: "This Pokemon does not take damage from hazards.",
 		onDamage(damage, target, source, effect) {
-			if (effect && (effect.id === 'stealthrock' || effect.id=== 'spikes')) {
+			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {
 				return false;
 			}
 		},
@@ -95,7 +95,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	torchofmadness: {
 		shortDesc: "This Pokemon's moves have 1.3x power against burned targets.",
 		onBasePower(basePower, attacker, defender, move) {
-			if (defender && ['brn'].includes(defender.status))return this.chainModify(1.3);
+			if (defender && ['brn'].includes(defender.status)) return this.chainModify(1.3);
 		},
 		name: "Torch of Madness",
 		rating: 4,
@@ -127,7 +127,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onDamagingHit(damage, target, source, effect) {
 			let activate = false;
 			let i: BoostID;
-			let removeBoosts = {};
+			const removeBoosts = {};
 			for (i in source.boosts) {
 				if (source.boosts[i] > 0) {
 					removeBoosts[i] = source.boosts[i] * -1;

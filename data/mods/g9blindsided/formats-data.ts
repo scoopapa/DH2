@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	obzilla: {
 		tier: "hi",
 		doublesTier: "hi",
@@ -319,7 +319,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "hi",
 		doublesTier: "hi",
 	},
-// slate 2
+	// slate 2
 	alchevul: {
 		tier: "hi",
 		doublesTier: "hi",

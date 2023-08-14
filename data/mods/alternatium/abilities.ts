@@ -40,7 +40,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: 259,
 	},
-	rkssystem: { //Unused code but I'll keep it cause it can be useful in the future
+	rkssystem: { // Unused code but I'll keep it cause it can be useful in the future
 		onStart(pokemon) {
 			switch (pokemon.species.id) {
 			case 'silvally':
@@ -212,7 +212,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 1005,
 	},
-	/*privatewifi: {
+	/* privatewifi: {
 		onStart(source) {
 			if (source.hasItem('burndrive')) {
 				source.types[1] = 'Fire';
@@ -566,8 +566,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
-			))
-			|| pokemon.species.id !== 'morvilant') {
+			)) ||
+			pokemon.species.id !== 'morvilant') {
 				this.effectState.gaveUp = true;
 			}
 		},

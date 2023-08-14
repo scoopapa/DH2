@@ -40,7 +40,7 @@ export class RandomTeams {
 
 	getTeam(options?: PlayerOptions | null): PokemonSet[] {
 		const generatorName = typeof this.format.team === 'string' && this.format.team.startsWith('random') ? this.format.team + 'Team' : '';
-		// @ts-ignore 
+		// @ts-ignore
 		return this[generatorName || 'randomTeam'](options);
 	}
 
@@ -588,38 +588,32 @@ export class RandomTeams {
 			if (species.name === 'Vivillon') {
 				if (this.randomChance(1, 4)) {
 					forme = 'Vivillon-Polar';
-				} else if (this.randomChance(1,4)) {
-					forme = 'Vivillon-Icy Snow'; 
-				} else if (this.randomChance(1,4)) {
-					forme = 'Vivillon-Pokeball'; 
-				} else forme = 'Vivillon-Tundra';
-				
+				} else if (this.randomChance(1, 4)) {
+					forme = 'Vivillon-Icy Snow';
+				} else if (this.randomChance(1, 4)) {
+					forme = 'Vivillon-Pokeball';
+				} else { forme = 'Vivillon-Tundra'; }
 			} else if (species.name === 'Sawsbuck') {
 				forme = 'Sawsbuck-Winter';
-				
 			} else if (species.name === 'Minior' || species.name === 'Minior-Meteor') {
 				if (this.randomChance(1, 2)) {
 					forme = 'Minior-Indigo';
-				} else forme = 'Minior-Blue';
-				
+				} else { forme = 'Minior-Blue'; }
 			} else if (species.name === 'Furfrou') {
-				if (this.randomChance(1,3)) {
+				if (this.randomChance(1, 3)) {
 					forme = 'Furfrou-La Reine';
-				} else if (this.randomChance(1,3)) {
-					forme = 'Furfrou-Star'; 
-				} else forme = 'Furfrou'; 
-				
+				} else if (this.randomChance(1, 3)) {
+					forme = 'Furfrou-Star';
+				} else { forme = 'Furfrou'; }
 			} else if (species.name === 'Florges') {
 				if (this.randomChance(1, 2)) {
-					forme = "Florges-Blue"; 
-				} else forme = "Florges-White";
-				
+					forme = "Florges-Blue";
+				} else { forme = "Florges-White"; }
 			} else if (species.name === 'Alcremie') {
 				if (this.randomChance(1, 2)) {
-					forme = 'Alcremie-Mint-Cream'; 
-				} else forme = 'Alcremie-Salted-Cream';
-			
-			} else forme = this.sample([species.name].concat(species.cosmeticFormes));
+					forme = 'Alcremie-Mint-Cream';
+				} else { forme = 'Alcremie-Salted-Cream'; }
+			} else { forme = this.sample([species.name].concat(species.cosmeticFormes)); }
 		}
 		if (species.name.endsWith('-Gmax')) {
 			forme = species.name.slice(0, -5);
@@ -1584,7 +1578,7 @@ export class RandomTeams {
 					}
 
 					// Limit one of any type combination, two in Monotype
-					if (typeCount['Ice'] >= 3 && typeName === 'Ice') continue; 
+					if (typeCount['Ice'] >= 3 && typeName === 'Ice') continue;
 					else if (typeCount['Ice'] === 0 && pokemon.length === 5) continue;
 					if (typeComboCount[typeCombo] >= (isMonotype ? 2 : 1)) continue;
 				}

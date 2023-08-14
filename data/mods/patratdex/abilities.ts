@@ -93,10 +93,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
  	hammerhead: {
 		onStart(pokemon) {
 			delete this.effectState.forme;
-			pokemon.transformed = false	
+			pokemon.transformed = false;
 		},
 		onDamagingHit(damage, target, source, move) {
-			//if (target.isSemiInvulnerable()) return;
+			// if (target.isSemiInvulnerable()) return;
 			if (target.transformed) {
 				this.damage(source.baseMaxhp / 4, source, target);
 				target.formeChange('Ostrata', move, true);
@@ -109,7 +109,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			) {
 				if (source.transformed) return;
 				source.formeChange('Ostrata-Hammer', this.effect);
-				source.transformed = true
+				source.transformed = true;
 			}
 		},
 		isPermanent: true,

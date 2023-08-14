@@ -224,7 +224,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		let boost: number;
 		if (accuracy !== true) {
 			if (!move.ignoreAccuracy) {
-				boosts = this.runEvent('ModifyBoost', pokemon, null, null, Object.assign({}, pokemon.boosts));
+				boosts = this.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
 				boost = this.clampIntRange(boosts['accuracy'], -6, 6);
 				if (boost > 0) {
 					accuracy *= boostTable[boost];
@@ -233,7 +233,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			if (!move.ignoreEvasion) {
-				boosts = this.runEvent('ModifyBoost', target, null, null, Object.assign({}, target.boosts));
+				boosts = this.runEvent('ModifyBoost', target, null, null, {...target.boosts});
 				boost = this.clampIntRange(boosts['evasion'], -6, 6);
 				if (boost > 0) {
 					accuracy /= boostTable[boost];
@@ -313,7 +313,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					accuracy = move.accuracy;
 					if (accuracy !== true) {
 						if (!move.ignoreAccuracy) {
-							boosts = this.runEvent('ModifyBoost', pokemon, null, null, Object.assign({}, pokemon.boosts));
+							boosts = this.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
 							boost = this.clampIntRange(boosts['accuracy'], -6, 6);
 							if (boost > 0) {
 								accuracy *= boostTable[boost];
@@ -322,7 +322,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							}
 						}
 						if (!move.ignoreEvasion) {
-							boosts = this.runEvent('ModifyBoost', target, null, null, Object.assign({}, target.boosts));
+							boosts = this.runEvent('ModifyBoost', target, null, null, {...target.boosts});
 							boost = this.clampIntRange(boosts['evasion'], -6, 6);
 							if (boost > 0) {
 								accuracy /= boostTable[boost];

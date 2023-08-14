@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-    paraorb: {
+	paraorb: {
 		name: "Para Orb",
 		spritenum: 515,
 		fling: {
@@ -64,7 +64,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 	},
 
-	//mega stones
+	// mega stones
 	meteorfragment: {
 		name: "Meteor Fragment",
 		spritenum: 578,
@@ -605,7 +605,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onModifyDamage(damage, source, target, move) {
@@ -650,7 +650,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 	},
 
-	//Gen 9
+	// Gen 9
 	abilityshield: {
 		name: "Ability Shield",
 		spritenum: 0, // TODO
@@ -817,7 +817,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	// identitycard: { //WIP
 	// 	name: "Identity Card",
-	// 	spritenum: 0, 
+	// 	spritenum: 0,
 	// 	shortDesc: "Holder's typing cannot be changed by any effect.",
 	// 	ignoreKlutz: true,
 	// 	onHit(pokemon) {
@@ -828,4 +828,4 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	// 	num: -1881,
 	// 	gen: 8,
 	// },
-}
+};

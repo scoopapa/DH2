@@ -1,5 +1,5 @@
 export const Moves: {[moveid: string]: MoveData} = {
-	//alt ex
+	// alt ex
 	wickedblow: {
 		inherit: true,
 		accuracy: 100,
@@ -73,7 +73,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sky Attack", target);
 		},
@@ -130,7 +130,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		recoil: [33, 100],
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aqua Jet", target);
 		},
@@ -159,9 +159,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
-	
-	
-	//poketypos
+
+
+	// poketypos
 	tripledive: {
 		num: 813,
 		accuracy: 95,
@@ -184,10 +184,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			   chance: 10,
 		   	volatileStatus: 'confusion',
 		   },
-      ],
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Dive", target);
+		],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dive", target);
 		},
 		target: "normal",
 		type: "Water",
@@ -200,7 +200,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Athlete's Foot",
-      shortDesc: "Lowers target's Def and SpA by 1. User switches.",
+		shortDesc: "Lowers target's Def and SpA by 1. User switches.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, dance: 1, authentic: 1},
@@ -210,9 +210,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				delete move.selfSwitch;
 			}
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Dragon Ascent", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Ascent", target);
 		},
 		selfSwitch: true,
 		secondary: null,
@@ -220,7 +220,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {effect: 'healreplacement'},
 		contestType: "Cool",
-   },
+	},
 
 
 };

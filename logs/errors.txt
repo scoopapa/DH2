@@ -1,17 +1,91 @@
 
-Error: Unrecognized rule "Dynamax Ubers Clause"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+TypeError: C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\data\mods/gen6/formats-data, if it exists, must export an object whose 'FormatsData' property is an Object
+    at ModdedDex.loadDataFile (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:420:15)
+    at ModdedDex.loadData (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:487:31)
+    at ModdedDex.get data [as data] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:138:17)
+    at ModdedDex.loadData (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:498:43)
+    at ModdedDex.get data [as data] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:138:17)
+    at DexFormats.get (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:430:18)
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:701:42)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
 
-Error: Process sockets.ts 17752 crashed and had to be restarted
-    at RawProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:474:4)
-    at Worker.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
+TypeError: C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\data\mods/gen6/formats-data, if it exists, must export an object whose 'FormatsData' property is an Object
+    at ModdedDex.loadDataFile (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:420:15)
+    at ModdedDex.loadData (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:487:31)
+    at ModdedDex.get data [as data] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:138:17)
+    at ModdedDex.loadData (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:498:43)
+    at ModdedDex.get data [as data] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:138:17)
+    at DexFormats.get (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:430:18)
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:701:42)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
+
+Error: Process sockets.js 11536 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:427:7)
+    at Worker.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
     at Worker.emit (node:events:390:28)
     at Worker.emit (node:domain:475:12)
     at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
@@ -23,11 +97,11 @@ Error: Process sockets.ts 17752 crashed and had to be restarted
 
 Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
     at ChildProcess.emit (node:events:390:28)
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:902:14)
@@ -35,11 +109,11 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
 
 Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at StreamProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:321:16)
-    at StreamProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:307:14)
-    at StreamProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:310:18)
+    at StreamProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:298:17)
+    at StreamProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
     at ChildProcess.emit (node:events:390:28)
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:902:14)
@@ -47,11 +121,11 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
 
 Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
     at ChildProcess.emit (node:events:390:28)
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:902:14)
@@ -59,11 +133,11 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
 
 Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
     at ChildProcess.emit (node:events:390:28)
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:902:14)
@@ -71,651 +145,122 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
 
 Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at StreamProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:321:16)
-    at StreamProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:307:14)
-    at StreamProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:310:18)
+    at StreamProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:298:17)
+    at StreamProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
     at ChildProcess.emit (node:events:390:28)
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:902:14)
     at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-Error: Unrecognized rule "Dynamax Ubers Clause"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
+TypeError: C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\data\mods/alternatiumex/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
+    at ModdedDex.loadDataFile (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:420:15)
+    at ModdedDex.loadData (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:487:31)
+    at ModdedDex.get data [as data] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:138:17)
+    at DexFormats.get (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:430:18)
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:701:42)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+
+TypeError: C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\data\mods/alternatiumex/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
+    at ModdedDex.loadDataFile (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:420:15)
+    at ModdedDex.loadData (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:487:31)
+    at ModdedDex.get data [as data] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:138:17)
+    at DexFormats.get (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:430:18)
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:701:42)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+
+Error: Unrecognized rule "Data Mod"
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:703:17)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-Error: teamLength.validate[0], teamLength.validate[1], teamLength.battle are now rules, respectively: "Min Team Size = NUMBER", "Max Team Size = NUMBER", and "Picked Team Size = NUMBER"
-    at Map.resolveNumbers (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:302:10)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:815:13)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error: Process sockets.ts 17692 crashed and had to be restarted
-    at RawProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:474:4)
-    at Worker.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at Worker.emit (node:events:390:28)
-    at Worker.emit (node:domain:475:12)
-    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
-    at Object.onceWrapper (node:events:509:28)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at StreamProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:321:16)
-    at StreamProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:307:14)
-    at StreamProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at StreamProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:321:16)
-    at StreamProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:307:14)
-    at StreamProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error: Excessive ruleTable recursion in [Gen 8] National Dex: gen8nationaldex of [Gen 8] National Dex,OHKO Clause,Evasion Moves Clause,Species Clause,Dynamax Clause,Sleep Clause Mod
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:763:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-
-Error: Excessive ruleTable recursion in [Gen 8] National Dex: gen8nationaldex of [Gen 8] National Dex
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:763:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-
-Error: Excessive ruleTable recursion in [Gen 8] National Dex: gen8nationaldex of [Gen 8] National Dex
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:763:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-
-Error: Excessive ruleTable recursion in [Gen 8] National Dex: gen8nationaldex of [Gen 8] National Dex
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:763:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-
-Error: Excessive ruleTable recursion in [Gen 8] National Dex: gen8nationaldex of [Gen 8] National Dex
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:763:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-
-Error: Unrecognized rule "[Gen 8] National Dex"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-Error: Unrecognized rule "[Gen 8] National Dex"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/alternatiumex/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/gen2crystalseviiislands/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/gen2/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/gen2/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/gen2/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/gen3/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/gen6/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/gen7/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-
-TypeError: Cannot read properties of undefined (reading 'gen7dlcmons')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\gen7dlcmons\scripts.ts:5:42)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/expansions/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/gen1/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
 
 Error: Unrecognized rule "Baton Pass Mod"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:703:17)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:604:33)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
 
-Error: Nothing matches "lcuber"
-    at DexFormats.validateBanRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:936:10)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:858:33)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
+Error: Rule "Hoenn Gaiden Mod" in "[Gen 3] Hoenn Gaiden" already exists in "Standard"
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:597:17)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
 
-Error: Unrecognized rule "Sketch Gen 8 Moves"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+TypeError: C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\data\mods/m4av6/formats-data, if it exists, must export an object whose 'FormatsData' property is an Object
+    at ModdedDex.loadDataFile (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:420:15)
+    at ModdedDex.loadData (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:487:31)
+    at ModdedDex.get data [as data] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:138:17)
+    at DexFormats.get (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:430:18)
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:701:42)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
 
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/cleanslate2/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-Error: Unrecognized rule "[Gen 8] Doubles OU"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-Error: Unrecognized rule "[Gen 8] Doubles OU"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/megamax/abilities, if it exists, must export an object whose 'Abilities' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/megamax/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-Error: Invalid generation 9 for a Gen 8 format (Standard)
-    at Object.call (C:\Users\aahfk\Documents\GitHub\DH\data\rulesets.ts:1250:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:821:45)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-Error: Invalid generation 9 for a Gen 8 format (Standard)
-    at Object.call (C:\Users\aahfk\Documents\GitHub\DH\data\rulesets.ts:1250:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:821:45)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:765:30)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-Please remove 'customavatars' and 'allowedavatars' from Config (config/config.js). Your avatars have been migrated to the new '/addavatar' system.
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-ReferenceError: IPTools is not defined
-    at Object.clean (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:155:3)
-    at Timeout._onTimeout (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:357:51)
-    at listOnTimeout (node:internal/timers:557:17)
-    at processTimers (node:internal/timers:500:7)
-
-ReferenceError: IPTools is not defined
-    at Object.clean (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:155:3)
-    at Timeout._onTimeout (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:357:51)
-    at listOnTimeout (node:internal/timers:557:17)
-    at processTimers (node:internal/timers:500:7)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-ReferenceError: IPTools is not defined
-    at Object.clean (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:155:3)
-    at Timeout._onTimeout (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:357:51)
-    at listOnTimeout (node:internal/timers:557:17)
-    at processTimers (node:internal/timers:500:7)
-
-ReferenceError: IPTools is not defined
-    at Object.clean (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:155:3)
-    at Timeout._onTimeout (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:357:51)
-    at listOnTimeout (node:internal/timers:557:17)
-    at processTimers (node:internal/timers:500:7)
-
-ReferenceError: IPTools is not defined
-    at Object.clean (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:155:3)
-    at Timeout._onTimeout (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:357:51)
-    at listOnTimeout (node:internal/timers:557:17)
-    at processTimers (node:internal/timers:500:7)
-
-ReferenceError: IPTools is not defined
-    at Object.clean (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:155:3)
-    at Timeout._onTimeout (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:357:51)
-    at listOnTimeout (node:internal/timers:557:17)
-    at processTimers (node:internal/timers:500:7)
-
-ReferenceError: IPTools is not defined
-    at Object.clean (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:155:3)
-    at Timeout._onTimeout (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:357:51)
-    at listOnTimeout (node:internal/timers:557:17)
-    at processTimers (node:internal/timers:500:7)
-
-ReferenceError: IPTools is not defined
-    at Object.clean (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:155:3)
-    at Timeout._onTimeout (C:\Users\aahfk\Documents\GitHub\DH\server\monitor.ts:357:51)
-    at listOnTimeout (node:internal/timers:557:17)
-    at processTimers (node:internal/timers:500:7)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/morebalancedhackmons/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/nationaldexbalancedhackmons/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:663:27)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-Error: 
-  [38;2;255;30;30m×[0m Unexpected token `CHOOSABLE_TARGETS`. Expected ... , *,  (, [, :, , ?, =, an identifier, public, protected, private, readonly, <.
-   ╭─[[38;2;92;157;255;1;4mC:/Users/aahfk/Documents/GitHub/DH/data/mods/morebalancedhackmons/scripts.js[0m:2:5]
- [2m2[0m │ const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
-   · [38;2;246;87;248m      ─────────────────[0m
-   ╰────
-
-
-Caused by:
-    0: failed to process input file
-    1: Syntax Error
-    at Compiler.transformSync (C:\Users\aahfk\Documents\GitHub\DH\node_modules\@swc\core\index.js:137:25)
-    at Object.transformSync (C:\Users\aahfk\Documents\GitHub\DH\node_modules\@swc\core\index.js:217:21)
-    at Object.transpile (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\transpilers\swc.ts:69:39)
-    at C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1355:35
-    at Object.compile (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1458:13)
-    at Module.m._compile (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1617:30)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
-    at Object.require.extensions.<computed> [as .js] (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1621:12)
+ReferenceError: data is not defined
+    at randomMoves (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\data\mods\m4av6\formats-data.js:173:3)
+    at Object.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\data\mods\m4av6\formats-data.js:177:1)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
     at Module.load (node:internal/modules/cjs/loader:981:32)
     at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at ModdedDex.loadDataFile (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:415:26)
+    at ModdedDex.loadData (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:487:31)
 
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/nationaldexbalancedhackmons/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:663:27)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/nationaldexbalancedhackmons/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:663:27)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/nationaldexbalancedhackmons/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:663:27)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/nationaldexbalancedhackmons/scripts, if it exists, must export an object whose 'Scripts' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:489:24)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:663:27)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-Error: Unrecognized rule "2 Ability Clause"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
+Error: Format #29 has a duplicate ID: 'gen3hoenngaiden'
+    at DexFormats.load (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:375:15)
+    at DexFormats.all (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:465:10)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1208:38)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
 
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/nationaldexbalancedhackmons/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:663:27)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
 Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
     at ChildProcess.emit (node:events:390:28)
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:902:14)
@@ -723,775 +268,219 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
 
 Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
     at ChildProcess.emit (node:events:390:28)
     at ChildProcess.emit (node:domain:475:12)
     at finish (node:internal/child_process:902:14)
     at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot set properties of undefined (setting 'category')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\gen3\scripts.ts:15:38)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot set properties of undefined (setting 'category')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\gen3\scripts.ts:16:38)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot set properties of undefined (setting 'category')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\gen3\scripts.ts:17:38)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot set properties of undefined (setting 'category')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\gen3\scripts.ts:17:56)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:517:54)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
+TypeError: Cannot read properties of null (reading 'then')
+    at RawProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:28)
+    at Worker.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at Worker.emit (node:events:390:28)
+    at Worker.emit (node:domain:475:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:224:12)
+    at Object.onceWrapper (node:events:509:28)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot set properties of undefined (setting 'category')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\gen2crystalseviiislands\scripts.ts:16:38)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot set properties of undefined (setting 'category')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\gen2crystalseviiislands\scripts.ts:16:38)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:310:18)
+    at StreamProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:298:17)
+    at StreamProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot set properties of undefined (setting 'category')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\gen2crystalseviiislands\scripts.ts:16:38)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot set properties of undefined (setting 'category')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\gen2crystalseviiislands\scripts.ts:16:38)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot read properties of undefined (reading 'weightkg')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:37:93)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at StreamProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:310:18)
+    at StreamProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:298:17)
+    at StreamProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot read properties of undefined (reading 'breedingVariant')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:29:30)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot read properties of undefined (reading 'breedingVariant')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:30:30)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
-TypeError: Cannot read properties of undefined (reading 'weightkg')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:38:93)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error: Format #30 has a duplicate ID: 'gen8megasforallkalos'
+    at DexFormats.load (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:375:15)
+    at DexFormats.all (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:465:10)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1208:38)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
 
-TypeError: Cannot read properties of undefined (reading 'breedingVariant')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:31:30)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error: Nothing matches "All-Seeing Eye"
+    at DexFormats.validateBanRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:794:13)
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:697:38)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:604:33)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
 
-TypeError: Cannot read properties of undefined (reading 'learnset')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:38:35)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
+Error: Rule "!!adjustlevel=50" is not replacing anything (it should not have "!!")
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:578:21)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
 
-TypeError: Cannot read properties of undefined (reading 'learnset')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:38:35)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: Cannot read properties of undefined (reading 'learnset')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:39:35)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: Cannot read properties of undefined (reading 'learnset')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:39:35)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: Cannot read properties of undefined (reading 'learnset')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:39:35)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-Error: 
-  [38;2;255;30;30m×[0m Expected ']', got ')'
-    ╭─[[38;2;92;157;255;1;4mC:/Users/aahfk/Documents/GitHub/DH/data/mods/smashstereotypes/scripts.ts[0m:37:17]
- [2m37[0m │ if (!this.data.Learnsets[id) this.data.Learnsets[id] = { learnset: {}};
-    · [38;2;246;87;248m                           ─[0m
-    ╰────
-
-
-Caused by:
-    0: failed to process input file
-    1: error was recoverable, but proceeding would result in wrong codegen
-    2: Syntax Error
-    at Compiler.transformSync (C:\Users\aahfk\Documents\GitHub\DH\node_modules\@swc\core\index.js:137:25)
-    at Object.transformSync (C:\Users\aahfk\Documents\GitHub\DH\node_modules\@swc\core\index.js:217:21)
-    at Object.transpile (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\transpilers\swc.ts:69:39)
-    at C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1355:35
-    at Object.compile (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1458:13)
-    at Module.m._compile (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1617:30)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
-    at Object.require.extensions.<computed> [as .ts] (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1621:12)
-    at Module.load (node:internal/modules/cjs/loader:981:32)
-    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
-
-Error: 
-  [38;2;255;30;30m×[0m Expected a semicolon
-    ╭─[[38;2;92;157;255;1;4mC:/Users/aahfk/Documents/GitHub/DH/data/mods/smashstereotypes/scripts.ts[0m:37:17]
- [2m37[0m │ if (!this.data.Learnsets[id] this.data.Learnsets[id] = { learnset: {}};
-    · [38;2;246;87;248m                             ────[0m
-    ╰────
-
-
-Caused by:
-    0: failed to process input file
-    1: error was recoverable, but proceeding would result in wrong codegen
-    2: Syntax Error
-    at Compiler.transformSync (C:\Users\aahfk\Documents\GitHub\DH\node_modules\@swc\core\index.js:137:25)
-    at Object.transformSync (C:\Users\aahfk\Documents\GitHub\DH\node_modules\@swc\core\index.js:217:21)
-    at Object.transpile (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\transpilers\swc.ts:69:39)
-    at C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1355:35
-    at Object.compile (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1458:13)
-    at Module.m._compile (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1617:30)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
-    at Object.require.extensions.<computed> [as .ts] (C:\Users\aahfk\Documents\GitHub\DH\node_modules\ts-node\src\index.ts:1621:12)
-    at Module.load (node:internal/modules/cjs/loader:981:32)
-    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
-
-TypeError: Cannot read properties of undefined (reading 'weightkg')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:41:78)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: Cannot read properties of undefined (reading 'weightkg')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:40:78)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: Cannot set properties of undefined (setting 'weightkg')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\smashstereotypes\scripts.ts:41:40)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: Cannot set properties of undefined (setting 'onTakeItem')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\m4asandbox\scripts.ts:431:80)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: Cannot set properties of undefined (setting 'onTakeItem')
-    at ModdedDex.call (C:\Users\aahfk\Documents\GitHub\DH\data\mods\m4asandbox\scripts.ts:431:80)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:554:34)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: this.dex.getSpecies is not a function
-    at Battle.call (C:\Users\aahfk\Documents\GitHub\DH\data\rulesets.ts:2277:30)
-    at Battle.start (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:1735:45)
-    at Battle.setPlayer (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2959:75)
-    at RoomBattleStream._writeLine (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-stream.ts:111:17)
-    at RoomBattleStream._writeLines (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-stream.ts:78:10)
-    at RoomBattleStream._write (C:\Users\aahfk\Documents\GitHub\DH\server\room-battle.ts:1340:9)
-    at RoomBattleStream.write (C:\Users\aahfk\Documents\GitHub\DH\lib\streams.ts:836:15)
-    at process.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:680:17)
-    at process.emit (node:events:390:28)
-    at process.emit (node:domain:475:12)
-
-Additional information:
-  chunk = >player p2 {"name":"sradradrs","avatar":"101","team":"Roaramp||Ampharosite|ScarilyAdorable|Thunderbolt,DragonPulse,Flamethrower,NastyPlot|Modest|192,,,252,,64||,0,,,,|||,,,,,Electric]Slowton||AssaultVest|SurgeonEye|SludgeBomb,VoltSwitch,Scald,Flamethrower|Sassy|252,,,4,252,||,0,,,,0|||,,,,,Poison]Heatki||Leftovers|FlashyJokes|MagmaStorm,EarthPower,Spikes,Taunt|Modest|,,,252,4,252||,0,,,,|||,,,,,Fire]Porygrigus||HeavyDutyBoots|Pillage|ShadowBall,WillOWisp,Recover,Teleport|Relaxed|252,,252,,4,||,0,,,,0|||,,,,,Normal]Eelektoad||Leftovers|Absorbant|VoltSwitch,Scald,StealthRock,Toxic|Sassy|252,,4,,252,||,0,,,,|||,,,,,Electric]Mr. Ace||HeavyDutyBoots|SportsShowtime|TripleAxel,CourtChange,HealingWish,Uturn|Jolly|,252,,,4,252|||||,,,,,Fire","rating":0}
-  inputLog = 
->version f6cb20707ed3f38e50080d3785e23f4d5fc04bac
->start {"formatid":"gen8fusionevolutionuu","seed":[58587,52096,21769,58879]}
->player p1 {"name":"dfasdvsadf","avatar":"169","team":"Roaramp||Ampharosite|ScarilyAdorable|Thunderbolt,DragonPulse,Flamethrower,NastyPlot|Modest|192,,,252,,64||,0,,,,|||,,,,,Electric]Slowton||AssaultVest|SurgeonEye|SludgeBomb,VoltSwitch,Scald,Flamethrower|Sassy|252,,,4,252,||,0,,,,0|||,,,,,Poison]Heatki||Leftovers|FlashyJokes|MagmaStorm,EarthPower,Spikes,Taunt|Modest|,,,252,4,252||,0,,,,|||,,,,,Fire]Porygrigus||HeavyDutyBoots|Pillage|ShadowBall,WillOWisp,Recover,Teleport|Relaxed|252,,252,,4,||,0,,,,0|||,,,,,Normal]Eelektoad||Leftovers|Absorbant|VoltSwitch,Scald,StealthRock,Toxic|Sassy|252,,4,,252,||,0,,,,|||,,,,,Electric]Mr. Ace||HeavyDutyBoots|SportsShowtime|TripleAxel,CourtChange,HealingWish,Uturn|Jolly|,252,,,4,252|||||,,,,,Fire","rating":0}
->player p2 {"name":"sradradrs","avatar":"101","team":"Roaramp||Ampharosite|ScarilyAdorable|Thunderbolt,DragonPulse,Flamethrower,NastyPlot|Modest|192,,,252,,64||,0,,,,|||,,,,,Electric]Slowton||AssaultVest|SurgeonEye|SludgeBomb,VoltSwitch,Scald,Flamethrower|Sassy|252,,,4,252,||,0,,,,0|||,,,,,Poison]Heatki||Leftovers|FlashyJokes|MagmaStorm,EarthPower,Spikes,Taunt|Modest|,,,252,4,252||,0,,,,|||,,,,,Fire]Porygrigus||HeavyDutyBoots|Pillage|ShadowBall,WillOWisp,Recover,Teleport|Relaxed|252,,252,,4,||,0,,,,0|||,,,,,Normal]Eelektoad||Leftovers|Absorbant|VoltSwitch,Scald,StealthRock,Toxic|Sassy|252,,4,,252,||,0,,,,|||,,,,,Electric]Mr. Ace||HeavyDutyBoots|SportsShowtime|TripleAxel,CourtChange,HealingWish,Uturn|Jolly|,252,,,4,252|||||,,,,,Fire","rating":0}
-  log = 
-|t:|1670982173
-|gametype|singles
-|player|p1|dfasdvsadf|169|
-|player|p2|sradradrs|101|
-|teamsize|p1|6
-|teamsize|p2|6
-|gen|9
-|tier|[Gen 8] Fusion Evolution UU
-|clearpoke
-|poke|p1|Roaramp, M|
-|poke|p1|Slowton, M|
-|poke|p1|Heatki, F|
-|poke|p1|Porygrigus, M|
-|poke|p1|Eelektoad, M|
-|poke|p1|Mr. Ace, F|
-|poke|p2|Roaramp, F|
-|poke|p2|Slowton, F|
-|poke|p2|Heatki, M|
-|poke|p2|Porygrigus, M|
-|poke|p2|Eelektoad, M|
-|poke|p2|Mr. Ace, M|
-|rule|HP Percentage Mod: HP is shown in percentages
-|rule|Endless Battle Clause: Forcing endless battles is banned
-|rule|Z-Move Clause: Z-Moves are banned
-
-
-TypeError: this.isAdjacent is not a function
-    at Battle.apply (C:\Users\aahfk\Documents\GitHub\DH\data\mods\feuu\abilities.ts:2164:59)
-    at Battle.singleEvent (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:547:25)
-    at BattleActions.runSwitch (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-actions.ts:195:16)
-    at Battle.runAction (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2554:17)
-    at Battle.go (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2700:9)
-    at Battle.commitDecisions (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2766:8)
-    at Battle.choose (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2722:35)
-    at RoomBattleStream._writeLine (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-stream.ts:120:18)
-    at RoomBattleStream._writeLines (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-stream.ts:78:10)
-    at RoomBattleStream._write (C:\Users\aahfk\Documents\GitHub\DH\server\room-battle.ts:1340:9)
-
-Additional information:
-  chunk = >p1 team 123456
-  inputLog = 
->version f6cb20707ed3f38e50080d3785e23f4d5fc04bac
->start {"formatid":"gen8fusionevolutionuu","seed":[30668,27148,54690,7787]}
->player p1 {"name":"sftsdftdft","avatar":"102","team":"Roaramp||Ampharosite|ScarilyAdorable|Thunderbolt,DragonPulse,Flamethrower,NastyPlot|Modest|192,,,252,,64||,0,,,,|||,,,,,Electric]Slowton||AssaultVest|SurgeonEye|SludgeBomb,VoltSwitch,Scald,Flamethrower|Sassy|252,,,4,252,||,0,,,,0|||,,,,,Poison]Heatki||Leftovers|FlashyJokes|MagmaStorm,EarthPower,Spikes,Taunt|Modest|,,,252,4,252||,0,,,,|||,,,,,Fire]Porygrigus||HeavyDutyBoots|Pillage|ShadowBall,WillOWisp,Recover,Teleport|Relaxed|252,,252,,4,||,0,,,,0|||,,,,,Normal]Eelektoad||Leftovers|Absorbant|VoltSwitch,Scald,StealthRock,Toxic|Sassy|252,,4,,252,||,0,,,,|||,,,,,Electric]Mr. Ace||HeavyDutyBoots|SportsShowtime|TripleAxel,CourtChange,HealingWish,Uturn|Jolly|,252,,,4,252|||||,,,,,Fire","rating":0}
->player p2 {"name":"fgsdfbsdfb","avatar":"101","team":"Roaramp||Ampharosite|ScarilyAdorable|Thunderbolt,DragonPulse,Flamethrower,NastyPlot|Modest|192,,,252,,64||,0,,,,|||,,,,,Electric]Slowton||AssaultVest|SurgeonEye|SludgeBomb,VoltSwitch,Scald,Flamethrower|Sassy|252,,,4,252,||,0,,,,0|||,,,,,Poison]Heatki||Leftovers|FlashyJokes|MagmaStorm,EarthPower,Spikes,Taunt|Modest|,,,252,4,252||,0,,,,|||,,,,,Fire]Porygrigus||HeavyDutyBoots|Pillage|ShadowBall,WillOWisp,Recover,Teleport|Relaxed|252,,252,,4,||,0,,,,0|||,,,,,Normal]Eelektoad||Leftovers|Absorbant|VoltSwitch,Scald,StealthRock,Toxic|Sassy|252,,4,,252,||,0,,,,|||,,,,,Electric]Mr. Ace||HeavyDutyBoots|SportsShowtime|TripleAxel,CourtChange,HealingWish,Uturn|Jolly|,252,,,4,252|||||,,,,,Fire","rating":0}
->p1 team 1, 2, 3, 4, 5, 6
->p2 team 6, 2, 3, 4, 5, 1
-  log = 
-|t:|1670982449
-|gametype|singles
-|player|p1|sftsdftdft|102|
-|player|p2|fgsdfbsdfb|101|
-|teamsize|p1|6
-|teamsize|p2|6
-|gen|9
-|tier|[Gen 8] Fusion Evolution UU
-|clearpoke
-|poke|p1|Roaramp, F|
-|poke|p1|Slowton, F|
-|poke|p1|Heatki, M|
-|poke|p1|Porygrigus, M|
-|poke|p1|Eelektoad, F|
-|poke|p1|Mr. Ace, M|
-|poke|p2|Roaramp, M|
-|poke|p2|Slowton, M|
-|poke|p2|Heatki, M|
-|poke|p2|Porygrigus, F|
-|poke|p2|Eelektoad, M|
-|poke|p2|Mr. Ace, F|
-|rule|HP Percentage Mod: HP is shown in percentages
-|rule|Endless Battle Clause: Forcing endless battles is banned
-|rule|Z-Move Clause: Z-Moves are banned
-|teampreview
-|
-|t:|1670982461
-|start
-|switch|p1a: Roaramp|Roaramp, F|393/393
-|switch|p2a: Mr. Ace|Mr. Ace, F|301/301
-|-start|p2a: Mr. Ace|typechange|Fire/Psychic|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Mr. Ace</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Psychic.png" alt="Psychic" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Sports Showtime</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>80</span> <span class="col statcol"><em>Atk</em><br>100</span> <span class="col statcol"><em>Def</em><br>95</span> <span class="col statcol"><em>SpA</em><br>87</span> <span class="col statcol"><em>SpD</em><br>95</span> <span class="col statcol"><em>Spe</em><br>106</span> </span></li><li style="clear: both"></li></ul>
-|-start|p1a: Roaramp|typechange|Electric/Dark|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Roaramp</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Electric.png" alt="Electric" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Scarily Adorable</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>102</span> <span class="col statcol"><em>Atk</em><br>105</span> <span class="col statcol"><em>Def</em><br>97</span> <span class="col statcol"><em>SpA</em><br>107</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>67</span> </span></li><li style="clear: both"></li></ul>
-
-
-Error: Use runStatusImmunity for Bug
-    at Pokemon.runImmunity (C:\Users\aahfk\Documents\GitHub\DH\data\mods\feuu\scripts.ts:360:14)
-    at BattleActions.call [as hitStepTypeImmunity] (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-actions.ts:628:16)
-    at BattleActions.trySpreadMoveHit (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-actions.ts:576:79)
-    at BattleActions.useMoveInner (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-actions.ts:493:22)
-    at BattleActions.useMove (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-actions.ts:356:27)
-    at BattleActions.runMove (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-actions.ts:305:33)
-    at Battle.runAction (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2485:17)
-    at Battle.go (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2700:9)
-    at Battle.commitDecisions (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2766:8)
-    at Battle.choose (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2722:35)
-
-Additional information:
-  chunk = >p2 move 4
-  inputLog = 
->version f6cb20707ed3f38e50080d3785e23f4d5fc04bac
->start {"formatid":"gen8fusionevolutionuu","seed":[19166,62362,15092,17568]}
->player p1 {"name":"fdbsdbfsdfb","avatar":"1","team":"Roaramp||Ampharosite|ScarilyAdorable|Thunderbolt,DragonPulse,Flamethrower,NastyPlot|Modest|192,,,252,,64||,0,,,,|||,,,,,Electric]Slowton||AssaultVest|SurgeonEye|SludgeBomb,VoltSwitch,Scald,Flamethrower|Sassy|252,,,4,252,||,0,,,,0|||,,,,,Poison]Heatki||Leftovers|FlashyJokes|MagmaStorm,EarthPower,Spikes,Taunt|Modest|,,,252,4,252||,0,,,,|||,,,,,Fire]Porygrigus||HeavyDutyBoots|Pillage|ShadowBall,WillOWisp,Recover,Teleport|Relaxed|252,,252,,4,||,0,,,,0|||,,,,,Normal]Eelektoad||Leftovers|Absorbant|VoltSwitch,Scald,StealthRock,Toxic|Sassy|252,,4,,252,||,0,,,,|||,,,,,Electric]Mr. Ace||HeavyDutyBoots|SportsShowtime|TripleAxel,CourtChange,HealingWish,Uturn|Jolly|,252,,,4,252|||||,,,,,Fire","rating":0}
->player p2 {"name":"fstsftsftst","avatar":"266","team":"Roaramp||Ampharosite|ScarilyAdorable|Thunderbolt,DragonPulse,Flamethrower,NastyPlot|Modest|192,,,252,,64||,0,,,,|||,,,,,Electric]Slowton||AssaultVest|SurgeonEye|SludgeBomb,VoltSwitch,Scald,Flamethrower|Sassy|252,,,4,252,||,0,,,,0|||,,,,,Poison]Heatki||Leftovers|FlashyJokes|MagmaStorm,EarthPower,Spikes,Taunt|Modest|,,,252,4,252||,0,,,,|||,,,,,Fire]Porygrigus||HeavyDutyBoots|Pillage|ShadowBall,WillOWisp,Recover,Teleport|Relaxed|252,,252,,4,||,0,,,,0|||,,,,,Normal]Eelektoad||Leftovers|Absorbant|VoltSwitch,Scald,StealthRock,Toxic|Sassy|252,,4,,252,||,0,,,,|||,,,,,Electric]Mr. Ace||HeavyDutyBoots|SportsShowtime|TripleAxel,CourtChange,HealingWish,Uturn|Jolly|,252,,,4,252|||||,,,,,Fire","rating":0}
->p1 team 1, 2, 3, 4, 5, 6
->p2 team 6, 2, 3, 4, 5, 1
->p1 move thunderbolt mega
->p2 move uturn
-  log = 
-|t:|1670987354
-|gametype|singles
-|player|p1|fdbsdbfsdfb|1|
-|player|p2|fstsftsftst|266|
-|teamsize|p1|6
-|teamsize|p2|6
-|gen|9
-|tier|[Gen 8] Fusion Evolution UU
-|clearpoke
-|poke|p1|Roaramp, M|
-|poke|p1|Slowton, F|
-|poke|p1|Heatki, F|
-|poke|p1|Porygrigus, F|
-|poke|p1|Eelektoad, F|
-|poke|p1|Mr. Ace, M|
-|poke|p2|Roaramp, M|
-|poke|p2|Slowton, M|
-|poke|p2|Heatki, M|
-|poke|p2|Porygrigus, F|
-|poke|p2|Eelektoad, M|
-|poke|p2|Mr. Ace, M|
-|rule|HP Percentage Mod: HP is shown in percentages
-|rule|Endless Battle Clause: Forcing endless battles is banned
-|rule|Z-Move Clause: Z-Moves are banned
-|teampreview
-|
-|t:|1670987361
-|start
-|switch|p1a: Roaramp|Roaramp, M|393/393
-|switch|p2a: Mr. Ace|Mr. Ace, M|301/301
-|-start|p2a: Mr. Ace|typechange|Fire/Psychic|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Mr. Ace</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Psychic.png" alt="Psychic" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Sports Showtime</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>80</span> <span class="col statcol"><em>Atk</em><br>100</span> <span class="col statcol"><em>Def</em><br>95</span> <span class="col statcol"><em>SpA</em><br>87</span> <span class="col statcol"><em>SpD</em><br>95</span> <span class="col statcol"><em>Spe</em><br>106</span> </span></li><li style="clear: both"></li></ul>
-|-start|p1a: Roaramp|typechange|Electric/Dark|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Roaramp</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Electric.png" alt="Electric" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Scarily Adorable</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>102</span> <span class="col statcol"><em>Atk</em><br>105</span> <span class="col statcol"><em>Def</em><br>97</span> <span class="col statcol"><em>SpA</em><br>107</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>67</span> </span></li><li style="clear: both"></li></ul>
-|-ability|p1a: Roaramp|Scarily Adorable|boost
-|-unboost|p2a: Mr. Ace|atk|1
-|-unboost|p2a: Mr. Ace|spe|1
-|turn|1
-|
-|t:|1670987383
-|detailschange|p1a: Roaramp|Roaramp-Mega, M
-|-mega|p1a: Roaramp|Roaramp|Ampharosite
-|-ability|p1a: Roaramp|Mold Breaker
-|-start|p1a: Roaramp|typechange|Electric/Dragon|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Roaramp-Mega</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Electric.png" alt="Electric" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dragon.png" alt="Dragon" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Mold Breaker</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>102</span> <span class="col statcol"><em>Atk</em><br>125</span> <span class="col statcol"><em>Def</em><br>117</span> <span class="col statcol"><em>SpA</em><br>157</span> <span class="col statcol"><em>SpD</em><br>120</span> <span class="col statcol"><em>Spe</em><br>57</span> </span></li><li style="clear: both"></li></ul>
-|move|p2a: Mr. Ace|U-turn|p1a: Roaramp
-|-start|p2a: Mr. Ace|typechange|Bug|[from] ability: Sports Showtime
-
-
-TypeError: Cannot set properties of undefined (setting 'switchingIn')
-    at Battle.apply (C:\Users\aahfk\Documents\GitHub\DH\data\mods\feuu\abilities.ts:502:59)
-    at Battle.runEvent (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:807:34)
-    at BattleActions.runSwitch (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-actions.ts:180:16)
-    at Battle.runAction (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2554:17)
-    at Battle.go (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2700:9)
-    at Battle.commitDecisions (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2766:8)
-    at Battle.choose (C:\Users\aahfk\Documents\GitHub\DH\sim\battle.ts:2722:35)
-    at RoomBattleStream._writeLine (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-stream.ts:120:18)
-    at RoomBattleStream._writeLines (C:\Users\aahfk\Documents\GitHub\DH\sim\battle-stream.ts:78:10)
-    at RoomBattleStream._write (C:\Users\aahfk\Documents\GitHub\DH\server\room-battle.ts:1340:9)
-
-Additional information:
-  chunk = >p2 switch 4
-  inputLog = 
->version f6cb20707ed3f38e50080d3785e23f4d5fc04bac
->start {"formatid":"gen8fusionevolutionuu","seed":[53151,128,34013,57767]}
->player p1 {"name":"hsfhsfdsdhf","avatar":"101","team":"Roaramp||Ampharosite|ScarilyAdorable|Thunderbolt,DragonPulse,Flamethrower,NastyPlot|Modest|192,,,252,,64||,0,,,,|||,,,,,Electric]Slowton||AssaultVest|SurgeonEye|SludgeBomb,VoltSwitch,Scald,Flamethrower|Sassy|252,,,4,252,||,0,,,,0|||,,,,,Poison]Heatki||Leftovers|FlashyJokes|MagmaStorm,EarthPower,Spikes,Taunt|Modest|,,,252,4,252||,0,,,,|||,,,,,Fire]Porygrigus||HeavyDutyBoots|Pillage|ShadowBall,WillOWisp,Recover,Teleport|Relaxed|252,,252,,4,||,0,,,,0|||,,,,,Normal]Eelektoad||Leftovers|Absorbant|VoltSwitch,Scald,StealthRock,Toxic|Sassy|252,,4,,252,||,0,,,,|||,,,,,Electric]Mr. Ace||HeavyDutyBoots|SportsShowtime|TripleAxel,CourtChange,HealingWish,Uturn|Jolly|,252,,,4,252|||||,,,,,Fire","rating":0}
->player p2 {"name":"sftsftsdft","avatar":"101","team":"Roaramp||Ampharosite|ScarilyAdorable|Thunderbolt,DragonPulse,Flamethrower,NastyPlot|Modest|192,,,252,,64||,0,,,,|||,,,,,Electric]Slowton||AssaultVest|SurgeonEye|SludgeBomb,VoltSwitch,Scald,Flamethrower|Sassy|252,,,4,252,||,0,,,,0|||,,,,,Poison]Heatki||Leftovers|FlashyJokes|MagmaStorm,EarthPower,Spikes,Taunt|Modest|,,,252,4,252||,0,,,,|||,,,,,Fire]Porygrigus||HeavyDutyBoots|Pillage|ShadowBall,WillOWisp,Recover,Teleport|Relaxed|252,,252,,4,||,0,,,,0|||,,,,,Normal]Eelektoad||Leftovers|Absorbant|VoltSwitch,Scald,StealthRock,Toxic|Sassy|252,,4,,252,||,0,,,,|||,,,,,Electric]Mr. Ace||HeavyDutyBoots|SportsShowtime|TripleAxel,CourtChange,HealingWish,Uturn|Jolly|,252,,,4,252|||||,,,,,Fire","rating":0}
->p1 team 1, 2, 3, 4, 5, 6
->p2 team 6, 2, 3, 4, 5, 1
->p1 move thunderbolt
->p2 move uturn
->p2 switch 3
->p1 switch 2
->p2 switch 2
->p1 move voltswitch terastallize
->p2 move voltswitch terastallize
->p1 switch 3
->p2 switch 3
->p1 switch 5
->p2 switch 4
-  log = 
-|t:|1670987891
-|gametype|singles
-|player|p1|hsfhsfdsdhf|101|
-|player|p2|sftsftsdft|101|
-|teamsize|p1|6
-|teamsize|p2|6
-|gen|9
-|tier|[Gen 8] Fusion Evolution UU
-|clearpoke
-|poke|p1|Roaramp, M|
-|poke|p1|Slowton, M|
-|poke|p1|Heatki, F|
-|poke|p1|Porygrigus, F|
-|poke|p1|Eelektoad, M|
-|poke|p1|Mr. Ace, F|
-|poke|p2|Roaramp, M|
-|poke|p2|Slowton, F|
-|poke|p2|Heatki, F|
-|poke|p2|Porygrigus, M|
-|poke|p2|Eelektoad, F|
-|poke|p2|Mr. Ace, M|
-|rule|HP Percentage Mod: HP is shown in percentages
-|rule|Endless Battle Clause: Forcing endless battles is banned
-|rule|Z-Move Clause: Z-Moves are banned
-|teampreview
-|
-|t:|1670987898
-|start
-|switch|p1a: Roaramp|Roaramp, M|393/393
-|switch|p2a: Mr. Ace|Mr. Ace, M|301/301
-|-start|p2a: Mr. Ace|typechange|Fire/Psychic|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Mr. Ace</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Psychic.png" alt="Psychic" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Sports Showtime</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>80</span> <span class="col statcol"><em>Atk</em><br>100</span> <span class="col statcol"><em>Def</em><br>95</span> <span class="col statcol"><em>SpA</em><br>87</span> <span class="col statcol"><em>SpD</em><br>95</span> <span class="col statcol"><em>Spe</em><br>106</span> </span></li><li style="clear: both"></li></ul>
-|-start|p1a: Roaramp|typechange|Electric/Dark|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Roaramp</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Electric.png" alt="Electric" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Scarily Adorable</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>102</span> <span class="col statcol"><em>Atk</em><br>105</span> <span class="col statcol"><em>Def</em><br>97</span> <span class="col statcol"><em>SpA</em><br>107</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>67</span> </span></li><li style="clear: both"></li></ul>
-|-ability|p1a: Roaramp|Scarily Adorable|boost
-|-unboost|p2a: Mr. Ace|atk|1
-|-unboost|p2a: Mr. Ace|spe|1
-|turn|1
-|
-|t:|1670987902
-|move|p2a: Mr. Ace|U-turn|p1a: Roaramp
-|-start|p2a: Mr. Ace|typechange|Bug|[from] ability: Sports Showtime
-|-supereffective|p1a: Roaramp
-|-damage|p1a: Roaramp|237/393
-|
-|t:|1670987908
-|switch|p2a: Heatki|Heatki, F|321/321|[from] U-turn
-|-start|p2a: Heatki|typechange|Fire/Steel|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Heatki</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Flashy Jokes</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>90</span> <span class="col statcol"><em>Atk</em><br>85</span> <span class="col statcol"><em>Def</em><br>101</span> <span class="col statcol"><em>SpA</em><br>120</span> <span class="col statcol"><em>SpD</em><br>101</span> <span class="col statcol"><em>Spe</em><br>77</span> </span></li><li style="clear: both"></li></ul>
-|move|p1a: Roaramp|Thunderbolt|p2a: Heatki
-|-damage|p2a: Heatki|170/321
-|
-|-heal|p2a: Heatki|190/321|[from] item: Leftovers
-|upkeep
-|turn|2
-|
-|t:|1670987931
-|switch|p2a: Slowton|Slowton, F|388/388
-|-start|p2a: Slowton|typechange|Poison/Electric|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Slowton</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Poison.png" alt="Poison" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Electric.png" alt="Electric" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Surgeon Eye</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>92</span> <span class="col statcol"><em>Atk</em><br>62</span> <span class="col statcol"><em>Def</em><br>97</span> <span class="col statcol"><em>SpA</em><br>115</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
-|switch|p1a: Slowton|Slowton, M|388/388
-|-start|p1a: Slowton|typechange|Poison/Electric|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Slowton</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Poison.png" alt="Poison" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Electric.png" alt="Electric" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Surgeon Eye</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>92</span> <span class="col statcol"><em>Atk</em><br>62</span> <span class="col statcol"><em>Def</em><br>97</span> <span class="col statcol"><em>SpA</em><br>115</span> <span class="col statcol"><em>SpD</em><br>100</span> <span class="col statcol"><em>Spe</em><br>50</span> </span></li><li style="clear: both"></li></ul>
-|
-|upkeep
-|turn|3
-|
-|t:|1670987943
-|-terastallize|p2a: Slowton|Poison
-|-start|p2a: Slowton|typechange|Poison|[silent]
-|-terastallize|p1a: Slowton|Poison
-|-start|p1a: Slowton|typechange|Poison|[silent]
-|move|p1a: Slowton|Volt Switch|p2a: Slowton
-|-damage|p2a: Slowton|340/388
-|
-|t:|1670987968
-|switch|p1a: Heatki|Heatki, F|321/321|[from] Volt Switch
-|-start|p1a: Heatki|typechange|Fire/Steel|[silent]
-|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Heatki</span> <span class="col typecol"><img src="https://dragonheaven.herokuapp.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://dragonheaven.herokuapp.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Flashy Jokes</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
-|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>90</span> <span class="col statcol"><em>Atk</em><br>85</span> <span class="col statcol"><em>Def</em><br>101</span> <span class="col statcol"><em>SpA</em><br>120</span> <span class="col statcol"><em>SpD</em><br>101</span> <span class="col statcol"><em>Spe</em><br>77</span> </span></li><li style="clear: both"></li></ul>
-|move|p2a: Slowton|Volt Switch|p1a: Heatki
-|-damage|p1a: Heatki|209/321
-|
-|t:|1670987977
-|switch|p2a: Mr. Ace|Mr. Ace, M|301/301|[from] Volt Switch
-|-start|p2a: Mr. Ace|typechange|Fire/Psychic|[silent]
-|
-|-heal|p1a: Heatki|229/321|[from] item: Leftovers
-|upkeep
-|turn|4
-|
-|t:|1670987989
-|switch|p2a: Porygrigus|Porygrigus, M|346/346
-
-
-TypeError: C:\Users\aahfk\Documents\GitHub\DH\data\mods/gen9duomod/rulesets, if it exists, must export an object whose 'Rulesets' property is an Object
-    at ModdedDex.loadDataFile (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:429:11)
-    at ModdedDex.loadData (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:507:28)
-    at ModdedDex.data (C:\Users\aahfk\Documents\GitHub\DH\sim\dex.ts:156:15)
-    at DexFormats.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:590:16)
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:862:37)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-
-TypeError: Cannot read properties of undefined (reading 'tags')
-    at DexSpecies.getByID (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-species.ts:441:108)
-    at DexSpecies.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-species.ts:367:15)
-    at TeamValidator.call [as validateSet] (C:\Users\aahfk\Documents\GitHub\DH\sim\team-validator.ts:386:29)
-    at TeamValidator.baseValidateTeam (C:\Users\aahfk\Documents\GitHub\DH\sim\team-validator.ts:293:60)
-    at TeamValidator.validateTeam (C:\Users\aahfk\Documents\GitHub\DH\sim\team-validator.ts:222:15)
-    at QueryProcessManager._query (C:\Users\aahfk\Documents\GitHub\DH\server\team-validator-async.ts:50:42)
-    at process.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:594:30)
-    at process.emit (node:events:390:28)
-    at process.emit (node:domain:475:12)
-    at process.emit.sharedData.processEmitHook.installedValue [as emit] (C:\Users\aahfk\Documents\GitHub\DH\node_modules\@cspotcode\source-map-support\source-map-support.js:745:40)
-
-Additional information:
-  formatid = gen8extremereboot
-  team = Gyozumo-Spring||lifegem|arbiter|rulesrewrite,blossomout,erupt,growthpower|Sassy|252,,4,,252,||,0,,,,0|||]Curuprowl||enigmaticshield|arbiter|rulesrewrite,brazenbash,terrainstrain,aridabsorption|Relaxed|248,,252,,8,||,0,,,,0|||]Memilifyy||metalmorph|blindrage|stormblitz,machinegun,bodybash,monkeyspaw|Brave|248,252,,,8,||,,,,,0|||]Protectonic||pokemonstandard|allseeingeye|stonehammer,spectresmash,summersword,moonblade|Brave|252,252,4,,,||,,,,,0|||]Sponjourner||pokemonstandard|regenerator|cascade,zenpower,relax,brazenbash|Quiet|248,,8,252,,||,0,,,,0|||]Yukinooh||pokemonstandard|snowbringer|frostblast,blossomout,earthquake,speedweed|Quiet|248,,8,252,,||,,,,,0|||
-
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:371:5)
+    at ChildProcess.target.disconnect (node:internal/child_process:872:26)
+    at QueryProcessWrapper.destroy (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:390:28)
+    at ChildProcess.emit (node:domain:475:12)
+    at finish (node:internal/child_process:902:14)
+    at processTicksAndRejections (node:internal/process/task_queues:78:11)
 
 Error: Unrecognized rule "Standard GBU"
-    at DexFormats.validateRule (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:864:11)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:670:26)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:703:17)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
 
-Error: Rule "Item Clause" in "[Gen 8] Evolution Project VGC" already exists in "Flat Rules"
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:758:12)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
+ReferenceError: data is not defined
+    at randomMoves (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\data\mods\m4asandbox\formats-data.js:207:3)
+    at Object.<anonymous> (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\data\mods\m4asandbox\formats-data.js:211:1)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at ModdedDex.loadDataFile (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:415:26)
+    at ModdedDex.loadData (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex.js:487:31)
+
+Error: Nothing matches "lcuber"
+    at DexFormats.validateBanRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:794:13)
+    at DexFormats.validateRule (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:697:38)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\sim\dex-formats.js:474:28)
+    at GlobalRoomState.get formatListText [as formatListText] (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-Error: Rule "pickedteamsize=4" conflicts with "pickedteamsize=Auto" from Flat Rules (Use "!! pickedteamsize=4" to override "pickedteamsize=Auto".)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:746:13)
-    at DexFormats.getRuleTable (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-formats.ts:634:24)
-    at GlobalRoomState.formatListText (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1478:34)
-    at GlobalRoomState.handleConnect (C:\Users\aahfk\Documents\GitHub\DH\server\rooms.ts:1721:80)
-    at Object.socketConnect (C:\Users\aahfk\Documents\GitHub\DH\server\users.ts:1670:15)
-    at Object.onSpawn (C:\Users\aahfk\Documents\GitHub\DH\server\sockets.ts:34:11)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-TypeError: Cannot read properties of undefined (reading 'tags')
-    at DexSpecies.getByID (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-species.ts:442:108)
-    at DexSpecies.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-species.ts:367:15)
-    at TeamValidator.call [as validateSet] (C:\Users\aahfk\Documents\GitHub\DH\sim\team-validator.ts:386:29)
-    at TeamValidator.baseValidateTeam (C:\Users\aahfk\Documents\GitHub\DH\sim\team-validator.ts:293:60)
-    at TeamValidator.validateTeam (C:\Users\aahfk\Documents\GitHub\DH\sim\team-validator.ts:222:15)
-    at QueryProcessManager._query (C:\Users\aahfk\Documents\GitHub\DH\server\team-validator-async.ts:50:42)
-    at process.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:594:30)
-    at process.emit (node:events:390:28)
-    at process.emit (node:domain:475:12)
-    at process.emit.sharedData.processEmitHook.installedValue [as emit] (C:\Users\aahfk\Documents\GitHub\DH\node_modules\@cspotcode\source-map-support\source-map-support.js:745:40)
-
-Additional information:
-  formatid = gen8extremereboot
-  team = Gyozumo-Spring||lifegem|arbiter|rulesrewrite,blossomout,erupt,growthpower|Sassy|252,,4,,252,||,0,,,,0|||]Curuprowl||enigmaticshield|arbiter|rulesrewrite,brazenbash,terrainstrain,aridabsorption|Relaxed|248,,252,,8,||,0,,,,0|||]Memilifyy||metalmorph|blindrage|stormblitz,machinegun,bodybash,monkeyspaw|Brave|248,252,,,8,||,,,,,0|||]Protectonic||pokemonstandard|allseeingeye|stonehammer,spectresmash,summersword,moonblade|Brave|252,252,4,,,||,,,,,0|||]Sponjourner||pokemonstandard|regenerator|cascade,zenpower,relax,brazenbash|Quiet|248,,8,252,,||,0,,,,0|||]Yukinooh||pokemonstandard|snowbringer|frostblast,blossomout,earthquake,speedweed|Quiet|248,,8,252,,||,,,,,0|||
-
-
-TypeError: Cannot read properties of undefined (reading 'tags')
-    at DexSpecies.getByID (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-species.ts:442:108)
-    at DexSpecies.get (C:\Users\aahfk\Documents\GitHub\DH\sim\dex-species.ts:367:15)
-    at TeamValidator.call [as validateSet] (C:\Users\aahfk\Documents\GitHub\DH\sim\team-validator.ts:386:29)
-    at TeamValidator.baseValidateTeam (C:\Users\aahfk\Documents\GitHub\DH\sim\team-validator.ts:293:60)
-    at TeamValidator.validateTeam (C:\Users\aahfk\Documents\GitHub\DH\sim\team-validator.ts:222:15)
-    at QueryProcessManager._query (C:\Users\aahfk\Documents\GitHub\DH\server\team-validator-async.ts:50:42)
-    at process.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:594:30)
-    at process.emit (node:events:390:28)
-    at process.emit (node:domain:475:12)
-    at process.emit.sharedData.processEmitHook.installedValue [as emit] (C:\Users\aahfk\Documents\GitHub\DH\node_modules\@cspotcode\source-map-support\source-map-support.js:745:40)
-
-Additional information:
-  formatid = gen8extremereboot
-  team = Gyozumo-Spring||lifegem|arbiter|rulesrewrite,blossomout,erupt,growthpower|Sassy|252,,4,,252,||,0,,,,0|||]Curuprowl||enigmaticshield|arbiter|rulesrewrite,brazenbash,terrainstrain,aridabsorption|Relaxed|248,,252,,8,||,0,,,,0|||]Memilifyy||metalmorph|blindrage|stormblitz,machinegun,bodybash,monkeyspaw|Brave|248,252,,,8,||,,,,,0|||]Protectonic||pokemonstandard|allseeingeye|stonehammer,spectresmash,summersword,moonblade|Brave|252,252,4,,,||,,,,,0|||]Sponjourner||pokemonstandard|regenerator|cascade,zenpower,relax,brazenbash|Quiet|248,,8,252,,||,0,,,,0|||]Yukinooh||pokemonstandard|snowbringer|frostblast,blossomout,earthquake,speedweed|Quiet|248,,8,252,,||,,,,,0|||
-
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at SQLDatabaseManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)
-
-Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
-    at new NodeError (node:internal/errors:371:5)
-    at ChildProcess.disconnect (node:internal/child_process:872:26)
-    at QueryProcessWrapper.destroy (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:204:16)
-    at QueryProcessWrapper.release (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:190:9)
-    at QueryProcessManager.releaseCrashed (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:458:16)
-    at ChildProcess.<anonymous> (C:\Users\aahfk\Documents\GitHub\DH\lib\process-manager.ts:515:47)
-    at ChildProcess.emit (node:events:390:28)
-    at ChildProcess.emit (node:domain:475:12)
-    at finish (node:internal/child_process:902:14)
-    at processTicksAndRejections (node:internal/process/task_queues:78:11)

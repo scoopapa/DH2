@@ -278,7 +278,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.field.setTerrain('grassyterrain');
 			}
 		},
-/*
+		/*
 		onAnySetTerrain(target, source, terrain) {
 			if (source.hasAbility('arenarock') && terrain.id === 'grassyterrain') return;
 			return false;
@@ -1064,8 +1064,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyWeatherStart() {
 			const pokemon = this.effectState.target;
 			if (
-				(this.field.isWeather('hail') || this.field.isWeather('diamonddust'))
-				&& pokemon.species.id === 'eiscuenoice' && !pokemon.transformed
+				(this.field.isWeather('hail') || this.field.isWeather('diamonddust')) &&
+				pokemon.species.id === 'eiscuenoice' && !pokemon.transformed
 			) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
@@ -1380,7 +1380,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -36,
 	},
-/*
+	/*
 	asonesawsbuck: {
 		desc: "The combination of Hustle and A Winter's Tale. This Pokémon's Attack is multiplied by 1.5 and the accuracy of its physical attacks is multiplied by 0.8. The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
 		shortDesc: "The combination of Hustle and A Winter's Tale.",
@@ -2447,7 +2447,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -62,
 	},
-/*
+	/*
 	buildup: {
 		desc: "This Pokémon restores 1/8 of its maximum HP, rounded down, at the end of each full turn if it uses an attacking move, but only if it was not hit by a damaging move in the same turn.",
 		shortDesc: "Healed by 1/8 of its max HP each attacking turn; fails if attacked same turn.",
@@ -2508,7 +2508,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				if (this.effectState.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");
-					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil![0] / this.effectState.recoil![1]), 1), source, source, 'recoil');
+					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil[0] / this.effectState.recoil[1]), 1), source, source, 'recoil');
 				}
 				if (this.effectState.mindBlownRecoil) {
 					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
@@ -2523,7 +2523,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -64,
 	},
-/*
+	/*
 	mindrider: {
 		shortDesc: "If Psychic Terrain is active, this Pokémon's Speed is doubled.",
 		onModifySpe(spe) {
@@ -2580,7 +2580,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "User's attacking stat and foe's defending stat: +1 before move, -1 after move.",
 		onBeforeMove(source, target, move) {
 			if (!move.basePower || target === source || move.spreadHit) return;
-			let activated = false;
+			const activated = false;
 			let attackingStat = 'atk';
 			let defendingStat = 'def';
 			if (move.category === 'Special') {
@@ -2606,8 +2606,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.volatiles['cheapheat'].boost = cheapHeatBoost;
 				this.runEvent('CheapHeat', target);
 			} else {
-				let cheapHeatBoostSource: SparseBoostsTable = {};
-				let cheapHeatBoostTarget: SparseBoostsTable = {};
+				const cheapHeatBoostSource: SparseBoostsTable = {};
+				const cheapHeatBoostTarget: SparseBoostsTable = {};
 				source.addVolatile('cheapheat');
 				source.volatiles['cheapheat'].source = source;
 				source.volatiles['cheapheat'].boost = cheapHeatBoostSource;
@@ -2678,7 +2678,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -68,
 	},
-/*
+	/*
 	gyaru: {
 		desc: "This Pokémon's Fighting-type moves become Fire-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
 		shortDesc: "This Pokémon's Fighting-type moves become Fire-type and have 1.2x power.",
@@ -2806,7 +2806,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: -74,
 	},
-/*
+	/*
 	agitate: {
 		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
 		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",

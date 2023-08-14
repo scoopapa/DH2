@@ -1,9 +1,9 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	inherit: 'gen9',
 	teambuilderConfig: {
-        excludeStandardTiers: true,
+		excludeStandardTiers: true,
 	},
-	init: function () {
+	init() {
 		// Solrock
 		this.modData("Learnsets", "solrock").learnset.shoreup = ["9L1"];
 		this.modData("Learnsets", "solrock").learnset.bodypress = ["9L1"];
@@ -133,5 +133,5 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dondozo").learnset.stoneedge = ["9L1"];
 		this.modData("Learnsets", "dondozo").learnset.ironhead = ["9L1"];
 		this.modData("Learnsets", "dondozo").learnset.flipturn = ["9L1"];
-	}
+	},
 };

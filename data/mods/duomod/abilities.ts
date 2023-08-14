@@ -11,7 +11,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.type === 'Water') {
-				this.damage(target.getUndynamaxedHP(damage)/2, source, target);
+				this.damage(target.getUndynamaxedHP(damage) / 2, source, target);
 			}
 		},
 		name: "Angler",
@@ -40,41 +40,32 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const result = this.random(10);
 			if (result === 0) {
 				this.hint("Hype Level: 1 out of 10...");
-//				this.useMove("Rest", pokemon);
-			}
-			else if (result === 1) {
+				//				this.useMove("Rest", pokemon);
+			} else if (result === 1) {
 				this.hint("Hype Level: 2 out of 10...");
-//				this.useMove("Sleep Talk", pokemon);
-			}
-			else if (result === 2) {
+				//				this.useMove("Sleep Talk", pokemon);
+			} else if (result === 2) {
 				this.hint("Hype Level: 3 out of 10...");
-//				this.useMove("Celebrate", pokemon);
-			}
-			else if (result === 3) {
+				//				this.useMove("Celebrate", pokemon);
+			} else if (result === 3) {
 				this.hint("Hype Level: 4 out of 10.");
-//				this.useMove("Celebrate", pokemon);
-			}
-			else if (result === 4) {
+				//				this.useMove("Celebrate", pokemon);
+			} else if (result === 4) {
 				this.hint("Hype Level: 5 out of 10.");
-//				this.useMove("Celebrate", pokemon);
-			}
-			else if (result === 5) {
+				//				this.useMove("Celebrate", pokemon);
+			} else if (result === 5) {
 				this.hint("Hype Level: 6 out of 10.");
-//				this.useMove("Celebrate", pokemon);
-			}
-			else if (result === 6) {
+				//				this.useMove("Celebrate", pokemon);
+			} else if (result === 6) {
 				this.hint("Hype Level: 7 out of 10!");
-//				this.useMove("Focus Energy", pokemon);
-			}
-			else if (result === 7) {
+				//				this.useMove("Focus Energy", pokemon);
+			} else if (result === 7) {
 				this.hint("Hype Level: 8 out of 10!");
-//				this.useMove("Agility", pokemon);
-			}
-			else if (result === 8) {
+				//				this.useMove("Agility", pokemon);
+			} else if (result === 8) {
 				this.hint("Hype Level: 9 OUT OF 10!");
-//				this.useMove("Spinning Web", pokemon);
-			}
-			else {
+				//				this.useMove("Spinning Web", pokemon);
+			} else {
 				this.hint("Hype level: 10 OUT OF 10!!!!!");
 				this.boost({atk: 2}, pokemon, pokemon, null, true);
 				this.useMove("Explosion", pokemon);
@@ -108,7 +99,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 14.1,
 	},
-  
 
 
 	poweroftwo: {
@@ -124,7 +114,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifySpA(atk, attacker, defender, move) {
 			if (attacker.moveSlots.length < 3) {
 				this.debug('Power of Two boost');
-        return this.chainModify(1.3);
+				return this.chainModify(1.3);
 			}
 		},
 		name: "Power of Two",
@@ -147,7 +137,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 20121,
 	},
-   
+
 	birdup: {
 		shortDesc: "The user is a Bird.",
 		onStart(pokemon) {
@@ -189,10 +179,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					target: move.target,
 					disabled: false,
 					used: false,
-				};	
+				};
 				pokemon.moveSlots[pokemon.moveSlots.length] = learnedMove;
 				pokemon.baseMoveSlots[pokemon.moveSlots.length - 1] = learnedMove;
-			this.add('-start', pokemon, 'Lost Memory', move.name);
+				this.add('-start', pokemon, 'Lost Memory', move.name);
 			}
 		},
 		name: "Lost Memory",
@@ -226,20 +216,20 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Patience",
 		rating: -1,
 		num: 100,
-	},	
+	},
 	queenofroulette: {
 		shortDesc: "Spins the Roulette Wheel two additional times.",
-		onResidual (pokemon) {
+		onResidual(pokemon) {
 			this.useMove("Roulette Spin", pokemon);
 			this.useMove("Roulette Spin", pokemon);
 		},
 		name: "Queen of Roulette",
 		rating: 1,
 		num: 3009,
-	},	
+	},
 	ragingbeast: {
 		shortDesc: "The user's highest stat has a 20% chance to rise after each turn.",
-		onResidual (pokemon) {
+		onResidual(pokemon) {
 			const result = this.random(5);
 			if (result === 0) {
 				let statName = 'atk';
@@ -253,7 +243,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				this.boost({[statName]: 1}, pokemon);
 			}
-		},	
+		},
 		name: "Raging Beast",
 		rating: 1,
 		num: 3010,
@@ -266,48 +256,37 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (result === 0) {
 				currType = "Dark";
 				this.hint("Dark-types are now being trapped.");
-			}
-			else if (result === 1) {
+			} else if (result === 1) {
 				currType = "Grass";
 				this.hint("Grass-types are now being trapped.");
-			}
-			else if (result === 2) {
+			} else if (result === 2) {
 				currType = "Fire";
 				this.hint("Fire-types are now being trapped.");
-			}
-			else if (result === 3) {
+			} else if (result === 3) {
 				currType = "Water";
 				this.hint("Water-types are now being trapped.");
-			}
-			else if (result === 4) {
+			} else if (result === 4) {
 				currType = "Electric";
 				this.hint("Electric-types are now being trapped.");
-			}
-			else if (result === 5) {
+			} else if (result === 5) {
 				currType = "Ground";
 				this.hint("Ground-types are now being trapped.");
-			}
-			else if (result === 6) {
+			} else if (result === 6) {
 				currType = "Flying";
 				this.hint("Flying-types are now being trapped.");
-			}
-			else if (result === 7) {
+			} else if (result === 7) {
 				currType = "Dragon";
 				this.hint("Dragon-types are now being trapped.");
-			}
-			else if (result === 8) {
+			} else if (result === 8) {
 				currType = "Fairy";
 				this.hint("Fairy-types are now being trapped.");
-			}
-			else if (result === 9) {
+			} else if (result === 9) {
 				currType = "Steel";
 				this.hint("Steel-types are now being trapped.");
-			}
-			else if (result === 10) {
+			} else if (result === 10) {
 				currType = "Bug";
 				this.hint("Bug-types are now being trapped.");
-			}
-			else if (result === 11) {
+			} else if (result === 11) {
 				currType = "Poison";
 				this.hint("Poison-types are now being trapped.");
 			}
@@ -412,7 +391,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Trash Beat",
 		rating: 4,
 		num: 3013,
-	},	
+	},
 	dropheat: {
 		shortDesc: "User is immune to recoil, lowers all stats of opponents using Sound moves.",
 		onDamage(damage, target, source, effect) {
@@ -437,14 +416,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const target of pokemon.side.foe.active) {
 				if (target.fainted) return;
 				const temp = this.sample(target.moveSlots);
-				//const move = target.moves.indexOf(temp.id);
+				// const move = target.moves.indexOf(temp.id);
 				this.add('-message', pokemon.name + "'s Mental Note revealed the move " + temp.move + "!");
 			}
 		},
 		name: "Mental Note",
 		rating: 0.5,
 		num: 3015,
-	},	
+	},
 	mixitup: {
 		shortDesc: "The user switches after using sound move.",
 		onModifyMove(move, pokemon) {

@@ -1,8 +1,8 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 // New Mons
-	
-	
-// Future Mons	
+
+
+	// Future Mons
 	chikorita: {
 		tier: "LC",
 		gen: 1,
@@ -403,8 +403,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		gen: 1,
 	},
-	
-// Old Mons	
+
+	// Old Mons
 	bulbasaur: {
 		randomBattleMoves: ["sleeppowder", "bodyslam"],
 		essentialMove: "razorleaf",

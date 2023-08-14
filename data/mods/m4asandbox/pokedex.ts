@@ -1566,7 +1566,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaCreator: "Mateeus",
 	},
 
-// SANDBOX CONTENT STARTS HERE
+	// SANDBOX CONTENT STARTS HERE
 
 	pichuspikyeared: {
 		inherit: true,

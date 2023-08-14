@@ -42,7 +42,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (this.randomChance(pokemon.statusData.time, 5)) {
 				pokemon.cureStatus();
 				return;
-			} else if(!pokemon.volatiles['stasis']){
+			} else if (!pokemon.volatiles['stasis']) {
 				pokemon.statusData.time++;
 			}
 			this.add('cant', pokemon, 'frz');
@@ -66,7 +66,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	partiallytrapped: {
 		inherit: true,
 		onStart(pokemon, source) {
-			if(pokemon.volatiles['strongpartialtrap']) return false;
+			if (pokemon.volatiles['strongpartialtrap']) return false;
 			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
 			this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
 		},
@@ -76,18 +76,18 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		duration: 1,
 		name: 'evade',
 		onStart(pokemon) {
-			if(pokemon.volatiles['odorsleuth']) return false;
+			if (pokemon.volatiles['odorsleuth']) return false;
 		},
 		onAccuracy(accuracy, target, source, move) {
-			if(!move.ignoreEvasion && typeof move.accuracy === 'number') return false;
+			if (!move.ignoreEvasion && typeof move.accuracy === 'number') return false;
 		},
 	},
-	evadestall: { //Evasion move counter
+	evadestall: { // Evasion move counter
 		name: 'evadestall',
 		duration: 2,
 		counterMax: 729,
 		onStart(pokemon) {
-			if(pokemon.volatiles['odorsleuth']) return false;
+			if (pokemon.volatiles['odorsleuth']) return false;
 			this.effectState.counter = 3;
 		},
 		onEvadeStallMove(pokemon) {
@@ -115,26 +115,26 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onTrapPokemon(pokemon) {
 			pokemon.tryTrap();
 		},
-		onSourceHit(target, source, move) { //Damaging moves won't switch
-			if(move.selfSwitch && target !== source && !source.hasItem('shedshell') && !source.hasAbility('runaway')) delete move.selfSwitch;
+		onSourceHit(target, source, move) { // Damaging moves won't switch
+			if (move.selfSwitch && target !== source && !source.hasItem('shedshell') && !source.hasAbility('runaway')) delete move.selfSwitch;
 		},
 		onAfterMoveSecondaryPriority: -100,
-		onAfterMoveSecondary(target, source, move) { //Items and custom Abilities won't switch
-			if(target !== source){
-				if(source.switchFlag && !source.hasItem('shedshell') && !source.hasAbility('runaway')){
+		onAfterMoveSecondary(target, source, move) { // Items and custom Abilities won't switch
+			if (target !== source) {
+				if (source.switchFlag && !source.hasItem('shedshell') && !source.hasAbility('runaway')) {
 					this.add('-fail', target, '[from] move: Fairy Lock');
 					source.switchFlag = false;
 					return null;
 				}
-				if(target.switchFlag && !target.hasItem('shedshell') && !target.hasAbility('runaway')){
+				if (target.switchFlag && !target.hasItem('shedshell') && !target.hasAbility('runaway')) {
 					this.add('-fail', target, '[from] move: Fairy Lock');
 					source.switchFlag = false;
 					return null;
 				}
 			}
 		},
-		onEmergencyExit(target) { //Escape Plan won't switch
-			if(!target.hasItem('shedshell')){
+		onEmergencyExit(target) { // Escape Plan won't switch
+			if (!target.hasItem('shedshell')) {
 				target.switchFlag = false;
 				return false;
 			}
@@ -159,7 +159,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			return this.random(3, 4);
 		},
 		onStart(pokemon, source) {
-			if(pokemon.volatiles['partiallytrapped']) return false;
+			if (pokemon.volatiles['partiallytrapped']) return false;
 			this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
 			this.effectState.boundDivisor = source.hasItem('bindingband') ? 3 : 4;
 		},
@@ -195,7 +195,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon) {
-			if(pokemon.volatiles['fullcollide']) return;
+			if (pokemon.volatiles['fullcollide']) return;
 			if (this.randomChance(1, 4)) {
 				this.add('cant', pokemon, 'par');
 				return false;
@@ -205,7 +205,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	slp: {
 		inherit: true,
 		onBeforeMove(pokemon, target, move) {
-			if(!pokemon.volatiles['stasis']){
+			if (!pokemon.volatiles['stasis']) {
 				if (pokemon.hasAbility('earlybird')) {
 					pokemon.statusData.time--;
 				}
@@ -215,7 +215,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 					return;
 				}
 			}
-			if(pokemon.volatiles['fullcollide']) return;
+			if (pokemon.volatiles['fullcollide']) return;
 			this.add('cant', pokemon, 'slp');
 			if (move.sleepUsable) {
 				return;
@@ -244,7 +244,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				pokemon.removeVolatile('confusion');
 				return;
 			}
-			if(pokemon.volatiles['fullcollide']) return;
+			if (pokemon.volatiles['fullcollide']) return;
 			this.add('-activate', pokemon, 'confusion');
 			if (!this.randomChance(33, 100)) {
 				return;
@@ -262,7 +262,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		duration: 1,
 		onBeforeMovePriority: 8,
 		onBeforeMove(pokemon) {
-			if(pokemon.volatiles['fullcollide']) return;
+			if (pokemon.volatiles['fullcollide']) return;
 			this.add('cant', pokemon, 'flinch');
 			this.runEvent('Flinch', pokemon);
 			return false;

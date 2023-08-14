@@ -4,7 +4,7 @@
  * Stadium mechanics inherit from gen 1 mechanics, but fixes some stuff.
  */
 /**@type {ModdedBattleScriptsData} */
-let BattleScripts = {
+const BattleScripts = {
 	inherit: 'gen1',
 	gen: 1,
 	// BattlePokemon scripts. Stadium shares gen 1 code but it fixes some problems with it.
@@ -19,7 +19,7 @@ let BattleScripts = {
 		},
 		// This is run on Stadium after boosts and status changes.
 		recalculateStats() {
-			for (let statName in this.storedStats) {
+			for (const statName in this.storedStats) {
 				/**@type {number} */
 				// @ts-ignore
 				let stat = this.template.baseStats[statName];
@@ -50,7 +50,7 @@ let BattleScripts = {
 		// Stadium's fixed boosting function.
 		boostBy(boost) {
 			let changed = false;
-			for (let i in boost) {
+			for (const i in boost) {
 				// @ts-ignore
 				let delta = boost[i];
 				if (delta === undefined) continue;
@@ -79,8 +79,8 @@ let BattleScripts = {
 	},
 	// Battle scripts.
 	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect) {
-		let move = this.dex.getActiveMove(moveOrMoveName);
-		let target = this.getTarget(pokemon, move, targetLoc);
+		const move = this.dex.getActiveMove(moveOrMoveName);
+		const target = this.getTarget(pokemon, move, targetLoc);
 		if (target && target.subFainted) target.subFainted = null;
 
 		this.setActiveMove(move, pokemon, target);
@@ -135,7 +135,7 @@ let BattleScripts = {
 		}
 	},
 	tryMoveHit(target, pokemon, move) {
-		let boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
+		const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
 		let doSelfDestruct = true;
 		/** @type {number | undefined | false} */
 		let damage = 0;
@@ -264,7 +264,7 @@ let BattleScripts = {
 	moveHit(target, pokemon, moveOrMoveName, moveData, isSecondary, isSelf) {
 		/** @type {number | null | false | undefined} */
 		let damage = 0;
-		let move = this.dex.getActiveMove(moveOrMoveName);
+		const move = this.dex.getActiveMove(moveOrMoveName);
 
 		if (!isSecondary && !isSelf) this.setActiveMove(move, pokemon, target);
 		/** @type {number | boolean} */
@@ -335,7 +335,7 @@ let BattleScripts = {
 				this.boost(moveData.boosts, target, pokemon, move);
 			}
 			if (moveData.heal && !target.fainted) {
-				let d = target.heal(Math.floor(target.maxhp * moveData.heal[0] / moveData.heal[1]));
+				const d = target.heal(Math.floor(target.maxhp * moveData.heal[0] / moveData.heal[1]));
 				if (!d) {
 					this.add('-fail', target);
 					return false;
@@ -408,7 +408,7 @@ let BattleScripts = {
 				// That means that a move that does not share the type of the target can status it.
 				// If a move that was not fire-type would exist on Gen 1, it could burn a Pokémon.
 				if (!(secondary.status && ['par', 'brn', 'frz'].includes(secondary.status) && target && target.hasType(move.type))) {
-					let effectChance = Math.floor((secondary.chance || 100) * 255 / 100);
+					const effectChance = Math.floor((secondary.chance || 100) * 255 / 100);
 					if (typeof secondary.chance === 'undefined' || this.randomChance(effectChance + 1, 256)) {
 						this.moveHit(target, pokemon, move, secondary, true, isSelf);
 					}
@@ -477,7 +477,7 @@ let BattleScripts = {
 		if (!move.defensiveCategory) move.defensiveCategory = move.category;
 		// '???' is typeless damage: used for Struggle and Confusion etc
 		if (!move.type) move.type = '???';
-		let type = move.type;
+		const type = move.type;
 
 		// We get the base power and apply basePowerCallback if necessary.
 		/** @type {number | false | null} */
@@ -548,12 +548,12 @@ let BattleScripts = {
 		// We now check attacker's and defender's stats.
 		let level = pokemon.level;
 		let attacker = pokemon;
-		let defender = target;
+		const defender = target;
 		if (move.useTargetOffensive) attacker = target;
 		/** @type {StatNameExceptHP} */
 		let atkType = (move.category === 'Physical') ? 'atk' : 'spa';
 		/** @type {StatNameExceptHP} */
-		let defType = (move.defensiveCategory === 'Physical') ? 'def' : 'spd';
+		const defType = (move.defensiveCategory === 'Physical') ? 'def' : 'spd';
 		if (move.useSourceDefensiveAsOffensive) atkType = defType;
 		let attack = attacker.getStat(atkType);
 		let defense = defender.getStat(defType);
@@ -613,7 +613,7 @@ let BattleScripts = {
 
 		// Type effectiveness.
 		// The order here is not correct, must change to check the move versus each type.
-		let totalTypeMod = this.dex.getEffectiveness(type, target);
+		const totalTypeMod = this.dex.getEffectiveness(type, target);
 		// Super effective attack
 		if (totalTypeMod > 0) {
 			if (!suppressMessages) this.add('-supereffective', target);

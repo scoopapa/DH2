@@ -1,6 +1,6 @@
 // Note: These are the rules that formats use
 // The list of formats is stored in config/formats.js
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 
 	// Rulesets
 	///////////////////////////////////////////////////////////////////
@@ -12,7 +12,7 @@ export const Formats: {[k: string]: FormatData} = {
 			'Obtainable', 'Team Preview', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
 		],
 	},
-	
+
 	teampreview: {
 		effectType: 'Rule',
 		name: 'Team Preview',

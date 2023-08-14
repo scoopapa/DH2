@@ -71,7 +71,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.formeChange('Kyogre-Primal', this.effect, true);
 			} else if (pokemon.baseSpecies.name === 'Kyottler') {
 				pokemon.formeChange('Kyottler-Primal', this.effect, true);
-			}		},
+			}
+		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Kyogre' || source.baseSpecies.baseSpecies === 'Kyottler') return false;
 			return true;
@@ -558,8 +559,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 679,
 		desc: "If held by an Alakannon, this item allows it to Mega Evolve in battle.",
 	},
-	
-// silvino moment :jokerification:
+
+	// silvino moment :jokerification:
 	bugmemory: {
 		onMemory: 'Bug',
 		onTakeItem(item, pokemon, source) {

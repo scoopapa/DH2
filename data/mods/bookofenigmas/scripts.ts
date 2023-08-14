@@ -1,14 +1,14 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	/*inherit: 'gen8',
+	/* inherit: 'gen8',
 	gen: 8,*/
-	
+
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['BoE OU', 'BoE NFE', 'BoE LC', 'BoE Uber'],
 	},
 
 	init() {
-		//stolen from optimons x
+		// stolen from optimons x
 		const addNewMoves = (pokemonid: string, moveids: string[]) => {
 			for (const moveid of moveids) {
 				this.modData('Learnsets', pokemonid).learnset[moveid] = [moveid === 'dracometeor' || moveid === 'steelbeam' ? '8T' : '8M'];
@@ -19,63 +19,63 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const learnset = this.modData('Learnsets', this.toID(id)).learnset;
 				this.modData('Learnsets', this.toID(id)).learnset.terablast = ["8M"];
 			}
-		};
-		addNewMoves('azumarill',['icespinner']);
-		addNewMoves('cloyster',['icespinner']);
-		addNewMoves('delibird',['icespinner']);
-		addNewMoves('donphan',['icespinner']);
-		addNewMoves('dragonite',['icespinner']);
-		addNewMoves('forretress',['icespinner']);
-		addNewMoves('weavile',['icespinner']);
-		addNewMoves('wigglytuff',['icespinner']);
-		addNewMoves('articuno',['icespinner']);
-		addNewMoves('mew',['icespinner']);
-		addNewMoves('dunsparce',['icespinner']);
-		addNewMoves('jigglypuff',['icespinner']);
-		addNewMoves('marill',['icespinner']);
-		addNewMoves('shellder',['icespinner']);
+		}
+		addNewMoves('azumarill', ['icespinner']);
+		addNewMoves('cloyster', ['icespinner']);
+		addNewMoves('delibird', ['icespinner']);
+		addNewMoves('donphan', ['icespinner']);
+		addNewMoves('dragonite', ['icespinner']);
+		addNewMoves('forretress', ['icespinner']);
+		addNewMoves('weavile', ['icespinner']);
+		addNewMoves('wigglytuff', ['icespinner']);
+		addNewMoves('articuno', ['icespinner']);
+		addNewMoves('mew', ['icespinner']);
+		addNewMoves('dunsparce', ['icespinner']);
+		addNewMoves('jigglypuff', ['icespinner']);
+		addNewMoves('marill', ['icespinner']);
+		addNewMoves('shellder', ['icespinner']);
 
-		addNewMoves('altaria',['trailblaze']);
-		addNewMoves('ampharos',['trailblaze']);
-		addNewMoves('azumarill',['trailblaze']);
-		addNewMoves('blissey',['trailblaze']);
-		addNewMoves('clodsire',['trailblaze']);
-		addNewMoves('delibird',['trailblaze']);
-		addNewMoves('donphan',['trailblaze']);
-		addNewMoves('eevee',['trailblaze']);
-		addNewMoves('golduck',['trailblaze']);
-		addNewMoves('heracross',['trailblaze']);
-		addNewMoves('hypno',['trailblaze']);
-		addNewMoves('jumpluff',['trailblaze']);
-		addNewMoves('perrserker',['trailblaze']);
-		addNewMoves('persian',['trailblaze']);
-		addNewMoves('quagsire',['trailblaze']);
-		addNewMoves('raichu',['trailblaze']);
-		addNewMoves('stantler',['trailblaze']);
-		addNewMoves('sudowoodo',['trailblaze']);
-		addNewMoves('sunflora',['trailblaze']);
-		addNewMoves('ursaring',['trailblaze']);
-		addNewMoves('weavile',['trailblaze']);
-		addNewMoves('wigglytuff',['trailblaze']);
+		addNewMoves('altaria', ['trailblaze']);
+		addNewMoves('ampharos', ['trailblaze']);
+		addNewMoves('azumarill', ['trailblaze']);
+		addNewMoves('blissey', ['trailblaze']);
+		addNewMoves('clodsire', ['trailblaze']);
+		addNewMoves('delibird', ['trailblaze']);
+		addNewMoves('donphan', ['trailblaze']);
+		addNewMoves('eevee', ['trailblaze']);
+		addNewMoves('golduck', ['trailblaze']);
+		addNewMoves('heracross', ['trailblaze']);
+		addNewMoves('hypno', ['trailblaze']);
+		addNewMoves('jumpluff', ['trailblaze']);
+		addNewMoves('perrserker', ['trailblaze']);
+		addNewMoves('persian', ['trailblaze']);
+		addNewMoves('quagsire', ['trailblaze']);
+		addNewMoves('raichu', ['trailblaze']);
+		addNewMoves('stantler', ['trailblaze']);
+		addNewMoves('sudowoodo', ['trailblaze']);
+		addNewMoves('sunflora', ['trailblaze']);
+		addNewMoves('ursaring', ['trailblaze']);
+		addNewMoves('weavile', ['trailblaze']);
+		addNewMoves('wigglytuff', ['trailblaze']);
 
-		addNewMoves('azumarill',['chillingwater']);
-		addNewMoves('blissey',['chillingwater']);
-		addNewMoves('cloyster',['chillingwater']);
-		addNewMoves('delibird',['chillingwater']);
-		addNewMoves('dragonite',['chillingwater']);
-		addNewMoves('glaceon',['chillingwater']);
-		addNewMoves('gyarados',['chillingwater']);
-		addNewMoves('pelipper',['chillingwater']);
-		addNewMoves('perrserker',['chillingwater']);
-		addNewMoves('persian',['chillingwater']);
-		addNewMoves('quagsire',['chillingwater']);
-		addNewMoves('qwilfish',['chillingwater']);
-		addNewMoves('slowbro',['chillingwater']);
-		addNewMoves('slowking',['chillingwater']);
-		addNewMoves('slowbrogalar',['chillingwater']);
-		addNewMoves('slowkinggalar',['chillingwater']);
-		addNewMoves('vaporeon',['chillingwater']);
-		addNewMoves('wigglytuff',['chillingwater']);
+		addNewMoves('azumarill', ['chillingwater']);
+		addNewMoves('blissey', ['chillingwater']);
+		addNewMoves('cloyster', ['chillingwater']);
+		addNewMoves('delibird', ['chillingwater']);
+		addNewMoves('dragonite', ['chillingwater']);
+		addNewMoves('glaceon', ['chillingwater']);
+		addNewMoves('gyarados', ['chillingwater']);
+		addNewMoves('pelipper', ['chillingwater']);
+		addNewMoves('perrserker', ['chillingwater']);
+		addNewMoves('persian', ['chillingwater']);
+		addNewMoves('quagsire', ['chillingwater']);
+		addNewMoves('qwilfish', ['chillingwater']);
+		addNewMoves('slowbro', ['chillingwater']);
+		addNewMoves('slowking', ['chillingwater']);
+		addNewMoves('slowbrogalar', ['chillingwater']);
+		addNewMoves('slowkinggalar', ['chillingwater']);
+		addNewMoves('vaporeon', ['chillingwater']);
+		addNewMoves('wigglytuff', ['chillingwater']);
 
 		addNewMoves('wigglytuff', ['nastyplot']);
 		addNewMoves('dugtrio', ['swordsdance']);
@@ -318,12 +318,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (pokemon.illusion) {
 			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		}
-		let species = this.dex.deepClone(pokemon.species);
+		const species = this.dex.deepClone(pokemon.species);
 		species.teraBoost = pokemon.species.types;
 		species.teraType = pokemon.canMegaEvo; // remember that the species is Terastal
 		species.types = [species.teraType];
 		species.nonTeraForm = pokemon.species;
-		
+
 		// Pokémon affected by Sky Drop cannot Terastallize
 		const side = pokemon.side;
 		for (const foeActive of side.foe.active) {
@@ -386,11 +386,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 
 		formeChange( // modded for Terastal
-		speciesId: string | Species, source: Effect = this.battle.effect,
+			speciesId: string | Species, source: Effect = this.battle.effect,
 		 isPermanent?: boolean, message?: string
 		) {
 			if (this.species.teraType) console.log("teraType: " + this.species.teraType);
-			let baseForm = this.battle.dex.species.get(speciesId);
+			const baseForm = this.battle.dex.species.get(speciesId);
 			let teraSpecies = null;
 			if (this.species.teraType) {
 				teraSpecies = this.battle.dex.deepClone(baseForm);
@@ -439,7 +439,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
 				}
 			}
-			
+
 			if (source === "Terastal") return true;
 			if (isPermanent && !['disguise', 'iceface'].includes(source.id)) {
 				if (this.illusion) {
@@ -450,7 +450,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			if (teraSpecies) this.battle.add('-start', this, 'typechange', this.types.join('/'), '[silent]');
 			return true;
-		}
+		},
 	},
 
 	// modifyDamage added for the Terastal Adaptability boost

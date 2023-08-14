@@ -507,7 +507,7 @@ export const Learnsets: {["9L1"]: LearnsetData} = {
 			zapcannon: ["9L90", "9L66", "6L66", "5L66"],
 			zenheadbutt: ["9M", "9T", "6T", "5T"],
 		},
-	}
+	},
 	dhelmise: {
 		learnset: {
 			wavecrash: ["9L1", "7L1"],

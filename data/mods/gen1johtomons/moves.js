@@ -6,7 +6,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedMoveData}} */
-let BattleMovedex = {
+const BattleMovedex = {
 	absorb: {
 		inherit: true,
 		desc: "The user recovers 1/2 the HP lost by the target, rounded down. If this move breaks the target's substitute, the user does not recover any HP.",
@@ -65,7 +65,7 @@ let BattleMovedex = {
 			},
 			onHit(target, source, move) {
 				if (source && source !== target && move.category !== 'Physical' && move.category !== 'Special') {
-					let damage = this.effectState.totalDamage;
+					const damage = this.effectState.totalDamage;
 					this.effectState.totalDamage += damage;
 					this.effectState.lastDamage = damage;
 					this.effectState.sourcePosition = source.position;
@@ -106,7 +106,7 @@ let BattleMovedex = {
 						return false;
 					}
 					this.add('-end', pokemon, 'Bide');
-					let target = this.effectState.sourceSide.active[this.effectState.sourcePosition];
+					const target = this.effectState.sourceSide.active[this.effectState.sourcePosition];
 					this.moveHit(target, pokemon, move, /** @type {ActiveMove} */ ({damage: this.effectState.totalDamage * 2}));
 					return false;
 				}
@@ -254,7 +254,7 @@ let BattleMovedex = {
 			// It will fail if the last move selected by the opponent has base power 0 or is not Normal or Fighting Type.
 			// If both are true, counter will deal twice the last damage dealt in battle, no matter what was the move.
 			// That means that, if opponent switches, counter will use last counter damage * 2.
-			let lastUsedMove = target.side.lastMove && this.dex.moves.get(target.side.lastMove.id);
+			const lastUsedMove = target.side.lastMove && this.dex.moves.get(target.side.lastMove.id);
 			if (lastUsedMove && lastUsedMove.basePower > 0 && ['Normal', 'Fighting'].includes(lastUsedMove.type) && this.lastDamage > 0 && !this.queue.willMove(target)) {
 				return 2 * this.lastDamage;
 			}
@@ -300,15 +300,15 @@ let BattleMovedex = {
 		effect: {
 			duration: 4,
 			durationCallback(target, source, effect) {
-				let duration = this.random(1, 7);
+				const duration = this.random(1, 7);
 				return duration;
 			},
 			onStart(pokemon) {
 				if (!this.queue.willMove(pokemon)) {
 					this.effectState.duration++;
 				}
-				let moves = pokemon.moves;
-				let move = this.dex.moves.get(this.sample(moves));
+				const moves = pokemon.moves;
+				const move = this.dex.moves.get(this.sample(moves));
 				this.add('-start', pokemon, 'Disable', move.name);
 				this.effectState.move = move.id;
 				return;
@@ -548,20 +548,20 @@ let BattleMovedex = {
 			},
 			onAfterMoveSelfPriority: 1,
 			onAfterMoveSelf(pokemon) {
-				let leecher = pokemon.side.foe.active[pokemon.volatiles['leechseed'].sourcePosition];
+				const leecher = pokemon.side.foe.active[pokemon.volatiles['leechseed'].sourcePosition];
 				if (!leecher || leecher.fainted || leecher.hp <= 0) {
 					this.debug('Nothing to leech into');
 					return;
 				}
 				// We check if leeched Pokémon has Toxic to increase leeched damage.
 				let toxicCounter = 1;
-				let residualdmg = pokemon.volatiles['residualdmg'];
+				const residualdmg = pokemon.volatiles['residualdmg'];
 				if (residualdmg) {
 					residualdmg.counter++;
 					toxicCounter = residualdmg.counter;
 				}
-				let toLeech = this.dex.clampIntRange(Math.floor(pokemon.baseMaxhp / 16), 1) * toxicCounter;
-				let damage = this.damage(toLeech, pokemon, leecher);
+				const toLeech = this.dex.clampIntRange(Math.floor(pokemon.baseMaxhp / 16), 1) * toxicCounter;
+				const damage = this.damage(toLeech, pokemon, leecher);
 				if (residualdmg) this.hint("In Gen 1, Leech Seed's damage is affected by Toxic's counter.", true);
 				if (!damage || toLeech > damage) {
 					this.hint("In Gen 1, Leech Seed recovery is not limited by the remaining HP of the seeded Pokemon.", true);
@@ -610,12 +610,12 @@ let BattleMovedex = {
 		desc: "While the user remains active, this move is replaced by a random move known by the target, even if the user already knows that move. The copied move keeps the remaining PP for this move, regardless of the copied move's maximum PP. Whenever one PP is used for a copied move, one PP is used for this move.",
 		shortDesc: "Random move known by the target replaces this.",
 		onHit(target, source) {
-			let moveslot = source.moves.indexOf('mimic');
+			const moveslot = source.moves.indexOf('mimic');
 			if (moveslot < 0) return false;
-			let moves = target.moves;
-			let moveid = this.sample(moves);
+			const moves = target.moves;
+			const moveid = this.sample(moves);
 			if (!moveid) return false;
-			let move = this.dex.moves.get(moveid);
+			const move = this.dex.moves.get(moveid);
 			source.moveSlots[moveslot] = {
 				move: move.name,
 				id: move.id,
@@ -637,7 +637,7 @@ let BattleMovedex = {
 		inherit: true,
 		desc: "The user uses the last move used by the target. Fails if the target has not made a move, or if the last move used was Mirror Move.",
 		onHit(pokemon) {
-			let foe = pokemon.side.foe.active[0];
+			const foe = pokemon.side.foe.active[0];
 			if (!foe || !foe.lastMove || foe.lastMove.id === 'mirrormove') {
 				return false;
 			}
@@ -935,7 +935,7 @@ let BattleMovedex = {
 				if (move.category === 'Status') {
 					// In gen 1 it only blocks:
 					// poison, confusion, secondary effect confusion, stat reducing moves and Leech Seed.
-					let SubBlocked = ['lockon', 'meanlook', 'mindreader', 'nightmare'];
+					const SubBlocked = ['lockon', 'meanlook', 'mindreader', 'nightmare'];
 					if (move.status === 'psn' || move.status === 'tox' || (move.boosts && target !== source) || move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)) {
 						return false;
 					}
@@ -969,7 +969,7 @@ let BattleMovedex = {
 				}
 				this.runEvent('AfterSubDamage', target, source, move, uncappedDamage);
 				// Add here counter damage
-				let lastAttackedBy = target.getLastAttackedBy();
+				const lastAttackedBy = target.getLastAttackedBy();
 				if (!lastAttackedBy) {
 					target.attackedBy.push({source: source, move: move.id, damage: uncappedDamage, thisTurn: true});
 				} else {

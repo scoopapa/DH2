@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	baloon: {learnset: {
 		acupressure: ["8L1"],
 		amnesia: ["8L1"],
@@ -1388,7 +1389,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		impostorblade: ["8L1"],
 		irondefense: ["8L1"],
 		kamikaze: ["8L1"],
-		knockoff: ["8L1"],
 		mefirst: ["8L1"],
 		megahorn: ["8L1"],
 		mimic: ["8L1"],

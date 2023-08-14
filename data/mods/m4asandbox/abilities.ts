@@ -279,7 +279,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.field.setTerrain('grassyterrain');
 			}
 		},
-/*
+		/*
 		onAnySetTerrain(target, source, terrain) {
 			if (source.hasAbility('arenarock') && terrain.id === 'grassyterrain') return;
 			return false;
@@ -1065,8 +1065,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAnyWeatherStart() {
 			const pokemon = this.effectState.target;
 			if (
-				(this.field.isWeather('hail') || this.field.isWeather('diamonddust'))
-				&& pokemon.species.id === 'eiscuenoice' && !pokemon.transformed
+				(this.field.isWeather('hail') || this.field.isWeather('diamonddust')) &&
+				pokemon.species.id === 'eiscuenoice' && !pokemon.transformed
 			) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
@@ -1381,7 +1381,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -36,
 	},
-/*
+	/*
 	asonesawsbuck: {
 		desc: "The combination of Hustle and A Winter's Tale. This Pokémon's Attack is multiplied by 1.5 and the accuracy of its physical attacks is multiplied by 0.8. The damage of this Pokémon's Ice-type moves used on consecutive turns is increased, up to a maximum of 1.5x after 5 turns. If Hail is active, the effect is doubled for a maximum of 2x after 5 turns.",
 		shortDesc: "The combination of Hustle and A Winter's Tale.",
@@ -2448,7 +2448,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -62,
 	},
-/*
+	/*
 	buildup: {
 		desc: "This Pokémon restores 1/8 of its maximum HP, rounded down, at the end of each full turn if it uses an attacking move, but only if it was not hit by a damaging move in the same turn.",
 		shortDesc: "Healed by 1/8 of its max HP each attacking turn; fails if attacked same turn.",
@@ -2509,7 +2509,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				}
 				if (this.effectState.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");
-					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil![0] / this.effectState.recoil![1]), 1), source, source, 'recoil');
+					this.damage(this.clampIntRange(Math.round(this.activeMove.totalDamage * this.effectState.recoil[0] / this.effectState.recoil[1]), 1), source, source, 'recoil');
 				}
 				if (this.effectState.mindBlownRecoil) {
 					this.damage(Math.round(source.maxhp / 2), source, source, this.dex.conditions.get('Mind Blown'), true);
@@ -2524,7 +2524,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -64,
 	},
-/*
+	/*
 	mindrider: {
 		shortDesc: "If Psychic Terrain is active, this Pokémon's Speed is doubled.",
 		onModifySpe(spe) {
@@ -2581,7 +2581,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "User's attacking stat and foe's defending stat: +1 before move, -1 after move.",
 		onBeforeMove(source, target, move) {
 			if (!move.basePower || target === source || move.spreadHit) return;
-			let activated = false;
+			const activated = false;
 			let attackingStat = 'atk';
 			let defendingStat = 'def';
 			if (move.category === 'Special') {
@@ -2607,8 +2607,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				target.volatiles['cheapheat'].boost = cheapHeatBoost;
 				this.runEvent('CheapHeat', target);
 			} else {
-				let cheapHeatBoostSource: SparseBoostsTable = {};
-				let cheapHeatBoostTarget: SparseBoostsTable = {};
+				const cheapHeatBoostSource: SparseBoostsTable = {};
+				const cheapHeatBoostTarget: SparseBoostsTable = {};
 				source.addVolatile('cheapheat');
 				source.volatiles['cheapheat'].source = source;
 				source.volatiles['cheapheat'].boost = cheapHeatBoostSource;
@@ -2679,7 +2679,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -68,
 	},
-/*
+	/*
 	gyaru: {
 		desc: "This Pokémon's Fighting-type moves become Fire-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
 		shortDesc: "This Pokémon's Fighting-type moves become Fire-type and have 1.2x power.",
@@ -2807,7 +2807,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: -74,
 	},
-/*
+	/*
 	agitate: {
 		desc: "When this Pokémon raises or lowers another Pokémon's stat stages, the effect is increased by one stage for each affected stat.",
 		shortDesc: "Increases stat stage changes the Pokémon inflicts by 1 stage.",
@@ -2909,7 +2909,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -79,
 	},
 
-// SANDBOX CONTENT STARTS HERE
+	// SANDBOX CONTENT STARTS HERE
 
 	conversionz: {
 		shortDesc: "If the Pokémon changes its type, the result is permanent. Deletes STAB.",
@@ -3090,8 +3090,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (
-				!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim'
-				|| pokemon.species.isMega || pokemon.transformed
+				!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' ||
+				pokemon.species.isMega || pokemon.transformed
 			) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				if (pokemon.species.id !== 'cherrimsunshine') {
@@ -3142,7 +3142,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 					if (attacker.species.baseSpecies === 'Aegislash') {
 						baseSpecies = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
 					}
-					let species: Species = this.getMixedSpecies(baseSpecies, targetForme);
+					const species: Species = this.getMixedSpecies(baseSpecies, targetForme);
 					species.falinks = targetForme;
 					attacker.formeChange(species);
 					if (targetForme === 'Falinks-Mega-Legion') {
@@ -3190,23 +3190,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-activate', pokemon, 'ability: SOS');
 			this.add('-message', `${pokemon.name} called for help!`);
 			if (!pokemon.species.wishiwashi) {
-				let species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-1');
+				const species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-1');
 				species.wishiwashi = 1;
 				pokemon.formeChange(species, this.effect, true);
 			} else if (pokemon.species.wishiwashi === 1) {
-				let species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-2');
+				const species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-2');
 				species.wishiwashi = 2;
 				pokemon.formeChange(species, this.effect, true);
 			} else if (pokemon.species.wishiwashi === 2) {
-				let species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-3');
+				const species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-3');
 				species.wishiwashi = 3;
 				pokemon.formeChange(species, this.effect, true);
 			} else if (pokemon.species.wishiwashi === 3) {
-				let species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-4');
+				const species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-4');
 				species.wishiwashi = 4;
 				pokemon.formeChange(species, this.effect, true);
 			} else if (pokemon.species.wishiwashi === 4) {
-				let species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-School');
+				const species: Species = this.getMixedSpecies(pokemon.m.originalSpecies, 'Wishiwashi-Mega-School');
 				species.wishiwashi = 'School';
 				pokemon.formeChange(species, this.effect, true);
 			}
@@ -3325,8 +3325,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyType(move, pokemon) {
-			if (move.name === 'Multi-Attack')
-			{
+			if (move.name === 'Multi-Attack') {
 				move.type = pokemon.types[0];
 			}
 		},
@@ -3339,8 +3338,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Applies Trick-or-Treat to itself and allies on switch-in",
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
-				if (target.side === pokemon.side)
-				{
+				if (target.side === pokemon.side) {
 					if (target.hasType('Ghost')) continue;
 					if (!target.addType('Ghost')) continue;
 					this.add('-start', target, 'typeadd', 'Ghost', '[from] move: Trick-or-Treat');
@@ -3416,8 +3414,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[from] ability: Omniscient Sentinel');
 		},
 		onModifyType(move, pokemon) {
-			if (move.name === 'Multi-Attack')
-			{
+			if (move.name === 'Multi-Attack') {
 				move.type = pokemon.types[0];
 			}
 		},
@@ -3438,8 +3435,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			if (pokemon.activeTurns && !pokemon.volatiles['rusty']) {
 				this.boost({def: -1, spd: -1, spe: -1});
-			}
-			else if (pokemon.activeTurns && pokemon.volatiles['rusty']) {
+			} else if (pokemon.activeTurns && pokemon.volatiles['rusty']) {
 				this.boost({def: -2, spd: -2, spe: -2});
 			}
 		},
@@ -3470,7 +3466,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (status.id === 'brn') {
 				this.boost({spe: 1});
 				target.cureStatus();
-			};
+			}
 		},
 		name: "Afterburner",
 		rating: 4.5,
@@ -3492,7 +3488,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onFoeDamagingHit(damage, target, source, move) {
 			if (source.ability == "Angel's Guidance" || source.ability == "angelsguidance") var angel = true;
 			else var angel = false;
-			if(!angel) return;
+			if (!angel) return;
 			const possibleTypes = [];
 			const enemyType = target.types[0];
 			for (const type in this.dex.data.TypeChart) {
@@ -3511,8 +3507,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-start', source, 'typechange', randomType, "[from] ability: Angel's Guidance");
 		},
 		onModifyType(move, pokemon) {
-			if (move.name === 'Multi-Attack')
-			{
+			if (move.name === 'Multi-Attack') {
 				move.type = pokemon.types[0];
 			}
 		},
@@ -3524,7 +3519,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "If the Pokémon successfully lands an attack, opposing Pokémon will have their Defense and Special Defense lowered by one at the end of each of the next two turns. This effect does not stack with itself.",
 		shortDesc: "Lower opponents' defenses at end of turn for two turns after attacking.",
 		onAfterMove(source, target) {
-			target.side.addSideCondition('irradiation')
+			target.side.addSideCondition('irradiation');
 		},
 		condition: {
 			duration: 2,
@@ -3590,19 +3585,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		onModifyType(move, pokemon) {
 			if (!pokemon.multiType) pokemon.multiType = "Normal";
-			if (move.name === 'Multi-Attack')
-			{
+			if (move.name === 'Multi-Attack') {
 				move.type = pokemon.multiType;
 				pokemon.addVolatile("rkssystem20");
 			}
 		},
 		onResidual(pokemon) {
-			//for (const pokemon of side.active) {
-				if (pokemon.volatiles['rkssystem20']) {
-					pokemon.setType(pokemon.multiType);
-					this.add('-start', pokemon, 'typechange', pokemon.multiType, '[from] ability: RKS System 2.0');
-				}	
-			//}
+			// for (const pokemon of side.active) {
+			if (pokemon.volatiles['rkssystem20']) {
+				pokemon.setType(pokemon.multiType);
+				this.add('-start', pokemon, 'typechange', pokemon.multiType, '[from] ability: RKS System 2.0');
+			}
+			// }
 		},
 		condition: {
 			duration: 2,
@@ -3615,12 +3609,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "When this Pokémon's health drops to 1/16th or lower, it will immediately attempt to use Explosion. This ability will not activate if the opposing Pokémon is a Ghost type or has the Damp ability.",
 		shortDesc: "Use Explosion at 1/16 health if possible.",
 		onUpdate(target) {
-			if (target.hp <= target.maxhp / 16 && !target.kamikaze)
-			{
+			if (target.hp <= target.maxhp / 16 && !target.kamikaze) {
 				for (const enemy of target.side.foe.active) {
 					if (!target || !this.isAdjacent(enemy, target)) continue;
-					if (!enemy.hasType("Ghost") && enemy.ability != "Damp")
-					{
+					if (!enemy.hasType("Ghost") && enemy.ability != "Damp") {
 						target.kamikaze = true;
 						this.useMove("Explosion", target);
 					}
@@ -3746,16 +3738,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (target.types[1]) {
 					pokemon.setType(target.types[1]);
 					this.add('-start', pokemon, 'typechange', target.types[1], '[from] ability: Broken DLC');
-				}
-				else {
+				} else {
 					pokemon.setType("???");
 					this.add('-start', pokemon, 'typechange', '???', '[from] ability: Broken DLC');
 				}
 			}
 		},
 		onModifyType(move, pokemon) {
-			if (move.name === 'Multi-Attack')
-			{
+			if (move.name === 'Multi-Attack') {
 				move.type = pokemon.types[0];
 			}
 		},
@@ -3778,14 +3768,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokémon's self-destructiive move only deal 1/4th damage to the user.",
 		shortDesc: "This Pokémon's self-destructiive move only deal 1/4th damage to the user.",
 		onModifyMove(move, target) {
-            if (move.selfdestruct) {
+			if (move.selfdestruct) {
 				move.selfdestruct = false;
 				move.triggered = true;
-			}
-			else {
+			} else {
 				move.triggered = false;
 			}
-        },
+		},
 		onAfterMove(source, target, move) {
 			if (move.triggered) {
 				this.damage(Math.round(source.maxhp / 4), source, source);
@@ -3934,12 +3923,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "When this Pokemon uses a Fire-type move, it receives a 50% damage boost, but loses the Fire type and this boost for 2 turns.",
 		shortDesc: "1.5x Fire moves; loses Fire type and boost for 2 turns after.",
 		onModifyMove(move, pokemon, target) {
-            if (move.type === "Fire" && !pokemon.volatiles['overflow']) {
+			if (move.type === "Fire" && !pokemon.volatiles['overflow']) {
 				move.overflow = true;
-			}
-			else move.overflow = false;
-			
-        },
+			} else { move.overflow = false; }
+		},
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.overflow) return this.chainModify(1.5);
 		},
@@ -4091,7 +4078,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Power Plant",
 		rating: 4,
 		num: -6040,
-    },
+	},
 	climaticchange: {
 		desc: "Upon using a Water, Fire, or Ice move, this Pokemon changes to that type and sets the corresponding weather.",
 		shortDesc: "Changes type and weather when using Water/Fire/Ice moves.",
@@ -4100,29 +4087,28 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const type = move.type;
 			if (type) {
 				switch (type) {
-					case "Water":
-						this.field.setWeather('raindance');	
-						if (!source.setType(type)) return;
-						this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
-						break;
-					case "Fire":
-						this.field.setWeather('sunnyday');	
-						if (!source.setType(type)) return;
-						this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
-						break;
-					case "Ice":
-						this.field.setWeather('hail');	
-						if (!source.setType(type)) return;
-						this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
-						break;
-					
+				case "Water":
+					this.field.setWeather('raindance');
+					if (!source.setType(type)) return;
+					this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
+					break;
+				case "Fire":
+					this.field.setWeather('sunnyday');
+					if (!source.setType(type)) return;
+					this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
+					break;
+				case "Ice":
+					this.field.setWeather('hail');
+					if (!source.setType(type)) return;
+					this.add('-start', source, 'typechange', type, '[from] ability: Climatic Change');
+					break;
 				}
 			}
 		},
 		name: "Climatic Change",
 		rating: 4,
 		num: -6041,
-    },
+	},
 	soulguard: {
 		desc: "This Pokemon is immune to types it resists.",
 		shortDesc: "Resistances become immunities.",
@@ -4152,7 +4138,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		onAnyPrepareHit(source, target, move){
+		onAnyPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
 			const type = move.type;
 			if (type && type === 'Water') {

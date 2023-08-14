@@ -1,18 +1,18 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedItemData}} */
-let BattleItems = {
+const BattleItems = {
 	blueorb: {
 		inherit: true,
-		onSwitchIn: function (pokemon) {
+		onSwitchIn(pokemon) {
 			if (pokemon.isActive && !pokemon.template.isPrimal) {
 				this.insertQueue({pokemon: pokemon, choice: 'runPrimal'});
 			}
 		},
-		onPrimal: function (pokemon) {
+		onPrimal(pokemon) {
 			/**@type {Template} */
 			// @ts-ignore
-			let template = this.getMixedTemplate(pokemon.originalSpecies, 'Kyogre-Primal');
+			const template = this.getMixedTemplate(pokemon.originalSpecies, 'Kyogre-Primal');
 			if (pokemon.originalSpecies === 'Kyogre') {
 				pokemon.formeChange(template, this.effect, true);
 			} else {
@@ -21,21 +21,21 @@ let BattleItems = {
 				this.add('-start', pokemon, 'Blue Orb', '[silent]');
 			}
 		},
-		onTakeItem: function (item) {
+		onTakeItem(item) {
 			return false;
 		},
 	},
 	redorb: {
 		inherit: true,
-		onSwitchIn: function (pokemon) {
+		onSwitchIn(pokemon) {
 			if (pokemon.isActive && !pokemon.template.isPrimal) {
 				this.insertQueue({pokemon: pokemon, choice: 'runPrimal'});
 			}
 		},
-		onPrimal: function (pokemon) {
+		onPrimal(pokemon) {
 			/**@type {Template} */
 			// @ts-ignore
-			let template = this.getMixedTemplate(pokemon.originalSpecies, 'Groudon-Primal');
+			const template = this.getMixedTemplate(pokemon.originalSpecies, 'Groudon-Primal');
 			if (pokemon.originalSpecies === 'Groudon') {
 				pokemon.formeChange(template, this.effect, true);
 			} else {
@@ -43,11 +43,11 @@ let BattleItems = {
 				pokemon.baseTemplate = template;
 				this.add('-start', pokemon, 'Red Orb', '[silent]');
 				// @ts-ignore
-				let oTemplate = this.getTemplate(pokemon.illusion || pokemon.originalSpecies);
+				const oTemplate = this.getTemplate(pokemon.illusion || pokemon.originalSpecies);
 				this.add('-start', pokemon, 'Red Orb', '[silent]');
 				if (pokemon.illusion) {
 					pokemon.ability = '';
-					let types = oTemplate.types;
+					const types = oTemplate.types;
 					if (types.length > 1 || types[types.length - 1] !== 'Fire') {
 						this.add('-start', pokemon, 'typechange', (types[0] !== 'Fire' ? types[0] + '/' : '') + 'Fire', '[silent]');
 					}
@@ -56,7 +56,7 @@ let BattleItems = {
 				}
 			}
 		},
-		onTakeItem: function (item) {
+		onTakeItem(item) {
 			return false;
 		},
 	},
@@ -73,7 +73,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Golem-Alola-Mega",
 		megaEvolves: "Golem-Alola",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -87,7 +87,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Marowak-Alola-Mega",
 		megaEvolves: "Marowak-Alola",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -101,7 +101,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Persian-Alola-Mega",
 		megaEvolves: "Persian-Alola",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -115,7 +115,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Sandslash-Alola-Mega",
 		megaEvolves: "Sandslash-Alola",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -129,7 +129,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Ninetales-Alola-Mega",
 		megaEvolves: "Ninetales-Alola",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -143,7 +143,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Ambipom-Mega",
 		megaEvolves: "Ambipom",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -157,7 +157,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Amoonguss-Mega",
 		megaEvolves: "Amoonguss",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -171,7 +171,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Araquanid-Mega",
 		megaEvolves: "Araquanid",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -185,7 +185,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Arbok-Mega",
 		megaEvolves: "Arbok",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -199,7 +199,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Arcanine-Mega",
 		megaEvolves: "Arcanine",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -213,7 +213,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Articuno-Mega",
 		megaEvolves: "Articuno",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -222,24 +222,24 @@ exports.BattleItems = {
 		desc: "If holder is an Articuno, this item allows it to Mega Evolve in battle.",
 	},
 	"avaluggite": {
-		id:"avaluggite", 
-		name:"Avaluggite",
-		megaStone: "Avalugg-Mega", 
+		id: "avaluggite",
+		name: "Avaluggite",
+		megaStone: "Avalugg-Mega",
 		megaEvolves: "Avalugg",
-		onTakeItem: function (item, source) {
-		if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
 		gen: 6,
 		desc: "If holder is a Avalugg, this item allows it to Mega Evolve in battle.",
-	}, 
+	},
 	"bearticite": {
 		id: "bearticite",
 		name: "Bearticite",
 		spritenum: 620,
 		megaStone: "Beartic-Mega",
 		megaEvolves: "Beartic",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -253,7 +253,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Bellossom-Mega",
 		megaEvolves: "Bellossom",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -267,7 +267,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Silvally-Mega",
 		megaEvolves: "Silvally",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -282,7 +282,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Blissey-Mega",
 		megaEvolves: "Blissey",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -296,7 +296,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Braviary-Mega",
 		megaEvolves: "Braviarite",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -310,7 +310,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Breloom-Mega",
 		megaEvolves: "Breloom",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -324,7 +324,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Buzzwole-Mega",
 		megaEvolves: "Buzzwole",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -338,7 +338,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Carracosta-Mega",
 		megaEvolves: "Carracosta",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -352,7 +352,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Celesteela-Mega",
 		megaEvolves: "Celesteela",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -366,7 +366,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Clefable-Mega",
 		megaEvolves: "Clefable",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -380,7 +380,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Cobalion-Mega",
 		megaEvolves: "Cobalion",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -389,24 +389,24 @@ exports.BattleItems = {
 		desc: "If holder is a Cobalion, this item allows it to Mega Evolve in battle.",
 	},
 	"crabominite": {
-		id:"crabominite", 
-		name:"Crabominite",
-		megaStone: "Crabominable-Mega", 
+		id: "crabominite",
+		name: "Crabominite",
+		megaStone: "Crabominable-Mega",
 		megaEvolves: "Crabominable",
-		onTakeItem: function (item, source) {
-		if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
-		return true;
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
 		},
 		gen: 7,
 		desc: "If holder is a Crabominable, this item allows it to Mega Evolve in battle.",
-	}, 
+	},
 	"crawdauntite": {
 		id: "crawdauntite",
 		name: "Crawdauntite",
 		spritenum: 620,
 		megaStone: "Crawdaunt-Mega",
 		megaEvolves: "Crawdaunt",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -420,7 +420,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Decidueye-Mega",
 		megaEvolves: "Decidueye",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -434,7 +434,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Delcatty-Mega",
 		megaEvolves: "Delcatty",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -448,7 +448,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Diggersby-Mega",
 		megaEvolves: "Diggersby",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -462,7 +462,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Donphan-Mega",
 		megaEvolves: "Donphan",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -476,7 +476,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Drapion-Mega",
 		megaEvolves: "Drapion",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -490,7 +490,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Dragalge-Mega",
 		megaEvolves: "Dragalge",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -504,7 +504,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Dragonite-Mega",
 		megaEvolves: "Dragonite",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -518,7 +518,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Dunsparce-Mega",
 		megaEvolves: "Dunsparce",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -532,7 +532,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Eelektross-Mega",
 		megaEvolves: "Eelektross",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -546,7 +546,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Electivire-Mega",
 		megaEvolves: "Electivire",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -559,7 +559,7 @@ exports.BattleItems = {
 		name: "Electric Memory",
 		spritenum: 679,
 		onMemory: 'Electric',
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
 				return false;
 			}
@@ -567,7 +567,7 @@ exports.BattleItems = {
 		},
 		megaStone: "Silvally-Electric-Mega",
 		megaEvolves: "Silvally-Electric",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -582,7 +582,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Empoleon-Mega",
 		megaEvolves: "Empoleon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -596,7 +596,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Entei-Mega",
 		megaEvolves: "Entei",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -610,7 +610,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Fearow-Mega",
 		megaEvolves: "Fearow",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -624,7 +624,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Feraligatr-Mega",
 		megaEvolves: "Feraligatr",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -637,7 +637,7 @@ exports.BattleItems = {
 		name: "Fire Memory",
 		spritenum: 676,
 		onMemory: 'Fire',
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
 				return false;
 			}
@@ -645,7 +645,7 @@ exports.BattleItems = {
 		},
 		megaStone: "Silvally-Fire-Mega",
 		megaEvolves: "Silvally-Fire",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -660,7 +660,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Flareon-Mega",
 		megaEvolves: "Flareon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -674,7 +674,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Florges-Mega",
 		megaEvolves: "Florges",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -688,7 +688,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Flygon-Mega",
 		megaEvolves: "Flygon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -702,7 +702,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Galvantula-Mega",
 		megaEvolves: "Galvantula",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -716,7 +716,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Gliscor-Mega",
 		megaEvolves: "Gliscor",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -730,7 +730,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Golisopod-Mega",
 		megaEvolves: "Golisopod",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -739,24 +739,24 @@ exports.BattleItems = {
 		desc: "If holder is a Golisopod, this item allows it to Mega Evolve in battle.",
 	},
 	"goodranite": {
-		id:"goodranite", 
-		name:"Goodranite",
-		megaStone: "Goodra-Mega", 
+		id: "goodranite",
+		name: "Goodranite",
+		megaStone: "Goodra-Mega",
 		megaEvolves: "Goodra",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
-	gen: 7,
-	desc: "If holder is a Goodra, this item allows it to Mega Evolve in battle.",
-	}, 
+		gen: 7,
+		desc: "If holder is a Goodra, this item allows it to Mega Evolve in battle.",
+	},
 	"gorebyssite": {
 		id: "gorebyssite",
 		name: "Gorebyssite",
 		spritenum: 576,
 		megaStone: "Gorebyss-Mega",
 		megaEvolves: "Gorebyss",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -769,7 +769,7 @@ exports.BattleItems = {
 		name: "Grass Memory",
 		spritenum: 678,
 		onMemory: 'Grass',
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
 				return false;
 			}
@@ -777,7 +777,7 @@ exports.BattleItems = {
 		},
 		megaStone: "Silvally-Grass-Mega",
 		megaEvolves: "Silvally-Grass",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -792,7 +792,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Guzzlord-Mega",
 		megaEvolves: "Guzzlord",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -806,7 +806,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Huntail-Mega",
 		megaEvolves: "Huntail",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -820,7 +820,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Hydreigon-Mega",
 		megaEvolves: "Hydreigon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -833,7 +833,7 @@ exports.BattleItems = {
 		name: "Ice Memory",
 		spritenum: 681,
 		onMemory: 'Ice',
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
 				return false;
 			}
@@ -841,7 +841,7 @@ exports.BattleItems = {
 		},
 		megaStone: "Silvally-Ice-Mega",
 		megaEvolves: "Silvally-Ice",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -856,7 +856,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Incineroar-Mega",
 		megaEvolves: "Incineroar",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -870,7 +870,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Infernape-Mega",
 		megaEvolves: "Infernape",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -884,7 +884,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Jolteon-Mega",
 		megaEvolves: "Jolteon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -898,7 +898,7 @@ exports.BattleItems = {
 		spritenum: 592,
 		megaStone: "Kartana-Mega",
 		megaEvolves: "Kartana",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -912,7 +912,7 @@ exports.BattleItems = {
 		spritenum: 592,
 		megaStone: "Keldeo-Mega",
 		megaEvolves: "Keldeo",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -926,7 +926,7 @@ exports.BattleItems = {
 		spritenum: 592,
 		megaStone: "Kingler-Mega",
 		megaEvolves: "Kingler",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -935,24 +935,24 @@ exports.BattleItems = {
 		desc: "If holder is a Kingler, this item allows it to Mega Evolve in battle.",
 	},
 	"klefkite": {
-		id:"klefkite", 
-		name:"Klefkite",
-		megaStone: "Klefki-Mega", 
+		id: "klefkite",
+		name: "Klefkite",
+		megaStone: "Klefki-Mega",
 		megaEvolves: "Klefki",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
 		gen: 7,
 		desc: "If holder is a Klefki, this item allows it to Mega Evolve in battle.",
-	}, 
+	},
 	"kommonite": {
 		id: "kommonite",
 		name: "Kommonite",
 		spritenum: 576,
 		megaStone: "Kommo-o-Mega",
 		megaEvolves: "Kommo-o",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -966,7 +966,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Krookodile-Mega",
 		megaEvolves: "Krookodile",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -980,7 +980,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Liepard-Mega",
 		megaEvolves: "Liepard",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -994,7 +994,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Lumineon-Mega",
 		megaEvolves: "Lumineon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1008,7 +1008,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Lunatone-Mega",
 		megaEvolves: "Lunatone",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1022,7 +1022,7 @@ exports.BattleItems = {
 		spritenum: 592,
 		megaStone: "Machamp-Mega",
 		megaEvolves: "Machamp",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1036,7 +1036,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Magmortar-Mega",
 		megaEvolves: "Magmortar",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1050,7 +1050,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Magnezone-Mega",
 		megaEvolves: "Magnezone",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1064,7 +1064,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Mamoswine-Mega",
 		megaEvolves: "Mamoswine",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1078,7 +1078,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Mantine-Mega",
 		megaEvolves: "Mantine",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1092,7 +1092,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Maractus-Mega",
 		megaEvolves: "Maractus",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1106,7 +1106,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Marowak-Mega",
 		megaEvolves: "Marowak",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1120,7 +1120,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Meganium-Mega",
 		megaEvolves: "Meganium",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1134,7 +1134,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Meowstic-Mega",
 		megaEvolves: "Meowstic",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1148,7 +1148,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Mienshao-Mega",
 		megaEvolves: "Mienshao",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1162,7 +1162,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Mightyena-Mega",
 		megaEvolves: "Mightyena",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1176,7 +1176,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Moltres-Mega",
 		megaEvolves: "Moltres",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1190,7 +1190,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Musharna-Mega",
 		megaEvolves: "Musharna",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1204,7 +1204,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Nidoking-Mega",
 		megaEvolves: "Nidoking",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1218,7 +1218,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Nidoqueen-Mega",
 		megaEvolves: "Nidoqueen",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1232,7 +1232,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Nihilego-Mega",
 		megaEvolves: "Nihilego",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1246,7 +1246,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Pangoro-Mega",
 		megaEvolves: "Pangoro",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1260,7 +1260,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Pelipper-Mega",
 		megaEvolves: "Pelipper",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1274,7 +1274,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Pheromosa-Mega",
 		megaEvolves: "Pheromosa",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1288,7 +1288,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Phione-Mega",
 		megaEvolves: "Phione",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1302,7 +1302,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Porygon-Mega",
 		megaEvolves: "Porygon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1316,7 +1316,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Primeape-Mega",
 		megaEvolves: "Primeape",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1330,7 +1330,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Primarina-Mega",
 		megaEvolves: "Primarina",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1344,7 +1344,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Probopass-Mega",
 		megaEvolves: "Probopass",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1358,7 +1358,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Purugly-Mega",
 		megaEvolves: "Purugly",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1372,7 +1372,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Raikou-Mega",
 		megaEvolves: "Raikou",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1386,7 +1386,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Reuniclus-Mega",
 		megaEvolves: "Reuniclus",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1400,7 +1400,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Rhyperior-Mega",
 		megaEvolves: "Rhyperior",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1414,7 +1414,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Roserade-Mega",
 		megaEvolves: "Roserade",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1428,7 +1428,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Seismitoad-Mega",
 		megaEvolves: "Seismitoad",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1442,7 +1442,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Seviper-Mega",
 		megaEvolves: "Seviper",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1456,7 +1456,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Shiinotic-Mega",
 		megaEvolves: "Shiinotic",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1470,7 +1470,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Simisage-Mega",
 		megaEvolves: "Simisage",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1484,7 +1484,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Simisear-Mega",
 		megaEvolves: "Simisear",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1498,7 +1498,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Simipour-Mega",
 		megaEvolves: "Simipour",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1512,7 +1512,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Slurpuff-Mega",
 		megaEvolves: "Slurpuff",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1526,7 +1526,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Snorlax-Mega",
 		megaEvolves: "Snorlax",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1540,7 +1540,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Solrock-Mega",
 		megaEvolves: "Solrock",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1554,7 +1554,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Staraptor-Mega",
 		megaEvolves: "Staraptor",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1568,7 +1568,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Starmie-Mega",
 		megaEvolves: "Starmie",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1582,7 +1582,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Stoutland-Mega",
 		megaEvolves: "Stoutland",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1596,7 +1596,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Sudowoodo-Mega",
 		megaEvolves: "Sudowoodo",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1610,7 +1610,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Suicune-Mega",
 		megaEvolves: "Suicune",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1624,7 +1624,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Sunflora-Mega",
 		megaEvolves: "Sunflora",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1638,7 +1638,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Swellow-Mega",
 		megaEvolves: "Swellow",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1652,7 +1652,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Sylveon-Mega",
 		megaEvolves: "Sylveon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1666,7 +1666,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Talonflame-Mega",
 		megaEvolves: "Talonflame",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1680,7 +1680,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Tangrowth-Mega",
 		megaEvolves: "Tangrowth",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1694,7 +1694,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Tapu Bulu-Mega",
 		megaEvolves: "Tapu Bulu",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1708,7 +1708,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Tapu Fini-Mega",
 		megaEvolves: "Tapu Fini",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1722,7 +1722,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Tapu Koko-Mega",
 		megaEvolves: "Tapu Koko",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1736,7 +1736,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Tapu Lele-Mega",
 		megaEvolves: "Tapu Lele",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1750,7 +1750,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Terrakion-Mega",
 		megaEvolves: "Terrakion",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1764,7 +1764,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Torkoal-Mega",
 		megaEvolves: "Torkoal",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1778,7 +1778,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Torterra-Mega",
 		megaEvolves: "Torterra",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1792,7 +1792,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Toucannon-Mega",
 		megaEvolves: "Toucannon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1806,7 +1806,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Tropius-Mega",
 		megaEvolves: "Tropius",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1820,7 +1820,7 @@ exports.BattleItems = {
 		spritenum: 620,
 		megaStone: "Typhlosion-Mega",
 		megaEvolves: "Typhlosion",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1834,7 +1834,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Vanilluxe-Mega",
 		megaEvolves: "Vanilluxe",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1848,7 +1848,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Vaporeon-Mega",
 		megaEvolves: "Vaporeon",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1862,7 +1862,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Vikavolt-Mega",
 		megaEvolves: "Vikavolt",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1876,7 +1876,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Virizion-Mega",
 		megaEvolves: "Virizion",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1890,7 +1890,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Volcarona-Mega",
 		megaEvolves: "Volcarona",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1903,7 +1903,7 @@ exports.BattleItems = {
 		name: "Water Memory",
 		spritenum: 677,
 		onMemory: 'Water',
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseTemplate.num === 773) || pokemon.baseTemplate.num === 773) {
 				return false;
 			}
@@ -1911,7 +1911,7 @@ exports.BattleItems = {
 		},
 		megaStone: "Silvally-Water-Mega",
 		megaEvolves: "Silvally",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1926,7 +1926,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Weavile-Mega",
 		megaEvolves: "Weavile",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1940,7 +1940,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Seismitoad-Mega",
 		megaEvolves: "Seismitoad",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1954,7 +1954,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Wigglytuff-Mega",
 		megaEvolves: "Wigglytuff",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1968,7 +1968,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Xurkitree-Mega",
 		megaEvolves: "Xurkitree",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1982,7 +1982,7 @@ exports.BattleItems = {
 		spritenum: 612,
 		megaStone: "Yanmega-Mega",
 		megaEvolves: "Yanmega",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -1996,7 +1996,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Zapdos-Mega",
 		megaEvolves: "Zapdos",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -2010,7 +2010,7 @@ exports.BattleItems = {
 		spritenum: 576,
 		megaStone: "Zebstrika-Mega",
 		megaEvolves: "Zebstrika",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},

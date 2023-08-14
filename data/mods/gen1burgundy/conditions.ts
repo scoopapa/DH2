@@ -199,7 +199,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	partialtrappinglock: {
 		name: 'partialtrappinglock',
 		durationCallback() {
-			const duration = this.sample([3, 3, 3, 3, 3, 3, 3, 3]); //edited duration to 2-3
+			const duration = this.sample([3, 3, 3, 3, 3, 3, 3, 3]); // edited duration to 2-3
 			return duration;
 		},
 		onResidual(target) {

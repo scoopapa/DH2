@@ -12,9 +12,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			(this.data.Pokedex[i] as any).gender = 'N';
 			(this.data.Pokedex[i] as any).eggGroups = null;
 		}
-        for (const i in this.data.Moves) {
+		for (const i in this.data.Moves) {
 			if (!this.data.Moves[i]) console.log(i);
-            const category = this.mod().data.Moves[i].category;
+			const category = this.mod().data.Moves[i].category;
 			this.modData('Moves', i).category = category;
 		}
 	},
@@ -612,7 +612,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (typeof effect === 'string') effect = this.dex.conditions.get(effect);
 		if (!target || !target.hp) return 0;
 		let success = null;
-		boost = this.runEvent('Boost', target, source, effect, Object.assign({}, boost));
+		boost = this.runEvent('Boost', target, source, effect, {...boost});
 		let i: BoostName;
 		for (i in boost) {
 			const currentBoost: SparseBoostsTable = {};

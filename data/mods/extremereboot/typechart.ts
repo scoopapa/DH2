@@ -236,5 +236,5 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 			Manmade: 0,
 			Typeless: 0,
 		},
-	}
+	},
 };

@@ -1,106 +1,106 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 // Oldies
-  lycanrocdusk: {
-     inherit: true,
-     types: ["Rock", "Dark"],
-  },
-  zoroark: {
-     inherit: true,
-     types: ["Dark", "Fairy"],
+	lycanrocdusk: {
+		inherit: true,
+		types: ["Rock", "Dark"],
+	},
+	zoroark: {
+		inherit: true,
+		types: ["Dark", "Fairy"],
 	  baseStats: {hp: 60, atk: 105, def: 60, spa: 120, spd: 60, spe: 115},
-  },
-  wigglytuff: {
-     inherit: true,
-     abilities: {0: "Cute Charm", 1: "Competitive", H: "Huge Power"},
-  },
-  samurott: {
-     inherit: true,
-     baseStats: {hp: 95, atk: 100, def: 85, spa: 108, spd: 80, spe: 80},
-  },
-  whiscash: {
-     inherit: true,
-     abilities: {0: "Oblivious", 1: "Anticipation", H: "Simple"},
-  },
-  gengar: {
-     inherit: true,
-     abilities: {0: "Cursed Body", H: "Levitate"},
-     baseStats: {hp: 60, atk: 65, def: 60, spa: 145, spd: 75, spe: 110},
-  },
-  sylveon: {
-     inherit: true,
-     types: ["Fairy", "Water"],
-  },
-  florges: {
-     inherit: true,
-     types: ["Grass", "Fairy"],
-  }, 
-  weavile: {
-     inherit: true,
-     abilities: {0: "Pressure", 1: "Dazzling", H: "Pickpocket"},
-  },
-  espeon: {
-     inherit: true,
-     types: ["Psychic", "Rock"],
-  },
-  jolteon: {
-     inherit: true,
-     abilities: {0: "Volt Absorb", 1: "Queenly Majesty", H: "Quick Feet"},
-  },
-  slaking: {
-     inherit: true,
-     abilities: {0: "Truant", H: "Stall"},
-  },
-  umbreon: {
-     inherit: true,
-     abilties: {0: "Synchronize", 1: "Poison Heal", H: "Inner Focus"},
-  }, 
-  tsareena: {
-     inherit: true,
-     types: ["Grass", "Fairy"],
-     baseStats: {hp: 92, atk: 120, def: 98, spa: 50, spd: 98, spe: 72},
-  }, 
-  gyarados: {
-     inherit: true,
-     baseStats: {hp: 95, atk: 125, def: 79, spa: 60, spd: 100, spe: 91},
-  }, 
-  quagsire: {
-     inherit: true, 
+	},
+	wigglytuff: {
+		inherit: true,
+		abilities: {0: "Cute Charm", 1: "Competitive", H: "Huge Power"},
+	},
+	samurott: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 100, def: 85, spa: 108, spd: 80, spe: 80},
+	},
+	whiscash: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Anticipation", H: "Simple"},
+	},
+	gengar: {
+		inherit: true,
+		abilities: {0: "Cursed Body", H: "Levitate"},
+		baseStats: {hp: 60, atk: 65, def: 60, spa: 145, spd: 75, spe: 110},
+	},
+	sylveon: {
+		inherit: true,
+		types: ["Fairy", "Water"],
+	},
+	florges: {
+		inherit: true,
+		types: ["Grass", "Fairy"],
+	},
+	weavile: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Dazzling", H: "Pickpocket"},
+	},
+	espeon: {
+		inherit: true,
+		types: ["Psychic", "Rock"],
+	},
+	jolteon: {
+		inherit: true,
+		abilities: {0: "Volt Absorb", 1: "Queenly Majesty", H: "Quick Feet"},
+	},
+	slaking: {
+		inherit: true,
+		abilities: {0: "Truant", H: "Stall"},
+	},
+	umbreon: {
+		inherit: true,
+		abilties: {0: "Synchronize", 1: "Poison Heal", H: "Inner Focus"},
+	},
+	tsareena: {
+		inherit: true,
+		types: ["Grass", "Fairy"],
+		baseStats: {hp: 92, atk: 120, def: 98, spa: 50, spd: 98, spe: 72},
+	},
+	gyarados: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 125, def: 79, spa: 60, spd: 100, spe: 91},
+	},
+	quagsire: {
+		inherit: true,
 	  baseStats: {hp: 115, atk: 85, def: 85, spa: 65, spd: 65, spe: 35},
-  },
-  forretress: {
-     inherit: true, 
+	},
+	forretress: {
+		inherit: true,
 	  baseStats: {hp: 95, atk: 90, def: 140, spa: 60, spd: 60, spe: 40},
-     abilities: {0: "Sturdy", 1: "Regenerator", H: "Overcoat"},
-  },
-  mismagius: {
-     inherit: true,
-     types: ["Ghost", "Fighting"],
+		abilities: {0: "Sturdy", 1: "Regenerator", H: "Overcoat"},
+	},
+	mismagius: {
+		inherit: true,
+		types: ["Ghost", "Fighting"],
 	  baseStats: {hp: 60, atk: 60, def: 60, spa: 105, spd: 105, spe: 120},
-   },
-   cryogonal: {
-      inherit: true,
+	},
+	cryogonal: {
+		inherit: true,
 		types: ["Ice", "Steel"],
 		baseStats: {hp: 100, atk: 50, def: 50, spa: 95, spd: 135, spe: 105},
-   },
+	},
 	inteleon: {
-      inherit: true,
+		inherit: true,
 		types: ["Water", "Ice"],
 		abilities: {0: "Torrent", 1: "No Guard", H: "Sniper"},
 	},
-   rotomfan: {
-      inherit: true,
-      baseStats: {hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 106},
-   },
-   coalossal: {
-      inherit: true,
-      types: ["Water", "Fire"],
-      baseStats: {hp: 110, atk: 80, def: 120, spa: 100, spd: 90, spe: 30},
-   },
-   gastrodon: {
-      inherit: true,
-      baseStats: {hp: 111, atk: 83, def: 68, spa: 92, spd: 102, spe: 39},
-   },
-// Gen 9 Mons
+	rotomfan: {
+		inherit: true,
+		baseStats: {hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 106},
+	},
+	coalossal: {
+		inherit: true,
+		types: ["Water", "Fire"],
+		baseStats: {hp: 110, atk: 80, def: 120, spa: 100, spd: 90, spe: 30},
+	},
+	gastrodon: {
+		inherit: true,
+		baseStats: {hp: 111, atk: 83, def: 68, spa: 92, spd: 102, spe: 39},
+	},
+	// Gen 9 Mons
 	wyrdeer: {
 		num: 899,
 		name: "Wyrdeer",

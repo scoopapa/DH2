@@ -355,7 +355,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 0.8,
 		eggGroups: ["Fairy", "Amorphous"],
 		otherFormes: null,
-		formeOrder: null,		
+		formeOrder: null,
 	},
 	castformfirestorm: {
 		num: 351,

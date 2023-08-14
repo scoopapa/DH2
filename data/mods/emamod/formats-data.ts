@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	venusaurmega: {
 		tier: "UUBL",
 	},
@@ -1043,17 +1043,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	enamorustherian: {
 		tier: "OU",
 	},
-	
-	//NatDex Tiering
-	//OU
+
+	// NatDex Tiering
+	// OU
 	chansey: {
 		tier: "OU",
 	},
 	weavile: {
 		tier: "OU",
 	},
-	
-	//UUBL
+
+	// UUBL
 	gyarados: {
 		tier: "UUBL",
 	},
@@ -1084,8 +1084,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zapdosgalar: {
 		tier: "UUBL",
 	},
-	
-	//UU
+
+	// UU
 	alakazam: {
 		tier: "UU",
 	},

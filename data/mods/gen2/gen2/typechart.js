@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTypeData}} */
-let BattleTypeChart = {
+const BattleTypeChart = {
 	"Fire": {
 		inherit: true,
 		damageTaken: {

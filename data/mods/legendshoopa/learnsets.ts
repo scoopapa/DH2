@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	pupitarhoenn: {
 		learnset: {
 			heatcrash: ["8L1"],

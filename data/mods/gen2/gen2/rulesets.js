@@ -1,13 +1,13 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedFormatsData}} */
-let BattleFormats = {
+const BattleFormats = {
 	pokemon: {
 		effectType: 'ValidatorRule',
 		name: 'Pokemon',
-		onValidateSet: function (set, format) {
-			let template = this.getTemplate(set.species);
-			let problems = [];
+		onValidateSet(set, format) {
+			const template = this.getTemplate(set.species);
+			const problems = [];
 			if (set.species === set.name) delete set.name;
 
 			if (template.gen > this.gen) {
@@ -17,7 +17,7 @@ let BattleFormats = {
 			}
 			let hasSD = false;
 			if (set.item) {
-				let item = this.getItem(set.item);
+				const item = this.getItem(set.item);
 				if (item.gen > this.gen) {
 					problems.push(item.name + ' does not exist in gen ' + this.gen + '.');
 				} else if (item.isNonstandard) {
@@ -26,7 +26,7 @@ let BattleFormats = {
 			}
 			if (set.moves) {
 				for (const setMoveid of set.moves) {
-					let move = this.moves.get(setMoveid);
+					const move = this.moves.get(setMoveid);
 					if (move.gen > this.gen) {
 						problems.push(move.name + ' does not exist in gen ' + this.gen + '.');
 					} else if (move.isNonstandard) {
@@ -68,14 +68,14 @@ let BattleFormats = {
 			'Spore + Mean Look',
 			'Spore + Spider Web',
 		],
-		onValidateSet: function (set) {
+		onValidateSet(set) {
 			// limit one of each move in Standard
-			let moves = [];
+			const moves = [];
 			if (set.moves) {
-				let hasMove = {};
+				const hasMove = {};
 				for (const setMoveid of set.moves) {
-					let move = this.moves.get(setMoveid);
-					let moveid = move.id;
+					const move = this.moves.get(setMoveid);
+					const moveid = move.id;
 					if (hasMove[moveid]) continue;
 					hasMove[moveid] = true;
 					moves.push(setMoveid);

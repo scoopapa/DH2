@@ -26,8 +26,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Galapagunk, this item changes it to its Completed form.",
 		gen: 8,
 	},
-	
-// Mega Stones
+
+	// Mega Stones
 	jaibastionite: {
 		name: "Jaibastionite",
 		spritenum: 578,

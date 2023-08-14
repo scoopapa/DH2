@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	trubbishmarshadow: {
 		learnset: {
 			acidspray: ["8L6", "7L12", "6L12", "5L12"],
@@ -105,7 +106,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			watersport: ["7L1"],
 			acupressure: ["8L55"],
 			assurance: ["8M"],
-			attract: ["8M"],
 			brine: ["8M"],
 			bubblebeam: ["8L25"],
 			charge: ["8L10"],

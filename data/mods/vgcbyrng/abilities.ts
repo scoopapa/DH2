@@ -123,7 +123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 262,
 	},
-	//----------Gen 9 Abilities-----------//
+	// ----------Gen 9 Abilities-----------//
 	angershell: {
 		onDamage(damage, target, source, effect) {
 			if (
@@ -862,7 +862,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 278,
 	},
 	sandveil: {
-    shortDesc: "Boosts highest non-HP, non-Speed stat by 1.3x in sandstorm.",                                                      
+		shortDesc: "Boosts highest non-HP, non-Speed stat by 1.3x in sandstorm.",
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
@@ -922,7 +922,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 8,
 	},
 	snowcloak: {
-    shortDesc: "Boosts highest non-HP, non-Speed stat by 1.3x in snow.",                                                      
+		shortDesc: "Boosts highest non-HP, non-Speed stat by 1.3x in snow.",
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
@@ -979,7 +979,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 81,
 	},
 	wonderskin: {
-    shortDesc: "This Pokemon is immune to moves of its own type.",                                                      
+		shortDesc: "This Pokemon is immune to moves of its own type.",
 		onTryHit(target, source, move) {
 			if (target !== source && target.types.includes(move.type)) {
 				this.add('-immune', target, '[from] ability: Wonder Skin');
@@ -991,7 +991,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 147,
 	},
 	tangledfeet: {
-    shortDesc: "This Pokemon's moves deal 1.5x damage if it's confused.",                                                      
+		shortDesc: "This Pokemon's moves deal 1.5x damage if it's confused.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.volatiles['confusion']) {

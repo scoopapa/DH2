@@ -1,5 +1,5 @@
 export const Abilities: {[abilityid: string]: AbilityData} = {
-	//alt ex
+	// alt ex
 	grimneigh: {
 		onFaint(source, target) {
 			for (const target of this.getAllActive()) {
@@ -64,7 +64,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	energyloop: {
 		onPrepareHit(source, target, move) {
-			if(move?.category !== 'Status') {
+			if (move?.category !== 'Status') {
 				this.heal(target.baseMaxhp / 16);
 			}
 		},
@@ -104,12 +104,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -19,
 	},
-	
-	//boe
+
+	// boe
 	cleansingfire: {
 		onAnyFaintPriority: 1,
 		onAnyFaint() {
-			if(!this.effectState.target.hp) return;
+			if (!this.effectState.target.hp) return;
 			this.debug('cleansingfire');
 			this.add('-activate', this.effectState.target, 'ability: Cleansing Fire');
 			this.effectState.target.cureStatus();
@@ -120,7 +120,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1,
 	},
 
-	//megas revisted
+	// megas revisted
 	merciless: {
 		shortDesc: "This Pokemon's attacks are critical hits if the target is statused.",
 		onModifyCritRatio(critRatio, source, target) {
@@ -131,8 +131,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 196,
 		gen: 6,
 	},
-	
-	//poketypos
+
+	// poketypos
 	myceliummight: {
 		onFractionalPriorityPriority: -1,
 		onFractionalPriority(priority, pokemon, target, move) {
@@ -144,7 +144,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.category === 'Status') {
 				move.ignoreAbility = true;
 			}
-      },
+		},
 		onModifyMove(move) {
 			if (move.category === 'Status') {
 				move.ignoreVolatiles = true;
@@ -154,8 +154,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: 298,
 	},
-	
-	//fesv
+
+	// fesv
 	holygrail: {
 	  shortDesc: "Good As Gold + Levitate",
 		onTryHit(target, source, move) {
@@ -166,7 +166,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		isBreakable: true,
 	  name: "Holy Grail",
-    },
+	},
 	faultyphoton: {
 	  shortDesc: "Disguise + Quark Drive",
 		onDamagePriority: 1,
@@ -199,12 +199,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'ironmimic' && this.effectState.busted) {
-				const speciesid = /*pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' :*/ 'Iron Mimic-Busted';
+				const speciesid = /* pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' :*/ 'Iron Mimic-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 				pokemon.addVolatile('faultyphoton');
-				//pokemon.volatiles['faultyphoton'].fromBooster = true;
+				// pokemon.volatiles['faultyphoton'].fromBooster = true;
 			}
 		},
 		onEnd(pokemon) {
@@ -213,7 +213,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		condition: {
 			noCopy: true,
-			onStart(pokemon, source, effect) {/*
+			onStart(pokemon, source, effect) { /*
 				if (effect?.id === 'boosterenergy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Faulty Photon', '[fromitem]');
@@ -287,8 +287,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
-			))
-			|| pokemon.species.id !== 'zoinkazenta') {
+			)) ||
+			pokemon.species.id !== 'zoinkazenta') {
 				this.effectState.gaveUp = true;
 			}
 		},
@@ -312,7 +312,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 				target.setAbility('pillage', pokemon);
 				pokemon.setAbility(ability);
-				
+
 				this.add('-activate', pokemon, 'ability: Pillage');
 				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
 				this.add('-activate', pokemon, 'ability: ' + ability.name);

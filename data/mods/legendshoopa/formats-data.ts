@@ -156,7 +156,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	/////////////canon mons////////////
+	// ///////////canon mons////////////
 
 	treecko: {
 		tier: "ANL LC",
@@ -443,7 +443,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-	geodude : {
+	geodude: {
 		tier: "ANL LC",
 		isModded: true,
 	},
@@ -507,7 +507,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ANL OU",
 		isModded: true,
 	},
-	
+
 	mawile: {
 		tier: "ANL OU",
 		isModded: true,
@@ -641,7 +641,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 	*/
-	
+
 	budew: {
 		tier: "ANL LC",
 		isModded: true,
@@ -696,7 +696,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ANL OU",
 		isModded: true,
 	},
-	
+
 	slugma: {
 		tier: "ANL LC",
 		isModded: true,
@@ -1166,12 +1166,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ANL LC",
 		isModded: true,
 	},
-	
+
 	metang: {
 		tier: "ANL NFE",
 		isModded: true,
 	},
-	
+
 	metagross: {
 		tier: "ANL OU",
 		isModded: true,
@@ -1230,7 +1230,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	// DexNav exclusives
-	
+
 	lillipup: {
 		tier: "ANL LC",
 		isModded: true,
@@ -1758,7 +1758,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-/*
+	/*
 	weedle: {
 		tier: "ANL LC",
 		isModded: true,
@@ -1855,7 +1855,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isModded: true,
 	},
 
-// Sky Pillar in ORAS
+	// Sky Pillar in ORAS
 
 	spinarak: {
 		tier: "ANL LC",

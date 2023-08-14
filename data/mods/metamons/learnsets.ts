@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 /*Gen 7 MetaMons*/
 	bastiodongen7: {
 		learnset: {

@@ -1,25 +1,25 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
 
-woodcrash: {
-num: 10000,
-accuracy: 100,
-basePower: 95,
-category: "Physical",
-name: "Wood Crash",
-shortDesc: "Set Spikes on hit.",
-pp: 10,
-priority: 0,
-flags: {contact: 1,protect: 1, mirror: 1},
-self:{
+	woodcrash: {
+		num: 10000,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Wood Crash",
+		shortDesc: "Set Spikes on hit.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('spikes');
 			},
 		},
-target: "normal",
-type: "Grass",
-contestType: "Clever",
- },
-burstclaws: {
+		target: "normal",
+		type: "Grass",
+		contestType: "Clever",
+	},
+	burstclaws: {
 		num: 10001,
 		accuracy: 100,
 		basePower: 95,
@@ -35,7 +35,7 @@ burstclaws: {
 		type: "Fire",
 		contestType: "Cool",
 	},
-waterpressure: {
+	waterpressure: {
 		num: 10002,
 		accuracy: 100,
 		basePower: 95,
@@ -54,7 +54,7 @@ waterpressure: {
 		contestType: "Beautiful",
 	},
 
-hunt: {
+	hunt: {
 		num: 10003,
 		accuracy: true,
 		basePower: 0,
@@ -68,7 +68,7 @@ hunt: {
 			atk: 1,
 			spa: 1,
 		},
-self: {
+		self: {
 			onHit(source) {
 				for (const pokemon of source.side.active) {
 					pokemon.addVolatile('hunt');
@@ -100,7 +100,7 @@ self: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
-deepcrunch: {
+	deepcrunch: {
 		num: 10004,
 		accuracy: 100,
 		basePower: 80,
@@ -120,7 +120,7 @@ deepcrunch: {
 		type: "Water",
 		contestType: "Tough",
 	},
-fireworks: {
+	fireworks: {
 		num: 10005,
 		accuracy: 100,
 		basePower: 85,
@@ -132,13 +132,13 @@ fireworks: {
 		flags: {protect: 1, mirror: 1},
 		secondary: {
 			chance: 50,
-			boosts: { spd: -1},
+			boosts: {spd: -1},
 		},
 		target: "allAdjacent",
 		type: "Fire",
 		contestType: "Beautiful",
 	},
-windblade: {
+	windblade: {
 		num: 10006,
 		accuracy: 100,
 		basePower: 70,
@@ -147,8 +147,8 @@ windblade: {
 		shortDesc: "Rises Critical Hit Ratio 1 stage on hit.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, distance: 1,slicing: 1, wind: 1},
-self: {
+		flags: {protect: 1, mirror: 1, distance: 1, slicing: 1, wind: 1},
+		self: {
 			onHit(source) {
 				for (const pokemon of source.side.active) {
 					pokemon.addVolatile('windblade');
@@ -179,7 +179,7 @@ self: {
 		type: "Flying",
 		contestType: "Cool",
 	},
-sharpbranches: {
+	sharpbranches: {
 		num: 10007,
 		accuracy: 100,
 		basePower: 110,
@@ -201,7 +201,7 @@ sharpbranches: {
 		type: "Grass",
 		contestType: "Cool",
 	},
-trihornattack: {
+	trihornattack: {
 		num: 10008,
 		accuracy: 100,
 		basePower: 120,
@@ -217,7 +217,7 @@ trihornattack: {
 		type: "Steel",
 		contestType: "Tough",
 	},
-snowslam: {
+	snowslam: {
 		num: 10009,
 		accuracy: 100,
 		basePower: 100,
@@ -236,7 +236,7 @@ snowslam: {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-bullhorns: {
+	bullhorns: {
 		num: 10010,
 		accuracy: 100,
 		basePower: 120,
@@ -254,7 +254,7 @@ bullhorns: {
 		type: "Ground",
 		contestType: "Tough",
 	},
-sweetwater: {
+	sweetwater: {
 		num: 10011,
 		accuracy: 100,
 		basePower: 70,
@@ -270,7 +270,7 @@ sweetwater: {
 		type: "Water",
 		contestType: "Clever",
 	},
-drinkjuice: {
+	drinkjuice: {
 		num: 10012,
 		accuracy: true,
 		basePower: 0,
@@ -281,7 +281,7 @@ drinkjuice: {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		heal: [1, 2],
-onHit(pokemon) {
+		onHit(pokemon) {
 			if (['', 'slp', 'frz'].includes(pokemon.status)) return false;
 			pokemon.cureStatus();
 		},
@@ -291,7 +291,7 @@ onHit(pokemon) {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-dreampunch: {
+	dreampunch: {
 		num: 10013,
 		accuracy: 100,
 		basePower: 90,
@@ -309,7 +309,7 @@ dreampunch: {
 		type: "Psychic",
 		contestType: "Beautiful",
 	},
-sharpbone: {
+	sharpbone: {
 		num: 10014,
 		accuracy: 100,
 		basePower: 90,
@@ -348,7 +348,7 @@ sharpbone: {
 		type: "Flying",
 		contestType: "Cool",
 	},
-cleaning: {
+	cleaning: {
 		num: 10016,
 		accuracy: true,
 		basePower: 0,
@@ -371,7 +371,7 @@ cleaning: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-sweethoney: {
+	sweethoney: {
 		num: 10017,
 		accuracy: true,
 		basePower: 0,
@@ -394,7 +394,7 @@ sweethoney: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "cute",
 	},
-exopunch: {
+	exopunch: {
 		num: 10018,
 		accuracy: 90,
 		basePower: 100,
@@ -416,7 +416,7 @@ exopunch: {
 		type: "Bug",
 		contestType: "Cool",
 	},
-nutrientdrain: {
+	nutrientdrain: {
 		num: 10019,
 		accuracy: 100,
 		basePower: 0,
@@ -438,7 +438,7 @@ nutrientdrain: {
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
 	},
-elastictail: {
+	elastictail: {
 		num: 10020,
 		accuracy: 85,
 		basePower: 120,
@@ -458,7 +458,7 @@ elastictail: {
 		type: "Bug",
 		contestType: "Tough",
 	},
-dualscissors: {
+	dualscissors: {
 		num: 10021,
 		accuracy: 90,
 		basePower: 95,
@@ -480,7 +480,7 @@ dualscissors: {
 		type: "Dark",
 		contestType: "Cool",
 	},
-timeout: {
+	timeout: {
 		num: 10022,
 		accuracy: 100,
 		basePower: 250,
@@ -496,7 +496,7 @@ timeout: {
 		type: "Fire",
 		contestType: "Beautiful",
 	},
-leechclaws: {
+	leechclaws: {
 		num: 10023,
 		accuracy: 100,
 		basePower: 80,
@@ -512,7 +512,7 @@ leechclaws: {
 		type: "Steel",
 		contestType: "Tough",
 	},
-outofcontrol: {
+	outofcontrol: {
 		num: 10024,
 		accuracy: 100,
 		basePower: 120,
@@ -533,7 +533,7 @@ outofcontrol: {
 		type: "Dark",
 		contestType: "Tough",
 	},
-doubleimpact: {
+	doubleimpact: {
 		num: 10025,
 		accuracy: 100,
 		basePower: 65,
@@ -551,7 +551,7 @@ doubleimpact: {
 		maxMove: {basePower: 120},
 		contestType: "Cool",
 	},
-souldrain: {
+	souldrain: {
 		num: 10026,
 		accuracy: 100,
 		basePower: 90,
@@ -567,7 +567,7 @@ souldrain: {
 		type: "Ghost",
 		contestType: "Clever",
 	},
-acidjuice: {
+	acidjuice: {
 		num: 10027,
 		accuracy: 100,
 		basePower: 0,
@@ -583,8 +583,8 @@ acidjuice: {
 		type: "Grass",
 		contestType: "Clever",
 	},
-	
-saberfangs: {
+
+	saberfangs: {
 		num: 10028,
 		accuracy: 100,
 		basePower: 80,
@@ -600,8 +600,8 @@ saberfangs: {
 		type: "Rock",
 		contestType: "Tough",
 	},
-	
-meteorimpact: {
+
+	meteorimpact: {
 		num: 10029,
 		accuracy: 100,
 		basePower: 120,
@@ -620,8 +620,8 @@ meteorimpact: {
 		type: "Rock",
 		contestType: "Cool",
 	},
-	
-gravitationalwave: {
+
+	gravitationalwave: {
 		num: 10030,
 		accuracy: 100,
 		basePower: 90,
@@ -641,8 +641,8 @@ gravitationalwave: {
 		type: "Rock",
 		contestType: "Beautiful",
 	},
-	
-sharpblade: {
+
+	sharpblade: {
 		num: 10031,
 		accuracy: 100,
 		basePower: 90,
@@ -658,8 +658,8 @@ sharpblade: {
 		type: "Steel",
 		contestType: "Cool",
 	},
-	
-maliciousprogram: {
+
+	maliciousprogram: {
 		num: 10032,
 		accuracy: 100,
 		basePower: 80,
@@ -676,8 +676,8 @@ maliciousprogram: {
 		type: "Electric",
 		contestType: "Cool",
 	},
-	
-draconicaura: {
+
+	draconicaura: {
 		num: 10033,
 		accuracy: 100,
 		basePower: 90,
@@ -695,8 +695,8 @@ draconicaura: {
 		type: "Dragon",
 		contestType: "Cool",
 	},
-	
-earthforce: {
+
+	earthforce: {
 		num: 10034,
 		accuracy: 100,
 		basePower: 90,
@@ -775,8 +775,8 @@ earthforce: {
 		type: "Ground",
 		contestType: "Clever",
 	},
-	
-lovearrow: {
+
+	lovearrow: {
 		num: 10035,
 		accuracy: 100,
 		basePower: 80,
@@ -824,8 +824,8 @@ lovearrow: {
 		type: "Fairy",
 		contestType: "Beautiful",
 	},
-	
-penguindance: {
+
+	penguindance: {
 		num: 10036,
 		accuracy: true,
 		basePower: 0,
@@ -847,8 +847,8 @@ penguindance: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	
-floorcleaning: {
+
+	floorcleaning: {
 		num: 10037,
 		accuracy: 100,
 		basePower: 50,
@@ -898,8 +898,8 @@ floorcleaning: {
 		type: "Water",
 		contestType: "Cool",
 	},
-	
-dreadfulscreech: {
+
+	dreadfulscreech: {
 		num: 10038,
 		accuracy: 100,
 		basePower: 60,
@@ -914,8 +914,8 @@ dreadfulscreech: {
 		type: "Ghost",
 		contestType: "Cool",
 	},
-	
-flammabletoxin: {
+
+	flammabletoxin: {
 		num: 10039,
 		accuracy: 100,
 		basePower: 80,
@@ -947,8 +947,8 @@ flammabletoxin: {
 		type: "Poison",
 		contestType: "Beautiful",
 	},
-	
-mindshock: {
+
+	mindshock: {
 		num: 10040,
 		accuracy: 100,
 		basePower: 60,
@@ -969,8 +969,8 @@ mindshock: {
 		target: "normal",
 		type: "Psychic",
 	},
-	
-fightingspirit: {
+
+	fightingspirit: {
 		num: 10041,
 		accuracy: true,
 		basePower: 0,
@@ -1000,8 +1000,8 @@ fightingspirit: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
-	
-airvibration: {
+
+	airvibration: {
 		num: 10042,
 		accuracy: 100,
 		basePower: 40,
@@ -1016,8 +1016,8 @@ airvibration: {
 		type: "Flying",
 		contestType: "Tough",
 	},
-	
-passingtheball: {
+
+	passingtheball: {
 		num: 10043,
 		accuracy: 90,
 		basePower: 20,
@@ -1038,8 +1038,8 @@ passingtheball: {
 		zMove: {basePower: 120},
 		maxMove: {basePower: 140},
 	},
-	
-blazingspin: {
+
+	blazingspin: {
 		num: 10044,
 		accuracy: 100,
 		basePower: 30,
@@ -1084,8 +1084,8 @@ blazingspin: {
 		target: "allAdjacentFoes",
 		type: "Fire",
 	},
-	
-fearthenight: {
+
+	fearthenight: {
 		num: 10045,
 		accuracy: 85,
 		basePower: 100,
@@ -1105,14 +1105,14 @@ fearthenight: {
 		type: "Dark",
 		contestType: "Cool",
 	},
-	
-armwhip: {
+
+	armwhip: {
 		num: 10046,
 		accuracy: 100,
 		basePower: 60,
 		onModifyPriority(priority, source, target, move) {
 			if (!pokemon.item) {
-				return priority +1;
+				return priority + 1;
 			}
 		},
 		category: "Physical",
@@ -1126,8 +1126,8 @@ armwhip: {
 		type: "Grass",
 		contestType: "Cool",
 	},
-	
-lovescent: {
+
+	lovescent: {
 		num: 10047,
 		accuracy: 100,
 		basePower: 0,
@@ -1183,8 +1183,8 @@ lovescent: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	
-replaceableteeth: {
+
+	replaceableteeth: {
 		num: 10048,
 		accuracy: 100,
 		basePower: 60,
@@ -1204,8 +1204,8 @@ replaceableteeth: {
 		type: "Steel",
 		contestType: "Cool",
 	},
-	
-draconicrelease: {
+
+	draconicrelease: {
 		num: 10049,
 		accuracy: 100,
 		basePower: 85,
@@ -1227,8 +1227,8 @@ draconicrelease: {
 		type: "Dragon",
 		contestType: "Tough",
 	},
-	
-spidertrap: {
+
+	spidertrap: {
 		num: 10050,
 		accuracy: 100,
 		basePower: 95,
@@ -1238,7 +1238,7 @@ spidertrap: {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self:{
+		self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('stickyweb');
 			},
@@ -1247,8 +1247,8 @@ spidertrap: {
 		target: "normal",
 		type: "Bug",
 	},
-	
-misfortune: {
+
+	misfortune: {
 		num: 10051,
 		accuracy: 100,
 		basePower: 110,
@@ -1288,8 +1288,8 @@ misfortune: {
 		type: "Dragon",
 		contestType: "Clever",
 	},
-	
-coldmedicine: {
+
+	coldmedicine: {
 		num: 10052,
 		accuracy: true,
 		basePower: 0,
@@ -1312,8 +1312,8 @@ coldmedicine: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	
-alienabduction: {
+
+	alienabduction: {
 		num: 10053,
 		accuracy: 100,
 		basePower: 85,
@@ -1329,8 +1329,8 @@ alienabduction: {
 		type: "Steel",
 		contestType: "Clever",
 	},
-	
-icebreakinghug: {
+
+	icebreakinghug: {
 		num: 10054,
 		accuracy: 100,
 		basePower: 90,
@@ -1352,8 +1352,8 @@ icebreakinghug: {
 		type: "Dark",
 		contestType: "Tough",
 	},
-	
-focusedmind: {
+
+	focusedmind: {
 		num: 10055,
 		accuracy: true,
 		basePower: 0,
@@ -1374,8 +1374,8 @@ focusedmind: {
 		zMove: {boost: {atk: 1}},
 		contestType: "Cute",
 	},
-	
-wonderfulservice: {
+
+	wonderfulservice: {
 		num: 10056,
 		accuracy: 100,
 		basePower: 60,
@@ -1409,8 +1409,8 @@ wonderfulservice: {
 		type: "Psychic",
 		contestType: "Clever",
 	},
-	
-incredibleservice: {
+
+	incredibleservice: {
 		num: 10057,
 		accuracy: 100,
 		basePower: 60,
@@ -1444,8 +1444,8 @@ incredibleservice: {
 		type: "Psychic",
 		contestType: "Clever",
 	},
-	
-call: {
+
+	call: {
 		num: 10058,
 		accuracy: true,
 		basePower: 0,
@@ -1479,8 +1479,8 @@ call: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Tough",
 	},
-	
-rockcrash: {
+
+	rockcrash: {
 		num: 10059,
 		accuracy: 100,
 		basePower: 0,
@@ -1521,8 +1521,8 @@ rockcrash: {
 		maxMove: {basePower: 130},
 		contestType: "Tough",
 	},
-	
-dancebattle: {
+
+	dancebattle: {
 		num: 10060,
 		accuracy: true,
 		basePower: 0,
@@ -1540,22 +1540,22 @@ dancebattle: {
 			spe: 1,
 		},
 		self: {
-				boosts: {
-					atk: 1,
-					def: 1,
-					spa: 1,
-					spd: 1,
-					spe: 1,
-				},
+			boosts: {
+				atk: 1,
+				def: 1,
+				spa: 1,
+				spd: 1,
+				spe: 1,
 			},
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
-	
-froghop: {
+
+	froghop: {
 		num: 10061,
 		accuracy: 100,
 		basePower: 70,
@@ -1570,8 +1570,8 @@ froghop: {
 		target: "normal",
 		type: "Poison",
 	},
-	
-aerialassault: {
+
+	aerialassault: {
 		num: 10062,
 		accuracy: true,
 		basePower: 70,
@@ -1587,7 +1587,7 @@ aerialassault: {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	
+
 	snowthrower: {
 		num: 10063,
 		accuracy: 100,
@@ -1606,8 +1606,8 @@ aerialassault: {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	
-puppetmasters: {
+
+	puppetmasters: {
 		num: 10064,
 		accuracy: 100,
 		basePower: 45,
@@ -1628,8 +1628,8 @@ puppetmasters: {
 		type: "Ghost",
 		contestType: "Tough",
 	},
-	
-fangclaws: {
+
+	fangclaws: {
 		num: 10065,
 		accuracy: 75,
 		basePower: 100,
@@ -1645,28 +1645,28 @@ fangclaws: {
 		type: "Dark",
 		contestType: "Tough",
 	},
-	
-bonebreaker: {
-	num: 10066,
-	accuracy: 100,
-	basePower: 95,
-	category: "Physical",
-	name: "Bone Breaker",
-	shortDesc: "Set Toxic Spikes on hit.",
-	pp: 10,
-	priority: 0,
-	flags: {contact: 1,protect: 1, mirror: 1},
-	self:{
-		onHit(source) {
-			source.side.foe.addSideCondition('toxicspikes');
+
+	bonebreaker: {
+		num: 10066,
+		accuracy: 100,
+		basePower: 95,
+		category: "Physical",
+		name: "Bone Breaker",
+		shortDesc: "Set Toxic Spikes on hit.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			onHit(source) {
+				source.side.foe.addSideCondition('toxicspikes');
+			},
 		},
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
 	},
-	target: "normal",
-	type: "Poison",
-	contestType: "Clever",
- },
- 
-ectoplasm: {
+
+	ectoplasm: {
 		num: 10067,
 		accuracy: 100,
 		basePower: 90,
@@ -1684,8 +1684,8 @@ ectoplasm: {
 		type: "Ghost",
 		contestType: "Tough",
 	},
-	
-surprise: {
+
+	surprise: {
 		num: 10068,
 		accuracy: 100,
 		basePower: 70,
@@ -1701,8 +1701,8 @@ surprise: {
 		type: "Fairy",
 		contestType: "Cute",
 	},
-	
-hailblast: {
+
+	hailblast: {
 		num: 10069,
 		accuracy: 100,
 		basePower: 85,
@@ -1717,8 +1717,8 @@ hailblast: {
 		target: "allAdjacent",
 		type: "Ice",
 	},
-	
-concert: {
+
+	concert: {
 		num: 10070,
 		accuracy: 100,
 		basePower: 80,
@@ -1755,8 +1755,8 @@ concert: {
 		zMove: {boost: {spa: 1}},
 		contestType: "Cool",
 	},
-	
-vampbite: {
+
+	vampbite: {
 		num: 10071,
 		accuracy: 100,
 		basePower: 80,
@@ -1772,8 +1772,8 @@ vampbite: {
 		type: "Dark",
 		contestType: "Clever",
 	},
-	
-divinebreeze: {
+
+	divinebreeze: {
 		num: 10072,
 		accuracy: 100,
 		basePower: 85,
@@ -1815,7 +1815,7 @@ divinebreeze: {
 		contestType: "Cool",
 	},
 
-dragonscurse: {
+	dragonscurse: {
 		num: 10073,
 		accuracy: 100,
 		basePower: 85,
@@ -1836,8 +1836,8 @@ dragonscurse: {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Clever",
 	},
-	
-cursedtail: {
+
+	cursedtail: {
 		num: 10074,
 		accuracy: 100,
 		basePower: 85,
@@ -1939,7 +1939,7 @@ cursedtail: {
 		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
 	},
-	
+
 	undyingspiritofthebrave: {
 		num: 10078,
 		accuracy: true,
@@ -1961,7 +1961,7 @@ cursedtail: {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	
+
 	eventhesunwillburn: {
 		num: 10079,
 		accuracy: true,
@@ -1987,7 +1987,7 @@ cursedtail: {
 		type: "Fire",
 		contestType: "Cool",
 	},
-	
+
 	anewtreeoflife: {
 		num: 10080,
 		accuracy: true,
@@ -2013,7 +2013,7 @@ cursedtail: {
 		type: "Grass",
 		contestType: "Cool",
 	},
-	
+
 	theoceandoesnotforgive: {
 		num: 10081,
 		accuracy: true,
@@ -2039,7 +2039,7 @@ cursedtail: {
 		type: "Water",
 		contestType: "Cool",
 	},
-	
+
 	mindclear: {
 		num: 10082,
 		accuracy: 100,
@@ -2062,7 +2062,7 @@ cursedtail: {
 		type: "Psychic",
 		contestType: "Clever",
 	},
-	
+
 	electricspores: {
 		num: 10083,
 		accuracy: true,
@@ -2084,10 +2084,10 @@ cursedtail: {
 				if (pokemon.hasType('Electric') || pokemon.hasType('Grass') || pokemon.hasAbility('Climber')) {
 					this.add('-sideend', pokemon.side, 'move: Electric Spores', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('electricspores');
-				}else {
+				} else {
 					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('electricspores')), -6, 6);
 					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-				}				
+				}
 			},
 		},
 		secondary: null,
@@ -2096,7 +2096,7 @@ cursedtail: {
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
 	},
-	
+
 	combustion: {
 		num: 10084,
 		accuracy: 100,
@@ -2125,7 +2125,7 @@ cursedtail: {
 		type: "Normal",
 		contestType: "Cool",
 	},
-	
+
 	frozentongue: {
 		num: 10085,
 		accuracy: 100,
@@ -2145,7 +2145,7 @@ cursedtail: {
 		type: "Ice",
 		contestType: "Clever",
 	},
-	
+
 	icetrap: {
 		num: 10086,
 		accuracy: true,
@@ -2163,14 +2163,14 @@ cursedtail: {
 				this.add('-sidestart', side, 'move: Ice Trap');
 			},
 			onSwitchIn(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') ||  pokemon.hasAbility('coldheart')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('coldheart')) return;
 				if (pokemon.hasType('Fire') || pokemon.hasAbility('Climber')) {
 					this.add('-sideend', pokemon.side, 'move: Ice Trap', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('icetrap');
-				}else {
+				} else {
 					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('icetrap')), -6, 6);
 					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
-				}				
+				}
 			},
 		},
 		secondary: null,
@@ -2180,7 +2180,7 @@ cursedtail: {
 		contestType: "Beautiful",
 	},
 
-shellburst: {
+	shellburst: {
 		num: 10087,
 		accuracy: 100,
 		basePower: 100,
@@ -2213,8 +2213,8 @@ shellburst: {
 		type: "Rock",
 		contestType: "Cool",
 	},
-		
-	//updated old moves
+
+	// updated old moves
 	hypnosis: {
 		num: 95,
 		accuracy: 85,
@@ -2231,7 +2231,7 @@ shellburst: {
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
 	},
-	
+
 	sing: {
 		num: 47,
 		accuracy: 90,
@@ -2248,7 +2248,7 @@ shellburst: {
 		zMove: {boost: {spe: 1}},
 		contestType: "Cute",
 	},
-	
+
 	grasswhistle: {
 		num: 320,
 		accuracy: 100,
@@ -2266,7 +2266,7 @@ shellburst: {
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
 	},
-	
+
 	sleeppowder: {
 		num: 79,
 		accuracy: 90,
@@ -2283,7 +2283,7 @@ shellburst: {
 		zMove: {boost: {spe: 1}},
 		contestType: "Clever",
 	},
-	//climber interactions
+	// climber interactions
 	stealthrock: {
 		num: 446,
 		accuracy: true,
@@ -2304,7 +2304,7 @@ shellburst: {
 				if (pokemon.hasAbility('Climber')) {
 					this.add('-sideend', pokemon.side, 'move: Stealth Rock', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('stealthrock');
-				}else {
+				} else {
 					const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
 				}
@@ -2316,7 +2316,7 @@ shellburst: {
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
 	},
-	
+
 	toxicspikes: {
 		num: 390,
 		accuracy: true,
@@ -2358,7 +2358,7 @@ shellburst: {
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
-	
+
 	spikes: {
 		num: 191,
 		accuracy: true,
@@ -2386,7 +2386,7 @@ shellburst: {
 				if (pokemon.hasAbility('Climber')) {
 					this.add('-sideend', pokemon.side, 'move: Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('spikes');
-				}else {
+				} else {
 					const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 					this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 				}
@@ -2398,7 +2398,7 @@ shellburst: {
 		zMove: {boost: {def: 1}},
 		contestType: "Clever",
 	},
-	
+
 	stickyweb: {
 		num: 564,
 		accuracy: true,
@@ -2419,9 +2419,9 @@ shellburst: {
 				if (pokemon.hasAbility('Climber')) {
 					this.add('-sideend', pokemon.side, 'move: Sticky Web', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('stickyweb');
-				}else {
-				this.add('-activate', pokemon, 'move: Sticky Web');
-				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
+				} else {
+					this.add('-activate', pokemon, 'move: Sticky Web');
+					this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 				}
 			},
 		},
@@ -2431,7 +2431,7 @@ shellburst: {
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
 	},
-	
+
 	gmaxsteelsurge: {
 		num: 1000,
 		accuracy: true,
@@ -2457,7 +2457,7 @@ shellburst: {
 				if (pokemon.hasAbility('Climber')) {
 					this.add('-sideend', pokemon.side, 'move: G-Max Steelsurge', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('gmaxsteelsurge');
-				}else {
+				} else {
 				// Ice Face and Disguise correctly get typed damage from Stealth Rock
 				// because Stealth Rock bypasses Substitute.
 				// They don't get typed damage from Steelsurge because Steelsurge doesn't,
@@ -2474,7 +2474,7 @@ shellburst: {
 		type: "Steel",
 		contestType: "Cool",
 	},
-	//electric spores/ice trap interactions
+	// electric spores/ice trap interactions
 	courtchange: {
 		num: 756,
 		accuracy: 100,
@@ -2527,7 +2527,7 @@ shellburst: {
 		target: "all",
 		type: "Normal",
 	},
-	
+
 	defog: {
 		num: 432,
 		accuracy: true,
@@ -2568,7 +2568,7 @@ shellburst: {
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
 	},
-	
+
 	rapidspin: {
 		num: 229,
 		accuracy: 100,
@@ -2618,8 +2618,8 @@ shellburst: {
 		type: "Normal",
 		contestType: "Cool",
 	},
-	
-	//recharge moves
+
+	// recharge moves
 	hyperbeam: {
 		num: 63,
 		accuracy: 90,
@@ -2630,12 +2630,12 @@ shellburst: {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "hyperbeam",
 		},
 		condition: {
 			onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'hyperbeam') pokemon.disableMove('hyperbeam');
+				if (pokemon.lastMove?.id === 'hyperbeam') pokemon.disableMove('hyperbeam');
 			},
 		},
 		beforeMoveCallback(pokemon) {
@@ -2656,12 +2656,12 @@ shellburst: {
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "gigaimpact",
 		},
 		condition: {
 			onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'gigaimpact') pokemon.disableMove('gigaimpact');
+				if (pokemon.lastMove?.id === 'gigaimpact') pokemon.disableMove('gigaimpact');
 			},
 		},
 		beforeMoveCallback(pokemon) {
@@ -2682,12 +2682,12 @@ shellburst: {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "blastburn",
 		},
 		condition: {
 			onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'blastburn') pokemon.disableMove('blastburn');
+				if (pokemon.lastMove?.id === 'blastburn') pokemon.disableMove('blastburn');
 			},
 		},
 		beforeMoveCallback(pokemon) {
@@ -2708,12 +2708,12 @@ shellburst: {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "hydrocannon",
 		},
 		condition: {
 			onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'hydrocannon') pokemon.disableMove('hydrocannon');
+				if (pokemon.lastMove?.id === 'hydrocannon') pokemon.disableMove('hydrocannon');
 			},
 		},
 		beforeMoveCallback(pokemon) {
@@ -2734,12 +2734,12 @@ shellburst: {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, nonsky: 1},
-		self: { 
+		self: {
 			volatileStatus: "frenzyplant",
 		},
 		condition: {
 			onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'frenzyplant') pokemon.disableMove('frenzyplant');
+				if (pokemon.lastMove?.id === 'frenzyplant') pokemon.disableMove('frenzyplant');
 			},
 		},
 		beforeMoveCallback(pokemon) {
@@ -2760,12 +2760,12 @@ shellburst: {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "meteorassault",
 		},
 		condition: {
 			onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'meteorassault') pokemon.disableMove('meteorassault');
+				if (pokemon.lastMove?.id === 'meteorassault') pokemon.disableMove('meteorassault');
 			},
 		},
 		beforeMoveCallback(pokemon) {
@@ -2785,12 +2785,12 @@ shellburst: {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "roaroftime",
 		},
 		condition: {
 			onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'roaroftime') pokemon.disableMove('roaroftime');
+				if (pokemon.lastMove?.id === 'roaroftime') pokemon.disableMove('roaroftime');
 			},
 		},
 		beforeMoveCallback(pokemon) {
@@ -2801,7 +2801,7 @@ shellburst: {
 		type: "Dragon",
 		contestType: "Beautiful",
 	},
-	
+
 	rockwrecker: {
 		num: 439,
 		accuracy: 90,
@@ -2812,12 +2812,12 @@ shellburst: {
 		pp: 5,
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "rockwrecker",
 		},
 		condition: {
 			onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'rockwrecker') pokemon.disableMove('rockwrecker');
+				if (pokemon.lastMove?.id === 'rockwrecker') pokemon.disableMove('rockwrecker');
 			},
 		},
 		beforeMoveCallback(pokemon) {
@@ -2828,7 +2828,7 @@ shellburst: {
 		type: "Rock",
 		contestType: "Tough",
 	},
-	
+
 	prismaticlaser: {
 		num: 711,
 		accuracy: 100,
@@ -2839,12 +2839,12 @@ shellburst: {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "prismaticlaser",
 		},
 		condition: {
 			onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'prismaticlaser') pokemon.disableMove('prismaticlaser');
+				if (pokemon.lastMove?.id === 'prismaticlaser') pokemon.disableMove('prismaticlaser');
 			},
 		},
 		beforeMoveCallback(pokemon) {
@@ -2855,8 +2855,8 @@ shellburst: {
 		type: "Psychic",
 		contestType: "Cool",
 	},
-	
-	//pp nerf
+
+	// pp nerf
 	recover: {
 		num: 105,
 		accuracy: true,
@@ -2983,7 +2983,7 @@ shellburst: {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	//eevee moves back to their original values
+	// eevee moves back to their original values
 	buzzybuzz: {
 		num: 734,
 		accuracy: 100,
@@ -3001,7 +3001,7 @@ shellburst: {
 		type: "Electric",
 		contestType: "Clever",
 	},
-	
+
 	glitzyglow: {
 		num: 736,
 		accuracy: 100,
@@ -3019,7 +3019,7 @@ shellburst: {
 		type: "Psychic",
 		contestType: "Clever",
 	},
-	
+
 	sizzlyslide: {
 		num: 735,
 		accuracy: 100,
@@ -3037,7 +3037,7 @@ shellburst: {
 		type: "Fire",
 		contestType: "Clever",
 	},
-	
+
 	freezyfrost: {
 		num: 739,
 		accuracy: 100,
@@ -3058,7 +3058,7 @@ shellburst: {
 		type: "Ice",
 		contestType: "Clever",
 	},
-	
+
 	sappyseed: {
 		num: 738,
 		accuracy: 100,
@@ -3077,7 +3077,7 @@ shellburst: {
 		type: "Grass",
 		contestType: "Clever",
 	},
-	
+
 	sparklyswirl: {
 		num: 740,
 		accuracy: 100,
@@ -3103,8 +3103,8 @@ shellburst: {
 		type: "Fairy",
 		contestType: "Clever",
 	},
-	
-	//gen9 stuff
+
+	// gen9 stuff
 	ceaselessedge: {
 		num: 845,
 		accuracy: 90,
@@ -3115,7 +3115,7 @@ shellburst: {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
-		self:{
+		self: {
 			onHit(source) {
 				source.side.foe.addSideCondition('spikes');
 			},
@@ -3124,7 +3124,7 @@ shellburst: {
 		target: "normal",
 		type: "Dark",
 	},
-	
+
 	aquacutter: {
 		num: 895,
 		accuracy: 100,
@@ -3141,7 +3141,7 @@ shellburst: {
 		type: "Water",
 		contestType: "Cool",
 	},
-	
+
 	mortalspin: {
 		num: 866,
 		accuracy: 100,
@@ -3187,7 +3187,7 @@ shellburst: {
 		target: "allAdjacentFoes",
 		type: "Poison",
 	},
-	
+
 	icespinner: {
 		num: 861,
 		accuracy: 100,
@@ -3208,7 +3208,7 @@ shellburst: {
 		target: "normal",
 		type: "Ice",
 	},
-	
+
 	barbbarrage: {
 		num: 839,
 		accuracy: 100,
@@ -3231,8 +3231,8 @@ shellburst: {
 		target: "normal",
 		type: "Poison",
 	},
-	
-chillyreception: {
+
+	chillyreception: {
 		num: 881,
 		accuracy: true,
 		basePower: 0,
@@ -3250,7 +3250,7 @@ chillyreception: {
 		target: "all",
 		type: "Ice",
 	},
-	
+
 	infernalparade: {
 		num: 844,
 		accuracy: 100,
@@ -3272,7 +3272,7 @@ chillyreception: {
 		target: "normal",
 		type: "Ghost",
 	},
-	
+
 	mysticalpower: {
 		num: 832,
 		accuracy: 90,
@@ -3294,7 +3294,7 @@ chillyreception: {
 		target: "normal",
 		type: "Psychic",
 	},
-	
+
 	silktrap: {
 		num: 852,
 		accuracy: true,
@@ -3350,7 +3350,7 @@ chillyreception: {
 		target: "self",
 		type: "Bug",
 	},
-	
+
 	direclaw: {
 		num: 827,
 		accuracy: 100,
@@ -3377,7 +3377,7 @@ chillyreception: {
 		target: "normal",
 		type: "Poison",
 	},
-	
+
 	populationbomb: {
 		num: 860,
 		accuracy: 90,
@@ -3394,7 +3394,7 @@ chillyreception: {
 		target: "normal",
 		type: "Normal",
 	},
-	
+
 	victorydance: {
 		num: 837,
 		accuracy: true,
@@ -3414,7 +3414,7 @@ chillyreception: {
 		target: "self",
 		type: "Fighting",
 	},
-	
+
 	chloroblast: {
 		num: 835,
 		accuracy: 95,
@@ -3439,7 +3439,7 @@ chillyreception: {
 		target: "normal",
 		type: "Grass",
 	},
-	
+
 	stoneaxe: {
 		num: 830,
 		accuracy: 90,
@@ -3461,7 +3461,7 @@ chillyreception: {
 		target: "normal",
 		type: "Rock",
 	},
-	
+
 	trailblaze: {
 		num: 885,
 		accuracy: 100,
@@ -3484,7 +3484,7 @@ chillyreception: {
 		type: "Grass",
 		contestType: "Cool",
 	},
-	
+
 	gigatonhammer: {
 		num: 893,
 		accuracy: 100,
@@ -3495,7 +3495,7 @@ chillyreception: {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "gigatonhammer",
 		},
 		condition: {
@@ -3516,7 +3516,7 @@ chillyreception: {
 		target: "normal",
 		type: "Steel",
 	},
-	
+
 	aerialace: {
 		num: 332,
 		accuracy: true,
@@ -3531,7 +3531,7 @@ chillyreception: {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	
+
 	aircutter: {
 		num: 314,
 		accuracy: 95,
@@ -3564,7 +3564,7 @@ chillyreception: {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	
+
 	crosspoison: {
 		num: 440,
 		accuracy: 100,
@@ -3583,7 +3583,7 @@ chillyreception: {
 		type: "Poison",
 		contestType: "Cool",
 	},
-	
+
 	furycutter: {
 		num: 210,
 		accuracy: 95,
@@ -3618,7 +3618,7 @@ chillyreception: {
 		type: "Bug",
 		contestType: "Cool",
 	},
-	
+
 	leafblade: {
 		num: 348,
 		accuracy: 100,
@@ -3634,7 +3634,7 @@ chillyreception: {
 		type: "Grass",
 		contestType: "Cool",
 	},
-	
+
 	nightslash: {
 		num: 400,
 		accuracy: 100,
@@ -3650,7 +3650,7 @@ chillyreception: {
 		type: "Dark",
 		contestType: "Cool",
 	},
-	
+
 	psychocut: {
 		num: 427,
 		accuracy: 100,
@@ -3666,7 +3666,7 @@ chillyreception: {
 		type: "Psychic",
 		contestType: "Cool",
 	},
-	
+
 	razorshell: {
 		num: 534,
 		accuracy: 95,
@@ -3686,7 +3686,7 @@ chillyreception: {
 		type: "Water",
 		contestType: "Cool",
 	},
-	
+
 	sacredsword: {
 		num: 533,
 		accuracy: 100,
@@ -3703,7 +3703,7 @@ chillyreception: {
 		type: "Fighting",
 		contestType: "Cool",
 	},
-	
+
 	slash: {
 		num: 163,
 		accuracy: 100,
@@ -3719,7 +3719,7 @@ chillyreception: {
 		type: "Normal",
 		contestType: "Cool",
 	},
-	
+
 	solarblade: {
 		num: 669,
 		accuracy: 100,
@@ -3757,7 +3757,7 @@ chillyreception: {
 		type: "Grass",
 		contestType: "Cool",
 	},
-	
+
 	xscissor: {
 		num: 404,
 		accuracy: 100,
@@ -3772,7 +3772,7 @@ chillyreception: {
 		type: "Bug",
 		contestType: "Cool",
 	},
-	
+
 	blizzard: {
 		num: 59,
 		accuracy: 70,
@@ -3793,7 +3793,7 @@ chillyreception: {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	
+
 	heatwave: {
 		num: 257,
 		accuracy: 90,
@@ -3811,7 +3811,7 @@ chillyreception: {
 		type: "Fire",
 		contestType: "Beautiful",
 	},
-	
+
 	hurricane: {
 		num: 542,
 		accuracy: 70,
@@ -3841,7 +3841,7 @@ chillyreception: {
 		type: "Flying",
 		contestType: "Tough",
 	},
-	
+
 	icywind: {
 		num: 196,
 		accuracy: 95,
@@ -3861,7 +3861,7 @@ chillyreception: {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	
+
 	petalblizzard: {
 		num: 572,
 		accuracy: 100,
@@ -3876,7 +3876,7 @@ chillyreception: {
 		type: "Grass",
 		contestType: "Beautiful",
 	},
-	
+
 	sandstorm: {
 		num: 201,
 		accuracy: true,
@@ -3893,7 +3893,7 @@ chillyreception: {
 		zMove: {boost: {spe: 1}},
 		contestType: "Tough",
 	},
-	
+
 	tailwind: {
 		num: 366,
 		accuracy: true,
@@ -3935,7 +3935,7 @@ chillyreception: {
 		zMove: {effect: 'crit2'},
 		contestType: "Cool",
 	},
-	
+
 	whirlwind: {
 		num: 18,
 		accuracy: true,
@@ -3952,7 +3952,7 @@ chillyreception: {
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
 	},
-		
+
 	triplearrows: {
 		num: 843,
 		accuracy: 100,

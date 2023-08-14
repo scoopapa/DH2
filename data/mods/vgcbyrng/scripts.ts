@@ -1,9 +1,9 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-   teambuilderConfig: {
+	teambuilderConfig: {
 		excludeStandardTiers: true,
-      customTiers: ['RNG FE', 'RNG NFE', 'RNG LC', 'RNG Ubers'],
-      customDoublesTiers: ['RNG FE', 'RNG NFE', 'RNG LC', 'RNG Ubers'],
-   },	
+		customTiers: ['RNG FE', 'RNG NFE', 'RNG LC', 'RNG Ubers'],
+		customDoublesTiers: ['RNG FE', 'RNG NFE', 'RNG LC', 'RNG Ubers'],
+	},
 	// For Loaded Dice and Rage Fist
 	hitStepMoveHitLoop(targets, pokemon, move) { // Temporary name
 		const damage: (number | boolean | undefined)[] = [];
@@ -145,7 +145,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 		}
-		
+
 		if (move.ohko && !targets[0].hp) this.add('-ohko');
 
 		if (!damage.some(val => !!val || val === 0)) return damage;
@@ -261,7 +261,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		return true;
 	},
-// Terastal (taken from SV Speculative)
+	// Terastal (taken from SV Speculative)
 	canMegaEvo(pokemon) {
 		if (pokemon.species.isMega) return null;
 		return pokemon.hpType || "Normal";
@@ -271,12 +271,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (pokemon.illusion) {
 			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
 		}
-		let species = this.dex.deepClone(pokemon.species);
+		const species = this.dex.deepClone(pokemon.species);
 		species.teraBoost = pokemon.species.types;
 		species.teraType = pokemon.canMegaEvo; // remember that the species is Terastal
 		species.types = [species.teraType];
 		species.nonTeraForm = pokemon.species;
-		
+
 		// Pokémon affected by Sky Drop cannot Terastallize
 		const side = pokemon.side;
 		for (const foeActive of side.foe.active) {
@@ -334,8 +334,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.apparentType = this.types.join('/');
 
 			return true;
-		}
-   },
+		},
+	},
 	modifyDamage(
 		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 	) {
@@ -430,7 +430,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// ...but 16-bit truncation happens even later, and can truncate to 0
 		return tr(baseDamage, 16);
 	},
-	init: function(){
+	init() {
 		this.modData('Moves', 'aerialace').flags.slicing = 1;
 		this.modData('Moves', 'aircutter').flags.slicing = 1;
 		this.modData('Moves', 'airslash').flags.slicing = 1;
@@ -452,7 +452,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Moves', 'solarblade').flags.slicing = 1;
 		this.modData('Moves', 'stoneaxe').flags.slicing = 1;
 		this.modData('Moves', 'xscissor').flags.slicing = 1;
-		
+
 		this.modData('Moves', 'aircutter').flags.wind = 1;
 		this.modData('Moves', 'bleakwindstorm').flags.wind = 1;
 		this.modData('Moves', 'blizzard').flags.wind = 1;

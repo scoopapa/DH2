@@ -32,9 +32,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		name: "Smoke Shuriken",
 		shortDesc: "Usually goes first. Hits 2-5 times in one turn.",
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Water Shuriken", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Water Shuriken", target);
 		},
 		pp: 20,
 		priority: 1,
@@ -52,9 +52,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		name: "Draining Fur",
 		shortDesc: "Heals 50% of the damage dealt.",
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Drain Punch", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Drain Punch", target);
 		},
 		pp: 10,
 		priority: 0,
@@ -85,9 +85,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target, source) {
 			if (target.volatiles['leechseed']) target.removeVolatile('leechseed', source);
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Flamethrower", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flamethrower", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -99,11 +99,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 85,
 		category: "Special",
 		name: "Trash Talk",
-      shortDesc: "Prevents the target from using status moves for 1 turn.",
+		shortDesc: "Prevents the target from using status moves for 1 turn.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
- 		onPrepareHit: function(target, source, move) {
+ 		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Confide", target);
 		  this.add('-anim', source, "Gunk Shot", target);
@@ -126,9 +126,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Gunk Shot", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gunk Shot", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -177,9 +177,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 50,
 			status: 'brn',
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Flame Charge", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flame Charge", target);
 		},
 		target: "normal",
 		type: "Fire",
@@ -191,7 +191,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 60,
 		category: "Special",
 		name: "Tar Shot",
-      shortDesc: "Lowers the target's Speed by 1.",
+		shortDesc: "Lowers the target's Speed by 1.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
@@ -217,9 +217,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				pokemon.cureStatus();
 			},
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Close Combat", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Close Combat", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -249,10 +249,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			   chance: 10,
 		   	volatileStatus: 'confusion',
 		   },
-      ],
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Dive", target);
+		],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dive", target);
 		},
 		target: "normal",
 		type: "Water",
@@ -265,7 +265,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Blazing Torque",
-      shortDesc: "30% chance to burn the target.",
+		shortDesc: "30% chance to burn the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
@@ -273,9 +273,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			status: 'brn',
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Flare Blitz", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flare Blitz", target);
 		},
 		target: "normal",
 		type: "Fire",
@@ -286,19 +286,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Wicked Torque",
-      shortDesc: "30% chance to lower the target's Defense by 1.",
+		shortDesc: "30% chance to lower the target's Defense by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
 		secondary: {
 			chance: 30,
 			boosts: {
-            def: -1,
-        },
+				def: -1,
+			},
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Lash Out", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Lash Out", target);
 		},
 		target: "normal",
 		type: "Dark",
@@ -309,7 +309,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Noxious Torque",
-      shortDesc: "30% chance to poison the target.",
+		shortDesc: "30% chance to poison the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
@@ -317,9 +317,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			status: 'psn',
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Poison Jab", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Jab", target);
 		},
 		target: "normal",
 		type: "Poison",
@@ -330,7 +330,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Combat Torque",
-      shortDesc: "30% chance to paralyze the target.",
+		shortDesc: "30% chance to paralyze the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
@@ -338,9 +338,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			status: 'par',
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Close Combat", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Close Combat", target);
 		},
 		target: "normal",
 		type: "Fighting",
@@ -351,7 +351,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Magical Torque",
-      shortDesc: "10% chance to confuse the target.",
+		shortDesc: "10% chance to confuse the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
@@ -359,9 +359,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 10,
 			volatileStatus: 'confusion',
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Play Rough", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Play Rough", target);
 		},
 		target: "normal",
 		type: "Fairy",
@@ -372,7 +372,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Athlete's Foot",
-      shortDesc: "Lowers target's Def and SpA by 1. User switches.",
+		shortDesc: "Lowers target's Def and SpA by 1. User switches.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, dance: 1, authentic: 1},
@@ -382,9 +382,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				delete move.selfSwitch;
 			}
 		},
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Dragon Ascent", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Ascent", target);
 		},
 		selfSwitch: true,
 		secondary: null,
@@ -392,15 +392,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		zMove: {effect: 'healreplacement'},
 		contestType: "Cool",
-   },
+	},
 
-// modified moves
+	// modified moves
 	doomdesire: {
 		inherit: true,
 		basePower: 120,
 	},
 
-// Others
+	// Others
 	auroraveil: {
 		num: 694,
 		accuracy: true,
@@ -906,8 +906,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
 	},
-   hiddenpower: {
-      inherit: true,
+	hiddenpower: {
+		inherit: true,
 		isNonstandard: undefined,
 	},
 	hail: {
@@ -1025,7 +1025,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Crush Claw", target);
 		},
-		//critRatio: 2,
+		// critRatio: 2,
 		secondary: {
 			chance: 50,
 			onHit(target, source) {
@@ -1479,7 +1479,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		isNonstandard: "Unobtainable",
 		name: "Wildbolt Storm",
-      shortDesc: "20% chance to paralyze foe(s).",
+		shortDesc: "20% chance to paralyze foe(s).",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
@@ -1689,7 +1689,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Jet Punch",
-      shortDesc: "Usually goes first.",
+		shortDesc: "Usually goes first.",
 		pp: 15,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
@@ -1876,9 +1876,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Physical",
 		name: "Kowtow Cleave",
 		shortDesc: "This move does not check accuracy.",
-      onPrepareHit: function(target, source, move) {
-         this.attrLastMove('[still]');
-         this.add('-anim', source, "Night Slash", target);
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Slash", target);
 		},
 		pp: 10,
 		priority: 0,
@@ -2233,7 +2233,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Hyper Drill",
-      shortDesc: "Bypasses protection without breaking it.",
+		shortDesc: "Bypasses protection without breaking it.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, mirror: 1},
@@ -2348,7 +2348,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "gigatonhammer",
 		},
 		condition: {
@@ -2360,9 +2360,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.addVolatile('gigatonhammer');
 		},
 		// onAfterMove(pokemon) {
-			// if (pokemon.removeVolatile('gigatonhammer')) {
-				// this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
-			// }
+		// if (pokemon.removeVolatile('gigatonhammer')) {
+		// this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
+		// }
 		// },
 		secondary: null,
 		target: "normal",
@@ -2406,7 +2406,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Aqua Cutter",
-		shortDesc: "High critical hit ratio.", 
+		shortDesc: "High critical hit ratio.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, slicing: 1},
@@ -2531,7 +2531,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (!source.side.pokemon.filter(ally => ally.fainted).length) {
 				return false;
 			}
-			this.add("-message","Warning: this move is bugged. You can use the \"/switch\" command to pick which pokemon you want to revive. Syntax: /switch [number], where [number] is the position of the pokemon in your party that you want to revive.");
+			this.add("-message", "Warning: this move is bugged. You can use the \"/switch\" command to pick which pokemon you want to revive. Syntax: /switch [number], where [number] is the position of the pokemon in your party that you want to revive.");
 		},
 		slotCondition: 'revivalblessing',
 		// No this not a real switchout move

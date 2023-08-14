@@ -5,7 +5,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 80, atk: 50, def: 50, spa: 110, spd: 110, spe: 110},
 		abilities: {0: "Galaxy Brain", 1: "Inner Focus", H: "Trace"},
 	},
-   gengar: {
+	gengar: {
 		inherit: true,
 		types: ["Ghost", "Ice"],
 		baseStats: {hp: 65, atk: 65, def: 65, spa: 100, spd: 90, spe: 115},
@@ -47,22 +47,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	onix: {
 		inherit: true,
-      evos: [],
+		evos: [],
 		baseStats: {hp: 75, atk: 135, def: 140, spa: 30, spd: 75, spe: 70},
 		abilities: {0: "Sturdy", 1: "Solid Rock", H: "Excavate"},
 	},
-   wigglytuff: {
-      inherit: true,
-      types: ["Fairy", "Dark"],
-      baseStats: {hp: 140, atk: 75, def: 50, spa: 65, spd: 45, spe: 121},
-      abilities: {0: "Cute Charm", 1: "Aftermath", H: "Ballooning"},
-   }, 
-   dodrio: {
-      inherit: true,
-      types: ["Ground", "Fighting"],
-      baseStats: {hp: 85, atk: 115, def: 60, spa: 55, spd: 55, spe: 115},
-      abilities: {0: "Sand Rush", 1: "Early Bird", H: "Of A Feather"},
-   },
+	wigglytuff: {
+		inherit: true,
+		types: ["Fairy", "Dark"],
+		baseStats: {hp: 140, atk: 75, def: 50, spa: 65, spd: 45, spe: 121},
+		abilities: {0: "Cute Charm", 1: "Aftermath", H: "Ballooning"},
+	},
+	dodrio: {
+		inherit: true,
+		types: ["Ground", "Fighting"],
+		baseStats: {hp: 85, atk: 115, def: 60, spa: 55, spd: 55, spe: 115},
+		abilities: {0: "Sand Rush", 1: "Early Bird", H: "Of A Feather"},
+	},
 	seadra: {
 		inherit: true,
 		evos: [],
@@ -70,21 +70,21 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 80, atk: 100, def: 95, spa: 100, spd: 70, spe: 85},
 		abilities: {0: "Poison Point", 1: "Rain Dish", H: "Merciless"},
 	},
-   vaporeon: {
-      inherit: true,
-      abilities: {0: "Run Away", 1: "Trace", H: "Protean"},
-   },
-   flareon: {
-      inherit: true,
-      baseStats: {hp: 110, atk: 130, def: 60, spa: 65, spd: 65, spe: 95},
-      abilities: {0: "Run Away", 1: "Trace", H: "Protean"},
-   },
-   jolteon: {
-      inherit: true,
-      baseStats: {hp: 65, atk: 65, def: 60, spa: 95, spd: 110, spe: 130},
-      abilities: {0: "Run Away", 1: "Trace", H: "Protean"},
-   },
-// Minor Changes (mostly to prevent unevolved Pokemons in gen 1 to hold Eviolite)
+	vaporeon: {
+		inherit: true,
+		abilities: {0: "Run Away", 1: "Trace", H: "Protean"},
+	},
+	flareon: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 130, def: 60, spa: 65, spd: 65, spe: 95},
+		abilities: {0: "Run Away", 1: "Trace", H: "Protean"},
+	},
+	jolteon: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 65, def: 60, spa: 95, spd: 110, spe: 130},
+		abilities: {0: "Run Away", 1: "Trace", H: "Protean"},
+	},
+	// Minor Changes (mostly to prevent unevolved Pokemons in gen 1 to hold Eviolite)
 	golbat: {
 		inherit: true,
 		evos: [],

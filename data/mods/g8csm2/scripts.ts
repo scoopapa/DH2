@@ -1,8 +1,8 @@
 export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
-        excludeStandardTiers: true,
+		excludeStandardTiers: true,
 	},
-	init: function(){
+	init() {
 		this.modData('Moves', 'aerialace').flags.slicing = 1;
 		this.modData('Moves', 'aircutter').flags.slicing = 1;
 		this.modData('Moves', 'airslash').flags.slicing = 1;
@@ -24,7 +24,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Moves', 'solarblade').flags.slicing = 1;
 		this.modData('Moves', 'stoneaxe').flags.slicing = 1;
 		this.modData('Moves', 'xscissor').flags.slicing = 1;
-		
+
 		this.modData('Moves', 'aircutter').flags.wind = 1;
 		this.modData('Moves', 'bleakwindstorm').flags.wind = 1;
 		this.modData('Moves', 'blizzard').flags.wind = 1;
@@ -41,7 +41,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Moves', 'twister').flags.wind = 1;
 		this.modData('Moves', 'whirlwind').flags.wind = 1;
 		this.modData('Moves', 'wildboltstorm').flags.wind = 1;
-		
+
 		// Solrock
 		this.modData("Learnsets", "solrock").learnset.shoreup = ["8L1"];
 		this.modData("Learnsets", "solrock").learnset.bodypress = ["8L1"];
@@ -160,7 +160,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'talonflame').learnset.uturn;
 		delete this.modData('Learnsets', 'fletchinder').learnset.uturn;
 		delete this.modData('Learnsets', 'fletchling').learnset.uturn;
-		
+
 		// Onix
 		this.modData("Learnsets", "onix").learnset.clangingscales = ["8L1"];
 		this.modData("Learnsets", "onix").learnset.dracometeor = ["8L1"];
@@ -180,5 +180,5 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "dondozo").learnset.stoneedge = ["8L1"];
 		this.modData("Learnsets", "dondozo").learnset.ironhead = ["8L1"];
 		this.modData("Learnsets", "dondozo").learnset.flipturn = ["8L1"];
-	}
+	},
 };

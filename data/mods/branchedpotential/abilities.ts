@@ -101,9 +101,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	lethalpoison: {
 		onSourceAfterFaint(length, target, source, effect) {
-		if (source.activeMoveActions < 6) {
-			if (effect && effect.effectType === 'Move') {
-			this.boost({atk: 2}, source);
+			if (source.activeMoveActions < 6) {
+				if (effect && effect.effectType === 'Move') {
+					this.boost({atk: 2}, source);
 				}
 			}
 		},
@@ -112,7 +112,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 210,
 	},
-		prism: {
+	prism: {
 		isPermanent: true,
 		onTryHit(target, source, move) {
 			let type: string | undefined = 'Normal';
@@ -170,6 +170,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokemon's special attacks have a 30% chance to poison",
 		name: "Potion Master",
 		rating: 2,
-		num: -119
+		num: -119,
 	},
 };

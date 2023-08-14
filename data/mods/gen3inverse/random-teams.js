@@ -9,24 +9,24 @@ class RandomGen3Teams extends RandomGen4Teams {
 	 * @return {RandomTeamsTypes.RandomSet}
 	 */
 	randomSet(template, teamDetails = {}) {
-		let baseTemplate = (template = this.dex.getTemplate(template));
+		const baseTemplate = (template = this.dex.getTemplate(template));
 		let species = template.species;
 
 		if (!template.exists || (!template.randomBattleMoves && !template.learnset)) {
 			template = this.dex.getTemplate('unown');
 
-			let err = new Error('Template incompatible with random battles: ' + species);
+			const err = new Error('Template incompatible with random battles: ' + species);
 			Monitor.crashlog(err, 'The gen 3 randbat set generator');
 		}
 
 		if (template.battleOnly) species = template.baseSpecies;
 
-		let movePool = (template.randomBattleMoves ? template.randomBattleMoves.slice() : template.learnset ? Object.keys(template.learnset) : []);
+		const movePool = (template.randomBattleMoves ? template.randomBattleMoves.slice() : template.learnset ? Object.keys(template.learnset) : []);
 		/**@type {string[]} */
-		let moves = [];
+		const moves = [];
 		let ability = '';
 		let item = '';
-		let evs = {
+		const evs = {
 			hp: 85,
 			atk: 85,
 			def: 85,
@@ -43,13 +43,13 @@ class RandomGen3Teams extends RandomGen4Teams {
 			spe: 31,
 		};
 		/**@type {{[k: string]: true}} */
-		let hasType = {};
+		const hasType = {};
 		hasType[template.types[0]] = true;
 		if (template.types[1]) {
 			hasType[template.types[1]] = true;
 		}
 		/**@type {{[k: string]: true}} */
-		let hasAbility = {};
+		const hasAbility = {};
 		hasAbility[template.abilities[0]] = true;
 		if (template.abilities[1]) {
 			// @ts-ignore TypeScript bug
@@ -60,26 +60,26 @@ class RandomGen3Teams extends RandomGen4Teams {
 			if (setMoveid.startsWith('hiddenpower')) availableHP++;
 		}
 
-		let recoveryMoves = [
+		const recoveryMoves = [
 			'milkdrink', 'moonlight', 'morningsun', 'painsplit', 'recover', 'rest', 'slackoff', 'softboiled',
 			'synthesis', 'wish',
 		];
 
 		// these Pokemon always want recovery
-		let requiresRecovery = [
+		const requiresRecovery = [
 			'Clefable', 'Lickitung', 'Blissey', 'Umbreon', 'Porygon2', 'Meganium', 'Miltank', 'Lugia',
 			'Ho-Oh', 'Sableye', 'Cradily', 'Milotic', 'Dusclops', 'Latias', 'Deoxys-Defense',
 		];
 
 		// these Pokemon don't always want a STAB move
-		let noStab = [
+		const noStab = [
 			'Clefable', 'Gengar', 'Kingler', 'Blissey', 'Porygon2', 'Umbreon', 'Dragonite', 'Feraligatr',
 			'Noctowl', 'Azumarill', 'Misdreavus', 'Sneasel', 'Mightyena', 'Masquerain', 'Nosepass', 'Delcatty',
 			'Volbeat', 'Illumise', 'Castform', 'Absol',
 		];
 
 		// these Pokemon don't need any damaging attacks
-		let noAttacks = [
+		const noAttacks = [
 			'Smeargle', 'Shuckle',
 		];
 
@@ -100,7 +100,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 
 			// Choose next 4 moves from learnset/viable moves and add them to moves list:
 			while (moves.length < 4 && movePool.length) {
-				let setMoveid = this.sampleNoReplace(movePool);
+				const setMoveid = this.sampleNoReplace(movePool);
 				if (setMoveid.substr(0, 11) === 'hiddenpower') {
 					availableHP--;
 					if (hasMove['hiddenpower']) continue;
@@ -115,8 +115,8 @@ class RandomGen3Teams extends RandomGen4Teams {
 
 			// Iterate through the moves again, this time to cull them:
 			for (const [i, setMoveid] of moves.entries()) {
-				let move = this.dex.moves.get(setMoveid);
-				let moveid = move.id;
+				const move = this.dex.moves.get(setMoveid);
+				const moveid = move.id;
 				let rejected = false;
 				let isSetup = false;
 
@@ -151,7 +151,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 					if (hasMove['painsplit'] || hasMove['recover'] || hasMove['wish']) rejected = true;
 					if (!hasMove['rest']) rejected = true;
 					if (movePool.length > 1) {
-						let rest = movePool.indexOf('rest');
+						const rest = movePool.indexOf('rest');
 						if (rest >= 0) this.fastPop(movePool, rest);
 					}
 					break;
@@ -336,7 +336,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 
 				// Sleep Talk shouldn't be selected without Rest
 				if (moveid === 'rest' && rejected) {
-					let sleeptalk = movePool.indexOf('sleeptalk');
+					const sleeptalk = movePool.indexOf('sleeptalk');
 					if (sleeptalk >= 0) {
 						if (movePool.length < 2) {
 							rejected = false;
@@ -364,10 +364,10 @@ class RandomGen3Teams extends RandomGen4Teams {
 				}
 				if (reqMove) {
 					// reject a move
-					for (let [i, move] of moves.entries()) {
+					for (const [i, move] of moves.entries()) {
 						if (move === 'weatherball' || this.dex.moves.get(move).type in hasType) continue;
 						moves[i] = reqMove;
-						let reqMoveIndex = movePool.indexOf(reqMove);
+						const reqMoveIndex = movePool.indexOf(reqMove);
 						if (reqMoveIndex !== -1) this.fastPop(movePool, reqMoveIndex);
 						break;
 					}
@@ -385,7 +385,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 					!(hasType['Steel'] && moves.indexOf('hiddenpowersteel') > -1)) {
 					// In most cases, a set shouldn't have zero STABs
 					if (counter.damagingMoves.length === 1) {
-						let damagingid = counter.damagingMoves[0].id;
+						const damagingid = counter.damagingMoves[0].id;
 						if (movePool.length - availableHP || availableHP && (damagingid === 'hiddenpower' || !hasMove['hiddenpower'])) {
 							if (!counter.damagingMoves[0].damage) {
 								moves.splice(counter.damagingMoveIndex[damagingid], 1);
@@ -393,8 +393,8 @@ class RandomGen3Teams extends RandomGen4Teams {
 						}
 					} else if (!counter.damagingMoves[0].damage && !counter.damagingMoves[1].damage) {
 						// If you have three or more attacks, and none of them are STAB, reject one of them at random.
-						let rejectableMoves = [];
-						let baseDiff = movePool.length - availableHP;
+						const rejectableMoves = [];
+						const baseDiff = movePool.length - availableHP;
 						for (const move of counter.damagingMoves) {
 							if (baseDiff || availableHP && (!hasMove['hiddenpower'] || move.id === 'hiddenpower')) {
 								rejectableMoves.push(counter.damagingMoveIndex[move.id]);
@@ -437,7 +437,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 			ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
 		}
 
-		let abilities = Object.values(baseTemplate.abilities).filter(a => this.dex.abilities.get(a).gen === 3);
+		const abilities = Object.values(baseTemplate.abilities).filter(a => this.dex.abilities.get(a).gen === 3);
 		abilities.sort((a, b) => this.dex.abilities.get(b).rating - this.dex.abilities.get(a).rating);
 		let ability0 = this.dex.abilities.get(abilities[0]);
 		let ability1 = this.dex.abilities.get(abilities[1]);
@@ -551,7 +551,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 			item = 'Leftovers';
 		}
 
-		let levelScale = {
+		const levelScale = {
 			LC: 87,
 			NFE: 85,
 			NU: 83,
@@ -561,10 +561,10 @@ class RandomGen3Teams extends RandomGen4Teams {
 			OU: 75,
 			Uber: 71,
 		};
-		let customScale = {
+		const customScale = {
 			Ditto: 99, Unown: 99,
 		};
-		let tier = template.tier;
+		const tier = template.tier;
 		// @ts-ignore
 		let level = levelScale[tier] || 75;
 		// @ts-ignore
@@ -604,13 +604,13 @@ class RandomGen3Teams extends RandomGen4Teams {
 	}
 
 	randomTeam() {
-		let pokemon = [];
+		const pokemon = [];
 
-		let allowedNFE = ['Scyther', 'Vigoroth'];
+		const allowedNFE = ['Scyther', 'Vigoroth'];
 
-		let pokemonPool = [];
-		for (let id in this.dex.data.FormatsData) {
-			let template = this.dex.getTemplate(id);
+		const pokemonPool = [];
+		for (const id in this.dex.data.FormatsData) {
+			const template = this.dex.getTemplate(id);
 			if (template.isNonstandard || !template.randomBattleMoves) continue;
 			if (template.evos && !allowedNFE.includes(template.species)) {
 				let invalid = false;
@@ -626,18 +626,18 @@ class RandomGen3Teams extends RandomGen4Teams {
 		}
 
 		/**@type {{[k: string]: number}} */
-		let typeCount = {};
+		const typeCount = {};
 		/**@type {{[k: string]: number}} */
-		let typeComboCount = {};
+		const typeComboCount = {};
 		/**@type {{[k: string]: number}} */
-		let baseFormes = {};
+		const baseFormes = {};
 		let uberCount = 0;
 		let nuCount = 0;
 		/**@type {RandomTeamsTypes.TeamDetails} */
-		let teamDetails = {};
+		const teamDetails = {};
 
 		while (pokemonPool.length && pokemon.length < 6) {
-			let template = this.dex.getTemplate(this.sampleNoReplace(pokemonPool));
+			const template = this.dex.getTemplate(this.sampleNoReplace(pokemonPool));
 			if (!template.exists) continue;
 
 			// Limit to one of each species (Species Clause)
@@ -646,7 +646,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 			// Limit to one Wobbuffet per battle (not just per team)
 			if (template.species === 'Wobbuffet' && this.hasWobbuffet) continue;
 
-			let tier = template.tier;
+			const tier = template.tier;
 			switch (tier) {
 			case 'Uber':
 				// Ubers are limited to 2 but have a 20% chance of being added anyway.
@@ -670,7 +670,7 @@ class RandomGen3Teams extends RandomGen4Teams {
 			}
 			if (skip) continue;
 
-			let set = this.randomSet(template, teamDetails);
+			const set = this.randomSet(template, teamDetails);
 
 			// Limit 1 of any type combination
 			let typeCombo = template.types.slice().sort().join();

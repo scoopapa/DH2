@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedPureEffectData}} */
-let BattleStatuses = {
+const BattleStatuses = {
 	slp: {
 		name: 'slp',
 		id: 'slp',

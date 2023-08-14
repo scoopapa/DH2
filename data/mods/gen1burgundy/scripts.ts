@@ -307,7 +307,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		accuracy = this.runEvent('Accuracy', target, pokemon, move, accuracy);
 		// Moves that target the user do not suffer from the 1/256 miss chance.
 		if (move.target === 'self' && accuracy !== true) accuracy++;
-		if (move.target === 'self' && accuracy !== true) accuracy++; //this extra one removes the self-heal glitch
+		if (move.target === 'self' && accuracy !== true) accuracy++; // this extra one removes the self-heal glitch
 		// 1/256 chance of missing always, no matter what. Besides the aforementioned exceptions.
 		if (accuracy !== true && !this.randomChance(accuracy, 255)) {
 			this.attrLastMove('[miss]');
@@ -358,7 +358,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 
 		if (move.selfdestruct) {
-				this.faint(pokemon, pokemon, move);
+			this.faint(pokemon, pokemon, move);
 		}
 
 		// The move missed.
@@ -603,7 +603,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (typeof effect === 'string') effect = this.dex.conditions.get(effect);
 		if (!target || !target.hp) return 0;
 		let success = null;
-		boost = this.runEvent('Boost', target, source, effect, Object.assign({}, boost));
+		boost = this.runEvent('Boost', target, source, effect, {...boost});
 		let i: BoostName;
 		for (i in boost) {
 			const currentBoost: SparseBoostsTable = {};
@@ -859,7 +859,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// And we are done.
 		return Math.floor(damage);
 	},
-	init: function () {
+	init() {
 		this.modData('Learnsets', 'flareon').learnset.jumpkick = ['1L1'];
 		this.modData('Learnsets', 'flareon').learnset.thunder = ['1L1'];
 		this.modData('Learnsets', 'dewgong').learnset.reflect = ['1L1'];

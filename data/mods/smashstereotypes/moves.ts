@@ -11,7 +11,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {
 			bullet: 1,
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		onModifyType(move, pokemon) {
 			if (!pokemon.isGrounded()) return;
@@ -35,7 +35,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.basePower *= 2;
 			}
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Weather Ball", target);
 		},
@@ -57,7 +57,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
  		  accuracy: true,
 		  basePower: 0,
 		  category: "Status",
-		  shortDesc: "Removes the user's Grass-type, resets negative stat changes, and cures the user of status.",		
+		  shortDesc: "Removes the user's Grass-type, resets negative stat changes, and cures the user of status.",
 		  name: "Shed Leaves",
 		  pp: 10,
 		  priority: 0,
@@ -67,10 +67,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			  this.add('-fail', pokemon, 'move: Shed Leaves');
 			  this.attrLastMove('[still]');
 			  return null;
-		  },		
+		  },
 		  onHit(pokemon) {
-				if (['', 'slp', 'frz'].includes(pokemon.status)) return;
-				pokemon.cureStatus();
+			if (['', 'slp', 'frz'].includes(pokemon.status)) return;
+			pokemon.cureStatus();
 		  },
 		  self: {
 			  onHit(pokemon) {
@@ -84,7 +84,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				pokemon.setBoost(boosts);
 				this.add('-clearnegativeboost', pokemon, '[silent]');
 				this.add('-message', pokemon.name + "'s negative stat changes were removed!");
-				
+
 				  pokemon.setType(pokemon.getTypes(true).map(type => type === "Grass" ? "???" : type));
 				  this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Shed Leaves');
 			  },
@@ -126,7 +126,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Multi-Attack", target);
 		},
@@ -182,8 +182,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				pokemon.lastItem = item.id;
 				pokemon.usedItemThisTurn = true;
 				this.runEvent('AfterUseItem', pokemon, null, null, item);
-			}
-			else if (pokemon.species.id === 'mytheon') {
+			} else if (pokemon.species.id === 'mytheon') {
 				if (pokemon.ignoringItem()) return false;
 				const item = pokemon.getItem();
 				if (!item.naturalGift) return false;
@@ -205,14 +204,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: {
 			chance: 50,
 			status: 'tox',
-		}, 
+		},
 		self: {
 			chance: 10,
 			onHit(source, pokemon) {
 				if (source.species.id !== 'mytheon') return;
 				pokemon.addVolatile('flinch');
-			}
-		},				
+			},
+		},
 		target: "normal",
 		type: "Poison",
 		contestType: "Clever",
@@ -238,14 +237,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					if (pokemon.species.id === 'mytheon') {
 						this.boost({spa: -1}, source);
 					}
-				}
+				},
 			}, {
 				chance: 100,
 				onHit(source, pokemon) {
 					if (pokemon.species.id !== 'mytheon') {
 						this.boost({spa: -1}, source);
 					}
-				}
+				},
 			},
 		],
 	},
@@ -304,7 +303,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Glare", target);
 		},
@@ -407,8 +406,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onHit(target, source, move) {
-		if (move.hit !== 4) return;
-			let removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
+			if (move.hit !== 4) return;
+			const removeAll = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb'];
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
 					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Puyo Pop', '[of] ' + source);
@@ -494,9 +493,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dragon Rage", target);
 		},
@@ -570,7 +569,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flame Wheel", target);
 		},
@@ -592,18 +591,18 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		onBasePowerPriority: 4,
-		onBasePower: function(basePower, source, target, move) {
-			let item = target.getItem();
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemData, target, source, move, item)) return;
 			if (item.id) {
 				return this.chainModify(1.5);
 			}
 		},
-		onHit: function(target, source) {
-			let item = target.getItem();
+		onHit(target, source) {
+			const item = target.getItem();
 			if (source.hp && item.isBerry && target.takeItem(source)) {
 				this.add('-enditem', target, item.name, '[from] stealeat', '[move] Incinerate', '[of] ' + source);
 				if (this.singleEvent('Eat', item, null, source, null, null)) {
@@ -612,15 +611,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (item.onEat) source.ateBerry = true;
 			}
 		},
-		onAfterHit: function(target, source) {
+		onAfterHit(target, source) {
 			if (source.hp) {
-				let item = target.takeItem();
+				const item = target.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Incinerate', '[of] ' + source);
 				}
 			}
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Incinerate", target);
 		},
@@ -643,7 +642,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.pp = 10;
 			}
 		},
-		onHit: function(pokemon) {
+		onHit(pokemon) {
 			if (this.field.isWeather(['desolateland', 'sunnyday'])) {
 				return this.heal(this.modify(pokemon.maxhp, 0.667));
 			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail']) && pokemon.species.id !== 'arcanine') {
@@ -670,7 +669,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 30,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mud Slap", target);
 		},
@@ -720,7 +719,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {
 			bullet: 1,
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		onModifyType(move, pokemon) {
 			switch (pokemon.effectiveWeather()) {
@@ -743,7 +742,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				break;
 			case 'shadowsky':
 				move.type = 'Ghost';
-				break;					
+				break;
 			}
 		},
 		onModifyMove(move, pokemon) {
@@ -767,10 +766,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				break;
 			case 'shadowsky':
 				move.basePower *= 2;
-				break;					
+				break;
 			}
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Weather Ball", target);
 			this.add('-anim', source, "Knock Off", target);
@@ -795,16 +794,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onTryHit(pokemon, target, move, source) {
-            if (!this.canSwitch(pokemon.side)) {
-                return false;
-            }
+			if (!this.canSwitch(pokemon.side)) {
+				return false;
+			}
 			source.forceSwitch();
 			return;
 		},
 		self: {
 			forceSwitch: true,
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mean Look", target);
 			this.add('-anim', source, "Poltergeist", target);
@@ -831,7 +830,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onMoveFail(target, source, move) {
 			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('Planetary Crash'));
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Cosmic Power", target);
 			this.add('-anim', source, "Head Smash", target);
@@ -857,7 +856,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit() {
 			this.field.clearWeather();
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rototiller", target);
 		},
@@ -875,7 +874,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aeroblast", target);
 		},
@@ -895,7 +894,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sparkling Aria", target);
 		},
@@ -932,7 +931,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "U-turn", target);
 		},
@@ -953,7 +952,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Head Smash", target);
 		},
@@ -1043,57 +1042,41 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (pokemon.ignoringItem()) return;
 			if (['insectplate', 'bugmemory', 'silverpowder', 'figyberry', 'comnberry', 'tangaberry', 'enigmaberry'].includes(item.id)) {
 				move.type = 'Bug';
-			}
-			else if (['dreadplate', 'darkmemory', 'blackglasses', 'iapapaberry', 'spelonberry', 'colburberry', 'rowapberry', 'marangaberry'].includes(item.id)) {
+			} else if (['dreadplate', 'darkmemory', 'blackglasses', 'iapapaberry', 'spelonberry', 'colburberry', 'rowapberry', 'marangaberry'].includes(item.id)) {
 				move.type = 'Dark';
-			}
-			else if (['dracoplate', 'dragonmemory', 'dragonfang', 'aguavberry', 'nomelberry', 'habanberry', 'jaboocaberry'].includes(item.id)) {
+			} else if (['dracoplate', 'dragonmemory', 'dragonfang', 'aguavberry', 'nomelberry', 'habanberry', 'jaboocaberry'].includes(item.id)) {
 				move.type = 'Dragon';
-			}
-			else if (['zapplate', 'electricmemory', 'magnet', 'pechaberry', 'wepearberry', 'belueberry', 'wacanberry'].includes(item.id)) {
+			} else if (['zapplate', 'electricmemory', 'magnet', 'pechaberry', 'wepearberry', 'belueberry', 'wacanberry'].includes(item.id)) {
 				move.type = 'Electric';
-			}
-			else if (['pixieplate', 'fairymemory', 'roseliberry', 'keeberry'].includes(item.id)) {
+			} else if (['pixieplate', 'fairymemory', 'roseliberry', 'keeberry'].includes(item.id)) {
 				move.type = 'Fairy';
-			}
-			else if (['flameplate', 'firememory', 'charcoal', 'cheriberry', 'blukberry', 'watmelberry', 'occaberry'].includes(item.id)) {
+			} else if (['flameplate', 'firememory', 'charcoal', 'cheriberry', 'blukberry', 'watmelberry', 'occaberry'].includes(item.id)) {
 				move.type = 'Fire';
-			}
-			else if (['fistplate', 'fightingmemory', 'blackbelt', 'leppaberry', 'kelpsyberry', 'chopleberry', 'salacberry'].includes(item.id)) {
+			} else if (['fistplate', 'fightingmemory', 'blackbelt', 'leppaberry', 'kelpsyberry', 'chopleberry', 'salacberry'].includes(item.id)) {
 				move.type = 'Fighting';
-			}
-			else if (['skyplate', 'flyingmemory', 'sharpbeak', 'lumberry', 'grepaberry', 'cobaberry', 'lansatberry'].includes(item.id)) {
+			} else if (['skyplate', 'flyingmemory', 'sharpbeak', 'lumberry', 'grepaberry', 'cobaberry', 'lansatberry'].includes(item.id)) {
 				move.type = 'Flying';
-			}
-			else if (['spookyplate', 'ghostmemory', 'spelltag', 'magoberry', 'rabutaberry', 'kasibberry', 'custapberry'].includes(item.id)) {
+			} else if (['spookyplate', 'ghostmemory', 'spelltag', 'magoberry', 'rabutaberry', 'kasibberry', 'custapberry'].includes(item.id)) {
 				move.type = 'Ghost';
-			}
-			else if (['meadowplate', 'grassmemory', 'miracleseed', 'rawstberry', 'pinapberry', 'rindoberry', 'liechiberry'].includes(item.id)) {
+			} else if (['meadowplate', 'grassmemory', 'miracleseed', 'rawstberry', 'pinapberry', 'rindoberry', 'liechiberry'].includes(item.id)) {
 				move.type = 'Grass';
-			}
-			else if (['earthplate', 'groundmemory', 'softsand', 'persimberry', 'hondewberry', 'shucaberry', 'apicotberry'].includes(item.id)) {
+			} else if (['earthplate', 'groundmemory', 'softsand', 'persimberry', 'hondewberry', 'shucaberry', 'apicotberry'].includes(item.id)) {
 				move.type = 'Ground';
-			}
-			else if (['icicleplate', 'icememory', 'nevermeltice', 'aspearberry', 'pomegberry', 'yacheberry', 'ganlonberry'].includes(item.id)) {
+			} else if (['icicleplate', 'icememory', 'nevermeltice', 'aspearberry', 'pomegberry', 'yacheberry', 'ganlonberry'].includes(item.id)) {
 				move.type = 'Ice';
-			}
-			else if (['toxicplate', 'poisonmemory', 'poisonbarb', 'oranberry', 'qualotberry', 'kebiaberry', 'petayaberry'].includes(item.id)) {
+			} else if (['toxicplate', 'poisonmemory', 'poisonbarb', 'oranberry', 'qualotberry', 'kebiaberry', 'petayaberry'].includes(item.id)) {
 				move.type = 'Poison';
-			}
-			else if (['mindplate', 'psychicmemory', 'twistedspoon', 'sitrusberry', 'tamatoberry', 'payapaberry', 'starfberry'].includes(item.id)) {
+			} else if (['mindplate', 'psychicmemory', 'twistedspoon', 'sitrusberry', 'tamatoberry', 'payapaberry', 'starfberry'].includes(item.id)) {
 				move.type = 'Psychic';
-			}
-			else if (['stoneplate', 'rockmemory', 'hardstone', 'wikiberry', 'magostberry', 'chartiberry', 'micleberry'].includes(item.id)) {
+			} else if (['stoneplate', 'rockmemory', 'hardstone', 'wikiberry', 'magostberry', 'chartiberry', 'micleberry'].includes(item.id)) {
 				move.type = 'Rock';
-			}
-			else if (['ironplate', 'steelmemory', 'metalcoat', 'razzberry', 'pamtreberry', 'babiriberry'].includes(item.id)) {
+			} else if (['ironplate', 'steelmemory', 'metalcoat', 'razzberry', 'pamtreberry', 'babiriberry'].includes(item.id)) {
 				move.type = 'Steel';
-			}
-			else if (['splashplate', 'watermemory', 'mysticwater', 'chestoberry', 'nanabberry', 'durinberry', 'passhoberry'].includes(item.id)) {
+			} else if (['splashplate', 'watermemory', 'mysticwater', 'chestoberry', 'nanabberry', 'durinberry', 'passhoberry'].includes(item.id)) {
 				move.type = 'Water';
 			}
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hidden Power", target);
 		},
@@ -1289,8 +1272,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-fail', source, '[from] ability: ' + source.getAbility().name, '[of] ' + source);
 				return null;
 			}
-			if (source.hasAbility('comatose'))
-				move.heal = [1, 2];
+			if (source.hasAbility('comatose')) { move.heal = [1, 2]; }
 		},
 		onHit(target, source, move) {
 			if (!target.hasAbility('comatose')) {
@@ -1489,10 +1471,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		selfSwitch: true,
-		onPrepareHit: function(target, source, move) {
-            this.attrLastMove('[still]');
-            this.add('-anim', source, "Moonblast", target);
-        },
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Moonblast", target);
+		},
 		secondary: null,
 		shortDesc: "The user switches out after using the move.",
 		target: "normal",
@@ -1513,10 +1495,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			spe: 1,
 		},
 		secondary: null,
-		onPrepareHit: function(target, source, move) {
-            this.attrLastMove('[still]');
-            this.add('-anim', source, "Aurora Veil", target);
-        },
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Aurora Veil", target);
+		},
 		target: "self",
 		shortDesc: "Raises the user's Atk, Def and Spe.",
 		type: "Ice",
@@ -1537,7 +1519,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Dragon",
 		contestType: "Clever",
 		shortDesc: "Forces the target to switch to a random ally.",
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Whirlpool", target);
 		},
@@ -1572,7 +1554,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Gunk Shot", target);
 		},
@@ -1595,7 +1577,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bolt Strike", target);
 		},
@@ -1812,7 +1794,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		onModifyMove(move, pokemon) {
-			if (!(pokemon.set.ivs['spa'] % 2)){
+			if (!(pokemon.set.ivs['spa'] % 2)) {
 				move.type = 'Fire';
 			} else {
 				move.type = 'Ice';
@@ -1834,7 +1816,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Charge", target);
 			this.add('-anim', source, "Iron Tail", target);
@@ -1902,7 +1884,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Protect", target);
 			this.add('-anim', source, "Burn Up", target);
@@ -1921,7 +1903,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bullet: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Toxic", target);
 			this.add('-anim', source, "Sludge Bomb", target);
@@ -1942,7 +1924,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 30,
 		priority: 1,
 		flags: {protect: 1, mirror: 1, contact: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Sting", target);
 		},
@@ -1963,14 +1945,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
- 		onPrepareHit: function(target, source, move) {
+ 		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Shore Up", target);
 		},
 		self: {
 			onHit(pokemon, source, move) {
 				this.heal(source.baseMaxhp / 3, source, pokemon);
-			}
+			},
 		},
 		onHitField(target, source) {
 			if (target.hasType('Water')) {
@@ -1986,7 +1968,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Ground",
-	},	
+	},
 	"hurricanetoss": {
 		num: 40119,
 		accuracy: 100,
@@ -2017,7 +1999,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 40,
 		priority: 1,
 		flags: {},
- 		onPrepareHit: function(target, source, move) {
+ 		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Baton Pass", target);
 		},
@@ -2208,7 +2190,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {sound: 1, reflectable: 1, protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 		    this.attrLastMove('[still]');
 		    this.add('-anim', source, "Psywave", target);
 		},
@@ -3067,13 +3049,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 40,
 		category: "Physical",
-    shortDesc: "Usually goes first. 10% chance to poison foe.",
+		shortDesc: "Usually goes first. 10% chance to poison foe.",
 		isViable: true,
 		name: "Poison Dart",
 		pp: 30,
 		priority: 1,
 		flags: {protect: 1, mirror: 1},
- 		onPrepareHit: function(target, source, move) {
+ 		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Poison Sting", target);
 		},
@@ -3089,13 +3071,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-    shortDesc: "Destroys screens, unless the target is immune. 10% poison chance.",
+		shortDesc: "Destroys screens, unless the target is immune. 10% poison chance.",
 		isViable: true,
 		name: "Acidic Fists",
 		pp: 10,
 		priority: 0,
 		flags: {punch: 1, contact: 1, protect: 1, mirror: 1},
- 		onPrepareHit: function(target, source, move) {
+ 		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Poison Jab", target);
 		  this.add('-anim', source, "Corrosive Gas", target);
@@ -3120,13 +3102,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 75,
 		basePower: 0,
 		category: "Status",
-    shortDesc: "Burns the target.",
+		shortDesc: "Burns the target.",
 		isViable: true,
 		name: "Rash Powder",
 		pp: 30,
 		priority: 0,
 		flags: {powder: 1, protect: 1, reflectable: 1, mirror: 1},
- 		onPrepareHit: function(target, source, move) {
+ 		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Spore", target);
 		},
@@ -3143,8 +3125,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onBasePower(basePower, pokemon, target) {
 			if (pokemon.species.id === 'breloom' && (target.status || target.hasAbility('comatose'))) {
 				return this.chainModify(2);
-			}
-			else if (target.status === 'psn' || target.status === 'tox') {
+			} else if (target.status === 'psn' || target.status === 'tox') {
 				return this.chainModify(2);
 			}
 		},
@@ -3162,12 +3143,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 80,
 		category: "Physical",
 		defensiveCategory: "Special",
-    shortDesc: "Damages target based on Sp. Def, not Defense.",
+		shortDesc: "Damages target based on Sp. Def, not Defense.",
 		name: "Enchanted Punch",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1, punch: 1},
- 		onPrepareHit: function(target, source, move) {
+ 		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Meteor Mash", target);
 		},
@@ -3176,7 +3157,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Fairy",
 		contestType: "Beautiful",
 	},
-// jolte payback and revenge go here
+	// jolte payback and revenge go here
 
 	takeheart: {
 		accuracy: true,
@@ -3211,7 +3192,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		priority: -1,
 		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		volatileStatus: 'flinch',
- 		onPrepareHit: function(target, source, move) {
+ 		onPrepareHit(target, source, move) {
 		  this.attrLastMove('[still]');
 		  this.add('-anim', source, "Glare", target);
 		},
@@ -3251,7 +3232,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				target.addVolatile('healblock');
 			}
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mega Punch", target);
 		},
@@ -3292,7 +3273,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, distance: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aeroblast", target);
 		},

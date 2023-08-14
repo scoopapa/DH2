@@ -2975,7 +2975,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			naturalgift: ["8L1"],
 			protect: ["8L1"],
 			rest: ["8L1"],
-			return: ["8L1"],
 			round: ["8L1"],
 			secretpower: ["8L1"],
 			sleeptalk: ["8L1"],

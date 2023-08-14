@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
   flamester: {learnset: {
     aerialace: ["7L1", "8L1", "9L1"],
     assist: ["7L1", "8L1", "9L1"],

@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedMoveData}} */
-let BattleMovedex = {
+const BattleMovedex = {
 	absorb: {
 		inherit: true,
 		basePower: 40,
@@ -43,9 +43,9 @@ let BattleMovedex = {
 	metronome: {
 		inherit: true,
 		onHit(target, source, effect) {
-			let moves = [];
-			for (let i in exports.BattleMovedex) {
-				let move = this.dex.moves.get(i);
+			const moves = [];
+			for (const i in exports.BattleMovedex) {
+				const move = this.dex.moves.get(i);
 				if (i !== move.id) continue;
 				if (move.gen !== 1) continue;
 				// @ts-ignore

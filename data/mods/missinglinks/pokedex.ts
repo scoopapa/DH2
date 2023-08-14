@@ -305,7 +305,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Slowkinite",
 	},
-/*
+	/*
 	mankey: {
 		inherit: true,
 		otherFormes: ["Mankey-Alola"],

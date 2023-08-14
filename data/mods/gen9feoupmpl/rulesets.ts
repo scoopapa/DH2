@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	megadatamod: {
 		effectType: 'Rule',
 		name: 'Mega Data Mod',
@@ -38,4 +38,4 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 	},
-  };
+};

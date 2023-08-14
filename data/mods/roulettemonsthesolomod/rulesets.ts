@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	datamod: {
 		effectType: 'Rule',
 		name: 'Data Mod',
@@ -34,7 +34,7 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onSwitchIn(pokemon) {
 			let species = this.dex.species.get(pokemon.species.name);
-			let switchedIn = pokemon.switchedIn;
+			const switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
 				species = this.dex.species.get(pokemon.illusion.species.name);
 				console.log(pokemon.illusion.name + " is being reported");
@@ -75,7 +75,7 @@ export const Formats: {[k: string]: FormatData} = {
 					this.add('-start', target, 'typechange', target.getTypes(true).join('/'), '[silent]');
 					if (!target.switchedIn) {
 						target.switchedIn = true;
-						let species = this.dex.species.get(target.species.name);
+						const species = this.dex.species.get(target.species.name);
 						let abilities = species.abilities[0];
 						if (species.abilities[1]) {
 							abilities += ` / ${species.abilities[1]}`;
@@ -105,7 +105,7 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 		},
 	},
-	
+
 	speciesclause: {
 		effectType: 'ValidatorRule',
 		name: 'Species Clause',
@@ -118,7 +118,6 @@ export const Formats: {[k: string]: FormatData} = {
 			for (const set of team) {
 				const species = this.dex.species.get(set.species);
 				if (speciesTable.has(species)) {
-					
 					return [`You are limited to one of each Pokémon by Species Clause.`, `(You have more than one ${species.name})`];
 				}
 				speciesTable.add(species);

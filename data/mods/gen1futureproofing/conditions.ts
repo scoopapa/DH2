@@ -87,7 +87,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Status',
 		onStart(target) {
 			this.add('-status', target, 'frz');
-			//1-5 turns
+			// 1-5 turns
 			this.effectState.startTime = this.random(1, 5);
 			this.effectState.time = this.effectState.startTime;
 		},
@@ -202,7 +202,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	partialtrappinglock: {
 		name: 'partialtrappinglock',
 		durationCallback() {
-			const duration = this.sample([2, 2, 2, 2, 3, 3, 3, 3]); //edited duration to 2-3
+			const duration = this.sample([2, 2, 2, 2, 3, 3, 3, 3]); // edited duration to 2-3
 			return duration;
 		},
 		onResidual(target) {

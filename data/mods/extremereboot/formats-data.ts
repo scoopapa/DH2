@@ -3,19 +3,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	// - No Guard Up without Floral Breeze or Withering Breeze
 	// - No Field or Weather moves unless something on the team can abuse it
 	// - No Uproot or Hard Reset at the same time as Rubbles or Field
-	
+
 	extremeribbit: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	baobloss: {
 		randomBattleMoves: ['blossomout', 'floralbreeze', 'guardup', 'purification', 'soothingtune', 'growthpower'],
-        randomBattleLevel: 100,
+		randomBattleLevel: 100,
 		tier: "OU",
 		doublesTier: "DOU",
 	},
 	tenquarrel: {
-        randomBattleLevel: 100,
+		randomBattleLevel: 100,
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -300,12 +300,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	// bozunami: {
-		// tier: "OU",
-		// doublesTier: "DOU",
+	// tier: "OU",
+	// doublesTier: "DOU",
 	// },
 	// cryptice: {
-		// tier: "OU",
-		// doublesTier: "DOU",
+	// tier: "OU",
+	// doublesTier: "DOU",
 	// },
 	mekangiras: {
 		tier: "OU",

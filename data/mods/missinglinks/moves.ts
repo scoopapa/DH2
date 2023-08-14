@@ -41,8 +41,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 				if (move.flags['contact'] && target.species.name === 'Chesnaught-Steel' && target.hasAbility('battlebond')) {
 					this.damage(source.baseMaxhp / 4, source, target);
-				}
-				else if (move.flags['contact']) {
+				} else if (move.flags['contact']) {
 					this.damage(source.baseMaxhp / 8, source, target);
 				}
 				return this.NOT_FAIL;
@@ -50,8 +49,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onHit(target, source, move) {
 				if (move.isZOrMaxPowered && move.flags['contact'] && target.species.name === 'Chesnaught-Steel' && target.hasAbility('battlebond')) {
 					this.damage(source.baseMaxhp / 4, source, target);
-				}
-				else if (move.isZOrMaxPowered && move.flags['contact']) {
+				} else if (move.isZOrMaxPowered && move.flags['contact']) {
 					this.damage(source.baseMaxhp / 8, source, target);
 				}
 			},

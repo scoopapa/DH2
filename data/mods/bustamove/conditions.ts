@@ -24,7 +24,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-end', pokemon, this.effectState.sourceEffect, '[jawlock]');
 		},
 	},
-	/*diving: {
+	/* diving: {
 		name: 'diving',
 		duration: 2,
 		onStart(pokemon) {

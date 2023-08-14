@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedAbilityData}} */
-let BattleAbilities = {
+const BattleAbilities = {
 	"cutecharm": {
 		inherit: true,
 		desc: "There is a 1/3 chance a Pokemon making contact with this Pokemon will become infatuated if it is of the opposite gender.",
@@ -20,7 +20,7 @@ let BattleAbilities = {
 		shortDesc: "10% chance of poison/paralysis/sleep on others making contact with this Pokemon.",
 		onAfterDamage(damage, target, source, move) {
 			if (move && move.flags['contact'] && !source.status) {
-				let r = this.random(300);
+				const r = this.random(300);
 				if (r < 10) {
 					source.setStatus('slp', target);
 				} else if (r < 20) {
@@ -176,10 +176,10 @@ let BattleAbilities = {
 		inherit: true,
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted) return;
-			let target = pokemon.side.foe.randomActive();
+			const target = pokemon.side.foe.randomActive();
 			if (!target || target.fainted) return;
-			let ability = this.dex.abilities.get(target.ability);
-			let bannedAbilities = ['forecast', 'multitype', 'trace'];
+			const ability = this.dex.abilities.get(target.ability);
+			const bannedAbilities = ['forecast', 'multitype', 'trace'];
 			if (bannedAbilities.includes(target.ability)) {
 				return;
 			}

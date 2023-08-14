@@ -1,8 +1,8 @@
 export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
-// SLATE 1
+	// SLATE 1
 
-// sample entry... mostly to remind me of the functionality I need P:
+	// sample entry... mostly to remind me of the functionality I need P:
 	raticate: {
 		inherit: true,
 		evos: ["Plaguicate"], // Eviolite compatibility
@@ -335,7 +335,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "Magmajudis",
 	},
 
-// SLATE 2
+	// SLATE 2
 
 	greedent: {
 		inherit: true,
@@ -426,7 +426,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyMoves: "Snover", // although its data is based on Abomasnow, it doesn't have all of Abomasnow's moves
 		movepoolAdditions: [
 			"brickbreak", "bulldoze", "earthpower", "focuspunch", "gigaimpact", "hyperbeam", "leafstorm", "outrage", "rapidspin", "rockclimb", "rockslide",
-			"rocktomb", "uturn"
+			"rocktomb", "uturn",
 		],
 
 		prevo: "Snover",
@@ -741,7 +741,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Fur Coat", 1: "Tough Claws", H: "Sand Rush"},
 		movepoolAdditions: [
 			"accelerock", "assurance", "blizzard", "brickbreak", "bulkup", "closecombat", "counter", "drillrun", "gigaimpact", "icebeam", "icywind", "psychicfangs",
-			"quickguard", "revenge", "reversal", "rockblast", "sandstorm", "shoreup", "tripleaxel", "workup"
+			"quickguard", "revenge", "reversal", "rockblast", "sandstorm", "shoreup", "tripleaxel", "workup",
 		],
 
 		prevo: "Rockruff",
@@ -914,7 +914,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "quagsi",
 	},
 
-// SLATE 3
+	// SLATE 3
 
 	mantyke: {
 		inherit: true,
@@ -1505,7 +1505,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		creator: "inkbug",
 	},
 
-// SLATE 4
+	// SLATE 4
 
 	eevee: {
 		inherit: true,
@@ -1520,7 +1520,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: [
 			"blizzard", "chargebeam", "discharge", "expandingforce", "futuresight", "gigaimpact", "haze", "hyperbeam", "icebeam", "icywind", "magiccoat",
 			"naturepower", "psychic", "psyshock", "reflect", "reflecttype", "risingvoltage", "scald", "shockwave", "signalbeam", "skillswap", "snarl", "solarbeam",
-			"suckerpunch", "surf", "terrainpulse", "thunder", "thunderbolt", "thunderwave", "trick", "voltswitch", "waterpulse", "wonderroom", "zapcannon"
+			"suckerpunch", "surf", "terrainpulse", "thunder", "thunderbolt", "thunderwave", "trick", "voltswitch", "waterpulse", "wonderroom", "zapcannon",
 		],
 
 		prevo: "Eevee",
@@ -1751,7 +1751,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["bodyslam", "workup"],
 		movepoolDeletions: [
 			"bulldoze", "dazzlinggleam", "dig", "drillrun", "earthpower", "earthquake", "frustration", "grassknot", "gyroball", "hiddenpower", "icebeam",
-			"nastyplot", "rockslide", "rocktomb", "sandtomb", "scorchingsands", "signalbeam", "stoneedge"
+			"nastyplot", "rockslide", "rocktomb", "sandtomb", "scorchingsands", "signalbeam", "stoneedge",
 		],
 
 		evos: ["Playdol"],
@@ -1767,7 +1767,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["bodyslam", "workup"],
 		movepoolDeletions: [
 			"bulldoze", "dazzlinggleam", "dig", "drillrun", "earthpower", "earthquake", "frustration", "grassknot", "gyroball", "hiddenpower", "icebeam",
-			"nastyplot", "rockslide", "rocktomb", "sandtomb", "scorchingsands", "signalbeam", "stoneedge"
+			"nastyplot", "rockslide", "rocktomb", "sandtomb", "scorchingsands", "signalbeam", "stoneedge",
 		],
 
 		prevo: "Baltoy-Variant",
@@ -1827,10 +1827,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lightning Rod", 1: "Battery", H: "Static"},
 		movepoolAdditions: [
 			"charge", "electroweb", "gunkshot", "hiddenpower", "raindance", "risingvoltage", "sludgebomb", "thunder", "thunderwave", "thunderbolt", "toxic",
-			"wildcharge"
+			"wildcharge",
 		],
 		movepoolDeletions: [
-			"burnup", "ember", "fireblast", "firelash", "firespin", "flamewheel", "flamethrower", "flareblitz", "heatcrash", "inferno", "mysticalfire", "sunnyday"
+			"burnup", "ember", "fireblast", "firelash", "firespin", "flamewheel", "flamethrower", "flareblitz", "heatcrash", "inferno", "mysticalfire", "sunnyday",
 		],
 
 		evos: ["Centiskorch-Kanto"],
@@ -1851,10 +1851,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Lightning Rod", 1: "Battery", H: "Static"},
 		movepoolAdditions: [
 			"charge", "electroweb", "gunkshot", "hiddenpower", "raindance", "risingvoltage", "sludgebomb", "thunder", "thunderwave", "thunderbolt", "toxic",
-			"wildcharge"
+			"wildcharge",
 		],
 		movepoolDeletions: [
-			"burnup", "ember", "fireblast", "firelash", "firespin", "flamewheel", "flamethrower", "flareblitz", "heatcrash", "inferno", "mysticalfire", "sunnyday"
+			"burnup", "ember", "fireblast", "firelash", "firespin", "flamewheel", "flamethrower", "flareblitz", "heatcrash", "inferno", "mysticalfire", "sunnyday",
 		],
 
 		prevo: "Sizzlipede-Kanto",

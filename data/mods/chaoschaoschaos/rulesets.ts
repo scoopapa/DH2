@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: ModdedFormatsData} = {
+export const Rulesets: {[k: string]: ModdedFormatsData} = {
 	standardpetmod: {
 		inherit: true,
 		ruleset: ['[Gen 8] OU', '!Species Clause'],
@@ -8,10 +8,10 @@ export const Formats: {[k: string]: ModdedFormatsData} = {
 			this.add('rule', 'Chaos Chaos Chaos: Limit one of each Pokémon');
 		},
 		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
+			/** @type {{[k: string]: true}} */
+			const speciesTable = {};
 			for (const set of team) {
-				let template = this.getTemplate(set.species);
+				const template = this.getTemplate(set.species);
 				if (speciesTable[template.species]) {
 					return ["You are limited to one of each Pokémon by Chaos Chaos Chaos.", "(You have more than one " + template.species + ")"];
 				}

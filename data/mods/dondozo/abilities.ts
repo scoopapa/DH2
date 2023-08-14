@@ -3,7 +3,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	imterrifiedofdondozo: {
 		onDamagingHit(damage, target, source, move) {
 			if (source.species.dondozo) {
-				this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe:2},);
+				this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe: 2},);
 			}
 		},
 		name: "I'm terrified of Dondozo",
@@ -35,7 +35,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onCriticalHit(target, type, move) {
 			if (!target) return;
-			//if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
+			// if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (move.category !== 'Physical' || target.species.id !== 'eisugiri' || target.transformed) return;
 			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
 			if (!target.runImmunity(move.type)) return;
@@ -43,7 +43,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target) return;
-			//if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
+			// if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (move.category !== 'Physical' || target.species.id !== 'eisugiri' || target.transformed) return;
 
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
@@ -83,14 +83,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
 		onSourceTryPrimaryHit(target, source, effect) {
-            if (effect && 
-				effect.id === 'surf' && 
+			if (effect &&
+				effect.id === 'surf' &&
 				source.hasAbility('nauticalnuke') &&
                 source.species.name === 'Cramogiri' && !source.transformed) {
 				const forme = 'cramogirigorging';
-                source.formeChange(forme, effect);
-            }
-        },
+				source.formeChange(forme, effect);
+			}
+		},
 		isPermanent: true,
 		name: "Nautical Nuke",
 		shortDesc: "When hit after Surf/Dive, attacker takes 1/4 max HP and -2 to all stats.",
@@ -99,19 +99,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchOut(pokemon) {
 			pokemon.heal(pokemon.baseMaxhp / 3);
 			pokemon.side.addSlotCondition(pokemon, 'paramedic');
-        },
-        condition: {
-            onStart(pokemon, source) {
-                this.effectState.hp = source.maxhp / 3;
-            },
-            onSwap(target) {
-                if (!target.fainted && target.species.dondozo) {
-                    const damage = this.heal(this.effectState.hp, target, target);
-                    if (damage) this.add('-heal', target, target.getHealth, '[from] ability: Paramedic', '[of] ' + this.effectState.source);
-                    target.side.removeSlotCondition(target, 'paramedic');
-                }
-            },
-        },
+		},
+		condition: {
+			onStart(pokemon, source) {
+				this.effectState.hp = source.maxhp / 3;
+			},
+			onSwap(target) {
+				if (!target.fainted && target.species.dondozo) {
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) this.add('-heal', target, target.getHealth, '[from] ability: Paramedic', '[of] ' + this.effectState.source);
+					target.side.removeSlotCondition(target, 'paramedic');
+				}
+			},
+		},
 		name: "Paramedic",
 		shortDesc: "If switching out into Dondozo, both Pokemon are healed, each for 33.3% of its Max HP.",
 	},
@@ -137,7 +137,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'not paying attention to dondozo at all, sorry');
 			this.add('-message', '${pokemon.name} is ignoring Dondozo!');
 		},
-		//effects in various other abilities
+		// effects in various other abilities
 		name: "not paying attention to dondozo at all, sorry",
 		shortDesc: "This Pokemon ignores the abilities with Dondozo in it.",
 	},
@@ -236,41 +236,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	fishingseason: {
 		onStart(source) {
-            let activated = false;
-            for (const pokemon of source.side.foe.active) {
-                if (!activated) {
-                    this.add('-ability', source, 'Fishing Season');
-                }
-                activated = true;
-                if (!pokemon.volatiles['gastroacid'] && pokemon.species.dondozo) {
-                    pokemon.addVolatile('gastroacid');
+			let activated = false;
+			for (const pokemon of source.side.foe.active) {
+				if (!activated) {
+					this.add('-ability', source, 'Fishing Season');
+				}
+				activated = true;
+				if (!pokemon.volatiles['gastroacid'] && pokemon.species.dondozo) {
+					pokemon.addVolatile('gastroacid');
 					pokemon.addVolatile('fishingseason');
-                }
-            }
-        },
-        onAnySwitchIn(pokemon) {
-            const source = this.effectState.target;
-            if (pokemon === source) return;
-            for (const target of source.side.foe.active) {
-                if (!target.volatiles['gastroacid'] && target.species.dondozo) {
-                    target.addVolatile('gastroacid');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectState.target;
+			if (pokemon === source) return;
+			for (const target of source.side.foe.active) {
+				if (!target.volatiles['gastroacid'] && target.species.dondozo) {
+					target.addVolatile('gastroacid');
 					target.addVolatile('fishingseason');
-                }
-            }
-        },
-        onEnd(pokemon) {
-            const source = this.effectState.target;
-            for (const target of source.side.foe.active) {
-                target.removeVolatile('gastroacid');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			const source = this.effectState.target;
+			for (const target of source.side.foe.active) {
+				target.removeVolatile('gastroacid');
 				target.removeVolatile('fishingseason');
-            }
-        },
+			}
+		},
 		condition: {
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
 					pokemon.disableMove(moveSlot);
 				}
-			}
+			},
 		},
 		name: "Fishing Season",
 		shortDesc: "While this Pokemon is active, Dondozo is suppressed.",
@@ -283,23 +283,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
-				if(target.activeTurns &&
+				if (target.activeTurns &&
 				   target.ability !== 'fishesofruin' &&
 				   target.ability !== 'commatose' &&
 				   target.ability !== 'ouroboros' &&
 				   target.ability !== 'nauticalnuke' &&
-				   target.ability !== 'notpayingattentiontodondozoatallsorry') 
-				   target.addVolatile('fishesofruin');
+				   target.ability !== 'notpayingattentiontodondozoatallsorry') { target.addVolatile('fishesofruin'); }
 			}
 		},
 		onFaint(pokemon) {
 			for (const target of pokemon.foes()) {
-				if(target.volatiles['fishesofruin']) target.removeVolatile('fishesofruin');
+				if (target.volatiles['fishesofruin']) target.removeVolatile('fishesofruin');
 			}
 		},
 		onEnd(pokemon) {
 			for (const target of pokemon.foes()) {
-				if(target.volatiles['fishesofruin']) target.removeVolatile('fishesofruin');
+				if (target.volatiles['fishesofruin']) target.removeVolatile('fishesofruin');
 			}
 		},
 		condition: {
@@ -326,9 +325,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (!target.hp) {
-				if (source.ability !== 'notpayingattentiontodondozoatallsorry')
-					this.damage(Math.floor(target.getUndynamaxedHP(damage) * 1.546), source, target);
-				else this.damage(target.getUndynamaxedHP(damage), source, target);
+				if (source.ability !== 'notpayingattentiontodondozoatallsorry') { this.damage(Math.floor(target.getUndynamaxedHP(damage) * 1.546), source, target); } else { this.damage(target.getUndynamaxedHP(damage), source, target); }
 			}
 		},
 		shortDesc: "When this Pokemon is knocked out by an opponent's attack, it deals damage to that opponent equal to Dondozo's HP.",
@@ -350,23 +347,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When this Pokemon attacks and KOes another Pokemon, it transforms into Dondozo.",
 	},
 	zombiefish: {
-        shortDesc: "When this Pokemon faints, it's replaced by a Dondozo with 1/4 max HP.",
-        name: "Zombie Fish",
-        onBeforeSwitchIn(pokemon) {
-            if (pokemon.zombie) {
-                pokemon.setAbility('unaware');
-                pokemon.baseAbility = 'unaware';
-                pokemon.ability = 'unaware';
-                pokemon.zombie = false;
-                pokemon.switchedIn = undefined;
-            }
-        },
-        onFaint(pokemon) {
-            if (pokemon.species.baseSpecies === 'Drifugiri' && !pokemon.transformed && !pokemon.zombie && this.canSwitch(pokemon.side)) {
-                if (pokemon.formeChange('Drifugiri-Dondozo', this.effect, true)) {
-                    this.add('-ability', pokemon, 'Zombie Fish');
-                    pokemon.zombie = true;
-                    pokemon.hp = Math.floor(pokemon.maxhp / 4);
+		shortDesc: "When this Pokemon faints, it's replaced by a Dondozo with 1/4 max HP.",
+		name: "Zombie Fish",
+		onBeforeSwitchIn(pokemon) {
+			if (pokemon.zombie) {
+				pokemon.setAbility('unaware');
+				pokemon.baseAbility = 'unaware';
+				pokemon.ability = 'unaware';
+				pokemon.zombie = false;
+				pokemon.switchedIn = undefined;
+			}
+		},
+		onFaint(pokemon) {
+			if (pokemon.species.baseSpecies === 'Drifugiri' && !pokemon.transformed && !pokemon.zombie && this.canSwitch(pokemon.side)) {
+				if (pokemon.formeChange('Drifugiri-Dondozo', this.effect, true)) {
+					this.add('-ability', pokemon, 'Zombie Fish');
+					pokemon.zombie = true;
+					pokemon.hp = Math.floor(pokemon.maxhp / 4);
 					const randAbil = this.random(3);
 					if (randAbil < 1) pokemon.setAbility('unaware');
 					else if (randAbil < 2) pokemon.setAbility('waterveil');
@@ -379,7 +376,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						target: "normal",
 						disabled: false,
 						used: false,
-					}
+					};
 					const curse = {
 						move: "Curse",
 						id: "curse",
@@ -389,7 +386,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						nonGhostTarget: "self",
 						disabled: false,
 						used: false,
-					}
+					};
 					const sleeptalk = {
 						move: "Sleep Talk",
 						id: "sleeptalk",
@@ -398,7 +395,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						target: "self",
 						disabled: false,
 						used: false,
-					}
+					};
 					const rest = {
 						move: "Rest",
 						id: "rest",
@@ -407,7 +404,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						target: "self",
 						disabled: false,
 						used: false,
-					}
+					};
 					const eq = {
 						move: "Earthquake",
 						id: "earthquake",
@@ -416,7 +413,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						target: "allAdjacent",
 						disabled: false,
 						used: false,
-					}
+					};
 					pokemon.moveSlots[0] = avalanche;
 					pokemon.baseMoveSlots[0] = avalanche;
 					const randMove = this.random(2);
@@ -431,14 +428,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.baseMoveSlots[1] = rest;
 					pokemon.moveSlots[2] = eq;
 					pokemon.baseMoveSlots[2] = eq;
-                }
-            }
-        },
-        isUnbreakable: true,
-        isPermanent: true,
-        rating: 5,
-        num: -1001,
-    },
+				}
+			}
+		},
+		isUnbreakable: true,
+		isPermanent: true,
+		rating: 5,
+		num: -1001,
+	},
 	emergencymeeting: {
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
@@ -459,7 +456,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target: "normal",
 				disabled: false,
 				used: false,
-			}
+			};
 			const bodypress = {
 				move: "Body Press",
 				id: "bodypress",
@@ -468,7 +465,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target: "normal",
 				disabled: false,
 				used: false,
-			}
+			};
 			const earthquake = {
 				move: "Earthquake",
 				id: "earthquake",
@@ -477,7 +474,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target: "normal",
 				disabled: false,
 				used: false,
-			}
+			};
 			const rest = {
 				move: "Rest",
 				id: "rest",
@@ -486,7 +483,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target: "self",
 				disabled: false,
 				used: false,
-			}
+			};
 			const curse = {
 				move: "Curse",
 				id: "curse",
@@ -495,7 +492,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target: "self",
 				disabled: false,
 				used: false,
-			}
+			};
 			pokemon.moveSlots[0] = avalanche;
 			pokemon.baseMoveSlots[0] = avalanche;
 			const randMove = this.random(2);
@@ -510,25 +507,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.baseMoveSlots[1] = rest;
 			pokemon.moveSlots[2] = curse;
 			pokemon.baseMoveSlots[2] = curse;
-			this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe:2},);
+			this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe: 2},);
 		},
 		name: "Emergency Meeting",
 		shortDesc: "On switchin, this Pokemon transforms into Dondozo and gains +2 in all stats.",
 	},
 	yeah: {
-        onStart(pokemon) {
+		onStart(pokemon) {
 			console.log(pokemon.side.pokemon.filter(pokemon => pokemon.species.dondozo && !pokemon.fainted));
-            const dondozo = pokemon.side.pokemon.filter(pokemon => pokemon.species.dondozo && !pokemon.fainted).length;
-            this.add('-start', pokemon, `Dondozo: ${this.effectState.dondozo}`, '[silent]');
-            this.boost({atk: dondozo * 2, def: dondozo * 2, spa:dondozo *  2, spd: dondozo * 2, spe: dondozo * 2});
-            this.effectState.dondozo = dondozo;
-        },
-        onEnd(pokemon) {
-            this.add('-end', pokemon, `Dondozo: ${this.effectState.dondozo}`, '[silent]');
-        },
-        name: "yeah",
-        shortDesc: "On switchin, this Pokemon gains +2 to all stats for each Dondozo on its team.",
-    },
+			const dondozo = pokemon.side.pokemon.filter(pokemon => pokemon.species.dondozo && !pokemon.fainted).length;
+			this.add('-start', pokemon, `Dondozo: ${this.effectState.dondozo}`, '[silent]');
+			this.boost({atk: dondozo * 2, def: dondozo * 2, spa: dondozo * 2, spd: dondozo * 2, spe: dondozo * 2});
+			this.effectState.dondozo = dondozo;
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `Dondozo: ${this.effectState.dondozo}`, '[silent]');
+		},
+		name: "yeah",
+		shortDesc: "On switchin, this Pokemon gains +2 to all stats for each Dondozo on its team.",
+	},
 	callforhelp: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
@@ -585,9 +582,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	ouroboros: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Ouroboros');
-			this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe:2},);
+			this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe: 2},);
 			pokemon.faint();
-			//pokemon.addVolatile('trapped');
+			// pokemon.addVolatile('trapped');
 		},
 		/*
 		onUpdate(pokemon) {
@@ -653,7 +650,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const set = {
 			   name: "Dondozo",
 			   moves: ["Liquidation", "Body Press", "Curse", "Rest"],
-			}
+			};
 			pokemon.illusion = new Pokemon(set, pokemon.side);
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -765,18 +762,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	fishnet: {
 		onFoeTrapPokemon(pokemon) {
-            if (!this.isAdjacent(pokemon, this.effectState.target)) return;
-            if (pokemon.species.dondozo) {
-                pokemon.tryTrap(true);
-            }
-        },
-        onFoeMaybeTrapPokemon(pokemon, source) {
-            if (!source) source = this.effectState.target;
-            if (!source || !this.isAdjacent(pokemon, source)) return;
-            if (pokemon.species.dondozo) { // Negate immunity if the type is unknown
-                pokemon.maybeTrapped = true;
-            }
-        },
+			if (!this.isAdjacent(pokemon, this.effectState.target)) return;
+			if (pokemon.species.dondozo) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectState.target;
+			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (pokemon.species.dondozo) { // Negate immunity if the type is unknown
+				pokemon.maybeTrapped = true;
+			}
+		},
 		name: "Fishnet",
 		shortDesc: "Prevents opposing Dondozo from switching out.",
 	},
@@ -790,7 +787,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		//dondozo effect in pokedex.ts
+		// dondozo effect in pokedex.ts
 		name: "Commatose",
 		isPermanent: true,
 		shortDesc: "This Pokemon cannot be statused, and is considered to be Dondozo.",
@@ -815,7 +812,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.species.dondozo) {
 					this.add('-ability', pokemon, 'Anticipation');
 					this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe:2});
-					return;	
+					return;
 				}
 			}
 		},*/
@@ -829,4 +826,4 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Dondophobic",
 		shortDesc: "This Pokemon heals 1/4 max HP against non-Dondozo and damaged 1/8 max HP against Dondozo at the end of each turn.",
 	},
-}
+};

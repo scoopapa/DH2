@@ -1,18 +1,4 @@
-/config/chatrooms.json
-.config-dist
-.data-dist
-.git
-.github
-.lib-dist
-.server-dist
-.sim-dist
-.translations-dist
-node_modules
-build.exe
-logs/lastbattle.txt
-config/chat-plugins/mafia-logs.json
-logs/errors.txt
-
+/config/*
 !/config/formats.ts
 /logs/*
 /test/modlogs
@@ -25,7 +11,6 @@ logs/errors.txt
 npm-debug.log
 .eslintcache
 .eslintcache-no-types
-package-lock.json
 /tools/set-import/sets
 databases/*.db*
 *.o
@@ -36,6 +21,10 @@ tools/set-import/importer.js
 tools/modlog/converter.js
 *.tsbuildinfo
 **/sourceMaps
+
+!test/**/*.js
+tools/modlog/**/*.js
+tools/set-import/*.js
 
 # visual studio live share
 .vs

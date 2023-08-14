@@ -1,5 +1,5 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
-/*Gen 7 MetaMons*/
+/* Gen 7 MetaMons*/
  	altaria: {
 		num: 334,
 		name: "Altaria",
@@ -12,7 +12,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Swablu",
 		evoLevel: 35,
 		eggGroups: ["Flying", "Dragon"],
-    },
+	},
 	ampharos: {
 		num: 181,
 		name: "Ampharos",
@@ -80,7 +80,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Shuppet",
 		evoLevel: 37,
 		eggGroups: ["Amorphous"],
-    },
+	},
 	bastiodongen7: {
 		num: 411,
 		name: "Bastiodon-Gen 7",
@@ -441,7 +441,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 30,
 		eggGroups: ["Field"],
 	},
-/*Gen 8 MetaMons*/
+	/* Gen 8 MetaMons*/
 	whimsicott: {
 		num: 547,
 		name: "Whimsicott",
@@ -955,7 +955,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "White",
 		eggGroups: ["Field"],
 	},
-/*Gen 9 MetaMons*/
+	/* Gen 9 MetaMons*/
 	veluza: {
 		num: 976,
 		name: "Veluza",

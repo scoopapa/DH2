@@ -8,13 +8,15 @@
     }
   },
   "ignorePatterns": [
-    "logs/",
-    "node_modules/",
-    ".*-dist/",
-    "tools/set-import/importer.js",
-    "tools/set-import/sets",
-    "tools/modlog/converter.js",
-    "server/global-variables.d.ts"
+    "/logs/",
+    "/node_modules/",
+    "/dist/",
+    "/data/**/learnsets.ts",
+	"/data/mods/**/learnsets.ts",
+    "/tools/set-import/importer.js",
+    "/tools/set-import/sets",
+    "/tools/modlog/converter.js",
+    "/server/global-variables.d.ts"
  ],
   "env": {
     "es6": true,

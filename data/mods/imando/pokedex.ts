@@ -1,8 +1,8 @@
-import { Streams } from "pokemon-showdown";
-import { TriumvirateModeTrivia } from "../../../server/chat-plugins/trivia";
+import {Streams} from "pokemon-showdown";
+import {TriumvirateModeTrivia} from "../../../server/chat-plugins/trivia";
 
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
-	//Vanilla mons (+ custom megas and regional forms) :
+	// Vanilla mons (+ custom megas and regional forms) :
 	venusaur: {
 		inherit: true,
 		abilities: {0: "Overgrow", H: "Grassy Surge"},
@@ -785,7 +785,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Huge Power"},
 	},
 
-	//Fakemons :
+	// Fakemons :
 	pokat: {
 		num: -1000,
 		name: "Pokat",
@@ -798,7 +798,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 
-	//Hisui :
+	// Hisui :
 	growlithe: {
 		num: 58,
 		name: "Growlithe",
@@ -1447,4 +1447,4 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Enamorus",
 	},
-}
+};

@@ -11,7 +11,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedPureEffectData}} */
-let BattleStatuses = {
+const BattleStatuses = {
 	brn: {
 		name: 'brn',
 		id: 'brn',
@@ -23,7 +23,7 @@ let BattleStatuses = {
 		},
 		onAfterMoveSelfPriority: 2,
 		onAfterMoveSelf(pokemon) {
-			let toxicCounter = pokemon.volatiles['residualdmg'] ? pokemon.volatiles['residualdmg'].counter : 1;
+			const toxicCounter = pokemon.volatiles['residualdmg'] ? pokemon.volatiles['residualdmg'].counter : 1;
 			this.damage(this.dex.clampIntRange(Math.floor(pokemon.maxhp / 16), 1) * toxicCounter, pokemon);
 			if (pokemon.volatiles['residualdmg']) {
 				this.hint("In Gen 1, Toxic's counter is retained after Rest and applies to PSN/BRN.", true);
@@ -121,7 +121,7 @@ let BattleStatuses = {
 		},
 		onAfterMoveSelfPriority: 2,
 		onAfterMoveSelf(pokemon) {
-			let toxicCounter = pokemon.volatiles['residualdmg'] ? pokemon.volatiles['residualdmg'].counter : 1;
+			const toxicCounter = pokemon.volatiles['residualdmg'] ? pokemon.volatiles['residualdmg'].counter : 1;
 			this.damage(this.dex.clampIntRange(Math.floor(pokemon.maxhp / 16), 1) * toxicCounter, pokemon);
 			if (pokemon.volatiles['residualdmg']) {
 				this.hint("In Gen 1, Toxic's counter is retained after Rest and applies to PSN/BRN.", true);
@@ -160,7 +160,7 @@ let BattleStatuses = {
 			}
 			this.add('-activate', pokemon, 'confusion');
 			if (!this.randomChance(128, 256)) {
-				let damage = Math.floor(Math.floor(((Math.floor(2 * pokemon.level / 5) + 2) * pokemon.getStat('atk') * 40) / pokemon.getStat('def', false)) / 50) + 2;
+				const damage = Math.floor(Math.floor(((Math.floor(2 * pokemon.level / 5) + 2) * pokemon.getStat('atk') * 40) / pokemon.getStat('def', false)) / 50) + 2;
 				this.directDamage(damage, pokemon, target);
 				pokemon.removeVolatile('bide');
 				pokemon.removeVolatile('twoturnmove');
@@ -217,7 +217,7 @@ let BattleStatuses = {
 		id: 'partialtrappinglock',
 		num: 0,
 		durationCallback() {
-			let duration = this.sample([2, 2, 2, 3, 3, 3, 4, 5]);
+			const duration = this.sample([2, 2, 2, 3, 3, 3, 4, 5]);
 			return duration;
 		},
 		onResidual(target) {
@@ -263,7 +263,7 @@ let BattleStatuses = {
 		onStallMove() {
 			// this.effectState.counter should never be undefined here.
 			// However, just in case, use 1 if it is undefined.
-			let counter = this.effectState.counter || 1;
+			const counter = this.effectState.counter || 1;
 			if (counter >= 256) {
 				// 2^32 - special-cased because Battle.random(n) can't handle n > 2^16 - 1
 				return (this.random() * 4294967296 < 1);

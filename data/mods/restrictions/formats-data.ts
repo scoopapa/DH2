@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vulcaraptor: {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
@@ -167,7 +167,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},
-		thucotuco: {
+	thucotuco: {
 		tier: "Restrictions",
 		doublesTier: "Restrictions",
 	},

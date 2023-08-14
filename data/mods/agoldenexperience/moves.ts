@@ -255,8 +255,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
-	//unused due to deleted Fakemons
-	/*galvanismash: {
+	// unused due to deleted Fakemons
+	/* galvanismash: {
 		num: -1457,
 		accuracy: 80,
 		basePower: 150,
@@ -497,7 +497,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-    frostbite: {
+	frostbite: {
 		num: -16,
 		accuracy: 90,
 		basePower: 0,
@@ -511,7 +511,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'frostbite',
 		condition: {
 			onStart(target) {
-				if(target.hasType('Fire') || target.hasType('Ice')) {
+				if (target.hasType('Fire') || target.hasType('Ice')) {
 					this.hint("Ice and Fire targets are immune to Frostbite.");
 					return;
 				}
@@ -528,13 +528,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.debug('Nothing to leech into');
 					return;
 				}
-				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); //'[silent]'); //looking at that soon
+				const damage = this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage, pokemon, target,); // '[silent]'); //looking at that soon
 				if (damage) {
 					this.heal(damage, target, pokemon);
 				}
 			},
 		},
-		onPrepareHit: function(target, source) {	
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Icy Wind", target);
 		},
@@ -652,7 +652,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			let bp = move.basePower;
 			if (pokemon.volatiles['backfire'] && pokemon.volatiles['backfire'].hitCount) {
-				bp += 20*pokemon.volatiles['backfire'].hitCount;
+				bp += 20 * pokemon.volatiles['backfire'].hitCount;
 			}
 			if (pokemon.status !== 'slp') pokemon.addVolatile('backfire');
 			this.debug("Rollout bp: " + bp);
@@ -692,7 +692,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		onHit(pokemon) {
-			let factor = 0.5;
+			const factor = 0.5;
 			if (this.field.isWeather('raindance') || this.field.isWeather('primordialsea')) {
 				const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 				return pokemon.cureStatus() || success;
@@ -784,7 +784,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 		shortDesc: "Super effective on Bug and Grass targets.",
 	},
-    indomitablespirit: {
+	indomitablespirit: {
 		num: -26,
 		accuracy: 95,
 		basePower: 75,
@@ -799,7 +799,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.volatiles['indomitablespirit'].boost === 'lastMoveResisted') return move.basePower * 2; // if the last move was resisted
 			return move.basePower;
 		},
-		onPrepareHit: function(target, source) {	
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Vacuum Wave", target);
 		},
@@ -946,12 +946,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		name: "Downdraft",
 		desc: "If the opponent is Flying type or has Levitate, the opponent's Speed is lowered by one stage.",
-		shortDesc: "-1 Speed if the target has Levitate or is Flying type.", 
+		shortDesc: "-1 Speed if the target has Levitate or is Flying type.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onAfterHit(this, target, source, move) {
-			if (!(target.isGrounded())){
+			if (!(target.isGrounded())) {
 				this.boost({spe: -1}, target, target, null, true);
 			}
 		},
@@ -1043,35 +1043,35 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dragon",
 		contestType: "Cool",
 	},
-    contrariety: {
-        num: -36,
-        accuracy: true,
-        basePower: 0,
-        category: "Status",
-        name: "Contrariety",
+	contrariety: {
+		num: -36,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Contrariety",
 		shortDesc: "Every Pokemon on the field gets Contrary as an ability.",
-        pp: 15,
-        priority: 0,
-        flags: {},
+		pp: 15,
+		priority: 0,
+		flags: {},
 		onHitField() {
-            let success = false;
-            for (const pokemon of this.getAllActive()) {
-                if (pokemon.ability === 'truant' || pokemon.ability === 'contrary' || pokemon.getAbility().isPermanent) continue;
-                const oldAbility = pokemon.setAbility('contrary');
-                if (oldAbility) this.add('-ability', pokemon, 'Contrary', '[from] move: Contrary');
-                success = true;
-            }
-            return success;
-        },
-        secondary: null,
-		onPrepareHit: function(target, source, move) {
+			let success = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.ability === 'truant' || pokemon.ability === 'contrary' || pokemon.getAbility().isPermanent) continue;
+				const oldAbility = pokemon.setAbility('contrary');
+				if (oldAbility) this.add('-ability', pokemon, 'Contrary', '[from] move: Contrary');
+				success = true;
+			}
+			return success;
+		},
+		secondary: null,
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Torment", target, source);
 		},
-        target: "all",
-        type: "Dark",
-        zMove: {boost: {def: 1}},
-    },
+		target: "all",
+		type: "Dark",
+		zMove: {boost: {def: 1}},
+	},
 	hypnotichorror: {
 		num: -37,
 		accuracy: 100,
@@ -1392,7 +1392,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
-	batonpass: { 
+	batonpass: {
 		inherit: true,
 		shortDesc: "User switches, passing Substitute and more. No longer passes stats.",
 		self: {
@@ -1401,8 +1401,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					source.clearBoosts();
 					this.add('-clearpositiveboost', source);
 				}
-			}
-		}
+			},
+		},
 	},
 	lowsweep: {
 		num: 490,
@@ -1473,7 +1473,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Ends active rooms.",
 		pp: 5,
 		priority: 0,
-		onAfterHit: function(target, source) {
+		onAfterHit(target, source) {
 			this.field.removePseudoWeather('trickroom');
 			this.field.removePseudoWeather('magicroom');
 			this.field.removePseudoWeather('wonderroom');
@@ -1911,7 +1911,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
-	/*ceaselessedge: {
+	/* ceaselessedge: {
 		num: -1463,
 		accuracy: 90,
 		basePower: 80,
@@ -1991,7 +1991,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
-	/*esperwing: {
+	/* esperwing: {
 		num: -1094,
 		accuracy: 100,
 		basePower: 95,
@@ -2150,7 +2150,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				boosts: {
 					def: -1,
 				},
-			}, { 
+			}, {
 				chance: 100,
 				self: {
 					boosts: {
@@ -2188,7 +2188,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	// 	target: "normal",
 	// 	type: "Fighting",
 	// },
-	/*psyshieldbash: {
+	/* psyshieldbash: {
 		num: -1776,
 		accuracy: 100,
 		basePower: 70,
@@ -2250,7 +2250,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	stoneaxe: {
-		shortDesc: "Sets Stealth Rock after damage.",banefulbunker: {
+		shortDesc: "Sets Stealth Rock after damage.", banefulbunker: {
 			num: 661,
 			accuracy: true,
 			basePower: 0,
@@ -2438,7 +2438,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const success = !!this.boost({spa: 1, spd: 1});
 			return pokemon.cureStatus() || success;
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Calm Mind", target);
 		},
@@ -2975,27 +2975,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {snatch: 1, heal: 1},
 		heal: [1, 2],
 		onHit(pokemon) {
-            for (const target of pokemon.side.foe.active) {
-                if (!target || target.fainted) continue;
-                let potentialMoves = 0;
-                for (const moveSlot of target.moveSlots) {
-                    if (moveSlot.revealed) continue;
-                    potentialMoves++;
-                }
-                let r = 0;
-                if (potentialMoves) {
-                    r = this.random(potentialMoves);
-                }
-                for (const moveSlot of target.moveSlots) {
-                    if (moveSlot.revealed) continue;
-                    if (r === 0) {
-                        this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
-                    }
-                    r--;
-                    moveSlot.revealed = true;
-                    return;
-                }
-            }
+			for (const target of pokemon.side.foe.active) {
+				if (!target || target.fainted) continue;
+				let potentialMoves = 0;
+				for (const moveSlot of target.moveSlots) {
+					if (moveSlot.revealed) continue;
+					potentialMoves++;
+				}
+				let r = 0;
+				if (potentialMoves) {
+					r = this.random(potentialMoves);
+				}
+				for (const moveSlot of target.moveSlots) {
+					if (moveSlot.revealed) continue;
+					if (r === 0) {
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
+					}
+					r--;
+					moveSlot.revealed = true;
+					return;
+				}
+			}
 		},
 		secondary: null,
 		target: "self",
@@ -3028,8 +3028,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.debug('Boosting from Full Devotion: ' + this.effectState.multiplier);
 				return this.chainModify(this.effectState.multiplier);
 			},
-			onDamagingHit(damage, target, source, move){
-				if (source.side !== target.side){
+			onDamagingHit(damage, target, source, move) {
+				if (source.side !== target.side) {
 					return damage *= 0.75;
 				}
 			},
@@ -3221,7 +3221,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "all",
 		type: "Fire",
 	},
-	//Gen 9
+	// Gen 9
 	mysticalpower: {
 		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
 		num: -1018,
@@ -3658,7 +3658,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bolt Strike", target);
 		},
@@ -3885,7 +3885,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
-	ultrasleep: { //this move is only for Endless Dream ability
+	ultrasleep: { // this move is only for Endless Dream ability
 		num: -1433,
 		accuracy: true,
 		basePower: 0,
@@ -3925,4 +3925,4 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Clever",
 	},
-}
+};

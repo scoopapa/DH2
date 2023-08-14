@@ -4112,7 +4112,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	thundurus: {
-		randomBattleMoves: ["grassknot", "hurricane",  "knockoff", "nastyplot", "sludgewave", "spikes", "superpower", "thunderbolt", "thunderwave"],
+		randomBattleMoves: ["grassknot", "hurricane", "knockoff", "nastyplot", "sludgewave", "spikes", "superpower", "thunderbolt", "thunderwave"],
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["grassknot", "knockoff", "nastyplot", "protect", "sludgebomb", "thunderbolt", "thunderwave"],
 		randomDoubleBattleLevel: 82,
@@ -5482,7 +5482,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "AG",
 		doublesTier: "(DUber)",
 	},
-   scorbunny: {
+	scorbunny: {
 		tier: "LC",
 	},
 	raboot: {

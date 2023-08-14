@@ -1055,7 +1055,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 4,
 		eggGroups: [],
 		spriteid: "hecatia",
-		otherFormes: ["Extra Hecatia-Earth", "Extra Hecatia-Moon"]
+		otherFormes: ["Extra Hecatia-Earth", "Extra Hecatia-Moon"],
 	},
 	extrahecatiaearth: {
 		num: 97,
@@ -1068,7 +1068,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: [],
 		spriteid: "hecatia-earth",
 		changesFrom: "extrahecatia",
-		forme: "Earth"
+		forme: "Earth",
 	},
 	extrahecatiamoon: {
 		num: 98,
@@ -1081,7 +1081,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: [],
 		spriteid: "hecatia-moon",
 		changesFrom: "extrahecatia",
-		forme: "Moon"
+		forme: "Moon",
 	},
 	normalhijiri: {
 		num: 99,
@@ -1601,7 +1601,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: [],
 		spriteid: "keine-hakutaku",
 		forme: "Hakutaku",
-		changesFrom: "Defense Keine"
+		changesFrom: "Defense Keine",
 	},
 	powerkeine: {
 		num: 146,
@@ -2020,7 +2020,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 0,
 		eggGroups: [],
 		spriteid: "kosuzu",
-		otherFormes: ["Extra Kosuzu-Red","Extra Kosuzu-Blue","Extra Kosuzu-Black","Extra Kosuzu-White"]
+		otherFormes: ["Extra Kosuzu-Red", "Extra Kosuzu-Blue", "Extra Kosuzu-Black", "Extra Kosuzu-White"],
 	},
 	extrakosuzured: {
 		num: 184,
@@ -2034,7 +2034,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: Red",
 		changesFrom: "Extra Kosuzu",
-		forme: "Red"
+		forme: "Red",
 	},
 	extrakosuzublue: {
 		num: 185,
@@ -2048,7 +2048,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: Blue",
 		changesFrom: "Extra Kosuzu",
-		forme: "Blue"
+		forme: "Blue",
 	},
 	extrakosuzublack: {
 		num: 186,
@@ -2062,7 +2062,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: Black",
 		changesFrom: "Extra Kosuzu",
-		forme: "Black"
+		forme: "Black",
 	},
 	extrakosuzuwhite: {
 		num: 187,
@@ -2076,7 +2076,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: White",
 		changesFrom: "Extra Kosuzu",
-		forme: "White"
+		forme: "White",
 	},
 	normalkotohime: {
 		num: 188,
@@ -4023,7 +4023,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Economist", 1: "Composed"},
 		weightkg: 3,
 		eggGroups: [],
-		spriteid: "reimu"
+		spriteid: "reimu",
 	},
 	defensereimu: {
 		num: 365,
@@ -4233,7 +4233,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 1,
 		eggGroups: [],
 		spriteid: "rika",
-		otherFormes: ['Extra Rika-Shift']
+		otherFormes: ['Extra Rika-Shift'],
 	},
 	extrarikashift: {
 		num: 384,
@@ -4246,7 +4246,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: [],
 		spriteid: "rika-shift",
 		forme: "Shift",
-		changesFrom: "Extra Rika"
+		changesFrom: "Extra Rika",
 	},
 	normalrikako: {
 		num: 385,
@@ -6711,7 +6711,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 3,
 		eggGroups: [],
 		spriteid: "yuuma",
-		otherFormes: ["Extra Yuuma-Avarice"]
+		otherFormes: ["Extra Yuuma-Avarice"],
 	},
 	extrayuumaavarice: {
 		num: 609,
@@ -6724,7 +6724,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: [],
 		spriteid: "yuuma-avarice",
 		forme: "Avarice",
-		changesFrom: "Extra Yuuma"
+		changesFrom: "Extra Yuuma",
 	},
 	normalyuyuko: {
 		num: 610,

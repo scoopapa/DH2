@@ -78,7 +78,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 168,
 	},
-	//----------Gen 9 Abilities-----------//
+	// ----------Gen 9 Abilities-----------//
 	angershell: {
 		onDamage(damage, target, source, effect) {
 			if (
@@ -149,7 +149,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Beads of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Special Defense multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Special Defense multiplied by 0.75.",
 		rating: 4.5,
 		num: 284,
 	},
@@ -626,7 +626,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Sword of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
 		rating: 4.5,
 		num: 285,
 	},
@@ -644,7 +644,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Tablets of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Attack multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Attack multiplied by 0.75.",
 		rating: 4.5,
 		num: 284,
 	},
@@ -700,7 +700,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Vessel of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Special Attack multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Special Attack multiplied by 0.75.",
 		rating: 4.5,
 		num: 284,
 	},

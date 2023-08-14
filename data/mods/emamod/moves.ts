@@ -244,7 +244,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				else if (statName === 'spa') move.self = {boosts: {spa: 1}};
 				else if (statName === 'def') move.self = {boosts: {def: 1}};
 				else move.self = {boosts: {atk: 1}};
-			}
+			},
 		},
 		target: "normal",
 		type: "Psychic",
@@ -520,7 +520,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Fighting",
-	},	
+	},
 	infernalparade: {
 		shortDesc: "Power doubles if the target has a status ailment; 20% chance to burn.",
 		num: -1018,

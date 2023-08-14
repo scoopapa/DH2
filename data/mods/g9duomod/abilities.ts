@@ -21,7 +21,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 1,
 		num: 9001,
 	},
-	
+
 	queenofroulette: {
 		shortDesc: "Spins the Roulette Wheel two additional times.",
 		onStart(pokemon) {
@@ -43,8 +43,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Queen of Roulette",
 		rating: 1,
 		num: 3009,
-	},	
-	
+	},
+
 	hostabsorb: {
 		onModifyMove(move, attacker) {
 			if (!move || !move.flags['contact'] || move.target === 'self') return;
@@ -67,7 +67,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 9002,
 	},
-	
+
 	poweroutage: {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
@@ -80,8 +80,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Lowers Speed by 1 each turn.",
 		rating: 4.5,
 		num: 9003,
-	},	
-	
+	},
+
 	blazingspirit: {
 		onStart(pokemon) {
 			let activated = false;
@@ -121,8 +121,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Combines Vital Spirit, Intimidate, and Magic Guard.",
 		rating: 3.5,
 		num: 9004,
-	},	
-	
+	},
+
 	stickystarch: {
 		onAnyTryMove(target, source, effect) {
 			if (['teleport', 'chillyreception', 'voltswitch', 'uturn', 'flipturn', 'batonpass', 'shedtail'].includes(effect.id)) {
@@ -137,7 +137,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "Blocks and traps opponents when they use pivoting moves.",
 		rating: 1,
 		num: 9005,
-	},	
+	},
 
 	update: {
 		onStart(pokemon) {
@@ -145,72 +145,56 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-activate', pokemon, 'ability: Update', this.dex.items.get(pokemon.item).name, '[silent]');
 		},
 		onTryHit(target, source, move) {
-			if (target.getMoveHitData(move).typeMod > 0) {return;}
+			if (target.getMoveHitData(move).typeMod > 0) { return; }
 			if (target !== source && move.type === 'Water' && target.hasItem('splashplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Fire' && target.hasItem('flameplate')) {
+			} else if (target !== source && move.type === 'Fire' && target.hasItem('flameplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Grass' && target.hasItem('meadowplate')) {
+			} else if (target !== source && move.type === 'Grass' && target.hasItem('meadowplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Electric' && target.hasItem('zapplate')) {
+			} else if (target !== source && move.type === 'Electric' && target.hasItem('zapplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Bug' && target.hasItem('insectplate')) {
+			} else if (target !== source && move.type === 'Bug' && target.hasItem('insectplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Flying' && target.hasItem('skyplate')) {
+			} else if (target !== source && move.type === 'Flying' && target.hasItem('skyplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Rock' && target.hasItem('stoneplate')) {
+			} else if (target !== source && move.type === 'Rock' && target.hasItem('stoneplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Ground' && target.hasItem('earthplate')) {
+			} else if (target !== source && move.type === 'Ground' && target.hasItem('earthplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Fighting' && target.hasItem('fistplate')) {
+			} else if (target !== source && move.type === 'Fighting' && target.hasItem('fistplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Psychic' && target.hasItem('mindplate')) {
+			} else if (target !== source && move.type === 'Psychic' && target.hasItem('mindplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Poison' && target.hasItem('toxicplate')) {
+			} else if (target !== source && move.type === 'Poison' && target.hasItem('toxicplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Ghost' && target.hasItem('spookyplate')) {
+			} else if (target !== source && move.type === 'Ghost' && target.hasItem('spookyplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Ice' && target.hasItem('icicleplate')) {
+			} else if (target !== source && move.type === 'Ice' && target.hasItem('icicleplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Dragon' && target.hasItem('dracoplate')) {
+			} else if (target !== source && move.type === 'Dragon' && target.hasItem('dracoplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Steel' && target.hasItem('ironplate')) {
+			} else if (target !== source && move.type === 'Steel' && target.hasItem('ironplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Dark' && target.hasItem('dreadplate')) {
+			} else if (target !== source && move.type === 'Dark' && target.hasItem('dreadplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
-			}
-			else if (target !== source && move.type === 'Fairy' && target.hasItem('pixieplate')) {
+			} else if (target !== source && move.type === 'Fairy' && target.hasItem('pixieplate')) {
 				this.add('-immune', target, '[from] ability: Update');
 				return null;
 			}
@@ -224,7 +208,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	magicabsorb: {
 		onTryHit(target, source, move) {
 			if (move.category === 'Status' && target !== source && move.type !== 'Flying') {
-				this.add('-immune', target, '[from] ability: Magic Absorb');	
+				this.add('-immune', target, '[from] ability: Magic Absorb');
 				this.heal(target.baseMaxhp / 4);
 				return null;
 			}
@@ -232,22 +216,22 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onAfterMoveSecondary(target, source, move) {
 			if (move.flags['contact'] && (target.hp > 0) && (source.hasAbility('hostabsorb') || source.hasAbility('Host Absorb'))) {
 				this.heal(target.baseMaxhp / 4);
-			} 
+			}
 		},
 		name: "Magic Absorb",
 		shortDesc: "Blocks non-Flying status moves, heals the user for 25%.",
 		rating: 5,
 		num: 9007,
 	},
-	
+
 	unstableclaws: {
 		// implemented in moves.ts - it'd be far easier on me to just code this directly into the move dire claws instead
 		name: "Unstable Claws",
 		shortDesc: "If user's Dire Claws inflicts a status, changes type to match.",
 		rating: 2,
 		num: 9008,
-	},	
-	
+	},
+
 	drawfour: {
 		shortDesc: "After knocking out target, if user knows less than 12 moves, it learns target's moves.",
 		onModifyDamage(damage, source, target, move) {
@@ -265,7 +249,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 							target: moveSlot.target,
 							disabled: false,
 							used: false,
-						};	
+						};
 						source.moveSlots[source.moveSlots.length] = learnedMove;
 						source.baseMoveSlots[source.moveSlots.length - 1] = learnedMove;
 					}
@@ -277,18 +261,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 9009,
 	},
-	
+
 	conduction: {
 		onModifyMove(move, attacker) {
-			if (attacker.baseSpecies.baseSpecies !== 'gelsius' && attacker.baseSpecies.baseSpecies !== 'Gelsius') {return;}
-			if (attacker.species.name === 'Gelsius-Subzero' || attacker.species.name === 'gelsiussubzero') {return;}
-			if (attacker.species.name === 'Gelsius-Hundred' || attacker.species.name === 'gelsiushundred') {return;}
+			if (attacker.baseSpecies.baseSpecies !== 'gelsius' && attacker.baseSpecies.baseSpecies !== 'Gelsius') { return; }
+			if (attacker.species.name === 'Gelsius-Subzero' || attacker.species.name === 'gelsiussubzero') { return; }
+			if (attacker.species.name === 'Gelsius-Hundred' || attacker.species.name === 'gelsiushundred') { return; }
 			if (attacker.hp && move.type === 'Ice') {
 				this.add('-message', `${attacker.name} is beginning to rapidly cool!`);
 				attacker.formeChange('Gelsius-Subzero', this.effect, true);
 				this.add('-message', `${attacker.name} transformed!`);
-			}
-			else if (attacker.hp && move.type === 'Fire') {
+			} else if (attacker.hp && move.type === 'Fire') {
 				this.add('-message', `${attacker.name} is beginning to rapidly heat up!`);
 				attacker.formeChange('Gelsius-Hundred', this.effect, true);
 				this.add('-message', `${attacker.name} transformed!`);
@@ -299,19 +282,19 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "If the user uses Ice or Fire move, transforms. Only works once.",
 		rating: 2,
 		num: 9010,
-	},	
+	},
 
 	respawnpunisher: {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (!target || target.fainted || target.hp <= 0) {
-				if (pokemon.ability != 'respawnpunisher') {return;}
+				if (pokemon.ability != 'respawnpunisher') { return; }
 				pokemon.addVolatile('respawnpunisher');
 			}
 		},
 		onPrepareHit(source, target, move) {
 			for (const targ of source.side.foe.active) {
 				if (!targ.activeTurns) {
-					if (source.ability != 'respawnpunisher') {return;}
+					if (source.ability != 'respawnpunisher') { return; }
 					source.addVolatile('respawnpunisher');
 				}
 			}
@@ -329,17 +312,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			},
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Respawn Punisher', '[silent]');
-			},			
+			},
 		},
 		name: "Respawn Punisher",
 		shortDesc: "If an enemy switches or faints, raises Atk/Sp. Atk by 1.3x.",
 		rating: 3.5,
 		num: 9011,
 	},
-	
+
 	vent: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'impsaustor' && attacker.baseSpecies.baseSpecies !== 'Impsaustor') {return;}
+			if (pokemon.baseSpecies.baseSpecies !== 'impsaustor' && attacker.baseSpecies.baseSpecies !== 'Impsaustor') { return; }
 			this.add('-message', `You can now use Impostor Blade without drawback.`);
 		},
 		onAfterMoveSecondary(target, source, move) {
@@ -378,7 +361,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 293,
 	},
-	
+
 	angershell: {
 		onAfterMoveSecondary(target, source, move) {
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
@@ -393,7 +376,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 201,
 	},
-	
+
 	electromorphosis: {
 		onDamagingHit(damage, target, source, move) {
 			this.add('-activate', target, 'ability: Electromorphosis', '[move] ' + move.name);
@@ -403,7 +386,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 280,
 	},
-	
+
 	goodasgold: {
 		onTryHit(target, source, move) {
 			if (move.category !== 'Status' || target === source) {
@@ -416,7 +399,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 283,
 	},
-	
+
 	eartheater: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ground') {
@@ -430,7 +413,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 297,
 	},
-	
+
 	wellbakedbody: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
@@ -444,7 +427,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 273,
 	},
-	
+
 	purifyingsalt: {
 		onSetStatus(status, target, source, effect) {
 			if ((effect as Move)?.status) {
@@ -471,7 +454,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 272,
 	},
-	
+
 	swordofruin: {
 		onBasePowerPriority: 7,
 		onBasePower(basePower, attacker, defender, move) {
@@ -558,7 +541,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		num: 219,
 	},
-	
+
 	opportunist: {
 		onFoeAfterBoost(boost, target, source, effect) {
 			if (effect?.name === 'Opportunist' || effect?.name === 'Mirror Herb') return;

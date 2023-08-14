@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 
 	permasnow: {
 		effectType: 'Rule',
@@ -9,7 +9,7 @@ export const Formats: {[k: string]: FormatData} = {
 			this.field.setWeather('hail');
 		},
 	},
-	
+
 	permasand: {
 		effectType: 'Rule',
 		name: 'Permasand',
@@ -19,7 +19,7 @@ export const Formats: {[k: string]: FormatData} = {
 			this.field.setWeather('sandstorm');
 		},
 	},
-	
+
 	permarain: {
 		effectType: 'Rule',
 		name: 'Permarain',
@@ -29,7 +29,7 @@ export const Formats: {[k: string]: FormatData} = {
 			this.field.setWeather('rain');
 		},
 	},
-	
+
 	permasun: {
 		effectType: 'Rule',
 		name: 'Permasun',

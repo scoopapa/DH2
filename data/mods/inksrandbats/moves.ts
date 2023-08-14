@@ -40,7 +40,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Beautiful",
 	},
-	
+
 	hail: {
 		num: 258,
 		accuracy: true,
@@ -52,7 +52,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {},
 		weather: 'hail',
 		onHitField(target, source) {
-			this.field.weatherData.layers ++; 
+			this.field.weatherData.layers++;
 			this.hint("The hailstorm has worsened!");
 		},
 		secondary: null,
@@ -61,8 +61,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
-	
-	//Modifications for hail level 0
+
+	// Modifications for hail level 0
 	moonlight: {
 		num: 236,
 		accuracy: true,
@@ -95,7 +95,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	
+
 	morningsun: {
 		num: 234,
 		accuracy: true,
@@ -128,7 +128,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	
+
 	solarbeam: {
 		num: 76,
 		accuracy: 100,
@@ -235,7 +235,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
-	
+
 	weatherball: {
 		num: 311,
 		accuracy: 100,
@@ -340,7 +340,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
-	
+
 	blizzard: {
 		num: 59,
 		accuracy: 70,
@@ -361,8 +361,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	
-	//modified freeze chance
+
+	// modified freeze chance
 	freezingglare: {
 		num: 821,
 		accuracy: 100,
@@ -472,5 +472,5 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	
+
 };

@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	abysseil: {
 		randomBattleMoves: ["flipturn", "scald", "moonblast", "hydropump"],
 		randomBattleLevel: 100,

@@ -1,5 +1,5 @@
 export const TypeChart: {[k: string]: ModdedTypeData} = {
-  Bug: {
+	Bug: {
 		damageTaken: {
 			Bug: 0,
 			Dark: 0,

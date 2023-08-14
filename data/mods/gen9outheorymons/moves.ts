@@ -71,8 +71,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	//---------------Gen 9 Moves-----------------//
-	//PL:A
+	// ---------------Gen 9 Moves-----------------//
+	// PL:A
 	ragingfury: {
 		num: -1001,
 		accuracy: 100,
@@ -116,7 +116,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Crush Claw", target);
 		},
-		//critRatio: 2,
+		// critRatio: 2,
 		secondary: {
 			chance: 50,
 			onHit(target, source) {
@@ -398,7 +398,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
-	//SV
+	// SV
 	spicyextract: {
 		num: 858,
 		accuracy: true,
@@ -463,7 +463,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		onPrepareHit: function(target, source) {	
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hidden Power", target);
 		},
@@ -537,7 +537,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		isNonstandard: "Unobtainable",
 		name: "Wildbolt Storm",
-      shortDesc: "20% chance to paralyze foe(s).",
+		shortDesc: "20% chance to paralyze foe(s).",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
@@ -747,7 +747,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Jet Punch",
-      shortDesc: "Usually goes first.",
+		shortDesc: "Usually goes first.",
 		pp: 15,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
@@ -1287,7 +1287,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Hyper Drill",
-      shortDesc: "Bypasses protection without breaking it.",
+		shortDesc: "Bypasses protection without breaking it.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, mirror: 1},
@@ -1402,7 +1402,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "gigatonhammer",
 		},
 		condition: {
@@ -1414,9 +1414,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.addVolatile('gigatonhammer');
 		},
 		// onAfterMove(pokemon) {
-			// if (pokemon.removeVolatile('gigatonhammer')) {
-				// this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
-			// }
+		// if (pokemon.removeVolatile('gigatonhammer')) {
+		// this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
+		// }
 		// },
 		secondary: null,
 		target: "normal",
@@ -1460,7 +1460,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Aqua Cutter",
-		shortDesc: "High critical hit ratio.", 
+		shortDesc: "High critical hit ratio.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, slicing: 1},
@@ -1585,7 +1585,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!source.side.pokemon.filter(ally => ally.fainted).length) {
 				return false;
 			}
-			this.add("-message","Warning: this move is bugged. You can use the \"/switch\" command to pick which pokemon you want to revive. Syntax: /switch [number], where [number] is the position of the pokemon in your party that you want to revive.");
+			this.add("-message", "Warning: this move is bugged. You can use the \"/switch\" command to pick which pokemon you want to revive. Syntax: /switch [number], where [number] is the position of the pokemon in your party that you want to revive.");
 		},
 		slotCondition: 'revivalblessing',
 		// No this not a real switchout move

@@ -9,9 +9,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: ""},
 		weightkg: ,
 	},
-	
+
 	*/
-	//Set 1
+	// Set 1
 	volquag: {
 		fusion: ['Volcanion', 'Quagsire'],
 		num: 1,
@@ -58,8 +58,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Surgeon Eye"},
 		weightkg: 69.7,
 	},
-	
-	//Set 2
+
+	// Set 2
 	flaant: {
 		fusion: ['Flapple', 'Durant'],
 		num: 6,
@@ -138,8 +138,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Porous Fat"},
 		weightkg: 213,
 	},
-	
-	//Set 3
+
+	// Set 3
 	pigapult: {
 		fusion: ['Pignite', 'Dragapult'],
 		num: 13,
@@ -228,7 +228,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Concussion"},
 		weightkg: 476.1,
 	},
-	//slate 4
+	// slate 4
 	grimmlurk: {
 		fusion: ['Grimmsnarl', 'Golurk'],
 		num: 19,
@@ -274,7 +274,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Doggy's Maw"},
 		weightkg: 130.5,
 	},
-	//slate 5
+	// slate 5
 	dongoro: {
 		fusion: ['Donphan', 'Pangoro'],
 		num: 24,
@@ -317,8 +317,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: "Red Orb",
 		battleOnly: "Grousle",
 	},
-	
-	//slate 6
+
+	// slate 6
 	corveot: {
 		fusion: ['Pidgeot', 'Corviknight'],
 		num: 27,
@@ -389,7 +389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 12.55,
 		evos: ["Gastrodon", "Ferrothorn"],
 	},
-	//slate 7
+	// slate 7
 	landmaldotherian: {
 		fusion: ['Landorus', 'Armaldo'],
 		num: 33,
@@ -426,8 +426,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Magic Missile"},
 		weightkg: 13.5,
 	},
-	
-	//slate 8
+
+	// slate 8
 	brontun: {
 		fusion: ['Bronzong', 'Appletun'],
 		num: 37,
@@ -506,7 +506,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Levitability"},
 		weightkg: 81.75,
 	},
-	//slate 9
+	// slate 9
 	absable: {
 		fusion: ['Absol', 'Sableye'],
 		num: 44,
@@ -683,7 +683,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: "Sablenite",
 		battleOnly: "Sableior",
 	},
-	//slate 10
+	// slate 10
 	eeluk: {
 		fusion: ['Eelektross', 'Muk'],
 		num: 52,
@@ -711,8 +711,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Haunted Tech"},
 		weightkg: 20.55,
 	},
-	
-	//slate 11
+
+	// slate 11
 	hattaka: {
 		fusion: ['Hatterene', 'Stakataka'],
 		num: 55,
@@ -803,7 +803,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hydraulic Cannon"},
 		weightkg: 44.65,
 	},
-	//slate 12
+	// slate 12
 	meloslash: {
 		fusion: ['Meloetta', 'Aegislash'],
 		num: 60,
@@ -1222,8 +1222,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Marble Garden"},
 		weightkg: 135.5,
 	},
-	
-// Slate 18
+
+	// Slate 18
 	lurodactyl: {
 		fusion: ['Lurantis', 'Aerodactyl'],
 		num: 90,
@@ -1301,7 +1301,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 37.8,
 	},
 
-// Slate 19
+	// Slate 19
 	regibee: {
 		fusion: ['Registeel', 'Beedrill'],
 		num: 97,
@@ -1378,8 +1378,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Willful Charge"},
 		weightkg: 42.3,
 	},
-	
-// Slate 20
+
+	// Slate 20
 	exeggutorprime: {
 		fusion: ['Exeggutor', 'Exeggutor-Alola'],
 		num: 104,
@@ -1407,8 +1407,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Swift Retreat"},
 		weightkg: 74.3,
 	},
-	
-// Slate 21
+
+	// Slate 21
 	avarupt: {
 		fusion: ['Avalugg', 'Camerupt'],
 		num: 107,
@@ -1528,7 +1528,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Wishirupti",
 	},
 
-/*		
+	/*
 	// old silvino formes
 	silvinobug: {
 		fusion: ['Audino', 'Silvally'],
@@ -1939,7 +1939,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: "Audinite",
 	},
 */
-//new silvino forms
+	// new silvino forms
 	silvinobug: {
 		fusion: ['Audino', 'Silvally'],
 		num: 14,
@@ -2178,9 +2178,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: "Water Memory",
 		changesFrom: "Silvino",
 	},
-	
 
-// RU Slate 1
+
+	// RU Slate 1
 	torranadustherian: {
 		fusion: ['Tornadus', 'Torracat'],
 		num: 113,
@@ -2266,8 +2266,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Self Sacrifice"},
 		weightkg: 39,
 	},
-	
-// RU Slate 2
+
+	// RU Slate 2
 	azekrow: {
 		fusion: ['Azelf', 'Murkrow'],
 		num: 121,
@@ -2276,7 +2276,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 105, def: 65, spa: 105, spd: 65, spe: 104},
 		abilities: {0: "Lighthearted"},
 		weightkg: 1.2,
-	},	
+	},
 	trapeino: {
 		fusion: ['Trapinch', 'Deino'],
 		num: 122,
@@ -2286,7 +2286,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Tiger Pit"},
 		weightkg: 16.2,
 		evos: ["Vibrava", "Zweilous"],
-	},	
+	},
 	goodevoir: {
 		fusion: ['Sliggoo', 'Gardevoir'],
 		num: 123,
@@ -2295,7 +2295,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 78, atk: 70, def: 59, spa: 124, spd: 114, spe: 80},
 		abilities: {0: "Vengeful Shift"},
 		weightkg: 33,
-	},	
+	},
 	goodevoirmega: {
 		fusion: ['Sliggoo', 'Gardevoir'],
 		num: 123,
@@ -2317,7 +2317,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 90, def: 110, spa: 90, spd: 55, spe: 86},
 		abilities: {0: "Hydraulic Press"},
 		weightkg: 25.6,
-	},	
+	},
 	duramawmega: {
 		fusion: ['Duraludon', 'Mawile'],
 		num: 125,
@@ -2340,7 +2340,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Tough Skin"},
 		weightkg: 88,
 		evos: ["Rhyperior", "Garchomp"],
-	},	
+	},
 	rhychomp: {
 		fusion: ['Rhyperior', 'Garchomp'],
 		num: 152,
@@ -2371,7 +2371,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 64, def: 85, spa: 100, spd: 85, spe: 108},
 		abilities: {0: "Parroting"},
 		weightkg: 8.7,
-	},	
+	},
 	grapplor: {
 		fusion: ['Grapploct', 'Gliscor'],
 		num: 127,
@@ -2380,7 +2380,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 110, def: 110, spa: 60, spd: 80, spe: 80},
 		abilities: {0: "Life Drain"},
 		weightkg: 40.8,
-	},	
+	},
 	masquerajah: {
 		fusion: ['Masquerain', 'Copperajah'],
 		num: 128,
@@ -2389,7 +2389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 96, atk: 105, def: 65, spa: 95, spd: 75, spe: 55},
 		abilities: {0: "Metalhead"},
 		weightkg: 326.8,
-	},	
+	},
 	litleesect: {
 		fusion: ['Genesect', 'Litleo'],
 		num: 129,
@@ -2400,7 +2400,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 48,
 		otherFormes: ["Litleesect-Douse", "Litleesect-Shock", "Litleesect-Burn", "Litleesect-Chill"],
 		formeOrder: ["Litleesect", "Litleesect-Douse", "Litleesect-Shock", "Litleesect-Burn", "Litleesect-Chill"],
-	},	
+	},
 	litleesectdouse: {
 		fusion: ['Genesect', 'Litleo'],
 		num: 129,
@@ -2413,7 +2413,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 48,
 		requiredItem: "Douse Drive",
 		changesFrom: "Litleesect",
-	},	
+	},
 	litleesectshock: {
 		fusion: ['Genesect', 'Litleo'],
 		num: 129,
@@ -2426,7 +2426,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 48,
 		requiredItem: "Shock Drive",
 		changesFrom: "Litleesect",
-	},	
+	},
 	litleesectburn: {
 		fusion: ['Genesect', 'Litleo'],
 		num: 129,
@@ -2439,7 +2439,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 48,
 		requiredItem: "Burn Drive",
 		changesFrom: "Litleesect",
-	},	
+	},
 	litleesectchill: {
 		fusion: ['Genesect', 'Litleo'],
 		num: 129,
@@ -2452,7 +2452,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 48,
 		requiredItem: "Chill Drive",
 		changesFrom: "Litleesect",
-	},	
+	},
 	bearyx: {
 		fusion: ['Bewear', 'Calyrex'],
 		num: 130,
@@ -2461,7 +2461,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 110, def: 80, spa: 70, spd: 80, spe: 75},
 		abilities: {0: "Concussion"},
 		weightkg: 71.4,
-	},	
+	},
 	fetchey: {
 		fusion: ['Chansey', 'Farfetch\u2019d'],
 		num: 131,
@@ -2470,7 +2470,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 151, atk: 50, def: 35, spa: 46, spd: 90, spe: 55},
 		abilities: {0: "Huge Power"},
 		weightkg: 24.8,
-	},	
+	},
 	audiyem: {
 		fusion: ['Audino', 'Beheeyem'],
 		num: 132,
@@ -2479,7 +2479,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 67, def: 90, spa: 111, spd: 90, spe: 45},
 		abilities: {0: "Surgeon Eye"},
 		weightkg: 32.8,
-	},	
+	},
 	audiyemmega: {
 		fusion: ['Audino', 'Beheeyem'],
 		num: 132,
@@ -2556,7 +2556,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 76.5,
 		requiredItem: "Douse Drive",
 		changesFrom: "Genebro-Galar",
-	},	
+	},
 	genebrogalarshock: {
 		fusion: ['Slowbro-Galar', 'Genesect'],
 		num: 136,
@@ -2569,7 +2569,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 76.5,
 		requiredItem: "Shock Drive",
 		changesFrom: "Genebro-Galar",
-	},	
+	},
 	genebrogalarburn: {
 		fusion: ['Slowbro-Galar', 'Genesect'],
 		num: 136,
@@ -2582,7 +2582,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 76.5,
 		requiredItem: "Burn Drive",
 		changesFrom: "Genebro-Galar",
-	},	
+	},
 	genebrogalarchill: {
 		fusion: ['Slowbro-Galar', 'Genesect'],
 		num: 136,
@@ -2595,7 +2595,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 76.5,
 		requiredItem: "Chill Drive",
 		changesFrom: "Genebro-Galar",
-	},	
+	},
 	hatterune: {
 		fusion: ['Runerigus', 'Hatterene'],
 		num: 137,
@@ -2921,7 +2921,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 71, atk: 92, def: 75, spa: 125, spd: 78, spe: 89},
 		abilities: {0: "Undying"},
 		weightkg: 110.3,
-	},	
+	},
 	vikadrill: {
 		fusion: ['Vikavolt', 'Excadrill'],
 		num: 161,
@@ -2930,7 +2930,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 105, def: 75, spa: 100, spd: 75, spe: 65},
 		abilities: {0: "Aerial Break"},
 		weightkg: 42.7,
-	},	
+	},
 	manditop: {
 		fusion: ['Mandibuzz', 'Hitmontop'],
 		num: 162,
@@ -2939,7 +2939,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 95, def: 110, spa: 45, spd: 110, spe: 75},
 		abilities: {0: "Pecking Order"},
 		weightkg: 43.8,
-	},	
+	},
 	gastrocham: {
 		fusion: ['Gastrodon', 'Medicham'],
 		num: 163,
@@ -2948,7 +2948,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 97, atk: 71, def: 71, spa: 86, spd: 78, spe: 77},
 		abilities: {0: "Charybdis"},
 		weightkg: 30.7,
-	},	
+	},
 	gastrochammega: {
 		fusion: ['Gastrodon', 'Medicham'],
 		num: 163,
@@ -2970,7 +2970,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 88, def: 70, spa: 95, spd: 77, spe: 91},
 		abilities: {0: "Frozen Dish"},
 		weightkg: 38.1,
-	},	
+	},
 	yangarde: {
 		fusion: ['Yanmega', 'Zygarde'],
 		num: 165,
@@ -2979,7 +2979,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 97, atk: 101, def: 109, spa: 98, spd: 75, spe: 95},
 		abilities: {0: "Speed Break"},
 		weightkg: 178.3,
-	},	
+	},
 	arcalie: {
 		fusion: ['Arcanine', 'Liepard'],
 		num: 166,
@@ -2988,7 +2988,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 87, atk: 109, def: 75, spa: 104, spd: 75, spe: 110},
 		abilities: {0: "Creepy"},
 		weightkg: 96.3,
-	},	
+	},
 	venoqueen: {
 		fusion: ['Nidoqueen', 'Venomoth'],
 		num: 167,
@@ -2997,7 +2997,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 97, def: 73, spa: 92, spd: 80, spe: 83},
 		abilities: {0: "Toxic Look"},
 		weightkg: 36.3,
-	},	
+	},
 	xurkirat: {
 		fusion: ['Xurkitree', 'Raticate'],
 		num: 168,
@@ -3006,7 +3006,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 71, atk: 103, def: 73, spa: 113, spd: 73, spe: 97},
 		abilities: {0: "Ultra Impulse"},
 		weightkg: 59.3,
-	},	
+	},
 	golneton: {
 		fusion: ['Magneton', 'Golbat'],
 		num: 169,
@@ -3016,7 +3016,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Demagnetize"},
 		weightkg: 57.5,
 		evos: ["Magnezone", "Crobat"],
-	},	
+	},
 	alakannon: {
 		fusion: ['Alakazam', 'Toucannon'],
 		num: 170,
@@ -3025,7 +3025,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 85, def: 80, spa: 110, spd: 85, spe: 90},
 		abilities: {0: "Every Witch Way"},
 		weightkg: 37,
-	},	
+	},
 	alakannonmega: {
 		fusion: ['Alakazam', 'Toucannon'],
 		num: 170,
@@ -3047,7 +3047,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 108, def: 78, spa: 75, spd: 65, spe: 89},
 		abilities: {0: "Sheer Luck"},
 		weightkg: 45.5,
-	},	
+	},
 	googersby: {
 		fusion: ['Goodra', 'Diggersby'],
 		num: 172,
@@ -3056,7 +3056,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 87, atk: 78, def: 73, spa: 100, spd: 113, spe: 79},
 		abilities: {0: "Big Power"},
 		weightkg: 96.5,
-	},	
+	},
 	dhelarina: {
 		fusion: ['Dhelmise', 'Primarina'],
 		num: 173,
@@ -3065,7 +3065,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 110, def: 90, spa: 110, spd: 105, spe: 50},
 		abilities: {0: "Waterbender"},
 		weightkg: 127,
-	},	
+	},
 	flychualola: {
 		fusion: ['Raichu-Alola', 'Flygon'],
 		num: 174,
@@ -3074,7 +3074,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 92, def: 80, spa: 100, spd: 87, spe: 113},
 		abilities: {0: "Hoverboard"},
 		weightkg: 51.5,
-	},	
+	},
 	haxel: {
 		fusion: ['Haxorus', 'Floatzel'],
 		num: 175,
@@ -3083,7 +3083,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 130, def: 75, spa: 75, spd: 60, spe: 106},
 		abilities: {0: "Fever Breaker"},
 		weightkg: 69.5,
-	},	
+	},
 	frossharp: {
 		fusion: ['Bisharp', 'Froslass'],
 		num: 176,
@@ -3092,7 +3092,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 105, def: 85, spa: 70, spd: 85, spe: 90},
 		abilities: {0: "Spiteful Wishcraft"},
 		weightkg: 48.3,
-	},	
+	},
 	tyrantricitylowkey: {
 		fusion: ['Tyrantrum', 'Toxtricity-Low-Key'],
 		num: 177,
@@ -3101,9 +3101,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 110, def: 95, spa: 95, spd: 65, spe: 85},
 		abilities: {0: "Gnawrly"},
 		weightkg: 155,
-	},	
+	},
 
-// LC
+	// LC
 	woopopotas: {
 		fusion: ['Wooper', 'Hippopotas'],
 		num: 1001,
@@ -3113,7 +3113,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unamused"},
 		weightkg: 29,
 		evos: ["Quagsire", "Hippowdon"],
-	},	
+	},
 	mareapod: {
 		fusion: ['Mareanie', 'Wimpod'],
 		num: 1002,
@@ -3123,7 +3123,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Au Revoir"},
 		weightkg: 10,
 		evos: ["Toxapex", "Golisopod"],
-	},	
+	},
 	beljr: {
 		fusion: ['Beldum', 'Mime Jr.'],
 		num: 1003,
@@ -3133,7 +3133,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Clear Cleaner"},
 		weightkg: 54.1,
 		evos: ["Metang", "Mr. Mime-Galar"],
-	},	
+	},
 	seedbee: {
 		fusion: ['Ferroseed', 'Combee'],
 		num: 1004,
@@ -3143,7 +3143,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Iron Barbs"},
 		weightkg: 12.2,
 		evos: ["Ferrothorn", "Vespiquen"],
-	},	
+	},
 	stardile: {
 		fusion: ['Starly', 'Sandile'],
 		num: 1005,
@@ -3153,7 +3153,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Intimidate"},
 		weightkg: 8.6,
 		evos: ["Krookodile", "Staraptor"],
-	},	
+	},
 	wailidee: {
 		fusion: ['Wailmer', 'Rookidee'],
 		num: 1006,
@@ -3163,7 +3163,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Pressure"},
 		weightkg: 65.9,
 		evos: ["Wailord", "Corviknight"],
-	},	
+	},
 	treemoo: {
 		fusion: ['Jangmo-o', 'Treecko'],
 		num: 1007,
@@ -3173,7 +3173,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unbullet"},
 		weightkg: 17.4,
 		evos: ["Hakamo-o", "Grovyle"],
-	},	
+	},
 	eezee: {
 		fusion: ['Eevee', 'Spritzee'],
 		num: 1008,
@@ -3183,7 +3183,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unusual"},
 		weightkg: 3.5,
 		evos: ["Umbreon", "Aromatisse"],
-	},	
+	},
 	elgyemite: {
 		fusion: ['Elgyem', 'Magnemite'],
 		num: 1009,
@@ -3193,7 +3193,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Analytic"},
 		weightkg: 7.5,
 		evos: ["Beheeyem", "Magnezone"],
-	},	
+	},
 	toxoranmale: {
 		fusion: ['Toxel', 'Nidoran-M'],
 		num: 1010,
@@ -4049,7 +4049,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Subvergent"},
 		weightkg: 13.5,
 		evos: ["Frossharp"],
-	},	
+	},
 	tyrunxel: {
 		fusion: ['Tyrunt', 'Toxel'],
 		num: 1094,
@@ -4070,8 +4070,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 8.8,
 		evos: ["Gastrocham"],
 	},
-	
-// NFE
+
+	// NFE
 	corveotto: {
 		fusion: ['Corvisquire', 'Pidgeotto'],
 		num: 1101,

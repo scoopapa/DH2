@@ -57,10 +57,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Blackout",
-      shortDesc: "While this Pokemon is active, all held items are disabled.",
+		shortDesc: "While this Pokemon is active, all held items are disabled.",
 		rating: 5,
 	},
-  excavate: {
+	excavate: {
 		onSwitchIn(pokemon) {
 			let activated = false;
 			for (const sideCondition of ['spikes', 'stealthrock']) {
@@ -70,32 +70,32 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		            activated = true;
 					}
 					pokemon.side.removeSideCondition(sideCondition);
-            }
+				}
 			   if (target.side.getSideCondition('spikes')) {
 			      this.boost({def: 1}, pokemon);
-            }
+				}
 			   if (target.side.getSideCondition('stealthrock')) {
 			      this.boost({def: 1}, pokemon);
-            }
-         }
-      },
-      name: "Excavate",
-      shortDesc: "Removes Stealth Rock and Spikes on switch-in, +1 Def for each hazard removed.",
-      rating: 4,
-  },
-  lifeguard: {
+				}
+			}
+		},
+		name: "Excavate",
+		shortDesc: "Removes Stealth Rock and Spikes on switch-in, +1 Def for each hazard removed.",
+		rating: 4,
+	},
+	lifeguard: {
 	  onDamagingHit(damage, target, source, move) {
 		  if (move.type === 'Water') {
 			 this.boost({def: 1});
 		  }
 	  },
 	  onModifySecondaries(secondaries) {
-        if (move.type !== 'Water') return;
+			if (move.type !== 'Water') return;
 		  this.debug('Lifeguard prevent secondary');
 		  return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 		},
 		name: "Lifeguard",
-      shortDesc: "Boosts Defense when hit by a Water move; blocks additional effects of Water moves.",
+		shortDesc: "Boosts Defense when hit by a Water move; blocks additional effects of Water moves.",
 		rating: 3,
 	},
 	ballooning: {
@@ -154,7 +154,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 263,
 	},
-// Gen 9 Abilities
+	// Gen 9 Abilities
 	battlebond: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move') return;
@@ -304,7 +304,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Beads of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Special Defense multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Special Defense multiplied by 0.75.",
 		rating: 4.5,
 		num: 284,
 	},
@@ -781,7 +781,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Sword of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
 		rating: 4.5,
 		num: 285,
 	},
@@ -799,7 +799,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Tablets of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Attack multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Attack multiplied by 0.75.",
 		rating: 4.5,
 		num: 284,
 	},
@@ -855,7 +855,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Vessel of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Special Attack multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Special Attack multiplied by 0.75.",
 		rating: 4.5,
 		num: 284,
 	},

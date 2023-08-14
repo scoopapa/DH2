@@ -233,7 +233,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunder: ["1M"],
 			teleport: ["1M"],
 			reflect: ["1M"],
-			swift: ["1M"],
 			flash: ["1M"],
 			
 			toxic: ["1M"],
@@ -558,7 +557,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			firepunch: ["2M"],
 			thunderpunch: ["2M"],
 			headbutt: ["2M"],
-			roar: ["2M"],
 			lick: ["2E"], // lickitung
 			thrash: ["2E"], // cubone 
 		},
@@ -694,7 +692,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			strength: ["1M"],
 			
 			toxic: ["1M"],
-			rage: ["1M"],
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
@@ -707,7 +704,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["2M"],
 			headbutt: ["2M"],
 			flamethrower: ["2M"],
-			roar: ["2M"],
 			thrash: ["2E"], // cubone
 			focusenergy: ["2E"], // cubone
 			
@@ -800,7 +796,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["2M"],
 			aurorabeam: ["2E"], // tentacool
 			disable: ["2E"], // jigglypuff
-			haze: ["2E"], // tentacool
 			mist: ["2E"], // corsola
 			lightscreen: ["2E"], // clefairy
 			thunderwave: ["2E"], // pikachu jumpscare
@@ -979,7 +974,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			//tradeback moves | water 2
 			defensecurl: ["2M"],
 			headbutt: ["2M"],
-			waterfall: ["2M"],
 			aurorabeam: ["2E"], // remoraid
 			agility: ["2E"], // goldeen
 			
@@ -1407,7 +1401,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rage: ["1M"],
 			mimic: ["1M"],
 			doubleteam: ["1M"],
-			bide: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
 		},
@@ -1560,7 +1553,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			skyattack: ["1M"],
 			fly: ["1M"],
 			toxic: ["1M"],
-			rage: ["1M"],
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
@@ -1765,7 +1757,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			psychic: ["1M"],
 			doubleteam: ["1M"],
 			dreameater: ["1M"],
-			rest: ["1M"],
 			flash: ["1M"],
 		},
 	},
@@ -1806,7 +1797,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			psychic: ["1M"],
 			doubleteam: ["1M"],
 			dreameater: ["1M"],
-			rest: ["1M"],
 			flash: ["1M"],
 		},
 	},
@@ -2372,7 +2362,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			selfdestruct: ["1M"],
 			fireblast: ["1M"],
 			skullbash: ["1M"],
-			rest: ["1M"],
 			psywave: ["1M"],
 			rockslide: ["1M"],
 			substitute: ["1M"],
@@ -2619,7 +2608,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			thunderwave: ["1M"],
 			psywave: ["1M"],
-			triattack: ["1M"],
 			substitute: ["1M"],
 			flash: ["1M"],
 			
@@ -2655,7 +2643,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			thunderwave: ["1M"],
 			psywave: ["1M"],
-			triattack: ["1M"],
 			substitute: ["1M"],
 			flash: ["1M"],
 			
@@ -3328,8 +3315,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
-			rest: ["1M"],
-			substitute: ["1M"],
 		},
 	},
 	sandshrewalola: {
@@ -3357,7 +3342,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
-			rest: ["1M"],
 			substitute: ["1M"],
 		},
 		encounters: [
@@ -3390,7 +3374,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
-			rest: ["1M"],
 			substitute: ["1M"],
 		},
 	},
@@ -4294,7 +4277,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["1M"],
 			takedown: ["1M"],
 			doubleedge: ["1M"],
-			hyperbeam: ["1M"],
 			teleport: ["1M"],
 			swift: ["1M"],
 			skyattack: ["1M"],
@@ -4306,7 +4288,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			doubleteam: ["1M"],
 			bide: ["1M"],
 			rest: ["1M"],
-			substitute: ["1M"],
 		},
 		encounters: [
 			{generation: 1, level: 50}, // moves may get pushed out in validation due to this level, revise if so
@@ -4911,14 +4892,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		tackle: ["1L15", "2L15"],
 	}},
 	magikarporangedapples: {learnset: {
-		bubble: ["2S1"],
-		dragonrage: ["1S0"],
-		flail: ["2L30"],
-		reversal: ["2S2"],
-		splash: ["1L1", "2L1", "2S1", "2S2"],
-		tackle: ["1L15", "2L15"],
-	}},
-	magikarppinktwotone: {learnset: {
 		bubble: ["2S1"],
 		dragonrage: ["1S0"],
 		flail: ["2L30"],

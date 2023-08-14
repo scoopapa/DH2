@@ -1,6 +1,6 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {	
-	//tbh i could probably find a way to automatically validate all of these fellas in scripts.ts
-	//but i want to get this done as quickly as possible and i reckon this is faster lol
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	// tbh i could probably find a way to automatically validate all of these fellas in scripts.ts
+	// but i want to get this done as quickly as possible and i reckon this is faster lol
 
 
 	/*
@@ -47,9 +47,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	wittykitty: {
 		tier: "BoE OU",
 	},
-
-
-
 
 
 	// canon mons start here
@@ -283,7 +280,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE LC",
 	},
 	growlithehisui: {
-		
+
 		tier: "BoE LC",
 	},
 	arcanine: {
@@ -464,7 +461,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE LC",
 	},
 	voltorbhisui: {
-		
+
 		tier: "BoE LC",
 	},
 	electrode: {
@@ -1075,79 +1072,79 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "BoE OU",
 		isModded: true,
 	},
-	poochyena:{
+	poochyena: {
 		tier: "BoE LC",
 	},
-	mightyena:{
+	mightyena: {
 		tier: "BoE OU",
 	},
-	wingull:{
+	wingull: {
 		tier: "BoE LC",
 	},
-	pelipper:{
+	pelipper: {
 		tier: "BoE OU",
 	},
-	ralts:{
+	ralts: {
 		tier: "BoE LC",
 	},
-	kirlia:{
+	kirlia: {
 		tier: "BoE NFE",
 	},
-	gardevoir:{
+	gardevoir: {
 		tier: "BoE OU",
 	},
-	gallade:{
+	gallade: {
 		tier: "BoE OU",
 	},
-	sableye:{
+	sableye: {
 		tier: "BoE OU",
 	},
-	mawile:{
+	mawile: {
 		tier: "BoE OU",
 	},
-	gulpin:{
+	gulpin: {
 		tier: "BoE LC",
 	},
-	swalot:{
+	swalot: {
 		tier: "BoE OU",
 	},
-	swablu:{
+	swablu: {
 		tier: "BoE LC",
 	},
-	altaria:{
+	altaria: {
 		tier: "BoE OU",
 	},
-	barboach:{
+	barboach: {
 		tier: "BoE LC",
 	},
-	whiscash:{
+	whiscash: {
 		tier: "BoE OU",
 	},
-	baltoy:{
+	baltoy: {
 		tier: "BoE LC",
 	},
-	claydol:{
+	claydol: {
 		tier: "BoE OU",
 	},
-	clamperl:{
+	clamperl: {
 		tier: "BoE LC",
 	},
-	relicanth:{
+	relicanth: {
 		tier: "BoE OU",
 	},
-	luvdisc:{
+	luvdisc: {
 		tier: "BoE OU",
 	},
-	kricketot:{
+	kricketot: {
 		tier: "BoE LC",
 	},
-	kricketune:{
+	kricketune: {
 		tier: "BoE OU",
 	},
-	buneary:{
+	buneary: {
 		tier: "BoE LC",
 	},
-	lopunny:{
+	lopunny: {
 		tier: "BoE OU",
 	},
 };

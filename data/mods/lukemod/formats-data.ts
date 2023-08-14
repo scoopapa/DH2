@@ -1,5 +1,5 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	//alt ex
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	// alt ex
 	urshifu: {
 		tier: "EELAAO OU",
 	},
@@ -46,37 +46,37 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	dudunsparce: {
 		tier: "EELAAO OU",
 	},
-	
-	//blindsided
+
+	// blindsided
 	ferroluna: {
 		tier: "EELAAO OU",
 	},
 	croakoast: {
 		tier: "EELAAO OU",
 	},
-	
-	//boe
+
+	// boe
 	aureatefin: {
 		tier: "EELAAO OU",
 	},
 	tripoddrill: {
 		tier: "EELAAO OU",
 	},
-	
-	//csm2
+
+	// csm2
 	virizion: {
 		tier: "EELAAO OU",
 	},
 	talonflame: {
 		tier: "EELAAO OU",
 	},
-	
-	//ff
+
+	// ff
 	scorpixie: {
 		tier: "EELAAO OU",
 	},
-	
-	//fesv
+
+	// fesv
 	rotoghold: {
 		tier: "EELAAO OU",
 	},
@@ -89,16 +89,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zoinkazenta: {
 		tier: "EELAAO OU",
 	},
-	
-	//gen x
+
+	// gen x
 	gophragar: {
 		tier: "EELAAO OU",
 	},
 	gopharm: {
 		tier: "EELAAO LC",
 	},
-	
-	//megas revisited
+
+	// megas revisited
 	audino: {
 		tier: "EELAAO OU",
 	},
@@ -147,16 +147,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	mewtwomegay: {
 		tier: "EELAAO Uber",
 	},
-	
-	//metamons
+
+	// metamons
 	camerupt: {
 		tier: "EELAAO OU",
 	},
 	mesprit: {
 		tier: "EELAAO OU",
 	},
-	
-	//poketypos
+
+	// poketypos
 	arcamine: {
 		tier: "EELAAO OU",
 	},
@@ -175,13 +175,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	wugtrio: {
 		tier: "EELAAO OU",
 	},
-	
-	//prevos
+
+	// prevos
 	snipsquire: {
 		tier: "EELAAO LC",
 	},
-	
-	//tt
+
+	// tt
 	dondozo: {
 		tier: "EELAAO OU",
 	},
@@ -194,7 +194,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DTT",
 	},
 
-	//vape
+	// vape
 	crabominable: {
 		tier: "EELAAO OU",
 	},

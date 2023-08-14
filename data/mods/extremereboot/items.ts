@@ -36,15 +36,15 @@ export const Items: {[itemid: string]: ItemData} = {
 	cursedorb: {
 		name: "Cursed Orb",
 		num: 1003,
-		onStart(pkmn){
-			if (!pkmn.m.cursedOrbHolder){
+		onStart(pkmn) {
+			if (!pkmn.m.cursedOrbHolder) {
 				pkmn.m.cursedOrbHolder = "protected";
 			}
 		},
 		onResidualOrder: 26,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (pokemon.m.cursedOrbHolder !== "protected"){
+			if (pokemon.m.cursedOrbHolder !== "protected") {
 				this.damage(pokemon.baseMaxhp / 8);
 			}
 		},
@@ -177,7 +177,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				}
 				firstSlot = false;
 			}
-		},	
+		},
 		num: 1012,
 		gen: 8,
 	},
@@ -195,7 +195,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		gen: 8,
 	},
-	trickyhourglass: {//mostly coded in the field conditions themselves
+	trickyhourglass: {// mostly coded in the field conditions themselves
 		name: "Tricky Hourglass",
 		num: 1014,
 		desc: "Holder's moves and effects that last 4 or 5 turns last 8 turns instead, except Rules Rewrite, which lasts 2 turns.",

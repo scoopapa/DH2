@@ -4,8 +4,8 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
 	gen: 2,
 
-	
-	init: function () {
+
+	init() {
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Cosmic'];
 		let newCategory = '';
 		for (const i in this.data.Moves) {
@@ -23,8 +23,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				// singles tiers
 				if (csi.includes(id)) this.modData('FormatsData', id).tier = "C:SI";
 			}
-		};
-		
+		}
+
 		this.modData('Learnsets', 'scyther').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'heracross').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'pinsir').learnset.swarmattack = ['2L1'];
@@ -36,12 +36,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'parasect').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'crobat').learnset.swarmattack = ['2L1'];
 		this.modData('Learnsets', 'pierzer').learnset.swarmattack = ['2L1'];
-		
+
 		this.modData('Learnsets', 'umbreon').learnset.blackhole = ['2L1'];
 		this.modData('Learnsets', 'houndoom').learnset.blackhole = ['2L1'];
 		this.modData('Learnsets', 'murkrow').learnset.blackhole = ['2L1'];
 		this.modData('Learnsets', 'clefable').learnset.blackhole = ['2L1'];
-		
+
 		this.modData('Learnsets', 'machamp').learnset.parry = ['2L1'];
 		this.modData('Learnsets', 'electabuzz').learnset.parry = ['2L1'];
 		this.modData('Learnsets', 'magmar').learnset.parry = ['2L1'];
@@ -51,12 +51,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'hitmonlee').learnset.parry = ['2L1'];
 		this.modData('Learnsets', 'hitmontop').learnset.parry = ['2L1'];
 		this.modData('Learnsets', 'wobbuffet').learnset.parry = ['2L1'];
-		
+
 		this.modData('Learnsets', 'entei').learnset.sacredcandle = ['2L1'];
 		this.modData('Learnsets', 'hooh').learnset.sacredcandle = ['2L1'];
 		this.modData('Learnsets', 'aroofaondo').learnset.sacredcandle = ['2L1'];
 		this.modData('Learnsets', 'esscargoo').learnset.sacredcandle = ['2L1'];
-		
+
 		this.modData('Learnsets', 'venusaur').learnset.flowermortar = ['2L1'];
 		this.modData('Learnsets', 'vileplume').learnset.flowermortar = ['2L1'];
 		this.modData('Learnsets', 'bellossom').learnset.flowermortar = ['2L1'];
@@ -64,7 +64,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'sunflora').learnset.flowermortar = ['2L1'];
 		this.modData('Learnsets', 'golduck').learnset.flowermortar = ['2L1'];
 		this.modData('Learnsets', 'raichu').learnset.flowermortar = ['2L1'];
-		
+
 		this.modData('Learnsets', 'phanpy').learnset.hypeup = ['2L1'];
 		this.modData('Learnsets', 'miltank').learnset.hypeup = ['2L1'];
 		this.modData('Learnsets', 'eevee').learnset.hypeup = ['2L1'];
@@ -111,7 +111,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'skuntank').learnset.expel = ['2L1'];
 		this.modData('Learnsets', 'lickitung').learnset.expel = ['2L1'];
 		this.modData('Learnsets', 'tunguru').learnset.expel = ['2L1'];
-		
+
 		this.modData('Learnsets', 'meowth').learnset.preyingswipe = ['2L1'];
 		this.modData('Learnsets', 'persian').learnset.preyingswipe = ['2L1'];
 		this.modData('Learnsets', 'kangaskhan').learnset.preyingswipe = ['2L1'];
@@ -136,13 +136,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'kabuto').learnset.preyingswipe = ['2L1'];
 		this.modData('Learnsets', 'kabutops').learnset.preyingswipe = ['2L1'];
 		this.modData('Learnsets', 'pierzer').learnset.preyingswipe = ['2L1'];
-		
+
 		this.modData('Learnsets', 'kingdra').learnset.draconicdrive = ['2L1'];
 		this.modData('Learnsets', 'dragonite').learnset.draconicdrive = ['2L1'];
 		this.modData('Learnsets', 'feraligatr').learnset.draconicdrive = ['2L1'];
 		this.modData('Learnsets', 'ampharos').learnset.draconicdrive = ['2L1'];
 		this.modData('Learnsets', 'gyarados').learnset.draconicdrive = ['2L1'];
-		
+
 		this.modData('Learnsets', 'gastly').learnset.essencesteal = ['2L1'];
 		this.modData('Learnsets', 'haunter').learnset.essencesteal = ['2L1'];
 		this.modData('Learnsets', 'gengar').learnset.essencesteal = ['2L1'];
@@ -157,7 +157,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'ninetales').learnset.essencesteal = ['2L1'];
 		this.modData('Learnsets', 'ariados').learnset.essencesteal = ['2L1'];
 		this.modData('Learnsets', 'spinarak').learnset.essencesteal = ['2L1'];
-		
+
 		this.modData('Learnsets', 'kabuto').learnset.softshell = ['2L1'];
 		this.modData('Learnsets', 'kabutops').learnset.softshell = ['2L1'];
 		this.modData('Learnsets', 'omanyte').learnset.softshell = ['2L1'];
@@ -181,7 +181,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'golem').learnset.softshell = ['2L1'];
 		this.modData('Learnsets', 'koffing').learnset.softshell = ['2L1'];
 		this.modData('Learnsets', 'weezing').learnset.softshell = ['2L1'];
-		
+
 		this.modData('Learnsets', 'venusaur').learnset.malnourish = ['2L1'];
 		this.modData('Learnsets', 'crobat').learnset.malnourish = ['2L1'];
 		this.modData('Learnsets', 'tentacruel').learnset.malnourish = ['2L1'];
@@ -254,7 +254,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'celesteon').learnset.swordsdance = ['2L1'];
 		this.modData('Learnsets', 'celesteon').learnset.moonlight = ['2L1'];
 		this.modData('Learnsets', 'celesteon').learnset.morningsun = ['2L1'];
-
 	},
 
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove) {
@@ -467,5 +466,5 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			return stat;
 		},
-	}
+	},
 };

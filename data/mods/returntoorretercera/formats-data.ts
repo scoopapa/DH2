@@ -1,6 +1,6 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	//Custom tiers are "TERCERA" and "TERCERA NFE"
-  //Taken from last gen's RTO
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	// Custom tiers are "TERCERA" and "TERCERA NFE"
+	// Taken from last gen's RTO
 	absol: {
 		tier: "TERCERA",
 		doublesTier: "DOU",
@@ -230,7 +230,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	dragonite: {
-// Dragonite evolves at level 55, which is higher than the level cap of 50
+		// Dragonite evolves at level 55, which is higher than the level cap of 50
 		tier: "Illegal",
 		doublesTier: "DOU",
 	},
@@ -1171,7 +1171,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	tyranitar: {
-// Tyranitar evolves at level 55, which is higher than the level cap of 50
+		// Tyranitar evolves at level 55, which is higher than the level cap of 50
 		tier: "Illegal",
 		doublesTier: "DOU",
 	},

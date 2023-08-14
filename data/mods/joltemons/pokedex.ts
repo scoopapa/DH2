@@ -820,11 +820,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	entei: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Magma Armor",  H: "Inner Focus"},
+		abilities: {0: "Pressure", 1: "Magma Armor", H: "Inner Focus"},
 	},
 	suicune: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Hydration",  H: "Inner Focus"},
+		abilities: {0: "Pressure", 1: "Hydration", H: "Inner Focus"},
 	},
 	torkoal: {
 		inherit: true,
@@ -1387,7 +1387,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Sturdy", 1: "Sand Veil", H: "Contrary"},
 	},
 
-// silvally moment
+	// silvally moment
 	silvallybug: {
 		inherit: true,
 		abilities: {0: "RKS System", 1: "Download", H: "Power of Alchemy (Silvally)"},

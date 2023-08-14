@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-	//New Items
+	// New Items
 	cursedjewel: {
 		name: "Cursed Jewel",
 		fling: {
@@ -17,8 +17,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 			type: "Steel",
 		},
-		//onBeforeMovePriority: 10,
-		onOverrideAction(pokemon) { //only event that happens before BeforeMove, which flinch has to be stopped before.
+		// onBeforeMovePriority: 10,
+		onOverrideAction(pokemon) { // only event that happens before BeforeMove, which flinch has to be stopped before.
 			if (pokemon.volatiles['flinch'] && pokemon.eatItem()) {
 				pokemon.removeVolatile('flinch');
 			}
@@ -162,7 +162,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by an Alcremie, this item allows it to Mega Evolve in battle.",
 		num: 1012,
 	},
-	//Edited items
+	// Edited items
 	aguavberry: {
 		inherit: true,
 		consumable: true,
@@ -194,10 +194,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.target === 'foeSide' || (move.target === 'all' && move.id !== 'perishsong')) {
 				return;
 			}
-			if (move.priority > 0.1 && target.useItem())
-			{
+			if (move.priority > 0.1 && target.useItem()) {
 				this.add('activate', target, 'item: BrightPowder');
-				if(!this.dex.getImmunity('powder', source)) return;
+				if (!this.dex.getImmunity('powder', source)) return;
 				this.attrLastMove('[still]');
 				this.add('cant', source, 'item: BrightPowder', move);
 				return false;
@@ -289,7 +288,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			volatileStatus: 'smackdown',
 			flags: {bullet: 1},
 		},
-		onStart(pokemon){
+		onStart(pokemon) {
 			pokemon.removeVolatile('magnetrise');
 			pokemon.removeVolatile('telekinesis');
 			pokemon.removeVolatile('risingchorus');
@@ -563,7 +562,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		consumable: true,
 		onEat(pokemon) {
 			let statName = 'atk';
-			let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
+			let worstStat = 3000; // The highest possible stat number (with boosts) is 2,676
 			let s: StatNameExceptHP;
 			for (s in pokemon.storedStats) {
 				if (pokemon.storedStats[s] < worstStat) {
@@ -699,7 +698,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 4,
 		gen: 5,
 	},
-	
+
 	/* Items edited for dual-type moves */
 	absorbbulb: {
 		inherit: true,
@@ -1073,7 +1072,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	shedshell: {
 		inherit: true,
 		onTrapPokemon(pokemon) {
-			if(!pokemon.volatiles['meanlooked']){
+			if (!pokemon.volatiles['meanlooked']) {
 				pokemon.trapped = pokemon.maybeTrapped = false;
 			}
 		},
@@ -1218,7 +1217,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	heavydutyboots: {
 		inherit: true,
 		onDamage(damage, target, source, effect) {
-			if (effect && ['spikes','stealthrock'].includes(effect.id)) {
+			if (effect && ['spikes', 'stealthrock'].includes(effect.id)) {
 				return null;
 			}
 		},
@@ -2051,7 +2050,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		consumable: true,
 	},
-	throatspray: { //I removed this item, but meh
+	throatspray: { // I removed this item, but meh
 		inherit: true,
 		consumable: true,
 	},

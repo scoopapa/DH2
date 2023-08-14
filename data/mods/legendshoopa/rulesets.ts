@@ -1,9 +1,9 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	legendsboostsmod: {
 		effectType: 'Rule',
 		name: 'Legends Boosts Mod',
 		desc: "Applies Legends: Arceus' stat boost mechanics.",
-		//banlist: [],
+		// banlist: [],
 		/*
 		onBegin() {
 			this.add('rule', "Legends Boost Mod: Stat changes imitate Legends: Arceus's!");

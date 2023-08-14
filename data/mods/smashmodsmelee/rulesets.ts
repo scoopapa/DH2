@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	standardnatdex: {
 		effectType: 'ValidatorRule',
 		name: 'Standard NatDex',
@@ -18,9 +18,11 @@ export const Formats: {[k: string]: FormatData} = {
 				if (set.moves) {
 					for (const moveId of set.moves) {
 						const move = this.dex.moves.get(moveId);
-						if (move.isNonstandard) problems.push(
-							move.name + ' is not available in Sword and Shield, which is necessary for ' + species.name + ' because its home mod requires it.'
-						);
+						if (move.isNonstandard) {
+							problems.push(
+								move.name + ' is not available in Sword and Shield, which is necessary for ' + species.name + ' because its home mod requires it.'
+							);
+						}
 					}
 				}
 				return problems;

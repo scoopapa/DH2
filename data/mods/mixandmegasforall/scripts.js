@@ -1,14 +1,14 @@
 'use strict';
 
 /**@type {ModdedBattleScriptsData} */
-let BattleScripts = {
-	init: function () {
-		for (let id in this.data.Items) {
+const BattleScripts = {
+	init() {
+		for (const id in this.data.Items) {
 			if (!this.data.Items[id].megaStone) continue;
 			this.modData('Items', id).onTakeItem = false;
 		}
 	},
-	canMegaEvo: function (pokemon) {
+	canMegaEvo(pokemon) {
 		if (pokemon.template.isMega || pokemon.template.isPrimal) return null;
 
 		const item = pokemon.getItem();
@@ -21,7 +21,7 @@ let BattleScripts = {
 			return null;
 		}
 	},
-	runMegaEvo: function (pokemon) {
+	runMegaEvo(pokemon) {
 		if (pokemon.template.isMega || pokemon.template.isPrimal) return false;
 
 		const isUltraBurst = !pokemon.canMegaEvo;
@@ -42,8 +42,8 @@ let BattleScripts = {
 		if (this.getTemplate(pokemon.canMegaEvo).baseSpecies === pokemon.originalSpecies || isUltraBurst) {
 			pokemon.formeChange(template, pokemon.getItem(), true);
 		} else {
-			let oTemplate = this.getTemplate(pokemon.originalSpecies);
-			let oMegaTemplate = this.getTemplate(template.originalMega);
+			const oTemplate = this.getTemplate(pokemon.originalSpecies);
+			const oMegaTemplate = this.getTemplate(template.originalMega);
 			pokemon.formeChange(template, pokemon.getItem(), true);
 			this.add('-start', pokemon, oMegaTemplate.requiredItem || oMegaTemplate.requiredMove, '[silent]');
 			if (oTemplate.types.length !== pokemon.template.types.length || oTemplate.types[1] !== pokemon.template.types[1]) {
@@ -55,26 +55,26 @@ let BattleScripts = {
 		if (isUltraBurst) pokemon.canUltraBurst = null;
 		return true;
 	},
-	getMixedTemplate: function (originalSpecies, megaSpecies) {
-		let originalTemplate = this.getTemplate(originalSpecies);
-		let megaTemplate = this.getTemplate(megaSpecies);
+	getMixedTemplate(originalSpecies, megaSpecies) {
+		const originalTemplate = this.getTemplate(originalSpecies);
+		const megaTemplate = this.getTemplate(megaSpecies);
 		if (originalTemplate.baseSpecies === megaTemplate.baseSpecies) return megaTemplate;
 		// @ts-ignore
-		let deltas = this.getMegaDeltas(megaTemplate);
+		const deltas = this.getMegaDeltas(megaTemplate);
 		// @ts-ignore
-		let template = this.doGetMixedTemplate(originalTemplate, deltas);
+		const template = this.doGetMixedTemplate(originalTemplate, deltas);
 		return template;
 	},
-	getMegaDeltas: function (megaTemplate) {
-		let baseTemplate = this.getTemplate(megaTemplate.baseSpecies);
-		let deltas = {
+	getMegaDeltas(megaTemplate) {
+		const baseTemplate = this.getTemplate(megaTemplate.baseSpecies);
+		const deltas = {
 			ability: megaTemplate.abilities['0'],
 			baseStats: {},
 			weightkg: megaTemplate.weightkg - baseTemplate.weightkg,
 			originalMega: megaTemplate.species,
 			requiredItem: megaTemplate.requiredItem,
 		};
-		for (let statId in megaTemplate.baseStats) {
+		for (const statId in megaTemplate.baseStats) {
 			// @ts-ignore
 			deltas.baseStats[statId] = megaTemplate.baseStats[statId] - baseTemplate.baseStats[statId];
 		}
@@ -89,7 +89,7 @@ let BattleScripts = {
 		if (megaTemplate.isPrimal) deltas.isPrimal = true;
 		return deltas;
 	},
-	doGetMixedTemplate: function (template, deltas) {
+	doGetMixedTemplate(template, deltas) {
 		if (!deltas) throw new TypeError("Must specify deltas!");
 		if (!template || typeof template === 'string') template = this.getTemplate(template);
 		template = Object.assign({}, template);
@@ -99,10 +99,10 @@ let BattleScripts = {
 		} else if (deltas.type) {
 			template.types = [template.types[0], deltas.type];
 		}
-		let baseStats = template.baseStats;
+		const baseStats = template.baseStats;
 		// @ts-ignore
 		template.baseStats = {};
-		for (let statName in baseStats) {
+		for (const statName in baseStats) {
 			// @ts-ignore
 			template.baseStats[statName] = this.clampIntRange(baseStats[statName] + deltas.baseStats[statName], 1, 255);
 		}

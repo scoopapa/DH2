@@ -48,21 +48,21 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			} else if (r === 2) {
 				r = this.random(3);
 				const volatiles = ['taunt', 'torment', 'encore'];
-				target.addVolatile( volatiles[ r - 1]);
+				target.addVolatile(volatiles[r - 1]);
 			} else {
 				r = this.random(5);
 				const stats = ['atk', 'def', 'spa', 'spd', 'spe'];
-				const stat1 = stats[r-1];
-				stats.splice(r-1);
+				const stat1 = stats[r - 1];
+				stats.splice(r - 1);
 				r = this.random(4);
-				const stat2 = stats[r-1];
-				const boosts = [1,-1];
+				const stat2 = stats[r - 1];
+				const boosts = [1, -1];
 				const toBoost = {};
 				toBoost[stat1] = boosts[this.random(2) - 1];
 				toBoost[stat2] = boosts[this.random(2) - 1];
 				this.boost(toBoost, target, source, move);
-			}				
-		}
+			}
+		},
 	},
 	// Coded
 	allseeingeye: {
@@ -82,29 +82,29 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	// Coded
 	almsgiver: {
 		num: 1005,
-        shortDesc: "On switching out, shares a copy of its item with its replacement.",
-        onSwitchOut(pokemon) {
-            if (pokemon.item && pokemon.side.addSlotCondition(pokemon, 'almsgiver')) {
-                Object.assign(pokemon.side.slotConditions[pokemon.position]['almsgiver'], {
-                    item: pokemon.item,
-                });
-            }
-        },
-        condition: {
-            onSwap(target) {
-                target.side.removeSlotCondition(target, 'almsgiver'); // always remove immediately even if it doesn't activate (you can remove this if you want it to be stored like Healing Wish)
-                if (!target.fainted) {
-                    if (!target.item && this.effectState.item && target.setItem(this.effectState.item)) {
-                        this.add('-ability', this.effectState.source, 'Almsgiver');
-                        this.add('-item', target, this.dex.items.get(this.effectState.item), '[from] Ability: Almsgiver', '[of] ' + this.effectState.source);
-                    }
-                }
-            },
-        },
-        name: "Almsgiver",
-        rating: 3,
-        num: -1,
-    },
+		shortDesc: "On switching out, shares a copy of its item with its replacement.",
+		onSwitchOut(pokemon) {
+			if (pokemon.item && pokemon.side.addSlotCondition(pokemon, 'almsgiver')) {
+				Object.assign(pokemon.side.slotConditions[pokemon.position]['almsgiver'], {
+					item: pokemon.item,
+				});
+			}
+		},
+		condition: {
+			onSwap(target) {
+				target.side.removeSlotCondition(target, 'almsgiver'); // always remove immediately even if it doesn't activate (you can remove this if you want it to be stored like Healing Wish)
+				if (!target.fainted) {
+					if (!target.item && this.effectState.item && target.setItem(this.effectState.item)) {
+						this.add('-ability', this.effectState.source, 'Almsgiver');
+						this.add('-item', target, this.dex.items.get(this.effectState.item), '[from] Ability: Almsgiver', '[of] ' + this.effectState.source);
+					}
+				}
+			},
+		},
+		name: "Almsgiver",
+		rating: 3,
+		num: -1,
+	},
 	// Coded
 	amplify: {
 		num: 1006,
@@ -119,7 +119,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 	},
 	// Coded
-	arbiter: { //implemented in rules rewrite
+	arbiter: { // implemented in rules rewrite
 		num: 1007,
 		name: "Arbiter",
 		desc: "Extends the duration of Rules Rewrite by 2 turns when used by this pokemon.",
@@ -206,9 +206,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.hasType('Serenity')) return false;
 			if (!pokemon.addType('Serenity')) return false;
-			pokemon.setType([pokemon.types[1],"Serenity"]);
+			pokemon.setType([pokemon.types[1], "Serenity"]);
 			this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-		}
+		},
 	},
 	// Coded
 	blightboost: {
@@ -287,8 +287,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.status === 'brn') {
 				if ((attacker.storedStats['atk'] >= attacker.storedStats['spa'] && move.category === "Physical") ||
-					(attacker.storedStats['atk'] < attacker.storedStats['spa'] && move.category === "Special"))
-				{
+					(attacker.storedStats['atk'] < attacker.storedStats['spa'] && move.category === "Special")) {
 					return this.chainModify(1.2);
 				}
 			}
@@ -301,10 +300,10 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokemon's moves that lower its stats have 1.3x power, but the amount the stat is lowered is doubled.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.self && move.self.boosts) { 
+			if (move.self && move.self.boosts) {
 				let negBoost = false;
 				for (const stat in move.self.boosts) {
-					if (move.self.boosts[stat] < 0) { 
+					if (move.self.boosts[stat] < 0) {
 						negBoost = true;
 						move.self.boosts[stat] = move.self.boosts[stat] * 2;
 					}
@@ -322,7 +321,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			target.m.statusT = this.turn;
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.status) return; 
+			if (!pokemon.status) return;
 			const duration = this.turn - pokemon.m.statusT;
 			if (duration > 2) {
 				this.add('-activate', pokemon, 'ability: Celestial');
@@ -366,7 +365,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1022,
 		name: "Climatic Change",
 		// desc: "Every Season type attack became the next one.(Spring become summer,summer become autumn,autumn become winter and winter become spring)",
-		desc: "Placeholder"
+		desc: "Placeholder",
 	},
 	// Coded
 	contagious: {
@@ -389,7 +388,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onBoost(boost, target, source, effect) {
 			if (effect && effect.id === 'zpower') return;
 			let i: BoostName;
-			for (let i in boost) {
+			for (const i in boost) {
 				boost[i]! *= -1;
 			}
 		},
@@ -422,7 +421,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				move.accuracy = true;
-				this.damage(source.maxhp/8, source, target, move);
+				this.damage(source.maxhp / 8, source, target, move);
 				return null;
 			}
 		},
@@ -547,14 +546,14 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Equivalent Exchange",
 		desc: "When this Pokémon's Attack is modified, its Special Attack is modified in the opposite way, and vice versa. The same is true for its Defense and Special Defense.",
 		onBoost(boost, target, source, effect) {
-			let invBoost = {};
-			let swapBoost = {atk: 'spa', spa: 'atk', def: 'spd', spd: 'def'};
-			for (let i in swapBoost) {
+			const invBoost = {};
+			const swapBoost = {atk: 'spa', spa: 'atk', def: 'spd', spd: 'def'};
+			for (const i in swapBoost) {
 				if (boost[i]) {
 					invBoost[swapBoost[i]] = boost[i] * -1;
 				}
 			}
-			for (let i in invBoost) {
+			for (const i in invBoost) {
 				if (!swapBoost[i]) continue;
 				if (!boost[i]) boost[i] = 0;
 				boost[i] += invBoost[i];
@@ -596,12 +595,12 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				for (const pokemon of side.active) {
 					if (!pokemon.hasAbility("Glide")) continue;
 					// if (!pokemon.m.glideBoost || pokemon.m.glideBoost !== this.turn) {
-						// pokemon.m.glideBoost = this.turn;
-					this.boost({spe:1}, pokemon);
+					// pokemon.m.glideBoost = this.turn;
+					this.boost({spe: 1}, pokemon);
 					// }
 				}
 			}
-		}
+		},
 	},
 	// Coded
 	hotfeet: {
@@ -628,7 +627,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			boosts['accuracy'] = 0;
 		},
 	},
-	// Coded 
+	// Coded
 	infinitescaling: {
 		num: 1036,
 		name: "Infinite Scaling",
@@ -681,9 +680,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			if (!pokemon.activeTurns) return;
 			const seasons = ["Spring", "Summer", "Autumn", "Winter"];
-			let types = [...pokemon.getTypes(true)];
+			const types = [...pokemon.getTypes(true)];
 			for (const i in types) {
-				if (seasons.includes(types[i])) { 
+				if (seasons.includes(types[i])) {
 					types[i] = seasons[(seasons.indexOf(types[i]) + 1) % 4];
 				}
 			}
@@ -741,9 +740,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	// Not Used
 	// megatonburst: {
-		// num: 1041,
-		// name: "Megaton Burst",
-		// desc: "This Pokemon uses a 60 BP physical Earth-type move (uses the user's Attack stat) after using a Sound-based move.",
+	// num: 1041,
+	// name: "Megaton Burst",
+	// desc: "This Pokemon uses a 60 BP physical Earth-type move (uses the user's Attack stat) after using a Sound-based move.",
 	// },
 	// Coded
 	metalcoat: {
@@ -842,7 +841,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (this.field.isTerrain('rosefield')) this.heal(pokemon.baseMaxhp / 8);
-		}
+		},
 	},
 	// Coded and Tested
 	prudentplow: {
@@ -879,7 +878,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Sea') {
-				let mod = 1 + (.4 * (1 - (attacker.hp / attacker.maxhp)));
+				let mod = 1 + (0.4 * (1 - (attacker.hp / attacker.maxhp)));
 				if (attacker.hp === 1) mod = 1.4;
 				return this.chainModify(mod);
 			}
@@ -887,7 +886,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Sea') {
-				let mod = 1 + (.4 * (1 - (attacker.hp / attacker.maxhp)));
+				let mod = 1 + (0.4 * (1 - (attacker.hp / attacker.maxhp)));
 				if (attacker.hp === 1) mod = 1.4;
 				return this.chainModify(mod);
 			}
@@ -935,9 +934,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const moveSlot of pokemon.moveSlots) {
 				moveSlot.pp = moveSlot.maxpp;
 			}
-			const negativeVolatiles = ['energysiphon', 'tantalize', 'shroomspores', 'partiallytrapped', 'rabidmaw', 'pollinate', 'pheromonalgas', 
-									'moonblade', 'mindcleansing', 'torment', 'Deafened', 'hypnotize', 'blasphemy', 'void', 'technocut', 
-									'temporarytrap', 'hitodama'
+			const negativeVolatiles = ['energysiphon', 'tantalize', 'shroomspores', 'partiallytrapped', 'rabidmaw', 'pollinate', 'pheromonalgas',
+				'moonblade', 'mindcleansing', 'torment', 'Deafened', 'hypnotize', 'blasphemy', 'void', 'technocut',
+				'temporarytrap', 'hitodama',
 			];
 			for (const vol of negativeVolatiles) {
 				if (pokemon.volatiles[vol]) pokemon.removeVolatile('vol');
@@ -991,24 +990,24 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Sacrificer",
 		desc: "This Pokemon loses 1/3 of its max HP when it switches out. Next Pokemon gets those HP.",
 		onSwitchOut(pokemon) {
-            if (pokemon.side.addSlotCondition(pokemon, 'sacrificer')) {
+			if (pokemon.side.addSlotCondition(pokemon, 'sacrificer')) {
 				const hp = pokemon.baseMaxhp / 3;
-                Object.assign(pokemon.side.slotConditions[pokemon.position]['sacrificer'], {
-                    hp: hp,
-                });
-				this.damage( hp, pokemon, pokemon);
-            }
-        },
-        condition: {
-            onSwap(target) {
-                target.side.removeSlotCondition(target, 'sacrificer'); // always remove immediately even if it doesn't activate (you can remove this if you want it to be stored like Healing Wish)
-                if (!target.fainted) {
-                    if (this.heal(this.effectState.hp, target, this.effectState.source)) {
-                        this.add('-ability', this.effectState.source, 'Sacrificer');
-                    }
-                }
-            },
-        },
+				Object.assign(pokemon.side.slotConditions[pokemon.position]['sacrificer'], {
+					hp: hp,
+				});
+				this.damage(hp, pokemon, pokemon);
+			}
+		},
+		condition: {
+			onSwap(target) {
+				target.side.removeSlotCondition(target, 'sacrificer'); // always remove immediately even if it doesn't activate (you can remove this if you want it to be stored like Healing Wish)
+				if (!target.fainted) {
+					if (this.heal(this.effectState.hp, target, this.effectState.source)) {
+						this.add('-ability', this.effectState.source, 'Sacrificer');
+					}
+				}
+			},
+		},
 	},
 	// Coded
 	scavenge: {
@@ -1017,7 +1016,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "This Pokemon restores 1/3 of its max health if another Pokemon on the field faints.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'ability: Scavenge'); 
+				this.add('-activate', source, 'ability: Scavenge');
 				this.heal(source.baseMaxhp / 3, source, source, effect);
 			}
 		},
@@ -1092,7 +1091,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "While this Pokemon is active, opposing Pokemons' stat raises will be lowers instead, and vice versa.",
 		onFoeBoost(boost, target, source, effect) {
 			let i: BoostName;
-			for (let i in boost) {
+			for (const i in boost) {
 				boost[i]! *= -1;
 			}
 		},
@@ -1150,7 +1149,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 1066,
 		name: "Strategic Retreat",
 		desc: "emergency exit but activates in 25% of max HP and heals 25% of max HP on switch",
-		onUpdate(pokemon){
+		onUpdate(pokemon) {
 			if (pokemon.hp >= pokemon.maxhp / 4) {
 				pokemon.m.SRActive = true;
 			}
@@ -1187,9 +1186,9 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	// Not Used
 	// supersapience: {
-		// num: 1069,
-		// name: "Super Sapience",
-		// desc: "Boosts moves that start with S by 1.5x. Moves that start with any other letter receive a 0.5x  decrease in power.",
+	// num: 1069,
+	// name: "Super Sapience",
+	// desc: "Boosts moves that start with S by 1.5x. Moves that start with any other letter receive a 0.5x  decrease in power.",
 	// },
 	// Coded
 	thickheaded: {
@@ -1208,7 +1207,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			onNegateImmunity(pokemon, type) {
 				return false;
 			},
-		}
+		},
 	},
 	// Coded
 	thickskin: {// implemented in conditions.ts

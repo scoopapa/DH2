@@ -115,7 +115,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return basePower;
 		},
 		priority: 0,
-		multihit: [2,5],
+		multihit: [2, 5],
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: null,
@@ -135,7 +135,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: {
 			chance: 30,
-			status:'frz',
+			status: 'frz',
 		},
 	},
 	// Coded
@@ -148,14 +148,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
- 		onPrepareHit: function(target, source, move) {
+ 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Shore Up", target);
 		},
 		self: {
 			onHit(pokemon, source, move) {
 				this.heal(source.baseMaxhp / 3, source, pokemon);
-			}
+			},
 		},
 		onHitField(target, source) {
 			if (target.hasType('Sea')) {
@@ -190,7 +190,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target, source) {
 			let b: BoostName;
-			let negBoosts = {};
+			const negBoosts = {};
 			for (b in source.boosts) {
 				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
 			}
@@ -310,7 +310,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			if (pokemon.status !== 'slp') pokemon.addVolatile('beachball');
 			// if (pokemon.volatiles['defensecurl']) {
-				// bp *= 2;
+			// bp *= 2;
 			// }
 			return bp;
 		},
@@ -433,7 +433,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Night",
 		shortDesc: "The user and opponent switch items.",
 		// onTryImmunity(target) {
-			// return !target.hasAbility('stickyhold');
+		// return !target.hasAbility('stickyhold');
 		// },
 		onHit(target, source, move) {
 			const yourItem = target.takeItem(source);
@@ -549,12 +549,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Sky",
 		shortDesc: "The user restores 1/2 of its maximum HP, rounded half down. If the user has Sunburn, it is cured.",
 		priority: 0,
-		onHit(target, source, move){
+		onHit(target, source, move) {
 			if (source.status === 'brn') source.cureStatus();
 		},
 		flags: {protect: 1, mirror: 1, heal: 1},
 		target: "self",
-		heal: [1,2],
+		heal: [1, 2],
 		secondary: null,
 	},
 	// Coded
@@ -746,7 +746,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			boosts: {
 				chance: 10,
 				spd: -1,
-			}
+			},
 		},
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -800,16 +800,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		type: "Spring",
 		shortDesc: "Heals the user by 50% of its max HP. Resets the user's lowered stat changes.",
-		onHit(target, source, move){
+		onHit(target, source, move) {
 			let b: BoostName;
-			let negBoosts = {};
+			const negBoosts = {};
 			for (b in source.boosts) {
 				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
 			}
 			if (negBoosts !== {}) this.boost(negBoosts, source);
 		},
 		priority: 0,
-		heal: [1,2],
+		heal: [1, 2],
 		flags: {protect: 1, mirror: 1, heal: 1},
 		target: "self",
 		secondary: null,
@@ -1304,7 +1304,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		type: "Typeless",
 		shortDesc: "Heals the user for 1/4th of its max HP.",
-		heal: [1,4],
+		heal: [1, 4],
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1},
 		target: "normal",
@@ -1321,7 +1321,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Folklore",
 		shortDesc: "Manmade Pokemon receive Curse instead if hit by this move.",
 		onTryHit(target, source) {
-			if (target.hasType("Manmade")){
+			if (target.hasType("Manmade")) {
 				target.trySetStatus("crs");
 				return false;
 			}
@@ -1653,7 +1653,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Autumn",
 		volatileStatus: 'energysiphon',
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fell Stinger", target);
 		},
@@ -1845,7 +1845,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: {
 			boosts: {
 				def: -1,
-			}
+			},
 		},
 	},
 	// Coded and Tested
@@ -1859,7 +1859,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Heals the user for 1/2 max HP",
 		priority: 0,
 		onHit(target, source, move) {
-			if (target === source){
+			if (target === source) {
 				this.heal(target.maxhp / 2, target, source, move);
 			}
 		},
@@ -1877,7 +1877,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Summer",
 		shortDesc: "User takes 1/3 Recoil, 10% Chance to lower the target's Defense",
 		priority: 0,
-		recoil: [1,3],
+		recoil: [1, 3],
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: {
@@ -2003,8 +2003,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		boosts: {
 			atk: 1,
-			spd: 1
-		}
+			spd: 1,
+		},
 	},
 	// Coded
 	gentlebreeze: {
@@ -2110,7 +2110,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		secondary: {
 			chance: 30,
-			status:'frz',
+			status: 'frz',
 		},
 	},
 	// Coded
@@ -2256,7 +2256,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		type: "Spring",
 		shortDesc: "Heals user for 1/3 of damage dealt",
-		drain: [1,3],
+		drain: [1, 3],
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1},
 		target: "normal",
@@ -2570,7 +2570,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.basePower *= 2;
 				move.secondary = {
 					boosts: {atk: -1, spa: -1},
-				}
+				};
 			}
 		},
 		priority: 0,
@@ -2621,7 +2621,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "User has their status cured and their lowered stat stages reset.",
 		onHit(target, source, move) {
 			let b: BoostName;
-			let negBoosts = {};
+			const negBoosts = {};
 			for (b in source.boosts) {
 				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
 			}
@@ -2855,10 +2855,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: "Deafened",
 		condition: {
 			onTryHit(target, source, move) {
-			if (move.target !== 'self' && move.flags['sound']) {
-				this.add('-immune', target);
-				return null;
-			}
+				if (move.target !== 'self' && move.flags['sound']) {
+					this.add('-immune', target);
+					return null;
+				}
 			},
 			onAllyTryHitSide(target, source, move) {
 				if (move.flags['sound']) {
@@ -3231,7 +3231,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		type: "Night",
 		shortDesc: "If the user moved before the target, then the target's higher attacking stat drops one stage. (Pulse)",
-		onHit(target, source, move){
+		onHit(target, source, move) {
 			if (this.queue.willMove(target)) {
 				const boosts = target.boosts;
 				let statName = 'atk';
@@ -3300,7 +3300,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onDamagingHit(damage, target, source, move) {
-				if (move.id === 'nightynight') { 
+				if (move.id === 'nightynight') {
 					this.effectState.sleepy++;
 					if (this.effectState.sleepy > 0) this.add('-message', target.name + ' became even more drowsy!');
 				}
@@ -3351,7 +3351,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			volatileStatus: 'mustrecharge',
 			boosts: {
 				spa: -2,
-			}
+			},
 		},
 		target: "normal",
 		secondary: null,
@@ -3591,10 +3591,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Folklore",
 		shortDesc: "If the opponent is at 25% HP or less, it faints. (Sound)",
 		onTryHit(target, source) {
-			if (target.hp / target.baseMaxhp > .25) return false;
+			if (target.hp / target.baseMaxhp > 0.25) return false;
 		},
 		onHit(target, source) {
-			if (target.hp / target.baseMaxhp <= .25) target.faint();
+			if (target.hp / target.baseMaxhp <= 0.25) target.faint();
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, reflectable: 1},
@@ -3697,7 +3697,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						}
 					}
 				}
-				
 			},
 			onEnd() {
 				if (!this.effectState.duration) this.eachEvent('Terrain');
@@ -3738,7 +3737,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "If user is Storm-type, changes Storm to Serenity before executing this move.",
 		onPrepareHit(target, source, move) {
 			if (move.hasBounced || !source.hasType("Storm")) return;
-			let types = [...source.getTypes(true)];
+			const types = [...source.getTypes(true)];
 			for (const i in types) {
 				if (types[i] === "Storm") {
 					types[i] = "Serenity";
@@ -3916,7 +3915,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onModifyMove(move, source, target) {
 			if (this.field.getTerrain().exists) {
 				move.basePower *= 1.5;
-				move.drain = [1,2];
+				move.drain = [1, 2];
 				move.terrainBoosted = true;
 			}
 		},
@@ -3939,8 +3938,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Storm",
 		shortDesc: "Both user and target have to recharge next turn.",
 		onHit(target, source) {
-			target:addVolatile('mustrecharge');
-			source:addVolatile('mustrecharge');
+			addVolatile('mustrecharge');
+			addVolatile('mustrecharge');
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
@@ -3956,7 +3955,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		type: "Typeless",
 		shortDesc: "User takes 1/4 recoil. [Contact]",
-		recoil: [1,4],
+		recoil: [1, 4],
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
@@ -4081,7 +4080,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 			let b: BoostName;
-			let negBoosts = {};
+			const negBoosts = {};
 			for (b in pokemon.boosts) {
 				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
 			}
@@ -4198,11 +4197,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							console.log("rice field");
 							console.log(pokemon.name);
 							if (pokemon.hasType("Serenity") || pokemon.hasType("Sea")) this.heal(pokemon.baseMaxhp / 2, pokemon);
-							else this.heal(pokemon.baseMaxhp / 4,pokemon);
+							else this.heal(pokemon.baseMaxhp / 4, pokemon);
 						}
 					}
 				}
-				
 			},
 			onEnd() {
 				if (!this.effectState.duration) this.eachEvent('Terrain');
@@ -4247,7 +4245,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onTry(source, target) {
 			let type = "Summer";
-			if (source.hp / source.baseMaxhp < 0.5) type = "Winter"
+			if (source.hp / source.baseMaxhp < 0.5) type = "Winter";
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				move: 'risingsun',
@@ -4365,8 +4363,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onStart(side) {
 				this.add('-sidestart', side, 'Rubbles');
 				this.effectState.layers = 1;
-				if (side.foe.sideConditions['rubbles']){
-					let allySideRubbles = side.foe.sideConditions['rubbles'];
+				if (side.foe.sideConditions['rubbles']) {
+					const allySideRubbles = side.foe.sideConditions['rubbles'];
 					if (allySideRubbles.layers > 0) {
 						allySideRubbles.layers = allySideRubbles.layers - 1;
 						if (allySideRubbles.layers === 0) {
@@ -4384,8 +4382,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (this.effectState.layers >= 3) return false;
 				this.effectState.layers++;
 				this.add('-message', this.effectState.layers + ' layers of Rubbles were laid!');
-				if (side.foe.sideConditions['rubbles']){
-					let allySideRubbles = side.foe.sideConditions['rubbles'];
+				if (side.foe.sideConditions['rubbles']) {
+					const allySideRubbles = side.foe.sideConditions['rubbles'];
 					if (allySideRubbles.layers > 0) {
 						allySideRubbles.layers = allySideRubbles.layers - 1;
 						if (allySideRubbles.layers === 0) {
@@ -4474,7 +4472,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, dance: 1},
 		target: "self",
-		boosts: { 
+		boosts: {
 			atk: 1,
 			spd: 1,
 			spe: 1,
@@ -4492,7 +4490,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Changes type every turn, order of Spring -> Summer -> Autumn -> Winter -> Spring",
 		onModifyType(move, pokemon) {
 			const seasons = ["Spring", "Summer", "Autumn", "Winter"];
-			move.type = seasons[(pokemon.activeTurns-1) % 4];
+			move.type = seasons[(pokemon.activeTurns - 1) % 4];
 			this.add('-message', "Season Change: " + move.type);
 		},
 		priority: 0,
@@ -4578,7 +4576,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			boosts: {
 				spa: -2,
-			}
+			},
 		},
 		target: "normal",
 		secondary: null,
@@ -4648,7 +4646,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 1,
 			onEnd(pokemon) {
 				if (this.effectState.turn = pokemon.battle.turn) this.heal(Math.ceil(pokemon.maxhp * 0.25), pokemon);
-			}
+			},
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
@@ -4705,7 +4703,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			duration: 2,
-			onStart(side, source, sourceEffect){
+			onStart(side, source, sourceEffect) {
 				this.effectState.turn = side.battle.turn;
 				this.effectState.source = source;
 				this.effectState.pkmnname = source.fullname;
@@ -4717,7 +4715,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 			onResidualOrder: 4,
-			onResidual(source){
+			onResidual(source) {
 				if (source && source.side && !this.effectState.hp) {
 					source.side.removeSlotCondition(source, 'shootingstar');
 					source.battle.add('-message', 'But nothing happened!');
@@ -4941,7 +4939,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 10,
 			boosts: {
 				spe: -1,
-			}
+			},
 		},
 		flags: {protect: 1, mirror: 1},
 		target: "normal",
@@ -5193,7 +5191,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Spring",
 		shortDesc: "+1 Priority. Restores health to the user equal to 1/2 of the damage dealt. (Contact)",
 		priority: 1,
-		drain: [1,2],
+		drain: [1, 2],
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
 		secondary: null,
@@ -5297,9 +5295,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onTryHit(target, source, move) {
-				if (move.priority > 0 && target.getStat('spe', false, true) > source.getStat('spe', false, true) && target.fullname === this.effectState.effectTarget.fullname ) {
+				if (move.priority > 0 && target.getStat('spe', false, true) > source.getStat('spe', false, true) && target.fullname === this.effectState.effectTarget.fullname) {
 					this.add('-message', 'Priority move of ' + source.name + ' failed due to Starlight Crash!');
-					return false
+					return false;
 				}
 			},
 		},
@@ -5413,9 +5411,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			self: {
 				boosts: {
 					def: 1,
-				}
+				},
 			},
-		}
+		},
 	},
 	// Coded
 	stormblitz: {
@@ -5428,7 +5426,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Deals 1/3 damage dealt as recoil to the user(Contact)",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
-		recoil: [1,3],
+		recoil: [1, 3],
 		target: "normal",
 		secondary: null,
 	},
@@ -5450,7 +5448,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "self",
 	},
 	// Coded
-	strikingtide: { 
+	strikingtide: {
 		name: "Striking Tide",
 		accuracy: 100,
 		basePower: 50,
@@ -5464,7 +5462,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (move.hit === 3) move.thirdHit = target.hp;
 		},
 		onAfterHit(target, source, move) {
-			let damage = (move.secondHit - move.thirdHit) * (3/4);
+			const damage = (move.secondHit - move.thirdHit) * (3 / 4);
 			this.damage(damage, source);
 		},
 		priority: 0,
@@ -5507,7 +5505,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	// Coded
 	summerdaze: { // Chance of missing 3: .1%, The accuracy is 99.9% so if the move hits, you got at least 1 hit.
-	// Given that, the chance of missing the other 2 is 1%. The chance of missing 1 is 18%. The chance of getting all 3 hits is 81%. 
+	// Given that, the chance of missing the other 2 is 1%. The chance of missing 1 is 18%. The chance of getting all 3 hits is 81%.
 		name: "Summer Daze",
 		accuracy: 99.9, // 90% per hit
 		basePower: 50,
@@ -5628,7 +5626,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						}
 					}
 				}
-				
 			},
 			onEnd() {
 				if (!this.effectState.duration) this.eachEvent('Terrain');
@@ -5752,8 +5749,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
-		boosts: {spe: -1,},
-		self: {boosts: {spe: 1,}},
+		boosts: {spe: -1},
+		self: {boosts: {spe: 1}},
 		unviable: true,
 	},
 	// Low Priority
@@ -5823,7 +5820,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 30,
 		type: "Folklore",
 		shortDesc: "Lowers the opponent's defense stat by 1.",
-		boosts: {def: -1,},
+		boosts: {def: -1},
 		priority: 0,
 		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
@@ -5908,7 +5905,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Heals the user by 2/3 of its max HP. Lowers the user's higher defensive stat by 1 stage (factors in stat changes).",
 		priority: 0,
 		heal: [2, 3],
-		onHit(target, source, move){
+		onHit(target, source, move) {
 			const boosts = source.boosts;
 			let statName = 'def';
 			const realDef = source.storedStats['def'] * (1 + (boosts['def'] / 2));
@@ -6054,17 +6051,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, pokemon, move) {
 			let negativeBoosts = false;
 			for (const stat of ['atk', 'def', 'spa', 'spd', 'spe', 'accuracy', 'evasion']) {
-				if ( target.boosts[ stat ] < 0 ) {
+				if (target.boosts[stat] < 0) {
 					negativeBoosts = true;
 				}
 			}
-			if ( negativeBoosts === true) {
-                move.secondary.chance = 100;
-            }
+			if (negativeBoosts === true) {
+				move.secondary.chance = 100;
+			}
 		},
 		secondary: {
 			chance: 40,
-			status: 'psn'
+			status: 'psn',
 		},
 	},
 	// Coded
@@ -6167,7 +6164,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: {
 			chance: 100,
 			onHit(target, source) {
-				let targetBoost = {};
+				const targetBoost = {};
 				for (const boost in source.boosts) {
 					if (source.boosts[boost] > 0) targetBoost[boost] = -1;
 				}
@@ -6236,13 +6233,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onStart(pokemon) {
 				this.effectState.typhoonCounter = 1;
 				this.add('-message', pokemon.name + ' is building up a Typhoon!');
-			}, 
+			},
 			onFoeHit(target, source, move) {
 				if (move.id !== "typhoon" || source !== this.effectState.source) return;
 				this.effectState.typhoonCounter++;
 				if (this.effectState.typhoonCounter === 3) {
 					this.add('-message', source.name + ' whipped up a raging storm!');
-					let types = [...source.getTypes(true)];
+					const types = [...source.getTypes(true)];
 					for (const i in types) {
 						if (types[i] === "Sea") {
 							types[i] = "Storm";
@@ -6347,7 +6344,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		pp: .625,
+		pp: 0.625,
 		type: "Manmade",
 		shortDesc: "The user's Attack, Defense, Sp. Atk, Sp. Def, and Speed rise by 1 stage.",
 		boosts: {
@@ -6401,15 +6398,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Manmade",
 		onHit(target, source) {
 			let b: BoostName;
-			let negBoosts = {};
+			const negBoosts = {};
 			for (b in source.boosts) {
 				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
 			}
 			if (negBoosts !== {}) this.boost(negBoosts, source);
 			source.cureStatus();
-			const negativeVolatiles = ['energysiphon', 'tantalize', 'shroomspores', 'partiallytrapped', 'rabidmaw', 'pollinate', 'pheromonalgas', 
-										'moonblade', 'mindcleansing', 'torment', 'Deafened', 'hypnotize', 'blasphemy', 'void', 'technocut', 
-										'temporarytrap', 'hitodama'
+			const negativeVolatiles = ['energysiphon', 'tantalize', 'shroomspores', 'partiallytrapped', 'rabidmaw', 'pollinate', 'pheromonalgas',
+				'moonblade', 'mindcleansing', 'torment', 'Deafened', 'hypnotize', 'blasphemy', 'void', 'technocut',
+				'temporarytrap', 'hitodama',
 			];
 			for (const vol of negativeVolatiles) {
 				if (source.volatiles[vol]) source.removeVolatile('vol');
@@ -6529,7 +6526,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onEnd(pokemon) {
 				this.add('-message', pokemon.name + ' was swept away!');
 				pokemon.forceSwitchFlag = true;
-			}
+			},
 		},
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -6619,7 +6616,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onResidualOrder: 4,
 			onEnd(target) {
 				if (target && !target.fainted) {
-					let source = target.side.foe.active[0];
+					const source = target.side.foe.active[0];
 					const damage = this.heal(source.hp / 2, target, target);
 					if (damage) this.add('-heal', target, target.getHealth, '[from] move: Withering Breeze', '[wisher] ' + this.effectState.source.name);
 				}

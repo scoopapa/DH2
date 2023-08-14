@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ItemData} = {
-	//altex
+	// altex
 	eviolite: {
 		name: "Eviolite",
 		spritenum: 130,
@@ -8,21 +8,21 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || 
+			if (pokemon.baseSpecies.nfe ||
 				pokemon.species.id === 'basculinskyship' ||
 				pokemon.species.id === 'mrmimeprance'
 				// || pokemon.species.id === 'snipsquire'
-				) {
+			) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || 
+			if (pokemon.baseSpecies.nfe ||
 				pokemon.species.id === 'basculinskyship' ||
 				pokemon.species.id === 'mrmimeprance'
 				// || pokemon.species.id === 'snipsquire'
-				) {
+			) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -31,8 +31,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 538,
 		gen: 5,
 	},
-	
-	//vape
+
+	// vape
 	baseballbat: {
 		name: "Baseball Bat",
 		spritenum: 0, // TODO
@@ -52,7 +52,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
 			this.useMove(newMove, target, source);
-			target.useItem();			
+			target.useItem();
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
@@ -63,7 +63,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
 			this.useMove(newMove, this.effectState.target, source);
-			target.useItem();			
+			target.useItem();
 			return null;
 		},
 		condition: {
@@ -72,6 +72,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		desc: "Holder's contact moves have 1.25x power. Bounces back bullet/ball moves and breaks when it does.",
 		num: -1007,
 		gen: 8,
-	}, 
-	
+	},
+
 };

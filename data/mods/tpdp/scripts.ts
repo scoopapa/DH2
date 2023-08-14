@@ -76,7 +76,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			return handlers;
-		}
+		},
 	},
 	pokemon: {
 		getStatusSlots(): number {
@@ -84,8 +84,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			for (const st in this.status) {
 				const s = this.battle.dex.conditions.get(st);
 				console.log(s);
-				if (s.statusSlots)
-					statusSlots += s.statusSlots;
+				if (s.statusSlots) { statusSlots += s.statusSlots; }
 			}
 			console.log(statusSlots);
 			return statusSlots;
@@ -104,7 +103,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				return;
 			}
 			if (!this.hp) return false;
-			let statusSlots = this.getStatusSlots();
+			const statusSlots = this.getStatusSlots();
 			console.log(statusSlots);
 			status = this.battle.dex.conditions.get(status);
 			if (status.statusSlots && statusSlots + status.statusSlots > 2) {
@@ -152,10 +151,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 			}
 
-			//where it actually sets status
+			// where it actually sets status
 			this.status = status.id;
 			this.statusData = {id: status.id, target: this};
-			
+
 			if (source) this.statusData.source = source;
 			if (status.duration) this.statusData.duration = status.duration;
 			if (status.durationCallback) {
@@ -178,8 +177,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!type || type === '???') return true;
 			if (!(type in this.battle.dex.data.TypeChart)) {
 				if (
-					type === 'Void'|| 
-					type === 'Nature' || 
+					type === 'Void' ||
+					type === 'Nature' ||
 					type === 'Earth' ||
 					type === 'Wind' ||
 					type === 'Light' ||
@@ -249,7 +248,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon' && item !== 'floatingstone';
-		},		
+		},
 		/*
 		calculateStat(statName: StatNameExceptHP, boost: number, modifier?: number) {
 			statName = toID(statName) as StatNameExceptHP;

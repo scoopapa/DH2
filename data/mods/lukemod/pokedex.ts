@@ -1,5 +1,5 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
-	//alt ex
+	// alt ex
 	urshifu: {
 		num: 892,
 		name: "Urshifu",
@@ -159,7 +159,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 39.2,
 	},
 
-	//blindsided
+	// blindsided
 	ferroluna: {
 		num: 936,
 		species: "Ferroluna",
@@ -177,8 +177,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Levitate"},
 		weightkg: 5,
 	},
-	
-	//boe
+
+	// boe
 	aureatefin: {
 		num: -7,
 		name: "Aureate Fin",
@@ -203,8 +203,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Brown",
 		eggGroups: ["Flying"],
 	},
-	
-	//csm2
+
+	// csm2
 	virizion: {
 		inherit: true,
 		name: "Virizion",
@@ -219,8 +219,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 126, atk: 81, def: 59, spa: 76, spd: 71, spe: 73},
 		abilities: {0: "Flame Body", H: "Gale Wings"},
 	},
-	
-	//ff
+
+	// ff
 	scorpixie: {
 		num: -1,
 		name: "Scorpixie",
@@ -229,8 +229,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Tablets of Ruin", H: "Swarm"},
 		weightkg: 65,
 	},
-	
-	//fesv
+
+	// fesv
 	rotoghold: {
 		// fusion: ['Gholdengo', 'Rotom'],
 		num: 2,
@@ -268,25 +268,25 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		tags: ["Paradox"],
 	},
 	tinkovish: {
- // fusion: ['Tinkaton', 'Arctovish'],
+		// fusion: ['Tinkaton', 'Arctovish'],
 		num: 41,
 		name: "Tinkovish",
 		types: ["Water", "Steel"],
-		baseStats: {hp: 90, atk: 85, def: 90, spa: 80, spd: 100, spe: 75}, 
+		baseStats: {hp: 90, atk: 85, def: 90, spa: 80, spd: 100, spe: 75},
 		abilities: {0: "Slushie"},
 		weightkg: 143.9,
 	},
 	zoinkazenta: {
- // fusion: ['Oinkologne', 'Zamazenta'],
+		// fusion: ['Oinkologne', 'Zamazenta'],
 		num: 46,
 		name: "Zoinkazenta",
 		types: ["Fighting", "Normal"],
-		baseStats: {hp: 101, atk: 120, def: 95, spa: 69, spd: 97, spe: 108}, 
+		baseStats: {hp: 101, atk: 120, def: 95, spa: 69, spd: 97, spe: 108},
 		abilities: {0: "Pillage"},
 		weightkg: 165,
 	},
-	
-	//gen x
+
+	// gen x
 	gophragar: {
 		num: 2001,
 		name: "Gophragar",
@@ -306,50 +306,50 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 22,
 		evos: ["Gophragar"],
 	},
-	
-	//megas revisited
+
+	// megas revisited
 	audinomega: {
 		inherit: true,
 		types: ["Normal", "Electric"],
 		baseStats: {hp: 103, atk: 60, def: 130, spa: 100, spd: 97, spe: 55},
 		abilities: {0: "Regenerator"},
-	},	
+	},
 	houndoommega: {
 		inherit: true,
 		types: ["Dark", "Fire"],
 		baseStats: {hp: 75, atk: 90, def: 90, spa: 140, spd: 90, spe: 115},
 		abilities: {0: "Merciless"},
-	},	
+	},
 	pinsirmega: {
 		inherit: true,
 		types: ["Bug", "Ice"],
 		baseStats: {hp: 65, atk: 150, def: 110, spa: 80, spd: 85, spe: 110},
 		abilities: {0: "Mountaineer"},
-	},	
+	},
 	sceptilemega: {
 		inherit: true,
 		types: ["Grass", "Dragon"],
 		baseStats: {hp: 75, atk: 95, def: 79, spa: 145, spd: 99, spe: 142},
 		abilities: {0: "Armor Tail"},
-	},	
+	},
 	swampertmega: {
 		inherit: true,
 		types: ["Water", "Poison"],
 		baseStats: {hp: 100, atk: 145, def: 120, spa: 85, spd: 115, spe: 70},
 		abilities: {0: "Poison Touch"},
-	},	
+	},
 	gallademega: {
 		inherit: true,
 		types: ["Psychic", "Fighting"],
 		baseStats: {hp: 68, atk: 150, def: 100, spa: 65, spd: 127, spe: 108},
 		abilities: {0: "Sharpness"},
-	},	
+	},
 	aggronmega: {
 		inherit: true,
 		types: ["Steel"],
 		baseStats: {hp: 70, atk: 145, def: 185, spa: 85, spd: 85, spe: 60},
 		abilities: {0: "Dauntless Shield"},
-	},	
+	},
 	blazikenmega: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 150, def: 80, spa: 120, spd: 90, spe: 110},
@@ -361,8 +361,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 106, atk: 120, def: 110, spa: 194, spd: 130, spe: 120},
 		abilities: {0: "Levitate"},
 	},
-	
-	//metamons
+
+	// metamons
 	camerupt: {
 		num: 323,
 		name: "Camerupt",
@@ -390,7 +390,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 
-	//poketypos
+	// poketypos
 	arcamine: {
 		num: 9,
 		name: "Arcamine",
@@ -429,7 +429,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ground", "Grass"],
 		baseStats: {hp: 80, atk: 70, def: 75, spa: 90, spd: 120, spe: 80},
 		abilities: {0: "Mycelium Might", H: "Dancer"},
-		weightkg: 58, 
+		weightkg: 58,
 	},
 	wugtrio: {
 		num: 27,
@@ -439,8 +439,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Technician", 1: "Rattled", H: "Swift Swim"},
 		weightkg: 5.4,
 	},
-    
-	//prevos
+
+	// prevos
 	snipsquire: {
 		num: -126,
 		name: "Snipsquire",
@@ -450,8 +450,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 55,
 		evos: ["Pinsir"],
 	},
-	
-	//tt
+
+	// tt
 	dondozo: {
 		inherit: true,
 		types: ["Dragon", "Water", "Ground"],
@@ -469,8 +469,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 104, atk: 80, def: 86, spa: 112, spd: 80, spe: 108},
 		abilities: {0: "Quark Drive", H: "Multiscale"},
 	},
-	
-	//vape
+
+	// vape
 	crabominable: {
 		inherit: true,
 		types: ["Fighting", "Water"],

@@ -173,8 +173,8 @@ export class RandomTeams {
 				if (species.changesFrom) {
 					learnset = this.dex.data.Learnsets[toID(species.changesFrom)].learnset;
 					const basePool = Object.keys(learnset!).filter(
-						moveid => learnset![moveid].find(learned => learned.startsWith(String(this.gen))) 
-					); 
+						moveid => learnset![moveid].find(learned => learned.startsWith(String(this.gen)))
+					);
 					pool = [...new Set(pool.concat(basePool))];
 				}
 			}
@@ -216,7 +216,7 @@ export class RandomTeams {
 			mbst += (stats["spd"] * 2 + 31 + 21 + 100) + 5;
 			mbst += (stats["spe"] * 2 + 31 + 21 + 100) + 5;
 
-			let level = Math.floor(100); 
+			let level = Math.floor(100);
 
 			while (level < 101) {
 				mbst = Math.floor((stats["hp"] * 2 + 31 + 21 + 100) * level / 100 + 10);
@@ -458,10 +458,10 @@ export class RandomTeams {
 		// Moves that shouldn't be the only STAB moves:
 		const NoStab = [
 			'accelerock', 'aquajet', 'bounce', 'breakingswipe', 'explosion', 'fakeout', 'firstimpression', 'flamecharge', 'flipturn', 'remotemine',
-			'iceshard', 'machpunch', 'pluck', 'pursuit', 'quickattack', 'selfdestruct', 'skydrop', 'suckerpunch', 'watershuriken', 'jetpunch', 
+			'iceshard', 'machpunch', 'pluck', 'pursuit', 'quickattack', 'selfdestruct', 'skydrop', 'suckerpunch', 'watershuriken', 'jetpunch',
 
 			'clearsmog', 'eruption', 'icywind', 'incinerate', 'meteorbeam', 'snarl', 'vacuumwave', 'voltswitch', 'waterspout', 'gigatonhammer', 'uturn', 'onetrillionarrows',
-			'Remote Mine', 'Gigaton Hammer', 'One Trillion Arrows', 
+			'Remote Mine', 'Gigaton Hammer', 'One Trillion Arrows',
 		];
 
 		// Iterate through all moves we've chosen so far and keep track of what they do:
@@ -683,12 +683,12 @@ export class RandomTeams {
 					if (movePool.includes('sleeptalk')) rejected = true;
 					if (!hasMove['sleeptalk'] && (movePool.includes('bulkup') || movePool.includes('calmmind') || movePool.includes('coil') || movePool.includes('curse'))) rejected = true;
 					break;
-//				case 'bulkup':
-//					if (hasMove['dragondance']) rejected = true;
-//					break;
-//				case 'reflect':
-//					if (!hasMove['lightscreen']) rejected = true;
-//					break;
+					//				case 'bulkup':
+					//					if (hasMove['dragondance']) rejected = true;
+					//					break;
+					//				case 'reflect':
+					//					if (!hasMove['lightscreen']) rejected = true;
+					//					break;
 				case 'sleeptalk':
 					if (!hasMove['rest']) rejected = true;
 					if (movePool.length > 1 && !hasAbility['Contrary']) {
@@ -1471,7 +1471,7 @@ export class RandomTeams {
 
 		if (hasMove['exobash']) {
 			evs.def = 0;
-		}		
+		}
 
 		return {
 			name: species.baseSpecies,

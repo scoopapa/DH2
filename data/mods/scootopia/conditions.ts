@@ -38,7 +38,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			// 1-3 turns
 			this.effectState.startTime = 3;
 			const sleepMoves = ["sleeppowder", "spore", "grasswhistle", "darkvoid", "hypnosis"];
-			if (sourceEffect && sourceEffect.effectType === 'Move' ) {
+			if (sourceEffect && sourceEffect.effectType === 'Move') {
 				if (sleepMoves.includes(sourceEffect.id)) this.effectState.startTime = 2;
 			}
 			this.effectState.time = this.effectState.startTime;

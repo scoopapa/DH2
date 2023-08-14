@@ -6,8 +6,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
-	
-// Future Mons	
+
+	// Future Mons
 	armaldo: {
 		tier: "OU",
 		randomBattleMoves: ["swordsdance", "lowkick", "rockslide", "earthquake"],
@@ -116,9 +116,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 1,
 	},
-	
-	
-// Old Mons	
+
+
+	// Old Mons
 	bulbasaur: {
 		randomBattleMoves: ["sleeppowder", "bodyslam"],
 		essentialMove: "razorleaf",

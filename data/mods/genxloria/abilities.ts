@@ -42,7 +42,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Piercing Vision",
 		shortDesc: "This Pokemon's Psychic-type moves can hit Dark-types.",
 		rating: 3,
-	},	
+	},
 	deepforest: {
 		id: "deepforest",
 		shortDesc: "While this Pokemon is active, a Grass move used by any Pokemon has 1.33x power.",
@@ -77,7 +77,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Deep Sea",
 		rating: 3,
 	},
-	//Same for Patience.
+	// Same for Patience.
 	patience: {
 		id: "patience",
 		shortDesc: "This Pokemon takes 50% damage from moves if it hasn't moved yet.",
@@ -90,7 +90,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Patience",
 		rating: 3.5,
 	},
-	
+
 	prowess: {
 		id: "prowess",
 		shortDesc: "This Pokemon's SpA goes up by 1 stage after a KO.",
@@ -101,7 +101,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Prowess",
 		rating: 3,
-	},	
+	},
 	solarflare: {
 		id: "solarflare",
 		shortDesc: "In sunlight, this Pokemon changes into its Flare form if it is a Hyakada.",
@@ -231,13 +231,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Removes hazards upon switch-in and heals 1/16 of max HP if this happens.",
 		onSwitchInPriority: 6,
 		onSwitchIn(pokemon, target, source) {
-         const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-         for (const condition of sideConditions) {
-            if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-               this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] ability: Gunk Consumer', '[of] ' + pokemon);
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] ability: Gunk Consumer', '[of] ' + pokemon);
 					this.heal(pokemon.maxhp / 16);
-            }
-          }
+				}
+			}
 		},
 		id: "gunkconsumer",
 		name: "Gunk Consumer",
@@ -253,7 +253,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	earthshaker: {
 		id: "earthshaker",
 		shortDesc: "This Pokemon's Ground moves deal 1.5x damage if it was damaged earlier in the turn.",
-		//Currently this buffs the Ground moves if it attacks the attacker rather than if it attacks anything.
+		// Currently this buffs the Ground moves if it attacks the attacker rather than if it attacks anything.
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Ground') {
@@ -280,8 +280,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Earth Shaker",
 		rating: 3.5,
-	}, 
-	
+	},
+
 	/*
 	hotheaded: {
 		id: "hotheaded",
@@ -300,19 +300,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	thoughtful: {
 		id: "thoughtful",
 		shortDesc: "Placeholder, does nothing right now.",
-		/* shortDesc: "Copies the typing of the last unfainted teammate in this Pokemon's team. 
+		/* shortDesc: "Copies the typing of the last unfainted teammate in this Pokemon's team.
 		onStart(pokemon) {
 			let i;
 			for (i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
 				if (!pokemon.side.pokemon[i]) continue;
 				if (!pokemon.side.pokemon[i].fainted) break;
 			}
-			
+
 			if (!pokemon.side.pokemon[i]) return;
 			let chosenTeammate = pokemon.side.pokemon[i];
 			if (pokemon === chosenTeammate) return;
 			if (chosenTeammate.species.num === 493 || chosenTeammate.species.num === 773) return;
-			
+
 			let newBaseTypes = chosenTeammate.getTypes().filter(type => type !== '???');
 			if (!newBaseTypes.length) return;
 			this.add('-start', pokemon, 'typechange', '[from] ability: Thoughtful');
@@ -353,8 +353,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Tree-Topper",
 		rating: 0.1,
 	},
-	//Loria Region
-	//Items eaten by Ravenous after they activate: Focus Sash, Adrenaline Orb, Air Balloon, Blunder Policy, Eject Button, Eject Pack, Luminous Moss, Normal Gem, Red Card, Room Service, Snowball, Weakness Policy
+	// Loria Region
+	// Items eaten by Ravenous after they activate: Focus Sash, Adrenaline Orb, Air Balloon, Blunder Policy, Eject Button, Eject Pack, Luminous Moss, Normal Gem, Red Card, Room Service, Snowball, Weakness Policy
 	ravenous: {
 		shortDesc: "Placeholder, does nothing right now.",
 		name: "Ravenous",
@@ -478,7 +478,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyWeatherStart() {
 			const pokemon = this.effectState.target;
-			if ((this.field.isWeather('raindance') || this.field.isWeather('primordialsea'))  && pokemon.species.id === 'tsunamey' && !pokemon.transformed) {
+			if ((this.field.isWeather('raindance') || this.field.isWeather('primordialsea')) && pokemon.species.id === 'tsunamey' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Surf\'s Up');
 				this.effectState.busted = false;
 				pokemon.formeChange('Tsunamey-Surfing', this.effect, true);
@@ -549,7 +549,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyPriority(priority, pokemon, target, move) {
-				return priority - 1;
+			return priority - 1;
 		},
 		name: "Eternal Ice",
 	},
@@ -557,12 +557,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Removes hazards upon switch-in.",
 		onSwitchInPriority: 6,
 		onSwitchIn(pokemon, target, source) {
-         const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-         for (const condition of sideConditions) {
-            if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
-               this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] ability: Gunk Consumer', '[of] ' + pokemon);
-            }
-          }
+			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
+			for (const condition of sideConditions) {
+				if (pokemon.hp && pokemon.side.removeSideCondition(condition)) {
+					this.add('-sideend', pokemon.side, this.dex.conditions.get(condition).name, '[from] ability: Gunk Consumer', '[of] ' + pokemon);
+				}
+			}
 		},
 		id: "traveler",
 		name: "Traveler",

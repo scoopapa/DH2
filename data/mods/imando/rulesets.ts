@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	standardnatdex: {
 		effectType: 'ValidatorRule',
 		name: 'Standard NatDex',

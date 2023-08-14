@@ -1,4 +1,4 @@
-export const Conditions: {[k: string]: ConditionData} = {	
+export const Conditions: {[k: string]: ConditionData} = {
 	legendsboost: {
 		name: 'legendsboost',
 		onBoost(boost, target, source, effect) {
@@ -10,7 +10,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.effectState.defBoosted = false;
 			this.effectState.speBoosted = false;
 
-			const LegendsBoost : SparseBoostsTable = {};
+			const LegendsBoost: SparseBoostsTable = {};
 			if (boost.atk) {
 				LegendsBoost.spa = boost.atk;
 				this.effectState.atkBoosted = true;
@@ -31,10 +31,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.effectState.defBoosted = true;
 				activated = true;
 			}
-			if(boost.spe) {
+			if (boost.spe) {
 				this.effectState.speBoosted = true;
 				activated = true;
-
 			}
 			if (activated === true) {
 				this.boost(LegendsBoost, target, target, null, true);
@@ -43,22 +42,22 @@ export const Conditions: {[k: string]: ConditionData} = {
 				4 turns for double-stat boosters
 				3 turns for omniboosts or stat boosts gained by an offensive move's effect / ability / item
 				*/
-				
+
 				this.effectState.startTime = 6;
-				if(this.effectState.atkBoosted) {
+				if (this.effectState.atkBoosted) {
 					this.effectState.startTime -= 1;
 				}
-				if(this.effectState.defBoosted) {
+				if (this.effectState.defBoosted) {
 					this.effectState.startTime -= 1;
 				}
-				if(this.effectState.speBoosted) {
+				if (this.effectState.speBoosted) {
 					this.effectState.startTime -= 1;
 				}
-				if((effect.effectType === 'Move' && !effect.status) || effect.effectType === 'Ability' || effect.effectType === 'Item') {
+				if ((effect.effectType === 'Move' && !effect.status) || effect.effectType === 'Ability' || effect.effectType === 'Item') {
 					this.effectState.startTime = 3;
 				}
 
-				if(this.dex.abilities.get('remaininghope') && this.effectState.startTime == 3) {
+				if (this.dex.abilities.get('remaininghope') && this.effectState.startTime == 3) {
 					this.effectState.startTime += 1;
 				}
 				this.effectState.time = this.effectState.startTime;
@@ -69,7 +68,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// this isnt a boost really its just so i dont have to make another volatile xx
 		onModifyMove(move) {
 			if (move.secondaries) {
-			 if(move.id === 'powdersnow' || move.id === 'blizzard' || move.id === 'firepunch' || move.id === 'icepunch' || move.id === 'thunderpunch') return;
+			 if (move.id === 'powdersnow' || move.id === 'blizzard' || move.id === 'firepunch' || move.id === 'icepunch' || move.id === 'thunderpunch') return;
 				this.debug('doubling secondary chance');
 				for (const secondary of move.secondaries) {
 					if (secondary.chance && secondary.chance === 10) secondary.chance *= 2;
@@ -110,26 +109,26 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 
 		onResidual(pokemon) {
-				let type = this.dex.getActiveMove(this.effectState.jaggedType);
-				let typeMod = this.clampIntRange(pokemon.runEffectiveness(type));
-				const tr = this.trunc;
-				
-				let damage = this.getDamage(pokemon, pokemon, 25);
-				if (typeof damage !== 'number') throw new Error("Jagged Splinters damage not dealt");
-				pokemon.getMoveHitData(type).typeMod = typeMod;
-				if (typeMod > 0) {
-					for (let i = 0; i < typeMod; i++) {
-						damage *= 2;
-					}
+			const type = this.dex.getActiveMove(this.effectState.jaggedType);
+			const typeMod = this.clampIntRange(pokemon.runEffectiveness(type));
+			const tr = this.trunc;
+
+			let damage = this.getDamage(pokemon, pokemon, 25);
+			if (typeof damage !== 'number') throw new Error("Jagged Splinters damage not dealt");
+			pokemon.getMoveHitData(type).typeMod = typeMod;
+			if (typeMod > 0) {
+				for (let i = 0; i < typeMod; i++) {
+					damage *= 2;
 				}
-				if (typeMod < 0) {
-					for (let i = 0; i > typeMod; i--) {
-						damage = tr(damage / 2);
-					}
+			}
+			if (typeMod < 0) {
+				for (let i = 0; i > typeMod; i--) {
+					damage = tr(damage / 2);
 				}
-				this.damage(damage);
-				this.add('-message', `Jagged Splinters dug into ${pokemon.name}!`);
-			},
+			}
+			this.damage(damage);
+			this.add('-message', `Jagged Splinters dug into ${pokemon.name}!`);
+		},
 	},
 
 	fixated: {
@@ -142,13 +141,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 		onTryMovePriority: -2,
 		onTryMove(pokemon, target, move) {
-			//this.add('-message', `effectdata is: ${this.effectState.move} and move.id is: ${move.id}`);
-			if(this.effectState.move === move.id) return;
+			// this.add('-message', `effectdata is: ${this.effectState.move} and move.id is: ${move.id}`);
+			if (this.effectState.move === move.id) return;
 			pokemon.removeVolatile('fixated');
 		},
 
 		onModifyDamage(damage, source, target, move) {
-			//this.add('-message', 'fixated boost !');
+			// this.add('-message', 'fixated boost !');
 			return this.chainModify(1.5);
 		},
 
@@ -158,7 +157,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return this.chainModify(1.33);
 		},
 
-		onEnd(pokemon) { //idk how to properly do messages and stuff so this is the next best thing x
+		onEnd(pokemon) { // idk how to properly do messages and stuff so this is the next best thing x
 			this.add('-end', pokemon, 'fixated', '[silent]');
 			this.add('-message', `${pokemon.name} is no longer fixated!`);
 		},
@@ -169,8 +168,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		duration: 5,
 
 		onStart(target, source, effect) {
-			if(effect.effectType === 'Item') this.duration = 4;
-			if(effect.effectType === 'Ability') this.duration = 5;
+			if (effect.effectType === 'Item') this.duration = 4;
+			if (effect.effectType === 'Ability') this.duration = 5;
 			this.add('-start', target, 'primed', '[silent]');
 			this.add('-message', `${target.name} adopted a hard-hitting stance!`);
 		},
@@ -186,8 +185,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 
 
-	/// Canon Conditions ///
-
+	// / Canon Conditions ///
 
 
 	brn: {
@@ -202,7 +200,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'brn');
 			}
 			this.effectState.startTime = 6;
-			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+			if (sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
 				this.effectState.startTime = 3;
 			}
 			this.effectState.time = this.effectState.startTime;
@@ -229,7 +227,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'par');
 			}
 			this.effectState.startTime = 6;
-			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+			if (sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
 				this.effectState.startTime = 3;
 			}
 			this.effectState.time = this.effectState.startTime;
@@ -254,7 +252,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				pokemon.setStatus('');
 				return;
 			}
-		}
+		},
 	},
 
 	// code stolen from M4A's Sandbox x
@@ -271,7 +269,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				target.formeChange('Shaymin', this.effect, true);
 			}
 			this.effectState.startTime = 6;
-			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+			if (sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
 				this.effectState.startTime = 3;
 			}
 			this.effectState.time = this.effectState.startTime;
@@ -306,7 +304,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'slp');
 			}
 			this.effectState.startTime = 6;
-			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+			if (sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
 				this.effectState.startTime = 3;
 			}
 			this.effectState.time = this.effectState.startTime;
@@ -314,7 +312,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon) {
-			if(this.field.isWeather('hail')) {
+			if (this.field.isWeather('hail')) {
 				if (this.randomChance(1, 1.5)) {
 					this.add('cant', pokemon, 'slp');
 					return false;
@@ -333,7 +331,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return this.chainModify(1.33);
 		},
 
-		
+
 		onBeforeMove(target, source, move) {
 			if ((move.id === 'wildcharge' || move.id === 'spark' || move.id === 'volttackle') && move.category !== 'Status') {
 				target.cureStatus();
@@ -349,7 +347,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 				return;
 			}
-		}
+		},
 	},
 
 	psn: {
@@ -362,7 +360,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'psn');
 			}
 			this.effectState.startTime = 6;
-			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+			if (sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
 				this.effectState.startTime = 3;
 			}
 			this.effectState.time = this.effectState.startTime;
@@ -390,7 +388,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-status', target, 'tox');
 			}
 			this.effectState.startTime = 6;
-			if(sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
+			if (sourceEffect.effectType === 'Ability' || sourceEffect.effectType === 'Item') {
 				this.effectState.startTime = 3;
 			}
 			this.effectState.time = this.effectState.startTime;

@@ -1,6 +1,6 @@
 /**
  * New types use data from their earliest known data.
- * So, Steel- and Dark-type use the SW97 incarnations. 
+ * So, Steel- and Dark-type use the SW97 incarnations.
  * Fairy works how it does in modern (SWSH at time of writing, unchanged from XY)
  * All types are put in here in case something crazy happens, also so Fairy and everything work properly.
  */
@@ -232,7 +232,7 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	normal: {
 		damageTaken: {
 			Bug: 0,
-			Dark: 2, //why
+			Dark: 2, // why
 			Dragon: 0,
 			Electric: 0,
 			Fairy: 0,

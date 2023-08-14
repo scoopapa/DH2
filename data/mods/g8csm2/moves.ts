@@ -43,8 +43,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 120,
 	},
-	//---------------Gen 9 Moves-----------------//
-	//PL:A
+	// ---------------Gen 9 Moves-----------------//
+	// PL:A
 	ragingfury: {
 		num: -1001,
 		accuracy: 100,
@@ -88,7 +88,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Crush Claw", target);
 		},
-		//critRatio: 2,
+		// critRatio: 2,
 		secondary: {
 			chance: 50,
 			onHit(target, source) {
@@ -370,7 +370,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
-	//SV
+	// SV
 	spicyextract: {
 		num: 858,
 		accuracy: true,
@@ -651,7 +651,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1},
-		onHit(target, source){
+		onHit(target, source) {
 			let statName = 'atk';
 			let bestStat = 0;
 			let s: StatNameExceptHP;

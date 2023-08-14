@@ -2,6 +2,7 @@
 /* Universal TMs: Attract, Bide, Captivate, Confide, Double Team, Double-Edge, Endure, Facade, Protect, Rest, Round, Sleep Talk, Snore, Substitute, Swagger, Take Down*/
 
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	//Slate 1: Grass, Fire, Water
 	sproutsel: {
 		learnset: {
@@ -678,7 +679,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rocksmash: ["8L1"],
 			round: ["8L1"],
 			screech: ["8L1"],
-			screech: ["8L1"],
 			shockwave: ["8L1"],
 			sleeptalk: ["8L1"],
 			snore: ["8L1"],
@@ -1053,7 +1053,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			electroball: ["8L1"],
 			endure: ["8L1"],
 			energyball: ["8L1"],
-			facade: ["8L1"],
 			facade: ["8L1"],
 			firefang: ["8L1"],
 			flamethrower: ["8L1"],
@@ -2046,7 +2045,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			doubleedge: ["8L1"],
 			doubleteam: ["8L1"],
 			drillrun: ["8L1"],
-			drillrun: ["8L1"],
 			earthpower: ["8L1"],
 			earthquake: ["8L1"],
 			eerieimpulse: ["8L1"],
@@ -2428,11 +2426,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			icehammer: ["8L1"],
 			leaftornado: ["8L1"],
 			lunge: ["8L1"],
-			lunge: ["8L1"],
 			magicroom: ["8L1"],
 			meanlook: ["8L1"],
 			morningsun: ["8L1"],
-			nightshade: ["8L1"],
 			nightshade: ["8L1"],
 			ominouswind: ["8L1"],
 			powersplit: ["8L1"],
@@ -2440,13 +2436,11 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			protect: ["8L1"],
 			psychic: ["8L1"],
 			psyshock: ["8L1"],
-			psyshock: ["8L1"],
 			quickguard: ["8L1"],
 			rest: ["8L1"],
 			rockclimb: ["8L1"],
 			rockslide: ["8L1"],
 			round: ["8L1"],
-			shoreup: ["8L1"],
 			shoreup: ["8L1"],
 			skullbash: ["8L1"],
 			skyuppercut: ["8L1"],
@@ -2655,7 +2649,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			aquatail: ["8L1"],
 			aromatherapy: ["8L1"],
 			assurance: ["8L1"],
-			attract: ["8L1"],
 			attract: ["8L1"],
 			bellydrum: ["8L1"],
 			bide: ["8L1"],
@@ -2872,7 +2865,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			ancientpower: ["8L1"],
 			assurance: ["8L1"],
 			attract: ["8L1"],
-			attract: ["8L1"],
 			bide: ["8L1"],
 			blizzard: ["8L1"],
 			bodyslam: ["8L1"],
@@ -2942,7 +2934,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			rocksmash: ["8L1"],
 			rocktomb: ["8L1"],
 			roleplay: ["8L1"],
-			round: ["8L1"],
 			round: ["8L1"],
 			sandattack: ["8L1"],
 			sandstorm: ["8L1"],

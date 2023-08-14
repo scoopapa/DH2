@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedFormatsData}} */
-let BattleFormats = {
+const BattleFormats = {
 	standard: {
 		effectType: 'ValidatorRule',
 		name: 'Standard',

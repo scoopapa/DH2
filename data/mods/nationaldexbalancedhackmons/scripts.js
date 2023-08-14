@@ -3,7 +3,7 @@
 const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'adjacentFoe']);
 
 /**@type {BattleScriptsData} */
-let BattleScripts = {
+const BattleScripts = {
 	targetTypeChoices(targetType) {
 		return CHOOSABLE_TARGETS.has(targetType);
 	},

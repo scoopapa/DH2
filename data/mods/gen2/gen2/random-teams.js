@@ -6,24 +6,24 @@ class RandomGen2Teams extends RandomGen3Teams {
 	// @ts-ignore
 	randomTeam() {
 		let pokemonLeft = 6;
-		let pokemon = [];
+		const pokemon = [];
 
 		let n = 1;
-		let pokemonPool = [];
-		for (let id in this.data.FormatsData) {
+		const pokemonPool = [];
+		for (const id in this.data.FormatsData) {
 			// FIXME: Not ES-compliant
 			if (n++ > 251 || !this.data.FormatsData[id].randomSet1) continue;
 			pokemonPool.push(id);
 		}
 
 		// Setup storage.
-		let tierCount = {};
-		let typeCount = {};
-		let weaknessCount = {
+		const tierCount = {};
+		const typeCount = {};
+		const weaknessCount = {
 			'Normal': 0, 'Fighting': 0, 'Flying': 0, 'Poison': 0, 'Ground': 0, 'Rock': 0, 'Bug': 0, 'Ghost': 0, 'Steel': 0,
 			'Fire': 0, 'Water': 0, 'Grass': 0, 'Electric': 0, 'Psychic': 0, 'Ice': 0, 'Dragon': 0, 'Dark': 0,
 		};
-		let resistanceCount = {
+		const resistanceCount = {
 			'Normal': 0, 'Fighting': 0, 'Flying': 0, 'Poison': 0, 'Ground': 0, 'Rock': 0, 'Bug': 0, 'Ghost': 0, 'Steel': 0,
 			'Fire': 0, 'Water': 0, 'Grass': 0, 'Electric': 0, 'Psychic': 0, 'Ice': 0, 'Dragon': 0, 'Dark': 0,
 		};
@@ -33,13 +33,13 @@ class RandomGen2Teams extends RandomGen3Teams {
 		};
 
 		while (pokemonPool.length && pokemonLeft > 0) {
-			let template = this.getTemplate(this.sampleNoReplace(pokemonPool));
+			const template = this.getTemplate(this.sampleNoReplace(pokemonPool));
 			if (!template.exists) continue;
 			let skip = false;
 
 			// Ensure 1 Uber at most
 			// Ensure 2 mons of same tier at most (this includes OU,BL,UU,NU; other tiers not supported yet)
-			let tier = template.tier;
+			const tier = template.tier;
 			switch (tier) {
 			case 'Uber':
 				if (tierCount['Uber']) skip = true;
@@ -51,7 +51,7 @@ class RandomGen2Teams extends RandomGen3Teams {
 			// Ensure the same type not more than twice
 			// 33% discard single-type mon if that type already exists
 			// 66% discard double-type mon if both types already exist
-			let types = template.types;
+			const types = template.types;
 			if (types.length === 1) {
 				if (typeCount[types[0]] > 1) skip = true;
 				if (typeCount[types[0]] && this.randomChance(1, 3)) skip = true;
@@ -62,18 +62,18 @@ class RandomGen2Teams extends RandomGen3Teams {
 
 			// Ensure the weakness-resistance balance is 2 points or lower for all types,
 			// but ensure no more than 3 pokemon weak to the same regardless.
-			let weaknesses = [];
-			for (let type in weaknessCount) {
-				let weak = this.getImmunity(type, template) && this.getEffectiveness(type, template) > 0;
+			const weaknesses = [];
+			for (const type in weaknessCount) {
+				const weak = this.getImmunity(type, template) && this.getEffectiveness(type, template) > 0;
 				if (!weak) continue;
 				if (weaknessCount[type] > 2 || weaknessCount[type] - resistanceCount[type] > 1) {
 					skip = true;
 				}
 				weaknesses.push(type);
 			}
-			let resistances = [];
-			for (let type in resistanceCount) {
-				let resist = !this.getImmunity(type, template) || this.getEffectiveness(type, template) < 0;
+			const resistances = [];
+			for (const type in resistanceCount) {
+				const resist = !this.getImmunity(type, template) || this.getEffectiveness(type, template) < 0;
 				if (resist) resistances.push(type);
 			}
 
@@ -81,7 +81,7 @@ class RandomGen2Teams extends RandomGen3Teams {
 			if (skip && pokemonPool.length + 1 > pokemonLeft) continue;
 
 			// The set passes the randomTeam limitations.
-			let set = this.randomSet(template, pokemon.length, restrictMoves);
+			const set = this.randomSet(template, pokemon.length, restrictMoves);
 			// @ts-ignore
 			if (set.other.discard && pokemonPool.length + 1 > pokemonLeft) continue;
 
@@ -154,16 +154,16 @@ class RandomGen2Teams extends RandomGen3Teams {
 		/**@type {{[k: string]: number}} */
 		let hasMove = {};
 		let item = '';
-		let ivs = {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 30};
+		const ivs = {hp: 30, atk: 30, def: 30, spa: 30, spd: 30, spe: 30};
 
 		let discard = false;
 		let rerollsLeft = 3;
 		/**@param {string} move */
-		let isPhazingMove = function (move) {
+		const isPhazingMove = function (move) {
 			return (move === "roar" || move === "whirlwind");
 		};
 		/**@param {string} move */
-		let isSleepMove = function (move) {
+		const isSleepMove = function (move) {
 			return (move === "sleeppowder" || move === "lovelykiss" || move === "sing" || move === "hypnosis" || move === "spore");
 		};
 
@@ -253,7 +253,7 @@ class RandomGen2Teams extends RandomGen3Teams {
 		// Adjust ivs for hiddenpower
 		for (const setMoveid of moves) {
 			if (!setMoveid.startsWith('hiddenpower')) continue;
-			let hpType = setMoveid.substr(11, setMoveid.length);
+			const hpType = setMoveid.substr(11, setMoveid.length);
 			switch (hpType) {
 			case 'dragon': ivs.def = 28; break;
 			case 'ice': ivs.def = 26; break;
@@ -275,7 +275,7 @@ class RandomGen2Teams extends RandomGen3Teams {
 			if (ivs.def === 28 || ivs.def === 24) ivs.hp -= 8;
 		}
 
-		let levelScale = {
+		const levelScale = {
 			LC: 90, // unused
 			NFE: 84, // unused
 			NU: 78,
@@ -284,7 +284,7 @@ class RandomGen2Teams extends RandomGen3Teams {
 			OU: 68,
 			Uber: 64,
 		};
-		let customScale = {
+		const customScale = {
 			Caterpie: 99, Kakuna: 99, Magikarp: 99, Metapod: 99, Weedle: 99, // unused
 			Unown: 98, Wobbuffet: 82, Ditto: 82,
 			Snorlax: 66, Nidoqueen: 70,

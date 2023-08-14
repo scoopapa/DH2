@@ -24,4 +24,4 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			this.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
-}
+};

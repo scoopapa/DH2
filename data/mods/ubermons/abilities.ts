@@ -31,7 +31,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			let statName = 'atk';
 			let bestStat = 0;
-			let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
+			let worstStat = 3000; // The highest possible stat number (with boosts) is 2,676
 			let bs: StatNameExceptHP;
 			let ws: StatNameExceptHP;
 			for (bs in pokemon.storedStats) {
@@ -46,7 +46,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					statName = ws;
 					worstStat = pokemon.storedStats[ws];
 				}
-				
 			}
 			this.boost({[statName]: 2}, pokemon);
 		},
@@ -98,14 +97,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			//if (pokemon.volatiles['dynamax']) return;
+			// if (pokemon.volatiles['dynamax']) return;
 			// PLACEHOLDER
 			this.debug('Gorilla Tactics Atk Boost');
 			return this.chainModify(1.5);
 		},
 		onDisableMove(pokemon) {
 			if (!pokemon.abilityData.choiceLock) return;
-			//if (pokemon.volatiles['dynamax']) return;
+			// if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
 				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
 					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
@@ -342,8 +341,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.hp = newMaxHP - (source.maxhp - source.hp);
 				source.maxhp = newMaxHP;
 				this.add('-heal', source, source.getHealth, '[silent]');
-			}
-			else if (source.species.id === 'zygarde' && source.hp && source.side.foe.pokemonLeft) {
+			} else if (source.species.id === 'zygarde' && source.hp && source.side.foe.pokemonLeft) {
 				this.add('-activate', source, 'ability: Power Construct');
 				source.formeChange('Zygarde-Complete', this.effect, true);
 			}
@@ -408,22 +406,20 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	intrepidsword: {
 		onModifyMove(pokemon, move) {
-			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
-			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zacian') {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut',
+				'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zacian') {
 				move.basePower *= 0.8;
-			}
-			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
-			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zaciancrowned') {
+			} else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut',
+				'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && pokemon.species.id === 'zaciancrowned') {
 				move.basePower *= 1.2;
 			}
 		},
 		onModifyPriority(priority, source, target, move) {
-			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
-			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zacian') {
+			if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut',
+				'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zacian') {
 				return priority + 1;
-			}
-			else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut', 
-			'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zaciancrowned') {
+			} else if (['solarblade', 'leafblade', 'precipiceblades', 'behemothblades', 'sacredsword', 'secretsword', 'cut', 'psychocut',
+				'aircutter', 'furycutter', 'slash', 'airslash', 'nightslash'].includes(move.id) && source.species.id === 'zaciancrowned') {
 				return priority - 1;
 			}
 		},
@@ -542,8 +538,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: 259,
 	},
-	
-	//Dynamax abilities
+
+	// Dynamax abilities
 	liquidvoice: {
 		inherit: true,
 		onModifyTypePriority: -1,

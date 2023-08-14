@@ -367,7 +367,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	longwhip4: longwhip,
 	longwhip5: longwhip,
 
-// SANDBOX CONTENT STARTS HERE
+	// SANDBOX CONTENT STARTS HERE
 
 	frz: {
 		name: 'frz',
@@ -378,8 +378,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.hint(`${this.effectState.target.name} is frostbitten! It can still use moves, but its special moves will be half as strong.`);
 				this.hint(`Like a burn, frostbite will damage the afflicted Pokémon at the end of each turn.`);
 				this.effectState.frostbite = true;
-			}
-			else if (sourceEffect && sourceEffect.effectType === 'Ability') {
+			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'frz', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
 				this.add('-status', target, 'frz');

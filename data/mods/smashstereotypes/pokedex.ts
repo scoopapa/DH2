@@ -9,7 +9,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		num: 2,
 		baseStats: {hp: 78, atk: 102, def: 61, spa: 102, spd: 61, spe: 80},
-		abilities: {0: "Gluttony", 1: "Flash Fire", H: "Stakeout"},		
+		abilities: {0: "Gluttony", 1: "Flash Fire", H: "Stakeout"},
 	},
 	slowclone: {
 		num: 3,
@@ -1003,7 +1003,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	stalagmitar: {
 		num: 85,
 		name: "Stalagmitar",
-		types: ["Rock","Ground"],
+		types: ["Rock", "Ground"],
 		baseStats: {hp: 100, atk: 100, def: 95, spa: 134, spd: 120, spe: 51},
 		abilities: {0: "Sand Stream", H: "Sturdy"},
 		heightm: 2.5,
@@ -1069,7 +1069,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 91,
 		species: "Heatloom",
 		types: ["Steel", "Grass"],
-		baseStats: {hp: 95, atk: 130, def: 93, spa: 95, spd: 83, spe: 73 },
+		baseStats: {hp: 95, atk: 130, def: 93, spa: 95, spd: 83, spe: 73},
 		abilities: {0: "From Ashes"},
 		heightm: 1.445,
 		weightkg: 234.6,
@@ -1141,7 +1141,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Shellos-Entity",
 	},
 	lycanperiordusk: {
-        fusion: ['Lycanroc-Dusk', 'Serperior'],
+		fusion: ['Lycanroc-Dusk', 'Serperior'],
 		num: 100,
 		name: "Lycanperior-Dusk",
 		types: ["Rock", "Grass"],
@@ -1150,7 +1150,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Lethal Leafage"},
 		heightm: 2.0,
 		weightkg: 44.0,
-    },
+	},
 	yoshiblaze: {
 		num: 101,
 		name: "Yoshiblaze",
@@ -1181,7 +1181,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		fusion: ["Xatu", "Barraskewda"],
 		num: 102,
 		name: "Xataskewda",
-		types:["Psychic", "Water"],
+		types: ["Psychic", "Water"],
 		baseStats: {hp: 65, atk: 100, def: 72, spa: 95, spd: 72, spe: 115},
 		abilities: {0: "Wet Reflection"},
 		weightkg: 22.5,
@@ -1228,11 +1228,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field"],
 		inherit: true,
 	},
-  porygonz: {
-    inherit: true,
+	porygonz: {
+		inherit: true,
 	 num: 108,
-    types: ["Electric", "Ghost"],
-  },
+		types: ["Electric", "Ghost"],
+	},
 	firefairy: {
 		num: 109,
 		name: "firefairy",
@@ -1330,7 +1330,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 70, atk: 120, def: 107, spa: 60, spd: 70, spe: 92},
 		abilities: {0: "Illuminate", H: "Mold Breaker"},
 		weightkg: 87,
-	}, 
+	},
 	aegislashancient: {
 		num: 118,
 		name: "Aegislash-Ancient",
@@ -1360,7 +1360,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 95, atk: 90, def: 115, spa: 70, spd: 70, spe: 125},
 		abilities: {0: "Klutz", 1: "Dry Skin", H: "Refreshment"},
 		weightkg: 79,
-	}, 
+	},
 	blastor: {
 		num: 120,
 		name: "Blastor",
@@ -1368,7 +1368,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 95, spa: 115, spd: 55, spe: 95},
 		abilities: {0: "Battery", H: "Mega Launcher"},
 		weightkg: 118,
-	}, 
+	},
 	valcondor: {
 		num: 121,
 		name: "Valcondor",
@@ -1383,8 +1383,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	   types: ["Fairy", "Ground"],
 		baseStats: {hp: 95, atk: 65, def: 80, spa: 110, spd: 130, spe: 60},
 	},
-	norn: { //done
-		//fusion: ['Porygon2', 'Dragalge'],
+	norn: { // done
+		// fusion: ['Porygon2', 'Dragalge'],
 		num: 123,
 		name: "Norn",
 		types: ["Normal", "Poison"],
@@ -1409,7 +1409,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	abhornet: {
 		num: 126,
 		name: "Abhornet",
-		types: ["Bug","Poison"],
+		types: ["Bug", "Poison"],
 		baseStats: {hp: 65, atk: 120, def: 50, spa: 15, spd: 80, spe: 135},
 		abilities: {0: "Adaptability", H: "Sniper"},
 		heightm: 1.4,
@@ -1591,7 +1591,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	starietta: {
 		num: 144,
 		name: "Starietta",
-		types: ["Dragon","Flying"],
+		types: ["Dragon", "Flying"],
 		baseStats: {hp: 95, atk: 80, def: 105, spa: 95, spd: 125, spe: 100},
 		abilities: {0: "Aerilate", H: "Overcoat"},
 		heightm: 1.8,

@@ -325,7 +325,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	alcremiemega: {
 		tier: "ES",
 	},
-	//Other
+	// Other
 	victreebell: {
 		tier: "OU",
 	},
@@ -334,5 +334,5 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	lycanroctwilight: {
 		tier: "OU",
-	},	
+	},
 };

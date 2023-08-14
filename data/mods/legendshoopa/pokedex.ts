@@ -37,7 +37,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Pupitar",
 		forme: "Hoenn",
 		evos: ["Tyranitar-Hoenn"],
-		types: ["Fire" , "Rock"],
+		types: ["Fire", "Rock"],
 		baseStats: {hp: 70, atk: 84, def: 70, spa: 65, spd: 70, spe: 51},
 		abilities: {0: "Magma Armor"},
 		weightkg: 188,
@@ -271,7 +271,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 115, def: 140, spa: 60, spd: 85, spe: 25},
 		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Force of Gravity"},
 		movepoolAdditions: [
-			"focusblast", "gigaimpact", "gravity", "heatcrash", "hyperbeam", "moonblast", "moonlight", "pinmissile", "powergem", "spikes", "taunt", "trickroom"
+			"focusblast", "gigaimpact", "gravity", "heatcrash", "hyperbeam", "moonblast", "moonlight", "pinmissile", "powergem", "spikes", "taunt", "trickroom",
 		],
 		weightkg: 700,
 
@@ -294,7 +294,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Ripen", 1: "Solar Power", H: "Harvest"},
 		movepoolAdditions: [
 			"appleacid", "aromatherapy", "belch", "berryblast", "breakingswipe", "dracometeor", "dragontail", "grassyterrain", "gravapple", "irontail", "junglehealing",
-			"pollenpuff", "spitup", "stockpile", "swallow", "woodhammer"
+			"pollenpuff", "spitup", "stockpile", "swallow", "woodhammer",
 		],
 		heightm: 9.4,
 		weightkg: 870,
@@ -320,7 +320,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Big Pecks", 1: "Super Luck", H: "Technician"},
 		movepoolAdditions: [
 			"bravebird", "dazzlinggleam", "disarmingvoice", "drainingkiss", "fairywind", "fling", "gigaimpact", "hurricane", "hyperbeam", "moonlight",
-			"playrough", "postdelivery", "skydrop", "takeheart", "trick"
+			"playrough", "postdelivery", "skydrop", "takeheart", "trick",
 		],
 		heightm: 1.4,
 		weightkg: 34,
@@ -346,7 +346,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Big Pecks", 1: "Super Luck", H: "Fluffy"},
 		movepoolAdditions: [
 			"bravebird", "dazzlinggleam", "disarmingvoice", "drainingkiss", "fairywind", "fling", "gigaimpact", "heartstamp", "hurricane", "hyperbeam", "moonlight",
-			"playrough", "postdelivery", "skydrop", "trick"
+			"playrough", "postdelivery", "skydrop", "trick",
 		],
 		heightm: 1.3,
 		weightkg: 32,
@@ -368,7 +368,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 90, def: 70, spa: 80, spd: 70, spe: 110},
 		movepoolAdditions: [
 			"acidspray", "calmmind", "camoscope", "entrainment", "gigaimpact", "haze", "hyperbeam", "icywind", "lightscreen", "mirrormove", "moonlight", "powerwhip",
-			"reflect", "scaleshot", "skittersmack", "snarl", "spikes", "steelwing", "switcheroo", "tailwind", "triattack"
+			"reflect", "scaleshot", "skittersmack", "snarl", "spikes", "steelwing", "switcheroo", "tailwind", "triattack",
 		],
 
 		prevo: "Kecleon",
@@ -388,7 +388,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shed Skin"},
 		baseStats: {hp: 50, atk: 35, def: 55, spa: 25, spd: 25, spe: 15},
 		movepoolAdditions: [
-			"harden", "irondefense"
+			"harden", "irondefense",
 		],
 		weightkg: 10.7,
 
@@ -410,7 +410,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"energyball", "facade", "fairywind", "flash", "frustration", "gigadrain", "gigaimpact", "gust", "hiddenpower", "hyperbeam", "infestation", "laserfocus",
 			"mimic", "moonblast", "naturalgift", "ominouswind", "protect", "psychic", "quiverdance", "reflect", "rest", "return", "roost", "round", "secretpower",
 			"shadowball", "signalbeam", "silverwind", "pixiedust", "sleeptalk", "solarbeam", "strengthsap", "strugglebug", "substitute", "sunnyday", "swagger", "swift",
-			"tailwind", "thief", "toxic", "twister", "uturn", "venoshock", "whirlwind"
+			"tailwind", "thief", "toxic", "twister", "uturn", "venoshock", "whirlwind",
 		],
 		weightkg: 30.0,
 
@@ -434,7 +434,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Water Absorb", 1: "Illuminate", H: "Strong Jaw"},
 		movepoolAdditions: [
 			"bite", "crunch", "darkpulse", "eerieimpulse", "flipturn", "icefang", "jawlock", "leer", "liquidation", "meanlook", "psychicfangs", "recover", "scaryface",
-			"snarl", "stormoflight", "thunderfang"
+			"snarl", "stormoflight", "thunderfang",
 		],
 		heightm: 2.4,
 		weightkg: 50.3,
@@ -459,7 +459,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Water Absorb", 1: "Illuminate", H: "Strong Jaw"},
 		movepoolAdditions: [
 			"bite", "crunch", "darkpulse", "eerieimpulse", "flipturn", "icefang", "jawlock", "leer", "liquidation", "meanlook", "psychicfangs", "recover", "scaryface",
-			"snarl", "stormoflight", "thunderfang"
+			"snarl", "stormoflight", "thunderfang",
 		],
 		heightm: 4.8,
 		weightkg: 100.6,

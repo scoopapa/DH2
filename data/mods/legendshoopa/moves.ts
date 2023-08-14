@@ -14,7 +14,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			volatileStatus: 'jaggedsplinters',
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Eruption", target);
 		},
@@ -39,7 +39,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				spa: -1,
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mirror Shot", target);
 		},
@@ -63,7 +63,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				volatileStatus: 'fixated',
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hurricane", target);
 		},
@@ -90,7 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 30,
 			status: 'slp',
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aromatherapy", target);
 		},
@@ -112,9 +112,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			boosts: {
 				spd: -1,
-			}
+			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Power Gem", target);
 		},
@@ -135,7 +135,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			volatileStatus: 'aquaring',
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Liquidation", target);
 		},
@@ -161,7 +161,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Seed Bomb", target);
 		},
@@ -227,7 +227,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return null;
 		},
 		secondary: null,
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Present", target);
 		},
@@ -252,7 +252,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			move.type = type;
 		},
 		secondary: null,
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Smart Strike", target);
 		},
@@ -325,7 +325,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		secondary: null,
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Light That Burns the Sky", target);
 		},
@@ -364,11 +364,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 
 
-
-	/// canon moves ///
-
-
-
+	// / canon moves ///
 
 
 	rest: {
@@ -382,9 +378,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	outrage: {
 		inherit: true,
 		basePower: 90,
-			self: {
-				volatileStatus: 'fixated',
-			},
+		self: {
+			volatileStatus: 'fixated',
+		},
 	},
 
 	petaldance: {
@@ -565,7 +561,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		self: {
 			volatileStatus: 'fixated',
-		}
+		},
 	},
 
 	sing: {
@@ -587,14 +583,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		self: {
 			volatileStatus: 'fixated',
-		}
+		},
 	},
 
 	iceball: {
 		inherit: true,
 		self: {
-			volatileStatus: 'fixated,'
-		}
+			volatileStatus: 'fixated,',
+		},
 	},
 
 	bellydrum: {

@@ -1,8 +1,8 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
-	//Paradoxes here
+	// Paradoxes here
 
-	//https://www.smogon.com/forums/threads/book-of-enigmas-slate-3-same-but-different-maybe.3711490/post-9433439
-	flyingspecter: { 
+	// https://www.smogon.com/forums/threads/book-of-enigmas-slate-3-same-but-different-maybe.3711490/post-9433439
+	flyingspecter: {
 		num: -1,
 		name: "Flying Specter",
 		types: ["Ghost", "Flying"],
@@ -51,7 +51,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 2", "Dragon"],
 	},
 
-	//https://www.smogon.com/forums/threads/book-of-enigmas-slate-3-same-but-different-maybe.3711490/post-9446927
+	// https://www.smogon.com/forums/threads/book-of-enigmas-slate-3-same-but-different-maybe.3711490/post-9446927
 
 	pistilwhip: {
 		num: -5,
@@ -102,7 +102,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Water 3"],
 	},
 
-	//https://www.smogon.com/forums/threads/book-of-enigmas-slate-3-same-but-different-maybe.3711490/post-9485641
+	// https://www.smogon.com/forums/threads/book-of-enigmas-slate-3-same-but-different-maybe.3711490/post-9485641
 
 	tripoddrill: {
 		num: -9,
@@ -129,7 +129,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Fairy"],
 	},
 
-	//https://www.smogon.com/forums/threads/book-of-enigmas-slate-3-same-but-different-maybe.3711490/post-9508940
+	// https://www.smogon.com/forums/threads/book-of-enigmas-slate-3-same-but-different-maybe.3711490/post-9508940
 
 	oraclehelix: {
 		num: -11,

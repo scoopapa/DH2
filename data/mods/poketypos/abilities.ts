@@ -190,7 +190,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		isPermanent: true,
 		name: "Quark Drive",
-      shortDesc: "Electric Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
+		shortDesc: "Electric Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 		rating: 3,
 	},
 	lingeringaroma: {
@@ -246,7 +246,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Sharpness",
 		rating: 3.5,
 		num: 292,
-   },
+	},
 	myceliummight: {
 		onFractionalPriorityPriority: -1,
 		onFractionalPriority(priority, pokemon, target, move) {
@@ -258,7 +258,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.category === 'Status') {
 				move.ignoreAbility = true;
 			}
-      },
+		},
 		onModifyMove(move) {
 			if (move.category === 'Status') {
 				move.ignoreVolatiles = true;
@@ -270,7 +270,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	honeyfists: {
 		onModifyMove(move, pokemon) {
-			if(pokemon.types.includes(move.type)) move.drain = [1, 8];
+			if (pokemon.types.includes(move.type)) move.drain = [1, 8];
 		},
 		name: "Honey Fists",
 		shortDesc: "When this Pokemon uses a STAB attack, it heals 1/8 of the damage dealt.",

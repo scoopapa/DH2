@@ -1,41 +1,5 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 // Bradzo Placeholders to prevent errors
-	peepin: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	scareech: {
-		tier: "NFE",
-		doublesTier: "(DUU)",
-	},
-	macawphony: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	folovo: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	sworchid: {
-		tier: "NFE",
-		doublesTier: "(DUU)",
-	},
-	esplada: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	pescafin: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	pedrowana: {
-		tier: "NFE",
-		doublesTier: "(DUU)",
-	},
-	arapaitan: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
 	brazube: {
 		tier: "LC",
 		doublesTier: "(DUU)",
@@ -116,18 +80,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	parasbrazdo: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	parasectbrazdo: {
-		tier: "NFE",
-		doublesTier: "(DUU)",
-	},
-	parascend: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
 	rikomoco: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -148,51 +100,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	topaca: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	pacavarice: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	gelobite: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	lagelto: {
-		tier: "NFE",
-		doublesTier: "(DUU)",
-	},
-	gelomandra: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
 	miniatorch: {
 		tier: "LC",
 		doublesTier: "(DUU)",
 	},
 	blastorch: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	wakitty: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	cougaquil: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	jagaska: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	cruchick: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	pengroleum: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -260,14 +172,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	basilwisp: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	plasmilisk: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
 	burlimp: {
 		tier: "LC",
 		doublesTier: "(DUU)",
@@ -320,14 +224,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	insanitary: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	katrashtrofy: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
 	irrigator: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -357,18 +253,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	ampalango: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	pythos: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	salaos: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	morndos: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -405,7 +289,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 
-// Loria
+	// Loria
 	cocolipso: {
 		tier: "Loria LC",
 		doublesTier: "DOU",

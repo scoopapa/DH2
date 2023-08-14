@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 bulbasaur: {
   learnset: {
     amnesia: [ '1M', '1E' ],

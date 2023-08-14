@@ -1,6 +1,6 @@
 /**
  * New types use data from their earliest known data.
- * So, Steel- and Dark-type use the SW97 incarnations. 
+ * So, Steel- and Dark-type use the SW97 incarnations.
  * Fairy works how it does in modern (SWSH at time of writing, unchanged from XY)
  * All types are put in here in case something crazy happens, also so Fairy and everything work properly.
  */

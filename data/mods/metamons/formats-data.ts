@@ -1,6 +1,6 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-/*Gen 7 MetaMons*/
-   altaria: {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+/* Gen 7 MetaMons*/
+	altaria: {
 	   tier: "Gen 7 MetaMons",
 	},
 	ampharos: {
@@ -99,7 +99,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	zoroark: {
 	   tier: "Gen 7 MetaMons",
 	},
-/*Gen 8 MetaMons*/
+	/* Gen 8 MetaMons*/
 	whimsicott: {
 		tier: "Gen 8 MetaMons",
 	},
@@ -214,8 +214,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	passimian: {
 		tier: "Gen 8 MetaMons",
 	},
-/*Gen 9 MetaMons*/
-   veluza: {
+	/* Gen 9 MetaMons*/
+	veluza: {
 	   tier: "MetaMons",
 	},
 	bellossom: {
@@ -224,7 +224,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	camerupt: {
 	   tier: "MetaMons",
 	},
-   dragalge: {
+	dragalge: {
 	   tier: "MetaMons",
 	},
 	lapras: {
@@ -233,7 +233,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	boltund: {
 	   tier: "MetaMons",
 	},
-   sudowoodo: {
+	sudowoodo: {
 	   tier: "MetaMons",
 	},
 	mesprit: {
@@ -254,30 +254,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	emboar: {
 	   tier: "MetaMons",
 	},
-   alcremie: {
+	alcremie: {
 	   tier: "MetaMons",
 	},
-   copperajah: {
+	copperajah: {
 	   tier: "MetaMons",
 	},
-   exeggutoralola: {
+	exeggutoralola: {
 	   tier: "MetaMons",
 	},
 	gogoat: {
 		tier: "MetaMons",
-	}, 
+	},
 	ironthorns: {
 		tier: "MetaMons",
-	}, 
+	},
 	oricorio: {
 		tier: "MetaMons",
-	}, 
+	},
 	oricoriopompom: {
 		tier: "MetaMons",
-	}, 
+	},
 	oricoriopau: {
 		tier: "MetaMons",
-	}, 
+	},
 	oricoriosensu: {
 		tier: "MetaMons",
 	},

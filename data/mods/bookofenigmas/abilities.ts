@@ -1,18 +1,18 @@
-import { consoleips } from "../../../config/config-example";
+import {consoleips} from "../../../config/config-example";
 
 const slicing = [
 	'cut', 'razorleaf', 'slash', 'furycutter', 'aircutter', 'aerialace',
 	'leafblade', 'nightslash', 'airslash', 'xscissor', 'psychocutter',
 	'crosspoison', 'sacredsword', 'razorshell', 'solarblade', 'behemothblade',
 	'stoneaxe', 'ceaselessedge', 'populationbomb', 'kowtowcleave', 'bitterblade',
-	'aquacutter'
+	'aquacutter',
 ];
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
-	//Paradoxes abilities
+	// Paradoxes abilities
 	cleansingfire: {
 		onAnyFaintPriority: 1,
 		onAnyFaint() {
-			if(!this.effectState.target.hp) return;
+			if (!this.effectState.target.hp) return;
 			this.debug('cleansingfire');
 			this.add('-activate', this.effectState.target, 'ability: Cleansing Fire');
 			this.effectState.target.cureStatus();
@@ -37,7 +37,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 
 
-	//Gen 9 abilities
+	// Gen 9 abilities
 	sharpness: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {

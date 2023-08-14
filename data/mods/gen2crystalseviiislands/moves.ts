@@ -14,7 +14,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		multihit: 3,
 		multiaccuracy: true,
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Attack Order", target);
 		},
@@ -34,7 +34,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {authentic: 1},
 		willCrit: false,
 		isFutureMove: true,
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black hole Eclipse", source);
 			this.add('-message', `${source.name} summoned a Black Hole!`);
@@ -82,31 +82,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Cosmic",
 	},
 	parry: { // this move probably won't work correctly in double battles. Do not port blindly!
-        num: -3,
-        accuracy: true,
-        basePower: 0,
-        category: "Status",
+		num: -3,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
 		shortDesc: "Reduces damage of incoming attacks. Uses another known move.",
-        pp: 5,
-        priority: 1,
-        flags: {contact: 1, protect: 1},
-        volatileStatus: 'parry',
+		pp: 5,
+		priority: 1,
+		flags: {contact: 1, protect: 1},
+		volatileStatus: 'parry',
 		onPrepareHit(pokemon) {
 			if (pokemon.volatiles['substitute']) return false;
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
-				pokemon.addVolatile('stall');
-				pokemon.addVolatile('parry');
-				this.add('-message', `${pokemon.name} is attempting to Parry!`);
-				this.attrLastMove('[still]');
-				this.add('-anim', pokemon, "Harden");
-        },
-        condition: {
-            duration: 1,
-            onStart(pokemon) {
-                this.add('-singleturn', pokemon, 'move: Parry');
-            },
+			pokemon.addVolatile('stall');
+			pokemon.addVolatile('parry');
+			this.add('-message', `${pokemon.name} is attempting to Parry!`);
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Harden");
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Parry');
+			},
 		   	onDamagePriority: -11,
 		   	onFoeAfterMoveSelf(target, source, attack) {
 				if (target === source) return;
@@ -131,34 +131,33 @@ export const Moves: {[moveid: string]: MoveData} = {
 				if (randomMove == 'sleeptalk') {
 					source.deductPP(randomMove, 2);
 					return false;
-				}
-				else {
+				} else {
 					const ppDeducted = source.deductPP(randomMove, 1);
 					if (!ppDeducted) return false;
 				}
 			},
-       	},//
-        name: "Parry",
-        secondary: null,
-        target: "self",
-        type: "Fighting",
-        contestType: "Cool",
-   },
+       	}, //
+		name: "Parry",
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		contestType: "Cool",
+	},
 	sacredcandle: {
 		  num: -4,
-        accuracy: true,
-        basePower: 0,
-        category: "Status",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
 		  name: "Sacred Candle",
 		  pp: 10,
 		  priority: 0,
 	  	  flags: {authentic: 1},
 		  sideCondition: 'sacredcandle',
 		  shortDesc: "For 5 turns, grounded foes are burned after they move. Max 1 layer.",
-		  onPrepareHit: function(target, source, move) {
-				this.attrLastMove('[still]');
-				this.add('-anim', source, "Fire Spin", target);
-			},
+		  onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fire Spin", target);
+		},
 		  condition: {
 		   duration: 5,
 			// this is a side condition
@@ -171,9 +170,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				   }
 			   },
 			 onAfterMoveSelf(pokemon, source, move) {
-					if ((!pokemon.hasType('Fire')) && (!pokemon.hasType('Flying')) && (move.id !== 'rapidspin')) {
-						pokemon.trySetStatus('brn', source);
-					}
+				if ((!pokemon.hasType('Fire')) && (!pokemon.hasType('Flying')) && (move.id !== 'rapidspin')) {
+					pokemon.trySetStatus('brn', source);
+				}
  			},
 		  onEnd(targetSide) {
 				for (const pokemon of targetSide.active) {
@@ -204,10 +203,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (target.volatiles['substitute']) {
 				this.add('-miss', target);
 				return null;
-			} else
-		      return true;
+			} else { return true; }
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Petal Dance", target);
 		},
@@ -254,7 +252,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		self: {
 			volatileStatus: 'hypeup',
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Uproar", target);
 		},
@@ -312,7 +310,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				atk: -1,
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Chatter", target);
 		},
@@ -331,7 +329,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {defrost: 1, bypasssub: 1},
 		sleepUsable: true,
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Life Dew", target);
 		},
@@ -425,7 +423,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 		secondary: null,
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Slash", target);
 		},
@@ -443,7 +441,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dragon Pulse", target);
 		},
@@ -469,7 +467,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				spd: -1,
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Withdraw", target);
 		},
@@ -487,7 +485,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, heal: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dream Eater", target);
 		},
@@ -511,7 +509,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		volatileStatus: 'malnourish',
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Venoshock", target);
 		},
@@ -537,7 +535,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		recoil: [50, 100],
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Wrecker", target);
 		},
@@ -595,104 +593,104 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 	},
 	sleeptalk: {
-        inherit: true,
-        onHit(pokemon) {
-            const noSleepTalk = [
-                'bide', 'focuspunch', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'sketch', 'sleeptalk', 'hypeup',
-            ];
-            const moves = [];
-            for (const moveSlot of pokemon.moveSlots) {
-                const moveid = moveSlot.id;
-                if (!moveid) continue;
-                const move = this.dex.moves.get(moveid);
-                if (noSleepTalk.includes(moveid) || move.flags['charge']) {
-                    continue;
-                }
-                moves.push(moveid);
-            }
-            let randomMove = '';
-            if (moves.length) randomMove = this.sample(moves);
-            if (!randomMove) {
-                return false;
-            }
-            this.useMove(randomMove, pokemon);
-        },
-    },
+		inherit: true,
+		onHit(pokemon) {
+			const noSleepTalk = [
+				'bide', 'focuspunch', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'sketch', 'sleeptalk', 'hypeup',
+			];
+			const moves = [];
+			for (const moveSlot of pokemon.moveSlots) {
+				const moveid = moveSlot.id;
+				if (!moveid) continue;
+				const move = this.dex.moves.get(moveid);
+				if (noSleepTalk.includes(moveid) || move.flags['charge']) {
+					continue;
+				}
+				moves.push(moveid);
+			}
+			let randomMove = '';
+			if (moves.length) randomMove = this.sample(moves);
+			if (!randomMove) {
+				return false;
+			}
+			this.useMove(randomMove, pokemon);
+		},
+	},
 	substitute: {
-        inherit: true,
-        condition: {
-            onStart(target) {
-                this.add('-start', target, 'Substitute');
-                if (target.item === 'wynaut') {
-                    this.add('-item', target, 'Wynaut');
-                    this.add('-activate', target, 'item: Wynaut');
-                }
-                this.effectState.hp = Math.floor(target.maxhp / 4);
-                delete target.volatiles['partiallytrapped'];
-            },
-            onTryPrimaryHitPriority: -1,
-            onTryPrimaryHit(target, source, move) {
-                if (move.stallingMove) {
-                    this.add('-fail', source);
-                    return null;
-                }
-                if (target === source) {
-                    this.debug('sub bypass: self hit');
-                    return;
-                }
-                if (move.id === 'twineedle') {
-                    move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
-                }
-                if (move.drain) {
-                    this.add('-miss', source);
-                    this.hint("In Gen 2, draining moves always miss against Substitute.");
-                    return null;
-                }
-                if (move.category === 'Status') {
-                    const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
-                    if (move.id === 'swagger') {
-                        // this is safe, move is a copy
-                        delete move.volatileStatus;
-                    }
-                    if (
-                        move.status || (move.boosts && move.id !== 'swagger') ||
+		inherit: true,
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'Substitute');
+				if (target.item === 'wynaut') {
+					this.add('-item', target, 'Wynaut');
+					this.add('-activate', target, 'item: Wynaut');
+				}
+				this.effectState.hp = Math.floor(target.maxhp / 4);
+				delete target.volatiles['partiallytrapped'];
+			},
+			onTryPrimaryHitPriority: -1,
+			onTryPrimaryHit(target, source, move) {
+				if (move.stallingMove) {
+					this.add('-fail', source);
+					return null;
+				}
+				if (target === source) {
+					this.debug('sub bypass: self hit');
+					return;
+				}
+				if (move.id === 'twineedle') {
+					move.secondaries = move.secondaries!.filter(p => !p.kingsrock);
+				}
+				if (move.drain) {
+					this.add('-miss', source);
+					this.hint("In Gen 2, draining moves always miss against Substitute.");
+					return null;
+				}
+				if (move.category === 'Status') {
+					const SubBlocked = ['leechseed', 'lockon', 'mindreader', 'nightmare', 'painsplit', 'sketch'];
+					if (move.id === 'swagger') {
+						// this is safe, move is a copy
+						delete move.volatileStatus;
+					}
+					if (
+						move.status || (move.boosts && move.id !== 'swagger') ||
                         move.volatileStatus === 'confusion' || SubBlocked.includes(move.id)
-                    ) {
-                        this.add('-activate', target, 'Substitute', '[block] ' + move.name);
-                        return null;
-                    }
-                    return;
-                }
-                let damage = this.getDamage(source, target, move);
-                if (!damage) {
-                    return null;
-                }
-                damage = this.runEvent('SubDamage', target, source, move, damage);
-                if (!damage) {
-                    return damage;
-                }
-                if (damage > target.volatiles['substitute'].hp) {
-                    damage = target.volatiles['substitute'].hp as number;
-                }
-                target.volatiles['substitute'].hp -= damage;
-                source.lastDamage = damage;
-                if (target.volatiles['substitute'].hp <= 0) {
-                    target.removeVolatile('substitute');
-                } else {
-                    this.add('-activate', target, 'Substitute', '[damage]');
-                }
-                if (move.recoil) {
-                    this.damage(1, source, target, 'recoil');
-                }
-                this.runEvent('AfterSubDamage', target, source, move, damage);
-                return this.HIT_SUBSTITUTE;
-            },
-            onEnd(target) {
-                this.add('-end', target, 'Substitute');
-            },
-        },
-    },
-	
+					) {
+						this.add('-activate', target, 'Substitute', '[block] ' + move.name);
+						return null;
+					}
+					return;
+				}
+				let damage = this.getDamage(source, target, move);
+				if (!damage) {
+					return null;
+				}
+				damage = this.runEvent('SubDamage', target, source, move, damage);
+				if (!damage) {
+					return damage;
+				}
+				if (damage > target.volatiles['substitute'].hp) {
+					damage = target.volatiles['substitute'].hp as number;
+				}
+				target.volatiles['substitute'].hp -= damage;
+				source.lastDamage = damage;
+				if (target.volatiles['substitute'].hp <= 0) {
+					target.removeVolatile('substitute');
+				} else {
+					this.add('-activate', target, 'Substitute', '[damage]');
+				}
+				if (move.recoil) {
+					this.damage(1, source, target, 'recoil');
+				}
+				this.runEvent('AfterSubDamage', target, source, move, damage);
+				return this.HIT_SUBSTITUTE;
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Substitute');
+			},
+		},
+	},
+
 	moonlight: {
 		inherit: true,
 		type: "Cosmic",
@@ -726,7 +724,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				eva: -1,
 			},
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Make It Rain", target);
 		},
@@ -744,7 +742,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psybeam", target);
 		},
@@ -768,7 +766,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Cosmic",
 		contestType: "Smart",
 		shortDesc: "Prevents the target from switching for two to five turns.",
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Salt Cure", target);
 		},
@@ -786,7 +784,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 10,
 			volatileStatus: 'confusion',
 		},
-		onPrepareHit: function(target, source, move) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Swift", target);
 		},

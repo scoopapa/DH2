@@ -1,33 +1,33 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	init(){ 
+	init() {
 		// Automatically construct fusion learnsets! (Thank u scoopapa)
-		for (const id in this.dataCache.Pokedex) {//check the dex for fusions
+		for (const id in this.dataCache.Pokedex) { // check the dex for fusions
 			const fusionEntry = this.dataCache.Pokedex[id];
-			if (fusionEntry.fusion) {//if the pokedex entry has a fusion field, it's a fusion
-				const learnsetFusionList = [];//list of pokemon whose learnsets need to be fused
+			if (fusionEntry.fusion) { // if the pokedex entry has a fusion field, it's a fusion
+				const learnsetFusionList = [];// list of pokemon whose learnsets need to be fused
 				for (let name of fusionEntry.fusion) {
 					let prevo = true;
-					while (prevo) {//make sure prevos of both fused pokemon are added to the list
+					while (prevo) { // make sure prevos of both fused pokemon are added to the list
 						learnsetFusionList.push(name);
 						const dexEntry = this.dataCache.Pokedex[this.toID(name)];
 						if (dexEntry.prevo) name = dexEntry.prevo;
 						else prevo = false;
 					}
 				}
-				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = { learnset: {}};//create a blank learnset entry so we don't need a learnsets file
-				for (let name of learnsetFusionList) {					
-					const learnset = this.dataCache.Learnsets[this.toID(name)].learnset;//get the learnset of each pokemon in the list
+				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = {learnset: {}};// create a blank learnset entry so we don't need a learnsets file
+				for (const name of learnsetFusionList) {
+					const learnset = this.dataCache.Learnsets[this.toID(name)].learnset;// get the learnset of each pokemon in the list
 					for (const moveid in learnset) {
-						if (this.dataCache.Moves[moveid].isNonstandard === 'Past') continue; //exclude dexited moves (I hope!) 
-						this.modData('Learnsets', id).learnset[moveid] = ['8L1'];//all moves are compatible with the fusion's only ability, so just set it to 8L1
+						if (this.dataCache.Moves[moveid].isNonstandard === 'Past') continue; // exclude dexited moves (I hope!)
+						this.modData('Learnsets', id).learnset[moveid] = ['8L1'];// all moves are compatible with the fusion's only ability, so just set it to 8L1
 					}
 				}
 			}
 		}
-		
-		//Now, case-by-case learnset revisions: 
-		//Behemoth Bash and Behemoth Blade are added automatically to the Crowned dogs somewhere,
-		//so we will simulate that here, instead of actually editing that. 
+
+		// Now, case-by-case learnset revisions:
+		// Behemoth Bash and Behemoth Blade are added automatically to the Crowned dogs somewhere,
+		// so we will simulate that here, instead of actually editing that.
 		this.modData('Learnsets', 'yaciancrowned').learnset.behemothblade = ['7L1'];
 		this.modData('Learnsets', 'igglyzentacrowned').learnset.behemothbash = ['7L1'];
 		this.modData('Learnsets', 'nozedawnwings').learnset.moongeistbeam = ['7L1'];
@@ -37,14 +37,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'yaciancrowned').learnset.ironhead;
 		delete this.modData('Learnsets', 'igglyzentacrowned').learnset.ironhead;
 	},
-	
+
 	teambuilderConfig: {
-        // for micrometas to only show custom tiers
-        excludeStandardTiers: true,
-        // only to specify the order of custom tiers
-        customTiers: ['FEUU', 'FERUBL', 'FERU', 'Bugged', 'FENFE', 'FELC', 'Forms', 'FEUUber'],
+		// for micrometas to only show custom tiers
+		excludeStandardTiers: true,
+		// only to specify the order of custom tiers
+		customTiers: ['FEUU', 'FERUBL', 'FERU', 'Bugged', 'FENFE', 'FELC', 'Forms', 'FEUUber'],
 	},
-	
+
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
@@ -54,7 +54,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		) {
 			return altForme.name;
 		}
-/*
+		/*
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Silvino-Bug") {
 			return "Silvino-Bug-Mega";
 		}
@@ -108,37 +108,37 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		}
 	*/
 		if (item.name === "Sablenite" && pokemon.baseSpecies.name === "Absable") {
-			return "Absable-Mega-Y"; 
+			return "Absable-Mega-Y";
 		}
-		
+
 		if (item.name === "Tyranitarite" && pokemon.baseSpecies.name === "Goatitar") {
-			return "Goatitar-Mega"; 
+			return "Goatitar-Mega";
 		}
-		
+
 		if (item.name === "Mawilite" && pokemon.baseSpecies.name === "Duramaw") {
-			return "Duramaw-Mega"; 
+			return "Duramaw-Mega";
 		}
-	
+
 		if (item.name === "Gardevoirite" && pokemon.baseSpecies.name === "Goodevoir") {
-			return "Goodevoir-Mega"; 
+			return "Goodevoir-Mega";
 		}
-		
+
 		if (item.name === "Audinite" && pokemon.baseSpecies.name === "Audiyem") {
-			return "Audiyem-Mega"; 
+			return "Audiyem-Mega";
 		}
 		if (item.name === "Heracronite" && pokemon.baseSpecies.name === "Cleracross") {
-			return "Cleracross-Mega"; 
+			return "Cleracross-Mega";
 		}
 		if (item.name === "Garchompite" && pokemon.baseSpecies.name === "Rhychomp") {
-			return "Rhychomp-Mega"; 
+			return "Rhychomp-Mega";
 		}
 		if (item.name === "Medichamite" && pokemon.baseSpecies.name === "Gastrocham") {
-			return "Gastrocham-Mega"; 
+			return "Gastrocham-Mega";
 		}
-		
+
 		return item.megaStone;
 	},
-	
+
 	runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) {
 		pokemon.activeMoveActions++;
 		let target = this.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
@@ -246,7 +246,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			for (const dancer of dancers) {
 				if (this.faintMessages()) break;
 				if (dancer.fainted) continue;
-				const dancersTarget = target!.side !== dancer.side && pokemon.side === dancer.side ? target! : pokemon;
+				const dancersTarget = target.side !== dancer.side && pokemon.side === dancer.side ? target : pokemon;
 				this.runMove(move.id, dancer, this.getTargetLoc(dancersTarget, dancer), this.dex.abilities.get(dancer.ability), undefined, true);
 			}
 		}
@@ -254,12 +254,12 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 
 	pokemon: {
-		//Included for abilities that make the user non-grounded:
-		//Levitate is checked for when running groundedness (ground immunity, iron ball, etc)
-		//So we manually add a check for Magnetic Waves here as well,
-		//Including a diffrent activation message 
-		//so that the game doesn't report it as having Levitate when it procs.
-		//AFFECTED ABILITIES: Magnetic Waves, Leviflame, Levitability
+		// Included for abilities that make the user non-grounded:
+		// Levitate is checked for when running groundedness (ground immunity, iron ball, etc)
+		// So we manually add a check for Magnetic Waves here as well,
+		// Including a diffrent activation message
+		// so that the game doesn't report it as having Levitate when it procs.
+		// AFFECTED ABILITIES: Magnetic Waves, Leviflame, Levitability
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!(type in this.battle.dex.data.TypeChart)) {
@@ -314,8 +314,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			return true;
 		},
-		
-		
+
+
 		isGrounded(negateImmunity = false) {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;
 			if ('ingrain' in this.volatiles && this.battle.gen >= 4) return true;
@@ -328,81 +328,81 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				(this.hasAbility('levitate') ||
 				this.hasAbility('magneticwaves') ||
 				this.hasAbility('leviflame') ||
-				this.hasAbility('levitability') || 
+				this.hasAbility('levitability') ||
 				this.hasAbility('stickyfloat')) &&
-				
+
 				!this.battle.suppressingAttackEvents()
 			) return null;
 			if ('magnetrise' in this.volatiles) return false;
 			if ('telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
 		},
-		
-		
-        ignoringAbility() {
-            // Check if any active pokemon have the ability Neutralizing Gas
-            let neutralizinggas = false;
-            let lemegeton = false;
-            for (const pokemon of this.battle.getAllActive()) {
-                // can't use hasAbility because it would lead to infinite recursion
-                if (pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('lemegeton' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
-                    neutralizinggas = true;
-                    lemegeton = true;
-                    break;
-                }
-            }
 
-            return !!(
-                (this.battle.gen >= 5 && !this.isActive) ||
-                ((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (lemegeton && this.ability !== ('lemegeton' as ID)) ) &&
+
+		ignoringAbility() {
+			// Check if any active pokemon have the ability Neutralizing Gas
+			let neutralizinggas = false;
+			let lemegeton = false;
+			for (const pokemon of this.battle.getAllActive()) {
+				// can't use hasAbility because it would lead to infinite recursion
+				if (pokemon.ability === ('neutralizinggas' as ID) || (pokemon.ability === ('lemegeton' as ID) && !pokemon.volatiles['gastroacid'] && !pokemon.abilityData.ending)) {
+					neutralizinggas = true;
+					lemegeton = true;
+					break;
+				}
+			}
+
+			return !!(
+				(this.battle.gen >= 5 && !this.isActive) ||
+                ((this.volatiles['gastroacid'] || (neutralizinggas && this.ability !== ('neutralizinggas' as ID)) || (lemegeton && this.ability !== ('lemegeton' as ID))) &&
                 !this.getAbility().isPermanent
                 )
-            );
-        },
-		
+			);
+		},
+
 		setStatus(
-        status: string | Condition,
-        source: Pokemon | null = null,
-        sourceEffect: Effect | null = null,
-        ignoreImmunities = false
-    ) {
+			status: string | Condition,
+			source: Pokemon | null = null,
+			sourceEffect: Effect | null = null,
+			ignoreImmunities = false
+		) {
 			  if (!this.hp) return false;
 			  status = this.battle.dex.conditions.get(status);
 			  if (this.battle.event) {
-					if (!source) source = this.battle.event.source;
-					if (!sourceEffect) sourceEffect = this.battle.effect;
+				if (!source) source = this.battle.event.source;
+				if (!sourceEffect) sourceEffect = this.battle.effect;
 			  }
 			  if (!source) source = this;
 
 			  if (this.status === status.id) {
-					if ((sourceEffect as Move)?.status === this.status) {
+				if ((sourceEffect as Move)?.status === this.status) {
 						 this.battle.add('-fail', this, this.status);
-					} else if ((sourceEffect as Move)?.status) {
+				} else if ((sourceEffect as Move)?.status) {
 						 this.battle.add('-fail', source);
 						 this.battle.attrLastMove('[still]');
-					}
-					return false;
+				}
+				return false;
 			  }
 
 			  if (!ignoreImmunities && status.id &&
 						 !(source?.hasAbility(['corrosion', 'toxicplay']) && ['tox', 'psn'].includes(status.id))) {
-					// the game currently never ignores immunities
-					if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+				// the game currently never ignores immunities
+				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
 						 this.battle.debug('immune to status');
 						 if ((sourceEffect as Move)?.status) {
 							  this.battle.add('-immune', this);
 						 }
 						 return false;
-					}
+				}
 			  }
 			  const prevStatus = this.status;
 			  const prevStatusData = this.statusData;
 			  if (status.id) {
-					const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
-					if (!result) {
+				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+				if (!result) {
 						 this.battle.debug('set status [' + status.id + '] interrupted');
 						 return result;
-					}
+				}
 			  }
 
 			  this.status = status.id;
@@ -410,121 +410,121 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			  if (source) this.statusData.source = source;
 			  if (status.duration) this.statusData.duration = status.duration;
 			  if (status.durationCallback) {
-					this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+				this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 			  }
 
 			  if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
-					this.battle.debug('status start [' + status.id + '] interrupted');
-					// cancel the setstatus
-					this.status = prevStatus;
-					this.statusData = prevStatusData;
-					return false;
+				this.battle.debug('status start [' + status.id + '] interrupted');
+				// cancel the setstatus
+				this.status = prevStatus;
+				this.statusData = prevStatusData;
+				return false;
 			  }
 			  if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
-					return false;
+				return false;
 			  }
 			  return true;
-        }
-    },
-	
-	
-		//Included for Gutsy Jaw:
-		//Burn status' Atk reduction and Guts users' immunity to it is hard-coded in battle.ts,
-		//So we have to bypass it manually here.
-		modifyDamage(
-			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
-		) {
-			const tr = this.trunc;
-			if (!move.type) move.type = '???';
-			const type = move.type;
-
-			baseDamage += 2;
-
-			// multi-target modifier (doubles only)
-			if (move.spreadHit) {
-				const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
-				this.debug('Spread modifier: ' + spreadModifier);
-				baseDamage = this.modify(baseDamage, spreadModifier);
-			}
-
-			// weather modifier
-			baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
-
-			// crit - not a modifier
-			const isCrit = target.getMoveHitData(move).crit;
-			if (isCrit) {
-				baseDamage = tr(baseDamage * (move.critModifier || (this.gen >= 6 ? 1.5 : 2)));
-			}
-
-			// random factor - also not a modifier
-			baseDamage = this.randomizer(baseDamage);
-
-			// STAB
-			if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
-				// The "???" type never gets STAB
-				// Not even if you Roost in Gen 4 and somehow manage to use
-				// Struggle in the same turn.
-				// (On second thought, it might be easier to get a MissingNo.)
-				baseDamage = this.modify(baseDamage, move.stab || 1.5);
-			}
-			// types
-			let typeMod = target.runEffectiveness(move);
-			typeMod = this.clampIntRange(typeMod, -6, 6);
-			target.getMoveHitData(move).typeMod = typeMod;
-			if (typeMod > 0) {
-				if (!suppressMessages) this.add('-supereffective', target);
-
-				for (let i = 0; i < typeMod; i++) {
-					baseDamage *= 2;
-				}
-			}
-			if (typeMod < 0) {
-				if (!suppressMessages) this.add('-resisted', target);
-
-				for (let i = 0; i > typeMod; i--) {
-					baseDamage = tr(baseDamage / 2);
-				}
-			}
-
-			if (isCrit && !suppressMessages) this.add('-crit', target);
-
-			if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard') || pokemon.hasAbility('courageous') || pokemon.hasAbility('ultraimpulse'))) {
-				if (this.gen < 6 || move.id !== 'facade') {
-					baseDamage = this.modify(baseDamage, 0.5);
-				}
-			}
-
-			// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
-			if (this.gen === 5 && !baseDamage) baseDamage = 1;
-
-			// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
-			baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
-
-			if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
-				baseDamage = this.modify(baseDamage, 0.25);
-				this.add('-zbroken', target);
-			}
-
-			// Generation 6-7 moves the check for minimum 1 damage after the final modifier...
-			if (this.gen !== 5 && !baseDamage) return 1;
-
-			// ...but 16-bit truncation happens even later, and can truncate to 0
-			return tr(baseDamage, 16);
 		},
-		
-		cureStatus(silent = false) {
-			if (!this.hp || !this.status) return false;
-			this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
-			if (this.status === 'slp' && !this.hasAbility('comatose') && this.removeVolatile('nightmare')) {
-				this.battle.add('-end', this, 'Nightmare', '[silent]');
+	},
+
+
+	// Included for Gutsy Jaw:
+	// Burn status' Atk reduction and Guts users' immunity to it is hard-coded in battle.ts,
+	// So we have to bypass it manually here.
+	modifyDamage(
+		baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
+	) {
+		const tr = this.trunc;
+		if (!move.type) move.type = '???';
+		const type = move.type;
+
+		baseDamage += 2;
+
+		// multi-target modifier (doubles only)
+		if (move.spreadHit) {
+			const spreadModifier = move.spreadModifier || (this.gameType === 'free-for-all' ? 0.5 : 0.75);
+			this.debug('Spread modifier: ' + spreadModifier);
+			baseDamage = this.modify(baseDamage, spreadModifier);
+		}
+
+		// weather modifier
+		baseDamage = this.runEvent('WeatherModifyDamage', pokemon, target, move, baseDamage);
+
+		// crit - not a modifier
+		const isCrit = target.getMoveHitData(move).crit;
+		if (isCrit) {
+			baseDamage = tr(baseDamage * (move.critModifier || (this.gen >= 6 ? 1.5 : 2)));
+		}
+
+		// random factor - also not a modifier
+		baseDamage = this.randomizer(baseDamage);
+
+		// STAB
+		if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
+			// The "???" type never gets STAB
+			// Not even if you Roost in Gen 4 and somehow manage to use
+			// Struggle in the same turn.
+			// (On second thought, it might be easier to get a MissingNo.)
+			baseDamage = this.modify(baseDamage, move.stab || 1.5);
+		}
+		// types
+		let typeMod = target.runEffectiveness(move);
+		typeMod = this.clampIntRange(typeMod, -6, 6);
+		target.getMoveHitData(move).typeMod = typeMod;
+		if (typeMod > 0) {
+			if (!suppressMessages) this.add('-supereffective', target);
+
+			for (let i = 0; i < typeMod; i++) {
+				baseDamage *= 2;
 			}
-			this.setStatus('');
-			delete this.m.orbItemStatus;
-			return true;
-		},
-	
-	//Something something Life Orb Sheer Force
-	//Wow, this sucks
+		}
+		if (typeMod < 0) {
+			if (!suppressMessages) this.add('-resisted', target);
+
+			for (let i = 0; i > typeMod; i--) {
+				baseDamage = tr(baseDamage / 2);
+			}
+		}
+
+		if (isCrit && !suppressMessages) this.add('-crit', target);
+
+		if (pokemon.status === 'brn' && move.category === 'Physical' && !(pokemon.hasAbility('guts') || pokemon.hasAbility('gutsyjaw') || pokemon.hasAbility('wetfilling') || pokemon.hasAbility('rumenramming') || pokemon.hasAbility('gutsguard') || pokemon.hasAbility('courageous') || pokemon.hasAbility('ultraimpulse'))) {
+			if (this.gen < 6 || move.id !== 'facade') {
+				baseDamage = this.modify(baseDamage, 0.5);
+			}
+		}
+
+		// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
+		if (this.gen === 5 && !baseDamage) baseDamage = 1;
+
+		// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
+		baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+
+		if (move.isZOrMaxPowered && target.getMoveHitData(move).zBrokeProtect) {
+			baseDamage = this.modify(baseDamage, 0.25);
+			this.add('-zbroken', target);
+		}
+
+		// Generation 6-7 moves the check for minimum 1 damage after the final modifier...
+		if (this.gen !== 5 && !baseDamage) return 1;
+
+		// ...but 16-bit truncation happens even later, and can truncate to 0
+		return tr(baseDamage, 16);
+	},
+
+	cureStatus(silent = false) {
+		if (!this.hp || !this.status) return false;
+		this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
+		if (this.status === 'slp' && !this.hasAbility('comatose') && this.removeVolatile('nightmare')) {
+			this.battle.add('-end', this, 'Nightmare', '[silent]');
+		}
+		this.setStatus('');
+		delete this.m.orbItemStatus;
+		return true;
+	},
+
+	// Something something Life Orb Sheer Force
+	// Wow, this sucks
 	useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove, maxMove) {
 		if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
 		if (sourceEffect && ['instruct', 'custapberry'].includes(sourceEffect.id)) sourceEffect = null;
@@ -661,7 +661,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			this.singleEvent('MoveFail', move, null, target, pokemon, move);
 			return false;
 		}
-		//Right here
+		// Right here
 		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement') || pokemon.hasAbility('hydraulicpress') || pokemon.hasAbility('noproprioception') || pokemon.hasAbility('versatility') || pokemon.hasAbility('thickskull') || pokemon.hasAbility('sheerluck'))) && !(pokemon.hasAbility('sheerluck') && move.critRatio > 1)) {
 			const originalHp = pokemon.hp;
 			this.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
@@ -825,7 +825,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.eachEvent('Update');
 
 		this.afterMoveSecondaryEvent(targetsCopy.filter(val => !!val) as Pokemon[], pokemon, move);
-		//Right here
+		// Right here
 		if (!move.negateSecondary && !(move.hasSheerForce && (pokemon.hasAbility('terrorizer') || pokemon.hasAbility('monarchyenforcement')))) {
 			for (const [i, d] of damage.entries()) {
 				// There are no multihit spread moves, so it's safe to use move.totalDamage for multihit moves
@@ -901,16 +901,16 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.addMove('-anim', pokemon, "Spectral Thief", target);
 			}
 		}
-		// this DEFINITELY should fucking not have worked first try. I am so mad. 
+		// this DEFINITELY should fucking not have worked first try. I am so mad.
 		if (pokemon.ability === 'faustianpact' && move.flags['contact']) {
-			let swapped = false; 
+			let swapped = false;
 			const targetAbility = target.getAbility();
 			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
 			if (!targetAbility.isPermanent || !additionalBannedAbilities.includes(targetAbility) || !pokemon.volatiles['dynamax']) {
-				swapped = true; 
-			} 
+				swapped = true;
+			}
 			if (swapped) {
-				this.attrLastMove('[still]'); //Will it work without this line...?
+				this.attrLastMove('[still]'); // Will it work without this line...?
 				target.setAbility('faustianpact', pokemon);
 				pokemon.setAbility(targetAbility);
 				this.add('-activate', pokemon, 'ability: Faustian Pact');
@@ -919,8 +919,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.add('-activate', target, 'ability: Faustian Pact');
 				this.addMove('-anim', pokemon, move.name, target);
 			}
-			
 		}
 		return undefined;
 	},
-}; 
+};

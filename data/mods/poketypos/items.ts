@@ -14,7 +14,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		// Mold Breaker protection implemented in Battle.suppressingAbility() within sim/battle.ts
 		num: 1881,
-      shortDesc: "Holder's Ability cannot be changed by any effect.",
+		shortDesc: "Holder's Ability cannot be changed by any effect.",
 		gen: 9,
 	},
 	clearamulet: {

@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bulbasaur: {
 		tier: "LC",
 	},
@@ -3353,8 +3353,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	calyrex: {
 		tier: "RU",
 	},
-	
-	/*shayminsky: {
+
+	/* shayminsky: {
 		tier: "OU",
 		doublesTier: "DUU",
 	},

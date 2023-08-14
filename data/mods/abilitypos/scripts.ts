@@ -1,5 +1,5 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	init: function () {
+	init() {
 		this.modData("Learnsets", "sceptile").learnset.flipturn = ['8L1'];
 		this.modData("Learnsets", "sceptile").learnset.liquidation = ['8L1'];
 		this.modData("Learnsets", "sceptile").learnset.aquajet = ['8L1'];

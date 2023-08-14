@@ -1,7 +1,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedTemplateData}} */
-let BattlePokedex = {
+const BattlePokedex = {
 	pichu: {
 		inherit: true,
 		evos: [],

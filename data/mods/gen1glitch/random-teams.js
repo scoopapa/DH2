@@ -5,12 +5,12 @@ const RandomGen2Teams = require('../gen2/random-teams');
 class RandomGen1Teams extends RandomGen2Teams {
 	// Challenge Cup or CC teams are basically fully random teams.
 	randomCCTeam() {
-		let team = [];
+		const team = [];
 
 		/**@type {{[k: string]: number}} */
-		let hasDexNumber = {};
+		const hasDexNumber = {};
 		/**@type {string[][]} */
-		let formes = [[], [], [], [], [], []];
+		const formes = [[], [], [], [], [], []];
 
 		// Pick six random Pokémon, no repeats.
 		let num;
@@ -22,9 +22,9 @@ class RandomGen1Teams extends RandomGen2Teams {
 		}
 
 		let formeCounter = 0;
-		for (let id in this.dex.data.Pokedex) {
+		for (const id in this.dex.data.Pokedex) {
 			if (!(this.dex.data.Pokedex[id].num in hasDexNumber)) continue;
-			let template = this.dex.getTemplate(id);
+			const template = this.dex.getTemplate(id);
 			if (!template.learnset || template.forme) continue;
 			formes[hasDexNumber[template.num]].push(template.species);
 			if (++formeCounter >= 6) {
@@ -35,12 +35,12 @@ class RandomGen1Teams extends RandomGen2Teams {
 
 		for (let i = 0; i < 6; i++) {
 			// Choose forme.
-			let poke = this.sample(formes[i]);
-			let template = this.dex.getTemplate(poke);
+			const poke = this.sample(formes[i]);
+			const template = this.dex.getTemplate(poke);
 
 			// Level balance: calculate directly from stats rather than using some silly lookup table.
-			let mbstmin = 1307;
-			let stats = template.baseStats;
+			const mbstmin = 1307;
+			const stats = template.baseStats;
 
 			// Modified base stat total assumes 15 DVs, 255 EVs in every stat
 			let mbst = (stats["hp"] * 2 + 30 + 63 + 100) + 10;
@@ -65,7 +65,7 @@ class RandomGen1Teams extends RandomGen2Teams {
 			}
 
 			// Random DVs.
-			let ivs = {
+			const ivs = {
 				hp: 0,
 				atk: this.random(16),
 				def: this.random(16),
@@ -81,15 +81,15 @@ class RandomGen1Teams extends RandomGen2Teams {
 			ivs["spe"] = ivs["spe"] * 2;
 
 			// Maxed EVs.
-			let evs = {hp: 255, atk: 255, def: 255, spa: 255, spd: 255,	spe: 255};
+			const evs = {hp: 255, atk: 255, def: 255, spa: 255, spd: 255,	spe: 255};
 
 			// Four random unique moves from movepool. don't worry about "attacking" or "viable".
 			// Since Gens 1 and 2 learnsets are shared, we need to weed out Gen 2 moves.
 			let moves;
 			/**@type {string[]} */
-			let pool = [];
+			const pool = [];
 			if (template.learnset) {
-				for (let move in template.learnset) {
+				for (const move in template.learnset) {
 					if (this.dex.moves.get(move).gen !== 1) continue;
 					if (template.learnset[move].some(learned => learned[0] === '1')) {
 						pool.push(move);
@@ -125,15 +125,15 @@ class RandomGen1Teams extends RandomGen2Teams {
 	randomTeam() {
 		// Get what we need ready.
 		let pokemonLeft = 0;
-		let pokemon = [];
+		const pokemon = [];
 
-		let handicapMons = ['magikarp', 'weedle', 'kakuna', 'caterpie', 'metapod'];
-		let nuTiers = ['UU', 'UUBL', 'NFE', 'LC', 'NU'];
-		let uuTiers = ['NFE', 'UU', 'UUBL', 'NU'];
+		const handicapMons = ['magikarp', 'weedle', 'kakuna', 'caterpie', 'metapod'];
+		const nuTiers = ['UU', 'UUBL', 'NFE', 'LC', 'NU'];
+		const uuTiers = ['NFE', 'UU', 'UUBL', 'NU'];
 
-		let pokemonPool = [];
-		for (let id in this.dex.data.FormatsData) {
-			let template = this.dex.getTemplate(id);
+		const pokemonPool = [];
+		for (const id in this.dex.data.FormatsData) {
+			const template = this.dex.getTemplate(id);
 			if (!template.isNonstandard && template.randomBattleMoves) {
 				pokemonPool.push(id);
 			}
@@ -141,22 +141,22 @@ class RandomGen1Teams extends RandomGen2Teams {
 
 		// Now let's store what we are getting.
 		/**@type {{[k: string]: number}} */
-		let typeCount = {};
+		const typeCount = {};
 		/**@type {{[k: string]: number}} */
-		let weaknessCount = {'Electric': 0, 'Psychic': 0, 'Water': 0, 'Ice': 0, 'Ground': 0};
+		const weaknessCount = {'Electric': 0, 'Psychic': 0, 'Water': 0, 'Ice': 0, 'Ground': 0};
 		let uberCount = 0;
 		let nuCount = 0;
 		let hasShitmon = false;
 
 		while (pokemonPool.length && pokemonLeft < 6) {
-			let template = this.dex.getTemplate(this.sampleNoReplace(pokemonPool));
+			const template = this.dex.getTemplate(this.sampleNoReplace(pokemonPool));
 			if (!template.exists) continue;
 
 			// Bias the tiers so you get less shitmons and only one of the two Ubers.
 			// If you have a shitmon, don't get another
 			if (handicapMons.includes(template.speciesid) && hasShitmon) continue;
 
-			let tier = template.tier;
+			const tier = template.tier;
 			switch (tier) {
 			case 'LC':
 			case 'NFE':
@@ -187,9 +187,9 @@ class RandomGen1Teams extends RandomGen2Teams {
 
 			// We need a weakness count of spammable attacks to avoid being swept by those.
 			// Spammable attacks are: Thunderbolt, Psychic, Surf, Blizzard, Earthquake.
-			let pokemonWeaknesses = [];
-			for (let type in weaknessCount) {
-				let increaseCount = this.dex.getImmunity(type, template) && this.dex.getEffectiveness(type, template) > 0;
+			const pokemonWeaknesses = [];
+			for (const type in weaknessCount) {
+				const increaseCount = this.dex.getImmunity(type, template) && this.dex.getEffectiveness(type, template) > 0;
 				if (!increaseCount) continue;
 				if (weaknessCount[type] >= 2) {
 					skip = true;
@@ -201,7 +201,7 @@ class RandomGen1Teams extends RandomGen2Teams {
 			if (skip) continue;
 
 			// The set passes the limitations.
-			let set = this.randomSet(template);
+			const set = this.randomSet(template);
 			pokemon.push(set);
 
 			// Now let's increase the counters. First, the Pokémon left.
@@ -244,11 +244,11 @@ class RandomGen1Teams extends RandomGen2Teams {
 		template = this.dex.getTemplate(template);
 		if (!template.exists) template = this.dex.getTemplate('pikachu'); // Because Gen 1.
 
-		let movePool = template.randomBattleMoves ? template.randomBattleMoves.slice() : [];
+		const movePool = template.randomBattleMoves ? template.randomBattleMoves.slice() : [];
 		/**@type {string[]} */
 		let moves = [];
 		/**@type {{[k: string]: true}} */
-		let hasType = {};
+		const hasType = {};
 		hasType[template.types[0]] = true;
 		if (template.types[1]) hasType[template.types[1]] = true;
 		/**@type {{[k: string]: true}} */
@@ -258,9 +258,9 @@ class RandomGen1Teams extends RandomGen2Teams {
 		// let setupType = '';
 
 		// Moves that boost Attack:
-		let PhysicalSetup = ['swordsdance', 'sharpen'];
+		const PhysicalSetup = ['swordsdance', 'sharpen'];
 		// Moves which boost Special Attack:
-		let SpecialSetup = ['amnesia', 'growth'];
+		const SpecialSetup = ['amnesia', 'growth'];
 
 		// Either add all moves or add none
 		if (template.comboMoves) {
@@ -283,7 +283,7 @@ class RandomGen1Teams extends RandomGen2Teams {
 		while (moves.length < 4 && movePool.length) {
 			// Choose next 4 moves from learnset/viable moves and add them to moves list:
 			while (moves.length < 4 && movePool.length) {
-				let moveid = this.sampleNoReplace(movePool);
+				const moveid = this.sampleNoReplace(movePool);
 				moves.push(moveid);
 			}
 
@@ -292,8 +292,8 @@ class RandomGen1Teams extends RandomGen2Teams {
 				hasMove = {};
 				counter = {Physical: 0, Special: 0, Status: 0, physicalsetup: 0, specialsetup: 0};
 				for (const setMoveid of moves) {
-					let move = this.dex.moves.get(setMoveid);
-					let moveid = move.id;
+					const move = this.dex.moves.get(setMoveid);
+					const moveid = move.id;
 					hasMove[moveid] = true;
 					if (!move.damage && !move.damageCallback) {
 						counter[move.category]++;
@@ -314,7 +314,7 @@ class RandomGen1Teams extends RandomGen2Teams {
 
 				for (const [i, moveid] of moves.entries()) {
 					if (moveid === template.essentialMove) continue;
-					let move = this.dex.moves.get(moveid);
+					const move = this.dex.moves.get(moveid);
 					let rejected = false;
 					if (!template.essentialMove || moveid !== template.essentialMove) {
 						switch (moveid) {
@@ -356,7 +356,7 @@ class RandomGen1Teams extends RandomGen2Teams {
 			} // End of the check for more than 4 moves on moveset.
 		}
 
-		let levelScale = {
+		const levelScale = {
 			LC: 88,
 			NFE: 80,
 			UU: 74,
@@ -364,7 +364,7 @@ class RandomGen1Teams extends RandomGen2Teams {
 			Uber: 65,
 		};
 
-		let customScale = {
+		const customScale = {
 			Mewtwo: 62,
 			Caterpie: 99, Metapod: 99, Weedle: 99, Kakuna: 99, Magikarp: 99,
 			Ditto: 88,

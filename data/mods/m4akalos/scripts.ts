@@ -6,7 +6,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
-			let pokemon = this.dataCache.Pokedex[id];
+			const pokemon = this.dataCache.Pokedex[id];
 
 			if (pokemon.movepoolAdditions) {
 				for (const move of pokemon.movepoolAdditions) {
@@ -15,7 +15,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			if (!pokemon || !pokemon.mega) continue; // weeding out Pokémon that aren't new Megas
-			const newMega = this.dataCache.Pokedex[pokemon.mega] = { name: pokemon.megaName };
+			const newMega = this.dataCache.Pokedex[pokemon.mega] = {name: pokemon.megaName};
 
 			pokemon.otherFormes = pokemon.otherFormes ? pokemon.otherFormes.concat([newMega.name]) : [pokemon.megaName];
 			pokemon.formeOrder = pokemon.formeOrder ? pokemon.formeOrder.concat([newMega.name]) : [pokemon.name, pokemon.megaName];
@@ -34,7 +34,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 			newMega.creator = pokemon.megaCreator || null;
 			newMega.requiredItem = pokemon.megaStone || null;
-			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { tier: "Mega" };
+			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = {tier: "Mega"};
 		}
 	},
 	canMegaEvo(pokemon) { // modded for forms

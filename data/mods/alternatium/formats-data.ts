@@ -1,8 +1,8 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	raticate: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},	
+	},
 	raticatealola: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
@@ -10,7 +10,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	pikachu: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",
-	},	
+	},
 	pikachurockstar: {
 		tier: "Alternatium",
 		doublesTier: "Alternatium",

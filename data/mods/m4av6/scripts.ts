@@ -40,7 +40,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
-			let pokemon = this.dataCache.Pokedex[id];
+			const pokemon = this.dataCache.Pokedex[id];
 
 			// modding
 			if (pokemon.movepoolAdditions) {
@@ -51,7 +51,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// generating Megas
 			if (pokemon && pokemon.mega) {
-				const newMega = this.dataCache.Pokedex[pokemon.mega] = { name: pokemon.megaName };
+				const newMega = this.dataCache.Pokedex[pokemon.mega] = {name: pokemon.megaName};
 
 				pokemon.otherFormes = pokemon.otherFormes ? pokemon.otherFormes.concat([newMega.name]) : [pokemon.megaName];
 				pokemon.formeOrder = pokemon.formeOrder ? pokemon.formeOrder.concat([newMega.name]) : [pokemon.name, pokemon.megaName];
@@ -72,7 +72,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				newMega.creator = pokemon.megaCreator || null;
 				newMega.requiredItem = pokemon.megaStone || null;
 				if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = { };
-				
+
 				if (uber.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Uber";
 				else if (tourbanned.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Tourbanned";
 				else if (tier1mega.includes(pokemon.mega)) this.modData('FormatsData', pokemon.mega).tier = "Tier 1 Mega";
@@ -122,7 +122,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				else if (!this.modData('FormatsData', id).isNonstandard) this.modData('FormatsData', id).doublesTier = "Unranked";
 				*/
 			}
-		};
+		}
 	},
 
 	canMegaEvo(pokemon) {
@@ -474,68 +474,68 @@ export const Scripts: ModdedBattleScriptsData = {
 			let pressureTargets;
 
 			switch (move.target) {
-				case 'all':
-				case 'foeSide':
-				case 'allySide':
-				case 'allyTeam':
-					if (!move.target.startsWith('foe')) {
-						targets.push(...this.allies());
-					}
-					if (!move.target.startsWith('ally')) {
-						targets.push(...this.foes());
-					}
-					if (targets.length && !targets.includes(target)) {
-						this.battle.retargetLastMove(targets[targets.length - 1]);
-					}
-					break;
-				case 'allAdjacent':
-					targets.push(...this.nearbyAllies());
-					// falls through
-				case 'allAdjacentFoes':
-					targets.push(...this.nearbyFoes());
-					if (targets.length && !targets.includes(target)) {
-						this.battle.retargetLastMove(targets[targets.length - 1]);
-					}
-					break;
-				case 'allies':
-					targets = this.allies();
-					break;
-				default:
-					const selectedTarget = target;
-					if (!target || (target.fainted && target.side !== this.side)) {
-						// If a targeted foe faints, the move is retargeted
-						const possibleTarget = this.battle.getRandomTarget(this, move);
-						if (!possibleTarget) return {targets: [], pressureTargets: []};
-						target = possibleTarget;
-					}
-					if (target.side.active.length > 1 && !move.tracksTarget) {
-						const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
+			case 'all':
+			case 'foeSide':
+			case 'allySide':
+			case 'allyTeam':
+				if (!move.target.startsWith('foe')) {
+					targets.push(...this.allies());
+				}
+				if (!move.target.startsWith('ally')) {
+					targets.push(...this.foes());
+				}
+				if (targets.length && !targets.includes(target)) {
+					this.battle.retargetLastMove(targets[targets.length - 1]);
+				}
+				break;
+			case 'allAdjacent':
+				targets.push(...this.nearbyAllies());
+				// falls through
+			case 'allAdjacentFoes':
+				targets.push(...this.nearbyFoes());
+				if (targets.length && !targets.includes(target)) {
+					this.battle.retargetLastMove(targets[targets.length - 1]);
+				}
+				break;
+			case 'allies':
+				targets = this.allies();
+				break;
+			default:
+				const selectedTarget = target;
+				if (!target || (target.fainted && target.side !== this.side)) {
+					// If a targeted foe faints, the move is retargeted
+					const possibleTarget = this.battle.getRandomTarget(this, move);
+					if (!possibleTarget) return {targets: [], pressureTargets: []};
+					target = possibleTarget;
+				}
+				if (target.side.active.length > 1 && !move.tracksTarget) {
+					const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
 								!((move.id.startsWith('solarb') || this.hasAbility('solarcore')) && this.battle.field.isWeather(['sunnyday', 'desolateland'])) &&
 								!(this.hasItem('powerherb') && move.id !== 'skydrop');
-						if (!isCharging) {
-							target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);
-						}
+					if (!isCharging) {
+						target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);
 					}
-					if (move.smartTarget) {
-						targets = this.getSmartTargets(target, move);
-						target = targets[0];
-					} else {
-						targets.push(target);
-					}
-					if (target.fainted) {
-						return {targets: [], pressureTargets: []};
-					}
-					if (selectedTarget !== target) {
-						this.battle.retargetLastMove(target);
-					}
+				}
+				if (move.smartTarget) {
+					targets = this.getSmartTargets(target, move);
+					target = targets[0];
+				} else {
+					targets.push(target);
+				}
+				if (target.fainted) {
+					return {targets: [], pressureTargets: []};
+				}
+				if (selectedTarget !== target) {
+					this.battle.retargetLastMove(target);
+				}
 
-					// Resolve apparent targets for Pressure.
-					if (move.pressureTarget) {
-						// At the moment, this is the only supported target.
-						if (move.pressureTarget === 'foeSide') {
-							pressureTargets = this.foes();
-						}
+				// Resolve apparent targets for Pressure.
+				if (move.pressureTarget) {
+					// At the moment, this is the only supported target.
+					if (move.pressureTarget === 'foeSide') {
+						pressureTargets = this.foes();
 					}
+				}
 			}
 
 			return {targets, pressureTargets: pressureTargets || targets};
@@ -549,7 +549,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.setStatus('');
 			if (this.volatiles['staccato']) {
 				this.volatiles['staccato'].busted = true;
-				this.removeVolatile('staccato')
+				this.removeVolatile('staccato');
 			}
 			return true;
 		},

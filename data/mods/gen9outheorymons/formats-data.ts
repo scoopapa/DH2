@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bulbasaur: {
 		isNonstandard: "Past",
 		tier: "Illegal",
@@ -2978,71 +2978,71 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	arceusbug: {
 	   tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusdark: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusdragon: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceuselectric: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusfairy: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusfighting: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusfire: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusflying: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusghost: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusgrass: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusground: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusice: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceuspoison: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceuspsychic: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceusrock: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceussteel: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	arceuswater: {
 		tier: "Uber",
-		natDexTier: "Uber",	
+		natDexTier: "Uber",
 	},
 	victini: {
 		isNonstandard: "Past",
@@ -3909,7 +3909,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "NFE",
 	},
 	chesnaught: {
-		
+
 		tier: "HOME",
 		natDexTier: "RU",
 	},
@@ -4159,7 +4159,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	carbink: {
-		
+
 		tier: "HOME",
 		natDexTier: "RU",
 	},
@@ -5042,7 +5042,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "NFE",
 		natDexTier: "NFE",
 	},
-   coalossal: {
+	coalossal: {
 		tier: "DreamWorld",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",

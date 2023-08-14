@@ -9,7 +9,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: ""},
 		weightkg: ,
 	},
-	
+
 	*/
 	dudungiri: {
 		fusion: ['Dudunsparce', 'Tatsugiri'],

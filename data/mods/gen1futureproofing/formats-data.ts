@@ -348,7 +348,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 
-// don't touch
+	// don't touch
 	bulbasaur: {
 		randomBattleMoves: ["bodyslam", "sleeppowder"],
 		essentialMove: "razorleaf",

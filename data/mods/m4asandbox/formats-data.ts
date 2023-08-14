@@ -1,6 +1,6 @@
 // ALL INHERITED FROM M4A EXCEPT WHERE NOTED
 
-const data: {[k: string]: ModdedSpeciesFormatsData} = {
+const data: {[k: string]: SpeciesFormatsData} = {
 	butterfreemega: {},
 	raichumega: {},
 	nidoqueenmega: {},
@@ -119,21 +119,21 @@ const data: {[k: string]: ModdedSpeciesFormatsData} = {
 	sirfetchdmega: {},
 	falinksmega: {},
 	dragapultmega: {},
-	wishiwashimega1: { tier: "Tier 3 Mega" },
-	wishiwashimega2: { tier: "Tier 3 Mega" },
-	wishiwashimega3: { tier: "Tier 3 Mega" },
-	wishiwashimega4: { tier: "Tier 3 Mega" },
-	wishiwashimegaschool: { tier: "Tier 3 Mega" },
-	mimikyubustedmega: { tier: "Undecided" },
-	falinksmegacombat: { tier: "Tier 3 Mega" },
-	darmanitanzen: { tier: "Underrated" },
-	mimikyubusted: { tier: "Underrated" },
-	cramorantgulping: { tier: "Underrated" },
-	cramorantgorging: { tier: "Underrated" },
-	sinisteaantique: { tier: "Underrated" },
-	polteageistantique: { tier: "Underrated" },
-	eiscuenoice: { tier: "Underrated" },
-	morpekohangry: { tier: "Underrated" },
+	wishiwashimega1: {tier: "Tier 3 Mega"},
+	wishiwashimega2: {tier: "Tier 3 Mega"},
+	wishiwashimega3: {tier: "Tier 3 Mega"},
+	wishiwashimega4: {tier: "Tier 3 Mega"},
+	wishiwashimegaschool: {tier: "Tier 3 Mega"},
+	mimikyubustedmega: {tier: "Undecided"},
+	falinksmegacombat: {tier: "Tier 3 Mega"},
+	darmanitanzen: {tier: "Underrated"},
+	mimikyubusted: {tier: "Underrated"},
+	cramorantgulping: {tier: "Underrated"},
+	cramorantgorging: {tier: "Underrated"},
+	sinisteaantique: {tier: "Underrated"},
+	polteageistantique: {tier: "Underrated"},
+	eiscuenoice: {tier: "Underrated"},
+	morpekohangry: {tier: "Underrated"},
 	// slate 39
 	slowkinggalarmega: {},
 	// slate 40
@@ -1215,3 +1215,4 @@ randomMoves("floetteeternalmega", ["lightofruin", "psychic", "hiddenpowerground"
 randomMoves("meltanmega", ["toxic", "thunderwave", "acidarmor", "bodypress", "gyroball"]);
 
 export const FormatsData = data;
+

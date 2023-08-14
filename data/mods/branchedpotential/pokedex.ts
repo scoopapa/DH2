@@ -9,35 +9,35 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: ""},
 		weightkg: ,
 	},
-	
+
 	In case someone who isn't me ends up coding this:
 	inheritMoves is a custom argument that's being used to construct learnsets in scripts.ts.
 	It basically tells the script "hey, this is a non-canon mon,
 	"and we want it to inherit all of the moves this other mon can learn."
-	
+
 	You can also naturally inherit via the "prevo" argument, buuuut the issue there is that
 	we need to be able to *remove* things from learnsets. Which doesn't work when the move you wanna delete
 	was inherited from a prevo.
 	So we fake it using some Fusion Evolution learnset construction code, giving us a learnset
 	that is identical to the base mon's without having to copy it all out,
 	which we can then freely add to/delete from in scripts.ts in the usual manner.
-	
+
 	The script automatically goes through and adds the learnsets of all the prevos of any mon you list in the "inheritMoves" array,
 	so no need to list ["Bulbasaur", "Ivysaur", "Venusaur"]; just ["Venusaur"] will do!
-	
-	
+
+
 	Megas and forme changes have their own variable, "megaOf", which is a liiiitle awkward,
 	but basically the order I want things to happen is:
 	> Construct the base Pokemon's learnsets
 	> Modify the base Pokemon's learnsets
 	> THEN construct the Mega's learnset, so we don't have to modify two things
-	
+
 	If we used inheritMoves for the Megas,
 	I *think* we would have to add and delete every move change from both learnsets.
 	Therefore, two separate loops, hahahhh i dont know what I'm doing
-	
+
 	*/
-	
+
 	pitchasaur: {
 		inheritMoves: ['Venusaur'],
 		num: -101,
@@ -59,9 +59,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 105, def: 120, spa: 135, spd: 120, spe: 55},
 		abilities: {0: "Drizzle"},
 		weightkg: 131.86,
-		//The battleOnly field isn't used in canon megas,
-		//but sometimes not having it for non-canon megas allows the Mega to enter battle already Mega Evolved
-		//Which we obviously would like to avoid!
+		// The battleOnly field isn't used in canon megas,
+		// but sometimes not having it for non-canon megas allows the Mega to enter battle already Mega Evolved
+		// Which we obviously would like to avoid!
 		battleOnly: "Pitchasaur",
 		requiredItem: "Pitchasaurite",
 	},
@@ -214,7 +214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ['Ratichef', 'Ratidam'],
 		eggGroups: ["Field"],
 		otherFormes: ["Raticate-Alola", "Raticate-Alola-Totem"],
-		formeOrder: ["Raticate", "Raticate-Alola", "Raticate-Alola-Totem"],	
+		formeOrder: ["Raticate", "Raticate-Alola", "Raticate-Alola-Totem"],
 	},
 	ratichef: {
 		inheritMoves: ['Raticate'],
@@ -246,7 +246,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Spearow",
 		evoLevel: 20,
 		evos: ['Frigarow', 'Storrow'],
-		eggGroups: ["Flying"],	
+		eggGroups: ["Flying"],
 	},
 	frigarow: {
 		inheritMoves: ['Fearow'],
@@ -278,7 +278,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Ekans",
 		evoLevel: 22,
 		evos: ['Phankyr', 'Soroboruo'],
-		eggGroups: ["Field", "Dragon"],	
+		eggGroups: ["Field", "Dragon"],
 	},
 	phankyr: {
 		inheritMoves: ['Arbok'],
@@ -301,7 +301,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Esiugsid"},
 		weightkg: 5,
 		requiredAbility: "Esiugsid",
-		battleOnly: "Phankyr",	
+		battleOnly: "Phankyr",
 	},
 	soroboruo: {
 		inheritMoves: ['Arbok'],
@@ -490,7 +490,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		otherFormes: ["Jorunny-Mega"],
 		formeOrder: ["Jorunny", "Jorunny-Mega"],
 	},
-   jorunnymega: {
+	jorunnymega: {
 		megaOf: "Jorunny",
 		num: -125,
 		name: "Jorunny-Mega",
@@ -502,7 +502,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 28.3,
 		battleOnly: "Jorunny",
 		requiredItem: "Jorunnite",
-   },
+	},
 	exsunei: {
 		inheritMoves: ['Delphox'],
 		num: -126,
@@ -520,10 +520,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 110, spa: 70, spd: 110, spe: 95},
 		abilities: {0: "Mummy", 1: "Trace", H: "Sand Force"},
 		weightkg: 54,
-      otherFormes: ["Auranubis-Mega"],
+		otherFormes: ["Auranubis-Mega"],
 		formeOrder: ["Auranubis", "Auranubis-Mega"],
 	},
-    auranubismega: {
+	auranubismega: {
 		megaOf: "auranubis",
 		num: -127,
 		name: "Auranubis-Mega",

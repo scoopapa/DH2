@@ -1,15 +1,15 @@
 export const Conditions: {[k: string]: ConditionData} = {
-  frz: {
+	frz: {
 		name: 'frz',
 	   id: 'frz',
 	  	num: 0,
 		effectType: 'Status',
-    	onStart: function (target, source, sourceEffect) {
+    	onStart(target, source, sourceEffect) {
 			this.add('-status', target, 'frz');
     	},
 		duration: 4,
 		onBeforeMovePriority: 2,
-		onBeforeMove: function (pokemon, target, move) {
+		onBeforeMove(pokemon, target, move) {
 			if (this.randomChance(4, 10)) {
 				pokemon.cureStatus();
 				return;
@@ -21,12 +21,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('cant', pokemon, 'frz');
 			return false;
 		},
-		onHit: function (target, source, move) {
+		onHit(target, source, move) {
 			if (move.type === 'Fire' && move.category !== 'Status' || move.flags['defrost']) {
 				target.cureStatus();
 			}
 		},
-		onEnd: function (target) {
+		onEnd(target) {
 			this.add('-curestatus', target, 'frz');
 		},
 	},
@@ -61,9 +61,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual() {
 			this.add('-weather', 'Hail', '[upkeep]');
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
-		},		
+		},
 		onAnyModifyDamage(damage, source, target, move) {
-			if (move.category === 'Physical' && target.hasType('Ice')) {return this.chainModify(0.67);}
+			if (move.category === 'Physical' && target.hasType('Ice')) { return this.chainModify(0.67); }
 		},
 		onEnd() {
 			this.add('-weather', 'none');

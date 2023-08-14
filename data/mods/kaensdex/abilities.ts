@@ -1,6 +1,6 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 
-success: {
+	success: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.boost({spe: length}, source);
@@ -11,7 +11,7 @@ success: {
 		rating: 3,
 		num: 10000,
 	},
-hotknife: {
+	hotknife: {
 		onModifyMove(move) {
 			if (!move || !move.flags['contact'] || move.target === 'self') return;
 			if (!move.secondaries) {
@@ -28,7 +28,7 @@ hotknife: {
 		rating: 2,
 		num: 10001,
 	},
-openmind: {
+	openmind: {
 		onModifySpe(spe) {
 			if (this.field.isTerrain('psychicterrain')) {
 				return this.chainModify(2);
@@ -39,7 +39,7 @@ openmind: {
 		rating: 3,
 		num: 10002,
 	},
-voidbody: {
+	voidbody: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
 				this.add('-ability', target, 'Void Body');
@@ -51,7 +51,7 @@ voidbody: {
 		rating: 2,
 		num: 10003,
 	},
-frightening: {
+	frightening: {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
@@ -72,7 +72,7 @@ frightening: {
 		rating: 3.5,
 		num: 10004,
 	},
-eternalice: {
+	eternalice: {
 		onSourceModifyAtkPriority: 5,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
@@ -113,7 +113,7 @@ eternalice: {
 		rating: 4.5,
 		num: 10005,
 	},
-leecher: {
+	leecher: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['heal']) {
@@ -132,7 +132,7 @@ leecher: {
 		rating: 3.5,
 		num: 10006,
 	},
-airionizer: {
+	airionizer: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Flying') {
 				if (!this.boost({spa: 1})) {
@@ -146,13 +146,13 @@ airionizer: {
 		rating: 3,
 		num: 10007,
 	},
-deepsea: {
+	deepsea: {
 		onModifyDef(def, pokemon) {
 			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
-            onModifySpD(spd, pokemon) {
+		onModifySpD(spd, pokemon) {
 			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
@@ -162,7 +162,7 @@ deepsea: {
 		rating: 3,
 		num: 10008,
 	},
-leafplates: {
+	leafplates: {
 		onSourceModifyDamage(damage, source, target, move) {
 			let mod = 1;
 			if (move.type === 'Water') mod /= 2;
@@ -175,7 +175,7 @@ leafplates: {
 		rating: 3.5,
 		num: 10009,
 	},
-storm: {
+	storm: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.field.getWeather().id !== 'hail') {
 				this.field.setWeather('hail');
@@ -186,7 +186,7 @@ storm: {
 		rating: 2,
 		num: 10010,
 	},
-protectivepelt: {
+	protectivepelt: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.category === 'Special') {
 				return this.chainModify(0.5);
@@ -197,8 +197,8 @@ protectivepelt: {
 		rating: 4,
 		num: 10011,
 	},
-	
-royalhoney: {
+
+	royalhoney: {
 		onSourceModifyDamage(damage, source, target, move) {
 			let mod = 1;
 			if (move.type === 'Fire') mod /= 2;
@@ -209,16 +209,16 @@ royalhoney: {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-		this.heal(pokemon.baseMaxhp / 16);
+			this.heal(pokemon.baseMaxhp / 16);
 		},
 		isBreakable: true,
 		name: "Royal Honey",
-		desc:  "Halves the damage from moves super effective on Bug-Type. Heals 1/16 HP each turn.",
+		desc: "Halves the damage from moves super effective on Bug-Type. Heals 1/16 HP each turn.",
 		rating: 3.5,
 		num: 10012,
-	},	
-	
-revitalizingrain: {
+	},
+
+	revitalizingrain: {
 		onStart(source) {
 			for (const action of this.queue) {
 				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'kyogre') return;
@@ -233,24 +233,24 @@ revitalizingrain: {
 			}
 		},
 		name: "Revitalizing Rain",
-		desc:  "On switch-in, this Pokemon summons Rain Dance. During Rain, Heals 1/8 HP each turn.",
+		desc: "On switch-in, this Pokemon summons Rain Dance. During Rain, Heals 1/8 HP each turn.",
 		rating: 4,
 		num: 10013,
 	},
-	
-stickyseeds: {
+
+	stickyseeds: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
-				this.damage(source.baseMaxhp / 8, source, target);
-				this.heal(source.baseMaxhp / 8, target, source);
+			this.damage(source.baseMaxhp / 8, source, target);
+			this.heal(source.baseMaxhp / 8, target, source);
 		},
 		name: "Sticky Seeds",
 		desc: "Drains 1/8 HP on being hit.",
 		rating: 2.5,
 		num: 10014,
 	},
-	
-malware: {
+
+	malware: {
 		onResidualOrder: 27,
 		onResidual(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'SurivExe' || pokemon.transformed) {
@@ -265,8 +265,8 @@ malware: {
 		},
 		condition: {
 			onStart(pokemon) {
-					if (pokemon.species.id !== 'surivexevirus') pokemon.formeChange('SurivExe-Virus');
-					},
+				if (pokemon.species.id !== 'surivexevirus') pokemon.formeChange('SurivExe-Virus');
+			},
 		},
 		isPermanent: true,
 		name: "Malware",
@@ -274,8 +274,8 @@ malware: {
 		rating: 0,
 		num: 10015,
 	},
-	
-airborne: {
+
+	airborne: {
 		onUpdate(pokemon) {
 			if (pokemon.hasType('Flying')) return false;
 			if (!pokemon.addType('Flying')) return false;
@@ -286,23 +286,23 @@ airborne: {
 		rating: 3.5,
 		num: 10016,
 	},
-	
-archery: {
+
+	archery: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (!move.flags['contact']) {
-				if (move.category === 'Physical'){
-				return this.chainModify([0x14CD, 0x1000]);
+				if (move.category === 'Physical') {
+					return this.chainModify([0x14CD, 0x1000]);
 				}
-			} 			
+			}
 		},
 		name: "Archery",
 		desc: "Non-contact Physical moves have 1.3x power.",
 		rating: 3.5,
 		num: 10017,
 	},
-	
-insectmovement: {
+
+	insectmovement: {
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.type === 'Bug' && pokemon.hp === pokemon.maxhp) return priority + 2;
 		},
@@ -311,8 +311,8 @@ insectmovement: {
 		rating: 3,
 		num: 10018,
 	},
-	
-cockatricedominance: {
+
+	cockatricedominance: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (defender && ['par'].includes(defender.status)) {
@@ -324,8 +324,8 @@ cockatricedominance: {
 		rating: 1.5,
 		num: 10019,
 	},
-	
-indestructible: {
+
+	indestructible: {
 		onCriticalHit: false,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fighting') {
@@ -340,8 +340,8 @@ indestructible: {
 		rating: 1,
 		num: 10020,
 	},
-	
-lifejacket: {
+
+	lifejacket: {
 		onCriticalHit: false,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
@@ -356,10 +356,10 @@ lifejacket: {
 		rating: 3,
 		num: 10021,
 	},
-	
-thermalfrenzy: {
+
+	thermalfrenzy: {
 		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Water'|| target !== source && move.type === 'Ice' || target !== source && move.type === 'Fire') {
+			if (target !== source && move.type === 'Water' || target !== source && move.type === 'Ice' || target !== source && move.type === 'Fire') {
 				if (!this.heal(target.baseMaxhp / 4)) {
 					this.add('-immune', target, '[from] ability: Thermal Frenzy');
 				}
@@ -371,8 +371,8 @@ thermalfrenzy: {
 		rating: 3.5,
 		num: 10022,
 	},
-	
-boast: {
+
+	boast: {
 		onTryHit(target, source, move) {
 			if (move.target !== 'self' && move.flags['sound']) {
 				this.add('-immune', target, '[from] ability: Boast');
@@ -392,8 +392,8 @@ boast: {
 		rating: 3.5,
 		num: 10023,
 	},
-	
-toxicreaction: {
+
+	toxicreaction: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (defender && ['psn'].includes(defender.status)) {
@@ -410,8 +410,8 @@ toxicreaction: {
 		rating: 1.5,
 		num: 10024,
 	},
-	
-primalmind: {
+
+	primalmind: {
 		onModifySpD(spd) {
 			if (this.field.isTerrain('psychicterrain')) {
 				return this.chainModify(1.2);
@@ -427,8 +427,8 @@ primalmind: {
 		rating: 3,
 		num: 10025,
 	},
-	
-meteorpower: {
+
+	meteorpower: {
 		onModifyDef(def) {
 			if (this.field.isWeather('sandstorm')) {
 				return this.chainModify(1.2);
@@ -444,8 +444,8 @@ meteorpower: {
 		rating: 3,
 		num: 10026,
 	},
-	
-miceadaptation: {
+
+	miceadaptation: {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Grass' || target !== source && move.type === 'Water') {
@@ -466,8 +466,8 @@ miceadaptation: {
 		rating: 3,
 		num: 10027,
 	},
-	
-scary: {
+
+	scary: {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
@@ -479,7 +479,7 @@ scary: {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
-					this.boost({atk: -1, spa: -1, spe:-1}, target, pokemon, null, true);
+					this.boost({atk: -1, spa: -1, spe: -1}, target, pokemon, null, true);
 				}
 			}
 		},
@@ -489,7 +489,7 @@ scary: {
 		num: 10028,
 	},
 
-guardianoftheswamp: {
+	guardianoftheswamp: {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				this.add('-activate', pokemon, 'ability: Guardian of the Swamp');
@@ -502,20 +502,20 @@ guardianoftheswamp: {
 				this.add('-immune', target, '[from] ability: Guardian of the Swamp');
 			}
 			return false;
-		},		
+		},
 		onModifyCritRatio(critRatio, user) {
-		if (['raindance', 'primordialsea'].includes(user.effectiveWeather())) {
+			if (['raindance', 'primordialsea'].includes(user.effectiveWeather())) {
 				return critRatio + 3;
-			}			
+			}
 		},
 		name: "Guardian of the Swamp",
 		desc: "Can't be poisoned. Always Crit in Rain.",
 		rating: 2,
 		num: 10029,
 	},
-	
-guardianofthewoods: {
-onUpdate(pokemon) {
+
+	guardianofthewoods: {
+		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'ability: Guardian of the Woods');
 				pokemon.cureStatus();
@@ -527,7 +527,7 @@ onUpdate(pokemon) {
 				this.add('-immune', target, '[from] ability: Guardian of the Woods');
 			}
 			return false;
-		},	
+		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
@@ -539,9 +539,9 @@ onUpdate(pokemon) {
 		rating: 2,
 		num: 10030,
 	},
-	
-guardianoftheruins: {
-	onUpdate(pokemon) {
+
+	guardianoftheruins: {
+		onUpdate(pokemon) {
 			if (pokemon.status === 'frz') {
 				this.add('-activate', pokemon, 'ability: Guardian of the Ruins');
 				pokemon.cureStatus();
@@ -553,7 +553,7 @@ guardianoftheruins: {
 				this.add('-immune', target, '[from] ability: Guardian of the Ruins');
 			}
 			return false;
-		},	
+		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
 			if (['sandstorm'].includes(pokemon.effectiveWeather())) {
@@ -561,17 +561,17 @@ guardianoftheruins: {
 			}
 		},
 		onModifyCritRatio(critRatio, user) {
-		if (['sandstorm'].includes(user.effectiveWeather())) {
+			if (['sandstorm'].includes(user.effectiveWeather())) {
 				return critRatio + 2;
-			}			
+			}
 		},
 		name: "Guardian of the Ruins",
 		desc: "Can't be frozen. 1.2x Atk and +2 Crit in Sandstorm.",
 		rating: 2,
 		num: 10031,
 	},
-	
-greatshield: {
+
+	greatshield: {
 		onCriticalHit: false,
 		onTryHit(pokemon, target, move) {
 			if (move.flags['bullet']) {
@@ -590,8 +590,8 @@ greatshield: {
 		rating: 3,
 		num: 10032,
 	},
-	
-darkeater: {
+
+	darkeater: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Dark') {
 				if (!this.heal(target.baseMaxhp / 4)) {
@@ -605,7 +605,7 @@ darkeater: {
 		rating: 3.5,
 		num: 10033,
 	},
-	
+
 	coldheart: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ice') {
@@ -619,9 +619,9 @@ darkeater: {
 		desc: "This Pokemon heals 1/4 of its max HP when hit by Ice moves; Ice immunity.",
 		rating: 3.5,
 		num: 10034,
-	},	
+	},
 
-permafrost: {
+	permafrost: {
 		onModifyAtk(atk) {
 			if (this.field.isWeather('hail')) {
 				return this.chainModify(1.2);
@@ -637,7 +637,7 @@ permafrost: {
 		rating: 2,
 		num: 10035,
 	},
-spiritoftheswamp: {
+	spiritoftheswamp: {
 		onSetStatus(status, target, source, effect) {
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Spirit of the Swamp');
@@ -649,7 +649,7 @@ spiritoftheswamp: {
 				this.add('-immune', target, '[from] ability: Spirit of the Swamp');
 				return null;
 			}
-		},	
+		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Bug') {
@@ -669,9 +669,9 @@ spiritoftheswamp: {
 		rating: 2,
 		num: 10036,
 	},
-	
-spiritofthewoods: {
-onSetStatus(status, target, source, effect) {
+
+	spiritofthewoods: {
+		onSetStatus(status, target, source, effect) {
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Spirit of the Woods');
 			}
@@ -702,9 +702,9 @@ onSetStatus(status, target, source, effect) {
 		rating: 2,
 		num: 10037,
 	},
-	
-spiritoftheruins: {
-	onSetStatus(status, target, source, effect) {
+
+	spiritoftheruins: {
+		onSetStatus(status, target, source, effect) {
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Spirit of the Ruins');
 			}
@@ -715,7 +715,7 @@ spiritoftheruins: {
 				this.add('-immune', target, '[from] ability: Spirit of the Ruins');
 				return null;
 			}
-		},	
+		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Ground') {
@@ -735,8 +735,8 @@ spiritoftheruins: {
 		rating: 2,
 		num: 10038,
 	},
-	
-charged: {
+
+	charged: {
 		onModifySpe(spe) {
 			if (this.field.isTerrain('electricterrain')) {
 				return this.chainModify(1.2);
@@ -752,8 +752,8 @@ charged: {
 		rating: 2,
 		num: 10039,
 	},
-	
-contagious: {
+
+	contagious: {
 		// upokecenter says this is implemented as an added secondary effect
 		onModifyMove(move) {
 			if (!move || move.target === 'self') return;
@@ -771,7 +771,7 @@ contagious: {
 		rating: 2,
 		num: 10040,
 	},
-	
+
 	frozendebris: {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
@@ -787,15 +787,15 @@ contagious: {
 		rating: 3.5,
 		num: 10041,
 	},
-	
+
 	climber: {
 		name: "Climber",
 		desc: "Removes hazards affecting the team from the field on switch-in.",
 		rating: 3.5,
 		num: 10042,
 	},
-	
-	//gen 9 stuff
+
+	// gen 9 stuff
 	sharpness: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
@@ -809,7 +809,7 @@ contagious: {
 		rating: 3.5,
 		num: 292,
 	},
-	
+
 	eartheater: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ground') {
@@ -825,7 +825,7 @@ contagious: {
 		rating: 3.5,
 		num: 297,
 	},
-	
+
 	windrider: {
 		onStart(pokemon) {
 			if (pokemon.side.sideConditions['tailwind']) {
@@ -852,7 +852,7 @@ contagious: {
 		// We do not want Brambleghast to get Infiltrator in Randbats
 		num: 274,
 	},
-	
+
 	wellbakedbody: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
@@ -868,7 +868,7 @@ contagious: {
 		rating: 3.5,
 		num: 273,
 	},
-	
+
 	angershell: {
 		onDamage(damage, target, source, effect) {
 			if (
@@ -905,7 +905,7 @@ contagious: {
 		rating: 4,
 		num: 271,
 	},
-	
+
 	lingeringaroma: {
 		onDamagingHit(damage, target, source, move) {
 			const sourceAbility = source.getAbility();
@@ -924,7 +924,7 @@ contagious: {
 		rating: 2,
 		num: 268,
 	},
-	
+
 	guarddog: {
 		onDragOutPriority: 1,
 		onDragOut(pokemon) {
@@ -942,7 +942,7 @@ contagious: {
 		rating: 2,
 		num: 275,
 	},
-	
+
 	cudchew: {
 		onEatItem(item, pokemon) {
 			if (item.isBerry && pokemon.addVolatile('cudchew')) {
@@ -976,5 +976,5 @@ contagious: {
 		desc: "If this Pokemon eats a Berry, it will eat that Berry again at the end of the next turn.",
 		rating: 2,
 		num: 291,
-	},	
+	},
 };

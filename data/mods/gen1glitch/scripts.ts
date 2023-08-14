@@ -11,11 +11,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		for (const i in this.data.Pokedex) {
 			(this.data.Pokedex[i] as any).gender = 'N';
 			(this.data.Pokedex[i] as any).eggGroups = null;
-            var BST = 0;
-            for (const stat in this.data.Pokedex[i].baseStats) {
-                BST += this.data.Pokedex[i].baseStats[stat];
-            }
-            if (BST >= 650) this.data.FormatsData[i].tier = 'Uber';
+			let BST = 0;
+			for (const stat in this.data.Pokedex[i].baseStats) {
+				BST += this.data.Pokedex[i].baseStats[stat];
+			}
+			if (BST >= 650) this.data.FormatsData[i].tier = 'Uber';
 		}
 	},
 	// Gen 1 stores the last damage dealt by a move in the battle.
@@ -612,7 +612,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		if (typeof effect === 'string') effect = this.dex.conditions.get(effect);
 		if (!target || !target.hp) return 0;
 		let success = null;
-		boost = this.runEvent('Boost', target, source, effect, Object.assign({}, boost));
+		boost = this.runEvent('Boost', target, source, effect, {...boost});
 		let i: BoostName;
 		for (i in boost) {
 			const currentBoost: SparseBoostsTable = {};

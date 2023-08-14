@@ -24,7 +24,7 @@ sound: Has no effect on Pokemon with the Soundproof Ability.
 */
 
 export const Moves: {[moveid: string]: MoveData} = {
-	/*Gen 7 MetaMons*/
+	/* Gen 7 MetaMons*/
 	auraspheregen7: {
 		num: 396,
 		accuracy: true,
@@ -164,7 +164,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-      shortDesc: "20% chance to lower foe's Defense.",
+		shortDesc: "20% chance to lower foe's Defense.",
 		name: "Shadow Claw-Gen 7",
 		pp: 15,
 		priority: 0,
@@ -201,7 +201,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-      shortDesc: "Uses the last move used in the battle.",	
+		shortDesc: "Uses the last move used in the battle.",
 		name: "Sketch-Gen 7",
 		pp: 1,
 		noPPBoosts: true,
@@ -209,7 +209,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {authentic: 1, mystery: 1},
 		onHit(target, source) {
 			const disallowedMoves = ['auraspheregen7', 'brickbreak', 'doubleedge', 'healingwish', 'hypervoice', 'moonblast', 'playroughgen7', 'psychic', 'quickattack', 'shadowclawgen7', 'stealthrock', 'swordsdance', 'taunt', 'throatchop', 'uturn', 'vacuumwave'];
-			const move = target.lastMove; 
+			const move = target.lastMove;
 			if (source.transformed || !move || source.moves.includes(move.id)) return false;
 			if (disallowedMoves.includes(move.id) || move.isZ || move.isMax) return false;
 			const sketchIndex = source.moves.indexOf('sketch');
@@ -242,31 +242,31 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-      volatileStatus: 'partiallytrapped',
+		volatileStatus: 'partiallytrapped',
 		target: "normal",
 		type: "Flying",
 		contestType: "Tough",
 	},
-	/*Gen 8 MetaMons*/
+	/* Gen 8 MetaMons*/
 	acidrain: {
-	basePower: 75,
-	accuracy: 100,
-	category: "Special", 
-	shortDesc: "Deals super effective damage against Rock-types. has a 20% chance to Poison the target.",
-	id: "acidrain",
-	name: "Acid Rain",
-	pp: 20,
-	priority: 0,
-	flags: {protect: 1, mirror: 1},
-	onEffectiveness(typeMod, target, type) {
+		basePower: 75,
+		accuracy: 100,
+		category: "Special",
+		shortDesc: "Deals super effective damage against Rock-types. has a 20% chance to Poison the target.",
+		id: "acidrain",
+		name: "Acid Rain",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type) {
 			if (type === 'Rock') return 1;
-	},
-	secondary: {
+		},
+		secondary: {
 			chance: 20,
 			status: 'psn',
-	},
-	target: "normal",
-	type: "Poison",
+		},
+		target: "normal",
+		type: "Poison",
 	},
 	copycatblast: {
 		num: 686,
@@ -279,10 +279,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onModifyType(move, pokemon) {
-		const types = pokemon.getTypes();
-		let type = types[1] || types[0];
-		if (type === "Bird") type = "Normal";
-		move.type = type;
+			const types = pokemon.getTypes();
+			let type = types[1] || types[0];
+			if (type === "Bird") type = "Normal";
+			move.type = type;
 		},
 		secondary: null,
 		target: "normal",
@@ -327,7 +327,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
-/*Gen 9 MetaMons*/
+	/* Gen 9 MetaMons*/
 	spectralfang: {
 		num: 533,
 		accuracy: 100,
@@ -368,7 +368,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
-// PLA
+	// PLA
 	hail: {
 		inherit: true,
 		isNonstandard: true,
@@ -441,8 +441,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	//---------------Gen 9 Moves-----------------//
-	//PL:A
+	// ---------------Gen 9 Moves-----------------//
+	// PL:A
 	ragingfury: {
 		num: -1001,
 		accuracy: 100,
@@ -486,7 +486,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Crush Claw", target);
 		},
-		//critRatio: 2,
+		// critRatio: 2,
 		secondary: {
 			chance: 50,
 			onHit(target, source) {
@@ -768,7 +768,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
-	//SV
+	// SV
 	spicyextract: {
 		num: 858,
 		accuracy: true,
@@ -830,7 +830,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
-		onPrepareHit: function(target, source) {	
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hidden Power", target);
 		},
@@ -904,7 +904,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		isNonstandard: "Unobtainable",
 		name: "Wildbolt Storm",
-      shortDesc: "20% chance to paralyze foe(s).",
+		shortDesc: "20% chance to paralyze foe(s).",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
@@ -1114,7 +1114,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Jet Punch",
-      shortDesc: "Usually goes first.",
+		shortDesc: "Usually goes first.",
 		pp: 15,
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
@@ -1654,7 +1654,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Hyper Drill",
-      shortDesc: "Bypasses protection without breaking it.",
+		shortDesc: "Bypasses protection without breaking it.",
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, mirror: 1},
@@ -1769,7 +1769,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		self: { 
+		self: {
 			volatileStatus: "gigatonhammer",
 		},
 		condition: {
@@ -1781,9 +1781,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.addVolatile('gigatonhammer');
 		},
 		// onAfterMove(pokemon) {
-			// if (pokemon.removeVolatile('gigatonhammer')) {
-				// this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
-			// }
+		// if (pokemon.removeVolatile('gigatonhammer')) {
+		// this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
+		// }
 		// },
 		secondary: null,
 		target: "normal",
@@ -1827,7 +1827,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Aqua Cutter",
-		shortDesc: "High critical hit ratio.", 
+		shortDesc: "High critical hit ratio.",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, slicing: 1},
@@ -1952,7 +1952,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (!source.side.pokemon.filter(ally => ally.fainted).length) {
 				return false;
 			}
-			this.add("-message","Warning: this move is bugged. You can use the \"/switch\" command to pick which pokemon you want to revive. Syntax: /switch [number], where [number] is the position of the pokemon in your party that you want to revive.");
+			this.add("-message", "Warning: this move is bugged. You can use the \"/switch\" command to pick which pokemon you want to revive. Syntax: /switch [number], where [number] is the position of the pokemon in your party that you want to revive.");
 		},
 		slotCondition: 'revivalblessing',
 		// No this not a real switchout move

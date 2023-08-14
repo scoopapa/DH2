@@ -138,16 +138,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "If holder's species can evolve, its Attack and Sp. Atk are 1.5x.",
 	},
 	puyoniumz: {
-        id: "puyoniumz",
-        name: "Puyonium Z",
-        onTakeItem: false,
-        zMove: "Permutation",
-        zMoveFrom: "Thunderbolt",
-        zMoveUser: ["Ringo Ando"],
+		id: "puyoniumz",
+		name: "Puyonium Z",
+		onTakeItem: false,
+		zMove: "Permutation",
+		zMoveFrom: "Thunderbolt",
+		zMoveUser: ["Ringo Ando"],
 		num: -100,
 		gen: 8,
-        shortDesc: "If held by Ringo Ando with Thunderbolt, she can use Permutation.",
-    },
+		shortDesc: "If held by Ringo Ando with Thunderbolt, she can use Permutation.",
+	},
 	frosmothite: {
 		name: "Frosmothite",
 		spritenum: 605,
@@ -291,8 +291,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (
-				move && ((user.baseSpecies.num === 380) && (move.type === 'Fairy' || move.type === 'Dragon')) 
-				|| ((user.baseSpecies.num === 381) && (move.type === 'Dragon' || move.type === 'Electric'))
+				move && ((user.baseSpecies.num === 380) && (move.type === 'Fairy' || move.type === 'Dragon')) ||
+				((user.baseSpecies.num === 381) && (move.type === 'Dragon' || move.type === 'Electric'))
 			) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
@@ -342,10 +342,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				  let bestStat = 0;
 				  let s: StatNameExceptHP;
 				  for (s in pokemon.storedStats) {
-						if (pokemon.storedStats[s] > bestStat) {
+					if (pokemon.storedStats[s] > bestStat) {
 							 statName = s;
 							 bestStat = pokemon.storedStats[s];
-						}
+					}
 				  }
 				  this.boost({[statName]: 1}, pokemon);
 			 }
@@ -353,7 +353,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If Stealth Rock is on the field, damage is ignored, and the user's highest stat is raised by 1. Single use.",
 	},
-	seviisap: {	
+	seviisap: {
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
@@ -364,7 +364,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1021,
 		gen: 8,
 		shortDesc: "At the end of every turn, holder restores 1/24 of its max HP. Cannot be removed.",
-    },
+	},
 	zoomlens: {
 		name: "Zoom Lens",
 		spritenum: 574,
@@ -495,12 +495,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidual(source) {
 			if (source.volatiles['malnourish']) {
 				this.heal(source.baseMaxhp / 16);
-			}
-			else {
+			} else {
 				this.heal(source.baseMaxhp / 16);
 			}
 			for (const pokemon of this.getAllActive()) {
-					if (pokemon.switchFlag === true) return;
+				if (pokemon.switchFlag === true) return;
 			}
 			if (source.species.id !== 'pepsiman') {
 				source.setItem('pepsicantwothirdsfull');
@@ -518,12 +517,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidual(source) {
 			if (source.volatiles['malnourish']) {
 				this.heal(source.baseMaxhp / 16);
-			}
-			else {
+			} else {
 				this.heal(source.baseMaxhp / 16);
 			}
 			for (const pokemon of this.getAllActive()) {
-					if (pokemon.switchFlag === true) return;
+				if (pokemon.switchFlag === true) return;
 			}
 			source.setItem('pepsicanonethirdfull');
 			this.add('-item', source, source.getItem(), '[from] item: Pepsi Can');
@@ -539,12 +537,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidual(source) {
 			if (source.volatiles['malnourish']) {
 				this.heal(source.baseMaxhp / 16);
-			}
-			else {
+			} else {
 				this.heal(source.baseMaxhp / 16);
 			}
 			for (const pokemon of this.getAllActive()) {
-					if (pokemon.switchFlag === true) return;
+				if (pokemon.switchFlag === true) return;
 			}
 			source.setItem('pepsicanempty');
 			this.add('-item', source, source.getItem(), '[from] item: Pepsi Can');

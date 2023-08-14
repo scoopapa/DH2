@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	//Slate 1
+	// Slate 1
 	volquag: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -40,8 +40,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["protect", "voltswitch", "sludgebomb", "thunderbolt", "trickroom", "fireblast"],
 		randomDoubleBattleLevel: 77,
 	},
-	
-	//Slate 2
+
+	// Slate 2
 	flaant: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -107,8 +107,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["protect", "earthpower", "strengthsap", "poltergeist", "trickroom"],
 		randomDoubleBattleLevel: 77,
 	},
-	
-	//Slate 3
+
+	// Slate 3
 	pigapult: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -172,7 +172,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["protect", "dynamaxcannon", "tailwind", "heatwave", "airslash"],
 		randomDoubleBattleLevel: 77,
 	},
-	//slate 4
+	// slate 4
 	grimmlurk: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -213,7 +213,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["protect", "dragonclaw", "dragondance", "superpower", "bodyslam"],
 		randomDoubleBattleLevel: 77,
 	},
-	//slate 5
+	// slate 5
 	dongoro: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -245,7 +245,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 75,
 		requiredItem: "Red Orb",
 	},
-	//slate 6
+	// slate 6
 	corveot: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -289,7 +289,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["spikes", "recover", "scald", "leechseed", "knockoff"],
 		randomBattleLevel: 77,
 	},
-	//slate 7
+	// slate 7
 	landmaldotherian: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -314,7 +314,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["nastyplot", "hydropump", "psychic", "focusblast"],
 		randomBattleLevel: 77,
 	},
-	//slate 8
+	// slate 8
 	brontun: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -364,7 +364,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["dracometeor", "uturn", "roost", "sludgebomb", "fireblast", "defog"],
 		randomBattleLevel: 77,
 	},
-	//slate 9
+	// slate 9
 	absable: {
 		tier: "FERU",
 		doublesTier: "DUU",
@@ -443,7 +443,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FEUU",
 		doublesTier: "DUU",
 		randomBattleMoves: ["shellsmash", "earthquake", "poltergeist", "stoneedge"],
-		randomBattleLevel: 77
+		randomBattleLevel: 77,
 	},
 	sableiormega: {
 		tier: "FEUU",
@@ -456,8 +456,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 77,
 		requiredItem: "Sablenite",
 	},
-	
-	//slate 10
+
+	// slate 10
 	eeluk: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -476,8 +476,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["spikes", "frostbreath", "sludgebomb", "sleeppowder"],
 		randomBattleLevel: 77,
 	},
-	
-	//slate 11
+
+	// slate 11
 	hattaka: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -529,8 +529,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["waterpulse", "aurasphere", "darkpulse", "earthpower", "flipturn"],
 		randomBattleLevel: 77,
 	},
-	
-	//slate 12
+
+	// slate 12
 	meloslash: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -572,8 +572,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["magmastorm", "toxic", "earthpower", "taunt", "magnetrise", "spikes"],
 		randomBattleLevel: 77,
 	},
-	
-// slate 13
+
+	// slate 13
 	sirsola: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -617,8 +617,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["nastyplot", "sludgewave", "focusblast", "fireblast", "toxic", "roost"],
 		randomBattleLevel: 77,
 	},
-	
-// slate 14
+
+	// slate 14
 	whimsilotic: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -669,8 +669,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["closecombat", "knockoff", "roost", "dragonhammer", "icepunch", "teleport"],
 		randomBattleLevel: 77,
 	},
-	
-// slate 15
+
+	// slate 15
 	roaramp: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -703,8 +703,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["earthquake", "leechseed", "slackoff", "knockoff", "leafblade"],
 		randomBattleLevel: 77,
 	},
-	
-// slate 16
+
+	// slate 16
 	altarizard: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -756,8 +756,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["curse", "ironhead", "knockoff", "earthquake"],
 		randomBattleLevel: 77,
 	},
-	
-// slate 17
+
+	// slate 17
 	jirachonator: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -795,8 +795,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["lightofruin", "meteorbeam", "stealthrock", "rockpolish", "earthpower"],
 		randomBattleLevel: 77,
 	},
-	
-// slate 18
+
+	// slate 18
 	keclyrexshadow: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -847,7 +847,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		requiredItem: "Aerodactylite",
 	},
 
-// Slate 19
+	// Slate 19
 	regibee: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -897,8 +897,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["voltswitch", "plasmafists", "knockoff", "playrough", "icebeam", "closecombat", "stealthrock"],
 		randomBattleLevel: 77,
 	},
-	
-// Slate 20
+
+	// Slate 20
 	golisotops: {
 		tier: "FEUU",
 		doublesTier: "DUU",
@@ -917,8 +917,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["psychic", "dracometeor", "synthesis", "flamethrower", "calmmind"],
 		randomBattleLevel: 77,
 	},
-	
-// Slate 21
+
+	// Slate 21
 	avarupt: {
 		tier: "FERU",
 		doublesTier: "DUU",
@@ -1486,9 +1486,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DUU",
 		randomBattleLevel: 79,
 	},
-	
-	//Silvino Nightmare Hours
-	//on god whose fucking idea was this
+
+	// Silvino Nightmare Hours
+	// on god whose fucking idea was this
 	silvinobug: {
 		tier: "Forms",
 		doublesTier: "Forms",
@@ -1611,7 +1611,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Forms",
 		randomBattleMoves: ["wish", "psychic", "protect", "flamethrower", "healbell", "partingshot"],
 		randomBattleLevel: 77,
-		randomDoubleBattleMoves: ["protect", "psychic", "flamethrower",  "helpinghand", "healpulse"],
+		randomDoubleBattleMoves: ["protect", "psychic", "flamethrower", "helpinghand", "healpulse"],
 		randomDoubleBattleLevel: 77,
 		requiredItem: "Psychic Memory",
 	},
@@ -1642,8 +1642,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleLevel: 77,
 		requiredItem: "Water Memory",
 	},
-	
-// LC and NFE
+
+	// LC and NFE
 	woopopotas: {
 		tier: "FELC",
 		doublesTier: "LC",
@@ -2023,7 +2023,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pawnrunt: {
 		tier: "FELC",
 		doublesTier: "LC",
-	},	
+	},
 	tyrunxel: {
 		tier: "FELC",
 		doublesTier: "LC",
@@ -2072,4 +2072,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},
-}; 
+};

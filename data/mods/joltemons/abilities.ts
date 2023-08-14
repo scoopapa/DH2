@@ -36,7 +36,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(2);
 		},
 		name: "Light Power",
-    shortDesc: "This Pokemon's Special Attack is doubled.",
+		shortDesc: "This Pokemon's Special Attack is doubled.",
 		rating: 5,
 	},
 	raindish: {
@@ -52,7 +52,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Rain Dish",
-    shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Rain.",
+		shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Rain.",
 		num: 44,
 		rating: 3,
 	},
@@ -72,13 +72,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'hail') return false;
 		},
 		name: "Ice Body",
-    shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Hail.",
+		shortDesc: "Heals 6.25% of user's max HP at the end of each turn. Heals 12.5% in Hail.",
 		num: 115,
 		rating: 3,
 	},
 	sweetveil: {
 		name: "Sweet Veil",
-      shortDesc: "This Pokemon and its allies can't fall asleep. This Pokemon heals 1/8 of its max HP if it's holding Honey.",
+		shortDesc: "This Pokemon and its allies can't fall asleep. This Pokemon heals 1/8 of its max HP if it's holding Honey.",
 		onAllySetStatus(status, target, source, effect) {
 			if (status.id === 'slp') {
 				this.debug('Sweet Veil interrupts sleep');
@@ -99,16 +99,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (pokemon.hasItem('honey')) {
-					this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		rating: 2,
 		num: 175,
 	},
 	libero: {
-      shortDesc: "Non-STAB moves have 1.2x power.",
+		shortDesc: "Non-STAB moves have 1.2x power.",
 		onBasePowerPriority: 23,
-		onBasePower (basePower, pokemon, target, move) {
+		onBasePower(basePower, pokemon, target, move) {
 			if (!pokemon.hasType(move.type)) {
 				return this.chainModify(1.2);
 			}
@@ -117,28 +117,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 236,
 	},
-    moody: {
-      shortDesc: "This Pokemon's lowest stat goes up by 1 every turn.",
-        onResidualOrder: 26,
-        onResidualSubOrder: 1,
-        onResidual(pokemon) {
-            if (pokemon.activeTurns) {
-            let statName = 'atk';
-            let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
-            let s: StatNameExceptHP;
-            for (s in pokemon.storedStats) {
-                if (pokemon.storedStats[s] < worstStat) {
-                    statName = s;
-                    worstStat = pokemon.storedStats[s];
-                }
-            }
-            this.boost({[statName]: 1}, pokemon);
-            }
-        },
-        name: "Moody",
-        rating: 3,
-        num: 141,
-    },
+	moody: {
+		shortDesc: "This Pokemon's lowest stat goes up by 1 every turn.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				let statName = 'atk';
+				let worstStat = 3000; // The highest possible stat number (with boosts) is 2,676
+				let s: StatNameExceptHP;
+				for (s in pokemon.storedStats) {
+					if (pokemon.storedStats[s] < worstStat) {
+						statName = s;
+						worstStat = pokemon.storedStats[s];
+					}
+				}
+				this.boost({[statName]: 1}, pokemon);
+			}
+		},
+		name: "Moody",
+		rating: 3,
+		num: 141,
+	},
 	stickyhold: {
 		onTakeItem(item, pokemon, source) {
 			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
@@ -295,7 +295,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'ability: Scavenge'); 
+				this.add('-activate', source, 'ability: Scavenge');
 				this.heal(source.baseMaxhp / 3, source, source, effect);
 			}
 		},
@@ -386,7 +386,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  },
 	  name: "Buzz Off",
 	  rating: 4.5,
-    },
+	},
 	magmaarmor: {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'frz') {
@@ -463,7 +463,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Pokémon that make contact with this Pokémon have the Ghost-type added to their existing typings until they switch out (Trick-or-Treat effect).",
 		rating: 2.5,
 	},
-/*
+	/*
 	soullink: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Soul Link');
@@ -487,8 +487,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
-			))
-			|| pokemon.species.id !== 'spiritomb' && pokemon.species.id !== 'spectrier' && pokemon.species.id !== 'yamaskgalar' && pokemon.species.id !== 'runerigus' && pokemon.species.id !== 'cofagrigus' && pokemon.species.id !== 'cacturne' && pokemon.species.id !== 'hoopa' && pokemon.species.id !== 'marowak' && pokemon.species.id !== 'rotom') {
+			)) ||
+			pokemon.species.id !== 'spiritomb' && pokemon.species.id !== 'spectrier' && pokemon.species.id !== 'yamaskgalar' && pokemon.species.id !== 'runerigus' && pokemon.species.id !== 'cofagrigus' && pokemon.species.id !== 'cacturne' && pokemon.species.id !== 'hoopa' && pokemon.species.id !== 'marowak' && pokemon.species.id !== 'rotom') {
 				this.effectState.gaveUp = true;
 			}
 		},
@@ -512,7 +512,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				target.setAbility('wanderingspirit', pokemon);
 				pokemon.setAbility(ability);
-				
+
 				this.add('-activate', pokemon, 'ability: Wandering Spirit');
 				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
 				this.add('-activate', pokemon, 'ability: ' + ability.name);
@@ -535,7 +535,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Honey Gather');
 			}
 			if (pokemon.hasItem('honey')) {
-					this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
@@ -594,11 +594,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 184,
 	},
-  scavenge: {
+	scavenge: {
 		shortDesc: "This Pokemon's heals 33% of its HP when another Pokemon faints.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'ability: Scavenge'); 
+				this.add('-activate', source, 'ability: Scavenge');
 				this.heal(source.baseMaxhp / 3, source, source, effect);
 			}
 		},
@@ -620,7 +620,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Unimpressed",
 		rating: 3.5,
 	},
-/*
+	/*
 	counterfeit: {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -679,7 +679,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 	},
 
-/*
+	/*
 	counterfeit: {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
@@ -753,7 +753,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) {
 				if (move.type === 'Water') {
 					this.debug('Vapor Control boost');
-				return this.chainModify(1.5);
+					return this.chainModify(1.5);
 				}
 			}
 		},
@@ -762,7 +762,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 
-// Edited by proxy
+	// Edited by proxy
 	oblivious: {
 		onUpdate(pokemon) {
 			if (pokemon.volatiles['attract']) {
@@ -1000,8 +1000,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 256,
 	},
 
-// The other Power of Alchemies
-		powerofalchemyweezing: {
+	// The other Power of Alchemies
+	powerofalchemyweezing: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Neutralizing Gas');
@@ -1034,8 +1034,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Power of Alchemy (Weezing)",
 		rating: 5,
-	}, 
-		powerofalchemyalcremie: {
+	},
+	powerofalchemyalcremie: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Power of Alchemy');
@@ -1080,13 +1080,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
 			if (pokemon.hasItem('honey')) {
-					this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		isPermanent: true,
 		name: "Power of Alchemy (Alcremie)",
 		rating: 5,
-	}, 
+	},
 	powerofalchemymismagius: {
 		shortDesc: "All of this Pokemon's abilities are active at once.",
 		onPreStart(pokemon) {
@@ -1555,11 +1555,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Power of Alchemy (Sylveon)",
 		rating: 5,
 	},
-	
-// Counterfeit Stuff, never ask me for anything ever again
+
+	// Counterfeit Stuff, never ask me for anything ever again
 	lifeorb: {
 		onModifyDamage(damage, source, target, move) {
-				return this.chainModify(1.3);
+			return this.chainModify(1.3);
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source && source !== target && move && move.category !== 'Status') {
@@ -1734,19 +1734,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Eviolith",
 	},
 	momentumarmor: {
-        onModifyAtkPriority: 1,
-        onModifyAtk(atk, pokemon) {
-          const def = pokemon.getStat('def', false, true);
-          const newAtk = atk + (def / 4);
-          return newAtk;
-        },
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			const def = pokemon.getStat('def', false, true);
+			const newAtk = atk + (def / 4);
+			return newAtk;
+		},
 		name: "Momentum Armor",
 	},
 	shellbell: {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.category !== 'Status') {
-			this.heal(pokemon.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		name: "Shell Bell",
@@ -1764,7 +1764,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Cursed Belt",
 	},
-/*
+	/*
 	chilipepper: {
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'brn') return;
@@ -1821,7 +1821,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Rocky Helmet",
 	},
-/*
+	/*
 	mentalherb: {
 		onStart(pokemon) {
 			pokemon.addVolatile('mentalherb');
@@ -1868,7 +1868,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.field.isTerrain('grassyterrain')) return;
 			if (pokemon.hasType('Ghost')) {
 				this.heal(pokemon.baseMaxhp / 16);
-			} 
+			}
 		},
 		onTerrain(pokemon) {
 			if (!this.field.isTerrain('grassyterrain')) return;
@@ -1876,7 +1876,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.heal(pokemon.baseMaxhp / 16);
 			}
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove(pokemon) {
 			if (!pokemon.hasType('Ghost') && pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		name: "Reaper Cloth",
@@ -2166,12 +2166,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	soulblade: {
 		onModifyDamage(damage, source, target, move) {
-				return this.chainModify([0x1199, 0x1000]);
+			return this.chainModify([0x1199, 0x1000]);
 		},
 		/*
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setAbility('soulbladelvl2');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
@@ -2179,14 +2179,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		*/
 		name: "Soul Blade",
 	},
-/*
+	/*
 	soulbladelvl2: {
 		onModifyDamage(damage, source, target, move) {
 				return this.chainModify([0x14CC, 0x1000]);
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setAbility('soulbladelvl3');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
@@ -2199,7 +2199,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setAbility('soulbladelvl4');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
@@ -2212,7 +2212,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setAbility('soulbladelvl5');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}
@@ -2225,7 +2225,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.add('-activate', source, 'item: Soul Blade'); 
+				this.add('-activate', source, 'item: Soul Blade');
 				source.setAbility('ultrasoulblade');
 				this.add('-item', source, source.getItem(), '[from] item: Soul Blade');
 			}

@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = {
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bulbasaur: {
 		tier: "LC",
 	},
@@ -2429,7 +2429,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["shadowball", "dracometeor", "dragonpulse", "flamethrower", "calmmind"],
 		tier: "OU",
 		doublesTier: "DOU",
-	},	
+	},
 	cresselia: {
 		inherit: true,
 		tier: "RU",

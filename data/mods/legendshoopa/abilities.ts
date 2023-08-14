@@ -69,11 +69,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 
 
-
-
-
-	//canon abilities
-
+	// canon abilities
 
 
 	static: {
@@ -86,7 +82,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.effectState.active = true;
 					target.setStatus('');
 				}
-				
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -102,7 +97,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 9,
 	},
-	
+
 	effectspore: {
 		onStart(pokemon) {
 			this.effectState.active = false;
@@ -148,7 +143,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.effectState.active = true;
 					target.setStatus('');
 				}
-				
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -175,7 +169,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.effectState.active = true;
 					target.setStatus('');
 				}
-				
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -192,8 +185,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 38,
 	},
 
-	//just gonna leave this as is bc who the fuck cares about synchronoize
-	//(i am so tired please forgive me)
+	// just gonna leave this as is bc who the fuck cares about synchronoize
+	// (i am so tired please forgive me)
 	synchronize: {
 		inherit: true,
 		onAfterSetStatus(status, target, source, effect) {

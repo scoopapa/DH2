@@ -1,7 +1,7 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 // New Mons
 
-// Future Mons
+	// Future Mons
 	chikorita: {
 		inherit: true,
 		baseStats: {hp: 45, atk: 49, def: 65, spa: 49, spd: 49, spe: 45},
@@ -248,7 +248,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	shuckle: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 10, def: 230, spa: 70, spd: 70, spe:10},
+		baseStats: {hp: 70, atk: 10, def: 230, spa: 70, spd: 70, spe: 10},
 	},
 	heracross: {
 		inherit: true,
@@ -402,7 +402,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 	},
-// Old Mons
+	// Old Mons
 	missingno: {
 		inherit: true,
 		baseStats: {hp: 33, atk: 136, def: 0, spa: 6, spd: 6, spe: 29},

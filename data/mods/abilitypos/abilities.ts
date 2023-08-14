@@ -54,7 +54,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			move.secondaries.push({
 				chance: 100,
 				boosts: {
-				atk: -1,
+					atk: -1,
 				},
 				ability: this.dex.abilities.get('abhorrent'),
 			});
@@ -127,15 +127,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAccuracyPriority: -2,
 		onAccuracy(accuracy, target, source, move) {
 			if (accuracy !== true && !this.randomChance(accuracy, 100)) {
-			move.graze = true;
+				move.graze = true;
 			}
 			return true;
 		},
 		onAfterMoveSecondary(target, source, move) {
 			if (!move.totalDamage || move.graze !== true) return;
-			const damage = move.totalDamage
+			const damage = move.totalDamage;
 			this.damage(move.totalDamage / 4, target);
-		},	
+		},
 		onModifyMove(move, pokemon) {
 			if (move.secondaries) {
 				delete move.secondaries;
@@ -205,7 +205,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Simmer Focus",
 		rating: 4,
-		shortDesc: "This Pokemon’s damaging moves have -3 Priority, if it isnt hit by a damaging move before it attacks, its attack does 1.5x damage.",							
+		shortDesc: "This Pokemon’s damaging moves have -3 Priority, if it isnt hit by a damaging move before it attacks, its attack does 1.5x damage.",
 		num: 158,
 	},
 	feeler: {

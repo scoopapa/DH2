@@ -5,12 +5,12 @@
  */
 
 /**@type {ModdedBattleScriptsData} */
-let BattleScripts = {
+const BattleScripts = {
 	inherit: 'gen3',
 	gen: 2,
 	// BattlePokemon scripts.
 	pokemon: {
-		getStat: function (statName, unboosted, unmodified) {
+		getStat(statName, unboosted, unmodified) {
 			statName = toId(statName);
 			if (statName === 'hp') return this.maxhp;
 
@@ -23,10 +23,10 @@ let BattleScripts = {
 				if (boost > 6) boost = 6;
 				if (boost < -6) boost = -6;
 				if (boost >= 0) {
-					let boostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
+					const boostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
 					stat = Math.floor(stat * boostTable[boost]);
 				} else {
-					let numerators = [100, 66, 50, 40, 33, 28, 25];
+					const numerators = [100, 66, 50, 40, 33, 28, 25];
 					stat = Math.floor(stat * numerators[-boost] / 100);
 				}
 			}
@@ -64,10 +64,10 @@ let BattleScripts = {
 		},
 	},
 	// Battle scripts.
-	runMove: function (move, pokemon, targetLoc, sourceEffect) {
+	runMove(move, pokemon, targetLoc, sourceEffect) {
 		let target = this.getTarget(pokemon, move, targetLoc);
 		if (!sourceEffect && toId(move) !== 'struggle') {
-			let changedMove = this.runEvent('OverrideAction', pokemon, target, move);
+			const changedMove = this.runEvent('OverrideAction', pokemon, target, move);
 			if (changedMove && changedMove !== true) {
 				move = changedMove;
 				target = null;
@@ -114,10 +114,10 @@ let BattleScripts = {
 		this.singleEvent('AfterMove', move, null, pokemon, target, move);
 		if (!move.selfSwitch && target && target.hp > 0) this.runEvent('AfterMoveSelf', pokemon, target, move);
 	},
-	tryMoveHit: function (target, pokemon, move) {
-		let positiveBoostTable = [1, 1.33, 1.66, 2, 2.33, 2.66, 3];
-		let negativeBoostTable = [1, 0.75, 0.6, 0.5, 0.43, 0.36, 0.33];
-		let doSelfDestruct = true;
+	tryMoveHit(target, pokemon, move) {
+		const positiveBoostTable = [1, 1.33, 1.66, 2, 2.33, 2.66, 3];
+		const negativeBoostTable = [1, 0.75, 0.6, 0.5, 0.43, 0.36, 0.33];
+		const doSelfDestruct = true;
 		/**@type {number | false} */
 		let damage = 0;
 		let hitResult = true;
@@ -225,7 +225,7 @@ let BattleScripts = {
 			/**@type {number | false} */
 			let moveDamage;
 
-			let isSleepUsable = move.sleepUsable || this.moves.get(move.sourceEffect).sleepUsable;
+			const isSleepUsable = move.sleepUsable || this.moves.get(move.sourceEffect).sleepUsable;
 			let i;
 			for (i = 0; i < hits && target.hp && pokemon.hp; i++) {
 				if (pokemon.status === 'slp' && !isSleepUsable) break;
@@ -260,7 +260,7 @@ let BattleScripts = {
 		}
 		return damage;
 	},
-	moveHit: function (target, pokemon, move, moveData, isSecondary, isSelf) {
+	moveHit(target, pokemon, move, moveData, isSecondary, isSelf) {
 		let damage;
 		move = this.getMoveCopy(move);
 
@@ -328,7 +328,7 @@ let BattleScripts = {
 				didSomething = didSomething || hitResult;
 			}
 			if (moveData.heal && !target.fainted) {
-				let d = target.heal(Math.round(target.maxhp * moveData.heal[0] / moveData.heal[1]));
+				const d = target.heal(Math.round(target.maxhp * moveData.heal[0] / moveData.heal[1]));
 				if (!d && d !== 0) {
 					this.add('-fail', target);
 					this.debug('heal interrupted');
@@ -412,7 +412,7 @@ let BattleScripts = {
 				// Unlike gen 1, though, paralysis works for all unless the target is immune to direct move (ie. ground-types and t-wave).
 				if (!(secondary.status && ['brn', 'frz'].includes(secondary.status) && target && target.hasType(move.type))) {
 					// @ts-ignore
-					let effectChance = Math.floor(secondary.chance * 255 / 100);
+					const effectChance = Math.floor(secondary.chance * 255 / 100);
 					if (typeof secondary.chance === 'undefined' || this.randomChance(effectChance, 256)) {
 						// @ts-ignore
 						this.moveHit(target, pokemon, move, secondary, true, isSelf);
@@ -433,7 +433,7 @@ let BattleScripts = {
 		}
 		return damage;
 	},
-	getDamage: function (pokemon, target, move, suppressMessages) {
+	getDamage(pokemon, target, move, suppressMessages) {
 		// First of all, we get the move.
 		if (typeof move === 'string') {
 			move = this.moves.get(move);
@@ -482,7 +482,7 @@ let BattleScripts = {
 		if (!move.defensiveCategory) move.defensiveCategory = move.category;
 		// '???' is typeless damage: used for Struggle and Confusion etc
 		if (!move.type) move.type = '???';
-		let type = move.type;
+		const type = move.type;
 
 		// We get the base power and apply basePowerCallback if necessary
 		let basePower = move.basePower;
@@ -499,7 +499,7 @@ let BattleScripts = {
 
 		// Checking for the move's Critical Hit ratio
 		move.critRatio = this.clampIntRange(move.critRatio, 0, 5);
-		let critMult = [0, 16, 8, 4, 3, 2];
+		const critMult = [0, 16, 8, 4, 3, 2];
 		move.crit = move.willCrit || false;
 		if (typeof move.willCrit === 'undefined') {
 			if (move.critRatio) {
@@ -542,8 +542,8 @@ let BattleScripts = {
 		let defender = target;
 		if (move.useTargetOffensive) attacker = target;
 		if (move.useSourceDefensive) defender = pokemon;
-		let atkType = (move.category === 'Physical') ? 'atk' : 'spa';
-		let defType = (move.defensiveCategory === 'Physical') ? 'def' : 'spd';
+		const atkType = (move.category === 'Physical') ? 'atk' : 'spa';
+		const defType = (move.defensiveCategory === 'Physical') ? 'def' : 'spd';
 		let unboosted = false;
 		let noburndrop = false;
 
@@ -632,7 +632,7 @@ let BattleScripts = {
 		}
 
 		// Type effectiveness
-		let totalTypeMod = this.getEffectiveness(type, target);
+		const totalTypeMod = this.getEffectiveness(type, target);
 		// Super effective attack
 		if (totalTypeMod > 0) {
 			if (!suppressMessages) this.add('-supereffective', target);
@@ -664,7 +664,7 @@ let BattleScripts = {
 		// We are done, this is the final damage
 		return damage;
 	},
-	damage: function (damage, target, source, effect) {
+	damage(damage, target, source, effect) {
 		if (this.event) {
 			if (!target) target = this.event.target;
 			if (!source) source = this.event.source;

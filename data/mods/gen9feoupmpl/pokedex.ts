@@ -1,6 +1,6 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
-// Template
+	// Template
 	/*
 	name: {
  // fusion: ['P1', 'P2'],
@@ -11,12 +11,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: ""},
 		weightkg: ,
 	},
-	
+
 	*/
 
-// OU
+	// OU
 	revarantis: {
- // fusion: ['Revavroom', 'Lurantis'],
+		// fusion: ['Revavroom', 'Lurantis'],
 		num: 1,
 		name: "Revarantis",
 		types: ["Steel", "Grass"],
@@ -25,7 +25,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 69.3,
 	},
 	rotoghold: {
- // fusion: ['Gholdengo', 'Rotom'],
+		// fusion: ['Gholdengo', 'Rotom'],
 		num: 2,
 		name: "Rotoghold",
 		gender: "N",
@@ -35,7 +35,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 15.2,
 	},
 	guguzzparce: {
- // fusion: ['Guzzlord', 'Dudunsparce'],
+		// fusion: ['Guzzlord', 'Dudunsparce'],
 		num: 3,
 		name: "Guguzzparce",
 		types: ["Dark", "Normal"],
@@ -44,7 +44,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 463.6,
 	},
 	toedieleki: {
- // fusion: ['Toedscruel', 'Regieleki'],
+		// fusion: ['Toedscruel', 'Regieleki'],
 		num: 4,
 		name: "Toedieleki",
 		types: ["Electric", "Ground"],
@@ -53,7 +53,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 101.5,
 	},
 	arbolosionhisui: {
- // fusion: ['Arboliva', 'Typhlosion-Hisui'],
+		// fusion: ['Arboliva', 'Typhlosion-Hisui'],
 		num: 5,
 		name: "Arbolosion-Hisui",
 		types: ["Grass", "Fire"],
@@ -62,7 +62,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 63.9,
 	},
 	zarubok: {
- // fusion: ['Zarude', 'Arbok'],
+		// fusion: ['Zarude', 'Arbok'],
 		num: 6,
 		name: "Zarubok",
 		types: ["Dark", "Poison"],
@@ -71,7 +71,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 67.5,
 	},
 	ironmeta: {
- // fusion: ['Iron Jugulis', 'Metagross'],
+		// fusion: ['Iron Jugulis', 'Metagross'],
 		num: 7,
 		name: "Iron Meta",
 		types: ["Steel", "Flying"],
@@ -84,7 +84,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	ironmetamega: {
- // fusion: ['Iron Jugulis', 'Metagross'],
+		// fusion: ['Iron Jugulis', 'Metagross'],
 		num: 7,
 		name: "Iron Meta-Mega",
 		baseSpecies: "Iron Meta",
@@ -98,7 +98,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Iron Meta",
 	},
 	deciperiorhisui: {
- // fusion: ['Decidueye-Hisui', 'Rhyperior'],
+		// fusion: ['Decidueye-Hisui', 'Rhyperior'],
 		num: 8,
 		name: "Deciperior-Hisui",
 		types: ["Fighting", "Ground"],
@@ -107,7 +107,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 160,
 	},
 	slitherking: {
- // fusion: ['Slither Wing', 'Klefki'],
+		// fusion: ['Slither Wing', 'Klefki'],
 		num: 9,
 		name: "Slither King",
 		types: ["Bug", "Steel"],
@@ -117,7 +117,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	gargamise: {
- // fusion: ['Garganacl', 'Dhelmise'],
+		// fusion: ['Garganacl', 'Dhelmise'],
 		num: 13,
 		name: "Gargamise",
 		types: ["Rock", "Grass"],
@@ -126,7 +126,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 225,
 	},
 	drampiclus: {
- // fusion: ['Drampa', 'Reuniclus'],
+		// fusion: ['Drampa', 'Reuniclus'],
 		num: 10,
 		name: "Drampiclus",
 		types: ["Dragon", "Psychic"],
@@ -135,7 +135,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 102.6,
 	},
 	muktariaalola: {
- // fusion: ['Muk-Alola', 'Altaria'],
+		// fusion: ['Muk-Alola', 'Altaria'],
 		num: 11,
 		name: "Muktaria-Alola",
 		types: ["Poison", "Dragon"],
@@ -146,7 +146,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		formeOrder: ["Muktaria-Alola", "Muktaria-Alola-Mega"],
 	},
 	muktariaalolamega: {
- // fusion: ['Muk-Alola', 'Altaria'],
+		// fusion: ['Muk-Alola', 'Altaria'],
 		num: 11,
 		name: "Muktaria-Alola-Mega",
 		baseSpecies: "Muktaria-Alola",
@@ -159,7 +159,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Muktaria-Alola",
 	},
 	ironpins: {
- // fusion: ['Iron Leaves', 'Pincurchin'],
+		// fusion: ['Iron Leaves', 'Pincurchin'],
 		num: 12,
 		name: "Iron Pins",
 		types: ["Electric", "Psychic"],
@@ -169,7 +169,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	roaringsal: {
- // fusion: ['Roaring Moon', 'Salazzle'],
+		// fusion: ['Roaring Moon', 'Salazzle'],
 		num: 14,
 		name: "Roaring Sal",
 		gender: "F",
@@ -180,7 +180,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	solvaliant: {
- // fusion: ['Iron Valiant', 'Absol'],
+		// fusion: ['Iron Valiant', 'Absol'],
 		num: 15,
 		name: "Sol Valiant",
 		types: ["Dark", "Fairy"],
@@ -192,7 +192,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		formeOrder: ["Sol Valiant", "Sol Valiant-Mega"],
 	},
 	solvaliantmega: {
- // fusion: ['Iron Valiant', 'Absol'],
+		// fusion: ['Iron Valiant', 'Absol'],
 		num: 15,
 		name: "Sol Valiant-Mega",
 		baseSpecies: "Sol Valiant",
@@ -205,7 +205,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Sol Valiant",
 	},
 	golisorospaldeablaze: {
- // fusion: ['Golisopod', 'Tauros-Paldea-Blaze'],
+		// fusion: ['Golisopod', 'Tauros-Paldea-Blaze'],
 		num: 16,
 		name: "Golisoros-Paldea-Blaze",
 		gender: "M",
@@ -215,7 +215,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 98.2,
 	},
 	brambleswine: {
- // fusion: ['Brambleghast', 'Mamoswine'],
+		// fusion: ['Brambleghast', 'Mamoswine'],
 		num: 18,
 		name: "Brambleswine",
 		types: ["Ice", "Grass"],
@@ -224,7 +224,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 148.5,
 	},
 	meowscoriosensu: {
- // fusion: ['Meowscarada', 'Oricorio-Sensu'],
+		// fusion: ['Meowscarada', 'Oricorio-Sensu'],
 		num: 17,
 		name: "Meowscorio-Sensu",
 		types: ["Ghost", "Dark"],
@@ -233,7 +233,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 17.3,
 	},
 	whimsysands: {
- // fusion: ['Whimsicott', 'Sandy Shocks'],
+		// fusion: ['Whimsicott', 'Sandy Shocks'],
 		num: 19,
 		name: "Whimsy Sands",
 		types: ["Fairy", "Ground"],
@@ -243,7 +243,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	relishadow: {
- // fusion: ['Relicanth', 'Marshadow'],
+		// fusion: ['Relicanth', 'Marshadow'],
 		num: 20,
 		name: "Relishadow",
 		types: ["Rock", "Ghost"],
@@ -254,7 +254,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		formeOrder: ["Relishadow", "Relishadow-Zenith"],
 	},
 	relishadowzenith: {
- // fusion: ['Relicanth', 'Marshadow'],
+		// fusion: ['Relicanth', 'Marshadow'],
 		num: 20,
 		name: "Relishadow-Zenith",
 		baseSpecies: "Relishadow",
@@ -267,7 +267,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Relishadow",
 	},
 	lashiram: {
- // fusion: ['Lairon', 'Reshiram'],
+		// fusion: ['Lairon', 'Reshiram'],
 		num: 21,
 		name: "Lashiram",
 		types: ["Steel", "Fire"],
@@ -276,7 +276,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 225,
 	},
 	garpyuku: {
- // fusion: ['Garchomp', 'Pyukumuku'],
+		// fusion: ['Garchomp', 'Pyukumuku'],
 		num: 22,
 		name: "Garpyuku",
 		types: ["Water", "Ground"],
@@ -287,7 +287,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		formeOrder: ["Garpyuku", "Garpyuku-Mega"],
 	},
 	garpyukumega: {
- // fusion: ['Garchomp', 'Pyukumuku'],
+		// fusion: ['Garchomp', 'Pyukumuku'],
 		num: 22,
 		name: "Garpyuku-Mega",
 		baseSpecies: "Garpyuku",
@@ -300,7 +300,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Garpyuku",
 	},
 	yveltox: {
- // fusion: ['Yveltal', 'Dustox'],
+		// fusion: ['Yveltal', 'Dustox'],
 		num: 23,
 		name: "Yveltox",
 		types: ["Flying", "Poison"],
@@ -309,7 +309,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 117.3,
 	},
 	ironmimic: {
- // fusion: ['Iron Thorns', 'Mimikyu'],
+		// fusion: ['Iron Thorns', 'Mimikyu'],
 		num: 24,
 		name: "Iron Mimic",
 		types: ["Rock", "Fairy"],
@@ -321,7 +321,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	ironmimicbusted: {
- // fusion: ['Iron Thorns', 'Mimikyu'],
+		// fusion: ['Iron Thorns', 'Mimikyu'],
 		num: 24,
 		name: "Iron Mimic-Busted",
 		baseSpecies: "Iron Mimic",
@@ -335,7 +335,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	irondirge: {
- // fusion: ['Iron Treads', 'Skeledirge'],
+		// fusion: ['Iron Treads', 'Skeledirge'],
 		num: 25,
 		name: "Iron Dirge",
 		types: ["Fire", "Ground"],
@@ -345,7 +345,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	irontornado: {
- // fusion: ['Iron Hands', 'Tornadus'],
+		// fusion: ['Iron Hands', 'Tornadus'],
 		num: 26,
 		name: "Iron Tornado",
 		gender: "M",
@@ -356,7 +356,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	deliraidon: {
- // fusion: ['Delibird', 'Miraidon'],
+		// fusion: ['Delibird', 'Miraidon'],
 		num: 27,
 		name: "Deliraidon",
 		types: ["Dragon", "Flying"],
@@ -365,7 +365,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 128,
 	},
 	stargrowth: {
- // fusion: ['Starmie', 'Tangrowth'],
+		// fusion: ['Starmie', 'Tangrowth'],
 		num: 28,
 		name: "Stargrowth",
 		types: ["Grass", "Water"],
@@ -374,7 +374,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 104.3,
 	},
 	floatzera: {
- // fusion: ['Floatzel', 'Zeraora'],
+		// fusion: ['Floatzel', 'Zeraora'],
 		num: 29,
 		name: "Floatzera",
 		types: ["Electric", "Water"],
@@ -383,7 +383,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 39,
 	},
 	crygargonal: {
- // fusion: ['Cryogonal', 'Gengar'],
+		// fusion: ['Cryogonal', 'Gengar'],
 		num: 30,
 		name: "Crygargonal",
 		types: ["Poison", "Ice"],
@@ -394,7 +394,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		formeOrder: ["Crygargonal", "Crygargonal-Mega"],
 	},
 	crygargonalmega: {
- // fusion: ['Cryogonal', 'Gengar'],
+		// fusion: ['Cryogonal', 'Gengar'],
 		num: 30,
 		name: "Crygargonal-Mega",
 		baseSpecies: "Crygargonal",
@@ -407,7 +407,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Crygargonal",
 	},
 	wopple: {
- // fusion: ['Flapple', 'Wo-Chien'],
+		// fusion: ['Flapple', 'Wo-Chien'],
 		num: 31,
 		name: "Wopple",
 		types: ["Grass", "Dragon"],
@@ -416,7 +416,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 37.6,
 	},
 	amphamence: {
- // fusion: ['Ampharos', 'Salamence'],
+		// fusion: ['Ampharos', 'Salamence'],
 		num: 32,
 		name: "Amphamence",
 		types: ["Electric", "Flying"],
@@ -427,7 +427,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		formeOrder: ["Amphamence", "Amphamence-Mega-X", "Amphamence-Mega-Y"],
 	},
 	amphamencemegax: {
- // fusion: ['Ampharos', 'Salamence'],
+		// fusion: ['Ampharos', 'Salamence'],
 		num: 32,
 		name: "Amphamence-Mega-X",
 		baseSpecies: "Amphamence",
@@ -440,7 +440,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Amphamence",
 	},
 	amphamencemegay: {
- // fusion: ['Ampharos', 'Salamence'],
+		// fusion: ['Ampharos', 'Salamence'],
 		num: 32,
 		name: "Amphamence-Mega-Y",
 		baseSpecies: "Amphamence",
@@ -453,7 +453,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		battleOnly: "Amphamence",
 	},
 	bronzebonnet: {
- // fusion: ['Brute Bonnet', 'Bronzong'],
+		// fusion: ['Brute Bonnet', 'Bronzong'],
 		num: 33,
 		name: "Bronze Bonnet",
 		gender: "N",
@@ -464,19 +464,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		tags: ["Paradox"],
 	},
 	ironlegion: {
- // fusion: ['Iron Bundle', 'Basculegion-F'],
+		// fusion: ['Iron Bundle', 'Basculegion-F'],
 		num: 34,
 		name: "Iron Legion",
 		types: ["Water", "Ghost"],
-		baseStats: {hp: 88, atk: 92, def: 90, spa: 112, spd: 68, spe: 110}, 
+		baseStats: {hp: 88, atk: 92, def: 90, spa: 112, spd: 68, spe: 110},
 		abilities: {0: "Circuit Breaker"},
 		weightkg: 60.5,
 		tags: ["Paradox"],
 	},
-	
-// LCs and NFEs
+
+	// LCs and NFEs
 	varantis: {
- // fusion: ['Varoom', 'Fomantis'],
+		// fusion: ['Varoom', 'Fomantis'],
 		num: 1001,
 		name: "Varantis",
 		types: ["Steel", "Grass"],
@@ -486,7 +486,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Revarantis"],
 	},
 	dollava: {
- // fusion: ['Dolliv', 'Quilava'],
+		// fusion: ['Dolliv', 'Quilava'],
 		num: 1003,
 		name: "Dollava",
 		types: ["Grass", "Fire"],
@@ -496,7 +496,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Arbolosion-Hisui"],
 	},
 	smoliqwil: {
- // fusion: ['Smoliv', 'Cyndaquil'],
+		// fusion: ['Smoliv', 'Cyndaquil'],
 		num: 1002,
 		name: "Smoliqwil",
 		types: ["Grass", "Fire"],
@@ -506,7 +506,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Dollava"],
 	},
 	rhylet: {
- // fusion: ['Rhyhorn', 'Rowlet'],
+		// fusion: ['Rhyhorn', 'Rowlet'],
 		num: 1004,
 		name: "Rhylet",
 		types: ["Ground", "Flying"],
@@ -516,7 +516,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Rhytrix"],
 	},
 	rhytrix: {
- // fusion: ['Rhydon', 'Dartrix'],
+		// fusion: ['Rhydon', 'Dartrix'],
 		num: 1005,
 		name: "Rhytrix",
 		types: ["Ground", "Flying"],
@@ -526,7 +526,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Deciperior-Hisui"],
 	},
 	grimeblualola: {
- // fusion: ['Grimer-Alola', 'Swablu'],
+		// fusion: ['Grimer-Alola', 'Swablu'],
 		num: 1006,
 		name: "Grimeblu-Alola",
 		types: ["Poison", "Normal"],
@@ -536,7 +536,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Muktaria-Alola"],
 	},
 	bramblinub: {
- // fusion: ['Bramblin', 'Swinub'],
+		// fusion: ['Bramblin', 'Swinub'],
 		num: 1007,
 		name: "Bramblinub",
 		types: ["Ice", "Grass"],
@@ -546,7 +546,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Brambleswine"],
 	},
 	stargela: {
- // fusion: ['Staryu', 'Tangela'],
+		// fusion: ['Staryu', 'Tangela'],
 		num: 1008,
 		name: "Stargela",
 		types: ["Grass", "Water"],
@@ -556,7 +556,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Stargrowth"],
 	},
 	mareegon: {
- // fusion: ['Mareep', 'Bagon'],
+		// fusion: ['Mareep', 'Bagon'],
 		num: 1009,
 		name: "Mareegon",
 		types: ["Electric", "Dragon"],
@@ -566,7 +566,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Flaalgon"],
 	},
 	flaalgon: {
- // fusion: ['Flaaffy', 'Shelgon'],
+		// fusion: ['Flaaffy', 'Shelgon'],
 		num: 1010,
 		name: "Flaalgon",
 		types: ["Electric", "Dragon"],

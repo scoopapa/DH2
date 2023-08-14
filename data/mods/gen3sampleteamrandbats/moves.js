@@ -5,7 +5,7 @@
 'use strict';
 
 /**@type {{[k: string]: ModdedMoveData}} */
-let BattleMovedex = {
+const BattleMovedex = {
 	absorb: {
 		inherit: true,
 		desc: "The user recovers 1/2 the HP lost by the target, rounded down.",
@@ -90,7 +90,7 @@ let BattleMovedex = {
 					}
 					/** @type {ActiveMove} */
 					// @ts-ignore
-					let moveData = {
+					const moveData = {
 						id: /** @type {ID} */('bide'),
 						name: "Bide",
 						accuracy: 100,
@@ -166,8 +166,8 @@ let BattleMovedex = {
 		inherit: true,
 		desc: "The user's type changes to match the original type of one of its known moves besides Curse, at random, but not either of its current types. Fails if the user cannot change its type, or if this move would only be able to select one of the user's current types.",
 		onHit(target) {
-			let possibleTypes = target.moveSlots.map(moveSlot => {
-				let move = this.dex.moves.get(moveSlot.id);
+			const possibleTypes = target.moveSlots.map(moveSlot => {
+				const move = this.dex.moves.get(moveSlot.id);
 				if (move.id !== 'curse' && !target.hasType(move.type)) {
 					return move.type;
 				}
@@ -176,7 +176,7 @@ let BattleMovedex = {
 			if (!possibleTypes.length) {
 				return false;
 			}
-			let type = this.sample(possibleTypes);
+			const type = this.sample(possibleTypes);
 
 			if (!target.setType(type)) return false;
 			this.add('-start', target, 'typechange', type);
@@ -190,7 +190,7 @@ let BattleMovedex = {
 		inherit: true,
 		desc: "Deals damage to the last opposing Pokemon to hit the user with a physical attack this turn equal to twice the HP lost by the user from that attack. If that opposing Pokemon's position is no longer in use and there is another opposing Pokemon on the field, the damage is done to it instead. This move considers Hidden Power as Normal type, and only the last hit of a multi-hit attack is counted. Fails if the user was not hit by an opposing Pokemon's physical attack this turn, or if the user did not lose HP from the attack.",
 		damageCallback(pokemon) {
-			let lastAttackedBy = pokemon.getLastAttackedBy();
+			const lastAttackedBy = pokemon.getLastAttackedBy();
 			if (lastAttackedBy && lastAttackedBy.move && lastAttackedBy.thisTurn && (this.getCategory(lastAttackedBy.move) === 'Physical' || this.dex.moves.get(lastAttackedBy.move).id === 'hiddenpower')) {
 				// @ts-ignore
 				return 2 * lastAttackedBy.damage;
@@ -302,7 +302,7 @@ let BattleMovedex = {
 		inherit: true,
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
-			let moveData = /** @type {ActiveMove} */ ({
+			const moveData = /** @type {ActiveMove} */ ({
 				name: "Doom Desire",
 				basePower: 120,
 				category: "Physical",
@@ -310,7 +310,7 @@ let BattleMovedex = {
 				willCrit: false,
 				type: '???',
 			});
-			let damage = this.getDamage(source, target, moveData, true);
+			const damage = this.getDamage(source, target, moveData, true);
 			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
 				duration: 3,
 				move: 'doomdesire',
@@ -355,8 +355,8 @@ let BattleMovedex = {
 				return this.random(3, 7);
 			},
 			onStart(target, source) {
-				let noEncore = ['encore', 'mimic', 'mirrormove', 'sketch', 'struggle', 'transform'];
-				let moveIndex = target.lastMove ? target.moves.indexOf(target.lastMove.id) : -1;
+				const noEncore = ['encore', 'mimic', 'mirrormove', 'sketch', 'struggle', 'transform'];
+				const moveIndex = target.lastMove ? target.moves.indexOf(target.lastMove.id) : -1;
 				if (!target.lastMove || noEncore.includes(target.lastMove.id) || !target.moveSlots[moveIndex] || target.moveSlots[moveIndex].pp <= 0) {
 					// it failed
 					this.add('-fail', source);
@@ -476,7 +476,7 @@ let BattleMovedex = {
 		category: "Physical",
 		onModifyMove(move, pokemon) {
 			move.type = pokemon.hpType || 'Dark';
-			let specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
+			const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 			move.category = specialTypes.includes(move.type) ? 'Special' : 'Physical';
 		},
 	},
@@ -487,7 +487,7 @@ let BattleMovedex = {
 		shortDesc: "If miss, user takes 1/2 damage it would've dealt.",
 		onMoveFail(target, source, move) {
 			if (target.runImmunity('Fighting')) {
-				let damage = this.getDamage(source, target, move, true);
+				const damage = this.getDamage(source, target, move, true);
 				if (typeof damage !== 'number') throw new Error("HJK recoil failed");
 				this.damage(this.dex.clampIntRange(damage / 2, 1, Math.floor(target.maxhp / 2)), source, source, move);
 			}
@@ -513,7 +513,7 @@ let BattleMovedex = {
 		shortDesc: "If miss, user takes 1/2 damage it would've dealt.",
 		onMoveFail(target, source, move) {
 			if (target.runImmunity('Fighting')) {
-				let damage = this.getDamage(source, target, move, true);
+				const damage = this.getDamage(source, target, move, true);
 				if (typeof damage !== 'number') throw new Error("Jump Kick didn't recoil");
 				this.damage(this.dex.clampIntRange(damage / 2, 1, Math.floor(target.maxhp / 2)), source, source, move);
 			}
@@ -597,8 +597,8 @@ let BattleMovedex = {
 		desc: "The user uses the last move that successfully targeted the user. The copied move is used with no specific target. Fails if no move has targeted the user, if the move missed, failed, or had no effect on the user, or if the move cannot be copied by this move.",
 		onTryHit() { },
 		onHit(pokemon) {
-			let noMirror = ['assist', 'curse', 'doomdesire', 'focuspunch', 'futuresight', 'magiccoat', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'psychup', 'roleplay', 'sketch', 'sleeptalk', 'spikes', 'spitup', 'taunt', 'teeterdance', 'transform'];
-			let lastAttackedBy = pokemon.getLastAttackedBy();
+			const noMirror = ['assist', 'curse', 'doomdesire', 'focuspunch', 'futuresight', 'magiccoat', 'metronome', 'mimic', 'mirrormove', 'naturepower', 'psychup', 'roleplay', 'sketch', 'sleeptalk', 'spikes', 'spitup', 'taunt', 'teeterdance', 'transform'];
+			const lastAttackedBy = pokemon.getLastAttackedBy();
 			if (!lastAttackedBy || !lastAttackedBy.source.lastMove || !lastAttackedBy.move || noMirror.includes(lastAttackedBy.move) || !lastAttackedBy.source.hasMove(lastAttackedBy.move)) {
 				return false;
 			}
@@ -743,11 +743,11 @@ let BattleMovedex = {
 			}
 		},
 		onHit(pokemon) {
-			let moves = [];
+			const moves = [];
 			for (const moveSlot of pokemon.moveSlots) {
-				let move = moveSlot.id;
-				let pp = moveSlot.pp;
-				let NoSleepTalk = ['assist', 'bide', 'focuspunch', 'metronome', 'mirrormove', 'sleeptalk', 'uproar'];
+				const move = moveSlot.id;
+				const pp = moveSlot.pp;
+				const NoSleepTalk = ['assist', 'bide', 'focuspunch', 'metronome', 'mirrormove', 'sleeptalk', 'uproar'];
 				if (move && !(NoSleepTalk.includes(move) || this.dex.moves.get(move).flags['charge'])) {
 					moves.push({move: move, pp: pp});
 				}
@@ -755,7 +755,7 @@ let BattleMovedex = {
 			if (!moves.length) {
 				return false;
 			}
-			let randomMove = this.sample(moves);
+			const randomMove = this.sample(moves);
 			if (!randomMove.pp) {
 				this.add('cant', pokemon, 'nopp', randomMove.move);
 				return;
@@ -789,7 +789,7 @@ let BattleMovedex = {
 		desc: "Causes the target's last move used to lose 2 to 5 PP, at random. Fails if the target has not made a move, if the move has 0 or 1 PP, or if it no longer knows the move.",
 		shortDesc: "Lowers the PP of the target's last move by 2-5.",
 		onHit(target) {
-			let roll = this.random(2, 6);
+			const roll = this.random(2, 6);
 			if (target.lastMove && target.deductPP(target.lastMove.id, roll)) {
 				this.add("-activate", target, 'move: Spite', target.lastMove.id, roll);
 				return;

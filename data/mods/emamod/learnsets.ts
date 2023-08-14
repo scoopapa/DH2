@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	growlithehisui: {
 		learnset: {
 			aerialace: ["8M"],
@@ -664,7 +665,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			assurance: ["8L1"],
 			astonish: ["8L1"],
 			bite: ["8L1"],
-			bite: ["8L7"],
 			bodyslam: ["8L1"],
 			brickbreak: ["8L1"],
 			brutalswing: ["8L1"],

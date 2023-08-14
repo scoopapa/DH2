@@ -21,9 +21,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onModifyMovePriority: -5,
 		onEffectiveness(typeMod, target, type, move) {
-				if (move && this.dex.getImmunity(move, type) === false) return 1;
-				return typeMod * -1;
-			},
+			if (move && this.dex.getImmunity(move, type) === false) return 1;
+			return typeMod * -1;
+		},
 		desc: "Holder's weaknesses and resistances (including immunities) are swapped like in an Inverse Battle.",
 	},
 	"roomextender": {
@@ -60,7 +60,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return;
 			}
 			let statsLowered = false;
-			for (let i in boost) {
+			for (const i in boost) {
 				// @ts-ignore
 				if (boost[i] < 0) {
 					statsLowered = true;
@@ -69,14 +69,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (statsLowered) {
 				let stat = 'atk';
 				let bestStat = 0;
-				for (let i in target.stats) {
+				for (const i in target.stats) {
 					if (target.stats[i] > bestStat) {
 						stat = i;
 						bestStat = target.stats[i];
 					}
 				}
 				this.boost({
-					[stat]: 1
+					[stat]: 1,
 				}, target);
 			}
 		},
@@ -170,18 +170,18 @@ export const Items: {[k: string]: ModdedItemData} = {
 	"graduationscale": {
 		id: "graduationscale",
 		name: "Graduation Scale",
-		onStart: function(pokemon) {
+		onStart(pokemon) {
 			this.add('-item', pokemon, 'Graduation Scale');
 			if (pokemon.baseSpecies.baseSpecies === 'Wishiwashi') {
 				this.add('-formechange', pokemon, 'Wishiwashi-School', '[msg]');
 				pokemon.formeChange("Wishiwashi-School");
-				let oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
+				const oldAbility = pokemon.setAbility('intimidate', pokemon, 'intimidate', true);
 				if (oldAbility) {
 					this.add('-activate', pokemon, 'ability: Intimidate', oldAbility, '[of] ' + pokemon);
 				}
 			}
 		},
-		onTakeItem: function(item, source) {
+		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Wishiwashi' || source.baseSpecies.baseSpecies === 'Wishiwashi-School') return false;
 			return true;
 		},
@@ -189,7 +189,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 20,
 		},
 		onBasePowerPriority: 6,
-		onBasePower: function(basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move && (user.baseSpecies.num === 746) && (move.type === 'Water')) {
 				return this.chainModify([0x1333, 0x1000]);
 			}
@@ -197,7 +197,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 7,
 		desc: "If holder is a Wishiwashi, it becomes School Form. It's ability becomes Intimidate. Water moves are boosted by 1.2x",
 	},
-	
+
 	ragecandybar: {
 		name: "Rage Candy Bar",
 		spritenum: 390,
@@ -264,9 +264,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onUpdate: function(pokemon) {
+		onUpdate(pokemon) {
 			let activate = false;
-			for (let i in pokemon.boosts) {
+			for (const i in pokemon.boosts) {
 				if (pokemon.boosts[i] < 0) {
 					activate = true;
 					pokemon.boosts[i] = -pokemon.boosts[i];
@@ -298,8 +298,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onAfterDamage(damage, target, source, effect) {
 			if (effect && target.useItem()) {
 				this.add('-item', target, 'Mimic Orb');
-				let move = this.moves.get('mimic');
-				if (source.moves.indexOf('mimic') >= 0){
+				const move = this.moves.get('mimic');
+				if (source.moves.indexOf('mimic') >= 0) {
 					this.useMove('Mimic', target);
 					target.moveSlots.push({
 						move: move.name,
@@ -411,13 +411,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onStart(target) {
 			this.add('-message', `${target.name} is being tormented!`);
 		},
-		onModifySpe: function(spe) {
+		onModifySpe(spe) {
 			return this.chainModify(1.2);
 		},
 		desc: "Holder's Speed is 1.2x, but it can't use the same move twice in a row",
@@ -429,13 +429,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onStart(target) {
 			this.add('-message', `${target.name} is being tormented!`);
 		},
-		onModifyAtk: function(atk) {
+		onModifyAtk(atk) {
 			return this.chainModify(1.2);
 		},
 		desc: "Holder's Attack is 1.2x, but it can't use the same move twice in a row",
@@ -447,13 +447,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 10,
 		},
-		onDisableMove: function(pokemon) {
+		onDisableMove(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onStart(target) {
 			this.add('-message', `${target.name} is being tormented!`);
 		},
-		onModifySpA: function(spa) {
+		onModifySpA(spa) {
 			return this.chainModify(1.2);
 		},
 		desc: "Holder's Special Attack is 1.2x, but it can't use the same move twice in a row",
@@ -485,13 +485,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 40,
 		},
 		onModifyAtkPriority: 2,
-		onModifyAtk: function(atk, pokemon) {
+		onModifyAtk(atk, pokemon) {
 			if (pokemon.baseSpecies.nfe) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 2,
-		onModifySpA: function(spa, pokemon) {
+		onModifySpA(spa, pokemon) {
 			if (pokemon.baseSpecies.nfe) {
 				return this.chainModify(1.5);
 			}
@@ -509,7 +509,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onUpdate(pokemon) {
 			if (this.field.pseudoWeather.trickroom && pokemon.useItem()) {
 				this.boost({
-					spe: -1
+					spe: -1,
 				});
 			}
 		},
@@ -574,22 +574,22 @@ export const Items: {[k: string]: ModdedItemData} = {
 			status: 'par',
 		},
 		onModifyAtkPriority: 1,
-		onModifyAtk: function(atk, pokemon) { // Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru
-			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
-			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
+		onModifyAtk(atk, pokemon) { // Pichu, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne or a Togedemaru
+			const pikaClones = ['Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
+			if (pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 1,
-		onModifySpA: function(spa, pokemon) {
-			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
-			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
+		onModifySpA(spa, pokemon) {
+			const pikaClones = ['Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
+			if (pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
-		onTakeItem: function(item, pokemon) {
-			let pikaClones = [ 'Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
-			if ( pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
+		onTakeItem(item, pokemon) {
+			const pikaClones = ['Pichu', 'Pikachu', 'Raichu', 'Plusle', 'Minun', 'Pachirisu', 'Emolga', 'Dedenne', 'Togedemaru', 'Morpeko'];
+			if (pikaClones.includes(pokemon.baseSpecies.baseSpecies)) {
 				return false;
 			}
 			return true;
@@ -601,11 +601,11 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	"weatherwarriorscrystal": {
 		shortDesc: "When a weather is active, increases the holder's Atk and Sp Atk stats by 1 stage each.",
-		onUpdate: function(pokemon) {
+		onUpdate(pokemon) {
 			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm', 'shadowsky', 'aircurrent']) && pokemon.useItem()) {
 				this.boost({
 					atk: 1,
-					spa: 1
+					spa: 1,
 				});
 			}
 		},
@@ -622,12 +622,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 673,
 		onMemory: 'Bug',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Bug') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -644,12 +644,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 683,
 		onMemory: 'Dark',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Dark') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -666,12 +666,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 682,
 		onMemory: 'Dragon',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Dragon') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -688,12 +688,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 679,
 		onMemory: 'Electric',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Electric') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -710,12 +710,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 684,
 		onMemory: 'Fairy',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fairy') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -732,12 +732,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 668,
 		onMemory: 'Fighting',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fighting') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -754,12 +754,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 676,
 		onMemory: 'Fire',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Fire') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -776,12 +776,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 669,
 		onMemory: 'Flying',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Flying') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -798,12 +798,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 674,
 		onMemory: 'Ghost',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ghost') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -820,12 +820,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 678,
 		onMemory: 'Grass',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Grass') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -842,12 +842,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 671,
 		onMemory: 'Ground',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ground') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -864,12 +864,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 681,
 		onMemory: 'Ice',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ice') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -886,12 +886,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 670,
 		onMemory: 'Poison',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Poison') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -908,12 +908,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 680,
 		onMemory: 'Psychic',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Psychic') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -930,12 +930,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 672,
 		onMemory: 'Rock',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Rock') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -952,12 +952,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 675,
 		onMemory: 'Steel',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Steel') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -974,12 +974,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 677,
 		onMemory: 'Water',
 		onBasePowerPriority: 6,
-		onBasePower: function (basePower, user, target, move) {
+		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Water') {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		onTakeItem: function (item, pokemon, source) {
+		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.num === 773) || pokemon.baseSpecies.num === 773) {
 				return false;
 			}
@@ -1073,316 +1073,316 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		desc: "When at 1/4 HP or less, consumes Berry and sets Spikes on the foe's side",
 	},
-    "groundiumz": {
-        id: "groundiumz",
-        name: "Groundium Z",
-        spritenum: 639,
-        onPlate: 'Ground',
-        onMemory: 'Ground',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Ground",
-        forcedForme: ["Arceus-Ground", "Silvally-Ground"],
-        num: 784,
-        gen: 7,
-        desc: "If holder has a Ground move, this item allows it to use a Ground Z-Move.",
-    },
-    "buginiumz": {
-        id: "buginiumz",
-        name: "Buginium Z",
-        spritenum: 642,
-        onPlate: 'Bug',
-        onMemory: 'Bug',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Bug",
-        forcedForme: ["Arceus-Bug", "Silvally-Bug"],
-        num: 787,
-        gen: 7,
-        desc: "If holder has a Bug move, this item allows it to use a Bug Z-Move.",
-    },
-    "darkiniumz": {
-        id: "darkiniumz",
-        name: "Darkinium Z",
-        spritenum: 646,
-        onPlate: 'Dark',
-        onMemory: 'Dark',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Dark",
-        forcedForme: ["Arceus-Dark", "Silvally-Dark"],
-        num: 791,
-        gen: 7,
-        desc: "If holder has a Dark move, this item allows it to use a Dark Z-Move.",
-    },
-    "dragoniumz": {
-        id: "dragoniumz",
-        name: "Dragonium Z",
-        spritenum: 645,
-        onPlate: 'Dragon',
-        onMemory: 'Dragon',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Dragon",
-        forcedForme: ["Arceus-Dragon", "Silvally-Dragon"],
-        num: 790,
-        gen: 7,
-        desc: "If holder has a Dragon move, this item allows it to use a Dragon Z-Move.",
-    },
-    "electriumz": {
-        id: "electriumz",
-        name: "Electrium Z",
-        spritenum: 634,
-        onPlate: 'Electric',
-        onMemory: 'Electric',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Electric",
-        forcedForme: ["Arceus-Electric", "Silvally-Electric"],
-        num: 779,
-        gen: 7,
-        desc: "If holder has an Electric move, this item allows it to use an Electric Z-Move.",
-    },
-    "fairiumz": {
-        id: "fairiumz",
-        name: "Fairium Z",
-        spritenum: 648,
-        onPlate: 'Fairy',
-        onMemory: 'Fairy',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Fairy",
-        forcedForme: ["Arceus-Fairy", "Silvally-Fairy"],
-        num: 793,
-        gen: 7,
-        desc: "If holder has a Fairy move, this item allows it to use a Fairy Z-Move.",
-    },
-    "fightiniumz": {
-        id: "fightiniumz",
-        name: "Fightinium Z",
-        spritenum: 637,
-        onPlate: 'Fighting',
-        onMemory: 'Fighting',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Fighting",
-        forcedForme: ["Arceus-Fighting", "Silvally-Fighting"],
-        num: 782,
-        gen: 7,
-        desc: "If holder has a Fighting move, this item allows it to use a Fighting Z-Move.",
-    },
-    "firiumz": {
-        id: "firiumz",
-        name: "Firium Z",
-        spritenum: 632,
-        onPlate: 'Fire',
-        onMemory: 'Fire',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Fire",
-        forcedForme: ["Arceus-Fire", "Silvally-Fire"],
-        num: 777,
-        gen: 7,
-        desc: "If holder has a Fire move, this item allows it to use a Fire Z-Move.",
-    },
-    "flyiniumz": {
-        id: "flyiniumz",
-        name: "Flyinium Z",
-        spritenum: 640,
-        onPlate: 'Flying',
-        onMemory: 'Flying',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Flying",
-        forcedForme: ["Arceus-Flying", "Silvally-Flying"],
-        num: 785,
-        gen: 7,
-        desc: "If holder has a Flying move, this item allows it to use a Flying Z-Move.",
-    },
-    "ghostiumz": {
-        id: "ghostiumz",
-        name: "Ghostium Z",
-        spritenum: 644,
-        onPlate: 'Ghost',
-        onMemory: 'Ghost',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Ghost",
-        forcedForme: ["Arceus-Ghost", "Silvally-Ghost"],
-        num: 789,
-        gen: 7,
-        desc: "If holder has a Ghost move, this item allows it to use a Ghost Z-Move.",
-    },
-    "grassiumz": {
-        id: "grassiumz",
-        name: "Grassium Z",
-        spritenum: 635,
-        onPlate: 'Grass',
-        onMemory: 'Grass',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Grass",
-        forcedForme: ["Arceus-Grass", "Silvally-Grass"],
-        num: 780,
-        gen: 7,
-        desc: "If holder has a Grass move, this item allows it to use a Grass Z-Move.",
-    },
-    "iciumz": {
-        id: "iciumz",
-        name: "Icium Z",
-        spritenum: 636,
-        onPlate: 'Ice',
-        onMemory: 'Ice',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Ice",
-        forcedForme: ["Arceus-Ice", "Silvally-Ice"],
-        num: 781,
-        gen: 7,
-        desc: "If holder has an Ice move, this item allows it to use an Ice Z-Move.",
-    },
-    "normaliumz": {
-        id: "normaliumz",
-        name: "Normalium Z",
-        spritenum: 631,
-        onPlate: 'Normal',
-        onMemory: 'Normal',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Normal",
-        forcedForme: ["Arceus-Normal", "Silvally"],
-        num: 776,
-        gen: 7,
-        desc: "If holder has a Normal move, this item allows it to use a Normal Z-Move.",
-    },
-    "poisoniumz": {
-        id: "poisoniumz",
-        name: "Poisonium Z",
-        spritenum: 638,
-        onPlate: 'Poison',
-        onMemory: 'Poison',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Poison",
-        forcedForme: ["Arceus-Poison", "Silvally-Poison"],
-        num: 783,
-        gen: 7,
-        desc: "If holder has a Poison move, this item allows it to use a Poison Z-Move.",
-    },
-    "psychiumz": {
-        id: "psychiumz",
-        name: "Psychium Z",
-        spritenum: 641,
-        onPlate: 'Psychic',
-        onMemory: 'Psychic',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Psychic",
-        forcedForme: ["Arceus-Psychic", "Silvally-Psychic"],
-        num: 786,
-        gen: 7,
-        desc: "If holder has a Psychic move, this item allows it to use a Psychic Z-Move.",
-    },
-    "rockiumz": {
-        id: "rockiumz",
-        name: "Rockium Z",
-        spritenum: 643,
-        onPlate: 'Rock',
-        onMemory: 'Rock',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Rock",
-        forcedForme: ["Arceus-Rock", "Silvally-Rock"],
-        num: 788,
-        gen: 7,
-        desc: "If holder has a Rock move, this item allows it to use a Rock Z-Move.",
-    },
-    "steeliumz": {
-        id: "steeliumz",
-        name: "Steelium Z",
-        spritenum: 647,
-        onPlate: 'Steel',
-        onMemory: 'Steel',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Steel",
-        forcedForme: ["Arceus-Steel", "Silvally-Steel"],
-        num: 792,
-        gen: 7,
-        desc: "If holder has a Steel move, this item allows it to use a Steel Z-Move.",
-    },
-    "wateriumz": {
-        id: "wateriumz",
-        name: "Waterium Z",
-        spritenum: 633,
-        onPlate: 'Water',
-        onMemory: 'Water',
-        onTakeItem: false,
-        zMove: true,
-        zMoveType: "Water",
-        forcedForme: ["Arceus-Water", "Silvally-Water"],
-        num: 778,
-        gen: 7,
-        desc: "If holder has a Water move, this item allows it to use a Water Z-Move.",
-    },
-    "forecastofsun": {
-        name: "Forecast of Sun",
-        desc: "If the holder has the ability Forecast, this Pokémon summons sun when it is sent out.",
-        fling: {
-            basePower: 10,
-        },
-        onTakeItem: false,
-        id: "forecastofsun",
-        gen: 8,
-    },
-    "forecastofrain": {
-        name: "Forecast of Rain",
-        desc: "If the holder has the ability Forecast, this Pokémon summons rain when it is sent out.",
-        fling: {
-            basePower: 10,
-        },
-        onTakeItem: false,
-        id: "forecastofrain",
-        gen: 8,
-    },
-    "forecastofsand": {
-        name: "Forecast of Sand",
-        desc: "If the holder has the ability Forecast, this Pokémon summons sand when it is sent out.",
-        fling: {
-            basePower: 10,
-        },
-        onTakeItem: false,
-        id: "forecastofsand",
-        gen: 8,
-    },
-    "forecastofhail": {
-        name: "Forecast of Hail",
-        desc: "If the holder has the ability Forecast, this Pokémon summons hail when it is sent out.",
-        fling: {
-            basePower: 10,
-        },
-        onTakeItem: false,
-        id: "forecastofhail",
-        gen: 8,
-    },
-    "forecastofshadows": {
-        name: "Forecast of Shadows",
-        desc: "If the holder has the ability Forecast, this Pokémon summons shadow sky when it is sent out.",
-        fling: {
-            basePower: 10,
-        },
-        onTakeItem: false,
-        id: "forecastofshadows",
-        gen: 8,
-    },
-    "forecastofwind": {
-        name: "Forecast of Wind",
-        desc: "If the holder has the ability Forecast, this Pokémon summons air current when it is sent out.",
-        fling: {
-            basePower: 10,
-        },
-        onTakeItem: false,
-        id: "forecastofwind",
-        gen: 8,
-    },
+	"groundiumz": {
+		id: "groundiumz",
+		name: "Groundium Z",
+		spritenum: 639,
+		onPlate: 'Ground',
+		onMemory: 'Ground',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Ground",
+		forcedForme: ["Arceus-Ground", "Silvally-Ground"],
+		num: 784,
+		gen: 7,
+		desc: "If holder has a Ground move, this item allows it to use a Ground Z-Move.",
+	},
+	"buginiumz": {
+		id: "buginiumz",
+		name: "Buginium Z",
+		spritenum: 642,
+		onPlate: 'Bug',
+		onMemory: 'Bug',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Bug",
+		forcedForme: ["Arceus-Bug", "Silvally-Bug"],
+		num: 787,
+		gen: 7,
+		desc: "If holder has a Bug move, this item allows it to use a Bug Z-Move.",
+	},
+	"darkiniumz": {
+		id: "darkiniumz",
+		name: "Darkinium Z",
+		spritenum: 646,
+		onPlate: 'Dark',
+		onMemory: 'Dark',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Dark",
+		forcedForme: ["Arceus-Dark", "Silvally-Dark"],
+		num: 791,
+		gen: 7,
+		desc: "If holder has a Dark move, this item allows it to use a Dark Z-Move.",
+	},
+	"dragoniumz": {
+		id: "dragoniumz",
+		name: "Dragonium Z",
+		spritenum: 645,
+		onPlate: 'Dragon',
+		onMemory: 'Dragon',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Dragon",
+		forcedForme: ["Arceus-Dragon", "Silvally-Dragon"],
+		num: 790,
+		gen: 7,
+		desc: "If holder has a Dragon move, this item allows it to use a Dragon Z-Move.",
+	},
+	"electriumz": {
+		id: "electriumz",
+		name: "Electrium Z",
+		spritenum: 634,
+		onPlate: 'Electric',
+		onMemory: 'Electric',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Electric",
+		forcedForme: ["Arceus-Electric", "Silvally-Electric"],
+		num: 779,
+		gen: 7,
+		desc: "If holder has an Electric move, this item allows it to use an Electric Z-Move.",
+	},
+	"fairiumz": {
+		id: "fairiumz",
+		name: "Fairium Z",
+		spritenum: 648,
+		onPlate: 'Fairy',
+		onMemory: 'Fairy',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Fairy",
+		forcedForme: ["Arceus-Fairy", "Silvally-Fairy"],
+		num: 793,
+		gen: 7,
+		desc: "If holder has a Fairy move, this item allows it to use a Fairy Z-Move.",
+	},
+	"fightiniumz": {
+		id: "fightiniumz",
+		name: "Fightinium Z",
+		spritenum: 637,
+		onPlate: 'Fighting',
+		onMemory: 'Fighting',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Fighting",
+		forcedForme: ["Arceus-Fighting", "Silvally-Fighting"],
+		num: 782,
+		gen: 7,
+		desc: "If holder has a Fighting move, this item allows it to use a Fighting Z-Move.",
+	},
+	"firiumz": {
+		id: "firiumz",
+		name: "Firium Z",
+		spritenum: 632,
+		onPlate: 'Fire',
+		onMemory: 'Fire',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Fire",
+		forcedForme: ["Arceus-Fire", "Silvally-Fire"],
+		num: 777,
+		gen: 7,
+		desc: "If holder has a Fire move, this item allows it to use a Fire Z-Move.",
+	},
+	"flyiniumz": {
+		id: "flyiniumz",
+		name: "Flyinium Z",
+		spritenum: 640,
+		onPlate: 'Flying',
+		onMemory: 'Flying',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Flying",
+		forcedForme: ["Arceus-Flying", "Silvally-Flying"],
+		num: 785,
+		gen: 7,
+		desc: "If holder has a Flying move, this item allows it to use a Flying Z-Move.",
+	},
+	"ghostiumz": {
+		id: "ghostiumz",
+		name: "Ghostium Z",
+		spritenum: 644,
+		onPlate: 'Ghost',
+		onMemory: 'Ghost',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Ghost",
+		forcedForme: ["Arceus-Ghost", "Silvally-Ghost"],
+		num: 789,
+		gen: 7,
+		desc: "If holder has a Ghost move, this item allows it to use a Ghost Z-Move.",
+	},
+	"grassiumz": {
+		id: "grassiumz",
+		name: "Grassium Z",
+		spritenum: 635,
+		onPlate: 'Grass',
+		onMemory: 'Grass',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Grass",
+		forcedForme: ["Arceus-Grass", "Silvally-Grass"],
+		num: 780,
+		gen: 7,
+		desc: "If holder has a Grass move, this item allows it to use a Grass Z-Move.",
+	},
+	"iciumz": {
+		id: "iciumz",
+		name: "Icium Z",
+		spritenum: 636,
+		onPlate: 'Ice',
+		onMemory: 'Ice',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Ice",
+		forcedForme: ["Arceus-Ice", "Silvally-Ice"],
+		num: 781,
+		gen: 7,
+		desc: "If holder has an Ice move, this item allows it to use an Ice Z-Move.",
+	},
+	"normaliumz": {
+		id: "normaliumz",
+		name: "Normalium Z",
+		spritenum: 631,
+		onPlate: 'Normal',
+		onMemory: 'Normal',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Normal",
+		forcedForme: ["Arceus-Normal", "Silvally"],
+		num: 776,
+		gen: 7,
+		desc: "If holder has a Normal move, this item allows it to use a Normal Z-Move.",
+	},
+	"poisoniumz": {
+		id: "poisoniumz",
+		name: "Poisonium Z",
+		spritenum: 638,
+		onPlate: 'Poison',
+		onMemory: 'Poison',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Poison",
+		forcedForme: ["Arceus-Poison", "Silvally-Poison"],
+		num: 783,
+		gen: 7,
+		desc: "If holder has a Poison move, this item allows it to use a Poison Z-Move.",
+	},
+	"psychiumz": {
+		id: "psychiumz",
+		name: "Psychium Z",
+		spritenum: 641,
+		onPlate: 'Psychic',
+		onMemory: 'Psychic',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Psychic",
+		forcedForme: ["Arceus-Psychic", "Silvally-Psychic"],
+		num: 786,
+		gen: 7,
+		desc: "If holder has a Psychic move, this item allows it to use a Psychic Z-Move.",
+	},
+	"rockiumz": {
+		id: "rockiumz",
+		name: "Rockium Z",
+		spritenum: 643,
+		onPlate: 'Rock',
+		onMemory: 'Rock',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Rock",
+		forcedForme: ["Arceus-Rock", "Silvally-Rock"],
+		num: 788,
+		gen: 7,
+		desc: "If holder has a Rock move, this item allows it to use a Rock Z-Move.",
+	},
+	"steeliumz": {
+		id: "steeliumz",
+		name: "Steelium Z",
+		spritenum: 647,
+		onPlate: 'Steel',
+		onMemory: 'Steel',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Steel",
+		forcedForme: ["Arceus-Steel", "Silvally-Steel"],
+		num: 792,
+		gen: 7,
+		desc: "If holder has a Steel move, this item allows it to use a Steel Z-Move.",
+	},
+	"wateriumz": {
+		id: "wateriumz",
+		name: "Waterium Z",
+		spritenum: 633,
+		onPlate: 'Water',
+		onMemory: 'Water',
+		onTakeItem: false,
+		zMove: true,
+		zMoveType: "Water",
+		forcedForme: ["Arceus-Water", "Silvally-Water"],
+		num: 778,
+		gen: 7,
+		desc: "If holder has a Water move, this item allows it to use a Water Z-Move.",
+	},
+	"forecastofsun": {
+		name: "Forecast of Sun",
+		desc: "If the holder has the ability Forecast, this Pokémon summons sun when it is sent out.",
+		fling: {
+			basePower: 10,
+		},
+		onTakeItem: false,
+		id: "forecastofsun",
+		gen: 8,
+	},
+	"forecastofrain": {
+		name: "Forecast of Rain",
+		desc: "If the holder has the ability Forecast, this Pokémon summons rain when it is sent out.",
+		fling: {
+			basePower: 10,
+		},
+		onTakeItem: false,
+		id: "forecastofrain",
+		gen: 8,
+	},
+	"forecastofsand": {
+		name: "Forecast of Sand",
+		desc: "If the holder has the ability Forecast, this Pokémon summons sand when it is sent out.",
+		fling: {
+			basePower: 10,
+		},
+		onTakeItem: false,
+		id: "forecastofsand",
+		gen: 8,
+	},
+	"forecastofhail": {
+		name: "Forecast of Hail",
+		desc: "If the holder has the ability Forecast, this Pokémon summons hail when it is sent out.",
+		fling: {
+			basePower: 10,
+		},
+		onTakeItem: false,
+		id: "forecastofhail",
+		gen: 8,
+	},
+	"forecastofshadows": {
+		name: "Forecast of Shadows",
+		desc: "If the holder has the ability Forecast, this Pokémon summons shadow sky when it is sent out.",
+		fling: {
+			basePower: 10,
+		},
+		onTakeItem: false,
+		id: "forecastofshadows",
+		gen: 8,
+	},
+	"forecastofwind": {
+		name: "Forecast of Wind",
+		desc: "If the holder has the ability Forecast, this Pokémon summons air current when it is sent out.",
+		fling: {
+			basePower: 10,
+		},
+		onTakeItem: false,
+		id: "forecastofwind",
+		gen: 8,
+	},
 };

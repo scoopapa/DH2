@@ -23,7 +23,7 @@ Ratings and how they work:
 	ex. Imposter, Shadow Tag
 */
 export const Abilities: {[abilityid: string]: AbilityData} = {
-/*Gen 7 MetaMons*/
+/* Gen 7 MetaMons*/
 	berserkgen7: {
 		onDamagingHit(damage, target, source, effect) {
 			this.boost({spa: 1});
@@ -33,7 +33,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: 201,
 	},
-   chimera: {
+	chimera: {
 		shortDesc: "(Placeholder) User's type matches that of its first two moves (new type is displayed).",
 		name: "Chimera",
 		rating: 3,
@@ -104,7 +104,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 5,
 		num: 74,
 	},
-/*Gen 8 MetaMons*/
+	/* Gen 8 MetaMons*/
 	unnerve: {
 		onStart(pokemon) {
 			let activated = false;
@@ -149,7 +149,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	typesuction: {
 		shortDesc: "On switch-in adds the foes type(s).",
 		onStart(source) {
-			let newTypes = [];
+			const newTypes = [];
 			newTypes.push(source.types[0]);
 			if (source.types[1]) newTypes.push(source.types[1]);
 			for (const target of source.side.foe.active) {
@@ -217,8 +217,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
 				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
-			))
-			|| pokemon.species.id !== 'jellicent') {
+			)) ||
+			pokemon.species.id !== 'jellicent') {
 				this.effectState.gaveUp = true;
 			}
 		},
@@ -243,7 +243,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 				target.setAbility('pillage', pokemon);
 				pokemon.setAbility(ability);
-				
+
 				this.add('-activate', pokemon, 'ability: Pillage');
 				this.add('-activate', pokemon, 'Skill Swap', '', '', '[of] ' + target);
 				this.add('-activate', pokemon, 'ability: ' + ability.name);
@@ -274,7 +274,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 168,
 	},
-/*Gen 9 MetaMons*/
+	/* Gen 9 MetaMons*/
 	refrigerate: {
 		shortDesc: "Normal moves become Ice type and 1.2x power. Ice moves 1.5x power.",
 		onModifyTypePriority: -1,
@@ -331,7 +331,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: 216,
 	},
-// New Abilities
+	// New Abilities
 	battlebond: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move') return;
@@ -411,7 +411,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: 168,
 	},
-	//----------Gen 9 Abilities-----------//
+	// ----------Gen 9 Abilities-----------//
 	angershell: {
 		onDamage(damage, target, source, effect) {
 			if (
@@ -482,7 +482,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Beads of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Special Defense multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Special Defense multiplied by 0.75.",
 		rating: 4.5,
 		num: 284,
 	},
@@ -959,7 +959,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Sword of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Defense multiplied by 0.75.",
 		rating: 4.5,
 		num: 285,
 	},
@@ -977,7 +977,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Tablets of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Attack multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Attack multiplied by 0.75.",
 		rating: 4.5,
 		num: 284,
 	},
@@ -1033,7 +1033,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return this.chainModify(0.75);
 		},
 		name: "Vessel of Ruin",
-      shortDesc: "Active Pokemon without this Ability have their Special Attack multiplied by 0.75.",
+		shortDesc: "Active Pokemon without this Ability have their Special Attack multiplied by 0.75.",
 		rating: 4.5,
 		num: 284,
 	},

@@ -1,15 +1,15 @@
 'use strict';
 
 /**@type {{[k: string]: ItemData}} */
-let BattleItems = {
+const BattleItems = {
 
-"charizardite": {
+	"charizardite": {
 		id: "charizardite",
 		name: "Charizardite",
 		spritenum: 585,
 		megaStone: "Charizard-Mega-X",
 		megaEvolves: "Charizard",
-		onTakeItem: function (item, source) {
+		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},

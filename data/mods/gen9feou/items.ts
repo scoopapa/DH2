@@ -33,7 +33,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (this.queue.peek(true)?.choice === 'runSwitch') return;
 
 			if (!this.field.isWeather('sunnyday')) {
-				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife']) { 
+				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife']) {
 					if (pokemon.hasAbility(proto)) {
 						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
 							pokemon.addVolatile(proto);
@@ -43,7 +43,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 			if (!this.field.isTerrain('electricterrain')) {
-				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'dyschronometria', 'faultyphoton']) { 
+				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'dyschronometria', 'faultyphoton']) {
 					if (pokemon.hasAbility(quark)) {
 						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
 							pokemon.addVolatile(quark);

@@ -122,8 +122,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onModifyAtk(atk, pokemon) {
-			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
-				return this.chainModify(0.5);
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity') { return this.chainModify(0.5); }
 		},
 	},
 	fear: {
@@ -141,8 +140,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onModifySpA(atk, pokemon) {
-			if (!pokemon.hasAbility('pride'))
-				return this.chainModify(0.5);;
+			if (!pokemon.hasAbility('pride')) { return this.chainModify(0.5); }
 		},
 	},
 	stp: {
@@ -307,8 +305,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 1;
 		},
 	},
-	
-	//volatiles
+
+	// volatiles
 	stancebreak: {
 		name: 'stancebreak',
 		start: "[POKEMON]'s stance broke!",
@@ -350,7 +348,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 
 	// weather is implemented here since it's so important to the game
 
-	//TOUHOU WEATHER
+	// TOUHOU WEATHER
 	calm: {
 		name: "Calm",
 		effectType: "Weather",
@@ -472,8 +470,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isWeather('Dust Storm')) this.eachEvent('Weather');
 		},
 		onWeather(target) {
-			if (!target.hasType(['Steel', 'Earth']))
-				this.damage(target.baseMaxhp / 16);
+			if (!target.hasType(['Steel', 'Earth'])) { this.damage(target.baseMaxhp / 16); }
 		},
 		onEnd() {
 			this.add('-weather', 'none', '[silent]');
@@ -510,7 +507,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 
-	//TOUHOU TERRAIN
+	// TOUHOU TERRAIN
 	seiryu: {
 		duration: 5,
 		durationCallback(source, effect) {
@@ -541,7 +538,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onTryHealPriority: 15,
-		onTryHeal(this:Battle, relayVar:number, target:Pokemon, source:Pokemon, effect:Effect) {
+		onTryHeal(this: Battle, relayVar: number, target: Pokemon, source: Pokemon, effect: Effect) {
 			if (target.hasAbility('southernexpanse')) return;
 			target.damage(relayVar);
 			return false;
@@ -566,8 +563,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onModifyMove(move, pokemon, target) {
-			if (!move.ohko)
-				move.accuracy = true;
+			if (!move.ohko) { move.accuracy = true; }
 			move.critRatio = 0;
 			move.breaksProtect = true;
 		},
@@ -590,7 +586,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (source.hasAbility('timegazer')) return 8;
 			return 5;
 		},
-		//Trick Room is implemented in pokemon.ts:Pokemon.getActionSpeed()
+		// Trick Room is implemented in pokemon.ts:Pokemon.getActionSpeed()
 		onStart(battle, source, effect) {
 			this.add('-message', `The terrain became Genbu!`);
 			if (effect?.effectType === 'Ability') {
@@ -613,7 +609,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifyMove(move, pokemon, target) {
 			const boostAbils = ['aftermove', 'astronomy', 'auroragrace', 'bibliophilia', 'boundaryblurrer', 'boundarysavior', 'breather', 'brightform', 'brutality', 'byakuteismetal', 'charge', 'cloakofdarkness', 'daredevil', 'desperation', 'disjointedblow', 'easternexpanse', 'empowered', 'finalform', 'firsthit', 'forewarddash', 'fullpower', 'galeform', 'generalsform', 'genteiswater', 'ghostform', 'glamorous', 'inversereaction', 'knownlimits', 'kouteisearth', 'lastdefense', 'midnightform', 'mindlessdance', 'mindseye', 'miraclemallet', 'naturalform', 'ontheedge', 'placid', 'preciseaim', 'pride', 'recalibration', 'reckless', 'sandforce', 'seiteiswood', 'skilledhand', 'slowtempo', 'sniper', 'spiritofyang', 'spiritofyin', 'strangerainbow', 'strategist', 'streamform', 'surprisetactics', 'suteisfire', 'trueadmin', 'uniqueshield', 'unyieldingform', 'visionbonus', 'westernexpanse', 'yatanokagami'];
 			console.log(pokemon);
-			if(pokemon.ability.includes(boostAbils)) move.ignoreAbility = true;
+			if (pokemon.ability.includes(boostAbils)) move.ignoreAbility = true;
 		},
 		onStart(battle, source, effect) {
 			this.add('-message', `The terrain became Kohryu!`);

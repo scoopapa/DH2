@@ -28,17 +28,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onHit(target, pokemon, move) {
 				if (pokemon.hasItem('burndrive')) {
 					this.boost({atk: -1}, target);
-				}
-				else if (pokemon.hasItem('chilldrive')) {
+				} else if (pokemon.hasItem('chilldrive')) {
 					this.boost({spa: -1}, target);
-				}
-				else if (pokemon.hasItem('dousedrive')) {
+				} else if (pokemon.hasItem('dousedrive')) {
 					this.boost({spd: -1}, target);
-				}
-				else if (pokemon.hasItem('shockdrive')) {
+				} else if (pokemon.hasItem('shockdrive')) {
 					this.boost({spe: -1}, target);
 				}
-			}
+			},
 		},
 		target: "normal",
 		type: "Steel",
@@ -337,7 +334,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 459,
 		accuracy: 100,
 		basePower: 65,
-		basePowerCallback: function (pokemon, target, move) {
+		basePowerCallback(pokemon, target, move) {
 			if (this.field.pseudoWeather.trickroom || this.field.pseudoWeather.wonderroom || this.field.pseudoWeather.gravity || this.field.pseudoWeather.magicroom) {
 				return move.basePower * 2;
 			}
@@ -375,7 +372,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		num: 467,
 		accuracy: 100,
 		basePower: 85,
-		basePowerCallback: function (pokemon, target, move) {
+		basePowerCallback(pokemon, target, move) {
 			if (target.volatiles['protect'] || target.volatiles['banefulbunker'] || target.volatiles['kingsshield'] || target.volatiles['spikyshield']) {
 				return move.basePower * 2;
 			}
@@ -556,7 +553,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Dark",
 		zMove: {effect: 'healreplacement'},
-		contestType: "Clever",		
+		contestType: "Clever",
 	},
 	batonpass: {
 		inherit: true,
@@ -566,8 +563,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				source.clearBoosts();
 				this.add('-clearboost', source);
 				this.hint("Baton Pass can't pass Stat Changes.");
-			}
-		}
+			},
+		},
 	},
 	eternabeam: {
 		inherit: true,
@@ -576,8 +573,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.heal(source.hp / 5, source);
 		},
 	},
-	
-	//Gmax moves
+
+	// Gmax moves
 	gmaxbefuddle: {
 		inherit: true,
 		shortDesc: "Base move affects power. All: -1/4 HP with Fire moves, 3 turns.",
@@ -954,8 +951,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 	},
-	
-	//Bad Dream moves
+
+	// Bad Dream moves
 	dreameater: {
 		inherit: true,
 		onTryImmunity(target) {
@@ -1017,8 +1014,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 	},
-	
-	//Dynamax moves
+
+	// Dynamax moves
 	destinybond: {
 		inherit: true,
 		condition: {

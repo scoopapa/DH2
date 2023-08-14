@@ -1161,7 +1161,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 	},
 
-// SANDBOX CONTENT STARTS HERE
+	// SANDBOX CONTENT STARTS HERE
 
 	// MnM4A Meloetta
 	relicsong: {
@@ -1189,7 +1189,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (pokemon.species.isMega) {
 					const species = this.doGetMixedSpecies('Meloetta' + meloettaForme, pokemon.species.deltas);
 					if (pokemon.getItem().name === 'RKS Megamemory') {
-						let silvallyType = pokemon.hpType || 'Dark';
+						const silvallyType = pokemon.hpType || 'Dark';
 						if (species.types[1] === silvallyType) {
 							species.types = [silvallyType];
 						} else if (!species.types[1] && species.types[0] !== silvallyType) {
@@ -1961,7 +1961,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return null;
 		},
 		onHit(pokemon) {
-			let revived = pokemon.side.faintedLastTurn;
+			const revived = pokemon.side.faintedLastTurn;
 			if (!revived) return false;
 			revived.fainted = null;
 			revived.faintQueued = null;

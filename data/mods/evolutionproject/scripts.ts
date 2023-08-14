@@ -8,7 +8,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		for (const id in this.dataCache.Pokedex) {
 			const newMon = this.dataCache.Pokedex[id];
 			if (!newMon || !newMon.copyData) continue; // weeding out Pokémon that aren't new
-			let copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
+			const copyData = this.dataCache.Pokedex[this.toID(newMon.copyData)];
 
 			if (!newMon.types && copyData.types) newMon.types = copyData.types;
 			if (!newMon.baseStats && copyData.baseStats) newMon.baseStats = copyData.baseStats;
@@ -23,7 +23,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			let copyMoves = newMon.copyData;
 			if (newMon.copyMoves) copyMoves = newMon.copyMoves;
 			if (copyMoves) {
-				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = { learnset: {}}; // create a blank learnset entry so we don't need a learnsets file (thank you ink)
+				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = {learnset: {}}; // create a blank learnset entry so we don't need a learnsets file (thank you ink)
 				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
 				for (const moveid in learnset) {
 					this.modData('Learnsets', id).learnset[moveid] = ['8M'];
@@ -122,7 +122,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
 				if (accuracy !== true) {
 					if (!move.ignoreAccuracy) {
-						const boosts = this.runEvent('ModifyBoost', pokemon, null, null, Object.assign({}, pokemon.boosts));
+						const boosts = this.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
 						const boost = this.clampIntRange(boosts['accuracy'], -6, 6);
 						if (boost > 0) {
 							accuracy *= boostTable[boost];
@@ -131,7 +131,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 						}
 					}
 					if (!move.ignoreEvasion) {
-						const boosts = this.runEvent('ModifyBoost', target, null, null, Object.assign({}, target.boosts));
+						const boosts = this.runEvent('ModifyBoost', target, null, null, {...target.boosts});
 						const boost = this.clampIntRange(boosts['evasion'], -6, 6);
 						if (boost > 0) {
 							accuracy /= boostTable[boost];

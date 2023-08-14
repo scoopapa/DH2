@@ -504,4 +504,4 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Activates the Protosynthesis/Quark Drive Variants. Single use.",
 		gen: 9,
 	},
-}
+};

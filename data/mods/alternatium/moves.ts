@@ -514,7 +514,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return move.basePower;
 		},
 	},
-	/*weatherball: {
+	/* weatherball: {
 		shortDesc: "If Catastroform, doubles in Power and changes typing when holding a Weather Rock.",
 		inherit: true,
 		onModifyType(move, pokemon) {

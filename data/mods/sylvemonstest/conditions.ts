@@ -26,13 +26,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 	hail: {
 		effectType: 'Weather',
 		duration: 5,
-		durationCallback: function (source, effect) {
+		durationCallback(source, effect) {
 			if (source && source.hasItem('icyrock')) {
 				return 8;
 			}
 			return 5;
 		},
-		onStart: function (battle, source, effect) {
+		onStart(battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
@@ -41,19 +41,19 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onResidualOrder: 1,
-		onResidual: function () {
+		onResidual() {
 			this.add('-weather', 'Hail', '[upkeep]');
 			if (this.field.isWeather('hail')) this.eachEvent('Weather');
 		},
-		onModifyDef: function (def, pokemon) {
+		onModifyDef(def, pokemon) {
 			if (pokemon.hasType('Ice') && this.field.isWeather('hail')) {
 				return this.modify(def, 1.5);
 			}
 		},
-		onWeather: function (target) {
+		onWeather(target) {
 			this.damage(target.maxhp / 16);
 		},
-		onEnd: function () {
+		onEnd() {
 			this.add('-weather', 'none');
 		},
 	},
@@ -61,19 +61,19 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		num: 0,
-		durationCallback: function (source, effect) {
+		durationCallback(source, effect) {
 			if (source && source.hasItem('breezerock')) {
 				return 8;
 			}
 			return 5;
 		},
-		onWeatherModifyDamage: function (damage, attacker, defender, move) {
+		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (move.type === 'Rock' || move.type === 'Electric' || move.type === 'Ice' && defender.type === 'Flying') {
 				this.debug('Air Current suppress');
 				return this.chainModify(0.75);
 			}
 		},
-		onStart: function (battle, source, effect) {
+		onStart(battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'AirCurrent', '[from] ability: ' + effect, '[of] ' + source);
@@ -82,12 +82,12 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onResidualOrder: 1,
-		onResidual: function () {
+		onResidual() {
 			this.add('-weather', 'AirCurrent', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', 'Air Current continues.'); 
+			this.add('-message', 'Air Current continues.');
 		},
-		onEnd: function () {
+		onEnd() {
 			this.add('-weather', 'none', '[silent]');
 			this.add('-message', 'Air Current faded away.');
 		},
@@ -96,19 +96,19 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'Weather',
 		duration: 5,
 		num: 0,
-		durationCallback: function (source, effect) {
-		if (source && source.hasItem('shadowrock')) {
+		durationCallback(source, effect) {
+			if (source && source.hasItem('shadowrock')) {
 				return 8;
 			}
 			return 5;
 		},
-		onWeatherModifyDamage: function (damage, attacker, defender, move) {
+		onWeatherModifyDamage(damage, attacker, defender, move) {
 			if (move.type === 'Dark' || move.type === 'Ghost') {
 				this.debug('Shadow Sky boost');
 				return this.chainModify(1.5);
 			}
 		},
-		onStart: function (battle, source, effect) {
+		onStart(battle, source, effect) {
 			if (effect && effect.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'ShadowSky', '[from] ability: ' + effect, '[of] ' + source);
@@ -117,14 +117,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onResidualOrder: 1,
-		onResidual: function () {
+		onResidual() {
 			this.add('-weather', 'ShadowSky', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', 'Shadow Sky continues.'); 
+			this.add('-message', 'Shadow Sky continues.');
 		},
-		onEnd: function () {
+		onEnd() {
 			this.add('-weather', 'none', '[silent]');
 			this.add('-message', 'Shadow Sky faded away.');
 		},
 	},
-  };
+};

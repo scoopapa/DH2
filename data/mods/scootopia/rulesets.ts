@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	supertypemovesrule: {
 		effectType: 'Rule',
 		name: 'Super Type Moves Rule',
@@ -10,7 +10,7 @@ export const Formats: {[k: string]: FormatData} = {
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				let move = Dex.mod("scootopia").moves.get(moveSlot.id);
+				const move = Dex.mod("scootopia").moves.get(moveSlot.id);
 				if ((move.type === "Crystal" && !pokemon.hasType("Crystal")) || (move.type === "Feral" && !pokemon.hasType("Feral"))) {
 					pokemon.disableMove(moveSlot.id, false);
 				}

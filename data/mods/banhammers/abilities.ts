@@ -123,7 +123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 262,
 	},
-	//----------Gen 9 Abilities-----------//
+	// ----------Gen 9 Abilities-----------//
 	angershell: {
 		onDamage(damage, target, source, effect) {
 			if (
