@@ -14416,6 +14416,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 
 
 
+
 			sunnyday: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
 			swagger: ["7M", "7V", "6M", "5M", "4M", "3T"],
 			swallow: ["8E", "7E", "6E", "5E"],

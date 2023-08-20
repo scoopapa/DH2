@@ -3486,6 +3486,8 @@ export const Learnsets = {
 			sunnyday: ['7L1'],
 	/*giraflame: {
 		learnset: {*/
+
+
 			naturalgift: ['7L1'],
 	/*giraflame: {
 		learnset: {*/
@@ -5594,7 +5596,6 @@ export const Learnsets = {
 			splitatoms: ["8L1"],
 			ionicbond: ["8L1"],
 			recover: ["8L1"],
-			toxic: ["8L1"],
 			charge: ["8L1"],
 			iondeluge: ["8L1"],
 			payday: ["8L1"],
@@ -5604,17 +5605,13 @@ export const Learnsets = {
 			hyperbeam: ["8L1"],
 			gigaimpact: ["8L1"],
 			solarbeam: ["8L1"],
-			thunderwave: ["8L1"],
 			screech: ["8L1"],
 			lightscreen: ["8L1"],
 			reflect: ["8L1"],
 			safeguard: ["8L1"],
 			selfdestruct: ["8L1"],
-			rest: ["8L1"],
 			rockslide: ["8L1"],
 			thief: ["8L1"],
-			snore: ["8L1"],
-			protect: ["8L1"],
 			icywind: ["8L1"],
 			gigadrain: ["8L1"],
 			charm: ["8L1"],
@@ -5623,7 +5620,6 @@ export const Learnsets = {
 			sunnyday: ["8L1"],
 			hail: ["8L1"],
 			willowisp: ["8L1"],
-			facade: ["8L1"],
 			swift: ["8L1"],
 			imprison: ["8L1"],
 			weatherball: ["8L1"],
@@ -5642,7 +5638,6 @@ export const Learnsets = {
 			wonderroom: ["8L1"],
 			magicroom: ["8L1"],
 			venoshock: ["8L1"],
-			round: ["8L1"],
 			hex: ["8L1"],
 			acrobatics: ["8L1"],
 			voltswitch: ["8L1"],
@@ -5672,12 +5667,9 @@ export const Learnsets = {
 			fireblast: ["8L1"],
 			amnesia: ["8L1"],
 			triattack: ["8L1"],
-			substitute: ["8L1"],
 			sludgebomb: ["8L1"],
 			spikes: ["8L1"],
 			psyshock: ["8L1"],
-			endure: ["8L1"],
-			sleeptalk: ["8L1"],
 			batonpass: ["8L1"],
 			encore: ["8L1"],
 			shadowball: ["8L1"],

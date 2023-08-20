@@ -20305,6 +20305,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 
 
 
+
       meditate: [ '1E' ],
       mudslap: [ '2M' ],
       protect: [ '2M' ],

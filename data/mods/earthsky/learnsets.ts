@@ -2971,6 +2971,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 
 
 
+
 			doublekick: ["8L1"],
 			stomp: ["8L1"],
 			rest: ["8L1", "8M"],
