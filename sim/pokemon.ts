@@ -277,6 +277,8 @@ export class Pokemon {
 		[key: string]: any,
 	};
 
+	isModded: boolean = false;
+
 	constructor(set: string | AnyObject, side: Side) {
 		this.side = side;
 		this.battle = side.battle;
