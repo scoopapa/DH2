@@ -1,4 +1,4 @@
-export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen9',
 	teambuilderConfig: {
 		excludeStandardTiers: true,

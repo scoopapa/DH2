@@ -1,4 +1,4 @@
-export const Items: {[itemid: string]: ItemData} = {
+export const Items: {[itemid: string]: ModdedItemData} = {
 	bloodvial: {
 		name: "Blood Vial",
 		num: 1001,

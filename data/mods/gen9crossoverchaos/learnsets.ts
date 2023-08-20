@@ -1,4 +1,4 @@
-export const Learnsets = {
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	malenia: {
 		learnset: {
 			energyball: ["9L1"],

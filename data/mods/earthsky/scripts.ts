@@ -1,4 +1,5 @@
 /* namespace TierTypes {
+/* namespace TierTypes {
 	export type Singles = "AG" | "Uber" | "(Uber)" | "OU" | "(OU)" | "UUBL" | "UU" | "RUBL" | "RU" | "NUBL" | "NU" |
 	"(NU)" | "PUBL" | "PU" | "(PU)" | "NFE" | "LC Uber" | "LC";
 	export type Doubles = "DUber" | "(DUber)" | "DOU" | "(DOU)" | "DBL" | "DUU" | "(DUU)" | "NFE" | "LC Uber" | "LC";
@@ -1595,16 +1596,16 @@ export const Scripts: ModdedBattleScriptsData = {
 			for (const moveID in this.data.Moves) { // TODO: change to Dex.moves.all() when DH updates to it
 				const move = this.data.Moves[moveID];
 				if (move.isZ || move.isMax) continue;
-				moveLearn = this.modData('Learnsets', pokemonID).learnset[moveID];
+				// moveLearn = this.modData('Learnsets', pokemonID).learnset[moveID];
 				if (!moveLearn) {
 					// checks for new universal machines
 					if (!(noUniversalTMs.includes(pokemonID))) {
 						if (moveID === "endure" && (pokemon.num > 493 || pokemon.num < -23)) {
 							if (learnsetTest) console.log("Adding universal TM Endure");
-							this.modData('Learnsets', pokemonID).learnset[moveID] = ["8M"];
+							// this.modData('Learnsets', pokemonID).learnset[moveID] = ["8M"];
 						} else if (["hiddenpower", "secretpower", "return", "frustration"].includes(moveID) && (pokemon.num > 809 || pokemon.num < -60)) {
 							if (learnsetTest) console.log("Adding universal TM " + move.name);
-							this.modData('Learnsets', pokemonID).learnset[moveID] = ["8M"];
+							// this.modData('Learnsets', pokemonID).learnset[moveID] = ["8M"];
 						}
 					}
 					continue;
