@@ -23,7 +23,7 @@ Ratings and how they work:
 	ex. Imposter, Shadow Tag
 */
 
-export const Abilities: {[abilityid: string]: AbilityData} = {
+export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	adeptprowess: {
 		shortDesc: "Gains secondary type based on held berry. Psy Blast doesn't consume berry.",
 		onStart(pokemon) {

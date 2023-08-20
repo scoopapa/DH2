@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	// tbh i could probably find a way to automatically validate all of these fellas in scripts.ts
 	// but i want to get this done as quickly as possible and i reckon this is faster lol
 

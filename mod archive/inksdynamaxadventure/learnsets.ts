@@ -36,7 +36,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			spikes: ["8L1"], 
 			
 			protect: ["8L1"],
-			substitute: ["8L1"],
 			rest: ["8L1"],
 			sleeptalk: ["8L1"],
 			facade: ["8L1"],
@@ -411,7 +410,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			protect: ["8L1"], 
 			recycle: ["8L1"], 
 			electricterrain: ["8L1"], 
-			agility: ["8L1"], 
 			workup: ["8L1"], 
 			yawn: ["8L1"], 
 			babydolleyes: ["8L1"], 

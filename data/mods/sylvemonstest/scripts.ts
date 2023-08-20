@@ -806,7 +806,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'froakie').learnset.swampland = ['7L1'];
 		this.modData('Learnsets', 'frogadier').learnset.swampland = ['7L1'];
 		this.modData('Learnsets', 'greninja').learnset.swampland = ['7L1'];
-		this.modData('Learnsets', 'greninjaash').learnset.swampland = ['7L1'];
+		// this.modData('Learnsets', 'greninjaash').learnset.swampland = ['7L1'];
 		this.modData('Learnsets', 'popplio').learnset.swampland = ['7L1'];
 		this.modData('Learnsets', 'brionne').learnset.swampland = ['7L1'];
 		this.modData('Learnsets', 'primarina').learnset.swampland = ['7L1'];
@@ -1030,7 +1030,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'zweilous').learnset.pragmastrike = ['7L1'];
 		this.modData('Learnsets', 'hydreigon').learnset.pragmastrike = ['7L1'];
 		this.modData('Learnsets', 'greninja').learnset.pragmastrike = ['7L1'];
-		this.modData('Learnsets', 'greninjaash').learnset.pragmastrike = ['7L1'];
+		// this.modData('Learnsets', 'greninjaash').learnset.pragmastrike = ['7L1'];
 		this.modData('Learnsets', 'pangoro').learnset.pragmastrike = ['7L1'];
 		this.modData('Learnsets', 'inkay').learnset.pragmastrike = ['7L1'];
 		this.modData('Learnsets', 'malamar').learnset.pragmastrike = ['7L1'];
@@ -2885,7 +2885,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData('Learnsets', 'corphish').learnset.aquaticassault = ['7L1'];
 		this.modData('Learnsets', 'walrein').learnset.aquaticassault = ['7L1'];
 		this.modData('Learnsets', 'phione').learnset.aquaticassault = ['7L1'];
-		this.modData('Learnsets', 'greninjaash').learnset.aquaticassault = ['7L1'];
+		// this.modData('Learnsets', 'greninjaash').learnset.aquaticassault = ['7L1'];
 
 		// Fire Fang
 

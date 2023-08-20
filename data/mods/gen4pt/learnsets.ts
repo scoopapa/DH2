@@ -17519,6 +17519,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 
 
 
+
 			frustration: ["4M", "3M"],
 			gigaimpact: ["4M"],
 			heatwave: ["4T"],

@@ -13570,7 +13570,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["8M", "7T"],
 			closecombat: ["8L1"],
 			zapcannon: ["8L1"],
-			earthquake: ["8L1"],
 		},
 		eventData: [
 			{generation: 7, level: 50, gender: "M", nature: "Modest", isHidden: true, moves: ["powerswap", "celebrate", "leafstorm", "dracometeor"], pokeball: "cherishball"},
@@ -46512,7 +46511,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			workup: ["8M", "7M", "5M"],
 			xscissor: ["8M", "7M", "6M", "5M", "4M"],
 			closecombat: ["8L1"],
-			thunderpunch: ["8L1"],
 		},
 		encounters: [
 			{generation: 4, level: 22, pokeball: "safariball"},
@@ -70185,8 +70183,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			xscissor: ["8M", "8L40", "7M", "7L35"],
 			zenheadbutt: ["8M", "7T"],
 			fakeout: ["8L1"],
-			waterpledge: ["8L1"],
-			firepledge: ["8L1"],
 		},
 		eventData: [
 			{generation: 7, level: 100, shiny: true, moves: ["multiattack", "partingshot", "punishment", "scaryface"], pokeball: "cherishball"},
@@ -70479,7 +70475,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			workup: ["8M", "7M"],
 			zenheadbutt: ["8M", "7T"],
 			zingzap: ["8L40", "7L33"],
-			fakeout: ["8L1"],
 			icepunch: ["8L1"],
 			firepunch: ["8L1"],
 			closecombat: ["8L1"],

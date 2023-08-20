@@ -627,15 +627,8 @@ export const Learnsets = {
         knockoff: ["7L1"],
         taunt: ["7L1"],
         viciousmockery: ["7L1"],
-		aurorabeam: ["7L1"],
-		avalanche: ["7L1"],
-		blizzard: ["7L1"],
 		frostbreath: ["7L1"],
-		icebeam: ["7L1"],
 		iceshard: ["7L1"],
-		iciclecrash: ["7L1"],
-		iciclespear: ["7L1"],
-		icywind: ["7L1"],
     }},
  
 	flaaffy: {learnset: {
@@ -710,7 +703,6 @@ export const Learnsets = {
         zapcannon: ["7V"],
         dazzlinggleam: ["7M"],
         wish: ["7M"],
-        healbell: ["7M"],
         earthpower: ["7M"],
         moonlight: ["7M"],
 		airslash: ["7M"],
@@ -1879,7 +1871,6 @@ export const Learnsets = {
         flamethrower: ["7L1"],
         thunder: ["7L1"],
         bulkup: ["7L1"],
-        liquidation: ["7L1"],
 		hydropump: ["7L1"],
     }},
  
@@ -1987,7 +1978,6 @@ export const Learnsets = {
         yawn: ["7E", "6E", "5D", "5E"],
         zenheadbutt: ["7T", "6T", "5T"],
         moonblast: ["7T"],
-        mistyterrain: ["7T"],
     }},
 	
 	rhydon: {learnset: {

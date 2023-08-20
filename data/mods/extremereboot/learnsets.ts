@@ -1,4 +1,4 @@
-export const Learnsets = {
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	extremeribbit: {
 		learnset: {
 			"25recorders": ["8L1"],
