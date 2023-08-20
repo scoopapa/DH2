@@ -5707,6 +5707,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 
 
 
+
 			chillingwater: ["8L1"],
 			closecombat: ["8L1"],
 			counter: ["8L1"],

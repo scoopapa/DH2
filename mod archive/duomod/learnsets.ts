@@ -1028,7 +1028,6 @@ treemu: {learnset: {
 valianch: {learnset: {
 		  dustknuckles: ["8L1"],
         acupressure: ["8L1"],
-		  dustknuckles: ["8L1"],
         metronome: ["8L1"],
         aerialace: ["8L1"],
         assurance: ["8L1"],
@@ -1235,7 +1234,6 @@ badgearth: {learnset: {
 	substitute: ["7L1"],
 	protect: ["7L1"],
 	rest: ["7L1"],
-	toxic: ["7L1"],
 	clearbeam: ["7L1"],
 	darkpulse: ["7L1"],
 	assurance: ["7L1"],

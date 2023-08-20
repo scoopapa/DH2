@@ -5,7 +5,6 @@ export const Learnsets = {
 		bite: ["7L15"],
 		bulletpunch: ["7L1"],
 		confide: ["7M"],
-		confide: ["7M"],
 		crunch: ["7L50"],
 		crushclaw: ["7L25"],
 		defog: ["7T"],

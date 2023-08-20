@@ -6954,7 +6954,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			takedown: ["7L48", "6L40", "5L52", "4L52", "3L37"],
 			taunt: ["7M", "7L36", "6M", "6L36", "5M", "5L42", "4M", "4L42", "3M", "3L42"],
 			thief: ["7M", "7L1", "6M", "6L1", "5M", "5L57", "4M", "4L57", "3M", "3L52"],
-			throatchop: ["7T"],
 			thunderfang: ["7L1", "7S0"],
 			torment: ["7M", "6M", "5M", "4M", "3M"],
 			toxic: ["7M", "6M", "5M", "4M", "3M"],
@@ -7330,6 +7329,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			vinewhip: ["8L1"],
 			watergun: ["8L1"],
 			waterpulse: ["8L1"],
+
 			whirlpool: ["8L1"],
 			workup: ["8L1"],
 			worryseed: ["8L1"],

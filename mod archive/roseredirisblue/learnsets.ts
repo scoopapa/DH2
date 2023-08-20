@@ -6354,7 +6354,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		thunder: ["1M", "2M"],
 		thunderbolt: ["1M", "2T"],
 		toxic: ["1M", "2M"],
-		thrash: ["1M"],
 		twister: ["2L35"],
 		waterfall: ["2M"],
 		watergun: ["1M"],
