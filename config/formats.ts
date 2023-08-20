@@ -133,7 +133,7 @@ export const Formats: FormatList = [
             let speciesTable = {};
             let allowedTiers = ['hi'];
             for (const set of team) {
-                let template = this.dex.getSpecies(set.species);
+                let template = this.dex.species.get(set.species);
                 if (template.tier !== 'hi') {
                     return [set.species + ' is not legal in [Gen 9] Blindsided.'];
                 }
@@ -179,7 +179,7 @@ export const Formats: FormatList = [
             let speciesTable = {};
             let allowedTiers = ['hi'];
             for (const set of team) {
-                let template = this.dex.getSpecies(set.species);
+                let template = this.dex.species.get(set.species);
                 if (template.tier !== 'hi') {
                     return [set.species + ' is not legal in [Gen 9] Blindsided.'];
                 }
@@ -258,7 +258,7 @@ export const Formats: FormatList = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'CSM2') {
 					return [set.species + ' is not useable in Clean Slate Micro 2.'];
 				}
@@ -297,7 +297,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['CC OU', 'CC UU', 'CC Ubers'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in Crossover Chaos Gen 9.'];
 				}
@@ -453,7 +453,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['Poketypos', 'Poketypos NFE', 'Poketypos LC'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'Poketypos' && template.tier !== 'Poketypos NFE' && template.tier !== 'Poketypos LC') {
 					return [set.species + ' is not legal in the Poketypos format.'];
 				}
@@ -475,7 +475,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['R2OU'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'R2OU') {
 					return [set.species + ' is not legal in [Gen 9] Roulettemons 2.'];
 				}
@@ -497,7 +497,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['R2OU', 'R2Uber'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'R2OU' && template.tier !== 'R2Uber') {
 					return [set.species + ' is not legal in [Gen 9] Roulettemons 2.'];
 				}
@@ -524,15 +524,15 @@ export const Formats: FormatList = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'ReGeneration' && template.tier !== 'ReGeneration NFE' && template.tier !== 'ReGeneration LC') {
 					return [set.species + ' is not usable in ReGeneration.'];
 				}
 			}
 		},
 		validateSet(set, teamHas) { // stolen from SV Speculative
-			const species = this.dex.getSpecies(set.species);
-			const ability = this.dex.getAbility(set.ability);
+			const species = this.dex.species.get(set.species);
+			const ability = this.dex.abilities.get(set.ability);
 			if (!set.hpType === 'Fairy' && !set.hpType === 'Normal') {
 				return this.validateSet(set, teamHas);
 			} else {
@@ -565,7 +565,7 @@ export const Formats: FormatList = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (template.tier !== 'TERCERA' && template.tier !== 'TERCERA NFE') {
 					return [set.species + ' is not usable in Return to Orre: Tercera.'];
 				}
@@ -586,7 +586,7 @@ export const Formats: FormatList = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if ( template.tier !== 'SS') {
 					return [set.species + ' is not usable in Triple Threat.'];
 				}
@@ -663,7 +663,7 @@ export const Formats: FormatList = [
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if ( template.tier !== 'TT') {
 					return [set.species + ' is not usable in Triple Threat.'];
 				}
@@ -1145,7 +1145,7 @@ export const Formats: FormatList = [
 				'Eevee-Starter', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre',
 				'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
-			const species = this.dex.getSpecies(set.species);
+			const species = this.dex.species.get(set.species);
 			if (unobtainables.includes(species.name)) {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];
