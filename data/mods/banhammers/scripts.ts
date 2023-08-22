@@ -1,5 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
-	gen: 9,
+	// gen: 9,
 	init() {
 		this.modData('Moves', 'aerialace').flags.slicing = 1;
 		this.modData('Moves', 'aircutter').flags.slicing = 1;
