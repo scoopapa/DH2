@@ -24,6 +24,7 @@ export const Formats: FormatList = [
 	{
 		section: "Gen 9 Pet Mods",
 		column: 1,
+		name: "gen9petmods",
 	},
 	{
 		name: "[Gen 9] Alternatium EX",
@@ -683,6 +684,7 @@ export const Formats: FormatList = [
 	{
 		section: "Gen 8 Pet Mods",
 		column: 1,
+		name: "gen8petmods",
 	},
 	{
 		name: "[Gen 8] Abilitypos",
@@ -1662,6 +1664,7 @@ export const Formats: FormatList = [
 	{
 		section: "Offical Smogon Formats",
 		column: 3,
+		name: "officialsmogonformats",
 	},
 	{
 		name: "[Gen 9] OU",
