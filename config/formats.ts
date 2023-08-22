@@ -77,7 +77,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Banhammers Cycle 2",
+		name: "[Gen 9] Banhammers Cycle 2",
 		desc: `<b>Banhammers</b>: A metagame where players are allowed to ban Pokemon, Moves, Items, and Abilities through earning points in room tournaments.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/banhammers-cycle-2-week-2-second-roomtour-6-17.3711488/">Banhammers on Smogon Forums</a>`,
@@ -97,7 +97,7 @@ export const Formats: FormatList = [
 					'Articuno', 'Dondozo', 'Moltres', 'Trick Room', 'Prankster'],
     },
 	{
-        name: "[Gen 8] Gen 9 Blindsided",
+        name: "[Gen 9] Gen 9 Blindsided",
         desc: `<b>[Gen 9] Blindsided</b>: the monkey has awoken`,
         threads: [
             `&bullet; <a href="https://docs.google.com/spreadsheets/d/1263L6g2BPzf4eQQNfqJrp2FO1UMtGdxWXcyfz9OBqkM/edit#gid=1545907772">spreadsheet</a>`,
@@ -141,7 +141,7 @@ export const Formats: FormatList = [
         },
      },
 	{
-        name: "[Gen 8] Gen 9 Blindsided Group B",
+        name: "[Gen 9] Gen 9 Blindsided Group B",
         desc: `<b>[Gen 9] Blindsided</b>: the monkey has awoken part 2`,
         threads: [
             `&bullet; <a href="https://docs.google.com/spreadsheets/d/1263L6g2BPzf4eQQNfqJrp2FO1UMtGdxWXcyfz9OBqkM/edit#gid=1545907772">spreadsheet</a>`,
@@ -244,7 +244,7 @@ export const Formats: FormatList = [
 		mod: 'bookofenigmas',
 	},
 	{
-		name: "[Gen 8] Clean Slate Micro 2",
+		name: "[Gen 9] Clean Slate Micro 2",
 		desc: `Clean Slate.`,
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/clean-slate-micro-2.3696166/">Clean Slate Micro 2</a>`,
@@ -438,8 +438,8 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Poketypos",
-		desc: `<b>[Gen 8] Poketypos</b>: A NatDex metagame that alters the names of Pokemon and change said Pokemon to fit their new name.`,
+		name: "[Gen 9] Poketypos",
+		desc: `<b>[Gen 9] Poketypos</b>: A NatDex metagame that alters the names of Pokemon and change said Pokemon to fit their new name.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/pok%C3%A9typos-slate-2-single-stage-pokemon.3711498/">Poketypos on Smogon Forums</a>`,
 		],
@@ -461,7 +461,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Roulettemons 2",
+		name: "[Gen 9] Roulettemons 2",
 		desc: `<b>[Gen 9] Roulettemons 2</b>: A meta where the only legal Pokemon are randomly-generated Fakemon.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3717145/">Roulettemons 2 on Smogon Forums</a>`,
@@ -483,7 +483,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Roulettemons 2 Ubers",
+		name: "[Gen 9] Roulettemons 2 Ubers",
 		desc: `<b>[Gen 9] Roulettemons 2 Ubers</b>: A broken meta where the only legal Pokemon are randomly-generated Fakemon.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3717145/">Roulettemons 2 on Smogon Forums</a>`,
@@ -505,7 +505,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] ReGeneration",
+		name: "[Gen 9] ReGeneration",
 	   desc: [
 			"In this Pet Mod, we will redesign the competitive functions of the Kantonian Pokemon after a Paldean counterpart.",
 		],
@@ -546,7 +546,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Return to Orre: Tercera",
+		name: "[Gen 9] Return to Orre: Tercera",
 	   desc: [
 			"This is a micrometa that only uses Pokemon obtainable in Colosseum and XD.",
 		],
