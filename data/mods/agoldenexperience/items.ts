@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-	paraorb: {
+    paraorb: {
 		name: "Para Orb",
 		spritenum: 515,
 		fling: {
@@ -64,7 +64,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 	},
 
-	// mega stones
+	//mega stones
 	meteorfragment: {
 		name: "Meteor Fragment",
 		spritenum: 578,
@@ -484,20 +484,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Centiskorch, this item allows it to Mega Evolve in battle.",
 	},
-	frosmite: {
-		name: "Frosmite",
-		spritenum: 578,
-		megaStone: "Frosmoth-Mega",
-		megaEvolves: "Frosmoth",
-		itemUser: ["Frosmoth"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -36,
-		gen: 8,
-		desc: "If held by a Frosmoth, this item allows it to Mega Evolve in battle.",
-	},
+	// frosmite: { //removed
+	// 	name: "Frosmite",
+	// 	spritenum: 578,
+	// 	megaStone: "Frosmoth-Mega",
+	// 	megaEvolves: "Frosmoth",
+	// 	itemUser: ["Frosmoth"],
+	// 	onTakeItem(item, source) {
+	// 		if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+	// 		return true;
+	// 	},
+	// 	num: -36,
+	// 	gen: 8,
+	// 	desc: "If held by a Frosmoth, this item allows it to Mega Evolve in battle.",
+	// },
 	baskironite: {
 		name: "Baskironite",
 		spritenum: 578,
@@ -568,7 +568,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
+			const pokemon = this.effectData.target;
 			if (this.field.isTerrain('chakraterrain')) {
 				pokemon.useItem();
 			}
@@ -605,7 +605,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onDisableMove(pokemon) {
+		onDisableMove: function(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onModifyDamage(damage, source, target, move) {
@@ -650,7 +650,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 	},
 
-	// Gen 9
+	//Gen 9
 	abilityshield: {
 		name: "Ability Shield",
 		spritenum: 0, // TODO
@@ -709,7 +709,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 			if (!statsRaised) return;
-			const pokemon: Pokemon = this.effectState.target;
+			const pokemon: Pokemon = this.effectData.target;
 			pokemon.useItem();
 			this.boost(boostPlus, pokemon);
 		},
@@ -817,7 +817,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	// identitycard: { //WIP
 	// 	name: "Identity Card",
-	// 	spritenum: 0,
+	// 	spritenum: 0, 
 	// 	shortDesc: "Holder's typing cannot be changed by any effect.",
 	// 	ignoreKlutz: true,
 	// 	onHit(pokemon) {
@@ -828,4 +828,4 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	// 	num: -1881,
 	// 	gen: 8,
 	// },
-};
+}

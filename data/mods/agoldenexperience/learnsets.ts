@@ -1894,6 +1894,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			return: ["8M"],
 			frustration: ["8M"],
 			snore: ["8M"],
+			round: ["8M"],
 			attract: ["8M"],
 		},
 	},
@@ -1942,6 +1943,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			return: ["8M"],
 			frustration: ["8M"],
 			snore: ["8M"],
+			round: ["8M"],
 			attract: ["8M"],
 		},
 	},
@@ -2230,6 +2232,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			xscissor: ["8M"],
 			return: ["8M"],
 			frustration: ["8M"],
+			highjumpkick: ["8M"],
 		},
 	},
 	capsakid: {
@@ -4503,6 +4506,8 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			zenheadbutt: ["8M", "8L30"],
 			return: ["8M"],
 			frustration: ["8M"],
+			stealthrock: ["8M"],
+			whirlwind: ["8M"],
 		},
 	},
 	taurospaldeablaze: {
@@ -4559,6 +4564,8 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			zenheadbutt: ["8M", "8L30"],
 			return: ["8M"],
 			frustration: ["8M"],
+			stealthrock: ["8M"],
+			whirlwind: ["8M"],
 		},
 	},
 	taurospaldeaaqua: {
@@ -4613,6 +4620,8 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			zenheadbutt: ["8M", "8L30"],
 			return: ["8M"],
 			frustration: ["8M"],
+			stealthrock: ["8M"],
+			whirlwind: ["8M"],
 		},
 	},
 	walkingwake: {
@@ -5026,25 +5035,25 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			poisonfang: ["8L48"],
 		},
 	},
-	jaboraishi: {
-		learnset: {
-			bulkup: ["8L1"],
-			brickbreak: ["8L1"],
-			closecombat: ["8L1"],
-			highjumpkick: ["8L1"],
-			blazekick: ["8L1"],
-			voltswitch: ["8L1"],
-			nuzzle: ["8L1"],
-			thunderwave: ["8L1"],
-			uturn: ["8L1"],
-			rapidspin: ["8L1"],
-			fakeout: ["8L1"],
-			seedbomb: ["8L1"],
-			zenheadbutt: ["8L1"],
-			taunt: ["8L1"],
-			knockoff: ["8L1"],
-		},
-	},
+	// jaboraishi: { //removed
+	// 	learnset: {
+	// 		bulkup: ["8L1"],
+	// 		brickbreak: ["8L1"],
+	// 		closecombat: ["8L1"],
+	// 		highjumpkick: ["8L1"],
+	// 		blazekick: ["8L1"],
+	// 		voltswitch: ["8L1"],
+	// 		nuzzle: ["8L1"],
+	// 		thunderwave: ["8L1"],
+	// 		uturn: ["8L1"],
+	// 		rapidspin: ["8L1"],
+	// 		fakeout: ["8L1"],
+	// 		seedbomb: ["8L1"],
+	// 		zenheadbutt: ["8L1"],
+	// 		taunt: ["8L1"],
+	// 		knockoff: ["8L1"],
+	// 	},
+	// },
 	mosquitox: {
 		learnset: {
 			rest: ["8L1"],
@@ -6788,27 +6797,27 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			freezedry: ["8L1"],
 		},
 	},
-	snobawcus: {
-		learnset: {
-			bulkup: ["8L1"],
-			toxic: ["8L1"],
-			taunt: ["8L1"],
-			spikes: ["8L1"],
-			toxicspikes: ["8L1"],
-			rest: ["8L1"],
-			protect: ["8L1"],
-			megahorn: ["8L1"],
-			rolledballed: ["8L1"],
-			rockblast: ["8L1"],
-			gunkshot: ["8L1"],
-			superpower: ["8L1"],
-			headcharge: ["8L1"],
-			iceshard: ["8L1"],
-			focusblast: ["8L1"],
-			sludgebomb: ["8L1"],
-			earthpower: ["8L1"],
-		},
-	},
+	// snobawcus: {
+	// 	learnset: {
+	// 		bulkup: ["8L1"],
+	// 		toxic: ["8L1"],
+	// 		taunt: ["8L1"],
+	// 		spikes: ["8L1"],
+	// 		toxicspikes: ["8L1"],
+	// 		rest: ["8L1"],
+	// 		protect: ["8L1"],
+	// 		megahorn: ["8L1"],
+	// 		rolledballed: ["8L1"],
+	// 		rockblast: ["8L1"],
+	// 		gunkshot: ["8L1"],
+	// 		superpower: ["8L1"],
+	// 		headcharge: ["8L1"],
+	// 		iceshard: ["8L1"],
+	// 		focusblast: ["8L1"],
+	// 		sludgebomb: ["8L1"],
+	// 		earthpower: ["8L1"],
+	// 	},
+	// },
 	noibatsinnoh: {
 		learnset: {
 			screech: ["8L1"],
@@ -6914,7 +6923,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			dracometeor: ["8L1"],
 		},
 	},
-	slugmasinnoh: {
+	slugmasinnoh: { 
 		learnset: {
 			acidarmor: ["7E", "7V", "6E", "5E", "4E", "3E"],
 			afteryou: ["7T", "6T", "5T"],
@@ -8473,6 +8482,38 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			aquatail: ["8L1"],
 			slash: ["8L1"],
 			nightslash: ["8L1"],
+		},
+	},
+	golrobot: {
+		learnset: {
+			heatcrash: ["8L1"],
+			heavyslam: ["8L1"],
+			bulletpunch: ["8L1"],
+			machpunch: ["8L1"],
+		},
+	},
+	sautropius: {
+		learnset: {
+			acrobatics: ["8L1"],
+		},
+	},
+	meltic: {
+		learnset: {
+			flipturn: ["8L1"],
+			wavecrash: ["8L1"],
+			freezedry: ["8L1"],
+		},
+	},
+	sithbull: {
+		learnset: {
+			howl: ["8L1"],
+			willowisp: ["8L1"],
+			painsplit: ["8L1"],
+			pursuit: ["8L1"],
+			houndshowl: ["8L1"],
+			stealthrocks: ["8L1"],
+			nightmare: ["8L1"],
+			spiritbreak: ["8L1"],
 		},
 	},
 };
