@@ -1667,6 +1667,17 @@ export const Formats: FormatList = [
 		// name: "petmodsbonusformats",
 	},
 	{
+		name: "[Gen 8] JolteMons Random Battle",
+		desc: `Pok&eacute;mon, items, abilities, and moves are redesigned for OU, and new items, abilities, and moves are added, all without changing base stats.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3694234/">JolteMons</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/149ZlQY0bJIAqfWB_233Dvbpqs3pVSHYpIoAQQkwquls/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen8joltemons',
+		team: 'random',
+		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Mega Data Mod', 'Z-Move Clause'],
+	},
+	{
 		name: "[Gen 6] Mix and Megas Revisited",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3713949/">Megas Revisited on Smogon Forums</a>`,
