@@ -924,7 +924,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				const smeltMod = this.clampIntRange(pokemon.runEffectiveness('flamethrower'), -6, 6);
+				if (pokemon.hasAbility('smelt')) {
+					this.damage(pokemon.maxhp * Math.pow(2, smeltMod) / 8);
+				} else {
+					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				}
 			},
 		},
 		secondary: null,
