@@ -1,5 +1,3 @@
-import computeSourceMap from "sucrase/dist/types/computeSourceMap";
-
 export const Moves: {[k: string]: ModdedMoveData} = {
 	tentacatch: {
 		num: -1,
