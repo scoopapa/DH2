@@ -626,5 +626,23 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'litleo').learnset.rekindle = ['9L1'];
 		this.modData('Learnsets', 'fuecoco').learnset.rekindle = ['9L1'];
 		this.modData('Learnsets', 'chiyu').learnset.rekindle = ['9L1'];
+		this.modData("Learnsets", "salamence").learnset.scaleshot = ["9L1"];
+		this.modData("Learnsets", "salamence").learnset.flamecharge = ["9L1"];
+		this.modData("Learnsets", "salamence").learnset.pluck = ["9L1"];
+		this.modData("Learnsets", "tsareena").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "tsareena").learnset.peekaboo = ["9L1"];
+		this.modData("Learnsets", "tsareena").learnset.axekick = ["9L1"];
+		this.modData("Learnsets", "tsareena").learnset.highhorsepower = ["9L1"];
+		this.modData("Learnsets", "tsareena").learnset.leechseed = ["9L1"];
+		this.modData("Learnsets", "tsareena").learnset.swordsdance = ["9L1"];
+		this.modData("Learnsets", "orthworm").learnset.aquatail = ["9L1"];
+		this.modData("Learnsets", "orthworm").learnset.aquajet = ["9L1"];
+		this.modData("Learnsets", "orthworm").learnset.liquidation = ["9L1"];
+		this.modData("Learnsets", "orthworm").learnset.wavecrash = ["9L1"];
+		this.modData("Learnsets", "orthworm").learnset.whirlpool = ["9L1"];
+		this.modData("Learnsets", "orthworm").learnset.surf = ["9L1"];
+		this.modData("Learnsets", "orthworm").learnset.hydropump = ["9L1"];
+		this.modData("Learnsets", "orthworm").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "orthworm").learnset.recover = ["9L1"];
   },
 };
