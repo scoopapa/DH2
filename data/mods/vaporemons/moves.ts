@@ -777,7 +777,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, noparentalbond: 1, failinstruct: 1},
-		sideCondition: 'rollout',
+		self: {
+			sideCondition: 'rollout',
+		},
 		selfSwitch: true,
 		condition: {
 			duration: 2,
@@ -803,7 +805,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
-		sideCondition: 'round',
+		self: {
+			sideCondition: 'round',
+		},
 		selfSwitch: true,
 		condition: {
 			duration: 2,
