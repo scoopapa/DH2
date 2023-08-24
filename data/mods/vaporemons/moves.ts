@@ -783,7 +783,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 1,
 			onBasePowerPriority: 1,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.id === 'rollout' && !pokemon.volatiles['defensecurl']) {
+				if (move.id === 'rollout' && !attacker.volatiles['defensecurl']) {
 					return this.chainModify(2);
 				}
 			},
