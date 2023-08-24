@@ -58,4 +58,42 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 104, atk: 80, def: 86, spa: 112, spd: 80, spe: 108},
 		abilities: {0: "Quark Drive", H: "Multiscale"},
 	},
+	omastar: {
+		inherit: true,
+		types: ["Rock", "Water", "Bug"],
+	},
+	cyclizar: {
+		inherit: true,
+		types: ["Ground", "Dragon", "Fire"],
+		baseStats: {hp: 70, atk: 105, def: 80, spa: 85, spd: 80, spe: 120},
+		abilities: {0: "Shed Skin", 1: "Armor Tail", H: "Regenerator"},
+	},
+	deliriophage: {
+		num: -2,
+		species: "Deliriophage",
+		types: ["Steel", "Ghost", "Dark"],
+		baseStats: {hp: 90, atk: 80, def: 80, spa: 110, spd: 110, spe: 50},
+		abilities: {0: "Light Metal", 1: "Shield Dust", H: "Stall"},
+		weightkg: 67,
+	},
+	chilupo: {
+		num: -3,
+		species: "Chilupo",
+		types: ["Ice", "Water", "Fairy"],
+		baseStats: {hp: 80, atk: 100, def: 80, spa: 100, spd: 110, spe: 80},
+		abilities: {0: "Slush Rush", 1: "Magic Guard", H: "Refrigerate"},
+		weightkg: 20,
+	},
+	zangoose: {
+		inherit: true,
+		types: ["Normal", "Fairy", "Poison"],
+		baseStats: {hp: 110, atk: 95, def: 90, spa: 80, spd: 70, spe: 90},
+		abilities: {0: "Intimidate", H: "Tough Claws"},
+	},
+	overqwil: {
+		inherit: true,
+		types: ["Dark", "Poison", "Steel"],
+		baseStats: {hp: 85, atk: 105, def: 75, spa: 65, spd: 110, spe: 80},
+		abilities: {0: "Levitate", H: "Regenerator"},
+	},
 };
