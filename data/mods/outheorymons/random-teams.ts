@@ -1,5 +1,3 @@
-//WIP
-
 import {Dex, toID} from '../sim/dex';
 import {Utils} from '../lib';
 import {PRNG, PRNGSeed} from '../sim/prng';
