@@ -144,7 +144,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	rockslidegen7: {
 		num: 157,
-		accuracy: 100,
+		accuracy: 90,
 		basePower: 75,
 		category: "Physical",
 		name: "Rock Slide",
