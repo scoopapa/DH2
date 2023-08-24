@@ -987,7 +987,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	greeneyed: {
 		name: "Green-Eyed",
 		onStart(source) {
-			this.useMove("Snatch", source);
+			this.actions.useMove("Snatch", source);
 		},
 		shortDesc: "On switch-in, if the foe uses a Snatchable move, this Pokemon uses it instead.",
 		rating: 3,
@@ -995,8 +995,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	mudwash: {
 		name: "Mud Wash",
 		onStart(source) {
-			this.useMove("Mud Sport", source);
-			this.useMove("Water Sport", source);
+			this.actions.useMove("Mud Sport", source);
+			this.actions.useMove("Water Sport", source);
 			this.add('-message', `${source.name}'s splashed around in the mud!`);
 		},
 		onBasePower(basePower, attacker, defender, move) {
