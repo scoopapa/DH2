@@ -120,7 +120,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	hektillion: {
-		tier: "LC",
+		tier: "ES",
 	},
 	termill: {
 		tier: "LC",
@@ -213,6 +213,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ES",
 	},
 	prominoidmeteor: {
+		tier: "Illegal",
+	},
+	charvenant: {
+		tier: "ES",
+	},
+	slurpin: {
+		tier: "LC",
+	},
+	suctlot: {
+		tier: "ES",
+	},
+	amplitune: {
 		tier: "ES",
 	},
 	deceuceus: {
@@ -294,6 +306,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	durantegelas: {
 		tier: "ES",
 	},
+	kricketotsartori: {
+		tier: "NFE",
+	},
+	kricketunesartori: {
+		tier: "NFE",
+	},
+	glameowsartori: {
+		tier: "NFE",
+	},
+	puruglysartori: {
+		tier: "ES",
+	},
+	phantumpsartori: {
+		tier: "NFE",
+	},
 	// New Megas
 	butterfreemega: {
 		tier: "ES",
@@ -325,14 +352,89 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	alcremiemega: {
 		tier: "ES",
 	},
-	// Other
+	froslassmega: {
+		tier: "ES",
+	},
+	druddigonmega: {
+		tier: "ES",
+	},
+	druddigonmegastatue: {
+		tier: "Illegal",
+	},
+	//Other
+	dudunsparcethreesegment: {
+		tier: "OU",
+	},
+	revavroomsegin: {
+		tier: "ES",
+	},
+	revavroomschedar: {
+		tier: "ES",
+	},
+	revavroomnavi: {
+		tier: "ES",
+	},
+	revavroomruchbah: {
+		tier: "ES",
+	},
+	revavroomcaph: {
+		tier: "ES",
+	},
+	squawkabillyblue: {
+		tier: "OU",
+	},
+	squawkabillyyellow: {
+		tier: "OU",
+	},
+	squawkabillywhite: {
+		tier: "OU",
+	},
 	victreebell: {
 		tier: "OU",
 	},
+	victreebel: null,
 	darmanitanrage: {
 		tier: "Illegal",
 	},
+	darmanitangalarzen: null,
 	lycanroctwilight: {
 		tier: "OU",
 	},
+	lycanrocdusk: null,
+	robobundle: {
+		tier: "Uber",
+	},
+	ironbundle: null,
+	presshands: {
+		tier: "OU",
+	},
+	ironhands: null,
+	mechajugulis: {
+		tier: "OU",
+	},
+	ironjugulis: null,
+	astroglider: {
+		tier: "OU",
+	},
+	ironmoth: null,
+	armorthorns: {
+		tier: "OU",
+	},
+	ironthorns: null,
+	valiantdroid: {
+		tier: "OU",
+	},
+	ironvaliant: null,
+	saberleaves: {
+		tier: "OU",
+	},
+	ironleaves: null,
+	pikachupartner: null,
+	pikachuoriginal: null,
+	pikachuhoenn: null,
+	pikachusinnoh: null,
+	pikachuunova: null,
+	pikachukalos: null,
+	pikachualola: null,
+	pikachuworld: null,
 };

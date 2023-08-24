@@ -1387,6 +1387,7 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	const allTargets: {[k: string]: string} = {
 		oneally: 'adjacentAlly',
 		userorally: 'adjacentAllyOrSelf',
+		useroranyally: 'anyAlly',
 		oneadjacentopponent: 'adjacentFoe',
 		all: 'all',
 		alladjacent: 'allAdjacent',

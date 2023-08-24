@@ -606,7 +606,7 @@ export type ModdedConditionData = ConditionData & {inherit?: true};
 
 export class Condition extends BasicEffect implements
 	Readonly<BasicEffect & SideConditionData & FieldConditionData & PokemonConditionData> {
-	declare readonly effectType: 'Condition' | 'Weather' | 'Status' | 'Terastal';
+	declare readonly effectType: 'Condition' | 'Weather' | 'Terrain' | 'Status' | 'Terastal';
 	declare readonly counterMax?: number;
 
 	declare readonly durationCallback?: (this: Battle, target: Pokemon, source: Pokemon, effect: Effect | null) => number;
@@ -623,7 +623,7 @@ export class Condition extends BasicEffect implements
 		super(data);
 		// eslint-disable-next-line @typescript-eslint/no-this-alias
 		data = this;
-		this.effectType = (['Weather', 'Status'].includes(data.effectType) ? data.effectType : 'Condition');
+		this.effectType = (['Terrain' , 'Weather', 'Status'].includes(data.effectType) ? data.effectType : 'Condition');
 	}
 }
 
