@@ -1935,6 +1935,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	delibird: {
 		inherit: true,
 		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Tireless"},
+		otherFormes: ["Delibird-Egelas"],
+		formeOrder: ["Delibird", "Delibird-Egelas"],
 	},
 	kingdra: {
 		inherit: true,
@@ -3189,6 +3191,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	annihilape: {
 		inherit: true,
 		abilities: {0: "Vital Spirit", 1: "Relentless", H: "Defiant"},
+		evoType: "other",
+		evoCondition: "have Attack raised 20 stages by other Pokemon",
 	},
 	clodsire: {
 		inherit: true,
@@ -3281,11 +3285,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Slowking-Mega", "Slowking-Galar"],
 		formeOrder: ["Slowking", "Slowking-Mega", "Slowking-Galar"],
 	},
-	delibird: {
-		inherit: true,
-		otherFormes: ["Delibird-Egelas"],
-		formeOrder: ["Delibird", "Delibird-Egelas"],
-	},
 	miltank: {
 		inherit: true,
 		otherFormes: ["Miltank-Egelas"],
@@ -3335,7 +3334,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		otherFormes: ["Magmortar-Mega"],
 		formeOrder: ["Magmortar", "Magmortar-Mega"],
 	},
-	butterfree: {
+	froslass: {
 		inherit: true,
 		otherFormes: ["Froslass-Mega"],
 		formeOrder: ["Froslass", "Froslass-Mega"],
@@ -3623,11 +3622,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	orthworm: {
 		inherit: true,
 		eggGroups: ["Field", "Amorphous"],
-	},
-	annihilape: {
-		inherit: true,
-		evoType: "other",
-		evoCondition: "have Attack raised 20 stages by other Pokemon",
 	},
 	chiyu: {
 		inherit: true,

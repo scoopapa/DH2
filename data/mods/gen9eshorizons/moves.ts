@@ -1907,7 +1907,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				spe: -1,
 			},
 		},
-		shortDesc: "Has a 50% chance to lower the target's Speed by 1 stage.",
+		desc: "Has a 50% chance to lower the target's Speed by 1 stage.",
 		shortDesc: "50% chance to lower the target's Speed by 1.",
 		contestType: "Tough",
 	},
@@ -3085,6 +3085,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	meteorbeam: {
 		inherit: true,
 		pp: 5,
+		contestType: "Beautiful",
 	},
 	milkdrink: {
 		inherit: true,
@@ -3407,10 +3408,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	noretreat: {
 		inherit: true,
 		pp: 5,
+		contestType: "Clever",
 	},
 	nobleroar: {
 		inherit: true,
 		pp: 20,
+		contestType: "Cool",
 	},
 	obstruct: {
 		inherit: true,
@@ -4337,6 +4340,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	snipeshot: {
 		inherit: true,
 		target: 'any',
+		contestType: "Clever",
 	},
 	snore: {
 		inherit: true,
@@ -4459,6 +4463,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	spiritbreak: {
 		inherit: true,
 		basePower: 70,
+		contestType: "Tough",
 	},
 	spitup: {
 		inherit: true,
@@ -4475,10 +4480,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		nonGhostTarget: 'allAdjacentFoes',
 		desc: "Power is equal to 100 times the user's Stockpile count. If the user's Stockpile count is 3, the move will target all adjacent foes. Fails if the Stockpile count is 0. Whether or not this move is successful, the user's Defense and Special Defense decrease by as many stages as Stockpile had increased them, and the user's Stockpile count resets to 0.",
 		shortDesc: "Damage based on Stockpile charges; spread w/ max.",
-	},
-	spore: {
-		inherit: true,
-		pp: 10,
 	},
 	splash: {
 		inherit: true,
@@ -5137,6 +5138,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 90,
 		pp: 15,
+		contestType: "Cute",
 	},
 	/* Moves changed as edits to other elements */
 	attract: {
@@ -6421,19 +6423,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		contestType: "Cool",
 	},
-	meteorbeam: {
-		inherit: true,
-		contestType: "Beautiful",
-	},
 	naturesmadness: {
-		inherit: true,
-		contestType: "Cool",
-	},
-	noretreat: {
-		inherit: true,
-		contestType: "Clever",
-	},
-	nobleroar: {
 		inherit: true,
 		contestType: "Cool",
 	},
@@ -6461,14 +6451,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		contestType: "Cool",
 	},
-	snipeshot: {
-		inherit: true,
-		contestType: "Clever",
-	},
-	spiritbreak: {
-		inherit: true,
-		contestType: "Tough",
-	},
 	spiritshackle: {
 		inherit: true,
 		contestType: "Cool",
@@ -6476,9 +6458,5 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	strengthsap: {
 		inherit: true,
 		contestType: "Clever",
-	},
-	zingzap: {
-		inherit: true,
-		contestType: "Cute",
 	},
 };
