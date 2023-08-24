@@ -402,7 +402,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	starmie: {
 		inherit: true,
-		abilities: {0: "Illuminate", 1: "Regenerator", H: "Smart Guard"},
+		abilities: {0: "Illuminate", 1: "Regenerator", H: "Analytic"},
 	},
 	mrmime: {
 		inherit: true,
@@ -785,6 +785,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 1.6,
         weightkg: 85,
         prevo: "Scyther",
+		color: "Red",
+		eggGroups: ["Bug"],
     },
 	scizorgalarmega: {
 		num: 212,

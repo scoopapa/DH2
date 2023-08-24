@@ -2630,6 +2630,16 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 5,
 		num: 147,
 	},
+	cutecharm: {
+		onSourceModifyDamage(damage, source, target, move) {
+			return this.chainModify(0.8);
+		},
+		name: "Cute Charm",
+		shortDesc: "This Pokemon receives 20% less damage from all attacks.",
+		desc: "This Pokemon receives 20% less damage from all attacks.",
+		rating: 4,
+		num: 56,
+	},
 	//Gen 9 additions
 	sharpness: {
 		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.3x",
