@@ -290,7 +290,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Gale Wings"},
 	},
-	rotomfan: {
+	rotomheat: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Smelt"},
 	},
