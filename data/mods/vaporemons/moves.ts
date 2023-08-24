@@ -780,7 +780,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'rollout',
 		selfSwitch: true,
 		condition: {
-			duration: 1,
+			duration: 2,
 			onBasePowerPriority: 1,
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.id === 'rollout' && !attacker.volatiles['defensecurl']) {
@@ -806,7 +806,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		sideCondition: 'round',
 		selfSwitch: true,
 		condition: {
-			duration: 1,
+			duration: 2,
 			onBasePowerPriority: 1,
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.id === 'round') {
@@ -896,6 +896,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						}
 					}
 					pokemon.trySetStatus('brn', source);
+					this.actions.runMove('rekindle', source, source.getLocOf(pokemon));
 				}
 			},
 		},
@@ -955,8 +956,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				const smeltMod = this.clampIntRange(pokemon.runEffectiveness('flamethrower'), -6, 6);
 				if (pokemon.hasAbility('smelt')) {
+					const fireHazard = this.dex.getActiveMove('Stealth Rock');
+					fireHazard.type = 'Fire';
+					const smeltMod = this.clampIntRange(pokemon.runEffectiveness(fireHazard), -6, 6);
 					this.damage(pokemon.maxhp * Math.pow(2, smeltMod) / 8);
 				} else {
 					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
