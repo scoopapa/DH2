@@ -633,6 +633,7 @@ exports.grouplist = [
 		ip: true,
 		alts: '@u',
 		game: true,
+		tournaments: true,
 	},
 	{
 		symbol: '%',

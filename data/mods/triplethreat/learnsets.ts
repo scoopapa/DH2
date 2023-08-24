@@ -1,4 +1,4 @@
-export const Learnsets: {["9L1"]: LearnsetData} = {
+export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	roserade: {
 		learnset: {
 			absorb: ["9L1"],
