@@ -4,7 +4,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		excludeStandardTiers: true,
 		customTiers: ['Theorymons', 'OU', 'UU', 'RU', 'NU', 'PU', '(PU)'],
 	},
-   init: function() {
+   init() {
       this.modData('Learnsets', 'tyranitar').learnset.knockoff = ['8L1'];
       this.modData('Learnsets', 'salamence').learnset.defog = ['8L1'];
       this.modData('Learnsets', 'delphox').learnset.moonblast = ['8L1'];
