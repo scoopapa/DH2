@@ -1,4 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
+	gen: 9,
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
@@ -553,6 +554,25 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "wochien").learnset.nightshade = ["8L1"];	
 
 		this.modData("Learnsets", "mudsdale").learnset.thunderouskick = ["8L1"];
+
+		this.modData("Learnsets", "accelgor").learnset.liquidation = ["8L1"];
+		this.modData("Learnsets", "accelgor").learnset.waterfall = ["8L1"];
+		this.modData("Learnsets", "accelgor").learnset.aquajet = ["8L1"];
+		this.modData("Learnsets", "accelgor").learnset.hydropump = ["8L1"];
+		this.modData("Learnsets", "accelgor").learnset.scald = ["8L1"];
+		this.modData("Learnsets", "accelgor").learnset.poisonjab = ["8L1"];
+		this.modData("Learnsets", "accelgor").learnset.nastyplot = ["8L1"];
+
+		this.modData("Learnsets", "dachsbun").learnset.flamethrower = ["8L1"];
+		this.modData("Learnsets", "dachsbun").learnset.fireblast = ["8L1"];
+		this.modData("Learnsets", "dachsbun").learnset.mysticalfire = ["8L1"];
+		this.modData("Learnsets", "dachsbun").learnset.overheat = ["8L1"];
+		this.modData("Learnsets", "dachsbun").learnset.burnup = ["8L1"];
+		this.modData("Learnsets", "dachsbun").learnset.firespin = ["8L1"];
+		this.modData("Learnsets", "dachsbun").learnset.willowisp = ["8L1"];
+		this.modData("Learnsets", "dachsbun").learnset.moonblast = ["8L1"];
+		
+		this.modData("Learnsets", "lickilicky").learnset.chillyreception = ["8L1"];
 
 		delete this.modData('Learnsets', 'bellossom').learnset.sleeppowder;
 
