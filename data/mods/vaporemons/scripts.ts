@@ -644,5 +644,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "orthworm").learnset.hydropump = ["9L1"];
 		this.modData("Learnsets", "orthworm").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "orthworm").learnset.recover = ["9L1"];
+		delete this.modData('Learnsets', 'magearna').learnset.shiftgear;
+		delete this.modData('Learnsets', 'magearna').learnset.storedpower;
+		delete this.modData('Learnsets', 'magearna').learnset.spikes;
+		delete this.modData('Learnsets', 'magearna').learnset.trick;
+		delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
   },
 };
