@@ -2404,14 +2404,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (!source.hp || !source.isActive || target.transformed || target.isSemiInvulnerable()) return;
-			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
+			if (['screamcomorantgulping', 'screamcomorantgorging'].includes(target.species.id)) {
 				this.damage(source.baseMaxhp / 4, source, target);
-				if (target.species.id === 'cramorantgulping') {
+				if (target.species.id === 'screamcomorantgulping') {
 					this.boost({def: -1}, source, target, null, true);
 				} else {
 					source.trySetStatus('par', target, move);
 				}
-				target.formeChange('cramorant', move);
+				target.formeChange('screamcomorant', move);
 				delete target.volatiles['prehistorichunter'];
 			}
 		},
@@ -2435,7 +2435,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			} else if (!pokemon.volatiles['prehistorichunter']?.fromBooster) {
 				pokemon.removeVolatile('prehistorichunter');
-				pokemon.formeChange('cramorant', this.effect, false, '[msg]');
 			}
 		},
 		onEnd(pokemon) {
