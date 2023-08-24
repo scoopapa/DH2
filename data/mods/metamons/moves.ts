@@ -142,7 +142,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 		contestType: "Cute",
 	},
-	rockslide: {
+	rockslidegen7: {
 		num: 157,
 		accuracy: 100,
 		basePower: 75,
