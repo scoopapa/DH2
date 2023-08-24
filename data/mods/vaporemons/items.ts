@@ -758,6 +758,44 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "Holder takes 2/3 damage from foes that share a type.",
 	},
+	powerherb: {
+		onChargeMove(pokemon, target, move) {
+			if (pokemon.useItem()) {
+				this.debug('power herb - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['mustrecharge']) {
+				pokemon.removeVolatile('mustrecharge');
+				pokemon.useItem();
+			}
+		},
+		name: "Power Herb",
+		spritenum: 358,
+		fling: {
+			basePower: 10,
+		},
+		num: 271,
+		gen: 4,
+		desc: "Holder's two-turn moves and recharge complete in one turn (except Sky Drop). Single use.",
+	},
+	leatherbelt: {
+		name: "Leather Belt",
+		spritenum: 132,
+		fling: {
+			basePower: 10,
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod = 0) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		gen: 8,
+		desc: "Holder's neutral damamging moves deal 1.2x damage.",
+	},
 
 // unchanged items
 	boosterenergy: {
