@@ -375,7 +375,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Lowers target's Def and SpA by 1. User switches.",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, dance: 1, authentic: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, authentic: 1},
 		onHit(target, source, move) {
 			const success = this.boost({def: -1, spa: -1}, target, source);
 			if (!success && !target.hasAbility('mirrorarmor')) {
@@ -402,7 +402,7 @@ export const Moves: {[moveid: string]: MoveData} = {
       shortDesc: "Prevents the target from selecting the same move for use two turns in a row.",
 		pp: 10,
 		priority: 0,
-		flags: {},
+		flags: {protect: 1, mirror: 1, sound: 1},
 		onHit(pokemon) {
          pokemon.addVolatile('torment');
 		},
