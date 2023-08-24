@@ -789,7 +789,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 10,
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (move && target.getMoveHitData(move).typeMod = 0) {
+			if (move && target.getMoveHitData(move).typeMod === 0) {
 				return this.chainModify([4915, 4096]);
 			}
 		},
