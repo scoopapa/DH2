@@ -439,11 +439,21 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+	  name: "[Gen 9] OU Theorymons",
+     desc: '<b>[Gen 9] OU Theorymons</b>: Fixing niche and unseen Pokemon in the SV OU Metagame with small buffs.',
+	  threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/sv-ou-theorymon.3723892/">OU Theorymon on Smogon Forums</a>`,
+		],
+     mod: 'outheorymons',
+	  ruleset: ['Standard', 'Data Mod'],
+	  banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	},
+	{
 		name: "[Gen 9] Poketypos",
 		desc: `<b>[Gen 9] Poketypos</b>: A NatDex metagame that alters the names of Pokemon and change said Pokemon to fit their new name.`,
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/pok%C3%A9typos-slate-2-single-stage-pokemon.3711498/">Poketypos on Smogon Forums</a>`,
-		],
+		],	
 		mod: 'poketypos',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
@@ -554,13 +564,18 @@ export const Formats: FormatList = [
 		threads: [
 			'&bullet; <a href="https://www.smogon.com/forums/threads/return-to-orre-tercera-open-for-submissions.3722389/">RTO: Tercera</a>',
 		],
+		forcedLevel: 50,
+		teamLength: {
+			validate: [3, 6],
+			battle: 3,
+		},
 		mod: 'returntoorretercera', 
-		ruleset: ['Standard NatDex', 'Picked Team Size = 3', 'Adjust Level = 50', 'VGC Timer'],
+		ruleset: ['Standard NatDex', 'Picked Team Size = 3', '!! Adjust Level = 50', 'VGC Timer'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		   'Aerodactylite', 'Alakazite', 'Beedrillite', 'Blastoisinite', 'Charizardite X', 'Charizardite Y', 'Gengarite', 
          'Gyaradosite', 'Kangaskhanite', 'Mewtwonite X', 'Mewtwonite Y', 'Pidgeotite', 'Pinsirite', 'Slowbronite', 'Venusaurite',
-			'Lugia', 'Ho-Oh',
+			'Lugia', 'Ho-Oh', 'All Items'
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -1238,20 +1253,19 @@ export const Formats: FormatList = [
 			// }
 		// },
 	// },
-	{
-		name: "[Gen 8] OU Theorymon",
-		desc: [
-		   "<b>OU Theorymon</b>: A Sword and Shield OU metagame where low-ranked Pokemon are improved to become more viable.",
-		],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/ss-ou-theorymon.3695574/">OU Theorymon on Smogon Forums</a>`,
-		],
-		
-		mod: 'outheorymons',
-      ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
-		banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'], 
-	},
+  //	{
+   	//	name: "[Gen 8] OU Theorymon",
+   	// desc: [
+	   	// "<b>OU Theorymon</b>: A Sword and Shield OU metagame where low-ranked Pokemon are improved to become more viable.",
+		// ],
+		// threads: [
+			// `&bullet; <a href="https://www.smogon.com/forums/threads/ss-ou-theorymon.3695574/">OU Theorymon on Smogon Forums</a>`,
+		// ],
 
+		// mod: 'outheorymons',
+      // ruleset: ['Standard', 'Dynamax Clause', 'Data Mod'],
+		// banlist: ['Uber', 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass'], 
+	// },
 	// {
 		// name: "[Gen 8] Paleomons",
 		// desc: [
