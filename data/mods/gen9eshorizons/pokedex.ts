@@ -246,7 +246,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.4,
 		weightkg: 240,
 		color: "Gray",
-		changesFrom: "Utilitron",
+		//changesFrom: "Utilitron",
 		eggGroups: ["Mineral"],
 	},
 	utilitroncopter: {
@@ -260,7 +260,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 2.4,
 		weightkg: 240,
 		color: "Gray",
-		changesFrom: "Utilitron",
+		//changesFrom: "Utilitron",
 		eggGroups: ["Mineral"],
 	},
 	faerunee: {

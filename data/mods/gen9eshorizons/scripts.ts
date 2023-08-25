@@ -1538,7 +1538,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (this.ended) return;
 			}
 		},
-	}
+	},
 	actions: {
 		runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) { //Tactician, Full Collide on 0 PP, Own Tempo Dancer immunity
 			pokemon.activeMoveActions++;
