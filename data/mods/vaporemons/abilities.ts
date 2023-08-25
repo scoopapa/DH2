@@ -965,7 +965,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const type = move.type;
 			if (
 				target.isActive && move.effectType === 'Move' && move.category !== 'Status' &&
-				type !== '???' && !target.hasType(type)
+				type !== '???'
 			) {
 				if (!target.setType(type)) return false;
 				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
