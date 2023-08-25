@@ -484,3 +484,25 @@ Error: Nothing matches "lcuber"
     at Object.socketConnect (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\users.js:1303:16)
     at Object.onSpawn (C:\Users\aahfk\Downloads\pokemon-showdown-master-7-17\pokemon-showdown-master\dist\server\sockets.js:63:17)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
+    at new NodeError (node:internal/errors:405:5)
+    at target.disconnect (node:internal/child_process:891:26)
+    at QueryProcessWrapper.destroy (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\lib\process-manager.js:209:18)
+    at QueryProcessWrapper.release (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\lib\process-manager.js:197:12)
+    at QueryProcessManager.releaseCrashed (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\lib\process-manager.js:412:19)
+    at ChildProcess.<anonymous> (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\lib\process-manager.js:471:50)
+    at ChildProcess.emit (node:events:514:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:921:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Error: Unrecognized rule "Standard With Dig and Fly"
+    at DexFormats.validateRule (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\sim\dex-formats.js:703:17)
+    at DexFormats.getRuleTable (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\sim\dex-formats.js:506:29)
+    at DexFormats.getRuleTable (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\sim\dex-formats.js:474:28)
+    at get formatListText [as formatListText] (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\server\rooms.js:1231:37)
+    at GlobalRoomState.handleConnect (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\server\rooms.js:1475:82)
+    at Object.socketConnect (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\server\users.js:1303:16)
+    at Object.onSpawn (C:\Users\jcsmi\Documents\PetMods\dh2-client\DH2\dist\server\sockets.js:63:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
