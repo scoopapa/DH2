@@ -1727,6 +1727,8 @@ export const Formats: FormatList = [
 		column: 4,
 		// name: "ropmm",
 	},
+	
+	//July & August Metas (Will get removed September 7th or 14th)
 	{
 		name: "[Gen 9] Fusion Evolution Camomons",
 		threads: [
@@ -1768,6 +1770,8 @@ export const Formats: FormatList = [
 			}
 		},
 	},
+	
+	//September Metas
 	{
 		name: "[Gen 9] ReGeneration AAA",
 		desc: [
