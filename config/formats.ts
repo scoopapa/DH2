@@ -1757,7 +1757,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1bvvkPg1CrUBJFJJeuwkts8elfJcEcahGOoHm-vGBXOI/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'alternatiumex',
-		ruleset: ['[Gen 9] Alternatium EX', 'Flipped'],
+		ruleset: ['[Gen 9] Alternatium EX', 'Flipped Mod'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
@@ -1782,7 +1782,7 @@ export const Formats: FormatList = [
 			'&bullet; <a href="https://docs.google.com/spreadsheets/d/1wbFWGR5pVcnTTyuy7vAUSrPxqSZsNF-Okx-v1hvD2Vc/edit?usp=sharing">Spreadsheet</a>',
 		],
 		mod: 'regeneration', 
-		ruleset: ['[Gen 9] ReGeneration AAA', '!Obtainable Abilities', 'Ability Clause = 1'],
+		ruleset: ['[Gen 9] ReGeneration', '!Obtainable Abilities', 'Ability Clause = 1'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
