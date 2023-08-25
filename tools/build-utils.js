@@ -42,7 +42,7 @@ const findFilesForPath = path => {
 };
 
 exports.transpile = (decl) => {
-	esbuild.build({
+	esbuild.buildSync({
 		entryPoints: findFilesForPath('./'),
 		outdir: './dist',
 		outbase: '.',
@@ -61,6 +61,6 @@ exports.transpile = (decl) => {
 
 exports.buildDecls = () => {
 	try {
-		child_process.exec(`node ./node_modules/typescript/bin/tsc -p sim`, {stdio: 'inherit'});
+		child_process.execSync(`node ./node_modules/typescript/bin/tsc -p sim`, {stdio: 'inherit'});
 	} catch {}
 };
