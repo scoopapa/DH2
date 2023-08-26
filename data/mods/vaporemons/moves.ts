@@ -856,6 +856,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {heal: 1, snatch: 1},
 		heal: [1, 3],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Morning Sun", target);
+		},
 		self: {
 			onHit(pokemon, source, move) {
 				this.heal(source.baseMaxhp / 3, source, pokemon);
