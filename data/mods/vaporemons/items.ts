@@ -713,7 +713,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (!pokemon.hasType('Rock') || !pokemon.hasType('Steel') || !pokemon.hasType('Ground')) {
+			if (pokemon.hasType('Rock') || pokemon.hasType('Steel') || pokemon.hasType('Ground')) {
+				return null;
+			} else if (!this.field.isWeather('sandstorm')) {
 				this.damage(pokemon.baseMaxhp / 16);
 			}
 		},
