@@ -713,11 +713,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.hasType('Rock') || pokemon.hasType('Steel') || pokemon.hasType('Ground')) {
-				return null;
-			} else if (!this.field.isWeather('sandstorm')) {
+			if (!pokemon.hasType('Rock') || !pokemon.hasType('Steel') || !pokemon.hasType('Ground')) {
 				this.damage(pokemon.baseMaxhp / 16);
 			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
 		},
 		// All other effects coded in the moves and abilities themselves
 		num: -1033,
