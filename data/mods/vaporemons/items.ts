@@ -710,6 +710,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.addVolatile('protocrysalis');
 			}
 		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (!this.field.isWeather('sandstorm') && (!pokemon.hasType('Rock') || 
+				!pokemon.hasType('Ground') || !pokemon.hasType('Steel'))) {
+				this.damage(pokemon.baseMaxhp / 16);
+			}
+		},
 		// All other effects coded in the moves and abilities themselves
 		num: -1033,
 		gen: 8,
