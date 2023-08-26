@@ -105,8 +105,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Effects of Intimidate and Hyper Cutter + This Pokemon can't be statused by opponents.",
 		onStart(pokemon) {
 			let activated = false;
-			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
 					this.add('-ability', pokemon, 'Forest Fury', 'boost');
 					activated = true;
@@ -1469,8 +1468,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Static + Intimidate",
 		onStart(pokemon) {
 			let activated = false;
-			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
 					this.add('-ability', pokemon, 'Shock Factor', 'boost');
 					activated = true;
