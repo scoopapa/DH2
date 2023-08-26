@@ -380,15 +380,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	revavroomcaph: {
 		tier: "ES",
 	},
-	squawkabillyblue: {
-		tier: "OU",
-	},
-	squawkabillyyellow: {
-		tier: "OU",
-	},
-	squawkabillywhite: {
-		tier: "OU",
-	},
 	victreebell: {
 		tier: "OU",
 	},
@@ -397,6 +388,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	darmanitangalarzen: null,
+	melettapirouette: {
+		tier: "OU",
+	},
 	lycanroctwilight: {
 		tier: "OU",
 	},
@@ -428,6 +422,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	saberleaves: {
 		tier: "OU",
 	},
+	/*ironcrown: null,
+	lasercrown: {
+		tier: "OU",
+	},*/
 	ironleaves: null,
 	pikachupartner: null,
 	pikachuoriginal: null,
@@ -437,4 +435,69 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pikachukalos: null,
 	pikachualola: null,
 	pikachuworld: null,
+	greninjabond: null,
+	vivillonfancy: null,
+	vivillonpokeball: null,
+	zarudedada: null,
+	//Battle-only formes (hopefully delete later)
+	arceusbug: {
+		tier: "Uber",
+	},
+	arceusdark: {
+		tier: "Uber",
+	},
+	arceusdragon: {
+		tier: "Uber",
+	},
+	arceuselectric: {
+		tier: "Uber",
+	},
+	arceusfairy: {
+		tier: "Uber",
+	},
+	arceusfighting: {
+		tier: "Uber",
+	},
+	arceusfire: {
+		tier: "Uber",
+	},
+	arceusflying: {
+		tier: "Uber",
+	},
+	arceusghost: {
+		tier: "Uber",
+	},
+	arceusgrass: {
+		tier: "Uber",
+	},
+	arceusground: {
+		tier: "Uber",
+	},
+	arceusice: {
+		tier: "Uber",
+	},
+	arceuspoison: {
+		tier: "Uber",
+	},
+	arceuspsychic: {
+		tier: "Uber",
+	},
+	arceusrock: {
+		tier: "Uber",
+	},
+	arceussteel: {
+		tier: "Uber",
+	},
+	arceuswater: {
+		tier: "Uber",
+	},
+	squawkabillyblue: {
+		tier: "OU",
+	},
+	squawkabillyyellow: {
+		tier: "OU",
+	},
+	squawkabillywhite: {
+		tier: "OU",
+	},
 };

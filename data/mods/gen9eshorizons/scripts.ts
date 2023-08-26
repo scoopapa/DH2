@@ -2416,7 +2416,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			"tynamo", "scatterbug", "spewpa", "cosmog", "cosmoem", "blipbug", "applin"
 		];
 		/* Wide-spread changes */
-		const esrules = this.getRuleTable(this.getFormat('gen9eshorizons'));
+		const esrules = this.formats.getRuleTable(this.formats.get('gen9eshorizons'));
 		//console.log(esrules);
 		for (let pokemonID in this.data.Pokedex) {
 			const pokemon = this.data.Pokedex[pokemonID];

@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: ModdedFormatData} = {
+export const Rulesets: {[k: string]: ModdedFormatData} = {
 	earthsky: {
 		effectType: 'ValidatorRule',
 		name: 'Earth & Sky',
