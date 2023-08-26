@@ -138,4 +138,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	fusionflare: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
