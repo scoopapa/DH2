@@ -82,4 +82,60 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		contestType: "Beautiful",
 	},
+	boltbeak: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	oblivionwing: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sunsteelstrike: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	moongeistbeam: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	blueflare: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	photongeyser: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	trickortreat: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	rockwrecker: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	plasmafists: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	anchorshot: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	purify: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	spectralthief: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	naturesmadness: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fishiousrend: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
