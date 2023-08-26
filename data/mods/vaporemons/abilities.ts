@@ -964,7 +964,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHit(target, source, move) {
 			const type = move.type;
 			if (
-				target.isActive && move.effectType === 'Move' && move.category !== 'Status' &&
+				target.isActive && move.effectType === 'Move' &&
 				type !== '???'
 			) {
 				if (!target.setType(type)) return false;
