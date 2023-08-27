@@ -111,7 +111,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		drain: [1, 4],
 		onModifyMove(move, pokemon) {
-			move.drain += [pokemon.negativeBoosts().spa, 4];
+			move.drain = [pokemon.negativeBoosts.spa(), 4];
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
