@@ -2762,6 +2762,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			waterpulse: ["8M"],
 			return: ["8M"],
 			frustration: ["8M"],
+			armthrust: ["8M"],
 		},
 	},
 	mausholdfour: {

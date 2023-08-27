@@ -504,6 +504,28 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'medidragon').learnset.downdraft = ['8L1'];
     this.modData('Learnsets', 'admistral').learnset.downdraft = ['8L1'];
 
+    // clearmind 
+    this.modData('Learnsets', 'deoxys').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'keldeo').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'mew').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'mystao').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'silvally').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'slowpoke').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'slowpokegalar').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'ironleaves').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'orbeetle').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'uxie').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'delphox').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'gardevoir').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'necrozma').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'reuniclus').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'medicham').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'espeon').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'latias').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'latios').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'mewtwo').learnset.clearmind = ['8L1'];
+    this.modData('Learnsets', 'wizamadol').learnset.clearmind = ['8L1'];
+
     // golemstrike 
     this.modData('Learnsets', 'nidoqueen').learnset.golemstrike = ['8T'];
     this.modData('Learnsets', 'nidoking').learnset.golemstrike = ['8T'];
@@ -1367,6 +1389,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
     this.modData('Learnsets', 'grapploct').learnset.flipturn = ['8L1'];
     this.modData('Learnsets', 'grapploct').learnset.thunderpunch = ['8L1'];
     this.modData('Learnsets', 'grapploct').learnset.machpunch = ['8L1'];
+    this.modData('Learnsets', 'grapploct').learnset.armthrust = ['8L1'];
     this.modData('Learnsets', 'hatterene').learnset.moonblast = ['8L1'];
     this.modData('Learnsets', 'hatterene').learnset.teleport = ['8L1'];
     this.modData('Learnsets', 'hatterene').learnset.moonlight = ['8L1'];
