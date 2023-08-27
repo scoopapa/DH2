@@ -1,4 +1,5 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+   gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['ReGeneration', 'ReGeneration NFE', 'ReGeneration LC'],
