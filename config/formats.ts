@@ -1674,6 +1674,44 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
 	},
 	{
+		name: "[Gen 9] White Tusk",
+
+		mod: 'whitetusk',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: ['All Pokemon', 'King\'s Rock', 'Baton Pass'],
+		unbanlist: ['dustbunnie', 'rebirb', 'strummingbird', 'strummingbirdviola', 'strummingbirdcello', 'strummingbirdcontrabass', 'strummingbirdacoustic', 'strummingbirdelectric', 'strummingbirdbass', 'xylomist', 'yeomelt', 'zoplite', 'yeoxylo', 'xylozop', 'zopyeo', 'xylyeozop', 'xylobone', 'dormirr', 'pufferfinch', 'gumbawl', 'gumbrawlempty', 'gumbrawlbubble', 'gumbrawlfresh', 'gnawingbark', 'ironmint', 'carmilitant', 'toughfee', 'gasharmoir', 'gumbrawlgachamech', 'tartridge', 'opixsi', 'pinfrino', 'leagle', 'kuadrosin', 'blite', 'doctoxin', 'moosquito', 'parrox'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.getSpecies(set.species);
+				if (template.tier !== 'White Tusk') {
+					return [set.species + ' is not legal in the White Tusk format.'];
+				}
+				if (set.species == 'Dormirr' && set.item !== 'Future Sphere')
+					return ["Dormirr can only hold Future Sphere as its item."];
+				if (set.species == 'Xylyeozop' && set.item !== 'Core Module')
+					return ["Xylyeozop can only hold Core Module as its item."];
+				if (set.species == 'Gumbrawl-Bubble' && set.item !== 'Luminous Bubble')
+					return ["Gumbrawl-Bubble can only hold Luminous Bubble as its item."];
+				if (set.species == 'Gumbrawl-Fresh' && set.item !== 'Fresh Stick')
+					return ["Gumbrawl-Fresh can only hold Fresh Stick as its item."];
+				if (set.species == 'Blite' && set.item !== 'Cursed Seal')
+					return ["Blite can only hold Cursed Seal as its item."];
+			}
+			if ((team.includes('Xylomist') && team.includes('Yeoxylo')) ||
+				(team.includes('Xylomist') && team.includes('Xylozop')) ||
+				(team.includes('Xylomist') && team.includes('Xylyeozop')) ||
+				(team.includes('Yeomelt') && team.includes('Yeoxylo')) ||
+				(team.includes('Yeomelt') && team.includes('Zopyeo')) ||
+				(team.includes('Yeomelt') && team.includes('Xylyeozop')) ||
+				(team.includes('Zoplite') && team.includes('Xylozop')) ||
+				(team.includes('Zoplite') && team.includes('Zopyeo')) ||
+				(team.includes('Zoplite') && team.includes('Xylyeozop')))
+				return ['You cannot have XYZ Pokemon with their combined forms.'];
+		},
+	},
+	{
 		name: "[Gen 9] Anything Goes",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3710911/">AG Metagame Discussion</a>`,
