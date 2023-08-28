@@ -760,7 +760,190 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	  type: "Fighting",
 	  contestType: "Clever",
     },
-
+	rollout: {
+		num: 205,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.volatiles['defensecurl']) {
+				this.debug('BP doubled');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Physical",
+	   shortDesc: "Switches the user out. 2x power if Rollout or Defense Curl was used last turn.",
+		name: "Rollout",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, noparentalbond: 1, failinstruct: 1},
+		self: {
+			sideCondition: 'rollout',
+		},
+		selfSwitch: true,
+		condition: {
+			duration: 2,
+			onBasePowerPriority: 1,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.id === 'rollout' && !attacker.volatiles['defensecurl']) {
+					return this.chainModify(2);
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Cute",
+	},
+	round: {
+		num: 496,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+	   shortDesc: "Switches the user out. 2x power if Round was used last turn.",
+		name: "Round",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		self: {
+			sideCondition: 'round',
+		},
+		selfSwitch: true,
+		condition: {
+			duration: 2,
+			onBasePowerPriority: 1,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.id === 'round') {
+					return this.chainModify(2);
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Beautiful",
+	},
+	rekindleheal: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Healing from Rekindle.",
+		name: "Rekindle Heal",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		volatileStatus: 'rekindleheal',
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Rekindle');
+			},
+			onResidualOrder: 6,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 8);
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fire",
+	},
+	rekindle: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Heals by 1/3 max HP, then 1/8 every turn. Burns foe if they switch out.",
+		name: "Rekindle",
+		pp: 10,
+		priority: 0,
+		flags: {heal: 1, snatch: 1},
+		heal: [1, 3],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Morning Sun", target);
+		},
+		self: {
+			onHit(pokemon, source, move) {
+				this.heal(source.baseMaxhp / 3, source, pokemon);
+				pokemon.addVolatile('rekindleheal');
+			},
+		},
+		beforeTurnCallback(pokemon) {
+			for (const side of this.sides) {
+				if (side.hasAlly(pokemon)) continue;
+				side.addSideCondition('rekindle', pokemon);
+				const data = side.getSideConditionData('rekindle');
+				if (!data.sources) {
+					data.sources = [];
+				}
+				data.sources.push(pokemon);
+			}
+		},
+		onTryHit(target, pokemon) {
+			target.side.removeSideCondition('rekindle');
+		},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Rekindle start');
+				let alreadyAdded = false;
+				pokemon.removeVolatile('destinybond');
+				for (const source of this.effectState.sources) {
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Rekindle');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					pokemon.trySetStatus('brn', source);
+					this.actions.runMove('rekindle', source, source.getLocOf(pokemon));
+				}
+			},
+		},
+		secondary: null,
+		target: "all",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	meteorbeam: {
+		num: 800,
+		accuracy: 90,
+		basePower: 120,
+		category: "Special",
+	   shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2. Hits in 1 turn in Sand.",
+		name: "Meteor Beam",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({spa: 1}, attacker, attacker, move);
+			if (this.field.isWeather('sandstorm') || attacker.hasItem('sandclock')) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+	},
 
 // all edited unchanged moves
 	stealthrock: {
@@ -781,7 +964,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onEntryHazard(pokemon) {
 				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
-				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				if (pokemon.hasAbility('smelt')) {
+					const fireHazard = this.dex.getActiveMove('Stealth Rock');
+					fireHazard.type = 'Fire';
+					const smeltMod = this.clampIntRange(pokemon.runEffectiveness(fireHazard), -6, 6);
+					this.damage(pokemon.maxhp * Math.pow(2, smeltMod) / 8);
+				} else {
+					this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
+				}
 			},
 		},
 		secondary: null,
@@ -1809,22 +1999,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	blizzard: {
-		inherit: true,
-		self: {
-			onHit(pokemon, source, move) {
-				if (source.hasItem('airfreshener')) {
-					this.add('-activate', source, 'move: Aromatherapy');
-					for (const ally of source.side.pokemon) {
-						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
-							continue;
-						}
-						ally.cureStatus();
-					}
-				}
-			},
-		},
-	},
 	fairywind: {
 		inherit: true,
 		self: {
@@ -2303,6 +2477,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: {
 			chance: 10,
 			status: 'frz',
+		},
+		self: {
+			onHit(pokemon, source, move) {
+				if (source.hasItem('airfreshener')) {
+					this.add('-activate', source, 'move: Aromatherapy');
+					for (const ally of source.side.pokemon) {
+						if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+							continue;
+						}
+						ally.cureStatus();
+					}
+				}
+			},
 		},
 		target: "allAdjacentFoes",
 		type: "Ice",
