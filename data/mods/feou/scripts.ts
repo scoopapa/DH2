@@ -27,6 +27,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (item.name === "Steelixite" && pokemon.baseSpecies.name === "Tyranix") {
 				return "Tyranix-Mega-Y"; 
 			}
+			if (item.name === "Alakazite" && pokemon.baseSpecies.name === "Mawlakazam") {
+				return "Mawlakazam-Mega-Y"; 
+			}
+			if (item.name === "Mawilite" && pokemon.baseSpecies.name === "Mawlakazam") {
+				return "Mawlakazam-Mega-X"; 
+			}
 			
 			return item.megaStone;
 		},
