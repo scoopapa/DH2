@@ -474,10 +474,10 @@ export const Formats: FormatList = [
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['R2OU'];
+			let allowedTiers = ['R2'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'R2OU') {
+				if (template.tier !== 'R2') {
 					return [set.species + ' is not legal in [Gen 9] Roulettemons 2.'];
 				}
 			}
@@ -496,10 +496,10 @@ export const Formats: FormatList = [
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['R2OU', 'R2Uber'];
+			let allowedTiers = ['R2', 'R2Ubers'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'R2OU' && template.tier !== 'R2Uber') {
+				if (template.tier !== 'R2' && template.tier !== 'R2Ubers') {
 					return [set.species + ' is not legal in [Gen 9] Roulettemons 2.'];
 				}
 			}
