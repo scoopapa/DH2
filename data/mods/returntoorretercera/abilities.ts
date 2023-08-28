@@ -199,4 +199,56 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 220,
 	},
+	shadowscourge: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+			   if (!target.activeTurns) {
+					this.damage(target.baseMaxhp / 16, target, pokemon);
+				}
+			}
+		},
+		name: "Shadow Scourge",
+		shortDesc: "When opponent switches in, while Heracross-Shadow is active, opposing Pokémon take 1/16 of their hp as damage.",
+		rating: 3.5,
+		num: 220,
+	},
+	shadowdawn: {
+		onStart(source) {
+			this.field.setWeather('shadowsky');
+		},
+		name: "Shadow Dawn",
+		shortDesc: "Sets Shadow Sky.",
+		rating: 3.5,
+		num: 220,
+	},
+	shadowspell: {
+		onModifyMove(move) {
+			if (!move || !target) return;
+			if (target !== source && target.hp && move.category == 'Special' && !move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				boosts: {
+				   spd: -1,
+				},
+				ability: this.dex.abilities.get('shadowspell'),
+			});
+		},
+		name: "Shadow Spell",
+		shortDesc: "This Pokémon's special moves have an additional 30% chance of lower their target SpDef by one stage.",
+		rating: 3.5,
+		num: 220,
+	},
+	darkmind: {
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Dark' || move.type === 'Psychic' || move.pranksterBoosted)) {
+				this.add('-immune', target, '[from] ability: Dark Mind');
+			}
+	   },
+		name: "Dark Mind",
+		shortDesc: "This Pokémon's special moves have an additional 30% chance of lower their target SpDef by one stage.",
+		rating: 3.5,
+		num: 220,
+	},
 };
