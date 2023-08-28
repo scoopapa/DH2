@@ -935,6 +935,78 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Battle Spines",
 		shortDesc: "This Pokemon’s attacks do an additional 1/8 of the target’s max HP in damage.",
 	},
+	smelt: {
+		name: "Smelt",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Smelt');
+			this.add('-message', `${pokemon.name}'s heat turns rocks into magma!`);
+		},
+		onFoeBeforeMovePriority: 13,
+		onFoeBeforeMove(attacker, defender, move) {
+			attacker.addVolatile('smelt');
+		},
+		condition: {
+			onModifyTypePriority: -1,
+			onModifyType(move, pokemon) {
+				if (move.type === 'Rock') {
+					move.type = 'Fire';
+				}
+			},
+			onAfterMove(pokemon) {
+				pokemon.removeVolatile('smelt');
+			},
+		},
+		shortDesc: "Rock moves used against this Pokemon become Fire-type (includes Stealth Rock).",
+		rating: 4,
+	},
+	colorchange: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			const type = move.type;
+			if (
+				target.isActive && move.effectType === 'Move' &&
+				type !== '???'
+			) {
+				if (!target.setType(type)) return false;
+				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
+
+				if (target.side.active.length === 2 && target.position === 1) {
+					// Curse Glitch
+					const action = this.queue.willMove(target);
+					if (action && action.move.id === 'curse') {
+						action.targetLoc = -1;
+					}
+				}
+			}
+		},
+		name: "Color Change",
+		shortDesc: "This Pokemon's type changes to the type of a move it's about to be hit by, unless it has the type.",
+		rating: 0,
+		num: 16,
+	},
+	greeneyed: {
+		name: "Green-Eyed",
+		onStart(source) {
+			this.actions.useMove("Snatch", source);
+		},
+		shortDesc: "On switch-in, if the foe uses a Snatchable move, this Pokemon uses it instead.",
+		rating: 3,
+	},
+	mudwash: {
+		name: "Mud Wash",
+		onStart(source) {
+			this.actions.useMove("Mud Sport", source);
+			this.actions.useMove("Water Sport", source);
+			this.add('-message', `${source.name}'s splashed around in the mud!`);
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.name === 'Muddy Water' || move.name === 'Mud Shot' || move.name === 'Mud Bomb' || move.name === 'Mud-Slap') {
+				return this.chainModify(2);
+			}
+		},
+		shortDesc: "On switch-in, sets Mud Sport and Water Sport. This Pokemon's mud moves deal double damage.",
+		rating: 5,
+	},
 	
 // unchanged abilities
 	damp: {
