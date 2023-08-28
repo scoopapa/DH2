@@ -1328,10 +1328,21 @@ export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	//////////////////////// Solomods /////////////////////////////
 	///////////////////////////////////////////////////////////////
-	// {
-		// section: "Solomods",
-		// column: 2,
-	// },
+	{
+		section: "Solomods",
+		column: 2,
+	},
+	{
+		name: "[Gen 9] Kitchen",
+		mod: "kitchen",
+		desc: [
+			"Mintly's mod.",
+		],
+		threads: [
+		],
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: [],
+	},
 	// {
 		// name: "[Gen 8] A Golden Experience",
 		// mod: "agoldenexperience", 
@@ -1424,17 +1435,17 @@ export const Formats: FormatList = [
 			// this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		// },
 	// },
-	// {
-		// name: "[Gen 8] Scootopia",
-		// desc: "A solomod consisting of Scoopapa's first 30 sprited fakemons!",
-		// threads: [
-			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit?usp=sharing">Spreadsheet</a>`,
-		// ],
-		// mod: "scootopia",
-		// ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
+	{
+		name: "[Gen 9] Scootopia",
+		desc: "A solomod consisting of Scoopapa's first 30 sprited fakemons!",
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: "scootopia",
+		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
 		// banlist: ['All Pokemon'],
 		// unbanlist: ['Orchile', 'Dolphena', 'Scalaron', 'Rantler', 'Cobracotta', 'Albatrygon', 'Electangle', 'Torgeist', 'Platypad', 'Soleron', 'Nunopod', 'Zeploom', 'Brawnkey', 'Salamalix', 'Cinnastar', "Muab'Boa", 'Volvolpa', 'Harzodia', 'Cyllindrake', 'Kodokai', 'Jaegorm', 'Jaegorm-Collective', 'Faerenheit', 'Cellsius', 'Kelven', 'Salaos', 'Morndos', 'Pythos', 'Quadringo', 'Corundell', 'Flocura' ],
-	// },
+	},
 	// {
 		// name: "[Gen 8] The 3-3-1 Typechart",
 		// desc: [
