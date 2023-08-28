@@ -32,7 +32,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (this.queue.peek(true)?.choice === 'runSwitch') return;
 
 			if (!this.field.isWeather('sunnyday')) {
-				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife']) { 
+				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife',
+											'prehistorichunter', 'ancientmarble']) { 
 					if (pokemon.hasAbility(proto)) {
 						if (!pokemon.volatiles[proto] /* && !this.field.isWeather('sunnyday') */ && pokemon.useItem()) {
 							pokemon.addVolatile(proto);
@@ -172,5 +173,44 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem: false,
 		num: -1001,
 		desc: "If held by a Necrotrik-Dawn-Wings, this item allows it to Ultra Burst in battle. This does not allow it to use a Z-Move.",
+	},
+	alakazite: {
+		name: "Alakazite",
+		spritenum: 579,
+		megaStone: "Mawlakazam-Mega-Y",
+		megaEvolves: "Mawlakazam",
+		itemUser: ["Mawlakazam"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 679,
+		desc: "If held by a Mawlakazam, this item allows it to Mega Evolve in battle.",
+	},
+	mawilite: {
+		name: "Mawilite",
+		spritenum: 598,
+		megaStone: "Mawlakazam-Mega-X",
+		megaEvolves: "Mawlakazam",
+		itemUser: ["Mawlakazam"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 681,
+		desc: "If held by a Mawlakazam, this item allows it to Mega Evolve in battle.",
+	},
+	scizorite: {
+		name: "Scizorite",
+		spritenum: 605,
+		megaStone: "Druddizor-Mega",
+		megaEvolves: "Druddizor",
+		itemUser: ["Druddizor"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 670,
+		desc: "If held by a Druddizor, this item allows it to Mega Evolve in battle.",
 	},
 };

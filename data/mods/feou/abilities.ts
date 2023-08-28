@@ -105,8 +105,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Effects of Intimidate and Hyper Cutter + This Pokemon can't be statused by opponents.",
 		onStart(pokemon) {
 			let activated = false;
-			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
 					this.add('-ability', pokemon, 'Forest Fury', 'boost');
 					activated = true;
@@ -1118,7 +1117,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'dyschronometria']) { 
+											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) { 
 					if (attacker.volatiles[paradox]) {
 						this.debug('Dyschronometria weaken');
 						return this.chainModify([3151, 4096]);
@@ -1130,7 +1129,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'dyschronometria']) { 
+											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) { 
 					if (defender.volatiles[paradox]) {
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([5325, 4096]);
@@ -1146,7 +1145,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'dyschronometria']) { 
+											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) { 
 					if (attacker.volatiles[paradox]) {
 						this.debug('Dyschronometria weaken');
 						return this.chainModify([3151, 4096]);
@@ -1158,7 +1157,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'dyschronometria']) { 
+											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) { 
 					if (defender.volatiles[paradox]) {
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([5325, 4096]);
@@ -1469,8 +1468,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Static + Intimidate",
 		onStart(pokemon) {
 			let activated = false;
-			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
 					this.add('-ability', pokemon, 'Shock Factor', 'boost');
 					activated = true;
@@ -2248,6 +2246,248 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Airborne Armor",
+		rating: 3,
+	},
+	bleedingedge: {
+	  shortDesc: "Mold Breaker + Technician",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Bleeding Edge');
+			this.add('-message', `${pokemon.name} breaks the mold!`);
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Bleeding Edge boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Bleeding Edge",
+		rating: 3,
+	},
+	ancientmarble: {
+	  shortDesc: "Protosynthesis + Sharpness",
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Ancient Marble boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onWeatherChange(pokemon) {
+			if (pokemon.transformed) return;
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('ancientmarble');
+			} else if (!pokemon.volatiles['ancientmarble']?.fromBooster) {
+				pokemon.removeVolatile('ancientmarble');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['ancientmarble'];
+			this.add('-end', pokemon, 'Ancient Marble', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'boosterenergy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Ancient Marble', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Ancient Marble');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'ancientmarble' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, source, target, move) {
+				if (this.effectState.bestStat !== 'atk') return;
+				this.debug('Ancient Marble atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.effectState.bestStat !== 'def') return;
+				this.debug('Ancient Marble def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(relayVar, source, target, move) {
+				if (this.effectState.bestStat !== 'spa') return;
+				this.debug('Ancient Marble spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(relayVar, target, source, move) {
+				if (this.effectState.bestStat !== 'spd') return;
+				this.debug('Ancient Marble spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe') return;
+				this.debug('Ancient Marble spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Ancient Marble');
+			},
+		},
+		isPermanent: true,
+		name: "Ancient Marble",
+		rating: 3,
+	},
+	spongeofruin: {
+	  shortDesc: "Beads of Ruin + Water Absorb",
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Sponge of Ruin');
+			this.add('-message', `${pokemon.name}'s Sponge of Ruin weakened the Sp. Def of all surrounding Pokémon!`);
+		},
+		onAnyModifySpD(spd, target, source, move) {
+			const abilityHolder = this.effectState.target;
+			if (target.hasAbility('Sponge of Ruin')) return;
+			if (!move.ruinedSpD?.hasAbility('Sponge of Ruin')) move.ruinedSpD = abilityHolder;
+			if (move.ruinedSpD !== abilityHolder) return;
+			this.debug('Sponge of Ruin SpD drop');
+			return this.chainModify(0.75);
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Sponge of Ruin');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Sponge of Ruin",
+		rating: 3,
+	},
+	overwhelming: {
+	  shortDesc: "Magic Guard + Sheer Force",
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
+		},
+		name: "Overwhelming",
+		rating: 3,
+	},
+	prehistorichunter: {
+	  shortDesc: "Protosynthesis + Gulp Missile. Gulp Missile is also activated by Sun and Booster Energy.",
+		onStart(pokemon) {
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hp || !source.isActive || target.transformed || target.isSemiInvulnerable()) return;
+			if (['screamcomorantgulping', 'screamcomorantgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'screamcomorantgulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange('screamcomorant', move);
+				delete target.volatiles['prehistorichunter'];
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'surf' && source.hasAbility('prehistorichunter') &&
+				source.species.name === 'Scream Comorant' && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+				source.formeChange(forme, effect);
+				source.addVolatile('prehistorichunter');				
+			}
+		},
+		onWeatherChange(pokemon) {
+			// if (pokemon.transformed) return;
+			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isWeather('sunnyday')) {
+				pokemon.addVolatile('prehistorichunter');
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			} else if (!pokemon.volatiles['prehistorichunter']?.fromBooster) {
+				pokemon.removeVolatile('prehistorichunter');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['prehistorichunter'];
+			this.add('-end', pokemon, 'Prehistoric Hunter', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+				if (effect?.id === 'boosterenergy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Prehistoric Hunter', '[fromitem]');
+					pokemon.formeChange(forme, this.effect, false, '[msg]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Prehistoric Hunter');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'prehistorichunter' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, source, target, move) {
+				if (this.effectState.bestStat !== 'atk') return;
+				this.debug('Prehistoric Hunter atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.effectState.bestStat !== 'def') return;
+				this.debug('Prehistoric Hunter def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(relayVar, source, target, move) {
+				if (this.effectState.bestStat !== 'spa') return;
+				this.debug('Prehistoric Hunter spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(relayVar, target, source, move) {
+				if (this.effectState.bestStat !== 'spd') return;
+				this.debug('Prehistoric Hunter spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe') return;
+				this.debug('Prehistoric Hunter spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Prehistoric Hunter');
+			},
+		},
+		isPermanent: true,
+		name: "Prehistoric Hunter",
 		rating: 3,
 	},
 

@@ -290,6 +290,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Gale Wings"},
 	},
+	rotomheat: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Smelt"},
+	},
 	bombirdier: {
 		inherit: true,
 		abilities: {0: "Big Pecks", 1: "Gale Wings", H: "Rocky Payload"},
@@ -431,7 +435,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	spiritomb: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Death Aura", H: "Infiltrator"},
+		abilities: {0: "Pressure", 1: "Death Aura", H: "Green-Eyed"},
 	},
 	froslass: {
 		inherit: true,
@@ -471,7 +475,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	tsareena: {
 		inherit: true,
-		abilities: {0: "Seed Sower", 1: "Queenly Majesty", H: "Sweet Veil"},
+		types: ["Grass", "Fairy"],
+		abilities: {0: "Seed Sower", 1: "Queenly Majesty", H: "Cute Charm"},
 	},
 	leafeon: {
 		inherit: true,
@@ -598,9 +603,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Strong Jaw", 1: "Sand Veil", H: "Swift Swim"},
 	},
+	sneasel: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Keen Eye", H: "Green-Eyed"},
+	},
 	weavile: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Snow Cloak", H: "Pickpocket"},
+		abilities: {0: "Pressure", 1: "Snow Cloak", H: "Green-Eyed"},
 	},
 	snom: {
 		inherit: true,
@@ -624,11 +633,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	salandit: {
 		inherit: true,
-		abilities: {0: "Corrosion", 1: "Sunblock", H: "Oblivious"},
+		abilities: {0: "Corrosion", 1: "Sunblock", H: "Green-Eyed"},
 	},
 	salazzle: {
 		inherit: true,
-		abilities: {0: "Corrosion", 1: "Sunblock", H: "Oblivious"},
+		abilities: {0: "Corrosion", 1: "Sunblock", H: "Green-Eyed"},
 	},
 	fomantis: {
 		inherit: true,
@@ -762,5 +771,186 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gothitelle: {
 		inherit: true,
 		abilities: {0: "Sheer Heart", 1: "Competitive", H: "Shadow Tag"},
+	},
+	gastrodon: {
+		inherit: true,
+		abilities: {0: "Color Change", 1: "Storm Drain", H: "Sand Force"},
+	},
+	deerling: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Color Change", H: "Serene Grace"},
+	},
+	sawsbuck: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Color Change", H: "Serene Grace"},
+	},
+	toedscool: {
+		inherit: true,
+		abilities: {0: "Mycelium Might", H: "Color Change"},
+	},
+	toedscruel: {
+		inherit: true,
+		abilities: {0: "Mycelium Might", H: "Color Change"},
+	},
+	heatran: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Smelt", H: "Flame Body"},
+	},
+	torkoal: {
+		inherit: true,
+		abilities: {0: "White Smoke", 1: "Drought", H: "Smelt"},
+	},
+	camerupt: {
+		inherit: true,
+		abilities: {0: "Smelt", 1: "Solid Rock", H: "Anger Point"},
+	},
+	rolycoly: {
+		inherit: true,
+		abilities: {0: "Steam Engine", 1: "Heatproof", H: "Smelt"},
+	},
+	carkol: {
+		inherit: true,
+		abilities: {0: "Steam Engine", 1: "Flame Body", H: "Smelt"},
+	},
+	coalossal: {
+		inherit: true,
+		abilities: {0: "Steam Engine", 1: "Flame Body", H: "Smelt"},
+	},
+	chiyu: {
+		inherit: true,
+		abilities: {0: "Beads of Ruin", H: "Smelt"},
+	},
+	tinglu: {
+		inherit: true,
+		abilities: {0: "Vessel of Ruin", H: "Green-Eyed"},
+	},
+	moltresgalar: {
+		inherit: true,
+		abilities: {0: "Berserk", H: "Green-Eyed"},
+	},
+	mewoth: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Technician", H: "Green-Eyed"},
+	},
+	persian: {
+		inherit: true,
+		abilities: {0: "Limber", 1: "Technician", H: "Green-Eyed"},
+	},
+	meowthalola: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Technician", H: "Green-Eyed"},
+	},
+	persianalola: {
+		inherit: true,
+		abilities: {0: "Fur Coat", 1: "Technician", H: "Green-Eyed"},
+	},
+	zangoose: {
+		inherit: true,
+		abilities: {0: "Immunity", 1: "Green-Eyed", H: "Toxic Boost"},
+	},
+	seviper: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Green-Eyed", H: "Infiltrator"},
+	},
+	scovillain: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Green-Eyed", H: "Moody"},
+	},
+	hoopa: {
+		inherit: true,
+		abilities: {0: "Magician", H: "Green-Eyed"},
+	},
+	hoopaunbound: {
+		inherit: true,
+		abilities: {0: "Magician", H: "Green-Eyed"},
+	},
+	zorua: {
+		inherit: true,
+		abilities: {0: "Illusion", H: "Green-Eyed"},
+	},
+	zoroark: {
+		inherit: true,
+		abilities: {0: "Illusion", H: "Green-Eyed"},
+	},
+	murkrow: {
+		inherit: true,
+		abilities: {0: "Green-Eyed", 1: "Super Luck", H: "Prankster"},
+	},
+	honchkrow: {
+		inherit: true,
+		abilities: {0: "Green-Eyed", 1: "Super Luck", H: "Moxie"},
+	},
+	impidimp: {
+		inherit: true,
+		abilities: {0: "Prankster", 1: "Frisk", H: "Green-Eyed"},
+	},
+	morgrem: {
+		inherit: true,
+		abilities: {0: "Prankster", 1: "Frisk", H: "Green-Eyed"},
+	},
+	grimmsnarl: {
+		inherit: true,
+		abilities: {0: "Prankster", 1: "Frisk", H: "Green-Eyed"},
+	},
+	sableye: {
+		inherit: true,
+		abilities: {0: "Green-Eyed", 1: "Stall", H: "Prankster"},
+	},
+	mudbray: {
+		inherit: true,
+		abilities: {0: "Mud Wash", 1: "Stamina", H: "Inner Focus"},
+	},
+	mudsdale: {
+		inherit: true,
+		abilities: {0: "Mud Wash", 1: "Stamina", H: "Inner Focus"},
+	},
+	barboach: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Oblivious", H: "Mud Wash"},
+	},
+	whiscash: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Oblivious", H: "Mud Wash"},
+	},
+	vaporeon: {
+		inherit: true,
+		abilities: {0: "Water Absorb", H: "Mud Wash"},
+	},
+	surskit: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Mud Wash", H: "Rain Dish"},
+	},
+	masquerain: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Mud Wash", H: "Unnerve"},
+	},
+	pelipper: {
+		inherit: true,
+		abilities: {0: "Mud Wash", 1: "Drizzle", H: "Rain Dish"},
+	},
+	orthworm: {
+		inherit: true,
+		types: ["Steel", "Water"],
+		abilities: {0: "Earth Eater", 1: "Steely Spirit", H: "Mud Wash"},
+	},
+	psyduck: {
+		inherit: true,
+		abilities: {0: "Mud Wash", 1: "Cloud Nine", H: "Swift Swim"},
+	},
+	golduck: {
+		inherit: true,
+		abilities: {0: "Mud Wash", 1: "Cloud Nine", H: "Swift Swim"},
+	},
+	wooper: {
+		inherit: true,
+		abilities: {0: "Mud Wash", 1: "Water Absorb", H: "Unaware"},
+	},
+	quagsire: {
+		inherit: true,
+		abilities: {0: "Mud Wash", 1: "Water Absorb", H: "Unaware"},
+	},
+	salamence: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Technician", H: "Moxie"},
 	},
 };
