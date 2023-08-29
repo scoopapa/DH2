@@ -2212,7 +2212,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			resistFirst?: boolean
 		): string { //New function that picks the most advantageous type, improved from the method used for the Legend Plate.
 			const dex = this.dex;
-			const typeList = Object.keys(dex.data.TypeChart); //TODO: Replace with dex.types.names()
+			const typeList = Object.keys(dex.types.all());
 			const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
 			this.debug("Getting effectiveness against " + targetTyping);
 			let bestTypes = Object.assign([], typeList);
@@ -2372,8 +2372,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		/* Removed/renamed accessibility and other init stuff */
 		/*const unavailablePokemon = [
 			"pikachubelle", "pikachucosplay", "pikachulibre", "pikachuphd", "pikachupopstar", "pikachurockstar", "pikachustarter", "eeveestarter", "pichuspikyeared", "dialgaorigin", "palkiaorigin", "floetteeternal", "eternatuseternamax", "zarudedada"
-		];
-		const renamedPokemon = [
+		];*/
+		/*const renamedPokemon = [
 			"Victreebel", "Darmanitan-Galar-Zen", "Lycanroc-Dusk", "Iron Bundle", "Iron Jugulis", "Iron Hands", "Iron Moth", "Iron Thorns", "Iron Valiant", "Iron Leaves"
 		];
 		const newNamePokemon = [
@@ -2418,14 +2418,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		/* Wide-spread changes */
 		const esrules = this.formats.getRuleTable(this.formats.get('gen9eshorizons'));
 		//console.log(esrules);
-		for (let pokemonID in this.data.Pokedex) {
-			const pokemon = this.data.Pokedex[pokemonID];
+		for (let pokemon of this.species.all()) {
+			const pokemonID = this.toID(pokemon.name);
 			const learnsetTest = false;//["sawsbuck","golurk","swanna"].includes(pokemonID);
-			const formatsTest = false;//["deerling","sawsbuck","golett","golurk","ducklett","swanna"].includes(pokemonID);
-			 //Don't do anything with the new Pokemon
-			if(pokemon.num < -500) continue;
+			const formatsTest = false;//["bulbasaur", "arceusbug"].includes(pokemonID);
+			 //Don't do anything with new or deleted Pokemon
+			if(pokemon === null || pokemon.num < -500) continue;
 			//Change generational accessibility
 			if(this.modData('FormatsData', pokemonID)) {
+				if(formatsTest && !this.modData('Pokedex', pokemonID)) console.log(pokemonID + " has tiering but not dex data");
 				switch(this.modData('FormatsData', pokemonID).isNonstandard) {
 					case "CAP":
 						if(!pokemon.battleOnly){ //Reset tiers for all Pokemon that have their own tiering data
@@ -2437,11 +2438,11 @@ export const Scripts: ModdedBattleScriptsData = {
 						}
 						break;
 					case "Past":
-						delete this.modData('FormatsData', pokemonID).isNonstandard;
-						delete this.modData('Pokedex', pokemonID).isNonstandard;
 						if(formatsTest) {
 							console.log(pokemon.name + " restoration");
 						}
+						delete this.modData('FormatsData', pokemonID).isNonstandard;
+						delete this.modData('Pokedex', pokemonID).isNonstandard;
 					case undefined:
 						if(!pokemon.battleOnly){ //Reset tiers for all Pokemon that have their own tiering data
 							if(pokemon.evos) {
@@ -2450,17 +2451,21 @@ export const Scripts: ModdedBattleScriptsData = {
 							} else {
 								this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
 								this.modData('Pokedex', pokemonID).tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
-								if(formatsTest){
+								/* if(formatsTest){
 									console.log(pokemon.name + "'s formatsData: ");
 									console.log(this.data.FormatsData[pokemonID]);
 									console.log(this.modData('Pokedex', pokemonID).isNonstandard);
-								}
+								} */
 							}
+						} else {
+							this.modData('FormatsData', pokemonID).tier = "Illegal";
+							this.modData('Pokedex', pokemonID).tier = "Illegal";
 						}
 						break;
 					default: //All other non-standard Pokemon are to remain unusable
 						continue;
 				}
+				if(pokemon.canGigantamax) delete pokemon.canGigantamax;
 			}
 			//Don't do move stuff with formes that don't have their own movesets (and Xerneas)
 			if(pokemon.battleOnly || ["Egelas", "Sartori", "Mega", "Mega-X", "Mega-Y", "Primal"].includes(pokemon.forme) || 
@@ -2468,6 +2473,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				"Oricorio", "Silvally", "Magearna", "Sinistea", "Polteageist", "Eternatus", "Zarude", "Squawkabilly", "Palafin", "Dudunsparce", "Gimmighoul", "Venomicon"].includes(pokemon.baseSpecies)
 				&& pokemon.baseSpecies !== pokemon.name))
 				continue;
+			if(this.modData('Learnsets', pokemonID) === undefined){
+				console.log(pokemonID + " does not have a learnset");
+				console.log(pokemon);
+			}
 			if(learnsetTest) {
 				console.log("Modifying learnset of " + pokemon.name);
 				console.log(this.modData('Learnsets', pokemonID).learnset);
@@ -2495,8 +2504,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				if(learnsetTest) console.log("Commencing update");
 			}
 			
-			for(let moveID in this.data.Moves) { //TODO: change to Dex.moves.all() when DH updates to it
-				const move = this.data.Moves[moveID];
+			for(let move of this.moves.all()) {
+				const moveID = this.toID(move.name);
 				moveLearn = this.modData('Learnsets', pokemonID).learnset[moveID];
 				if(!moveLearn){
 					// checks for new universal machines
@@ -2640,13 +2649,13 @@ export const Scripts: ModdedBattleScriptsData = {
 			delete this.data['Learnsets'][oldID];
 			delete this.data['FormatsData'][oldID];
 		}*/
-		for(let moveID in this.data.Moves) {
-			const move = this.modData('Moves', moveID);
+		for(let move of this.moves.all()) {
+			const moveID = this.toID(move.name);
 			if(moveID.endsWith('torque') || move.isNonstandard === "Past") delete move.isNonstandard;
 			if(move.zMove) delete move.zMove;
 		}
 		/*for(const moveID of renamedMoves) {
-			//delete Object.keys(this.data.Moves)[moveID];
+			//delete Object.keys(Dex.moves)[moveID];
 			const move = this.modData('Moves', moveID);
 			move.isNonstandard = "Unobtainable";
 		}
@@ -2665,8 +2674,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			const ability = this.modData('Abilities', abilityID);
 			ability.isNonstandard = "Past";
 		}*/
-		for(let itemID in this.data.Items){
-			const item = this.modData('Items', itemID);
+		for(let item of this.items.all()){
+			const itemID = this.toID(item.name);
 			if((item.isNonstandard === "Past" || item.isNonstandard === "Unobtainable") && !item.zMove) delete item.isNonstandard;
 			if(item.isBerry && !item.consumable) item.consumable = true; //I manually added the flag to the ones I edited, but there are some I didn't edit.
 			if(item.fling && item.fling.basePower === 10){ //Fling BP buffs
@@ -7978,6 +7987,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "tyrunt").learnset.quash = ["9D"];
 		this.modData("Learnsets", "tyrunt").learnset.assurance = ["9M"];
 		this.modData("Learnsets", "tyrunt").learnset.tantrum = ["9L49","9M"];
+		this.modData("Learnsets", "tyrunt").learnset.closecombat = ["9E"];
+		this.modData("Learnsets", "tyrunt").learnset.psychicfang = ["9E"];
 		delete this.modData('Learnsets', 'tyrunt').learnset.horndrill;
 		// Tyrantrum
 		this.modData("Learnsets", "tyrantrum").learnset.quash = ["9D"];

@@ -3607,6 +3607,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 			"Vivillon-Pokeball",
 		],
 	},
+	vivillonfancy: null,
+	vivillonpokeball: null,
 	sylveon: {
 		inherit: true,
 		evoType: "levelExtra",
