@@ -170,7 +170,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	patriach: {
 		onStart(pokemon) {
-			if (pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted && !ally.status) {
+			if (pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted && !ally.status)) {
 				this.add('-activate', pokemon, 'ability: Patriach');
 				const healthy = Math.min(pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted && !ally.status), 5);
 				this.add('-start', pokemon, `healthy{healthy}`, '[silent]');

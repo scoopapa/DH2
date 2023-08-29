@@ -22,7 +22,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	miasma: {
 		// upokecenter says this is implemented as an added secondary effect
 		onModifyMove(move) {
-			if (move.type !=== 'Normal' && target.type === 'Shadow' && !move || move.target === 'self') return;
+			if (move.type !== 'Normal' && target.type === 'Shadow' && !move || move.target === 'self') return;
 			if (!move.secondaries) {
 				move.secondaries = [];
 			}
@@ -39,8 +39,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	lawsofstreet: {
 		onModifyDamage(damage, source, target, move) {
-			if (move.type !=== 'Shadow' && target.getMoveHitData(move).typeMod > 0) continue;
-         if (move.category === 'Physical') {
+			if (move.type !== 'Shadow' && target.getMoveHitData(move).typeMod > 0) return;
+			if (move.category === 'Physical') {
 			   this.boost({def: -1}, source, target, null, true);
 			} else if (move.category === 'Special') {
 			   this.boost({spd: -1}, source, target, null, true);

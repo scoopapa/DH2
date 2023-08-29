@@ -31,7 +31,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -5,
 		name: "Raticate-Shadow-2",
 		types: ["Normal", "Shadow"],
-		baseStats: {hp: 68, atk: 95, def: 57 spa: 95, spd: 66, spe: 105},
+		baseStats: {hp: 68, atk: 95, def: 57, spa: 95, spd: 66, spe: 105},
 		abilities: {0: "Laws of Street"},
 	},
 	froslasspurified: {
@@ -60,7 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Minun-Shadow",
 		types: ["Electric", "Shadow"],
 		baseStats: {hp: 90, atk: 30, def: 80, spa: 75, spd: 115, spe: 105},
-		abilities: {0: "Lightning Rod", 1: "Minus", "Negative Charge"},
+		abilities: {0: "Lightning Rod", 1: "Minus", H: "Negative Charge"},
 	},
 	arcanineshadow: {
 		num: -9,

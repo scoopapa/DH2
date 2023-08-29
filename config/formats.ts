@@ -306,6 +306,28 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Fakemon Frontier OU",
+		desc: `<b>[Gen 9] Fakemon Frontier OU</b>: A meta where the only legal Pokemon are community-made Fakemon that follow two of four predetermined "rules."`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3722349/">Fakemon Frontier on Smogon Forums</a>`,
+		],
+		mod: 'fakemonfrontier',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+		],
+		onValidateTeam(team, format) {
+			let speciesTable = {};
+			let allowedTiers = ['FFOU'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'FFOU') {
+					return [set.species + ' is not legal in [Gen 9] Fakemon Frontier OU.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Fusion Evolution",
 		threads: [
 			`<a href="https://www.smogon.com/forums/threads/3717085/">Gen 9 Fusion Evolution</a>`,
@@ -509,10 +531,10 @@ export const Formats: FormatList = [
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['R2OU'];
+			let allowedTiers = ['R2'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'R2OU') {
+				if (template.tier !== 'R2') {
 					return [set.species + ' is not legal in [Gen 9] Roulettemons 2.'];
 				}
 			}
@@ -531,10 +553,10 @@ export const Formats: FormatList = [
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['R2OU', 'R2Uber'];
+			let allowedTiers = ['R2', 'R2Ubers'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'R2OU' && template.tier !== 'R2Uber') {
+				if (template.tier !== 'R2' && template.tier !== 'R2Ubers') {
 					return [set.species + ' is not legal in [Gen 9] Roulettemons 2.'];
 				}
 			}
@@ -575,13 +597,8 @@ export const Formats: FormatList = [
 		threads: [
 			'&bullet; <a href="https://www.smogon.com/forums/threads/return-to-orre-tercera-open-for-submissions.3722389/">RTO: Tercera</a>',
 		],
-		forcedLevel: 50,
-		teamLength: {
-			validate: [3, 6],
-			battle: 3,
-		},
 		mod: 'returntoorretercera', 
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Picked Team Size = 3', '!! Adjust Level = 50', 'VGC Timer'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Picked Team Size = 3', 'Adjust Level = 50', 'VGC Timer'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		   'Aerodactylite', 'Alakazite', 'Beedrillite', 'Blastoisinite', 'Charizardite X', 'Charizardite Y', 'Gengarite', 
@@ -1202,7 +1219,6 @@ export const Formats: FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Data Mod', 'Mega Data Mod', 'Sandbox Mod', 'Overflow Stat Mod'],
 		mod: 'm4asandbox',
 	},
-	{
 	// {
 		// name: "[Gen 8] National Dex Balanced Hackmons v3",
 		// desc: `<b>More Balanced Hackmons</b>: A National Dex mod of Balanced Hackmons with new pokemon, moves, and abilities, as well as some additional bans.`,
