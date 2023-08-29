@@ -60,7 +60,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Minun-Shadow",
 		types: ["Electric", "Shadow"],
 		baseStats: {hp: 90, atk: 30, def: 80, spa: 75, spd: 115, spe: 105},
-		abilities: {0: "Lightning Rod", 1: "Minus", "Negative Charge"},
+		abilities: {0: "Lightning Rod", 1: "Minus", H: "Negative Charge"},
 	},
 	arcanineshadow: {
 		num: -9,
