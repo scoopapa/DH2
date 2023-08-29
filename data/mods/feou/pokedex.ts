@@ -785,7 +785,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Mawlakazam",
 		forme: "Mega-Y",
 		types: ["Psychic", "Fairy"],
-		baseStats: {hp: 52, atk: 87, def: 85, spa: 135, spd: 85, spe: 125}, 
+		baseStats: {hp: 52, atk: 67, def: 85, spa: 135, spd: 85, spe: 125}, 
 		abilities: {0: "Trace"},
 		weightkg: 30,
 		requiredItem: "Alakazite",
