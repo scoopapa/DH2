@@ -710,6 +710,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.addVolatile('protocrysalis');
 			}
 		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (pokemon.hasType('Rock') || pokemon.hasType('Steel') || pokemon.hasType('Ground')) {
+				return null;
+			} else if (!this.field.isWeather('sandstorm')) {
+				this.damage(pokemon.baseMaxhp / 16);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
 		// All other effects coded in the moves and abilities themselves
 		num: -1033,
 		gen: 8,
@@ -757,6 +769,44 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1035,
 		gen: 8,
 		desc: "Holder takes 2/3 damage from foes that share a type.",
+	},
+	powerherb: {
+		onChargeMove(pokemon, target, move) {
+			if (pokemon.useItem()) {
+				this.debug('power herb - remove charge turn for ' + move.id);
+				this.attrLastMove('[still]');
+				this.addMove('-anim', pokemon, move.name, target);
+				return false; // skip charge turn
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['mustrecharge']) {
+				pokemon.removeVolatile('mustrecharge');
+				pokemon.useItem();
+			}
+		},
+		name: "Power Herb",
+		spritenum: 358,
+		fling: {
+			basePower: 10,
+		},
+		num: 271,
+		gen: 4,
+		desc: "Holder's two-turn moves and recharge complete in one turn (except Sky Drop). Single use.",
+	},
+	leatherbelt: {
+		name: "Leather Belt",
+		spritenum: 132,
+		fling: {
+			basePower: 10,
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod === 0) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		gen: 8,
+		desc: "Holder's neutral damamging moves deal 1.2x damage.",
 	},
 
 // unchanged items

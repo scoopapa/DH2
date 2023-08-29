@@ -84,6 +84,21 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 65, atk: 65, def: 60, spa: 95, spd: 110, spe: 130},
 		abilities: {0: "Run Away", 1: "Trace", H: "Protean"},
 	},
+	nidoking: {
+		inherit: true,
+		baseStats: {hp: 81, atk: 102, def: 82, spa: 95, spd: 70, spe: 95},
+	   abilities: {0: "Poison Point", 1: "Patriach", H: "Sheer Force"},
+	},
+	nidoqueen: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 82, def: 87, spa: 95, spd: 85, spe: 76},
+	   abilities: {0: "Poison Point", 1: "Natural Cure", H: "Sheer Force"},
+	},
+	butterfree: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 45, def: 52, spa: 92, spd: 79, spe: 106},
+	   abilities: {0: "Compound Eyes", 1: "Tinted Lens", H: "Multiscale"},
+	},
 	// Minor Changes (mostly to prevent unevolved Pokemons in gen 1 to hold Eviolite)
 	golbat: {
 		inherit: true,
