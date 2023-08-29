@@ -31,7 +31,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -5,
 		name: "Raticate-Shadow-2",
 		types: ["Normal", "Shadow"],
-		baseStats: {hp: 68, atk: 95, def: 57 spa: 95, spd: 66, spe: 105},
+		baseStats: {hp: 68, atk: 95, def: 57, spa: 95, spd: 66, spe: 105},
 		abilities: {0: "Laws of Street"},
 	},
 	froslasspurified: {
