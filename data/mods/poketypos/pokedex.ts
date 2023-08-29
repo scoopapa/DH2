@@ -322,4 +322,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 84, atk: 114, def: 110, spa: 114, spd: 70, spe: 78},
 		abilities: {0: "Pressure", 1: "Natural Cure", H: "Big Pecks"},
 	},
+	inswimeroar: {
+		num: 43,
+		name: "Inswimeroar",
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 95, atk: 120, def: 95, def: 65, spd: 95, spe: 60},
+		abilities: {0: "Torrent", H: "Intimidate"},
+	},
+	nalulele: {
+		num: 44,
+		name: "Nalu Lele",
+		types: ["Water", "Bug"],
+		baseStats: {hp: 105, atk: 90, def: 125, spa: 95, spd: 70, spe: 85},
+		abilities: {0: "Pressure", H: "Tinted Lens"},
+	},
+	kimmono: {
+		num: 45,
+		name: "Kimmo-no",
+		types: ["Dragon", "Ghost"],
+		baseStats: {hp: 65, atk: 100, def: 110, spa: 110, spd: 130, spe: 85},
+		abilities: {0: "Purifying Salt", 1: "Cursed Body", H: "Overcoat"},
+	},
 };
