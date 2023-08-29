@@ -22,7 +22,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	miasma: {
 		// upokecenter says this is implemented as an added secondary effect
 		onModifyMove(move) {
-			if (move.type !=== 'Normal' && target.type === 'Shadow' && !move || move.target === 'self') return;
+			if (move.type !== 'Normal' && target.type === 'Shadow' && !move || move.target === 'self') return;
 			if (!move.secondaries) {
 				move.secondaries = [];
 			}

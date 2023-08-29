@@ -1218,7 +1218,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		snore: ["7L1", "8L1", "9L1"],
 		terablast: ["7L1", "8L1", "9L1"],
 		tripleaxel: ["7L1", "8L1", "9L1"],
-		uturn?: ["7L1", "8L1", "9L1"],
+		uturn: ["7L1", "8L1", "9L1"],
 	}},	
 	stavage: {learnset: {	
 		acid: ["7L1", "8L1", "9L1"],
