@@ -428,6 +428,8 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
 		name: "[Gen 9] More Balanced Hackmons v4",
 		desc: `Balanced Hackmons with National Dex elements mixed in.`,
 		threads: [
