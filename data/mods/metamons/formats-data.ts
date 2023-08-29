@@ -281,4 +281,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	oricoriosensu: {
 		tier: "MetaMons",
 	},
+   golbat: {
+		tier: "MetaMons",
+	},
+	wochien: {
+		tier: "MetaMons",
+	},
+	mudsdale: {
+		tier: "MetaMons",
+	},
+   accelgor: {
+		tier: "MetaMons",
+	},
+   dachsbun: {
+		tier: "MetaMons",
+	},
+	lickilicky: {
+		tier: "MetaMons",
+	},
 };

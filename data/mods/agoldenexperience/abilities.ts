@@ -29,6 +29,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		name: "Poisonous Radula",
+		shortDesc: "Non resisted Poison moves lowers the target's corresponding defense by one stage.",
 		rating: 2,
 		num: -1,
 	},
@@ -155,6 +156,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		name: "Web Weaver",
+      shortDesc: "A the end of each turn, lowers by one stage the speed stat of every other grounded Pokemon.",
 		rating: 4.5,
 		num: -7,
 	},
@@ -164,7 +166,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	// 		if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
 	// 			return;
 	// 		}
-
 	// 		const dazzlingHolder = this.effectData.target;
 	// 		if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
 	// 			this.attrLastMove('[still]');
@@ -191,6 +192,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		name: "Perforating",
+		shortDesc: "Bug & Poison moves deal 2x damage if resisted, can poison Steel types, Poison moves hit Steel types",
 		rating: 3,
 		num: -9,
 	},
@@ -254,6 +256,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		name: "Arcane Mastery",
+		shortDesc: "This Pokemon's attacking stat is multiplied by 1.5 while using a Psychic/Dark type attack.",
 		rating: 3.5,
 		num: -12,
 	},
@@ -266,7 +269,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		name: "Strange Body",
 		rating: 4,
-		shortDesc: "This Pokemon will always take neutral damages from super effective damages from physical moves.",
+		shortDesc: "If this Pokemon is hit by a physical super effective move, it takes neutral damage.",
 		num: -13,
 	},
 	//unused due to deleted Fakemons
@@ -448,76 +451,100 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -20,
 	},
 	microclimate: {
-		onSwitchIn(pokemon) {
-			this.effectData.switchingIn = true;
-		},
+		//onSwitchIn(pokemon) {
+		// 	this.effectData.switchingIn = true;
+		// },
+		// onStart(pokemon) {
+		// 	// Cloud Nine does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+		// 	if (!this.effectData.switchingIn) return;
+		// 	this.add('-ability', pokemon, 'Microclimate');
+		// 	this.effectData.switchingIn = false;
+		// },
+		// onSourceModifyAtk(atk, attacker, defender, move) {
+		// 	if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+		// 		this.debug('Microclimate strengthen');
+		// 		return this.chainModify(2);
+		// 	}
+		// 	else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+		// 		this.debug('Microclimate weaken');
+		// 		return this.chainModify(0.5);
+		// 	}
+		// 	else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+		// 		this.debug('Microclimate weaken');
+		// 		return this.chainModify(0.5);
+		// 	}
+		// 	else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+		// 		this.debug('Microclimate strengthen');
+		// 		return this.chainModify(2);
+		// 	}
+		// },
+		// onSourceModifySpAPriority: 5,
+		// onSourceModifySpA(atk, attacker, defender, move) {
+		// 	if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+		// 		this.debug('Microclimate strengthen');
+		// 		return this.chainModify(2);
+		// 	}
+		// 	else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+		// 		this.debug('Microclimate weaken');
+		// 		return this.chainModify(0.5);
+		// 	}
+		// 	else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+		// 		this.debug('Microclimate weaken');
+		// 		return this.chainModify(0.5);
+		// 	}
+		// 	else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+		// 		this.debug('Microclimate strengthen');
+		// 		return this.chainModify(2);
+		// 	}
+		// },
+		// onBasePowerPriority: 21,
+		// onBasePower(basePower, attacker, defender, move) {
+		// 	if (['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+		// 		if (move.type === 'Fire') {
+		// 			this.debug('Microclimate boost');
+		// 			return this.chainModify(2);
+		// 		}
+		// 		else if (move.type === 'Water') {
+		// 			this.debug('Microclimate boost');
+		// 			return this.chainModify(0.5);
+		// 		}
+		// 	}
+		// 	else if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+		// 		if (move.type === 'Fire') {
+		// 			this.debug('Microclimate boost');
+		// 			return this.chainModify(0.5);
+		// 		}
+		// 		else if (move.type === 'Water') {
+		// 			this.debug('Microclimate boost');
+		// 			return this.chainModify(2);
+		// 		}
+		// 	}
+		// },
+		// suppressWeather: true,
 		onStart(pokemon) {
-			// Cloud Nine does not activate when Skill Swapped or when Neutralizing Gas leaves the field
-			if (!this.effectData.switchingIn) return;
-			this.add('-ability', pokemon, 'Microclimate');
-			this.effectData.switchingIn = false;
-		},
-		onSourceModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-				this.debug('Microclimate strengthen');
-				return this.chainModify(2);
-			}
-			else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-				this.debug('Microclimate weaken');
-				return this.chainModify(0.5);
-			}
-			else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-				this.debug('Microclimate weaken');
-				return this.chainModify(0.5);
-			}
-			else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-				this.debug('Microclimate strengthen');
-				return this.chainModify(2);
+			if (this.field.isWeather('sunnyday')) {
+			   this.field.setWeather('raindance');
+			} else if (this.field.isWeather('raindance')) {
+				this.field.setWeather('sunnyday');
+			} else if (this.field.isWeather('desolateland')) {
+				this.field.setWeather('primordialsea');
+			} else if (this.field.isWeather('primodialsea')) {
+				this.field.setWeather('desolateland');
+			} else if (this.field.isWeather('hail') || this.field.isWeather('sand')) {
+				this.field.clearWeather();
 			}
 		},
-		onSourceModifySpAPriority: 5,
-		onSourceModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-				this.debug('Microclimate strengthen');
-				return this.chainModify(2);
-			}
-			else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-				this.debug('Microclimate weaken');
-				return this.chainModify(0.5);
-			}
-			else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-				this.debug('Microclimate weaken');
-				return this.chainModify(0.5);
-			}
-			else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-				this.debug('Microclimate strengthen');
-				return this.chainModify(2);
+		onEnd(pokemon) {
+			if (this.field.isWeather('raindance')) {
+			   this.field.setWeather('sunnyday');
+			} else if (this.field.isWeather('sunnyday')) {
+				this.field.setWeather('raindance');
+			} else if (this.field.isWeather('primordialsea')) {
+				this.field.setWeather('desolateland');
+			} else if (this.field.isWeather('desolateland')) {
+				this.field.setWeather('primordialsea');
 			}
 		},
-		onBasePowerPriority: 21,
-		onBasePower(basePower, attacker, defender, move) {
-			if (['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-				if (move.type === 'Fire') {
-					this.debug('Microclimate boost');
-					return this.chainModify(2);
-				}
-				else if (move.type === 'Water') {
-					this.debug('Microclimate boost');
-					return this.chainModify(0.5);
-				}
-			}
-			else if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-				if (move.type === 'Fire') {
-					this.debug('Microclimate boost');
-					return this.chainModify(0.5);
-				}
-				else if (move.type === 'Water') {
-					this.debug('Microclimate boost');
-					return this.chainModify(2);
-				}
-			}
-		},
-		suppressWeather: true,
 		shortDesc: "Reverses effects of Sun and Rain; negates Sand and Hail.",
 		name: "Microclimate",
 		rating: 2,
@@ -588,19 +615,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	evaporate: {
 		desc: "If the Pokemon or the opponent uses a Water type move, it triggers the Haze effect. Immune to Water.",
 		shortDesc: "Haze when any Pokemon uses a Water move; Water immunity.",
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Water') {
+		onAnyTryMove(target, source, effect) {
+			if (move.type === 'Water') {
 				this.add('-immune', target, '[from] ability: Evaporate');
-				return null;
-			}
-		},
-		onAnyPrepareHit(source, target, move) {
-			if (move.hasBounced) return;
-			const type = move.type;
-			if (type && type === 'Water') {
-				this.add('-clearallboost');
 				for (const pokemon of this.getAllActive()) {
 					pokemon.clearBoosts();
+				   return null;
 				}
 			}
 		},
