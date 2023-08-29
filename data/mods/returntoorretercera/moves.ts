@@ -370,7 +370,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
-		name: "Shadow Storm",
+		name: "Shadow Wave",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
