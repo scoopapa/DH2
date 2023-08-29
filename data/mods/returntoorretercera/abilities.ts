@@ -39,7 +39,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	lawsofstreet: {
 		onModifyDamage(damage, source, target, move) {
-			if (move.type !=== 'Shadow' && target.getMoveHitData(move).typeMod > 0) continue;
+			if (move.type !== 'Shadow' && target.getMoveHitData(move).typeMod > 0) continue;
          if (move.category === 'Physical') {
 			   this.boost({def: -1}, source, target, null, true);
 			} else if (move.category === 'Special') {
