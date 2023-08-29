@@ -596,10 +596,6 @@ export const Formats: FormatList = [
 			'&bullet; <a href="https://www.smogon.com/forums/threads/return-to-orre-tercera-open-for-submissions.3722389/">RTO: Tercera</a>',
 		],
 		forcedLevel: 50,
-		teamLength: {
-			validate: [3, 6],
-			battle: 3,
-		},
 		mod: 'returntoorretercera', 
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Picked Team Size = 3', 'VGC Timer'],
 		banlist: [
