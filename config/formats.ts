@@ -601,7 +601,7 @@ export const Formats: FormatList = [
 			battle: 3,
 		},
 		mod: 'returntoorretercera', 
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'Picked Team Size = 3', '!! Adjust Level = 50', 'VGC Timer'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'Picked Team Size = 3', 'VGC Timer'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		   'Aerodactylite', 'Alakazite', 'Beedrillite', 'Blastoisinite', 'Charizardite X', 'Charizardite Y', 'Gengarite', 
