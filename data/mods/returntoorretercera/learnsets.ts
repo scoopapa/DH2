@@ -1,4 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
+/* eslint-disable */
 	ledianpurified: {
 		learnset: {
       victorydance: ["9L1"],
