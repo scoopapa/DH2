@@ -1222,7 +1222,6 @@ export const Formats: FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Data Mod', 'Mega Data Mod', 'Sandbox Mod', 'Overflow Stat Mod'],
 		mod: 'm4asandbox',
 	},
-	{
 	// {
 		// name: "[Gen 8] National Dex Balanced Hackmons v3",
 		// desc: `<b>More Balanced Hackmons</b>: A National Dex mod of Balanced Hackmons with new pokemon, moves, and abilities, as well as some additional bans.`,
