@@ -2584,6 +2584,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 0.5,
         weightkg: 9,
         evos: ["Noivern-Sinnoh"],
+		eggGroups: ["Flying", "Dragon"],
     },
 	noivern: {
 		inherit: true,
@@ -2603,6 +2604,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 89,
 		prevo: "Noibat-Sinnoh",
 		evoLevel: 48,
+		eggGroups: ["Flying", "Dragon"],
     },
 	hoopa: {
 		inherit: true,
@@ -4378,6 +4380,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 0.5,
         weightkg: 20,
         evos: ["Carsnail"],
+		eggGroups: ["Bug", "Grass"],
     },
 	carsnail: {
         num: 2002,
@@ -4389,6 +4392,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 75,
         prevo: "Tentarcolh",
         evos: ["Carcoliath"],
+		eggGroups: ["Bug", "Grass"],
     },
 	carcoliath: {
         num: 2003,
@@ -4399,6 +4403,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 2.5,
         weightkg: 289,
         prevo: "Carsnail",
+		eggGroups: ["Bug", "Grass"],
     },
 	slidge: {
         num: 2004,
@@ -4409,6 +4414,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 0.7,
         weightkg: 20,
         evos: ["Hustrack"],
+		eggGroups: ["Monster", "Field"],
     },
 	hustrack: {
         num: 2005,
@@ -4420,6 +4426,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         weightkg: 35,
         prevo: "Slidge",
         evos: ["Shusski"],
+		eggGroups: ["Monster", "Field"],
     },
 	shusski: {
         num: 2006,
@@ -4430,6 +4437,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 1.4,
         weightkg: 95,
         prevo: "Hustrack",
+		eggGroups: ["Monster", "Field"],
     },
 	seagmate: {
 		num: 2007,
@@ -4440,6 +4448,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 0.4,
 		weightkg: 4,
 		evos: ["Gullcean"],
+		eggGroups: ["Water 1", "Flying"],
 	},
 	gullcean: {
 		num: 2008,
@@ -4451,6 +4460,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 17,
 		prevo: "Seagmate",
 		evos: ["Admistral"],
+		eggGroups: ["Water 1", "Flying"],
 	},
 	admistral: {
 		num: 2009,
@@ -4461,6 +4471,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 1.3,
 		weightkg: 30,
 		prevo: "Gullcean",
+		eggGroups: ["Water 1", "Flying"],
 	},
 	magthief: {
         num: 2010,
@@ -4471,6 +4482,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 0.7,
         weightkg: 14,
         evos: ["Snobberaven"],
+		eggGroups: ["Flying"],
     },
     snobberaven: {
         num: 2011,
@@ -4481,6 +4493,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 2.3,
         weightkg: 70,
         prevo: "Magthief",
+		eggGroups: ["Flying"],
     },
 	fiyounfly: {
 		num: 2012,
@@ -4539,6 +4552,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Perforating", 1: "Tinted Lens", H: "Technician"},
 		heightm: 0.1,
 		weightkg: 0.3,
+		eggGroups: ["Bug"],
 	},
 	normear: {
         num: 2017,
@@ -4571,6 +4585,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 0.5,
         weightkg: 1,
     	evos: ["Statimoss"],
+		eggGroups: ["Grass"],
     }, 
 	statimoss: {
         num: 2020,
@@ -4580,7 +4595,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         abilities: {0: "Thick Fat", 1: "Overcoat", H: "Electric Surge"},
         heightm: 1,
         weightkg: 8,
-    	prevo: ["Mossiden"],
+    	prevo: "Mossiden",
+		eggGroups: ["Grass"],
     },
 	kistraw: {
 		num: 2021,
@@ -4612,6 +4628,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Illuminate", H: "Strong Jaw"},
 		heightm: 0.5,
 		weightkg: 15,
+		eggGroups: ["Water 2"],
 	},
 	mercurino: {
         num: 2024,
@@ -4622,6 +4639,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 0.65,
         weightkg: 80,
     	evos: ["Dauvifar"],
+		eggGroups: ["Mineral"],
     }, 
 	dauvifar: {
         num: 2025,
@@ -4631,7 +4649,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         abilities: {0: "Liquid Ooze", 1: "Heavy Metal", H: "Speed Boost"},
         heightm: 2.60,
         weightkg: 470,
-    	prevo: ["Mercurino"],
+    	prevo: "Mercurino",
+		eggGroups: ["Mineral"],
     }, 
 	girafatak: {
 		num: 2026,
@@ -4680,6 +4699,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 0.7,
 		weightkg: 3,
 		evos: ["Terreptile"],
+		eggGroups: ["Bug", "Mineral"],
 	},
 	terreptile: {
 		num: 2030,
@@ -4692,6 +4712,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Scarpent",
 		otherFormes: ["Terreptile-Mega"],
 		formeOrder: ["Terreptile", "Terreptile-Mega"],
+		eggGroups: ["Bug", "Mineral"],
 	},
 	terreptilemega: {
 		num: 2030,
@@ -4704,6 +4725,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 1.8,
 		weightkg: 35,	
 		requiredItem: "Terreptilite",
+		eggGroups: ["Bug", "Mineral"],
 	},
 	stonlet: {
 		num: 2031,
@@ -4751,6 +4773,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 0.25,
 		weightkg: 0.2,
 		evos: ["Albirat"],
+		eggGroups: ["Field"],
 	},
 	albirat: {
 		num: 2034,
@@ -4761,6 +4784,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 0.5,
 		weightkg: 0.4,
 		prevo: "Expecies",
+		eggGroups: ["Field"],
 	},
 	wizamadol: {
 		num: 2035,
@@ -4806,6 +4830,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 0.7,
 		weightkg: 8.5,
 		evos: ["Foroyal"],
+		eggGroups: ["Dragon", "Grass"],
 	},
 	foroyal: {
 		num: 2039,
@@ -4817,6 +4842,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 20,
 		prevo: "Harvesking",
 		evos: ["Dracoalt"],
+		eggGroups: ["Dragon", "Grass"],
 	},
 	dracoalt: {
 		num: 2040,
@@ -4827,6 +4853,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 10,
 		weightkg: 100,
 		prevo: "Foroyal",
+		eggGroups: ["Dragon", "Grass"],
 	},
 	incinemate: {
 		num: 2041,
@@ -4837,6 +4864,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 0.7,
 		weightkg: 8.5,
 		evos: ["Fugivern"],
+		eggGroups: ["Dragon", "Field"],
 	},
 	fugivern: {
 		num: 2042,
@@ -4848,6 +4876,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 25,
 		prevo: "Incinemate",
 		evos: ["Drinferno"],
+		eggGroups: ["Dragon", "Field"],
 	},
 	drinferno: {
 		num: 2043,
@@ -4858,6 +4887,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 5,
 		weightkg: 500,
 		prevo: "Fugivern",
+		eggGroups: ["Dragon", "Field"],
 	},
 	hydrookie: {
 		num: 2044,
@@ -4868,6 +4898,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 0.1,
 		weightkg: 1,
 		evos: ["Scienstream"],
+		eggGroups: ["Dragon", "Water 1"],
 	},
 	scienstream: {
 		num: 2045,
@@ -4879,6 +4910,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 80,
 		prevo: "Hydrookie",
 		evos: ["Medidragon"],
+		eggGroups: ["Dragon", "Water 1"],
 	},
 	medidragon: {
 		num: 2046,
@@ -4889,6 +4921,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 5,
 		weightkg: 150,
 		prevo: "Scienstream",
+		eggGroups: ["Dragon", "Water 1"],
 	},
 	baskiron: {
 		num: 2047,
@@ -4924,6 +4957,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Competitive", H: "Perish Body"},
 		heightm: 1.2,
 		weightkg: 25,
+		eggGroups: ["Amorphous"],
 	},
 	solens: {
         num: 1001,
@@ -4933,6 +4967,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         abilities: {0: "Flame Body", 1: "Ice Body", H: "Solar Power"},
         heightm: 0.6,
         weightkg: 31.5,
+		eggGroups: ["Bug"],
     },
 	snolbom: {
         num: 2050,
@@ -4943,6 +4978,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 1.1,
         weightkg: 26,
         evos: ["Skojal"],
+		eggGroups: ["Field"],
     },
 	skojal: {
         num: 2051,
@@ -4953,6 +4989,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 1.6,
         weightkg: 60,
 		prevo: "Snolbom",
+		eggGroups: ["Field"],
     },
 	// snobawcus: {
 	// 	num: 2052,
@@ -5011,6 +5048,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         heightm: 0.7,
         weightkg: 25,
         evos: ["Baalzebutis"],
+		eggGroups: ["Bug"],
     },
 	baalzebutis: {
         num: 2061,
@@ -5020,6 +5058,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         abilities: {0: "Gluttony", 1: "Battle Armor", H: "Defiant"},
         heightm: 1.65,
         weightkg: 60,
+		prevo: "Maaltis",
+		eggGroups: ["Bug"],
     },
 	goldiorno: {
 		num: 2062,
@@ -5165,6 +5205,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         abilities: {0: "Microclimate"},
         heightm: 15,
         weightkg: 400,
+		eggGroups: ["Undiscovered"],
     },
 	infarmatem: {
 		num: 2075,
@@ -5202,6 +5243,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Void-Heart"},
 		heightm: 1,
 		weightkg: 80.5,
+		eggGroups: ["Undiscovered"],
 	},
 	sudowoodo: {
 		inherit: true,
@@ -5217,7 +5259,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 138,
 		color: "Brown",
 		prevo: "Sudowoodo",
-		evoType: "Using Teramorphosis 20 times",
 		evoMove: "Mimic",
 		eggGroups: ["Mineral"],
 		canHatch: true,
@@ -5254,6 +5295,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Levitate", 1: "Virality", H: "Prankster"},
 		heightm: 1,
 		weightkg: 0.1,
+		eggGroups: ["Amorphous"],
 	},
 	raticket: {
 		num: 3002,
