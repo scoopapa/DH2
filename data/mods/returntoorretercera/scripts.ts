@@ -42,7 +42,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					return false;
 				}
 			}
-
 			const prevStatus = this.status;
 			const prevStatusState = this.statusState;
 			if (status.id) {
