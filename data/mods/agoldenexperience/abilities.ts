@@ -345,12 +345,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			];
 			if (move.type === 'Flying' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
 				move.type = 'Ice';
-				move.refrigerateBoosted = true;
+				move.typeChangerBoosted = this.effect;
 			}
 		},
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.refrigerateBoosted) return this.chainModify([0x1333, 0x1000]);
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		name: "Cold Wind",
 		shortDesc: "This Pokemon's Flying-type moves become Ice-type and have 1.2x power.",
@@ -972,7 +972,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(1.5);
 			}
 		},
-		onModifySpa(spa, pokemon) {
+		onModifySpA(spa, pokemon) {
 			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
