@@ -869,7 +869,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "allies",
-		name: "Feral Roar",
+		name: "Feral Healing",
 		pp: 15,
 		shortDesc: "Heals user 25% and cures status.",
 		onPrepareHit(target, source, move) {
