@@ -254,7 +254,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 220,
 	},
 	combustion: {
-		// Implemented in scripts.ts
+		// Placeholder
 		name: "Combustion",
 		shortDesc: "This Pokémon can burn a target regardless of its typing.",
 		rating: 3.5,
