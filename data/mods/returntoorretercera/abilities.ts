@@ -178,8 +178,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			move.secondaries.push({
 				chance: 100,
-				boosts: {
-				   spa: 1,
+				self: {
+				   boosts: {
+				      spa: 1,
+					},
 				},
 				ability: this.dex.abilities.get('lastdance'),
 			});
@@ -190,7 +192,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePowerPriority: 7,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['dance']) {
-				this.debug('Last Dance boost');
+				this.debug('Last Dance weaken');
 				return this.chainModify(0.75);
 			}
 		},
@@ -247,6 +249,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 	   },
 		name: "Dark Mind",
+		shortDesc: "This Pokémon's special moves have an additional 30% chance of lower their target SpDef by one stage.",
+		rating: 3.5,
+		num: 220,
+	},
+	combustion: {
+		onModifyMove(move, source, target) {
+			if (move.status === 'brn') {
+				this.debug("Combustion ignore immunity");
+				move.ignoreImmunity['Fire'] = true;
+			}
+		},
+		name: "Combustion",
 		shortDesc: "This Pokémon's special moves have an additional 30% chance of lower their target SpDef by one stage.",
 		rating: 3.5,
 		num: 220,
