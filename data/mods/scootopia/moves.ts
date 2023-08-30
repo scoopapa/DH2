@@ -512,7 +512,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		pp: 15,
 		type: "Crystal",
-		shortDesc: "Always crits. Lowers foe's Atk by 1",
+		shortDesc: "Always crits. User recovers 50% of damage dealt",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1, slicing: 1},
 		target: "normal",
@@ -521,12 +521,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psycho Cut", target);
 		},
-		secondary: {
-			chance: 100,
-			boosts: {
-				atk: -1,
-			},
-		},
+		drain: [1, 2],
 	},
 	crystaltail: {
 		name: "Crystal Tail",
@@ -834,7 +829,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Searing Shot", target);
 		},
 		secondary: null,
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Feral",
 		contestType: "Tough",
 	},
@@ -843,14 +838,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
-		pp: 15,
+		pp: 10,
 		type: "Feral",
-		shortDesc: "50% to lower foe's SpD by 1",
+		shortDesc: "100% to lower foe's SpD by 1",
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		target: "allAdjacentFoes",
+		target: "normal",
 		secondary: {
-			chance: 50,
+			chance: 100,
 			boosts: {
 				spd: -1,
 			},
@@ -860,28 +855,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Dragon Rage", target);
 		},
 	},
-	feralroar: {
+	feralhealing: {
+		num: 816,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Feral Roar",
-		pp: 15,
-		shortDesc: "Forces the foe to switch to a random ally. +1 Atk, +1 SpA. -6 Priority",
-		priority: -6,
-		flags: {reflectable: 1, mirror: 1, sound: 1, authentic: 1, mystery: 1},
-		forceSwitch: true,
-		secondary: null,
-		selfBoost: {
-			boosts: {
-				atk: 1,
-				spa: 1,
-			},
+		pp: 10,
+		priority: 0,
+		flags: {heal: 1, bypasssub: 1, allyanim: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
+			return pokemon.cureStatus() || success;
 		},
+		secondary: null,
+		target: "allies",
+		name: "Feral Healing",
+		pp: 15,
+		shortDesc: "Heals user 25% and cures status.",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Roar", target);
+			this.add('-anim', source, "Jungle Healing", target);
 		},
-		target: "normal",
 		type: "Feral",
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",

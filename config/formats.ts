@@ -1909,7 +1909,7 @@ export const Formats: FormatList = [
 		mod: 'gen6mixandmegasrevisited',
 		ruleset: ['Standard', 'Swagger Clause', 'Mega Data Mod'],
 		banlist: [
-			'Medichamite', 'Glalitite',
+			'Medichamite', 'Glalitite', 'Altarianite',
 		],
 		restricted: [
 			'Arceus', 'Cresselia', 'Darkrai', 'Deoxys-Attack', 'Deoxys-Normal', 'Deoxys-Speed', 'Dialga', 'Dragonite', 'Genesect',
