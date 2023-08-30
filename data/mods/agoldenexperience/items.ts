@@ -567,8 +567,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.useItem();
 			}
 		},
-		onAnyTerrainStart() {
-			const pokemon = this.effectData.target;
+		onTerrainChange(pokemon) {
 			if (this.field.isTerrain('chakraterrain')) {
 				pokemon.useItem();
 			}
@@ -692,11 +691,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	mirrorherb: {
 		name: "Mirror Herb",
-		shortDesc: "When an opposing Pokemon raises a stat stage, the holder copies it. Single use.",
 		fling: {
 			basePower: 10,
 		},
-		spritenum: 0, // TODO
+		spritenum: 748,
 		onFoeAfterBoost(boost, target, source, effect) {
 			if (effect?.name === 'Opportunist' || effect?.name === 'Mirror Herb') return;
 			const boostPlus: SparseBoostsTable = {};
@@ -709,11 +707,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 			if (!statsRaised) return;
-			const pokemon: Pokemon = this.effectData.target;
+			const pokemon: Pokemon = this.effectState.target;
 			pokemon.useItem();
 			this.boost(boostPlus, pokemon);
 		},
 		num: 1883,
+		shortDesc: "When an opposing Pokemon raises a stat stage, the holder copies it. Single use.",
 		gen: 8,
 	},
 	punchingglove: {
