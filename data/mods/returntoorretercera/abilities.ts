@@ -254,14 +254,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 220,
 	},
 	combustion: {
-		onModifyMove(move, source, target) {
-			if (move.status === 'brn') {
-				this.debug("Combustion ignore immunity");
-				move.ignoreImmunity['Fire'] = true;
-			}
-		},
+		// Implemented in scripts.ts
 		name: "Combustion",
-		shortDesc: "This Pokémon's special moves have an additional 30% chance of lower their target SpDef by one stage.",
+		shortDesc: "This Pokémon can burn a target regardless of its typing.",
 		rating: 3.5,
 		num: 220,
 	},
