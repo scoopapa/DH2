@@ -9,6 +9,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.debug('Shadow Sky boost');
 				return this.chainModify(1.5);
 			}
+		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
