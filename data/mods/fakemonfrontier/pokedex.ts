@@ -1,6 +1,6 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 batacomb: {
-	num: 1.5,
+	num: 1,
 	species: "Batacomb",
 	types: ["Ground", "Flying"],
 	baseStats: {hp: 100, atk: 75, def: 85, spa: 110, spd: 90, spe: 70},
@@ -9,7 +9,7 @@ batacomb: {
 	weightkg: 8,
 },
 cetenor: {
-	num: 2.5,
+	num: 2,
 	species: "Cetenor",
 	types: ["Fairy", "Water"],
 	baseStats: {hp: 65, atk: 125, def: 60, spa: 95, spd: 60, spe: 105},
@@ -18,7 +18,7 @@ cetenor: {
 	weightkg: 23,
 },
 dizmuth: {
-	num: 3.5,
+	num: 3,
 	species: "Dizmuth",
 	types: ["Rock", "Psychic"],
 	baseStats: {hp: 90, atk: 104, def: 80, spa: 108, spd: 55, spe: 115},
@@ -27,16 +27,16 @@ dizmuth: {
 	weightkg: 5.7,
 },
 flameedle: {
-	num: 4.5,
+	num: 4,
 	species: "Flameedle",
 	types: ["Bug", "Fire"],
 	baseStats: {hp: 65, atk: 90, def: 101, spa: 71, spd: 60, spe: 143},
 	abilities: {0: "Swarm", 1: "Hyper Cutter", H: "Long Reach"},
-	height: 4.5,
-	weightkg: 4.5,
+	height: 4,
+	weightkg: 4,
 },
 gobblen: {
-	num: 5.5,
+	num: 5,
 	species: "Gobblen",
 	types: ["Dark"],
 	baseStats: {hp: 90, atk: 95, def: 80, spa: 70, spd: 80, spe: 125},
@@ -45,7 +45,7 @@ gobblen: {
 	weightkg: 12.7,
 },
 harletritus: {
-	num: 6.5,
+	num: 6,
 	species: "Harletritus",
 	types: ["Fairy", "Rock"],
 	baseStats: {hp: 100, atk: 134, def: 110, spa: 95, spd: 100, spe: 61},
@@ -54,7 +54,7 @@ harletritus: {
 	weightkg: 60,
 },
 kaerust: {
-	num: 7.5,
+	num: 7,
 	species: "Kaerust",
 	types: ["Water", "Steel"],
 	baseStats: {hp: 105, atk: 55, def: 90, spa: 110, spd: 95, spe: 75},
@@ -63,7 +63,7 @@ kaerust: {
 	weightkg: 250,
 },
 kartrake: {
-	num: 8.5,
+	num: 8,
 	species: "Kartrake",
 	types: ["Steel", "Ground"],
 	baseStats: {hp: 70, atk: 110, def: 70, spa: 60, spd: 100, spe: 120},
@@ -72,7 +72,7 @@ kartrake: {
 	weightkg: 473.4,
 },
 kunekrow: {
-	num: 9.5,
+	num: 9,
 	species: "Kunekrow",
 	types: ["Grass", "Fighting"],
 	baseStats: {hp: 51, atk: 123, def: 111, spa: 61, spd: 63, spe: 101},
@@ -81,7 +81,7 @@ kunekrow: {
 	weightkg: 77,
 },
 lanburn: {
-	num: 10.5,
+	num: 10,
 	species: "Lanburn",
 	types: ["Ghost", "Fire"],
 	baseStats: {hp: 66, atk: 55, def: 66, spa: 120, spd: 115, spe: 88},
@@ -90,7 +90,7 @@ lanburn: {
 	weightkg: 4.2,
 },
 magiheel: {
-	num: 11.5,
+	num: 11,
 	species: "Magiheel",
 	types: ["Fighting", "Fairy"],
 	baseStats: {hp: 100, atk: 80, def: 65, spa: 65, spd: 80, spe: 100},
@@ -99,7 +99,7 @@ magiheel: {
 	weightkg: 48,
 },
 manchini: {
-	num: 12.5,
+	num: 12,
 	species: "Manchini",
 	types: ["Poison", "Grass"],
 	baseStats: {hp: 115, atk: 95, def: 130, spa: 55, spd: 80, spe: 35},
@@ -108,7 +108,7 @@ manchini: {
 	weightkg: 48,
 },
 nebularach: {
-	num: 13.5,
+	num: 13,
 	species: "Nebularach",
 	types: ["Psychic", "Bug"],
 	baseStats: {hp: 70, atk: 45, def: 110, spa: 100, spd: 120, spe: 85},
@@ -117,7 +117,7 @@ nebularach: {
 	weightkg: 999,
 },
 phantasohm: {
-	num: 14.5,
+	num: 14,
 	species: "Phantasohm",
 	types: ["Ghost", "Electric"],
 	baseStats: {hp: 88, atk: 110, def: 85, spa: 85, spd: 110, spe: 88},
@@ -126,7 +126,7 @@ phantasohm: {
 	weightkg: 6,
 },
 puffrost: {
-	num: 15.5,
+	num: 15,
 	species: "Puffrost",
 	types: ["Ice", "Steel"],
 	baseStats: {hp: 90, atk: 70, def: 80, spa: 90, spd: 130, spe: 40},
@@ -135,7 +135,7 @@ puffrost: {
 	weightkg: 309,
 },
 scorpixie: {
-	num: 16.5,
+	num: 16,
 	species: "Scorpixie",
 	types: ["Bug", "Fairy"],
 	baseStats: {hp: 67, atk: 83, def: 146, spa: 104, spd: 77, spe: 81},
@@ -144,7 +144,7 @@ scorpixie: {
 	weightkg: 65,
 },
 shifteor: {
-	num: 17.5,
+	num: 17,
 	species: "Shifteor",
 	types: ["Rock", "Psychic"],
 	baseStats: {hp: 60, atk: 60, def: 130, spa: 80, spd: 85, spe: 90},
@@ -153,7 +153,7 @@ shifteor: {
 	weightkg: 10,
 },
 skeledune: {
-	num: 18.5,
+	num: 18,
 	species: "Skeledune",
 	types: ["Ghost", "Ground"],
 	baseStats: {hp: 71, atk: 99, def: 104, spa: 128, spd: 86, spe: 67},
@@ -162,7 +162,7 @@ skeledune: {
 	weightkg: 20,
 },
 skoloboros: {
-	num: 19.5,
+	num: 19,
 	species: "Skoloboros",
 	types: ["Dark", "Dragon"],
 	baseStats: {hp: 85, atk: 65, def: 90, spa: 75, spd: 120, spe: 100},
@@ -171,7 +171,7 @@ skoloboros: {
 	weightkg: 380,
 },
 spidocket: {
-	num: 20.5,
+	num: 20,
 	species: "Spidocket",
 	types: ["Bug", "Electric"],
 	baseStats: {hp: 85, atk: 60, def: 110, spa: 100, spd: 110, spe: 85},
@@ -180,7 +180,7 @@ spidocket: {
 	weightkg: 6.8,
 },
 spirimint: {
-	num: 21.5,
+	num: 21,
 	species: "Spirimint",
 	types: ["Grass", "Ghost"],
 	baseStats: {hp: 84, atk: 60, def: 55, spa: 118, spd: 118, spe: 118},
@@ -189,7 +189,7 @@ spirimint: {
 	weightkg: 36.2,
 },
 stavage: {
-	num: 22.5,
+	num: 22,
 	species: "Stavage",
 	types: ["Water", "Dragon"],
 	baseStats: {hp: 60, atk: 130, def: 80, spa: 60, spd: 60, spe: 70},
@@ -198,7 +198,7 @@ stavage: {
 	weightkg: 34.2,
 },
 swampent: {
-	num: 23.5,
+	num: 23,
 	species: "Swampent",
 	types: ["Dragon", "Ground"],
 	baseStats: {hp: 75, atk: 90, def: 115, spa: 55, spd: 80, spe: 75},
@@ -207,7 +207,7 @@ swampent: {
 	weightkg: 7.8,
 },
 vamplin: {
-	num: 24.5,
+	num: 24,
 	species: "Vamplin",
 	types: ["Poison", "Flying"],
 	baseStats: {hp: 80, atk: 60, def: 100, spa: 100, spd: 100, spe: 110},
@@ -216,7 +216,7 @@ vamplin: {
 	weightkg: 30,
 },
 wrathor: {
-	num: 25.5,
+	num: 25,
 	species: "Wrathor",
 	types: ["Electric", "Dragon"],
 	baseStats: {hp: 80, atk: 80, def: 80, spa: 110, spd: 80, spe: 95},
@@ -225,7 +225,7 @@ wrathor: {
 	weightkg: 120,
 },
 wyverock: {
-	num: 26.5,
+	num: 26,
 	species: "Wyverock",
 	types: ["Rock", "Dragon"],
 	baseStats: {hp: 83, atk: 114, def: 86, spa: 66, spd: 86, spe: 94},
@@ -234,7 +234,7 @@ wyverock: {
 	weightkg: 5,
 },
 yolkrak: {
-	num: 27.5,
+	num: 27,
 	species: "Yolkrak",
 	types: ["Poison", "Dark"],
 	baseStats: {hp: 90, atk: 110, def: 73, spa: 63, spd: 90, spe: 117},
