@@ -743,6 +743,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (!this.field.isWeather('snow') && pokemon.hasAbility('icebody')) {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
 		onUpdate(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.queue.peek(true)?.choice === 'runSwitch') return;
