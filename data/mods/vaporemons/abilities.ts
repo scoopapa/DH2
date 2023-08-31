@@ -1272,7 +1272,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	icebody: {
 		onWeather(target, source, effect) {
-			if (effect.id === 'hail' || effect.id === 'snow' || target.hasItem('snowglobe')) {
+			if (effect.id === 'hail' || effect.id === 'snow') {
+				this.heal(target.baseMaxhp / 32);
+			}
+			else if (target.hasItem('snowglobe')) {
 				this.heal(target.baseMaxhp / 16);
 			}
 		},
