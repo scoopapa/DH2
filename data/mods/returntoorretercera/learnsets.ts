@@ -1,4 +1,4 @@
-export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 /* eslint-disable */
 	ledianpurified: {
 		learnset: {
@@ -184,9 +184,9 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			zapcannon: ["9L1", "7V"],
 		},
 		eventData: [
-			{generation: 5, level: 10, gender: "M", isHidden: true, moves: ["9L1", "tailwhip", "tackle", "helpinghand", "sandattack"]},
-			{generation: 6, level: 10, moves: ["9L1", "celebrate", "tailwhip", "sandattack", "ember"], pokeball: "cherishball"},
-			{generation: 7, level: 50, gender: "F", isHidden: true, moves: ["9L1", "flareblitz", "facade", "willowisp", "quickattack"], pokeball: "cherishball"},
+			{generation: 5, level: 10, gender: "M", isHidden: true, moves: ["tailwhip", "tackle", "helpinghand", "sandattack"]},
+			{generation: 6, level: 10, moves: ["celebrate", "tailwhip", "sandattack", "ember"], pokeball: "cherishball"},
+			{generation: 7, level: 50, gender: "F", isHidden: true, moves: ["flareblitz", "facade", "willowisp", "quickattack"], pokeball: "cherishball"},
 		],
 	},
 	hypnoshadow: {
@@ -308,7 +308,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1", "9M", "9L32", "7T", "7L41", "6T", "6L41", "5T", "5L41", "4T", "4L64"],
 		},
 		eventData: [
-			{generation: 3, level: 34, abilities: ["9L1", "insomnia"], moves: ["9L1", "batonpass", "psychic", "meditate", "shadowball"]},
+			{generation: 3, level: 34, abilities: ["9L1", "insomnia"], moves: ["batonpass", "psychic", "meditate", "shadowball"]},
 		],
 		encounters: [
 			{generation: 2, level: 16},
@@ -406,7 +406,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1", "7T", "6T", "5T", "4T"],
 		},
 		eventData: [
-			{generation: 3, level: 34, moves: ["9L1", "refresh", "superfang", "scaryface", "hyperfang"]},
+			{generation: 3, level: 34, moves: ["refresh", "superfang", "scaryface", "hyperfang"]},
 		],
 		encounters: [
 			{generation: 1, level: 15},
@@ -505,7 +505,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1", "7T", "6T", "5T", "4T"],
 		},
 		eventData: [
-			{generation: 3, level: 34, moves: ["9L1", "refresh", "superfang", "scaryface", "hyperfang"]},
+			{generation: 3, level: 34, moves: ["refresh", "superfang", "scaryface", "hyperfang"]},
 		],
 		encounters: [
 			{generation: 1, level: 15},
@@ -698,8 +698,8 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			wish: ["9L1", "7E", "6E", "5E", "4E", "3E"],
 		},
 		eventData: [
-			{generation: 3, level: 5, shiny: 1, moves: ["9L1", "growl", "thunderwave", "watersport"], pokeball: "pokeball"},
-			{generation: 3, level: 10, gender: "M", moves: ["9L1", "growl", "thunderwave", "quickattack"], pokeball: "pokeball"},
+			{generation: 3, level: 5, shiny: 1, moves: ["growl", "thunderwave", "watersport"], pokeball: "pokeball"},
+			{generation: 3, level: 10, gender: "M", moves: ["growl", "thunderwave", "quickattack"], pokeball: "pokeball"},
 		],
 	},
 	minunshadow: {
@@ -788,8 +788,8 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			wish: ["9L1", "7E", "6E", "5E", "4E", "3E"],
 		},
 		eventData: [
-			{generation: 3, level: 5, shiny: 1, moves: ["9L1", "growl", "thunderwave", "mudsport"], pokeball: "pokeball"},
-			{generation: 3, level: 10, gender: "M", moves: ["9L1", "growl", "thunderwave", "quickattack"], pokeball: "pokeball"},
+			{generation: 3, level: 5, shiny: 1, moves: ["growl", "thunderwave", "mudsport"], pokeball: "pokeball"},
+			{generation: 3, level: 10, gender: "M", moves: ["growl", "thunderwave", "quickattack"], pokeball: "pokeball"},
 		],
 	},
 	arcanineshadow: {
@@ -890,8 +890,8 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			willowisp: ["9L1", "9M", "8M", "8V", "7M", "7S1", "6M", "5M", "4M"],
 		},
 		eventData: [
-			{generation: 4, level: 50, abilities: ["9L1", "intimidate"], moves: ["9L1", "flareblitz", "thunderfang", "crunch", "extremespeed"], pokeball: "cherishball"},
-			{generation: 7, level: 50, abilities: ["9L1", "intimidate"], moves: ["9L1", "flareblitz", "extremespeed", "willowisp", "protect"], pokeball: "cherishball"},
+			{generation: 4, level: 50, abilities: ["9L1", "intimidate"], moves: ["flareblitz", "thunderfang", "crunch", "extremespeed"], pokeball: "cherishball"},
+			{generation: 7, level: 50, abilities: ["9L1", "intimidate"], moves: ["flareblitz", "extremespeed", "willowisp", "protect"], pokeball: "cherishball"},
 		],
 	},
 	sunflorapurified: {
@@ -1066,7 +1066,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			workup: ["9L1", "8M", "7M", "5M"],
 		},
 		eventData: [
-			{generation: 3, level: 38, abilities: ["9L1", "keeneye"], moves: ["9L1", "helpinghand", "skyuppercut", "mindreader", "megapunch"]},
+			{generation: 3, level: 38, abilities: ["9L1", "keeneye"], moves: ["helpinghand", "skyuppercut", "mindreader", "megapunch"]},
 		],
 		encounters: [
 			{generation: 1, level: 30},
@@ -1195,7 +1195,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			workup: ["9L1", "7M"],
 		},
 		eventData: [
-			{generation: 6, level: 50, isHidden: true, moves: ["9L1", "icepunch", "crunch", "waterfall", "screech"], pokeball: "pokeball"},
+			{generation: 6, level: 50, isHidden: true, moves: ["icepunch", "crunch", "waterfall", "screech"], pokeball: "pokeball"},
 		],
 	},
 	persianshadow: {
@@ -1395,7 +1395,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			whirlpool: ["9L1", "8M", "4M"],
 		},
 		eventData: [
-			{generation: 5, level: 50, abilities: ["9L1", "thickfat"], moves: ["9L1", "icebeam", "brine", "hail", "sheercold"], pokeball: "cherishball"},
+			{generation: 5, level: 50, abilities: ["9L1", "thickfat"], moves: ["icebeam", "brine", "hail", "sheercold"], pokeball: "cherishball"},
 		],
 		encounters: [
 			{generation: 5, level: 30},
@@ -1688,8 +1688,8 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			workup: ["9L1", "8M", "7M", "5M"],
 		},
 		eventData: [
-			{generation: 6, level: 50, gender: "F", nature: "Adamant", moves: ["9L1", "bulletseed", "pinmissile", "closecombat", "megahorn"], pokeball: "cherishball"},
-			{generation: 6, level: 50, nature: "Adamant", abilities: ["9L1", "guts"], moves: ["9L1", "pinmissile", "bulletseed", "earthquake", "rockblast"], pokeball: "cherishball"},
+			{generation: 6, level: 50, gender: "F", nature: "Adamant", moves: ["bulletseed", "pinmissile", "closecombat", "megahorn"], pokeball: "cherishball"},
+			{generation: 6, level: 50, nature: "Adamant", abilities: ["9L1", "guts"], moves: ["pinmissile", "bulletseed", "earthquake", "rockblast"], pokeball: "cherishball"},
 		],
 	},
 	typhlosionpurified: {
@@ -1798,8 +1798,8 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1", "9M"],
 		},
 		eventData: [
-			{generation: 3, level: 70, moves: ["9L1", "quickattack", "flamewheel", "swift", "flamethrower"], pokeball: "pokeball"},
-			{generation: 6, level: 50, isHidden: true, moves: ["9L1", "overheat", "flamewheel", "flamecharge", "swift"], pokeball: "pokeball"},
+			{generation: 3, level: 70, moves: ["quickattack", "flamewheel", "swift", "flamethrower"], pokeball: "pokeball"},
+			{generation: 6, level: 50, isHidden: true, moves: ["overheat", "flamewheel", "flamecharge", "swift"], pokeball: "pokeball"},
 		],
 	},
 	magcargoshadow: {
@@ -1871,7 +1871,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			yawn: ["9L1", "7L1", "6L1", "5L1", "4L1", "3L1"],
 		},
 		eventData: [
-			{generation: 3, level: 38, moves: ["9L1", "refresh", "heatwave", "earthquake", "flamethrower"]},
+			{generation: 3, level: 38, moves: ["refresh", "heatwave", "earthquake", "flamethrower"]},
 		],
 		encounters: [
 			{generation: 3, level: 25},
@@ -1963,7 +1963,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			willowisp: ["9L1", "8M", "8V", "7M", "6M", "5M", "4M"],
 		},
 		eventData: [
-			{generation: 3, level: 40, moves: ["9L1", "batonpass", "solarbeam", "sunnyday", "flamethrower"]},
+			{generation: 3, level: 40, moves: ["batonpass", "solarbeam", "sunnyday", "flamethrower"]},
 		],
 		encounters: [
 			{generation: 2, level: 14, gender: "M"},
@@ -2072,10 +2072,10 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			wonderroom: ["9L1", "8M", "7T", "6T", "5T"],
 		},
 		eventData: [
-			{generation: 3, level: 45, moves: ["9L1", "takedown", "dragonbreath", "dragondance", "refresh"], pokeball: "pokeball"},
-			{generation: 3, level: 36, moves: ["9L1", "healbell", "dragonbreath", "solarbeam", "aerialace"]},
-			{generation: 5, level: 35, gender: "M", isHidden: true, moves: ["9L1", "takedown", "naturalgift", "dragonbreath", "falseswipe"]},
-			{generation: 6, level: 100, nature: "Modest", isHidden: true, moves: ["9L1", "hypervoice", "fireblast", "protect", "agility"], pokeball: "cherishball"},
+			{generation: 3, level: 45, moves: ["takedown", "dragonbreath", "dragondance", "refresh"], pokeball: "pokeball"},
+			{generation: 3, level: 36, moves: ["healbell", "dragonbreath", "solarbeam", "aerialace"]},
+			{generation: 5, level: 35, gender: "M", isHidden: true, moves: ["takedown", "naturalgift", "dragonbreath", "falseswipe"]},
+			{generation: 6, level: 100, nature: "Modest", isHidden: true, moves: ["hypervoice", "fireblast", "protect", "agility"], pokeball: "cherishball"},
 		],
 	},
 	mismagiusshadow: {
@@ -2379,7 +2379,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			worryseed: ["9L1", "7T", "6T", "5T", "4T"],
 		},
 		eventData: [
-			{generation: 6, level: 50, isHidden: true, moves: ["9L1", "solarbeam", "sunnyday", "synthesis", "bodyslam"], pokeball: "pokeball"},
+			{generation: 6, level: 50, isHidden: true, moves: ["solarbeam", "sunnyday", "synthesis", "bodyslam"], pokeball: "pokeball"},
 		],
 	},
 	donphanpurified: {
@@ -2606,7 +2606,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			workup: ["9L1", "7M", "5M"],
 		},
 		eventData: [
-			{generation: 3, level: 34, abilities: ["9L1", "vitalspirit"], moves: ["9L1", "helpinghand", "crosschop", "focusenergy", "reversal"]},
+			{generation: 3, level: 34, abilities: ["9L1", "vitalspirit"], moves: ["helpinghand", "crosschop", "focusenergy", "reversal"]},
 		],
 		encounters: [
 			{generation: 2, level: 15},
@@ -2718,7 +2718,7 @@ export const Learnsets: {["9L1", speciesid: string]: LearnsetData} = {
 			whirlpool: ["9L1", "8M", "7V", "4M"],
 		},
 		eventData: [
-			{generation: 3, level: 10, gender: "M", moves: ["9L1", "tackle", "poisonsting", "harden", "minimize"], pokeball: "pokeball"},
+			{generation: 3, level: 10, gender: "M", moves: ["tackle", "poisonsting", "harden", "minimize"], pokeball: "pokeball"},
 		],
 	},
 	probopass: {
