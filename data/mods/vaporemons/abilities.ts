@@ -1275,9 +1275,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (effect.id === 'hail' || effect.id === 'snow') {
 				this.heal(target.baseMaxhp / 32);
 			}
-			else if (target.hasItem('snowglobe')) {
-				this.heal(target.baseMaxhp / 16);
-			}
 		},
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
