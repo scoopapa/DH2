@@ -5,7 +5,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		effectType: 'Weather',
 		duration: 0,
 		onModifyDamage(damage, source, target, move) {
-			if (this.dex.conditions.getiveness(move, 'Flying') > 0) {
+			if (this.dex.getEffectiveness(move, 'Flying') > 0) {
 				this.debug('Delta Stream neutralize');
 				return this.chainModify(0.75);
 			}
@@ -117,8 +117,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onStart(pokemon) {
 			this.effectState.ignore = [];
 			this.effectState.currentVolatiles = Object.keys(pokemon.volatiles);
-			console.log("Start of turn volatiles: ")
-			console.log(this.effectState.currentVolatiles);
+			this.debug("Start of turn volatiles: ")
+			this.debug(this.effectState.currentVolatiles);
 			this.effectState.imprisoned = pokemon.side.foe.active.filter(enemy => enemy.volatiles['imprison']);
 		},
 		onSetStatus(status, target, source, effect) {
@@ -127,10 +127,10 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onUpdate(pokemon){
-			console.log("volatiles not to ignore: ")
-			console.log(this.effectState.currentVolatiles);
+			this.debug("volatiles not to ignore: ")
+			this.debug(this.effectState.currentVolatiles);
 			for(const volatile in pokemon.volatiles){
-				console.log("Checking " + volatile);
+				this.debug("Checking " + volatile);
 				if (['attract', 'choicelock', 'confusion', 'disable', 'encore', 'flinch', 'taunt', 'throatchop'].includes(volatile)
 				  && !this.effectState.currentVolatiles.includes(volatile.id) && !this.effectState.ignore.includes(volatile)){
 					this.effectState.ignore.push(volatile);
@@ -333,7 +333,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return;
 			}
 			this.activeTarget = pokemon;
-			const damage = this.getDamage(pokemon, pokemon, 40);
+			const damage = this.actions.getConfusionDamage(pokemon, 40);
 			if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
 			const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
 			this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
@@ -415,7 +415,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water' || (move.twoType && move.twoType === 'Water')) {
 				this.debug('Rain water boost');
 				return this.chainModify(1.5);
@@ -430,7 +429,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	sunnyday: {
 		inherit: true,
 		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Fire' || (move.twoType && move.twoType === 'Fire')) {
 				this.debug('Sunny Day fire boost');
 				return this.chainModify(1.5);

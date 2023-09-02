@@ -90,12 +90,13 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					if(!pokeLearnset.learnset){
 						pokeLearnset = this.dex.species.getLearnsetData(this.dex.species.get(pokemon.baseSpecies).id);
 					}
-					for (const moveID of set.moves) {
+					for (const move of set.moves) {
+						const moveID = this.dex.toID(move);
 						const pokeLearnsMove = pokeLearnset.learnset[moveID];
 						//console.log(pokemon + " knows " + moveID + " with means " + pokeLearnsMove);
 						if(pokeLearnsMove == "9D"){
 							if(isHidden){ //Since it can't know the same move twice, it must have gotten it from a family member, and exclusive ones are taken care of.
-								problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+								problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 							} else {
 								isHidden = true;
 							}
@@ -103,15 +104,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 							let isNatural = false; //whether it's learned through Sketch
 							//console.log("This move is not naturally learned by this stage or form");
 							if(pokemon.changesFrom && pokemon.name !== pokemon.changesFrom){ //There is a base forme
-								let baseLearns = this.dex.modData('Learnsets', this.dex.species.get(pokemon.changesFrom).id)[moveID];
+								let baseLearns = this.dex.species.getLearnsetData(this.dex.species.get(pokemon.changesFrom).id).learnset[moveID];
 								//if(pokemon.changesFrom) console.log("Base form is " + pokemon.changesFrom + " and its accessibility to " + moveID + " is " + baseLearns);
 								if(baseLearns) isNatural = true;
 								if(baseLearns == "9D"){ //This move is base forme's Hidden Move
 									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
-										problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
+										problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${pokemon.baseSpecies}'s exclusive Hidden Move.`);
 									} else {
 										if(isHidden){
-											problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+											problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 										} else {
 											isHidden = true;
 										}
@@ -119,31 +120,31 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 								}
 							}
 							if(prevo){
-								let prevoLearns = this.dex.modData('Learnsets', prevo.id)[moveID];
+								let prevoLearns = this.dex.species.getLearnsetData(prevo.id).learnset[moveID];
 								//console.log("Prevo is " + prevo.name + " and its accessibility to " + moveID + " is " + prevoLearns);
 								if(prevoLearns) isNatural = true;
 								if(prevoLearns == "9D"){//This move is prevo's Hidden Move
 									if(pokemon.exclusiveHidden) { //and the Pokemon can't learn it
-										problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
+										problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${prevo}'s exclusive Hidden Move.`);
 									} else {
 										if(isHidden){
-											problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+											problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 										} else {
 											isHidden = true;
 										}
 									}
-								} else if (this.dex.modData('Learnsets', prevo.id)[moveID] === undefined){ //The prevo can't learn it either, therefore...
+								} else if (this.dex.species.getLearnsetData(prevo.id).learnset[moveID] === undefined){ //The prevo can't learn it either, therefore...
 									const first = (prevo.prevo) ? this.dex.species.get(prevo.prevo) : undefined; //there must be a first stage
 									if(first){
-										let firstLearns = this.dex.modData('Learnsets', first.id)[moveID];
+										let firstLearns = this.dex.species.getLearnsetData(first.id).learnset[moveID];
 										//console.log("First stage is " + first.name + " and its accessibility to " + moveID + " is " + firstLearns);
 										if(firstLearns) isNatural = true;
 										if(firstLearns == "9D") {//This move is first stage's Hidden Move
 											if(pokemon.exclusiveHidden || prevo.exclusiveHidden) { //and the Pokemon can't learn it
-												problems.push(`${pokemon} can't learn ${this.dex.getMove(moveID)} because it is ${first}'s exclusive Hidden Move.`);
+												problems.push(`${pokemon} can't learn ${this.dex.moves.get(moveID)} because it is ${first}'s exclusive Hidden Move.`);
 											} else {
 												if(isHidden){
-													problems.push(`${pokemon} can't know ${this.dex.getMove(moveID)} because it already knows a Hidden Move.`);
+													problems.push(`${pokemon} can't know ${this.dex.moves.get(moveID)} because it already knows a Hidden Move.`);
 												} else {
 													isHidden = true;
 												}
@@ -155,7 +156,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 							//if(!isNatural) console.log("This move is learned through Sketch");
 							if(!isNatural && pokeLearnset.learnset['sketch'] == "9D"){ //Move is Sketched and Sketch is the Hidden Move, so move counts as Hidden too
 								if(isHidden){
-									problems.push(`${pokemon} can't sketch ${this.dex.getMove(moveID)} because Sketch is its Hidden Move and it already knows a sketched move.`);
+									problems.push(`${pokemon} can't Sketch ${this.dex.moves.get(moveID)} because Sketch is its Hidden Move and it already knows a Sketched move.`);
 								} else {
 									isHidden = true;
 								}
@@ -256,6 +257,40 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				}
 			}
 			return problems;
+		},
+	},
+	gravitysleepclause: {
+		effectType: 'ValidatorRule',
+		name: 'Gravity Sleep Clause',
+		desc: "Bans sleep moves below 100% accuracy, in conjunction with Gravity or Supermassive",
+		banlist: [
+			'Gravity ++ Dark Void', 'Gravity ++ Grass Whistle', 'Gravity ++ Hypnosis', 'Gravity ++ Sing', 'Gravity ++ Sleep Powder',
+			'Supermassive ++ Dark Void', 'Supermassive ++ Grass Whistle', 'Supermassive ++ Hypnosis', 'Supermassive ++ Sing', 'Supermassive ++ Sleep Powder',
+		],
+		onValidateTeam(team) {
+			let hasMegaSteelix = false;
+			let hasSleepMove = false;
+			for (const set of team) {
+				const species = this.dex.species.get(set.species);
+				if (species.name === "Steelix" && set.item === "Steelixite") hasMegaSteelix = true;
+				for (const moveid of set.moves) {
+					const move = this.dex.moves.get(moveid);
+					// replicates previous behavior which may compare `true` to 100: true < 100 == true
+					// this variable is true if the move never misses (even with lowered acc) or has a chance to miss,
+					// but false if the move's accuracy is 100% (yet can be lowered).
+					const hasMissChanceOrNeverMisses = move.accuracy === true || move.accuracy < 100;
+
+					if (move.status && move.status === 'slp' && hasMissChanceOrNeverMisses) {
+						hasSleepMove = true;
+					}
+				}
+			}
+			if (hasMegaSteelix && hasSleepMove) {
+				return [`The combination of Mega Steelix and a <100% accurate sleep move on the same team is banned by Gravity Sleep Clause.`];
+			}
+		},
+		onBegin() {
+			this.add('rule', 'Gravity Sleep Clause: The combination of sleep-inducing moves with imperfect accuracy and Gravity or Supermassive are banned');
 		},
 	},
 };

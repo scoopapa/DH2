@@ -2509,7 +2509,7 @@ export class TeamValidator {
 						}
 					} else if (learned.charAt(1) === 'D') {
 						if((this.dex.currentMod === 'earthsky' && learned === '8D') || (this.dex.currentMod === 'gen9eshorizons' && learned === '9D')){ //MODDED: Earth & Sky Hidden Moves use 'D' source
-							continue;
+							return null;
 						} else {
 							// DW moves:
 							//   only if that was the source

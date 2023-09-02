@@ -53,6 +53,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "If the holder uses Grass Pledge or Water Pledge, it will add the combination side effect of that Pledge. Increases the power of the holder's Fire Pledge by 50%.",
+		shortDesc: "Grass/Water Pledge: Add side condition. Fire Pledge x1.5 base power.",
 		num: 1017,
 		rating: 2,
 	},
@@ -79,6 +80,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "If the holder uses Water Pledge or Fire Pledge, it will add the combination side effect of that Pledge. Increases the power of the holder's Grass Pledge by 50%.",
+		shortDesc: "Water/Fire Pledge: Add side condition. Grass Pledge x1.5 base power.",
 		num: 1016,
 		rating: 2,
 	},
@@ -163,6 +165,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "If the holder uses Grass Pledge or Water Pledge, it will add the combination side effect of that Pledge. Increases the power of the holder's Water Pledge by 50%.",
+		shortDesc: "Fire/Grass Pledge: Add side condition. Water Pledge x1.5 base power.",
 		num: 1018,
 		rating: 2,
 	},
@@ -1410,20 +1413,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	heavydutyboots: {
 		inherit: true,
-		onDamage(damage, target, source, effect) {
-			if (effect && ['spikes','stealthrock'].includes(effect.id)) {
-				return null;
-			}
-		},
-		onBoost(boost, target, source, effect) {
-			if (effect && effect.id === 'stickyweb') {
-				return null;
-			}
-		},
-		onSetStatus(status, target, source, effect) {
-			if (effect && effect.id === 'toxicspikes') {
-				return null;
-			}
+		onEntryHazard(pokemon) {
+			return null;
 		},
 	},
 	leek: {

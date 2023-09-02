@@ -259,18 +259,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'move: Escape Tunnel');
 			},
-			onBoost(boost, target, source, effect) {
-				if (effect && effect.id === 'stickyweb') {
-					return null;
-				}
-			},
-			onSetStatus(status, target, source, effect) {
-				if (effect && effect.id === 'toxicspikes') {
-					return null;
-				}
+			onEntryHazard(pokemon) {
+				return null;
 			},
 			onDamage(damage, target, source, effect){
-				if(effect && ['spikes','stealthrock', 'firepledge'].includes(effect.id)) return false;
+				if(effect && effect.id === 'firepledge') return false;
 			},
 			onImmunity(type, pokemon) {
 				if (['sandstorm', 'snow'].includes(type)) return false;
@@ -418,11 +411,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(battle, source, effect) {
 				this.add('-fieldstart', 'move: Midnight');
 				//Suppression implemented in scripts.ts as edits to sim/field.ts
 			},
-			onEnd() {
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Midnight');
 			},
 		},
@@ -712,7 +705,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onTryHitPriority: 2,
 			onTryHit(target, source, move) {
 				if(target === this.effectState.target){
-					const damage = this.getDamage(source, target, move);
+					const damage = this.actions.getDamage(source, target, move);
 					if(!damage) return;
 					this.add('-activate', target, 'move: Rebound');
 					this.damage(damage, source, target);
@@ -901,7 +894,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.effectState.noStart = ['aquaring','attract','bunkerdown','charge','curse','destinybond','doubleteam','endure','evade','flashfire','focusenergy','followme','foresight','grudge','ingrain','kingsshield','lockon','minimize','miracleeye','mindreader','obstruct','odorsleuth','playdead','powder','preheat','protect','ragepowder','rebound','shelter','slipaway','snatch','spikyshield','spotlight','substitute','tangledfeet','tarshot'], //Volatiles that can't be added, but either have no duration or have to be removable to prevent breaking things/being broken
 				this.add('-start', pokemon, 'move: Stasis');
 			},
-			onBoost(boost, pokemon) {
+			onChangeBoost(boost, pokemon) {
 				boost = {};
 				this.add('-fail', pokemon, 'move: Stasis');
 				return false;
@@ -1177,9 +1170,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		onModifyMove(move, pokemon) {
 			if (this.field.effectiveTerrain(pokemon) === 'mistyterrain') move.boosts = {spd: 2};
-		},
-		boosts: {
-			spd: 1,
 		},
 		target: "allies",
 		desc: "Raises allies' Special Defense by 1 stage. If the terrain is Misty Terrain, this move will raise allies' Special Defense by 2 stages.",
@@ -1493,9 +1483,23 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "Type depends on user's form.",
 	},
 	captivate: {
-		inherit: true,
-		onImmunity: null,
-		zMove: null,
+		num: 445,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Captivate",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		boosts: {
+			spa: -2,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Cute",
+		desc: "Lowers the target's Special Attack by 2 stages.",
+		shortDesc: "Lowers the target's Sp. Atk by 2",
 	},
 	chargebeam: {
 		inherit: true,
@@ -1513,6 +1517,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 140,
 		accuracy: 100,
+		mindBlownRecoil: true,
 		onAfterMove(pokemon, target, move) {
 			if (pokemon.moveThisTurnResult != null && move.mindBlownRecoil && !move.multihit) {
 				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Chloroblast'), true);
@@ -1563,6 +1568,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Clever",
+		desc: "Fails unless the user is an Electric type. If this move is successful and the user is not Terastallized, the user's Electric type becomes typeless as long as it remains active.",
+		shortDesc: "User's Electric type: typeless; must be Electric.",
 	},
 	confusion: {
 		inherit: true,
@@ -1640,7 +1647,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		desc: "Causes the target to fall asleep. In Doubles and Triples Battles, this move's accuracy lowers to 50%.",
-		shortDesc: "Causes the foe(s) to fall asleep. Less accurate in non-Singles.",
+		shortDesc: "Causes the foe(s) to fall asleep. 2v2/3v3: 50% acc.",
 	},
 	defendorder: {
 		inherit: true,
@@ -1966,6 +1973,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
+		onTryImmunity(target) {
+			return !target.hasAbility('stickyhold');
+		},
 		onHit(target, source){
 			const item = target.takeItem();
 			if (item) {
@@ -2083,10 +2093,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		condition: {
 			duration: 4,
-			onStart(targetSide) {
+			onSideStart(targetSide) {
 				this.add('-sidestart', targetSide, 'Fire Pledge');
 			},
-			onEnd(targetSide) {
+			onSideEnd(targetSide) {
 				for (const pokemon of targetSide.active) {
 					if (pokemon && pokemon.isGrounded() && !pokemon.hasType('Fire') && !('safeguard' in targetSide.sideConditions)) {
 						this.damage(pokemon.baseMaxhp / 8, pokemon);
@@ -2116,8 +2126,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (target.side.active.length === 1) {
 				return;
 			}
-			for (const ally of target.side.active) {
-				if (ally && this.isAdjacent(target, ally)) {
+			for (const ally of target.adjacentAllies()) {
+				if (ally) {
 					const burstData: ActiveMove = {
 						name: "Burst",
 						basePower: 60,
@@ -2128,7 +2138,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						effectType: 'Move',
 						type: move.type,
 					};
-					this.trySpreadMoveHit([ally], source, burstData);
+					this.actions.trySpreadMoveHit([ally], source, burstData);
 				}
 			}
 		},
@@ -2137,8 +2147,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (target.side.active.length === 1) {
 				return;
 			}
-			for (const ally of target.side.active) {
-				if (ally && this.isAdjacent(target, ally)) {
+			for (const ally of target.adjacentAllies()) {
+				if (ally) {
 					const burstData: ActiveMove = {
 						name: "Burst",
 						basePower: 60,
@@ -2149,7 +2159,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						effectType: 'Move',
 						type: move.type,
 					};
-					this.trySpreadMoveHit([ally], source, burstData);
+					this.actions.trySpreadMoveHit([ally], source, burstData);
 				}
 			}
 		},
@@ -2165,8 +2175,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			//else console.log("Flame Burst does not see a shield");
 			if(blocked && target.side.active.length > 1){
 				//console.log("Flame Burst exploding on shield");
-				for (const ally of target.side.active) {
-					if (ally && this.isAdjacent(target, ally)) {
+				for (const ally of target.adjacentAllies()) {
+					if (ally) {
 						const burstData: ActiveMove = {
 							name: "Burst",
 							basePower: 60,
@@ -2177,7 +2187,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 							effectType: 'Move',
 							type: move.type,
 						};
-						this.trySpreadMoveHit([ally], source, burstData);
+						this.actions.trySpreadMoveHit([ally], source, burstData);
 					}
 				}
 			}
@@ -2216,7 +2226,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		boosts: {},
 		target: "allAdjacentFoes",
 		desc: "Lowers the target's accuracy by 1 stage and disrupts the execution of Focus Punch and moves that spend a turn charging, unless it is hiding behind a substitute. Supernatural darkness is lifted from the battlefield.",
-		shortDesc: "Lowers foe(s)' accuracy. Interrupts charging, removes Midnight.",
+		shortDesc: "Foe(s)' acc -1. Disrupts charging, removes Midnight.",
 		cant: "  [POKEMON] lost concentration on its move!",
 	},
 	flashcannon: {
@@ -2447,7 +2457,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		contestType: "Cool",
 		desc: "If this move is successful, moves targeted at the user deal double damage and do not check accuracy until the user's next turn. The user also cannot switch next turn.",
-		shortDesc: "User takes sure-hit 2x damage and is trapped until its next turn.",
+		shortDesc: "Next turn: Trapped, enemy moves 2x damage and sure-hit.",
 	},
 	glare: {
 		inherit: true,
@@ -2469,10 +2479,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		condition: {
 			duration: 4,
-			onStart(targetSide) {
+			onSideStart(targetSide) {
 				this.add('-sidestart', targetSide, 'Grass Pledge');
 			},
-			onEnd(targetSide) {
+			onSideEnd(targetSide) {
 				this.add('-sideend', targetSide, 'Grass Pledge');
 			},
 			onModifySpe(spe, pokemon) {
@@ -2489,7 +2499,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	grassyterrain: {
 		inherit: true,
 		condition: {
-			effectType: 'Terrain',
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
@@ -2509,7 +2518,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return this.chainModify([0x14CD, 0x1000]);
 				}
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Grassy Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
@@ -2526,19 +2535,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.field.clearTerrain();
 				}
 			},
-			onResidualOrder: 5,
-			onResidualSubOrder: 3,
-			onResidual() {
-				if (this.field.isTerrain('grassyterrain')) this.eachEvent('Terrain');
-			},
 			onTerrain(pokemon) {
 				if (pokemon.isGrounded() && !pokemon.isSemiInvulnerable()) {
-					this.debug('Pokemon is grounded, healing through Grassy Terrain.');
 					this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+				} else {
+					this.debug(`Pokemon semi-invuln or not grounded; Grassy Terrain skipped`);
 				}
 			},
-			onEnd() {
-				if (!this.effectState.duration) this.eachEvent('Terrain');
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Grassy Terrain');
 			},
 		},
@@ -2569,8 +2575,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onStart(side) {
-				this.add('-start', side, 'move: Heal Block');
+			onSideStart(side, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-sidestart', side, 'move: Heal Block', '[of] ' + source, '[persistent]');
+				} else {
+					this.add('-sidestart', side, 'move: Heal Block', '[of] ' + source);
+				}
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
@@ -2586,9 +2596,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return false;
 				}
 			},
-			onResidualOrder: 17,
-			onEnd(side) {
-				this.add('-end', side, 'move: Heal Block');
+			onSideResidualOrder: 17,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'move: Heal Block');
 			},
 			onTryHeal(damage, target, source, effect) {
 				return false;
@@ -2779,6 +2789,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: true,
 		priority: 0,
+		hasSheerForce: false,
 		contestType: "Cool",
 		shortDesc: "This move does not check accuracy.",
 	},
@@ -2828,7 +2839,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return hasLastResort;
 		},
 		desc: "This move fails unless the user is the last remaining Pokemon on its team, or if it knows this move and at least one other move and has used all the other moves it knows at least once each since it became active or Transformed.",
-		shortDesc: "Fails unless last Mon or each known move has been used.",
+		shortDesc: "Fails unless last Mon or other moves used.",
 	},
 	lastrespects: {
 		inherit: true,
@@ -2913,7 +2924,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-end', pokemon, 'move: Lock-On', '[silent]');
 			}
 		},
-		shortDesc: "User's next attack on target always hits, even through Evasiveness, and ignores semi-invulnerability.",
+		shortDesc: "Next attack on target: No Guard effect.",
 	},
 	lovelykiss: {
 		inherit: true,
@@ -2981,18 +2992,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onStart(target, source) {
-				this.add('-fieldstart', 'move: Magic Room', '[of] ' + source);
+			onFieldStart(target, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-fieldstart', 'move: Magic Room', '[of] ' + source, '[persistent]');
+				} else {
+					this.add('-fieldstart', 'move: Magic Room', '[of] ' + source);
+				}
+				for (const mon of this.getAllActive()) {
+					this.singleEvent('End', mon.getItem(), mon.itemState, mon);
+				}
 			},
-			onRestart(target, source) {
+			onFieldRestart(target, source) {
 				this.field.removePseudoWeather('magicroom');
 			},
 			// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
-			onPrimal(pokemon){
+			onFieldPrimal(pokemon){
 				return false;
 			},
-			onResidualOrder: 25,
-			onEnd() {
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 6,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectState.source);
 			},
 		},
@@ -3292,7 +3311,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		condition: {
 			duration: 5,
-			onStart(side, source) {
+			onFieldStart(side, source) {
 				this.add('-fieldstart', 'move: Mud Sport', '[of] ' + source);
 			},
 			onSetStatus(status, target, source, effect) {
@@ -3310,8 +3329,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return this.chainModify([0x548, 0x1000]);
 				}
 			},
-			onResidualOrder: 21,
-			onEnd() {
+			onFieldResidualOrder: 21,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Mud Sport');
 			},
 		},
@@ -3391,7 +3410,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "Causes the target to lose 1/4 of its maximum HP, rounded down, at the end of each turn as long as it is asleep. This move does not affect the target unless it is asleep. The effect ends when the target wakes up, even if it falls asleep again in the same turn. The target is forced to sleep for three turns.",
-		shortDesc: "Sleeping target -25% max HP each turn, sleeps max turns.",
+		shortDesc: "SLP target: -25% max HP each turn, sleeps 3 turns.",
 	},
 	nightdaze: {
 		inherit: true,
@@ -3413,6 +3432,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	nobleroar: {
 		inherit: true,
 		pp: 20,
+		accuracy: 85,
+		target: "allAdjacentFoes",
 		contestType: "Cool",
 	},
 	obstruct: {
@@ -3495,6 +3516,26 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	orderup: {
 		inherit: true,
 		basePower: 60,
+		onModifyMove(move, pokemon) {
+			if (pokemon.volatiles['commanded'] && pokemon.hasAbility('sheerforce')) move.hasSheerForce = true;
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!pokemon.volatiles['commanded'] || move.hasSheerForce) return;
+			const tatsugiri = pokemon.volatiles['commanded'].source;
+			if (tatsugiri.baseSpecies.baseSpecies !== 'Tatsugiri') return; // Should never happen
+			switch (tatsugiri.baseSpecies.forme) {
+			case 'Droopy':
+				this.boost({def: 1}, pokemon, pokemon);
+				break;
+			case 'Stretchy':
+				this.boost({spe: 1}, pokemon, pokemon);
+				break;
+			default:
+				this.boost({atk: 1}, pokemon, pokemon);
+				break;
+			}
+		},
+		hasSheerForce: false,
 	},
 	originpulse: {
 		inherit: true,
@@ -3901,8 +3942,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 				return 5;
 			},
-			onStart(side) {
-				this.add('-sidestart', side, 'Safeguard');
+			onSideStart(side, source) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-sidestart', side, 'move: Safeguard', '[of] ' + source, '[persistent]');
+				} else {
+					this.add('-sidestart', side, 'move: Safeguard', '[of] ' + source);
+				}
 			},
 			onSetStatus(status, target, source, effect) {
 				if (!effect || !source) return;
@@ -3930,14 +3975,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onImmunity(type, pokemon) {
 				if (['sandstorm', 'snow'].includes(type)) return false;
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd(side) {
+			onSideResidualOrder: 21,
+			onSideResidualSubOrder: 2,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'Safeguard');
 			},
 		},
 		desc: "For 5 turns, the user and its party members cannot have non-volatile status conditions, confusion, Leech Seed, or a Curse or Nightmare inflicted on them by other Pokemon. Pokemon on the user's side cannot become affected by Yawn but can fall asleep from its effect. Residual damage from Spikes, Stealth Rock, Sandstorm, Snow, and a burning field is blocked for the user and its team. It is removed from the user's side if an opponent uses the move Defog. Fails if the effect is already active on the user's side.",
-		shortDesc: "For 5 turns, protects user's party from status and residual field damage.",
+		shortDesc: "For 5 turns, user party no +status or field damage.",
 	},
 	sandattack: {
 		inherit: true,
@@ -3979,28 +4024,33 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					chance: 30,
 					status: 'slp',
 				});
-			} else if (this.field.isTerrain('electricterrain')) {
-				move.secondaries.push({
-					chance: 30,
-					status: 'par',
-				});
-			} else if (this.field.isTerrain('grassyterrain')) {
-				move.secondaries.push({
-					chance: 30,
-					status: 'slp',
-				});
-			} else if (this.field.isTerrain('mistyterrain')) {
-				move.secondaries.push({
-					chance: 30,
-					boosts: {
-						spa: -1,
-					},
-				});
-			} else if (this.field.isTerrain('psychicterrain')) {
-				move.secondaries.push({
-					chance: 30,
-					volatileStatus: 'confusion',
-				});
+			} else  switch(this.field.effectiveTerrain()) {
+				case 'electricterrain':
+					move.secondaries.push({
+						chance: 30,
+						status: 'par',
+					});
+					break;
+				case 'grassyterrain':
+					move.secondaries.push({
+						chance: 30,
+						status: 'slp',
+					});
+					break;
+				case 'mistyterrain':
+					move.secondaries.push({
+						chance: 30,
+						boosts: {
+							spa: -1,
+						},
+					});
+					break;
+				case 'psychicterrain':
+					move.secondaries.push({
+						chance: 30,
+						volatileStatus: 'confusion',
+					});
+					break;
 			}
 		},
 		secondary: {
@@ -4114,7 +4164,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user will become trapped for a turn. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Bunker Down, Detect, Endure, King's Shield, Obstruct, Play Dead, Protect, Quick Guard, Rebound, Silk Trap, Slip Away, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects from damaging attacks. Contact: trapped for a turn.",
+		shortDesc: "Guards damaging attacks. Contact: 1-turn trap.",
 	},
 	signalbeam: {
 		inherit: true,
@@ -4244,7 +4294,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			noCopy: true,
 			onStart(pokemon) {
 				let applies = !(pokemon.isGrounded(false, true));
-				console.log("Smack Down grounded assessment: " + !applies);
+				this.debug("Smack Down grounded assessment: " + !applies);
 				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
 					applies = true;
 					this.queue.cancelMove(pokemon);
@@ -4254,7 +4304,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					applies = true;
 					delete pokemon.volatiles['magnetrise'];
 				}
-				console.log("Smack Down final application: " + applies);
+				this.debug("Smack Down final application: " + applies);
 				if (!applies) return false;
 				this.add('-start', pokemon, 'Smack Down');
 			},
@@ -4442,16 +4492,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {reflectable: 1, nonsky: 1, snatch: 1},
 		condition: {
 			// this is a side condition
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Spikes');
 				this.effectState.layers = 1;
 			},
-			onRestart(side) {
+			onSideRestart(side) {
 				if (this.effectState.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
 				this.effectState.layers++;
 			},
-			onSwitchIn(pokemon) {
+			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				//if (pokemon.side.sideConditions['safeguard'] || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('limber')) return;
 				const damageAmounts = [0, 15, 20, 24]; // 1/8, 1/6, 1/5
@@ -4496,10 +4546,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {reflectable: 1, nonsky: 1, snatch: 1},
 		condition: {
 			// this is a side condition
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
-			onSwitchIn(pokemon) {
+			onEntryHazard(pokemon) {
 				if (pokemon.hasType('Rock')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				this.damage(pokemon.maxhp * Math.pow(2, typeMod) / 8);
@@ -4526,10 +4576,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {reflectable: 1, snatch: 1},
 		condition: {
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
-			onSwitchIn(pokemon) {
+			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				//if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('limber')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
@@ -4639,7 +4689,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Water",
 		desc: "Hits three times. If this move is successful, it breaks through the target's Bunker Down, Detect, King's Shield, Obstruct, Protect, Silk Trap, Slip Away, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally.",
-		shortDesc: "Breaks the target's protection for this turn. Hits 3 times.",
+		shortDesc: "Hits 3 times. Breaks protection for this turn.",
 	},
 	swagger: {
 		inherit: true,
@@ -4826,7 +4876,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {reflectable: 1, nonsky: 1, snatch: 1},
 		condition: {
 			// this is a side condition
-			onStart(side, source) {
+			onSideStart(side, source) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
 				if(source.hasAbility('potency')){
 					this.debug("Potency double-setting Toxic Spikes");
@@ -4835,12 +4885,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					this.effectState.layers = 1;
 				}
 			},
-			onRestart(side) {
+			onSideRestart(side) {
 				if (this.effectState.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
 				this.effectState.layers++;
 			},
-			onSwitchIn(pokemon) {
+			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
@@ -5019,7 +5069,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		condition: {
 			duration: 5,
-			onStart(side, source) {
+			onFieldStart(side, source) {
 				this.add('-fieldstart', 'move: Water Sport', '[of] ' + source);
 			},
 			onSetStatus(status, target, source, effect) {
@@ -5037,8 +5087,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return this.chainModify([0x548, 0x1000]);
 				}
 			},
-			onResidualOrder: 21,
-			onEnd() {
+			onFieldResidualOrder: 21,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Water Sport');
 			},
 		},
@@ -5181,6 +5231,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			onEnd(pokemon) {
 				this.add('-end', pokemon, 'Attract', '[silent]');
 			},
+		},
+		onTryImmunity(target, source) {
+			return (source.hasAbility('irresistable') || (target.gender === 'M' && source.gender === 'F') || (target.gender === 'F' && source.gender === 'M'));
 		},
 	},
 	bunkerdown: {
@@ -5338,7 +5391,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	electricterrain: {
 		inherit: true,
 		condition: {
-			effectType: 'Terrain',
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
@@ -5368,16 +5420,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return this.chainModify([0x14CD, 0x1000]);
 				}
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Electric Terrain');
 				}
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd() {
+			onFieldResidualOrder: 21,
+			onFieldResidualSubOrder: 2,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Electric Terrain');
 			},
 		},
@@ -5528,6 +5580,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return null;
 		},
 	},
+	hiddenpowerfairy: {
+		num: 237,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		realMove: "Hidden Power",
+		name: "Hidden Power Fairy",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		contestType: "Clever",
+	},
 	imprison: {
 		inherit: true,
 		condition: {
@@ -5571,7 +5638,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	mistyterrain: {
 		inherit: true,
 		condition: {
-			effectType: 'Terrain',
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
@@ -5600,16 +5666,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return this.chainModify(0.5);
 				}
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Misty Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Misty Terrain');
 				}
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd(side) {
+			onFieldResidualOrder: 21,
+			onFieldResidualSubOrder: 2,
+			onFieldEnd(side) {
 				this.add('-fieldend', 'Misty Terrain');
 			},
 		},
@@ -5689,7 +5755,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	psychicterrain: {
 		inherit: true,
 		condition: {
-			effectType: 'Terrain',
 			duration: 5,
 			durationCallback(source, effect) {
 				if (source?.hasItem('terrainextender')) {
@@ -5720,16 +5785,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return this.chainModify([0x14CD, 0x1000]);
 				}
 			},
-			onStart(battle, source, effect) {
+			onFieldStart(battle, source, effect) {
 				if (effect?.effectType === 'Ability') {
 					this.add('-fieldstart', 'move: Psychic Terrain', '[from] ability: ' + effect, '[of] ' + source);
 				} else {
 					this.add('-fieldstart', 'move: Psychic Terrain');
 				}
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd() {
+			onFieldResidualOrder: 21,
+			onFieldResidualSubOrder: 2,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Psychic Terrain');
 			},
 		},
@@ -5865,18 +5930,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		condition: {
 			duration: 1,
-			onStart(target, source) {
+			onSideStart(target, source) {
 				this.add('-singleturn', source, 'Wide Guard');
 			},
 			onTryHitPriority: 4,
 			onTryHit(target, source, move) {
 				// Wide Guard blocks all spread moves, as well as Flame Burst explosion
 				if (move?.target !== 'allAdjacent' && move.target !== 'allAdjacentFoes' && move.name !== "Burst") {
-					return;
-				}
-				if (move.isZ || move.isMax) {
-					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
-					target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
 				this.add('-activate', target, 'move: Wide Guard');
@@ -6017,8 +6077,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	
 	/* Renamed and deleted moves */
-	//axekick: null,
-	//banefulbunker: null,
+	axekick: null,
+	banefulbunker: null,
 	chillywater: {
 		num: 886,
 		accuracy: 100,
@@ -6040,7 +6100,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Has a 100% chance to lower the target's Attack by 1 stage.",
 		shortDesc: "100% chance to lower the target's Attack by 1.",
 	},
-	//chillingwater: null,
+	chillingwater: null,
 	compensation: {
 		num: 808,
 		accuracy: 100,
@@ -6067,8 +6127,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Power doubles if the user had a stat stage lowered this turn.",
 		shortDesc: "2x power if the user had a stat lowered this turn.",
 	},
-	//doubleshock: null,
-	//flowertrick: null,
+	doubleshock: null,
+	flowertrick: null,
 	lunarray: {
 		num: 714,
 		accuracy: 100,
@@ -6090,11 +6150,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "This move and its effects ignore the Abilities of other Pokemon.",
 		shortDesc: "Ignores the Abilities of other Pokemon.",
 	},
-	/*moongeistbeam: null,
+	moongeistbeam: null,
 	psychicfangs: null,
 	psyshieldbash: null,
 	ragefist: null,
-	snowscape: null,*/
+	snowscape: null,
 	solarimpact: {
 		num: 713,
 		accuracy: 100,
@@ -6116,8 +6176,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "This move and its effects ignore the Abilities of other Pokemon.",
 		shortDesc: "Ignores the Abilities of other Pokemon.",
 	},
-	//sunsteelstrike: null,
-	//strangesteam: null,
+	sunsteelstrike: null,
+	strangesteam: null,
 	springleap: {
 		num: 884,
 		accuracy: 100,
@@ -6161,7 +6221,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Power doubles if the user's last move on the previous turn, including moves called by other moves or those used through Instruct, Magic Coat, Snatch, or the Dancer or Magic Bounce Abilities, failed to do any of its normal effects, not including damage from an unsuccessful High Jump Kick, Jump Kick, or Mind Blown, or if the user was prevented from moving by any effect other than recharging or Sky Drop. A move that was blocked by Baneful Bunker, Detect, King's Shield, Protect, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, or Wide Guard will not double this move's power, nor will Bounce or Fly ending early due to the effect of Gravity or Smack Down.",
 		shortDesc: "Power doubles if the user's last move failed.",
 	},
-	//stompingtantrum: null,
+	stompingtantrum: null,
 	trailhead: {
 		num: 885,
 		accuracy: 100,
@@ -6185,7 +6245,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		shortDesc: "100% chance to raise the user's Speed by 1.",
 		contestType: "Cute",
 	},
-	//trailblaze: null,
+	trailblaze: null,
 	warriorssoul: {
 		num: 775,
 		accuracy: true,
@@ -6223,7 +6283,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage in exchange for the user losing 33% of its maximum HP, rounded down. Fails if the user would faint or if its Attack, Defense, Special Attack, Special Defense, and Speed stat stages would not change.",
 		shortDesc: "User loses 33% of its max HP. +1 to all stats.",
 	},
-	//clangoroussoul: null,
+	clangoroussoul: null,
 	appleacid: null,
 	bittermalice: null,
 	bleakwindstorm: null,
