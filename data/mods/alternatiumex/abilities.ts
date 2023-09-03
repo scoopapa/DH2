@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: {[abilityid: string]: AbilityData} = {
 	soulreap: {
 		onBasePower(basePower, attacker, defender, move) {
 			if (defender.volatiles['partiallytrapped'] || defender.volatiles['trapped']) {
@@ -70,9 +70,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const necrodancertarget = this.effectState.target;
 			necrodancertarget.addVolatile('necrodancer');
 		},
-		onAfterMove(pokemon, target, move) {
-			if (pokemon.volatiles['necrodancer'] && move.flags['dance']) {
-				pokemon.removeVolatile('necrodancer');
+		onAfterMove(source) {
+			if (source.volatiles['necrodancer']) {
+				source.removeVolatile('necrodancer');
 			}
 		},
 		condition: {
@@ -81,14 +81,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', target, 'ability: Necro Dancer');
 			},
 			onModifyPriority(priority, pokemon, target, move) {
-				if (move.flags['dance']) return priority + 1;
+				if (move.flags['dance'] && pokemon.hasAbility('necrodancer')) return priority + 1;
 			},
 			onEnd(target) {
 				this.add('-end', target, 'ability: Necro Dancer', '[silent]');
 			},
 		},
 		name: "Necro Dancer",
-		shortDesc: "(Non-functional) This Pokemon's next dance move gains +1 priority when another Pokémon faints.",
+		shortDesc: "This Pokemon's next dance move gains +1 priority when another Pokémon faints.",
 		rating: 3.5,
 		num: -4,
 	},
@@ -268,12 +268,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			for (const pseudoWeather of ['wonderroom', 'trickroom', 'magicroom']) {
-				if (this.field.getPseudoWeather(pseudoWeather)) {
+				if (pokemon.side.getPseudoWeather(pseudoWeather)) {
 					if (!activated) {
 						this.add('-activate', pokemon, 'ability: Screen Cleaner');
 						activated = true;
 					}
-					this.field.removePseudoWeather(pseudoWeather);
+					pokemon.side.removePseudoWeather(pseudoWeather);
+				}
+				if (pokemon.side.foe.getPseudoWeather(pseudoWeather)) {
+					if (!activated) {
+						this.add('-activate', pokemon, 'ability: Screen Cleaner');
+						activated = true;
+					}
+					pokemon.side.foe.removePseudoWeather(pseudoWeather);
 				}
 			}
 			this.field.clearTerrain();
@@ -344,16 +351,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: -12,
 	},
 	snowcloak: {
-		onTryBoost(boost, target, source, effect) {
-			if (!this.field.isWeather(['hail', 'snow'])) return;
-			if (effect && effect.id === 'zpower') return;
-			let i: BoostID;
+		onBoost(boost, target, source, effect) {
+			if (!this.field.isWeather('snow') || !this.field.isWeather('hail')) return;
+			let showMsg = false;
+			let i: BoostName;
 			for (i in boost) {
 				if (boost[i]! < 0) {
 					delete boost[i];
-					this.add('-ability', target, 'Snow Cloak');
-					this.hint("Snow Cloak prevents stat drops for the user under Snow/Hail.");
+					showMsg = true;
 				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Snow Cloak", "[of] " + target);
 			}
 		},
 		name: "Snow Cloak",
@@ -490,7 +499,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	rewind: {
 		onSwitchOut(pokemon) {
-			this.actions.useMove('Recycle', pokemon);
+			this.useMove('Recycle', pokemon);
 		},
 		name: "Rewind",
 		shortDesc: "(Semifunctional placeholder) This Pokemon restores its held item upon switching out.",
@@ -712,7 +721,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target) continue;
+				if (!target || !this.isAdjacent(target, pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Costar', 'boost');
 					activated = true;
@@ -943,32 +952,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Ground move; Ground immunity.",
 		rating: 3,
 		num: -31,
-	},
-	angerpoint: {
-		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				pokemon.cureStatus();
-				pokemon.addVolatile('angerpoint');
-			}
-		},
-		condition: {
-			onStart(target) {
-				this.add('-start', target, 'ability: Anger Point', '[silent]');
-			},
-			onSetStatus(status, target, source, effect) {
-				if ((effect as Move)?.status) {
-					this.add('-immune', target, '[from] ability: Anger Point');
-				}
-				return false;
-			},
-			onEnd(target) {
-				this.add('-end', target, 'ability: Anger Point', '[silent]');
-			},
-		},
-		name: "Anger Point",
-		shortDesc: "When this Pokemon reaches 1/2 or less max HP, it cures its status and becomes immune to status.",
-		rating: 1,
-		num: 83,
 	},
 	tactician: {
 		onModifyDamage(damage, source, target, move) {

@@ -1,4 +1,4 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
+export const Moves: {[moveid: string]: MoveData} = {
 	recover: {
 		inherit: true,
 		pp: 10,
@@ -1294,7 +1294,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			move.type = type;
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			return typeMod + this.dex.getEffectiveness('Water', type);
+			return typeMod + this.dex.getEffectiveness('Fire', type);
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
