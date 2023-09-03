@@ -1224,56 +1224,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "This Pokemon's healing moves have their priority increased by 1.",
 	},
-	protean: {
-		onPrepareHit(source, target, move) {
-			if (this.effectState.protean) return;
-			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
-			const type = move.type;
-			if (type && type !== '???' && source.getTypes().join() !== type) {
-				if (!source.setType(type)) return;
-				this.effectState.protean = true;
-				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
-				if (source.hasType(move.type) && source.hasItem('tiedyeband') && move.category !== 'Status') {
-					this.add('cant', source, 'item: Tie-Dye Band');
-					this.add('-message', `${source.name}'s Tie-Dye Band prevents it from using a STAB move!`);
-					return false;
-				}
-			}
-		},
-		onSwitchIn(pokemon) {
-			delete this.effectState.protean;
-		},
-		name: "Protean",
-		rating: 4,
-		num: 168,
-	},
-	libero: {
-		onPrepareHit(source, target, move) {
-			if (this.effectState.libero) return;
-			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
-			const type = move.type;
-			if (type && type !== '???' && source.getTypes().join() !== type) {
-				if (!source.setType(type)) return;
-				this.effectState.libero = true;
-				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
-				if (source.hasType(move.type) && source.hasItem('tiedyeband') && move.category !== 'Status') {
-					this.add('cant', source, 'item: Tie-Dye Band');
-					this.add('-message', `${source.name}'s Tie-Dye Band prevents it from using a STAB move!`);
-					return false;
-				}
-			}
-		},
-		onSwitchIn() {
-			delete this.effectState.libero;
-		},
-		name: "Libero",
-		rating: 4,
-		num: 236,
-	},
 	icebody: {
 		onWeather(target, source, effect) {
-			if (effect.id === 'hail' || effect.id === 'snow' || target.hasItem('snowglobe')) {
-				this.heal(target.baseMaxhp / 16);
+			if (effect.id === 'hail' || effect.id === 'snow') {
+				this.heal(target.baseMaxhp / 32);
 			}
 		},
 		onImmunity(type, pokemon) {
