@@ -167,4 +167,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Poketypos",
 		doublesTier: "Poketypos",
 	},
+	inswimeroar: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	nalulele: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
+	kimmono: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
 };

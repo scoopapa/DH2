@@ -1,6 +1,122 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	// Custom tiers are "TERCERA" and "TERCERA NFE"
-	// Taken from last gen's RTO
+	ledianpurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	flareonpurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	hypnoshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	raticateshadow1: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	raticateshadow2: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	froslasspurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	pluslepurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	minunshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	arcanineshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	sunflorapurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	hitmonchanshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	smeargleshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	feraligatrpurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	persianshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	walreinshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	furretpurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	roseradeshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	heracrossshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	typhlosionpurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	magcargoshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	rapidashpurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	altariashadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	mismagiusshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	hariyamapurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	meganiumpurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	donphanpurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	primeapeshadow: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	qwilfishpurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	probopasspurified: {
+		tier: "TERCERA",
+		doublesTier: "DOU",
+	},
+	// Unmodded
 	absol: {
 		tier: "TERCERA",
 		doublesTier: "DOU",
