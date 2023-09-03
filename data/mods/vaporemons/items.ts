@@ -340,7 +340,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([5120, 4096]);
 			}
 		},
-		/*
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target === source || move.hasBounced || !move.flags['bullet']) {
@@ -369,21 +368,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		condition: {
 			duration: 1,
 		},
-		*/
-		onSourceModifyDamage(damage, source, target, move) {
-			if (move.flags['bullet']) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
-				if (hitSub) return;
-				
-				if (target.useItem()) {
-					this.debug('-50% reduction');
-					this.add('-enditem', target, this.effect, '[weaken]');
-					return this.chainModify(0.5);
-					this.add('-message', `${pokemon.name} tried to hit the ball back, but its Baseball Bat broke!`);
-				}
-			}
-		},
-		desc: "Holder's contact moves have 1.25x power. If hit by bullet/bomb move, it deals 50% damage and the item breaks.",
+		desc: "Holder's contact moves have 1.25x power. Bounces back bullet/ball moves and breaks when it does.",
 		num: -1007,
 		gen: 9,
 	}, 
@@ -424,7 +409,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				target.side.removeSlotCondition(target, 'walkietalkie');
 			},
 		},
-		desc: "(Mostly non-functional placeholder) Before using a sound move, holder switches. Switch-in uses move if it's holding a Walkei-Talkie.",
+		desc: "(Mostly non-functional placeholder) Before using a sound move, holder switches. Switch-in uses move.",
 		num: -1008,
 		gen: 8,
 	},
@@ -620,11 +605,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyDef(def, pokemon) {
 			return this.chainModify(1.2);
 		},
+		onModifyMove(move) {
+			move.willCrit = false;
+		},
 		onCriticalHit: false,
 		onSourceCriticalHit: false,
 		num: -1030,
 		gen: 8,
-		desc: "Holder is immune to critical hits and has 1.2x Defense.",
+		desc: "(Mostly functional placeholder) Holder is immune to critical hits and has 1.2x Defense, but its own moves can't crit.",
 	},
 	tiedyeband: {
 		name: "Tie-Dye Band",
@@ -632,17 +620,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onBasePower(basePower, pokemon, target, move) {
-			if (!pokemon.hasType(move.type)) {
-				return this.chainModify(1.3);
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(1.5);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (pokemon.hasType(this.dex.moves.get(moveSlot.move).type) && this.dex.moves.get(moveSlot.move).category !== 'Status') {
+					pokemon.disableMove(moveSlot.id);
+				}
 			}
-			else if (pokemon.hasType(move.type)) {
-				return this.chainModify(0.67);
+		},
+		onBeforeMovePriority: 9,
+		onBeforeMove(pokemon, target, move) {
+			if (pokemon.hasType(move.type) && move.category !== 'Status') {
+				this.add('cant', pokemon, 'item: Tie-Dye Band');
+				return false;
 			}
 		},
 		num: -1031,
 		gen: 8,
-		desc: "Holder's non-STAB moves deal 30% more damage, but its STAB moves deal 0.67x damage.",
+		desc: "Holder's moves deal 50% more damage, but it can't select attacking moves of its type.",
 	},
 	herosbubble: {
 		name: "Hero's Bubble",
@@ -739,13 +741,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyDef(def, pokemon) {
 			if (!this.field.isWeather('snow') && pokemon.hasType('Ice')) {
 				return this.chainModify(1.5);
-			}
-		},
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			if (!this.field.isWeather('snow') && pokemon.hasAbility('icebody')) {
-				this.heal(pokemon.baseMaxhp / 16);
 			}
 		},
 		onUpdate(pokemon) {

@@ -188,9 +188,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'drednaw').learnset.stoneaxe = ['9L1'];
     	delete this.modData('Learnsets', 'regieleki').learnset.electroweb;
     	delete this.modData('Learnsets', 'meloetta').learnset.sing;
-    	delete this.modData('Learnsets', 'magnemite').learnset.electroweb;
-    	delete this.modData('Learnsets', 'magnezone').learnset.electroweb;
-    	delete this.modData('Learnsets', 'magneton').learnset.electroweb;
 		this.modData("Learnsets", "bellibolt").learnset.surf = ["9L1"];
 		this.modData("Learnsets", "bellibolt").learnset.hydropump = ["9L1"];
 		this.modData("Learnsets", "bellibolt").learnset.liquidation = ["9L1"];
@@ -652,6 +649,5 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'magearna').learnset.spikes;
 		delete this.modData('Learnsets', 'magearna').learnset.trick;
 		delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
-		this.modData('Learnsets', 'dragalge').learnset.lifedew = ['9L1'];
   },
 };
