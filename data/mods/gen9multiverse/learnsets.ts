@@ -931,7 +931,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["9L1"],
 			toxic: ["9L1"],
 			toxicspikes: ["9L1"],
-			trailblaze: ["9L1"],
 			waterfall: ["9L1"],
 			watergun: ["9L1"],
 			waterpulse: ["9L1"],
