@@ -264,6 +264,12 @@ export class BattleActions {
 			pokemon.moveThisTurnResult = willTryMove;
 			return;
 		}
+
+		// Used exclusively for a hint later
+		if (move.flags['cantusetwice'] && pokemon.lastMove?.id === move.id) {
+			pokemon.addVolatile(move.id);
+		}
+
 		if (move.beforeMoveCallback) {
 			if (move.beforeMoveCallback.call(this.battle, pokemon, target, move)) {
 				this.battle.clearActiveMove(true);
@@ -308,6 +314,9 @@ export class BattleActions {
 		if (this.battle.activeMove) move = this.battle.activeMove;
 		this.battle.singleEvent('AfterMove', move, null, pokemon, target, move);
 		this.battle.runEvent('AfterMove', pokemon, target, move);
+		if (move.flags['cantusetwice'] && pokemon.removeVolatile(move.id)) {
+			this.battle.add('-hint', `Some effects can force a Pokemon to use ${move.name} again in a row.`);
+		}
 
 		// Dancer's activation order is completely different from any other event, so it's handled separately
 		if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
@@ -1271,7 +1280,7 @@ export class BattleActions {
 				this.battle.faint(source, source, move);
 			}
 			if (moveData.selfSwitch) {
-				if (this.battle.canSwitch(source.side)) {
+				if (this.battle.canSwitch(source.side) && !source.volatiles['commanded']) {
 					didSomething = true;
 				} else {
 					didSomething = this.combineResults(didSomething, false);
@@ -1291,7 +1300,7 @@ export class BattleActions {
 				}
 			}
 			this.battle.debug('move failed because it did nothing');
-		} else if (move.selfSwitch && source.hp) {
+		} else if (move.selfSwitch && source.hp && !source.volatiles['commanded']) {
 			source.switchFlag = move.id;
 		}
 
@@ -1854,10 +1863,7 @@ export class BattleActions {
 	}
 
 	canTerastallize(pokemon: Pokemon) {
-		if (
-			pokemon.species.isMega || pokemon.species.isPrimal || pokemon.species.forme === "Ultra" ||
-			pokemon.getItem().zMove || pokemon.canMegaEvo || pokemon.side.canDynamaxNow() || this.dex.gen !== 9
-		) {
+		if (pokemon.getItem().zMove || pokemon.canMegaEvo || pokemon.side.canDynamaxNow() || this.dex.gen !== 9) {
 			return null;
 		}
 		return pokemon.teraType;
