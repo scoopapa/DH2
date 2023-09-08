@@ -56,14 +56,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	alumane: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	silicyon: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
 	oncuja: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -77,10 +69,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "(DUU)",
 	},
 	carapex: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	rikomoco: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -164,10 +152,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 		doublesTier: "(DUU)",
 	},
-	woodensect: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
 	levipilosa: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -241,18 +225,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	hyakada: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	galliwatt: {
-		tier: "LC",
-		doublesTier: "(DUU)",
-	},
-	coirele: {
-		tier: "NFE",
-		doublesTier: "(DUU)",
-	},
-	ampalango: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

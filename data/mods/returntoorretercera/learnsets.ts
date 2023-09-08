@@ -973,8 +973,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	hitmonchanshadow: {
 		learnset: {
-      helpinghand: ["8L1"],
- 
+      //helpinghand: ["8L1"],
+
 			agility: ["8M", "8L28", "8V", "7L1", "7V", "6L6", "5L6", "4L6", "3L7"],
 			attract: ["8M", "7M", "7V", "6M", "5M", "4M", "3M"],
 			aurasphere: ["8M"],
@@ -2180,13 +2180,13 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	hariyamapurified: {
 		learnset: {
       watergun: ["8L1"],
-      surf: ["8L1"],
+      //surf: ["8L1"],
       hydropump: ["8L1"],
       liquidation: ["8L1"],
       lifedew: ["8L1"],
       icebeam: ["8L1"],
       blizzard: ["8L1"],
-      whirlpool: ["8L1"],
+      //whirlpool: ["8L1"],
       avalanche: ["8L1"],
 
 			armthrust: ["9L1", "7L1", "6L1", "5L1", "4L1", "3L1"],
@@ -2385,7 +2385,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		learnset: {
       discharge: ["8L1"],
       headlongrush: ["8L1"],
-      superpower: ["8L1"],
+      //superpower: ["8L1"],
       thunderpunch: ["8L1"],
       thunderbolt: ["8L1"],
       workup: ["8L1"],
@@ -2614,7 +2614,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	qwilfishpurified: {
 		learnset: {
-      explosion: ["8L1"],
+      //explosion: ["8L1"],
       knockoff: ["8L1"],
       slackoff: ["8L1"],
 

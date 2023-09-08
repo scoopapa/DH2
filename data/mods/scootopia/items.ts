@@ -43,7 +43,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	feralorb: {
 		name: "Feral Orb",
-		num: 1001,
+		num: 1002,
 		desc: "The holder's secondary type is replaced with Feral. 20% boost to Feral attacks.",
 		onBeforeSwitchIn(pokemon) {
 			if (pokemon.side.usedSuperType && pokemon.side.superTypeUser !== pokemon.fullname) return false;
@@ -80,7 +80,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		num: 275,
+		num: 276,
 		gen: 8,
 	},
 };
