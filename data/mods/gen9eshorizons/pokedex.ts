@@ -1226,7 +1226,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		heightm: 0.4,
 		weightkg: 4.9,
 		color: "Purple",
-		evos: ["Marowak-Tropical"],
+		evos: ["Marowak-Alola"],
 		eggGroups: ["Monster"],
 	},
 	taurosegelas: {
@@ -2879,6 +2879,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Cacophony", 1: "Induction", H: "Technician"},
 	},
+	sizzlipede: {
+		inherit: true,
+		abilities: {0: "Heat Sink", 1: "White Smoke", H: "Flame Body"},
+	},
+	centiskorch: {
+		inherit: true,
+		abilities: {0: "Heat Sink", 1: "White Smoke", H: "Flame Body"},
+	},
 	clobbopus: {
 		inherit: true,
 		abilities: {0: "Limber", 1: "Suction Cups", H: "Technician"},
@@ -3657,6 +3665,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	pawmot: {
 		inherit: true,
 		color: "Orange",
+	},
+	flamigo: {
+		inherit: true,
+		abilities: {0: "Scrappy", 1: "Tangled Feet", H: "Co-Star"},
 	},
 	orthworm: {
 		inherit: true,

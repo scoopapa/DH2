@@ -1,13 +1,6 @@
 export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	//New Abilities
 	againstcurrent: {
-		/*onModifySpe(spe, pokemon) { //Abilities don't have beforeTurnCallback, so this is used because it's run before anyone moves
-			//if(this.turn === 1) return; //Crashes the game because it can't check for Imprisoned foes
-			pokemon.addVolatile('nointerrupt');
-		},
-		onStart(spe, pokemon) { //Used instead on turn 1 so it doesn't crash.
-			if(this.turn === 1) pokemon.addVolatile('nointerrupt');
-		},*/
 		onBeforeTurn(pokemon){
 			pokemon.addVolatile('nointerrupt');
 		},
@@ -2378,7 +2371,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		rating: 3,
 		num: 197,
 		desc: "If this Pokemon is a Minior or Prominoid, it changes to its Core forme if it has 1/2 or less of its maximum HP, and changes to Meteor Form if it has more than 1/2 its maximum HP. This check is done on switch-in and at the end of each turn. While in its Meteor Form, it cannot become affected by non-volatile status conditions. Lunar Ray, Solar Impact, Smite, and Mold Breaker cannot ignore this Ability.",
-		shortDesc: "If Minior/Prominoid, switch-in/end of turn it changes to Core at 1/2 max HP or less, else Meteor.",
+		shortDesc: "If Minior/Prominoid, on switch-in/turn end, changes to Core at <= 1/2 max HP, else Meteor.",
 	},
 	slowstart: {
 		onStart(pokemon) {
@@ -2453,12 +2446,8 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	},
 	stalwart: {
 		inherit: true,
-		onModifySpe(spe, pokemon) { //Abilities don't have beforeTurnCallback, so this is used because it's run before anyone moves
-			if(this.turn === 1) return; //Crashes the game because it can't check for Imprisoned foes
+		onBeforeTurn(pokemon){
 			pokemon.addVolatile('nointerrupt');
-		},
-		onStart(spe, pokemon) { //Used instead on turn 1 so it doesn't crash.
-			if(this.turn === 1) pokemon.addVolatile('nointerrupt');
 		},
 		desc: "This Pokemon's attacks cannot be interrupted once selected. The Pokemon will ignore sleep, freeze, flinch, Disable, Encore, Imprison, and PP drain to 0 inflicted earlier in the same turn, and bypass the checks for full paralysis, confusion, and attraction if inflicted earlier in the same turn. If given a Choice item earlier in the turn, the move locking will be ignored. Gravity and Heal Block will still prevent moves from executing. Additionally, this Pokemon's moves cannot be redirected to a different target by any effect.",
 		shortDesc: "This Pokemon's attacks cannot be interrupted or redirected after selection.",

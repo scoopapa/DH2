@@ -3086,6 +3086,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	megapunch: {
 		inherit: true,
+		accuracy: 90,
 		twoType: "Fighting",
 		desc: "This move is both Normal and Fighting typed. It uses combined type effectiveness, receives STAB from both types (potentially stacking), and is included in effects that boost/reduce/negate/react to damage from either type.",
 		shortDesc: "Both Normal and Fighting types.",

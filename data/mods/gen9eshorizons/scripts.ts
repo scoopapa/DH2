@@ -6,6 +6,7 @@
 };*/
 import {Pokemon} from '../../../sim/pokemon';
 import {Battle} from '../../../sim/battle';
+import {Utils} from '../../../lib';
 
 //const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'anyAlly', 'adjacentFoe']); //PS pls don't hate me
 
@@ -2440,7 +2441,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			const formatsTest = false;//["zygarde"].includes(pokemonID);
 			if(formatsTest) console.log(pokemonID);
 			 //Don't do anything with new or deleted Pokemon
-			if(pokemon === null || pokemon.num < -500) continue;
+			if(pokemon === null || pokemon.num < -500 || (pokemon.forme && (['Egelas','Sartori'].includes(pokemon.forme) || pokemon.baseSpecies === "Revavroom"))) continue;
 			//Change generational accessibility
 			if(this.modData('FormatsData', pokemonID)) {
 				if(formatsTest) {
@@ -6996,7 +6997,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.species.getLearnsetData('basculinbluestriped').learnset.blizzard;
 		delete this.species.getLearnsetData('basculinbluestriped').learnset.submission;
 		// Basculin White-Striped
-		this.species.getLearnsetData('basculinwhitestriped').learnset = this.species.getLearnsetData('basculin').learnset;
+		this.species.getLearnsetData('basculinwhitestriped').learnset = Utils.deepClone(this.modData('Learnsets','basculin').learnset);
 		this.species.getLearnsetData('basculinwhitestriped').learnset.destinybond = ["9D"];
 		this.species.getLearnsetData('basculinwhitestriped').learnset.lastrespects = ["9L44"];
 		this.species.getLearnsetData('basculinwhitestriped').learnset.uproar = ["9L48", "9M"];
