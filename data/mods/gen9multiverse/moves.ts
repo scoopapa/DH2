@@ -232,7 +232,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Heals the user by 50% of its max HP.",
-		name: "Recover",
+		name: "Calming Soul",
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
