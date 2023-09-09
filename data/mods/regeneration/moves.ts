@@ -159,7 +159,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Aqua Tail", target);
 		},
 		recoil: [33, 100],
-		secondary: null,
 		target: "normal",
 		type: "Poison",
 		contestType: "Tough",
@@ -185,7 +184,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Aqua Tail", target);
 		},
 		selfSwitch: true,
-		secondary: null,
 		target: "normal",
 		type: "Water",
 		zMove: {effect: 'healreplacement'},
@@ -212,7 +210,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Flame Charge", target);
 		},
 		selfSwitch: true,
-		secondary: null,
 		target: "normal",
 		type: "Fire",
 		zMove: {effect: 'healreplacement'},
@@ -239,7 +236,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Volt Switch", target);
 		},
 		selfSwitch: true,
-		secondary: null,
 		target: "normal",
 		type: "Electric",
 		zMove: {effect: 'healreplacement'},

@@ -862,7 +862,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		self: {
 			onHit(pokemon, source, move) {
-				this.heal(source.baseMaxhp / 3, source, pokemon);
 				pokemon.addVolatile('rekindleheal');
 			},
 		},
