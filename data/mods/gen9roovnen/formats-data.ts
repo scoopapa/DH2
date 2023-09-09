@@ -7650,25 +7650,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cuboneroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "LC",
 	},
 	dratiniroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "LC",
 	},
 	dragonairroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "LC",
 	},
 	dragoniteroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
@@ -7676,25 +7672,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	torkoalroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "NFE",
 	},
 	roggenrolaroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "LC",
 	},
 	boldoreroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "NFE",
 	},
 	gigalithroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "RU",
@@ -7702,19 +7694,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sewaddleroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "LC",
 	},
 	swadloonroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "NFE",
 	},
 	leavannyroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "RU",
@@ -7722,19 +7711,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	golettroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "LC",
 	},
 	rolycolyroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "LC",
 	},
 	carkolroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		inherit: true,
 		tier: "NFE",
 	},
 
@@ -7993,7 +7979,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	phoenuss: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
@@ -8211,7 +8196,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bredoom: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
@@ -8219,7 +8203,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	frosgross: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
@@ -8241,7 +8224,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latakuno: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
@@ -8256,7 +8238,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mranovo: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
@@ -8271,7 +8252,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	guadock: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DUber",
 		natDexTier: "Uber",
@@ -8279,7 +8259,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	stoleagle: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DUber",
 		natDexTier: "Uber",
@@ -8287,7 +8266,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	adlerz: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DUber",
 		natDexTier: "Uber",
@@ -8295,7 +8273,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hungurul: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DUber",
 		natDexTier: "Uber",
@@ -8303,7 +8280,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hunguruldynamic: {
 		isNonstandard: null,
 		gen: 9,
-		isNonstandard: null,
 		tier: "Uber",
 		doublesTier: "DUber",
 		natDexTier: "Uber",
