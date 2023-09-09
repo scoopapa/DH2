@@ -35,11 +35,15 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 			// 1-6 turns
 			this.effectState.time = this.random(2, 8);
+
+			if (target.removeVolatile('nightmare')) {
+				this.add('-end', target, 'Nightmare', '[silent]');
+			}
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			pokemon.statusData.time--;
-			if (pokemon.statusData.time <= 0) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0) {
 				pokemon.cureStatus();
 				return;
 			}
@@ -59,7 +63,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			return false;
 		},
 		onModifyMove() {},
-		onHit() {},
+		onDamagingHit() {},
 		onAfterMoveSecondary(target, source, move) {
 			if ((move.secondary && move.secondary.status === 'brn') || move.statusRoll === 'brn') {
 				target.cureStatus();
@@ -68,6 +72,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.flags['defrost']) pokemon.cureStatus();
 		},
+		onResidualOrder: 7,
 		onResidual(pokemon) {
 			if (this.randomChance(25, 256)) pokemon.cureStatus();
 		},
@@ -143,7 +148,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				flags: {},
 				selfdestruct: move.selfdestruct,
 			} as unknown as ActiveMove;
-			const damage = this.getDamage(pokemon, pokemon, move);
+			const damage = this.actions.getDamage(pokemon, pokemon, move);
 			if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
 			this.directDamage(damage);
 			return false;
@@ -154,6 +159,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		durationCallback(target, source) {
 			return this.random(3, 6);
 		},
+		onResidualOrder: 3,
+		onResidualSubOrder: 1,
 	},
 	lockedmove: {
 		name: 'lockedmove',
@@ -189,8 +196,21 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 	},
+	futuremove: {
+		inherit: true,
+		onResidualOrder: 1,
+	},
+	raindance: {
+		inherit: true,
+		onFieldResidualOrder: 2,
+	},
+	sunnyday: {
+		inherit: true,
+		onFieldResidualOrder: 2,
+	},
 	sandstorm: {
 		inherit: true,
+		onFieldResidualOrder: 2,
 		onWeather(target) {
 			this.damage(target.baseMaxhp / 8);
 		},

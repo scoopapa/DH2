@@ -1,8 +1,11 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	airlock: {
+		inherit: true,
+		onSwitchIn() {},
+		onStart() {},
+	},
 	angerpoint: {
 		inherit: true,
-		desc: "If this Pokemon, or its substitute, is struck by a critical hit, its Attack is raised by 12 stages.",
-		shortDesc: "If this Pokemon or its substitute takes a critical hit, its Attack is raised 12 stages.",
 		onAfterSubDamage(damage, target, source, move) {
 			if (!target.hp) return;
 			if (move && move.effectType === 'Move' && target.getMoveHitData(move).crit) {
@@ -12,9 +15,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		rating: 1.5,
 	},
+	baddreams: {
+		inherit: true,
+		onResidualOrder: 10,
+		onResidualSubOrder: 10,
+	},
 	blaze: {
-		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its Fire-type attacks have their power multiplied by 1.5.",
-		shortDesc: "At 1/3 or less of its max HP, this Pokemon's Fire-type attacks have 1.5x power.",
 		onBasePowerPriority: 2,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
@@ -26,9 +32,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 66,
 	},
+	cloudnine: {
+		inherit: true,
+		onSwitchIn() {},
+		onStart() {},
+	},
 	colorchange: {
 		inherit: true,
-		desc: "This Pokemon's type changes to match the type of the last move that hit it, unless that type is already one of its types. This effect applies after each hit from a multi-hit move. This effect does not happen if this Pokemon did not lose HP from the attack.",
 		onDamagingHit(damage, target, source, move) {
 			if (!damage || !target.hp) return;
 			const type = move.type;
@@ -39,9 +49,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAfterMoveSecondary() {},
 	},
+	compoundeyes: {
+		onSourceModifyAccuracyPriority: 9,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('compoundeyes - enhancing accuracy');
+			return accuracy * 1.3;
+		},
+		inherit: true,
+	},
 	cutecharm: {
 		inherit: true,
-		desc: "There is a 30% chance a Pokemon making contact with this Pokemon will become infatuated if it is of the opposite gender. This effect does not happen if this Pokemon did not lose HP from the attack.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				if (this.randomChance(3, 10)) {
@@ -52,7 +70,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	effectspore: {
 		inherit: true,
-		desc: "30% chance a Pokemon making contact with this Pokemon will be poisoned, paralyzed, or fall asleep. This effect does not happen if this Pokemon did not lose HP from the attack.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact'] && !source.status) {
 				const r = this.random(100);
@@ -68,7 +85,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	flamebody: {
 		inherit: true,
-		desc: "30% chance a Pokemon making contact with this Pokemon will be burned. This effect does not happen if this Pokemon did not lose HP from the attack.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				if (this.randomChance(3, 10)) {
@@ -90,7 +106,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		effect: {
+		condition: {
 			noCopy: true, // doesn't get copied by Baton Pass
 			onStart(target) {
 				this.add('-start', target, 'ability: Flash Fire');
@@ -108,8 +124,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	flowergift: {
 		inherit: true,
-		desc: "If Sunny Day is active, the Attack and Special Defense of this Pokemon and its allies are multiplied by 1.5.",
-		shortDesc: "If Sunny Day is active, Attack and Sp. Def of this Pokemon and its allies are 1.5x.",
 		onAllyModifyAtk(atk) {
 			if (this.field.isWeather('sunnyday')) {
 				return this.chainModify(1.5);
@@ -126,8 +140,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let warnMoves: Move[] = [];
 			let warnBp = 1;
-			for (const target of pokemon.side.foe.active) {
-				if (target.fainted) continue;
+			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
 					let bp = move.basePower;
@@ -147,6 +160,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-activate', pokemon, 'ability: Forewarn', warnMove);
 		},
 	},
+	frisk: {
+		inherit: true,
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.item && !target.itemState.knockedOff) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Frisk', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+	},
+	hustle: {
+		inherit: true,
+		onSourceModifyAccuracyPriority: 7,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return accuracy * 0.8;
+			}
+		},
+	},
+	hydration: {
+		onWeather(target, source, effect) {
+			if (effect.id === 'raindance' && target.status) {
+				this.add('-activate', target, 'ability: Hydration');
+				target.cureStatus();
+			}
+		},
+		name: "Hydration",
+		rating: 1.5,
+		num: 93,
+	},
 	insomnia: {
 		inherit: true,
 		rating: 2.5,
@@ -154,15 +197,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	intimidate: {
 		inherit: true,
 		onStart(pokemon) {
-			let activated = false;
-			for (const target of pokemon.side.foe.active) {
-				if (target && this.isAdjacent(target, pokemon) &&
-					!(target.volatiles['substitute'] ||
-						target.volatiles['substitutebroken'] && target.volatiles['substitutebroken'].move === 'uturn')) {
-					activated = true;
-					break;
-				}
-			}
+			const activated = pokemon.adjacentFoes().some(target => (
+				!(target.volatiles['substitute'] || target.volatiles['substitutebroken']?.move === 'uturn')
+			));
 
 			if (!activated) {
 				this.hint("In Gen 4, Intimidate does not activate if every target has a Substitute (or the Substitute was just broken by U-turn).", false, pokemon.side);
@@ -170,12 +207,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			this.add('-ability', pokemon, 'Intimidate', 'boost');
 
-			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
-
+			for (const target of pokemon.adjacentFoes()) {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.volatiles['substitutebroken'] && target.volatiles['substitutebroken'].move === 'uturn') {
+				} else if (target.volatiles['substitutebroken']?.move === 'uturn') {
 					this.hint("In Gen 4, if U-turn breaks Substitute the incoming Intimidate does nothing.");
 				} else {
 					this.boost({atk: -1}, target, pokemon, null, true);
@@ -185,8 +220,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	leafguard: {
 		inherit: true,
-		desc: "If Sunny Day is active, this Pokemon cannot gain a major status condition, but can use Rest normally.",
-		shortDesc: "If Sunny Day is active, this Pokemon cannot be statused, but Rest works normally.",
 		onSetStatus(status, target, source, effect) {
 			if (effect && effect.id === 'rest') {
 				return;
@@ -197,14 +230,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	lightningrod: {
 		inherit: true,
-		desc: "If this Pokemon is not the target of a single-target Electric-type move used by another Pokemon, this Pokemon redirects that move to itself.",
-		shortDesc: "This Pokemon draws single-target Electric moves to itself.",
 		onTryHit() {},
 		rating: 0,
 	},
+	liquidooze: {
+		inherit: true,
+		onSourceTryHeal(damage, target, source, effect) {
+			this.debug("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
+			const canOoze = ['drain', 'leechseed'];
+			if (canOoze.includes(effect.id) && this.activeMove?.id !== 'dreameater') {
+				this.damage(damage, null, null, null, true);
+				return 0;
+			}
+		},
+	},
 	magicguard: {
-		desc: "This Pokemon can only be damaged by direct attacks. Curse and Substitute on use, Belly Drum, Pain Split, Struggle recoil, and confusion damage are considered direct damage. This Pokemon cannot lose its turn because of paralysis, and is unaffected by Toxic Spikes on switch-in.",
-		shortDesc: "This Pokemon can only be damaged by direct attacks, and can't be fully paralyzed.",
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType !== 'Move') {
 				return false;
@@ -220,15 +260,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 98,
 	},
 	minus: {
-		desc: "If an active ally has the Plus Ability, this Pokemon's Special Attack is multiplied by 1.5.",
-		shortDesc: "If an active ally has the Plus Ability, this Pokemon's Sp. Atk is 1.5x.",
 		onModifySpA(spa, pokemon) {
-			const allyActive = pokemon.side.active;
-			if (allyActive.length === 1) {
-				return;
-			}
-			for (const ally of allyActive) {
-				if (ally && ally.position !== pokemon.position && !ally.fainted && ally.ability === 'plus') {
+			for (const ally of pokemon.allies()) {
+				if (ally.ability === 'plus') {
 					return spa * 1.5;
 				}
 			}
@@ -247,7 +281,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// in gen 3-4, Natural Cure's curing is always known to both players
 
 			this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Natural Cure');
-			pokemon.setStatus('');
+			pokemon.clearStatus();
 		},
 	},
 	normalize: {
@@ -259,8 +293,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	overgrow: {
-		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its Grass-type attacks have their power multiplied by 1.5.",
-		shortDesc: "At 1/3 or less of its max HP, this Pokemon's Grass-type attacks have 1.5x power.",
 		onBasePowerPriority: 2,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
@@ -273,22 +305,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 65,
 	},
 	pickup: {
-		desc: "No competitive use.",
-		shortDesc: "No competitive use.",
 		name: "Pickup",
 		rating: 0,
 		num: 53,
 	},
 	plus: {
-		desc: "If an active ally has the Minus Ability, this Pokemon's Special Attack is multiplied by 1.5.",
-		shortDesc: "If an active ally has the Minus Ability, this Pokemon's Sp. Atk is 1.5x.",
 		onModifySpA(spa, pokemon) {
-			const allyActive = pokemon.side.active;
-			if (allyActive.length === 1) {
-				return;
-			}
-			for (const ally of allyActive) {
-				if (ally && ally.position !== pokemon.position && !ally.fainted && ally.ability === 'minus') {
+			for (const ally of pokemon.allies()) {
+				if (ally.ability === 'minus') {
 					return spa * 1.5;
 				}
 			}
@@ -299,7 +323,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	poisonpoint: {
 		inherit: true,
-		desc: "30% chance a Pokemon making contact with this Pokemon will be poisoned. This effect does not happen if this Pokemon did not lose HP from the attack.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				if (this.randomChance(3, 10)) {
@@ -309,8 +332,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	pressure: {
-		desc: "If this Pokemon is the target of another Pokemon's move, that move loses one additional PP.",
-		shortDesc: "If this Pokemon is the target of a move, that move loses one additional PP.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Pressure');
 		},
@@ -324,10 +345,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	roughskin: {
 		inherit: true,
-		desc: "Pokemon making contact with this Pokemon lose 1/16 of their maximum HP, rounded down. This effect does not happen if this Pokemon did not lose HP from the attack.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
-				this.damage(source.baseMaxhp / 16, source, target);
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+	},
+	sandveil: {
+		inherit: true,
+		onModifyAccuracyPriority: 8,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather('sandstorm')) {
+				this.debug('Sand Veil - decreasing accuracy');
+				return accuracy * 0.8;
 			}
 		},
 	},
@@ -342,25 +373,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	shedskin: {
+		inherit: true,
+		onResidualOrder: 10,
+		onResidualSubOrder: 3,
+	},
 	simple: {
-		shortDesc: "This Pokemon's stat stages are considered doubled during stat calculations.",
 		onModifyBoost(boosts) {
-			let key: BoostName;
+			let key: BoostID;
 			for (key in boosts) {
 				boosts[key]! *= 2;
 			}
 		},
+		isBreakable: true,
 		name: "Simple",
 		rating: 4,
 		num: 86,
 	},
-	soundproof: {
+	snowcloak: {
 		inherit: true,
-		shortDesc: "This Pokemon is immune to sound-based moves, including Heal Bell.",
+		onModifyAccuracyPriority: 8,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather('hail')) {
+				this.debug('Snow Cloak - decreasing accuracy');
+				return accuracy * 0.8;
+			}
+		},
+	},
+	speedboost: {
+		inherit: true,
+		onResidualOrder: 10,
+		onResidualSubOrder: 3,
 	},
 	static: {
 		inherit: true,
-		desc: "30% chance a Pokemon making contact with this Pokemon will be paralyzed. This effect does not happen if this Pokemon did not lose HP from the attack.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				if (this.randomChance(3, 10)) {
@@ -370,8 +417,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	stench: {
-		desc: "No competitive use.",
-		shortDesc: "No competitive use.",
 		name: "Stench",
 		rating: 0,
 		num: 1,
@@ -379,7 +424,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	stickyhold: {
 		inherit: true,
 		onTakeItem(item, pokemon, source) {
-			if (this.suppressingAttackEvents(pokemon)) return;
 			if ((source && source !== pokemon) || (this.activeMove && this.activeMove.id === 'knockoff')) {
 				this.add('-activate', pokemon, 'ability: Sticky Hold');
 				return false;
@@ -388,21 +432,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	stormdrain: {
 		inherit: true,
-		desc: "If this Pokemon is not the target of a single-target Water-type move used by another Pokemon, this Pokemon redirects that move to itself.",
-		shortDesc: "This Pokemon draws single-target Water moves to itself.",
 		onTryHit() {},
 		rating: 0,
 	},
 	sturdy: {
 		inherit: true,
-		desc: "OHKO moves fail when used against this Pokemon.",
-		shortDesc: "OHKO moves fail when used against this Pokemon.",
 		onDamage() {},
 		rating: 0,
 	},
 	swarm: {
-		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its Bug-type attacks have their power multiplied by 1.5.",
-		shortDesc: "At 1/3 or less of its max HP, this Pokemon's Bug-type attacks have 1.5x power.",
 		onBasePowerPriority: 2,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) {
@@ -416,7 +454,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	synchronize: {
 		inherit: true,
-		desc: "If another Pokemon burns, paralyzes, or poisons this Pokemon, that Pokemon receives the same major status condition. If another Pokemon badly poisons this Pokemon, that Pokemon becomes poisoned.",
 		onAfterSetStatus(status, target, source, effect) {
 			if (!source || source === target) return;
 			if (effect && effect.id === 'toxicspikes') return;
@@ -426,21 +463,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			source.trySetStatus(id, target);
 		},
 	},
+	tangledfeet: {
+		inherit: true,
+		onModifyAccuracyPriority: 6,
+		onModifyAccuracy(accuracy, target) {
+			if (typeof accuracy !== 'number') return;
+			if (target?.volatiles['confusion']) {
+				this.debug('Tangled Feet - decreasing accuracy');
+				return accuracy * 0.5;
+			}
+		},
+	},
 	thickfat: {
-		shortDesc: "The power of Fire- and Ice-type attacks against this Pokemon is halved.",
-		onBasePowerPriority: 1,
+		onSourceBasePowerPriority: 1,
 		onSourceBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Ice' || move.type === 'Fire') {
 				return this.chainModify(0.5);
 			}
 		},
+		isBreakable: true,
 		name: "Thick Fat",
 		rating: 3.5,
 		num: 47,
 	},
 	torrent: {
-		desc: "When this Pokemon has 1/3 or less of its maximum HP, rounded down, its Water-type attacks have their power multiplied by 1.5.",
-		shortDesc: "At 1/3 or less of its max HP, this Pokemon's Water-type attacks have 1.5x power.",
 		onBasePowerPriority: 2,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
@@ -456,7 +502,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted) return;
-			const target = pokemon.side.foe.randomActive();
+			const target = pokemon.side.randomFoe();
 			if (!target || target.fainted) return;
 			const ability = target.getAbility();
 			const bannedAbilities = ['forecast', 'multitype', 'trace'];
@@ -468,13 +514,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	unburden: {
+		inherit: true,
+		condition: {
+			onModifySpe(spe, pokemon) {
+				if ((!pokemon.item || pokemon.itemState.knockedOff) && !pokemon.ignoringAbility()) {
+					return this.chainModify(2);
+				}
+			},
+		},
+	},
 	vitalspirit: {
 		inherit: true,
 		rating: 2.5,
 	},
 	wonderguard: {
 		inherit: true,
-		shortDesc: "This Pokemon is only damaged by Fire Fang, supereffective moves, indirect damage.",
 		onTryHit(target, source, move) {
 			if (move.id === 'firefang') {
 				this.hint("In Gen 4, Fire Fang is always able to hit through Wonder Guard.");
