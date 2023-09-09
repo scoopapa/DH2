@@ -592,8 +592,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.field.pseudoWeather.ultrasleep.duration = 0;
 			}
 		},
-		onAnyTryMove(target, source, effect) {
-			if (['ultrasleep'].includes(effect.id)) {
+		onAnyTryMove(target, source, move) {
+			if (['ultrasleep'].includes(move.id)) {
 				this.attrLastMove('[still]');
 				this.add('cant', this.effectState.target, 'ability: Endless Dream', move, '[of] ' + target);
 				return false;

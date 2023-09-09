@@ -3515,6 +3515,42 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "all",
 		type: "Fire",
 	},
+	junglehealing: {
+		num: 816,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Jungle Healing",
+		pp: 10,
+		priority: 0,
+		flags: {heal: 1, bypasssub: 1, allyanim: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
+			return pokemon.cureStatus() || success;
+		},
+		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
+		secondary: null,
+		target: "allies",
+		type: "Grass",
+	},
+	lifedew: {
+		num: 791,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Life Dew",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, bypasssub: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
+			return pokemon.cureStatus() || success;
+		},
+		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
+		secondary: null,
+		target: "allies",
+		type: "Water",
+	},
 	//Gen 9
 	mysticalpower: {
 		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
