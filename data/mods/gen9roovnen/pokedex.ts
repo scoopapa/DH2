@@ -830,7 +830,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	minowing: {
 		num: 1045,
-		name: "Taurot",
+		name: "Minowing",
 		types: ["Flying"],
 		gender: "M",
 		baseStats: {hp: 105, atk: 125, def: 85, spa: 60, spd: 60, spe: 100},
@@ -1132,7 +1132,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1070,
 		name: "Hypsand",
 		types: ["Psychic", "Ground"],
-		baseStats: {hp: 105, atk: 83, def: 80, spa: 98, spd: 120, spe: 77},
+		baseStats: {hp: 105, atk: 83, def: 80, spa: 98, spd: 120, spe: 57},
 		abilities: {0: "Insomnia", 1: "Psychic Surge", H: "Bad Dreams"},
 		prevo: "Hypno",
 		heightm: 1.9,

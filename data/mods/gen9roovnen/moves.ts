@@ -629,7 +629,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	firefang: {
 		inherit: true,
-		basePower: 70,
+		basePower: 75,
 	},
 	firepunch: {
 		inherit: true,

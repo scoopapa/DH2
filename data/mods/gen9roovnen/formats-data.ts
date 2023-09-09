@@ -8204,7 +8204,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sigisin: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
