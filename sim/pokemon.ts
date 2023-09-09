@@ -238,6 +238,10 @@ export class Pokemon {
 	activeMoveActions: number;
 	previouslySwitchedIn: number;
 	truantTurn: boolean;
+	// Gen 9 only
+	swordBoost: boolean;
+	shieldBoost: boolean;
+
 	/** Have this pokemon's Start events run yet? (Start events run every switch-in) */
 	isStarted: boolean;
 	duringMove: boolean;
@@ -276,8 +280,6 @@ export class Pokemon {
 		originalSpecies?: string, // Mix and Mega
 		[key: string]: any,
 	};
-
-	isModded: boolean = false;
 
 	constructor(set: string | AnyObject, side: Side) {
 		this.side = side;
@@ -443,6 +445,8 @@ export class Pokemon {
 		this.activeMoveActions = 0;
 		this.previouslySwitchedIn = 0;
 		this.truantTurn = false;
+		this.swordBoost = false;
+		this.shieldBoost = false;
 		this.isStarted = false;
 		this.duringMove = false;
 
@@ -934,6 +938,9 @@ export class Pokemon {
 				if (!this.hasType('Ghost')) {
 					target = this.battle.dex.moves.get('curse').nonGhostTarget || moveSlot.target;
 				}
+			// Heal Block only prevents Pollen Puff from targeting an ally when the user has Heal Block
+			} else if (moveSlot.id === 'pollenpuff' && this.volatiles['healblock']) {
+				target = 'adjacentFoe';
 			}
 			let disabled = moveSlot.disabled;
 			if (this.volatiles['dynamax']) {
@@ -1347,6 +1354,7 @@ export class Pokemon {
 			if (this.terastallized) details += `, tera:${this.terastallized}`;
 			this.battle.add('detailschange', this, details);
 			if (source.effectType === 'Item') {
+				this.canTerastallize = null; // National Dex behavior
 				if (source.zMove) {
 					this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
 					this.moveThisTurnResult = true; // Ultra Burst counts as an action for Truant
@@ -1789,8 +1797,10 @@ export class Pokemon {
 		if (!isFromFormeChange) {
 			if (ability.isPermanent || this.getAbility().isPermanent) return false;
 		}
-		const setAbilityEvent: boolean | null = this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability);
-		if (!setAbilityEvent) return setAbilityEvent;
+		if (!isTransform) {
+			const setAbilityEvent: boolean | null = this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability);
+			if (!setAbilityEvent) return setAbilityEvent;
+		}
 		this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityState, this, source);
 		if (this.battle.effect && this.battle.effect.effectType === 'Move' && !isFromFormeChange) {
 			this.battle.add('-endability', this, this.battle.dex.abilities.get(oldAbility), '[from] move: ' +

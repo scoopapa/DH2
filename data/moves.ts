@@ -1084,7 +1084,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {},
-		onTryHit(target) {
+		onHit(target) {
 			if (!this.canSwitch(target.side) || target.volatiles['commanded']) {
 				this.attrLastMove('[still]');
 				this.add('-fail', target);
@@ -6625,19 +6625,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Gigaton Hammer",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.disableMove('gigatonhammer');
-		},
-		beforeMoveCallback(pokemon) {
-			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.addVolatile('gigatonhammer');
-		},
-		onAfterMove(pokemon) {
-			if (pokemon.removeVolatile('gigatonhammer')) {
-				this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
-			}
-		},
-		condition: {},
+		flags: {protect: 1, mirror: 1, cantusetwice: 1},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -9539,11 +9527,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onHit() {
-			this.field.clearTerrain();
+		onAfterHit(target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
 		},
-		onAfterSubDamage() {
-			this.field.clearTerrain();
+		onAfterSubDamage(damage, target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -13771,10 +13763,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.infiltrates = true;
 			}
 		},
-		onHit(target, source) {
+		onTryMove(source, target, move) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onHit(target, source, move) {
 			if (source.isAlly(target)) {
 				if (!this.heal(Math.floor(target.baseMaxhp * 0.5))) {
-					this.add('-immune', target);
+					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
+						this.attrLastMove('[still]');
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
+					} else {
+						this.add('-immune', target);
+					}
 					return this.NOT_FAIL;
 				}
 			}
@@ -16476,7 +16481,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {},
 		volatileStatus: 'substitute',
 		onTryHit(source) {
-			if (!this.canSwitch(source.side)) {
+			if (!this.canSwitch(source.side) || source.volatiles['commanded']) {
 				this.add('-fail', source);
 				return this.NOT_FAIL;
 			}
