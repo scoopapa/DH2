@@ -264,7 +264,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			nightmare: ["9L1"],
 			painsplit: ["9L1"],
 			powergem: ["9L1"],
-			powergem: ["9L1"],
 			protect: ["9L1"],
 			psybeam: ["9L1"],
 			psychic: ["9L1"],
