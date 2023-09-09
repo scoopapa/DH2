@@ -684,7 +684,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Flaming Sphere",
 		pp: 20,
 		priority: 1,
-		flags: {ballistic: 1, protect: 1, mirror: 1},
+		flags: {bullet: 1, protect: 1, mirror: 1},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Pyro Ball", target);
@@ -703,7 +703,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Ends all existing terrains.",
 		pp: 10,
 		priority: 0,
-		flags: {ballistic: 1, protect: 1, mirror: 1},
+		flags: {bullet: 1, protect: 1, mirror: 1},
 		onHit() {
 			this.field.clearTerrain();
 		},
@@ -1060,7 +1060,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "This move hits 2 turns later.",
 		pp: 10,
 		priority: 0,
-		flags: {},
+		flags: {futuremove: 1, protect: 1, mirror: 1},
 		ignoreImmunity: true,
 		onTry(source, target) {
 			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
