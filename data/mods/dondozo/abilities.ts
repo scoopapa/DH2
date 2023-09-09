@@ -168,12 +168,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts['accuracy'] = 0;
 			}
 		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'brn') {
-				this.add('-activate', pokemon, 'ability: Power of Dondozo');
-				pokemon.cureStatus();
-			}
-		},
 		onSetStatus(status, target, source, effect) {
 			if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (status.id !== 'brn') return;
@@ -183,6 +177,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return false;
 		},
 		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Power of Dondozo');
+				pokemon.cureStatus();
+			}
 			if (pokemon.volatiles['attract']) {
 				this.add('-activate', pokemon, 'ability: Power of Dondozo');
 				pokemon.removeVolatile('attract');
