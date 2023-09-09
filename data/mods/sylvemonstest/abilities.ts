@@ -991,7 +991,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyDef(def) {
 			return this.chainModify(1.2);
 		},
-		onModifyDef(spd) {
+		onModifySpD(spd) {
 			return this.chainModify(1.2);
 		},
 		id: "shellarmor",
@@ -1006,7 +1006,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyDef(def) {
 			return this.chainModify(1.2);
 		},
-		onModifyDef(spd) {
+		onModifySpD(spd) {
 			return this.chainModify(1.2);
 		},
 		id: "battlearmor",
