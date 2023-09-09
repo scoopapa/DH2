@@ -6,6 +6,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	absol: {
 		inherit: true,
 		types: ["Dark", "Fairy"],
+		abilities: {0: "Pressure", 1: "Jack of all Trades", H: "Justified"},
 	},
 	absolmega: {
 		inherit: true,
@@ -139,14 +140,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Fairy", "Dark"],
 		abilities: {0: "Intimidate", 1: "Strong Jaw", H: "Rattled"},
-	},
-	celebi: {
-		inherit: true,
-		types: ["Grass", "Fairy"],
-	},
-	jirachi: {
-		inherit: true,
-		types: ["Steel", "Fairy"],
 	},
 	manaphy: {
 		inherit: true,
@@ -414,7 +407,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	hoopa: {
 		inherit: true,
 		types: ["Psychic", "Ghost"],
-		abilities: {0: "Magician", 1: "Dimension Warp", H: "Magic Healing"},
+		abilities: {0: "Jack of all Trades", 1: "Dimension Warp", H: "Magic Healing"},
 	},
 	cresselia: {
 		inherit: true,
@@ -430,11 +423,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Psychic"],
 		abilities: {0: "Bell Chime", 1: "Magic Warp", H: "Magic Healing"},
-	},
-	sigilyph: {
-		inherit: true,
-		types: ["Psychic", "Flying"],
-		abilities: {0: "Magic Healing", 1: "Magic Guard", H: "Tinted Lens"},
 	},
 	haunter: {
 		inherit: true,
@@ -616,11 +604,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Steel"],
 		abilities: {0: "Defiant", 1: "Knight's Blade", H: "Pressure"},
 	},
-	bisharp: {
-		inherit: true,
-		types: ["Dark", "Steel"],
-		abilities: {0: "Defiant", 1: "Knight's Blade", H: "Pressure"},
-	},
 	tornadus: {
 		inherit: true,
 		types: ["Flying"],
@@ -677,16 +660,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Psychic"],
 		abilities: {0: "Time Warp", 1: "Synchronize", H: "Telepathy"},
 	},
-	gulpin: {
-		inherit: true,
-		types: ["Poison"],
-		abilities: {0: "Liquid Ooze", 1: "Corrosion", H: "Gluttony"},
-	},
-	swalot: {
-		inherit: true,
-		types: ["Poison"],
-		abilities: {0: "Liquid Ooze", 1: "Corrosion", H: "Gluttony"},
-	},
 	grimer: {
 		inherit: true,
 		types: ["Poison"],
@@ -721,11 +694,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Water", "Flying"],
 		abilities: {0: "Air Stream", 1: "Big Pecks", H: "Hydration"},
-	},
-	unfezant: {
-		inherit: true,
-		types: ["Normal", "Flying"],
-		abilities: {0: "Big Pecks", 1: "Air Stream", H: "Rivalry"},
 	},
 	shelmet: {
 		inherit: true,
@@ -947,11 +915,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Steel"],
 		abilities: {0: "Battery", 1: "Minus", H: "Technician"},
 	},
-	buizel: {
-		inherit: true,
-		types: ["Water"],
-		abilities: {0: "Swift Swim", 1: "Technician", H: "Water Veil"},
-	},
 	floatzel: {
 		inherit: true,
 		types: ["Water", "Fighting"],
@@ -986,11 +949,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Normal"],
 		abilities: {0: "Intimidate", 1: "Obstinacy", H: "Sheer Force"},
-	},
-	braviary: {
-		inherit: true,
-		types: ["Normal", "Flying"],
-		abilities: {0: "Obstinacy", 1: "Sheer Force", H: "Defiant"},
 	},
 	primeape: {
 		inherit: true,
@@ -1147,16 +1105,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fairy"],
 		abilities: {0: "Cute Charm", 1: "Misty Surge", H: "Pixilate"},
 	},
-	huntail: {
-		inherit: true,
-		types: ["Water"],
-		abilities: {0: "Swift Swim", 1: "Shark Bait", H: "Water Veil"},
-	},
-	gorebyss: {
-		inherit: true,
-		types: ["Water"],
-		abilities: {0: "Swift Swim", 1: "Liquid Voice", H: "Hydration"},
-	},
 	slowbromega: {
 		inherit: true,
 		types: ["Water", "Psychic"],
@@ -1277,11 +1225,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Electric"],
 		abilities: {0: "Electric Surge", 1: "Intimidate", H: "Guts"},
 	},
-	luxray: {
-		inherit: true,
-		types: ["Electric"],
-		abilities: {0: "Electric Surge", 1: "Intimidate", H: "Guts"},
-	},
 	budew: {
 		inherit: true,
 		types: ["Grass", "Poison"],
@@ -1296,11 +1239,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Grass", "Poison"],
 		abilities: {0: "Grassy Surge", 1: "Poison Point", H: "Technician"},
-	},
-	exeggutor: {
-		inherit: true,
-		types: ["Grass", "Psychic"],
-		abilities: {0: "Chlorophyll", 1: "Grassy Surge", H: "Harvest"},
 	},
 	exeggutoralola: {
 		inherit: true,
@@ -1331,21 +1269,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Psychic"],
 		abilities: {0: "Psychic Surge", 1: "Competitive", H: "Shadow Tag"},
-	},
-	deoxys: {
-		inherit: true,
-		types: ["Psychic"],
-		abilities: {0: "Pressure", H: "Psychic Surge"},
-	},
-	deoxysdefense: {
-		inherit: true,
-		types: ["Psychic"],
-		abilities: {0: "Pressure", H: "Psychic Surge"},
-	},
-	deoxysspeed: {
-		inherit: true,
-		types: ["Psychic"],
-		abilities: {0: "Pressure", H: "Psychic Surge"},
 	},
 	steelixmega: {
 		inherit: true,
@@ -1383,10 +1306,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	giratina: {
 		inherit: true,
 		abilities: {0: "Pressure", 1: "Dimension Warp", H: "Telepathy"},
-	},
-	unown: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Dimension Warp"},
 	},
 	uxie: {
 		inherit: true,
@@ -1557,7 +1476,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	turtonator: {
 		inherit: true,
-		abilities: {0: "Shell Armor", 1: "Immovable", H: "Stamina"},
+		types: ["Fire", "Dragon"],
+		abilities: {0: "Shell Armor", 1: "Immovable", H: "Block Master"},
 	},
 	mewtwo: {
 		inherit: true,
@@ -1574,10 +1494,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	typhlosion: {
 		inherit: true,
 		abilities: {0: "Blaze", H: "Infuriation"},
-	},
-	drampa: {
-		inherit: true,
-		abilities: {0: "Infuriation", 1: "Sap Sipper", H: "Oblivious"},
 	},
 	whismur: {
 		inherit: true,
@@ -1654,10 +1570,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	golduck: {
 		inherit: true,
 		abilities: {0: "Wet Suit", 1: "Cloud Nine", H: "Swift Swim"},
-	},
-	farfetchd: {
-		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Knight's Blade", H: "Defiant"},
 	},
 	keldeo: {
 		inherit: true,
@@ -1799,14 +1711,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Jack of all Trades", 1: "Magic Guard", H: "Tinted Lens"},
 	},
-	absol: {
-		inherit: true,
-		abilities: {0: "Pressure", 1: "Jack of all Trades", H: "Justified"},
-	},
-	hoopa: {
-		inherit: true,
-		abilities: {0: "Jack of all Trades", 1: "Dimension Warp", H: "Magic Healing"},
-	},
 	sudowoodo: {
 		inherit: true,
 		abilities: {0: "Mimetism", 1: "Rock Head", H: "Jack of all Trades"},
@@ -1821,7 +1725,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	drampa: {
 		inherit: true,
-		abilities: {0: "Berserk", 1: "Jack of all Trades", H: "Cloud Nine"},
+		abilities: {0: "Berserk", 1: "Jack of all Trades", H: "Oblivious"},
 	},
 	unown: {
 		inherit: true,
@@ -1949,10 +1853,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	stoutland: {
 		inherit: true,
 		types: ["Normal", "Ground"],
-	},
-	regigigas: {
-		inherit: true,
-		abilities: {0: "Slow Start", H: "Colossal Titan"},
 	},
 	staryu: {
 		inherit: true,
@@ -2171,10 +2071,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Shell Armor", H: "Mimetism"},
 	},
-	corsola: {
-		inherit: true,
-		abilities: {0: "Mimetism", 1: "Natural Cure", H: "Regenerator"},
-	},
 	elekid: {
 		inherit: true,
 		abilities: {0: "Static", 1: "Battery", H: "Vital Spirit"},
@@ -2311,11 +2207,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Steel", "Ghost"],
 		abilities: {0: "Stance Change", H: "Block Master"},
-	},
-	turtonator: {
-		inherit: true,
-		types: ["Fire", "Dragon"],
-		abilities: {0: "Shell Armor", H: "Block Master"},
 	},
 	shellder: {
 		inherit: true,
@@ -2622,10 +2513,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	slowpokegalar: {
 		inherit: true,
 		abilities: {0: "Oblivious", 1: "Stall", H: "Regenerator"},
-	},
-	slowbrogalar: {
-		inherit: true,
-		abilities: {0: "Quick Draw", 1: "Stall", H: "Regenerator"},
 	},
 	pincurchin: {
 		inherit: true,
