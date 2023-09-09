@@ -187,11 +187,11 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 40,
 		},
-		onAnyTryMove(target, source, effect) {
-            if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(effect.id)) {
+		onFoeTryMove(target, source, move) {
+            if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(move.id)) {
                 this.attrLastMove('[still]');
 				this.boost({atk: 1}, source);
-                this.add('cant', this.effectData.target, 'item: Collection Bag', effect, '[of] ' + target);
+                this.add('cant', target, 'item: Collection Bag', move, '[of] ' + source);
                 return false;
             }
         },

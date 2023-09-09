@@ -5,45 +5,17 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: "The standard ruleset for all offical Smogon singles tiers (Ubers, OU, etc.)",
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Min Source Gen = 3',
+			'Terastal Clause', 'Min Source Gen = 3',
 		],
 	},
-	flatrules: {
+	standarddoubles: {
 		effectType: 'ValidatorRule',
-		name: 'Flat Rules',
-		desc: "The in-game Flat Rules: Adjust Level Down 50, Species Clause, Item Clause, -Mythical, -Restricted Legendary, Bring 6 Pick 3-6 depending on game type.",
-		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Adjust Level Down = 50', 'Picked Team Size = Auto', 'Cancel Mod'],
-		banlist: ['Mythical', 'Restricted Legendary'],
-	},
-	limittworestricted: {
-		effectType: 'ValidatorRule',
-		name: 'Limit Two Restricted',
-		desc: "Limit two restricted Pokémon (flagged with * in the rules list)",
-		onValidateTeam(team) {
-			const restrictedSpecies = [];
-			for (const set of team) {
-				const species = this.dex.species.get(set.species);
-				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
-			}
-			if (restrictedSpecies.length > 2) {
-				return [`You can only use up to two restricted Pok\u00E9mon (you have: ${restrictedSpecies.join(', ')})`];
-			}
-		},
-	},
-	limitonerestricted: {
-		effectType: 'ValidatorRule',
-		name: 'Limit One Restricted',
-		desc: "Limit one restricted Pokémon (flagged with * in the rules list)",
-		onValidateTeam(team) {
-			const restrictedSpecies = [];
-			for (const set of team) {
-				const species = this.dex.species.get(set.species);
-				if (this.ruleTable.isRestrictedSpecies(species)) restrictedSpecies.push(species.name);
-			}
-			if (restrictedSpecies.length > 1) {
-				return [`You can only use one restricted Pok\u00E9mon (you have: ${restrictedSpecies.join(', ')})`];
-			}
-		},
+		name: 'Standard Doubles',
+		desc: "The standard ruleset for all official Smogon doubles tiers",
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Terastal Clause', 'Min Source Gen = 3',
+		],
 	},
 	roovnendex: {
 		effectType: 'ValidatorRule',
@@ -51,7 +23,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: "Only allows Pok&eacute;mon native to the Roovnen region",
 		banlist: [
 				'Cubone-Base', 'Sewaddle-Base', 'Swadloon-Base', 'Leavanny-Base', 'Roggenrola-Base', 'Boldore-Base', 'Gigalith-Base', 'Dratini-Base', 'Dragonair-Base', 'Dragonite-Base', 'Golett-Base', 'Rolycoly-Base', 
-				'Carkoal-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar'],
+				'Carkol-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar'],
 		onValidateSet(set, format) {
 			const roovnenDex = [
 				"Kunirsch", "Portrenti", "Elchunst", "Poniarc", "Sizzlorse", "Klimyross", "Zandound", "Fisound", "Synouder", "Pidgey", "Pidgeotto", "Pidgeot", "Nimmaup", "Kokick", "Schmesatt", "Antron", "Queant", 
@@ -63,7 +35,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				"Smeargle", "Cufant", "Copperajah", "Honedge", "Doublade", "Aegislash", "Baltoy", "Claydol", "Bruxish", "Yamask", "Cofagrigus", "Phantump", "Trevenant", "Drifloon", "Drifblim", "Greavard", "Houndstone", 
 				"Axew", "Fraxure", "Haxorus", "Dratini-Roovnen", "Dragonair-Roovnen", "Dragonite-Roovnen", "Trapinch", "Vibrava", "Flygon", "Pancham", "Pangoro", "Toedscool", "Toedscruel", "Patwinis", "Rautwinis", 
 				"Bounsweet", "Steenee", "Tsareena", "Lunatone", "Solrock", "Golett-Roovnen", "Goltink", "Lileep", "Cradily", "Anorith", "Armaldo", "Bronzor", "Bronzong", "Sinistea", "Polteageist", "Spiritomb", "Planind", 
-				"Ysiogue", "Spritzee", "Numel", "Aromatisse", "Klink", "Klang", "Klinklang", "Rotom", "Varoom", "Revavroom", "Rolycoly-Roovnen", "Carkoal-Roovnen", "Lockossal", "Drowzee", "Hypno", "Hypsand", "Mudbray", 
+				"Ysiogue", "Spritzee", "Numel", "Aromatisse", "Klink", "Klang", "Klinklang", "Rotom", "Varoom", "Revavroom", "Rolycoly-Roovnen", "Carkol-Roovnen", "Lockossal", "Drowzee", "Hypno", "Hypsand", "Mudbray", 
 				"Mudsdale", "Klawf", "Charcadet", "Armarouge", "Ceruledge", "Gargion", "Carnivine", "Prehuck", "Miltank", "Magnemite",	"Magneton", "Magnezone", "Gligar", "Gliscor", "Taurot", "Minowing", "Cramorant", 
 				"Cutiefly", "Ribombee", "Comfey", "Kramlauf", "Skitty", "Delcatty", "Ralts", "Kirlia", "Gardevoir", "Gallade", "Ressuredom", "Manutz", "Decani", "Foongus", "Amoonguss", "Impidimp", "Morgrem", "Grimmsnarl", 
 				"Morelull", "Shiinotic", "Flabe\u0301be\u0301", "Floette", "Florges", "Expremoos", "Nuzleaf", "Shiftry", "Lotad", "Lombre", "Ludicolo", "Deerling", "Sawsbuck", "Pawniard", "Bisharp", "Kingambit", "Inkay", 

@@ -980,7 +980,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePowerCallback(pokemon, target, move) {
 			return 50 + 15 * pokemon.side.totalFainted;
 		},
-		shortDesc: "'+15 power for each time a party member fainted.",
+		shortDesc: "+15 power for each time a party member fainted.",
 	},
 	lusterpurge: {
 		inherit: true,

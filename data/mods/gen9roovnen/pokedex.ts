@@ -379,20 +379,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Steel", "Water"],
 		baseStats: {hp: 50, atk: 50, def: 45, spa: 35, spd: 50, spe: 20},
 		abilities: {0: "Steam Engine", 1: "Heatproof", H: "Water Absorb"},
-		evos: ["Carkoal-Roovnen"],
+		evos: ["Carkol-Roovnen"],
 		heightm: 0.3,
 		weightkg: 12,
 		eggGroups: ["Mineral", "Water 3"],
 	},
-	carkoal: {
+	carkol: {
 		inherit: true,
-		otherFormes: ["Carkoal-Roovnen"],
-		formeOrder: ["Carkoal", "Carkoal-Roovnen"],
+		otherFormes: ["Carkol-Roovnen"],
+		formeOrder: ["Carkol", "Carkol-Roovnen"],
 	},
-	carkoalroovnen: {
+	carkolroovnen: {
 		num: 838,
-		name: "Carkoal-Roovnen",
-		baseSpecies: "Carkoal",
+		name: "Carkol-Roovnen",
+		baseSpecies: "Carkol",
 		forme: "Roovnen",
 		types: ["Steel", "Water"],
 		baseStats: {hp: 100, atk: 70, def: 85, spa: 55, spd: 70, spe: 40},
@@ -409,7 +409,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	annihilape: {
 		inherit: true,
-		baseStats: {hp: 110, atk: 115, def: 80, spa: 60, spd: 90, spe: 95},
+		baseStats: {hp: 105, atk: 115, def: 80, spa: 60, spd: 90, spe: 85},
 	},
 	gholdengo: {
 		inherit: true,
@@ -915,22 +915,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 2,
 		weightkg: 91,
 		eggGroups: ["Flying"],
-		otherFormes: ["Phoenuss-Reborn"],
-		formeOrder: ["Phoenuss", "Phoenuss-Reborn"],
-	},
-	phoenussreborn: {
-		num: 1051,
-		name: "Phoenuss-Reborn",
-		baseSpecies: "Phoenuss",
-		forme: "Reborn",
-		types: ["Fire", "Flying"],
-		gender: "M",
-		baseStats: {hp: 28, atk: 88, def: 79, spa: 45, spd: 80, spe: 100},
-		abilities: {0: "Rebirth"},
-		heightm: 1,
-		weightkg: 45.5,
-		eggGroups: ["Flying"],
-		changesFrom: "Phoenuss"
 	},
 	ostarrichi: {
 		num: 1052,
@@ -1184,7 +1168,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Steel", "Water"],
 		baseStats: {hp: 130, atk: 90, def: 115, spa: 75, spd: 90, spe: 20},
 		abilities: {0: "Steam Engine", 1: "Heatproof", H: "Water Absorb"},
-		prevo: "Carkoal-Roovnen",
+		prevo: "Carkol-Roovnen",
 		heightm: 3,
 		weightkg: 237.1,
 		eggGroups: ["Mineral", "Water1"],
