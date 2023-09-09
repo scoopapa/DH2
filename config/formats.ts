@@ -312,9 +312,9 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3722349/">Fakemon Frontier on Smogon Forums</a>`,
 		],
 		mod: 'fakemonfrontier',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
 		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+			// 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -1484,17 +1484,17 @@ export const Formats: FormatList = [
 			// this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		// },
 	// },
-	{
-		name: "[Gen 9] Scootopia",
-		desc: "A solomod consisting of Scoopapa's first 30 sprited fakemons!",
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: "scootopia",
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
+	// {
+		// name: "[Gen 9] Scootopia",
+		// desc: "A solomod consisting of Scoopapa's first 30 sprited fakemons!",
+		// threads: [
+			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit?usp=sharing">Spreadsheet</a>`,
+		// ],
+		// mod: "scootopia",
+		// ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
 		// banlist: ['All Pokemon'],
 		// unbanlist: ['Orchile', 'Dolphena', 'Scalaron', 'Rantler', 'Cobracotta', 'Albatrygon', 'Electangle', 'Torgeist', 'Platypad', 'Soleron', 'Nunopod', 'Zeploom', 'Brawnkey', 'Salamalix', 'Cinnastar', "Muab'Boa", 'Volvolpa', 'Harzodia', 'Cyllindrake', 'Kodokai', 'Jaegorm', 'Jaegorm-Collective', 'Faerenheit', 'Cellsius', 'Kelven', 'Salaos', 'Morndos', 'Pythos', 'Quadringo', 'Corundell', 'Flocura' ],
-	},
+	// },
 	// {
 		// name: "[Gen 8] The 3-3-1 Typechart",
 		// desc: [

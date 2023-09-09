@@ -149,11 +149,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.modData('Learnsets', id).learnset[str] = ['9L1'];
 					movesAdded[str] = true;
 				}
-				str = "feralroar";
+				str = "feralhealing";
 				if (!movesAdded[str] 
-					&& ( moveid === "roar"
-					|| moveid === "nobleroar"
-					|| moveid === "screech"
+					&& ( move.drain || move.heal
 					)
 				) {
 					this.modData('Learnsets', id).learnset[str] = ['9L1'];
