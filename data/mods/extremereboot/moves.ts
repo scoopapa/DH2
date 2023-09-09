@@ -1600,7 +1600,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Manmade",
 		shortDesc: "The user is protected from most opposing moves. Fails if used in succession. If this move fails to block a move, the user looses 1/16 of their max hp.",
 		onPrepareHit(pokemon, source, move) {
-			const usedLastTurn = false;
+			let usedLastTurn = false;
 			if (pokemon.lastMove.id !== "energyfield") {
 				usedLastTurn = true;
 				this.damage(pokemon.baseMaxhp / 16, pokemon, pokemon);
@@ -3648,7 +3648,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allySide",
 		priority: 0,
-		secondary: null,
 	},
 	// Coded and Tested
 	pumpkinfield: {
