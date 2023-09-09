@@ -38,7 +38,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		num: 275,
 		gen: 8,
 	},
 	feralorb: {
@@ -80,7 +79,6 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
-		num: 276,
 		gen: 8,
 	},
 };

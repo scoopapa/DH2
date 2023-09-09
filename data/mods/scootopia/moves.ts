@@ -678,11 +678,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1},
 		onHit(pokemon, source) {
 			let b: BoostName;
+			let didBoost = false;
 			const negBoosts = {};
 			for (b in source.boosts) {
 				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) {
+			if (didBoost) {
 				this.boost(negBoosts, source);
 			}
 		},
