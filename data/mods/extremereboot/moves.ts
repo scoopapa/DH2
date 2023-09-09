@@ -191,10 +191,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			let b: BoostName;
 			const negBoosts = {};
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+			let didBoost = false;
+			for (b in pokemon.boosts) {
+				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, source);
+			if (didBoost) this.boost(negBoosts, pokemon);
 			this.heal(source.baseMaxhp - source.hp, source, source);
 			source.cureStatus();
 			source.addVolatile('mustrecharge');
@@ -801,12 +803,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Spring",
 		shortDesc: "Heals the user by 50% of its max HP. Resets the user's lowered stat changes.",
 		onHit(target, source, move) {
-			let b: BoostName;
 			const negBoosts = {};
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+			let didBoost = false;
+			for (b in pokemon.boosts) {
+				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, source);
+			if (didBoost) this.boost(negBoosts, pokemon);
 		},
 		priority: 0,
 		heal: [1, 2],
@@ -1903,7 +1906,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			status: "frz",
 		},
 		target: "normal",
-		secondary: null,
 		unviable: true,
 	},
 	// Coded
@@ -2622,10 +2624,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source, move) {
 			let b: BoostName;
 			const negBoosts = {};
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+			let didBoost = false;
+			for (b in pokemon.boosts) {
+				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, source);
+			if (didBoost) this.boost(negBoosts, pokemon);
 			source.cureStatus();
 		},
 		priority: 0,
@@ -3512,7 +3516,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1, reflectable: 1},
 		target: "normal",
 		secondary: null,
 		unviable: true,
@@ -3645,7 +3648,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allySide",
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
 		secondary: null,
 	},
 	// Coded and Tested
@@ -4081,17 +4083,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
 			let b: BoostName;
 			const negBoosts = {};
+			let didBoost = false;
 			for (b in pokemon.boosts) {
 				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, pokemon);
+			if (didBoost) this.boost(negBoosts, pokemon);
 			return pokemon.cureStatus() || success;
 		},
 		secondary: null,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
 		target: "self",
-		secondary: null,
 	},
 	// Coded
 	restrain: {
@@ -4880,7 +4882,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, contact: 1},
 		target: "normal",
-		secondary: null,
 		unviable: true,
 	},
 	// Coded
@@ -6399,10 +6400,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			let b: BoostName;
 			const negBoosts = {};
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+			let didBoost = false;
+			for (b in pokemon.boosts) {
+				if (pokemon.boosts[b] < 0) negBoosts[b] = pokemon.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) this.boost(negBoosts, source);
+			if (didBoost) this.boost(negBoosts, pokemon);
 			source.cureStatus();
 			const negativeVolatiles = ['energysiphon', 'tantalize', 'shroomspores', 'partiallytrapped', 'rabidmaw', 'pollinate', 'pheromonalgas',
 				'moonblade', 'mindcleansing', 'torment', 'Deafened', 'hypnotize', 'blasphemy', 'void', 'technocut',
