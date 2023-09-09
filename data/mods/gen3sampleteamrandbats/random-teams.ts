@@ -25274,7 +25274,7 @@ const SampleTeamsData = {
 			},
 		},
 	},
-	Skarm_Registeel: {
+	/*Skarm_Registeel: {
 		teamName: "Skarm & Registeel",
 		teamData: {
 			set0Data: {
@@ -25368,7 +25368,7 @@ const SampleTeamsData = {
 				ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 31},
 			},
 		},
-	},
+	},*/
 	SkarmRachi_Dol_BoldCune: {
 		teamName: "SkarmRachi Dol BoldCune",
 		teamData: {
