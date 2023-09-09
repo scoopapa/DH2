@@ -320,10 +320,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Muscle Memory"},
 	},
-	jolteon: {
-		inherit: true,
-		abilities: {0: "Volt Absorb", H: "Muscle Memory"},
-	},
 	flamigo: {
 		inherit: true,
 		abilities: {0: "Scrappy", 1: "Muscle Memory", H: "Costar"},
