@@ -2556,6 +2556,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bide: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
+			thunderbolt: ["1M"],
 		},
 	},
 	elekid: {
