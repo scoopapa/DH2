@@ -18,7 +18,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 135,
 		category: "Physical",
-		shortDesc: "(Bugged) Target's Def halved during damage. User faints, unless breaks Substitute.",
+		shortDesc: "Target's Def halved during damage. User faints, unless breaks Substitute.",
 		name: "Boo",
 		pp: 5,
 		priority: 0,
@@ -30,10 +30,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, pokemon, target) {
 			if (!target) return;
+			target.addVolatile('boo');
 			if (!target.volatiles['substitute']) {
 				if (!target.removeVolatile('substitute')) {
 					move.selfdestruct = 'always';
 				}
+			}
+		},
+		condition: {
+			duration: 1,
+			onModifyDefPriority: 6,
+			onModifyDef(def) {
+				return this.chainModify(0.5);
 			}
 		},
 		secondary: null,
@@ -45,7 +53,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 250,
 		category: "Physical",
-		shortDesc: "(Bugged) Target's Def halved during damage. User faints, unless breaks Substitute.",
+		shortDesc: "Target's Def halved during damage. User faints, unless breaks Substitute.",
 		name: "Kaboom",
 		pp: 5,
 		priority: 0,
@@ -56,10 +64,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, pokemon, target) {
 			if (!target) return;
+			target.addVolatile('kaboom');
 			if (!target.volatiles['substitute']) {
 				if (!target.removeVolatile('substitute')) {
 					move.selfdestruct = 'always';
 				}
+			}
+		},
+		condition: {
+			duration: 1,
+			onModifyDefPriority: 6,
+			onModifyDef(def) {
+				return this.chainModify(0.5);
 			}
 		},
 		secondary: null,
