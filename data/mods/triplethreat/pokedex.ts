@@ -15,7 +15,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	hammerhelm: {
 		num: -1,
-		species: "Hammerhelm",
+		name: "Hammerhelm",
 		types: ["Water", "Fighting", "Steel"],
 		baseStats: {hp: 80, atk: 130, def: 120, spa: 65, spd: 60, spe: 50},
 		abilities: {0: "Heavy Metal", 1: "Iron Fist", H: "Flash Fire"},
@@ -70,7 +70,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	deliriophage: {
 		num: -2,
-		species: "Deliriophage",
+		name: "Deliriophage",
 		types: ["Steel", "Ghost", "Dark"],
 		baseStats: {hp: 90, atk: 80, def: 80, spa: 110, spd: 110, spe: 50},
 		abilities: {0: "Light Metal", 1: "Shield Dust", H: "Stall"},
@@ -78,7 +78,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	chilupo: {
 		num: -3,
-		species: "Chilupo",
+		name: "Chilupo",
 		types: ["Ice", "Water", "Fairy"],
 		baseStats: {hp: 80, atk: 100, def: 80, spa: 100, spd: 110, spe: 80},
 		abilities: {0: "Slush Rush", 1: "Magic Guard", H: "Refrigerate"},

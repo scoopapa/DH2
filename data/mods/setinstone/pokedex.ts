@@ -104,5 +104,5 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 73, atk: 100, def: 85, spa: 90, spd: 120, spe: 82},
 		abilities: {0: "Inner Focus", H: "Parental Bond"},
 	},
-
+	
 };
