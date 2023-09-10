@@ -472,10 +472,24 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 					//Main implementation is in scripts.ts as an edit to ignoringAbility()
 					this.add('-n', pokemon, 'ability: Glyphic Spell');
 					pokemon.abilityState.ending = false;
+					const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
 					for (const target of this.getAllActive()) {
+						if (target.hasItem('Ability Shield')) {
+							this.add('-block', target, 'item: Ability Shield');
+							continue;
+						}
 						if (target.illusion) {
 							this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'neutralizinggas');
 						}
+						if (target.volatiles['slowstart']) {
+							delete target.volatiles['slowstart'];
+							this.add('-end', target, 'Slow Start', '[silent]');
+						}
+						if (strongWeathers.includes(target.getAbility().id)) {
+							this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
+						}
+						if (target.volatiles['protosynthesis']) target.removeVolatile('protosynthesis');
+						if (target.volatiles['quarkdrive']) target.removeVolatile('quarkdrive');
 					}
 				}
 			}
@@ -2855,6 +2869,33 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Imposter",
 		rating: 5,
 		num: 150,
+	},
+	neutralizinggas: {
+		inherit: true,
+		onPreStart(pokemon) {
+			if (pokemon.transformed) return;
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityState.ending = false;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			for (const target of this.getAllActive()) {
+				if (target.hasItem('Ability Shield')) {
+					this.add('-block', target, 'item: Ability Shield');
+					continue;
+				}
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+				if (strongWeathers.includes(target.getAbility().id)) {
+					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['protosynthesis']) target.removeVolatile('protosynthesis');
+				if (target.volatiles['quarkdrive']) target.removeVolatile('quarkdrive');
+			}
+		},
 	},
 	oblivious: {
 		inherit: true,

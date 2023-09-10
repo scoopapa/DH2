@@ -3578,6 +3578,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		color: "Orange",
 	},
+	spewpa: {
+		inherit: true,
+		evos: ["Vivillon"],
+	},
 	vivillon: {
 		num: 666,
 		name: "Vivillon",
