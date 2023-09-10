@@ -321,7 +321,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Dancer",
 		// implemented in runMove in scripts.js
 	   onModifyMove(move) {
-	      if (!move.flags['dance']) return;
+	      if (!move.flags['dance'] || move.category = 'Status') return;
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
 			  move.category = 'Physical';
 			} else if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
