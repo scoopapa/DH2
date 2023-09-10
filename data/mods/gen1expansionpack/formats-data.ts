@@ -8,19 +8,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	//LCs and NFEs are given their respective designations
 	//New Pokemon are tiered "New" as if it were a new generation. They are then moved with the next update.
 	//Old Pokemon have been retiered
-	puchikoon: {
+	kolta: {
 		tier: "LC",
 		gen: 1,
 	},
-	mikon: {
+	vulpiii: {
 		tier: "LC",
 		gen: 1,
 	},
-	konya: {
+	coinpur: {
 		tier: "LC",
 		gen: 1,
 	},
-	gyopin: {
+	orfry: {
 		tier: "LC",
 		gen: 1,
 	},
@@ -48,15 +48,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		gen: 1,
 	},
-	skimper: {
+	squeamata: {
 		tier: "LC",
 		gen: 1,
 	},
-	bawligua: {
+	ministare: {
 		tier: "NFE",
 		gen: 1,
 	},
-	cryithan: {
+	iguanarch: {
 		tier: "OU",
 		gen: 1,
 	},
@@ -68,11 +68,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 		gen: 1,
 	},
-	gyaoon: {
+	gawarhed: {
 		tier: "UU",
 		gen: 1,
 	},
-	omega: {
+	omegadge: {
 		tier: "OU",
 		gen: 1,
 	},
@@ -80,7 +80,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		gen: 1,
 	},
-	jagg: {
+	sharpoon: {
 		tier: "UU",
 		gen: 1,
 	},
@@ -92,11 +92,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		gen: 1,
 	},
-	deer: {
+	ramoose: {
 		tier: "OU",
 		gen: 1,
 	},
-	barunda: {
+	balumba: {
 		tier: "UU",
 		gen: 1,
 	},
@@ -108,7 +108,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		gen: 1,
 	},
-	cactus: {
+	cactormus: {
 		tier: "UU",
 		gen: 1,
 	},
@@ -124,7 +124,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		gen: 1,
 	},
-	crocky: {
+	gavillain: {
 		tier: "UU",
 		gen: 1,
 	},
@@ -144,39 +144,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		gen: 1,
 	},
-	purakkusu: { //1.1 SW97 additions begin here
+	tricules: { //1.1 SW97 additions begin here
 		tier: "UU",
 		gen: 1,
 	},
-	madaamu: {
+	luxwan: {
 		tier: "OU",
 		gen: 1,
 	},
-	tsubomitto: {
+	bellignan: {
 		tier: "UU",
 		gen: 1,
 	},
-	animon: {
+	mimmeo: {
 		tier: "UU",
 		gen: 1,
 	},
-	monja: {
+	burgela: {
 		tier: "LC",
 		gen: 1,
 	},
-	para: {
+	paraspor: {
 		tier: "LC",
 		gen: 1,
 	},
-	hinaazu: {
+	dodaerie: {
 		tier: "LC",
 		gen: 1,
 	},
-	pudi: {
+	pupperon: {
 		tier: "LC",
 		gen: 1,
 	},
-	betobebii: {
+	smujj: {
 		tier: "LC",
 		gen: 1,
 	},
@@ -384,7 +384,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		gen: 1,
 	},
-	taaban: {
+	disturban: {
 		tier: "UU",
 		gen: 1,
 	},

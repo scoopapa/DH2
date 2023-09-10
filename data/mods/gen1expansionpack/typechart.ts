@@ -316,7 +316,6 @@ export const TypeChart: {[k: string]: ModdedTypeData} = {
 	},
 	fairy: {
 		inherit: true,
-		category: "Special",
 		  damageTaken: {
 			"Bug": 2,
 			"Dark": 2,
