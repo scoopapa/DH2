@@ -80,7 +80,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	heatran: {
 		inherit: true,
-		abilities: {0: "Flash Fire"},
+		abilities: {0: "Flash Fire", H: "Flame Body"},
+		unreleasedHidden: true,
 	},
 	aegislash: {
 		inherit: true,
@@ -131,6 +132,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoType: "levelExtra",
 		evoCondition: "near a special magnetic field",
 	},
+	crabominable: {
+		inherit: true,
+		evoType: "levelExtra",
+		evoCondition: "at Mount Lanakila",
+	},
 	lycanroc: {
 		inherit: true,
 		evoCondition: "in Pokemon Sun/Ultra Sun",
@@ -157,10 +163,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pyroak: {
 		inherit: true,
+		baseStats: {hp: 120, atk: 70, def: 105, spa: 95, spd: 90, spe: 60},
 		abilities: {0: "Rock Head", 1: "Battle Armor", H: "White Smoke"},
 	},
 	voodoom: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 85, def: 80, spa: 105, spd: 80, spe: 110},
+	},
+	mumbao: {
+		inherit: true,
+		unreleasedHidden: true,
+	},
+	jumbao: {
+		inherit: true,
+		unreleasedHidden: true,
 	},
 };

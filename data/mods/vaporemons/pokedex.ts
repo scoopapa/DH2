@@ -320,10 +320,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Muscle Memory"},
 	},
-	jolteon: {
-		inherit: true,
-		abilities: {0: "Volt Absorb", H: "Muscle Memory"},
-	},
 	flamigo: {
 		inherit: true,
 		abilities: {0: "Scrappy", 1: "Muscle Memory", H: "Costar"},
@@ -583,17 +579,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Opportunist", 1: "Outclass", H: "Speed Boost"},
 	},
-	axew: {
-		inherit: true,
-		abilities: {0: "Rivalry", 1: "Mold Breaker", H: "Steely Spirit"},
-	},
-	fraxure: {
-		inherit: true,
-		abilities: {0: "Rivalry", 1: "Mold Breaker", H: "Steely Spirit"},
-	},
 	haxorus: {
 		inherit: true,
-		abilities: {0: "Outclass", 1: "Mold Breaker", H: "Steely Spirit"},
+		abilities: {0: "Outclass", 1: "Mold Breaker", H: "Unnerve"},
 	},
 	eevee: {
 		inherit: true,
@@ -952,5 +940,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	salamence: {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Technician", H: "Moxie"},
+	},
+	inteleon: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Outclass"},
+	},
+	dragalge: {
+		inherit: true,
+		abilities: {0: "Poison Point", 1: "Color Change", H: "Adaptability"},
 	},
 };

@@ -1,12 +1,20 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-	chlorophyll: {
-		inherit: true,
-		desc: "If Sunny Day is active, this Pokemon's Speed is doubled.",
-	},
 	disguise: {
 		inherit: true,
-		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken and it changes to Busted Form. Confusion damage also breaks the disguise.",
-		shortDesc: "(Mimikyu only) First hit deals 0 damage, breaks disguise.",
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && effect.effectType === 'Move' &&
+				['mimikyu', 'mimikyutotem'].includes(target.species.id) && !target.transformed
+			) {
+				if (["rollout", "iceball"].includes(effect.id)) {
+					source.volatiles[effect.id].contactHitCount--;
+				}
+
+				this.add("-activate", target, "ability: Disguise");
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
 		onUpdate(pokemon) {
 			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.id) && this.effectState.busted) {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
@@ -14,45 +22,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	dryskin: {
+	darkaura: {
 		inherit: true,
-		desc: "This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move. The power of Fire-type moves is multiplied by 1.25 when used on this Pokemon. At the end of each turn, this Pokemon restores 1/8 of its maximum HP, rounded down, if the weather is Rain Dance, and loses 1/8 of its maximum HP, rounded down, if the weather is Sunny Day.",
+		isBreakable: true,
 	},
-	flowergift: {
+	fairyaura: {
 		inherit: true,
-		desc: "If this Pokemon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5.",
-	},
-	forecast: {
-		inherit: true,
-		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm.",
-	},
-	hydration: {
-		inherit: true,
-		desc: "This Pokemon has its major status condition cured at the end of each turn if Rain Dance is active.",
+		isBreakable: true,
 	},
 	innerfocus: {
 		inherit: true,
-		shortDesc: "This Pokemon cannot be made to flinch.",
 		rating: 1,
-		onBoost() {},
+		onTryBoost() {},
 	},
 	intimidate: {
 		inherit: true,
-		desc: "On switch-in, this Pokemon lowers the Attack of adjacent opposing Pokemon by 1 stage. Pokemon behind a substitute are immune.",
 		rating: 4,
-	},
-	leafguard: {
-		inherit: true,
-		desc: "If Sunny Day is active, this Pokemon cannot gain a major status condition and Rest will fail for it.",
 	},
 	moody: {
 		inherit: true,
-		desc: "This Pokemon has a random stat raised by 2 stages and another stat lowered by 1 stage at the end of each turn.",
-		shortDesc: "Raises a random stat by 2 and lowers another stat by 1 at the end of each turn.",
 		onResidual(pokemon) {
-			let stats: BoostName[] = [];
+			let stats: BoostID[] = [];
 			const boost: SparseBoostsTable = {};
-			let statPlus: BoostName;
+			let statPlus: BoostID;
 			for (statPlus in pokemon.boosts) {
 				if (pokemon.boosts[statPlus] < 6) {
 					stats.push(statPlus);
@@ -62,7 +54,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (randomStat) boost[randomStat] = 2;
 
 			stats = [];
-			let statMinus: BoostName;
+			let statMinus: BoostID;
 			for (statMinus in pokemon.boosts) {
 				if (pokemon.boosts[statMinus] > -6 && statMinus !== randomStat) {
 					stats.push(statMinus);
@@ -71,28 +63,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			randomStat = stats.length ? this.sample(stats) : undefined;
 			if (randomStat) boost[randomStat] = -1;
 
-			this.boost(boost);
+			this.boost(boost, pokemon, pokemon);
 		},
 	},
 	oblivious: {
 		inherit: true,
-		desc: "This Pokemon cannot be infatuated or taunted. Gaining this Ability while affected cures it.",
-		shortDesc: "This Pokemon cannot be infatuated or taunted.",
-		onBoost() {},
+		onTryBoost() {},
 	},
 	owntempo: {
 		inherit: true,
-		desc: "This Pokemon cannot be confused. Gaining this Ability while confused cures it.",
-		shortDesc: "This Pokemon cannot be confused.",
-		onBoost() {},
-	},
-	raindish: {
-		inherit: true,
-		desc: "If Rain Dance is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn.",
+		onTryBoost() {},
 	},
 	rattled: {
-		desc: "This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack.",
-		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack.",
 		onDamagingHit(damage, target, source, move) {
 			if (['Dark', 'Bug', 'Ghost'].includes(move.type)) {
 				this.boost({spe: 1});
@@ -104,17 +86,47 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	scrappy: {
 		inherit: true,
-		desc: "This Pokemon can hit Ghost types with Normal- and Fighting-type moves.",
-		shortDesc: "This Pokemon can hit Ghost types with Normal- and Fighting-type moves.",
-		onBoost() {},
+		onTryBoost() {},
 	},
-	solarpower: {
+	slowstart: {
 		inherit: true,
-		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn.",
+		condition: {
+			duration: 5,
+			onResidualOrder: 28,
+			onResidualSubOrder: 2,
+			onStart(target) {
+				this.add('-start', target, 'ability: Slow Start');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon, target, move) {
+				// This is because the game checks the move's category in data, rather than what it is currently, unlike e.g. Huge Power
+				if (this.dex.moves.get(move.id).category === 'Physical') {
+					return this.chainModify(0.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon, target, move) {
+				// Ordinary Z-moves like Breakneck Blitz will halve the user's Special Attack as well
+				if (this.dex.moves.get(move.id).category === 'Physical') {
+					return this.chainModify(0.5);
+				}
+			},
+			onModifySpe(spe, pokemon) {
+				return this.chainModify(0.5);
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Slow Start');
+			},
+		},
 	},
-	swiftswim: {
+	soundproof: {
 		inherit: true,
-		desc: "If Rain Dance is active, this Pokemon's Speed is doubled.",
+		onTryHit(target, source, move) {
+			if (move.flags['sound']) {
+				this.add('-immune', target, '[from] ability: Soundproof');
+				return null;
+			}
+		},
 	},
 	technician: {
 		inherit: true,
