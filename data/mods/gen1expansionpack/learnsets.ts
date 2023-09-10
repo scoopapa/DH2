@@ -28,7 +28,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		],
 	},
 	*/
-	puchikoon: {
+	kolta: {
 		learnset: {
 			tailwhip: ["1L1"],
 			ember: ["1L1"],
@@ -57,7 +57,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	mikon: {
+	vulpiii: {
 		learnset: {
 			tailwhip: ["1L1"],
 			ember: ["1L1"],
@@ -86,7 +86,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	konya: {
+	coinpur: {
 		learnset: {
 			scratch: ["1L1"],
 			growl: ["1L1"],
@@ -118,7 +118,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	gyopin: {
+	orfry: {
 		learnset: {
 			peck: ["1L1"],
 			tailwhip: ["1L1"],
@@ -488,7 +488,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 //			substitute: ["1M"],
 //		},
 //	},
-	skimper: {
+	squeamata: {
 		learnset: {
 			scratch: ["1L1"],
 			tailwhip: ["1L1"],
@@ -530,7 +530,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	bawligua: {
+	ministare: {
 		learnset: {
 			scratch: ["1L1"],
 			tailwhip: ["1L1"],
@@ -568,7 +568,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			quickattack: ["2E"], // dratini
 		},
 	},
-	cryithan: {
+	iguanarch: {
 		learnset: {
 			scratch: ["1L1"],
 			tailwhip: ["1L1"],
@@ -693,7 +693,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 30}, //assuming ressurected from a fossil
 		],
 	},
-	gyaoon: {
+	gawarhed: {
 		learnset: {
 			substitute: ["1L1", "1M"],
 			growl: ["1L1"],
@@ -739,7 +739,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			flamethrower: ["2T"]
 		},
 	},
-	omega: {
+	omegadge: {
 		learnset: {
 			tackle: ["1L1"],
 			supersonic: ["1L1"],
@@ -850,7 +850,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 21}, //Safari Zone 1%er
 		],
 	},
-	jagg: {
+	sharpoon: {
 		learnset: {
 			bite: ["1L1"],
 			leer: ["1L1"],
@@ -979,7 +979,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			aurorabeam: ["2E"], // tentacool
 		},
 	},
-	deer: {
+	ramoose: {
 		learnset: {
 			tackle: ["1L1"],
 			sandattack: ["1L14"],
@@ -1025,7 +1025,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 18}, //no clue just validate the movepool and do what tajiri said
 		],
 	},
-	barunda: {
+	balumba: {
 		learnset: {
 			disarmingvoice: ["1L1"],
 			growl: ["1L1"],
@@ -1156,7 +1156,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			icepunch: ["2M"],
 		},
 	},
-	cactus: {
+	cactormus: {
 		learnset: {
 			barrage: ["1L1"],
 			sandattack: ["1L1"],
@@ -1306,7 +1306,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			screech: ["2E"], // smeargle
 		},
 	},
-	crocky: {
+	gavillain: {
 		learnset: {
 			scratch: ["1L1"],
 			leer: ["1L1"],
@@ -1522,7 +1522,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 32}, //seafoam rare encounter
 		],
 	},
-	purakkusu: {
+	tricules: {
 		learnset: {
 			harden: ["1L1"],
 			visegrip: ["1L1"],
@@ -1558,7 +1558,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 15},
 		],
 	},
-	madaamu: {
+	luxwan: {
 		learnset: {
 			peck: ["1L1"],
 			sandattack: ["1L1"],
@@ -1595,7 +1595,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 24},
 		],
 	},
-	tsubomitto: { // should just import everything from weepinbell
+	bellignan: { // should just import everything from weepinbell
 		learnset: {
 			vinewhip: ["1L1"],
 			growth: ["1L1"],
@@ -1608,7 +1608,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 30},
 		],
 	},
-	animon: {
+	mimmeo: {
 		learnset: {
 			transform: ["1L1"],
 			mist: ["1L30"],
@@ -1619,7 +1619,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 50},
 		],
 	},
-	monja: {
+	burgela: {
 		learnset: {
 			constrict: ["1L1"],
 			bind: ["1L5"],
@@ -1651,7 +1651,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	para: {
+	paraspor: {
 		learnset: {
 			scratch: ["1L1"],
 			absorb: ["1L1"],
@@ -1684,7 +1684,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 2},
 		],
 	},
-	hinaazu: {
+	dodaerie: {
 		learnset: {
 			peck: ["1L1"],
 			growl: ["1L1"],
@@ -1714,7 +1714,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	pudi: {
+	pupperon: {
 		learnset: {
 			bite: ["1L1"],
 			roar: ["1L1"],
@@ -1743,7 +1743,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	betobebii: {
+	smujj: {
 		learnset: {
 			pound: ["1L1"],
 			disable: ["1L1"],
@@ -1831,7 +1831,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 10},
 		],
 	},
-	taaban: {
+	disturban: {
 		learnset: {
 			bite: ["1L1"],
 			watergun: ["1L1", "1M"],
