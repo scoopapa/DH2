@@ -274,20 +274,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.field.setTerrain('psychicterrain');
 		},
 	},
-	rattled: {
-		inherit: true,
-		onDamagingHit(damage, target, source, move) {
-			if (['Dark', 'Bug', 'Ghost'].includes(move.type)) {
-				this.boost({spe: 1, evasion: 1});
-			}
-		},
-		onAfterBoost(boost, target, source, effect) {
-			if (effect?.name === 'Intimidate') {
-				this.boost({spe: 1, evasion: 1});
-			}
-		},
-		shortDesc: "Spe/Evasion are raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or Intimidated.",
-	},
 	sandforce: {
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.hasItem('utilityumbrella')) return;
