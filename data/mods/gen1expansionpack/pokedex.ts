@@ -1,13 +1,13 @@
-export const Pokedex: {[k: string]: ModdedSpeciesData} = { 
-	///.d8888.  .o88b. d8888b.  .d8b.  d8888b. d8888b. d88888b d8888b.   d8888b.  .d88b.  db   dD d88888b .88b  d88.  .d88b.  d8b   db 
-	///88'  YP d8P  Y8 88  `8D d8' `8b 88  `8D 88  `8D 88'     88  `8D   88  `8D .8P  Y8. 88 ,8P' 88'     88'YbdP`88 .8P  Y8. 888o  88 
-	///`8bo.   8P      88oobY' 88ooo88 88oodD' 88oodD' 88ooooo 88   88   88oodD' 88    88 88,8P   88ooooo 88  88  88 88    88 88V8o 88 
-	///  `Y8b. 8b      88`8b   88~~~88 88~~~   88~~~   88~~~~~ 88   88   88~~~   88    88 88`8b   88~~~~~ 88  88  88 88    88 88 V8o88 
-	///db   8D Y8b  d8 88 `88. 88   88 88      88      88.     88  .8D   88      `8b  d8' 88 `88. 88.     88  88  88 `8b  d8' 88  V888 
-	///`8888Y'  `Y88P' 88   YD YP   YP 88      88      Y88888P Y8888D'   88       `Y88P'  YP   YD Y88888P YP  YP  YP  `Y88P'  VP   V8P 
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	// /.d8888.  .o88b. d8888b.  .d8b.  d8888b. d8888b. d88888b d8888b.   d8888b.  .d88b.  db   dD d88888b .88b  d88.  .d88b.  d8b   db
+	// /88'  YP d8P  Y8 88  `8D d8' `8b 88  `8D 88  `8D 88'     88  `8D   88  `8D .8P  Y8. 88 ,8P' 88'     88'YbdP`88 .8P  Y8. 888o  88
+	// /`8bo.   8P      88oobY' 88ooo88 88oodD' 88oodD' 88ooooo 88   88   88oodD' 88    88 88,8P   88ooooo 88  88  88 88    88 88V8o 88
+	// /  `Y8b. 8b      88`8b   88~~~88 88~~~   88~~~   88~~~~~ 88   88   88~~~   88    88 88`8b   88~~~~~ 88  88  88 88    88 88 V8o88
+	// /db   8D Y8b  d8 88 `88. 88   88 88      88      88.     88  .8D   88      `8b  d8' 88 `88. 88.     88  88  88 `8b  d8' 88  V888
+	// /`8888Y'  `Y88P' 88   YD YP   YP 88      88      Y88888P Y8888D'   88       `Y88P'  YP   YD Y88888P YP  YP  YP  `Y88P'  VP   V8P
 	puchikoon: {
 		num: 1152,
-		name: "Kolta",
+		name: "Puchikoon",
 		types: ["Fire"],
 		baseStats: {hp: 30, atk: 65, def: 35, spa: 45, spd: 45, spe: 70},
 		abilities: {},
@@ -15,7 +15,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mikon: {
 		num: 1153,
-		name: "Vulpiii",
+		name: "Mikon",
 		types: ["Fire"],
 		baseStats: {hp: 28, atk: 31, def: 30, spa: 60, spd: 60, spe: 60},
 		abilities: {},
@@ -23,7 +23,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	konya: {
 		num: 1154,
-		name: "Coinpur",
+		name: "Konya",
 		types: ["Normal"],
 		baseStats: {hp: 35, atk: 40, def: 30, spa: 35, spd: 35, spe: 85},
 		abilities: {},
@@ -31,7 +31,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	gyopin: {
 		num: 1155,
-		name: "Orfry",
+		name: "Gyopin",
 		types: ["Water"],
 		baseStats: {hp: 35, atk: 57, def: 50, spa: 40, spd: 40, spe: 53},
 		abilities: {},
@@ -88,46 +88,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 134, atk: 75, def: 70, spa: 75, spd: 75, spe: 60},
 		abilities: {},
 	},
-// This was a Helix Chamber interpretation of an iguana Pokemon that I substantially disagreed with.
-//	skimper: {
-//		num: 1162,
-//		name: "Skimper",
-//		types: ["Water"],
-//		baseStats: {hp: 62, atk: 43, def: 36, spa: 71, spd: 71, spe: 88},
-//		abilities: {},
-//		evos: ["Bawligua"],
-//	},
-//	bawligua: {
-//		num: 1163,
-//		name: "Bawligua",
-//		types: ["Water"],
-//		baseStats: {hp: 72, atk: 53, def: 46, spa: 81, spd: 81, spe: 98},
-//		abilities: {},
-//		prevo: "Skimper",
-//		evoLevel: 30,
-//		evos: ["Cryithan"],
-//	},
-//	cryithan: {
-//		num: 1164,
-//		name: "Cryithan",
-//		types: ["Water", "Dragon"],
-//		baseStats: {hp: 92, atk: 83, def: 76, spa: 101, spd: 101, spe: 118},
-//		abilities: {},
-//		prevo: "Bawligua",
-//		evoLevel: 50,
-// This is the new interpretation of the Iguana Pokemon (Index 95).
 	skimper: {
 		num: 1162,
-		name: "Squeamata", // Squeamish Squamata
-		types: ["Dragon"],
+		name: "Skimper",
+		types: ["Water"],
 		baseStats: {hp: 62, atk: 43, def: 36, spa: 71, spd: 71, spe: 88},
 		abilities: {},
 		evos: ["Bawligua"],
 	},
 	bawligua: {
 		num: 1163,
-		name: "Ministare", // Ministro + Stare / Glare, "mini" implies small
-		types: ["Dragon"],
+		name: "Bawligua",
+		types: ["Water"],
 		baseStats: {hp: 72, atk: 53, def: 46, spa: 81, spd: 81, spe: 98},
 		abilities: {},
 		prevo: "Skimper",
@@ -136,9 +108,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cryithan: {
 		num: 1164,
-		name: "Iguanarch", // Iguana + Monarch, "anarchy" could be derived for aggression.
-		types: ["Dragon"],
-		baseStats: {hp: 102, atk: 93, def: 76, spa: 121, spd: 121, spe: 108},
+		name: "Cryithan",
+		types: ["Water", "Dragon"],
+		baseStats: {hp: 92, atk: 83, def: 76, spa: 101, spd: 101, spe: 118},
 		abilities: {},
 		prevo: "Bawligua",
 		evoLevel: 50,
@@ -149,8 +121,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Rock"],
 		baseStats: {hp: 90, atk: 92, def: 87, spa: 75, spd: 75, spe: 85},
 		abilities: {},
-		prevo: "Nidorino", // It seems we can't have convergent evolutions, so Nidorino will be used here. I believe it'll be functionally identical in the validator as long as I make it learn the Nidorina-exclusive moves via an event entry or something. 
-		evoType: "useItem", //NOTE TO SELF: Make the moves all learned at L1 and L50. The lowest reasonable level people will use this at is 50, and this will resolve any incompatabilities in the validator. The moves suck but let's make sure nobody becomes uncanny.
+		prevo: "Nidorino", // It seems we can't have convergent evolutions, so Nidorino will be used here. I believe it'll be functionally identical in the validator as long as I make it learn the Nidorina-exclusive moves via an event entry or something.
+		evoType: "useItem", // NOTE TO SELF: Make the moves all learned at L1 and L50. The lowest reasonable level people will use this at is 50, and this will resolve any incompatabilities in the validator. The moves suck but let's make sure nobody becomes uncanny.
 		evoItem: "Moon Stone",
 	},
 	decilla: {
@@ -163,30 +135,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	gyaoon: {
 		num: 1167,
-		name: "Gawarhed",
+		name: "Gyaoon",
 		types: ["Rock"],
-		baseStats: {hp: 101, atk: 124, def: 100, spa: 95, spd: 95, spe: 30},
+		baseStats: {hp: 101, atk: 110, def: 100, spa: 95, spd: 95, spe: 30},
 		abilities: {},
 		prevo: "Decilla",
 		evoLevel: 50,
 	},
 	omega: {
 		num: 1168,
-		name: "Omegadge",
-		types: ["Steel"],
-		baseStats: {hp: 101, atk: 106, def: 120, spa: 95, spd: 95, spe: 25}, 
+		name: "Omega",
+		types: ["Steel"], // WARNING: Not designed for SW97 Steel-type. Consider field testing in a closed beta. Talk to Shellnuts.
+		baseStats: {hp: 101, atk: 100, def: 120, spa: 95, spd: 95, spe: 25},
 		abilities: {},
 	},
 	trampel: {
 		num: 1169,
 		name: "Trampel",
 		types: ["Normal", "Ground"],
-		baseStats: {hp: 110, atk: 100, def: 90, spa: 64, spd: 64, spe: 56}, //Consider checking the Attack stat to see if we should add more points to factor in Blissey. Needs more testing.
+		baseStats: {hp: 130, atk: 100, def: 90, spa: 64, spd: 64, spe: 56}, // Consider checking the Attack stat to see if we should add more points to factor in Blissey. Needs more testing.
 		abilities: {},
 	},
 	jagg: {
 		num: 1170,
-		name: "Sharpoon",
+		name: "Jagg",
 		types: ["Water", "Steel"],
 		baseStats: {hp: 80, atk: 115, def: 100, spa: 85, spd: 85, spe: 60},
 		abilities: {},
@@ -210,14 +182,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	deer: {
 		num: 1173,
-		name: "Ramoose",
+		name: "Deer",
 		types: ["Normal", "Grass"],
 		baseStats: {hp: 85, atk: 110, def: 85, spa: 90, spd: 90, spe: 60},
 		abilities: {},
 	},
 	barunda: {
 		num: 1174,
-		name: "Balumba",
+		name: "Barunda",
 		types: ["Fairy", "Flying"],
 		baseStats: {hp: 90, atk: 50, def: 30, spa: 100, spd: 100, spe: 125},
 		abilities: {},
@@ -239,9 +211,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Cheep",
 		evoLevel: 30,
 	},
-	cactus: {
+	cactus: { // Needs extensive field testing.
 		num: 1177,
-		name: "Cactormus",
+		name: "Cactus",
 		types: ["Grass", "Ground"],
 		baseStats: {hp: 60, atk: 95, def: 100, spa: 75, spd: 75, spe: 90},
 		abilities: {},
@@ -275,7 +247,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	crocky: {
 		num: 1181,
-		name: "Gavillain",
+		name: "Crocky",
 		types: ["Dragon"],
 		baseStats: {hp: 80, atk: 90, def: 75, spa: 80, spd: 80, spe: 95},
 		abilities: {},
@@ -297,7 +269,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		prevo: "Marowak",
 		evoType: "trade",
-		evoCondition: "with a Kangaskhan" //I believe this wouldn't cause a crash as iirc they aren't actually coded in, just displayed with /dt. If it causes problems, just remove it, as it's not like this specific evo condition actually exists in RBY anyway.
+		evoCondition: "with a Kangaskhan", // I believe this wouldn't cause a crash as iirc they aren't actually coded in, just displayed with /dt. If it causes problems, just remove it, as it's not like this specific evo condition actually exists in RBY anyway.
 	},
 	totartle: {
 		num: 1184,
@@ -305,7 +277,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Grass"],
 		baseStats: {hp: 79, atk: 83, def: 85, spa: 100, spd: 100, spe: 78},
 		abilities: {},
-		prevo: "Wartortle", //It seemed less complicated to separate Blastoise and Totartle when coding so I went back on the branch evolution aspect. It's cool and gives a PokeGod aspect, but it's more accurate and moves are retained properly anyway.
+		prevo: "Wartortle", // It seemed less complicated to separate Blastoise and Totartle when coding so I went back on the branch evolution aspect. It's cool and gives a PokeGod aspect, but it's more accurate and moves are retained properly anyway.
 		evoLevel: 43,
 	},
 	buu: {
@@ -317,7 +289,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	purakkusu: {
 		num: 1186,
-		name: "Tricules",
+		name: "Purakkusu",
 		types: ["Bug", "Steel"],
 		baseStats: {hp: 65, atk: 125, def: 140, spa: 55, spd: 55, spe: 85},
 		abilities: {},
@@ -326,7 +298,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	madaamu: {
 		num: 1187,
-		name: "Luxwan",
+		name: "Madaamu",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 72, atk: 105, def: 75, spa: 63, spd: 63, spe: 70},
 		abilities: {},
@@ -335,7 +307,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	tsubomitto: {
 		num: 1188,
-		name: "Bellignan",
+		name: "Tsubomitto",
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 80, atk: 120, def: 65, spa: 85, spd: 85, spe: 70},
 		abilities: {},
@@ -344,7 +316,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	animon: {
 		num: 1187,
-		name: "Mimmeo ",
+		name: "Animon",
 		types: ["Steel"],
 		baseStats: {hp: 100, atk: 55, def: 50, spa: 50, spd: 50, spe: 150},
 		abilities: {},
@@ -354,7 +326,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	monja: {
 		num: 1188,
-		name: "Burgela",
+		name: "Monja",
 		types: ["Grass"],
 		baseStats: {hp: 45, atk: 35, def: 85, spa: 80, spd: 80, spe: 40},
 		abilities: {},
@@ -362,7 +334,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	para: {
 		num: 1189,
-		name: "Paraspor",
+		name: "Para",
 		types: ["Bug"],
 		baseStats: {hp: 20, atk: 55, def: 40, spa: 40, spd: 40, spe: 10},
 		abilities: {},
@@ -370,7 +342,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hinaazu: {
 		num: 1190,
-		name: "Dodaerie",
+		name: "Hinaazu",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 15, atk: 65, def: 25, spa: 15, spd: 15, spe: 55},
 		abilities: {},
@@ -378,7 +350,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pudi: {
 		num: 1191,
-		name: "Pupperon",
+		name: "Pudi",
 		types: ["Fire"],
 		baseStats: {hp: 35, atk: 50, def: 25, spa: 30, spd: 30, spe: 40},
 		abilities: {},
@@ -386,7 +358,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	betobebii: {
 		num: 1191,
-		name: "Smujj",
+		name: "Betobebii",
 		types: ["Poison"],
 		baseStats: {hp: 60, atk: 60, def: 30, spa: 20, spd: 20, spe: 5},
 		abilities: {},
@@ -421,7 +393,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	taaban: {
 		num: 1195,
-		name: "Disturban",
+		name: "Taaban",
 		types: ["Water"],
 		baseStats: {hp: 70, atk: 125, def: 145, spa: 70, spd: 70, spe: 50},
 		abilities: {},
@@ -429,15 +401,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 	},
-	/// 
-	/// .o88b. d8888b.  .d88b.  .d8888. .d8888.         d888b  d88888b d8b   db   d88888b db    db  .d88b.  .d8888. 
-	///d8P  Y8 88  `8D .8P  Y8. 88'  YP 88'  YP        88' Y8b 88'     888o  88   88'     88    88 .8P  Y8. 88'  YP 
-	///8P      88oobY' 88    88 `8bo.   `8bo.          88      88ooooo 88V8o 88   88ooooo Y8    8P 88    88 `8bo.   
-	///8b      88`8b   88    88   `Y8b.   `Y8b. C8888D 88  ooo 88~~~~~ 88 V8o88   88~~~~~ `8b  d8' 88    88   `Y8b. 
-	///Y8b  d8 88 `88. `8b  d8' db   8D db   8D        88. ~8~ 88.     88  V888   88.      `8bd8'  `8b  d8' db   8D 
-	/// `Y88P' 88   YD  `Y88P'  `8888Y' `8888Y'         Y888P  Y88888P VP   V8P   Y88888P    YP     `Y88P'  `8888Y' 
+	// /
+	// / .o88b. d8888b.  .d88b.  .d8888. .d8888.         d888b  d88888b d8b   db   d88888b db    db  .d88b.  .d8888.
+	// /d8P  Y8 88  `8D .8P  Y8. 88'  YP 88'  YP        88' Y8b 88'     888o  88   88'     88    88 .8P  Y8. 88'  YP
+	// /8P      88oobY' 88    88 `8bo.   `8bo.          88      88ooooo 88V8o 88   88ooooo Y8    8P 88    88 `8bo.
+	// /8b      88`8b   88    88   `Y8b.   `Y8b. C8888D 88  ooo 88~~~~~ 88 V8o88   88~~~~~ `8b  d8' 88    88   `Y8b.
+	// /Y8b  d8 88 `88. `8b  d8' db   8D db   8D        88. ~8~ 88.     88  V888   88.      `8bd8'  `8b  d8' db   8D
+	// / `Y88P' 88   YD  `Y88P'  `8888Y' `8888Y'         Y888P  Y88888P VP   V8P   Y88888P    YP     `Y88P'  `8888Y'
 	///
-	scizor: { 
+	scizor: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 130, def: 100, spa: 55, spd: 55, spe: 60},
 	},
@@ -465,7 +437,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 95, atk: 75, def: 80, spa: 100, spd: 100, spe: 30},
 	},
-	slowkinggalar: { //its a forme but its one of a cross-gen evo so lets keep things simple
+	slowkinggalar: { // its a forme but its one of a cross-gen evo so lets keep things simple
 		inherit: true,
 		baseStats: {hp: 95, atk: 65, def: 80, spa: 110, spd: 110, spe: 30},
 	},
@@ -511,7 +483,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	elekid: {
 		inherit: true,
-		baseStats: {hp: 45, atk: 63, def: 37, spa: 55, spd: 55, spe: 95},
+		baseStats: {hp: 45, atk: 63, def: 37, spa: 55, spd: 55, spe: 55},
 	},
 	electivire: {
 		inherit: true,
@@ -523,7 +495,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	magmortar: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 95, def: 67, spa: 95, spd: 95, spe: 83}, //why do they have the same speed as their babies this is so mean
+		baseStats: {hp: 75, atk: 95, def: 67, spa: 95, spd: 95, spe: 83}, // why do they have the same speed as their babies this is so mean
 	},
 	munchlax: {
 		inherit: true,
@@ -533,11 +505,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 20, atk: 25, def: 45, spa: 70, spd: 70, spe: 60},
 	},
-	porygon2: { //hahahahahahaa
+	porygon2: { // hahahahahahaa
 		inherit: true,
 		baseStats: {hp: 85, atk: 80, def: 90, spa: 95, spd: 95, spe: 60},
 	},
-	porygonz: { //new uber just dropped
+	porygonz: { // new uber just dropped
 		inherit: true,
 		baseStats: {hp: 85, atk: 80, def: 70, spa: 135, spd: 135, spe: 90},
 	},
@@ -579,7 +551,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		prevo: "Scyther",
 		evoType: "useItem",
-		evoItem: "Moon Stone",//Yeah yeah I know Black Augurite exists, implement it if you want...
+		evoItem: "Moon Stone", // Yeah yeah I know Black Augurite exists, implement it if you want...
 	},
 	meltan: { // look just let me put them here
 		inherit: true,
@@ -609,7 +581,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Wiglett",
 		types: ["Water"],
 		abilities: {},
-		baseStats: {hp: 10, atk: 55, def: 25, spa: 25, spd: 25, spe: 95},
+		baseStats: {hp: 10, atk: 55, def: 25, spa: 35, spd: 35, spe: 95},
 		evos: ["Wugtrio"],
 	},
 	wugtrio: {
@@ -629,7 +601,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Grass"],
 		abilities: {},
 		baseStats: {hp: 40, atk: 40, def: 35, spa: 100, spd: 100, spe: 70},
-		evos: ["Toedscruel"]
+		evos: ["Toedscruel"],
 	},
 	toedscruel: {
 		inherit: true,
@@ -641,7 +613,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Toedscool",
 		evoLevel: 30,
 	},
-	screamtail: { //ehh go on then you paradox fucks can go here too
+	screamtail: { // ehh go on then you paradox fucks can go here too
 		inherit: true,
 		num: 985,
 		name: "Scream Tail",
@@ -657,12 +629,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		baseStats: {hp: 85, atk: 81, def: 97, spa: 121, spd: 121, spe: 101},
 	},
-	///d8888b. d88888b  d888b  d888888b  .d88b.  d8b   db  .d8b.  db        db    db  .d8b.  d8888b. d888888b  .d8b.  d8b   db d888888b .d8888. 
-	///88  `8D 88'     88' Y8b   `88'   .8P  Y8. 888o  88 d8' `8b 88        88    88 d8' `8b 88  `8D   `88'   d8' `8b 888o  88 `~~88~~' 88'  YP 
-	///88oobY' 88ooooo 88         88    88    88 88V8o 88 88ooo88 88        Y8    8P 88ooo88 88oobY'    88    88ooo88 88V8o 88    88    `8bo.   
-	///88`8b   88~~~~~ 88  ooo    88    88    88 88 V8o88 88~~~88 88        `8b  d8' 88~~~88 88`8b      88    88~~~88 88 V8o88    88      `Y8b. 
-	///88 `88. 88.     88. ~8~   .88.   `8b  d8' 88  V888 88   88 88booo.    `8bd8'  88   88 88 `88.   .88.   88   88 88  V888    88    db   8D 
-	///88   YD Y88888P  Y888P  Y888888P  `Y88P'  VP   V8P YP   YP Y88888P      YP    YP   YP 88   YD Y888888P YP   YP VP   V8P    YP    `8888Y' 
+	// /d8888b. d88888b  d888b  d888888b  .d88b.  d8b   db  .d8b.  db        db    db  .d8b.  d8888b. d888888b  .d8b.  d8b   db d888888b .d8888.
+	// /88  `8D 88'     88' Y8b   `88'   .8P  Y8. 888o  88 d8' `8b 88        88    88 d8' `8b 88  `8D   `88'   d8' `8b 888o  88 `~~88~~' 88'  YP
+	// /88oobY' 88ooooo 88         88    88    88 88V8o 88 88ooo88 88        Y8    8P 88ooo88 88oobY'    88    88ooo88 88V8o 88    88    `8bo.
+	// /88`8b   88~~~~~ 88  ooo    88    88    88 88 V8o88 88~~~88 88        `8b  d8' 88~~~88 88`8b      88    88~~~88 88 V8o88    88      `Y8b.
+	// /88 `88. 88.     88. ~8~   .88.   `8b  d8' 88  V888 88   88 88booo.    `8bd8'  88   88 88 `88.   .88.   88   88 88  V888    88    db   8D
+	// /88   YD Y88888P  Y888P  Y888888P  `Y88P'  VP   V8P YP   YP Y88888P      YP    YP   YP 88   YD Y888888P YP   YP VP   V8P    YP    `8888Y'
 	rattataalola: {
 		inherit: true,
 		baseStats: {hp: 30, atk: 56, def: 35, spa: 25, spd: 25, spe: 72},
@@ -679,7 +651,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 50, atk: 75, def: 90, spa: 35, spd: 35, spe: 40},
 	},
-	sandslashalola: { //yo its freezai
+	sandslashalola: { // yo its freezai
 		inherit: true,
 		baseStats: {hp: 75, atk: 100, def: 120, spa: 65, spd: 65, spe: 65},
 	},
@@ -826,13 +798,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 90, atk: 85, def: 90, spa: 125, spd: 125, spe: 90},
 	},
-		//8888 8888                  888                           888      888               
-	//8888 8888 888 8e  888 88e  888  ,"Y88b Y8b Y888P  ,"Y88b 888 88e  888  ,e e,   dP"Y 
-	//8888 8888 888 88b 888 888b 888 "8" 888  Y8b Y8P  "8" 888 888 888b 888 d88 88b C88b  
-	//8888 8888 888 888 888 888P 888 ,ee 888   Y8b Y   ,ee 888 888 888P 888 888   ,  Y88D 
-	//'Y88 88P' 888 888 888 88"  888 "88 888    888    "88 888 888 88"  888  "YeeP" d,dP  
-	//				  888                     888                                       
-	//				  888                     888                                       
+	// 8888 8888                  888                           888      888
+	// 8888 8888 888 8e  888 88e  888  ,"Y88b Y8b Y888P  ,"Y88b 888 88e  888  ,e e,   dP"Y
+	// 8888 8888 888 88b 888 888b 888 "8" 888  Y8b Y8P  "8" 888 888 888b 888 d88 88b C88b
+	// 8888 8888 888 888 888 888P 888 ,ee 888   Y8b Y   ,ee 888 888 888P 888 888   ,  Y88D
+	// 'Y88 88P' 888 888 888 88"  888 "88 888    888    "88 888 888 88"  888  "YeeP" d,dP
+	//				  888                     888
+	//				  888                     888
 	// These are alternate formes of RBY Pokemon that exist but were never playable.
 	// Namely, the Gastly, Haunter, Cubone, and Marowak ghosts, as well as the Aerodactyl and Kabutops fossils.
 	// These were mainly added for fun and have no impact on gameplay. The important details are simply cloned as a result.
@@ -896,12 +868,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		baseStats: {hp: 80, atk: 105, def: 65, spa: 60, spd: 60, spe: 130},
 	},
-	/// .o88b. db       .d8b.  .d8888. .d8888. d888888b  .o88b.   d8888b.  .d88b.  db   dD d88888b d8888b. d88888b db    db 
-	///d8P  Y8 88      d8' `8b 88'  YP 88'  YP   `88'   d8P  Y8   88  `8D .8P  Y8. 88 ,8P' 88'     88  `8D 88'     `8b  d8' 
-	///8P      88      88ooo88 `8bo.   `8bo.      88    8P        88oodD' 88    88 88,8P   88ooooo 88   88 88ooooo  `8bd8'  
-	///8b      88      88~~~88   `Y8b.   `Y8b.    88    8b        88~~~   88    88 88`8b   88~~~~~ 88   88 88~~~~~  .dPYb.  
-	///Y8b  d8 88booo. 88   88 db   8D db   8D   .88.   Y8b  d8   88      `8b  d8' 88 `88. 88.     88  .8D 88.     .8P  Y8. 
-	/// `Y88P' Y88888P YP   YP `8888Y' `8888Y' Y888888P  `Y88P'   88       `Y88P'  YP   YD Y88888P Y8888D' Y88888P YP    YP 
+	// / .o88b. db       .d8b.  .d8888. .d8888. d888888b  .o88b.   d8888b.  .d88b.  db   dD d88888b d8888b. d88888b db    db
+	// /d8P  Y8 88      d8' `8b 88'  YP 88'  YP   `88'   d8P  Y8   88  `8D .8P  Y8. 88 ,8P' 88'     88  `8D 88'     `8b  d8'
+	// /8P      88      88ooo88 `8bo.   `8bo.      88    8P        88oodD' 88    88 88,8P   88ooooo 88   88 88ooooo  `8bd8'
+	// /8b      88      88~~~88   `Y8b.   `Y8b.    88    8b        88~~~   88    88 88`8b   88~~~~~ 88   88 88~~~~~  .dPYb.
+	// /Y8b  d8 88booo. 88   88 db   8D db   8D   .88.   Y8b  d8   88      `8b  d8' 88 `88. 88.     88  .8D 88.     .8P  Y8.
+	// / `Y88P' Y88888P YP   YP `8888Y' `8888Y' Y888888P  `Y88P'   88       `Y88P'  YP   YD Y88888P Y8888D' Y88888P YP    YP
 	missingno: {
 		inherit: true,
 		baseStats: {hp: 33, atk: 136, def: 0, spa: 6, spd: 6, spe: 29},
@@ -1031,12 +1003,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	nidorina: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 62, def: 67, spa: 55, spd: 55, spe: 56}, //Nidoreign legality is hardcoded in learnsets.ts
+		baseStats: {hp: 70, atk: 62, def: 67, spa: 55, spd: 55, spe: 56}, // Nidoreign legality is hardcoded in learnsets.ts
 	},
 	nidoqueen: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 82, def: 87, spa: 75, spd: 75, spe: 76}, 
-		evoLevel: 40, //nidos evolved via level-up in the prototype and is being used to assist with Nidoreign implementation
+		baseStats: {hp: 90, atk: 82, def: 87, spa: 75, spd: 75, spe: 76},
+		evoLevel: 40, // nidos evolved via level-up in the prototype and is being used to assist with Nidoreign implementation
 	},
 	nidoranm: {
 		inherit: true,
@@ -1384,7 +1356,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 50, atk: 105, def: 79, spa: 35, spd: 35, spe: 76},
 		prevo: "Tyrogue",
-		evoLevel: 17, //the weird condition doesn't exist so let's do this
+		evoLevel: 17, // the weird condition doesn't exist so let's do this
 	},
 	lickitung: {
 		inherit: true,
@@ -1456,7 +1428,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	mrmime: {
 		inherit: true,
 		baseStats: {hp: 40, atk: 45, def: 65, spa: 100, spd: 100, spe: 90},
-		prevo: "Mime Jr.", //test this one
+		prevo: "Mime Jr.", // test this one
 	},
 	scyther: {
 		inherit: true,
@@ -1589,28 +1561,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 	},
-	// 8888ba.88ba                    oo dP                                  
-	// 88  `8b  `8b                      88                                  
-	// 88   88   88 .d8888b. .d8888b. dP 88  .dP  .d8888b. 88d888b. 88d888b. 
-	// 88   88   88 88'  `88 88'  `88 88 88888"   88'  `88 88'  `88 88'  `88 
-	// 88   88   88 88.  .88 88.  .88 88 88  `8b. 88.  .88 88       88.  .88 
-	// dP   dP   dP `88888P8 `8888P88 dP dP   `YP `88888P8 dP       88Y888P' 
-	// 						   .88                               88       
-	// 					   d8888P                                dP       
-	// 	   dP                              
-	// 	   88                              
-	// 	   88 dP    dP 88d8b.d8b. 88d888b. 
-	// 	   88 88    88 88'`88'`88 88'  `88 
-	// 88.  .d8P 88.  .88 88  88  88 88.  .88 
-	//  `Y8888'  `88888P' dP  dP  dP 88Y888P' 
-	// 							  88       
-	// 							  dP       
-	//  88888888b                                       
-	//  88                                              
-	// a88aaaa    .d8888b. 88d888b. 88d8b.d8b. .d8888b. 
-	//  88        88'  `88 88'  `88 88'`88'`88 Y8ooooo. 
-	//  88        88.  .88 88       88  88  88       88 
-	//  dP        `88888P' dP       dP  dP  dP `88888P' 
+	// 8888ba.88ba                    oo dP
+	// 88  `8b  `8b                      88
+	// 88   88   88 .d8888b. .d8888b. dP 88  .dP  .d8888b. 88d888b. 88d888b.
+	// 88   88   88 88'  `88 88'  `88 88 88888"   88'  `88 88'  `88 88'  `88
+	// 88   88   88 88.  .88 88.  .88 88 88  `8b. 88.  .88 88       88.  .88
+	// dP   dP   dP `88888P8 `8888P88 dP dP   `YP `88888P8 dP       88Y888P'
+	// 						   .88                               88
+	// 					   d8888P                                dP
+	// 	   dP
+	// 	   88
+	// 	   88 dP    dP 88d8b.d8b. 88d888b.
+	// 	   88 88    88 88'`88'`88 88'  `88
+	// 88.  .d8P 88.  .88 88  88  88 88.  .88
+	//  `Y8888'  `88888P' dP  dP  dP 88Y888P'
+	// 							  88
+	// 							  dP
+	//  88888888b
+	//  88
+	// a88aaaa    .d8888b. 88d888b. 88d8b.d8b. .d8888b.
+	//  88        88'  `88 88'  `88 88'`88'`88 Y8ooooo.
+	//  88        88.  .88 88       88  88  88       88
+	//  dP        `88888P' dP       dP  dP  dP `88888P'
 	// These are the Magikarp formes from Magikarp Jump, done by Albatross on Christmas. She is insane and so am I.
 	magikarpskelly: {
 		inherit: true,
