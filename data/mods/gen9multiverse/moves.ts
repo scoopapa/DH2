@@ -32,9 +32,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!target) return;
 			target.addVolatile('boo');
 			if (!target.volatiles['substitute']) {
-				if (!target.removeVolatile('substitute')) {
-					move.selfdestruct = 'always';
+				if (target.removeVolatile('substitute')) {
 					this.hint("The user does not faint if it breaks a substitute.");
+				} else {
+					move.selfdestruct = 'always';
 				}
 			}
 		},
@@ -67,9 +68,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!target) return;
 			target.addVolatile('kaboom');
 			if (!target.volatiles['substitute']) {
-				if (!target.removeVolatile('substitute')) {
-					move.selfdestruct = 'always';
+				if (target.removeVolatile('substitute')) {
 					this.hint("The user does not faint if it breaks a substitute.");
+				} else {
+					move.selfdestruct = 'always';
 				}
 			}
 		},
