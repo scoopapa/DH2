@@ -18,7 +18,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 135,
 		category: "Physical",
-		shortDesc: "Target's Def halved during damage. User faints, unless breaks Substitute.",
+		shortDesc: "Target's Def halved during damage. User faints.",
 		name: "Boo",
 		pp: 5,
 		priority: 0,
@@ -34,6 +34,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!target.volatiles['substitute']) {
 				if (!target.removeVolatile('substitute')) {
 					move.selfdestruct = 'always';
+					this.hint("The user does not faint if it breaks a substitute.");
 				}
 			}
 		},
@@ -53,7 +54,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 250,
 		category: "Physical",
-		shortDesc: "Target's Def halved during damage. User faints, unless breaks Substitute.",
+		shortDesc: "Target's Def halved during damage. User faints.",
 		name: "Kaboom",
 		pp: 5,
 		priority: 0,
@@ -68,6 +69,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (!target.volatiles['substitute']) {
 				if (!target.removeVolatile('substitute')) {
 					move.selfdestruct = 'always';
+					this.hint("The user does not faint if it breaks a substitute.");
 				}
 			}
 		},
@@ -87,7 +89,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "10% chance to paralyze. Crits if target is slower than the user.",
+		shortDesc: "10% chance to paralyze. Crits slower targets.",
 		name: "Thunderjolt",
 		pp: 15,
 		priority: 0,
