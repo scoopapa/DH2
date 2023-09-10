@@ -34,8 +34,8 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1bvvkPg1CrUBJFJJeuwkts8elfJcEcahGOoHm-vGBXOI/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'alternatiumex',
-		ruleset: ['Standard NatDex'],
-		banlist: ['All Pokemon'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Min Source Gen = 3', 'Terastal Clause'],
+		banlist: ['All Pokemon', 'Baton Pass'],
 		unbanlist: [
 				'Decidueye-Hermit', 'Decidueye-Autumn', 'Typhlosion-Explosive', 'Typhlosion-Warlock', 'Samurott-Foamy', 'Samurott-Rogue', 
 				'Oricorio', 'Oricorio-Cheerleader','Oricorio-Pa\u2019u', 'Horrorcorio',
@@ -312,9 +312,9 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3722349/">Fakemon Frontier on Smogon Forums</a>`,
 		],
 		mod: 'fakemonfrontier',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
 		banlist: [
-			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+			// 'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		],
 		onValidateTeam(team, format) {
 			let speciesTable = {};
@@ -450,6 +450,8 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
 		name: "[Gen 9] More Balanced Hackmons v4",
 		desc: `Balanced Hackmons with National Dex elements mixed in.`,
 		threads: [
@@ -479,6 +481,27 @@ export const Formats: FormatList = [
 						`You are limited to one ${baseSpecies} forme.`,
 						`(You have ${count} ${baseSpecies} forme${count === 1 ? '' : 's'}.)`,
 					];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Multiverse",
+		threads: [
+			'&bullet; <a href="https://www.smogon.com/forums/threads/multiverse-gen-9-slate-4-voting.3723507/">Multiverse</a>',
+			'&bullet; <a href="https://docs.google.com/spreadsheets/d/1Bu2Mm9L7vURggEI9mkkFM7mo-eLtLj2K95f4Rchaolg/edit?usp=sharing">Spreadsheet</a>',
+		],
+		mod: 'gen9multiverse',
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+		banlist: ['Moody', 'Baton Pass'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['MV'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Multiverse.'];
 				}
 			}
 		},
@@ -717,7 +740,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] VaporeMons",
 		mod: 'vaporemons',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'King\'s Rock', 'Baton Pass', 'Power Construct'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -1354,10 +1377,29 @@ export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////
 	//////////////////////// Solomods /////////////////////////////
 	///////////////////////////////////////////////////////////////
-	// {
-		// section: "Solomods",
-		// column: 2,
-	// },
+	{
+		section: "Solomods",
+		column: 2,
+	},
+	{
+		name: "[Gen 1] Kanto Expansion Pak OU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9233581">Post in Solomods Megathread</a>`,
+      	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TpTH9ksUWOOJJQK69RIcvnot_mH_JvfGfM4zra6V3Ec/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen1expansionpack',
+		ruleset: ['Standard', 'Data Mod', 'Welcome Message'],
+		banlist: ['Uber'],
+	},
+		{
+		name: "[Gen 1] Kanto Expansion Pak Ubers",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3660004/post-9233581">Post in Solomods Megathread</a>`,
+      	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TpTH9ksUWOOJJQK69RIcvnot_mH_JvfGfM4zra6V3Ec/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen1expansionpack',
+		ruleset: ['Standard', 'Data Mod', 'Welcome Message'],
+	},
 	// {
 		// name: "[Gen 8] A Golden Experience",
 		// mod: "agoldenexperience", 
@@ -1451,7 +1493,7 @@ export const Formats: FormatList = [
 		// },
 	// },
 	// {
-		// name: "[Gen 8] Scootopia",
+		// name: "[Gen 9] Scootopia",
 		// desc: "A solomod consisting of Scoopapa's first 30 sprited fakemons!",
 		// threads: [
 			// `&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit?usp=sharing">Spreadsheet</a>`,
@@ -1704,6 +1746,31 @@ export const Formats: FormatList = [
 		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Mega Data Mod', 'Z-Move Clause'],
 	},
 	{
+		name: "[Gen 9] MetaMons Expanded",
+		desc: [
+			"In this Pet Mod, we will aim to create a decently-sized micrometa that will expand in the unique niches of some Pokémon, giving them the spotlight after all the time they have been waiting.",
+		],
+		threads: [
+			'&bullet; <a href="https://www.smogon.com/forums/threads/metamons-slate-3-galarian-slowbro-sableye-grapploct.3703361/">MetaMons</a>',
+			'&bullet; <a href="https://docs.google.com/spreadsheets/d/142lxuFtTgQCY56Wz_ZjAGaqlk7HgJj0CVKMChQcei1U/edit#gid=0">Spreadsheet</a>',
+		],
+		mod: 'metamons', 
+		ruleset:['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Z-Move Clause'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass', 'Beedrillite'
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'MetaMons' && template.tier !== 'Gen 8 MetaMons' && template.tier !== 'Gen 7 MetaMons') {
+					return [set.species + ' is not usable in MetaMons Expanded.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 6] Mix and Megas Revisited",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3713949/">Megas Revisited on Smogon Forums</a>`,
@@ -1772,7 +1839,6 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-
 	
 	///////////////////////////////////////////////////////////////
 	/////////////// Gen 9 Offical Smogon Formats //////////////////
@@ -1910,4 +1976,90 @@ export const Formats: FormatList = [
 	banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
 	unbanlist: ['Pogguest','Athleetah'],
   },
+	{
+		section: "ROPMM",
+		column: 3,
+		// name: "ropmm",
+	},
+	
+	//July & August Metas (Will get removed September 7th or 14th)
+	{
+		name: "[Gen 9] Fusion Evolution Camomons",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3717085/">Gen 9 Fusion Evolution</a>`,
+		],
+		mod: 'feou',
+		ruleset: ['[Gen 9] Fusion Evolution', 'Camomons Mod'],
+		banlist: ['Deliraidon', 'Rage Fist'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['FEOU', 'FENFE', "FELC"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Fusion Evolution.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Alternatium EX Flipped",
+		desc: `<b>Alternatium EX</b>: A metagame made up of only Pokemon with alternate forms exist, with all of them being seperate and unique Pokemon.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/alternatium-ex-slate-1-starter-pack.3701560/">Alternatium EX on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1bvvkPg1CrUBJFJJeuwkts8elfJcEcahGOoHm-vGBXOI/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'alternatiumex',
+		ruleset: ['[Gen 9] Alternatium EX', 'Flipped Mod'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (speciesTable[template.id]) {
+					return ["You are limited to one of each Pokémon by Species Clause (except for different formes). ", "You have more than one " + template.id + "."];
+				}
+				speciesTable[template.id] = true;
+			}
+		},
+	},
+	
+	//September Metas
+	{
+		name: "[Gen 9] ReGeneration AAA",
+		desc: [
+			"In this Pet Mod, we will redesign the competitive functions of the Kantonian Pokemon after a Paldean counterpart.",
+		],
+		threads: [
+			'&bullet; <a href="https://www.smogon.com/forums/threads/regeneration-slate-4-seadra-dodrio-wigglytuff.3718196/">ReGeneration</a>',
+			'&bullet; <a href="https://docs.google.com/spreadsheets/d/1wbFWGR5pVcnTTyuy7vAUSrPxqSZsNF-Okx-v1hvD2Vc/edit?usp=sharing">Spreadsheet</a>',
+		],
+		mod: 'regeneration', 
+		ruleset: ['[Gen 9] ReGeneration', '!Obtainable Abilities', 'Ability Clause = 1'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'ReGeneration' && template.tier !== 'ReGeneration NFE' && template.tier !== 'ReGeneration LC') {
+					return [set.species + ' is not usable in ReGeneration.'];
+				}
+			}
+		},
+		validateSet(set, teamHas) { // stolen from SV Speculative
+			const species = this.dex.species.get(set.species);
+			const ability = this.dex.abilities.get(set.ability);
+			if (!set.hpType === 'Fairy' && !set.hpType === 'Normal') {
+				return this.validateSet(set, teamHas);
+			} else {
+				const terastal = set.hpType;
+				set.hpType = 'Fire';
+				const fakeValidation = this.validateSet(set, teamHas);
+				if (fakeValidation?.length) return fakeValidation;
+				set.hpType = terastal;
+				return null;
+			}
+		},
+	},
 ];

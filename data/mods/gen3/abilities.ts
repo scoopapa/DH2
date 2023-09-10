@@ -1,8 +1,6 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	cutecharm: {
 		inherit: true,
-		desc: "There is a 1/3 chance a Pokemon making contact with this Pokemon will become infatuated if it is of the opposite gender. This effect does not happen if this Pokemon did not lose HP from the attack.",
-		shortDesc: "1/3 chance of infatuating Pokemon of the opposite gender if they make contact.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				if (this.randomChance(1, 3)) {
@@ -13,8 +11,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	effectspore: {
 		inherit: true,
-		desc: "10% chance a Pokemon making contact with this Pokemon will be poisoned, paralyzed, or fall asleep. This effect does not happen if this Pokemon did not lose HP from the attack.",
-		shortDesc: "10% chance of poison/paralysis/sleep on others making contact with this Pokemon.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact'] && !source.status) {
 				const r = this.random(300);
@@ -30,8 +26,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	flamebody: {
 		inherit: true,
-		desc: "1/3 chance a Pokemon making contact with this Pokemon will be burned. This effect does not happen if this Pokemon did not lose HP from the attack.",
-		shortDesc: "1/3 chance a Pokemon making contact with this Pokemon will be burned.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				if (this.randomChance(1, 3)) {
@@ -42,7 +36,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	flashfire: {
 		inherit: true,
-		desc: "This Pokemon is immune to Fire-type moves, as long as it is not frozen. The first time it is hit by a Fire-type move, damage from its Fire-type attacks will be multiplied by 1.5 as long as it remains active and has this Ability. If this Pokemon has a major status condition, is a Fire type, or has a substitute, Will-O-Wisp will not activate this Ability.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (move.id === 'willowisp' && (target.hasType('Fire') || target.status || target.volatiles['substitute'])) {
@@ -62,8 +55,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onStart(pokemon) {
 			let activated = false;
-			for (const target of pokemon.side.foe.active) {
-				if (target && this.isAdjacent(target, pokemon) && !target.volatiles['substitute']) {
+			for (const target of pokemon.adjacentFoes()) {
+				if (!target.volatiles['substitute']) {
 					activated = true;
 					break;
 				}
@@ -75,9 +68,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			this.add('-ability', pokemon, 'Intimidate', 'boost');
 
-			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
-
+			for (const target of pokemon.adjacentFoes()) {
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
 				} else {
@@ -87,22 +78,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	lightningrod: {
-		desc: "If this Pokemon is not the target of a single-target Electric-type move used by an opposing Pokemon, this Pokemon redirects that move to itself. This effect considers Hidden Power a Normal-type move.",
-		shortDesc: "This Pokemon draws single-target Electric moves used by opponents to itself.",
 		onFoeRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Electric') return;
 			if (this.validTarget(this.effectState.target, source, move.target)) {
 				return this.effectState.target;
 			}
 		},
+		isBreakable: true,
 		name: "Lightning Rod",
-		rating: 3.5,
+		rating: 0,
 		num: 32,
 	},
 	minus: {
 		inherit: true,
-		desc: "If an active Pokemon has the Plus Ability, this Pokemon's Special Attack is multiplied by 1.5.",
-		shortDesc: "If an active Pokemon has the Plus Ability, this Pokemon's Sp. Atk is 1.5x.",
 		onModifySpA(spa, pokemon) {
 			for (const active of this.getAllActive()) {
 				if (!active.fainted && active.hasAbility('plus')) {
@@ -113,8 +101,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	plus: {
 		inherit: true,
-		desc: "If an active Pokemon has the Minus Ability, this Pokemon's Special Attack is multiplied by 1.5.",
-		shortDesc: "If an active Pokemon has the Minus Ability, this Pokemon's Sp. Atk is 1.5x.",
 		onModifySpA(spa, pokemon) {
 			for (const active of this.getAllActive()) {
 				if (!active.fainted && active.hasAbility('minus')) {
@@ -125,8 +111,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	poisonpoint: {
 		inherit: true,
-		desc: "1/3 chance a Pokemon making contact with this Pokemon will be poisoned. This effect does not happen if this Pokemon did not lose HP from the attack.",
-		shortDesc: "1/3 chance a Pokemon making contact with this Pokemon will be poisoned.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				if (this.randomChance(1, 3)) {
@@ -141,10 +125,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.addSplit(pokemon.side.id, ['-ability', pokemon, 'Pressure', '[silent]']);
 		},
 	},
+	raindish: {
+		inherit: true,
+		onWeather() {},
+		onResidualOrder: 10,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.heal(pokemon.baseMaxhp / 16);
+			}
+		},
+	},
 	roughskin: {
 		inherit: true,
-		desc: "Pokemon making contact with this Pokemon lose 1/16 of their maximum HP, rounded down. This effect does not happen if this Pokemon did not lose HP from the attack.",
-		shortDesc: "Pokemon making contact with this Pokemon lose 1/16 of their max HP.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				this.damage(source.baseMaxhp / 16, source, target);
@@ -153,16 +146,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	shadowtag: {
 		inherit: true,
-		desc: "Prevents opposing Pokemon from choosing to switch out.",
-		shortDesc: "Prevents opposing Pokemon from choosing to switch out.",
 		onFoeTrapPokemon(pokemon) {
 			pokemon.trapped = true;
 		},
 	},
 	static: {
 		inherit: true,
-		desc: "1/3 chance a Pokemon making contact with this Pokemon will be paralyzed. This effect does not happen if this Pokemon did not lose HP from the attack.",
-		shortDesc: "1/3 chance a Pokemon making contact with this Pokemon will be paralyzed.",
 		onDamagingHit(damage, target, source, move) {
 			if (damage && move.flags['contact']) {
 				if (this.randomChance(1, 3)) {
@@ -175,7 +164,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted) return;
-			const target = pokemon.side.foe.randomActive();
+			const target = pokemon.side.randomFoe();
 			if (!target || target.fainted) return;
 			const ability = target.getAbility();
 			const bannedAbilities = ['forecast', 'multitype', 'trace'];
@@ -206,8 +195,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	voltabsorb: {
 		inherit: true,
-		desc: "This Pokemon is immune to damaging Electric-type moves and restores 1/4 of its maximum HP, rounded down, when hit by one.",
-		shortDesc: "This Pokemon heals 1/4 its max HP when hit by a damaging Electric move; immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric' && move.id !== 'thunderwave') {
 				if (!this.heal(target.baseMaxhp / 4)) {
@@ -216,9 +203,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-	},
-	wonderguard: {
-		inherit: true,
-		shortDesc: "This Pokemon is only damaged by supereffective moves and indirect damage.",
 	},
 };

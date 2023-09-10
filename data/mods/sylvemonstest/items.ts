@@ -1,9 +1,9 @@
 export const Items: {[k: string]: ModdedItemData} = {
-	"safetysocks": {
+	/*"safetysocks": {
 		id: "safetysocks",
 		name: "Safety Socks",
 		desc: "Holder is unaffected by Hazards.",
-	},
+	},*/
 	"reversecore": {
 		id: "reversecore",
 		name: "Reverse Core",

@@ -930,6 +930,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		stallingMove: true,
 		volatileStatus: 'silktrap',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -968,10 +970,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.boost({spe: -1}, source, target, this.dex.getActiveMove("Silk Trap"));
 				}
 			},
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Protect", target);
 		},
 		target: "self",
 		type: "Bug",

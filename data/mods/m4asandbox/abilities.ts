@@ -1852,7 +1852,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 189,
 	},
-	forgery: {
+	/*forgery: {
 		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party.",
 		shortDesc: "Inherits the item of the last party member.",
 		onStart(pokemon) {
@@ -1894,7 +1894,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Forgery",
 		rating: 3,
 		num: -50,
-	},
+	},*/
 	clairvoyance: {
 		desc: "This Pokémon's Psychic-type moves take effect two turns after being used. At the end of that turn, the damage is calculated at that time and dealt to the Pokémon at the position the target had when the move was used. Only one move can be delayed at a time. If the user is no longer active at the time an attacking move should hit, damage is calculated based on the user's natural Attack or Special Attack stat, types, and level, with no boosts from its held item or Ability. Status moves are used by the Pokémon at the position the user had when the move was used.",
 		shortDesc: "Psychic-type moves delayed until two turns later, but only one at a time.",
@@ -2006,7 +2006,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: -53,
 	},
-	sos: {
+	/*sos: {
 		desc: "If this Pokémon is a Wishiwashi that has Mega Evolved, it calls for help and changes form at the end of each full turn it has been on the field, building up to Mega Wishiwashi (School Form) over five turns.",
 		shortDesc: "More Wishiwashi spawn at the end of each turn.",
 		onStart(pokemon) {
@@ -2053,8 +2053,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "SOS",
 		rating: 5,
 		num: -54,
-	},
-	stancechange: {
+	},*/
+	/*stancechange: {
 		desc: "If this Pokémon is an Aegislash or a Falinks-Mega, it changes to Blade Forme or Mega Combat before attempting to use an attacking move, and changes to Shield Forme or Mega Legion before attempting to use King's Shield.",
 		shortDesc: "Changes Aegislash/Falinks-Mega to Blade Forme/Combat before attack, Shield Forme/Legion before King's Shield.",
 		onBeforeMovePriority: 0.5,
@@ -2097,7 +2097,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Stance Change",
 		rating: 4,
 		num: 176,
-	},
+	},*/
 	poolfloaties: {
 		desc: "This Pokémon and its adjacent allies are immune to Water-type moves. For 3 turns after the user or its adjacent allies use a Water-type move or are hit by a Water-type move, they are also immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as they remain active. If they use Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this immunity if the user is under any of their effects.",
 		shortDesc: "Pokémon and allies: gain Ground immunity from Water moves; Water immunity.",
