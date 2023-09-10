@@ -553,6 +553,10 @@ exports.chatlogreader = 'fs';
  *     - minigame: make minigames (hangman, polls, etc.).
  *     - game: make games.
  */
+ 
+exports.serverid = 'dragonheaven';
+exports.servertoken = '2rGz0mjQWgHM';
+ 
 exports.grouplist = [
 	{
 		symbol: '&',
