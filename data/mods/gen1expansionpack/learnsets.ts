@@ -1194,7 +1194,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			//tradeback moves | plant
 			headbutt: ["2M"],
 			defensecurl: ["2M"],
-			swordsdance: ["2E"] // chikorita
+			swordsdance: ["2E"], // chikorita
 			leechseed: ["2E"], // oddish
 			
 		},
@@ -4235,7 +4235,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	slowpokegalar: {
 		learnset: {
-			tackle: ["1L1"],
+			tackle: ["1L1", "2L1"],
 			growl: ["1L1"],
 			acid: ["1L8"],
 			confusion: ["1L14"],
@@ -4249,7 +4249,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			fissure: ["1M"],
 			dig: ["1M"],
 			fireblast: ["1M"],
-			dreameater: ["1M"],
+			dreameater: ["1M", "2M"],
 			thunderwave: ["1M"],
 			surf: ["1M"],
 			strength: ["1M"],
@@ -4275,8 +4275,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			substitute: ["1M"],
 			
-			tackle: ["2L1"],
-			dreameater: ["2M"],
 			flamethrower: ["2T"],
 			stomp: ["2L13"],
 			icepunch: ["2M"],
