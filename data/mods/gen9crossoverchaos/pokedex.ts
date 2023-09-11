@@ -154,6 +154,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	dewy: {
 		num: 15,
 		name: "Dewy",
+		baseForme: "Base",
 		types: ["Water", "Fairy"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 93, def: 80, spa: 93, spd: 105, spe: 100},
