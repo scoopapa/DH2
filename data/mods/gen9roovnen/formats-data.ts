@@ -6842,7 +6842,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dracovish: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "Uber",
 	},

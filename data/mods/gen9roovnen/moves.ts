@@ -382,10 +382,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	boltbeak: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	boneclub: {
 		inherit: true,
 		isNonstandard: null,
@@ -411,10 +407,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	coreenforcer: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	fishiousrend: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -487,10 +479,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	takeheart: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	thousandarrows: {
 		inherit: true,
 		isNonstandard: null,
@@ -504,6 +492,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	armthrust: {
 		inherit: true,
 		basePower: 25,
+	},
+	boltbeak: {
+		inherit: true,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Bolt Beak damage boost');
+				return move.basePower * 1.3;
+			}
+			this.debug('Bolt Beak NOT boosted');
+			return move.basePower;
+		},
+		shortDesc: "1.3x power if user moves before the target.",
+		isNonstandard: null,
 	},
 	brickbreak: {
 		inherit: true,
@@ -634,6 +636,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	firepunch: {
 		inherit: true,
 		basePower: 85,
+	},
+	fishiousrend: {
+		inherit: true,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (target.newlySwitched || this.queue.willMove(target)) {
+				this.debug('Fishious Rend damage boost');
+				return move.basePower * 1.3;
+			}
+			this.debug('Fishious Rend NOT boosted');
+			return move.basePower;
+		},
+		shortDesc: "1.3x power if user moves before the target.",
+		isNonstandard: null,
 	},
 	gigatonhammer: {
 		inherit: true,
