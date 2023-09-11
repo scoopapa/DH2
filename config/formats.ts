@@ -1388,7 +1388,7 @@ export const Formats: FormatList = [
       	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TpTH9ksUWOOJJQK69RIcvnot_mH_JvfGfM4zra6V3Ec/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'gen1expansionpack',
-		ruleset: ['Standard', 'Data Mod', 'Welcome Message'],
+		ruleset: ['Standard', 'Data Mod', 'Welcome Message', 'Allow Tradeback'],
 		banlist: ['Uber'],
 	},
 		{
@@ -1398,7 +1398,7 @@ export const Formats: FormatList = [
       	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TpTH9ksUWOOJJQK69RIcvnot_mH_JvfGfM4zra6V3Ec/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'gen1expansionpack',
-		ruleset: ['Standard', 'Data Mod', 'Welcome Message'],
+		ruleset: ['Standard', 'Data Mod', 'Welcome Message', 'Allow Tradeback'],
 	},
 	{
 		name: "[Gen 9] Kitchen",
