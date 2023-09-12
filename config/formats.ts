@@ -348,6 +348,26 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Generation X",
+		threads: [
+			`<a href="https://www.smogon.com/forums/threads/3717085/">Gen 9 Generation X</a>`,
+		],
+		mod: 'genxdesvega',
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Terastal Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Mega Data Mod', 'Data Mod'],
+		banlist: [],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['Desvega OU', 'Desvega NFE', "Desvega LC"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Generation X.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 3] Hoenn Gaiden",
 		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
 		threads: [
@@ -2192,5 +2212,60 @@ export const Formats: FormatList = [
 		banlist: ['All Pokemon', 'Belly Drum', 'Huge Power'],
 		unbanlist: ['Shadow Tag', 'Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Riolu', 'Mantyke', 'Toxel'],
   },
-
+  {
+		name: "[Gen 6] TPDP Open",
+		mod: 'tpdp2',
+		debug: true,
+		desc: `a close approximation of Touhou Puppet Dance Performance`,
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
+		banlist: ['Boundary Trance', 'Dream Shard', 
+		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
+		'Poison Labyrinth', 'Adverse Wind', //trapping
+		'Moody',
+		'Backup Plan', //baton pass
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['TPDP OU', 'TPDP LC'];
+			let natures = ['Red', 'Blue', 'Black', 'Green', 'White'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not allowed in TPDP.'];
+				}
+				if (!natures.includes(set.nature)) {
+					return [set.nature + ' is not a valid nature in TPDP. Hint: to set Red, Blue, Black, White, or Green nature, use the Import/Export button.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 6] TPDP Netplay",
+		mod: 'tpdp2',
+		debug: true,
+		desc: `a close approximation of Touhou Puppet Dance Performance`,
+		ruleset: ['Species Clause', 'Item Clause', 'Adjust Level Down = 50', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
+		banlist: ['Boundary Trance', 'Dream Shard', 
+		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
+		'Poison Labyrinth', 'Adverse Wind', //trapping
+		'Moody',
+		'Backup Plan', //baton pass
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OU', 'LC'];
+			let natures = ['Red', 'Blue', 'Black', 'Green', 'White'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not allowed in TPDP.'];
+				}
+				if (!natures.includes(set.nature)) {
+					return [set.nature + ' is not a valid nature in TPDP. Hint: to set Red, Blue, Black, White, or Green nature, use the Import/Export button.'];
+				}
+			}
+		},
+	},
 ];
