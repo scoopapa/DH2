@@ -1401,6 +1401,7 @@ export const Formats: FormatList = [
 		section: "Solomods",
 		column: 2,
 	},
+	{
 		name: "[Gen 8] A Golden Experience",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
