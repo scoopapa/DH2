@@ -1266,7 +1266,7 @@ export class TeamValidator {
 				from: 'Gen 7 Let\'s Go! HOME transfer',
 			};
 		} else if (source.charAt(1) === 'D') {
-			if((this.dex.currentMod === 'earthsky' && source === '8D') || (this.dex.currentMod === 'gen9eshorizons' && source === '9D')){ //MODDED: Earth & Sky Hidden Moves use 'D' source
+			if(source === '9D' || source === '8D'){ //MODDED: Earth & Sky Hidden Moves use 'D' source
 				return; //Limiting Hidden Moves is done in a separate rule
 			} else {
 				eventData = {
@@ -2508,7 +2508,7 @@ export class TeamValidator {
 							moveSources.pomegEventEgg = learned + ' ' + species.id;
 						}
 					} else if (learned.charAt(1) === 'D') {
-						if((this.dex.currentMod === 'earthsky' && learned === '8D') || (this.dex.currentMod === 'gen9eshorizons' && learned === '9D')){ //MODDED: Earth & Sky Hidden Moves use 'D' source
+						if(learned === '8D' || learned === '9D'){ //MODDED: Earth & Sky Hidden Moves use 'D' source
 							return null;
 						} else {
 							// DW moves:
