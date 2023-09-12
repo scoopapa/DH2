@@ -40,7 +40,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "When this pokemon attacks a Poisoned pokemon, it does a random effect from the list. (Replaces Poison with Fear, Curse, or Sleep; Inflicts the target with the Taunt, Torment, or Encore effect; Choosing 2 stats and lowering or raising each one by 1.)",
 		onHit(target, source, move) {
 			if (target.status !== 'psn') return;
-			const r = this.random(3);
+			let r = this.random(3);
 			if (r === 1) {
 				r = this.random(3);
 				const statuses = ['psn', 'fer', 'crs'];
@@ -103,7 +103,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		},
 		name: "Almsgiver",
 		rating: 3,
-		num: -1,
 	},
 	// Coded
 	amplify: {
@@ -226,9 +225,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
-		name: "Blight Boost",
 		rating: 2,
-		num: 138,
 	},
 	// Coded
 	blindrage: {

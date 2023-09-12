@@ -3536,9 +3536,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: "Custom",
 		tier: "Illegal",
 	},
-	golett: {
-		tier: "LC",
-	},
 
 	pawniard: {
 		tier: "LC",

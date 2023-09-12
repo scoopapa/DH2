@@ -389,10 +389,9 @@ export const Pokedex: {[k: string]: SpeciesData} = {
 		weightkg: 6.5,
 		eggGroups: ["zxgzxg"],
 	},
-	gyozumospring: {
+	gyozumo: {
 		num: 1073,
-		name: "Gyozumo-Spring",
-		baseSpecies: "Gyozumo",
+		name: "Gyozumo",
 		baseForme: "Spring",
 		types: ["Storm", "Spring"],
 		baseStats: {hp: 160, atk: 110, def: 85, spa: 65, spd: 70, spe: 35},
@@ -809,6 +808,16 @@ export const Pokedex: {[k: string]: SpeciesData} = {
 		abilities: {0: "Sub Rosa"},
 		weightkg: 8,
 		eggGroups: ["Cookie Butter"],
+	},
+	cyrome: {
+		num: 1128,
+		name: "Cyrome",
+		baseForme: "Page",
+		types: ["Manmade", "Folklore"],
+		baseStats: {hp: 58, atk: 28, def: 68, spa: 92, spd: 78, spe: 18},
+		abilities: {0: "Critique"},
+		weightkg: 8,
+		eggGroups: ["Scoopapa"],
 	},
 	cyromebook: {
 		num: 1128,

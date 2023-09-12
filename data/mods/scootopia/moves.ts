@@ -678,11 +678,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {snatch: 1},
 		onHit(pokemon, source) {
 			let b: BoostName;
+			let didBoost = false;
 			const negBoosts = {};
 			for (b in source.boosts) {
 				if (source.boosts[b] < 0) negBoosts[b] = source.boosts[b] * -1;
+				didBoost = true;
 			}
-			if (negBoosts !== {}) {
+			if (didBoost) {
 				this.boost(negBoosts, source);
 			}
 		},
@@ -860,7 +862,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		pp: 10,
+		//pp: 10,
 		priority: 0,
 		flags: {heal: 1, bypasssub: 1, allyanim: 1},
 		onHit(pokemon) {

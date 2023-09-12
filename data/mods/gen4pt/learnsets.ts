@@ -17516,10 +17516,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			flamethrower: ["4M", "4L36", "4S2", "3M", "3L51", "3S1"],
 			flareblitz: ["4S3"],
 			flash: ["4M", "3M"],
-
-
-
-
 			frustration: ["4M", "3M"],
 			gigaimpact: ["4M"],
 			heatwave: ["4T"],
