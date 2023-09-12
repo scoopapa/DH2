@@ -1400,17 +1400,6 @@ export const Formats: FormatList = [
 		mod: 'gen1expansionpack',
 		ruleset: ['Standard', 'Data Mod', 'Welcome Message', 'Allow Tradeback'],
 	},
-	{
-		name: "[Gen 9] Kitchen",
-		mod: "kitchen",
-		desc: [
-			"Mintly's mod.",
-		],
-		threads: [
-		],
-		ruleset: ['Standard', 'Data Mod'],
-		banlist: [],
-	},
 	// {
 		// name: "[Gen 8] A Golden Experience",
 		// mod: "agoldenexperience", 
@@ -1976,90 +1965,15 @@ export const Formats: FormatList = [
 		banlist: ['All Pokemon', 'Belly Drum', 'Huge Power'],
 		unbanlist: ['Shadow Tag', 'Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Riolu', 'Mantyke', 'Toxel'],
   },
-	{
-		section: "ROPMM",
-		column: 3,
-		// name: "ropmm",
-	},
-	
-	//July & August Metas (Will get removed September 7th or 14th)
-	{
-		name: "[Gen 9] Fusion Evolution Camomons",
-		threads: [
-			`<a href="https://www.smogon.com/forums/threads/3717085/">Gen 9 Fusion Evolution</a>`,
-		],
-		mod: 'feou',
-		ruleset: ['[Gen 9] Fusion Evolution', 'Camomons Mod'],
-		banlist: ['Deliraidon', 'Rage Fist'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}}*/
-			let speciesTable = {};
-			let allowedTiers = ['FEOU', 'FENFE', "FELC"];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Fusion Evolution.'];
-				}
-			}
-		},
-	},
-	{
-		name: "[Gen 9] Alternatium EX Flipped",
-		desc: `<b>Alternatium EX</b>: A metagame made up of only Pokemon with alternate forms exist, with all of them being seperate and unique Pokemon.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/alternatium-ex-slate-1-starter-pack.3701560/">Alternatium EX on Smogon Forums</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1bvvkPg1CrUBJFJJeuwkts8elfJcEcahGOoHm-vGBXOI/edit?usp=sharing">Spreadsheet</a>`,
-		],
-		mod: 'alternatiumex',
-		ruleset: ['[Gen 9] Alternatium EX', 'Flipped Mod'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (speciesTable[template.id]) {
-					return ["You are limited to one of each Pokémon by Species Clause (except for different formes). ", "You have more than one " + template.id + "."];
-				}
-				speciesTable[template.id] = true;
-			}
-		},
-	},
-	
-	//September Metas
-	{
-		name: "[Gen 9] ReGeneration AAA",
-		desc: [
-			"In this Pet Mod, we will redesign the competitive functions of the Kantonian Pokemon after a Paldean counterpart.",
-		],
-		threads: [
-			'&bullet; <a href="https://www.smogon.com/forums/threads/regeneration-slate-4-seadra-dodrio-wigglytuff.3718196/">ReGeneration</a>',
-			'&bullet; <a href="https://docs.google.com/spreadsheets/d/1wbFWGR5pVcnTTyuy7vAUSrPxqSZsNF-Okx-v1hvD2Vc/edit?usp=sharing">Spreadsheet</a>',
-		],
-		mod: 'regeneration', 
-		ruleset: ['[Gen 9] ReGeneration', '!Obtainable Abilities', 'Ability Clause = 1'],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'ReGeneration' && template.tier !== 'ReGeneration NFE' && template.tier !== 'ReGeneration LC') {
-					return [set.species + ' is not usable in ReGeneration.'];
-				}
-			}
-		},
-		validateSet(set, teamHas) { // stolen from SV Speculative
-			const species = this.dex.species.get(set.species);
-			const ability = this.dex.abilities.get(set.ability);
-			if (!set.hpType === 'Fairy' && !set.hpType === 'Normal') {
-				return this.validateSet(set, teamHas);
-			} else {
-				const terastal = set.hpType;
-				set.hpType = 'Fire';
-				const fakeValidation = this.validateSet(set, teamHas);
-				if (fakeValidation?.length) return fakeValidation;
-				set.hpType = terastal;
-				return null;
-			}
-		},
-	},
+  {
+	name: "[Gen 9] Fakemon Kitchen",
+	desc: `A Metagame consisting of Fakemon created in a Flash-CAP styled process, revolving around flavor first.`,
+	threads: [
+		`None`,
+	],
+	mod: 'kitchen',
+	ruleset: ['Standard'],
+	banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
+	unbanlist: ['Athleetah'],
+  },
 ];
