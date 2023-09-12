@@ -133,7 +133,7 @@ type ModdedEffectData = EffectData | Partial<EffectData> & {inherit: true};
 
 type EffectType =
 	'Condition' | 'Pokemon' | 'Move' | 'Item' | 'Ability' | 'Format' |
-	'Nature' | 'Ruleset' | 'Weather' | 'Terrain' | 'Status' | 'Terastal' | 'Rule' | 'ValidatorRule';
+	'Nature' | 'Ruleset' | 'Weather' | 'Status' | 'Terastal' | 'Rule' | 'ValidatorRule';
 
 interface BasicEffect extends EffectData {
 	id: ID;

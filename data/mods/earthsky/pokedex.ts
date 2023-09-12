@@ -1601,8 +1601,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	delibird: {
 		inherit: true,
 		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Tireless"},
-		otherFormes: ["Delibird-Egelas"],
-		formeOrder: ["Delibird", "Delibird-Egelas"],
 	},
 	kingdra: {
 		inherit: true,
@@ -2415,6 +2413,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Slowking-Mega"],
 		formeOrder: ["Slowking", "Slowking-Mega"],
+	},
+	delibird: {
+		inherit: true,
+		otherFormes: ["Delibird-Egelas"],
+		formeOrder: ["Delibird", "Delibird-Egelas"],
 	},
 	miltank: {
 		inherit: true,
