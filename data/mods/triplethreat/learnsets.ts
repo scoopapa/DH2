@@ -676,7 +676,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L1"],
 			brine: ["9L1"],
 			headbutt: ["9L1"],
-			bubblebeam: ["9L1"],
 			rocksmash: ["9L1"],
 			mudslap: ["9L1"],
 			bodyslam: ["9L1"],
