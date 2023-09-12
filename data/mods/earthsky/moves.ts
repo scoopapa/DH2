@@ -1206,7 +1206,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	defendorder: {
 		inherit: true,
 		target: "adjacentAllyOrSelf",
-		shortDesc: "Raises target's Defense and Special Defense by 1 stage.",
+		desc: "Raises target's Defense and Special Defense by 1 stage.",
 		shortDesc: "Raises user's or ally's Def and Sp. Def by 1 stage.",
 	},
 	defog: {
@@ -1451,7 +1451,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				spe: -1,
 			},
 		},
-		shortDesc: "Has a 50% chance to lower the target's Speed by 1 stage.",
+		desc: "Has a 50% chance to lower the target's Speed by 1 stage.",
 		shortDesc: "50% chance to lower the target's Speed by 1.",
 		contestType: "Tough",
 	},
@@ -3334,6 +3334,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	snipeshot: {
 		inherit: true,
 		target: 'any',
+		contestType: "Clever",
 	},
 	snore: {
 		inherit: true,
@@ -3414,6 +3415,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	spiritbreak: {
 		inherit: true,
 		basePower: 70,
+		contestType: "Tough",
 	},
 	spitup: {
 		inherit: true,
@@ -5021,17 +5023,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		contestType: "Cool",
 	},
-	snipeshot: {
-		inherit: true,
-		contestType: "Clever",
-	},
 	sparklingaria: {
 		inherit: true,
 		contestType: "Beautiful",
-	},
-	spiritbreak: {
-		inherit: true,
-		contestType: "Tough",
 	},
 	spiritshackle: {
 		inherit: true,
