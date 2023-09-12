@@ -2120,7 +2120,8 @@ export const Formats: FormatList = [
 		mod: 'gen9roovnen',
 		searchShow: false,
 		ruleset: ['Standard Doubles'],
-		banlist: ['DUber', 'Soul Dew'],
+		banlist: ['DUber', 'Soul Dew', 'Shadow Dew'],
+		teambuilderFormat: 'DOU',
 	},
 	{
 		name: "[Gen 9] Roovnen Uber",

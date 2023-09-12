@@ -43,20 +43,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		shortDesc: "This Pokemon's Speed is 1.5x and accuracy of its attacks is 0.8x.",
 	},
 	punchingglove: {
-		name: "Punching Glove",
-		spritenum: 0, // TODO
-		onBasePowerPriority: 23,
+		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
 				return this.chainModify([4915, 4096]);
 			}
 		},
-		onModifyMovePriority: 1,
-		onModifyMove(move) {
-			if (move.flags['punch']) delete move.flags['contact'];
-		},
-		num: 1884,
-		gen: 9,
 		shortDesc: "Holder's punch-based attacks have 1.2x power and do not make contact.",
 	},
 	shellbell: {
@@ -70,11 +62,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		shortDesc: "After an attack, holder gains 1/3 of the damage dealt.",
 	},
 	souldew: {
-		name: "Soul Dew",
-		spritenum: 459,
-		fling: {
-			basePower: 30,
-		},
+		inherit: true,
+		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.baseSpecies.num === 380 || pokemon.baseSpecies.num === 381) {
@@ -87,10 +76,19 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		itemUser: ["Latios", "Latias"],
 		shortDesc: "If held by a Latias or a Latios, its Sp. Atk and Sp. Def are 1.5x.",
-		num: 225,
-		gen: 3,
+		isNonstandard: null,
+	},
+	thickclub: {
+		inherit: true,
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Cubone' || pokemon.baseSpecies.baseSpecies === 'Marowak' || pokemon.baseSpecies.baseSpecies === 'Glacone' || pokemon.baseSpecies.baseSpecies === 'Oetzowak') {
+				return this.chainModify(2);
+			}
+		},
+		shortDesc: "If held by a Cubone or its evolutions, its Attack is doubled.",
+		isNonstandard: null,
 	},
 	utilityumbrella: {
 		inherit: true,

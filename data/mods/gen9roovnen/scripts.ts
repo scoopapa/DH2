@@ -53,6 +53,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "dwebble").learnset.silktrap = ["9L1"];
 		this.modData("Learnsets", "empoleon").learnset.steelbullets = ["9L1"];
 		this.modData("Learnsets", "empoleon").learnset.wavecrash = ["9L1"];
+		this.modData("Learnsets", "entei").learnset.earthquake = ["9L1"];
 		this.modData("Learnsets", "fidough").learnset.fairdeal = ["9L1"];
 		this.modData("Learnsets", "flabebe").learnset.fairdeal = ["9L1"];
 		this.modData("Learnsets", "fletchling").learnset.soaringassault = ["9L1"];
@@ -65,6 +66,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "honedge").learnset.lastrespects = ["9L1"];
 		this.modData("Learnsets", "honedge").learnset.postponerage = ["9L1"];
 		this.modData("Learnsets", "honedge").learnset.steelbullets = ["9L1"];
+		this.modData("Learnsets", "hooh").learnset.hurricane = ["9L1"];
+		this.modData("Learnsets", "hooh").learnset.revivalblessing = ["9L1"];
+		this.modData("Learnsets", "hooh").learnset.sacredfire = ["9L1"];
+		this.modData("Learnsets", "hooh").learnset.sunnyday = ["9L1"];
 		this.modData("Learnsets", "impidimp").learnset.fairdeal = ["9L1"];
 		this.modData("Learnsets", "impidimp").learnset.postponerage = ["9L1"];
 		this.modData("Learnsets", "infernape").learnset.ragingfury = ["9L1"];
@@ -89,7 +94,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "lotad").learnset.chillingwater = ["9L1"];
 		this.modData("Learnsets", "lotad").learnset.trailblaze = ["9L1"];
 		this.modData("Learnsets", "lucario").learnset.steelbullets = ["9L1"];
+		this.modData("Learnsets", "lugia").learnset.aeroblast = ["9L1"];
+		this.modData("Learnsets", "lugia").learnset.bravebird = ["9L1"];
 		this.modData("Learnsets", "lugia").learnset.chillingwater = ["9L1"];
+		this.modData("Learnsets", "lugia").learnset.dragondance = ["9L1"];
+		this.modData("Learnsets", "lugia").learnset.psychicfangs = ["9L1"];
 		this.modData("Learnsets", "lugia").learnset.soaringassault = ["9L1"];
 		this.modData("Learnsets", "lunatone").learnset.glassshimmer = ["9L1"];
 		this.modData("Learnsets", "lunatone").learnset.luminacrash = ["9L1"];
@@ -183,11 +192,11 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "tauros").learnset.backupcall = ["9L1"];
 		this.modData("Learnsets", "tauros").learnset.hornleech = ["9L1"];
 		this.modData("Learnsets", "taurospaldeaaqua").learnset.backupcall = ["9L1"];
-		this.modData("Learnsets", "taurospaldeaaqua").learnset.hornleech = ["9L1"];
 		this.modData("Learnsets", "taurospaldeaaqua").learnset.bubblejet = ["9L1"];
+		this.modData("Learnsets", "taurospaldeaaqua").learnset.hornleech = ["9L1"];
 		this.modData("Learnsets", "taurospaldeablaze").learnset.backupcall = ["9L1"];
-		this.modData("Learnsets", "taurospaldeablaze").learnset.hornleech = ["9L1"];
 		this.modData("Learnsets", "taurospaldeablaze").learnset.burningjealousy = ["9L1"];
+		this.modData("Learnsets", "taurospaldeablaze").learnset.hornleech = ["9L1"];
 		this.modData("Learnsets", "taurospaldeacombat").learnset.backupcall = ["9L1"];
 		this.modData("Learnsets", "taurospaldeacombat").learnset.hornleech = ["9L1"];
 		this.modData("Learnsets", "tentacool").learnset.aquacutter = ["9L1"];
@@ -234,17 +243,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "yveltal").learnset.soaringassault = ["9L1"];
 		this.modData("Learnsets", "zubat").learnset.soaringassault = ["9L1"];
 		this.modData("Learnsets", "zygarde").learnset.spikes = ["9L1"];
-		
-		
-		this.modData("Learnsets", "lugia").learnset.psychicfangs = ["9S12"];
-		this.modData("Learnsets", "lugia").learnset.aeroblast = ["9S12"];
-		this.modData("Learnsets", "lugia").learnset.bravebird = ["9S12"];
-		this.modData("Learnsets", "lugia").learnset.dragondance = ["9S12"];
-		
-		this.modData("Learnsets", "hooh").learnset.sacredfire = ["9S11"];
-		this.modData("Learnsets", "hooh").learnset.hurricane = ["9S11"];
-		this.modData("Learnsets", "hooh").learnset.sunnyday = ["9S11"];
-		this.modData("Learnsets", "hooh").learnset.revivalblessing = ["9S11"];
 	},
 	
 	hitStepInvulnerabilityEvent(targets, pokemon, move) {

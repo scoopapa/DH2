@@ -779,58 +779,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isUnbreakable: true,
 		isPermanent: true,
 		name: "Rebirth",
-		shortDesc: "Upon fainting, a Pokemon can be revived. If Phoenuss gets revived, becomes Reborn.",
+		shortDesc: "Upon fainting, a Pokemon can be revived.",
 		rating: 5,
-		num: 317,
-	},
-	reborn: {
-		onStart(pokemon) {
-			if (pokemon.species.name === 'Phoenuss-Reborn') {
-				pokemon.addVolatile('reborn');
-			}
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['reborn'];
-			this.add('-end', pokemon, 'Reborn', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'ability: Reborn');
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				this.debug('Reborn atk boost');
-				return this.chainModify(1.5);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				this.debug('Reborn def boost');
-				return this.chainModify(1.5);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				this.debug('Reborn spa boost');
-				return this.chainModify(1.5);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				this.debug('Reborn spd boost');
-				return this.chainModify(1.5);
-			},
-			onModifySpe(spe, pokemon) {
-				this.debug('Reborn spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Reborn');
-			},
-		},
-		isUnbreakable: true,
-		isPermanent: true,
-		name: "Reborn",
-		shortDesc: "Phoenuss gets a 1.5x boost in all of its stats except HP.",
-		rating: 3,
 		num: 317,
 	},
 	jealouswrath: {
@@ -862,6 +812,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon cannot be restricted in its move choice.",
 		rating: 4,
 		num: 319,
+	},
+	sandarmor: {
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
+			if (this.field.isWeather('sandstorm')) {
+				return this.chainModify(1.5);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
+			if (type === 'sandstorm') return false;
+		},
+		name: "Sand Armor",
+		shortDesc: "If Sandstorm is active, this Pokemon's Defense is 1.5x; immunity to Sandstorm.",
+		rating: 2,
+		num: 320,
 	},
 	shielded: {
 		onSourceAfterFaint(length, target, source, effect) {

@@ -1,42 +1,4 @@
 export const Learnsets: {[k: string]: ModdedLearnsetData} = {
-	//Events
-	lugia: {
-		inherit: true,
-		eventData: [
-			{generation: 3, level: 70, shiny: 1, moves: ["recover", "hydropump", "raindance", "swift"]},
-			{generation: 3, level: 50, moves: ["psychoboost", "earthquake", "hydropump", "featherdance"]},
-			{generation: 4, level: 45, shiny: 1, moves: ["extrasensory", "raindance", "hydropump", "aeroblast"]},
-			{generation: 4, level: 70, shiny: 1, moves: ["aeroblast", "punishment", "ancientpower", "safeguard"]},
-			{generation: 5, level: 5, isHidden: true, moves: ["whirlwind", "weatherball"], pokeball: "dreamball"},
-			{generation: 6, level: 50, shiny: 1, moves: ["raindance", "hydropump", "aeroblast", "punishment"]},
-			{generation: 6, level: 50, nature: "Timid", moves: ["aeroblast", "hydropump", "dragonrush", "icebeam"], pokeball: "cherishball"},
-			{generation: 7, level: 60, shiny: 1, moves: ["skillswap", "aeroblast", "extrasensory", "ancientpower"]},
-			{generation: 7, level: 100, isHidden: true, moves: ["aeroblast", "hurricane", "defog", "tailwind"], pokeball: "cherishball"},
-			{generation: 7, level: 60, moves: ["skillswap", "aeroblast", "extrasensory", "ancientpower"], pokeball: "cherishball"},
-			{generation: 7, level: 100, moves: ["aeroblast", "earthpower", "psychic", "tailwind"], pokeball: "cherishball"},
-			{generation: 8, level: 70, shiny: 1, moves: ["dragonpulse", "extrasensory", "whirlpool", "ancientpower"]},
-			{generation: 9, level: 50, shiny: 1, moves: ["psychicfangs", "aeroblast", "bravebird", "dragondance"]},
-		],
-	},
-	hooh: {
-		inherit: true,
-		eventData: [
-			{generation: 3, level: 70, shiny: 1, moves: ["recover", "fireblast", "sunnyday", "swift"]},
-			{generation: 4, level: 45, shiny: 1, moves: ["extrasensory", "sunnyday", "fireblast", "sacredfire"]},
-			{generation: 4, level: 70, shiny: 1, moves: ["sacredfire", "punishment", "ancientpower", "safeguard"]},
-			{generation: 5, level: 5, isHidden: true, moves: ["whirlwind", "weatherball"], pokeball: "dreamball"},
-			{generation: 6, level: 50, shiny: 1, moves: ["sunnyday", "fireblast", "sacredfire", "punishment"]},
-			{generation: 6, level: 50, shiny: true, moves: ["sacredfire", "bravebird", "recover", "celebrate"], pokeball: "cherishball"},
-			{generation: 7, level: 100, moves: ["sacredfire", "bravebird", "recover", "safeguard"], pokeball: "cherishball"},
-			{generation: 7, level: 60, shiny: 1, moves: ["burnup", "sacredfire", "extrasensory", "ancientpower"]},
-			{generation: 7, level: 60, moves: ["burnup", "sacredfire", "extrasensory", "ancientpower"], pokeball: "cherishball"},
-			{generation: 7, level: 100, moves: ["sacredfire", "bravebird", "earthquake", "tailwind"], pokeball: "cherishball"},
-			{generation: 8, level: 70, shiny: 1, moves: ["flareblitz", "extrasensory", "sunnyday", "ancientpower"]},
-			{generation: 9, level: 50, shiny: 1, moves: ["sacredfire", "hurricane", "sunnyday", "revivalblessing"]},
-		],
-	},
-	
-	
 	cuboneroovnen: {
 		learnset: {
 			aerialace: ["9L1"],
