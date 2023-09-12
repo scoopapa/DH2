@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	mysterelk: {
+		mysterelk: {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
@@ -103,8 +103,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	elgyemdesvega: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
 	yuaftoh: {
 		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	sableyedesvega: {
+		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
 	aurumine: {
@@ -124,6 +132,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	melttro: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	varoomdesvega: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	revavroomdesvega: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -207,6 +223,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	ursaringdesvega: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	ursabluna: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
@@ -231,7 +251,27 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	spearowdesvega: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	fearowdesvega: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	nixrow: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	swinubdesvega: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	piloswinedesvega: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	mamoswinedesvega: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -348,6 +388,106 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	vampinae: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	aleviar: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	cuttrout: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	bibarricade: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	salmini: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	salmomega: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	fishtol: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	blunderbass: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	neutrass: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	purasstanical: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	wrassthful: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	crayoct: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	cramorantdesvega: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	toxirant: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	teeniweed: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	kelpsul: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	kelplossus: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	venipededesvega: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	whirlipededesvega: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	tractipede: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	jesizard: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	ficozard: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	ficovore: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	vespicus: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	waspinger: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	laganeura: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
