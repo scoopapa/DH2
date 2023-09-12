@@ -13,6 +13,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			(this.data.Pokedex[i] as any).eggGroups = null;
 		}
 	},
+	teambuilderConfig: {
+		rbyTradebacks: true,
+	},
 	// Gen 1 stores the last damage dealt by a move in the battle.
 	// This is used for the move Counter.
 	lastDamage: 0,

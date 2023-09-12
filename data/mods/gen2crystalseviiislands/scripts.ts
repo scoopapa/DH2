@@ -4,6 +4,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
 	gen: 2,
 
+	teambuilderConfig: {
+		specialTypes: ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psychic', 'Dark', 'Dragon', 'Cosmic'],
+	},
 
 	init() {
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Cosmic'];
