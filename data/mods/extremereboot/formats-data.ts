@@ -183,7 +183,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
-	gyozumospring: {
+	gyozumo: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
@@ -362,6 +362,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pegathemumcomplete: {
 		tier: "Uber",
 		doublesTier: "DUber",
+	},
+	cyrome: {
+		tier: "UU",
+		doublesTier: "DUU",
 	},
 	cyromebook: {
 		tier: "OU",

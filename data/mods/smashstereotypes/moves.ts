@@ -165,7 +165,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return accuracy - 10;
 		},
 		onModifyMove(move, source, target) {
-			if (source.species.id === 'mytheon') {
+			if (source.species.id === 'mytheon' || source.species.id === 'arcanine') {
 				move.basePower = 50;
 			}
 		},
@@ -468,14 +468,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifyMove(move, source, target) {
 			if (source.species.id === 'arcanine') {
 				move.basePower = 100;
-			}
-		},
-	},
-	doublekick: {
-		inherit: true,
-		onModifyMove(move, source, target) {
-			if (source.species.id === 'arcanine') {
-				move.basePower = 50;
 			}
 		},
 	},

@@ -863,7 +863,7 @@ export const Formats: FormatList = [
 			'Extreme Ribbit', 'Baobloss', 'Tenquarrel', 'Tradituki', 'Hibarrage', 'Pumking', 'Carboneichus', 'Calmengo', 'Paciphal', 'Hullacane', 'Cylindrake', 
 			'Efflor', 'Rantler', 'Zeploom', 'Terraphi', 'Stratophi', 'Pelaphi', 'Sunmola', 'Phantahawk', 'Memilifyy', 'Plantadiomicrisa', 'Terrahephas', 'Parvualias', 
 			'Rancicoon', 'Meditoid', 'Yukinooh', 'Misausmia', 'Pavronin', 'Kraklone', 'Crustair', 'Yulisse', 'Totodem', 'Persebloom', 'Persebloom-Frost', 'Hawkmorph', 
-			'Gallurise', 'Hensomnia', 'Protectonic', 'Crowbotic', 'Sponjourner', 'Emajanaja', 'Zenphin', 'Technophin', 'Beavair', 'Gyozumo-Spring', 'Gyozumo-Summer', 
+			'Gallurise', 'Hensomnia', 'Protectonic', 'Crowbotic', 'Sponjourner', 'Emajanaja', 'Zenphin', 'Technophin', 'Beavair', 'Gyozumo', 'Gyozumo-Summer', 
 			'Onlaxy', 'Infinistar', 'Guareye', 'Curuprowl', 'Fertiri', 'Ruinne', 'Tantton', 'Crimsoil', 'Stakstok', 'Lychy', 'Onigashiba', 'Lunsura', 'Galactagon', 
 			'Axolacred', 'Dimetrogem', 'Anhaflara', 'Stormanos', 'Alchemeel', 'Alchemeel-Offense', 'Rasteal', 'Nailberg', 'Hoolican', 'Anchorage', 'Nosferanguis', 
 			'Pontiac', 'Sclam', 'Cicaguren', /*'Bozunami', 'Cryptice',*/ 'Mekangiras', 'Mononokero', 'Surfright', 'Potsworth', 'Cloudim', 'Salamoon', 'Salamoon-Allegro', 
@@ -1388,7 +1388,7 @@ export const Formats: FormatList = [
       	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TpTH9ksUWOOJJQK69RIcvnot_mH_JvfGfM4zra6V3Ec/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'gen1expansionpack',
-		ruleset: ['Standard', 'Data Mod', 'Welcome Message'],
+		ruleset: ['Standard', 'Data Mod', 'Welcome Message', 'Allow Tradeback'],
 		banlist: ['Uber'],
 	},
 		{
@@ -1398,18 +1398,7 @@ export const Formats: FormatList = [
       	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TpTH9ksUWOOJJQK69RIcvnot_mH_JvfGfM4zra6V3Ec/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'gen1expansionpack',
-		ruleset: ['Standard', 'Data Mod', 'Welcome Message'],
-	},
-	{
-		name: "[Gen 9] Kitchen",
-		mod: "kitchen",
-		desc: [
-			"Mintly's mod.",
-		],
-		threads: [
-		],
-		ruleset: ['Standard', 'Data Mod'],
-		banlist: [],
+		ruleset: ['Standard', 'Data Mod', 'Welcome Message', 'Allow Tradeback'],
 	},
 	// {
 		// name: "[Gen 8] A Golden Experience",
@@ -1687,6 +1676,43 @@ export const Formats: FormatList = [
 		// team: 'random',
 		// ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Freeze Clause Mod', 'Mega Data Mod', 'Mega Hint Mod'],
 	// },
+	{
+		name: "[Gen 9] Roovnen OU",
+		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9485572">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1ZzNqkSOwGYx2E1Rn28jCzGpJahMIcM-KjiGprjQAT68/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen9roovnen',
+		searchShow: false,
+		ruleset: ['Standard'],
+		banlist: ['Uber', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Soul Dew'],
+	},
+	{
+		name: "[Gen 9] Roovnen Doubles OU",
+		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9485572">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1ZzNqkSOwGYx2E1Rn28jCzGpJahMIcM-KjiGprjQAT68/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen9roovnen',
+		searchShow: false,
+		ruleset: ['Standard Doubles'],
+		banlist: ['DUber', 'Soul Dew'],
+	},
+	{
+		name: "[Gen 9] Roovnen Uber",
+		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9485572">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1ZzNqkSOwGYx2E1Rn28jCzGpJahMIcM-KjiGprjQAT68/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen9roovnen',
+		searchShow: false,
+		ruleset: ['Standard'],
+		banlist: ['AG', 'Shadow Tag', 'Baton Pass'],
+		teambuilderFormat: 'Uber',
+	},
 	// {
 		// name: "[Gen 8] Roulettemons Random",
 		// threads: [
@@ -1975,5 +2001,16 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause', 'Max Level = 1', 'Terastal Clause'],
 		banlist: ['All Pokemon', 'Belly Drum', 'Huge Power'],
 		unbanlist: ['Shadow Tag', 'Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Riolu', 'Mantyke', 'Toxel'],
+  },
+  {
+	name: "[Gen 9] Fakemon Kitchen",
+	desc: `A Metagame consisting of Fakemon created in a Flash-CAP styled process, revolving around flavor first.`,
+	threads: [
+		`None`,
+	],
+	mod: 'kitchen',
+	ruleset: ['Standard'],
+	banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
+	unbanlist: ['Athleetah'],
   },
 ];
