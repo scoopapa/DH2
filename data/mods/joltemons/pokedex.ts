@@ -280,14 +280,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Minus", 1: "Libero", H: "Volt Absorb"},
 	},
-	claydol: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Water Compaction"},
-	},
-	baltoy: {
-		inherit: true,
-		abilities: {0: "Levitate", H: "Water Compaction"},
-	},
 	cacnea: {
 		inherit: true,
 		abilities: {0: "Sand Veil", 1: "Water Compaction", H: "Water Absorb"},
@@ -615,10 +607,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	honchkrow: {
 		inherit: true,
 		abilities: {0: "Counterfeit", 1: "Merciless", H: "Moxie"},
-	},
-	ariados: {
-		inherit: true,
-		abilities: {0: "Swarm", 1: "Merciless", H: "Sniper"},
 	},
 	smeargle: {
 		inherit: true,
@@ -1008,10 +996,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Battle Armor", 1: "Hydration", H: "Swift Swim"},
 	},
-	armaldo: {
-		inherit: true,
-		abilities: {0: "Battle Armor", 1: "Hydration", H: "Swift Swim"},
-	},
 	politoed: {
 		inherit: true,
 		abilities: {0: "Hydration", 1: "Damp", H: "Drizzle"},
@@ -1169,10 +1153,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	mightyena: {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Quick Feet", H: "Scavenge"},
-	},
-	noivern: {
-		inherit: true,
-		abilities: {0: "Frisk", 1: "Infiltrator", H: "Scavenge"},
 	},
 	purugly: {
 		inherit: true,
