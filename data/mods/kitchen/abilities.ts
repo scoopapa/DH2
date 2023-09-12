@@ -7,6 +7,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
             }
         },
         name: "Sprinter",
+        shortDesc: "This Pokemon deals 1.5x damage with it's first move on the field.",
         rating: 3.5,
         num: 1000,
 	}

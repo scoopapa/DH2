@@ -2170,7 +2170,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return;
 			}
 		},
-		name: "Pillage",
 		rating: 5,
 	},
 	fatfingers: {
