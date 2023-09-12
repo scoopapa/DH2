@@ -63,7 +63,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		name: 'Roovnen Move Dexits',
 		desc: "Bans dexited moves.",
 		banlist: [
-			'Absorb', 'Accelerock', 'Acid', 'Air Cutter', 'Aromatic Mist', 'Assurance', 'Astonish', 'Astral Barrage', 'Attack Order', 'Barb Barrage', 'Behemoth Blade', 'Behemoth Blade', 'Belch', 'Bind', 
+			'Absorb', 'Accelerock', 'Acid', 'Air Cutter', 'Aromatic Mist', 'Assurance', 'Astonish', 'Astral Barrage', 'Attack Order', 'Barb Barrage', 'Behemoth Bash', 'Behemoth Blade', 'Belch', 'Bind', 
 			'Bitter Malice', 'Blazing Torque', 'Bleakwind Storm', 'Ceaseless Edge', 'Celebrate', 'Chloroblast', 'Circle Throw', 'Combat Torque', 'Cut', 'Defend Order', 'Diamond Storm', 'Dire Claw', 'Doodle', 
 			'Dragon Energy', 'Dragon Rush', 'Drum Beating', 'Dynamax Cannon', 'Eerie Impulse', 'Electro Ball', 'Fairy Wind', 'Fiery Wrath', 'Fire Lash', 'Force Palm', 'Freezing Glare', 'Glacial Lance', 'Glare', 
 			'Happy Hour', 'Heal Bell', 'Heal Order', 'Hold Hands', 'Hyperspace Fury', 'Hyperspace Hole', 'Inferno', 'Infernalparade', 'Jet Punch', 'Lunar Blessing', 'Lunar Dance', 'Magic Room', 'Magical Torque', 
