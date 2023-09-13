@@ -2966,12 +2966,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			growl: ["8L1"],
 			powdersnow: ["8L1"],
 			quickattack: ["8L1"],
-
-
-
-
-
-
 			doublekick: ["8L1"],
 			stomp: ["8L1"],
 			rest: ["8L1", "8M"],

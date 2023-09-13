@@ -971,8 +971,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	monchi: {
 		num: 1032,
 		name: "Mon-Chi",
-		baseSpecies: "Mon",
-		forme: "Chi",
 		types: ["Fighting", "Dragon"],
 		baseStats: {hp: 75, atk: 137, def: 63, spa: 55, spd: 80, spe: 70},
 		abilities: {0: "Technician", 1: "Steadfast", H: "Poison Heal"},
