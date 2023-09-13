@@ -38,37 +38,37 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 
 
 	// Gen 9 abilities
-	sharpness: {
-		onBasePowerPriority: 19,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['slicing']) {
-				return this.chainModify(1.5);
-			}
-		},
-		name: "Sharpness",
-		shortDesc: "This Pokemon's slicing moves have their power multiplied by 1.5.",
-		rating: 3,
-		num: 178,
-	},
-	myceliummight: {
-		onModifyPriority(priority, pokemon, target, move) {
-			if (move?.category === 'Status') {
-				// TODO what exactly does "The Pokémon will always act more slowly when using status moves" mean?
-				// Assuming -1 priority.
-				return priority - 1;
-			}
-		},
-		// Supress abilities when status moves are involved
-		onModifyMove(move) {
-			if (move.category === 'Status') {
-				move.ignoreAbility = true;
-			}
-		},
-		name: "Mycelium Might",
-		shortDesc: "This Pokemon's Status moves go last in their priority bracket and ignore Abilities.",
-		rating: 2,
-		num: 298,
-	},
+	// sharpness: {
+	// 	onBasePowerPriority: 19,
+	// 	onBasePower(basePower, attacker, defender, move) {
+	// 		if (move.flags['slicing']) {
+	// 			return this.chainModify(1.5);
+	// 		}
+	// 	},
+	// 	name: "Sharpness",
+	// 	shortDesc: "This Pokemon's slicing moves have their power multiplied by 1.5.",
+	// 	rating: 3,
+	// 	num: 178,
+	// },
+	// myceliummight: {
+	// 	onModifyPriority(priority, pokemon, target, move) {
+	// 		if (move?.category === 'Status') {
+	// 			// TODO what exactly does "The Pokémon will always act more slowly when using status moves" mean?
+	// 			// Assuming -1 priority.
+	// 			return priority - 1;
+	// 		}
+	// 	},
+	// 	// Supress abilities when status moves are involved
+	// 	onModifyMove(move) {
+	// 		if (move.category === 'Status') {
+	// 			move.ignoreAbility = true;
+	// 		}
+	// 	},
+	// 	name: "Mycelium Might",
+	// 	shortDesc: "This Pokemon's Status moves go last in their priority bracket and ignore Abilities.",
+	// 	rating: 2,
+	// 	num: 298,
+	// },
 	// broke atm
 	/*
 	cudchew: {
