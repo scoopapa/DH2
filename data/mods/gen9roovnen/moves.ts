@@ -723,7 +723,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerbug: {
 		inherit: true,
@@ -736,7 +736,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerdark: {
 		inherit: true,
@@ -749,7 +749,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerdragon: {
 		inherit: true,
@@ -762,7 +762,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerelectric: {
 		inherit: true,
@@ -775,7 +775,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerfighting: {
 		inherit: true,
@@ -788,7 +788,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerfire: {
 		inherit: true,
@@ -801,7 +801,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerflying: {
 		inherit: true,
@@ -814,7 +814,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerghost: {
 		inherit: true,
@@ -827,7 +827,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowergrass: {
 		inherit: true,
@@ -840,10 +840,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerground: {
 		inherit: true,
+		isNonstandard: null,
 		onTryMove(pokemon, target, move) {
 			if (pokemon.species.name === 'Unown' || pokemon.species.name === 'Uninown' || move.hasBounced) {
 				return;
@@ -852,7 +853,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerice: {
 		inherit: true,
@@ -865,7 +866,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerpoison: {
 		inherit: true,
@@ -878,7 +879,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerpsychic: {
 		inherit: true,
@@ -891,7 +892,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerrock: {
 		inherit: true,
@@ -904,7 +905,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowersteel: {
 		inherit: true,
@@ -917,7 +918,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerwater: {
 		inherit: true,
@@ -930,7 +931,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	icefang: {
 		inherit: true,
@@ -1001,7 +1002,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	meteorbeam: {
 		inherit: true,
-		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2. 1 turn in sand.",
+		shortDesc: "+1 SpA on turn 1. Hits turn 2. 1 turn in sun.",
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -1080,7 +1081,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	solarbeam: {
 		inherit: true,
-		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2. 1 turn in sun.",
+		shortDesc: "+1 SpA on turn 1. Hits turn 2. 1 turn in sun.",
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;

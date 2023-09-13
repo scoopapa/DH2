@@ -1279,6 +1279,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			fairdeal: ["9L1"],
 			faketears: ["9L1"],
 			fling: ["9L1"],
+			flowerpattern: ["9L1"],
 			foulplay: ["9L1"],
 			frenzyplant: ["9L1"],
 			gigadrain: ["9L1"],
