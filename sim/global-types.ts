@@ -403,6 +403,7 @@ interface ModdedBattleScriptsData extends Partial<BattleScriptsData> {
 	faintMessages?: (this: Battle, lastFirst?: boolean, forceCheck?: boolean, checkWin?: boolean) => boolean | undefined;
 	tiebreak?: (this: Battle) => boolean;
 	checkWin?: (this: Battle, faintQueue?: Battle['faintQueue'][0]) => true | undefined;
+	teambuilderConfig?: Object;
 }
 
 interface TypeData {
