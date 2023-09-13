@@ -376,7 +376,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 		gen: 1,
 	},
-	kasanagi: {
+	pupal: {
 		tier: "NFE",
 		gen: 1,
 	},
@@ -1189,7 +1189,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mrmime: {
 		randomBattleMoves: ["psychic", "seismictoss", "thunderbolt", "thunderwave"],
-		tier: "NFE", //jesus christ how horrifying
+		tier: "NU", //jesus christ how horrifying (apparently?)
 	},
 	scyther: {
 		randomBattleMoves: ["agility", "hyperbeam", "slash", "swordsdance"],

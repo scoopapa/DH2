@@ -63,6 +63,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'venomoth').learnset.sludge = ['1L1'];
 		this.modData('Learnsets', 'venomoth').learnset.recover = ['1L1'];
 	},
+	teambuilderConfig: {
+		rbyTradebacks: true,
+	},
 	// Gen 1 stores the last damage dealt by a move in the battle.
 	// This is used for the move Counter.
 	lastDamage: 0,
