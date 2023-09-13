@@ -1002,7 +1002,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	meteorbeam: {
 		inherit: true,
-		shortDesc: "+1 SpA on turn 1. Hits turn 2. 1 turn in sun.",
+		shortDesc: "+1 SpA on turn 1. Hits turn 2. 1 turn in sand.",
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
