@@ -785,7 +785,6 @@ export const commands: Chat.ChatCommands = {
 						self: "User",
 						adjacentAlly: "One Ally",
 						adjacentAllyOrSelf: "User or Ally",
-						anyAlly: "User or Any Ally",
 						adjacentFoe: "One Adjacent Opposing Pok\u00e9mon",
 						allAdjacentFoes: "All Adjacent Opponents",
 						foeSide: "Opposing Side",

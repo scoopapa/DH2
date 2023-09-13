@@ -212,7 +212,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	prominoid: {
 		tier: "ES",
 	},
-	prominoidmeteor: {
+	prominoid: {
 		tier: "ES",
 	},
 	deceuceus: {
