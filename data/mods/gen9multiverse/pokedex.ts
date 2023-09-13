@@ -11,7 +11,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	gengar: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 65, def: 60, spa: 130, spd: 130, spe: 110},
+		baseStats: {hp: 85, atk: 65, def: 60, spa: 130, spd: 130, spe: 110},
 		abilities: {0: "Neutralizing Gas"},
 		prevo: null,
 	},
@@ -98,7 +98,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cacturne: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 120, def: 85, spa: 115, spd: 80, spe: 90},
+		baseStats: {hp: 75, atk: 120, def: 85, spa: 115, spd: 80, spe: 90},
 		abilities: {0: "Water Absorb", H: "Rough Skin"},
 	},
 	solrock: {
