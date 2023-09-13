@@ -21,9 +21,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Bug",
+		customUseful: true,
 	},
 	blackhole: {
 		num: -2,
+		customUseful: true,
 		accuracy: 100,
 		basePower: 200,
 		category: "Status",
@@ -84,6 +86,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	parry: { // this move probably won't work correctly in double battles. Do not port blindly!
 		num: -3,
 		accuracy: true,
+		customUseful: true,
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Reduces damage of incoming attacks. Uses another known move.",
@@ -146,6 +149,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	sacredcandle: {
 		  num: -4,
 		accuracy: true,
+		customUseful: true,
 		basePower: 0,
 		category: "Status",
 		  name: "Sacred Candle",
@@ -187,6 +191,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	flowermortar: {
 		num: -5,
 		accuracy: 90,
+		customUseful: true,
 		basePower: 70,
 		category: "Special",
 		name: "Flower Mortar",
@@ -242,6 +247,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	hypeup: {
 		num: -6,
+		customUseful: true,
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
@@ -297,6 +303,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	bytetorment: {
 		num: -8,
+		customUseful: true,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -322,6 +329,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	expel: {
 		num: -9,
 		accuracy: true,
+		customUseful: true,
 		basePower: 0,
 		category: "Status",
 		name: "Expel",
@@ -363,6 +371,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	preyingswipe: {
 		num: -10,
 		accuracy: 100,
+		customUseful: true,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
 			// You can't get here unless the pursuit succeeds
@@ -435,6 +444,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	draconicdrive: {
 		num: -11,
 		accuracy: 90,
+		customUseful: true,
 		basePower: 90,
 		category: "Special",
 		name: "Draconic Drive",
@@ -453,6 +463,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	softshell: {
 		num: -12,
 		accuracy: true,
+		customUseful: true,
 		basePower: 0,
 		category: "Status",
 		name: "Soft Shell",
@@ -479,6 +490,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	essencesteal: {
 		num: -13,
 		accuracy: 100,
+		customUseful: true,
 		basePower: 0,
 		category: "Status",
 		name: "Essence Steal",
@@ -501,6 +513,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	malnourish: {
 		num: -14,
+		customUseful: true,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -527,6 +540,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	boulderrush: {
 		num: -15,
+		customUseful: true,
 		accuracy: 100,
 		basePower: 100,
 		category: "Physical",
@@ -711,6 +725,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	starstorm: {
 		num: -17,
+		customUseful: true,
 		accuracy: 75,
 		basePower: 120,
 		category: "Special",
@@ -735,6 +750,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	celestialbeam: {
 		num: -18,
+		customUseful: true,
 		accuracy: 90,
 		basePower: 90,
 		category: "Special",
@@ -753,6 +769,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	vacuum: {
 		num: -19,
+		customUseful: true,
 		accuracy: 95,
 		basePower: 24,
 		category: "Special",
@@ -773,6 +790,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	meteorshard: {
 		num: -20,
+		customUseful: true,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
