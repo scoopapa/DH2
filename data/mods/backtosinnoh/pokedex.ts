@@ -303,6 +303,10 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: { 0: "Oblivious" },
 	},
+	camerupt: {
+		inherit: true,
+		abilities: { 0: "Magma Armor" },
+	},
 	spinda: {
 		inherit: true,
 		abilities: { 0: "Own Tempo" },
