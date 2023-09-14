@@ -691,39 +691,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onStart(pokemon) {
-			this.add('-item', pokemon, 'Sand Clock');
-			this.add('-message', `${pokemon.name}'s is under the effects of Sand!`);
-		},
 		onModifySpDPriority: 1,
 		onModifySpD(spd, pokemon) {
-			if (!this.field.isWeather('sandstorm') && pokemon.hasType('Rock')) {
+			if (pokemon.hasType('Rock')) {
 				return this.chainModify(1.5);
 			}
 		},
-		onUpdate(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.queue.peek(true)?.choice === 'runSwitch') return;
-			if (pokemon.hasAbility('protocrysalis') && !pokemon.volatiles['protocrysalis'] && !this.field.isWeather('sandstorm') && pokemon.useItem()) {
-				pokemon.addVolatile('protocrysalis');
-			}
-		},
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			if (pokemon.hasType('Rock') || pokemon.hasType('Steel') || pokemon.hasType('Ground')) {
-				return null;
-			} else if (!this.field.isWeather('sandstorm')) {
-				this.damage(pokemon.baseMaxhp / 16);
-			}
-		},
-		onImmunity(type, pokemon) {
-			if (type === 'sandstorm') return false;
-		},
-		// All other effects coded in the moves and abilities themselves
 		num: -1033,
 		gen: 8,
-		desc: "Holder is considered to be under the effects of Sandstorm.",
+		desc: "If the holder is a Rock-type, its SpD is boosted 1.5x.",
 	},
 	snowglobe: {
 		name: "Snow Globe",
@@ -731,34 +707,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onStart(pokemon) {
-			this.add('-item', pokemon, 'Snow Globe');
-			this.add('-message', `${pokemon.name}'s is under the effects of Snow!`);
-		},
 		onModifyDefPriority: 1,
 		onModifyDef(def, pokemon) {
-			if (!this.field.isWeather('snow') && pokemon.hasType('Ice')) {
+			if (pokemon.hasType('Ice')) {
 				return this.chainModify(1.5);
 			}
 		},
-		onResidualOrder: 5,
-		onResidualSubOrder: 4,
-		onResidual(pokemon) {
-			if (!this.field.isWeather('snow') && pokemon.hasAbility('icebody')) {
-				this.heal(pokemon.baseMaxhp / 16);
-			}
-		},
-		onUpdate(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.queue.peek(true)?.choice === 'runSwitch') return;
-			if (pokemon.hasAbility('protostasis') && !pokemon.volatiles['protostasis'] && !this.field.isWeather('snow') && pokemon.useItem()) {
-				pokemon.addVolatile('protostasis');
-			}
-		},
-		// All other effects coded in the moves and abilities themselves
 		num: -1034,
 		gen: 8,
-		desc: "Holder is considered to be under the effects of Snow.",
+		desc: "If the holder is an Ice-type, its Def is boosted 1.5x.",
 	},
 	handmirror: {
 		name: "Hand Mirror",
