@@ -125,7 +125,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			const success = this.boost({spe: -1}, pokemon, pokemon, null, false, true);
 			return !!(this.heal(spe / 4, pokemon, pokemon) || success);
 		},
-		num: 1887,
+		num: 2409,
 		gen: 9,
 		shortDesc: "The user is healed by 1/4 of its Spe. Lowers user's Speed by 1.",
 	},
@@ -156,7 +156,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 			return false;
 		},
-		num: 1888,
+		num: 2410,
 		gen: 9,
 		shortDesc: "The user takes 1/2 damage from Ice-type moves and cannot be frozen.",
 	},
@@ -175,7 +175,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				this.damage(pokemon.baseMaxhp / 16);
 			}
 		},
-		num: 1889,
+		num: 2411,
 		gen: 9,
 		shortDesc: "Each turn, if Sunny Day is a active, restores 1/8 max HP; loses 1/16 if not.",
 	},
@@ -194,7 +194,7 @@ export const Items: {[k: string]: ModdedItemData} = {
             }
         },
 		shortDesc: "The user raises its Attack when hazards are used against it.",
-		num: 1890,
+		num: 2412,
 		gen: 9,
 	},
 	electriccasing: {
@@ -219,7 +219,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(0.75);
 			}
 		},
-		num: 1891,
+		num: 2413,
 		gen: 9,
 		shortDesc: "The holder's defenses are 1.3x under Electric Terrain; 0.75x if not.",
 	},
@@ -243,7 +243,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		itemUser: ["Latakuno"],
 		shortDesc: "If held by a Latakuno, its Attack and Defense are 1.5x.",
-		num: 1892,
+		num: 2414,
 		gen: 9,
 	},
 };

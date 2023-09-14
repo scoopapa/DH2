@@ -68,6 +68,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	bloodmoon: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	ceaselessedge: {
 		inherit: true,
 		isNonstandard: "Past",

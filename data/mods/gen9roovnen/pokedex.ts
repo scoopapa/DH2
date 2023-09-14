@@ -431,6 +431,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 55, atk: 80, def: 80, spa: 145, spd: 120, spe: 100},
 	},
+	okidogi: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 113, def: 115, spa: 58, spd: 86, spe: 90},
+	},
+	munkidori: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 75, def: 66, spa: 135, spd: 100, spe: 106},
+	},
+	fezandipiti: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 101, def: 82, spa: 70, spd: 130, spe: 99},
+	},
 	
 	// Roovnen Pokemon
 	kunirsch: {
