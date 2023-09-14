@@ -14,13 +14,24 @@ function mergeCallback(
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 6,
 	inherit: 'gen6',
+	teambuilderConfig: {
+		// for micrometas to only show custom tiers
+		excludeStandardTiers: true,
+		// only to specify the order of custom tiers
+		customTiers: ['TPDP OU, TPDP LC'],
+	},
 	pokemon: {
 		// todo: deal with multiple statuses in the following two functions
-		// protocol: use `000` to connect statuses, e.g. `brn000psn`
-		getStatus(status: string | Condition) {
+		// protocol: use `-` to connect statuses, e.g. `brn-psn`
+		//status: {id: string},
+		getStatus(
+			status: string | string[] | Condition | Condition[],
+			source: Pokemon | null = null,
+		) {
+			console.log(status)
 			status = this.battle.dex.conditions.get(status);
-			if (status.includes('000')) return this.battle.dex.conditions.getByID(this.status);
-			const statuses = (status.split('000') as ID[]).map(this.battle.dex.conditions.getByID);
+			if (!status.includes('-')) return this.battle.dex.conditions.getByID(this.status);
+			const statuses = (status.split('-') as ID[]).map(this.battle.dex.conditions.getByID);
 			if (statuses[0].id === statuses[1].id && (statuses[0] as any).stackCondition) {
 				return this.battle.dex.conditions.getByID((statuses[0] as any).stackCondition)
 			}
@@ -37,11 +48,17 @@ export const Scripts: ModdedBattleScriptsData = {
 			return resultStatus;
 		},
 		setStatus(
-			status: string | Condition,
+			status: string | string[] | Condition | Condition[],
 			source: Pokemon | null = null,
 			sourceEffect: Effect | null = null,
 			ignoreImmunities = false
 		) {
+			if (Array.isArray(status)) {
+				for (const s of status) {
+					this.setStatus(s);
+				}
+				return;
+			}
 			if (!this.hp) return false;
 			status = this.battle.dex.conditions.get(status);
 			if (this.battle.event) {
@@ -50,25 +67,30 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (!source) source = this;
 
-			// Nihilslave: here
+			/* Nihilslave: here
 			const slotsInUse = (this.status.split('000') as ID[])
 				.map(this.battle.dex.conditions.getByID)
 				.map(value => (value as any).statusSlots as number)
 				.reduce((prevValue, currValue) => prevValue + currValue, 0);
+			console.log(slotsInUse);
 			if (slotsInUse >= 2) {
 				this.battle.add('-fail', source);
 				this.battle.attrLastMove('[still]');
 				return false;
+			}*/
+			if (this.status === status.id) {
+				if (status.stackCondition) {
+					delete this.status[status.id];
+					status = this.battle.dex.conditions.get(status.stackCondition);
+				} else if ((sourceEffect as Move)?.status) {
+					this.battle.add('-fail', source);
+					this.battle.attrLastMove('[still]');
+					return false;
+				}
+			} else if (this.status && !this.status.includes("-")) {
+				status.id = this.status + "-" + status.id;
+				delete this.status[status.id];
 			}
-			// if (this.status === status.id) {
-			// 	if ((sourceEffect as Move)?.status === this.status) {
-			// 		this.battle.add('-fail', this, this.status);
-			// 	} else if ((sourceEffect as Move)?.status) {
-			// 		this.battle.add('-fail', source);
-			// 		this.battle.attrLastMove('[still]');
-			// 	}
-			// 	return false;
-			// }
 
 			if (!ignoreImmunities && status.id &&
 					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
@@ -91,6 +113,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 
+			console.log(status.id);
 			this.status = status.id;
 			this.statusState = {id: status.id, target: this};
 			if (source) this.statusState.source = source;

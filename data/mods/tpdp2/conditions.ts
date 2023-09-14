@@ -255,7 +255,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.getMove(moveSlot.id).flags['heal']) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -287,7 +287,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.getMove(moveSlot.id).flags['heal']) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
