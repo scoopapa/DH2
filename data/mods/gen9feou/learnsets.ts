@@ -5702,12 +5702,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bodyslam: ["8L1"],
 			brickbreak: ["8L1"],
 			bulkup: ["8L1"],
-
-
-
-
-
-
 			chillingwater: ["8L1"],
 			closecombat: ["8L1"],
 			counter: ["8L1"],

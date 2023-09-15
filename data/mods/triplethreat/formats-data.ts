@@ -35,4 +35,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TT",
 		doublesTier: "DTT",
 	},
+	omastar: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	cyclizar: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	deliriophage: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	chilupo: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	zangoose: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	overqwil: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
 };
