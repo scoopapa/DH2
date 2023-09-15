@@ -1103,12 +1103,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-		onBasePower(basePower, pokemon, target) {
-			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
-			if (weakWeathers.includes(pokemon.effectiveWeather())) {
-				this.debug('weakened by weather');
-				return this.chainModify(0.5);
+	},
+	solarblade: {
+		inherit: true,
+		shortDesc: "+1 Atk on turn 1. Hits turn 2. 1 turn in sun.",
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
 			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({atk: 1}, attacker, attacker, move);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
 		},
 	},
 	stealthrock: {
