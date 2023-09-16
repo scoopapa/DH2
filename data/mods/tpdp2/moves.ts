@@ -1097,10 +1097,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		volatileStatus: 'callofthedead',
-		onPrepareHit(pokemon) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Destiny Bond", target);
-			return !pokemon.removeVolatile('callofthedead');
+			return !target.removeVolatile('callofthedead');
 		},
 		condition: {
 			onStart(pokemon) {
@@ -3175,10 +3175,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 4,
 		flags: {},
 		volatileStatus: 'falsecourage',
-		onPrepareHit(pokemon) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Endure", target);
-			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
