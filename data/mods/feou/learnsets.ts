@@ -164,7 +164,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			weatherball: ["9L1"],
 			grassyglide: ["9L1"],
 			knockoff: ["9L1"],
-			solarblade: ["9L1"],
 			highhorsepower: ["9L1"],
 			lashout: ["9L1"],
 		},
@@ -7154,7 +7153,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			poltergeist: ["9L1"],
 			chillingwater: ["9L1"],
 			dig: ["9L1"],
-			helpinghand: ["9L1"],
 		},
 	},
 	corvizolt: {
@@ -7259,7 +7257,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			thunderwave: ["9L1"],
 			thunderbolt: ["9L1"],
 			wildcharge: ["9L1"],
-			spite: ["9L1"],
 			dualwingbeat: ["9L1"],
 		},
 	},

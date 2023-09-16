@@ -8634,7 +8634,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			reversal: ["7M"],
 			rockslide: ["7M"],
 			rocktomb: ["7M"],
-			scaryface: ["7M"],
 			shadowball: ["7M"],
 			shadowclaw: ["7M"],
 			sleeptalk: ["7M"],
