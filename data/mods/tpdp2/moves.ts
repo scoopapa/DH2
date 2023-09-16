@@ -1096,12 +1096,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		priority: 0,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Destiny Bond", target);
-		},
 		volatileStatus: 'callofthedead',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Destiny Bond", target);
 			return !pokemon.removeVolatile('callofthedead');
 		},
 		condition: {
@@ -3176,12 +3174,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		priority: 4,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Endure", target);
-		},
 		volatileStatus: 'falsecourage',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Endure", target);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -10536,13 +10532,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		priority: 4,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Protect", target);
-		},
+
 		stallingMove: true,
 		volatileStatus: 'supernaturalborder',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -10896,13 +10891,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		priority: 4,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Spiky Shield", target);
-		},
 		stallingMove: true,
 		volatileStatus: 'thornedivy',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spiky Shield", target);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {

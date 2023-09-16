@@ -63,7 +63,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onFoeAfterBoost(boost, target, source, effect) {
 			const pokemon = this.effectState.target;
-			const activated = false;
+			let activated = false;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! > 0) {
