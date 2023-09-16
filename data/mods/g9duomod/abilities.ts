@@ -257,7 +257,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Draw Four",
-		shortDesc: "After knocking out target, if user knows less than 12 moves, it learns target's moves.",
 		rating: 3,
 		num: 9009,
 	},
