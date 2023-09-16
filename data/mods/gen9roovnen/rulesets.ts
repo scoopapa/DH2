@@ -17,6 +17,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			'Terastal Clause', 'Min Source Gen = 3',
 		],
 	},
+	evasionitemsclause: {
+		effectType: 'ValidatorRule',
+		name: 'Evasion Items Clause',
+		desc: "Bans moves that lower the accuracy of moves used against the user",
+		banlist: ['Lax Incense'],
+		onBegin() {
+			this.add('rule', 'Evasion Items Clause: Evasion items are banned');
+		},
+	},
 	roovnendex: {
 		effectType: 'ValidatorRule',
 		name: 'Roovnen Dex',
