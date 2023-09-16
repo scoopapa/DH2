@@ -4,6 +4,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "absol").learnset.comeuppance = ["9L1"];
 		this.modData("Learnsets", "absol").learnset.postponerage = ["9L1"];
 		this.modData("Learnsets", "aerodactyl").learnset.soaringassault = ["9L1"];
+		this.modData("Learnsets", "amoonguss").learnset.sleeppowder = ["9L1"];
 		this.modData("Learnsets", "anorith").learnset.pounce = ["9L1"];
 		this.modData("Learnsets", "anorith").learnset.trailblaze = ["9L1"];
 		this.modData("Learnsets", "arctovish").learnset.aquacutter = ["9L1"];
