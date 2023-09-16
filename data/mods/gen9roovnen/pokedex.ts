@@ -445,19 +445,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ogerpon: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 125, def: 89, spa: 65, spd: 101, spe: 120},
+		baseStats: {hp: 90, atk: 120, def: 84, spa: 60, spd: 96, spe: 120},
 	},
 	ogerponwellspring: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 125, def: 89, spa: 65, spd: 106, spe: 115},
+		baseStats: {hp: 90, atk: 120, def: 84, spa: 60, spd: 106, spe: 110},
 	},
 	ogerponhearthflame: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 130, def: 89, spa: 65, spd: 101, spe: 115},
+		baseStats: {hp: 90, atk: 130, def: 84, spa: 60, spd: 96, spe: 110},
 	},
 	ogerponcornerstone: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 125, def: 94, spa: 65, spd: 101, spe: 115},
+		baseStats: {hp: 90, atk: 120, def: 94, spa: 60, spd: 96, spe: 110},
 	},
 	
 	// Roovnen Pokemon
