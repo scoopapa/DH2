@@ -443,6 +443,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 88, atk: 101, def: 82, spa: 70, spd: 130, spe: 99},
 	},
+	ogerpon: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 125, def: 89, spa: 65, spd: 101, spe: 120},
+	},
+	ogerponwellspring: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 125, def: 89, spa: 65, spd: 106, spe: 115},
+	},
+	ogerponhearthflame: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 130, def: 89, spa: 65, spd: 101, spe: 115},
+	},
+	ogerponcornerstone: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 125, def: 94, spa: 65, spd: 101, spe: 115},
+	},
 	
 	// Roovnen Pokemon
 	kunirsch: {

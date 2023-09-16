@@ -256,10 +256,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	poisonpowder: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 	precipiceblades: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -379,14 +375,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	bonemerang: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	clangingscales: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	clangoroussoul: {
 		inherit: true,
 		isNonstandard: null,
 	},
