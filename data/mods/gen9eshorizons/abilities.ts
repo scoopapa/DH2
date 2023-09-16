@@ -429,7 +429,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !pokemon.isAdjacent(target)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'ability: Warmonger');
 					activated = true;
