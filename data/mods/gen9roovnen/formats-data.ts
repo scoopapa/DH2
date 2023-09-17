@@ -7943,7 +7943,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
-	feevee: {
+	fevee: {
 		isNonstandard: null,
 		gen: 9,
 		tier: "LC",
