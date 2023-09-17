@@ -7646,47 +7646,76 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "RUBL",
 	},
 	poltchageist: {
+		inherit: true,
 		tier: "LC",
 	},
 	sinistcha: {
+		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	okidogi: {
+		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	munkidori: {
+		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	fezandipiti: {
+		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	ogerpon: {
+		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	ogerponwellspring: {
+		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	ogerponhearthflame: {
+		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	ogerponcornerstone: {
+		inherit: true,
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
+	},
+	ogerpontealtera: {
+		inherit: true,
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
+	ogerponwellspringtera: {
+		inherit: true,
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
+	ogerponhearthflametera: {
+		inherit: true,
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
+	ogerponcornerstonetera: {
+		inherit: true,
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	
 	//Regional Forms
