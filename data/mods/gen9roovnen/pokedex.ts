@@ -1014,7 +1014,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug"],
 		baseStats: {hp: 56, atk: 70, def: 41, spa: 36, spd: 74, spe: 60},
 		abilities: {0: "Rattled", H: "Run Away"},
-		prevo: "Prevo",
 		evos: ["Rautwinis"],
 		heightm: 0.4,
 		weightkg: 0.4,
