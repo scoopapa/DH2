@@ -433,7 +433,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	okidogi: {
 		inherit: true,
-		baseStats: {hp: 88, atk: 113, def: 115, spa: 58, spd: 86, spe: 90},
+		baseStats: {hp: 88, atk: 133, def: 115, spa: 58, spd: 86, spe: 90},
 	},
 	munkidori: {
 		inherit: true,
