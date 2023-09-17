@@ -2657,7 +2657,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Disables skills with 50 or less BP.",
 		onTryHitPriority: 30,
 		onTryHit(source, target, move) {
-			if (move.basePower <= 50) {
+			if (source !== target && move.basePower <= 50) {
 				this.add('-immune', target, '[from] ability: Wariness');
 				return false;
 			}

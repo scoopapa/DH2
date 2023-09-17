@@ -21,38 +21,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ['TPDP OU, TPDP LC'],
 	},
 	pokemon: {
-		// todo: deal with multiple statuses in the following two functions
-		// protocol: use `-` to connect statuses, e.g. `brn-psn`
-		//status: {id: string},
-		getStatus(
-			status: string | string[] | Condition | Condition[],
-			source: Pokemon | null = null,
-		) {
-			console.log(status)
-			status = this.battle.dex.conditions.get(status);
-			if (!status.includes('-')) return this.battle.dex.conditions.getByID(this.status);
-			const statuses = (status.split('-') as ID[]).map(this.battle.dex.conditions.getByID);
-			if (statuses[0].id === statuses[1].id && (statuses[0] as any).stackCondition) {
-				return this.battle.dex.conditions.getByID((statuses[0] as any).stackCondition)
-			}
-			// this is all we need
-			const properties = [
-				'onStart', 'onResidual', 'onSwitchIn', 'onEnd',
-				'onModifyAtk', 'onModifyDef', 'onModifySpA', 'onModifySpD', 'onModifySpe',
-				'onAccuracy', 'onBeforeMove', 'onDeductPP', 'onDisableMove', 'onTryHeal',
-			];
-			let resultStatus = this.battle.dex.deepClone(statuses[0]);
-			for (const prop of properties) {
-				resultStatus[prop] = mergeCallback((statuses[0] as any)[prop], (statuses[1] as any)[prop])
-			}
-			return resultStatus;
-		},
 		setStatus(
 			status: string | string[] | Condition | Condition[],
 			source: Pokemon | null = null,
 			sourceEffect: Effect | null = null,
 			ignoreImmunities = false
 		) {
+			console.log("check 1\nstatus: " + status + "\nsource: " + source + "\nsourceeffect: " + sourceEffect);
 			if (Array.isArray(status)) {
 				for (const s of status) {
 					this.setStatus(s);
@@ -67,17 +42,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (!source) source = this;
 
-			/* Nihilslave: here
-			const slotsInUse = (this.status.split('000') as ID[])
-				.map(this.battle.dex.conditions.getByID)
-				.map(value => (value as any).statusSlots as number)
-				.reduce((prevValue, currValue) => prevValue + currValue, 0);
-			console.log(slotsInUse);
-			if (slotsInUse >= 2) {
-				this.battle.add('-fail', source);
-				this.battle.attrLastMove('[still]');
-				return false;
-			}*/
+			console.log("check 2\nstatus: " + status.id + "\nthis.status: " + this.status);
+			
 			if (this.status === status.id) {
 				if (status.stackCondition) {
 					delete this.status[status.id];
@@ -87,9 +53,15 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.battle.attrLastMove('[still]');
 					return false;
 				}
-			} else if (this.status && !this.status.includes("-")) {
-				status.id = this.status + "-" + status.id;
-				delete this.status[status.id];
+			} else if (this.status && this.status.length < 6) {
+				if(!['stop', 'hvybrn', 'hvypsn', 'shk', 'weakheavy'].includes(this.status)) {
+					status.id = this.status + status.id;
+					delete this.status[status.id];
+				} else {
+					this.battle.add('-fail', source);
+					this.battle.attrLastMove('[still]');
+					return false;
+				}
 			}
 
 			if (!ignoreImmunities && status.id &&
@@ -112,8 +84,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					return result;
 				}
 			}
-
-			console.log(status.id);
+			
 			this.status = status.id;
 			this.statusState = {id: status.id, target: this};
 			if (source) this.statusState.source = source;
@@ -138,6 +109,16 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!type || type === '???') return true;
 			// Nihilslave: i think tpdp types can be recognized by this?
 			if (!this.battle.dex.types.isName(type)) {
+				if (type === 'Void'|| 
+					type === 'Nature' || 
+					type === 'Earth' ||
+					type === 'Wind' ||
+					type === 'Light' ||
+					type === 'Nether' ||
+					type === 'Illusion' ||
+					type === 'Sound' ||
+					type === 'Warped' ||
+					type === 'Dream') return true;
 				throw new Error("Use runStatusImmunity for " + type);
 			}
 			if (this.fainted) return false;

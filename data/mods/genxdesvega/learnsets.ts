@@ -4294,7 +4294,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			superpower: ["9L1"],
 			tailwind: ["9L1"],
 			tripleaxel: ["9L1"],
-			waterpulse: ["9L1"],
 		},
 	},
 	teeniweed: {
