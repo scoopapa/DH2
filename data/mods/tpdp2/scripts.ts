@@ -21,43 +21,109 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ['TPDP OU, TPDP LC'],
 	},
 	pokemon: {
+		trySetStatus(status: string | Condition, source: Pokemon | null = null, sourceEffect: Effect | null = null) {
+			return this.setStatus(status, source, sourceEffect);
+		},
 		setStatus(
-			status: string | string[] | Condition | Condition[],
+		status: string | Condition,
+		source: Pokemon | null = null,
+		sourceEffect: Effect | null = null,
+		ignoreImmunities = false
+	) {
+		if (!this.hp) return false;
+		status = this.battle.dex.conditions.get(status);
+		if (this.battle.event) {
+			if (!source) source = this.battle.event.source;
+			if (!sourceEffect) sourceEffect = this.battle.effect;
+		}
+		if (!source) source = this;
+
+		if (this.status) {
+			this.setStatus(this.status, source, sourceEffect, false, status);
+		}
+
+		if (!ignoreImmunities && status.id &&
+				!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
+			// the game currently never ignores immunities
+			if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+				this.battle.debug('immune to status');
+				if ((sourceEffect as Move)?.status) {
+					this.battle.add('-immune', this);
+				}
+				return false;
+			}
+		}
+		const prevStatus = this.status;
+		const prevStatusState = this.statusState;
+		if (status.id) {
+			const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+			if (!result) {
+				this.battle.debug('set status [' + status.id + '] interrupted');
+				return result;
+			}
+		}
+
+		this.status = status.id;
+		this.statusState = {id: status.id, target: this};
+		if (source) this.statusState.source = source;
+		if (status.duration) this.statusState.duration = status.duration;
+		if (status.durationCallback) {
+			this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+		}
+
+		if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
+			this.battle.debug('status start [' + status.id + '] interrupted');
+			// cancel the setstatus
+			this.status = prevStatus;
+			this.statusState = prevStatusState;
+			return false;
+		}
+		if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+			return false;
+		}
+		return true;
+	},
+		setStatus(
+			currentStatus: string | Condition,
 			source: Pokemon | null = null,
 			sourceEffect: Effect | null = null,
-			ignoreImmunities = false
+			ignoreImmunities = false,
+			newStatus: string | string[] | Condition | Condition[],
 		) {
 			console.log("check 1\nstatus: " + status + "\nsource: " + source + "\nsourceeffect: " + sourceEffect);
-			if (Array.isArray(status)) {
+			if (Array.isArray(newStatus)) {
 				for (const s of status) {
 					this.setStatus(s);
 				}
 				return;
 			}
 			if (!this.hp) return false;
-			status = this.battle.dex.conditions.get(status);
+			newStatus = this.battle.dex.conditions.get(newStatus);
+			console.log("check 2\nstatus: " + newStatus.id + "\nthis.status: " + currentStatus + "\nthis.status.length: " + currentStatus.length);
+			
 			if (this.battle.event) {
 				if (!source) source = this.battle.event.source;
 				if (!sourceEffect) sourceEffect = this.battle.effect;
 			}
 			if (!source) source = this;
 
-			console.log("check 2\nstatus: " + status.id + "\nthis.status: " + this.status);
-			
-			if (this.status === status.id) {
-				if (status.stackCondition) {
-					delete this.status[status.id];
-					status = this.battle.dex.conditions.get(status.stackCondition);
+			if (currentStatus === newStatus.id) {
+				console.log("this");
+				if (newStatus.stackCondition) {
+					delete this.status[newStatus.id];
+					newStatus = this.battle.dex.conditions.get(newStatus.stackCondition);
 				} else if ((sourceEffect as Move)?.status) {
 					this.battle.add('-fail', source);
 					this.battle.attrLastMove('[still]');
 					return false;
 				}
-			} else if (this.status && this.status.length < 6) {
-				if(!['stop', 'hvybrn', 'hvypsn', 'shk', 'weakheavy'].includes(this.status)) {
-					status.id = this.status + status.id;
-					delete this.status[status.id];
+			} else if (currentStatus && currentStatus.length < 6) {
+				if(!['stp', 'hvybrn', 'hvypsn', 'shk', 'weakheavy'].includes(this.status)) {
+					console.log("thaat");
+					newStatus.id = this.status + newStatus.id;
+					delete this.status;
 				} else {
+					console.log("thaaat");
 					this.battle.add('-fail', source);
 					this.battle.attrLastMove('[still]');
 					return false;
@@ -77,30 +143,30 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			const prevStatus = this.status;
 			const prevStatusState = this.statusState;
-			if (status.id) {
-				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+			if (newStatus.id) {
+				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, newStatus);
 				if (!result) {
-					this.battle.debug('set status [' + status.id + '] interrupted');
+					this.battle.debug('set status [' + newStatus.id + '] interrupted');
 					return result;
 				}
 			}
 			
-			this.status = status.id;
-			this.statusState = {id: status.id, target: this};
+			this.status = newStatus.id;
+			this.statusState = {id: newStatus.id, target: this};
 			if (source) this.statusState.source = source;
-			if (status.duration) this.statusState.duration = status.duration;
-			if (status.durationCallback) {
-				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+			if (newStatus.duration) this.statusState.duration = newStatus.duration;
+			if (newStatus.durationCallback) {
+				this.statusState.duration = newStatus.durationCallback.call(this.battle, this, source, sourceEffect);
 			}
 
-			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
-				this.battle.debug('status start [' + status.id + '] interrupted');
+			if (newStatus.id && !this.battle.singleEvent('Start', newStatus, this.statusState, this, source, sourceEffect)) {
+				this.battle.debug('status start [' + newStatus.id + '] interrupted');
 				// cancel the setstatus
 				this.status = prevStatus;
 				this.statusState = prevStatusState;
 				return false;
 			}
-			if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+			if (newStatus.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, newStatus)) {
 				return false;
 			}
 			return true;

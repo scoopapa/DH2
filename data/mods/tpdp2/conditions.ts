@@ -1115,7 +1115,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		onResidual() {
 			this.add('-weather', 'Aurora', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', `The aurora continues.`);
+			//this.add('-message', `The aurora continues.`);
 		},
 		onEnd() {
 			this.add('-weather', 'none', '[silent]');
