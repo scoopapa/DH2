@@ -373,7 +373,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rolycolyroovnen: {
 		num: 837,
-		name: "Rolycoly-Rolycoly",
+		name: "Rolycoly-Roovnen",
 		baseSpecies: "pokemon",
 		forme: "Roovnen",
 		types: ["Steel", "Water"],
