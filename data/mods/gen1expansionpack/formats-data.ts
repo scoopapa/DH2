@@ -1253,7 +1253,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	jolteon: {
 		randomBattleMoves: ["bodyslam", "thunderbolt", "thunderwave"],
 		exclusiveMoves: ["agility", "agility", "doublekick", "pinmissile", "pinmissile"],
-		tier: "OU",
+		tier: "UU",
 	},
 	flareon: {
 		randomBattleMoves: ["bodyslam", "fireblast", "hyperbeam", "quickattack"],
