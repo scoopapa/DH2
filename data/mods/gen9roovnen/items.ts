@@ -1,4 +1,18 @@
 export const Items: {[k: string]: ModdedItemData} = {
+	absorbbulb: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] item: Absorb Bulb');
+				}
+				return null;
+			}
+		},
+		onDamagingHit() {},
+		boosts: {},
+		shortDesc: "Raises holder's Sp. Atk by 1 stage if hit by a Water-type attack; Water Immunity.",
+	},
 	assaultvest: {
 		inherit: true,
 		onDisableMove(pokemon) {
@@ -42,6 +56,34 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 2,
 		shortDesc: "This Pokemon's Speed is 1.5x and accuracy of its attacks is 0.8x.",
 	},
+	cellbattery: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] item: Cell Battery');
+				}
+				return null;
+			}
+		},
+		onDamagingHit() {},
+		boosts: {},
+		shortDesc: "Raises holder's Attack by 1 stage if hit by a Electric-type attack; Electric Immunity.",
+	},
+	luminousmoss: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({spd: 1})) {
+					this.add('-immune', target, '[from] item: Luminous Moss');
+				}
+				return null;
+			}
+		},
+		onDamagingHit() {},
+		boosts: {},
+		shortDesc: "Raises holder's Sp. Def by 1 stage if hit by a Water-type attack; Water Immunity.",
+	},
 	punchingglove: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
@@ -60,6 +102,20 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		shortDesc: "After an attack, holder gains 1/3 of the damage dealt.",
+	},
+	snowball: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] item: Snowball');
+				}
+				return null;
+			}
+		},
+		onDamagingHit() {},
+		boosts: {},
+		shortDesc: "Raises holder's Attack by 1 stage if hit by a Ice-type attack; Ice Immunity.",
 	},
 	souldew: {
 		inherit: true,
