@@ -2134,7 +2134,7 @@ export const Formats: FormatList = [
 		banlist: ['AG', 'Shadow Tag', 'Baton Pass'],
 		teambuilderFormat: 'Uber',
 	},
-	{
+	/*{
 		name: "[Gen 9] Roovnen VGC",
 		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
 		threads: [
@@ -2145,7 +2145,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Roovnen Dex', 'Min Source Gen = 9', 'VGC Timer', 'Terastal Clause', 'Roovnen Move Dexits'],
 		banlist: ['Sub-Legendary', 'Sigisin', 'Bredoom', 'Frosgross', 'Abomacruel', 'Porygon-V', 'Latakuno'],
-	},
+	},*/
 	{
 		name: "[Gen 9] Roovnen LC",
 		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
