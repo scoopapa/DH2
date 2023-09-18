@@ -15507,7 +15507,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			miasma: ["6L24", "1M"],
 			hornetsflit: ["6L1"],
 			rubburn: ["6L1"],
-			contagion: ["6L1"],
 			forceshield: ["6L1"],
 			jinx: ["6L1"],
 			poisonedarrow: ["6L30", "1M"],

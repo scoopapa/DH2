@@ -37,9 +37,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!sourceEffect) sourceEffect = this.battle.effect;
 		}
 		if (!source) source = this;
-
-		if (this.status) {
-			this.setStatus(this.status, source, sourceEffect, false, status);
+		
+		if (this.status.length !== 0) {
+			return this.setStatusTwo(this.status, source, sourceEffect, false, status);
 		}
 
 		if (!ignoreImmunities && status.id &&
@@ -83,23 +83,21 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		return true;
 	},
-		setStatus(
+		setStatusTwo(
 			currentStatus: string | Condition,
 			source: Pokemon | null = null,
 			sourceEffect: Effect | null = null,
 			ignoreImmunities = false,
 			newStatus: string | string[] | Condition | Condition[],
 		) {
-			console.log("check 1\nstatus: " + status + "\nsource: " + source + "\nsourceeffect: " + sourceEffect);
 			if (Array.isArray(newStatus)) {
-				for (const s of status) {
+				for (const s of newStatus) {
 					this.setStatus(s);
 				}
 				return;
 			}
 			if (!this.hp) return false;
 			newStatus = this.battle.dex.conditions.get(newStatus);
-			console.log("check 2\nstatus: " + newStatus.id + "\nthis.status: " + currentStatus + "\nthis.status.length: " + currentStatus.length);
 			
 			if (this.battle.event) {
 				if (!source) source = this.battle.event.source;
@@ -109,7 +107,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (currentStatus === newStatus.id) {
 				console.log("this");
-				if (newStatus.stackCondition) {
+				if (newStatus.stackCondition && this.status.length < 6) {
 					delete this.status[newStatus.id];
 					newStatus = this.battle.dex.conditions.get(newStatus.stackCondition);
 				} else if ((sourceEffect as Move)?.status) {
@@ -117,25 +115,23 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.battle.attrLastMove('[still]');
 					return false;
 				}
-			} else if (currentStatus && currentStatus.length < 6) {
-				if(!['stp', 'hvybrn', 'hvypsn', 'shk', 'weakheavy'].includes(this.status)) {
-					console.log("thaat");
+			} else if (this.status) {
+				if(this.status.length < 6 && !['stp', 'hvybrn', 'hvypsn', 'shk', 'weakheavy'].includes(this.status)) {
 					newStatus.id = this.status + newStatus.id;
 					delete this.status;
 				} else {
-					console.log("thaaat");
 					this.battle.add('-fail', source);
 					this.battle.attrLastMove('[still]');
 					return false;
 				}
 			}
 
-			if (!ignoreImmunities && status.id &&
-					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
+			if (!ignoreImmunities && newStatus.id &&
+					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(newStatus.id))) {
 				// the game currently never ignores immunities
-				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+				if (!this.runStatusImmunity(newStatus.id === 'tox' ? 'psn' : newStatus.id)) {
 					this.battle.debug('immune to status');
-					if ((sourceEffect as Move)?.status) {
+					if ((sourceEffect as Move)?.newStatus) {
 						this.battle.add('-immune', this);
 					}
 					return false;
