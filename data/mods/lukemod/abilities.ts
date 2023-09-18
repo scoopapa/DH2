@@ -143,10 +143,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyMove(move) {
 			if (move.category === 'Status') {
 				move.ignoreAbility = true;
-			}
-		},
-		onModifyMove(move) {
-			if (move.category === 'Status') {
 				move.ignoreVolatiles = true;
 			}
 		},
