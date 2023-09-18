@@ -375,7 +375,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Water Compaction",
-		shortDesc: "This Pokemon's Defense is raised 2 stages when hit by a Water-type move; Water immunity.",
+		shortDesc: "This Pokemon's Defense is raised by 2 when hit by a Water-type move; Water immunity.",
 		rating: 1.5,
 		num: 195,
 	},
@@ -421,7 +421,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Plot Twist",
-		shortDesc: "Upon entry, this Pokemon doubles and inverts all Pokemon's stat changes.",
+		shortDesc: "Upon entry, this Pokemon inverts all Pokemon's stat changes.",
 		rating: 3.5,
 		num: 308,
 	},
@@ -566,7 +566,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Maternal Power",
-		shortDesc: "This Pokemon's damaging moves hit thrice. The second and third hit have their power third.",
+		shortDesc: "This Pokemon's damaging moves hit thrice. Second and third hit have 1/3 power.",
 		rating: 3.5,
 		num: 314,
 	},
@@ -609,9 +609,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			pokemon.addVolatile('dashhappy');
 		},
-		onEnd(pokemon) {
-			this.add('-end', pokemon, 'Dash Happy');
-		},
 		onUpdate(pokemon) {
 			if (!pokemon.volatiles['dashhappy']) {
 				pokemon.addVolatile('dashhappy');
@@ -619,13 +616,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 3,
-			onStart(target) {
-				this.add('-start', target, 'ability: Dash Happy');
-			},
 			onEnd(target) {
-				this.add('-end', target, 'Dash Happy');
 				this.add('-message', `${target.name} is ready to dash!`);
 				this.actions.useMove("Dash", target);
+				pokemon.removeVolatile('dashhappy');
 			},
 		},
 		name: "Dash Happy",

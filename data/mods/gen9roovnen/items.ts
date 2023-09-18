@@ -19,7 +19,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		shortDesc: "Holder gains 1.5x HP from draining/Aqua Ring/Ingrain/Leech Seed/Curing Rocks/Strength Sap.",
+		shortDesc: "Gains 1.5x HP from draining/Aqua Ring/Ingrain/Leech Seed/Curing Rocks/Strength Sap.",
 	},
 	brightpowder: {
 		name: "Bright Powder",

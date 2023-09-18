@@ -300,6 +300,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	spore: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	springtidestorm: {
 		inherit: true,
 		isNonstandard: "Past",

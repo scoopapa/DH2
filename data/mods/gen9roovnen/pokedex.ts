@@ -666,7 +666,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 1035,
 		name: "Boltria",
 		types: ["Electric", "Water"],
-		baseStats: {hp: 55, atk: 90, def: 75, spa: 71, spd: 66, spe: 73},
+		baseStats: {hp: 55, atk: 60, def: 55, spa: 41, spd: 56, spe: 53},
 		abilities: {0: "Lightning Rod", H: "Strong Jaw"},
 		evos: ["Nutriqua"],
 		heightm: 0.6,
@@ -925,7 +925,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Burschuss",
 		types: ["Fire", "Flying"],
 		gender: "M",
-		baseStats: {hp: 28, atk: 88, def: 79, spa: 45, spd: 80, spe: 100},
+		baseStats: {hp: 28, atk: 78, def: 69, spa: 35, spd: 60, spe: 100},
 		abilities: {0: "Rattled", 1: "Blaze", H: "Flame Body"},
 		evos: ["Phoenuss"],
 		heightm: 0.9,
@@ -1299,7 +1299,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Corruption"},
 		heightm: 1.6,
 		weightkg: 20,
-		//tags: ["Corrupt"],
+		tags: ["Corrupt"],
 		eggGroups: ["Undiscovered"],
 	},
 	bredoom: {
@@ -1311,7 +1311,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Corruption"},
 		heightm: 1.7,
 		weightkg: 50.4,
-		//tags: ["Corrupt"],
+		tags: ["Corrupt"],
 		eggGroups: ["Undiscovered"],
 	},
 	frosgross: {
@@ -1323,7 +1323,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Corruption"},
 		heightm: 1.6,
 		weightkg: 84,
-		//tags: ["Corrupt"],
+		tags: ["Corrupt"],
 		eggGroups: ["Undiscovered"],
 	},
 	abomacruel: {
@@ -1335,7 +1335,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Corruption"},
 		heightm: 2.6,
 		weightkg: 156,
-		//tags: ["Corrupt"],
+		tags: ["Corrupt"],
 		eggGroups: ["Undiscovered"],
 	},
 	porygonv: {
@@ -1347,7 +1347,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Corruption"},
 		heightm: 0.3,
 		weightkg: 25,
-		//tags: ["Corrupt"],
+		tags: ["Corrupt"],
 		eggGroups: ["Undiscovered"],
 	},
 	latakuno: {
@@ -1359,7 +1359,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Corruption"},
 		heightm: 2.4,
 		weightkg: 100,
-		//tags: ["Corrupt"],
+		tags: ["Corrupt"],
 		eggGroups: ["Undiscovered"],
 	},
 	yorlator: {
@@ -1371,7 +1371,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Warrior Spirit"},
 		heightm: 2,
 		weightkg: 78,
-		//tags: ["Sub-Legendary"],
+		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	mranovo: {
@@ -1383,7 +1383,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Challenger"},
 		heightm: 2.3,
 		weightkg: 91,
-		//tags: ["Sub-Legendary"],
+		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	curtowal: {
@@ -1395,7 +1395,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shielded"},
 		heightm: 2.2,
 		weightkg: 85,
-		//tags: ["Sub-Legendary"],
+		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	guadock: {
@@ -1407,7 +1407,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Protective Will"},
 		heightm: 2,
 		weightkg: 673,
-		//tags: ["Restricted Legendary"],
+		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	stoleagle: {
@@ -1419,7 +1419,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Pride Roar"},
 		heightm: 1.8,
 		weightkg: 291,
-		//tags: ["Restricted Legendary"],
+		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	adlerz: {
@@ -1431,7 +1431,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Kind Heart"},
 		heightm: 1.9,
 		weightkg: 312,
-		//tags: ["Restricted Legendary"],
+		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	hungurul: {
@@ -1444,7 +1444,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dynamic Battle"},
 		heightm: 1.7,
 		weightkg: 521,
-		//tags: ["Restricted Legendary"],
+		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Hungurul-Dynamic"],
 		formeOrder: ["Hungurul", "Hungurul-Dynamic"],
@@ -1460,7 +1460,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dynamic Battle"},
 		heightm: 1.7,
 		weightkg: 521,
-		//tags: ["Restricted Legendary"],
+		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Hungurul",
 	},
