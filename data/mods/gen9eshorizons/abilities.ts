@@ -13,7 +13,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		desc: "This Pokemon's attacks cannot be interrupted once selected. The Pokemon will ignore sleep, freeze, flinch, Disable, Encore, Imprison, and PP drain to 0 inflicted earlier in the same turn, and bypass the checks for full paralysis, confusion, and attraction if inflicted earlier in the same turn. If given a Choice item earlier in the turn, the move locking will be ignored. Gravity and Heal Block will still prevent moves from executing. Additionally, this Pokemon's moves cannot be redirected to a different target by any effect.",
 		shortDesc: "This Pokemon's attacks cannot be interrupted or redirected after selection.",
 		rating: 1,
-		num: 1018,
+		num: 1020,
 	},
 	bludgeon: {
 		onBasePowerPriority: 23,
@@ -67,7 +67,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		name: "Clean House",
 		shortDesc: "On switch-in, removes hazards and substitutes.",
 		rating: 3,
-		num: 1020,
+		num: 1022,
 	},
 	deepterror: {
 		onFoeEmergencyExitPriority: 2,
@@ -112,7 +112,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		isBreakable: true,
 		name: "Heat Sink",
 		rating: 3,
-		num: 1022,
+		num: 1024,
 		desc: "This Pokemon is immune to Fire-type moves and raises its Special Attack by 1 stage when hit by a Fire-type move. If this Pokemon is not the target of a single-target Fire-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move. If multiple Pokemon could redirect with this Ability, it goes to the one with the highest Speed, or in the case of a tie to the one that has had this Ability active longer.",
 		shortDesc: "This Pokemon draws Fire moves to itself to raise Sp. Atk by 1; Fire immunity.",
 	},
@@ -263,7 +263,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			return this.chainModify([dmgMod[numConsecutive], 4096]);
 		},
 		name: "Relentless",
-		num: 1023,
+		num: 1025,
 		rating: 2,
 		desc: "Damage of moves used on consecutive turns is increased. Max 2x after 5 turns.",
 	},
@@ -334,9 +334,9 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		isPermanent: true,
 		name: "Stoneskin",
 		desc: "On switch-in and before using a non-attacking move, enters Statue Form. When in Statue Form, the Pokemon cannot be inflicted with statuses or have its stats dropped, and it will not take damage from field effects. Exits Statue Form when using an attacking move. This Ability has no effect if used by a Pokemon other than Mega Druddigon.",
-		shortDesc: "Statue form on Status move, regular otherwise. When Statue, status/stat drop/residual damage immunity.",
+		shortDesc: "Status moove = Statue, attack = regular. When Statue, no status/stat drop/residual dmg.",
 		rating: 4,
-		num: 1021,
+		num: 1023,
 	},
 	souldrain: {
 		onAfterMoveSecondarySelfPriority: -1,
@@ -1268,6 +1268,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			move.hasAuraBreak = true;
 		},
 		onAnySetTerrain(target, source, weather) {
+			this.add('-ability', pokemon, 'ability: Climate Break');
 			return false;
 		},
 		suppressTerrain: true,
@@ -1442,6 +1443,31 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		desc: "While this Pokemon has 1/2 or less of its maximum HP, its Attack and Special Attack are reduced by 1/3.",
 		shortDesc: "When this Pokemon has 1/2 or less of its max HP, Atk and Sp. Atk are reduced by 1/3.",
+	},
+	embodyaspect: {
+		onStart(pokemon) {
+			if(pokemon.baseSpecies === "Ogerpon"){
+				switch(pokemon.forme){
+					case "Wellspring":
+						this.boost({spd: 1}, pokemon);
+						break;
+					case "Hearthflame":
+						this.boost({atk: 1}, pokemon);
+						break;
+					case "Cornerstone":
+						this.boost({def: 1}, pokemon);
+						break;
+					default:
+						this.boost({spe: 1}, pokemon);
+						break;
+				}
+			}
+		},
+		name: "Embody Aspect",
+		rating: 3.5,
+		num: 301,
+		desc: "If this Pokemon is Ogerpon, raises a stat 1 stage on switch-in based on its mask: Teal Mask raises Speed, Wellspring Mask raises Special Defense, Hearthstone Mask raises Attack, and Cornerstone Mask raises Defense.",
+		shortDesc: "On switch-in, raises stat 1 stage based on Mask.",
 	},
 	flareboost: {
 		name: "Flare Boost",
