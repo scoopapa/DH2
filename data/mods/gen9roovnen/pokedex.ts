@@ -374,7 +374,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	rolycolyroovnen: {
 		num: 837,
 		name: "Rolycoly-Roovnen",
-		baseSpecies: "pokemon",
+		baseSpecies: "Rolycoly",
 		forme: "Roovnen",
 		types: ["Steel", "Water"],
 		baseStats: {hp: 50, atk: 50, def: 45, spa: 35, spd: 50, spe: 20},
@@ -433,7 +433,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	okidogi: {
 		inherit: true,
-		baseStats: {hp: 88, atk: 113, def: 115, spa: 58, spd: 86, spe: 90},
+		baseStats: {hp: 88, atk: 133, def: 115, spa: 58, spd: 86, spe: 90},
 	},
 	munkidori: {
 		inherit: true,
@@ -1022,7 +1022,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	rautwinis: {
 		num: 1067,
 		name: "Rautwinis",
-		types: ["Bug"],
+		types: ["Bug", "Fighting"],
 		baseStats: {hp: 78, atk: 111, def: 70, spa: 66, spd: 124, spe: 88},
 		abilities: {0: "Intimidate", H: "Compound Eyes"},
 		prevo: "Patwinis",
