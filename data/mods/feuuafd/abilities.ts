@@ -1159,22 +1159,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	// Implement immunity for Intimidate clones:
-	innerfocus: {
-		inherit: true,
-		onBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate') {
-				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Inner Focus');
-			} else if (effect.id === 'debilitate') {
-				delete boost.spa;
-				this.add('-immune', target, '[from] ability: Inner Focus');
-			} else if (effect.id === 'sinkorswim') {
-				delete boost.spe;
-				this.add('-immune', target, '[from] ability: Inner Focus');
-			}
-		},
-	},
 	oblivious: {
 		inherit: true,
 		onBoost(boost, target, source, effect) {
@@ -4713,6 +4697,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	versatility: {
 		onModifyMove(move, pokemon) {
+			move.stab = 2;
 			if (move.secondaries) {
 				delete move.secondaries;
 				// Technically not a secondary effect, but it is negated
@@ -4725,9 +4710,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.hasSheerForce) return this.chainModify([0x14CD, 0x1000]);
-		},
-		onModifyMove(move) {
-			move.stab = 2;
 		},
 		name: "Versatility",
 		shortDesc: "Sheer Force + Adaptability",

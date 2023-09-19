@@ -398,10 +398,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (defender && ['psn'].includes(defender.status)) {
 				return this.chainModify(1.7);
-			}
-		},
-		onBasePower(basePower, attacker, defender, move) {
-			if (defender && ['tox'].includes(defender.status)) {
+			} else if (defender && ['tox'].includes(defender.status)) {
 				return this.chainModify(1.4);
 			}
 		},

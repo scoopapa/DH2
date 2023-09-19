@@ -8581,7 +8581,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			surf: ["7M"],
 			terrainpulse: ["7T"],
 			uproar: ["7M"],
-
 		},
 	},
 	braviaryhisui: {
@@ -8634,7 +8633,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			reversal: ["7M"],
 			rockslide: ["7M"],
 			rocktomb: ["7M"],
-			scaryface: ["7M"],
 			shadowball: ["7M"],
 			shadowclaw: ["7M"],
 			sleeptalk: ["7M"],

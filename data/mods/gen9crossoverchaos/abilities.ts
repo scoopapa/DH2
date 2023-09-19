@@ -283,21 +283,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: -14,
 	},
-	frigidbloodline: {
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ice') {
-				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Frigid Bloodline');
-				}
-				return null;
-			}
-		},
-		isBreakable: true,
-		name: "Frigid Bloodline",
-		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Ice moves; Ice immunity.",
-		rating: 3.5,
-		num: -15,
-	},
 	// Curse Weaver utilizing Ghost-type curse is handled within moves.ts
 	curseweaver: {
 		onModifyAtkPriority: 5,
