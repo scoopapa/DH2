@@ -1482,7 +1482,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Raises Damage ↑ Next and a stat by 1.",
+		shortDesc: "Damage ↑ Next. +SpA/Atk/Def&SpD alongside Spe & Acc.",
 		name: "Prepare Attack",
 		pp: 20,
 		priority: 0,
@@ -1490,13 +1490,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'prepareattack',
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Yorlator') {
-				this.boost({spa: 1}, pokemon, pokemon);
+				this.boost({spa: 1, spe: 1, accuracy: 1}, pokemon, pokemon);
 			}
 			if (pokemon.baseSpecies.baseSpecies === 'Mranovo') {
-				this.boost({atk: 1}, pokemon, pokemon);
+				this.boost({atk: 1, spe: 1, accuracy: 1}}, pokemon, pokemon);
 			}
 			if (pokemon.baseSpecies.baseSpecies === 'Curtowal') {
-				this.boost({def: 1, spd: 1}, pokemon, pokemon);
+				this.boost({def: 1, spd: 1, spe: 1, accuracy: 1}}, pokemon, pokemon);
 			}
 		},
 		condition: {
