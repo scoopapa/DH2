@@ -1149,7 +1149,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasAbility('ignorance')) return;
 				for (const moveSlot of pokemon.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.id);
-					if (move.id === 'prepareattack' && pokemon.baseSpecies.name === 'Yorlator' || move.id === 'preparechallenge' && pokemon.baseSpecies.name === 'Mranovo' || move.id === 'preparedefense' && pokemon.baseSpecies.name === 'Curtowal')
+					if ((move.id === 'prepareattack' && pokemon.baseSpecies.name === 'Yorlator') || (move.id === 'preparechallenge' && pokemon.baseSpecies.name === 'Mranovo') || (move.id === 'preparedefense' && pokemon.baseSpecies.name === 'Curtowal')) return;
 					if (move.category === 'Status' && move.id !== 'mefirst') {
 						pokemon.disableMove(moveSlot.id);
 					}
