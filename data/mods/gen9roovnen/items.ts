@@ -5,13 +5,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (target !== source && move.type === 'Water') {
 				if (!this.boost({spa: 1})) {
 					this.add('-immune', target, '[from] item: Absorb Bulb');
+					target.useItem();
 				}
 				return null;
 			}
 		},
 		onDamagingHit() {},
 		boosts: {},
-		shortDesc: "Raises holder's Sp. Atk by 1 stage if hit by a Water-type attack; Water Immunity.",
+		shortDesc: "Raises holder's SpA by 1, if hit by a Water-type attack; Water Immunity. Single Use.",
 	},
 	assaultvest: {
 		inherit: true,
@@ -62,13 +63,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (target !== source && move.type === 'Electric') {
 				if (!this.boost({atk: 1})) {
 					this.add('-immune', target, '[from] item: Cell Battery');
+					target.useItem();
 				}
 				return null;
 			}
 		},
 		onDamagingHit() {},
 		boosts: {},
-		shortDesc: "Raises holder's Attack by 1 stage if hit by a Electric-type attack; Electric Immunity.",
+		shortDesc: "Raises holder's Attack by 1, if hit by a Electric-type attack; Electric Immunity. Single Use.",
 	},
 	luminousmoss: {
 		inherit: true,
@@ -76,13 +78,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (target !== source && move.type === 'Water') {
 				if (!this.boost({spd: 1})) {
 					this.add('-immune', target, '[from] item: Luminous Moss');
+					target.useItem();
 				}
 				return null;
 			}
 		},
 		onDamagingHit() {},
 		boosts: {},
-		shortDesc: "Raises holder's Sp. Def by 1 stage if hit by a Water-type attack; Water Immunity.",
+		shortDesc: "Raises holder's Sp. Def by 1, if hit by a Water-type attack; Water Immunity. Single Use.",
 	},
 	punchingglove: {
 		inherit: true,
@@ -109,13 +112,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (target !== source && move.type === 'Ice') {
 				if (!this.boost({atk: 1})) {
 					this.add('-immune', target, '[from] item: Snowball');
+					target.useItem();
 				}
 				return null;
 			}
 		},
 		onDamagingHit() {},
 		boosts: {},
-		shortDesc: "Raises holder's Attack by 1 stage if hit by a Ice-type attack; Ice Immunity.",
+		shortDesc: "Raises holder's Attack by 1, if hit by a Ice-type attack; Ice Immunity. Single Use.",
 	},
 	souldew: {
 		inherit: true,
@@ -215,12 +219,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
 			if (['hail', 'snow'].includes(this.field.effectiveWeather())) {
-				return this.chainModify(2);
+				return this.chainModify(1.5);
 			}
 		},
 		num: 2410,
 		gen: 9,
-		shortDesc: "Holder takes 1/2 damage from Ice moves; Cannot be frozen. Hail: 2x Def.",
+		shortDesc: "Holder takes 1/2 damage from Ice moves; Cannot be frozen. Hail: 1.5x Def.",
 	},
 	solarpanel: {
 		name: "Solar Panel",
