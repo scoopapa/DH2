@@ -879,6 +879,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					for (const moveSlot of target.moveSlots) {
 						moveSlot.pp = moveSlot.maxpp;
 					}
+					this.add('-heal', target, target.getHealth, '[from] ability: Warrior Spirit');
 					target.side.removeSlotCondition(target, 'warriorspirit');
 				}
 			},

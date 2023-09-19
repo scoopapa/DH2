@@ -1482,39 +1482,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Raises Damage ↑ Next, SpA, Spe & Acc by 1.",
+		shortDesc: "Raises Damage ↑ Next, Special Attack and Accuracy by 1.",
 		name: "Prepare Attack",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-		volatileStatus: 'damage↑next',
+		volatileStatus: 'prepareattack',
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Damage ↑ Next');
+				this.add('-start', pokemon, 'Prepare Attack');
 			},
 			onRestart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Damage ↑ Next');
+				this.add('-start', pokemon, 'Prepare Attack');
 			},
 			onBasePowerPriority: 9,
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.category !== 'Status') {
-					this.debug('D↑N boost');
+					this.debug('PA boost');
 					return this.chainModify(1.25);
 				}
 			},
 			onMoveAborted(pokemon, target, move) {
 				if (move.category !== 'Status') {
-					pokemon.removeVolatile('damageupnext');
+					pokemon.removeVolatile('prepareattack');
 				}
 			},
 			onAfterMove(pokemon, target, move) {
 				if (move.category !== 'Status') {
-					pokemon.removeVolatile('damageupnext');
+					pokemon.removeVolatile('prepareattack');
 				}
 			},
 			onEnd(target) {
-				this.add('-end', target, 'Damage ↑ Next', '[silent]');
+				this.add('-end', target, 'Prepare Attack', '[silent]');
 			}
 		},
 		onPrepareHit: function(target, source, move) {
@@ -1524,7 +1524,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		boosts: {
 			spa: 1,
-			spe: 1,
 			accuracy: 1,
 		},
 		secondary: null,
@@ -1536,39 +1535,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Raises Damage ↑ Next, Atk, Spe & Acc by 1.",
+		shortDesc: "Raises Damage ↑ Next, Attack and Speed by 1.",
 		name: "Prepare Challenge",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-		volatileStatus: 'damage↑next',
+		volatileStatus: 'preparechallenge',
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Damage ↑ Next');
+				this.add('-start', pokemon, 'Prepare Challenge');
 			},
 			onRestart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Damage ↑ Next');
+				this.add('-start', pokemon, 'Prepare Challenge');
 			},
 			onBasePowerPriority: 9,
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.category !== 'Status') {
-					this.debug('D↑N boost');
+					this.debug('PA boost');
 					return this.chainModify(1.25);
 				}
 			},
 			onMoveAborted(pokemon, target, move) {
 				if (move.category !== 'Status') {
-					pokemon.removeVolatile('damageupnext');
+					pokemon.removeVolatile('preparechallenge');
 				}
 			},
 			onAfterMove(pokemon, target, move) {
 				if (move.category !== 'Status') {
-					pokemon.removeVolatile('damageupnext');
+					pokemon.removeVolatile('preparechallenge');
 				}
 			},
 			onEnd(target) {
-				this.add('-end', target, 'Damage ↑ Next', '[silent]');
+				this.add('-end', target, 'Prepare Challenge', '[silent]');
 			}
 		},
 		onPrepareHit: function(target, source, move) {
@@ -1579,7 +1578,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		boosts: {
 			atk: 1,
 			spe: 1,
-			accuracy: 1,
 		},
 		secondary: null,
 		target: "self",
@@ -1590,39 +1588,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Damage ↑ Next. +SpA/Atk/Def&SpD alongside Spe & Acc.",
+		shortDesc: "Raises Damage ↑ Next, Defense and Special Defense by 1.",
 		name: "Prepare Defense",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-		volatileStatus: 'damage↑next',
+		volatileStatus: 'preparedefense',
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Damage ↑ Next');
+				this.add('-start', pokemon, 'Prepare Defense');
 			},
 			onRestart(pokemon, source, effect) {
-				this.add('-start', pokemon, 'Damage ↑ Next');
+				this.add('-start', pokemon, 'Prepare Defense');
 			},
 			onBasePowerPriority: 9,
 			onBasePower(basePower, attacker, defender, move) {
 				if (move.category !== 'Status') {
-					this.debug('D↑N boost');
+					this.debug('PA boost');
 					return this.chainModify(1.25);
 				}
 			},
 			onMoveAborted(pokemon, target, move) {
 				if (move.category !== 'Status') {
-					pokemon.removeVolatile('damageupnext');
+					pokemon.removeVolatile('preparedefense');
 				}
 			},
 			onAfterMove(pokemon, target, move) {
 				if (move.category !== 'Status') {
-					pokemon.removeVolatile('damageupnext');
+					pokemon.removeVolatile('preparedefense');
 				}
 			},
 			onEnd(target) {
-				this.add('-end', target, 'Damage ↑ Next', '[silent]');
+				this.add('-end', target, 'Prepare Defense', '[silent]');
 			}
 		},
 		onPrepareHit: function(target, source, move) {
@@ -1633,8 +1631,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		boosts: {
 			def: 1,
 			spd: 1,
-			spe: 1,
-			accuracy: 1,
 		},
 		secondary: null,
 		target: "self",
