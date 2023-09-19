@@ -141,7 +141,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lunatone: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Shadow World"},
+		abilities: {0: "Levitate", H: "Shadow Shield"},
 		baseStats: {hp: 90, atk: 55, def: 65, spa: 105, spd: 85, spe: 80},
 	},
 	solrock: {
