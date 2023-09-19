@@ -3,10 +3,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!this.boost({spa: 1})) {
-					this.add('-immune', target, '[from] item: Absorb Bulb');
-					target.useItem();
-				}
+				this.boost({spa: 1})
+				this.add('-immune', target, '[from] item: Absorb Bulb');
+				target.useItem();
 				return null;
 			}
 		},
@@ -61,10 +60,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
-				if (!this.boost({atk: 1})) {
-					this.add('-immune', target, '[from] item: Cell Battery');
-					target.useItem();
-				}
+				this.boost({atk: 1})
+				this.add('-immune', target, '[from] item: Cell Battery');
+				target.useItem();
 				return null;
 			}
 		},
@@ -76,10 +74,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				if (!this.boost({spd: 1})) {
-					this.add('-immune', target, '[from] item: Luminous Moss');
-					target.useItem();
-				}
+				this.boost({spd: 1})
+				this.add('-immune', target, '[from] item: Luminous Moss');
+				target.useItem();
 				return null;
 			}
 		},
@@ -110,10 +107,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ice') {
-				if (!this.boost({atk: 1})) {
-					this.add('-immune', target, '[from] item: Snowball');
-					target.useItem();
-				}
+				this.boost({atk: 1})
+				this.add('-immune', target, '[from] item: Snowball');
+				target.useItem();
 				return null;
 			}
 		},
