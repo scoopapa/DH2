@@ -1785,6 +1785,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Sniper", 1: "Own Tempo", H: "Regenerator"},
 	},
+	farfetchdgalar: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Big Pecks", H: "Scrappy"},
+	},
 	gastly: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Cursed Body"},
@@ -2963,6 +2967,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Ghost", "Rock"],
 		abilities: {0: "Weak Armor", H: "Cursed Body"},
+	},
+	sirfetchd: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Justified", H: "Scrappy"},
 	},
 	mrrime: {
 		inherit: true,

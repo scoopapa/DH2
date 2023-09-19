@@ -2903,6 +2903,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 80,
 		flags: {contact: 1, protect: 1, mirror: 1, bludg: 1},
 	},
+	ivycudgel: {
+		inherit: true,
+		accuracy: 90,
+		flags: {bludg: 1, protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Ogerpon-Wellspring':
+				move.type = 'Water';
+				break;
+			case 'Ogerpon-Hearthflame':
+				move.type = 'Fire';
+				break;
+			case 'Ogerpon-Cornerstone':
+				move.type = 'Rock';
+				break;
+			}
+		},
+		contestType: "Tough",
+	},
 	jetpunch: {
 		inherit: true,
 		accuracy: true,
@@ -6488,6 +6507,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	skittersmack: null,
 	springtidestorm: null,
 	steelroller: null,
+	syrupbomb: null,
 	takeheart: null,
 	terablast: null,
 	terrainpulse: null,
