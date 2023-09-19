@@ -669,11 +669,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	energybody: {
 		onUpdate(pokemon) {
+			let factor = 0.667;
 			if (this.effectState.energybody) return;
-			if (pokemon.hp <= pokemon.maxhp / 4) {
+			if (pokemon.hp <= pokemon.maxhp / 4 && !this.effectState.energybody) {
+				this.heal(this.modify(pokemon.maxhp, factor));
 				this.effectState.energybody = true;
-				this.add('-activate', pokemon, 'ability: Energy Body');
-				pokemon.heal(pokemon.baseMaxhp / 3 * 2);
 			}
 		},
 		onSwitchIn(pokemon) {
