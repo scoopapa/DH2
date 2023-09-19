@@ -70,7 +70,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onDamagingHit() {},
 		boosts: {},
-		shortDesc: "Raises holder's Attack by 1, if hit by a Electric-type attack; Electric Immunity. Single Use.",
+		shortDesc: "Raises holder's Atk by 1, if hit by a Electric-type attack; Electric Immunity. Single Use.",
 	},
 	luminousmoss: {
 		inherit: true,
@@ -85,7 +85,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onDamagingHit() {},
 		boosts: {},
-		shortDesc: "Raises holder's Sp. Def by 1, if hit by a Water-type attack; Water Immunity. Single Use.",
+		shortDesc: "Raises holder's SpD by 1, if hit by a Water-type attack; Water Immunity. Single Use.",
 	},
 	punchingglove: {
 		inherit: true,
