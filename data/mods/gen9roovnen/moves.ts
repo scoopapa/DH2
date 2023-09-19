@@ -1487,7 +1487,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-		volatileStatus: 'damageupnext',
+		volatileStatus: 'damage↑next',
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
@@ -1541,7 +1541,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-		volatileStatus: 'damageupnext',
+		volatileStatus: 'damage↑next',
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
@@ -1595,7 +1595,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
-		volatileStatus: 'damageupnext',
+		volatileStatus: 'damage↑next',
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
