@@ -652,6 +652,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	hammerarm: {
 		inherit: true,
+		accuracy: 100,
 		basePower: 120,
 		pp: 5,
 	},
