@@ -212,9 +212,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 			return false;
 		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (['hail', 'snow'].includes(this.field.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
 		num: 2410,
 		gen: 9,
-		shortDesc: "The user takes 1/2 damage from Ice-type moves and cannot be frozen.",
+		shortDesc: "Holder takes 1/2 damage from Ice moves; Cannot be frozen. Hail: 2x Def.",
 	},
 	solarpanel: {
 		name: "Solar Panel",
