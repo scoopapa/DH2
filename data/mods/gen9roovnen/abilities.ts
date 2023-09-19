@@ -894,7 +894,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Challenger');
 		},
 		onAnyTryMove(target, source, effect) {
-			if (effect.id === 'prepareattack' && ['yorlator', 'mranovo', 'curtowal'].includes(target.species.id)) return;
+			if (effect.id === 'prepareattack' || effect.id === 'preparechallenge' || effect.id === 'preparedefense') return;
 			if (effect.category === 'Status') {
 				this.attrLastMove('[still]');
 				this.add('cant', this.effectState.target, 'ability: Challenger', effect, '[of] ' + target);
