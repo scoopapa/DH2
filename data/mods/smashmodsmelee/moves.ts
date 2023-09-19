@@ -666,20 +666,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	sleeptalk: {
-		inherit: true,
-		shortDesc: "Abnormal Miltank: Psychic-type.",
-		onModifyMove(move, source, target) {
-			if (source.species.id === 'miltank') {
-				move.type = 'Psychic';
-			}
-		},
-		onUseMoveMessage(pokemon, target, move) {
-			if (pokemon.species.id === 'miltank') {
-				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
-			}
-		},
-	},
 	snore: {
 		inherit: true,
 		shortDesc: "Abnormal Miltank: Psychic-type.",
@@ -1809,7 +1795,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "CFM Claydol: no chance to call Rest.",
+		shortDesc: "CFM Claydol: no chance to call Rest. Abnormal Miltank: Psychic-type.",
 		name: "Sleep Talk",
 		pp: 10,
 		priority: 0,
@@ -1817,6 +1803,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		sleepUsable: true,
 		onTryHit(pokemon) {
 			if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose')) return false;
+		},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'miltank') {
+				move.type = 'Psychic';
+			}
+		},
+		onUseMoveMessage(pokemon, target, move) {
+			if (pokemon.species.id === 'miltank') {
+				this.add('-message', `${pokemon.name}'s ${move.name} is ${move.type}-type!`);
+			}
 		},
 		onHit(pokemon) {
 			const noSleepTalk = [

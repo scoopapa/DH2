@@ -463,7 +463,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 3018,
 	},
 	magicbody: {
-		name: "Magic Body",
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {

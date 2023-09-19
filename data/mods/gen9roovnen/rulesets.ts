@@ -5,7 +5,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: "The standard ruleset for all offical Smogon singles tiers (Ubers, OU, etc.)",
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Terastal Clause', 'Min Source Gen = 3',
+			'Terastal Clause', 'Min Source Gen = 3', 'Roovnen Move Dexits',
 		],
 	},
 	standarddoubles: {
@@ -16,6 +16,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
 			'Terastal Clause', 'Min Source Gen = 3',
 		],
+	},
+	evasionitemsclause: {
+		effectType: 'ValidatorRule',
+		name: 'Evasion Items Clause',
+		desc: "Bans moves that lower the accuracy of moves used against the user",
+		banlist: ['Lax Incense'],
+		onBegin() {
+			this.add('rule', 'Evasion Items Clause: Evasion items are banned');
+		},
 	},
 	roovnendex: {
 		effectType: 'ValidatorRule',
@@ -57,5 +66,19 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				return [`${species.baseSpecies} is not in the Roovnen Pokédex.`];
 			}
 		},
+	},
+	roovnenmovedexits: {
+		effectType: 'ValidatorRule',
+		name: 'Roovnen Move Dexits',
+		desc: "Bans dexited moves.",
+		banlist: [
+			'Absorb', 'Accelerock', 'Acid', 'Air Cutter', 'Aromatic Mist', 'Assurance', 'Astonish', 'Astral Barrage', 'Attack Order', 'Barb Barrage', 'Behemoth Bash', 'Behemoth Blade', 'Belch', 'Bind', 
+			'Bitter Malice', 'Blazing Torque', 'Bleakwind Storm', 'Blood Moon', 'Ceaseless Edge', 'Celebrate', 'Chloroblast', 'Circle Throw', 'Combat Torque', 'Cut', 'Defend Order', 'Diamond Storm', 'Dire Claw', 
+			'Doodle', 'Dragon Energy', 'Dragon Rush', 'Drum Beating', 'Dynamax Cannon', 'Eerie Impulse', 'Electro Ball', 'Fairy Wind', 'Fiery Wrath', 'Fire Lash', 'Force Palm', 'Freezing Glare', 'Glacial Lance', 
+			'Glare', 'Happy Hour', 'Heal Bell', 'Heal Order', 'Hold Hands', 'Hyperspace Fury', 'Hyperspace Hole', 'Inferno', 'Infernalparade', 'Jet Punch', 'Lunar Blessing', 'Lunar Dance', 'Magic Room', 'Magical Torque', 
+			'Magma Storm', 'Mortal Spin', 'Mud Shot', 'Mystical Power', 'Night Daze', 'No Retreat', 'Noxious Torque', 'Order Up', 'Origin Pulse', 'Pay Day', 'Poison Powder', 'Precipice Blades', 'Present', 'Psyshield Bash', 
+			'Relic Song', 'Roar of Time', 'Sandsear Storm', 'Shadow Force', 'Sludge Wave', 'Snipe Shot', 'Spacial Rend', 'Spicy Extract', 'Springtide Storm', 'Steam Eruption', 'Surging Strikes', 'Tera Blast', 'Thunder Cage', 
+			'Thunderous Kick', 'Toxic', 'Triple Arrows', 'V-create', 'Victory Dance', 'Wicked Blow', 'Wicked Torque', 'Wildbolt Storm', 'Work Up'
+		],
 	},
 };
