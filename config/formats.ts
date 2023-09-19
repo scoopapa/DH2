@@ -1799,7 +1799,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['Dondozo','FEDD'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in Fusion Evolution.'];
 				}
@@ -1844,7 +1844,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['IDK'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return ['you forgor ' + set.species + ' doesnt exist.'];
 				}
@@ -1861,7 +1861,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['EF', 'IDK'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return ['you forgor ' + set.species + ' doesnt exist.'];
 				}
@@ -1994,7 +1994,7 @@ export const Formats: FormatList = [
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		banlist: ['Revival Blessing'],
 		validateSet(set, teamHas) { // stolen from SV Speculative
-			const species = this.dex.getSpecies(set.species);
+			const species = this.dex.species.get(set.species);
 			const ability = this.dex.getAbility(set.ability);
 			if (!set.hpType === 'Fairy' && !set.hpType === 'Normal') {
 				return this.validateSet(set, teamHas);
@@ -2012,7 +2012,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['RNG FE', 'RNG NFE', 'RNG LC'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in VGC by RNG.'];
 				}
