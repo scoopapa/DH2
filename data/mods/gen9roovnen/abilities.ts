@@ -873,10 +873,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onSwap(target) {
-				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status || target.moveSlots.some(moveSlot => moveSlot.pp < moveSlot.maxpp))) {
 					target.heal(target.maxhp);
 					target.clearStatus();
-					this.add('-heal', target, target.getHealth, '[from] ability: Warrior Spirit');
+					for (const moveSlot of target.moveSlots) {
+						moveSlot.pp = moveSlot.maxpp;
+					}
 					target.side.removeSlotCondition(target, 'warriorspirit');
 				}
 			},
