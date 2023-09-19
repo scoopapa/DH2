@@ -8410,7 +8410,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	miraidon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "AG",
 		doublesTier: "DUber",
 		natDexTier: "AG",
 	},
@@ -9153,7 +9153,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latakuno: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Uber",
+		tier: "AG",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -9181,7 +9181,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	guadock: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Uber",
+		tier: "AG",
 		doublesTier: "DUber",
 		natDexTier: "Uber",
 	},
