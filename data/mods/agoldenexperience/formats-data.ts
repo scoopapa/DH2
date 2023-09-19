@@ -4657,7 +4657,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	annihilape: {
 		tier: "OU",
-		doublesTier: "DUber",
+		doublesTier: "DOU",
 		//natDexTier: "OU",
 	},
 	walkingwake: {
