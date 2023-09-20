@@ -12,7 +12,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			atk: 1,
 		},
 		secondary: null,
-		target: "self",
+		target: "normal",
 		type: "Fighting",
 	},
 
