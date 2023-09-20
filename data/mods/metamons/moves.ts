@@ -175,7 +175,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				spd: -1,
 			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Ghost",
 		contestType: "Cool",

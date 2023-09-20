@@ -1315,8 +1315,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			doubleedge: ["1M"],
 			watergun: ["1M"],
 			bubblebeam: ["1M"],
-			icebeam: ["1M"],
-			blizzard: ["1M"],
+			thunder: ["1M"], // was ice beam, changed in 1.4 for an electric/dragon approach.
+			thunderbolt: ["1M"], // was blizzard, see above
 			hyperbeam: ["1M"],
 			submission: ["1M"],
 			counter: ["1M"],
@@ -1775,7 +1775,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 2},
 		],
 	},
-	kasanagi: {
+	pupal: {
 		learnset: {
 			harden: ["1L7"],
 		},

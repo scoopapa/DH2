@@ -99,6 +99,29 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 80, atk: 45, def: 52, spa: 92, spd: 79, spe: 106},
 	   abilities: {0: "Compound Eyes", 1: "Tinted Lens", H: "Multiscale"},
 	},
+	cloyster: {
+		inherit: true,
+		types: ["Water", "Steel"],
+		baseStats: {hp: 80, atk: 90, def: 165, spa: 80, spd: 70, spe: 50},
+	   abilities: {0: "Shell Armor", 1: "Water Veil", H: "Regenerator"},
+	},
+	gyarados: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 100, def: 107, spa: 70, spd: 92, spe: 71},
+	   abilities: {0: "Violent Abandon"},
+	},
+	gyaradosmega: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 125, def: 107, spa: 105, spd: 122, spe: 81},
+	   abilities: {0: "Violent Abandon"},
+		requiredItem: "",
+	},
+	tentacruel: {
+		inherit: true,
+		types: ["Dark", "Poison"],
+		baseStats: {hp: 80, atk: 50, def: 65, spa: 100, spd: 120, spe: 100},
+	   abilities: {0: "Tropical Current"},
+	},
 	// Minor Changes (mostly to prevent unevolved Pokemons in gen 1 to hold Eviolite)
 	golbat: {
 		inherit: true,

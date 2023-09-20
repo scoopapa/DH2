@@ -6,7 +6,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	/*
 	: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	*/
 
@@ -583,7 +582,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	kleavor: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	smoochum: {
 		tier: "BoE LC",
@@ -887,7 +885,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	farigiraf: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	pineco: {
 		tier: "BoE LC",
@@ -948,7 +945,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	ursaluna: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	slugma: {
 		tier: "BoE LC",
@@ -1009,7 +1005,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	wyrdeer: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	smeargle: {
 		tier: "BoE OU",
@@ -1046,31 +1041,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	clodsire: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	annihilape: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	wiglett: {
 		tier: "BoE LC",
-		isModded: true,
 	},
 	wugtrio: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	toedscool: {
 		tier: "BoE LC",
-		isModded: true,
 	},
 	toedscruel: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	dudunspare: {
 		tier: "BoE OU",
-		isModded: true,
 	},
 	poochyena: {
 		tier: "BoE LC",

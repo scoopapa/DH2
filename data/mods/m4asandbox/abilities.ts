@@ -592,13 +592,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
 		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hasType('Flying') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (!pokemon.knownType || pokemon.hasType('Flying')) {
 				pokemon.maybeTrapped = true;
 			}
@@ -1136,7 +1136,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.category === 'Status') continue;
 				const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
 				for (const target of pokemon.side.foe.active) {
-					if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
+					if (!target || target.fainted || !target.isAdjacent(pokemon)) continue;
 					if (
 						this.dex.getImmunity(moveType, target) && this.dex.getEffectiveness(moveType, target) > 0
 					) {
@@ -1165,44 +1165,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Acidic Surge",
 		rating: 4,
 		num: -30,
-	},
-	flowergift: {
-		desc: "If this Pokémon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Mega Meganium and Sunny Day is active, the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Cherrim or a Mega Meganium and it is holding Utility Umbrella, it remains in its regular form and the Attack and Special Defense stats of it and its allies are not boosted. If this Pokémon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokémon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form. If an ally is holding Utility Umbrella while Cherrim is in its Sunshine Form or Meganium is Mega Evolved, they will not receive the Attack and Special Defense boosts.",
-		shortDesc: "If user is Cherrim or Mega Meganium and Sunny Day is active: 1.5x ally team Atk and Sp. Def.",
-		onStart(pokemon) {
-			delete this.effectState.forme;
-		},
-		onUpdate(pokemon) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				if (pokemon.species.id !== 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
-				}
-			} else {
-				if (pokemon.species.id === 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
-				}
-			}
-		},
-		onAllyModifyAtkPriority: 3,
-		onAllyModifyAtk(atk, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' &&
-				this.effectState.target.species.name !== 'Meganium-Mega') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.5);
-			}
-		},
-		onAllyModifySpDPriority: 4,
-		onAllyModifySpD(spd, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' &&
-				this.effectState.target.species.name !== 'Meganium-Mega') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.5);
-			}
-		},
-		name: "Flower Gift",
-		rating: 1,
-		num: 122,
 	},
 	savage: {
 		desc: "This Pokémon's biting moves become multi-hit moves that hit three times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. Each hit's damage is cut to one third.",
@@ -1618,7 +1580,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, this Pokémon poisons every Pokémon on the field.",
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
-				if (!target || !this.isAdjacent(target, pokemon) || target.status) continue;
+				if (!target || !target.isAdjacent(pokemon) || target.status) continue;
 				if (target.hasAbility('soundproof')) {
 					this.add('-ability', pokemon, 'Acid Rock');
 					this.add('-immune', target, "[from] ability: Soundproof", "[of] " + target);
@@ -2724,7 +2686,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (target !== source && move.type === 'Fairy') {
 				let activated = false;
 				for (const ally of target.side.active) {
-					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!ally || (!ally.isAdjacent(target) && ally !== target)) continue;
 					if (!activated) {
 						this.add('-ability', target, 'Comedian', 'boost');
 						this.add('-message', `${target.name} is howling with laughter!`);
@@ -2744,7 +2706,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.type === 'Fairy') {
 				let activated = false;
 				for (const ally of target.side.active) {
-					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!ally || (!ally.isAdjacent(target) && ally !== target)) continue;
 					if (!activated) {
 						this.add('-ability', target, 'Comedian', 'boost');
 						this.add('-message', `${target.name} is howling with laughter!`);
@@ -2983,7 +2945,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			for (const target of this.getAllActive()) {
 				if (!target || target === pokemon) continue;
-				if (target.hasType('Steel') && this.isAdjacent(target, this.effectState.target)) {
+				if (target.hasType('Steel') && target.isAdjacent(this.effectState.target)) {
 					target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
 					this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Amalgam', '[of] ' + pokemon);
 					pokemon.heal(pokemon.baseMaxhp / 3);
@@ -3871,7 +3833,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
 				if (pokemon.side.getSideCondition(sideCondition)) {
 					for (const target of pokemon.side.foe.active) {
-						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!target || !target.isAdjacent(pokemon)) continue;
 						if (!activated) {
 							this.add('-ability', pokemon, 'Pounce', 'boost');
 							activated = true;
@@ -4015,7 +3977,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
 				if (pokemon.side.getSideCondition(sideCondition)) {
 					for (const target of pokemon.side.foe.active) {
-						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!target || !target.isAdjacent(pokemon)) continue;
 						if (!activated) {
 							this.add('-ability', pokemon, 'Booby Trap', 'boost');
 							activated = true;
