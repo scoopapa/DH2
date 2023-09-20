@@ -5,16 +5,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: "The standard ruleset for all offical Smogon singles tiers (Ubers, OU, etc.)",
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Terastal Clause', 'Min Source Gen = 3', 'Roovnen Move Dexits',
-		],
-	},
-	standarddoubles: {
-		effectType: 'ValidatorRule',
-		name: 'Standard Doubles',
-		desc: "The standard ruleset for all official Smogon doubles tiers",
-		ruleset: [
-			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Terastal Clause', 'Min Source Gen = 3',
+			'Terastal Clause', 'Min Source Gen = 9', 'Roovnen Move Dexits',
 		],
 	},
 	evasionitemsclause: {
@@ -76,8 +67,8 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			'Bitter Malice', 'Blazing Torque', 'Bleakwind Storm', 'Blood Moon', 'Ceaseless Edge', 'Celebrate', 'Chloroblast', 'Circle Throw', 'Combat Torque', 'Cut', 'Defend Order', 'Diamond Storm', 'Dire Claw', 
 			'Doodle', 'Dragon Energy', 'Dragon Rush', 'Drum Beating', 'Dynamax Cannon', 'Eerie Impulse', 'Electro Ball', 'Fairy Wind', 'Fiery Wrath', 'Fire Lash', 'Force Palm', 'Freezing Glare', 'Glacial Lance', 
 			'Glare', 'Happy Hour', 'Heal Bell', 'Heal Order', 'Hold Hands', 'Hyperspace Fury', 'Hyperspace Hole', 'Inferno', 'Infernalparade', 'Jet Punch', 'Lunar Blessing', 'Lunar Dance', 'Magic Room', 'Magical Torque', 
-			'Magma Storm', 'Mortal Spin', 'Mud Shot', 'Mystical Power', 'Night Daze', 'No Retreat', 'Noxious Torque', 'Order Up', 'Origin Pulse', 'Pay Day', 'Poison Powder', 'Precipice Blades', 'Present', 'Psyshield Bash', 
-			'Relic Song', 'Roar of Time', 'Sandsear Storm', 'Shadow Force', 'Sludge Wave', 'Snipe Shot', 'Spacial Rend', 'Spicy Extract', 'Springtide Storm', 'Steam Eruption', 'Surging Strikes', 'Tera Blast', 'Thunder Cage', 
+			'Magma Storm', 'Mortal Spin', 'Mud Shot', 'Mystical Power', 'Night Daze', 'No Retreat', 'Noxious Torque', 'Order Up', 'Origin Pulse', 'Pay Day', 'Precipice Blades', 'Present', 'Psyshield Bash', 'Relic Song', 
+			'Roar of Time', 'Sandsear Storm', 'Shadow Force', 'Sludge Wave', 'Snipe Shot', 'Spacial Rend', 'Spicy Extract', 'Spore', 'Springtide Storm', 'Steam Eruption', 'Surging Strikes', 'Tera Blast', 'Thunder Cage', 
 			'Thunderous Kick', 'Toxic', 'Triple Arrows', 'V-create', 'Victory Dance', 'Wicked Blow', 'Wicked Torque', 'Wildbolt Storm', 'Work Up'
 		],
 	},

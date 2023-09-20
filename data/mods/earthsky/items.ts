@@ -372,6 +372,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Protects from an increased priority move. When Flung, -2 accuracy. Single use.",
 		block: '#damp',
 	},
+	cornerstonemask: {
+		name: "Cornerstone Mask",
+		spritenum: 758,
+		forcedForme: "Ogerpon-Cornerstone",
+		itemUser: ["Ogerpon-Cornerstone"],
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		num: 2406,
+		gen: 9,
+	},
 	dragonscale: {
 		inherit: true,
 		onModifyDefPriority: 2,
@@ -424,6 +436,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 316,
 		gen: 4,
 		desc: "Reduces all allies' speed by 25%.",
+	},
+	hearthflamemask: {
+		name: "Hearthflame Mask",
+		spritenum: 760,
+		forcedForme: "Ogerpon-Hearthflame",
+		itemUser: ["Ogerpon-Hearthflame"],
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		num: 2408,
+		gen: 9,
 	},
 	iapapaberry: {
 		inherit: true,
@@ -781,6 +805,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Prevents Egg Bomb, Explosion, Mind Blown, Napalm, Searing Shot, Self-Destruct, Shell Trap, and the Aftermath Ability from having an effect.",
 		shortDesc: "Prevents explosion-based moves and Abilities.",
+	},
+	wellspringmask: {
+		name: "Wellspring Mask",
+		spritenum: 759,
+		forcedForme: "Ogerpon-Wellspring",
+		itemUser: ["Ogerpon-Wellspring"],
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		num: 2407,
+		gen: 9,
 	},
 	whippeddream: {
 		inherit: true,
@@ -2240,13 +2276,34 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		consumable: true,
 	},
 	/* Deleted items*/
-	adamantcrystal: null,
-	griseouscore: null,
-	luckypunch: null,
-	lustrousglobe: null,
-	punchingglove: null,
-	throatspray: null,
-	utilityumbrella: null,
+	adamantcrystal: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	griseouscore: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	luckypunch: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	lustrousglobe: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	punchingglove: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	throatspray: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	utilityumbrella: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
 	/* idk why these items are coded, but they're changed too! */
 	diveball: {
 		inherit: true,

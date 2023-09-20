@@ -393,7 +393,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	raindance: {
 		inherit: true,
 		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water' || (move.twoType && move.twoType === 'Water')) {
 				this.debug('rain water boost');
 				return this.chainModify(1.5);

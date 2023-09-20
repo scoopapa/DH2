@@ -375,7 +375,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Water Compaction",
-		shortDesc: "This Pokemon's Defense is raised 2 stages when hit by a Water-type move; Water immunity.",
+		shortDesc: "This Pokemon's Defense is raised by 2 when hit by a Water-type move; Water immunity.",
 		rating: 1.5,
 		num: 195,
 	},
@@ -421,7 +421,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Plot Twist",
-		shortDesc: "Upon entry, this Pokemon doubles and inverts all Pokemon's stat changes.",
+		shortDesc: "Upon entry, this Pokemon inverts all Pokemon's stat changes.",
 		rating: 3.5,
 		num: 308,
 	},
@@ -566,7 +566,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Maternal Power",
-		shortDesc: "This Pokemon's damaging moves hit thrice. The second and third hit have their power third.",
+		shortDesc: "This Pokemon's damaging moves hit thrice. Second and third hit have 1/3 power.",
 		rating: 3.5,
 		num: 314,
 	},
@@ -609,9 +609,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			pokemon.addVolatile('dashhappy');
 		},
-		onEnd(pokemon) {
-			this.add('-end', pokemon, 'Dash Happy');
-		},
 		onUpdate(pokemon) {
 			if (!pokemon.volatiles['dashhappy']) {
 				pokemon.addVolatile('dashhappy');
@@ -619,13 +616,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 3,
-			onStart(target) {
-				this.add('-start', target, 'ability: Dash Happy');
-			},
 			onEnd(target) {
-				this.add('-end', target, 'Dash Happy');
 				this.add('-message', `${target.name} is ready to dash!`);
 				this.actions.useMove("Dash", target);
+				pokemon.removeVolatile('dashhappy');
 			},
 		},
 		name: "Dash Happy",
@@ -675,11 +669,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	energybody: {
 		onUpdate(pokemon) {
+			let factor = 0.667;
 			if (this.effectState.energybody) return;
-			if (pokemon.hp <= pokemon.maxhp / 4) {
+			if (pokemon.hp <= pokemon.maxhp / 4 && !this.effectState.energybody) {
+				this.heal(this.modify(pokemon.maxhp, factor));
 				this.effectState.energybody = true;
-				this.add('-activate', pokemon, 'ability: Energy Body');
-				pokemon.heal(pokemon.baseMaxhp / 3 * 2);
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -879,9 +873,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onSwap(target) {
-				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status || target.moveSlots.some(moveSlot => moveSlot.pp < moveSlot.maxpp))) {
 					target.heal(target.maxhp);
 					target.clearStatus();
+					for (const moveSlot of target.moveSlots) {
+						moveSlot.pp = moveSlot.maxpp;
+					}
 					this.add('-heal', target, target.getHealth, '[from] ability: Warrior Spirit');
 					target.side.removeSlotCondition(target, 'warriorspirit');
 				}
@@ -898,7 +895,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Challenger');
 		},
 		onAnyTryMove(target, source, effect) {
-			if (effect.id === 'prepareattack' && ['yorlator', 'mranovo', 'curtowal'].includes(target.species.id)) return;
+			if (effect.id === 'prepareattack' || effect.id === 'preparechallenge' || effect.id === 'preparedefense') return;
 			if (effect.category === 'Status') {
 				this.attrLastMove('[still]');
 				this.add('cant', this.effectState.target, 'ability: Challenger', effect, '[of] ' + target);
