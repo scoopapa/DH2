@@ -4,6 +4,9 @@ export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen2',
 	gen: 2,
 
+	teambuilderConfig: {
+		specialTypes: ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psychic', 'Dark', 'Dragon', 'Cosmic'],
+	},
 
 	init() {
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon', 'Cosmic'];
@@ -370,7 +373,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let lacksTarget = !target || target.fainted;
 			if (!lacksTarget) {
 				if (['adjacentFoe', 'adjacentAlly', 'normal', 'randomNormal'].includes(move.target)) {
-					lacksTarget = !this.isAdjacent(target, pokemon);
+					lacksTarget = !target.isAdjacent(pokemon);
 				}
 			}
 			if (lacksTarget && !move.isFutureMove) {

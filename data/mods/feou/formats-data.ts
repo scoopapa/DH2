@@ -247,12 +247,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["icebeam", "sludgewave", "focusblast", "nastyplot"],
 		randomBattleLevel: 75,
 	},
-	crygargonal: {
-		tier: "FEOU",
-		doublesTier: "DOU",
-		randomBattleMoves: ["icebeam", "sludgewave", "focusblast", "nastyplot"],
-		randomBattleLevel: 75,
-	},
 	crygargonalmega: {
 		tier: "Uber",
 		doublesTier: "DOU",

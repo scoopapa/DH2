@@ -68,6 +68,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	bloodmoon: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	ceaselessedge: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -105,10 +109,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: "Past",
 	},
 	doodle: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	doubleshock: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
@@ -200,10 +200,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	lumninacrash: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 	lunarblessing: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -260,10 +256,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	poisonpowder: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 	precipiceblades: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -273,10 +265,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: "Past",
 	},
 	psyshieldbash: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	pyroball: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
@@ -390,14 +378,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	clangingscales: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	clangoroussoul: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	conversion: {
 		inherit: true,
 		isNonstandard: null,
@@ -407,6 +387,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	coreenforcer: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	doubleironbash: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -731,7 +715,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerbug: {
 		inherit: true,
@@ -744,7 +728,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerdark: {
 		inherit: true,
@@ -757,7 +741,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerdragon: {
 		inherit: true,
@@ -770,7 +754,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerelectric: {
 		inherit: true,
@@ -783,7 +767,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerfighting: {
 		inherit: true,
@@ -796,7 +780,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerfire: {
 		inherit: true,
@@ -809,7 +793,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerflying: {
 		inherit: true,
@@ -822,7 +806,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerghost: {
 		inherit: true,
@@ -835,7 +819,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowergrass: {
 		inherit: true,
@@ -848,10 +832,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerground: {
 		inherit: true,
+		isNonstandard: null,
 		onTryMove(pokemon, target, move) {
 			if (pokemon.species.name === 'Unown' || pokemon.species.name === 'Uninown' || move.hasBounced) {
 				return;
@@ -860,7 +845,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerice: {
 		inherit: true,
@@ -873,7 +858,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerpoison: {
 		inherit: true,
@@ -886,7 +871,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerpsychic: {
 		inherit: true,
@@ -899,7 +884,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerrock: {
 		inherit: true,
@@ -912,7 +897,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowersteel: {
 		inherit: true,
@@ -925,7 +910,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	hiddenpowerwater: {
 		inherit: true,
@@ -938,7 +923,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Unown or Uninown can use this move.");
 			return null;
 		},
-		shortDesc: "This move will fail unless used by Unown or Uninown.",
+		shortDesc: "This move fails unless used by Unown or Uninown.",
 	},
 	icefang: {
 		inherit: true,
@@ -1009,7 +994,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	meteorbeam: {
 		inherit: true,
-		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2. 1 turn in sand.",
+		shortDesc: "+1 SpA on turn 1. Hits turn 2. 1 turn in sand.",
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -1088,7 +1073,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	solarbeam: {
 		inherit: true,
-		shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2. 1 turn in sun.",
+		shortDesc: "+1 SpA on turn 1. Hits turn 2. 1 turn in sun.",
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -1106,12 +1091,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-		onBasePower(basePower, pokemon, target) {
-			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'hail', 'snow'];
-			if (weakWeathers.includes(pokemon.effectiveWeather())) {
-				this.debug('weakened by weather');
-				return this.chainModify(0.5);
+	},
+	solarblade: {
+		inherit: true,
+		shortDesc: "+1 Atk on turn 1. Hits turn 2. 1 turn in sun.",
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
 			}
+			this.add('-prepare', attacker, move.name);
+			this.boost({atk: 1}, attacker, attacker, move);
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
 		},
 	},
 	stealthrock: {
@@ -1420,7 +1419,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Restores 1/8 of the user's max HP each turn. If no terrain: +1 in all stats.",
+		shortDesc: "Each turn: Heals 1/8. No terrain: +1 in all stats.",
 		name: "Happy Living",
 		pp: 20,
 		priority: 0,
@@ -1479,7 +1478,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Raises Damage ↑ Next and a stat, depending on user, by 1.",
+		shortDesc: "Raises Damage ↑ Next and a stat by 1.",
 		name: "Prepare Attack",
 		pp: 20,
 		priority: 0,
@@ -1555,7 +1554,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		shortDesc: "Prevents user and target from switching out. Poisons both.",
+		shortDesc: "User & Target: Cannot switch. Poisons both.",
 		name: "Venom Grip",
 		pp: 10,
 		priority: 0,
@@ -1585,7 +1584,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Physical",
-		shortDesc: "This move does double damage against airbone Pokemon.",
+		shortDesc: "Power doubles against airbone Pokemon.",
 		name: "Soaring Assault",
 		pp: 10,
 		priority: 0,
@@ -1640,7 +1639,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Next turn, active Pokemon on the user's side switch out.",
+		shortDesc: "Next turn, active Pokemon switch out.",
 		name: "Backup Call",
 		pp: 20,
 		priority: 0,
@@ -1672,7 +1671,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 80,
 		category: "Physical",
-		shortDesc: "The defense of the user and the target are lowered by 1 stage.",
+		shortDesc: "Lowers defense of user and target by 1 stage.",
 		name: "Fair Deal",
 		pp: 20,
 		priority: 0,
@@ -1770,7 +1769,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "If Steel type: Looses Steel type; Cures status; +1/4 max HP.",
+		shortDesc: "Steel: Looses type; Cures status; +1/4 max HP.",
 		name: "Derust",
 		pp: 10,
 		priority: 0,
@@ -1804,7 +1803,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Heals 33%, 66% in Sun. +1 SpA, +2 in Electric Terrain.",
+		shortDesc: "Heals 33%, Sun: 66%, +1 SpA, Electric Terrain: +2.",
 		name: "Light Absorption",
 		pp: 5,
 		priority: 0,
@@ -1833,14 +1832,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "self",
-		type: "Normal",
+		type: "Electric",
 	},
 	basaltlayer: {
 		num: 942,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Removes hazards and terrain. For 3 turns, cannot be set-up.",
+		shortDesc: "Removes hazards and terrain. 3 turns: cannot be set-up.",
 		name: "Basalt Layer",
 		pp: 20,
 		priority: 0,
@@ -1904,7 +1903,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Puts every active Pokemon to sleep two turns after being used.",
+		shortDesc: "2 turns after: Puts active Pokemon to sleep.",
 		name: "Hour Glass",
 		pp: 5,
 		priority: 0,
@@ -2022,7 +2021,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 400,
 		category: "Physical",
-		shortDesc: "Only damages the target if it shares types with the user.",
+		shortDesc: "Hits Pokemon sharing the user's type.",
 		name: "Risky Way",
 		pp: 5,
 		priority: 0,
@@ -2046,7 +2045,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 80,
 		basePower: 150,
 		category: "Physical",
-		shortDesc: "Has 33% recoil. User takes 0.5x damage until its next move.",
+		shortDesc: "33% recoil. User: 0.5x damage until next move.",
 		name: "Body Charge",
 		pp: 5,
 		priority: 0,
@@ -2082,7 +2081,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 95,
 		category: "Physical",
-		shortDesc: "Targets opponent's lower defensive stat. Lowers that stat.",
+		shortDesc: "Targets opponent's lower stat and lowers it.",
 		name: "Mind Claw",
 		pp: 10,
 		priority: 0,
@@ -2120,7 +2119,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
-		shortDesc: "Crits & Ignores abilities. Stoleagle: Switches; Switch uses move.",
+		shortDesc: "Crits/Ignores abilities. Stoleagle: Switch uses move.",
 		name: "Spirit Roar",
 		pp: 15,
 		priority: 0,

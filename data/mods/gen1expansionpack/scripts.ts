@@ -17,4 +17,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			(this.data.Pokedex[i] as any).eggGroups = null;
 		}
 	},
+	teambuilderConfig: {
+		rbyTradebacks: true,
+		specialTypes: ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psychic', 'Dark', 'Dragon', 'Fairy'],
+	},
 };
