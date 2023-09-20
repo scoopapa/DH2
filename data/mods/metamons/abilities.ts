@@ -109,7 +109,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Unnerve', 'boost');
 					activated = true;
@@ -216,7 +216,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
 			)) ||
 			pokemon.species.id !== 'jellicent') {
 				this.effectState.gaveUp = true;
@@ -225,7 +225,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
 			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -321,11 +321,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Dancer",
 		// implemented in runMove in scripts.js
 	   onModifyMove(move) {
-	      if (!move.flags['dance']) return;
+	      if (!move.flags['dance'] || move.category === 'Status') return;
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
-			  move.category = 'Physical';
+			  move.category === 'Physical';
 			} else if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
-		     move.category = 'Special';
+		     move.category === 'Special';
 			}
 		},
 		rating: 1.5,

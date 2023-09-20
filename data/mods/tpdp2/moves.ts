@@ -1096,13 +1096,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		priority: 0,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
+		volatileStatus: 'callofthedead',
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Destiny Bond", target);
-		},
-		volatileStatus: 'callofthedead',
-		onPrepareHit(pokemon) {
-			return !pokemon.removeVolatile('callofthedead');
+			return !target.removeVolatile('callofthedead');
 		},
 		condition: {
 			onStart(pokemon) {
@@ -1551,8 +1549,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target, source, move) {
 			if (!target.setStatus('stp', source, move)) return false;
-			target.statusData.time = 3;
-			target.statusData.startTime = 3;
+			target.statusState.time = 3;
+			target.statusState.startTime = 3;
 			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
 	},
@@ -3176,13 +3174,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		priority: 4,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
+		volatileStatus: 'falsecourage',
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Endure", target);
-		},
-		volatileStatus: 'falsecourage',
-		onPrepareHit(pokemon) {
-			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
@@ -10536,13 +10532,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		priority: 4,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Protect", target);
-		},
+
 		stallingMove: true,
 		volatileStatus: 'supernaturalborder',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -10896,13 +10891,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		priority: 4,
 		flags: {},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Spiky Shield", target);
-		},
 		stallingMove: true,
 		volatileStatus: 'thornedivy',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spiky Shield", target);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {

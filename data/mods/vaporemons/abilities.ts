@@ -228,7 +228,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sandforce: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('sandstorm') || attacker.hasItem('sandclock')) {
+			if (this.field.isWeather('sandstorm')) {
 				this.debug('Sand Force boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -1236,28 +1236,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ice Body",
 		rating: 1,
 		num: 115,
-	},
-	slushrush: {
-		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['hail', 'snow']) || pokemon.hasItem('snowglobe')) {
-				return this.chainModify(2);
-			}
-		},
-		name: "Slush Rush",
-		rating: 3,
-		num: 202,
-	},
-	sandrush: {
-		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('sandstorm') || pokemon.hasItem('sandclock')) {
-				return this.chainModify(2);
-			}
-		},
-		onImmunity(type, pokemon) {
-			if (type === 'sandstorm') return false;
-		},
-		name: "Sand Rush",
-		rating: 3,
-		num: 146,
 	},
 };

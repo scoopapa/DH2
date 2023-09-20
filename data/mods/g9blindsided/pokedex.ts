@@ -1059,8 +1059,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	sailgoshi: {
 		num: 1043,
 		name: "Sail-Goshi",
-		baseSpecies: "Sail",
-		forme: "Goshi",
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 130, atk: 60, def: 32, spa: 45, spd: 56, spe: 85},
 		abilities: {0: "Simple"},

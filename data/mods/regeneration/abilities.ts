@@ -192,4 +192,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's moves have 10% more power for each fainted foe, up to 5 foes.",
 		rating: 3.5,
 	},
+	violentabandon: {
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target && pokemon.baseSpecies.baseSpecies !== 'Gyarados' || pokemon.transformed) return;
+				if (pokemon.species.forme !== 'Mega') {
+					pokemon.formeChange('Gyarados-Mega');
+		      }
+		},
+		onTakeItem(item, pokemon) {
+			if (pokemon !== this.effectState.target && pokemon.baseSpecies.baseSpecies !== 'Gyarados' || pokemon.transformed) return;
+				if (pokemon.species.forme !== 'Mega') {
+					pokemon.formeChange('Gyarados-Mega');
+			   }
+		},
+		isPermanent: true,
+		name: "Violent Abandon",
+		shortDesc: "This Pokemon transforms into Mega Gyarados whenever its item is used or lost.",
+		rating: 3.5,
+		num: 84,
+	},
+	tropicalcurrent: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'brn') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		name: "Tropical Current",
+		shortDesc: "This Pokemon restored 1/8 of its max HP per turn if it's burned. Ignores burn attack drop.",
+		rating: 4,
+		num: 90,
+	},
 };
