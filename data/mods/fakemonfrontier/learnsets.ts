@@ -1567,7 +1567,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		shadowclaw: ["7L1"],
 		shadowsneak: ["7L1"],
 		sludgebomb: ["7L1"],
-		sludgewave??: ["7L1"],
+		sludgewave: ["7L1"],
 		snore: ["7L1"],
 		solarbeam: ["7L1"],
 		suckerpunch: ["7L1"],
