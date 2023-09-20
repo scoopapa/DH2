@@ -2402,10 +2402,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		const baseNine = [ //Pokemon using their Gen IX learnsets as a base
 			"wooper", "wooperpaldea", "quagsire", "basculin", "basculinbluestriped", "basculinwhitestriped", "rowlet", "dartrix", "decidueye", "decidueyehisui", "indeedee", "indeedeef", "kleavor"
 		];
-		/*const deletedItems = [
+		const deletedItems = [
 			"adamantcrystal", "griseouscore", "luckypunch", "lustrousglobe", "punchingglove", "throatspray", "utilityumbrella",
 		];
-		const deletedAbilities = [
+		/*const deletedAbilities = [
 			"angershell", "asoneglastrier", "asonespectrier", "battlebond", "chillingneigh", "curiousmedicine", "dragonsmaw", "gorillatactics", "grimneigh", "libero", "lingeringaroma", "mirrorarmor", "perishbody", "punkrock", "steelyspirit", "supremeoverlord", "transistor", "unseenfist", "wellbakedbody",
 		];*/
 		const renamedAbilities = [
@@ -2714,11 +2714,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if(itemID.startsWith('tr')) delete item.fling; //TRs can't be Flung anymore.
 		}
-		/*for(const itemID of deletedItems) {
+		for(const itemID of deletedItems) {
 			//delete this.modData('Items', itemID);
-			const item = this.modData('Items', itemID);
-			item.isNonstandard = "Past";
-		}*/
+			this.modData('Items', itemID).isNonstandard = "Unobtainable";
+		}
 		
 		/* individual Pokemon moveset edits */
 		// Bulbasaur

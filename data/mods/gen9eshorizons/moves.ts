@@ -850,7 +850,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			volatileStatus: 'telekinesis',
 		},
 		desc: "After dealing damage, the target is made unable to avoid any attacks made against it, other than OHKO moves, for the next three turns as long as it remains active. During the effect, the target is also immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability for the next three turns. If the target uses Baton Pass, the replacement will gain the effect. Gravity, Smack Down, and an Iron Ball will remove this status if the user is under any of their effects. The effect will not be applied if the user is under the effects of Gravity or Ingrain, or if the user's Ability is Heavy Metal or Suction Cups. While floating in this manner, the moves Dig, Dive, Ingrain, and Roost will fail.",
-		shortDesc: "Hits adjacent foes. Targets then float and moves can't miss them.",
+		shortDesc: "Hits adjacent foes. Targets float, moves can't miss them.",
 		target: "allAdjacentFoes",
 		type: "Flying",
 		contestType: "Beautiful",
@@ -1572,6 +1572,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		isViable: true,
 		desc: "If the user is a breed of Paldean Tauros, this move's type changes to match: Fire type for Blaze Breed, and Water type for Aqua Breed.",
 		shortDesc: "Type depends on user's form.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Raging Bull", target);
+		},
 	},
 	captivate: {
 		num: 445,
@@ -1639,7 +1643,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		num: 892,
 		name: "Complete Shock",
 		accuracy: 100,
-		basePower: 140,
+		basePower: 130,
 		category: "Physical",
 		pp: 5,
 		priority: 0,
@@ -1662,7 +1666,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Clever",
 		isViable: true,
-		desc: "Fails unless the user is an Electric type. If this move is successful and the user is not Terastallized, the user's Electric type becomes typeless as long as it remains active.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Double Shock", target);
+		},
+		desc: "Fails unless the user is an Electric type. If this move is successful and the user's Ability isn't Teravolt, the user's Electric type becomes typeless as long as it remains active.",
 		shortDesc: "User's Electric type: typeless; must be Electric.",
 	},
 	confusion: {
@@ -2100,7 +2108,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		twoType: "Electric",
-				isViable: true,
+		isViable: true,
 		shortDesc: "Dual-typed Psychic and Electric move.",
 		desc: "This move is both Psychic and Electric typed. It uses combined type effectiveness, receives STAB from both types (potentially stacking), and is included in effects that boost/reduce/negate/react to damage from either type.",
 		onPrepareHit: function(target, source, move) {
@@ -2128,6 +2136,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return this.chainModify(2);
 			}
 		},
+		desc: "Power doubles if the user is burned, paralyzed, poisoned, or asleep. The physical damage halving effect from the user's burn is ignored.",
+		shortDesc: "Power doubles if burned/poisoned/paralyzed/asleep.",
 	},
 	fairylock: {
 		inherit: true,
@@ -4052,6 +4062,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	roost: {
 		inherit: true,
+		pp: 10,
 		onTryMove(pokemon){
 			if(!pokemon.isGrounded() && (pokemon.volatiles['magnetrise'] || pokemon.volatiles['risingchorus'] || pokemon.volatiles['telekinesis'] || (!pokemon.ignoringItem() && pokemon.getItem() === 'airballoon'))) return false;
 		},
@@ -4064,7 +4075,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHitField(target, source) {
 			let success = false;
 			const removeAll = [
-				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb'
 			];
 			for (const sideCondition of removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
@@ -5202,6 +5213,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 		isViable: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Outrage");
+		},
 		desc: "Power is equal to 50+(X*50), where X is the total number of times the user has been hit by a damaging attack since it was sent out, even if the user did not lose HP from the attack. Each hit of a multi-hit attack is counted, but confusion damage is not counted.",
 		shortDesc: "+50 power for each time user was hit. Resets on switch/faint.",
 	},
@@ -5489,6 +5504,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Burn Up');
 			},
 		},
+		desc: "Fails unless the user is a Fire type. If this move is successful and the user's Ability isn't Turboblaze, the user's Fire type becomes typeless as long as it remains active.",
 	},
 	charge: {
 		inherit: true,

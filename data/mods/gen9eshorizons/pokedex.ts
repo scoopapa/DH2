@@ -2586,6 +2586,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Justified", H: "Scrappy"},
 	},
+	keldeoresolute: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Scrappy"},
+	},
 	meloettapirouette: {
 		num: 648,
 		name: "Meloetta-Pirouette",
