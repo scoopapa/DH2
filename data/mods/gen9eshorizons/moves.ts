@@ -113,7 +113,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Grass",
 		contestType: "Tough",
 		desc: "If the user is holding a Tart Apple or is Flapple, has a 100% chance to lower the target's Defense by 1 stage. If the user is holding a Sweet Apple or is Appletun, has a 100% chance to lower the target's Special Defense by 1 stage. If the user is holding a Syrupy Apple or is Dipplin, has a 100% chance to lower the target's Speed by 1 stage. Holding an item overrides the species. If none of the above, has no secondary effect.",
-		shortDesc: "Tart/Flapple: Def -1, Sweet/Appletun: SpD -1, Syrup/Dipplin: Spe -1.",
+		shortDesc: "Lowers a stat by 1 depending on held Apple/user.",
 				isViable: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
