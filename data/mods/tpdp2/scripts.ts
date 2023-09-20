@@ -171,16 +171,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!type || type === '???') return true;
 			// Nihilslave: i think tpdp types can be recognized by this?
 			if (!this.battle.dex.types.isName(type)) {
-				if (type === 'Void'|| 
-					type === 'Nature' || 
-					type === 'Earth' ||
-					type === 'Wind' ||
-					type === 'Light' ||
-					type === 'Nether' ||
-					type === 'Illusion' ||
-					type === 'Sound' ||
-					type === 'Warped' ||
-					type === 'Dream') return true;
 				throw new Error("Use runStatusImmunity for " + type);
 			}
 			if (this.fainted) return false;
