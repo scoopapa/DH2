@@ -11772,17 +11772,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','ogerpon').learnset.secretpower = ["9M"];
 		this.modData('Learnsets','ogerpon').learnset.synthesis = ["9M"];
 		// Ogerpon Wellspring
-		this.modData('Learnsets','ogerponwellspring') = Utils.deepClone(this.modData('Learnsets','ogerpon'));
-		this.modData('Learnsets','ogerponwellspring').learnset.wavecrash = ["9D"];
-		delete this.modData('Learnsets','ogerponwellspring').learnset.highjumpkick;
+		// this.modData('Learnsets','ogerponwellspring') = Utils.deepClone(this.modData('Learnsets','ogerpon'));
+		// this.modData('Learnsets','ogerponwellspring').learnset.wavecrash = ["9D"];
+		// delete this.modData('Learnsets','ogerponwellspring').learnset.highjumpkick;
 		// Ogerpon Hearthflame
-		this.modData('Learnsets','ogerponhearthflame') = Utils.deepClone(this.modData('Learnsets','ogerpon'));
-		this.modData('Learnsets','ogerponhearthflame').learnset.flareblitz = ["9D"];
-		delete this.modData('Learnsets','ogerponhearthflame').learnset.highjumpkick;
+		// this.modData('Learnsets','ogerponhearthflame') = Utils.deepClone(this.modData('Learnsets','ogerpon'));
+		// this.modData('Learnsets','ogerponhearthflame').learnset.flareblitz = ["9D"];
+		// delete this.modData('Learnsets','ogerponhearthflame').learnset.highjumpkick;
 		// Ogerpon Cornerstone
-		this.modData('Learnsets','ogerponcornerstone') = Utils.deepClone(this.modData('Learnsets','ogerpon'));
-		this.modData('Learnsets','ogerponcornerstone').learnset.headsmash = ["9D"];
-		delete this.modData('Learnsets','ogerponcornerstone').learnset.highjumpkick;
+		// this.modData('Learnsets','ogerponcornerstone') = Utils.deepClone(this.modData('Learnsets','ogerpon'));
+		// this.modData('Learnsets','ogerponcornerstone').learnset.headsmash = ["9D"];
+		// delete this.modData('Learnsets','ogerponcornerstone').learnset.highjumpkick;
 
 		// Syclar
 		this.modData('Learnsets','syclar').learnset.firstimpression = ["9D"];
