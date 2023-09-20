@@ -1799,7 +1799,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['Dondozo','FEDD'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in Fusion Evolution.'];
 				}
@@ -1844,7 +1844,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['IDK'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return ['you forgor ' + set.species + ' doesnt exist.'];
 				}
@@ -1861,7 +1861,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['EF', 'IDK'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return ['you forgor ' + set.species + ' doesnt exist.'];
 				}
@@ -1959,8 +1959,18 @@ export const Formats: FormatList = [
 		],
 		mod: "scootopia",
 		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
-		// banlist: ['All Pokemon'],
-		// unbanlist: ['Orchile', 'Dolphena', 'Scalaron', 'Rantler', 'Cobracotta', 'Albatrygon', 'Electangle', 'Torgeist', 'Platypad', 'Soleron', 'Nunopod', 'Zeploom', 'Brawnkey', 'Salamalix', 'Cinnastar', "Muab'Boa", 'Volvolpa', 'Harzodia', 'Cyllindrake', 'Kodokai', 'Jaegorm', 'Jaegorm-Collective', 'Faerenheit', 'Cellsius', 'Kelven', 'Salaos', 'Morndos', 'Pythos', 'Quadringo', 'Corundell', 'Flocura' ],
+		banlist: ['All Pokemon'],
+		unbanlist: ['Orchile', 'Dolphena', 'Scalaron', 'Rantler', 'Cobracotta', 'Albatrygon', 'Electangle', 'Torgeist', 'Platypad', 'Soleron', 'Nunopod', 'Zeploom', 'Brawnkey', 'Salamalix', 'Cinnastar', "Muab'Boa", 'Volvolpa', 'Harzodia', 'Cyllindrake', 'Kodokai', 'Jaegorm', 'Jaegorm-Collective', 'Faerenheit', 'Cellsius', 'Kelven', 'Salaos', 'Morndos', 'Pythos', 'Quadringo', 'Corundell', 'Flocura' ],
+	},
+	{
+		name: "[Gen 9] Super Types OU",
+		desc: "The Super Type mechanic from Scootopia, only it's applied to current gen 9 OU.",
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit#gid=1291687635">Types + Moves Explained</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1khgnzqe3xldhLw1LbfjyYDcsltZrgyo8by4Y8EDE4vQ/edit#gid=894228879">List of Defensive Type Combos</a>`,
+		],
+		mod: "supertypesou",
+		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod'],
 	},
 	{
 		name: "[Gen 8] The 3-3-1 Typechart",
@@ -1984,7 +1994,7 @@ export const Formats: FormatList = [
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		banlist: ['Revival Blessing'],
 		validateSet(set, teamHas) { // stolen from SV Speculative
-			const species = this.dex.getSpecies(set.species);
+			const species = this.dex.species.get(set.species);
 			const ability = this.dex.getAbility(set.ability);
 			if (!set.hpType === 'Fairy' && !set.hpType === 'Normal') {
 				return this.validateSet(set, teamHas);
@@ -2002,7 +2012,7 @@ export const Formats: FormatList = [
 			let speciesTable = {};
 			let allowedTiers = ['RNG FE', 'RNG NFE', 'RNG LC'];
 			for (const set of team) {
-				let template = this.dex.getSpecies(set.species);
+				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in VGC by RNG.'];
 				}

@@ -79,10 +79,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onHit(target) {
-			if (target.status) target.cureStatus();
-		},
 		onHit(target, source) {
+			if (target.status) target.cureStatus();
 			if (target.volatiles['leechseed']) target.removeVolatile('leechseed', source);
 		},
 		onPrepareHit(target, source, move) {

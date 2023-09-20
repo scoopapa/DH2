@@ -8582,7 +8582,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			surf: ["7M"],
 			terrainpulse: ["7T"],
 			uproar: ["7M"],
-
 		},
 	},
 	braviaryhisui: {

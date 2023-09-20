@@ -3511,7 +3511,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
 			}
 		},
-		condition: {},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
