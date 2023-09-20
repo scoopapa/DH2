@@ -300,6 +300,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
+	spore: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	springtidestorm: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -648,6 +652,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	hammerarm: {
 		inherit: true,
+		accuracy: 100,
 		basePower: 120,
 		pp: 5,
 	},
@@ -1145,7 +1150,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasAbility('ignorance')) return;
 				for (const moveSlot of pokemon.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.id);
-					if (move.id === 'prepareattack' && ['yorlator', 'mranovo', 'curtowal'].includes(pokemon.species.id)) return;
+					if (move.id === 'prepareattack' || move.id === 'preparechallenge' || move.id === 'preparedefense') return;
 					if (move.category === 'Status' && move.id !== 'mefirst') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -1478,23 +1483,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Raises Damage ↑ Next and a stat by 1.",
+		shortDesc: "Raises Damage ↑ Next, Special Attack and Accuracy by 1.",
 		name: "Prepare Attack",
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
 		volatileStatus: 'prepareattack',
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (pokemon.baseSpecies.baseSpecies === 'Yorlator') {
-				this.boost({spa: 1}, pokemon, pokemon);
-			}
-			if (pokemon.baseSpecies.baseSpecies === 'Mranovo') {
-				this.boost({atk: 1}, pokemon, pokemon);
-			}
-			if (pokemon.baseSpecies.baseSpecies === 'Curtowal') {
-				this.boost({def: 1, spd: 1}, pokemon, pokemon);
-			}
-		},
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
@@ -1527,13 +1521,124 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bulk Up", target);
+			this.add('-anim', source, "Geomancy", target);
+		},
+		boosts: {
+			spa: 1,
+			accuracy: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+	},
+	preparechallenge: {
+		num: 932,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises Damage ↑ Next, Attack and Speed by 1.",
+		name: "Prepare Challenge",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'preparechallenge',
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Prepare Challenge');
+			},
+			onRestart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Prepare Challenge');
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.category !== 'Status') {
+					this.debug('PA boost');
+					return this.chainModify(1.25);
+				}
+			},
+			onMoveAborted(pokemon, target, move) {
+				if (move.category !== 'Status') {
+					pokemon.removeVolatile('preparechallenge');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (move.category !== 'Status') {
+					pokemon.removeVolatile('preparechallenge');
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Prepare Challenge', '[silent]');
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bulk Up", target);
+			this.add('-anim', source, "Taunt", target);
+		},
+		boosts: {
+			atk: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+	},
+	preparedefense: {
+		num: 933,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises Damage ↑ Next, Defense and Special Defense by 1.",
+		name: "Prepare Defense",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'preparedefense',
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Prepare Defense');
+			},
+			onRestart(pokemon, source, effect) {
+				this.add('-start', pokemon, 'Prepare Defense');
+			},
+			onBasePowerPriority: 9,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.category !== 'Status') {
+					this.debug('PA boost');
+					return this.chainModify(1.25);
+				}
+			},
+			onMoveAborted(pokemon, target, move) {
+				if (move.category !== 'Status') {
+					pokemon.removeVolatile('preparedefense');
+				}
+			},
+			onAfterMove(pokemon, target, move) {
+				if (move.category !== 'Status') {
+					pokemon.removeVolatile('preparedefense');
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Prepare Defense', '[silent]');
+			}
+		},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bulk Up", target);
+			this.add('-anim', source, "Protect", target);
+		},
+		boosts: {
+			def: 1,
+			spd: 1,
 		},
 		secondary: null,
 		target: "self",
 		type: "Fighting",
 	},
 	slowspin: {
-		num: 932,
+		num: 934,
 		accuracy: 85,
 		basePower: 120,
 		category: "Physical",
@@ -1550,7 +1655,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 	},
 	venomgrip: {
-		num: 933,
+		num: 935,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -1574,7 +1679,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 	},
 	soaringassault: {
-		num: 934,
+		num: 936,
 		accuracy: 100,
 		basePower: 75,
 		basePowerCallback(source, target, move) {
@@ -1598,7 +1703,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 	},
 	bubblejet: {
-		num: 935,
+		num: 937,
 		accuracy: 100,
 		basePower: 50,
 		category: "Special",
@@ -1616,7 +1721,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 	},
 	steelbullets: {
-		num: 936,
+		num: 938,
 		accuracy: 100,
 		basePower: 15,
 		category: "Special",
@@ -1635,7 +1740,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 	},
 	backupcall: {
-		num: 937,
+		num: 939,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1667,7 +1772,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 	},
 	fairdeal: {
-		num: 938,
+		num: 940,
 		accuracy: 95,
 		basePower: 80,
 		category: "Physical",
@@ -1695,7 +1800,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fairy",
 	},
 	postponerage: {
-		num: 939,
+		num: 941,
 		accuracy: 90,
 		basePower: 40,
 		basePowerCallback(pokemon, target, move) {
@@ -1765,7 +1870,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 	},
 	derust: {
-		num: 940,
+		num: 942,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1799,7 +1904,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 	},
 	lightabsorption: {
-		num: 941,
+		num: 943,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1835,7 +1940,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 	},
 	basaltlayer: {
-		num: 942,
+		num: 944,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1899,7 +2004,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 	},
 	hourglass: {
-		num: 943,
+		num: 945,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1935,7 +2040,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ground",
 	},
 	cosmicsymbols: {
-		num: 944,
+		num: 946,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
@@ -1968,7 +2073,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 	},
 	glassshimmer: {
-		num: 945,
+		num: 947,
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
@@ -1992,7 +2097,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Rock",
 	},
 	battleaxe: {
-		num: 946,
+		num: 948,
 		accuracy: 95,
 		basePower: 95,
 		category: "Physical",
@@ -2017,7 +2122,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 	},
 	riskyway: {
-		num: 947,
+		num: 949,
 		accuracy: 100,
 		basePower: 400,
 		category: "Physical",
@@ -2041,7 +2146,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 	},
 	bodycharge: {
-		num: 948,
+		num: 950,
 		accuracy: 80,
 		basePower: 150,
 		category: "Physical",
@@ -2077,7 +2182,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 	},
 	mindclaw: {
-		num: 949,
+		num: 951,
 		accuracy: 100,
 		basePower: 95,
 		category: "Physical",
@@ -2115,7 +2220,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 	},
 	spiritroar: {
-		num: 950,
+		num: 952,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
@@ -2149,7 +2254,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 	},
 	dynamicassault: {
-		num: 951,
+		num: 953,
 		accuracy: 100,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
@@ -2171,7 +2276,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fairy",
 	},
 	chasedown: {
-		num: 952,
+		num: 954,
 		accuracy: 100,
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
