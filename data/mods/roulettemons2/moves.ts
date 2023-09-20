@@ -8,10 +8,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 30,
 		priority: 0,
 		flags: {protect: 1, snatch: 1},
-		boosts: {
-			atk: 1,
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
 		},
-		secondary: null,
 		target: "normal",
 		type: "Fighting",
 	},

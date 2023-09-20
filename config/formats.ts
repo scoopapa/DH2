@@ -415,7 +415,7 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Terastal Clause', 'Mega Data Mod'],
 		banlist: [
 			'AG', 'Uber',
 			'Aegislash', 'Hoopa-Unbound', 'Greninja',
@@ -576,7 +576,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3717145/">Roulettemons 2 on Smogon Forums</a>`,
 		],
 		mod: 'roulettemons2',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Terastal Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		],
@@ -1616,39 +1616,6 @@ export const Formats: FormatList = [
 		mod: 'outheorymons',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects'],
-	},
-	{
-        name: "[Gen 9] Duomod",
-        desc: `<b>gen 9 duomod back and better than ever baybeeeeee</b>`,
-        threads: [
-            `&bullet; <a href="https://docs.google.com/spreadsheets/d/1VZp8emRachS_ieusnF8FWKFqTcOUjrVyr393J-J17pY/edit?usp=sharing">Spreadsheet</a>`,
-        ],
-        mod: 'g9duomod',
-        ruleset: ['Standard NatDex', 'Subscribe For More Content', 'Duomod Data Mod'],
-        banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z',],
-        unbanlist: [
-             'Baloon', 'Fluxtape-Stereo', 'Pokat', 'Spirox', 'Badgearth', 'Bittle', 'Fairydisc', 'Shroominesce', 'Abysseil', 'Draxplosion', 'Jewelode', 'Treemu', 'Capsaken', 'Cephalopire', 'Chemiclysm', 'Commanto', 'Eneryth', 'Falcola', 'Gelsius', 'Hydread', 'Mountough', 'Sanbatter', 'Antestar', 'Escarglace', 'Fauxster', 'Gargitect', 'Temporand', 'Kuribandit', 'Mantelec', 'Noxinobi',
-            ],    
-            onSwitchIn(pokemon) {
-                this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-            },    
-    },
-	{
-        name: "[Gen 8] Duomod",
-        desc: `<b>Duomod</b>: Legendary YouTuber and professional Smash player DuoM2's solomod, built around the idea where nobody is ever truly losing.`,
-        threads: [
-            `&bullet; <a href="https://docs.google.com/spreadsheets/d/1lguyF31tjV8f-Gv3uLxmZXGAlg23k2fkF_nBqevJouM/edit?usp=sharing">Spreadsheet</a>`,
-        ],
-        mod: 'duomod',
-        ruleset: ['Standard NatDex', 'Subscribe For More Content', 'Duomod Data Mod'],
-        banlist: ['All Pokemon', 'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'King\'s Rock',],
-        unbanlist: [
-		 'Abysseil', 'Annelait', 'Azurolt', 'Baloon', 'BaloonPopped', 'BaloonWater', 'Catelax', 'Crypterid', 'Deliriophage', 'Detonuke', 'Draglow', 'Draxplosion', 'Fluidrake', 'Fluxtape', 'FluxtapeRadio', 'FluxtapeStereo', 'Gorilax', 'Grievenge', 'Hyperoach', 'Lemotic', 'Lumineel', 'Modolith', 'Monstratus', 'Mortemoth', 'Pokat', 'Spirox', 'SpiroxAncient', 'SpiroxRipped', 'Treemu', 'Valianch', 'Spisces', 'Pterrost', 'Jewelode', 'Jellyolk', 'Crazefly', 'Fairydisc', 'Badgearth', 'Shroominesce', 'Fleetle', 'Sharmpedo', 'Steroach',
-		  
-		],	
-		onSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
-		},	
 	},
    {
 		name: "[Gen 9] Earth & Sky Horizons OU",
