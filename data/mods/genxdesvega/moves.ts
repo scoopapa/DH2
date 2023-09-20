@@ -728,7 +728,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Special",
-    shortDesc: "Power and type depends on the user's berry.",
+		shortDesc: "Power and type depends on the user's berry.",
 		isViable: true,
 		name: "Berry Blast",
 		pp: 15,
@@ -751,12 +751,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			pokemon.lastItem = item.id;
 			pokemon.usedItemThisTurn = true;
 			this.runEvent('AfterUseItem', pokemon, null, null, item);
-		},
-		onModifyType(move, pokemon) {
-			if (pokemon.ignoringItem()) return;
-			const item = pokemon.getItem();
-			if (!item.naturalGift) return;
-			move.type = item.naturalGift.type;
 		},
 		secondary: null,
 		target: "normal",
