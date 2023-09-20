@@ -752,6 +752,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 			pokemon.usedItemThisTurn = true;
 			this.runEvent('AfterUseItem', pokemon, null, null, item);
 		},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return;
+			move.type = item.naturalGift.type;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Normal",

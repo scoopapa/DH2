@@ -1697,7 +1697,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			wingattack: ["9E", "9V", "9L13", "9V", "6L13", "5L19", "4L19", "3L21"],
 			zenheadbutt: ["9M", "9T", "9E", "6T", "6E", "5T", "5E", "4T", "4E"],
 			outrage: ["9L1"],
-			zubatsmovepooloutrage: ["9L1"], // RIP
 			dragonrush: ["9L1"],
 			dracofang: ["9L1"],
 			dragontail: ["9L1"],
@@ -1809,7 +1808,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			dragondance: ["9L1"],
 			willowisp: ["9L1"],
 			fireblast: ["9L1"],
-			zudratandgolbatsmovepoolfireblast: ["9L1"], //SADNESS
 			thunder: ["9L1"],
 		},
 	},
@@ -1920,7 +1918,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			fireblast: ["9L1"],
 			thunder: ["9L1"],
 			dragonclaw: ["9L1"],
-			goldratandcrobatsmovepooldragonclaw: ["9L1"], // Why are we here? Just to suffer?
 			shadowclaw: ["9L1"],
 			crushclaw: ["9L1"],
 		},

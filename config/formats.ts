@@ -2502,7 +2502,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
-			let allowedTiers = ['OU', 'LC'];
+			let allowedTiers = ['TPDP OU', 'TPDP LC'];
 			let natures = ['Red', 'Blue', 'Black', 'Green', 'White'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
