@@ -1786,7 +1786,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
-				ability: this.dex.getAbility('poisonbody'),
+				ability: this.dex.abilities.get('poisonbody'),
 			});
 		},
 	},
@@ -2657,8 +2657,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Disables skills with 50 or less BP.",
 		onTryHitPriority: 30,
 		onTryHit(source, target, move) {
-			if (move.basePower <= 50) {
-				this.add('-immune', target, '[from] ability: Wariness');
+			if (source !== target && move.category !== 'Status' && move.basePower <= 50) {
+				this.add('-immune', source, '[from] ability: Wariness');
 				return false;
 			}
 		},
