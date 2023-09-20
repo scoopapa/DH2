@@ -2437,7 +2437,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		//const dex = Dex.mod('gen9eshorizons');
 		for (let pokemon of this.species.all()) {
 			const pokemonID = this.toID(pokemon.name);
-			const learnsetTest = ["mausholdfour"].includes(pokemonID);
+			const learnsetTest = false;//["mausholdfour"].includes(pokemonID);
 			const formatsTest = false;//["zygarde"].includes(pokemonID);
 			if(formatsTest) console.log(pokemonID);
 			 //Don't do anything with new or deleted Pokemon
@@ -2464,7 +2464,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						delete this.modData('FormatsData', pokemonID).isNonstandard;
 						delete pokemon.isNonstandard;
 					case undefined:
-						if(!pokemon.battleOnly){ //Reset tiers for all Pokemon that have their own tiering data
+						if(!pokemon.battleOnly || (pokemon.forme && ["Mega", "Mega-X", "Mega-Y", "Primal", "Ultra"].includes(pokemon.forme))){ //Reset tiers for all Pokemon that have their own tiering data
 							if(pokemon.nfe) {
 								this.modData('FormatsData', pokemonID).tier = pokemon.prevo ? "NFE" : "LC";
 								this.modData('FormatsData', pokemonID).natDexTier = pokemon.prevo ? "NFE" : "LC";
@@ -2494,9 +2494,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			//Don't do move stuff with formes that don't have their own movesets (and Xerneas)
-			if(pokemon.battleOnly || ["Egelas", "Sartori", "Mega", "Mega-X", "Mega-Y", "Primal"].includes(pokemon.forme) || 
-				(["Deoxys", "Giratina", "Arceus", "Keldeo", "Genesect", "Vivillon", "Aegislash", "Pumpkaboo", "Gourgeist", "Xerneas", "Hoopa", "Silvally", "Magearna", 
-				"Sinistea", "Polteageist", "Eternatus", "Squawkabilly", "Maushold", "Palafin", "Dudunsparce", "Gimmighoul", "Poltchageist", "Sinistcha", "Ogerpon", "Venomicon"].includes(pokemon.baseSpecies)
+			if(pokemon.battleOnly || ["Egelas", "Sartori", "Mega", "Mega-X", "Mega-Y", "Primal", "Ultra"].includes(pokemon.forme) || 
+				(["Deoxys", "Giratina", "Arceus", "Tornadus", "Thundurus", "Landorus", "Keldeo", "Genesect", "Vivillon", "Aegislash", 
+				"Pumpkaboo", "Gourgeist", "Xerneas", "Hoopa", "Silvally", "Oricorio", "Magearna", "Sinistea", "Polteageist", "Eternatus", 
+				"Squawkabilly", "Maushold", "Palafin", "Dudunsparce", "Gimmighoul", "Poltchageist", "Sinistcha", "Ogerpon", "Venomicon"].includes(pokemon.baseSpecies)
 				&& pokemon.baseSpecies !== pokemon.name))
 				continue;
 			if(learnsetTest && this.modData('Learnsets',pokemonID) === undefined){
@@ -2551,12 +2552,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				if(learnsetTest) console.log("Found move " + move.name);
 				if(learnsetTest) console.log(moveLearn);
-				// First checks if move is deleted because then we don't bother with the algorithm
-				if(move === null){
-					if(learnsetTest) console.log("Deleting " + deletedMoves[i]);
-					delete this.data.Learnsets[pokemonID].learnset[moveID];
-					continue;
-				}
 				/* Collects means of learning the move in Earth & Sky */
 				let moveMeans: string[] = [];
 				// Level and egg moves of base gen
@@ -2646,13 +2641,13 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			// Move deletion
-			/*for(let i = 0; i < deletedMoves.length; i++){
+			for(let i = 0; i < deletedMoves.length; i++){
 				if(this.modData('Learnsets',pokemonID).learnset[deletedMoves[i]]){
 					if(learnsetTest) console.log("Deleting " + deletedMoves[i]);
 					//delete this.data.Learnsets[pokemonID].learnset[deletedMoves[i]];
 					delete this.modData('Learnsets',pokemonID).learnset[deletedMoves[i]];
 				}
-			}*/
+			}
 			// Ability renames
 			for(let i = 0; i < renamedAbilities.length; i++){ //Abilities
 				const pokeAbilities = pokemon.abilities;
@@ -7526,6 +7521,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','tornadus').learnset.twister = ["9D"];
 		delete this.modData('Learnsets','tornadus').learnset.metronome;
 		// Tornadus Therian
+		this.modData('Learnsets','tornadustherian').learnset = Utils.deepClone(this.modData('Learnsets','tornadus').learnset);
 		this.modData('Learnsets','tornadustherian').learnset.skyattack = ["9D"];
 		delete this.modData('Learnsets','tornadustherian').learnset.twister;
 		// Thundurus
@@ -7536,6 +7532,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','thundurus').learnset.defog;
 		delete this.modData('Learnsets','thundurus').learnset.healblock;
 		// Thundurus Therian
+		this.modData('Learnsets','thundurustherian').learnset = Utils.deepClone(this.modData('Learnsets','thundurus').learnset);
 		this.modData('Learnsets','thundurustherian').learnset.dragonpulse = ["9D"];
 		delete this.modData('Learnsets','thundurustherian').learnset.iondeluge;
 		// Reshiram
@@ -7553,6 +7550,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','landorus').learnset.compensation = ["9M"];
 		delete this.modData('Learnsets','landorus').learnset.defog;
 		// Landorus Therian
+		this.modData('Learnsets','landorustherian').learnset = Utils.deepClone(this.modData('Learnsets','landorus').learnset);
 		this.modData('Learnsets','landorustherian').learnset.nobleroar = ["9D"];
 		delete this.modData('Learnsets','landorustherian').learnset.rototiller;
 		// Kyurem
@@ -8363,11 +8361,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','crabominable').learnset.strength = ["9M"];
 		delete this.modData('Learnsets','crabominable').learnset.bubblebeam;
 		// Oricorio Pom-Pom
+		this.modData('Learnsets','oricoriopompom').learnset = Utils.deepClone(this.modData('Learnsets','oricorio').learnset);
 		this.modData('Learnsets','oricoriopompom').learnset.boltbeak = ["9D"];
 		this.modData('Learnsets','oricoriopompom').learnset.flash = ["9M"];
 		delete this.modData('Learnsets','oricoriopompom').learnset.quash;
 		delete this.modData('Learnsets','oricoriopompom').learnset.fierydance;
 		// Oricorio Pau
+		this.modData('Learnsets','oricoriopau').learnset = Utils.deepClone(this.modData('Learnsets','oricorio').learnset);
 		this.modData('Learnsets','oricoriopau').learnset.stasis = ["9D"];
 		this.modData('Learnsets','oricoriopau').learnset.flash = ["9M"];
 		delete this.modData('Learnsets','oricoriopau').learnset.fierydance;
@@ -8377,6 +8377,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','oricorio').learnset.flash = ["9M"];
 		delete this.modData('Learnsets','oricorio').learnset.quash;
 		// Oricorio Sensu
+		this.modData('Learnsets','oricoriosensu').learnset = Utils.deepClone(this.modData('Learnsets','oricorio').learnset);
 		this.modData('Learnsets','oricoriosensu').learnset.midnight = ["9D"];
 		this.modData('Learnsets','oricoriosensu').learnset.flash = ["9M"];
 		delete this.modData('Learnsets','oricoriosensu').learnset.fierydance;
@@ -11698,6 +11699,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','sinistcha').learnset.telekinesis = ["9M"];
 		// Okidogi
 		this.modData('Learnsets','okidogi').learnset.darkestlariat = ["9D"];
+		this.modData('Learnsets','okidogi').learnset.brutalswing = ["9L40"];
+		this.modData('Learnsets','okidogi').learnset.poisonjab = ["9L48", "9M"];
 		this.modData('Learnsets','okidogi').learnset.assurance = ["9M"];
 		this.modData('Learnsets','okidogi').learnset.block = ["9M"];
 		this.modData('Learnsets','okidogi').learnset.chipaway = ["9M"];
@@ -11716,6 +11719,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','okidogi').learnset.torment = ["9M"];
 		// Munkidori
 		this.modData('Learnsets','munkidori').learnset.doubleteam = ["9D"];
+		this.modData('Learnsets','munkidori').learnset.clearsmog = ["9L16"];
+		this.modData('Learnsets','munkidori').learnset.psybeam = ["9L24"];
+		this.modData('Learnsets','munkidori').learnset.imprison = ["9L32"];
+		this.modData('Learnsets','munkidori').learnset.darkpulse = ["9L40", "9M"];
+		this.modData('Learnsets','munkidori').learnset.sludgebomb = ["9L48", "9M"];
 		this.modData('Learnsets','munkidori').learnset.allyswitch = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.dualchop = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.frustration = ["9M"];
@@ -11723,18 +11731,24 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','munkidori').learnset.magiccoat = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.payback = ["9M"];
+		this.modData('Learnsets','munkidori').learnset.psychic = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.psychup = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.return = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.screech = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.secretpower = ["9M"];
+		this.modData('Learnsets','munkidori').learnset.sludgewave = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.snatch = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.telekinesis = ["9M"];
 		this.modData('Learnsets','munkidori').learnset.torment = ["9M"];
 		delete this.modData('Learnsets','munkidori').learnset.poltergeist;
 		// Fezandipiti
 		this.modData('Learnsets','fezandipiti').learnset.ragepowder = ["9D"];
+		this.modData('Learnsets','fezandipiti').learnset.attract = ["9L8", "9M"];
 		this.modData('Learnsets','fezandipiti').learnset.smog = ["9L16"];
 		this.modData('Learnsets','fezandipiti').learnset.pounce = ["9L24"];
+		this.modData('Learnsets','fezandipiti').learnset.wingattack = ["9L32"];
+		this.modData('Learnsets','fezandipiti').learnset.tailslap = ["9L40"];
+		this.modData('Learnsets','fezandipiti').learnset.crosspoison = ["9L48"];
 		this.modData('Learnsets','fezandipiti').learnset.strangesmoke = ["9L64"];
 		this.modData('Learnsets','fezandipiti').learnset.fellswoop = ["9L72"];
 		this.modData('Learnsets','fezandipiti').learnset.defog = ["9M"];
@@ -11772,17 +11786,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','ogerpon').learnset.secretpower = ["9M"];
 		this.modData('Learnsets','ogerpon').learnset.synthesis = ["9M"];
 		// Ogerpon Wellspring
-		// this.modData('Learnsets','ogerponwellspring') = Utils.deepClone(this.modData('Learnsets','ogerpon'));
-		// this.modData('Learnsets','ogerponwellspring').learnset.wavecrash = ["9D"];
-		// delete this.modData('Learnsets','ogerponwellspring').learnset.highjumpkick;
+		this.modData('Learnsets','ogerponwellspring').learnset = Utils.deepClone(this.modData('Learnsets','ogerpon').learnset);
+		this.modData('Learnsets','ogerponwellspring').learnset.wavecrash = ["9D"];
+		delete this.modData('Learnsets','ogerponwellspring').learnset.highjumpkick;
 		// Ogerpon Hearthflame
-		// this.modData('Learnsets','ogerponhearthflame') = Utils.deepClone(this.modData('Learnsets','ogerpon'));
-		// this.modData('Learnsets','ogerponhearthflame').learnset.flareblitz = ["9D"];
-		// delete this.modData('Learnsets','ogerponhearthflame').learnset.highjumpkick;
+		this.modData('Learnsets','ogerponhearthflame').learnset = Utils.deepClone(this.modData('Learnsets','ogerpon').learnset);
+		this.modData('Learnsets','ogerponhearthflame').learnset.flareblitz = ["9D"];
+		delete this.modData('Learnsets','ogerponhearthflame').learnset.highjumpkick;
 		// Ogerpon Cornerstone
-		// this.modData('Learnsets','ogerponcornerstone') = Utils.deepClone(this.modData('Learnsets','ogerpon'));
-		// this.modData('Learnsets','ogerponcornerstone').learnset.headsmash = ["9D"];
-		// delete this.modData('Learnsets','ogerponcornerstone').learnset.highjumpkick;
+		this.modData('Learnsets','ogerponcornerstone').learnset = Utils.deepClone(this.modData('Learnsets','ogerpon').learnset);
+		this.modData('Learnsets','ogerponcornerstone').learnset.headsmash = ["9D"];
+		delete this.modData('Learnsets','ogerponcornerstone').learnset.highjumpkick;
 
 		// Syclar
 		this.modData('Learnsets','syclar').learnset.firstimpression = ["9D"];

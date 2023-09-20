@@ -173,7 +173,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-				isViable: true,
+		isViable: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Twister");
+		},
 	},
 	daydream: {
 		num: 1002,
@@ -754,23 +758,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Focus Energy");
 		},
-	},
-	energyblade: {
-		num: 875,
-		accuracy: 90,
-		basePower: 80,
-		category: "Physical",
-		name: "Energy Blade",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		twoType: "Electric",
-				isViable: true,
-		shortDesc: "Dual-typed Psychic and Electric move.",
-		desc: "This move is both Psychic and Electric typed. It uses combined type effectiveness, receives STAB from both types (potentially stacking), and is included in effects that boost/reduce/negate/react to damage from either type.",
 	},
 	rebound: {
 		num: 1018,
@@ -2099,6 +2086,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Removes the target's item. This move cannot cause Pokemon with the Sticky Hold Ability to lose their held item or cause a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, a Silvally, a Zacian, or a Zamazenta to lose their Blue Orb, Red Orb, Griseous Orb, Plate, Drive, Memory, Rusted Sword, or Rusted Shield, respectively.",
 		shortDesc: "Removes target's item.",
 		enditem: "  [POKEMON] had its [ITEM] confiscated!",
+	},
+	energyblade: {
+		num: 875,
+		accuracy: 90,
+		basePower: 80,
+		category: "Physical",
+		name: "Energy Blade",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		twoType: "Electric",
+				isViable: true,
+		shortDesc: "Dual-typed Psychic and Electric move.",
+		desc: "This move is both Psychic and Electric typed. It uses combined type effectiveness, receives STAB from both types (potentially stacking), and is included in effects that boost/reduce/negate/react to damage from either type.",
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psyblade");
+		},
 	},
 	explosion: {
 		inherit: true,
@@ -3969,6 +3977,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			source.knownType = target.side === source.side && target.knownType;
 		},
 		desc: "Causes the user's types to become the same as the current types of the target. A type that had been removed is not copied. Fails if the user is an Arceus or a Silvally, if the target is typeless, or if the target has the Ability Own Tempo.",
+	},
+	rest: {
+		inherit: true,
+		pp: 10,
 	},
 	retaliate: {
 		inherit: true,
