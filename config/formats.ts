@@ -1411,7 +1411,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] A Golden Experience",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
 		],
 		mod: 'agoldenexperience',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
@@ -1461,7 +1461,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] A Golden Experience Ubers",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
 		],
 		mod: 'agoldenexperience',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
@@ -1510,7 +1510,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] A Golden Experience UU",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
 		],
 		mod: 'agoldenexperience',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],

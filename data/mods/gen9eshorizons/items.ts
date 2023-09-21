@@ -1499,6 +1499,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		ignoreKlutz: false,
 		desc: "Holder's Speed is halved.",
 	},
+	safetygoggles: {
+		inherit: true,
+		desc: "Holder is immune to powder moves and damage from Sandstorm or Snow.",
+	},
 	sweetapple: {
 		inherit: true,
 		shortDesc: "Holder's use of Apple Bomb lowers Sp. Defense.",

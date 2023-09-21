@@ -128,7 +128,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Bash",
 		pp: 25,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: {bludg: 1, contact: 1, protect: 1, mirror: 1},
 		secondary: null,
 		shortDesc: "No additional effects.",
 		target: "normal",
@@ -6275,7 +6275,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	snowscape: {
 		inherit: true,
 		desc: "For 5 turns, the weather becomes Snow. During the effect, the Defense of Ice-type Pokemon is multiplied by 1.5 when taking damage from a physical attack. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are an Ice type or have the Ice Breaker, Ice Body, Magic Guard, Magma Armor, Overcoat, Purifying Salt, Snow Cloak, or Snow Plow Abilities. If a Pokemon is frozen, the residual damage will combine to 1/8 of its max HP sourced from being frozen. Lasts for 8 turns if the user is holding Icy Rock. Fails if the current weather is Snow.",
-		shortDesc: "For 5 turns, snow falls; cold hurts non-Ice types. Ice: 1.5x Def.",
+		shortDesc: "For 5 turns: Ice types 1.5x Def, cold hurts others.",
 	},
 	
 	/* Renamed and deleted moves */

@@ -11698,6 +11698,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','sinistcha').learnset.telekinesis = ["9M"];
 		// Okidogi
 		this.modData('Learnsets','okidogi').learnset.darkestlariat = ["9D"];
+		this.modData('Learnsets','okidogi').learnset.pound = ["9L1"];
 		this.modData('Learnsets','okidogi').learnset.brutalswing = ["9L40"];
 		this.modData('Learnsets','okidogi').learnset.poisonjab = ["9L48", "9M"];
 		this.modData('Learnsets','okidogi').learnset.assurance = ["9M"];
