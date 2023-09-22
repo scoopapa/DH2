@@ -2129,7 +2129,7 @@ export const Formats: FormatList = [
 		mod: 'gen9roovnen',
 		searchShow: false,
 		ruleset: ['Standard'],
-		banlist: ['Uber', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Soul Dew'],
+		banlist: ['AG', 'Uber', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Soul Dew'],
 	},
 	{
 		name: "[Gen 9] Roovnen Uber",

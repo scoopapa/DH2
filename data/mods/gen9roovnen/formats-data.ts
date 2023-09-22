@@ -8729,8 +8729,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kokick: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Illegal",
-		doublesTier: "Illegal",
+		tier: "NFE",
+		doublesTier: "NFE",
 		natDexTier: "NFE",
 	},
 	schmesatt: {
