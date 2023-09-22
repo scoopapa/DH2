@@ -46,7 +46,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Dolsin",
 		types: ["Water", "Poison"],
 		baseStats: {hp: 100, atk: 105, def: 75, spa: 75, spd: 65, spe: 110},
-		abilities: {0: "Swift Swim", 1: "N", H: "A"},
+		abilities: {0: "Swift Swim", H: "Merciless"},
 	},
 	extremeribbit: {
 		num: 1008,
@@ -130,14 +130,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Ohmyrod",
 		types: ["Water", "Grass"],
 		baseStats: {hp: 75, atk: 130, def: 134, spa: 95, spd: 86, spe: 45},
-		abilities: {0: "Water Absorb", 1: "N", H: "A"},
+		abilities: {0: "Water Absorb", H: "Innards Out"},
 	},
 	osbait: {
 		num: 1020,
 		name: "Osbait",
 		types: ["Flying", "Dark"],
 		baseStats: {hp: 87, atk: 63, def: 70, spa: 108, spd: 102, spe: 105},
-		abilities: {0: "Cursed Body", 1: "N", H: "A"},
+		abilities: {0: "Cursed Body", H: "Pressure"},
 	},
 	ostretch: {
 		num: 1021,
@@ -165,7 +165,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Retrucable",
 		types: ["Poison", "Steel"],
 		baseStats: {hp: 125, atk: 126, def: 94, spa: 103, spd: 81, spe: 71},
-		abilities: {0: "Neutralizing Gas", 1: "N", H: "A"},
+		abilities: {0: "Neutralizing Gas", H: "Filter"},
 	},
 	shadelisk: {
 		num: 1025,
@@ -179,7 +179,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Slugchuck",
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 89, atk: 118, def: 75, spa: 100, spd: 71, spe: 82},
-		abilities: {0: "Rocky Payload", 1: "N", H: "A"},
+		abilities: {0: "Rocky Payload", H: "Big Swinger"},
 	},
 	soupirate: {
 		num: 1027,
@@ -200,7 +200,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Unpatroll",
 		types: ["Fairy", "Ice"],
 		baseStats: {hp: 20, atk: 100, def: 150, spa: 100, spd: 250, spe: 130},
-		abilities: {0: "Snow Cloak", 1: "N", H: "A"},
+		abilities: {0: "Snow Cloak", H: "Fluffy"},
 	},
 	wolversnare: {
 		num: 1030,
