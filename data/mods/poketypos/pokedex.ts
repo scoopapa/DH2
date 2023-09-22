@@ -378,4 +378,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 110, spd: 80, spe: 140},
 		abilities: {0: "Justified", 1: "Magician", H: "Trace"},
 	},
+	sinistcha: {
+		inherit: true,
+		num: 51,
+	},
 };
