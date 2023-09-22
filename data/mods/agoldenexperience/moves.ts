@@ -3552,72 +3552,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 	},
 	//Gen 9
-	mysticalpower: {
-		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
-		num: -1018,
-		accuracy: 90,
-		basePower: 70,
-		category: "Special",
-		name: "Mystical Power",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spa: 1,
-				},
-			},
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Stored Power", target);
-		},
-		target: "normal",
-		type: "Psychic",
-		contestType: "Clever",
-	},
-	lunarblessing: {
-		num: 849,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		shortDesc: "User and allies: healed 1/4 max HP, status cured.",
-		name: "Lunar Blessing",
-		pp: 5,
-		priority: 0,
-		flags: {snatch: 1, heal: 1},
-		onHit(pokemon) {
-			const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-			return pokemon.cureStatus() || success;
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Lunar Dance", target);
-		},
-		secondary: null,
-		target: "allies",
-		type: "Psychic",
-	},
-	spicyextract: {
-		num: 858,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Spicy Extract",
-		shortDesc: "Raises target's Atk by 2 and lowers its Def by 2.",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
-		boosts: {
-			atk: 2,
-			def: -2,
-		},
-		secondary: null,
-		target: "normal",
-		type: "Grass",
-	},
 	bleakwindstorm: {
 		num: 846,
 		accuracy: 80,
@@ -3634,59 +3568,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "allAdjacentFoes",
 		type: "Flying",
-	},
-	sandsearstorm: {
-		num: 848,
-		accuracy: 80,
-		basePower: 100,
-		category: "Special",
-		name: "Sandsear Storm",
-		shortDesc: "20% chance to burn foe(s).",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, wind: 1},
-		secondary: {
-			chance: 20,
-			status: 'brn',
-		},
-		target: "allAdjacentFoes",
-		type: "Ground",
-	},
-	springtidestorm: {
-		num: 831,
-		accuracy: 80,
-		basePower: 100,
-		category: "Special",
-		name: "Springtide Storm",
-		shortDesc: "30% chance to lower the foe(s) Attack by 1.",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, wind: 1},
-		secondary: {
-			chance: 30,
-			boosts: {
-				atk: -1,
-			},
-		},
-		target: "allAdjacentFoes",
-		type: "Fairy",
-	},
-	wildboltstorm: {
-		num: 847,
-		accuracy: 80,
-		basePower: 100,
-		category: "Special",
-		name: "Wildbolt Storm",
-		shortDesc: "20% chance to paralyze foe(s).",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, wind: 1},
-		secondary: {
-			chance: 20,
-			status: 'par',
-		},
-		target: "allAdjacentFoes",
-		type: "Electric",
 	},
 	axekick: {
 		num: 853,
@@ -3708,95 +3589,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Dark",
-	},
-	populationbomb: {
-		num: 860,
-		accuracy: 90,
-		basePower: 20,
-		category: "Physical",
-		name: "Population Bomb",
-		shortDesc: "Hits 10 times. Each hit can miss.",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
-		multihit: 10,
-		multiaccuracy: true,
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-	},
-	kowtowcleave: {
-		num: 869,
-		accuracy: true,
-		basePower: 85,
-		category: "Physical",
-		name: "Kowtow Cleave",
-		shortDesc: "This move does not check accuracy.",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
-		secondary: null,
-		target: "normal",
-		type: "Dark",
-	},
-	flowertrick: {
-		num: 870,
-		accuracy: true,
-		basePower: 70,
-		category: "Physical",
-		name: "Flower Trick",
-		shortDesc: "Always results in a critical hit; no accuracy check.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		willCrit: true,
-		secondary: null,
-		target: "normal",
-		type: "Grass",
-	},
-	torchsong: {
-		num: 871,
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Torch Song",
-		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spa: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Fire",
-		contestType: "Beautiful",
-	},
-	aquastep: {
-		num: 872,
-		accuracy: 100,
-		basePower: 80,
-		category: "Physical",
-		name: "Aqua Step",
-		shortDesc: "100% chance to raise the user's Speed by 1.",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, dance: 1},
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spe: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Water",
-		contestType: "Cool",
 	},
 	ragingbull: {
 		num: 873,
@@ -3831,50 +3623,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
-	collisioncourse: {
-		num: 878,
-		accuracy: 100,
-		basePower: 100,
-		category: "Physical",
-		name: "Collision Course",
-		shortDesc: "Deals 1.3333x damage with supereffective hits.",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onBasePower(basePower, source, target, move) {
-			if (target.runEffectiveness(move) > 0) {
-				// Placeholder
-				this.debug(`collision course super effective buff`);
-				return this.chainModify([5461, 4096]);
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Fighting",
-		contestType: "Tough",
-	},
-	electrodrift: {
-		num: 879,
-		accuracy: 100,
-		basePower: 100,
-		category: "Special",
-		name: "Electro Drift",
-		shortDesc: "Deals 1.3333x damage with supereffective hits.",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onBasePower(basePower, source, target, move) {
-			if (target.runEffectiveness(move) > 0) {
-				// Placeholder
-				this.debug(`electro drift super effective buff`);
-				return this.chainModify([5461, 4096]);
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Electric",
-		contestType: "Cool",
-	},
 	chillyreception: {
 		num: 881,
 		accuracy: true,
@@ -3893,64 +3641,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "all",
 		type: "Ice",
 	},
-	trailblaze: {
-		num: 885,
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		name: "Trailblaze",
-		shortDesc: "100% chance to raise the user's Speed by 1.",
-		pp: 20,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spe: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Grass",
-		contestType: "Cool",
-	},
-	twinbeam: {
-		num: 888,
-		accuracy: 100,
-		basePower: 40,
-		category: "Special",
-		name: "Twin Beam",
-		shortDesc: "Hits 2 times in one turn.",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		multihit: 2,
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		contestType: "Cool",
-	},
-	armorcannon: {
-		num: 890,
-		accuracy: 100,
-		basePower: 120,
-		category: "Special",
-		name: "Armor Cannon",
-		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		self: {
-			boosts: {
-				def: -1,
-				spd: -1,
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Fire",
-	},
 	bitterblade: {
 		num: 891,
 		accuracy: 100,
@@ -3965,53 +3655,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fire",
-	},
-	doubleshock: {
-		num: 892,
-		accuracy: 100,
-		basePower: 120,
-		category: "Physical",
-		shortDesc: "User's Electric type: typeless; must be Electric.",
-		name: "Double Shock",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onTryMove(pokemon, target, move) {
-			if (pokemon.hasType('Electric')) return;
-			this.add('-fail', pokemon, 'move: Double Shock');
-			this.attrLastMove('[still]');
-			return null;
-		},
-		self: {
-			onHit(pokemon) {
-				pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
-				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
-			},
-		},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Bolt Strike", target);
-		},
-		secondary: null,
-		target: "normal",
-		type: "Electric",
-		contestType: "Clever",
-	},
-	aquacutter: {
-		num: 895,
-		accuracy: 100,
-		basePower: 70,
-		category: "Physical",
-		name: "Aqua Cutter",
-		shortDesc: "High critical hit ratio.",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, slicing: 1},
-		critRatio: 2,
-		secondary: null,
-		target: "normal",
-		type: "Water",
-		contestType: "Cool",
 	},
 	tidyup: {
 		num: 882,
@@ -4074,7 +3717,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Rage Fist",
-		shortDesc: "+25 power for each time user was hit. Max 6 hits.",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
@@ -4110,44 +3752,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
-	},
-	hydrosteam: {
-		num: 876,
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		name: "Hydro Steam",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, defrost: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.effectiveWeather() === 'sunnyday') {
-				move.basePower = 260;
-			}
-		},
-		thawsTarget: true,
-		secondary: null,
-		target: "normal",
-		type: "Water",
-	},
-	psyblade: {
-		num: 875,
-		accuracy: 100,
-		basePower: 80,
-		category: "Physical",
-		name: "Psyblade",
-		pp: 15,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
-		secondary: null,
-		onBasePower(basePower, source) {
-			if (this.field.isTerrain('electricterrain')) {
-				this.debug('psyblade electric terrain boost');
-				return this.chainModify(1.5);
-			}
-		},
-		target: "normal",
-		type: "Psychic",
 	},
 
 	// Endless Dream field

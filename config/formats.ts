@@ -80,9 +80,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 4] Back to Sinnoh",
 		desc: `Recreation of Gen 4 OU, with a lot of new Fakemons, moves, and abilities! No vanilla Gen 4 Pokemon allowed!`,
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
-		],
+		threads: [],
 		mod: 'backtosinnoh',
 		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Uber', 'Arena Trap', 'Sand Veil', 'Quick Claw', 'Soul Dew', 'Baton Pass'],
@@ -1410,7 +1408,7 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	{
-		name: "[Gen 8] A Golden Experience",
+		name: "[Gen 9] A Golden Experience",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
@@ -1460,7 +1458,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] A Golden Experience Ubers",
+		name: "[Gen 9] A Golden Experience Ubers",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
@@ -1509,7 +1507,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] A Golden Experience UU",
+		name: "[Gen 9] A Golden Experience UU",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
@@ -1560,7 +1558,7 @@ export const Formats: FormatList = [
 		},
 	},
 	// {
-	// 	name: "[Gen 8] A Golden Experience Balanced Hackmons",
+	// 	name: "[Gen 9] A Golden Experience Balanced Hackmons",
 	// 	desc: `AGE but BH edition`,
 	// 	threads: [
 	// 		`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
