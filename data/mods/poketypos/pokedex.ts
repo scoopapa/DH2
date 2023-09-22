@@ -366,7 +366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	boodra: {
 		num: 49,
-		name: "Goodra",
+		name: "Boodra",
 		types: ["Dark", "Ghost"],
 		baseStats: {hp: 90, atk: 120, def: 60, spa: 90, spd: 160, spe: 80},
 		abilities: {0: "Immunity", 1: "Insomnia", H: "Gooey"},
