@@ -1165,7 +1165,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Gogoat",
 		types: ["Grass", "Rock"],
 		baseStats: {hp: 105, atk: 110, def: 100, spa: 70, spd: 70, spe: 80},
-		abilities: {0: "Sap Sipper", 1: "Rock Head", H: "Grassy Terrain"},
+		abilities: {0: "Sap Sipper", 1: "Rock Head", H: "Grassy Surge"},
 		heightm: 1.7,
 		weightkg: 91,
 		color: "Brown",
