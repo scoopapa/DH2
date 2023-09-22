@@ -61,7 +61,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	loosecannon: {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, pokemon, target, move) {
-			if(move.accuracy) return basePower;
+			if (typeof move.accuracy !== 'number') return basePower;
 			return basePower + (100 - move.accuracy);
 		},
 		name: "Loose Cannon",

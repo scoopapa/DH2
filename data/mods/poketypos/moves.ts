@@ -79,10 +79,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onHit(target) {
-			if (target.status) target.cureStatus();
-		},
 		onHit(target, source) {
+			if (target.status) target.cureStatus();
 			if (target.volatiles['leechseed']) target.removeVolatile('leechseed', source);
 		},
 		onPrepareHit(target, source, move) {
@@ -104,9 +102,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, authentic: 1},
  		onPrepareHit(target, source, move) {
-		  this.attrLastMove('[still]');
-		  this.add('-anim', source, "Confide", target);
-		  this.add('-anim', source, "Gunk Shot", target);
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gunk Shot", target);
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Confide", target);
+			this.add('-anim', source, "Gunk Shot", target);
 		},
 		volatileStatus: 'trashtalk',
 		condition: {
@@ -125,10 +125,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 					return false;
 				}
 			},
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Gunk Shot", target);
 		},
 		secondary: null,
 		target: "normal",

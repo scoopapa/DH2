@@ -120,7 +120,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	hektillion: {
-		tier: "LC",
+		tier: "ES",
 	},
 	termill: {
 		tier: "LC",
@@ -213,6 +213,18 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "ES",
 	},
 	prominoidmeteor: {
+		tier: "Illegal",
+	},
+	charvenant: {
+		tier: "ES",
+	},
+	slurpin: {
+		tier: "LC",
+	},
+	suctlot: {
+		tier: "ES",
+	},
+	amplitune: {
 		tier: "ES",
 	},
 	deceuceus: {
@@ -294,6 +306,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	durantegelas: {
 		tier: "ES",
 	},
+	kricketotsartori: {
+		tier: "NFE",
+	},
+	kricketunesartori: {
+		tier: "NFE",
+	},
+	glameowsartori: {
+		tier: "NFE",
+	},
+	puruglysartori: {
+		tier: "ES",
+	},
+	phantumpsartori: {
+		tier: "NFE",
+	},
 	// New Megas
 	butterfreemega: {
 		tier: "ES",
@@ -325,14 +352,226 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	alcremiemega: {
 		tier: "ES",
 	},
-	// Other
+	froslassmega: {
+		tier: "ES",
+	},
+	druddigonmega: {
+		tier: "ES",
+	},
+	druddigonmegastatue: {
+		tier: "Illegal",
+	},
+	//Other
+	dudunsparcethreesegment: {
+		tier: "OU",
+	},
+	revavroomsegin: {
+		tier: "ES",
+	},
+	revavroomschedar: {
+		tier: "ES",
+	},
+	revavroomnavi: {
+		tier: "ES",
+	},
+	revavroomruchbah: {
+		tier: "ES",
+	},
+	revavroomcaph: {
+		tier: "ES",
+	},
 	victreebell: {
 		tier: "OU",
 	},
+	victreebel: null,
 	darmanitanrage: {
 		tier: "Illegal",
 	},
+	darmanitangalarzen: null,
+	meloettapirouette: {
+		tier: "OU",
+	},
 	lycanroctwilight: {
+		tier: "OU",
+	},
+	lycanrocdusk: null,
+	robobundle: {
+		tier: "Uber",
+	},
+	ironbundle: null,
+	presshands: {
+		tier: "OU",
+	},
+	ironhands: null,
+	mechajugulis: {
+		tier: "OU",
+	},
+	ironjugulis: null,
+	astroglider: {
+		tier: "OU",
+	},
+	ironmoth: null,
+	armorthorns: {
+		tier: "OU",
+	},
+	ironthorns: null,
+	valiantdroid: {
+		tier: "OU",
+	},
+	ironvaliant: null,
+	saberleaves: {
+		tier: "OU",
+	},
+	ironleaves: null,
+	/*ironcrown: null,
+	lasercrown: {
+		tier: "OU",
+	},*/
+	//The unwanteds
+	venusaurgmax: null,
+	charizardgmax: null,
+	blastoisegmax: null,
+	butterfreegmax: null,
+	raticatealolatotem: null,
+	pikachucosplay: null,
+	pikachurockstar: null,
+	pikachubelle: null,
+	pikachupopstar: null,
+	pikachuphd: null,
+	pikachulibre: null,
+	pikachustarter: null,
+	pikachugmax: null,
+	pikachupartner: null,
+	pikachuoriginal: null,
+	pikachuhoenn: null,
+	pikachusinnoh: null,
+	pikachuunova: null,
+	pikachukalos: null,
+	pikachualola: null,
+	pikachuworld: null,
+	meowthgmax: null,
+	machampgmax: null,
+	gengargmax: null,
+	kinglergmax: null,
+	marowakalolatotem: null,
+	laprasgmax: null,
+	eeveestarter: null,
+	eeveegmax: null,
+	snorlaxgmax: null,
+	pichuspikyeared: null,
+	dialgaorigin: null,
+	palkiaorigin: null,
+	garbodorgmax: null,
+	floetteeternal: null,
+	gumshoostotem: null,
+	vikavolttotem: null,
+	ribombeetotem: null,
+	araquanidtotem: null,
+	lurantistotem: null,
+	salazzletotem: null,
+	togedemarutotem: null,
+	mimikyutotem: null,
+	mimikyubustedtotem: null,
+	kommoototem: null,
+	melmetalgmax: null,
+	rillaboomgmax: null,
+	cinderacegmax: null,
+	inteleongmax: null,
+	corviknightgmax: null,
+	orbeetlegmax: null,
+	drednawgmax: null,
+	coalossalgmax: null,
+	flapplegmax: null,
+	appletungmax: null,
+	sandacondagmax: null,
+	toxtricitygmax: null,
+	toxtricitylowkeygmax: null,
+	centiskorchgmax: null,
+	hatterenegmax: null,
+	grimmsnarlgmax: null,
+	alcremiegmax: null,
+	copperajahgmax: null,
+	duraludongmax: null,
+	eternatuseternamax: null,
+	urshifugmax: null,
+	urshifurapidstrikegmax: null,
+	zarudedada: null,
+	pokestarsmeargle: null,
+	pokestarufo: null,
+	pokestarufo2: null,
+	pokestarbrycenman: null,
+	pokestarmt: null,
+	pokestarmt2: null,
+	pokestartransport: null,
+	pokestargiant: null,
+	pokestarhumanoid: null,
+	pokestarmonster: null,
+	pokestarf00: null,
+	pokestarf002: null,
+	pokestarspirit: null,
+	pokestarblackdoor: null,
+	pokestarwhitedoor: null,
+	pokestarblackbelt: null,
+	pokestarufopropu2: null,
+	//Battle-only formes (hopefully delete later)
+	arceusbug: {
+		tier: "Uber",
+	},
+	arceusdark: {
+		tier: "Uber",
+	},
+	arceusdragon: {
+		tier: "Uber",
+	},
+	arceuselectric: {
+		tier: "Uber",
+	},
+	arceusfairy: {
+		tier: "Uber",
+	},
+	arceusfighting: {
+		tier: "Uber",
+	},
+	arceusfire: {
+		tier: "Uber",
+	},
+	arceusflying: {
+		tier: "Uber",
+	},
+	arceusghost: {
+		tier: "Uber",
+	},
+	arceusgrass: {
+		tier: "Uber",
+	},
+	arceusground: {
+		tier: "Uber",
+	},
+	arceusice: {
+		tier: "Uber",
+	},
+	arceuspoison: {
+		tier: "Uber",
+	},
+	arceuspsychic: {
+		tier: "Uber",
+	},
+	arceusrock: {
+		tier: "Uber",
+	},
+	arceussteel: {
+		tier: "Uber",
+	},
+	arceuswater: {
+		tier: "Uber",
+	},
+	squawkabillyblue: {
+		tier: "OU",
+	},
+	squawkabillyyellow: {
+		tier: "OU",
+	},
+	squawkabillywhite: {
 		tier: "OU",
 	},
 };

@@ -1,1814 +1,1814 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	normalakyuu: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenseakyuu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistakyuu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraakyuu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalalice: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweralice: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensealice: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraalice: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalaunn: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenseaunn: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	poweraunn: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraaunn: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalaya: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedaya: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	poweraya: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraaya: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalbenben: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerbenben: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensebenben: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrabenben: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalchen: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedchen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistchen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrachen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalchimata: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensechimata: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerchimata: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrachimata: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalchiyuri: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensechiyuri: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedchiyuri: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrachiyuri: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalcirno: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistcirno: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powercirno: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extracirno: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalclownpiece: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenseclownpiece: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedclownpiece: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraclownpiece: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaldaiyousei: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensedaiyousei: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speeddaiyousei: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extradaiyousei: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaldoremy: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerdoremy: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensedoremy: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extradoremy: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaleika: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenseeika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assisteika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraeika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaleiki: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powereiki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseeiki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraeiki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaleirin: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assisteirin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powereirin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraeirin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalelis: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedelis: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerelis: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraelis: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalellen: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerellen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedellen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraellen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalelly: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerelly: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseelly: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraelly: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaleternity: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedeternity: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assisteternity: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraeternity: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalflandre: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedflandre: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerflandre: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraflandre: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalfuto: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedfuto: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerfuto: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrafuto: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalgengetsu: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powergengetsu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedgengetsu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extragengetsu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalhatate: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerhatate: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assisthatate: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrahatate: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalhecatia: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerhecatia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensehecatia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrahecatia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalhijiri: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensehijiri: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedhijiri: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrahijiri: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalhina: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensehina: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assisthina: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrahina: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalichirin: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerichirin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseichirin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraichirin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaliku: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweriku: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speediku: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraiku: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaljunko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerjunko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedjunko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrajunko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkagerou: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedkagerou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerkagerou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakagerou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkaguya: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensekaguya: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerkaguya: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakaguya: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkana: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistkana: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerkana: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakana: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkanako: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensekanako: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerkanako: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakanako: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkasen: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerkasen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistkasen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakasen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkeiki: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerkeiki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistkeiki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakeiki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkeine: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensekeine: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerkeine: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakeine: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkikuri: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensekikuri: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerkikuri: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakikuri: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkisume: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistkisume: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensekisume: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakisume: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkoakuma: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensekoakuma: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistkoakuma: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakoakuma: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkogasa: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistkogasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedkogasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakogasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkoishi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerkoishi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistkoishi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakoishi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkokoro: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensekokoro: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerkokoro: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakokoro: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkomachi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistkomachi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerkomachi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakomachi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkonngara: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerkonngara: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedkonngara: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakonngara: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkosuzu: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensekosuzu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistkosuzu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakosuzu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkotohime: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistkotohime: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensekotohime: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakotohime: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkurumi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerkurumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistkurumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakurumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkutaka: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistkutaka: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedkutaka: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakutaka: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalkyouko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerkyouko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistkyouko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrakyouko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalletty: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerletty: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseletty: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraletty: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normallily: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistlily: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerlily: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extralily: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normallouise: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenselouise: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistlouise: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extralouise: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalluna: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerluna: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedluna: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraluna: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normallunasa: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistlunasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenselunasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extralunasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normallyrica: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedlyrica: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerlyrica: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extralyrica: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmagan: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistmagan: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermagan: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramagan: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmai: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powermai: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensemai: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramai: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmamizou: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensemamizou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermamizou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramamizou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmarisa: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedmarisa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermarisa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramarisa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmayumi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensemayumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedmayumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramayumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmedicine: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensemedicine: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermedicine: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramedicine: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmegumu: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedmegumu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermegumu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramegumu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmeiling: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedmeiling: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensemeiling: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrameiling: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmeira: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powermeira: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedmeira: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrameira: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmerlin: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistmerlin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermerlin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramerlin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmaribel: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensemaribel: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermaribel: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramaribel: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmike: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedmike: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistmike: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramike: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmiko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedmiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmima: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensemima: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermima: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramima: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalminoriko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerminoriko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseminoriko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraminoriko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmisumaru: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensemisumaru: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermisumaru: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramisumaru: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmiyoi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistmiyoi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermiyoi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramiyoi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmokou: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedmokou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermokou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramokou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmomiji: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedmomiji: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensemomiji: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramomiji: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmomoyo: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powermomoyo: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedmomoyo: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramomoyo: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmugetsu: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powermugetsu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistmugetsu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramugetsu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmurasa: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powermurasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensemurasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramurasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalmystia: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensemystia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powermystia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extramystia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalnarumi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensenarumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powernarumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extranarumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalnazrin: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speednazrin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensenazrin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extranazrin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalnemuno: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powernemuno: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensenemuno: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extranemuno: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalnitori: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powernitori: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speednitori: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extranitori: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalnue: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powernue: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensenue: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extranue: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalokina: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerokina: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseokina: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraokina: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalorange: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenseorange: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerorange: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraorange: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalparsee: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenseparsee: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistparsee: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraparsee: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalpatchouli: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerpatchouli: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensepatchouli: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrapatchouli: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalraiko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerraiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistraiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraraiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalran: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerran: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseran: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraran: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalreimu: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensereimu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerreimu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrareimu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalreisen: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedreisen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerreisen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrareisen: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalremilia: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerremilia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedremilia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraremilia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalrenko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistrenko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedrenko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrarenko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalrika: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedrika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerrika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrarika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalrikako: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerrikako: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedrikako: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrarikako: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalrin: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedrin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerrin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrarin: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalringo: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenseringo: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerringo: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraringo: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalrinnosuke: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenserinnosuke: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerrinnosuke: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrarinnosuke: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalrumia: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenserumia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerrumia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrarumia: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalruukoto: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistruukoto: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerruukoto: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraruukoto: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsagume: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powersagume: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensesagume: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasagume: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsaki: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedsaki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powersaki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasaki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsakuya: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedsakuya: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powersakuya: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasakuya: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsanae: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powersanae: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedsanae: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasanae: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsannyo: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistsannyo: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powersannyo: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasannyo: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsara: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensesara: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedsara: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasara: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsariel: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powersariel: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensesariel: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasariel: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsatono: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistsatono: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedsatono: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasatono: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsatori: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensesatori: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistsatori: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasatori: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalseiga: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedseiga: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerseiga: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraseiga: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalseija: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedseija: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseseija: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraseija: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalseiran: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedseiran: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseseiran: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraseiran: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsekibanki: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powersekibanki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistsekibanki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasekibanki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalshingyoku: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistshingyoku: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseshingyoku: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrashingyoku: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalshinki: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powershinki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedshinki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrashinki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalshizuha: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedshizuha: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powershizuha: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrashizuha: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalshou: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powershou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedshou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrashou: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalstar: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerstar: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensestar: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrastar: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsuika: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powersuika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensesuika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasuika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsukuna: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensesukuna: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powersukuna: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasukuna: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsumireko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powersumireko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedsumireko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasumireko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsunny: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistsunny: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powersunny: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasunny: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalsuwako: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedsuwako: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensesuwako: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrasuwako: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaltakane: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powertakane: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedtakane: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extratakane: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalteireida: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistteireida: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedteireida: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrateireida: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaltenshi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powertenshi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensetenshi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extratenshi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaltewi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assisttewi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powertewi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extratewi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaltojiko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedtojiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensetojiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extratojiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaltokiko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powertokiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defensetokiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extratokiko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaltoyohime: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defensetoyohime: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powertoyohime: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extratoyohime: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaltsukasa: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedtsukasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assisttsukasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extratsukasa: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normaludonge: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	assistudonge: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	powerudonge: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraudonge: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalurumi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerurumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseurumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extraurumi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalutsuho: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerutsuho: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedutsuho: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrautsuho: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalwakasagi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerwakasagi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedwakasagi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrawakasagi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalwriggle: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	powerwriggle: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistwriggle: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrawriggle: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyachie: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryachie: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseyachie: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayachie: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyamame: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryamame: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	assistyamame: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayamame: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyatsuhashi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedyatsuhashi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseyatsuhashi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayatsuhashi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyorigami: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryorigami: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseyorigami: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayorigami: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyorihime: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryorihime: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedyorihime: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayorihime: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyoshika: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryoshika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseyoshika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayoshika: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyoumu: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedyoumu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	poweryoumu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayoumu: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyukari: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryukari: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseyukari: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayukari: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyuki: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	speedyuki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	poweryuki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayuki: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyumeko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryumeko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedyumeko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayumeko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyumemi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryumemi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedyumemi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayumemi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyuugi: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryuugi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	speedyuugi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayuugi: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyuuka: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryuuka: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseyuuka: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayuuka: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyuuma: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	poweryuuma: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	defenseyuuma: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayuuma: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	normalyuyuko: {
-		tier: "LC",
+		tier: "TPDP LC",
 	},
 	defenseyuyuko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	poweryuyuko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 	extrayuyuko: {
-		tier: "OU",
+		tier: "TPDP OU",
 	},
 };

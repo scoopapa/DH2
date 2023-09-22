@@ -54,10 +54,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		spritenum: 685,
 		onTakeItem: false,
 		itemUser: ["Solgaleo"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
 		onBasePower(basePower, user, target, move) {
 			if (move.id === 'sunsteelstrike') {
 				return this.chainModify(1.25);

@@ -562,13 +562,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "Prevents adjacent opposing Water-type Pokemon from choosing to switch out unless they are immune to trapping.",
 		shortDesc: "Prevents adjacent Water-type foes from choosing to switch.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Water') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hasType('Water') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Water')) && this.isAdjacent(pokemon, source)) {
+			if ((!pokemon.knownType || pokemon.hasType('Water')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -721,7 +721,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Cute Charm', 'boost');
 					activated = true;
@@ -756,13 +756,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "Prevents adjacent opposing Dark-type Pokemon from choosing to switch out unless they are immune to trapping.",
 		shortDesc: "Prevents adjacent Dark-type foes from choosing to switch.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Dark') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hasType('Dark') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Dark')) && this.isAdjacent(pokemon, source)) {
+			if ((!pokemon.knownType || pokemon.hasType('Dark')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -923,7 +923,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Cursed Body');
 					activated = true;
@@ -1059,7 +1059,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	"shadowtag": {
 		shortDesc: "Traps Ghost-types and takes 0.5x damage from Ghost-type moves.",
 		onFoeTrapPokemon(pokemon) {
-			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (!pokemon.hasAbility('shadowtag') && pokemon.isAdjacent(this.effectState.target)) {
 				if (pokemon.hasType('Ghost')) {
 					pokemon.tryTrap(true);
 					pokemon.trapped = true;
@@ -1069,7 +1069,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (!pokemon.hasAbility('shadowtag')) {
 				if (pokemon.hasType('Ghost')) {
 					pokemon.maybeTrapped = true;

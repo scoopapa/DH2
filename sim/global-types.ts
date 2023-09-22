@@ -62,9 +62,9 @@ type MoveSource = string;
 
 namespace TierTypes {
 	export type Singles = "AG" | "Uber" | "(Uber)" | "OU" | "(OU)" | "UUBL" | "UU" | "RUBL" | "RU" | "NUBL" | "NU" |
-	"(NU)" | "PUBL" | "PU" | "(PU)" | "NFE" | "LC" | string;
-	export type Doubles = "DUber" | "(DUber)" | "DOU" | "(DOU)" | "DBL" | "DUU" | "(DUU)" | "NFE" | "LC" | string;
-	export type Other = "Unreleased" | "Illegal" | "CAP" | "CAP NFE" | "CAP LC" | string;
+	"(NU)" | "PUBL" | "PU" | "(PU)" | "NFE" | "LC";
+	export type Doubles = "DUber" | "(DUber)" | "DOU" | "(DOU)" | "DBL" | "DUU" | "(DUU)" | "NFE" | "LC";
+	export type Other = "Unreleased" | "Illegal" | "CAP" | "CAP NFE" | "CAP LC";
 }
 
 interface EventInfo {
@@ -133,7 +133,7 @@ type ModdedEffectData = EffectData | Partial<EffectData> & {inherit: true};
 
 type EffectType =
 	'Condition' | 'Pokemon' | 'Move' | 'Item' | 'Ability' | 'Format' |
-	'Nature' | 'Ruleset' | 'Weather' | 'Terrain' | 'Status' | 'Terastal' | 'Rule' | 'ValidatorRule';
+	'Nature' | 'Ruleset' | 'Terrain' | 'Weather' | 'Status' | 'Terastal' | 'Rule' | 'ValidatorRule';
 
 interface BasicEffect extends EffectData {
 	id: ID;
@@ -273,6 +273,7 @@ interface ModdedBattleActions {
 		moveData?: ActiveMove, isSecondary?: boolean, isSelf?: boolean
 	) => [SpreadMoveDamage, SpreadMoveTargets];
 	targetTypeChoices?: (this: BattleActions, targetType: string) => boolean;
+	terastallize?: (this: BattleActions, pokemon: Pokemon) => void;
 	tryMoveHit?: (
 		this: BattleActions, target: Pokemon, pokemon: Pokemon, move: ActiveMove
 	) => number | undefined | false | '';

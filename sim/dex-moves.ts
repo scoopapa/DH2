@@ -5,7 +5,6 @@ import {BasicEffect, toID} from './dex-data';
  * Describes the acceptable target(s) of a move.
  * adjacentAlly - Only relevant to Doubles or Triples, the move only targets an ally of the user.
  * adjacentAllyOrSelf - The move can target the user or its ally.
- * anyAlly - The move can target the user or its ally, even if it is not adjacent.
  * adjacentFoe - The move can target a foe, but not (in Triples) a distant foe.
  * all - The move targets the field or all Pokémon at once.
  * allAdjacent - The move is a spread move that also hits the user's ally.

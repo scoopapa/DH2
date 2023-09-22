@@ -375,7 +375,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Water Compaction",
-		shortDesc: "This Pokemon's Defense is raised 2 stages when hit by a Water-type move; Water immunity.",
+		shortDesc: "This Pokemon's Defense is raised by 2 when hit by a Water-type move; Water immunity.",
 		rating: 1.5,
 		num: 195,
 	},
@@ -401,7 +401,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Art Portrait",
 		shortDesc: "Upon entry, copies the opponents type.",
 		rating: 3.5,
-		num: 299,
+		num: 307,
 	},
 	plottwist: {
 		onStart(pokemon) {
@@ -421,9 +421,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Plot Twist",
-		shortDesc: "Upon entry, this Pokemon doubles and inverts all Pokemon's stat changes.",
+		shortDesc: "Upon entry, this Pokemon inverts all Pokemon's stat changes.",
 		rating: 3.5,
-		num: 300,
+		num: 308,
 	},
 	synthony: {
 		onStart(pokemon) {
@@ -463,7 +463,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Synthony",
 		shortDesc: "Damage of moves used on consecutive turns is increased. Max 2x after 5 turns.",
 		rating: 4,
-		num: 301,
+		num: 309,
 	},
 	curingrocks: {
 		onStart(pokemon) {
@@ -488,7 +488,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Curing Rocks",
 		shortDesc: "For 5 turns, the allies side heals 1/16 of their max HP each turn.",
 		rating: 2,
-		num: 302,
+		num: 310,
 	},
 	happymeal: {
 		onEatItem(item, pokemon) {
@@ -512,7 +512,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Happy Meal",
 		shortDesc: "For 3 turns, this Pokemon restores 1/8 of its max HP after consuming a berry.",
 		rating: 3,
-		num: 303,
+		num: 311,
 	},
 	hailforce: {
 		onModifyAtk(atk, pokemon) {
@@ -526,7 +526,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Hail Force",
 		shortDesc: "If Snow is active, this Pokemon's Attack is 1.5x.",
 		rating: 3.5,
-		num: 304,
+		num: 312,
 	},
 	maternalguard: {
 		onModifyDefPriority: 2,
@@ -544,7 +544,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Maternal Guard",
 		shortDesc: "If this Pokemon can evolve, its Defense and Sp. Def are 1.5x.",
 		rating: 3.5,
-		num: 305,
+		num: 313,
 	},
 	maternalpower: {
 		onPrepareHit(source, target, move) {
@@ -566,9 +566,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Maternal Power",
-		shortDesc: "This Pokemon's damaging moves hit thrice. The second and third hit have their power third.",
+		shortDesc: "This Pokemon's damaging moves hit thrice. Second and third hit have 1/3 power.",
 		rating: 3.5,
-		num: 306,
+		num: 314,
 	},
 	adaptingtree: {
 		onUpdate(pokemon) {
@@ -603,14 +603,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Adapting Tree",
 		shortDesc: "The Pokemon's primary typing matches the weather.",
 		rating: 4,
-		num: 308,
+		num: 315,
 	},
 	dashhappy: {
 		onStart(pokemon) {
 			pokemon.addVolatile('dashhappy');
-		},
-		onEnd(pokemon) {
-			this.add('-end', pokemon, 'Dash Happy');
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.volatiles['dashhappy']) {
@@ -619,19 +616,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			duration: 3,
-			onStart(target) {
-				this.add('-start', target, 'ability: Dash Happy');
-			},
 			onEnd(target) {
-				this.add('-end', target, 'Dash Happy');
 				this.add('-message', `${target.name} is ready to dash!`);
 				this.actions.useMove("Dash", target);
+				pokemon.removeVolatile('dashhappy');
 			},
 		},
 		name: "Dash Happy",
 		shortDesc: "This Pokemon dashes after being active for 3 turns.",
 		rating: 4,
-		num: 309,
+		num: 316,
 	},
 	cleanup: {
 		onSwitchInPriority: 6,
@@ -671,15 +665,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Clean Up",
 		shortDesc: "Upon entry, this Pokemon removes any terrain, room, weather and hazards on both sides.",
 		rating: 4,
-		num: 311,
+		num: 317,
 	},
 	energybody: {
 		onUpdate(pokemon) {
+			let factor = 0.667;
 			if (this.effectState.energybody) return;
-			if (pokemon.hp <= pokemon.maxhp / 4) {
+			if (pokemon.hp <= pokemon.maxhp / 4 && !this.effectState.energybody) {
+				this.heal(this.modify(pokemon.maxhp, factor));
 				this.effectState.energybody = true;
-				this.add('-activate', pokemon, 'ability: Energy Body');
-				pokemon.heal(pokemon.baseMaxhp / 3 * 2);
 			}
 		},
 		onSwitchIn(pokemon) {
@@ -688,7 +682,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Energy Body",
 		shortDesc: "Once per switch, this Pokemon heals 2/3 of its max HP when at 1/4 of its health.",
 		rating: 3,
-		num: 312,
+		num: 318,
 	},
 	ferriswheel: {
 		onBasePowerPriority: 19,
@@ -701,7 +695,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ferris Wheel",
 		shortDesc: "This Pokemon's spinning and rolling moves do 1.5x damage.",
 		rating: 4,
-		num: 313,
+		num: 319,
 	},
 	hardenedshell: {
 		onStart(pokemon) {
@@ -727,7 +721,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Hardened Shell",
 		shortDesc: "This Pokemon gains Steel resistances and immunities.",
 		rating: 4,
-		num: 314,
+		num: 320,
 	},
 	heavyshoulder: {
 		onResidualOrder: 28,
@@ -745,7 +739,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Heavy Shoulder",
 		shortDesc: "This Pokemon lowers the opposing sides speed by 1 each turn.",
 		rating: 3.5,
-		num: 315,
+		num: 321,
 	},
 	prosthesis: {
 		onModifyMove(move) {
@@ -761,7 +755,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Prosthesis",
 		shortDesc: "Kicking moves heal the user by 1/3 of the damage dealt and boost speed.",
 		rating: 4,
-		num: 316,
+		num: 322,
 	},
 	rebirth: {
 		onFaint(source) {
@@ -779,59 +773,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isUnbreakable: true,
 		isPermanent: true,
 		name: "Rebirth",
-		shortDesc: "Upon fainting, a Pokemon can be revived. If Phoenuss gets revived, becomes Reborn.",
+		shortDesc: "Upon fainting, a Pokemon can be revived.",
 		rating: 5,
-		num: 317,
-	},
-	reborn: {
-		onStart(pokemon) {
-			if (pokemon.species.name === 'Phoenuss-Reborn') {
-				pokemon.addVolatile('reborn');
-			}
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['reborn'];
-			this.add('-end', pokemon, 'Reborn', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'ability: Reborn');
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				this.debug('Reborn atk boost');
-				return this.chainModify(1.5);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				this.debug('Reborn def boost');
-				return this.chainModify(1.5);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				this.debug('Reborn spa boost');
-				return this.chainModify(1.5);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				this.debug('Reborn spd boost');
-				return this.chainModify(1.5);
-			},
-			onModifySpe(spe, pokemon) {
-				this.debug('Reborn spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Reborn');
-			},
-		},
-		isUnbreakable: true,
-		isPermanent: true,
-		name: "Reborn",
-		shortDesc: "Phoenuss gets a 1.5x boost in all of its stats except HP.",
-		rating: 3,
-		num: 317,
+		num: 323,
 	},
 	jealouswrath: {
 		onAfterMove(target, source, move) {
@@ -854,14 +798,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Jealous Wrath",
 		shortDesc: "This Pokemon's attacking moves reduce a target's random stat by 1.",
 		rating: 3,
-		num: 318,
+		num: 324,
 	},
 	ignorance: {
 		//Implemented in conditions, moves and items
 		name: "Ignorance",
 		shortDesc: "This Pokemon cannot be restricted in its move choice.",
 		rating: 4,
-		num: 319,
+		num: 325,
+	},
+	sandarmor: {
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
+			if (this.field.isWeather('sandstorm')) {
+				return this.chainModify(1.5);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
+			if (type === 'sandstorm') return false;
+		},
+		name: "Sand Armor",
+		shortDesc: "If Sandstorm is active, this Pokemon's Defense is 1.5x; immunity to Sandstorm.",
+		rating: 2,
+		num: 326,
 	},
 	shielded: {
 		onSourceAfterFaint(length, target, source, effect) {
@@ -913,9 +873,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 			onSwap(target) {
-				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status || target.moveSlots.some(moveSlot => moveSlot.pp < moveSlot.maxpp))) {
 					target.heal(target.maxhp);
 					target.clearStatus();
+					for (const moveSlot of target.moveSlots) {
+						moveSlot.pp = moveSlot.maxpp;
+					}
 					this.add('-heal', target, target.getHealth, '[from] ability: Warrior Spirit');
 					target.side.removeSlotCondition(target, 'warriorspirit');
 				}
@@ -932,7 +895,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Challenger');
 		},
 		onAnyTryMove(target, source, effect) {
-			if (effect.id === 'prepareattack' && ['yorlator', 'mranovo', 'curtowal'].includes(target.species.id)) return;
+			if (effect.id === 'prepareattack' || effect.id === 'preparechallenge' || effect.id === 'preparedefense') return;
 			if (effect.category === 'Status') {
 				this.attrLastMove('[still]');
 				this.add('cant', this.effectState.target, 'ability: Challenger', effect, '[of] ' + target);

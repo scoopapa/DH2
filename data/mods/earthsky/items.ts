@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-	// New Items
+	//New Items
 	cursedjewel: {
 		name: "Cursed Jewel",
 		fling: {
@@ -9,6 +9,106 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1001,
 		rating: 3,
 	},
+	eggantberry: {
+		name: "Eggant Berry",
+		isBerry: true,
+		consumable: true,
+		naturalGift: {
+			basePower: 70,
+			type: "Steel",
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['attract']) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			pokemon.removeVolatile('attract');
+			this.add('-end', pokemon, 'move: Attract', '[from] item: Eggant Berry');
+		},
+		desc: "Cures infatuation. Single use.",
+		num: 1019,
+		rating: 0,
+	},
+	fireplaque: {
+		name: "Fire Plaque",
+		fling: {
+			basePower: 50,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.id === 'firepledge') {
+				this.add('activate', pokemon, 'item: Fire Plaque');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.id === 'grasspledge') {
+				this.add('activate', pokemon, 'item: Fire Plaque');
+				move.sideCondition = 'firepledge';
+			}
+			if (move.id === 'waterpledge') {
+				this.add('activate', pokemon, 'item: Fire Plaque');
+				move.self = {sideCondition: 'waterpledge'};
+			}
+		},
+		desc: "If the holder uses Grass Pledge or Water Pledge, it will add the combination side effect of that Pledge. Increases the power of the holder's Fire Pledge by 50%.",
+		shortDesc: "Grass/Water Pledge: Add side condition. Fire Pledge x1.5 base power.",
+		num: 1017,
+		rating: 2,
+	},
+	grassplaque: {
+		name: "Grass Plaque",
+		fling: {
+			basePower: 50,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.id === 'grasspledge') {
+				this.add('activate', pokemon, 'item: Grass Plaque');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.id === 'waterpledge') {
+				this.add('activate', pokemon, 'item: Grass Plaque');
+				move.sideCondition = 'grasspledge';
+			}
+			if (move.id === 'firepledge') {
+				this.add('activate', pokemon, 'item: Grass Plaque');
+				move.sideCondition = 'firepledge';
+			}
+		},
+		desc: "If the holder uses Water Pledge or Fire Pledge, it will add the combination side effect of that Pledge. Increases the power of the holder's Grass Pledge by 50%.",
+		shortDesc: "Water/Fire Pledge: Add side condition. Grass Pledge x1.5 base power.",
+		num: 1016,
+		rating: 2,
+	},
+	hopoberry: {
+		name: "Hopo Berry",
+		isBerry: true,
+		consumable: true,
+		naturalGift: {
+			basePower: 80,
+			type: "Fairy",
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.hp) return;
+			if (pokemon.moveSlots.some(move => move.pp === 0)) {
+				pokemon.eatItem();
+			}
+		},
+		onEat(pokemon) {
+			const moveSlot = pokemon.moveSlots.find(move => move.pp === 0) ||
+				pokemon.moveSlots.find(move => move.pp < move.maxpp);
+			if (!moveSlot) return;
+			moveSlot.pp += move.maxpp;
+			this.add('-activate', pokemon, 'item: Hopo Berry', moveSlot.move, '[consumed]');
+		},
+		desc: "Restores all PP to the first of the holder's moves to reach 0 PP. Single use.",
+		num: 1020,
+		rating: 2,
+	},
 	koknuberry: {
 		name: "Koknu Berry",
 		isBerry: true,
@@ -17,8 +117,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 100,
 			type: "Steel",
 		},
-		// onBeforeMovePriority: 10,
-		onOverrideAction(pokemon) { // only event that happens before BeforeMove, which flinch has to be stopped before.
+		//onBeforeMovePriority: 10,
+		onOverrideAction(pokemon) { //only event that happens before BeforeMove, which flinch has to be stopped before.
 			if (pokemon.volatiles['flinch'] && pokemon.eatItem()) {
 				pokemon.removeVolatile('flinch');
 			}
@@ -41,6 +141,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Evolves Minior into Prominoid if it is at least level 50. If held by a Rayquaza, this item allows it to Mega Evolve in battle, if it also knows the move Dragon Ascent.",
 		shortDesc: "Evolves Minior. Must be held for Rayquaza to Mega Evolve in battle.",
 		num: 1013,
+	},
+	waterplaque: {
+		name: "Water Plaque",
+		fling: {
+			basePower: 50,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.id === 'waterpledge') {
+				this.add('activate', pokemon, 'item: Water Plaque');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.id === 'firepledge') {
+				this.add('activate', pokemon, 'item: Water Plaque');
+				move.self = {sideCondition: 'waterpledge'};
+			}
+			if (move.id === 'grasspledge') {
+				this.add('activate', pokemon, 'item: Water Plaque');
+				move.sideCondition = 'grasspledge';
+			}
+		},
+		desc: "If the holder uses Grass Pledge or Water Pledge, it will add the combination side effect of that Pledge. Increases the power of the holder's Water Pledge by 50%.",
+		shortDesc: "Fire/Grass Pledge: Add side condition. Water Pledge x1.5 base power.",
+		num: 1018,
+		rating: 2,
 	},
 	butterfreenite: {
 		name: "Butterfreenite",
@@ -162,7 +289,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by an Alcremie, this item allows it to Mega Evolve in battle.",
 		num: 1012,
 	},
-	// Edited items
+	froslassite: {
+		name: "Froslassite",
+		megaStone: "Froslass-Mega",
+		megaEvolves: "Froslass",
+		itemUser: ["Froslass"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
+		num: 1014,
+	},
+	druddigonite: {
+		name: "Druddigonite",
+		megaStone: "Druddigon-Mega",
+		megaEvolves: "Druddigon",
+		itemUser: ["Druddigon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		desc: "If held by a Druddigon, this item allows it to Mega Evolve in battle.",
+		num: 1015,
+	},
+	//Edited items
 	aguavberry: {
 		inherit: true,
 		consumable: true,
@@ -181,6 +332,17 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Bitter food (-Sp. Defense Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpD Nature, it's 50%, but confuses. Single use.",
 	},
+	bigroot: {
+		inherit: true,
+		onTryHeal(damage, target, source, effect) {
+			const heals = ['aquaring', 'dryskin', 'grassyterrain', 'icebody', 'ingrain', 'leechseed', 'poisonheal', 'raindish'];
+			if (heals.includes(effect.id)) {
+				return this.chainModify(1.5);
+			}
+		},
+		shortDesc: "Holder gains 1.5x HP from passive healing.",
+		desc: "Holder gains 1.5x HP from the passive healing provided by Aqua Ring, Ingrain, Leech Seed, Dry Skin, Rain Dish, Ice Body, Poison Heal, and Grassy Terrain.",
+	},
 	brightpowder: {
 		name: "Bright Powder",
 		spritenum: 51,
@@ -194,9 +356,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.target === 'foeSide' || (move.target === 'all' && move.id !== 'perishsong')) {
 				return;
 			}
-			if (move.priority > 0.1 && target.useItem()) {
+			if (move.priority > 0.1 && target.useItem())
+			{
 				this.add('activate', target, 'item: BrightPowder');
-				if (!this.dex.getImmunity('powder', source)) return;
+				if(!this.dex.getImmunity('powder', source)) return;
 				this.attrLastMove('[still]');
 				this.add('cant', source, 'item: BrightPowder', move);
 				return false;
@@ -208,6 +371,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Causes a priority move that targets the holder to fail, which consumes the item. The effect fails if the attacker is immune to powder moves, but the item is still consumed. When Flung, the target's accuracy is lowered 2 stages.",
 		shortDesc: "Protects from an increased priority move. When Flung, -2 accuracy. Single use.",
 		block: '#damp',
+	},
+	cornerstonemask: {
+		name: "Cornerstone Mask",
+		spritenum: 758,
+		forcedForme: "Ogerpon-Cornerstone",
+		itemUser: ["Ogerpon-Cornerstone"],
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		num: 2406,
+		gen: 9,
 	},
 	dragonscale: {
 		inherit: true,
@@ -262,6 +437,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Reduces all allies' speed by 25%.",
 	},
+	hearthflamemask: {
+		name: "Hearthflame Mask",
+		spritenum: 760,
+		forcedForme: "Ogerpon-Hearthflame",
+		itemUser: ["Ogerpon-Hearthflame"],
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		num: 2408,
+		gen: 9,
+	},
 	iapapaberry: {
 		inherit: true,
 		consumable: true,
@@ -288,7 +475,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			volatileStatus: 'smackdown',
 			flags: {bullet: 1},
 		},
-		onStart(pokemon) {
+		onStart(pokemon){
 			pokemon.removeVolatile('magnetrise');
 			pokemon.removeVolatile('telekinesis');
 			pokemon.removeVolatile('risingchorus');
@@ -542,6 +729,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 3,
 		desc: "Holder and allies' Water-type moves have 1.1x power.",
 	},
+	shellbell: {
+		inherit: true,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.totalDamage && !pokemon.forceSwitchFlag) {
+				this.heal(move.totalDamage / 5, pokemon);
+			}
+		},
+		desc: "The user recovers 1/5 of the damage, rounded half up, dealt by each of its attacks. The healing occurs even if an attack hits a substitute.",
+		shortDesc: "After an attack, holder gains 1/5 of the damage in HP dealt to other Pokemon.",
+	},
 	silverpowder: {
 		inherit: true,
 		onBasePower(basePower, user, target, move) {
@@ -562,7 +759,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		consumable: true,
 		onEat(pokemon) {
 			let statName = 'atk';
-			let worstStat = 3000; // The highest possible stat number (with boosts) is 2,676
+			let worstStat = 3000; //The highest possible stat number (with boosts) is 2,676
 			let s: StatNameExceptHP;
 			for (s in pokemon.storedStats) {
 				if (pokemon.storedStats[s] < worstStat) {
@@ -608,6 +805,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Prevents Egg Bomb, Explosion, Mind Blown, Napalm, Searing Shot, Self-Destruct, Shell Trap, and the Aftermath Ability from having an effect.",
 		shortDesc: "Prevents explosion-based moves and Abilities.",
+	},
+	wellspringmask: {
+		name: "Wellspring Mask",
+		spritenum: 759,
+		forcedForme: "Ogerpon-Wellspring",
+		itemUser: ["Ogerpon-Wellspring"],
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		num: 2407,
+		gen: 9,
 	},
 	whippeddream: {
 		inherit: true,
@@ -682,6 +891,30 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 	},
+	mirrorherb: {
+		inherit: true,
+		onFoeAfterBoost(boost, target, source, effect) {
+			if (effect?.name === 'Opportunist' || effect?.name === 'Mirror Herb') return;
+			const boostPlus: SparseBoostsTable = {};
+			let statsRaised = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! > 0) {
+					boostPlus[i] = boost[i];
+					statsRaised = true;
+				}
+			}
+			if (!statsRaised) return;
+			const pokemon: Pokemon = this.effectState.target;
+			pokemon.useItem();
+			if(target.hasAbility('owntempo')){
+				this.add('-activate', target, '[from] ability: Own Tempo');
+				this.hint('Own Tempo blocks effects that steal or copy its attributes');
+				return;
+			}
+			this.boost(boostPlus, pokemon);
+		},
+	},
 	rockyhelmet: {
 		name: "Rocky Helmet",
 		spritenum: 417,
@@ -698,7 +931,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		rating: 4,
 		gen: 5,
 	},
-
+	
 	/* Items edited for dual-type moves */
 	absorbbulb: {
 		inherit: true,
@@ -1072,7 +1305,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	shedshell: {
 		inherit: true,
 		onTrapPokemon(pokemon) {
-			if (!pokemon.volatiles['meanlooked']) {
+			if(!pokemon.volatiles['meanlooked']){
 				pokemon.trapped = pokemon.maybeTrapped = false;
 			}
 		},
@@ -1216,20 +1449,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	heavydutyboots: {
 		inherit: true,
-		onDamage(damage, target, source, effect) {
-			if (effect && ['spikes', 'stealthrock'].includes(effect.id)) {
-				return null;
-			}
-		},
-		onBoost(boost, target, source, effect) {
-			if (effect && effect.id === 'stickyweb') {
-				return null;
-			}
-		},
-		onSetStatus(status, target, source, effect) {
-			if (effect && effect.id === 'toxicspikes') {
-				return null;
-			}
+		onEntryHazard(pokemon) {
+			return null;
 		},
 	},
 	leek: {
@@ -1363,8 +1584,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		consumable: true,
 		naturalGift: {
-			basePower: 70,
-			type: "Steel",
+			basePower: 80,
+			type: "Normal",
 		},
 	},
 	blukberry: {
@@ -1505,7 +1726,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (
 				(move.type === 'Normal' || (move.twoType && move.twoType === 'Normal')) &&
-				(!target.volatiles['substitute'] || move.flags['authentic'] || (move.infiltrates && this.gen >= 6))
+				(!target.volatiles['substitute'] || move.flags['authentic'] || move.infiltrates)
 			) {
 				if (target.eatItem()) {
 					this.debug('-50% reduction');
@@ -1524,7 +1745,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Fire' || (move.twoType && move.twoType === 'Fire')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1544,7 +1765,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Water' || (move.twoType && move.twoType === 'Water')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1564,7 +1785,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Electric' || (move.twoType && move.twoType === 'Electric')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1584,7 +1805,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Grass' || (move.twoType && move.twoType === 'Grass')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1604,7 +1825,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Ice' || (move.twoType && move.twoType === 'Ice')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1624,7 +1845,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Fighting' || (move.twoType && move.twoType === 'Fighting')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1644,7 +1865,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Poison' || (move.twoType && move.twoType === 'Poison')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1664,7 +1885,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Ground' || (move.twoType && move.twoType === 'Ground')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1684,7 +1905,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Flying' || (move.twoType && move.twoType === 'Flying')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1704,7 +1925,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Psychic' || (move.twoType && move.twoType === 'Psychic')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1724,7 +1945,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Bug' || (move.twoType && move.twoType === 'Bug')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1744,7 +1965,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Rock' || (move.twoType && move.twoType === 'Rock')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1764,7 +1985,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Ghost' || (move.twoType && move.twoType === 'Ghost')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1784,7 +2005,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Dragon' || (move.twoType && move.twoType === 'Dragon')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1804,7 +2025,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Dark' || (move.twoType && move.twoType === 'Dark')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1824,7 +2045,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Steel' || (move.twoType && move.twoType === 'Steel')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -1844,7 +2065,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if ((move.type === 'Fairy' || (move.twoType && move.twoType === 'Fairy')) && target.getMoveHitData(move).typeMod > 0) {
-				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+				const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !move.infiltrates;
 				if (hitSub) return;
 
 				if (target.eatItem()) {
@@ -2050,22 +2271,54 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		consumable: true,
 	},
-	throatspray: { // I removed this item, but meh
-		inherit: true,
-		consumable: true,
-	},
 	whiteherb: {
 		inherit: true,
 		consumable: true,
 	},
+	/* Deleted items*/
+	adamantcrystal: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	griseouscore: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	luckypunch: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	lustrousglobe: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	punchingglove: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	throatspray: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
+	utilityumbrella: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
 	/* idk why these items are coded, but they're changed too! */
 	diveball: {
 		inherit: true,
-		desc: "A Poke Ball that makes it easier to catch Pokemon underwater.",
+		desc: "A Poke Ball that makes it easier to catch saltwater-dwelling Pokemon.",
 	},
 	duskball: {
 		inherit: true,
 		desc: "A Poke Ball that makes it easier to catch Pokemon in dark places.",
+	},
+	featherball: {
+		name: "Feather Ball",
+		num: 1022,
+		gen: 8,
+		isPokeball: true,
+		desc: "A Poke Ball that makes it easier to catch Flying-type Pokemon.",
 	},
 	levelball: {
 		inherit: true,
@@ -2083,9 +2336,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		desc: "A Poke Ball that makes it easier to catch Pokemon at nighttime.",
 	},
+	netball: {
+		inherit: true,
+		desc: "A Poke Ball that makes it easier to catch Bug and Water Pokemon on land.",
+	},
 	parkball: {
 		inherit: true,
-		desc: "A special Poke Ball for catching events that never fails.",
+		desc: "A special Poke Ball for catching events. It never fails.",
 	},
 	safariball: {
 		inherit: true,
@@ -2094,6 +2351,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	sportball: {
 		inherit: true,
 		desc: "A Poke Ball that makes a wild caught Pokemon increase its stats more quickly.",
+	},
+	strikeball: {
+		name: "Strike Ball",
+		num: 1023,
+		gen: 8,
+		isPokeball: true,
+		desc: "A Poke Ball that makes it easier to catch Pokemon caught unaware.",
 	},
 	berrysweet: {
 		inherit: true,
