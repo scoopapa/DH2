@@ -374,7 +374,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	faeraora: {
 		num: 50,
 		name: "Faeraora",
-		types: ["Electric", "Fairy"],
+		types: ["Fighting", "Fairy"],
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 110, spd: 80, spe: 140},
 		abilities: {0: "Justified", 1: "Magician", H: "Trace"},
 	},
