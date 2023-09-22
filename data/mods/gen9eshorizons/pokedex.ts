@@ -2586,6 +2586,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Justified", H: "Scrappy"},
 	},
+	keldeoresolute: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Scrappy"},
+	},
 	meloettapirouette: {
 		num: 648,
 		name: "Meloetta-Pirouette",
@@ -3311,9 +3315,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Sweet Veil", 1: "Gluttony", H: "Sticky Hold"},
 	},
+	okidogi: {
+		inherit: true,
+		tags: ['Sub-Legendary'],
+	},
+	munkidori: {
+		inherit: true,
+		tags: ['Sub-Legendary'],
+	},
 	fezandipiti: {
 		inherit: true,
 		abilities: {0: "Toxic Chain", H: "Levitate"},
+		tags: ['Sub-Legendary'],
 	},
 	ogerpon: {
 		num: 1017,
@@ -3327,6 +3340,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 39.8,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		tags: ['Sub-Legendary'],
 		otherFormes: ["Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone"],
 		formeOrder: ["Ogerpon", "Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone"],
 	},
@@ -3343,6 +3357,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 39.8,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		tags: ['Sub-Legendary'],
 		requiredItem: "Wellspring Mask",
 		changesFrom: "Ogerpon",
 		exclusiveHidden: true,
@@ -3360,6 +3375,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 39.8,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		tags: ['Sub-Legendary'],
 		requiredItem: "Hearthflame Mask",
 		changesFrom: "Ogerpon",
 		exclusiveHidden: true,
@@ -3377,6 +3393,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 39.8,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		tags: ['Sub-Legendary'],
 		requiredItem: "Cornerstone Mask",
 		changesFrom: "Ogerpon",
 		exclusiveHidden: true,
