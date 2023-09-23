@@ -1,4 +1,18 @@
 export const Items: {[k: string]: ModdedItemData} = {
+	absorbbulb: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				this.boost({spa: 1})
+				this.add('-immune', target, '[from] item: Absorb Bulb');
+				target.useItem();
+				return null;
+			}
+		},
+		onDamagingHit() {},
+		boosts: {},
+		shortDesc: "Raises holder's SpA by 1, if hit by a Water-type attack; Water Immunity. Single Use.",
+	},
 	assaultvest: {
 		inherit: true,
 		onDisableMove(pokemon) {
@@ -19,7 +33,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		shortDesc: "Holder gains 1.5x HP from draining/Aqua Ring/Ingrain/Leech Seed/Curing Rocks/Strength Sap.",
+		shortDesc: "Gains 1.5x HP from draining/Aqua Ring/Ingrain/Leech Seed/Curing Rocks/Strength Sap.",
 	},
 	brightpowder: {
 		name: "Bright Powder",
@@ -42,6 +56,34 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 2,
 		shortDesc: "This Pokemon's Speed is 1.5x and accuracy of its attacks is 0.8x.",
 	},
+	cellbattery: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				this.boost({atk: 1})
+				this.add('-immune', target, '[from] item: Cell Battery');
+				target.useItem();
+				return null;
+			}
+		},
+		onDamagingHit() {},
+		boosts: {},
+		shortDesc: "Raises holder's Atk by 1, if hit by a Electric-type attack; Electric Immunity. Single Use.",
+	},
+	luminousmoss: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				this.boost({spd: 1})
+				this.add('-immune', target, '[from] item: Luminous Moss');
+				target.useItem();
+				return null;
+			}
+		},
+		onDamagingHit() {},
+		boosts: {},
+		shortDesc: "Raises holder's SpD by 1, if hit by a Water-type attack; Water Immunity. Single Use.",
+	},
 	punchingglove: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
@@ -60,6 +102,20 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 		shortDesc: "After an attack, holder gains 1/3 of the damage dealt.",
+	},
+	snowball: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				this.boost({atk: 1})
+				this.add('-immune', target, '[from] item: Snowball');
+				target.useItem();
+				return null;
+			}
+		},
+		onDamagingHit() {},
+		boosts: {},
+		shortDesc: "Raises holder's Attack by 1, if hit by a Ice-type attack; Ice Immunity. Single Use.",
 	},
 	souldew: {
 		inherit: true,
@@ -156,9 +212,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 			return false;
 		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (['hail', 'snow'].includes(this.field.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
 		num: 2410,
 		gen: 9,
-		shortDesc: "The user takes 1/2 damage from Ice-type moves and cannot be frozen.",
+		shortDesc: "Holder takes 1/2 damage from Ice moves; Cannot be frozen. Hail: 1.5x Def.",
 	},
 	solarpanel: {
 		name: "Solar Panel",

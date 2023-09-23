@@ -4451,15 +4451,16 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	fervintill: {
 		learnset: {
 			minimize: ["9L1"],
+			absorb: ["9L1"],
 			lifedew: ["9L6"],
 			confuseray: ["9L10"],
-			absorb: ["9L16"],
+			bulletseed: ["9L16"],
 			refresh: ["9L21"],
-			bulletseed: ["9L25"],
+			megadrain: ["9L25"],
 			growth: ["9L29"],
-			megadrain: ["9L35"],
+			magicalleaf: ["9L35"],
 			aromatherapy: ["9L40"],
-			magicalleaf: ["9L45"],
+			applebomb: ["9L45"],
 			ingrain: ["9L49"],
 			gigadrain: ["9L54", "9M"],
 			rejuvenate: ["9L59"],
@@ -8581,7 +8582,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			surf: ["7M"],
 			terrainpulse: ["7T"],
 			uproar: ["7M"],
-
 		},
 	},
 	braviaryhisui: {
@@ -8634,7 +8634,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			reversal: ["7M"],
 			rockslide: ["7M"],
 			rocktomb: ["7M"],
-			scaryface: ["7M"],
 			shadowball: ["7M"],
 			shadowclaw: ["7M"],
 			sleeptalk: ["7M"],

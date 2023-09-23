@@ -24,7 +24,7 @@ import {PRNG} from './prng';
  * - E = egg, 3rd char+ is the father in gen 2-5, empty in gen 6-7
  *   because egg moves aren't restricted to fathers anymore
  * - S = event, 3rd char+ is the index in .eventData
- * - D = Dream World, only 5D is valid
+ * - D = Dream World (5D) or other special (9D)
  * - V = Virtual Console or Let's Go transfer, only 7V/8V is valid
  *
  * Designed to match MoveSource where possible.
@@ -1269,12 +1269,16 @@ export class TeamValidator {
 				from: 'Gen 7 Let\'s Go! HOME transfer',
 			};
 		} else if (source.charAt(1) === 'D') {
-			eventData = {
-				generation: 5,
-				level: 10,
-				from: 'Gen 5 Dream World',
-				isHidden: !!this.dex.mod('gen5').species.get(species.id).abilities['H'],
-			};
+			if(source === '9D'){ //MODDED: Earth & Sky Hidden Moves use 'D' source
+				return; //Limiting Hidden Moves is done in a separate rule
+			} else {
+				eventData = {
+					generation: 5,
+					level: 10,
+					from: 'Gen 5 Dream World',
+					isHidden: !!this.dex.mod('gen5').getSpecies(species.id).abilities['H'],
+				};
+			}
 		} else if (source.charAt(1) === 'E') {
 			if (this.findEggMoveFathers(source, species, setSources)) {
 				return undefined;
@@ -2554,8 +2558,14 @@ export class TeamValidator {
 					} else if (learned.charAt(1) === 'D') {
 						// DW moves:
 						//   only if that was the source
-						moveSources.add(learned + species.id);
-						moveSources.dreamWorldMoveCount++;
+						if(learned === '9D'){ //MODDED: Earth & Sky Hidden Moves use 'D' source
+							return null;
+						} else {
+							// DW moves:
+							//   only if that was the source
+							moveSources.add(learned + species.id);
+							moveSources.dreamWorldMoveCount++;
+						}
 					} else if (learned.charAt(1) === 'V' && this.minSourceGen < learnedGen) {
 						// Virtual Console or Let's Go transfer moves:
 						//   only if that was the source

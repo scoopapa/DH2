@@ -326,7 +326,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 43,
 		name: "Inswimeroar",
 		types: ["Water", "Fighting"],
-		baseStats: {hp: 95, atk: 120, def: 95, def: 65, spd: 95, spe: 60},
+		baseStats: {hp: 95, atk: 120, def: 95, spa: 65, spd: 95, spe: 60},
 		abilities: {0: "Torrent", H: "Intimidate"},
 	},
 	nalulele: {

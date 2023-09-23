@@ -142,7 +142,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		},
 		onModifySpA(atk, pokemon) {
 			if (!pokemon.hasAbility('pride'))
-				return this.chainModify(0.5);;
+				return this.chainModify(0.5);
 		},
 	},
 	stp: {
@@ -255,7 +255,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.getMove(moveSlot.id).flags['heal']) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -287,7 +287,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
-				if (this.dex.getMove(moveSlot.id).flags['heal']) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
 					pokemon.disableMove(moveSlot.id);
 				}
 			}
@@ -307,6 +307,714 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			return 1;
 		},
 	},
+	
+	//erm what the scallop
+	brnpsn: {
+		name: 'brnpsn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'brnpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'brnpsn');
+			}
+		},
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8);
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+    },
+	brndark: {
+		name: 'brndark',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'brndark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'brndark');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+	  },
+	brnfear: {
+		name: 'brnfear',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'brnfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'brnfear');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+	  },
+	brnpar: {
+		name: 'brnpar',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'brnpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'brnpar');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+	  },
+	brnweak: {
+		name: 'brnweak',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'brnweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'brnweak');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
+	psnbrn: {
+		name: 'psnbrn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'psnbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'psnbrn');
+			}
+		},
+		onResidual(pokemon) {
+			this.damage(pokemon.baseMaxhp / 8);
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+	  },
+	psndark: {
+		name: 'psndark',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'psndark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'psndark');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+	  },
+	psnfear: {
+		name: 'psnfear',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'psnfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'psnfear');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+	  },
+	psnpar: {
+		name: 'psnpar',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'psnpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'psnpar');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+	  },
+	psnweak: {
+		name: 'psnweak',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'psnweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'psnweak');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
+	darkbrn: {
+		name: 'darkbrn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'darkbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'darkbrn');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+	  },
+	darkpsn: {
+		name: 'darkpsn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'darkpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'darkpsn');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+	  },
+	darkfear: {
+		name: 'darkfear',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'darkfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'darkfear');
+			}
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+	  },
+	darkpar: {
+		name: 'darkpar',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'darkpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'darkpar');
+			}
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+	  },
+	darkweak: {
+		name: 'darkweak',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'darkweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'darkweak');
+			}
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
+	fearbrn: {
+		name: 'fearbrn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'fearbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'fearbrn');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+	  },
+	fearpsn: {
+		name: 'fearpsn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'fearpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'fearpsn');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+	  },
+	feardark: {
+		name: 'feardark',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'feardark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'feardark');
+			}
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+	  },
+	fearpar: {
+		name: 'fearpar',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'fearpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'fearpar');
+			}
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+	  },
+	fearweak: {
+		name: 'fearweak',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'fearweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'fearweak');
+			}
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
+	parbrn: {
+		name: 'parbrn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'parbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'parbrn');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+	  },
+	parpsn: {
+		name: 'parpsn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'parpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'parpsn');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+	  },
+	pardark: {
+		name: 'pardark',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'pardark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'pardark');
+			}
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+	  },
+	parfear: {
+		name: 'parfear',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'parfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'parfear');
+			}
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+	  },
+	parweak: {
+		name: 'parweak',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'parweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'parweak');
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
+	weakbrn: {
+		name: 'weakbrn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'weakbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'weakbrn');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
+	weakpsn: {
+		name: 'weakpsn',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'weakpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'weakpsn');
+			}
+		},
+		onResidual(pokemon){
+			this.damage(pokemon.baseMaxhp / 8);
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
+	weakdark: {
+		name: 'weakdark',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'weakdark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'weakdark');
+			}
+		},
+		onModifyAtk(atk, pokemon) {
+			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
+				return this.chainModify(0.5);
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
+	weakfear: {
+		name: 'weakfear',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'weakfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'weakfear');
+			}
+		},
+		onModifySpA(atk, pokemon) {
+			if (!pokemon.hasAbility('pride'))
+				return this.chainModify(0.5);
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
+	weakpar: {
+		name: 'weakpar',
+		effectType: 'Status',
+		statusSlots: 2,
+		onStart(target, source, sourceEffect) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('status', target, 'weakpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+			} else {
+				this.add('status', target, 'weakpar');
+			}
+		},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('gale')) {
+				return this.chainModify(0.25);
+			}
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (this.dex.moves.get(moveSlot.id).flags['heal']) {
+					pokemon.disableMove(moveSlot.id);
+				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (effect?.id !== 'breather') return false;
+		},
+	  },
 	
 	//volatiles
 	stancebreak: {
@@ -407,7 +1115,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		onResidual() {
 			this.add('-weather', 'Aurora', '[upkeep]');
 			this.eachEvent('Weather');
-			this.add('-message', `The aurora continues.`);
+			//this.add('-message', `The aurora continues.`);
 		},
 		onEnd() {
 			this.add('-weather', 'none', '[silent]');

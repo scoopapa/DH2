@@ -760,14 +760,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	fishnet: {
 		onFoeTrapPokemon(pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectState.target)) return;
+			if (!pokemon.isAdjacent(this.effectState.target)) return;
 			if (pokemon.species.dondozo) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (pokemon.species.dondozo) { // Negate immunity if the type is unknown
 				pokemon.maybeTrapped = true;
 			}

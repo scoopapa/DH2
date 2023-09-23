@@ -3,6 +3,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	centufowl: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	cetenor: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
@@ -11,7 +15,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	embeluga: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	flameedle: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	gestower: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
@@ -55,7 +67,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	pollusk: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	puffrost: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	punctgris: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
@@ -88,6 +108,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "FFOU",
 	},
 	swampent: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	thermollusk: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
