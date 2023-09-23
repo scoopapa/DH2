@@ -3552,6 +3552,34 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 	},
 	//Gen 9
+	milkdrink: {
+		inherit: true,
+		pp: 10,
+	},
+	recover: {
+		inherit: true,
+		pp: 10,
+	},
+	rest: {
+		inherit: true,
+		pp: 10,
+	},
+	roost: {
+		inherit: true,
+		pp: 10,
+	},
+	shoreup: {
+		inherit: true,
+		pp: 10,
+	},
+	slackoff: {
+		inherit: true,
+		pp: 10,
+	},
+	softboiled: {
+		inherit: true,
+		pp: 10,
+	},
 	bleakwindstorm: {
 		num: 846,
 		accuracy: 80,
