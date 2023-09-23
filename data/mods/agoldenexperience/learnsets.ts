@@ -1,5 +1,9 @@
 export const Learnsets: { [speciesid: string]: LearnsetData; } = {
-	//export const Learnsets = {
+	// Gen 1
+	// Gen 2
+	// Gen 3
+	// Gen 4
+	// Gen 5
 	unfezant: {
 		learnset: {
 			aerialace: ["7M", "6M", "5M"],
@@ -110,7 +114,10 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			workup: ["8M", "7M", "5M"],
 		},
 	},
-	//PLA Pokemons
+	// Gen 6
+	// Gen 7
+	// Gen 8
+	// PLA Pokemons
 	growlithehisui: {
 		learnset: {
 			aerialace: ["8M"],
@@ -1664,9 +1671,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			uproar: ["8L50"],
 		},
 	},
-
-	//Gen 9
-
+	// Gen 9
 	sprigatito: {
 		learnset: {
 			acrobatics: ["8M"],

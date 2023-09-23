@@ -794,7 +794,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'kartana').learnset.sneakyassault = ['8L1'];
     this.modData('Learnsets', 'zeraora').learnset.sneakyassault = ['8L1'];
     this.modData('Learnsets', 'zarude').learnset.sneakyassault = ['8L1'];
-    this.modData('Learnsets', 'meowscarada').learnset.sneakyassault = ['8L1'];
     this.modData('Learnsets', 'lokix').learnset.sneakyassault = ['8L1'];
     this.modData('Learnsets', 'maushold').learnset.sneakyassault = ['8L1'];
     this.modData('Learnsets', 'slendawful').learnset.sneakyassault = ['8L1'];
