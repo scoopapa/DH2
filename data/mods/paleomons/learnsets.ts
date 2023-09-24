@@ -10,7 +10,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
       poisontail: ["9L1"],
       calmmind: ["9L1"],
       
-			absorb: ["9L1", 8L1", "8V", "7L1", "7V", "6L1", "5L1", "4L1", "3L1"],
+			absorb: ["9L1"],
 			aerialace: ["9L1", 7M", "6M", "5M", "4M", "3M"],
 			ancientpower: ["9L1", 8L30", "7L54", "7V", "6L54", "5L54", "4T", "4L54", "3L65"],
 			aquajet: ["9L1", 8L15", "8V", "7L31", "6L31", "5L31", "4L31"],
