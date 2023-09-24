@@ -1,6 +1,37 @@
 export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
-	kindlamb: {
+	sparktus: {
 		num: 1001,
+		name: "Sparktus",
+		types: ["Grass"],
+		baseStats: {hp: 60, atk: 90, def: 65, spa: 70, spd: 70, spe: 50},
+		abilities: {0: "Overgrow"},
+		evos: ["Cactamp"],
+		weightkg: 15,
+		eggGroups: ["Grass", "Field"],
+	},
+	cactamp: {
+		num: 1002,
+		name: "Cactamp",
+		types: ["Grass"],
+		baseStats: {hp: 50, atk: 70, def: 50, spa: 50, spd: 50, spe: 40},
+		abilities: {0: "Overgrow"},
+		prevo: "Sparktus",
+		evos: ["Succurent"],
+		weightkg: 25,
+		eggGroups: ["Grass", "Field"],
+	},
+	succurent: {
+		num: 1003,
+		name: "Succurent",
+		types: ["Grass", "Electric"],
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 90, spd: 100, spe: 70},
+		abilities: {0: "Overgrow"},
+		prevo: "Cactamp",
+		weightkg: 50,
+		eggGroups: ["Grass", "Field"],
+	},
+	kindlamb: {
+		num: 1004,
 		name: "Kindlamb",
 		types: ["Fire"],
 		baseStats: {hp: 47, atk: 45, def: 55, spa: 61, spd: 55, spe: 47},
@@ -10,7 +41,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Field"],
 	},
 	spaark: {
-		num: 1002,
+		num: 1005,
 		name: "Spaark",
 		types: ["Fire"],
 		baseStats: {hp: 57, atk: 60, def: 85, spa: 76, spd: 75, spe: 52},
@@ -21,7 +52,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Field"],
 	},
 	inferam: {
-		num: 1003,
+		num: 1006,
 		name: "Inferam",
 		types: ["Fire", "Steel"],
 		baseStats: {hp: 82, atk: 75, def: 110, spa: 96, spd: 100, spe: 67},
@@ -31,7 +62,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Field"],
 	},
 	slapole: {
-		num: 1004,
+		num: 1007,
 		name: "Slapole",
 		types: ["Water"],
 		baseStats: {hp: 50, atk: 65, def: 50, spa: 55, spd: 40, spe: 50},
@@ -41,7 +72,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Water 1", "Field"],
 	},
 	strikroak: {
-		num: 1005,
+		num: 1008,
 		name: "Strikroak",
 		types: ["Water"],
 		baseStats: {hp: 70, atk: 85, def: 70, spa: 60, spd: 60, spe: 60},
@@ -52,7 +83,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		eggGroups: ["Water 1", "Field"],
 	},
 	yamatoad: {
-		num: 1006,
+		num: 1009,
 		name: "Yamatoad",
 		types: ["Water", "Fighting"],
 		baseStats: {hp: 100, atk: 120, def: 100, spa: 70, spd: 80, spe: 65},
