@@ -281,7 +281,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			skydrop: ["9L1", "7M", "7L49", "6M", "6L49", "5M", "5L49"],
 			sleeptalk: ["9L1", "8M", "7M", "7V", "6M", "5T", "4M", "3T"],
 			snore: ["9L1", "8M", "7T", "7V", "6T", "5T", "4T", "3T"],
-			steelwing: ["9L1", ""8M", "7M", "7E", "7V", "6M", "6E", "5E", "5S0", "4M", "4E", "3M", "3E"],
+			steelwing: ["9L1", "8M", "7M", "7E", "7V", "6M", "6E", "5E", "5S0", "4M", "4E", "3M", "3E"],
 			strength: ["9L1", "6M", "5M", "4M", "3M"],
 			substitute: ["9L1", "8M", "8V", "7M", "7V", "6M", "5M", "4M", "3T"],
 			sunnyday: ["9L1", "8M", "7M", "6M", "5M", "4M", "3M"],
