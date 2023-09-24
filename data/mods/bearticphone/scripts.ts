@@ -1,9 +1,5 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	gen: 9,
-	teambuilderConfig: {
-		excludeStandardTiers: true,
-		customTiers: ['bear'],
-	},
 	actions: {
 		inherit: true,
 		// Two Left Feet's activation order is completely different from any other event, so it's handled separately
@@ -35,6 +31,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 		this.battle.faintMessages();
 		this.battle.checkWin();
+   },
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['bear'],
    },
    init() {
 		// Basalisk
