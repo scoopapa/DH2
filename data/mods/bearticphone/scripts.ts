@@ -4,6 +4,38 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		excludeStandardTiers: true,
 		customTiers: ['bear'],
 	},
+	actions: {
+		inherit: true,
+		// Two Left Feet's activation order is completely different from any other event, so it's handled separately
+		if (move.volatileStatus === 'confusion' && moveDidSomething && !move.isExternal) {
+			const feeters = [];
+			for (const currentPoke of this.battle.getAllActive()) {
+				if (pokemon === currentPoke) continue;
+				if (currentPoke.hasAbility('twoleftfeet') && !currentPoke.isSemiInvulnerable()) {
+					feeters.push(currentPoke);
+				}
+			}
+			// Two Left Feet activates in order of lowest speed stat to highest
+			// Note that the speed stat used is after any volatile replacements like Speed Swap,
+			// but before any multipliers like Agility or Choice Scarf
+			// Ties go to whichever Pokemon has had the ability for the least amount of time
+			feeters.sort(
+				(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+			);
+			const targetOf1stDance = this.battle.activeTarget!;
+			for (const feeter of feeters) {
+				if (this.battle.faintMessages()) break;
+				if (feeter.fainted) continue;
+				this.battle.add('-activate', feeter, 'ability: Two Left Feet');
+				const dancersTarget = target.side !== feeter.side && pokemon.side === feeter.side ? target : pokemon;
+				const dancersTargetLoc = dancer.getLocOf(dancersTarget);
+				this.runMove(move.id, feeter, this.getTargetLoc(dancersTarget, feeter), this.dex.abilities.get('feeter'), undefined, true);
+			}
+		}
+		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
+		this.battle.faintMessages();
+		this.battle.checkWin();
+   },
    init() {
 		// Basalisk
 		this.modData("Learnsets", "basalisk").learnset.ancientpower = ["8L1"];
