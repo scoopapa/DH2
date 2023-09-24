@@ -8730,8 +8730,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: null,
 		gen: 9,
 		tier: "NFE",
-		doublesTier: "NFE",
-		natDexTier: "NFE",
 	},
 	schmesatt: {
 		isNonstandard: null,
