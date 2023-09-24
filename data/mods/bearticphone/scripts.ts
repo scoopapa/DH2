@@ -18,7 +18,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			feeters.sort(
 				(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
 			);
-			const targetOf1stDance = this.battle.activeTarget!;
 			for (const feeter of feeters) {
 				if (this.battle.faintMessages()) break;
 				if (feeter.fainted) continue;
