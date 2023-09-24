@@ -1457,7 +1457,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	darkball: {
 		num: 930,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 90,
 		category: "Physical",
 		shortDesc: "50% chance to lower the target's Atk and Def by 1.",
 		name: "Dark Ball",
