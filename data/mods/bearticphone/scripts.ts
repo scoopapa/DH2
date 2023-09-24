@@ -24,13 +24,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (feeter.fainted) continue;
 				this.battle.add('-activate', feeter, 'ability: Two Left Feet');
 				const dancersTarget = target.side !== feeter.side && pokemon.side === feeter.side ? target : pokemon;
-				const dancersTargetLoc = dancer.getLocOf(dancersTarget);
 				this.runMove(move.id, feeter, this.getTargetLoc(dancersTarget, feeter), this.dex.abilities.get('feeter'), undefined, true);
 			}
 		}
 		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
-		this.battle.faintMessages();
-		this.battle.checkWin();
    },
 	teambuilderConfig: {
 		excludeStandardTiers: true,
