@@ -3592,7 +3592,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latios: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "RUBL",
 	},
@@ -9066,7 +9066,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pauption: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -9144,7 +9144,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	porygonv: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -9214,7 +9214,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chasilen: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
