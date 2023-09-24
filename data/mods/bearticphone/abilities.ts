@@ -8,12 +8,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Big Swinger",
+		shortDesc: "This Pokemon's ball and bullet moves have their power multiplied by 1.5.",
 		rating: 3.5,
 		num: 292,
 	},
 	boombox: {
 		onSourceDamagingHit(damage, target, source, move) {
-			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Boombox's effect
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
 
 			if (this.randomChance(3, 10)) {
@@ -21,6 +22,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Boombox",
+		shortDesc: "This Pokemon's moves have a 30% chance of badly poisoning.",
 		rating: 4.5,
 		num: 305,
 	},
@@ -31,6 +33,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Cosmic Body",
+		shortDesc: "This Pokemon's Def and SpD has a 30% chance to be raised by 1 after it's damaged by a move.",
 		rating: 2,
 		num: 49,
 	},
@@ -51,6 +54,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		name: "Electrivore",
+		shortDesc: "This Pokemon's Normal-type moves become Electric type and have 1.2x power.",
 		rating: 4,
 		num: 206,
 	},
@@ -71,6 +75,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 		name: "Immolate",
+		shortDesc: "This Pokemon's Normal-type moves become Fire type and have 1.2x power.",
 		rating: 4,
 		num: 184,
 	},
@@ -92,6 +97,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		isBreakable: true,
 		name: "Molten Fury",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Rock move; Rock immunity.",
 		rating: 3,
 		num: 157,
 	},
@@ -110,6 +116,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Phantom Thief",
+		shortDesc: "Ghost moves hit Normal. Immune to Intimidate.",
 		rating: 3,
 		num: 113,
 	},
@@ -121,6 +128,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Quackery",
+		shortDesc: "On switch-in, every Pokemon has their stat stages reset to 0.",
 		rating: 4,
 		num: 261,
 	},
@@ -142,6 +150,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		isBreakable: true,
 		name: "Rocket Propulsion",
+		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Fire move; Fire immunity.",
 		rating: 3,
 		num: 157,
 	},
@@ -154,10 +163,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Sharpshooter",
+		shortDesc: "This Pokemon's ball and bullet moves have their power multiplied by 1.5.",
 		rating: 3.5,
 		num: 292,
 	},
   twoleftfeet: {
+	 // Two Left Feet confusion copying implemented in scripts.ts
     name: "Two Left Feet",
+	 shortDesc: "After another Pokemon uses a move that can cause confusion, this Pokemon uses the same move.",
     rating: 4,
 };
