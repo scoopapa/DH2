@@ -1,4 +1,37 @@
 export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
+	kindlamb: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 4,
+	},
+	spaark: {
+		tier: "NFE",
+		isNonstandard: null,
+		gen: 4,
+	},
+	inferam: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	slapole: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 4,
+	},
+	strikroak: {
+		tier: "NFE",
+		isNonstandard: null,
+		gen: 4,
+	},
+	yamatoad: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+
+
+
 	bulbasaur: {
 		tier: "LC",
 	},
