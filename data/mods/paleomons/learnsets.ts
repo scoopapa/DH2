@@ -175,7 +175,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			sandattack: ["9L1", "8L1"],
 			scald: ["9L1", "8M", "8V", "7M", "6M", "5M"],
 			secretpower: ["9L1", "6M", "4M", "3M"],
-			seismictoss: ["9L1", "8V", "7V", "3T"],=
+			seismictoss: ["9L1", "8V", "7V", "3T"],
 			skullbash: ["9L1", "7V"],
 			sleeptalk: ["9L1", "8M", "7M", "7V", "6M", "5T", "4M", "3T"],
 			snore: ["9L1", "8M", "7T", "7V", "6T", "5T", "4T", "3T"],
@@ -232,7 +232,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			doubleedge: ["9L1", "7V", "3T"],
 			doubleteam: ["9L1", "7M", "7V", "6M", "5M", "4M", "3M"],
 			dragonbreath: ["9L1", "8E", "7E", "7V", "6E", "5E", "4E", "3E"],
-			dragonclaw: ["9L1", "8M", "7M", "6M", "5M", "4M", "3M"],=
+			dragonclaw: ["9L1", "8M", "7M", "6M", "5M", "4M", "3M"],
 			dragonpulse: ["9L1", "8M", "8V", "7T", "6T", "5T", "4M"],
 			dragonrage: ["9L1", "7V"],
          dualwingbeat: ["9L1"],
