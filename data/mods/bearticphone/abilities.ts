@@ -172,4 +172,5 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
     name: "Two Left Feet",
 	 shortDesc: "After another Pokemon uses a move that can cause confusion, this Pokemon uses the same move.",
     rating: 4,
+  },
 };
