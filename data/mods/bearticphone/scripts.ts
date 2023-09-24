@@ -3,7 +3,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	actions: {
 		inherit: true,
 		// Two Left Feet's activation order is completely different from any other event, so it's handled separately
-		if (move.volatileStatus === 'confusion' && moveDidSomething && !move.isExternal) {
+		if (move.type === 'Steel' && moveDidSomething && !move.isExternal) {
 			const feeters = [];
 			for (const currentPoke of this.battle.getAllActive()) {
 				if (pokemon === currentPoke) continue;
