@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-		mysterelk: {
+	mysterelk: {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
@@ -491,6 +491,45 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	knightmare: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	queenmate: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	scraggydesvega: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	scraftydesvegaarbok: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	scraftydesvegatriassinge: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	scraftydesvegasandaconda: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	rotompoker: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	mawiledesvega: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	vulguile: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+
+	
+	
 	arcognition: {
 		tier: "Desvega Uber",
 		doublesTier: "DGX",
