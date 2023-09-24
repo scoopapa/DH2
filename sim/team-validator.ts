@@ -1276,7 +1276,7 @@ export class TeamValidator {
 					generation: 5,
 					level: 10,
 					from: 'Gen 5 Dream World',
-					isHidden: !!this.dex.mod('gen5').getSpecies(species.id).abilities['H'],
+					isHidden: !!this.dex.mod('gen5').species.get(species.id).abilities['H'],
 				};
 			}
 		} else if (source.charAt(1) === 'E') {
