@@ -32,7 +32,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (!movesAdded[str] 
 					&& ( move.recoil 
 						|| move.flags['punch'] 
-						|| (move.secondary && move.secondary.flinch) 
+						|| (move.secondary && move.secondary.flinch && move.category === "Physical") 
 						|| moveid === "bodyslam" )
 				) {
 					this.modData('Learnsets', id).learnset[str] = ['9L1'];
