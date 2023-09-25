@@ -1,4 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	inherit: 'gen8',
+	gen: 8,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['Mega', 'Kalos', 'Kalos (NFE)'],
@@ -49,6 +51,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		if (item.name === "Wormadamite" && (pokemon.baseSpecies.name === "Wormadam" || pokemon.baseSpecies.name === "Wormadam-Trash")) {
 			return null;
 		}
+		if (item.name === "Hoopanite" && (pokemon.baseSpecies.name === "Hoopa-Unbound")) return null;
 		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}

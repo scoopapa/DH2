@@ -36,6 +36,8 @@ const c = ["aerodactyl", "marowakalola", "bronzong", "coalossal", "celesteela", 
 */
 
 export const Scripts: ModdedBattleScriptsData = {
+	inherit: 'gen8',
+	gen: 8,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['April Fools', 'Hisui', 'Tourbanned', 'Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],

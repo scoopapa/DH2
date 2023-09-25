@@ -281,6 +281,132 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Florges, this item allows it to Mega Evolve in battle.",
 	},
+	skarmorite: {
+		name: "Skarmorite",
+		spritenum: 578,
+		megaStone: "Skarmory-Mega",
+		megaEvolves: "Skarmory",
+		itemUser: ["Skarmory"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1021,
+		gen: 8,
+		desc: "If held by a Skarmory, this item allows it to Mega Evolve in battle.",
+	},
+	druddigonite: {
+		name: "Druddigonite",
+		spritenum: 578,
+		megaStone: "Druddigon-Mega",
+		megaEvolves: "Druddigon",
+		itemUser: ["Druddigon"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1022,
+		gen: 8,
+		desc: "If held by a Druddigon, this item allows it to Mega Evolve in battle.",
+	},
+	chesnite: {
+		name: "Chesnite",
+		spritenum: 578,
+		megaStone: "Chesnaught-Mega",
+		megaEvolves: "Chesnaught",
+		itemUser: ["Chesnaught"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1023,
+		gen: 8,
+		desc: "If held by a Chesnaught, this item allows it to Mega Evolve in battle.",
+	},
+	skuntankite: {
+		name: "Skuntankite",
+		spritenum: 578,
+		megaStone: "Skuntank-Mega",
+		megaEvolves: "Skuntank",
+		itemUser: ["Skuntank"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1024,
+		gen: 8,
+		desc: "If held by a Skuntank, this item allows it to Mega Evolve in battle.",
+	},
+	emolganite: {
+		name: "Emolganite",
+		spritenum: 578,
+		megaStone: "Emolga-Mega",
+		megaEvolves: "Emolga",
+		itemUser: ["Emolga"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1025,
+		gen: 8,
+		desc: "If held by an Emolga, this item allows it to Mega Evolve in battle.",
+	},
+	avaluggite: {
+		name: "Avaluggite",
+		spritenum: 578,
+		megaStone: "Avalugg-Mega",
+		megaEvolves: "Avalugg",
+		itemUser: ["Avalugg"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1026,
+		gen: 8,
+		desc: "If held by an Avalugg, this item allows it to Mega Evolve in battle.",
+	},
+	laprasite: {
+		name: "Laprasite",
+		spritenum: 578,
+		megaStone: "Lapras-Mega",
+		megaEvolves: "Lapras",
+		itemUser: ["Lapras"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1027,
+		gen: 8,
+		desc: "If held by a Lapras, this item allows it to Mega Evolve in battle.",
+	},
+	pyroarite: {
+		name: "Pyroarite",
+		spritenum: 578,
+		megaStone: "Pyroar-Mega",
+		megaEvolves: "Pyroar",
+		itemUser: ["Pyroar"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1028,
+		gen: 8,
+		desc: "If held by a Pyroar, this item allows it to Mega Evolve in battle.",
+	},
+	carbinite: {
+		name: "Carbinite",
+		spritenum: 578,
+		megaStone: "Carbink-Mega",
+		megaEvolves: "Carbink",
+		itemUser: ["Carbink"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1029,
+		gen: 8,
+		desc: "If held by a Carbink, this item allows it to Mega Evolve in battle.",
+	},
 
 	// crossover Megas
 
