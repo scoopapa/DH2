@@ -1531,6 +1531,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		baseStats: {hp: 60, atk: 100, def: 120, spa: 85, spd: 70, spe: 30},
 		abilities: {0: "Shell Armor", 1: "Anger Shell", H: "Toxic Debris"},
 		weightkg: 1.5,
+		cosmeticFormes: ["Skurmishell-Blue", "Skurmishell-Green", "Skurmishell-Pink"],
+		formeOrder: ["Skurmishell", "Skurmishell-Blue", "Skurmishell-Green", "Skurmishell-Pink"],
 	},
 	lutinsnoot: {
 		num: 9154,
