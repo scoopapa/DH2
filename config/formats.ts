@@ -2052,6 +2052,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Roovnen Dex', 'Min Source Gen = 9', 'VGC Timer', 'Terastal Clause', 'Roovnen Move Dexits'],
 		banlist: [
+			'Soul Dew', 'Shadow Dew',
 			'Sub-Legendary', 'Sigisin', 'Bredoom', 'Frosgross', 'Abomacruel', 'Porygon-V', 'Latakuno',
 			
 			//Home Pokemon
@@ -2064,7 +2065,8 @@ export const Formats: FormatList = [
 			'Chi-Yu', 'Dipplin', 'Poltchageist', 'Sinistcha', 'Okidogi', 'Munkidori', 'Fezandipiti', 'Ogerpon', 
 		],
 		teambuilderBans: ['Cubone-Base', 'Sewaddle-Base', 'Swadloon-Base', 'Leavanny-Base', 'Roggenrola-Base', 'Boldore-Base', 'Gigalith-Base', 'Dratini-Base', 'Dragonair-Base', 'Dragonite-Base', 'Golett-Base', 'Rolycoly-Base', 
-			'Carkol-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar'],
+			'Carkol-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar',
+		],
 	},
 	/*{
 		name: "[Gen 9] Roovnen LC",
