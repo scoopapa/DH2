@@ -361,7 +361,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.add('activate', target, 'item: BrightPowder');
 				if(!this.dex.getImmunity('powder', source)) return;
 				this.attrLastMove('[still]');
-				this.add('cant', source, 'item: BrightPowder', move);
+				this.add('cant', source, 'item: BrightPowder', move, '[of] ' + target);
 				return false;
 			}
 		},
@@ -753,6 +753,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Holder's Bug-type attacks have 1.2x power. When Flung, applies Powder to the target, but fails if target is immune to powder attacks. Evolves Twintura into Silvurah when traded.",
 		shortDesc: "Holder's Bug-type attacks 1.2x power; applies Powder when Flung.",
+	},
+	snowball: {
+		boosts: {
+			def: 1,
+		},
+		desc: "Raises holder's Defense by 1 if hit by an Ice-type attack. Single use.",
 	},
 	starfberry: {
 		inherit: true,
@@ -1498,6 +1504,25 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		ignoreKlutz: false,
 		desc: "Holder's Speed is halved.",
+	},
+	safetygoggles: {
+		inherit: true,
+		desc: "Holder is immune to powder moves and damage from Sandstorm or Snow.",
+	},
+	sweetapple: {
+		inherit: true,
+		shortDesc: "Holder's use of Apple Bomb lowers Sp. Defense.",
+		desc: "When used by the holder, the move Apple Bomb lowers Special Defense. Evolves Applin into Appletun when used.",
+	},
+	syrupyapple: {
+		inherit: true,
+		shortDesc: "Holder's use of Apple Bomb lowers Speed.",
+		desc: "When used by the holder, the move Apple Bomb lowers Speed. Evolves Applin into Dipplin when used.",
+	},
+	tartapple: {
+		inherit: true,
+		shortDesc: "Holder's use of Apple Bomb lowers Defense.",
+		desc: "When used by the holder, the move Apple Bomb lowers Defense. Evolves Applin into Flapple when used.",
 	},
 	/* Natural Gift adjustments (also type-reduction edits for dual-type moves) */
 	cheriberry: {

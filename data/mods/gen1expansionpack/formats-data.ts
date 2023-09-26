@@ -372,7 +372,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		gen: 1,
 	},
-	kokana: {
+	gentlarva: {
 		tier: "LC",
 		gen: 1,
 	},

@@ -513,57 +513,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pokestarwhitedoor: null,
 	pokestarblackbelt: null,
 	pokestarufopropu2: null,
-	//Battle-only formes (hopefully delete later)
-	arceusbug: {
-		tier: "Uber",
+	//Mons normally without their own tiering data that now need it for the algorithm
+	toxtricitylowkey: {
+		tier: "OU",
 	},
-	arceusdark: {
-		tier: "Uber",
+	sinisteaantique: {
+		tier: "LC",
 	},
-	arceusdragon: {
-		tier: "Uber",
-	},
-	arceuselectric: {
-		tier: "Uber",
-	},
-	arceusfairy: {
-		tier: "Uber",
-	},
-	arceusfighting: {
-		tier: "Uber",
-	},
-	arceusfire: {
-		tier: "Uber",
-	},
-	arceusflying: {
-		tier: "Uber",
-	},
-	arceusghost: {
-		tier: "Uber",
-	},
-	arceusgrass: {
-		tier: "Uber",
-	},
-	arceusground: {
-		tier: "Uber",
-	},
-	arceusice: {
-		tier: "Uber",
-	},
-	arceuspoison: {
-		tier: "Uber",
-	},
-	arceuspsychic: {
-		tier: "Uber",
-	},
-	arceusrock: {
-		tier: "Uber",
-	},
-	arceussteel: {
-		tier: "Uber",
-	},
-	arceuswater: {
-		tier: "Uber",
+	polteageistantique: {
+		tier: "OU",
 	},
 	squawkabillyblue: {
 		tier: "OU",
@@ -573,5 +531,83 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	squawkabillywhite: {
 		tier: "OU",
+	},
+	palafinhero: {
+		tier: "OU",
+	},
+	poltchageistartisan: {
+		tier: "LC",
+	},
+	sinistchamasterpiece: {
+		tier: "OU",
+	},
+	//Battle-only formes (hopefully delete later)
+	arceusbug: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusdark: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusdragon: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceuselectric: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusfairy: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusfighting: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusfire: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusflying: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusghost: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusgrass: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusground: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusice: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceuspoison: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceuspsychic: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceusrock: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceussteel: {
+		tier: "Uber",
+		natDexTier: "Uber",
+	},
+	arceuswater: {
+		tier: "Uber",
+		natDexTier: "Uber",
 	},
 };
