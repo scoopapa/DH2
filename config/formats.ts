@@ -1965,7 +1965,10 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Roovnen Dex', 'Min Source Gen = 9', 'VGC Timer', 'Terastal Clause', 'Roovnen Move Dexits'],
 		banlist: [
-			'Sub-Legendary', 'Sigisin', 'Bredoom', 'Frosgross', 'Abomacruel', 'Porygon-V', 'Latakuno'
+			'Sub-Legendary', 'Sigisin', 'Bredoom', 'Frosgross', 'Abomacruel', 'Porygon-V', 'Latakuno',
+			
+			'Cubone-Base', 'Sewaddle-Base', 'Swadloon-Base', 'Leavanny-Base', 'Roggenrola-Base', 'Boldore-Base', 'Gigalith-Base', 'Dratini-Base', 'Dragonair-Base', 'Dragonite-Base', 'Golett-Base', 'Rolycoly-Base', 
+			'Carkol-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar',
 		
 			//Home Pokemon
 			'Tentacool', 'Tentacruel', 'Marowak-Base', 'Marowak-Alola', 'Tauros', 'Tauros-Paldea-Aqua', 'Tauros-Paldea-Blaze', 
