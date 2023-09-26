@@ -2159,4 +2159,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Carbink, this item allows it to Mega Evolve in battle.",
 	},
+	hoopanite: {
+		name: "Hoopanite",
+		spritenum: 578,
+		megaStone: "Hoopa-Mega",
+		megaEvolves: "Hoopa",
+		itemUser: ["Hoopa"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: -1030,
+		gen: 8,
+		desc: "If held by a Hoopa-Confined, this item allows it to Mega Evolve in battle.",
+	},
 };

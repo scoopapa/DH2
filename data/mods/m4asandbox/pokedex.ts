@@ -1903,6 +1903,16 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaCreator: "okispokis",
 	},
 
+	hoopa: {
+		inherit: true,
+		mega: "hoopamega",
+		megaName: "Hoopa-Mega",
+		megaAbility: {0: "Hyperspace Mayhem"},
+		megaStats: {hp: 80, atk: 150, def: 70, spa: 160, spd: 160, spe: 80},
+		megaStone: "Hoopanite",
+		megaCreator: "DrPumpkinz",
+	},
+
 	// SANDBOX CONTENT STARTS HERE
 
 	pichuspikyeared: {
