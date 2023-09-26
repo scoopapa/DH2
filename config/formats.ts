@@ -2056,10 +2056,12 @@ export const Formats: FormatList = [
 			
 			//Home Pokemon
 			'Tentacool', 'Tentacruel', 'Marowak', 'Marowak-Alola', 'Tauros', 'Tauros-Paldea-Aqua', 'Tauros-Paldea-Blaze', 
-			'Tauros-Paldea-Combat', 'Eevee', 'Vaporeon', 'Jolteon', 'Flareon', 'Espeon', 'Umbreon', 'Turtwig', 'Grotle', 
-			'Torterra', 'Chimchar', 'Monferno', 'Infernape', 'Piplup', 'Prinplup', 'Empoleon', 'Leafeon', 'Glaceon', 'Phione', 
-			'Golurk', 'Sylveon', 'Coalossal', 'Runerigus', 'Sprigatito', 'Floragato', 'Meowscarada', 'Fuecoco', 'Crocalor', 
-			'Skeledirge', 'Quaxly', 'Quaxwell', 'Quaquaval', 'Clodsire', 'Dipplin', 'Poltchageist', 'Sinistcha',
+			'Tauros-Paldea-Combat', 'Eevee', 'Vaporeon', 'Jolteon', 'Flareon', 'Mew', 'Espeon', 'Umbreon', 'Raikou', 
+			'Entei', 'Suicune', 'Celebi', 'Deoxys', 'Turtwig', 'Grotle', 'Torterra', 'Chimchar', 'Monferno', 'Infernape', 
+			'Piplup', 'Prinplup', 'Empoleon', 'Leafeon', 'Glaceon', 'Phione', 'Manaphy', 'Shaymin', 'Golurk', 'Sylveon', 
+			'Zygarde', 'Meltan', 'Melmetal', 'Coalossal', 'Runerigus', 'Sprigatito', 'Floragato', 'Meowscarada', 'Fuecoco', 
+			'Crocalor', 'Skeledirge', 'Quaxly', 'Quaxwell', 'Quaquaval', 'Clodsire', 'Wo-Chien', 'Chien-Pao', 'Ting-Lu', 
+			'Chi-Yu', 'Dipplin', 'Poltchageist', 'Sinistcha', 'Okidogi', 'Munkidori', 'Fezandipiti', 'Ogerpon', 
 		],
 		teambuilderBans: ['Cubone-Base', 'Sewaddle-Base', 'Swadloon-Base', 'Leavanny-Base', 'Roggenrola-Base', 'Boldore-Base', 'Gigalith-Base', 'Dratini-Base', 'Dragonair-Base', 'Dragonite-Base', 'Golett-Base', 'Rolycoly-Base', 
 			'Carkol-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar'],
