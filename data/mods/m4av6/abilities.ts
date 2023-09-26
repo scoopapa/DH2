@@ -2,6 +2,32 @@ const bladeMoves = [
 	'aerialace', 'aircutter', 'airslash', 'aquacutter', 'behemothblade', 'bitterblade', 'ceaselessedge', 'crosspoison', 'cut', 'furycutter', 'leafblade', 'nightslash',
 	'populationbomb', 'psychocut', 'razorleaf', 'razorshell', 'sacredsword', 'secretsword', 'slash', 'stoneaxe', 'solarblade', 'xscissor',
 ];
+const hyperspaceLookup = {
+	mewtwo: { move: "Psystrike" },
+	lugia: { move: "Aeroblast" },
+	hooh: { move: "Sacred Fire" },
+	groudon: { move: "Precipice Blades" },
+	kyogre: { move: "Origin Pulse" },
+	rayquaza: { move: "Dragon Ascent" },
+	dialga: { move: "Roar of Time" },
+	palkia: { move: "Spacial Rend" },
+	giratinaorigin: { move: "Shadow Force" },
+	reshiram: { move: "Blue Flare" },
+	zekrom: { move: "Bolt Strike" },
+	kyurem: { move: "Glaciate" },
+	xerneas: { move: "Geomancy" },
+	yveltal: { move: "Oblivion Wing" },
+	zygardecomplete: { move: "Core Enforcer" },
+	cosmog: { move: "Teleport" },
+	solgaleo: { move: "Sunsteel Strike" },
+	lunala: { move: "Moongeist Beam" },
+	necrozmaultra: { move: "Light That Burns the Sky" },
+	zaciancrowned: { move: "Behemoth Blade" },
+	zamazentacrowned: { move: "Behemoth Bash" },
+	eternatus: { move: "Eternabeam" },
+	calyrexice: { move: "Glacial Lance" },
+	calyrexshadow: { move: "Astral Barrage" },
+};
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	gravitas: {
 		shortDesc: "On switch-in, this Pokémon summons Gravity.",
@@ -807,7 +833,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 						}
 					} else {
 						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} suddenly exploded!`);
-						this.useMove('explosion', target, "[from] ability: Alchemist", "[of] " + source);
+						this.actions.useMove('explosion', target, "[from] ability: Alchemist", "[of] " + source);
 					}
 				} else {
 					this.add('-ability', source, 'Alchemist');
@@ -1605,7 +1631,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				/*
 				this.add('-anim', source, "Earthquake", target);
 				*/
-				this.useMove('earthquake', this.effectState.target); // going to rework this a bit
+				this.actions.useMove('earthquake', this.effectState.target); // going to rework this a bit
 			}
 		},
 		name: "Seismic Scream",
@@ -1947,7 +1973,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				delete data.moveData.flags['protect'];
 
 				if (move.category === 'Status') {
-					this.useMove(move, target, data.target);
+					this.actions.useMove(move, target, data.target);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 					if (data.source.isActive) {
@@ -3019,5 +3045,162 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Repulsive",
 		rating: 3,
 		num: -1006,
+	},
+	hyperspacemayhem: {
+		shortDesc: "Hyperspace Hole summons a random restricted Legendary Pokémon to attack instead.",
+		name: "Hyperspace Mayhem",
+		onModifyMove(move) {
+			if (move && move.id === 'hyperspacehole') move.target = 'self'; // cosmetic
+		},
+		onSourceTryHitPriority: 1,
+		onSourceTryHit(target, source, move) {
+			if (
+				move && move.id === 'hyperspacehole' && source.hasAbility('hyperspacemayhem')
+			) {
+				let summons = [];
+				for (const id in hyperspaceLookup) summons.push(id);
+				const summon = this.sample(summons);
+				const userBackup = {
+					name: source.name,
+					fullname: source.fullname,
+					status: source.status,
+					gender: source.gender,
+					species: source.species,
+					nature: this.dex.natures.get(source.set.nature).name,
+					evs: source.set.evs,
+					ivs: source.set.ivs,
+					shiny: source.set.shiny,
+					volatiles: source.volatiles,
+				};
+				const boostBackup: SparseBoostsTable = {};
+				for (const stat in source.boosts) {
+					boostBackup[stat] = source.boosts[stat];
+				}
+				
+				this.add('-ability', source, 'Hyperspace Mayhem');
+				source.volatiles = {}; // clear volatiles silently
+				source.addVolatile('hyperspacemayhem', source, null); // appropriately modify certain moves, like Teleport and Shadow Force
+				this.add('-message', `By using Hyperspace Hole, ${source.name} summons a Legendary Pokémon!`);
+
+				for (const stat in boostBackup) {
+					boostBackup[stat] *= -1;
+				}
+				source.volatiles['hyperspacemayhem'].midtransform = true;
+				this.boost(boostBackup, source, source, null, true);
+				source.name = this.dex.species.get(summon).baseSpecies ? this.dex.species.get(summon).baseSpecies : this.dex.species.get(summon).name;
+				source.fullname = source.side.id + ': ' + source.name;
+				source.gender = ''; // not dealing with this because (thank goodness!) none of these have genders anyway
+				source.set.evs = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0};
+				source.set.ivs = {hp: this.random(32), atk: this.random(32), def: this.random(32), spa: this.random(32), spd: this.random(32), spe: this.random(32)};
+				// to do: set three of those to 31 at random
+				
+				let ivs = [];
+				let ivsB = [];
+				let ivsC = [];
+				let perfectIVs = [];
+				for (const id in source.set.ivs) ivs.push(id);
+				perfectIVs.push(this.sample(ivs));
+				for (const id in source.set.ivs) {
+					if (perfectIVs.includes(id)) continue;
+					ivsB.push(id);
+				}
+				perfectIVs.push(this.sample(ivsB));
+				for (const id in source.set.ivs) {
+					if (perfectIVs.includes(id)) continue;
+					ivsC.push(id);
+				}
+				perfectIVs.push(this.sample(ivsC));
+				source.set.ivs[perfectIVs[0]] = 31;
+				source.set.ivs[perfectIVs[1]] = 31;
+				source.set.ivs[perfectIVs[2]] = 31;
+
+				const natures = this.dex.natures.all();
+				source.nature = this.sample(natures).name;
+				source.set.shiny = '';
+				source.shiny = '';
+				if (this.randomChance(1, 4)) {
+					source.set.shiny = true; // change to 4096... but, like, after confirming this actually works!
+					source.shiny = true; // change to 4096... but, like, after confirming this actually works!
+				}
+				this.add('-message', `It's ${source.name}!`);
+
+				source.volatiles['hyperspacemayhem'].userBackup = userBackup;
+				source.volatiles['hyperspacemayhem'].fakelegend = true;
+				source.formeChange(this.dex.species.get(summon), move); // make sure this is silent?
+				if (hyperspaceLookup[summon].move === "Geomancy" || hyperspaceLookup[summon].move === "Shadow Force") {
+					this.add('-prepare', source, hyperspaceLookup[summon].move);
+					source.addVolatile(this.dex.moves.get(hyperspaceLookup[summon].move).id, target);
+				}
+				if (hyperspaceLookup[summon].move === "Geomancy") source.volatiles['hyperspacemayhem'].geomancy = true;
+				this.actions.useMove(hyperspaceLookup[summon].move, source, this.getRandomTarget(source, hyperspaceLookup[summon].move), this.dex.moves.get('instruct'));
+				if (hyperspaceLookup[summon].move === "Geomancy") {
+					source.volatiles['hyperspacemayhem'].geomancy = null;
+					source.name = this.dex.species.get(summon).baseSpecies ? this.dex.species.get(summon).baseSpecies : this.dex.species.get(summon).name;
+					source.fullname = source.side.id + ': ' + source.name;
+				}
+				if (hyperspaceLookup[summon].move === "Teleport") this.add('-message', `Oops! Looks like ${source.name} doesn't know how to battle!`);
+				source.volatiles['hyperspacemayhem'].fakelegend = null;
+
+				// to do: make a special exception for Zacian and Rayquaza's stat modifiers
+				// (they *should* work correctly as-is, but the way they display will be very misleading)
+
+				// then change everything back to Hoopa
+				source.name = userBackup.name;
+				source.fullname = userBackup.fullname;
+				source.status = userBackup.status;
+				source.gender = userBackup.gender;
+				source.nature = userBackup.nature;
+				source.set.evs = userBackup.evs;
+				source.set.ivs = userBackup.ivs;
+				source.set.shiny = userBackup.shiny;
+				source.shiny = userBackup.shiny;
+				// silently restore boosts
+				if (hyperspaceLookup[summon].move !== "Geomancy") {
+					const resetStats: SparseBoostsTable = {};
+					for (const stat in source.boosts) {
+						resetStats[stat] = source.boosts[stat] * -1;
+					}
+					this.boost(resetStats, source, source, null, true);
+				}
+				for (const stat in boostBackup) {
+					boostBackup[stat] *= -1;
+				}
+				this.boost(boostBackup, source, source, null, true);
+				source.volatiles['hyperspacemayhem'].midtransform = null;
+				delete source.volatiles['hyperspacemayhem']; // for everything
+				source.volatiles = userBackup.volatiles;
+
+				// change form back
+				source.formeChange(userBackup.species, move);
+
+				this.add('-message', `${this.dex.species.get(summon).baseSpecies ? this.dex.species.get(summon).baseSpecies : this.dex.species.get(summon).name} went back home!`);
+				this.add('-message', `Bye, bye, ${this.dex.species.get(summon).baseSpecies ? this.dex.species.get(summon).baseSpecies : this.dex.species.get(summon).name}!`);
+
+				return null; // Hyperspace Hole itself doesn't actually get used
+			}
+		},
+		condition: {
+			onModifyMove(move, pokemon) {
+				if (move.selfSwitch) delete move.selfSwitch; // for Cosmog
+			},
+			onDamage(damage, target, source, effect) {
+				this.hint(`${target.name} is a different Pokémon, so the damage it takes doesn't affect ${this.effectState.userBackup.name}!`);
+				return 0;
+			},
+			onSetStatus(status, target, source, effect) {
+				return null; // avoid ever rolling Flame Body, Static, et cetera
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'geomancy' || status.id === 'shadowforce') return;
+				return null; // avoid ever rolling Cursed Body, et cetera
+			},
+			onBasePower(basePower, user, target, move) {
+				if (user.baseSpecies.num === 487 && (move.type === 'Ghost' || move.type === 'Dragon')) { // for Giratina
+					return this.chainModify([4915, 4096]);
+				}
+			},
+		},
+		rating: 4,
+		num: -1007,
 	},
 };
