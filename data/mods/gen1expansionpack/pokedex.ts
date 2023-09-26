@@ -435,10 +435,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		evos: ["Grimer"],
 	},
-	kokana: {
+	gentlarva: {
 		num: 1192,
 		gen: 1,
-		name: "Kokana",
+		name: "Gentlarva",
 		types: ["Bug"],
 		abilities: {},
 		baseStats: {hp: 40, atk: 35, def: 30, spa: 25, spd: 25, spe: 45},
@@ -452,7 +452,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		baseStats: {hp: 45, atk: 20, def: 50, spa: 30, spd: 30, spe: 40},
 		evos: ["Carapthor"],
-		prevo: "Kokana",
+		prevo: "Gentlarva",
 		evoLevel: 7,
 	},
 	carapthor: {
