@@ -288,15 +288,21 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHitField(t, source, move) {
 			const targets: Pokemon[] = [];
 			for (const pokemon of this.getAllActive()) {
-				if (this.runEvent('TryHit', pokemon, source, move)) {
-					targets.push(pokemon);
-				}
+				const equalizeData: ActiveMove = {
+					name: "Equalize",
+					basePower: 0,
+					damageCallback(pokemon) {
+						return pokemon.maxhp / 2;
+					},
+					accuracy: 100,
+					category: "Special",
+					critRatio: 0,
+					flags: {protect: 1},
+					effectType: 'Move',
+					type: '???',
+				};
+				this.actions.trySpreadMoveHit([pokemon], source, equalizeData);
 			}
-			let success = false;
-			for (const target of targets) {
-				success = this.damage(source.maxhp / 2, target, source) || success;
-			}
-			return success;
 		},
 		secondary: null,
 		shortDesc: "Damages all Pokemon equal to half of user's max HP.",

@@ -1740,6 +1740,19 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Swarm", H: "Anger Point"},
 	},
+	meowth: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Technician", H: "Super Luck"},
+	},
+	persian: {
+		inherit: true,
+		abilities: {0: "Limber", 1: "Technician", H: "Super Luck"},
+	},
+	arcaninehisui: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 120, def: 80, spa: 90, spd: 80, spe: 85},
+		color: "Orange",
+	},
 	oddish: {
 		inherit: true,
 		abilities: {0: "Night Walker", H: "Run Away"},
@@ -1751,11 +1764,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	vileplume: {
 		inherit: true,
 		abilities: {0: "Night Walker", H: "Effect Spore"},
-	},
-	arcaninehisui: {
-		inherit: true,
-		baseStats: {hp: 100, atk: 120, def: 80, spa: 90, spd: 80, spe: 85},
-		color: "Orange",
 	},
 	geodude: {
 		inherit: true,

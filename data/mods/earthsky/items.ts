@@ -361,7 +361,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				this.add('activate', target, 'item: BrightPowder');
 				if(!this.dex.getImmunity('powder', source)) return;
 				this.attrLastMove('[still]');
-				this.add('cant', source, 'item: BrightPowder', move);
+				this.add('cant', source, 'item: BrightPowder', move, '[of] ' + target);
 				return false;
 			}
 		},
@@ -753,6 +753,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Holder's Bug-type attacks have 1.2x power. When Flung, applies Powder to the target, but fails if target is immune to powder attacks. Evolves Twintura into Silvurah when traded.",
 		shortDesc: "Holder's Bug-type attacks 1.2x power; applies Powder when Flung.",
+	},
+	snowball: {
+		boosts: {
+			def: 1,
+		},
+		desc: "Raises holder's Defense by 1 if hit by an Ice-type attack. Single use.",
 	},
 	starfberry: {
 		inherit: true,

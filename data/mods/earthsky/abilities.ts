@@ -2838,7 +2838,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			const dazzlingHolder = this.effectState.target;
 			if ((target.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
-				this.add('cant', dazzlingHolder, 'ability: Dazzling', move, '[of] ' + source);
+				this.add('cant', source, 'ability: Dazzling', move, '[of] ' + dazzlingHolder);
 				return false;
 			}
 		},
@@ -3642,7 +3642,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			const dazzlingHolder = this.effectState.target;
 			if ((target.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
-				this.add('cant', dazzlingHolder, 'ability: Majesty', move, '[of] ' + source);
+				this.add('cant', source, 'ability: Majesty', move, '[of] ' + dazzlingHolder);
 				return false;
 			}
 		},
