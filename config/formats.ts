@@ -2054,9 +2054,6 @@ export const Formats: FormatList = [
 		banlist: [
 			'Sub-Legendary', 'Sigisin', 'Bredoom', 'Frosgross', 'Abomacruel', 'Porygon-V', 'Latakuno',
 			
-			'Cubone-Base', 'Sewaddle-Base', 'Swadloon-Base', 'Leavanny-Base', 'Roggenrola-Base', 'Boldore-Base', 'Gigalith-Base', 'Dratini-Base', 'Dragonair-Base', 'Dragonite-Base', 'Golett-Base', 'Rolycoly-Base', 
-			'Carkol-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar',
-			
 			//Home Pokemon
 			'Tentacool', 'Tentacruel', 'Marowak', 'Marowak-Alola', 'Tauros', 'Tauros-Paldea-Aqua', 'Tauros-Paldea-Blaze', 
 			'Tauros-Paldea-Combat', 'Eevee', 'Vaporeon', 'Jolteon', 'Flareon', 'Espeon', 'Umbreon', 'Turtwig', 'Grotle', 
@@ -2064,6 +2061,8 @@ export const Formats: FormatList = [
 			'Golurk', 'Sylveon', 'Coalossal', 'Runerigus', 'Sprigatito', 'Floragato', 'Meowscarada', 'Fuecoco', 'Crocalor', 
 			'Skeledirge', 'Quaxly', 'Quaxwell', 'Quaquaval', 'Clodsire', 'Dipplin', 'Poltchageist', 'Sinistcha',
 		],
+		teambuilderBans: ['Cubone-Base', 'Sewaddle-Base', 'Swadloon-Base', 'Leavanny-Base', 'Roggenrola-Base', 'Boldore-Base', 'Gigalith-Base', 'Dratini-Base', 'Dragonair-Base', 'Dragonite-Base', 'Golett-Base', 'Rolycoly-Base', 
+			'Carkol-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar'],
 	},
 	/*{
 		name: "[Gen 9] Roovnen LC",
