@@ -34,6 +34,8 @@ const c = ["aerodactyl", "marowakalola", "bronzong", "coalossal", "celesteela", 
 */
 
 export const Scripts: ModdedBattleScriptsData = {
+	inherit: 'gen8',
+	gen: 8,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['Tourbanned', 'Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
@@ -186,6 +188,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			return null;
 		}
 		if (item.name === "Rapidashinite" && pokemon.baseSpecies.name === "Rapidash-Galar") {
+			return null;
+		}
+		if (item.name === "Wormadamite" && (pokemon.baseSpecies.name === "Wormadam" || pokemon.baseSpecies.name === "Wormadam-Trash")) {
 			return null;
 		}
 		if (pokemon.baseSpecies.name === "Pichu") {

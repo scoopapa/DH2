@@ -2871,6 +2871,119 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -79,
 	},
 
+			// Kalos content
+
+	managate: {
+		desc: "When using a Psychic-type move, this Pokémon moves last among Pokémon using the same or greater priority moves, then switches out to a chosen ally.",
+		shortDesc: "Psychic moves: move last in priority bracket, pivot the user out.",
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category === "Status" && move.type === "Psychic") return -0.1;
+		},
+		onModifyMove(move) {
+			if (move.category === "Status" && move.type === "Psychic" && !move.selfSwitch) move.selfSwitch = true;
+		},
+		onSourceHit(target, source, move) {
+			if (move.category === "Status" && move.type === "Psychic" && move.selfSwitch && this.canSwitch(source.side)) {
+				this.add('-ability', source, 'Mana Gate');
+				this.add('-message', `${source.name} switches out using Mana Gate!`);
+			}
+		},
+		name: "Mana Gate",
+		rating: 3,
+		num: -1001,
+	},
+	partialeclipse: {
+		desc: "Causes all adjacent Pokémon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if this Pokémon has 1/2 or less of its maximum HP.",
+		shortDesc: "When HP is 1/2 or less, adjacent Pokémon lose 1/8 of their max HP each turn.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (!pokemon.hp || pokemon.hp > pokemon.maxhp / 2) return;
+			for (const target of pokemon.side.foe.active) {
+				if (target && target.hp) this.damage(target.baseMaxhp / 8, target, pokemon);
+			}
+		},
+		name: "Partial Eclipse",
+		rating: 3,
+		num: -1002,
+	},
+	marshlandlord: {
+		shortDesc: "On switch-in, summons Water Sport and Mud Sport.",
+		onStart(source) {
+			this.add('-ability', source, 'Marshland Lord');
+			this.field.addPseudoWeather('watersport');
+			this.field.addPseudoWeather('mudsport');
+		},
+		name: "Marshland Lord",
+		rating: 3.5,
+		num: -1003,
+	},
+	badinfluence: {
+		shortDesc: "If this Pokémon has a stat stage lowered, all Pokémon on the field have the same stat stage lowered.",
+		onBoost(boost, target, source, effect) {
+			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'badinfluence') return;
+			let b: BoostName;
+			const negativeBoost: SparseBoostsTable = {};
+			for (b in boost) {
+				if (boost[b]! < 0) {
+					if (target.boosts[b] === -6) continue;
+					negativeBoost[b] = boost[b];
+				}
+			}
+			let activated = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon === target || pokemon.fainted) continue;
+				if (!activated) {
+					this.add('-ability', target, 'Bad Influence');
+					activated = true;
+				}
+				this.boost(negativeBoost, pokemon, target, null, true);
+			}
+		},
+		name: "Bad Influence",
+		rating: 4,
+		num: -1004,
+	},
+	petrification: {
+		shortDesc: "Ice immunity; adds Rock to this Pokémon when hit with an Ice move.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				move.accuracy = true;
+				if (target.hasType('Rock') || !target.addType('Rock')) {
+					this.add('-immune', target, '[from] ability: Petrification');
+				} else {
+					this.add('-start', target, 'typeadd', 'Rock', '[from] ability: Petrification');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Petrification",
+		rating: 3,
+		num: -1005,
+	},
+	repulsive: {
+		shortDesc: "When lowering a target's stats, also lowers target's Defense by 1 stage.",
+		onAnyAfterEachBoost(boost, target, source, effect) {
+			if (!source || source !== this.effectState.target || effect.name === 'Repulsive') return;
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered && target.hp) {
+				this.add('-ability', source, 'Repulsive');
+				this.boost({def: -1}, target, source, null, true);
+			}
+		},
+		name: "Repulsive",
+		rating: 3,
+		num: -1006,
+	},
+
 	// SANDBOX CONTENT STARTS HERE
 
 	conversionz: {

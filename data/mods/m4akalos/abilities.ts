@@ -71,6 +71,44 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -1004,
 	},
+	petrification: {
+		shortDesc: "Ice immunity; adds Rock to this Pokémon when hit with an Ice move.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				move.accuracy = true;
+				if (target.hasType('Rock') || !target.addType('Rock')) {
+					this.add('-immune', target, '[from] ability: Petrification');
+				} else {
+					this.add('-start', target, 'typeadd', 'Rock', '[from] ability: Petrification');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Petrification",
+		rating: 3,
+		num: -1005,
+	},
+	repulsive: {
+		shortDesc: "When lowering a target's stats, also lowers target's Defense by 1 stage.",
+		onAnyAfterEachBoost(boost, target, source, effect) {
+			if (!source || source !== this.effectState.target || effect.name === 'Repulsive') return;
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered && target.hp) {
+				this.add('-ability', source, 'Repulsive');
+				this.boost({def: -1}, target, source, null, true);
+			}
+		},
+		name: "Repulsive",
+		rating: 3,
+		num: -1006,
+	},
 
 	// crossover Megas
 
