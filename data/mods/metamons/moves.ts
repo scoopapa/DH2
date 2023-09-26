@@ -147,7 +147,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 75,
 		category: "Physical",
-		name: "Rock Slide",
+		name: "Rock Slide-Gen 7",
+		shortDesc: "30% chance to flinch the target.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -366,5 +367,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
+	},
+	sappyseed: {
+		num: 738,
+		accuracy: 90,
+		basePower: 100,
+		category: "Physical",
+		name: "Sappy Seed",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		onHit(target, source) {
+			if (target.hasType('Grass')) return null;
+			target.addVolatile('leechseed', source);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Clever",
 	},
 };
