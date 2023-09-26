@@ -8,6 +8,15 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			'Terastal Clause', 'Min Source Gen = 9', 'Roovnen Move Dexits',
 		],
 	},
+	standarddoubles: {
+		effectType: 'ValidatorRule',
+		name: 'Standard Doubles',
+		desc: "The standard ruleset for all official Smogon doubles tiers",
+		ruleset: [
+			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Terastal Clause', 'Min Source Gen = 9', 'Roovnen Move Dexits',
+		],
+	},
 	evasionitemsclause: {
 		effectType: 'ValidatorRule',
 		name: 'Evasion Items Clause',
