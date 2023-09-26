@@ -1966,7 +1966,7 @@ export const Formats: FormatList = [
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Roovnen Dex', 'Min Source Gen = 9', 'VGC Timer', 'Terastal Clause', 'Roovnen Move Dexits'],
 		banlist: [
 			'Sub-Legendary', 'Sigisin', 'Bredoom', 'Frosgross', 'Abomacruel', 'Porygon-V', 'Latakuno'
-			
+		
 			//Home Pokemon
 			'Tentacool', 'Tentacruel', 'Marowak-Base', 'Marowak-Alola', 'Tauros', 'Tauros-Paldea-Aqua', 'Tauros-Paldea-Blaze', 
 			'Tauros-Paldea-Combat', 'Eevee', 'Vaporeon', 'Jolteon', 'Flareon', 'Espeon', 'Umbreon', 'Turtwig', 'Grotle', 
