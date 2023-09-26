@@ -1005,7 +1005,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	shiftry: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 110, def: 60, spa: 90, spd: 60, spe: 80},
-		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Cold Wind"},
+		abilities: {0: "Chlorophyll", 1: "Wind Rider", H: "Cold Wind"},
 	},
 	swellow: {
 		inherit: true,
@@ -1398,10 +1398,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Blaze", H: "Pride"},
 	},
-	empoleon: {
-		inherit: true,
-		abilities: {0: "Torrent", H: "Justified"},
-	},
+	// empoleon: {
+	// 	inherit: true,
+	// 	abilities: {0: "Torrent", H: "Justified"},
+	// },
 	bibarel: {
 		inherit: true,
 		baseStats: {hp: 89, atk: 100, def: 70, spa: 55, spd: 70, spe: 86},

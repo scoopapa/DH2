@@ -1,4 +1,62 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	//Thorn Whip | Grass | Physical | 90 BP | 100% Accuracy | 10 PP | Contact | Opponent takes 1/8 HP of additional damage.
+	thornwhip: {
+		num: -1,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thorn Whip",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onAfterMove(target, source, move) {
+			if (target !== source && move.category !== 'Status' && move.totalDamage) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		secondary: null,
+		shortDesc: "Opponent takes 1/8 HP of additional damage.",
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	parasite: {
+		num: -2,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Parasite",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.125));
+		},
+		secondary: null,
+		shortDesc: "User heals 1/8 max HP.",
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	sparkshot: {
+		num: -3,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Spark Shot",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		shortDesc: "30% chance to paralyze the target.",
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+
 	absorb: {
 		inherit: true,
 		pp: 20,

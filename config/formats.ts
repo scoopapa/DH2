@@ -106,6 +106,29 @@ export const Formats: FormatList = [
 					'Articuno', 'Dondozo', 'Moltres', 'Trick Room', 'Prankster'],
     },
 	{
+		name: "[Gen 9] Beartic Phone",
+	   desc: '<b>[Gen 9] Beartic Phone</b>: A group of 5 people unknowingly work together to create a fakemon, very similar to the online game "Gartic Phone".',
+		threads: [
+			'&bullet; <a href="https://www.smogon.com/forums/threads/beartic-phone.3727739/">Beartic Phone</a>',
+			'https://docs.google.com/spreadsheets/d/1-Hfz-p0nomMLVFa4-4nGbLKaoWSl0xFTZA5Aiapw-Ko/edit#gid=1161734506">Spreadsheet</a>',
+		],
+		mod: 'bearticphone', 
+	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'bear') {
+					return [set.species + ' is not usable in Beartic Phone.'];
+				}
+			}
+		},
+	},
+	{
         name: "[Gen 9] Gen 9 Blindsided",
         desc: `<b>[Gen 9] Blindsided</b>: the monkey has awoken`,
         threads: [
@@ -413,7 +436,7 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Terastal Clause', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Dynamax Clause', 'Mega Data Mod'],
 		banlist: [
 			'AG', 'Uber',
 			'Aegislash', 'Hoopa-Unbound', 'Greninja',
@@ -543,6 +566,29 @@ export const Formats: FormatList = [
      mod: 'outheorymons',
 	  ruleset: ['Standard', 'Data Mod'],
 	  banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	},
+	{
+		name: "[Gen 9] Paleomons",
+	   desc: '<b>[Gen 9] Paleomons</b>: In this mod, we will be creating an SV OU-based micrometa of Pokémon based on real critters from the Paleozoic, Mesozoic, and Cenozoic eras.',
+		threads: [
+			'&bullet; <a href="https://www.smogon.com/forums/threads/paleomons-slate-1-winners.3727753/">Paleomons</a>',
+		//	'&bullet; <a href="https://docs.google.com/spreadsheets/d/1wbFWGR5pVcnTTyuy7vAUSrPxqSZsNF-Okx-v1hvD2Vc/edit?usp=sharing">Spreadsheet</a>',
+		],
+		mod: 'paleomons', 
+	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'Paleomons') {
+					return [set.species + ' is not usable in Paleomons.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Poketypos",
@@ -1209,7 +1255,7 @@ export const Formats: FormatList = [
 				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
-		ruleset: ['Standard NatDex', 'Standard M4A', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'Standard M4A', 'Mega Data Mod', 'Dynamax Clause'],
 		mod: 'm4av6',
 		// teambuilderFormat: 'OU',
 	},
@@ -1223,14 +1269,18 @@ export const Formats: FormatList = [
 				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
 		      ],
 		gameType: 'doubles',
-		// forcedLevel: 50,
-		// teamLength: {
-			// validate: [4, 6],
-			// battle: 4,
-		// },
-		ruleset: ['Standard NatDex', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Dynamax Clause'],
+		ruleset: ['Standard NatDex', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
+		banlist: [
+			'Mewtwo', 'Mew',
+			'Lugia', 'Ho-Oh', 'Celebi',
+			'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Deoxys',
+			'Dialga', 'Palkia', 'Giratina', 'Phione', 'Manaphy', 'Darkrai', 'Shaymin', 'Arceus',
+			'Victini', 'Reshiram', 'Zekrom', 'Kyurem', 'Keldeo', 'Meloetta', 'Genesect',
+			'Xerneas', 'Yveltal', 'Zygarde', 'Diancie', 'Hoopa', 'Volcanion',
+			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Magearna', 'Marshadow', 'Zeraora',
+			'Zacian', 'Zamazenta', 'Eternatus', 'Zarude', 'Calyrex',
+		],
 		mod: 'm4av6',
-		// teambuilderFormat: 'S',
 		onValidateSet(set) {
 			// These Pokemon are still unobtainable
 			const unobtainables = [
@@ -1250,6 +1300,43 @@ export const Formats: FormatList = [
 				return [`${set.name || set.species} does not exist in the National Dex.`];
 			}
 		},
+	},
+	{
+		name: "[Gen 8] M4A Kalos VGC",
+		desc: ["<b>Megas for All</b>: A Pet Mod that aims to create unique Mega Evolutions for every fully evolved Pokémon. Current season is focused on the Kalos dex!",
+		      ],
+		threads: [
+				`&bullet; <a href="https://www.smogon.com/forums/threads/3671140/">Megas for All v7 on Smogon Forums</a>`,
+				`&bullet; <a href="https://docs.google.com/spreadsheets/d/1TdeAUUtjh0f_tcIBllbF_imgepwV-dV2YomoTCRlPgI/edit?usp=sharing">Spreadsheet</a>`,
+				`&bullet; <a href="http://megasforall.wikidot.com/">Wiki</a>`
+		      ],
+		gameType: 'doubles',
+		ruleset: ['Standard NatDex', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Z-Move Clause', 'Dynamax Clause', 'Terastal Clause', 'Mega Data Mod'],
+		banlist: [
+			'Xerneas', 'Yveltal', 'Zygarde', 'Diancie', 'Hoopa', 'Volcanion',
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'Mega' && template.tier !== 'Kalos' && template.tier !== 'Kalos (NFE)') {
+					return [set.species + ' is not a part of the Kalos Pokédex.'];
+				}
+			}
+		},
+		onValidateSet(set) {
+			const problems: string[] = [];
+			const setHas: {[k: string]: true} = {};
+			let species = this.dex.species.get(set.species);
+			let item = this.dex.items.get(set.item);
+			let tierSpecies = species;
+
+			if (item.megaEvolves === species.name) {
+				if (item.megaStone && this.dex.species.get(item.megaStone).tier !== 'Mega') return [item.name + ' is not a legal Mega Stone.'];
+			}
+		},
+		mod: 'm4akalos',
 	},
 	{
 		name: "[Gen 8] M4A Sandbox",
@@ -1411,10 +1498,10 @@ export const Formats: FormatList = [
 		name: "[Gen 9] A Golden Experience",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
 		],
 		mod: 'agoldenexperience',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Uber', 'Power Construct', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z', 
 					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang',
@@ -1461,7 +1548,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] A Golden Experience Ubers",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
 		],
 		mod: 'agoldenexperience',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
@@ -1510,14 +1597,14 @@ export const Formats: FormatList = [
 		name: "[Gen 9] A Golden Experience UU",
 		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
 		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Sreadsheet for the mod</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
 		],
 		mod: 'agoldenexperience',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Uber', 'OU', 'UUBL', 'Battle Bond', 'Power Construct', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z', 
 					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang',
-					'Drizzle', 'Drought', 'Aerodactylite', 'Alakazite', 'Ampharosite', 'Audinite', 'Arbokinite', 'Baskironite', 'Blazikenite', 'Butterfrite', 'Cacturnite X', 'Centiskorchite X', 'Centiskorchite Y', 'Charizardite X', 'Charizardite Y', 'Dhelmite', 'Diancite', 'Flygonite', 'Froslassite', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Golisopodite', 'Gyaradosite', 'Houndoominite', 'Infarmatemite', 'Krookodite', 'Latiasite', 'Lopunnite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Ribombinite', 'Salamencite', 'Sceptilite', 'Scizorite', 'Swampertite', 'Terreptilite', 'Whiscashite',
+					'Drizzle', 'Drought', 'Aerodactylite', 'Alakazite', 'Ampharosite', 'Arbokinite', 'Baskironite', 'Blazikenite', 'Butterfrite', 'Cacturnite X', 'Centiskorchite X', 'Centiskorchite Y', 'Charizardite X', 'Charizardite Y', 'Dhelmite', 'Diancite', 'Flygonite', 'Froslassite', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Golisopodite', 'Gyaradosite', 'Houndoominite', 'Infarmatemite', 'Krookodite', 'Latiasite', 'Lopunnite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Ribombinite', 'Salamencite', 'Sceptilite', 'Scizorite', 'Swampertite', 'Terreptilite', 'Whiscashite',
 				'Latiosite', 'Pidgeotite', 'Pinsirite', 'Sablenite', 'Darmanitan-Galar + Zen Mode'],
 		teambuilderFormat: 'National Dex UU',
 		onChangeSet(set) {
@@ -1618,7 +1705,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zLXacuxUs05muhn3fTty_UW2ww3KSZCmnzdsUzVR-x8/edit?usp=sharing">Competitive Cheat Sheet</a>`,
 		],
 		//gen: 9,
-		mod: 'gen9eshorizons',
+		mod: 'earthsky',
 		ruleset: [ 'Earth & Sky', 'Restricted Rules'],
 		banlist: [
 			'Alakazam-Mega', 'Arceus', 'Blaziken-Mega', 'Blastoise-Mega', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chi-Yu', 'Chien-Pao', 'Darkrai', 
@@ -1637,7 +1724,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zLXacuxUs05muhn3fTty_UW2ww3KSZCmnzdsUzVR-x8/edit?usp=sharing">Competitive Cheat Sheet</a>`,
 		],
 		//gen: 9,
-		mod: 'gen9eshorizons',
+		mod: 'earthsky',
 		gameType: 'triples',
 		ruleset: [ 'Earth & Sky', 'Restricted Rules', 'Gravity Sleep Clause'],
 		banlist: [
@@ -1656,7 +1743,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zLXacuxUs05muhn3fTty_UW2ww3KSZCmnzdsUzVR-x8/edit?usp=sharing">Competitive Cheat Sheet</a>`,
 		],
 		//gen: 9,
-		mod: 'gen9eshorizons',
+		mod: 'earthsky',
 		ruleset: [ '[Gen 9] Earth & Sky Horizons OU', 'Horizons Pokedex',],
 		banlist: ['Diancie-Mega', 'Manaphy', 'Mawile-Mega', 'Melmetal', 'Meloetta-Pirouette'],
 		//formatType: 'natdex',
@@ -1668,7 +1755,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zLXacuxUs05muhn3fTty_UW2ww3KSZCmnzdsUzVR-x8/edit?usp=sharing">Competitive Cheat Sheet</a>`,
 		],
 		//gen: 9,
-		mod: 'gen9eshorizons',
+		mod: 'earthsky',
 		ruleset: [ 'Earth & Sky',],
 		banlist: [],
 		//formatType: 'natdex',
@@ -1965,7 +2052,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Roovnen Dex', 'Min Source Gen = 9', 'VGC Timer', 'Terastal Clause', 'Roovnen Move Dexits'],
 		banlist: [
-			'Sub-Legendary', 'Sigisin', 'Bredoom', 'Frosgross', 'Abomacruel', 'Porygon-V', 'Latakuno'
+			'Sub-Legendary', 'Sigisin', 'Bredoom', 'Frosgross', 'Abomacruel', 'Porygon-V', 'Latakuno',
 		
 			//Home Pokemon
 			'Tentacool', 'Tentacruel', 'Marowak-Base', 'Marowak-Alola', 'Tauros', 'Tauros-Paldea-Aqua', 'Tauros-Paldea-Blaze', 
@@ -2446,7 +2533,7 @@ export const Formats: FormatList = [
 		banlist: ['All Pokemon', 'Belly Drum', 'Huge Power'],
 		unbanlist: ['Shadow Tag', 'Pichu', 'Cleffa', 'Igglybuff', 'Togepi', 'Tyrogue', 'Smoochum', 'Elekid', 'Magby', 'Azurill', 'Wynaut', 'Budew', 'Chingling', 'Bonsly', 'Mime Jr.', 'Happiny', 'Munchlax', 'Riolu', 'Mantyke', 'Toxel'],
   },
-  {
+	{
 		name: "[Gen 6] TPDP Open",
 		mod: 'tpdp2',
 		debug: true,
@@ -2479,7 +2566,7 @@ export const Formats: FormatList = [
 		mod: 'tpdp2',
 		debug: true,
 		desc: `a close approximation of Touhou Puppet Dance Performance`,
-		ruleset: ['Species Clause', 'Item Clause', 'Adjust Level Down = 50', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
+		ruleset: ['Team Preview', 'Species Clause', 'Item Clause', 'Adjust Level Down = 50', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
 		banlist: ['Boundary Trance', 'Dream Shard', 
 		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
 		'Poison Labyrinth', 'Adverse Wind', //trapping
