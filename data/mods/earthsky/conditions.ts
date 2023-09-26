@@ -449,7 +449,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Fire' || (move.twoType && move.twoType === 'Fire')) {
 				this.debug('Sunny Day fire boost');
 				return this.chainModify(1.5);

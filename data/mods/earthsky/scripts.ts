@@ -1507,15 +1507,17 @@ export const Scripts: ModdedBattleScriptsData = {
 			let stasisMons: Pokemon[] = [];
 			const callbackName = `on${eventid}`;
 			let handlers = this.findBattleEventHandlers(callbackName, 'duration');
-			handlers = handlers.concat(this.findFieldEventHandlers(this.field, callbackName, 'duration'));
+			handlers = handlers.concat(this.findFieldEventHandlers(this.field, `onField${eventid}`, 'duration'));
 			for (const side of this.sides) {
-				handlers = handlers.concat(this.findSideEventHandlers(side, callbackName, 'duration'));
+				handlers = handlers.concat(this.findSideEventHandlers(side, `onSide${eventid}`, 'duration'));
 				for (const active of side.active) {
 					if (!active) continue;
 					if(active.volatiles['stasis']){
 						stasisMons.push(active);
 					}
 					handlers = handlers.concat(this.findPokemonEventHandlers(active, callbackName, 'duration'));
+					handlers = handlers.concat(this.findSideEventHandlers(side, callbackName, undefined, active));
+					handlers = handlers.concat(this.findFieldEventHandlers(this.field, callbackName, undefined, active));
 				}
 			}
 			this.speedSort(handlers);
@@ -1538,7 +1540,13 @@ export const Scripts: ModdedBattleScriptsData = {
 						continue;
 					}
 				}
-				this.singleEvent(eventid, effect, handler.state, handler.effectHolder, relayVar);
+
+				let handlerEventid = eventid;
+				if ((handler.effectHolder as Side).sideConditions) handlerEventid = `Side${eventid}`;
+				if ((handler.effectHolder as Field).pseudoWeather) handlerEventid = `Field${eventid}`;
+				if (handler.callback) {
+					this.singleEvent(handlerEventid, effect, handler.state, handler.effectHolder, null, null, relayVar, handler.callback);
+				}
 				this.faintMessages();
 				if (this.ended) return;
 			}
