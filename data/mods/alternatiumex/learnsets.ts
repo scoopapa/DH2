@@ -8114,7 +8114,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			uturn: ["9M", "7M"],
 			workup: ["9L1", "7M"],
 		},
-		ribombee: {
+	},
+	ribombee: {
 		learnset: {
 			absorb: ["9L1", "8L1", "7L1"],
 			acrobatics: ["9M", "8M", "7M"],
