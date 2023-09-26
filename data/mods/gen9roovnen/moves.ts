@@ -398,15 +398,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	kingsshield: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	geomancy: {
 		inherit: true,
 		isNonstandard: null,
 	},
 	landswrath: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	naturesmadness: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -1457,7 +1457,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	darkball: {
 		num: 930,
 		accuracy: 100,
-		basePower: 95,
+		basePower: 90,
 		category: "Physical",
 		shortDesc: "50% chance to lower the target's Atk and Def by 1.",
 		name: "Dark Ball",
@@ -1483,7 +1483,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Raises Damage ↑ Next, Special Attack and Accuracy by 1.",
+		shortDesc: "Raises Damage ↑ Next, Sp. Atk. and Accuracy by 1.",
 		name: "Prepare Attack",
 		pp: 20,
 		priority: 0,
@@ -1589,7 +1589,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Raises Damage ↑ Next, Defense and Special Defense by 1.",
+		shortDesc: "Raises Damage ↑ Next, Defense and Sp. Def. by 1.",
 		name: "Prepare Defense",
 		pp: 20,
 		priority: 0,
@@ -1944,7 +1944,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "Removes hazards and terrain. 3 turns: cannot be set-up.",
+		shortDesc: "Removes hazards/terrain. 3 turns, cannot be set-up.",
 		name: "Basalt Layer",
 		pp: 20,
 		priority: 0,
@@ -1971,7 +1971,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 			}
-			if (success) this.add('-activate', pokemon, 'move: Tidy Up');
+			if (success) this.add('-activate', pokemon, 'move: Basalt Layer');
 			return !!this.field.addPseudoWeather('basaltlayer') || success;
 		},
 		condition: {
