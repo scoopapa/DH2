@@ -1499,6 +1499,25 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		ignoreKlutz: false,
 		desc: "Holder's Speed is halved.",
 	},
+	safetygoggles: {
+		inherit: true,
+		desc: "Holder is immune to powder moves and damage from Sandstorm or Snow.",
+	},
+	sweetapple: {
+		inherit: true,
+		shortDesc: "Holder's use of Apple Bomb lowers Sp. Defense.",
+		desc: "When used by the holder, the move Apple Bomb lowers Special Defense. Evolves Applin into Appletun when used.",
+	},
+	syrupyapple: {
+		inherit: true,
+		shortDesc: "Holder's use of Apple Bomb lowers Speed.",
+		desc: "When used by the holder, the move Apple Bomb lowers Speed. Evolves Applin into Dipplin when used.",
+	},
+	tartapple: {
+		inherit: true,
+		shortDesc: "Holder's use of Apple Bomb lowers Defense.",
+		desc: "When used by the holder, the move Apple Bomb lowers Defense. Evolves Applin into Flapple when used.",
+	},
 	/* Natural Gift adjustments (also type-reduction edits for dual-type moves) */
 	cheriberry: {
 		inherit: true,

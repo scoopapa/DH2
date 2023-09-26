@@ -3671,6 +3671,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	perishbody: null,
 	punkrock: null,
 	steelyspirit: null,
+	supersweetsyrup: null,
 	supremeoverlord: null,
 	transistor: null,
 	unseenfist: null,

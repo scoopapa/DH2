@@ -1785,6 +1785,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Sniper", 1: "Own Tempo", H: "Regenerator"},
 	},
+	farfetchdgalar: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Big Pecks", H: "Scrappy"},
+	},
 	gastly: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Cursed Body"},
@@ -2146,7 +2150,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	rayquazamega: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 180, def: 90, spa: 180, spd: 90, spe: 90},
+		baseStats: {hp: 100, atk: 180, def: 90, spa: 180, spd: 90, spe: 110},
 		requiredItem: "Meteorite",
 	},
 	deoxys: {
@@ -2582,6 +2586,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Justified", H: "Scrappy"},
 	},
+	keldeoresolute: {
+		inherit: true,
+		abilities: {0: "Justified", H: "Scrappy"},
+	},
 	meloettapirouette: {
 		num: 648,
 		name: "Meloetta-Pirouette",
@@ -2600,6 +2608,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	greninja: {
 		inherit: true,
 		abilities: {0: "Torrent", H: "Protean"},
+	},
+	florges: {
+		inherit: true,
+		baseStats: {hp: 74, atk: 65, def: 68, spa: 112, spd: 154, spe: 72},
+	},
+	furfrou: {
+		inherit: true,
+		abilities: {0: "Fur Coat", H: "Majesty"},
 	},
 	espurr: {
 		inherit: true,
@@ -2620,10 +2636,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	aromatisse: {
 		inherit: true,
 		abilities: {0: "Healer", 1: "Aroma Veil", H: "Misty Surge"},
-	},
-	furfrou: {
-		inherit: true,
-		abilities: {0: "Fur Coat", H: "Majesty"},
 	},
 	doublade: {
 		inherit: true,
@@ -2964,6 +2976,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Rock"],
 		abilities: {0: "Weak Armor", H: "Cursed Body"},
 	},
+	sirfetchd: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Justified", H: "Scrappy"},
+	},
 	mrrime: {
 		inherit: true,
 		types: ["Psychic", "Ice"],
@@ -3077,7 +3093,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 901,
 		name: "Ursaluna",
 		types: ["Normal", "Ground"],
-		baseStats: {hp: 120, atk: 140, def: 105, spa: 45, spd: 75, spe: 55},
+		baseStats: {hp: 125, atk: 140, def: 105, spa: 45, spd: 75, spe: 55},
 		abilities: {0: "Guts", 1: "Overcoat", H: "Unnerve"},
 		heightm: 2.4,
 		weightkg: 290,
@@ -3284,7 +3300,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	kingambit: {
 		inherit: true,
-		baseStats: {hp: 100, atk: 125, def: 120, spa: 60, spd: 85, spe: 50},
+		baseStats: {hp: 100, atk: 135, def: 120, spa: 60, spd: 80, spe: 50},
 		abilities: {0: "Defiant", 1: "Sharpness", H: "Pressure"},
 	},
 	arctibax: {
@@ -3303,9 +3319,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Sweet Veil", 1: "Gluttony", H: "Sticky Hold"},
 	},
+	okidogi: {
+		inherit: true,
+		tags: ['Sub-Legendary'],
+	},
+	munkidori: {
+		inherit: true,
+		tags: ['Sub-Legendary'],
+	},
 	fezandipiti: {
 		inherit: true,
 		abilities: {0: "Toxic Chain", H: "Levitate"},
+		tags: ['Sub-Legendary'],
 	},
 	ogerpon: {
 		num: 1017,
@@ -3319,6 +3344,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 39.8,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		tags: ['Sub-Legendary'],
 		otherFormes: ["Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone"],
 		formeOrder: ["Ogerpon", "Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone"],
 	},
@@ -3335,6 +3361,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 39.8,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		tags: ['Sub-Legendary'],
 		requiredItem: "Wellspring Mask",
 		changesFrom: "Ogerpon",
 		exclusiveHidden: true,
@@ -3352,6 +3379,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 39.8,
 		color: "Red",
 		eggGroups: ["Undiscovered"],
+		tags: ['Sub-Legendary'],
 		requiredItem: "Hearthflame Mask",
 		changesFrom: "Ogerpon",
 		exclusiveHidden: true,
@@ -3369,6 +3397,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 39.8,
 		color: "Gray",
 		eggGroups: ["Undiscovered"],
+		tags: ['Sub-Legendary'],
 		requiredItem: "Cornerstone Mask",
 		changesFrom: "Ogerpon",
 		exclusiveHidden: true,
