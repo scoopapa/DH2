@@ -26,7 +26,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				'Carkol-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar'],
 		onValidateSet(set, format) {
 			const roovnenDex = [
-				"Kunirsch", "Portrenti", "Elchunst", "Poniarc", "Sizzlorse", "Klimyross", "Zandound", "Fisound", "Synouder", "Pidgey", "Pidgeotto", "Pidgeot", "Nimmaup", "Kokick", "Schmesatt", "Antron", "Queant", 
+				"Kunirsch", "Portrenti", "Elchunst", "Poniarc", "Sizzlorse", "Klimyross", "Synake", "Wavettle", "Aeskound", "Pidgey", "Pidgeotto", "Pidgeot", "Nimmaup", "Kokick", "Schmesatt", "Antron", "Queant", 
 				"Nymble", "Lokix", "Erinox", "Igloiceus", "Paras", "Parasect", "Fevee", "Pauleon", "Kalaustry", "Ranschaef", "Shroomish", "Breloom", "Boltria", "Falicle", "Frezalk", "Gletschalk", "Snom", "Frosmoth", 
 				"Snover", "Abomasnow", "Cubone-Roovnen", "Glacone", "Oetzowak", "Mankey", "Primeape", "Annihilape", "Orkave", "Sewaddle-Roovnen", "Swadloon-Roovnen", "Leavanny-Roovnen", "Volecz", "Lidektro", "Yoar", 
 				"Boarax", "Wildaxe", "Zubat", "Golbat", "Crobat", "Roggenrola-Roovnen", "Boldore-Roovnen", "Gigalith-Roovnen", "Sableye", "Mawile", "Graid", "Angrain", "Amethiz", "Scalethyst", "Juwyvern", "Nacli", 
