@@ -39,6 +39,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (!this.modData('FormatsData', pokemon.mega)) this.data.FormatsData[pokemon.mega] = {tier: "Mega"};
 		}
 	},
+
+	actions: {
 	canMegaEvo(pokemon) { // modded for forms
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
@@ -48,14 +50,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		) {
 			return altForme.name;
 		}
-		if (item.name === "Wormadamite" && (pokemon.baseSpecies.name === "Wormadam" || pokemon.baseSpecies.name === "Wormadam-Trash")) {
-			return null;
+		if (item.name === "Wormadamite") {
+			if (pokemon.species.name === "Wormadam-Sandy") return "Wormadam-Sandy-Mega";
+			else return null;
 		}
-		if (item.name === "Hoopanite" && (pokemon.baseSpecies.name === "Hoopa-Unbound")) return null;
-		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
-			return null;
-		}
+		if (item.name === "Hoopanite" && pokemon.species.name === "Hoopa-Unbound") return null;
+		if (item.megaEvolves !== pokemon.species.name || item.megaStone === pokemon.species.name) return null;
 		return item.megaStone;
+	},
 	},
 
 			boost(
@@ -241,6 +243,32 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.apparentType = this.terastallized;
 			}
 			return true;
+		},
+	setAbility(ability: string | Ability, source?: Pokemon | null, isFromFormeChange = false, isTransform = false) {
+		if (!this.hp) return false;
+		if (typeof ability === 'string') ability = this.battle.dex.abilities.get(ability);
+		const oldAbility = this.ability;
+		if (!isFromFormeChange) {
+			if (ability.isPermanent || this.getAbility().isPermanent) return false;
 		}
+		if (!isTransform) {
+			const setAbilityEvent: boolean | null = this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability);
+			if (!setAbilityEvent) return setAbilityEvent;
+		}
+		this.battle.singleEvent('End', this.battle.dex.abilities.get(oldAbility), this.abilityState, this, source);
+		if (this.battle.effect && this.battle.effect.effectType === 'Move' && !isFromFormeChange) {
+			this.battle.add('-endability', this, this.battle.dex.abilities.get(oldAbility), '[from] move: ' +
+				this.battle.dex.moves.get(this.battle.effect.id));
+		}
+		this.ability = ability.id;
+		this.abilityState = {id: ability.id, target: this};
+		if (ability.id && this.battle.gen > 3 &&
+			(!isTransform || oldAbility !== ability.id || this.battle.gen <= 4)) {
+			this.battle.singleEvent('PreStart', ability, this.abilityState, this, source); // only change
+			this.battle.singleEvent('Start', ability, this.abilityState, this, source);
+		}
+		this.abilityOrder = this.battle.abilityOrder++;
+		return oldAbility;
+	},
 	},
 };

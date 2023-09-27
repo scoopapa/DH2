@@ -1,9 +1,6 @@
 // tiering information
 const ag = ["gengarmega", "rayquazamega", "zacian", "zaciancrowned", "calyrexshadow"];
 const uber = ["butterfreemega", "cinderacemega", "rillaboommega", "dragapultmega", "alakazammega", "blastoisemega", "blazikenmega", "cinderace", "darkrai", "darmanitangalar", "deoxysattack", "deoxys", "dialga", "dracovish", "dragapult", "lucariomega", "eternatus", "giratina", "giratinaorigin", "groudon", "groudonprimal", "hooh", "kangaskhanmega", "kyogre", "kyogreprimal", "kyurem", "kyuremblack", "kyuremwhite", "landorus", "lucariomega", "lugia", "lunala", "magearna", "magearnaoriginal", "marshadow", "metagrossmega", "mewtwo", "mewtwomegax", "mewtwomegay", "naganadel", "necrozmadawnwings", "necrozmaduskmane", "necrozmaultra", "palkia", "pheromosa", "rayquaza", "reshiram", "salamencemega", "shayminsky", "solgaleo", "spectrier", "urshifu", "xerneas", "yveltal", "zamazenta", "zamazentacrowned", "zekrom", "zygarde", "zygardecomplete", "calyrexice", "arceus", "arceusfire", "arceuswater", "arceuselectric", "arceusgrass", "arceusice", "arceusfighting", "arceuspoison", "arceusground", "arceusflying", "arceuspsychic", "arceusbug", "arceusrock", "arceusghost", "arceusdragon", "arceusdark", "arceussteel", "arceusfairy", "genesect", "genesectburn", "genesectchill", "genesectdouse", "genesectshock"];
-const newest = ["grapploctmega", "lickilickymega", "tsareenamega", "snorlaxmega", "swalotmega", "wailordmega"];
-const aprilfools = ["floetteeternalmega", "meltanmega", "pichuspikyearedmega", "porygodzmega"];
-const hisui = ["arcaninehisui", "avalugghisui", "basculegion", "basculegionf", "braviaryhisui", "decidueyehisui", "dialgaorigin", "electrodehisui", "enamorus", "enamorustherian", "goodrahisui", "kleavor", "lilliganthisui", "overqwil", "palkiaorigin", "samurotthisui", "sneasler", "typhlosionhisui", "ursaluna", "wyrdeer", "zoroarkhisui"]; // only fully-evolved Pokémon from Legends: Arceus
 const tourbanned = ["bisharpmega", "clefablemega", "dodriomega", "empoleonmega", "goodramega", "gourgeistmega", "hydreigonmega", "meowsticfmega", "slowkinggalarmega", "starmiemega", "tapulele", "tornadustherian", "toxtricitylowkeymega", "trevenantmega", "walreinmega"];
 const tier1mega = ["corviknightmega", "dhelmisemega", "mudsdalemega"];
 const tier1 = ["blissey", "clefable", "corviknight", "ferrothorn", "gliscor", "heatran", "landorustherian", "rillaboom", "slowbro", "tapufini", "toxapex"];
@@ -38,7 +35,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 8,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Tourbanned', 'Newest', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
+		customTiers: ['Tourbanned', 'Tier 1 Mega', 'Tier 1', 'Tier 2 Mega', 'Tier 2', 'Tier 3 Mega', 'Tier 3', 'Tier 4 Mega', 'Tier 4', 'Uncommon Mega', 'Uncommon', 'Undecided', 'Underrated'],
 	},
 	init() {
 		for (const id in this.dataCache.Pokedex) {
@@ -93,10 +90,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				// singles tiers
 				if (ag.includes(id)) this.modData('FormatsData', id).tier = "AG";
 				else if (uber.includes(id)) this.modData('FormatsData', id).tier = "Uber";
-				else if (aprilfools.includes(id)) this.modData('FormatsData', id).tier = "April Fools";
-				else if (hisui.includes(id)) this.modData('FormatsData', id).tier = "Hisui";
 				else if (tourbanned.includes(id)) this.modData('FormatsData', id).tier = "Tourbanned";
-				else if (newest.includes(id)) this.modData('FormatsData', id).tier = "Newest";
 				else if (tier1mega.includes(id)) this.modData('FormatsData', id).tier = "Tier 1 Mega";
 				else if (tier1.includes(id)) this.modData('FormatsData', id).tier = "Tier 1";
 				else if (tier2mega.includes(id)) this.modData('FormatsData', id).tier = "Tier 2 Mega";
@@ -127,6 +121,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 	},
 
+	actions: {
 	canMegaEvo(pokemon) {
 		const altForme = pokemon.baseSpecies.otherFormes && this.dex.species.get(pokemon.baseSpecies.otherFormes[0]);
 		const item = pokemon.getItem();
@@ -136,70 +131,35 @@ export const Scripts: ModdedBattleScriptsData = {
 		) {
 			return altForme.name;
 		}
-		if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Midnight") {
-			return "Lycanroc-Midnight-Mega";
+		if (item.name === "Lycanite" && pokemon.species.name === "Lycanroc-Midnight") return "Lycanroc-Midnight-Mega";
+		if (item.name === "Lycanite" && pokemon.species.name === "Lycanroc-Dusk") return "Lycanroc-Dusk-Mega";
+		if (item.name === "Raichunite" && pokemon.species.name === "Raichu-Alola") return null;
+		if (item.name === "Slowbronite" && pokemon.species.name === "Slowbro-Galar") return null;
+		if (item.name === "Slowkinite" && pokemon.species.name === "Slowking-Galar") return "Slowking-Galar-Mega";
+		if (item.name === "Gourgeite" && pokemon.species.name === "Gourgeist-Small") return "Gourgeist-Small-Mega";
+		if (item.name === "Gourgeite" && pokemon.species.name === "Gourgeist-Large") return "Gourgeist-Large-Mega";
+		if (item.name === "Gourgeite" && pokemon.species.name === "Gourgeist-Super") return "Gourgeist-Super-Mega";
+		if (item.name === "Reginite") {
+				if (pokemon.species.name === "Regice") return "Regice-Mega";
+				if (pokemon.species.name === "Registeel") return "Registeel-Mega";
 		}
-		if (item.name === "Lycanite" && pokemon.baseSpecies.name === "Lycanroc-Dusk") {
-			return "Lycanroc-Dusk-Mega";
+		if (item.name === "Meowsticite" && pokemon.species.name === "Meowstic-F") return "Meowstic-F-Mega";
+		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbucksummer") return "Sawsbuck-Summer-Mega";
+		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckautumn") return "Sawsbuck-Autumn-Mega";
+		if (item.name === "Sawsbuckite" && pokemon.species.id === "sawsbuckwinter") return "Sawsbuck-Winter-Mega";
+		if (item.name === "Toxtricitite" && pokemon.species.name === "Toxtricity-Low-Key") return "Toxtricity-Low-Key-Mega";
+		if (item.name === "Ninetalesite") {
+			if (pokemon.species.name === "Ninetales-Alola") return "Ninetales-Alola-Mega";
+			else return null;
 		}
-		if (item.name === "Raichunite" && pokemon.baseSpecies.name === "Raichu-Alola") {
-			return null;
+		if (item.name === "Dugtrionite" && pokemon.species.name === "Dugtrio-Alola") return null;
+		if (item.name === "Rapidashinite" && pokemon.species.name === "Rapidash-Galar") return null;
+		if (item.name === "Wormadamite") {
+			if (pokemon.species.name === "Wormadam-Sandy") return "Wormadam-Sandy-Mega";
+			else return null;
 		}
-		if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
-			return null;
-		}
-		if (item.name === "Slowkinite" && pokemon.baseSpecies.name === "Slowking-Galar") {
-			return "Slowking-Galar-Mega";
-		}
-		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Small") {
-			return "Gourgeist-Small-Mega";
-		}
-		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Large") {
-			return "Gourgeist-Large-Mega";
-		}
-		if (item.name === "Gourgeite" && pokemon.baseSpecies.name === "Gourgeist-Super") {
-			return "Gourgeist-Super-Mega";
-		}
-		if (item.name === "Reginite" && pokemon.baseSpecies.name === "Regice") {
-			return "Regice-Mega";
-		}
-		if (item.name === "Reginite" && pokemon.baseSpecies.name === "Registeel") {
-			return "Registeel-Mega";
-		}
-		if (item.name === "Meowsticite" && pokemon.baseSpecies.name === "Meowstic-F") {
-			return "Meowstic-F-Mega";
-		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbucksummer") {
-			return "Sawsbuck-Summer-Mega";
-		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckautumn") {
-			return "Sawsbuck-Autumn-Mega";
-		}
-		if (item.name === "Sawsbuckite" && pokemon.baseSpecies.id === "sawsbuckwinter") {
-			return "Sawsbuck-Winter-Mega";
-		}
-		if (item.name === "Toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
-			return "Toxtricity-Low-Key-Mega";
-		}
-		if (item.name === "Ninetalesite" && pokemon.baseSpecies.name === "Ninetales") {
-			return null;
-		}
-		if (item.name === "Dugtrionite" && pokemon.baseSpecies.name === "Dugtrio-Alola") {
-			return null;
-		}
-		if (item.name === "Rapidashinite" && pokemon.baseSpecies.name === "Rapidash-Galar") {
-			return null;
-		}
-		if (item.name === "Wormadamite" && (pokemon.baseSpecies.name === "Wormadam" || pokemon.baseSpecies.name === "Wormadam-Trash")) {
-			return null;
-		}
-		if (pokemon.baseSpecies.name === "Pichu") {
-			return null;
-		}
-		if (pokemon.baseSpecies.name === "Floette") {
-			return null;
-		}
-		if (item.megaEvolves !== pokemon.baseSpecies.name || item.megaStone === pokemon.species.name) {
+		if (item.name === "Hoopanite" && pokemon.species.name === "Hoopa-Unbound") return null;
+		if (item.megaEvolves !== pokemon.species.name || item.megaStone === pokemon.species.name) {
 			return null;
 		}
 		return item.megaStone;
@@ -208,9 +168,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;
 		if (!speciesid) return false;
 
-		if (pokemon.illusion) { // only change
-			this.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityData, pokemon);
-		}
+		if (pokemon.illusion) this.battle.singleEvent('End', this.battle.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 		pokemon.formeChange(speciesid, pokemon.getItem(), true);
 
 		// Limit one mega evolution
@@ -225,6 +183,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		this.battle.runEvent('AfterMega', pokemon);
 		return true;
+	},
 	},
 
 	 getDamage(
@@ -520,7 +479,7 @@ pokemon: {
 		this.abilityState = {id: ability.id, target: this};
 		if (ability.id && this.battle.gen > 3 &&
 			(!isTransform || oldAbility !== ability.id || this.battle.gen <= 4)) {
-			this.battle.singleEvent('PreStart', ability, this.abilityData, this, source); // only change
+			this.battle.singleEvent('PreStart', ability, this.abilityState, this, source); // only change
 			this.battle.singleEvent('Start', ability, this.abilityState, this, source);
 		}
 		this.abilityOrder = this.battle.abilityOrder++;
