@@ -444,7 +444,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			selfdestruct: ["8L1"],
 			shadowball: ["8L1"],
 			sleeptalk: ["8L1"],
-			shadowball: ["8L1"],
 			smartstrike: ["8L1"],
 			spikes: ["8L1"],
 			spite: ["8L1"],
