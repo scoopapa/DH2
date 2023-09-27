@@ -6207,7 +6207,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (target === source || move.flags['authentic'] || move.infiltrates) {
 					return;
 				}
-				let damage = this.getDamage(source, target, move);
+				let damage = this.actions.getDamage(source, target, move);
 				if (!damage && damage !== 0) {
 					this.add('-fail', source);
 					this.attrLastMove('[still]');

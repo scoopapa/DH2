@@ -266,6 +266,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		isNonstandard: null,
 		tier: "NFE",
+		doublesTier: "NFE",
 	},
 	pikachucosplay: {
 		inherit: true,
@@ -1095,6 +1096,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		isNonstandard: null,
 		tier: "NFE",
+		doublesTier: "NFE",
 	},
 	krabby: {
 		inherit: true,
@@ -3389,6 +3391,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		isNonstandard: null,
 		tier: "NFE",
+		doublesTier: "NFE",
 	},
 	chingling: {
 		inherit: true,
@@ -3592,7 +3595,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latios: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "RUBL",
 	},
@@ -6123,7 +6126,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		isNonstandard: null,
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 		natDexTier: "Uber",
 	},
 	zygarde: {
@@ -8539,7 +8542,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ogerponhearthflame: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -8729,9 +8732,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kokick: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Illegal",
-		doublesTier: "Illegal",
-		natDexTier: "NFE",
+		tier: "NFE",
 	},
 	schmesatt: {
 		isNonstandard: null,
@@ -9068,7 +9069,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pauption: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -9146,7 +9147,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	porygonv: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -9216,7 +9217,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chasilen: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},

@@ -58,11 +58,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 125, atk: 58, def: 63, spa: 86, spd: 86, spe: 67},
 		abilities: {0: "Compound Eyes", 1: "Volt Absorb", H: "Water Absorb"},
+		prevo: null,
 	},
 	quagsire: {
 		inherit: true,
 		baseStats: {hp: 105, atk: 105, def: 85, spa: 65, spd: 85, spe: 35},
 		abilities: {0: "Water Absorb"},
+		prevo: null,
 	},
 	ursaring: {
 		inherit: true,
@@ -95,6 +97,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 88, atk: 65, def: 65, spa: 125, spd: 115, spe: 100},
 		abilities: {0: "Pixelgreat", H: "Trace"},
+		prevo: null,
 	},
 	cacturne: {
 		inherit: true,

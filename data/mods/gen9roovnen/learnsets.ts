@@ -94986,6 +94986,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			acidspray: ["9L1"],
 			amnesia: ["9L1"],
 			ancientpower: ["9L1"],
+			basaltlayer: ["9L1"],
 			bodypress: ["9L1"],
 			bulldoze: ["9L1"],
 			clearsmog: ["9L1"],

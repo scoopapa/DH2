@@ -264,7 +264,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	gmaxsteelsurge: {
 		inherit: true,
 		condition: {
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: G-Max Steelsurge');
 				for (const active of this.getAllActive()) {
 					if (active.volatiles['gravitationalpull']) {
@@ -273,10 +273,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onSwitchIn(pokemon) {
-				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
-				) return;
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
 				}
@@ -295,7 +293,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		condition: {
 			// this is a side condition
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Spikes');
 				this.effectState.layers = 1;
 				for (const active of this.getAllActive()) {
@@ -305,16 +303,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onRestart(side) {
+			onSideRestart(side) {
 				if (this.effectState.layers >= 3) return false;
 				this.add('-sidestart', side, 'Spikes');
 				this.effectState.layers++;
 			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
-				) return;
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
 				}
@@ -327,7 +322,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		condition: {
 			// this is a side condition
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 				for (const active of this.getAllActive()) {
 					if (active.volatiles['gravitationalpull']) {
@@ -336,10 +331,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onSwitchIn(pokemon) {
-				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
-				) return;
+			onEntryHazard(pokemon) {
+				if (pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
 				}
@@ -351,7 +344,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	stickyweb: {
 		inherit: true,
 		condition: {
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Sticky Web');
 				for (const active of this.getAllActive()) {
 					if (active.volatiles['gravitationalpull']) {
@@ -360,11 +353,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
-				) return;
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())) return;
 				for (const active of this.getAllActive()) {
 					if (active.hasAbility('gravitationalpull')) return;
 				}
@@ -377,7 +367,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		condition: {
 			// this is a side condition
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Toxic Spikes');
 				this.effectState.layers = 1;
 				for (const active of this.getAllActive()) {
@@ -387,18 +377,20 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					}
 				}
 			},
-			onRestart(side) {
+			onSideRestart(side) {
 				if (this.effectState.layers >= 2) return false;
 				this.add('-sidestart', side, 'move: Toxic Spikes');
 				this.effectState.layers++;
 			},
-			onSwitchIn(pokemon) {
+			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded()) return;
 				if (pokemon.hasType('Poison') && !this.field.getPseudoWeather('stickyresidues')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasType('Poison') ||
-					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())) {
+				} else if (
+					pokemon.hasType('Steel') || pokemon.hasType('Poison') ||
+					pokemon.hasItem('heavydutyboots') || (this.dex.abilities.get(pokemon.ability).hazardImmune && !pokemon.ignoringAbility())
+							 ) {
 					return;
 				} else {
 					for (const active of this.getAllActive()) {
