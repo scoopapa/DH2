@@ -2717,7 +2717,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		
 		types: ["Dragon"],
 		baseStats: {hp: 45, atk: 90, def: 45, spa: 55, spd: 45, spe: 10},
-		abilities: {0: "Shield Dust", 1: "Hustle", H: "Serene Grace"},
+		abilities: {0: "Shield Dust", 1: "Guts", H: "Serene Grace"},
 		movepoolAdditions: ["dragonbreath", "dracometeor", "dragontail", "dragonpulse", "outrage"],
 		movepoolDeletions: ["rockslide"],
 		
