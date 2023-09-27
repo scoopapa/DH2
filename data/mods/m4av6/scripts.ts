@@ -102,9 +102,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 		}
 		// up to three Megas of the Day
-		const random1 = Math.floor(Math.random() * megaList.length);
-		const random2 = Math.floor(Math.random() * (megaList.length - 1));
-		const random3 = Math.floor(Math.random() * (megaList.length - 2));
+		let random1 = Math.floor(Math.random() * megaList.length);
+		let random2 = Math.floor(Math.random() * (megaList.length - 1));
+		let random3 = Math.floor(Math.random() * (megaList.length - 2));
 		if (random2 >= random1) random2 += 1;
 		if (random3 >= random1) random3 += 1;
 		if (random3 >= random2) random3 += 1;
