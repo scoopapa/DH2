@@ -541,8 +541,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	venipede: {
 		inherit: true,
-		otherFormes: ["Venipede-Variant"],
-		formeOrder: ["Venipede", "Venipede-Variant"],
+		otherFormes: ["Venipede-Variant", "Venipede-Paldea"],
+		formeOrder: ["Venipede", "Venipede-Variant", "Venipede-Paldea"],
 	},
 	venipedevariant: {
 		name: "Venipede-Variant",
@@ -561,8 +561,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	whirlipede: {
 		inherit: true,
-		otherFormes: ["Whirlipede-Variant"],
-		formeOrder: ["Whirlipede", "Whirlipede-Variant"],
+		otherFormes: ["Whirlipede-Variant", "Whirlipede-Paldea"],
+		formeOrder: ["Whirlipede", "Whirlipede-Variant", "Whirlipede-Paldea"],
 	},
 	whirlipedevariant: {
 		name: "Whirlipede-Variant",
@@ -583,8 +583,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	scolipede: {
 		inherit: true,
-		otherFormes: ["Scolipede-Variant"],
-		formeOrder: ["Scolipede", "Scolipede-Variant"],
+		otherFormes: ["Scolipede-Variant", "Scolipede-Paldea"],
+		formeOrder: ["Scolipede", "Scolipede-Variant", "Scolipede-Paldea"],
 	},
 	scolipedevariant: {
 		name: "Scolipede-Variant",
@@ -2135,6 +2135,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 
 	scyther: {
 		inherit: true,
+		otherFormes: ["Scyther-Glacial"],
+		formeOrder: ["Scyther", "Scyther-Glacial"],
 		evos: ["Scizor", "Sundor"],
 	},
 	sundor: {
@@ -2418,5 +2420,351 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Klefki-Galar",
 		creator: "Albatross",
 	},
+//Slate Final: Prompt 1
+	scytherglacial: {
+		name: "Scyther-Glacial",
+		baseSpecies: "Scyther",
+		forme: "Glacial",
+		copyData: "Scyther",
+		
+		types: ["Bug", "Ice"],
+		baseStats: {hp: 70, atk: 115, def: 80, spa: 45, spd: 80, spe: 110},
+		abilities: {0: "Swarm", 1: "Technician", H: "Wind Rider"},//Hopefully that just works.
+		movepoolAdditions: ["clatteringblades", "iceshard", "iciclecrash", "icywind"],
+	
+		creator: "BlueRay",
+	},
+	
+	dhelmise: {
+		inherit: true,
+		otherFormes: ["Dhelmise-Variant"],
+		formeOrder: ["Dhelmise", "Dhelmise-Variant"],
+	},
+	dhelmisevariant: {
+		name: "Dhelmise-Variant",
+		baseSpecies: "Dhelmise",
+		forme: "Variant",
+		copyData: "Dhelmise",
+		
+		types: ["Electric", "Ghost"],
+		baseStats: {hp: 70, atk: 116, def: 100, spa: 101, spd: 90, spe: 40},
+		abilities: {0: "Steelworker", H: "Surge Surfer"},
+		movepoolAdditions: ["chargebeam", "risingvoltage", "thunder", "thunderbolt", "thundercage", "thunderwave", "voltswitch"],
+		movepoolDeletions: ["absorb", "anchorshot", "energyball", "gigadrain", "grassknot", "grassyglide", "megadrain", "powerwhip", "solarbeam", "solarblade", "synthesis"],
+		
+		creator: "quagsi",
+	},
 
+	sandygast: {
+		inherit: true,
+		evos: ["Palossand", "Palossnow"],
+	},
+	palossnow: {
+		name: "Palossnow",
+		copyData: "Palossand",
+		
+		types: ["Ghost", "Ice"],
+		//copyData base stats
+		abilities: {0: "Water Compaction", 1: "Snowpack", H: "Ice Body"},
+		movepoolAdditions: ["blizzard", "icebeam", "icywind", "freezedry", "hail", "shaveoff", "trickroom"],
+		
+		prevo: "Sandygast",
+		evoType: "other",
+		evoCondition: "On Mt. Lanakila",
+		creator: "OctoNerd & Paulluxx",
+	},
+
+	zubat: {
+		inherit: true,
+		otherFormes: ["Zubat-Variant"],
+		formeOrder: ["Zubat", "Zubat-Variant"],
+	},
+	zubatvariant: {
+		name: "Zubat-Variant",
+		baseSpecies: "Zubat",
+		forme: "Variant",
+		copyData: "Zubat",
+		
+		types: ["Poison", "Rock"],
+		baseStats: {hp: 40, atk: 50, def: 35, spa: 30, spd: 40, spe: 50},
+		abilities: {0: "Solid Rock", H: "Infiltrator"},
+		movepoolAdditions: ["sandstorm", "rockslide", "rockblast", "stealthrock", "stoneedge", "smackdown", "dig"],
+		movepoolDeletions: ["roost", "toxic", "bravebird", "airslash", "acrobatics", "hurricane", "aircutter", "fly", "aerialace", "dualwingbeat"],
+		
+		evos: ["Golbat-Variant"],
+		eggGroups: ["Mineral"],
+		creator: "ausma",
+	},
+	golbat: {
+		inherit: true,
+		otherFormes: ["Golbat-Variant"],
+		formeOrder: ["Golbat", "Golbat-Variant"],
+	},
+	golbatvariant: {
+		name: "Golbat-Variant",
+		baseSpecies: "Golbat",
+		forme: "Variant",
+		copyData: "Golbat",
+		
+		types: ["Poison", "Rock"],
+		baseStats: {hp: 75, atk: 90, def: 70, spa: 65, spd: 70, spe: 80},
+		abilities: {0: "Solid Rock", H: "Infiltrator"},
+		movepoolAdditions: ["mineraldrain", "sandstorm", "rockslide", "rockblast", "stealthrock", "stoneedge", "smackdown", "dig"],
+		movepoolDeletions: ["roost", "toxic", "bravebird", "airslash", "acrobatics", "hurricane", "aircutter", "fly", "aerialace", "dualwingbeat"],
+		
+		evos: ["Stalagbat"],
+		prevo: "Zubat-Variant",
+		evoLevel: 22,
+		eggGroups: ["Mineral"],
+		creator: "ausma",
+	},
+	stalagbat: {
+		name: "Stalagbat",
+		copyData: "Crobat",
+		
+		types: ["Poison", "Rock"],
+		baseStats: {hp: 85, atk: 100, def: 80, spa: 70, spd: 80, spe: 120},
+		abilities: {0: "Solid Rock", H: "Infiltrator"},
+		movepoolAdditions: ["mineraldrain", "sandstorm", "rockslide", "rockblast", "stealthrock", "stoneedge", "smackdown", "dig"],
+		movepoolDeletions: ["roost", "toxic", "bravebird", "airslash", "acrobatics", "hurricane", "aircutter", "fly", "aerialace", "dualwingbeat"],
+		
+		prevo: "Golbat-Variant",
+		evoType: "levelFriendship",
+		eggGroups: ["Mineral"],
+		creator: "ausma",
+	},
+
+	magikarp: {
+		inherit: true,
+		otherFormes: ["Magikarp-Glacial"],
+		formeOrder: ["Magikarp", "Magikarp-Glacial"],
+	},
+	magikarpglacial: {
+		name: "Magikarp-Glacial",
+		baseSpecies: "Magikarp",
+		forme: "Glacial",
+		copyData: "Magikarp",
+		
+		types: ["Ice", "Water"],
+		baseStats: {hp: 60, atk: 10, def: 55, spa: 15, spd: 20, spe: 40},
+		abilities: {0: "Ice Body", H: "Rattled"},
+		movepoolDeletions: ["hydropump"],
+		
+		evos: ["Geyserdos"],
+		creator: "Albatross",
+	},
+	geyserdos: {
+		name: "Geyserdos",
+		copyData: "Gyarados",
+		
+		types: ["Ice", "Fire"],
+		baseStats: {hp: 105, atk: 115, def: 100, spa: 90, spd: 79, spe: 51},
+		abilities: {0: "Intimidate", H: "No Guard"},
+		movepoolAdditions: ["firefang"],
+		movepoolDeletions: ["aquatail", "hydropump", "powerwhip", "waterfall", "zapcannon"],
+		
+		prevo: "Magikarp-Glacial",
+		evoLevel: 20,
+		creator: "Albatross",
+	},
+
+	qwilfish: {
+		inherit: true,
+		otherFormes: ["Qwilfish-Hisui", "Qwilfish-Kalos", "Qwilfish-Kalos-Zen"],
+		formeOrder: ["Qwilfish", "Qwilfish-Hisui", "Qwilfish-Kalos", "Qwilfish-Kalos-Zen"],
+	},
+	qwilfishkalos: {
+		name: "Qwilfish-Kalos",
+		baseSpecies: "Qwilfish",
+		forme: "Kalos",
+		copyData: "Qwilfish",
+		
+		types: ["Steel", "Ghost"],
+		baseStats: {hp: 55, atk: 85, def: 70, spa: 85, spd: 50, spe: 95},
+		abilities: {0: "Poison Point", 1: "Aftermath", H: "Zen Mode"},
+		movepoolAdditions: ["expandingforce", "flashcannon", "futuresight", "psychic", "psychup", "smartstrike", "steelbeam", "trickroom"],
+		movepoolDeletions: ["scald"],
+		
+		evos: ["Overchill"],
+		creator: "inkbug",
+	},
+	qwilfishkaloszen: {
+		name: "Qwilfish-Kalos-Zen",
+		baseSpecies: "Qwilfish",
+		forme: "Kalos-Zen",
+		copyData: "Qwilfish",
+		
+		types: ["Steel", "Psychic"],
+		baseStats: {hp: 55, atk: 115, def: 100, spa: 115, spd: 80, spe: 35},
+		abilities: {0: "Zen Mode"},
+		movepoolAdditions: ["expandingforce", "flashcannon", "futuresight", "psychic", "psychup", "smartstrike", "steelbeam", "trickroom"],
+		movepoolDeletions: ["scald"],
+		
+		requiredAbility: "Zen Mode",
+		battleOnly: "Qwilfish-Kalos",
+		creator: "inkbug",
+	},
+	overchill: {
+		name: "Overchill",
+		copyData: "Overqwil",
+		copyMoves: "Qwilfish"
+		
+		types: ["Steel", "Ghost"],
+		baseStats: {hp: 75, atk: 105, def: 80, spa: 95, spd: 60, spe: 95},
+		abilities: {0: "Poison Point", 1: "Aftermath", H: "Zen Mode"},
+		movepoolAdditions: ["voltswitch", "expandingforce", "flashcannon", "futuresight", "psychic", "psychup", "smartstrike", "steelbeam", "trickroom"],
+		movepoolDeletions: ["scald"],
+		
+		prevo: "Qwilfish-Kalos",
+		evoType: "other",
+		evoCondition: "A newly-discovered evolution",
+		creator: "inkbug",
+	},
+	overchillzen: {
+		name: "Overchill-Zen",
+		baseSpecies: "Overchill",
+		forme: "Zen",
+		copyData: "Overqwil",
+		copyMoves: "Qwilfish",
+		
+		types: ["Steel", "Psychic"],
+		baseStats: {hp: 75, atk: 125, def: 110, spa: 135, spd: 90, spe: 35},
+		abilities: {0: "Zen Mode"},
+		movepoolAdditions: ["voltswitch", "expandingforce", "flashcannon", "futuresight", "psychic", "psychup", "smartstrike", "steelbeam", "trickroom"],
+		movepoolDeletions: ["scald"],
+		
+		requiredAbility: "Zen Mode",
+		battleOnly: "Overchill",
+		creator: "inkbug",
+	},
+	
+	stunfisk: {
+		inherit: true,
+		otherFormes: ["Stunfisk-Galar", "Stunfisk-Variant"],
+		formeOrder: ["Stunfisk", "Stunfisk-Galar", "Stunfisk-Variant"],
+	},
+	stunfiskvariant: {
+		name: "Stunfisk-Variant",
+		baseSpecies: "Stunfisk",
+		forme: "Variant",
+		copyData: "Stunfisk",
+		
+		types: ["Poison", "Flying"],
+		baseStats: {hp: 109, atk: 81, def: 84, spa: 66, spd: 99, spe: 32},
+		abilities: {0: "Poison Heal", 1: "Limber", H: "Sand Veil"},
+		movepoolAdditions: ["aerialace", "airslash", "banefulbunker", "defog", "fly", "toxicspikes"],
+		movepoolDeletions: ["charge", "discharge", "earthpower", "electricterrain", "magnetrise", "painsplit", "spark", "stealthrock", "stoneedge", "thunder", "thunderbolt", "thunderwave"],
+		
+		creator: "abismal",
+	},
+
+	venipedepaldea: {
+		name: "Venipede-Paldea",
+		baseSpecies: "Venipede",
+		forme: "Paldea",
+		copyData: "Venipede",
+		
+		types: ["Fire", "Poison"],
+		baseStats: {hp: 35, atk: 45, def: 59, spa: 30, spd: 39, spe: 52},
+		abilities: {0: "Poison Point", H: "Technician"},
+		movepoolAdditions: ["firespin", "sunnyday", "willowisp"],
+		
+		evos: ["Whirlipede-Paldea"],
+		creator: "Magmajudis",
+	},
+	whirlipedepaldea: {
+		name: "Whirlipede-Paldea",
+		baseSpecies: "Whirlipede",
+		forme: "Paldea",
+		copyData: "Whirlipede",
+		
+		types: ["Fire", "Poison"],
+		baseStats: {hp: 55, atk: 55, def: 99, spa: 40, spd: 79, spe: 32},
+		abilities: {0: "Poison Point", H: "Technician"},
+		movepoolAdditions: ["flamewheel", "firespin", "sunnyday", "willowisp"],
+		
+		evos: ["Scolipede-Paldea"],
+		prevo: "Venipede-Paldea",
+		evoLevel: 22,
+		creator: "Magmajudis",
+	},
+	scolipedepaldea: {
+		name: "Scolipede-Paldea",
+		baseSpecies: "Scolipede",
+		forme: "Paldea",
+		copyData: "Scolipede",
+		
+		types: ["Fire", "Poison"],
+		baseStats: {hp: 90, atk: 100, def: 89, spa: 55, spd: 69, spe: 82},
+		abilities: {0: "Poison Point", H: "Technician"},
+		movepoolAdditions: ["firespin", "sunnyday", "willowisp", "flamewheel", "coil", "fireblast", "flamecharge", "flamethrower", "gunkshot", "incinerate", "overheat"],
+		
+		prevo: "Whirlipede-Paldea",
+		evoLevel: 30,
+		creator: "Magmajudis",
+	},
+
+	trapinch: {
+		inherit: true,
+		otherFormes: ["Trapinch-Woodland"],
+		formeOrder: ["Trapinch", "Trapinch-Woodland"],
+	},
+	trapinchwoodland: {
+		name: "Trapinch-Woodland",
+		baseSpecies: "Trapinch",
+		forme: "Woodland",
+		copyData: "Trapinch",
+		
+		types: ["Dragon"],
+		baseStats: {hp: 45, atk: 90, def: 45, spa: 55, spd: 45, spe: 10},
+		abilities: {0: "Shield Dust", 1: "Hustle", H: "Serene Grace"},
+		movepoolAdditions: ["dragonbreath", "dracometeor", "dragontail", "dragonpulse", "outrage"],
+		movepoolDeletions: ["rockslide"],
+		
+		evos: ["Vibrava-Woodland"],
+		creator: "Violet",
+	},
+	vibrava: {
+		inherit: true,
+		otherFormes: ["Vibrava-Woodland"],
+		formeOrder: ["Vibrava", "Vibrava-Woodland"],
+	},
+	vibravawoodland: {
+		name: "Vibrava-Woodland",
+		baseSpecies: "Vibrava",
+		forme: "Woodland",
+		copyData: "Vibrava",
+		
+		types: ["Dragon", "Fairy"],
+		baseStats: {hp: 50, atk: 60, def: 50, spa: 60, spd: 50, spe: 70},
+		abilities: {0: "Shield Dust", 1: "Marvel Scale", H: "Serene Grace"},
+		movepoolAdditions: ["dazzlinggleam", "drainingkiss", "chargebeam"],//spirit break evo move
+		movepoolDeletions: ["rockslide", "airslash"],
+		
+		evos: ["Flygon-Woodland"],
+		prevo: "Trapinch-Woodland",
+		evoLevel: 35,
+		creator: "Violet",
+	},
+	flygon: {
+		inherit: true,
+		otherFormes: ["Flygon-Woodland"],
+		formeOrder: ["Flygon", "Flygon-Woodland"],
+	},
+	flygonwoodland: {
+		name: "Flygon-Woodland",
+		baseSpecies: "Flygon",
+		forme: "Woodland",
+		copyData: "Flygon",
+		
+		types: ["Dragon", "Fairy"],
+		baseStats: {hp: 80, atk: 90, def: 80, spa: 90, spd: 80, spe: 100},
+		abilities: {0: "Shield Dust", 1: "Marvel Scale", H: "Serene Grace"},
+		movepoolAdditions: ["spiritbreak", "chargebeam", "dazzlinggleam", "drainingkiss"],
+		movepoolDeletions: ["rockslide", "airslash", "dragondance"],
+		
+		prevo: "Vibrava-Woodland",
+		evoLevel: 45,
+		creator: "Violet",
+	},
 };

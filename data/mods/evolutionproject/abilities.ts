@@ -270,6 +270,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -9,
 	},
+	snowpack: {
+		shortDesc: "Defense +2 when hit by an Ice-type move.",
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Ice') {
+				this.boost({def: 2});
+			}
+		},
+		name: "Snowpack",
+		rating: 1.5,
+		num: -10,
+	},
 
 	// modded form-changing Abilities
 

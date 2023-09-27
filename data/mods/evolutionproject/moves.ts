@@ -186,6 +186,68 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cool",
 	},
+	mineraldrain: {
+		num: -1005,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Mineral Drain",
+		shortDesc: "User recovers 50% of the damage dealt.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Clever",
+	},
+	clatteringblades: {
+		num: -1006,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Clattering Blades",
+		shortDesc: "Critical hit if hailing; hits foes.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		onModifyMove(move) {
+			if (this.field.isWeather(['hail', 'snow'])) move.willCrit = true;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Bug",
+		contestType: "Cool"
+	},
+	shaveoff: {
+		num: -1007,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Shave Off",
+		shortDesc: "User restores 1/2 its max HP; 2/3 in Hail.",
+		pp: 10,//gen 8
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onHit(pokemon) {
+			let factor = 0.5;
+			if (this.field.isWeather(['hail', 'snow'])) {
+				factor = 0.667;
+			}
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Beautiful",
+	},
 
 	// restored official moves
 
