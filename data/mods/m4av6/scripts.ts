@@ -111,7 +111,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('FormatsData', megaList[random1]).tier = "Mega of the Day!";
 		this.modData('FormatsData', megaList[random2]).tier = "Mega of the Day!";
 		this.modData('FormatsData', megaList[random3]).tier = "Mega of the Day!";
-		console.log('Megas of the Day: ' + megaOne + ', ' + megaTwo + ', ' + megaThree);
+		console.log('Megas of the Day: ' + megaList[random1] + ', ' + megaList[random2] + ', ' + megaList[random3]);
 	},
 
 	actions: {
