@@ -468,5 +468,39 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	snubbull: {tier: "Evo (NFE)"},
 	granbull: {tier: "Evo (NFE)"}, // evolves into Constabull
 	constabull: {tier: "Evo!"},
-
+	
+	venipedepaldea: {tier: "Evo (NFE)"},
+	whirlipedepaldea: {tier: "Evo (NFE)"},
+	scolipedepaldea: {tier: "Evo!"},
+	
+	scytherglacial: {tier: "Evo!"},
+	
+	dhelmise: {tier: "Evo!"},
+	dhelmisevariant: {tier: "Evo!"},
+	
+	sandygast: {tier: "Evo (NFE)"},
+	palossand: {tier: "Evo!"},
+	palossnow: {tier: "Evo!"},
+	
+	magikarp: {tier: "Evo (NFE)"},
+	magikarpvariant: {tier: "Evo (NFE)"},
+	gyarados: {tier: "Evo!"},
+	geyserdos: {tier: "Evo!"},
+	
+	qwilfish: {tier: "Evo!"},
+	qwilfishkalos: {tier: "Evo (NFE)"},
+	qwilfishkaloszen: {tier: "Evo (NFE)"},
+	overchill: {tier: "Evo!"},
+	overchillzen: {tier: "Evo!"},
+	
+	stunfisk: {tier: "Evo!"},
+	stunfiskgalar: {tier: "Evo!"},
+	stunfiskvariant: {tier: "Evo!"},
+	
+	trapinch: {tier: "Evo (NFE)"},
+	trapinchwoodland: {tier: "Evo (NFE)"},
+	vibrava: {tier: "Evo (NFE)"},
+	vibravawoodland: {tier: "Evo (NFE)"},
+	flygon: {tier: "Evo!)"},
+	flygonwoodland: {tier: "Evo!"},
 };
