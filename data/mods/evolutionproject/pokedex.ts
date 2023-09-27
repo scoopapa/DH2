@@ -2607,7 +2607,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	overchill: {
 		name: "Overchill",
 		copyData: "Overqwil",
-		copyMoves: "Qwilfish"
+		copyMoves: "Qwilfish",
 		
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 75, atk: 105, def: 80, spa: 95, spd: 60, spe: 95},
