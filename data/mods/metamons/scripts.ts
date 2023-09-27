@@ -590,6 +590,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'froslass').learnset.lightscreen;
 
 		delete this.modData('Learnsets', 'liepard').learnset.nastyplot;
+		delete this.modData('Learnsets', 'liepard').learnset.pursuit;
 
 		delete this.modData('Learnsets', 'exeggutoralola').learnset.flamethrower;
 		delete this.modData('Learnsets', 'exeggutoralola').learnset.hypnosis;
@@ -598,6 +599,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'ironthorns').learnset.blizzard;
 		delete this.modData('Learnsets', 'ironthorns').learnset.powergem;
 		delete this.modData('Learnsets', 'ironthorns').learnset.rockblast;
+
+		delete this.modData('Learnsets', 'oricorio').learnset.quiverdance;
 	},
 
 
