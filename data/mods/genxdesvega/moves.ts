@@ -317,12 +317,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		contestType: "Cool",
 	},
-	dragonfang: {
+	draconicfang: {
 		num: -15,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-		name: "Dragon Fang",
+		name: "Draconic Fang",
 		shortDesc: "30% chance to burn the target.",
 		pp: 15,
 		priority: 0,
@@ -679,7 +679,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 	},
 	voraciousfang: {
-		num: -15,
+		num: -25,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -699,6 +699,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 		contestType: "Tough",
+	},
+	royalpunt: {
+		num: -26,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Royal Punt",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spin Out", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
 	},
 
 	//loria moves just in case

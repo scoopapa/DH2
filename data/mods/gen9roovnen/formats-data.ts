@@ -3592,7 +3592,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latios: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "RUBL",
 	},
@@ -8539,7 +8539,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ogerponhearthflame: {
 		inherit: true,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -8729,9 +8729,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kokick: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Illegal",
-		doublesTier: "Illegal",
-		natDexTier: "NFE",
+		tier: "NFE",
 	},
 	schmesatt: {
 		isNonstandard: null,
@@ -9068,7 +9066,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pauption: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -9146,7 +9144,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	porygonv: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -9216,7 +9214,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chasilen: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUber",
 		natDexTier: "OU",
 	},
