@@ -34,6 +34,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 201,
 	},
 	chimera: {
+		onModifySpeciesPriority: 2,
+		onModifySpecies(species, target, source, effect) {
+			if (!target) return; 
+			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
+			const types = [...new Set(target.baseMoveSlots.slice(0, 2).map(move => this.dex.moves.get(move.id).type))];
+			return {...species, types: types};
+		},
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
+		},
 		shortDesc: "(Placeholder) User's type matches that of its first two moves (new type is displayed).",
 		name: "Chimera",
 		rating: 3,
