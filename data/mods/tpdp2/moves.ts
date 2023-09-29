@@ -2528,7 +2528,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(target) {
 				this.add('-message', `${target.name} was seeded!`);
-				this.add('-start', target, 'move: Leech Seed', '[silent]');
+				this.add('-start', target, 'move: Drain Seed', '[silent]');
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
