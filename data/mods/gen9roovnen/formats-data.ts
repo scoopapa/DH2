@@ -8500,6 +8500,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Illegal",
 		natDexTier: "RUBL",
 	},
+	dipplin: {
+		inherit: true,
+		tier: "UU",
+		doublesTier: "DOU",
+		natDexTier: "OU",
+	},
 	poltchageist: {
 		inherit: true,
 		tier: "LC",
