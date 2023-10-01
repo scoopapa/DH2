@@ -1759,7 +1759,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dragonite: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
@@ -8703,7 +8703,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aeskound: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
