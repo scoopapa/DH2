@@ -1271,7 +1271,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			chance: 20,
 			volatileStatus: 'flinch',
 		},
-		shortDesc: "20% chance to flinch.",
+		desc: "Has a 20% chance to make the target flinch.",
+		shortDesc: "20% chance to make the target flinch.",
 	},
 	allyswitch: {
 		inherit: true,
@@ -2999,6 +3000,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	irondefense: {
 		inherit: true,
 		pp: 20,
+	},
+	ironhead: {
+		inherit: true,
+		secondary: {
+			chance: 20,
+			volatileStatus: 'flinch',
+		},
+		desc: "Has a 20% chance to make the target flinch.",
+		shortDesc: "20% chance to make the target flinch.",
 	},
 	irontail: {
 		inherit: true,
