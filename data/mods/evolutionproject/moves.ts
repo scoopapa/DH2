@@ -62,7 +62,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					type: 'Flying',
 				},
 			});
-			this.add('-message', `${(source.illusion ? source.illusion.name : source.name)} called for help!`);
+			if (source.species.baseSpecies === 'Starly') this.add('-message', `${(source.illusion ? source.illusion.name : source.name)} called for help!`);
+			else this.add('-message', `${(source.illusion ? source.illusion.name : source.name)} prepared a flurry of attacks!`);
 			return null;
 		},
 		condition: {
@@ -79,7 +80,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return;
 				}
 
-				this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
+				if (data.source.species.baseSpecies === 'Starly') this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
+				else this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is weathering a flurry of attacks!`);
 				data.target.removeVolatile('Endure');
 
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -96,7 +98,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (data.source.isActive) {
 					this.add('-anim', data.source, "Sky Attack", data.target);
 				}
-				this.trySpreadMoveHit([data.target], data.source, hitMove);
+				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
 			},
 			onEnd(target) {
 				// unlike a future move, Flurry activates each turn
@@ -108,7 +110,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					return;
 				}
 
-				this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
+				if (data.source.species.baseSpecies === 'Starly') this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is being swarmed by a flurry of Starly!`);
+				else this.add('-message', `${(data.target.illusion ? data.target.illusion.name : data.target.name)} is weathering a flurry of attacks!`);
 				data.target.removeVolatile('Endure');
 
 				if (data.source.hasAbility('infiltrator') && this.gen >= 6) {
@@ -125,8 +128,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				if (data.source.isActive) {
 					this.add('-anim', data.source, "Sky Attack", data.target);
 				}
-				this.trySpreadMoveHit([data.target], data.source, hitMove);
-				this.add('-message', `The flurry of Starly dispersed!`);
+				this.actions.trySpreadMoveHit([data.target], data.source, hitMove);//??
+				if (data.source.species.baseSpecies === 'Starly') this.add('-message', `The flurry of Starly dispersed!`);
+				else this.add('-message', `The flurry of attacks subsided!`);
 			},
 		},
 		secondary: null,
@@ -312,5 +316,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		isNonstandard: null,
+	},
+	
+	// modified official moves 
+	
+	chillyreception: {
+		inherit: true,
+		weather: 'hail', // Gen 8 baby! Snow isnt real and cant hurt me!
 	},
 };

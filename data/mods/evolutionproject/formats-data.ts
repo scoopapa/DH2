@@ -73,7 +73,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	claydol: {tier: "Evo!"},
 	playdol: {tier: "Evo!"},
 
-	michu: {tier: "Evo (NFE)"}, // the first new baby!
+	michu: {tier: "Evo NFE!"}, // the first new baby!
 	mimikyu: {tier: "Evo!"},
 
 	igglybuff: {tier: "Evo (NFE)"},
@@ -451,7 +451,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	togepi: {tier: "Evo (NFE)"},
 	ufogepi: {tier: "Evo (NFE)"},
 	togetic: {tier: "Evo (NFE)"},
-	ufogetic: {tier: "Evo (NFE)"},
+	ufogetic: {tier: "Evo NFE!"},
 	togekiss: {tier: "Evo!"},
 	ufogekiss: {tier: "Evo!"},
 
@@ -488,8 +488,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	geyserdos: {tier: "Evo!"},
 	
 	qwilfish: {tier: "Evo!"},
-	qwilfishkalos: {tier: "Evo (NFE)"},
-	qwilfishkaloszen: {tier: "Evo (NFE)"},
+	qwilfishkalos: {tier: "Evo NFE!"},
+	qwilfishkaloszen: {tier: "Evo NFE!"},
 	overchill: {tier: "Evo!"},
 	overchillzen: {tier: "Evo!"},
 	
@@ -501,6 +501,76 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	trapinchwoodland: {tier: "Evo (NFE)"},
 	vibrava: {tier: "Evo (NFE)"},
 	vibravawoodland: {tier: "Evo (NFE)"},
-	flygon: {tier: "Evo!)"},
+	flygon: {tier: "Evo!"},
 	flygonwoodland: {tier: "Evo!"},
+	
+	vullaby: {tier: "Evo (NFE)"},
+	vullabygalar: {tier: "Evo (NFE)"},
+	mandibuzz: {tier: "Evo!"},
+	mandibuzzgalar: {tier: "Evo!"},
+	
+	cacnea: {tier: "Evo (NFE)"},
+	cacneaunova: {tier: "Evo (NFE)"},
+	cacturne: {tier: "Evo!"},
+	cacturneunova: {tier: "Evo!"},
+	
+	froslasstheater: {tier: "Evo!"},
+	froslasstheaterunmasked: {tier: "Evo!"},
+	
+	passimian: {tier: "Evo!"},
+	passimianhoenn: {tier: "Evo!"},
+	
+	clobbopus: {tier: "Evo (NFE)"},
+	grapploct: {tier: "Evo!"},
+	neuroboxin: {tier: "Evo!"},
+	
+	honedge: {tier: "Evo (NFE)"},
+	honedgeverdant: {tier: "Evo (NFE)"},
+	doublade: {tier: "Evo (NFE)"},
+	doubladeverdant: {tier: "Evo NFE!"},
+	aegislash: {tier: "Evo!"},
+	aegislashblade: {tier: "Evo!"},
+	aegislashverdant: {tier: "Evo!"},
+	aegislashverdantblade: {tier: "Evo!"},
+	
+	espurr: {tier: "Evo (NFE)"},
+	meowstic: {tier: "Evo!"},
+	meowsticf: {tier: "Evo!"},
+	psiamat: {tier: "Evo!"},
+	
+	seviper: {tier: "Evo!"},
+	seviperhisui: {tier: "Evo!"},
+	
+	petilil: {tier: "Evo (NFE)"},
+	lilligant: {tier: "Evo!"},
+	lilligantkalos: {tier: "Evo!"},
+	
+	dedellite: {tier: "Evo!"},
+	
+	croagunk: {tier: "Evo (NFE)"},
+	toxicroak: {tier: "Evo (NFE)"},
+	mycecroak: {tier: "Evo!"},
+	
+	corsola: {tier: "Evo!"},
+	corsolagalar: {tier: "Evo (NFE)"},
+	corsolamirage: {tier: "Evo (NFE)"},
+	cursola: {tier: "Evo!"},
+	psychosola: {tier: "Evo!"},
+	
+	meditite: {tier: "Evo (NFE)"},
+	medicham: {tier: "Evo!"},
+	spiritite: {tier: "Evo!"},
+	
+	larvesta: {tier: "Evo (NFE)"},
+	larvestahisui: {tier: "Evo (NFE)"},
+	volcarona: {tier: "Evo!"},//Ban this, but still in the dex
+	nympra: {tier: "Evo!"},
+	
+	paras: {tier: "Evo (NFE)"},
+	parasect: {tier: "Evo (NFE)"},
+	parascelium: {tier: "Evo!"},
+	
+	dwebble: {tier: "Evo (NFE)"},
+	crustle: {tier: "Evo (NFE)"},
+	mantle: {tier: "Evo!"},
 };

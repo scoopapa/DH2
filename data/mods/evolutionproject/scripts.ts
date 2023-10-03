@@ -1,10 +1,13 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['Evo!', 'Evo (NFE)'],
-		customDoublesTiers: ['Evo!', 'Evo (NFE)'],
+		customTiers: ['Evo!', 'Evo NFE!', 'Evo (NFE)'],//Adding a new tier for NFEs that I don't want buried in the lower section [like Michu :(]
+		customDoublesTiers: ['Evo!', 'Evo NFE!', 'Evo (NFE)'],
 	},
 	init() {
+		// :man-shrugging:
+		this.modData("Learnsets", "parasect").learnset.myceliate = ['8L40'];
+		
 		for (const id in this.dataCache.Pokedex) {
 			const newMon = this.dataCache.Pokedex[id];
 			if (!newMon || !newMon.copyData) continue; // weeding out Pokémon that aren't new

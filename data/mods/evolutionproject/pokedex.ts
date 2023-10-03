@@ -1299,6 +1299,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Wailmer",
 		forme: "Ultra",
 		copyData: "Wailmer",
+		gender: "N",
 
 		types: ["Psychic"],
 		baseStats: {hp: 131, atk: 71, def: 31, spa: 71, spd: 37, spe: 59},
@@ -1319,6 +1320,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Wailord",
 		forme: "Ultra",
 		copyData: "Wailord",
+		gender: "N",
 
 		types: ["Psychic"],
 		baseStats: {hp: 173, atk: 89, def: 43, spa: 89, spd: 47, spe: 59},
@@ -1396,6 +1398,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	oonabee: {
 		name: "Oonabee",
 		copyData: "Vespiquen",
+		gender: "F",
 
 		types: ["Bug", "Fairy"],
 		baseStats: {hp: 85, atk: 90, def: 110, spa: 100, spd: 110, spe: 60},
@@ -1455,6 +1458,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Sinistea",
 		forme: "Dark-Roast",
 		copyData: "Sinistea",
+		gender: "N",
 
 		types: ["Dark"],
 		baseStats: {hp: 50, atk: 45, def: 35, spa: 54, spd: 74, spe: 50},
@@ -1475,6 +1479,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Polteageist",
 		forme: "Cold-Brew",
 		copyData: "Polteageist",
+		gender: "N",
 
 		types: ["Dark", "Ice"],
 		baseStats: {hp: 80, atk: 65, def: 45, spa: 114, spd: 134, spe: 70},
@@ -1745,6 +1750,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Baltoy",
 		forme: "Variant",
 		copyData: "Baltoy",
+		gender: "N",
 
 		types: ["Normal"],
 		abilities: {0: "Telepathy", H: "Anticipation"},
@@ -1760,6 +1766,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	playdol: {
 		name: "Playdol",
 		copyData: "Claydol",
+		gender: "N",
 
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 60, atk: 85, def: 90, spa: 85, spd: 105, spe: 75},
@@ -2206,6 +2213,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Golett",
 		forme: "Variant",
 		copyData: "Golett",
+		gender: "N",
 
 		types: ["Rock", "Normal"],
 		baseStats: {hp: 59, atk: 64, def: 60, spa: 35, spd: 50, spe: 35},
@@ -2225,6 +2233,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Golurk",
 		forme: "Variant",
 		copyData: "Golurk",
+		gender: "N",
 
 		types: ["Rock", "Normal"],
 		baseStats: {hp: 89, atk: 124, def: 90, spa: 55, spd: 80, spe: 55},
@@ -2346,6 +2355,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	ufogepi: {
 		name: "UFOgepi",
 		copyData: "Togepi",
+		gender: "N",
 
 		types: ["Steel"],
 		baseStats: {hp: 35, atk: 40, def: 65, spa: 20, spd: 65, spe: 20},
@@ -2359,6 +2369,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	ufogetic: {
 		name: "UFOgetic",
 		copyData: "Togetic",
+		gender: "N",
 
 		types: ["Steel"],
 		baseStats: {hp: 55, atk: 80, def: 85, spa: 50, spd: 85, spe: 50},
@@ -2374,6 +2385,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	ufogekiss: {
 		name: "UFOgekiss",
 		copyData: "Togekiss",
+		gender: "N",
 
 		types: ["Steel"],
 		baseStats: {hp: 85, atk: 120, def: 95, spa: 60, spd: 95, spe: 90},
@@ -2430,7 +2442,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Ice"],
 		baseStats: {hp: 70, atk: 115, def: 80, spa: 45, spd: 80, spe: 110},
 		abilities: {0: "Swarm", 1: "Technician", H: "Wind Rider"},//Hopefully that just works.
-		movepoolAdditions: ["clatteringblades", "iceshard", "iciclecrash", "icywind"],
+		movepoolAdditions: ["clatteringblades", "iceshard", "iciclecrash", "icywind", "hail"],
 	
 		creator: "BlueRay",
 	},
@@ -2786,6 +2798,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["hex", "beakblast"],
 		movepoolDeletions: ["foulplay", "knockoff"],
 		
+		evos: ["Mandibuzz-Galar"],
+		creator: "Albatross",
 	},
 	mandibuzz: {
 		inherit: true,
@@ -2799,11 +2813,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Mandibuzz",
 		
 		types: ["Ghost", "Flying"],
-		baseStats: {hp: 105, atk: 90, def: 100, spa: 70, spd: 90, spe: 55},//-5, +25, -5, +15, -5, -25
+		baseStats: {hp: 105, atk: 90, def: 100, spa: 70, spd: 90, spe: 55},
 		abilities: {0: "Big Pecks", 1: "Overcoat", H: "Analytic"},
 		movepoolAdditions: ["shadowbone", "hex", "beakblast"],
 		movepoolDeletions: ["foulplay", "knockoff"],
 		
+		prevo: "Vullaby-Galar",
+		evoLevel: 54,
+		creator: "Albatross",
 	},
 	cacnea: {
 		inherit: true,
@@ -2822,6 +2839,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["bulldoze", "drillrun", "partingshot", "rocktomb", "rockslide"],
 		movepoolDeletions: ["poisonjab", "swordsdance"],
 		
+		evos: ["Cacturne-Unova"],
+		creator: "Violet",
 	},
 	cacturne: {
 		inherit: true,
@@ -2840,6 +2859,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["tripleneedle", "bulldoze", "drillrun", "partingshot", "rocktomb", "rockslide"],
 		movepoolDeletions: ["poisonjab", "swordsdance"],
 		
+		prevo: "Cacnea-Unova",
+		evoLevel: 32,
+		creator: "Violet",
 	},
 	froslass: {
 		inherit: true,
@@ -2851,6 +2873,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Froslass",
 		forme: "Theater",
 		copyData: "Froslass",
+		gender: "F",
 		
 		types: ["Ice", "Dark"],
 		baseStats: {hp: 70, atk: 100, def: 65, spa: 70, spd: 65, spe: 110},
@@ -2858,6 +2881,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["assurance", "chillyreception", "darkpulse", "foulplay", "knockoff"],
 		movepoolDeletions: ["hex", "poltergeist", "willowisp"],//Snorunt gets hex but I'll note it here anyway
 		
+		prevo: "Snorunt",
+		evoType: "useItem",
+		evoItem: "Dusk Stone",
+		creator: "ausma"
 	},
 	froslasstheaterunmasked: { //No stat changes, but I assume needs to exist for the Ability to work
 		name: "Froslass-Theater-Unmasked",
@@ -2871,6 +2898,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["assurance", "chillyreception", "darkpulse", "foulplay", "knockoff"],
 		movepoolDeletions: ["hex", "poltergeist", "willowisp"],//Snorunt gets hex but I'll note it here anyway
 		
+		requiredAbility: "Ice Face",
+		battleOnly: "Froslass-Theater",
+		creator: "ausma",
 	},
 	passimian: {
 		inherit: true,
@@ -2889,6 +2919,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["brine", "courtchange", "earthpower", "muddywater", "razorshell", "scorchingsands"],
 		movepoolDeletions: ["closecombat", "energyball", "grassknot", "seedbomb"],
 		
+		creator: "quagsi",
 	},
 	clobbopus: {
 		inherit: true,
@@ -2903,6 +2934,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Limber", H: "Trace"},
 		movepoolAdditions: ["acidarmor", "counter", "poisonjab", "raindance", "sludgebomb", "toxic", "trick", "venoshock"],
 		
+		color: "Red",
+		prevo: "Clobbopus",
+		evoType: "levelMove",
+		evoMove: "Reversal",//Doesnt feel THAT fitting, but 5 levels later than Grapploct/you gotta wait
+		creator: "inkbug",
 	},
 	honedge: {
 		inherit: true,
@@ -2921,6 +2957,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["defog", "energyball", "gigadrain", "helpinghand", "leafblade", "tailwind", "whirlwind"],
 		movepoolDeletions: ["toxic"],
 		
+		evos: ["Doublade-Verdant"],
+		creator: "BlueRay",
 	},
 	doublade: {
 		inherit: true,
@@ -2939,6 +2977,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		movepoolAdditions: ["defog", "energyball", "gigadrain", "helpinghand", "leafblade", "tailwind", "whirlwind"],//Honedge has Helping Hand already from TM but it should be evolution move
 		movepoolDeletions: ["toxic"],
 		
+		prevo: "Honedge-Verdant",
+		evoLevel: 35,
+		evos: ["Aegislash-Verdant"],
+		creator: "BlueRay",
 	},
 	aegislash: {
 		inherit: true,
@@ -2953,10 +2995,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		
 		types: ["Grass", "Steel"],
 		baseStats: {hp: 70, atk: 45, def: 140, spa: 45, spd: 140, spe: 60},
-		abilities: {0: "Intrepid Sword", H: "Friend Guard"},
+		abilities: {0: "Stance Change"},
 		movepoolAdditions: ["flurry", "defog", "energyball", "gigadrain", "helpinghand", "leafblade", "tailwind", "whirlwind"],
 		movepoolDeletions: ["toxic"],
 		
+		prevo: "Doublade-Verdant",
+		evoType: "useItem",
+		evoItem: "Leaf Stone",
+		creator: "BlueRay",
 	},
 	aegislashverdantblade: {
 		name: "Aegislash-Verdant-Blade",
@@ -2966,20 +3012,25 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 70, atk: 140, def: 45, spa: 140, spd: 45, spe: 60},
-		abilities: {0: "Intrepid Sword", H: "Friend Guard"},
+		abilities: {0: "Stance Change"},
 		movepoolAdditions: ["flurry", "defog", "energyball", "gigadrain", "helpinghand", "leafblade", "tailwind", "whirlwind"],
 		movepoolDeletions: ["toxic"],
 		
+		requiredAbility: "Stance Change",
+		battleOnly: "Aegislash-Verdant",
+		creator: "BlueRay",
 	},
 	psiamat: {
 		name: "Psiamat",
 		copyData: "Meowstic",//Phione-like ""adjacent""; no evolutionary connection
+		gender: "N",
 		
 		types: ["Psychic"],
 		baseStats: {hp: 84, atk: 48, def: 86, spa: 93, spd: 91, spe: 91},
 		abilities: {0: "Trace", 1: "Telepathy", H: "Technician"},
 		movepoolAdditions: ["twinbeam", "extrasensory", "futuresight", "magicalleaf", "mefirst", "storedpower"],//new move + Meowstic-F's moves (cant be bothered)
 		
+		creator: "Paulluxx",
 	},
 	seviper: {
 		inherit: true,
@@ -2997,6 +3048,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Poison Heal", H: "Infiltrator"},
 		movepoolAdditions: ["charm", "dazzlinggleam", "moonblast", "takeheart"],
 		
+		creator: "abismal",
 	},
 	lilligant: {
 		inherit: true,
@@ -3008,6 +3060,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Lilligant",
 		forme: "Kalos",
 		copyData: "Lilligant",
+		gender: "F",
 		
 		types: ["Grass", "Flying"],
 		baseStats: {hp: 90, atk: 110, def: 70, spa: 60, spd: 80, spe: 70},
@@ -3015,6 +3068,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyMoves: "Petilil",//??? i think?
 		movepoolAdditions: ["acrobatics", "aerialace", "airslash", "allyswitch", "defog", "fly", "gigaimpact", "grassyterrain", "hurricane", "hyperbeam", "leafblade", "lightscreen", "metronome", "quiverdance", "roleplay", "solarblade", "tailwind", "tropkick"],
 		
+		prevo: "Petilil",
+		evoType: "useItem",
+		evoItem: "Sun Stone",
+		creator: "Magmajudis",
 	},
 	//Prompt 3
 	dedenne: {
@@ -3025,12 +3082,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Dedellite",
 		copyData: "Dedenne",
 		
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		movepoolAdditions: [""],
-		movepoolDeletions: [""],
+		types: ["Electric", "Fairy"],
+		baseStats: {hp: 67, atk: 68, def: 92, spa: 96, spd: 99, spe: 119},
+		abilities: {0: "Cheek Pouch", 1: "Receiver", H: "Plus"},
+		movepoolAdditions: ["drainingkiss", "stockpile", "spitup", "swallow", "terrainpulse"],
 		
+		prevo: "Dedenne",
+		evoType: "useItem",
+		evoItem: "Shiny Stone",
+		creator: "quagsi",
 	},
 	toxicroak: {
 		inherit: true,
@@ -3040,12 +3100,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Mycecroak",
 		copyData: "Toxicroak",
 		
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		movepoolAdditions: [""],
-		movepoolDeletions: [""],
+		types: ["Poison", "Fighting"],
+		baseStats: {hp: 103, atk: 116, def: 85, spa: 96, spd: 85, spe: 65},
+		abilities: {0: "Sticky Hold", 1: "Dry Skin", H: "Poison Touch"},
+		movepoolAdditions: ["junglehealing"],
 		
+		prevo: "Toxicroak",
+		evoType: "levelHold",
+		evoItem: "Big Mushroom",//If its mad about this im gonna be so sad
+		creator: "BlueRay",
 	},
 	corsola: {
 		inherit: true,
@@ -3058,23 +3121,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "Mirage",
 		copyData: "Corsola",
 		
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		movepoolAdditions: [""],
-		movepoolDeletions: [""],
+		types: ["Ground"],
+		baseStats: {hp: 65, atk: 55, def: 95, spa: 65, spd: 95, spe: 35},
+		abilities: {0: "Forewarn", 1: "Natural Cure", H: "Regenerator"},
+		movepoolAdditions: ["confusion", "scorchingsands"],
+		movepoolDeletions: ["aquaring", "blizzard", "brine", "bubble", "bubblebeam", "hydropump", "icebeam", "iciclespear", "icywind", "irondefense", "lifedew", "raindance", "scald", "suckerpunch", "surf", "throatchop"],
 		
+		evos: ["Psychosola"],
+		creator: "ausma",
 	},
 	psychosola: {
 		name: "Psychosola",
 		copyData: "Corsola",//Movepool based on Mirage Corsola, not Cursola
 		
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		movepoolAdditions: [""],
-		movepoolDeletions: [""],
+		types: ["Ground", "Psychic"],
+		baseStats: {hp: 65, atk: 66, def: 125, spa: 90, spd: 145, spe: 30},
+		abilities: {0: "Anticipation", 1: "Natural Cure", H: "Regenerator"},
+		movepoolAdditions: ["confusion", "scorchingsands", "counter", "futuresight", "psyshock", "trickroom"],
+		movepoolDeletions: ["aquaring", "blizzard", "brine", "bubble", "bubblebeam", "hydropump", "icebeam", "iciclespear", "icywind", "irondefense", "lifedew", "raindance", "scald", "suckerpunch", "surf", "throatchop"],
 		
+		prevo: "Corsola-Mirage",
+		evoLevel: 38,
+		creator: "ausma",
 	},
 	meditite: {
 		inherit: true,
@@ -3084,12 +3152,16 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Spiritite",
 		copyData: "Meditite",
 		
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		movepoolAdditions: [""],
-		movepoolDeletions: [""],
+		types: ["Fighting", "Ghost"],
+		baseStats: {hp: 30, atk: 20, def: 160, spa: 20, spd: 160, spe: 60},
+		abilities: {0: "Sturdy", H: "Telepathy"},
+		movepoolAdditions: ["astonish", "willowisp"],
 		
+		prevo: "Meditite",
+		evoType: "levelHold",
+		evoItem: "Spell Tag",
+		evoCondition: "At below 1/2 max HP",
+		creator: "abismal",
 	},
 	larvesta: {
 		inherit: true,
@@ -3102,38 +3174,48 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forme: "Hisui",
 		copyData: "Larvesta",
 		
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		movepoolAdditions: [""],
-		movepoolDeletions: [""],
+		types: ["Bug", "Dark"],
+		baseStats: {hp: 55, atk: 85, def: 55, spa: 50, spd: 55, spe: 60},
+		abilities: {0: "Flame Body", H: "Swarm"},
+		movepoolAdditions: ["burnup", "darkpulse"],
+		movepoolDeletions: ["fireblast", "flamethrower", "heatwave", "overheat", "psychic", "quiverdance", "zenheadbutt"],
 		
+		evos: ["Nympra"],
+		creator: "Albatross",
 	},
 	nympra: {
 		name: "Nympra",
 		copyData: "Volcarona",
 		
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		movepoolAdditions: [""],
-		movepoolDeletions: [""],
+		types: ["Bug", "Dark"],
+		baseStats: {hp: 105, atk: 85, def: 75, spa: 80, spd: 95, spe: 110},
+		abilities: {0: "Flame Body", H: "Adaptability"},
+		movepoolAdditions: ["burnup", "darkpulse", "foulplay"],
+		movepoolDeletions: ["fireblast", "flamethrower", "heatwave", "overheat", "psychic", "quiverdance", "zenheadbutt"],
 		
+		prevo: "Larvesta-Hisui",
+		evoLevel: 59,
+		creator: "Albatross",
 	},
 	parasect: {
 		inherit: true,
 		evos: ["Parascelium"],
+		//movepoolAdditions: ["myceliate"],//Is this allowed? Like Hyper Drill and Twin Beam; evolves via knowing a new move given in a new gen.
+		//Hardcoded in scripts I guess.
 	},
 	parascelium: {
 		name: "Parascelium",
 		copyData: "Parasect",
 		
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		movepoolAdditions: [""],
-		movepoolDeletions: [""],
+		types: ["Bug", "Grass"],
+		baseStats: {hp: 60, atk: 105, def: 115, spa: 60, spd: 115, spe: 30},
+		abilities: {0: "Effect Spore", 1: "Dry Skin", H: "Analytic"},
+		movepoolAdditions: ["myceliate", "powder", "skittersmack"],
 		
+		prevo: "Parasect",
+		evoType: "levelMove",
+		evoMove: "Myceliate",
+		creator: "Violet",
 	},
 	crustle: {
 		inherit: true,
@@ -3143,11 +3225,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		name: "Mantle",
 		copyData: "Crustle",
 		
-		types: [""],
-		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
-		abilities: {0: ""},
-		movepoolAdditions: [""],
-		movepoolDeletions: [""],
+		types: ["Bug", "Fire"],
+		baseStats: {hp: 70, atk: 105, def: 155, spa: 75, spd: 105, spe: 35},
+		abilities: {0: "Sturdy", 1: "Magma Armor", H: "Sticky Hold"},
+		movepoolAdditions: ["lavaplume", "leechlife", "spikes"],
 		
+		prevo: "Crustle",
+		evoType: "useItem",
+		evoItem: "Fire Stone",
+		creator: "Paulluxx",
 	},
 };
