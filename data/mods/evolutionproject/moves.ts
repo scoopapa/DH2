@@ -248,6 +248,61 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
+	tripleneedle: {
+		shortDesc: "100% chance to lower the target's Defense by 1. Raises the user's critical hit ratio by 2.",
+		num: -1008,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		name: "Triple Needle",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acupressure", source);
+			this.add('-anim', source, "Needle Arm", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		self: {
+			volatileStatus: 'focusenergy',
+		},
+		target: "normal",
+		type: "Fighting",
+	},
+	myceliate: {
+		shortDesc: "Power doubles if the target has a status ailment.",
+		num: 506,
+		accuracy: 100,
+		basePower: 65,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) {
+				this.debug('BP doubled from status condition');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Spore", target);
+			this.add('-anim', source, "Frenzy Plant", target);
+		},
+		category: "Physical",
+		name: "Myceliate",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		zMove: {basePower: 160},
+		contestType: "Clever",
+	},
 
 	// restored official moves
 
