@@ -695,8 +695,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 30,
 			volatileStatus: 'flinch',
-			if (!target.status) return;
-			chance: 100,
 		},
 		target: "normal",
 		type: "Dragon",
