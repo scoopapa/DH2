@@ -2549,6 +2549,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 10, def: 55, spa: 15, spd: 20, spe: 40},
 		abilities: {0: "Ice Body", H: "Rattled"},
 		movepoolDeletions: ["hydropump"],
+		movepoolAdditions: ["blizzard"],//It's only fair
 		
 		evos: ["Geyserdos"],
 		creator: "Albatross",
@@ -2806,13 +2807,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	cacnea: {
 		inherit: true,
-		otherFormes: ["Cacnea-Variant"],
-		formeOrder: ["Cacnea", "Cacnea-Variant"],
+		otherFormes: ["Cacnea-Unova"],
+		formeOrder: ["Cacnea", "Cacnea-Unova"],
 	},
-	cacneavariant: {
-		name: "Cacnea-Variant",
+	cacneaunova: {
+		name: "Cacnea-Unova",
 		baseSpecies: "Cacnea",
-		forme: "Variant",
+		forme: "Unova",
 		copyData: "Cacnea",
 		
 		types: ["Ground"],
@@ -2824,13 +2825,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	cacturne: {
 		inherit: true,
-		otherFormes: ["Cacturne-Variant"],
-		formeOrder: ["Cacturne", "Cacturne-Variant"],
+		otherFormes: ["Cacturne-Unova"],
+		formeOrder: ["Cacturne", "Cacturne-Unova"],
 	},
-	cacturnevariant: {
-		name: "Cacturne-Variant",
+	cacturneunova: {
+		name: "Cacturne-Unova",
 		baseSpecies: "Cacturne",
-		forme: "Variant",
+		forme: "Unova",
 		copyData: "Cacturne",
 		
 		types: ["Ground", "Fighting"],
