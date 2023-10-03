@@ -249,7 +249,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	tripleneedle: {
-		shortDesc: "100% chance to lower the target's Defense by 1. Raises the user's critical hit ratio by 2.",
+		shortDesc: "100% to lower target's Defense by 1; user's crit ratio +2.",
 		num: -1008,
 		accuracy: 100,
 		basePower: 50,
@@ -274,10 +274,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Fighting",
+		contestType: "Cool",//Necessary
 	},
 	myceliate: {
 		shortDesc: "Power doubles if the target has a status ailment.",
-		num: 506,
+		num: -1009,
 		accuracy: 100,
 		basePower: 65,
 		basePowerCallback(pokemon, target, move) {
