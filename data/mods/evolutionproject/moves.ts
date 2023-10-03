@@ -260,7 +260,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Acupressure", target);
+			this.add('-anim', source, "Acupressure", source);
+			this.add('-anim', source, "Needle Arm", target);
 		},
 		secondary: {
 			chance: 100,
@@ -289,6 +290,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Spore", target);
+			this.add('-anim', source, "Frenzy Plant", target);
 		},
 		category: "Physical",
 		name: "Myceliate",
