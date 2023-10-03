@@ -2767,4 +2767,386 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		evoLevel: 45,
 		creator: "Violet",
 	},
+	//Prompt 2
+	vullaby: {
+		inherit: true,
+		otherFormes: ["Vullaby-Galar"],
+		formeOrder: ["Vullaby", "Vullaby-Galar"],
+	},
+	vullabygalar: {
+		name: "Vullaby-Galar",
+		baseSpecies: "Vullaby",
+		forme: "Galar",
+		copyData: "Vullaby",
+		
+		types: ["Ghost", "Flying"],
+		baseStats: {hp: 65, atk: 80, def: 70, spa: 60, spd: 60, spe: 35},
+		abilities: {0: "Big Pecks", 1: "Overcoat", H: "Analytic"},
+		movepoolAdditions: ["hex", "beakblast"],
+		movepoolDeletions: ["foulplay", "knockoff"],
+		
+	},
+	mandibuzz: {
+		inherit: true,
+		otherFormes: ["Mandibuzz-Galar"],
+		formeOrder: ["Mandibuzz", "Mandibuzz-Galar"],
+	},
+	mandibuzzgalar: {
+		name: "Mandibuzz-Galar",
+		baseSpecies: "Mandibuzz",
+		forme: "Galar",
+		copyData: "Mandibuzz",
+		
+		types: ["Ghost", "Flying"],
+		baseStats: {hp: 105, atk: 90, def: 100, spa: 70, spd: 90, spe: 55},//-5, +25, -5, +15, -5, -25
+		abilities: {0: "Big Pecks", 1: "Overcoat", H: "Analytic"},
+		movepoolAdditions: ["shadowbone", "hex", "beakblast"],
+		movepoolDeletions: ["foulplay", "knockoff"],
+		
+	},
+	cacnea: {
+		inherit: true,
+		otherFormes: ["Cacnea-Variant"],
+		formeOrder: ["Cacnea", "Cacnea-Variant"],
+	},
+	cacneavariant: {
+		name: "Cacnea-Variant",
+		baseSpecies: "Cacnea",
+		forme: "Variant",
+		copyData: "Cacnea",
+		
+		types: ["Ground"],
+		baseStats: {hp: 50, atk: 65, def: 55, spa: 65, spd: 55, spe: 45},
+		abilities: {0: "Rattled", H: "Water Absorb"},
+		movepoolAdditions: ["bulldoze", "drillrun", "partingshot", "rocktomb", "rockslide"],
+		movepoolDeletions: ["poisonjab", "swordsdance"],
+		
+	},
+	cacturne: {
+		inherit: true,
+		otherFormes: ["Cacturne-Variant"],
+		formeOrder: ["Cacturne", "Cacturne-Variant"],
+	},
+	cacturnevariant: {
+		name: "Cacturne-Variant",
+		baseSpecies: "Cacturne",
+		forme: "Variant",
+		copyData: "Cacturne",
+		
+		types: ["Ground", "Fighting"],
+		baseStats: {hp: 70, atk: 95, def: 75, spa: 95, spd: 75, spe: 65},
+		abilities: {0: "Rattled", H: "Water Absorb"},
+		movepoolAdditions: ["tripleneedle", "bulldoze", "drillrun", "partingshot", "rocktomb", "rockslide"],
+		movepoolDeletions: ["poisonjab", "swordsdance"],
+		
+	},
+	froslass: {
+		inherit: true,
+		otherFormes: ["Froslass-Theater", "Froslass-Theater-Unmasked"],
+		formeOrder: ["Froslass", "Froslass-Theater", "Froslass-Theater-Unmasked"],
+	},
+	froslasstheater: {
+		name: "Froslass-Theater",
+		baseSpecies: "Froslass",
+		forme: "Theater",
+		copyData: "Froslass",
+		
+		types: ["Ice", "Dark"],
+		baseStats: {hp: 70, atk: 100, def: 65, spa: 70, spd: 65, spe: 110},
+		abilities: {0: "Ice Face", H: "Cursed Body"},
+		movepoolAdditions: ["assurance", "chillyreception", "darkpulse", "foulplay", "knockoff"],
+		movepoolDeletions: ["hex", "poltergeist", "willowisp"],//Snorunt gets hex but I'll note it here anyway
+		
+	},
+	froslasstheaterunmasked: { //No stat changes, but I assume needs to exist for the Ability to work
+		name: "Froslass-Theater-Unmasked",
+		baseSpecies: "Froslass",
+		forme: "Theater-Unmasked",
+		copyData: "Froslass",
+		
+		types: ["Ice", "Dark"],
+		baseStats: {hp: 70, atk: 100, def: 65, spa: 70, spd: 65, spe: 110},
+		abilities: {0: "Ice Face"},
+		movepoolAdditions: ["assurance", "chillyreception", "darkpulse", "foulplay", "knockoff"],
+		movepoolDeletions: ["hex", "poltergeist", "willowisp"],//Snorunt gets hex but I'll note it here anyway
+		
+	},
+	passimian: {
+		inherit: true,
+		otherFormes: ["Passimian-Hoenn"],
+		formeOrder: ["Passimian", "Passimian-Hoenn"],
+	},
+	passimianhoenn: {
+		name: "Passimian-Hoenn",
+		baseSpecies: "Passimian",
+		forme: "Hoenn",
+		copyData: "Passimian",
+		
+		types: ["Fighting", "Ground"],
+		baseStats: {hp: 100, atk: 110, def: 90, spa: 40, spd: 60, spe: 90},
+		abilities: {0: "Damp", H: "Defiant"},
+		movepoolAdditions: ["brine", "courtchange", "earthpower", "muddywater", "razorshell", "scorchingsands"],
+		movepoolDeletions: ["closecombat", "energyball", "grassknot", "seedbomb"],
+		
+	},
+	clobbopus: {
+		inherit: true,
+		evos: ["Grapploct", "Neuroboxin"],
+	},
+	neuroboxin: {
+		name: "Neuroboxin",
+		copyData: "Grapploct",
+		
+		types: ["Fighting", "Poison"],
+		baseStats: {hp: 108, atk: 90, def: 80, spa: 70, spd: 60, spe: 72},
+		abilities: {0: "Limber", H: "Trace"},
+		movepoolAdditions: ["acidarmor", "counter", "poisonjab", "raindance", "sludgebomb", "toxic", "trick", "venoshock"],
+		
+	},
+	honedge: {
+		inherit: true,
+		otherFormes: ["Honedge-Verdant"],
+		formeOrder: ["Honedge", "Honedge-Verdant"],
+	},
+	honedgeverdant: {
+		name: "Honedge-Verdant",
+		baseSpecies: "Honedge",
+		forme: "Verdant",
+		copyData: "Honedge",
+		
+		types: ["Grass"],
+		baseStats: {hp: 55, atk: 80, def: 100, spa: 25, spd: 37, spe: 28},
+		abilities: {0: "Intrepid Sword", H: "Friend Guard"},
+		movepoolAdditions: ["defog", "energyball", "gigadrain", "helpinghand", "leafblade", "tailwind", "whirlwind"],
+		movepoolDeletions: ["toxic"],
+		
+	},
+	doublade: {
+		inherit: true,
+		otherFormes: ["Doublade-Verdant"],
+		formeOrder: ["Doublade", "Doublade-Verdant"],
+	},
+	doubladeverdant: {
+		name: "Doublade-Verdant",
+		baseSpecies: "Doublade",
+		forme: "Verdant",
+		copyData: "Doublade",
+		
+		types: ["Grass"],
+		baseStats: {hp: 69, atk: 110, def: 150, spa: 35, spd: 49, spe: 35},
+		abilities: {0: "Intrepid Sword", H: "Friend Guard"},
+		movepoolAdditions: ["defog", "energyball", "gigadrain", "helpinghand", "leafblade", "tailwind", "whirlwind"],//Honedge has Helping Hand already from TM but it should be evolution move
+		movepoolDeletions: ["toxic"],
+		
+	},
+	aegislash: {
+		inherit: true,
+		otherFormes: ["Aegislash-Blade", "Aegislash-Verdant", "Aegislash-Verdant-Blade"],
+		formeOrder: ["Aegislash", "Aegislash-Blade", "Aegislash-Verdant", "Aegislash-Verdant-Blade"],
+	},
+	aegislashverdant: {
+		name: "Aegislash-Verdant",
+		baseSpecies: "Aegislash",
+		forme: "Verdant",
+		copyData: "Aegislash",
+		
+		types: ["Grass", "Steel"],
+		baseStats: {hp: 70, atk: 45, def: 140, spa: 45, spd: 140, spe: 60},
+		abilities: {0: "Intrepid Sword", H: "Friend Guard"},
+		movepoolAdditions: ["flurry", "defog", "energyball", "gigadrain", "helpinghand", "leafblade", "tailwind", "whirlwind"],
+		movepoolDeletions: ["toxic"],
+		
+	},
+	aegislashverdantblade: {
+		name: "Aegislash-Verdant-Blade",
+		baseSpecies: "Aegislash",
+		forme: "Verdant-Blade",
+		copyData: "Aegislash",
+		
+		types: ["Grass", "Flying"],
+		baseStats: {hp: 70, atk: 140, def: 45, spa: 140, spd: 45, spe: 60},
+		abilities: {0: "Intrepid Sword", H: "Friend Guard"},
+		movepoolAdditions: ["flurry", "defog", "energyball", "gigadrain", "helpinghand", "leafblade", "tailwind", "whirlwind"],
+		movepoolDeletions: ["toxic"],
+		
+	},
+	psiamat: {
+		name: "Psiamat",
+		copyData: "Meowstic",//Phione-like ""adjacent""; no evolutionary connection
+		
+		types: ["Psychic"],
+		baseStats: {hp: 84, atk: 48, def: 86, spa: 93, spd: 91, spe: 91},
+		abilities: {0: "Trace", 1: "Telepathy", H: "Technician"},
+		movepoolAdditions: ["twinbeam", "extrasensory", "futuresight", "magicalleaf", "mefirst", "storedpower"],//new move + Meowstic-F's moves (cant be bothered)
+		
+	},
+	seviper: {
+		inherit: true,
+		otherFormes: ["Seviper-Hisui"],
+		formeOrder: ["Seviper", "Seviper-Hisui"],
+	},
+	seviperhisui: {
+		name: "Seviper-Hisui",
+		baseSpecies: "Seviper",
+		forme: "Hisui",
+		copyData: "Seviper",
+		
+		types: ["Fairy"],
+		baseStats: {hp: 83, atk: 45, def: 90, spa: 90, spd: 70, spe: 80},
+		abilities: {0: "Poison Heal", H: "Infiltrator"},
+		movepoolAdditions: ["charm", "dazzlinggleam", "moonblast", "takeheart"],
+		
+	},
+	lilligant: {
+		inherit: true,
+		otherFormes: ["Lilligant-Hisui", "Lilligant-Kalos"],
+		formeOrder: ["Lilligant", "Lilligant-Hisui", "Lilligant-Kalos"],
+	},
+	lilligantkalos: {
+		name: "Lilligant-Kalos",
+		baseSpecies: "Lilligant",
+		forme: "Kalos",
+		copyData: "Lilligant",
+		
+		types: ["Grass", "Flying"],
+		baseStats: {hp: 90, atk: 110, def: 70, spa: 60, spd: 80, spe: 70},
+		abilities: {0: "Chlorophyll", 1: "Wind Rider", H: "Own Tempo"},
+		copyMoves: "Petilil",//??? i think?
+		movepoolAdditions: ["acrobatics", "aerialace", "airslash", "allyswitch", "defog", "fly", "gigaimpact", "grassyterrain", "hurricane", "hyperbeam", "leafblade", "lightscreen", "metronome", "quiverdance", "roleplay", "solarblade", "tailwind", "tropkick"],
+		
+	},
+	//Prompt 3
+	dedenne: {
+		inherit: true,
+		evos: ["Dedellite"],
+	},
+	dedellite: {
+		name: "Dedellite",
+		copyData: "Dedenne",
+		
+		types: [""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: ""},
+		movepoolAdditions: [""],
+		movepoolDeletions: [""],
+		
+	},
+	toxicroak: {
+		inherit: true,
+		evos: ["Mycecroak"],
+	},
+	mycecroak: {
+		name: "Mycecroak",
+		copyData: "Toxicroak",
+		
+		types: [""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: ""},
+		movepoolAdditions: [""],
+		movepoolDeletions: [""],
+		
+	},
+	corsola: {
+		inherit: true,
+		otherFormes: ["Corsola-Galar", "Corsola-Mirage"],
+		formeOrder: ["Corsola", "Corsola-Galar", "Corsola-Mirage"],
+	},
+	corsolamirage: {
+		name: "Corsola-Mirage",
+		baseSpecies: "Corsola",
+		forme: "Mirage",
+		copyData: "Corsola",
+		
+		types: [""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: ""},
+		movepoolAdditions: [""],
+		movepoolDeletions: [""],
+		
+	},
+	psychosola: {
+		name: "Psychosola",
+		copyData: "Corsola",//Movepool based on Mirage Corsola, not Cursola
+		
+		types: [""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: ""},
+		movepoolAdditions: [""],
+		movepoolDeletions: [""],
+		
+	},
+	meditite: {
+		inherit: true,
+		evos: ["Medicham", "Spiritite"],
+	},
+	spiritite: {
+		name: "Spiritite",
+		copyData: "Meditite",
+		
+		types: [""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: ""},
+		movepoolAdditions: [""],
+		movepoolDeletions: [""],
+		
+	},
+	larvesta: {
+		inherit: true,
+		otherFormes: ["Larvesta-Hisui"],
+		formeOrder: ["Larvesta", "Larvesta-Hisui"],
+	},
+	larvestahisui: {
+		name: "Larvesta-Hisui",
+		baseSpecies: "Larvesta",
+		forme: "Hisui",
+		copyData: "Larvesta",
+		
+		types: [""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: ""},
+		movepoolAdditions: [""],
+		movepoolDeletions: [""],
+		
+	},
+	nympra: {
+		name: "Nympra",
+		copyData: "Volcarona",
+		
+		types: [""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: ""},
+		movepoolAdditions: [""],
+		movepoolDeletions: [""],
+		
+	},
+	parasect: {
+		inherit: true,
+		evos: ["Parascelium"],
+	},
+	parascelium: {
+		name: "Parascelium",
+		copyData: "Parasect",
+		
+		types: [""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: ""},
+		movepoolAdditions: [""],
+		movepoolDeletions: [""],
+		
+	},
+	crustle: {
+		inherit: true,
+		evos: ["Mantle"],
+	},
+	mantle: {
+		name: "Mantle",
+		copyData: "Crustle",
+		
+		types: [""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: ""},
+		movepoolAdditions: [""],
+		movepoolDeletions: [""],
+		
+	},
 };
