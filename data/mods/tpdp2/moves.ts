@@ -3564,8 +3564,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			return move.basePower;
 		},
-		onHit(target, source, move) {
-			target.clearItem();
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Fire Wall', '[of] ' + source);
+				}
+			}
 		},
 		// Class: 2
 		// Effect Chance: 100
