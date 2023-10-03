@@ -5350,6 +5350,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','aggron').learnset.rototiller = ["9D"];
 		this.modData('Learnsets','aggron').learnset.breakingswipe = ["9M"];
 		this.modData('Learnsets','aggron').learnset.fullcollide = ["9M"];
+		delete this.modData('Learnsets','aggron').learnset.meteorbeam;
 		// Meditite
 		this.modData('Learnsets','meditite').learnset.vacuumwave = ["9D"];
 		this.modData('Learnsets','meditite').learnset.amnesia = ["9M"];
@@ -5986,6 +5987,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','cranidos').learnset.headsmash = ["9L51"];
 		this.modData('Learnsets','cranidos').learnset.fullcollide = ["9M"];
 		this.modData('Learnsets','cranidos').learnset.trailhead = ["9M"];
+		this.modData('Learnsets','cranidos').learnset.meteorbeam = ["9T"];
 		delete this.modData('Learnsets','cranidos').learnset.fireblast;
 		delete this.modData('Learnsets','cranidos').learnset.flamethrower;
 		delete this.modData('Learnsets','cranidos').learnset.thunder;
@@ -6001,11 +6003,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','rampardos').learnset.breakingswipe = ["9M"];
 		this.modData('Learnsets','rampardos').learnset.fullcollide = ["9M"];
 		this.modData('Learnsets','rampardos').learnset.trailhead = ["9M"];
+		this.modData('Learnsets','rampardos').learnset.meteorbeam = ["9T"];
 		// Shieldon
 		this.modData('Learnsets','shieldon').learnset.kingsshield = ["9D"];
 		this.modData('Learnsets','shieldon').learnset.fullcollide = ["9L15","9M"];
 		this.modData('Learnsets','shieldon').learnset.shelter = ["9L51"];
 		this.modData('Learnsets','shieldon').learnset.chillywater = ["9M"];
+		this.modData('Learnsets','shieldon').learnset.meteorbeam = ["9T"];
 		delete this.modData('Learnsets','shieldon').learnset.blizzard;
 		delete this.modData('Learnsets','shieldon').learnset.earthquake;
 		delete this.modData('Learnsets','shieldon').learnset.fireblast;
@@ -6019,6 +6023,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','bastiodon').learnset.shelter = ["9L66"];
 		this.modData('Learnsets','bastiodon').learnset.bodypress = ["9M"];
 		this.modData('Learnsets','bastiodon').learnset.chillywater = ["9M"];
+		this.modData('Learnsets','bastiodon').learnset.meteorbeam = ["9T"];
 		this.modData('Learnsets','bastiodon').learnset.steelbeam = ["9T"];
 		delete this.modData('Learnsets','bastiodon').learnset.blizzard;
 		delete this.modData('Learnsets','bastiodon').learnset.fireblast;
@@ -6826,7 +6831,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','gigalith').learnset.smackdown = ["9L17", "9M"];
 		this.modData('Learnsets','gigalith').learnset.rockclimb = ["9L23"];
 		this.modData('Learnsets','gigalith').learnset.trailhead = ["9M"];
-		delete this.modData('Learnsets','gigalith').learnset.meteorbeam;
 		delete this.modData('Learnsets','gigalith').learnset.mudslap;
 		// Woobat
 		this.modData('Learnsets','woobat').learnset.pluck = ["9D"];
@@ -9641,7 +9645,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','dracozolt').learnset.shockwave = ["9M"];
 		this.modData('Learnsets','dracozolt').learnset.strength = ["9M"];
 		this.modData('Learnsets','dracozolt').learnset.trailhead = ["9M"];
-		delete this.modData('Learnsets','dracozolt').learnset.meteorbeam;
 		// Arctozolt
 		this.modData('Learnsets','arctozolt').learnset.iondeluge = ["9D"];
 		this.modData('Learnsets','arctozolt').learnset.aquatail = ["9M"];
@@ -9654,21 +9657,18 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','arctozolt').learnset.shockwave = ["9M"];
 		this.modData('Learnsets','arctozolt').learnset.strength = ["9M"];
 		this.modData('Learnsets','arctozolt').learnset.trailhead = ["9M"];
-		delete this.modData('Learnsets','arctozolt').learnset.meteorbeam;
 		// Dracovish
 		this.modData('Learnsets','dracovish').learnset.liquidation = ["9D"];
 		this.modData('Learnsets','dracovish').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','dracovish').learnset.painsplit = ["9M"];
 		this.modData('Learnsets','dracovish').learnset.strength = ["9M"];
 		delete this.modData('Learnsets','dracovish').learnset.leechlife;
-		delete this.modData('Learnsets','dracovish').learnset.meteorbeam;
 		// Arctovish
 		this.modData('Learnsets','arctovish').learnset.icefang = ["9D"];
 		this.modData('Learnsets','arctovish').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','arctovish').learnset.frostbreath = ["9M"];
 		this.modData('Learnsets','arctovish').learnset.painsplit = ["9M"];
 		this.modData('Learnsets','arctovish').learnset.strength = ["9M"];
-		delete this.modData('Learnsets','arctovish').learnset.meteorbeam;
 		// Duraludon
 		this.modData('Learnsets','duraludon').learnset.crushclaw = ["9D"];
 		this.modData('Learnsets','duraludon').learnset.block = ["9M"];
