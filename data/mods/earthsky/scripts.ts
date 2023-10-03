@@ -6362,6 +6362,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','rhyperior').learnset.tussle = ["9L17"];
 		this.modData('Learnsets','rhyperior').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','rhyperior').learnset.trailhead = ["9M"];
+		delete this.modData('Learnsets','rhyperior').learnset.meteorbeam;
 		// Tangrowth
 		this.modData('Learnsets','tangrowth').learnset.morningsun = ["9D"];
 		this.modData('Learnsets','tangrowth').learnset.amnesia = ["9M"];
