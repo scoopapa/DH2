@@ -2042,25 +2042,18 @@ export const Formats: FormatList = [
 		teambuilderFormat: 'Uber',
 	},
 	{
-		name: "[Gen 9] Roovnen VGC",
+		name: "[Gen 9] Roovnen Doubles",
 		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9485572">Post in Solomods Megathread</a>`,
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1ZzNqkSOwGYx2E1Rn28jCzGpJahMIcM-KjiGprjQAT68/edit?usp=sharing">Spreadsheet</a>`,
 		],
 		mod: 'gen9roovnen',
+		gameType: 'doubles',
 		searchShow: false,
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Roovnen Dex', 'Min Source Gen = 9', 'VGC Timer', 'Terastal Clause', 'Roovnen Move Dexits'],
-		banlist: [
-			'Sub-Legendary', 'Sigisin', 'Bredoom', 'Frosgross', 'Abomacruel', 'Porygon-V', 'Latakuno',
-		
-			//Home Pokemon
-			'Tentacool', 'Tentacruel', 'Marowak-Base', 'Marowak-Alola', 'Tauros', 'Tauros-Paldea-Aqua', 'Tauros-Paldea-Blaze', 
-			'Tauros-Paldea-Combat', 'Eevee', 'Vaporeon', 'Jolteon', 'Flareon', 'Espeon', 'Umbreon', 'Turtwig', 'Grotle', 
-			'Torterra', 'Chimchar', 'Monferno', 'Infernape', 'Piplup', 'Prinplup', 'Empoleon', 'Leafeon', 'Glaceon', 'Phione', 
-			'Golurk', 'Sylveon', 'Coalossal', 'Runerigus', 'Sprigatito', 'Floragato', 'Meowscarada', 'Fuecoco', 'Crocalor', 
-			'Skeledirge', 'Quaxly', 'Quaxwell', 'Quaquaval', 'Clodsire', 'Dipplin', 'Poltchageist', 'Sinistcha',
-		],
+		ruleset: ['Standard Doubles'],
+		banlist: ['DUber', 'Shadow Tag', 'Soul Dew', 'Shadow Dew'],
+		teambuilderFormat: 'DOU',
 	},
 	/*{
 		name: "[Gen 9] Roovnen LC",

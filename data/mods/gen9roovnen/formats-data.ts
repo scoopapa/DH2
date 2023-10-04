@@ -266,6 +266,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		isNonstandard: null,
 		tier: "NFE",
+		doublesTier: "NFE",
 	},
 	pikachucosplay: {
 		inherit: true,
@@ -1095,6 +1096,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		isNonstandard: null,
 		tier: "NFE",
+		doublesTier: "NFE",
 	},
 	krabby: {
 		inherit: true,
@@ -3389,6 +3391,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		isNonstandard: null,
 		tier: "NFE",
+		doublesTier: "NFE",
 	},
 	chingling: {
 		inherit: true,
@@ -6123,7 +6126,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		isNonstandard: null,
 		tier: "Uber",
-		doublesTier: "DOU",
+		doublesTier: "DUber",
 		natDexTier: "Uber",
 	},
 	zygarde: {
