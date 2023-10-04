@@ -76,6 +76,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.species.baseSpecies !== 'Blite' || pokemon.transformed) return;
 			const targetForme = pokemon.species.name === 'Blite' ? 'Blite-Blight' : 'Blite';
 			pokemon.formeChange(targetForme);
+			this.add('-message', `${pokemon.name} transformed!`);
 		},
 		onTakeItem(item, pokemon, source) {
 			if ((source && source.baseSpecies.name === "Blite") || pokemon.baseSpecies.name === "Blite") {

@@ -1,22 +1,19 @@
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	puffinup: {
 		shortDesc: "When this Pokemon uses or is targeted by a status move, Stockpiles 1. When this Pokemon loses a Stockpile, Speed +1.",
-		onModifyMove(move, pokemon) {
-			if (move.category !== 'Status') {
-				return;
-			}
-			pokemon.addVolatile('stockpile');
-		},
-		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (move.category !== 'Status') {
 				return;
 			}
 			target.addVolatile('stockpile');
 		},
-		onResidual() {
-			
-		},
+		/*onResidual() {
+			const success = !!
+			if (!success) return;
+			pokemon.removeVolatile('stockpile');
+			this.boost({spe: 1});
+			return success || this.NOT_FAIL;
+		},*/
 		name: "Puffin Up",
 		rating: 3,
 		num: -1,
@@ -51,10 +48,18 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	refreshing: {
 		shortDesc: "When this Pokemon switches out, the incoming Pokemon is healed of all status conditions.",
-		onSwap(target) {
-			if (target.status) {
-				target.setStatus('');
-			}
+		onSwitchOut(pokemon) {
+			pokemon.side.addSlotCondition(pokemon, 'refreshing'); 
+			this.add('-ability', pokemon, 'Refreshing');
+		},
+		condition: {
+			onSwap(target) {
+				if (!target.fainted && target.status) {
+				target.clearStatus();
+				this.add('-message', "" + target.name + "was cured by refreshing!");
+				target.side.removeSlotCondition(target, 'refreshing');
+				}
+			},
 		},
 		name: "Refreshing",
 		rating: 3,
@@ -93,10 +98,23 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	},
 	toxindrain: {
 		shortDesc: "If another Pokemon takes Poison damage, heals 1/2 the damage taken.",
-		onAnyDamage(damage, target, source, effect) {
-			if (effect && (effect.id === 'tox' || effect.id === 'psn')) {
-				if (damage > 0) {
-					this.heal(damage / 2, this.effectData.target, target);
+		onResidualOrder: 29,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.ability === 'poisonheal' || target.ability === 'magicguard') {
+					return;
+				}
+				if (target.status === 'psn') {
+					this.heal(target.baseMaxhp / 8, pokemon);
+				}
+				if (target.status === 'tox') {
+					if ((target.hp + this.clampIntRange(pokemon.baseMaxhp / 16, 1) * target.activeTurns) > target.basemaxhp) {
+						this.heal(target.hp - target.basemaxhp);
+					}
+					else {
+						this.heal(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * target.activeTurns, pokemon)
+					}
 				}
 			}
 		},

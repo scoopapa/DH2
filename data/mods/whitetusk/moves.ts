@@ -90,7 +90,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 70,
 		basePowerCallback(pokemon) {
-			if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return 70;
+			if (!pokemon.volatiles['stockpile']?.layers) return 70;
 			return 70 + pokemon.volatiles['stockpile'].layers * 30;
 		},
 		category: "Physical",
@@ -102,13 +102,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onAfterMove(pokemon) {
 			pokemon.removeVolatile('stockpile');
 		},
-		self: {
-			onHit(source) {
-				if (!pokemon.volatiles['stockpile'] || !pokemon.volatiles['stockpile'].layers) return null;
-				for (let i = 0; i < source.volatiles['stockpile'].layers; i++) {
-					source.side.foe.addSideCondition('spikes')
+		onAfterHit(target, source, move) {
+			if (!source.volatiles['stockpile']?.layers) return;
+			for (let i = 0; i < source.volatiles['stockpile'].layers; i++) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('spikes');
 				}
-			},
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -222,7 +222,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			chance: 100,
 			onHit(source) {
 				for (const ally of source.side.pokemon) {
-					if (ally.status === 'brn') ally.cureStats();
+					if (ally.status === 'brn') ally.cureStatus();
 				}
 				for (const pokemon of source.side.foe.active) {
 					if (pokemon.status === 'brn') pokemon.cureStatus();
@@ -246,49 +246,50 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHitField(target, source) {
 			let success = false;
 			for (const id in this.field.pseudoWeather) {
-				if (this.field.pseudoWeather[id].duration && this.field.pseudoWeather[id].duration !== 0) {
+				if (this.field.pseudoWeather[id]?.duration && this.field.pseudoWeather[id]?.duration !== 0) {
 					this.field.pseudoWeather[id].duration = 5;
-					this.add('-fieldend', this.dex.getEffect(id).name, '[silent]');
-					this.add('-fieldstart', this.dex.getEffect(id).name, '[silent]');
+					this.add('-fieldend', this.dex.conditions.get(id).name, '[silent]');
+					this.add('-fieldstart', this.dex.conditions.get(id).name, '[silent]');
 					success = true;
 				}
 			}
 			for (const id in source.side.sideConditions) {
 				if (source.side.sideConditions[id].duration && source.side.sideConditions[id].duration !== 0) {
 					source.side.sideConditions[id].duration = 5;
-					this.add('-sideend', source.side, this.dex.getEffect(id).name, '[silent]');
-					this.add('-sidestart', source.side, this.dex.getEffect(id).name, '[silent]');
+					this.add('-sideend', source.side, this.dex.conditions.get(id).name, '[silent]');
+					this.add('-sidestart', source.side, this.dex.conditions.get(id).name, '[silent]');
 					success = true;
 				}
 			}
 			for (const id in source.side.foe.sideConditions) {
 				if (source.side.foe.sideConditions[id].duration && source.side.foe.sideConditions[id].duration !== 0) {
 					source.side.foe.sideConditions[id].duration = 5;
-					this.add('-sideend', source.side.foe, this.dex.getEffect(id).name, '[silent]');
-					this.add('-sidestart', source.side.foe, this.dex.getEffect(id).name, '[silent]');
+					this.add('-sideend', source.side.foe, this.dex.conditions.get(id).name, '[silent]');
+					this.add('-sidestart', source.side.foe, this.dex.conditions.get(id).name, '[silent]');
 					success = true;
 				}
 			}
-			if (this.field.weatherData.duration) {
-				this.field.weatherData.duration = 5;
-				if (this.dex.getEffect(this.field.weather)) {
+			if (this.field.weatherState?.duration) {
+				this.field.weatherState.duration = 5;
+				if (this.dex.conditions.get(this.field.weather)) {
 					// the weather conditions all have specific names for "this.add", but they're only found in conditions.ts
 					this.add('-weather', 'none', '[silent]');
-					this.add('-weather', this.dex.getEffect(this.field.weather).name, '[silent]');
+					this.add('-weather', this.dex.conditions.get(this.field.weather).name, '[silent]');
 				}
 				success = true;
 			}
-			if (this.field.terrainData.duration) {
-				this.field.terrainData.duration = 5;
-				if (this.dex.getMove(this.field.terrain)) {
+			if (this.field.terrainState?.duration) {
+				this.field.terrainState.duration = 5;
+				if (this.dex.moves.get(this.field.terrain)) {
 					// the terrains all have specific names for "this.add", but they're only found in moves.ts
-					this.add('-fieldend', 'move: ' + this.dex.getMove(this.field.terrain).name, '[silent]');
-					this.add('-fieldstart', 'move: ' + this.dex.getMove(this.field.terrain).name, '[silent]');
+					this.add('-fieldend', 'move: ' + this.dex.moves.get(this.field.terrain).name, '[silent]');
+					this.add('-fieldstart', 'move: ' + this.dex.moves.get(this.field.terrain).name, '[silent]');
 				}
 				success = true;
 			}
 			if (success) this.add('-message', `All ongoing field effects were set to last 5 turns!`);
 			return success;
+			if (!success) return;
 		},
 		secondary: null,
 		target: "all",
@@ -344,5 +345,62 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Psychic",
 		contestType: "Cool",
+	},
+	stockpile: {
+		num: 254,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Stockpile",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		onTry(source) {
+			if (source.volatiles['stockpile'] && source.volatiles['stockpile'].layers >= 3) return false;
+		},
+		volatileStatus: 'stockpile',
+		condition: {
+			noCopy: true,
+			onStart(target) {
+				this.effectState.layers = 1;
+				this.effectState.def = 0;
+				this.effectState.spd = 0;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				const [curDef, curSpD] = [target.boosts.def, target.boosts.spd];
+				this.boost({def: 1, spd: 1}, target, target);
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
+			},
+			onRestart(target) {
+				if (this.effectState.layers >= 3) return false;
+				this.effectState.layers++;
+				this.add('-start', target, 'stockpile' + this.effectState.layers);
+				const curDef = target.boosts.def;
+				const curSpD = target.boosts.spd;
+				this.boost({def: 1, spd: 1}, target, target);
+				if (curDef !== target.boosts.def) this.effectState.def--;
+				if (curSpD !== target.boosts.spd) this.effectState.spd--;
+			},
+			onEnd(target) {
+				if (this.effectState.def || this.effectState.spd) {
+					const boosts: SparseBoostsTable = {};
+					if (this.effectState.def) boosts.def = this.effectState.def;
+					if (this.effectState.spd) boosts.spd = this.effectState.spd;
+					this.boost(boosts, target, target);
+				}
+				if (target.ability === 'puffinup') {
+					this.boost({spe: 1}, target);
+				}
+				this.add('-end', target, 'Stockpile');
+				if (this.effectState.def !== this.effectState.layers * -1 || this.effectState.spd !== this.effectState.layers * -1) {
+					this.hint("In Gen 7, Stockpile keeps track of how many times it successfully altered each stat individually.");
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'heal'},
+		contestType: "Tough",
 	},
 };

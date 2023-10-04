@@ -1,5 +1,6 @@
 export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	dustbunnie: {
+		num: 9001,
 		name: "Dust Bunnie",
 		types: ["Dark", "Ground"],
 		baseStats: {hp: 88, atk: 90, def: 65, spa: 100, spd: 85, spe: 129},
@@ -7,6 +8,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 0.1,
 	},
 	rebirb: {
+		num: 9002,
 		name: "Rebirb",
 		types: ["Psychic"],
 		baseStats: {hp: 50, atk: 55, def: 65, spa: 71, spd: 65, spe: 59},
@@ -14,6 +16,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 0.1,
 	},
 	strummingbird: {
+		num: 9003,
 		name: "Strummingbird",
 		baseForme: "Violin",
 		types: ["Psychic", "Flying"],
@@ -38,6 +41,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 0.4,
 	},
 	strummingbirdviola: {
+		num: 9003,
 		name: "Strummingbird-Viola",
 		baseSpecies: "Strummingbird",
 		types: ["Psychic", "Flying"],
@@ -47,6 +51,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 0.6,
 	},
 	strummingbirdcello: {
+		num: 9003,
 		name: "Strummingbird-Cello",
 		baseSpecies: "Strummingbird",
 		types: ["Psychic", "Flying"],
@@ -56,6 +61,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 3.5,
 	},
 	strummingbirdcontrabass: {
+		num: 9003,
 		name: "Strummingbird-Contrabass",
 		baseSpecies: "Strummingbird",
 		types: ["Psychic", "Flying"],
@@ -65,6 +71,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 5,
 	},
 	strummingbirdacoustic: {
+		num: 9003,
 		name: "Strummingbird-Acoustic",
 		baseSpecies: "Strummingbird",
 		types: ["Psychic", "Ground"],
@@ -74,6 +81,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 2.2,
 	},
 	strummingbirdelectric: {
+		num: 9003,
 		name: "Strummingbird-Electric",
 		baseSpecies: "Strummingbird",
 		types: ["Psychic", "Electric"],
@@ -83,6 +91,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 3.6,
 	},
 	strummingbirdbass: {
+		num: 9003,
 		name: "Strummingbird-Bass",
 		baseSpecies: "Strummingbird",
 		types: ["Psychic", "Dark"],
@@ -92,6 +101,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 3.8,
 	},
 	xylomist: {
+		num: 9004,
 		name: "Xylomist",
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 80, atk: 65, def: 82, spa: 110, spd: 80, spe: 83},
@@ -99,6 +109,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 30.5,
 	},
 	yeomelt: {
+		num: 9005,
 		name: "Yeomelt",
 		types: ["Fire", "Ground"],
 		baseStats: {hp: 85, atk: 108, def: 97, spa: 50, spd: 75, spe: 85},
@@ -106,6 +117,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 87,
 	},
 	zoplite: {
+		num: 9006,
 		name: "Zoplite",
 		types: ["Electric"],
 		baseStats: {hp: 110, atk: 100, def: 114, spa: 40, spd: 106, spe: 30},
@@ -113,6 +125,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 105,
 	},
 	yeoxylo: {
+		num: 9007,
 		name: "Yeoxylo",
 		types: ["Fire", "Water"],
 		baseStats: {hp: 80, atk: 91, def: 84, spa: 120, spd: 80, spe: 95},
@@ -120,6 +133,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 117.5,
 	},
 	xylozop: {
+		num: 9008,
 		name: "Xylozop",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 100, atk: 80, def: 90, spa: 116, spd: 100, spe: 64},
@@ -127,20 +141,24 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 135.5,
 	},
 	zopyeo: {
+		num: 9009,
 		name: "Zopyeo",
 		types: ["Electric", "Fire"],
 		baseStats: {hp: 87, atk: 105, def: 87, spa: 93, spd: 75, spe: 103},
 		abilities: {0: "Adaptability"},
-		weightkg: 192,,
+		weightkg: 192,
 	},
 	xylyeozop: {
+		num: 9010,
 		name: "Xylyeozop",
 		types: ["Ground", "Electric"],
 		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
 		abilities: {0: "Battle Armor"},
 		weightkg: 222.5,
+		requiredItem: "Core Module",
 	},
 	xylobone: {
+		num: 9012,
 		name: "Xylobone",
 		types: ["Water", "Ghost"],
 		baseStats: {hp: 120, atk: 130, def: 60, spa: 70, spd: 100, spe: 45},
@@ -148,6 +166,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 30,
 	},
 	pufferfinch: {
+		num: 9013,
 		name: "Pufferfinch",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 65, atk: 85, def: 100, spa: 85, spd: 85, spe: 60},
@@ -155,13 +174,16 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 13.6,
 	},
 	dormirr: {
+		num: 9014,
 		name: "Dormirr",
 		types: ["Steel", "Fairy"],
 		baseStats: {hp: 100, atk: 60, def: 45, spa: 110, spd: 160, spe: 55},
 		abilities: {0: "Fairest of Them All"},
 		weightkg: 45,
+		requiredItem: "Future Sphere",
 	},
 	gumbawl: {
+		num: 9015,
 		name: "Gumbawl",
 		types: ["Fairy"],
 		baseStats: {hp: 50, atk: 83, def: 83, spa: 43, spd: 43, spe: 111},
@@ -169,6 +191,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 1,
 	},
 	gumbrawlempty: {
+		num: 9016,
 		name: "Gumbrawl",
 		baseForme: "Empty",
 		types: ["Fairy", "Fighting"],
@@ -187,6 +210,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 158,
 	},
 	gumbrawlbubble: {
+		num: 9016,
 		name: "Gumbrawl-Bubble",
 		baseSpecies: "Gumbrawl",
 		types: ["Fairy", "Water"],
@@ -194,8 +218,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Water Bubble", 1: "Unpoppable", H: "Regenerator"},
 		prevo: "Gumbawl",
 		weightkg: 158,
+		requiredItem: "Luminous Bubble",
 	},
 	gumbrawlfresh: {
+		num: 9016,
 		name: "Gumbrawl-Fresh",
 		baseSpecies: "Gumbrawl",
 		types: ["Fairy", "Ice"],
@@ -203,8 +229,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Adaptability", 1: "Refreshing", H: "Intimidate"},
 		prevo: "Gumbawl",
 		weightkg: 158,
+		requiredItem: "Fresh Stick",
 	},
 	gumbrawlgachamech: {
+		num: 9016,
 		name: "Gumbrawl-Gachamech",
 		baseSpecies: "Gumbrawl",
 		types: ["Fairy", "Steel"],
@@ -214,6 +242,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 999.9,
 	},
 	gnawingbark: {
+		num: 9017,
 		name: "Gnawing Bark",
 		types: ["Grass", "Water"],
 		baseStats: {hp: 61, atk: 49, def: 139, spa: 49, spd: 163, spe: 109},
@@ -221,6 +250,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 158,
 	},
 	ironmint: {
+		num: 9018,
 		name: "Iron Mint",
 		types: ["Fire", "Ice"],
 		baseStats: {hp: 106, atk: 128, def: 35, spa: 133, spd: 35, spe: 133},
@@ -228,6 +258,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 158,
 	},
 	caramilitant: {
+		num: 9019,
 		name: "Caramilitant",
 		types: ["Fire", "Fairy"],
 		baseStats: {hp: 70, atk: 112, def: 104, spa: 50, spd: 104, spe: 45},
@@ -235,6 +266,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 158,
 	},
 	toughfee: {
+		num: 9020,
 		name: "Toughfee",
 		types: ["Steel", "Fire"],
 		baseStats: {hp: 70, atk: 50, def: 84, spa: 112, spd: 84, spe: 85},
@@ -243,6 +275,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 158,
 	},
 	gasharmoir: {
+		num: 9021,
 		name: "Gasharmoir",
 		types: ["Steel", "Normal"],
 		baseStats: {hp: 100, atk: 120, def: 75, spa: 120, spd: 75, spe: 35},
@@ -250,6 +283,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 158,
 	},
 	tartridge: {
+		num: 9022,
 		name: "Tartridge",
 		types: ["Fairy", "Poison"],
 		baseStats: {hp: 120, atk: 50, def: 90, spa: 85, spd: 62, spe: 37},
@@ -257,6 +291,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 3,
 	},
 	opixsi: {
+		num: 9023,
 		name: "Opixsi",
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 90, atk: 90, def: 90, spa: 112, spd: 90, spe: 128},
@@ -264,6 +299,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 23,
 	},
 	pinfrino: {
+		num: 9024,
 		name: "Pinfrino",
 		types: ["Steel", "Poison"],
 		baseStats: {hp: 105, atk: 90, def: 65, spa: 90, spd: 85, spe: 74},
@@ -271,6 +307,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 123,
 	},
 	leagle: {
+		num: 9025,
 		name: "Leagle",
 		types: ["Dark"],
 		baseStats: {hp: 95, atk: 83, def: 100, spa: 90, spd: 103, spe: 80},
@@ -278,6 +315,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 25,
 	},
 	illeagle: {
+		num: 9025,
 		name: "Illeagle",
 		types: ["Dark"],
 		baseStats: {hp: 95, atk: 153, def: 150, spa: 90, spd: 153, spe: 80},
@@ -285,6 +323,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 125,
 	},
 	kuadrosin: {
+		num: 9026,
 		name: "Kuadrosin",
 		types: ["Ghost"],
 		baseStats: {hp: 140, atk: 103, def: 85, spa: 80, spd: 105, spe: 42},
@@ -292,6 +331,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 214.9,
 	},
 	blite: {
+		num: 9027,
 		name: "Blite",
 		baseForme: "Lite",
 		types: ["Normal"],
@@ -302,6 +342,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 21,
 	},
 	bliteblight: {
+		num: 9027,
 		name: "Blite-Blight",
 		baseSpecies: "Blite",
 		types: ["Ghost"],
@@ -311,8 +352,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: ["Blite", "Blite-Blight"],
 		changesFrom: "Blite",
 		weightkg: 21,
+		requiredItem: "Cursed Seal",
 	},
 	doctoxin: {
+		num: 9028,
 		name: "Doctoxin",
 		types: ["Poison", "Normal"],
 		baseStats: {hp: 85, atk: 106, def: 74, spa: 49, spd: 110, spe: 121},
@@ -320,6 +363,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 62.5,
 	},
 	moosquito: {
+		num: 9029,
 		name: "Moosquito",
 		types: ["Ice", "Bug"],
 		baseStats: {hp: 80, atk: 120, def: 100, spa: 85, spd: 50, spe: 80},
@@ -327,6 +371,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 14,
 	},
 	parrox: {
+		num: 9030,
 		name: "Parrox",
 		types: ["Poison", "Flying"],
 		baseStats: {hp: 66, atk: 105, def: 74, spa: 44, spd: 70, spe: 136},
