@@ -676,7 +676,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		onHit(target, source) {
 			if (target.boosts.atk === -6) return false;
-			const atk = target.getStat('atk', false, true);
+			let atk = target.getStat('atk', false, true);
 			if (source.hasAbility('divinegrace')) atk = atk * 1.5;
 			const success = this.boost({atk: -1}, target, source, null, false, true);
 			return !!(this.heal(atk, source, target) || success);
@@ -688,8 +688,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return !!source.volatiles['stockpile'];
 		},
 		onHit(pokemon) {
-			const healAmount = [0.25, 0.5, 1];
-			if (pokemon.hasAbility('divinegrace')) healAmount = [0.375, 0.75, 1];
+			const healAmount = pokemon.hasAbility('divinegrace') ? [0.375, 0.75, 1] : [0.25, 0.5, 1];
+			//if (pokemon.hasAbility('divinegrace')) healAmount = [0.375, 0.75, 1];
 			const success = !!this.heal(this.modify(pokemon.maxhp, healAmount[(pokemon.volatiles['stockpile'].layers - 1)]));
 			if (!success) this.add('-fail', pokemon, 'heal');
 			pokemon.removeVolatile('stockpile');

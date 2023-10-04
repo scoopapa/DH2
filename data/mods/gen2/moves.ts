@@ -3,28 +3,15 @@
  */
 
 export const Moves: {[k: string]: ModdedMoveData} = {
-	absorb: {
-		inherit: true,
-		desc: "The user recovers 1/2 the HP lost by the target, rounded down. If the target has a substitute, this move misses.",
-	},
-	acid: {
-		inherit: true,
-		shortDesc: "10% chance to lower the target's Defense by 1.",
-	},
 	aeroblast: {
 		inherit: true,
 		critRatio: 3,
 	},
-	attract: {
-		inherit: true,
-		desc: "Causes the target to become infatuated, making it unable to attack 50% of the time. Fails if both the user and the target are the same gender, if either is genderless, or if the target is already infatuated. The effect ends when either the user or the target is no longer active.",
-	},
 	beatup: {
 		inherit: true,
-		desc: "Deals typeless damage. Hits one time for each unfainted Pokemon without a major status condition in the user's party. For each hit, the damage formula uses the participating Pokemon's level, its base Attack as the Attack stat, the target's base Defense as the Defense stat, and ignores stat stages and other effects that modify Attack or Defense. Fails if no party members can participate.",
 		onModifyMove(move, pokemon) {
 			move.type = '???';
-			move.category = 'Physical';
+			move.category = 'Special';
 			move.allies = pokemon.side.pokemon.filter(ally => !ally.fainted && !ally.status);
 			move.multihit = move.allies.length;
 		},
@@ -63,8 +50,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	bide: {
 		inherit: true,
-		desc: "The user spends two or three turns locked into this move and then, on the second or third turn after using this move, the user attacks the opponent, inflicting double the damage in HP it lost during those turns. If the user is prevented from moving during this move's use, the effect ends. This move does not ignore type immunity.",
-		shortDesc: "Waits 2-3 turns; deals double the damage taken.",
 		condition: {
 			duration: 3,
 			durationCallback(target, source, effect) {
@@ -112,7 +97,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						effectType: 'Move',
 						type: 'Normal',
 					} as unknown as ActiveMove;
-					this.tryMoveHit(target, pokemon, moveData);
+					this.actions.tryMoveHit(target, pokemon, moveData);
+					pokemon.removeVolatile('bide');
 					return false;
 				}
 				this.add('-activate', pokemon, 'move: Bide');
@@ -125,25 +111,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	blizzard: {
-		inherit: true,
-		shortDesc: "10% chance to freeze the target.",
-	},
-	bubble: {
-		inherit: true,
-		shortDesc: "10% chance to lower the target's Speed by 1.",
-	},
-	conversion2: {
-		inherit: true,
-		desc: "The user's type changes to match a type that resists or is immune to the type of the last move used by the opposing Pokemon, even it is one of the user's current types. The original type of the move is used rather than the determined type. Fails if the opposing Pokemon has not used a move.",
-		shortDesc: "Changes user's type to resist the foe's last move.",
-	},
 	counter: {
 		inherit: true,
-		desc: "Deals damage to the opposing Pokemon equal to twice the HP lost by the user from a physical attack this turn. This move considers Hidden Power as Normal type, and only the last hit of a multi-hit attack is counted. Fails if the user moves first, if the user was not hit by a physical attack this turn, or if the user did not lose HP from the attack. If the opposing Pokemon used Fissure or Horn Drill and missed, this move deals 65535 damage.",
 		damageCallback(pokemon, target) {
 			const lastAttackedBy = pokemon.getLastAttackedBy();
-			if (!lastAttackedBy || !lastAttackedBy.move || !lastAttackedBy.thisTurn) return false;
+			if (!lastAttackedBy?.move || !lastAttackedBy.thisTurn) return false;
 
 			// Hidden Power counts as physical
 			if (this.getCategory(lastAttackedBy.move) === 'Physical' && target.lastMove?.id !== 'sleeptalk') {
@@ -152,7 +124,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return false;
 		},
 		beforeTurnCallback() {},
-		onTryHit() {},
+		onTry() {},
 		condition: {},
 		priority: -1,
 	},
@@ -166,7 +138,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	curse: {
 		inherit: true,
-		desc: "If the user is not a Ghost type, lowers the user's Speed by 1 stage and raises the user's Attack and Defense by 1 stage, unless the user's Attack and Defense stats are both at stage 6. If the user is a Ghost type, the user loses 1/2 of its maximum HP, rounded down and even if it would cause fainting, in exchange for the target losing 1/4 of its maximum HP, rounded down, at the end of each turn while it is active. If the target uses Baton Pass, the replacement will continue to be affected. Fails if the target is already affected or has a substitute.",
 		condition: {
 			onStart(pokemon, source) {
 				this.add('-start', pokemon, 'Curse', '[of] ' + source);
@@ -176,22 +147,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	defensecurl: {
-		inherit: true,
-		desc: "Raises the user's Defense by 1 stage. While the user remains active, the power of the user's Rollout will be doubled (this effect is not stackable). Baton Pass can be used to transfer this effect to an ally.",
-	},
-	destinybond: {
-		inherit: true,
-		desc: "Until the user's next turn, if an opposing Pokemon's attack knocks the user out, that Pokemon faints as well.",
-	},
 	detect: {
 		inherit: true,
-		desc: "The user is protected from attacks made by the opponent during this turn. This move has an X/255 chance of being successful, where X starts at 255 and halves, rounded down, each time this move is successfully used. X resets to 255 if this move fails or if the user's last move used is not Detect, Endure, or Protect. Fails if the user has a substitute or moves last this turn.",
 		priority: 2,
 	},
 	dig: {
 		inherit: true,
-		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Earthquake, Fissure, and Magnitude, the user is unaffected by weather, and Earthquake and Magnitude have doubled power when used against the user.",
 		onPrepareHit(target, source) {
 			return source.status !== 'slp';
 		},
@@ -218,42 +179,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	disable: {
-		inherit: true,
-		desc: "For 1 to 7 turns, the target's last move used becomes disabled. Fails if one of the target's moves is already disabled, if the target has not made a move, if the target no longer knows the move, or if the move has 0 PP.",
-		shortDesc: "For 1-7 turns, disables the target's last move.",
-	},
 	doubleedge: {
 		inherit: true,
-		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded down, but not less than 1 HP. If this move hits a substitute, the recoil damage is always 1 HP.",
-		shortDesc: "Has 1/4 recoil.",
 		recoil: [25, 100],
-	},
-	earthquake: {
-		inherit: true,
-		shortDesc: "Power doubles on Dig.",
 	},
 	encore: {
 		inherit: true,
-		desc: "For 3 to 6 turns, the target is forced to repeat its last move used. If the affected move runs out of PP, the effect ends. Fails if the target is already under this effect, if it has not made a move, if the move has 0 PP, or if the move is Encore, Metronome, Mimic, Mirror Move, Sketch, Sleep Talk, Struggle, or Transform.",
 		condition: {
 			durationCallback() {
 				return this.random(3, 7);
 			},
 			onStart(target) {
-				const noEncore = ['encore', 'metronome', 'mimic', 'mirrormove', 'sketch', 'sleeptalk', 'struggle', 'transform'];
-				const lockedMove = target.lastMove?.id || '';
+				const lockedMove = target.lastMoveEncore?.id || '';
 				const moveIndex = lockedMove ? target.moves.indexOf(lockedMove) : -1;
-				if (moveIndex < 0 || noEncore.includes(lockedMove) || target.moveSlots[moveIndex].pp <= 0) {
+				if (moveIndex < 0 || target.lastMoveEncore?.flags['failencore'] || target.moveSlots[moveIndex].pp <= 0) {
 					// it failed
-					this.add('-fail', target);
 					return false;
 				}
 				this.effectState.move = lockedMove;
 				this.add('-start', target, 'Encore');
-				if (!this.queue.willMove(target)) {
-					this.effectState.duration++;
-				}
 			},
 			onOverrideAction(pokemon) {
 				return this.effectState.move;
@@ -283,27 +227,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	endure: {
 		inherit: true,
-		desc: "The user will survive attacks made by the opponent during this turn with at least 1 HP. This move has an X/255 chance of being successful, where X starts at 255 and halves, rounded down, each time this move is successfully used. X resets to 255 if this move fails or if the user's last move used is not Detect, Endure, or Protect. Fails if the user has a substitute or moves last this turn.",
 		priority: 2,
 	},
 	explosion: {
 		inherit: true,
-		desc: "The user faints after using this move. The target's Defense is halved during damage calculation.",
 		noSketch: true,
-	},
-	fissure: {
-		inherit: true,
-		desc: "Deals 65535 damage to the target. This attack's accuracy out of 256 is equal to the lesser of (2 * (user's level - target's level) + 76) and 255, before applying accuracy and evasiveness modifiers. Fails if the target is at a higher level. Can hit a target using Dig.",
 	},
 	flail: {
 		inherit: true,
-		desc: "The power of this move is 20 if X is 33 to 48, 40 if X is 17 to 32, 80 if X is 10 to 16, 100 if X is 5 to 9, 150 if X is 2 to 4, and 200 if X is 0 or 1, where X is equal to (user's current HP * 48 / user's maximum HP), rounded down. This move does not apply damage variance and cannot be a critical hit.",
 		noDamageVariance: true,
 		willCrit: false,
 	},
 	fly: {
 		inherit: true,
-		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Gust, Thunder, Twister, and Whirlwind, and Gust and Twister have doubled power when used against it.",
 		onPrepareHit(target, source) {
 			return source.status !== 'slp';
 		},
@@ -333,8 +269,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	focusenergy: {
 		inherit: true,
-		desc: "Raises the user's chance for a critical hit by 1 stage. Fails if the user already has the effect. Baton Pass can be used to transfer this effect to an ally.",
-		shortDesc: "Raises the user's critical hit ratio by 1.",
 		condition: {
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'move: Focus Energy');
@@ -346,62 +280,53 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	foresight: {
 		inherit: true,
-		desc: "As long as the target remains active, if its evasiveness stat stage is greater than the attacker's accuracy stat stage, both are ignored during accuracy checks, and Normal- and Fighting-type attacks can hit the target if it is a Ghost type. If the target leaves the field using Baton Pass, the replacement will remain under this effect. Fails if the target is already affected.",
+		onTryHit(target) {
+			if (target.volatiles['foresight']) return false;
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Foresight');
+			},
+			onNegateImmunity(pokemon, type) {
+				if (pokemon.hasType('Ghost') && ['Normal', 'Fighting'].includes(type)) return false;
+			},
+			onModifyBoost(boosts) {
+				if (boosts.evasion && boosts.evasion > 0) {
+					boosts.evasion = 0;
+				}
+			},
+		},
 	},
-	futuresight: {
+	frustration: {
 		inherit: true,
-		desc: "Deals typeless damage that cannot be a critical hit two turns after this move is used. Damage is calculated against the target on use, and at the end of the final turn that damage is dealt to the Pokemon at the position the original target had at the time. Fails if this move is already in effect for the target's position.",
-	},
-	growl: {
-		inherit: true,
-		shortDesc: "Lowers the target's Attack by 1.",
-	},
-	guillotine: {
-		inherit: true,
-		desc: "Deals 65535 damage to the target. This attack's accuracy out of 256 is equal to the lesser of (2 * (user's level - target's level) + 76) and 255, before applying accuracy and evasiveness modifiers. Fails if the target is at a higher level.",
-	},
-	gust: {
-		inherit: true,
-		desc: "Power doubles if the target is using Fly.",
-		shortDesc: "Power doubles during Fly.",
+		basePowerCallback(pokemon) {
+			return Math.floor(((255 - pokemon.happiness) * 10) / 25) || null;
+		},
 	},
 	healbell: {
 		inherit: true,
-		desc: "Every Pokemon in the user's party is cured of its major status condition.",
 		onHit(target, source) {
 			this.add('-cureteam', source, '[from] move: Heal Bell');
-			for (const pokemon of source.side.pokemon) {
+			for (const pokemon of target.side.pokemon) {
 				pokemon.clearStatus();
 			}
 		},
 	},
 	highjumpkick: {
 		inherit: true,
-		desc: "If this attack is not successful and the target was not immune, the user loses HP equal to 1/8 the damage the target would have taken, rounded down, but not less than 1 HP, as crash damage.",
-		shortDesc: "If miss, user takes 1/8 damage it would've dealt.",
 		onMoveFail(target, source, move) {
 			if (target.runImmunity('Fighting')) {
-				const damage = this.getDamage(source, target, move, true);
+				const damage = this.actions.getDamage(source, target, move, true);
 				if (typeof damage !== 'number') throw new Error("Couldn't get High Jump Kick recoil");
 				this.damage(this.clampIntRange(damage / 8, 1), source, source, move);
 			}
 		},
 	},
-	horndrill: {
-		inherit: true,
-		desc: "Deals 65535 damage to the target. This attack's accuracy out of 256 is equal to the lesser of (2 * (user's level - target's level) + 76) and 255, before applying accuracy and evasiveness modifiers. Fails if the target is at a higher level.",
-	},
-	icywind: {
-		inherit: true,
-		shortDesc: "100% chance to lower the target's Speed by 1.",
-	},
 	jumpkick: {
 		inherit: true,
-		desc: "If this attack is not successful and the target was not immune, the user loses HP equal to 1/8 the damage the target would have taken, rounded down, but not less than 1 HP, as crash damage.",
-		shortDesc: "If miss, user takes 1/8 damage it would've dealt.",
 		onMoveFail(target, source, move) {
 			if (target.runImmunity('Fighting')) {
-				const damage = this.getDamage(source, target, move, true);
+				const damage = this.actions.getDamage(source, target, move, true);
 				if (typeof damage !== 'number') throw new Error("Couldn't get Jump Kick recoil");
 				this.damage(this.clampIntRange(damage / 8, 1), source, source, move);
 			}
@@ -421,7 +346,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onAfterMoveSelfPriority: 2,
 			onAfterMoveSelf(pokemon) {
 				if (!pokemon.hp) return;
-				const leecher = pokemon.side.foe.active[pokemon.volatiles['leechseed'].sourcePosition];
+				const leecher = this.getAtSlot(pokemon.volatiles['leechseed'].sourceSlot);
 				if (!leecher || leecher.fainted || leecher.hp <= 0) {
 					return;
 				}
@@ -433,30 +358,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	leer: {
-		inherit: true,
-		shortDesc: "Lowers the target's Defense by 1.",
-	},
 	lightscreen: {
 		inherit: true,
-		desc: "For 5 turns, the user and its party members have their Special Defense doubled. Critical hits ignore this effect. Fails if the effect is already active on the user's side.",
-		shortDesc: "For 5 turns, the user's party has doubled Sp. Def.",
 		condition: {
 			duration: 5,
 			// Sp. Def boost applied directly in stat calculation
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'move: Light Screen');
 			},
-			onResidualOrder: 21,
-			onEnd(side) {
+			onSideResidualOrder: 9,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'move: Light Screen');
 			},
 		},
 	},
 	lockon: {
 		inherit: true,
-		desc: "The next accuracy check against the target succeeds. The target will still avoid Earthquake, Fissure, and Magnitude if it is using Fly. If the target leaves the field using Baton Pass, the replacement remains under this effect. This effect ends when the target leaves the field or an accuracy check is done against it.",
-		shortDesc: "The next move will not miss the target.",
+		onTryHit(target) {
+			if (target.volatiles['foresight'] || target.volatiles['lockon']) return false;
+		},
 		condition: {
 			duration: 2,
 			onSourceAccuracy(accuracy, target, source, move) {
@@ -466,8 +386,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	lowkick: {
 		inherit: true,
-		desc: "Has a 30% chance to flinch the target.",
-		shortDesc: "30% chance to flinch the target.",
 		accuracy: 90,
 		basePower: 50,
 		basePowerCallback() {
@@ -478,9 +396,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			volatileStatus: 'flinch',
 		},
 	},
+	meanlook: {
+		inherit: true,
+		flags: {reflectable: 1, mirror: 1},
+	},
 	metronome: {
 		inherit: true,
-		desc: "A random move is selected for use, other than Counter, Destiny Bond, Detect, Endure, Metronome, Mimic, Mirror Coat, Protect, Sketch, Sleep Talk, Struggle, or Thief.",
+		flags: {failencore: 1},
 		noMetronome: [
 			"Counter", "Destiny Bond", "Detect", "Endure", "Metronome", "Mimic", "Mirror Coat", "Protect", "Sketch", "Sleep Talk", "Struggle", "Thief",
 		],
@@ -488,24 +410,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	mimic: {
 		inherit: true,
-		desc: "While the user remains active, this move is replaced by the last move used by the target. The copied move has 5 PP. Fails if the target has not made a move, if the user already knows the move, or if the move is Struggle.",
+		accuracy: 100,
 		noSketch: true,
+		flags: {protect: 1, bypasssub: 1, allyanim: 1, failencore: 1, noassist: 1},
 	},
 	mindreader: {
 		inherit: true,
-		desc: "The next accuracy check against the target succeeds. The target will still avoid Earthquake, Fissure, and Magnitude if it is using Fly. If the target leaves the field using Baton Pass, the replacement remains under this effect. This effect ends when the target leaves the field or an accuracy check is done against it.",
-		shortDesc: "The next move will not miss the target.",
-	},
-	minimize: {
-		inherit: true,
-		desc: "Raises the user's evasiveness by 1 stage. Whether or not the user's evasiveness was changed, Stomp will have its power doubled if used against the user while it is active. Baton Pass can be used to transfer this effect to an ally.",
+		onTryHit(target) {
+			if (target.volatiles['foresight'] || target.volatiles['lockon']) return false;
+		},
 	},
 	mirrorcoat: {
 		inherit: true,
-		desc: "Deals damage to the opposing Pokemon equal to twice the HP lost by the user from a special attack this turn. This move considers Hidden Power as Normal type, and only the last hit of a multi-hit attack is counted. Fails if the user moves first, if the user was not hit by a special attack this turn, or if the user did not lose HP from the attack.",
 		damageCallback(pokemon, target) {
 			const lastAttackedBy = pokemon.getLastAttackedBy();
-			if (!lastAttackedBy || !lastAttackedBy.move || !lastAttackedBy.thisTurn) return false;
+			if (!lastAttackedBy?.move || !lastAttackedBy.thisTurn) return false;
 
 			// Hidden Power counts as physical
 			if (this.getCategory(lastAttackedBy.move) === 'Special' && target.lastMove?.id !== 'sleeptalk') {
@@ -514,13 +433,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return false;
 		},
 		beforeTurnCallback() {},
-		onTryHit() {},
+		onTry() {},
 		condition: {},
 		priority: -1,
 	},
 	mirrormove: {
 		inherit: true,
-		desc: "The user uses the last move used by the target. Fails if the target has not made a move, or if the last move used was Metronome, Mimic, Mirror Move, Sketch, Sleep Talk, Transform, or any move the user knows.",
+		flags: {failencore: 1},
 		onHit(pokemon) {
 			const noMirror = ['metronome', 'mimic', 'mirrormove', 'sketch', 'sleeptalk', 'transform'];
 			const target = pokemon.side.foe.active[0];
@@ -531,18 +450,46 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (noMirror.includes(lastMove) || pokemon.moves.includes(lastMove)) {
 				return false;
 			}
-			this.useMove(lastMove, pokemon);
+			this.actions.useMove(lastMove, pokemon);
 		},
 		noSketch: true,
 	},
 	mist: {
-		inherit: true,
-		desc: "While the user remains active, it is protected from having its stat stages lowered by other Pokemon. Fails if the user already has the effect. Baton Pass can be used to transfer this effect to an ally.",
-		shortDesc: "While active, user is protected from stat drops.",
+		num: 54,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Mist",
+		pp: 30,
+		priority: 0,
+		flags: {},
+		volatileStatus: 'mist',
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Mist');
+			},
+			onTryBoost(boost, target, source, effect) {
+				if (source && target !== source) {
+					let showMsg = false;
+					let i: BoostID;
+					for (i in boost) {
+						if (boost[i]! < 0) {
+							delete boost[i];
+							showMsg = true;
+						}
+					}
+					if (showMsg && !(effect as ActiveMove).secondaries) {
+						this.add('-activate', target, 'move: Mist');
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Ice",
 	},
 	moonlight: {
 		inherit: true,
-		desc: "The user restores 1/2 of its maximum HP if no weather conditions are in effect, all of its HP if the weather is Sunny Day, and 1/4 of its maximum HP if the weather is Rain Dance or Sandstorm, all rounded down.",
 		onHit(pokemon) {
 			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.maxhp);
@@ -555,7 +502,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	morningsun: {
 		inherit: true,
-		desc: "The user restores 1/2 of its maximum HP if no weather conditions are in effect, all of its HP if the weather is Sunny Day, and 1/4 of its maximum HP if the weather is Rain Dance or Sandstorm, all rounded down.",
 		onHit(pokemon) {
 			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.maxhp);
@@ -584,7 +530,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	outrage: {
 		inherit: true,
-		desc: "Whether or not this move is successful, the user spends two or three turns locked into this move and becomes confused immediately after its move on the last turn of the effect, even if it is already confused. If the user is prevented from moving, the effect ends without causing confusion. If this move is called by Sleep Talk, the move is used for one turn and does not confuse the user.",
 		onMoveFail(target, source, move) {
 			source.addVolatile('lockedmove');
 		},
@@ -594,9 +539,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	painsplit: {
+		inherit: true,
+		accuracy: 100,
+	},
+	perishsong: {
+		inherit: true,
+		condition: {
+			duration: 4,
+			onEnd(target) {
+				this.add('-start', target, 'perish0');
+				target.faint();
+			},
+			onResidualOrder: 4,
+			onResidual(pokemon) {
+				const duration = pokemon.volatiles['perishsong'].duration;
+				this.add('-start', pokemon, 'perish' + duration);
+			},
+		},
+	},
 	petaldance: {
 		inherit: true,
-		desc: "Whether or not this move is successful, the user spends two or three turns locked into this move and becomes confused immediately after its move on the last turn of the effect, even if it is already confused. If the user is prevented from moving, the effect ends without causing confusion. If this move is called by Sleep Talk, the move is used for one turn and does not confuse the user.",
 		onMoveFail(target, source, move) {
 			source.addVolatile('lockedmove');
 		},
@@ -608,61 +571,62 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	poisongas: {
 		inherit: true,
-		shortDesc: "Poisons the target.",
 		ignoreImmunity: false,
 	},
 	poisonpowder: {
 		inherit: true,
 		ignoreImmunity: false,
 	},
-	powdersnow: {
-		inherit: true,
-		shortDesc: "10% chance to freeze the target.",
-	},
-	present: {
-		inherit: true,
-		desc: "If this move is successful, it deals damage or heals the target. 102/256 chance for 40 power, 76/256 chance for 80 power, 26/256 chance for 120 power, or 52/256 chance to heal the target by 1/4 of its maximum HP, rounded down. If this move deals damage, it uses an abnormal version of the damage formula by substituting certain values. The user's Attack stat is replaced with 10 times the effectiveness of this move against the target, the target's Defense stat is replaced with the index number of the user's secondary type, and the user's level is replaced with the index number of the target's secondary type. If a Pokemon does not have a secondary type, its primary type is used. The index numbers for each type are Normal: 0, Fighting: 1, Flying: 2, Poison: 3, Ground: 4, Rock: 5, Bug: 7, Ghost: 8, Steel: 9, Fire: 20, Water: 21, Grass: 22, Electric: 23, Psychic: 24, Ice: 25, Dragon: 26, Dark: 27. If at any point a division by 0 would happen in the damage formula, it divides by 1 instead.",
-	},
 	protect: {
 		inherit: true,
-		desc: "The user is protected from attacks made by the opponent during this turn. This move has an X/255 chance of being successful, where X starts at 255 and halves, rounded down, each time this move is successfully used. X resets to 255 if this move fails or if the user's last move used is not Detect, Endure, or Protect. Fails if the user has a substitute or moves last this turn.",
 		priority: 2,
-	},
-	psychup: {
-		inherit: true,
-		desc: "The user copies all of the target's current stat stage changes. Fails if the target's stat stages are 0.",
 	},
 	psywave: {
 		inherit: true,
-		desc: "Deals damage to the target equal to a random number from 1 to (user's level * 1.5 - 1), rounded down, but not less than 1 HP.",
-		shortDesc: "Random damage from 1 to (user's level*1.5 - 1).",
 		damageCallback(pokemon) {
 			return this.random(1, pokemon.level + Math.floor(pokemon.level / 2));
 		},
 	},
 	pursuit: {
 		inherit: true,
-		desc: "If the target switches out this turn, this move hits it before it leaves the field with doubled power and the user's turn is over.",
-		shortDesc: "Power doubles if the foe is switching out.",
-	},
-	rage: {
-		inherit: true,
-		desc: "Once this move is successfully used, X starts at 1. This move's damage is multiplied by X, and whenever the user is hit by the opposing Pokemon, X increases by 1, with a maximum of 255. X resets to 1 when the user is no longer active or did not choose this move for use.",
-		shortDesc: "Next Rage increases in damage if hit during use.",
-	},
-	raindance: {
-		inherit: true,
-		desc: "For 5 turns, the weather becomes Rain Dance, even if the current weather is Rain Dance. The damage of Water-type attacks is multiplied by 1.5 and the damage of Fire-type attacks is multiplied by 0.5 during the effect.",
+		onModifyMove() {},
+		condition: {
+			duration: 1,
+			onBeforeSwitchOut(pokemon) {
+				this.debug('Pursuit start');
+				let alreadyAdded = false;
+				for (const source of this.effectState.sources) {
+					if (source.speed < pokemon.speed || (source.speed === pokemon.speed && this.random(2) === 0)) {
+						// Destiny Bond ends if the switch action "outspeeds" the attacker, regardless of host
+						pokemon.removeVolatile('destinybond');
+					}
+					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!alreadyAdded) {
+						this.add('-activate', pokemon, 'move: Pursuit');
+						alreadyAdded = true;
+					}
+					// Run through each action in queue to check if the Pursuit user is supposed to Mega Evolve this turn.
+					// If it is, then Mega Evolve before moving.
+					if (source.canMegaEvo || source.canUltraBurst) {
+						for (const [actionIndex, action] of this.queue.entries()) {
+							if (action.pokemon === source && action.choice === 'megaEvo') {
+								this.actions.runMegaEvo(source);
+								this.queue.list.splice(actionIndex, 1);
+								break;
+							}
+						}
+					}
+					this.actions.runMove('pursuit', source, source.getLocOf(pokemon));
+				}
+			},
+		},
 	},
 	razorleaf: {
 		inherit: true,
-		shortDesc: "High critical hit ratio.",
 		critRatio: 3,
 	},
 	razorwind: {
 		inherit: true,
-		desc: "Has a higher chance for a critical hit. This attack charges on the first turn and executes on the second.",
-		shortDesc: "Charges, then hits target turn 2. High crit ratio.",
 		accuracy: 75,
 		critRatio: 3,
 		onPrepareHit(target, source) {
@@ -671,24 +635,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	reflect: {
 		inherit: true,
-		desc: "For 5 turns, the user and its party members have their Defense doubled. Critical hits ignore this effect. Fails if the effect is already active on the user's side.",
-		shortDesc: "For 5 turns, the user's party has doubled Def.",
 		condition: {
 			duration: 5,
 			// Defense boost applied directly in stat calculation
-			onStart(side) {
+			onSideStart(side) {
 				this.add('-sidestart', side, 'Reflect');
 			},
-			onResidualOrder: 21,
-			onEnd(side) {
+			onSideResidualOrder: 9,
+			onSideEnd(side) {
 				this.add('-sideend', side, 'Reflect');
 			},
 		},
 	},
 	rest: {
 		inherit: true,
-		desc: "The user falls asleep for the next two turns and restores all of its HP, curing itself of any major status condition in the process, even if it was already asleep. Fails if the user has full HP.",
-		onTryMove(pokemon) {
+		onTry(pokemon) {
 			if (pokemon.hp < pokemon.maxhp) return;
 			this.add('-fail', pokemon);
 			return null;
@@ -699,22 +660,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			} else {
 				this.add('-status', target, 'slp', '[from] move: Rest');
 			}
-			target.statusData.time = 3;
-			target.statusData.startTime = 3;
-			target.statusData.source = target;
+			target.statusState.time = 3;
+			target.statusState.startTime = 3;
+			target.statusState.source = target;
 			this.heal(target.maxhp);
 		},
 		secondary: null,
 	},
+	return: {
+		inherit: true,
+		basePowerCallback(pokemon) {
+			return Math.floor((pokemon.happiness * 10) / 25) || null;
+		},
+	},
 	reversal: {
 		inherit: true,
-		desc: "The power of this move is 20 if X is 33 to 48, 40 if X is 17 to 32, 80 if X is 10 to 16, 100 if X is 5 to 9, 150 if X is 2 to 4, and 200 if X is 0 or 1, where X is equal to (user's current HP * 48 / user's maximum HP), rounded down. This move does not apply damage variance and cannot be a critical hit.",
 		noDamageVariance: true,
 		willCrit: false,
 	},
 	roar: {
 		inherit: true,
-		desc: "The target is forced to switch out and be replaced with a random unfainted ally. Fails if the target is the last unfainted Pokemon in its party, or if the user moves before the target.",
 		onTryHit() {
 			for (const action of this.queue) {
 				// Roar only works if it is the last action in a turn, including when it's called by Sleep Talk
@@ -723,27 +688,53 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		priority: -1,
 	},
-	rockslide: {
-		inherit: true,
-		shortDesc: "30% chance to flinch the target.",
-	},
 	safeguard: {
 		inherit: true,
-		desc: "For 5 turns, the user and its party members cannot have major status conditions or confusion inflicted on them by other Pokemon. During the effect, Outrage, Thrash, and Petal Dance do not confuse the user. Fails if the effect is already active on the user's side.",
-	},
-	sandstorm: {
-		inherit: true,
-		desc: "For 5 turns, the weather becomes Sandstorm. At the end of each turn except the last, all active Pokemon lose 1/8 of their maximum HP, rounded down, unless they are a Ground, Rock, or Steel type. Fails if the current weather is Sandstorm.",
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasAbility('persistent')) {
+					this.add('-activate', source, 'ability: Persistent', effect);
+					return 7;
+				}
+				return 5;
+			},
+			onSetStatus(status, target, source, effect) {
+				if (!effect || !source) return;
+				if (effect.id === 'yawn') return;
+				if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
+				if (target !== source) {
+					this.debug('interrupting setStatus');
+					if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+						this.add('-activate', target, 'move: Safeguard');
+					}
+					return null;
+				}
+			},
+			onTryAddVolatile(status, target, source, effect) {
+				if (!effect || !source) return;
+				if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
+				if ((status.id === 'confusion' || status.id === 'yawn') && target !== source) {
+					if (effect.effectType === 'Move' && !effect.secondaries) this.add('-activate', target, 'move: Safeguard');
+					return null;
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Safeguard');
+			},
+			onSideResidualOrder: 8,
+			onSideEnd(side) {
+				this.add('-sideend', side, 'Safeguard');
+			},
+		},
 	},
 	selfdestruct: {
 		inherit: true,
-		desc: "The user faints after using this move. The target's Defense is halved during damage calculation.",
 		noSketch: true,
 	},
 	sketch: {
 		inherit: true,
-		desc: "Fails when used in Link Battles.",
-		shortDesc: "Fails when used in Link Battles.",
+		flags: {bypasssub: 1, failencore: 1, noassist: 1},
 		onHit() {
 			// Sketch always fails in Link Battles
 			this.add('-nothing');
@@ -757,8 +748,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	skyattack: {
 		inherit: true,
-		desc: "This attack charges on the first turn and executes on the second.",
-		shortDesc: "Charges turn 1. Hits turn 2.",
 		critRatio: 1,
 		onPrepareHit(target, source) {
 			return source.status !== 'slp';
@@ -771,39 +760,40 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	sleeptalk: {
 		inherit: true,
-		desc: "One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Bide, Sleep Talk, or any two-turn move.",
+		flags: {failencore: 1, nosleeptalk: 1},
 		onHit(pokemon) {
-			const NoSleepTalk = ['bide', 'sleeptalk'];
 			const moves = [];
 			for (const moveSlot of pokemon.moveSlots) {
-				const move = moveSlot.id;
-				if (move && !NoSleepTalk.includes(move) && !this.dex.moves.get(move).flags['charge']) {
-					moves.push(move);
+				const moveid = moveSlot.id;
+				const move = this.dex.moves.get(moveid);
+				if (moveid && !move.flags['nosleeptalk'] && !move.flags['charge']) {
+					moves.push(moveid);
 				}
 			}
 			let randomMove = '';
 			if (moves.length) randomMove = this.sample(moves);
 			if (!randomMove) return false;
-			this.useMove(randomMove, pokemon);
+			this.actions.useMove(randomMove, pokemon);
 		},
 		noSketch: true,
 	},
 	solarbeam: {
 		inherit: true,
-		desc: "This attack charges on the first turn and executes on the second. Damage is halved if the weather is Rain Dance. If the weather is Sunny Day, the move completes in one turn.",
 		onPrepareHit(target, source) {
 			return source.status !== 'slp';
 		},
 		// Rain weakening done directly in the damage formula
 		onBasePower() {},
 	},
+	spiderweb: {
+		inherit: true,
+		flags: {reflectable: 1, mirror: 1},
+	},
 	spikes: {
 		inherit: true,
-		desc: "Sets up a hazard on the opposing side of the field, causing each opposing Pokemon that switches in to lose 1/8 of their maximum HP, rounded down, unless it is a Flying-type Pokemon. Fails if the effect is already active on the opposing side. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin successfully.",
-		shortDesc: "Hurts grounded foes on switch-in. Max 1 layer.",
 		condition: {
 			// this is a side condition
-			onStart(side) {
+			onSideStart(side) {
 				if (!this.effectState.layers || this.effectState.layers === 0) {
 					this.add('-sidestart', side, 'Spikes');
 					this.effectState.layers = 1;
@@ -817,30 +807,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
 		},
-	},
-	spite: {
-		inherit: true,
-		desc: "Causes the target's last move used to lose 2 to 5 PP, at random. Fails if the target has not made a move, or if the move has 0 PP.",
-	},
-	stomp: {
-		inherit: true,
-		desc: "Has a 30% chance to flinch the target. Power doubles if the target is under the effect of Minimize.",
-	},
-	stringshot: {
-		inherit: true,
-		shortDesc: "Lowers the target's Speed by 1.",
-	},
-	struggle: {
-		inherit: true,
-		desc: "Deals typeless damage. If this move was successful, the user takes damage equal to 1/4 the HP lost by the target, rounded down, but not less than 1 HP. This move is automatically used if none of the user's known moves can be selected.",
-	},
-	submission: {
-		inherit: true,
-		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP. If this move hits a substitute, the recoil damage is always 1 HP.",
-	},
-	sunnyday: {
-		inherit: true,
-		desc: "For 5 turns, the weather becomes Sunny Day, even if the current weather is Sunny Day. The damage of Fire-type attacks is multiplied by 1.5 and the damage of Water-type attacks is multiplied by 0.5 during the effect.",
 	},
 	substitute: {
 		inherit: true,
@@ -883,7 +849,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 					return;
 				}
-				let damage = this.getDamage(source, target, move);
+				let damage = this.actions.getDamage(source, target, move);
 				if (!damage) {
 					return null;
 				}
@@ -912,14 +878,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 		},
 	},
-	surf: {
-		inherit: true,
-		desc: "No additional effect.",
-		shortDesc: "No additional effect.",
-	},
 	swagger: {
 		inherit: true,
-		desc: "Raises the target's Attack by 2 stages and confuses it. This move will miss if the target's Attack cannot be raised.",
 		onTryHit(target, pokemon) {
 			if (target.boosts.atk >= 6 || target.getStat('atk', false, true) === 999) {
 				this.add('-miss', pokemon);
@@ -927,17 +887,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	sweetscent: {
-		inherit: true,
-		shortDesc: "Lowers the target's evasiveness by 1.",
-	},
-	swift: {
-		inherit: true,
-		shortDesc: "This move does not check accuracy.",
-	},
 	synthesis: {
 		inherit: true,
-		desc: "The user restores 1/2 of its maximum HP if no weather conditions are in effect, all of its HP if the weather is Sunny Day, and 1/4 of its maximum HP if the weather is Rain Dance or Sandstorm, all rounded down.",
 		onHit(pokemon) {
 			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.maxhp);
@@ -948,17 +899,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	tailwhip: {
-		inherit: true,
-		shortDesc: "Lowers the target's Defense by 1.",
-	},
-	takedown: {
-		inherit: true,
-		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP. If this move hits a substitute, the recoil damage is always 1 HP.",
-	},
 	thief: {
 		inherit: true,
-		desc: "Has a 100% chance to steal the target's held item if the user is not holding one. The target's item is not stolen if it is a Mail.",
 		onAfterHit() {},
 		secondary: {
 			chance: 100,
@@ -980,7 +922,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	thrash: {
 		inherit: true,
-		desc: "Whether or not this move is successful, the user spends two or three turns locked into this move and becomes confused immediately after its move on the last turn of the effect, even if it is already confused. If the user is prevented from moving, the effect ends without causing confusion. If this move is called by Sleep Talk, the move is used for one turn and does not confuse the user.",
 		onMoveFail(target, source, move) {
 			source.addVolatile('lockedmove');
 		},
@@ -990,30 +931,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	thunder: {
-		inherit: true,
-		desc: "Has a 30% chance to paralyze the target. This move can hit a target using Fly. If the weather is Rain Dance, this move does not check accuracy. If the weather is Sunny Day, this move's accuracy is 50%.",
-	},
 	toxic: {
 		inherit: true,
 		ignoreImmunity: false,
 	},
 	transform: {
 		inherit: true,
-		desc: "The user transforms into the target. The target's current stats, stat stages, types, moves, DVs, species, and sprite are copied. The user's level and HP remain the same and each copied move receives only 5 PP. This move fails if the target has transformed.",
-		shortDesc: "Copies target's stats, moves, types, and species.",
 		noSketch: true,
 	},
 	triattack: {
 		inherit: true,
-		desc: "This move selects burn, freeze, or paralysis at random, and has a 20% chance to inflict the target with that status. If the target is frozen and burn was selected, it thaws out.",
 		onHit(target, source, move) {
 			move.statusRoll = ['par', 'frz', 'brn'][this.random(3)];
 		},
 		secondary: {
 			chance: 20,
 			onHit(target, source, move) {
-				if (!target.hasType('Normal') && move.statusRoll) {
+				if (move.statusRoll) {
 					target.trySetStatus(move.statusRoll, source);
 				}
 			},
@@ -1021,24 +955,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	triplekick: {
 		inherit: true,
-		desc: "Hits one to three times, at random. Power increases to 20 for the second hit and 30 for the third.",
-		shortDesc: "Hits 1-3 times. Power rises with each hit.",
 		multiaccuracy: false,
 		multihit: [1, 3],
 	},
-	twineedle: {
-		inherit: true,
-		desc: "Hits twice, with the second hit having a 20% chance to poison the target. If the first hit breaks the target's substitute, it will take damage for the second hit but the target cannot be poisoned by it.",
-		shortDesc: "Hits 2 times. Last hit has 20% chance to poison.",
-	},
-	twister: {
-		inherit: true,
-		desc: "Has a 20% chance to flinch the target. Power doubles if the target is using Fly.",
-		shortDesc: "20% chance to flinch the target.",
-	},
 	whirlwind: {
 		inherit: true,
-		desc: "The target is forced to switch out and be replaced with a random unfainted ally. Fails if the target is the last unfainted Pokemon in its party, or if the user moves before the target.",
 		onTryHit() {
 			for (const action of this.queue) {
 				// Whirlwind only works if it is the last action in a turn, including when it's called by Sleep Talk

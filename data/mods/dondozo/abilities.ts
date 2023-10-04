@@ -168,12 +168,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts['accuracy'] = 0;
 			}
 		},
-		onUpdate(pokemon) {
-			if (pokemon.status === 'brn') {
-				this.add('-activate', pokemon, 'ability: Power of Dondozo');
-				pokemon.cureStatus();
-			}
-		},
 		onSetStatus(status, target, source, effect) {
 			if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (status.id !== 'brn') return;
@@ -183,6 +177,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return false;
 		},
 		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Power of Dondozo');
+				pokemon.cureStatus();
+			}
 			if (pokemon.volatiles['attract']) {
 				this.add('-activate', pokemon, 'ability: Power of Dondozo');
 				pokemon.removeVolatile('attract');
@@ -762,14 +760,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	fishnet: {
 		onFoeTrapPokemon(pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectState.target)) return;
+			if (!pokemon.isAdjacent(this.effectState.target)) return;
 			if (pokemon.species.dondozo) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (pokemon.species.dondozo) { // Negate immunity if the type is unknown
 				pokemon.maybeTrapped = true;
 			}

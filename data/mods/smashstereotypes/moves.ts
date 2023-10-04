@@ -165,7 +165,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return accuracy - 10;
 		},
 		onModifyMove(move, source, target) {
-			if (source.species.id === 'mytheon') {
+			if (source.species.id === 'mytheon' || source.species.id === 'arcanine') {
 				move.basePower = 50;
 			}
 		},
@@ -471,14 +471,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 	},
-	doublekick: {
-		inherit: true,
-		onModifyMove(move, source, target) {
-			if (source.species.id === 'arcanine') {
-				move.basePower = 50;
-			}
-		},
-	},
 	dragonragesylve: {
 		num: 82,
 		accuracy: 100,
@@ -627,35 +619,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		zMovePower: 120,
-	},
-	morningsun: {
-		num: 234,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Morning Sun",
-		pp: 5,
-		priority: 0,
-		flags: {snatch: 1, heal: 1},
-		onModifyMove(move, source, target) {
-			if (source.species.id === 'arcanine') {
-				move.pp = 10;
-			}
-		},
-		onHit(pokemon) {
-			if (this.field.isWeather(['desolateland', 'sunnyday'])) {
-				return this.heal(this.modify(pokemon.maxhp, 0.667));
-			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail']) && pokemon.species.id !== 'arcanine') {
-				return this.heal(this.modify(pokemon.maxhp, 0.25));
-			} else {
-				return this.heal(this.modify(pokemon.maxhp, 0.5));
-			}
-		},
-		secondary: null,
-		target: "self",
-		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Beautiful",
 	},
 	mudslapsylve: {
 		num: 98,
@@ -1914,28 +1877,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Tough",
 	},
-	poisondart: {
-		accuracy: 100,
-		basePower: 40,
-		category: "Physical",
-		shortDesc: "Usually goes first. 10% chance to poison",
-		isViable: true,
-		name: "Poison Dart",
-		pp: 30,
-		priority: 1,
-		flags: {protect: 1, mirror: 1, contact: 1},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Poison Sting", target);
-		},
-		secondary: {
-			chance: 10,
-			status: 'psn',
-		},
-		target: "normal",
-		type: "Poison",
-		contestType: "Cool",
-	},
 	aridabsorption: {
 		accuracy: true,
 		basePower: 0,
@@ -2454,27 +2395,25 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
+		onModifyMove(move, source, target) {
+			if (source.species.id === 'arcanine') {
+				move.pp = 10;
+			}
+		},
 		onHit(pokemon) {
-			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
-			case 'sunnyday':
-			case 'desolateland':
-				factor = 0.667;
-				break;
-			case 'raindance':
-			case 'primordialsea':
-			case 'sandstorm':
-			case 'hail':
-				factor = 0.25;
-				break;
+			if (this.field.isWeather(['desolateland', 'sunnyday'])) {
+				return this.heal(this.modify(pokemon.maxhp, 0.667));
+			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail']) && pokemon.species.id !== 'arcanine') {
+				return this.heal(this.modify(pokemon.maxhp, 0.25));
+			} else if (this.field.isWeather(['desolateland', 'sunnyday']) && pokemon.hasAbility('divinegrace')) {
+				return this.heal(this.modify(pokemon.maxhp, 1));
+			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail']) && pokemon.hasAbility('divinegrace')) {
+				return this.heal(this.modify(pokemon.maxhp, 0.375));
+			} else if (pokemon.hasAbility('divinegrace')) {
+				return this.heal(this.modify(pokemon.maxhp, 0.75));
+			} else {
+				return this.heal(this.modify(pokemon.maxhp, 0.5));
 			}
-			if (pokemon.hasAbility('divinegrace')) factor = factor * 1.5;
-			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
-			if (!success) {
-				this.add('-fail', pokemon, 'heal');
-				return this.NOT_FAIL;
-			}
-			return success;
 		},
 		secondary: null,
 		target: "self",
@@ -2632,7 +2571,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, heal: 1},
 		onHit(target, source) {
 			if (target.boosts.atk === -6) return false;
-			const atk = target.getStat('atk', false, true);
+			let atk = target.getStat('atk', false, true);
 			if (source.hasAbility('divinegrace')) atk = atk * 1.5;
 			const success = this.boost({atk: -1}, target, source, null, false, true);
 			return !!(this.heal(atk, source, target) || success);
@@ -2656,8 +2595,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return !!source.volatiles['stockpile'];
 		},
 		onHit(pokemon) {
-			const healAmount = [0.25, 0.5, 1];
-			if (pokemon.hasAbility('divinegrace')) healAmount = [0.375, 0.75, 1];
+			const healAmount = pokemon.hasAbility('divinegrace') ? [0.375, 0.75, 1] : [0.25, 0.5, 1];
+			//if (pokemon.hasAbility('divinegrace')) healAmount = [0.375, 0.75, 1];
 			const success = !!this.heal(this.modify(pokemon.maxhp, healAmount[(pokemon.volatiles['stockpile'].layers - 1)]));
 			if (!success) this.add('-fail', pokemon, 'heal');
 			pokemon.removeVolatile('stockpile');

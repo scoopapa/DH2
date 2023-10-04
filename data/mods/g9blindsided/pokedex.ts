@@ -971,8 +971,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	monchi: {
 		num: 1032,
 		name: "Mon-Chi",
-		baseSpecies: "Mon",
-		forme: "Chi",
 		types: ["Fighting", "Dragon"],
 		baseStats: {hp: 75, atk: 137, def: 63, spa: 55, spd: 80, spe: 70},
 		abilities: {0: "Technician", 1: "Steadfast", H: "Poison Heal"},
@@ -1061,8 +1059,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	sailgoshi: {
 		num: 1043,
 		name: "Sail-Goshi",
-		baseSpecies: "Sail",
-		forme: "Goshi",
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 130, atk: 60, def: 32, spa: 45, spd: 56, spe: 85},
 		abilities: {0: "Simple"},

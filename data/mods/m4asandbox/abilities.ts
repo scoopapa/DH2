@@ -3,6 +3,32 @@ const bladeMoves = [
 	'aerialace', 'aircutter', 'airslash', 'aquacutter', 'behemothblade', 'bitterblade', 'ceaselessedge', 'crosspoison', 'cut', 'furycutter', 'leafblade', 'nightslash',
 	'populationbomb', 'psychocut', 'razorleaf', 'razorshell', 'sacredsword', 'secretsword', 'slash', 'stoneaxe', 'solarblade', 'xscissor',
 ];
+const hyperspaceLookup = {
+	mewtwo: { move: "Psystrike" },
+	lugia: { move: "Aeroblast" },
+	hooh: { move: "Sacred Fire" },
+	groudon: { move: "Precipice Blades" },
+	kyogre: { move: "Origin Pulse" },
+	rayquaza: { move: "Dragon Ascent" },
+	dialga: { move: "Roar of Time" },
+	palkia: { move: "Spacial Rend" },
+	giratinaorigin: { move: "Shadow Force" },
+	reshiram: { move: "Blue Flare" },
+	zekrom: { move: "Bolt Strike" },
+	kyurem: { move: "Glaciate" },
+	xerneas: { move: "Geomancy" },
+	yveltal: { move: "Oblivion Wing" },
+	zygardecomplete: { move: "Core Enforcer" },
+	cosmog: { move: "Teleport" },
+	solgaleo: { move: "Sunsteel Strike" },
+	lunala: { move: "Moongeist Beam" },
+	necrozmaultra: { move: "Light That Burns the Sky" },
+	zaciancrowned: { move: "Behemoth Blade" },
+	zamazentacrowned: { move: "Behemoth Bash" },
+	eternatus: { move: "Eternabeam" },
+	calyrexice: { move: "Glacial Lance" },
+	calyrexshadow: { move: "Astral Barrage" },
+};
 export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	gravitas: {
 		shortDesc: "On switch-in, this Pokémon summons Gravity.",
@@ -592,13 +618,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		desc: "Prevents adjacent opposing Flying-type Pokémon from choosing to switch out unless they are immune to trapping.",
 		shortDesc: "Prevents adjacent Flying-type foes from choosing to switch.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hasType('Flying') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hasType('Flying') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (!pokemon.knownType || pokemon.hasType('Flying')) {
 				pokemon.maybeTrapped = true;
 			}
@@ -1136,7 +1162,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				if (move.category === 'Status') continue;
 				const moveType = move.id === 'hiddenpower' ? pokemon.hpType : move.type;
 				for (const target of pokemon.side.foe.active) {
-					if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
+					if (!target || target.fainted || !target.isAdjacent(pokemon)) continue;
 					if (
 						this.dex.getImmunity(moveType, target) && this.dex.getEffectiveness(moveType, target) > 0
 					) {
@@ -1165,44 +1191,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Acidic Surge",
 		rating: 4,
 		num: -30,
-	},
-	flowergift: {
-		desc: "If this Pokémon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Mega Meganium and Sunny Day is active, the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokémon is a Cherrim or a Mega Meganium and it is holding Utility Umbrella, it remains in its regular form and the Attack and Special Defense stats of it and its allies are not boosted. If this Pokémon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokémon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form. If an ally is holding Utility Umbrella while Cherrim is in its Sunshine Form or Meganium is Mega Evolved, they will not receive the Attack and Special Defense boosts.",
-		shortDesc: "If user is Cherrim or Mega Meganium and Sunny Day is active: 1.5x ally team Atk and Sp. Def.",
-		onStart(pokemon) {
-			delete this.effectState.forme;
-		},
-		onUpdate(pokemon) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				if (pokemon.species.id !== 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
-				}
-			} else {
-				if (pokemon.species.id === 'cherrimsunshine') {
-					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
-				}
-			}
-		},
-		onAllyModifyAtkPriority: 3,
-		onAllyModifyAtk(atk, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' &&
-				this.effectState.target.species.name !== 'Meganium-Mega') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.5);
-			}
-		},
-		onAllyModifySpDPriority: 4,
-		onAllyModifySpD(spd, pokemon) {
-			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim' &&
-				this.effectState.target.species.name !== 'Meganium-Mega') return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.5);
-			}
-		},
-		name: "Flower Gift",
-		rating: 1,
-		num: 122,
 	},
 	savage: {
 		desc: "This Pokémon's biting moves become multi-hit moves that hit three times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. Each hit's damage is cut to one third.",
@@ -1618,7 +1606,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, this Pokémon poisons every Pokémon on the field.",
 		onStart(pokemon) {
 			for (const target of this.getAllActive()) {
-				if (!target || !this.isAdjacent(target, pokemon) || target.status) continue;
+				if (!target || !target.isAdjacent(pokemon) || target.status) continue;
 				if (target.hasAbility('soundproof')) {
 					this.add('-ability', pokemon, 'Acid Rock');
 					this.add('-immune', target, "[from] ability: Soundproof", "[of] " + target);
@@ -1852,7 +1840,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 189,
 	},
-	forgery: {
+	/*forgery: {
 		desc: "This Pokémon inherits the item of the last unfainted Pokemon in its party.",
 		shortDesc: "Inherits the item of the last party member.",
 		onStart(pokemon) {
@@ -1894,7 +1882,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Forgery",
 		rating: 3,
 		num: -50,
-	},
+	},*/
 	clairvoyance: {
 		desc: "This Pokémon's Psychic-type moves take effect two turns after being used. At the end of that turn, the damage is calculated at that time and dealt to the Pokémon at the position the target had when the move was used. Only one move can be delayed at a time. If the user is no longer active at the time an attacking move should hit, damage is calculated based on the user's natural Attack or Special Attack stat, types, and level, with no boosts from its held item or Ability. Status moves are used by the Pokémon at the position the user had when the move was used.",
 		shortDesc: "Psychic-type moves delayed until two turns later, but only one at a time.",
@@ -2006,7 +1994,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: -53,
 	},
-	sos: {
+	/*sos: {
 		desc: "If this Pokémon is a Wishiwashi that has Mega Evolved, it calls for help and changes form at the end of each full turn it has been on the field, building up to Mega Wishiwashi (School Form) over five turns.",
 		shortDesc: "More Wishiwashi spawn at the end of each turn.",
 		onStart(pokemon) {
@@ -2053,8 +2041,8 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "SOS",
 		rating: 5,
 		num: -54,
-	},
-	stancechange: {
+	},*/
+	/*stancechange: {
 		desc: "If this Pokémon is an Aegislash or a Falinks-Mega, it changes to Blade Forme or Mega Combat before attempting to use an attacking move, and changes to Shield Forme or Mega Legion before attempting to use King's Shield.",
 		shortDesc: "Changes Aegislash/Falinks-Mega to Blade Forme/Combat before attack, Shield Forme/Legion before King's Shield.",
 		onBeforeMovePriority: 0.5,
@@ -2097,7 +2085,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Stance Change",
 		rating: 4,
 		num: 176,
-	},
+	},*/
 	poolfloaties: {
 		desc: "This Pokémon and its adjacent allies are immune to Water-type moves. For 3 turns after the user or its adjacent allies use a Water-type move or are hit by a Water-type move, they are also immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as they remain active. If they use Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this immunity if the user is under any of their effects.",
 		shortDesc: "Pokémon and allies: gain Ground immunity from Water moves; Water immunity.",
@@ -2724,7 +2712,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (target !== source && move.type === 'Fairy') {
 				let activated = false;
 				for (const ally of target.side.active) {
-					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!ally || (!ally.isAdjacent(target) && ally !== target)) continue;
 					if (!activated) {
 						this.add('-ability', target, 'Comedian', 'boost');
 						this.add('-message', `${target.name} is howling with laughter!`);
@@ -2744,7 +2732,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			if (move.type === 'Fairy') {
 				let activated = false;
 				for (const ally of target.side.active) {
-					if (!ally || (!this.isAdjacent(ally, target) && ally !== target)) continue;
+					if (!ally || (!ally.isAdjacent(target) && ally !== target)) continue;
 					if (!activated) {
 						this.add('-ability', target, 'Comedian', 'boost');
 						this.add('-message', `${target.name} is howling with laughter!`);
@@ -2909,6 +2897,276 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: -79,
 	},
 
+			// Kalos content
+
+	managate: {
+		desc: "When using a Psychic-type move, this Pokémon moves last among Pokémon using the same or greater priority moves, then switches out to a chosen ally.",
+		shortDesc: "Psychic moves: move last in priority bracket, pivot the user out.",
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category === "Status" && move.type === "Psychic") return -0.1;
+		},
+		onModifyMove(move) {
+			if (move.category === "Status" && move.type === "Psychic" && !move.selfSwitch) move.selfSwitch = true;
+		},
+		onSourceHit(target, source, move) {
+			if (move.category === "Status" && move.type === "Psychic" && move.selfSwitch && this.canSwitch(source.side)) {
+				this.add('-ability', source, 'Mana Gate');
+				this.add('-message', `${source.name} switches out using Mana Gate!`);
+			}
+		},
+		name: "Mana Gate",
+		rating: 3,
+		num: -1001,
+	},
+	partialeclipse: {
+		desc: "Causes all adjacent Pokémon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if this Pokémon has 1/2 or less of its maximum HP.",
+		shortDesc: "When HP is 1/2 or less, adjacent Pokémon lose 1/8 of their max HP each turn.",
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (!pokemon.hp || pokemon.hp > pokemon.maxhp / 2) return;
+			for (const target of pokemon.side.foe.active) {
+				if (target && target.hp) this.damage(target.baseMaxhp / 8, target, pokemon);
+			}
+		},
+		name: "Partial Eclipse",
+		rating: 3,
+		num: -1002,
+	},
+	marshlandlord: {
+		shortDesc: "On switch-in, summons Water Sport and Mud Sport.",
+		onStart(source) {
+			this.add('-ability', source, 'Marshland Lord');
+			this.field.addPseudoWeather('watersport');
+			this.field.addPseudoWeather('mudsport');
+		},
+		name: "Marshland Lord",
+		rating: 3.5,
+		num: -1003,
+	},
+	badinfluence: {
+		shortDesc: "If this Pokémon has a stat stage lowered, all Pokémon on the field have the same stat stage lowered.",
+		onBoost(boost, target, source, effect) {
+			if (!boost || effect.id === 'mirrorarmor' || effect.id === 'badinfluence') return;
+			let b: BoostName;
+			const negativeBoost: SparseBoostsTable = {};
+			for (b in boost) {
+				if (boost[b]! < 0) {
+					if (target.boosts[b] === -6) continue;
+					negativeBoost[b] = boost[b];
+				}
+			}
+			let activated = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon === target || pokemon.fainted) continue;
+				if (!activated) {
+					this.add('-ability', target, 'Bad Influence');
+					activated = true;
+				}
+				this.boost(negativeBoost, pokemon, target, null, true);
+			}
+		},
+		name: "Bad Influence",
+		rating: 4,
+		num: -1004,
+	},
+	petrification: {
+		shortDesc: "Ice immunity; adds Rock to this Pokémon when hit with an Ice move.",
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ice') {
+				move.accuracy = true;
+				if (target.hasType('Rock') || !target.addType('Rock')) {
+					this.add('-immune', target, '[from] ability: Petrification');
+				} else {
+					this.add('-start', target, 'typeadd', 'Rock', '[from] ability: Petrification');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Petrification",
+		rating: 3,
+		num: -1005,
+	},
+	repulsive: {
+		shortDesc: "When lowering a target's stats, also lowers target's Defense by 1 stage.",
+		onAnyAfterEachBoost(boost, target, source, effect) {
+			if (!source || source !== this.effectState.target || effect.name === 'Repulsive') return;
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered && target.hp) {
+				this.add('-ability', source, 'Repulsive');
+				this.boost({def: -1}, target, source, null, true);
+			}
+		},
+		name: "Repulsive",
+		rating: 3,
+		num: -1006,
+	},
+	hyperspacemayhem: {
+		shortDesc: "Hyperspace Hole summons a random restricted Legendary Pokémon to attack instead.",
+		name: "Hyperspace Mayhem",
+		onModifyMove(move) {
+			if (move && move.id === 'hyperspacehole') move.target = 'self'; // cosmetic
+		},
+		onSourceTryHitPriority: 1,
+		onSourceTryHit(target, source, move) {
+			if (
+				move && move.id === 'hyperspacehole' && source.hasAbility('hyperspacemayhem')
+			) {
+				let summons = [];
+				for (const id in hyperspaceLookup) summons.push(id);
+				const summon = this.sample(summons);
+				const userBackup = {
+					name: source.name,
+					fullname: source.fullname,
+					status: source.status,
+					gender: source.gender,
+					species: source.species,
+					nature: this.dex.natures.get(source.set.nature).name,
+					evs: source.set.evs,
+					ivs: source.set.ivs,
+					shiny: source.set.shiny,
+					volatiles: source.volatiles,
+				};
+				const boostBackup: SparseBoostsTable = {};
+				for (const stat in source.boosts) {
+					boostBackup[stat] = source.boosts[stat];
+				}
+				
+				this.add('-ability', source, 'Hyperspace Mayhem');
+				source.volatiles = {}; // clear volatiles silently
+				source.addVolatile('hyperspacemayhem', source, null); // appropriately modify certain moves, like Teleport and Shadow Force
+				this.add('-message', `By using Hyperspace Hole, ${source.name} summons a Legendary Pokémon!`);
+
+				for (const stat in boostBackup) {
+					boostBackup[stat] *= -1;
+				}
+				source.volatiles['hyperspacemayhem'].midtransform = true;
+				this.boost(boostBackup, source, source, null, true);
+				source.name = this.dex.species.get(summon).baseSpecies ? this.dex.species.get(summon).baseSpecies : this.dex.species.get(summon).name;
+				source.fullname = source.side.id + ': ' + source.name;
+				source.gender = ''; // not dealing with this because (thank goodness!) none of these have genders anyway
+				source.set.evs = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0};
+				source.set.ivs = {hp: this.random(32), atk: this.random(32), def: this.random(32), spa: this.random(32), spd: this.random(32), spe: this.random(32)};
+				// to do: set three of those to 31 at random
+				
+				let ivs = [];
+				let ivsB = [];
+				let ivsC = [];
+				let perfectIVs = [];
+				for (const id in source.set.ivs) ivs.push(id);
+				perfectIVs.push(this.sample(ivs));
+				for (const id in source.set.ivs) {
+					if (perfectIVs.includes(id)) continue;
+					ivsB.push(id);
+				}
+				perfectIVs.push(this.sample(ivsB));
+				for (const id in source.set.ivs) {
+					if (perfectIVs.includes(id)) continue;
+					ivsC.push(id);
+				}
+				perfectIVs.push(this.sample(ivsC));
+				source.set.ivs[perfectIVs[0]] = 31;
+				source.set.ivs[perfectIVs[1]] = 31;
+				source.set.ivs[perfectIVs[2]] = 31;
+
+				const natures = this.dex.natures.all();
+				source.nature = this.sample(natures).name;
+				source.set.shiny = '';
+				source.shiny = '';
+				if (this.randomChance(1, 4)) {
+					source.set.shiny = true; // change to 4096... but, like, after confirming this actually works!
+					source.shiny = true; // change to 4096... but, like, after confirming this actually works!
+				}
+				this.add('-message', `It's ${source.name}!`);
+
+				source.volatiles['hyperspacemayhem'].userBackup = userBackup;
+				source.volatiles['hyperspacemayhem'].fakelegend = true;
+				source.formeChange(this.dex.species.get(summon), move); // make sure this is silent?
+				if (hyperspaceLookup[summon].move === "Geomancy" || hyperspaceLookup[summon].move === "Shadow Force") {
+					this.add('-prepare', source, hyperspaceLookup[summon].move);
+					source.addVolatile(this.dex.moves.get(hyperspaceLookup[summon].move).id, target);
+				}
+				if (hyperspaceLookup[summon].move === "Geomancy") source.volatiles['hyperspacemayhem'].geomancy = true;
+				this.actions.useMove(hyperspaceLookup[summon].move, source, this.getRandomTarget(source, hyperspaceLookup[summon].move), this.dex.moves.get('instruct'));
+				if (hyperspaceLookup[summon].move === "Geomancy") {
+					source.volatiles['hyperspacemayhem'].geomancy = null;
+					source.name = this.dex.species.get(summon).baseSpecies ? this.dex.species.get(summon).baseSpecies : this.dex.species.get(summon).name;
+					source.fullname = source.side.id + ': ' + source.name;
+				}
+				if (hyperspaceLookup[summon].move === "Teleport") this.add('-message', `Oops! Looks like ${source.name} doesn't know how to battle!`);
+				source.volatiles['hyperspacemayhem'].fakelegend = null;
+
+				// to do: make a special exception for Zacian and Rayquaza's stat modifiers
+				// (they *should* work correctly as-is, but the way they display will be very misleading)
+
+				// then change everything back to Hoopa
+				source.name = userBackup.name;
+				source.fullname = userBackup.fullname;
+				source.status = userBackup.status;
+				source.gender = userBackup.gender;
+				source.nature = userBackup.nature;
+				source.set.evs = userBackup.evs;
+				source.set.ivs = userBackup.ivs;
+				source.set.shiny = userBackup.shiny;
+				source.shiny = userBackup.shiny;
+				// silently restore boosts
+				if (hyperspaceLookup[summon].move !== "Geomancy") {
+					const resetStats: SparseBoostsTable = {};
+					for (const stat in source.boosts) {
+						resetStats[stat] = source.boosts[stat] * -1;
+					}
+					this.boost(resetStats, source, source, null, true);
+				}
+				for (const stat in boostBackup) {
+					boostBackup[stat] *= -1;
+				}
+				this.boost(boostBackup, source, source, null, true);
+				source.volatiles['hyperspacemayhem'].midtransform = null;
+				delete source.volatiles['hyperspacemayhem']; // for everything
+				source.volatiles = userBackup.volatiles;
+
+				// change form back
+				source.formeChange(userBackup.species, move);
+
+				this.add('-message', `${this.dex.species.get(summon).baseSpecies ? this.dex.species.get(summon).baseSpecies : this.dex.species.get(summon).name} went back home!`);
+				this.add('-message', `Bye, bye, ${this.dex.species.get(summon).baseSpecies ? this.dex.species.get(summon).baseSpecies : this.dex.species.get(summon).name}!`);
+
+				return null; // Hyperspace Hole itself doesn't actually get used
+			}
+		},
+		condition: {
+			onModifyMove(move, pokemon) {
+				if (move.selfSwitch) delete move.selfSwitch; // for Cosmog
+			},
+			onDamage(damage, target, source, effect) {
+				this.hint(`${target.name} is a different Pokémon, so the damage it takes doesn't affect ${this.effectState.userBackup.name}!`);
+				return 0;
+			},
+			onSetStatus(status, target, source, effect) {
+				return null; // avoid ever rolling Flame Body, Static, et cetera
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'geomancy' || status.id === 'shadowforce') return;
+				return null; // avoid ever rolling Cursed Body, et cetera
+			},
+			onBasePower(basePower, user, target, move) {
+				if (user.baseSpecies.num === 487 && (move.type === 'Ghost' || move.type === 'Dragon')) { // for Giratina
+					return this.chainModify([4915, 4096]);
+				}
+			},
+		},
+		rating: 4,
+		num: -1007,
+	},
+
 	// SANDBOX CONTENT STARTS HERE
 
 	conversionz: {
@@ -2983,7 +3241,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			for (const target of this.getAllActive()) {
 				if (!target || target === pokemon) continue;
-				if (target.hasType('Steel') && this.isAdjacent(target, this.effectState.target)) {
+				if (target.hasType('Steel') && target.isAdjacent(this.effectState.target)) {
 					target.setType(target.getTypes(true).map(type => type === "Steel" ? "???" : type));
 					this.add('-start', target, 'typechange', target.types.join('/'), '[from] ability: Amalgam', '[of] ' + pokemon);
 					pokemon.heal(pokemon.baseMaxhp / 3);
@@ -3871,7 +4129,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
 				if (pokemon.side.getSideCondition(sideCondition)) {
 					for (const target of pokemon.side.foe.active) {
-						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!target || !target.isAdjacent(pokemon)) continue;
 						if (!activated) {
 							this.add('-ability', pokemon, 'Pounce', 'boost');
 							activated = true;
@@ -4015,7 +4273,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			for (const sideCondition of ['gmaxsteelsurge', 'spikes', 'stealthrock', 'stickyweb', 'toxicspikes']) {
 				if (pokemon.side.getSideCondition(sideCondition)) {
 					for (const target of pokemon.side.foe.active) {
-						if (!target || !this.isAdjacent(target, pokemon)) continue;
+						if (!target || !target.isAdjacent(pokemon)) continue;
 						if (!activated) {
 							this.add('-ability', pokemon, 'Booby Trap', 'boost');
 							activated = true;

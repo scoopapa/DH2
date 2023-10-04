@@ -1,4 +1,4 @@
-export const Moves: {[moveid: string]: MoveData} = {
+export const Moves: {[k: string]: ModdedMoveData} = {
 	recover: {
 		inherit: true,
 		pp: 10,
@@ -1004,14 +1004,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 4,
 		flags: {},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Withdraw", target);
-			this.add('-anim', source, "Protect", target);
-		},
 		stallingMove: true,
 		volatileStatus: 'shelter',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Withdraw", target);
+			this.add('-anim', source, "Protect", target);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -1244,11 +1242,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Cool",
 	},
-	watershuriken: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, slicing: 1},
-		multihit: 3,
-	},
 	ragingbull: {
 		num: 873,
 		accuracy: 100,
@@ -1294,7 +1287,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			move.type = type;
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			return typeMod + this.dex.getEffectiveness('Fire', type);
+			return typeMod + this.dex.getEffectiveness('Water', type);
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');

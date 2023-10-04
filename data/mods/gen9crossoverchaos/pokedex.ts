@@ -116,6 +116,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	spamton: {
 		num: 12,
 		name: "Spamton",
+		baseForme: "Base",
 		types: ["Dark", "Poison"],
 		gender: "M",
 		baseStats: {hp: 70, atk: 97, def: 97, spa: 97, spd: 97, spe: 97},
@@ -126,6 +127,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	spamtonneo: {
 		num: 12,
 		name: "Spamton NEO",
+		baseSpecies: "Spamton",
+		forme: "NEO",
 		types: ["Dark", "Poison"],
 		gender: "M",
 		baseStats: {hp: 107, atk: 127, def: 97, spa: 127, spd: 97, spe: 97},
@@ -135,7 +138,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gavialinvincible: {
 		num: 13,
 		name: "Gavial-Invincible",
-		baseSpecies: "Gavial",
+		baseSpecies: "Gavial-Invincible",
 		forme: "Invincible",
 		types: ["Ground", "Fighting"],
 		gender: "F",
@@ -154,6 +157,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	dewy: {
 		num: 15,
 		name: "Dewy",
+		baseForme: "Base",
 		types: ["Water", "Fairy"],
 		gender: "M",
 		baseStats: {hp: 90, atk: 93, def: 80, spa: 93, spd: 105, spe: 100},
@@ -213,7 +217,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	wrigglenightbugaltered: {
 		num: 19,
 		name: "Wriggle Nightbug-Altered",
-		baseSpecies: "Wriggle Nightbug",
+		baseSpecies: "Wriggle Nightbug-Altered",
 		forme: "Altered",
 		types: ["Bug", "Fire"],
 		gender: "F",
@@ -260,7 +264,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	hecatiatropical: {
 		num: 24,
 		name: "Hecatia-Tropical",
-		baseSpecies: "Hecatia",
+		baseSpecies: "Hecatia-Tropical",
 		forme: "Tropical",
 		types: ["Water", "Ground"],
 		gender: "F",

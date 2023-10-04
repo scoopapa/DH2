@@ -2504,6 +2504,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	torkoal: {
 		inherit: true,
+		prevo: "Torklear",
 		otherFormes: ["Torkoal-Mega"],
 		formeOrder: ["Torkoal", "Torkoal-Mega"],
 	},
@@ -3054,11 +3055,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		name: "Weepinbell",
 		evos: ["Victreebel", "Narabel"],
-	},
-	torkoal: {
-		inherit: true,
-		name: "Torkoal",
-		prevo: "Torklear",
 	},
 	magby: {
 		inherit: true,

@@ -761,34 +761,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
-	terablast: {
-		num: 851,
-		accuracy: 100,
-		basePower: 80,
-		category: "Special",
-		shortDesc: "If Terastallized: Phys. if Atk > SpA, type = Tera.",
-		name: "Tera Blast",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onModifyType(move, pokemon, target) {
-			if (pokemon.terastallized) {
-				move.type = pokemon.teraType;
-			}
-		},
-		onModifyMove(move, pokemon) {
-			if (pokemon.terastallized && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
-				move.category = 'Physical';
-			}
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Terrain Pulse", target);
-		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-	},
 	bleakwindstorm: {
 		num: 846,
 		accuracy: 80,
@@ -930,6 +902,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		stallingMove: true,
 		volatileStatus: 'silktrap',
 		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Protect", target);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -968,10 +942,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.boost({spe: -1}, source, target, this.dex.getActiveMove("Silk Trap"));
 				}
 			},
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Protect", target);
 		},
 		target: "self",
 		type: "Bug",

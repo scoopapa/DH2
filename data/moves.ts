@@ -750,7 +750,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 110,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Aura Wheel",
 		pp: 10,
 		priority: 0,
@@ -1084,7 +1083,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 40,
 		priority: 0,
 		flags: {},
-		onTryHit(target) {
+		onHit(target) {
 			if (!this.canSwitch(target.side) || target.volatiles['commanded']) {
 				this.attrLastMove('[still]');
 				this.add('-fail', target);
@@ -1521,6 +1520,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
+	},
+	bloodmoon: {
+		num: 901,
+		accuracy: 100,
+		basePower: 140,
+		category: "Special",
+		name: "Blood Moon",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, cantusetwice: 1},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
 	},
 	bloomdoom: {
 		num: 644,
@@ -2436,7 +2448,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 110,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Clanging Scales",
 		pp: 5,
 		priority: 0,
@@ -2456,7 +2467,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "Clangorous Soul",
 		pp: 5,
 		priority: 0,
@@ -3348,7 +3358,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 50,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "Dark Void",
 		pp: 10,
 		priority: 0,
@@ -3859,7 +3868,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 140,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Doom Desire",
 		pp: 5,
 		priority: 0,
@@ -5300,6 +5308,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			pokemon.faint();
 			return damage;
 		},
+		selfdestruct: "ifHit",
 		category: "Special",
 		name: "Final Gambit",
 		pp: 5,
@@ -6135,7 +6144,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "Forest's Curse",
 		pp: 20,
 		priority: 0,
@@ -6625,19 +6633,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Gigaton Hammer",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.disableMove('gigatonhammer');
-		},
-		beforeMoveCallback(pokemon) {
-			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.addVolatile('gigatonhammer');
-		},
-		onAfterMove(pokemon) {
-			if (pokemon.removeVolatile('gigatonhammer')) {
-				this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
-			}
-		},
-		condition: {},
+		flags: {protect: 1, mirror: 1, cantusetwice: 1},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -7746,7 +7742,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	grassyglide: {
 		num: 803,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 55,
 		category: "Physical",
 		name: "Grassy Glide",
 		pp: 20,
@@ -9539,11 +9535,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onHit() {
-			this.field.clearTerrain();
+		onAfterHit(target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
 		},
-		onAfterSubDamage() {
-			this.field.clearTerrain();
+		onAfterSubDamage(damage, target, source) {
+			if (source.hp) {
+				this.field.clearTerrain();
+			}
 		},
 		secondary: null,
 		target: "normal",
@@ -9879,6 +9879,33 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		contestType: "Cool",
 	},
+	ivycudgel: {
+		num: 904,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Ivy Cudgel",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		critRatio: 2,
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Ogerpon-Wellspring': case 'Ogerpon-Wellspring-Tera':
+				move.type = 'Water';
+				break;
+			case 'Ogerpon-Hearthflame': case 'Ogerpon-Hearthflame-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Ogerpon-Cornerstone': case 'Ogerpon-Cornerstone-Tera':
+				move.type = 'Rock';
+				break;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+	},
 	jawlock: {
 		num: 746,
 		accuracy: 100,
@@ -9906,7 +9933,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 1,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		secondary: null,
-		hasSheerForce: true,
 		target: "normal",
 		type: "Water",
 		contestType: "Cool",
@@ -11151,6 +11177,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		zMove: {boost: {def: 1}},
 		contestType: "Cool",
+	},
+	matchagotcha: {
+		num: 902,
+		accuracy: 90,
+		basePower: 80,
+		category: "Special",
+		name: "Matcha Gotcha",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1},
+		drain: [1, 2],
+		thawsTarget: true,
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
+		target: "allAdjacentFoes",
+		type: "Grass",
 	},
 	maxairstream: {
 		num: 766,
@@ -13771,10 +13815,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.infiltrates = true;
 			}
 		},
-		onHit(target, source) {
+		onTryMove(source, target, move) {
+			if (source.isAlly(target) && source.volatiles['healblock']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Heal Block', move);
+				return false;
+			}
+		},
+		onHit(target, source, move) {
 			if (source.isAlly(target)) {
 				if (!this.heal(Math.floor(target.baseMaxhp * 0.5))) {
-					this.add('-immune', target);
+					if (target.volatiles['healblock'] && target.hp !== target.maxhp) {
+						this.attrLastMove('[still]');
+						// Wrong error message, correct one not supported yet
+						this.add('cant', source, 'move: Heal Block', move);
+					} else {
+						this.add('-immune', target);
+					}
 					return this.NOT_FAIL;
 				}
 			}
@@ -16252,7 +16309,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 85,
 		basePower: 120,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Seed Flare",
 		pp: 5,
 		priority: 0,
@@ -16476,7 +16532,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {},
 		volatileStatus: 'substitute',
 		onTryHit(source) {
-			if (!this.canSwitch(source.side)) {
+			if (!this.canSwitch(source.side) || source.volatiles['commanded']) {
 				this.add('-fail', source);
 				return this.NOT_FAIL;
 			}
@@ -18554,7 +18610,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 90,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Strange Steam",
 		pp: 10,
 		priority: 0,
@@ -19181,6 +19236,36 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
+	syrupbomb: {
+		num: 903,
+		accuracy: 85,
+		basePower: 60,
+		category: "Special",
+		name: "Syrup Bomb",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		condition: {
+			noCopy: true,
+			duration: 3,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Syrup Bomb');
+			},
+			onResidualOrder: 14,
+			onResidual() {
+				this.boost({spe: -1});
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Syrup Bomb');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'syrupbomb',
+		},
+		target: "normal",
+		type: "Grass",
+	},
 	tackle: {
 		num: 33,
 		accuracy: 100,
@@ -19200,7 +19285,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "Tail Glow",
 		pp: 20,
 		priority: 0,
@@ -19310,7 +19394,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "Take Heart",
 		pp: 15,
 		priority: 0,
@@ -20122,7 +20205,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "Toxic Thread",
 		pp: 20,
 		priority: 0,

@@ -994,7 +994,6 @@ export abstract class BasicRoom {
 		this.userCount++;
 		this.checkAutoModchat(user);
 
-		this.minorActivity?.onConnect?.(user, connection);
 		this.game?.onJoin?.(user, connection);
 		Chat.runHandlers('onRoomJoin', this, user, connection);
 		return true;

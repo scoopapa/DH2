@@ -2336,11 +2336,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "DOU",
 		randomBattleMoves: ["swordsdance", "quickattack", "closecombat", "doubleedge"],
 	},
-	sableye: {
-		tier: "PU",
-		doublesTier: "DOU",
-		randomBattleMoves: ["recover", "substitute", "knockoff", "curse"],
-	},
 	slowbromega: {
 		tier: "OU",
 		doublesTier: "DOU",

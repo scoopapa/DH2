@@ -20,7 +20,7 @@ import {BasicEffect, toID} from './dex-data';
  * self - The move affects the user of the move.
  */
 export type MoveTarget =
-	'adjacentAlly' | 'adjacentAllyOrSelf' | 'adjacentFoe' | 'all' | 'allAdjacent' | 'allAdjacentFoes' |
+	'adjacentAlly' | 'adjacentAllyOrSelf' | 'anyAlly' | 'adjacentFoe' | 'all' | 'allAdjacent' | 'allAdjacentFoes' |
 	'allies' | 'allySide' | 'allyTeam' | 'any' | 'foeSide' | 'normal' | 'randomNormal' | 'scripted' | 'self';
 
 /** Possible move flags. */
@@ -29,6 +29,7 @@ interface MoveFlags {
 	bypasssub?: 1; // Ignores a target's substitute.
 	bite?: 1; // Power is multiplied by 1.5 when used by a Pokemon with the Ability Strong Jaw.
 	bullet?: 1; // Has no effect on Pokemon with the Ability Bulletproof.
+	cantusetwice?: 1; // The user cannot select this move after a previous successful use.
 	charge?: 1; // The user is unable to make a move between turns.
 	contact?: 1; // Makes contact.
 	dance?: 1; // When used by a Pokemon, other Pokemon with the Ability Dancer can attempt to execute the same move.

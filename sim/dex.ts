@@ -46,10 +46,10 @@ const dexes: {[mod: string]: ModdedDex} = Object.create(null);
 
 type DataType =
 	'Abilities' | 'Rulesets' | 'FormatsData' | 'Items' | 'Learnsets' | 'Moves' |
-	'Natures' | 'Pokedex' | 'Scripts' | 'Conditions' | 'TypeChart';
+	'Natures' | 'Pokedex' | 'Scripts' | 'Conditions' | 'TypeChart' | 'PokemonGoData';
 const DATA_TYPES: (DataType | 'Aliases')[] = [
 	'Abilities', 'Rulesets', 'FormatsData', 'Items', 'Learnsets', 'Moves',
-	'Natures', 'Pokedex', 'Scripts', 'Conditions', 'TypeChart',
+	'Natures', 'Pokedex', 'Scripts', 'Conditions', 'TypeChart', 'PokemonGoData',
 ];
 
 const DATA_FILES = {
@@ -62,6 +62,7 @@ const DATA_FILES = {
 	Moves: 'moves',
 	Natures: 'natures',
 	Pokedex: 'pokedex',
+	PokemonGoData: 'pokemongo',
 	Scripts: 'scripts',
 	Conditions: 'conditions',
 	TypeChart: 'typechart',
@@ -81,6 +82,7 @@ interface DexTableData {
 	Moves: DexTable<MoveData>;
 	Natures: DexTable<NatureData>;
 	Pokedex: DexTable<SpeciesData>;
+	PokemonGoData: DexTable<PokemonGoData>;
 	Scripts: DexTable<AnyObject>;
 	Conditions: DexTable<EffectData>;
 	TypeChart: DexTable<TypeData>;
@@ -229,7 +231,15 @@ export class ModdedDex {
 		source: {type: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): boolean {
-		const sourceType: string = typeof source !== 'string' ? source.type : source;
+		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files
+		let sourceType: string = "";
+		if(typeof source !== 'string'){
+			if(source.twoType){
+				return this.getImmunity(source.type, target) && this.getImmunity(source.twoType, target);
+			} else {
+				sourceType = source.type;
+			}
+		} else sourceType = source;
 		// @ts-ignore
 		const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
 		if (Array.isArray(targetTyping)) {
@@ -247,7 +257,15 @@ export class ModdedDex {
 		source: {type: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): number {
-		const sourceType: string = typeof source !== 'string' ? source.type : source;
+		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files
+		let sourceType: string = "";
+		if(typeof source !== 'string'){
+			if(source.twoType){
+				return this.getEffectiveness(source.type, target) + this.getEffectiveness(source.twoType, target);
+			} else {
+				sourceType = source.type;
+			}
+		} else sourceType = source;
 		// @ts-ignore
 		const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
 		let totalTypeMod = 0;

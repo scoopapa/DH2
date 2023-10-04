@@ -38,14 +38,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	silvally: {
 		inherit: true,
-		otherFormes: ["Silvally-Bug", "Silvally-Dark", "Silvally-Dragon", "Silvally-Electric", "Silvally-Fighting",
-						  "Silvally-Fire", "Silvally-Flying", "Silvally-Ghost", "Silvally-Grass", "Silvally-Ground", "Silvally-Ice",
-						  "Silvally-Poison", "Silvally-Psychic", "Silvally-Rock", "Silvally-Steel", "Silvally-Water"],
-		formeOrder: [
-			"Silvally", "Silvally-Fighting", "Silvally-Flying", "Silvally-Poison", "Silvally-Ground", "Silvally-Rock",
-			"Silvally-Bug", "Silvally-Ghost", "Silvally-Steel", "Silvally-Fire", "Silvally-Water", "Silvally-Grass",
-			"Silvally-Electric", "Silvally-Psychic", "Silvally-Ice", "Silvally-Dragon", "Silvally-Dark",
-		],
+		otherFormes: ['Silvally-Bug', 'Silvally-Dark', 'Silvally-Dragon', 'Silvally-Electric', 'Silvally-Fighting', 'Silvally-Fire', 'Silvally-Flying', 'Silvally-Ghost', 'Silvally-Grass', 'Silvally-Ground', 'Silvally-Ice', 'Silvally-Poison', 'Silvally-Psychic', 'Silvally-Rock', 'Silvally-Steel', 'Silvally-Water'],
+		formeOrder: ['Silvally', 'Silvally-Fighting', 'Silvally-Flying', 'Silvally-Poison', 'Silvally-Ground', 'Silvally-Rock', 'Silvally-Bug', 'Silvally-Ghost', 'Silvally-Steel', 'Silvally-Fire', 'Silvally-Water', 'Silvally-Grass', 'Silvally-Electric', 'Silvally-Psychic', 'Silvally-Ice', 'Silvally-Dragon', 'Silvally-Dark'],
 		gen: 3,
 	},
 	silvallybug: {
@@ -461,10 +455,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Levitate"},
 		gen: 3,
 	},
-	raichu: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 85, def: 50, spa: 95, spd: 85, spe: 110},
-	},
 	pichu: {
 		inherit: true,
 		abilities: {0: "Static", 1: "Mold Breaker"},
@@ -689,7 +679,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 90, def: 65, spa: 90, spd: 85, spe: 110},
 		abilities: {0: "Water Absorb", 1: "Guts"},
 		gen: 3,
-		prevo: null,
 	},
 	panpour: {
 		inherit: true,
