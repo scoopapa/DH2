@@ -314,6 +314,28 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1015,
 	},
 	//Edited items
+	adrenalineorb: {
+		inherit: true,
+		onDamagingHit(damage, target, source, move) {
+			if (target.boosts['spe'] === 6) {
+				return;
+			}
+			if (['Dark', 'Bug', 'Ghost'].includes(move.type)) {
+				target.useItem();
+			}
+		},
+		onAfterBoost(boost, target, source, effect) {
+			if (target.boosts['spe'] === 6 || !boost.atk) {
+				return;
+			}
+			if (effect?.name === 'Intimidate') {
+				target.useItem();
+			}
+		},
+		consumable: true,
+		desc: "This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or if an opposing Pokemon's Intimidate Ability affected this Pokemon. Single-use.",
+		shortDesc: "+1 Speed if hit by a Bug-, Dark-, or Ghost-type attack, or Intimidated. Single use.",
+	},
 	aguavberry: {
 		inherit: true,
 		consumable: true,
@@ -331,6 +353,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Bitter food (-Sp. Defense Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpD Nature, it's 50%, but confuses. Single use.",
+	},
+	bignugget: {
+		inherit: true,
+		fling: {
+			basePower: 130,
+			flags: {bullet: 1},
+		},
+		shortDesc: "No in-battle effect. Projectile move when Flung.",
+		desc: "A big nugget of pure gold that gives off a lustrous gleam. When Flung, counts as a projectile move.",
 	},
 	bigroot: {
 		inherit: true,
@@ -586,6 +617,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 4,
 		desc: "Holder's Attack is multiplied by 1.1x.",
 	},
+	/*nugget: {
+		inherit: true,
+		fling: {
+			basePower: 80,
+			flags: {bullet: 1},
+		},
+		shortDesc: "No in-battle effect. Projectile move when Flung.",
+		desc: "A big nugget of pure gold that gives off a lustrous gleam. When Flung, counts as a projectile move.",
+	},*/
 	oddincense: {
 		name: "Odd Incense",
 		spritenum: 312,
@@ -756,16 +796,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	snowball: {
 		inherit: true,
-		consumable: true,
-		onDamagingHit(damage, target, source, move) {
-			if (move.type === 'Ice' || (move.twoType && move.twoType === 'Ice')) {
-				target.useItem();
-			}
+		fling: {
+			basePower: 30,
+			flags: {bullet: 1},
+  		consumable: true,
+	  	onDamagingHit(damage, target, source, move) {
+	  		if (move.type === 'Ice' || (move.twoType && move.twoType === 'Ice')) {
+		  		target.useItem();
+	  		}
 		},
 		boosts: {
 			def: 1,
 		},
-		desc: "Raises holder's Defense by 1 if hit by an Ice-type attack. Single use.",
+		shortDesc: "Raises holder's Defense by 1 if hit by an Ice-type attack. Single use.",
+		desc: "Raises holder's Defense by 1 if hit by an Ice-type attack. Single use. When Flung, counts as a projectile.",
 	},
 	starfberry: {
 		inherit: true,
@@ -833,18 +877,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	whippeddream: {
 		inherit: true,
-		fling: {
-			basePower: 30,
-		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (move && move.type === 'Fairy') {
-				return this.chainModify([0x1333, 0x1000]);
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.add('-activate', pokemon, 'ability: Vital Spirit');
+				pokemon.cureStatus();
 			}
 		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Vital Spirit');
+			}
+			return false;
+		},
 		rating: 3,
-		desc: "Holder's Fairy-type attacks have 1.2x power. Evolves Swirlix into Slurpuff when traded.",
-		shortDesc: "Holder's Fairy-type attacks have 1.2x power.",
+		desc: "Holder cannot fall asleep. Gaining this item while asleep cures it. Evolves Swirlix into Slurpuff when traded.",
+		shortDesc: "Holder cannot fall asleep. Gaining this item while asleep cures it.",
 	},
 	wikiberry: {
 		inherit: true,
@@ -2242,10 +2290,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 	},
 	/* Consumable item flags*/
-	adrenalineorb: {
-		inherit: true,
-		consumable: true,
-	},
 	berryjuice: {
 		inherit: true,
 		consumable: true,
