@@ -299,4 +299,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lickilicky: {
 		tier: "MetaMons",
 	},
+	stoutland: {
+		tier: "MetaMons",
+	},
+	glimmet: {
+		tier: "MetaMons",
+	},
+	beartic: {
+		tier: "MetaMons",
+	},
 };
