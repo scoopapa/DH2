@@ -755,6 +755,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		shortDesc: "Holder's Bug-type attacks 1.2x power; applies Powder when Flung.",
 	},
 	snowball: {
+		inherit: true,
+		consumable: true,
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Ice' || (move.twoType && move.twoType === 'Ice')) {
+				target.useItem();
+			}
+		},
 		boosts: {
 			def: 1,
 		},
@@ -1329,15 +1336,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onBasePower(basePower, user, target, move) {
 			if (move && (move.type === 'Flying' || (move.twoType && move.twoType === 'Flying'))) {
 				return this.chainModify([0x1333, 0x1000]);
-			}
-		},
-	},
-	snowball: {
-		inherit: true,
-		consumable: true,
-		onDamagingHit(damage, target, source, move) {
-			if (move.type === 'Ice' || (move.twoType && move.twoType === 'Ice')) {
-				target.useItem();
 			}
 		},
 	},
