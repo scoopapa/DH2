@@ -826,7 +826,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Binding Band",
 		spritenum: 31,
 		fling: {
-			basePower: 30,
+			basePower: 60,
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
@@ -839,7 +839,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 5,
 		desc: "(Partially functional) Against trapped targets: 1.5x move power and accuracy.",
 	},
-// doing slingshot later
+	slingshot: {
+		name: "Slingshot",
+		spritenum: 387,
+		fling: {
+			basePower: 60,
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && source.hp && target.hp && move && 
+				(move.id === 'uturn' || move.id === 'voltswitch' || move.id === 'flipturn' || 
+				move.id === 'round' || move.id === 'rollout' || move.id === 'partingshot')) {
+				if (!source.isActive || !this.canSwitch(source.side) || source.forceSwitchFlag || target.forceSwitchFlag) {
+					return;
+				}
+				if (this.runEvent('DragOut', source, target, move)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+					source.forceSwitchFlag = true;
+				}
+			}
+		},
+		desc: "If hit by pivoting move: attacker takes 1/8 of their max HP in damage and is forced out.",
+	},	
 	
 // unchanged items
 	boosterenergy: {
