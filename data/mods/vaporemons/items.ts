@@ -830,7 +830,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (target.volatiles[trapped] || target.volatiles[partiallytrapped]) {
+			if (target.volatiles['trapped'] || target.volatiles['partiallytrapped']) {
 				return this.chainModify(1.5);
 			}
 		},
