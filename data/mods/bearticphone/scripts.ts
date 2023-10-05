@@ -98,13 +98,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			   feeters.sort(
 				   (a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
 			   );
-			   for (const feeter of feeters) {
-				   if (this.battle.faintMessages()) break;
-				   if (feeter.fainted) continue;
-				   this.battle.add('-activate', feeter, 'ability: Two Left Feet');
-			   	const dancersTarget = target.side !== feeter.side && pokemon.side === feeter.side ? target : pokemon;
-			   	this.runMove(move.id, feeter, this.getTargetLoc(dancersTarget, feeter), this.dex.abilities.get('feeter'), undefined, true);
-		   	}
 			   const targetOf1stDance = this.battle.activeTarget!;
 			   for (const feeter of feeters) {
 				   if (this.battle.faintMessages()) break;
