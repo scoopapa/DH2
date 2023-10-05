@@ -1099,7 +1099,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		},
 		onModifyDamage(relayVar, source, target, move) {
 			if (move.type === "Light") {
-				this.chainModify(2);
+				this.chainModify(1.5);
 			} else if (move.type === "Dark") {
 				this.chainModify(0.5);
 			}
@@ -1133,7 +1133,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		},
 		onModifyDamage(relayVar, source, target, move) {
 			if (move.type === "Dark") {
-				this.chainModify(2);
+				this.chainModify(1.5);
 			} else if (move.type === "Light") {
 				this.chainModify(0.5);
 			}

@@ -127,8 +127,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
+		onFoeSwitchIn(target) {
+			if (pokemon.monarch) return;
+			const pokemon = this.effectState.target;
+			for (const moveSlot of target.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.move);
+				if (move.category === 'Status') continue;
+				const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+				if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.add('-ability', pokemon, 'Tactical Monarch');
+						pokemon.monarch = true;
+						pokemon.switchFlag = true;
+					}
+			}
+		},
 		name: "Tactical Monarch",
-		shortDesc: "On switchin, switches out if the opponent has a supereffective move. Once per battle.",
+		shortDesc: "On switchin, or when the opponent switches in, switches out if the opponent has a supereffective move. Once per battle.",
 	},
 
 
