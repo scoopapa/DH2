@@ -785,7 +785,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (target.eatItem()) {
 					this.debug('kee activation');
 					this.add('-enditem', target, this.effect, '[weaken]');
-					return this.chainModify(1);
+					if (!target.getMoveHitData(move).crit) {
+						return this.chainModify(0.67);
+					}
 				}
 			}
 		},
@@ -811,7 +813,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (target.eatItem()) {
 					this.debug('maranga activation');
 					this.add('-enditem', target, this.effect, '[weaken]');
-					return this.chainModify(1);
+					if (!target.getMoveHitData(move).crit) {
+						return this.chainModify(0.67);
+					}
 				}
 			}
 		},
