@@ -1039,7 +1039,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.modify(atk, 1.5);
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (move && target.getMoveHitData(move).typeMod = 1) {
+			if (move && target.getMoveHitData(move).typeMod === 1) {
 				return this.chainModify(0.5);
 			}
 			else if (move && target.getMoveHitData(move).typeMod > 1) {
