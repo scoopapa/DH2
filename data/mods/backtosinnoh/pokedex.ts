@@ -475,11 +475,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	swablu: {
 		inherit: true,
-		abilities: {0: "Natural Cure", H: "Fluffy"},
+		abilities: {0: "Natural Cure", 1: "Fluffy"},
 	},
 	altaria: {
 		inherit: true,
-		abilities: {0: "Natural Cure", H: "Fluffy"},
+		abilities: {0: "Natural Cure", 1: "Fluffy"},
 	},
 	solrock: {
 		inherit: true,
