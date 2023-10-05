@@ -770,7 +770,77 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "Holder's neutral damamging moves deal 1.2x damage.",
 	},
-
+	keeberry: {
+		name: "Kee Berry",
+		spritenum: 593,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Fairy",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Physical') {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+				if (target.eatItem()) {
+					this.debug('kee activation');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(1);
+				}
+			}
+		},
+		onEat(pokemon) {
+			this.boost({def: 1});
+		},
+		num: 687,
+		gen: 6,
+		desc: "Raises holder's Defense by 1 stage before it is hit by a physical attack. Single use.",
+	},
+	marangaberry: {
+		name: "Maranga Berry",
+		spritenum: 597,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Dark",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Special') {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+				if (target.eatItem()) {
+					this.debug('maranga activation');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(1);
+				}
+			}
+		},
+		onEat(pokemon) {
+			this.boost({spd: 1});
+		},
+		num: 688,
+		gen: 6,
+		desc: "Raises holder's Sp. Defense by 1 stage before it is hit by a special attack. Single use.",
+	},
+	bindingband: {
+		name: "Binding Band",
+		spritenum: 31,
+		fling: {
+			basePower: 30,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (target.volatiles[trapped] || target.volatiles[partiallytrapped]) {
+				return this.chainModify(1.5);
+			}
+		},
+		// old effects removed in statuses
+		num: 544,
+		gen: 5,
+		desc: "(Partially functional) Against trapped targets: 1.5x move power and accuracy.",
+	},
+// doing slingshot later
+	
 // unchanged items
 	boosterenergy: {
 		name: "Booster Energy",
