@@ -822,19 +822,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 6,
 		desc: "Raises holder's Sp. Defense by 1 stage before it is hit by a special attack. Single use.",
 	},
-	bindingbands: {
-		name: "Binding Bands",
+	bindingband: {
+		name: "Binding Band",
 		spritenum: 31,
 		fling: {
 			basePower: 60,
 		},
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (target.volatiles['trapped'] || target.volatiles['partiallytrapped']) {
+			if (target.volatiles['trapped'] || target.volatiles['partiallytrapped'] || target.volatiles['sandspit']) {
 				return this.chainModify(1.5);
 			}
 		},
+		// other effects removed in statuses
 		desc: "(Partially functional) Against trapped targets: 1.5x move power and accuracy.",
+		num: 544,
+		gen: 5,
 	},
 	slingshot: {
 		name: "Slingshot",
