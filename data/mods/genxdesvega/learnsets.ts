@@ -3973,6 +3973,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	fishtol: {
 		learnset: {
+			octazooka: ["9L1"],
 			liquidation: ["9L1"],
 			razorshell: ["9L1"],
 			aquajet: ["9L1"],
@@ -3989,6 +3990,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	},
 	blunderbass: {
 		learnset: {
+			octazooka: ["9L1"],
 			liquidation: ["9L1"],
 			razorshell: ["9L1"],
 			aquajet: ["9L1"],
@@ -4827,7 +4829,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			poisonjab: ["9L1"],
 			sludgebomb: ["9L1"],
 			strengthsap: ["9L1"],
-			octozooka: ["9L1"],
+			octazooka: ["9L1"],
 			wrap: ["9L1"],
 			bind: ["9L1"],
 			constrict: ["9L1"],
@@ -4859,7 +4861,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			poisonjab: ["9L1"],
 			sludgebomb: ["9L1"],
 			strengthsap: ["9L1"],
-			octozooka: ["9L1"],
+			octazooka: ["9L1"],
 			wrap: ["9L1"],
 			bind: ["9L1"],
 			constrict: ["9L1"],

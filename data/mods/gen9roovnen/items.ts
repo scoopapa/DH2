@@ -1,17 +1,20 @@
 export const Items: {[k: string]: ModdedItemData} = {
 	absorbbulb: {
 		inherit: true,
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Water') {
-				this.boost({spa: 1})
-				this.add('-immune', target, '[from] item: Absorb Bulb');
-				target.useItem();
-				return null;
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Water' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.useItem()) {
+					this.debug('-25% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.75);
+				}
 			}
 		},
 		onDamagingHit() {},
-		boosts: {},
-		shortDesc: "Raises holder's SpA by 1, if hit by a Water-type attack; Water Immunity. Single Use.",
+		shortDesc: "Holder takes 75% damage from Water moves. +1 SpA. Single Use.",
 	},
 	assaultvest: {
 		inherit: true,
@@ -58,31 +61,37 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	cellbattery: {
 		inherit: true,
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Electric') {
-				this.boost({atk: 1})
-				this.add('-immune', target, '[from] item: Cell Battery');
-				target.useItem();
-				return null;
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Electric' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.useItem()) {
+					this.debug('-25% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.75);
+				}
 			}
 		},
 		onDamagingHit() {},
-		boosts: {},
-		shortDesc: "Raises holder's Atk by 1, if hit by a Electric-type attack; Electric Immunity. Single Use.",
+		shortDesc: "Holder takes 75% damage from Electric moves. +1 Atk. Single Use.",
 	},
 	luminousmoss: {
 		inherit: true,
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Water') {
-				this.boost({spd: 1})
-				this.add('-immune', target, '[from] item: Luminous Moss');
-				target.useItem();
-				return null;
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Water' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.useItem()) {
+					this.debug('-25% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.75);
+				}
 			}
 		},
 		onDamagingHit() {},
-		boosts: {},
-		shortDesc: "Raises holder's SpD by 1, if hit by a Water-type attack; Water Immunity. Single Use.",
+		shortDesc: "Holder takes 75% damage from Electric moves. +1 SpD. Single Use.",
 	},
 	punchingglove: {
 		inherit: true,
@@ -105,17 +114,20 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	snowball: {
 		inherit: true,
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Ice') {
-				this.boost({atk: 1})
-				this.add('-immune', target, '[from] item: Snowball');
-				target.useItem();
-				return null;
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Ice' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.useItem()) {
+					this.debug('-25% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.75);
+				}
 			}
 		},
 		onDamagingHit() {},
-		boosts: {},
-		shortDesc: "Raises holder's Attack by 1, if hit by a Ice-type attack; Ice Immunity. Single Use.",
+		shortDesc: "Holder takes 75% damage from Ice moves. +1 Atk. Single Use.",
 	},
 	souldew: {
 		inherit: true,
