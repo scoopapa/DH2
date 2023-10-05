@@ -173,7 +173,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
 			const lastAttackedBy = target.getLastAttackedBy();
 			if (!lastAttackedBy) return;
-			if ((moves.includes(move.id)) || moves.includes(move.name))) && source.ability != target.ability) {
+			if ((moves.includes(move.id)) || moves.includes(move.name))) && move.hasBounced === false) {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
