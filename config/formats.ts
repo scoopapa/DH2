@@ -1766,17 +1766,17 @@ export const Formats: FormatList = [
 		desc: [
 			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
 		],
-		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
 		banlist: [
 			'Alakazam', 'Excadrill-Base', 'Exploud', 'Lycanroc-Dusk', 'Naganadel-Base', 'Reuniclus-Base', 'Scizor', 'Scolipede-Base', 'Starmie-Base', 'Polteageist-Base',
-			'Polteageist-Antique', 'Baton Pass'
+			'Polteageist-Antique', 'Volcarona', 'Baton Pass'
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)') {
+				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)' && template.tier !== "Evo NFE!") {
 					return [set.species + ' is not legal in the Evolution Project format.'];
 				}
 			}
@@ -1795,13 +1795,13 @@ export const Formats: FormatList = [
 		],
 		gameType: 'doubles',
 		banlist: ['Scizor'],
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod'],
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
-				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)') {
+				if (template.tier !== 'Evo!' && template.tier !== 'Evo (NFE)' && template.tier !== "Evo NFE!") {
 					return [set.species + ' is not legal in the Evolution Project format.'];
 				}
 			}
