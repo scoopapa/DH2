@@ -2810,7 +2810,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	cinccino: {
-		tier: "PU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	gothita: {
@@ -4770,7 +4770,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		// natDexTier: "Uber",
 	},
 	irontreads: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 		// natDexTier: "UU",
 	},
@@ -4795,7 +4795,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		// natDexTier: "RU",
 	},
 	ironbundle: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 		// natDexTier: "Uber",
 	},

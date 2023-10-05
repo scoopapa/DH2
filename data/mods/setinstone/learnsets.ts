@@ -240,7 +240,7 @@ export const Learnsets: {["9L1"]: LearnsetData} = {
 			taunt: ["9L1"],
 			fling: ["9L1"],
 			switcheroo: ["9L1"],
-			accupressure: ["9L1"],
+			acupressure: ["9L1"],
 			burningjealousy: ["9L1"],
 			dynamicpunch: ["9L1"],
 			finalgambit: ["9L1"],
