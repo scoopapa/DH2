@@ -168,7 +168,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 292,
 	},
   twoleftfeet: {
-	 // Two Left Feet confusion copying implemented in scripts.ts
+		onAfterMoveSecondary(target, source, move) {
+			const moves = ["Axe Kick", "Chatter", "Confuse Ray", "Confusion", "Dizzy Punch", "Dynamic Punch", "Flatter", "Hurricane", "Magical Torque", "Psybeam", "Rock Climb", "Secret Power", "Shadow Panic", "Signal Beam", "Strange Steam", "Supersonic", "Swagger", "Sweet Kiss", "Teeter Dance", "Water Pulse"];
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			if ((moves.includes(move.id)) || moves.includes(move.name))) && source.ability != target.ability) {
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			}
+		},
     name: "Two Left Feet",
 	 shortDesc: "After another Pokemon uses a move that can cause confusion, this Pokemon uses the same move.",
     rating: 4,
