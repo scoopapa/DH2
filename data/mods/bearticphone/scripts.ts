@@ -105,7 +105,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			   	const dancersTarget = target.side !== feeter.side && pokemon.side === feeter.side ? target : pokemon;
 			   	this.runMove(move.id, feeter, this.getTargetLoc(dancersTarget, feeter), this.dex.abilities.get('feeter'), undefined, true);
 		   	}
-		   }
+			   const targetOf1stDance = this.battle.activeTarget!;
+			   for (const feeter of feeters) {
+				   if (this.battle.faintMessages()) break;
+				   if (dancer.fainted) continue;
+				   this.battle.add('-activate', feeter, 'ability: Two Left Feet');
+				   const dancersTarget = !targetOf1stDance.isAlly(twoleftfeet) && pokemon.isAlly(twoleftfeet) ?
+					   targetOf1stDance :
+					   pokemon;
+				   const dancersTargetLoc = feeter.getLocOf(dancersTarget);
+				   this.runMove(move.id, feeter, dancersTargetLoc, this.dex.abilities.get('twoleftfeet'), undefined, true);
+				}
+			}
 	   	if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 	   	this.battle.faintMessages();
 	   	this.battle.checkWin();
