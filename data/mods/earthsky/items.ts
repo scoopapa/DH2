@@ -799,6 +799,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 			flags: {bullet: 1},
+		},
   		consumable: true,
 	  	onDamagingHit(damage, target, source, move) {
 	  		if (move.type === 'Ice' || (move.twoType && move.twoType === 'Ice')) {
