@@ -574,6 +574,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 		this.modData("Learnsets", "lickilicky").learnset.chillyreception = ["9L1"];
 
+		this.modData("Learnsets", "stoutland").learnset.headcharge = ["9L1"];
+		this.modData("Learnsets", "stoutland").learnset.quickattack = ["9L1"];
+
+		this.modData("Learnsets", "glimmet").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "glimmet").learnset.calmmind = ["9L1"];
+		this.modData("Learnsets", "glimmet").learnset.strengthsap = ["9L1"];
+		this.modData("Learnsets", "glimmet").learnset.mortalspin = ["9L1"];
+
+		this.modData("Learnsets", "beartic").learnset.mountaingale = ["9L1"];
+
 		delete this.modData('Learnsets', 'bellossom').learnset.sleeppowder;
 
 		delete this.modData('Learnsets', 'dragalge').learnset.dracometeor;
