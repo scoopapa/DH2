@@ -2290,12 +2290,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			sideCondition: 'echochamber',
 		},
 	},
-	clangoroussoul: {
-		inherit: true,
-		self: {
-			sideCondition: 'echochamber',
-		},
-	},
 	echoedvoice: {
 		inherit: true,
 		self: {

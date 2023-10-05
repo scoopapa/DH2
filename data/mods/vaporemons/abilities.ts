@@ -1039,13 +1039,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.modify(atk, 1.5);
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (move && target.getMoveHitData(move).typeMod > 0) {
-				return target.getMoveHitData(move).typeMod === 0;
+			if (move && target.getMoveHitData(move).typeMod = 1) {
+				return this.chainModify(0.5);
+			}
+			else if (move && target.getMoveHitData(move).typeMod > 1) {
+				return this.chainModify(0.25);
 			}
 		},
 		name: "Blunt Force",
 		rating: 3.5,
-		shortDesc: "This Pokemon's physical moves have 1.5x power but can't be super effective.",
+		shortDesc: "(Mostly functional) This Pokemon's physical moves have 1.5x power but can't be super effective.",
 	},
 	waterveil: {
 		onStart(source) {
