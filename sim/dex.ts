@@ -231,7 +231,7 @@ export class ModdedDex {
 		source: {type: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): boolean {
-		// Edit for Earth & Sky - can't be done in mod's files
+		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files
 		let sourceType: string = "";
 		if(typeof source !== 'string'){
 			if(source.twoType){
@@ -257,7 +257,7 @@ export class ModdedDex {
 		source: {type: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): number {
-		// Edit for Earth & Sky - can't be done in mod's files
+		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files
 		let sourceType: string = "";
 		if(typeof source !== 'string'){
 			if(source.twoType){

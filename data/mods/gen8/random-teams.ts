@@ -3029,8 +3029,6 @@ export class RandomGen8Teams {
 			typeCount: {}, typeComboCount: {}, baseFormes: {}, has: {}, forceResult: forceResult,
 			weaknesses: {}, resistances: {},
 		};
-		const requiredMoveFamilies: string[] = [];
-		const requiredMoves: {[k: string]: string} = {};
 		const weatherAbilitiesSet: {[k: string]: string} = {
 			drizzle: 'raindance',
 			drought: 'sunnyday',
@@ -3044,31 +3042,29 @@ export class RandomGen8Teams {
 			thickfat: ['Ice', 'Fire'],
 			levitate: ['Ground'],
 		};
+		const limitFactor = Math.ceil(this.maxTeamSize / 6);
+		/**
+		 * Weighted random shuffle
+		 * Uses the fact that for two uniform variables x1 and x2, x1^(1/w1) is larger than x2^(1/w2)
+		 * with probability equal to w1/(w1+w2), which is what we want. See e.g. here https://arxiv.org/pdf/1012.0256.pdf,
+		 * original paper is behind a paywall.
+		 */
+		const shuffledSpecies = [];
+		for (const speciesName of pokemonPool) {
+			const sortObject = {
+				speciesName: speciesName,
+				score: Math.pow(this.prng.next(), 1 / this.randomBSSFactorySets[speciesName].usage),
+			};
+			shuffledSpecies.push(sortObject);
+		}
+		shuffledSpecies.sort((a, b) => a.score - b.score);
 
-		while (pokemonPool.length && pokemon.length < this.maxTeamSize) {
-			// Weighted random sampling
-			let maxUsage = 0;
-			const sets: {[k: string]: number} = {};
-			for (const specie of pokemonPool) {
-				if (teamData.baseFormes[this.dex.species.get(specie).baseSpecies]) continue; // Species Clause
-				const usage: number = this.randomBSSFactorySets[specie].usage;
-				sets[specie] = usage + maxUsage;
-				maxUsage += usage;
-			}
-
-			const usage = this.random(1, maxUsage);
-			let last = 0;
-			let specie;
-			for (const key of Object.keys(sets)) {
-				 if (usage > last && usage <= sets[key]) {
-					 specie = key;
-					 break;
-				 }
-				 last = sets[key];
-			}
-
+		while (shuffledSpecies.length && pokemon.length < this.maxTeamSize) {
+			// repeated popping from weighted shuffle is equivalent to repeated weighted sampling without replacement
+			const specie = shuffledSpecies.pop()!.speciesName;
 			const species = this.dex.species.get(specie);
 			if (!species.exists) continue;
+
 			if (this.forceMonotype && !species.types.includes(this.forceMonotype)) continue;
 
 			// Limit to one of each species (Species Clause)
@@ -3077,10 +3073,12 @@ export class RandomGen8Teams {
 			// Limit 2 of any type (most of the time)
 			const types = species.types;
 			let skip = false;
-			for (const type of types) {
-				if (teamData.typeCount[type] > 1 && this.randomChance(4, 5)) {
-					skip = true;
-					break;
+			if (!this.forceMonotype) {
+				for (const type of types) {
+					if (teamData.typeCount[type] >= 2 * limitFactor && this.randomChance(4, 5)) {
+						skip = true;
+						break;
+					}
 				}
 			}
 			if (skip) continue;
@@ -3094,7 +3092,7 @@ export class RandomGen8Teams {
 				// Drought and Drizzle don't count towards the type combo limit
 				typeCombo = set.ability;
 			}
-			if (typeCombo in teamData.typeComboCount) continue;
+			if (!this.forceMonotype && teamData.typeComboCount[typeCombo] >= limitFactor) continue;
 
 			const itemData = this.dex.items.get(set.item);
 			if (teamData.has[itemData.id]) continue; // Item Clause
@@ -3110,7 +3108,11 @@ export class RandomGen8Teams {
 					teamData.typeCount[type] = 1;
 				}
 			}
-			teamData.typeComboCount[typeCombo] = 1;
+			if (typeCombo in teamData.typeComboCount) {
+				teamData.typeComboCount[typeCombo]++;
+			} else {
+				teamData.typeComboCount[typeCombo] = 1;
+			}
 
 			teamData.baseFormes[species.baseSpecies] = 1;
 
@@ -3127,9 +3129,6 @@ export class RandomGen8Teams {
 					teamData.has[moveId]++;
 				} else {
 					teamData.has[moveId] = 1;
-				}
-				if (moveId in requiredMoves) {
-					teamData.has[requiredMoves[moveId]] = 1;
 				}
 			}
 
@@ -3151,15 +3150,12 @@ export class RandomGen8Teams {
 				}
 			}
 		}
-		if (pokemon.length < this.maxTeamSize) return this.randomBSSFactoryTeam(side, ++depth);
+		if (!teamData.forceResult && pokemon.length < this.maxTeamSize) return this.randomBSSFactoryTeam(side, ++depth);
 
-		// Quality control
-		if (!teamData.forceResult) {
-			for (const requiredFamily of requiredMoveFamilies) {
-				if (!teamData.has[requiredFamily]) return this.randomBSSFactoryTeam(side, ++depth);
-			}
+		// Quality control we cannot afford for monotype
+		if (!teamData.forceResult && !this.forceMonotype) {
 			for (const type in teamData.weaknesses) {
-				if (teamData.weaknesses[type] >= 3) return this.randomBSSFactoryTeam(side, ++depth);
+				if (teamData.weaknesses[type] >= 3 * limitFactor) return this.randomBSSFactoryTeam(side, ++depth);
 			}
 		}
 

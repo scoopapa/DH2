@@ -1,4 +1,52 @@
 export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
+	sparktus: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 4,
+	},
+	cactamp: {
+		tier: "NFE",
+		isNonstandard: null,
+		gen: 4,
+	},
+	succurent: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	kindlamb: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 4,
+	},
+	spaark: {
+		tier: "NFE",
+		isNonstandard: null,
+		gen: 4,
+	},
+	inferam: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	slapole: {
+		tier: "LC",
+		isNonstandard: null,
+		gen: 4,
+	},
+	strikroak: {
+		tier: "NFE",
+		isNonstandard: null,
+		gen: 4,
+	},
+	yamatoad: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+
+
+
 	bulbasaur: {
 		tier: "LC",
 	},
@@ -135,10 +183,10 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	golbat: {
-		tier: "OU",
+		tier: "NFE",
 	},
 	crobat: {
-		tier: "UUBL",
+		tier: "OU",
 	},
 	oddish: {
 		tier: "LC",
@@ -210,7 +258,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	kadabra: {
-		tier: "OU",
+		tier: "NFE",
 	},
 	alakazam: {
 		tier: "OU",
@@ -219,7 +267,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	machoke: {
-		tier: "OU",
+		tier: "NFE",
 	},
 	machamp: {
 		tier: "OU",
@@ -303,7 +351,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	haunter: {
-		tier: "OU",
+		tier: "NFE",
 	},
 	gengar: {
 		tier: "OU",
@@ -483,7 +531,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "OU",
 	},
 	espeon: {
-		tier: "NUBL",
+		tier: "OU",
 	},
 	umbreon: {
 		tier: "OU",
@@ -537,7 +585,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	dragonair: {
-		tier: "OU",
+		tier: "NFE",
 	},
 	dragonite: {
 		tier: "OU",
@@ -729,7 +777,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "OU",
 	},
 	heracross: {
-		tier: "UUBL",
+		tier: "OU",
 	},
 	sneasel: {
 		tier: "OU",
@@ -801,10 +849,10 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "OU",
 	},
 	raikou: {
-		tier: "UUBL",
+		tier: "OU",
 	},
 	entei: {
-		tier: "NUBL",
+		tier: "OU",
 	},
 	suicune: {
 		tier: "OU",
@@ -939,7 +987,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	vigoroth: {
-		tier: "OU",
+		tier: "NFE",
 	},
 	slaking: {
 		tier: "OU",
@@ -1215,7 +1263,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	metang: {
-		tier: "OU",
+		tier: "NFE",
 	},
 	metagross: {
 		tier: "OU",

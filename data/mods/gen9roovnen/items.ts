@@ -1,4 +1,21 @@
 export const Items: {[k: string]: ModdedItemData} = {
+	absorbbulb: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Water' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.useItem()) {
+					this.debug('-25% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.75);
+				}
+			}
+		},
+		onDamagingHit() {},
+		shortDesc: "Holder takes 75% damage from Water moves. +1 SpA. Single Use.",
+	},
 	assaultvest: {
 		inherit: true,
 		onDisableMove(pokemon) {
@@ -19,7 +36,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		shortDesc: "Holder gains 1.5x HP from draining/Aqua Ring/Ingrain/Leech Seed/Curing Rocks/Strength Sap.",
+		shortDesc: "Gains 1.5x HP from draining/Aqua Ring/Ingrain/Leech Seed/Curing Rocks/Strength Sap.",
 	},
 	brightpowder: {
 		name: "Bright Powder",
@@ -42,21 +59,47 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 2,
 		shortDesc: "This Pokemon's Speed is 1.5x and accuracy of its attacks is 0.8x.",
 	},
+	cellbattery: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Electric' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.useItem()) {
+					this.debug('-25% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.75);
+				}
+			}
+		},
+		onDamagingHit() {},
+		shortDesc: "Holder takes 75% damage from Electric moves. +1 Atk. Single Use.",
+	},
+	luminousmoss: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Water' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.useItem()) {
+					this.debug('-25% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.75);
+				}
+			}
+		},
+		onDamagingHit() {},
+		shortDesc: "Holder takes 75% damage from Electric moves. +1 SpD. Single Use.",
+	},
 	punchingglove: {
-		name: "Punching Glove",
-		spritenum: 0, // TODO
-		onBasePowerPriority: 23,
+		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
 				return this.chainModify([4915, 4096]);
 			}
 		},
-		onModifyMovePriority: 1,
-		onModifyMove(move) {
-			if (move.flags['punch']) delete move.flags['contact'];
-		},
-		num: 1884,
-		gen: 9,
 		shortDesc: "Holder's punch-based attacks have 1.2x power and do not make contact.",
 	},
 	shellbell: {
@@ -69,12 +112,26 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		shortDesc: "After an attack, holder gains 1/3 of the damage dealt.",
 	},
-	souldew: {
-		name: "Soul Dew",
-		spritenum: 459,
-		fling: {
-			basePower: 30,
+	snowball: {
+		inherit: true,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (
+				move.type === 'Ice' &&
+				(!target.volatiles['substitute'] || move.flags['bypasssub'] || (move.infiltrates && this.gen >= 6))
+			) {
+				if (target.useItem()) {
+					this.debug('-25% reduction');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					return this.chainModify(0.75);
+				}
+			}
 		},
+		onDamagingHit() {},
+		shortDesc: "Holder takes 75% damage from Ice moves. +1 Atk. Single Use.",
+	},
+	souldew: {
+		inherit: true,
+		onBasePower() {},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.baseSpecies.num === 380 || pokemon.baseSpecies.num === 381) {
@@ -87,10 +144,19 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		itemUser: ["Latios", "Latias"],
 		shortDesc: "If held by a Latias or a Latios, its Sp. Atk and Sp. Def are 1.5x.",
-		num: 225,
-		gen: 3,
+		isNonstandard: null,
+	},
+	thickclub: {
+		inherit: true,
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Cubone' || pokemon.baseSpecies.baseSpecies === 'Marowak' || pokemon.baseSpecies.baseSpecies === 'Glacone' || pokemon.baseSpecies.baseSpecies === 'Oetzowak') {
+				return this.chainModify(2);
+			}
+		},
+		shortDesc: "If held by a Cubone or its evolutions, its Attack is doubled.",
+		isNonstandard: null,
 	},
 	utilityumbrella: {
 		inherit: true,
@@ -127,7 +193,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			const success = this.boost({spe: -1}, pokemon, pokemon, null, false, true);
 			return !!(this.heal(spe / 4, pokemon, pokemon) || success);
 		},
-		num: 1887,
+		num: 2409,
 		gen: 9,
 		shortDesc: "The user is healed by 1/4 of its Spe. Lowers user's Speed by 1.",
 	},
@@ -158,9 +224,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 			return false;
 		},
-		num: 1888,
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (['hail', 'snow'].includes(this.field.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		num: 2410,
 		gen: 9,
-		shortDesc: "The user takes 1/2 damage from Ice-type moves and cannot be frozen.",
+		shortDesc: "Holder takes 1/2 damage from Ice moves; Cannot be frozen. Hail: 1.5x Def.",
 	},
 	solarpanel: {
 		name: "Solar Panel",
@@ -177,7 +249,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				this.damage(pokemon.baseMaxhp / 16);
 			}
 		},
-		num: 1889,
+		num: 2411,
 		gen: 9,
 		shortDesc: "Each turn, if Sunny Day is a active, restores 1/8 max HP; loses 1/16 if not.",
 	},
@@ -196,7 +268,7 @@ export const Items: {[k: string]: ModdedItemData} = {
             }
         },
 		shortDesc: "The user raises its Attack when hazards are used against it.",
-		num: 1890,
+		num: 2412,
 		gen: 9,
 	},
 	electriccasing: {
@@ -221,7 +293,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(0.75);
 			}
 		},
-		num: 1891,
+		num: 2413,
 		gen: 9,
 		shortDesc: "The holder's defenses are 1.3x under Electric Terrain; 0.75x if not.",
 	},
@@ -245,7 +317,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		itemUser: ["Latakuno"],
 		shortDesc: "If held by a Latakuno, its Attack and Defense are 1.5x.",
-		num: 1892,
+		num: 2414,
 		gen: 9,
 	},
 };

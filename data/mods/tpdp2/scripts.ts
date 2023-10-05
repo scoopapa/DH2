@@ -14,68 +14,124 @@ function mergeCallback(
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 6,
 	inherit: 'gen6',
+	teambuilderConfig: {
+		// for micrometas to only show custom tiers
+		excludeStandardTiers: true,
+		// only to specify the order of custom tiers
+		customTiers: ['TPDP OU', 'TPDP LC'],
+	},
 	pokemon: {
-		// todo: deal with multiple statuses in the following two functions
-		// protocol: use `000` to connect statuses, e.g. `brn000psn`
-		getStatus(status: string | Condition) {
-			status = this.battle.dex.conditions.get(status);
-			if (status.includes('000')) return this.battle.dex.conditions.getByID(this.status);
-			const statuses = (status.split('000') as ID[]).map(this.battle.dex.conditions.getByID);
-			if (statuses[0].id === statuses[1].id && (statuses[0] as any).stackCondition) {
-				return this.battle.dex.conditions.getByID((statuses[0] as any).stackCondition)
-			}
-			// this is all we need
-			const properties = [
-				'onStart', 'onResidual', 'onSwitchIn', 'onEnd',
-				'onModifyAtk', 'onModifyDef', 'onModifySpA', 'onModifySpD', 'onModifySpe',
-				'onAccuracy', 'onBeforeMove', 'onDeductPP', 'onDisableMove', 'onTryHeal',
-			];
-			let resultStatus = this.battle.dex.deepClone(statuses[0]);
-			for (const prop of properties) {
-				resultStatus[prop] = mergeCallback((statuses[0] as any)[prop], (statuses[1] as any)[prop])
-			}
-			return resultStatus;
+		trySetStatus(status: string | Condition, source: Pokemon | null = null, sourceEffect: Effect | null = null) {
+			return this.setStatus(status, source, sourceEffect);
 		},
 		setStatus(
-			status: string | Condition,
+		status: string | Condition,
+		source: Pokemon | null = null,
+		sourceEffect: Effect | null = null,
+		ignoreImmunities = false
+	) {
+		if (!this.hp) return false;
+		status = this.battle.dex.conditions.get(status);
+		if (this.battle.event) {
+			if (!source) source = this.battle.event.source;
+			if (!sourceEffect) sourceEffect = this.battle.effect;
+		}
+		if (!source) source = this;
+		
+		if (this.status.length !== 0) {
+			return this.setStatusTwo(this.status, source, sourceEffect, false, status);
+		}
+
+		if (!ignoreImmunities && status.id &&
+				!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
+			// the game currently never ignores immunities
+			if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+				this.battle.debug('immune to status');
+				if ((sourceEffect as Move)?.status) {
+					this.battle.add('-immune', this);
+				}
+				return false;
+			}
+		}
+		const prevStatus = this.status;
+		const prevStatusState = this.statusState;
+		if (status.id) {
+			const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+			if (!result) {
+				this.battle.debug('set status [' + status.id + '] interrupted');
+				return result;
+			}
+		}
+
+		this.status = status.id;
+		this.statusState = {id: status.id, target: this};
+		if (source) this.statusState.source = source;
+		if (status.duration) this.statusState.duration = status.duration;
+		if (status.durationCallback) {
+			this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+		}
+
+		if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
+			this.battle.debug('status start [' + status.id + '] interrupted');
+			// cancel the setstatus
+			this.status = prevStatus;
+			this.statusState = prevStatusState;
+			return false;
+		}
+		if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+			return false;
+		}
+		return true;
+	},
+		setStatusTwo(
+			currentStatus: string | Condition,
 			source: Pokemon | null = null,
 			sourceEffect: Effect | null = null,
-			ignoreImmunities = false
+			ignoreImmunities = false,
+			newStatus: string | string[] | Condition | Condition[],
 		) {
+			if (Array.isArray(newStatus)) {
+				for (const s of newStatus) {
+					this.setStatus(s);
+				}
+				return;
+			}
 			if (!this.hp) return false;
-			status = this.battle.dex.conditions.get(status);
+			newStatus = this.battle.dex.conditions.get(newStatus);
+			
 			if (this.battle.event) {
 				if (!source) source = this.battle.event.source;
 				if (!sourceEffect) sourceEffect = this.battle.effect;
 			}
 			if (!source) source = this;
 
-			// Nihilslave: here
-			const slotsInUse = (this.status.split('000') as ID[])
-				.map(this.battle.dex.conditions.getByID)
-				.map(value => (value as any).statusSlots as number)
-				.reduce((prevValue, currValue) => prevValue + currValue, 0);
-			if (slotsInUse >= 2) {
-				this.battle.add('-fail', source);
-				this.battle.attrLastMove('[still]');
-				return false;
+			if (currentStatus === newStatus.id) {
+				console.log("this");
+				if (newStatus.stackCondition && this.status.length < 6) {
+					delete this.status[newStatus.id];
+					newStatus = this.battle.dex.conditions.get(newStatus.stackCondition);
+				} else if ((sourceEffect as Move)?.status) {
+					this.battle.add('-fail', source);
+					this.battle.attrLastMove('[still]');
+					return false;
+				}
+			} else if (this.status) {
+				if(this.status.length < 6 && !['stp', 'hvybrn', 'hvypsn', 'shk', 'weakheavy'].includes(this.status)) {
+					newStatus.id = this.status + newStatus.id;
+					delete this.status;
+				} else {
+					this.battle.add('-fail', source);
+					this.battle.attrLastMove('[still]');
+					return false;
+				}
 			}
-			// if (this.status === status.id) {
-			// 	if ((sourceEffect as Move)?.status === this.status) {
-			// 		this.battle.add('-fail', this, this.status);
-			// 	} else if ((sourceEffect as Move)?.status) {
-			// 		this.battle.add('-fail', source);
-			// 		this.battle.attrLastMove('[still]');
-			// 	}
-			// 	return false;
-			// }
 
-			if (!ignoreImmunities && status.id &&
-					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(status.id))) {
+			if (!ignoreImmunities && newStatus.id &&
+					!(source?.hasAbility('corrosion') && ['tox', 'psn'].includes(newStatus.id))) {
 				// the game currently never ignores immunities
-				if (!this.runStatusImmunity(status.id === 'tox' ? 'psn' : status.id)) {
+				if (!this.runStatusImmunity(newStatus.id === 'tox' ? 'psn' : newStatus.id)) {
 					this.battle.debug('immune to status');
-					if ((sourceEffect as Move)?.status) {
+					if ((sourceEffect as Move)?.newStatus) {
 						this.battle.add('-immune', this);
 					}
 					return false;
@@ -83,30 +139,30 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			const prevStatus = this.status;
 			const prevStatusState = this.statusState;
-			if (status.id) {
-				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
+			if (newStatus.id) {
+				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, newStatus);
 				if (!result) {
-					this.battle.debug('set status [' + status.id + '] interrupted');
+					this.battle.debug('set status [' + newStatus.id + '] interrupted');
 					return result;
 				}
 			}
-
-			this.status = status.id;
-			this.statusState = {id: status.id, target: this};
+			
+			this.status = newStatus.id;
+			this.statusState = {id: newStatus.id, target: this};
 			if (source) this.statusState.source = source;
-			if (status.duration) this.statusState.duration = status.duration;
-			if (status.durationCallback) {
-				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+			if (newStatus.duration) this.statusState.duration = newStatus.duration;
+			if (newStatus.durationCallback) {
+				this.statusState.duration = newStatus.durationCallback.call(this.battle, this, source, sourceEffect);
 			}
 
-			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
-				this.battle.debug('status start [' + status.id + '] interrupted');
+			if (newStatus.id && !this.battle.singleEvent('Start', newStatus, this.statusState, this, source, sourceEffect)) {
+				this.battle.debug('status start [' + newStatus.id + '] interrupted');
 				// cancel the setstatus
 				this.status = prevStatus;
 				this.statusState = prevStatusState;
 				return false;
 			}
-			if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
+			if (newStatus.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, newStatus)) {
 				return false;
 			}
 			return true;

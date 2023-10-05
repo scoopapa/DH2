@@ -185,6 +185,8 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	readonly gmaxUnreleased?: boolean;
 	/** True if a Pokemon species is incapable of dynamaxing */
 	readonly cannotDynamax?: boolean;
+	/** The Tera Type this Pokemon is forced to use */
+	readonly forceTeraType?: string;
 	/** What it transforms from, if a pokemon is a forme that is only accessible in battle. */
 	readonly battleOnly?: string | string[];
 	/** Required item. Do not use this directly; see requiredItems. */
@@ -434,10 +436,7 @@ export class DexSpecies {
 		}
 		if (id && this.dex.data.Pokedex.hasOwnProperty(id)) {
 			const pokedexData = this.dex.data.Pokedex[id];
-			let baseSpeciesTags = [];
-			if (this.dex.data.Pokedex[toID(pokedexData.baseSpecies)]) {
-				baseSpeciesTags = pokedexData.baseSpecies && this.dex.data.Pokedex[toID(pokedexData.baseSpecies)].tags;
-			}
+			const baseSpeciesTags = pokedexData.baseSpecies && this.dex.data.Pokedex[toID(pokedexData.baseSpecies)].tags;
 			species = new Species({
 				tags: baseSpeciesTags,
 				...pokedexData,

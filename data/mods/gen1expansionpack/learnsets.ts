@@ -316,6 +316,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			reflect: ["1M"],
 			metronome: ["1M"],
 			psywave: ["1M"],
+			surf: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -368,6 +369,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			reflect: ["1M"],
 			metronome: ["1M"],
 			psywave: ["1M"],
+			surf: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -1071,7 +1073,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	cheep: {
 		learnset: {
-			bubble: ["1L17"],
+			peck: ["1L1"],
+			bubble: ["1L1", "1L17"],
 			counter: ["1L19", "1L25", "1M"],
 			bubblebeam: ["1L21", "1M"],
 			lowkick: ["1L23"],
@@ -1080,7 +1083,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["1L36"],
 			highjumpkick: ["1L40"],
 			strength: ["1L42", "1M"],
-			hydropump: ["1L48"],
+			hydropump: ["1L44"],
+			drillpeck: ["1L48"],
 			megapunch: ["1M"],
 			megakick: ["1M"],
 			bodyslam: ["1M"],
@@ -1115,7 +1119,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	jabetta: {
 		learnset: {
-			bubble: ["1L17"], //had the same learn levels iirc
+			peck: ["1L1"],
+			bubble: ["1L1", "1L17"], //had the same learn levels iirc
 			counter: ["1L19", "1L25", "1M"],
 			bubblebeam: ["1L21", "1M"],
 			lowkick: ["1L23"],
@@ -1124,7 +1129,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["1L36"],
 			highjumpkick: ["1L40"],
 			strength: ["1L42", "1M"],
-			hydropump: ["1L48"],
+			hydropump: ["1L46"],
+			drillpeck: ["1L52"],
 			megapunch: ["1M"],
 			megakick: ["1M"],
 			bodyslam: ["1M"],
@@ -1211,6 +1217,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swift: ["1M"],
 			skullbash: ["1M"],
 			thunderwave: ["1M"],
+			flash: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -1248,6 +1255,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swift: ["1M"],
 			skullbash: ["1M"],
 			thunderwave: ["1M"],
+			flash: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -1283,6 +1291,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swift: ["1M"],
 			skullbash: ["1M"],
 			thunderwave: ["1M"],
+			flash: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -1766,7 +1775,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	kokana: {
+	gentlarva: {
 		learnset: {
 			leechlife: ["1L1"],
 			stringshot: ["1L1"],
@@ -2619,6 +2628,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			strength: ["1M"],
 			flash: ["1M"],
+			flamethrower: ["2T"],
 			
 			earthquake: ["1M"],
 			fissure: ["1M"],

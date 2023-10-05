@@ -199,4 +199,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Poketypos",
 		doublesTier: "Poketypos",
 	},
+	sinistcha: {
+		tier: "Poketypos",
+		doublesTier: "Poketypos",
+	},
 };

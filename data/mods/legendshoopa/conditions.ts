@@ -309,9 +309,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			this.effectState.time = this.effectState.startTime;
 		},
-
+		onFoeBasePowerPriority: 17,
+		onFoeBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.target !== defender) return;
+			return this.chainModify(1.33);
+		},
+		
 		onBeforeMovePriority: 1,
-		onBeforeMove(pokemon) {
+		onBeforeMove(target, source, move) {
+			if ((move.id === 'wildcharge' || move.id === 'spark' || move.id === 'volttackle') && move.category !== 'Status') {
+				target.cureStatus();
+			}
 			if (this.field.isWeather('hail')) {
 				if (this.randomChance(1, 1.5)) {
 					this.add('cant', pokemon, 'slp');
@@ -322,19 +330,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 					this.add('cant', pokemon, 'slp');
 					return false;
 				}
-			}
-		},
-
-		onFoeBasePowerPriority: 17,
-		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.target !== defender) return;
-			return this.chainModify(1.33);
-		},
-
-
-		onBeforeMove(target, source, move) {
-			if ((move.id === 'wildcharge' || move.id === 'spark' || move.id === 'volttackle') && move.category !== 'Status') {
-				target.cureStatus();
 			}
 		},
 

@@ -1097,10 +1097,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {},
 		volatileStatus: 'callofthedead',
-		onPrepareHit(pokemon) {
+		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Destiny Bond", target);
-			return !pokemon.removeVolatile('callofthedead');
+			return !target.removeVolatile('callofthedead');
 		},
 		condition: {
 			onStart(pokemon) {
@@ -1549,8 +1549,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target, source, move) {
 			if (!target.setStatus('stp', source, move)) return false;
-			target.statusData.time = 3;
-			target.statusData.startTime = 3;
+			target.statusState.time = 3;
+			target.statusState.startTime = 3;
 			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
 		},
 	},
@@ -2528,7 +2528,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(target) {
 				this.add('-message', `${target.name} was seeded!`);
-				this.add('-start', target, 'move: Leech Seed', '[silent]');
+				this.add('-start', target, 'move: Drain Seed', '[silent]');
 			},
 			onResidualOrder: 8,
 			onResidual(pokemon) {
@@ -3175,10 +3175,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 4,
 		flags: {},
 		volatileStatus: 'falsecourage',
-		onPrepareHit(pokemon) {
+		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Endure", target);
-			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+			return !!this.queue.willAct() && this.runEvent('StallMove', target);
 		},
 		onHit(pokemon) {
 			pokemon.addVolatile('stall');
@@ -3564,8 +3564,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			return move.basePower;
 		},
-		onHit(target, source, move) {
-			target.clearItem();
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Fire Wall', '[of] ' + source);
+				}
+			}
 		},
 		// Class: 2
 		// Effect Chance: 100
@@ -6207,7 +6212,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (target === source || move.flags['authentic'] || move.infiltrates) {
 					return;
 				}
-				let damage = this.getDamage(source, target, move);
+				let damage = this.actions.getDamage(source, target, move);
 				if (!damage && damage !== 0) {
 					this.add('-fail', source);
 					this.attrLastMove('[still]');
