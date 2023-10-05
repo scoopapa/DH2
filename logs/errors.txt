@@ -1473,3 +1473,190 @@ Error [ERR_IPC_DISCONNECTED]: IPC channel is already disconnected
     at ChildProcess.emit (node:domain:489:12)
     at finish (node:internal/child_process:921:14)
     at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+ReferenceError: trapped is not defined
+    at Battle.onBasePower (C:\Users\rosef\Documents\GitHub\DH2\dist\data\mods\vaporemons\items.js:864:28)
+    at Battle.runEvent (C:\Users\rosef\Documents\GitHub\DH2\dist\sim\battle.js:663:38)
+    at BattleActions.getDamage (C:\Users\rosef\Documents\GitHub\DH2\dist\sim\battle-actions.js:1475:29)
+    at BattleActions.getSpreadDamage (C:\Users\rosef\Documents\GitHub\DH2\dist\sim\battle-actions.js:1037:30)
+    at BattleActions.spreadMoveHit (C:\Users\rosef\Documents\GitHub\DH2\dist\sim\battle-actions.js:974:19)
+    at BattleActions.hitStepMoveHitLoop (C:\Users\rosef\Documents\GitHub\DH2\dist\sim\battle-actions.js:847:40)
+    at BattleActions.trySpreadMoveHit (C:\Users\rosef\Documents\GitHub\DH2\dist\sim\battle-actions.js:526:31)
+    at BattleActions.useMoveInner (C:\Users\rosef\Documents\GitHub\DH2\dist\sim\battle-actions.js:463:25)
+    at BattleActions.useMove (C:\Users\rosef\Documents\GitHub\DH2\dist\sim\battle-actions.js:340:29)
+    at BattleActions.runMove (C:\Users\rosef\Documents\GitHub\DH2\dist\sim\battle-actions.js:286:35)
+
+Additional information:
+  chunk = >p2 move 2
+  inputLog = 
+>start {"formatid":"gen9vaporemons","seed":[14887,2621,56901,10418]}
+>player p1 {"name":"hbethetnht","avatar":"102","team":"Bronzong||KeeBerry|Levitate|rebuild,echochamber,StealthRock,MetalSound|Calm|252,,,4,252,|N|,0,,,,|||,,,,,Steel]Kommo-o||ThroatSpray|Bulletproof|ClangorousSoul,ClangingScales,Flamethrower,echochamber|Timid|,,,252,4,252|||||,,,,,Dragon]Milotic||MarangaBerry|WaterVeil|Scald,Moonblast,Recover,FlipTurn|Bold|252,,252,4,,|||||,,,,,Water]Sandy Shocks||BindingBand|SandSpit|EarthPower,Thunderbolt,VoltSwitch,Spikes|Timid|,,,252,4,252|N|,0,,,,|||,,,,,Electric]Iron Moth||Slingshot|Exoskeleton|FieryDance,Uturn,SludgeWave,MorningSun|Timid|,,,252,4,252|N||||,,,,,Fire]Sylveon||Slingshot|Pixilate|Round,HyperVoice,Wish,Protect|Bold|252,,252,4,,||,0,,,,|||,,,,,Fairy","rating":0}
+>player p2 {"name":"piikiki4","avatar":"schoolkid-gen4","team":"Tinkaton||LifeOrb|BluntForce|SwordsDance,GigatonHammer,KnockOff,PlayRough|Jolly|,252,,,4,252|F||||,,,,,Fairy]Toxapex||Leftovers|Regenerator|washaway,KnockOff,BodyPress,Recover|Relaxed|252,4,252,,,|||||,,,,,Poison]Wo-Chien||KeeBerry|ShieldDust|LeechSeed,JungleHealing,KnockOff,Ruination|Relaxed|252,4,252,,,|N||||,,,,,Dark]Leafeon||LifeOrb|Sharpness|SwordsDance,LeafBlade,KnockOff,XScissor|Jolly|,252,,,4,252|||||,,,,,Grass]Bronzong||KeeBerry|Levitate|rebuild,echochamber,StealthRock,MetalSound|Calm|252,,,4,252,|N||||,,,,,Steel]Kommo-o||ThroatSpray|Bulletproof|ClangorousSoul,ClangingScales,Flamethrower,echochamber|Timid|,,,252,4,252|||||,,,,,Dragon","rating":0}
+>p1 team 6, 2, 3, 4, 5, 1
+>p2 team 1, 2, 3, 4, 5, 6
+>p1 move round
+>p2 move gigatonhammer
+>p1 switch 2
+>p1 move echochamber
+>p2 move knockoff
+>p1 move echochamber
+>p2 switch 4
+>p1 move echochamber
+>p2 switch 2
+>p1 move echochamber
+>p2 move washaway
+>p1 move sludgewave
+>p2 switch 3
+>p1 move uturn
+>p2 move junglehealing
+>p1 switch 4
+>p1 move earthpower
+>p2 move junglehealing
+  log = 
+|t:|1696537178
+|gametype|singles
+|player|p1|hbethetnht|102|
+|player|p2|piikiki4|schoolkid-gen4|
+|teamsize|p1|6
+|teamsize|p2|6
+|gen|9
+|tier|[Gen 9] VaporeMons
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Items Clause: Evasion items are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Terastal Clause: You cannot Terastallize
+|clearpoke
+|poke|p1|Bronzong|
+|poke|p1|Kommo-o, M|
+|poke|p1|Milotic, M|
+|poke|p1|Sandy Shocks|
+|poke|p1|Iron Moth|
+|poke|p1|Sylveon, F|
+|poke|p2|Tinkaton, F|
+|poke|p2|Toxapex, M|
+|poke|p2|Wo-Chien|
+|poke|p2|Leafeon, F|
+|poke|p2|Bronzong|
+|poke|p2|Kommo-o, M|
+|teampreview
+|
+|t:|1696537183
+|start
+|switch|p1a: Sylveon|Sylveon, F|394/394
+|switch|p2a: Tinkaton|Tinkaton, F|311/311
+|-start|p2a: Tinkaton|typechange|Fairy/Steel|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Tinkaton</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Fairy.png" alt="Fairy" height="14" width="32"><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png" alt="Steel" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Mold Breaker / Counteract / Blunt Force</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>75</span> <span class="col statcol"><em>Def</em><br>77</span> <span class="col statcol"><em>SpA</em><br>70</span> <span class="col statcol"><em>SpD</em><br>105</span> <span class="col statcol"><em>Spe</em><br>94</span> </span></li><li style="clear: both"></li></ul>
+|turn|1
+|
+|t:|1696537188
+|move|p2a: Tinkaton|Gigaton Hammer|p1a: Sylveon
+|-supereffective|p1a: Sylveon
+|-damage|p1a: Sylveon|393/394
+|-damage|p2a: Tinkaton|280/311|[from] item: Life Orb
+|move|p1a: Sylveon|Round|p2a: Tinkaton
+|-resisted|p2a: Tinkaton
+|-damage|p2a: Tinkaton|241/311
+|
+|t:|1696537691
+|switch|p1a: Kommo-o|Kommo-o, M|291/291|[from] Round
+|
+|upkeep
+|turn|2
+|
+|t:|1696537697
+|move|p2a: Tinkaton|Knock Off|p1a: Kommo-o
+|-resisted|p1a: Kommo-o
+|-damage|p1a: Kommo-o|223/291
+|-enditem|p1a: Kommo-o|Throat Spray|[from] move: Knock Off|[of] p2a: Tinkaton
+|-damage|p2a: Tinkaton|210/311|[from] item: Life Orb
+|move|p1a: Kommo-o|Echo Chamber||[still]
+|-anim|p1a: Kommo-o|Hyper Voice|p2a: Tinkaton
+|-damage|p2a: Tinkaton|44/311
+|
+|upkeep
+|turn|3
+|
+|t:|1696537712
+|switch|p2a: Leafeon|Leafeon, F|271/271
+|-start|p2a: Leafeon|typechange|Grass|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Leafeon</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png" alt="Grass" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Chlorophyll / Sharpness</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>65</span> <span class="col statcol"><em>Atk</em><br>110</span> <span class="col statcol"><em>Def</em><br>130</span> <span class="col statcol"><em>SpA</em><br>60</span> <span class="col statcol"><em>SpD</em><br>65</span> <span class="col statcol"><em>Spe</em><br>95</span> </span></li><li style="clear: both"></li></ul>
+|move|p1a: Kommo-o|Echo Chamber||[still]
+|-anim|p1a: Kommo-o|Hyper Voice|p2a: Leafeon
+|-damage|p2a: Leafeon|75/271
+|
+|upkeep
+|turn|4
+|
+|t:|1696537734
+|switch|p2a: Toxapex|Toxapex, M|304/304
+|-start|p2a: Toxapex|typechange|Dark/Water|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Toxapex</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"><img src="https://play.pokemonshowdown.com/sprites/types/Water.png" alt="Water" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Battle Spines / Merciless / Regenerator</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>50</span> <span class="col statcol"><em>Atk</em><br>63</span> <span class="col statcol"><em>Def</em><br>152</span> <span class="col statcol"><em>SpA</em><br>53</span> <span class="col statcol"><em>SpD</em><br>142</span> <span class="col statcol"><em>Spe</em><br>35</span> </span></li><li style="clear: both"></li></ul>
+|move|p1a: Kommo-o|Echo Chamber||[still]
+|-anim|p1a: Kommo-o|Hyper Voice|p2a: Toxapex
+|-resisted|p2a: Toxapex
+|-crit|p2a: Toxapex
+|-damage|p2a: Toxapex|250/304
+|
+|-heal|p2a: Toxapex|269/304|[from] item: Leftovers
+|upkeep
+|turn|5
+|
+|t:|1696537740
+|move|p1a: Kommo-o|Echo Chamber||[still]
+|-anim|p1a: Kommo-o|Hyper Voice|p2a: Toxapex
+|-resisted|p2a: Toxapex
+|-damage|p2a: Toxapex|220/304
+|move|p2a: Toxapex|Wash Away||[still]
+|-anim|p2a: Toxapex|Surf|p1a: Kommo-o
+|-resisted|p1a: Kommo-o
+|-damage|p1a: Kommo-o|198/291
+|drag|p1a: Iron Moth|Iron Moth|301/301
+|-start|p1a: Iron Moth|typechange|Fire/Poison|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Iron Moth</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Fire.png" alt="Fire" height="14" width="32"><img src="https://play.pokemonshowdown.com/sprites/types/Poison.png" alt="Poison" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Photon Drive / Exoskeleton</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>80</span> <span class="col statcol"><em>Atk</em><br>70</span> <span class="col statcol"><em>Def</em><br>60</span> <span class="col statcol"><em>SpA</em><br>140</span> <span class="col statcol"><em>SpD</em><br>110</span> <span class="col statcol"><em>Spe</em><br>110</span> </span></li><li style="clear: both"></li></ul>
+|
+|-heal|p2a: Toxapex|239/304|[from] item: Leftovers
+|upkeep
+|turn|6
+|
+|t:|1696537764
+|switch|p2a: Wo-Chien|Wo-Chien|374/374
+|-start|p2a: Wo-Chien|typechange|Dark/Grass|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Wo-Chien</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png" alt="Dark" height="14" width="32"><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png" alt="Grass" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Tablets of Ruin / Shield Dust</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>85</span> <span class="col statcol"><em>Def</em><br>100</span> <span class="col statcol"><em>SpA</em><br>95</span> <span class="col statcol"><em>SpD</em><br>135</span> <span class="col statcol"><em>Spe</em><br>70</span> </span></li><li style="clear: both"></li></ul>
+|move|p1a: Iron Moth|Sludge Wave|p2a: Wo-Chien
+|-supereffective|p2a: Wo-Chien
+|-damage|p2a: Wo-Chien|201/374
+|
+|upkeep
+|turn|7
+|
+|t:|1696537773
+|move|p1a: Iron Moth|U-turn|p2a: Wo-Chien
+|-supereffective|p2a: Wo-Chien
+|-enditem|p2a: Wo-Chien|Kee Berry|[eat]
+|-boost|p2a: Wo-Chien|def|1|[from] item: Kee Berry
+|-enditem|p2a: Wo-Chien|Kee Berry|[weaken]
+|-damage|p2a: Wo-Chien|93/374
+|
+|t:|1696537785
+|switch|p1a: Sandy Shocks|Sandy Shocks|311/311|[from] U-turn
+|-start|p1a: Sandy Shocks|typechange|Electric/Ground|[silent]
+|raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">Sandy Shocks</span> <span class="col typecol"><img src="https://play.pokemonshowdown.com/sprites/types/Electric.png" alt="Electric" height="14" width="32"><img src="https://play.pokemonshowdown.com/sprites/types/Ground.png" alt="Ground" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">Protocrysalis / Sand Spit</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>
+|raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>85</span> <span class="col statcol"><em>Atk</em><br>81</span> <span class="col statcol"><em>Def</em><br>97</span> <span class="col statcol"><em>SpA</em><br>121</span> <span class="col statcol"><em>SpD</em><br>85</span> <span class="col statcol"><em>Spe</em><br>101</span> </span></li><li style="clear: both"></li></ul>
+|move|p2a: Wo-Chien|Jungle Healing|p2a: Wo-Chien
+|-heal|p2a: Wo-Chien|216/374
+|
+|upkeep
+|turn|8
+|
+|t:|1696537791
+|move|p1a: Sandy Shocks|Earth Power|p2a: Wo-Chien
+
