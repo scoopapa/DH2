@@ -14,4 +14,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
   cradily: {
     tier: "Paleomons",
   },
+	helioliskancient: {
+    tier: "Paleomons",
+  },
+	laprasabyss: {
+    tier: "Paleomons",
+  },
+	meganiumsonic: {
+    tier: "Paleomons",
+  },
 };
