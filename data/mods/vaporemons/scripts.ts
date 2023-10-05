@@ -1077,5 +1077,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "glaceon").learnset.dazzlinggleam = ["9L1"];
 		this.modData("Learnsets", "glaceon").learnset.earthpower = ["9L1"];
 		this.modData("Learnsets", "sylveon").learnset.round = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.meteorbeam = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.acrobatics = ["9L1"];
+		this.modData("Learnsets", "landorus").learnset.skullbash = ["9L1"];
   },
 };
