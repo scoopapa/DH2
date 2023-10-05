@@ -1,4 +1,128 @@
+const kickMoves = ['jumpkick', 'highjumpkick', 'megakick', 'doublekick', 'blazekick', 'lowkick', 'rollingkick', 'triplekick', 'stomp'];
+
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	striker: {
+		shortDesc: "Boosts the power of kicking moves by 1.2x, and boost the Accuracy by 10%.",
+		onBasePowerPriority: 8,
+		onBasePower(basePower, attacker, defender, move) {
+			if (kickMoves.includes(move.id)) {
+				return this.chainModify(1.2);
+			}
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (kickMoves.includes(move.id)) {
+				return this.chainModify(1.1);
+			}
+		},
+		name: "Striker",
+		num: -1,
+	},
+	confiscate: {
+		name: "Confiscate",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && this.checkMoveMakesContact(move, source, target, true) && source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
+				}
+			}
+		},
+		rating: 2,
+		shortDesc: "When the user is knocked out by an enemy's attack, removes the attacker's item (same way as Knock Off)",
+		num: -2,
+	},
+	cacophony: {
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Cacophony boost');
+				return this.chainModify(1.2);
+			}
+		},
+		onModifyMove(move) {
+			if (move.flags['sound']) {
+				move.infiltrates = true;
+			}
+		},
+		isBreakable: true,
+		name: "Cacophony",
+		shortDesc: "The user's sound-based moves have 1.2x power and ignore the effects of Substitute.",
+		rating: 3.5,
+		num: -3,
+	},
+	overcoat: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
+				this.add('-immune', target, '[from] ability: Overcoat');
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Overcoat",
+		shortDesc: "This Pokemon is immune to powder moves and damage from Sandstorm, Hail or Effect Spore.",
+		rating: 2,
+		num: -4,
+	},
+	fluffy: {
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Fire') mod *= 2;
+			if (move.flags['contact']) mod /= 2;
+			return this.chainModify(mod);
+		},
+		isBreakable: true,
+		name: "Fluffy",
+		shortDesc: "This Pokemon takes 1/2 damage from contact moves, 2x damage from Fire moves.",
+		rating: 3.5,
+		num: -5,
+	},
+	sunshine: {
+		onStart(source) {
+			this.field.setWeather('sunnyday');
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('sunshine')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Sunshine",
+		shortDesc: "On switch-in, the weather becomes Sunny Day until the user switches out.",
+		rating: 4.5,
+		num: -6,
+	},
+	precipitate: {
+		onStart(source) {
+			this.field.setWeather('raindance');
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('precipitate')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Precipitate",
+		shortDesc: "On switch-in, the weather becomes Rain Dance until the user switches out.",
+		rating: 4.5,
+		num: -7,
+	},
+
 	cutecharm: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {

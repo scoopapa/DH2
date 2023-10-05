@@ -1,13 +1,40 @@
 export const Items: { [itemid: string]: ModdedItemData; } = {
+	sugarbag: {
+		onModifySpe(spe, pokemon) {
+			if (!(pokemon.activeMoveActions > 1)) {
+				return this.chainModify(1.3);
+			}
+		},
+		name: "Sugar Bag",
+		fling: {
+			basePower: 30,
+		},
+		desc: "Holder's Speed is 1.5x the first turn it comes in.",
+		num: -1,
+		gen: 4,
+	},
+	tormentspecs: {
+		name: "Torment Specs",
+		fling: {
+			basePower: 30,
+		},
+		onDisableMove: function(pokemon) {
+			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(1.3);
+		},
+		desc: "Holder's Sp. Atk is 1.3x,, but it can't use the same move twice in a row.",
+		num: -2,
+		gen: 4,
+	},
+
 	adamantorb: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
 	armorfossil: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	babiriberry: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
@@ -19,15 +46,7 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	chartiberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 	cherishball: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	chilanberry: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
@@ -36,18 +55,6 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		isNonstandard: "Past",
 	},
 	choicespecs: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	chopleberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	cobaberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	colburberry: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
@@ -127,10 +134,6 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	habanberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 	healball: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -160,14 +163,6 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		isNonstandard: "Past",
 	},
 	jabocaberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	kasibberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	kebiaberry: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
@@ -211,10 +206,6 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	occaberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 	oddincense: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -226,14 +217,6 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 	parkball: {
 		inherit: true,
 		isNonstandard: "Unobtainable",
-	},
-	passhoberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	payapaberry: {
-		inherit: true,
-		isNonstandard: "Past",
 	},
 	poweranklet: {
 		inherit: true,
@@ -291,10 +274,6 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	rindoberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 	rockincense: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -312,10 +291,6 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		isNonstandard: "Past",
 	},
 	shinystone: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	shucaberry: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
@@ -347,19 +322,11 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	tangaberry: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 	toxicorb: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
 	toxicplate: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	wacanberry: {
 		inherit: true,
 		isNonstandard: "Past",
 	},
@@ -372,10 +339,6 @@ export const Items: { [itemid: string]: ModdedItemData; } = {
 		isNonstandard: "Past",
 	},
 	wiseglasses: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	yacheberry: {
 		inherit: true,
 		isNonstandard: "Past",
 	},

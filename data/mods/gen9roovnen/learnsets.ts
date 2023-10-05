@@ -88969,6 +88969,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			freezedry: ["9L1"],
 			frostbreath: ["9L1"],
 			headbutt: ["9L1"],
+			headsmash: ["9L1"],
 			icebeam: ["9L1"],
 			icefang: ["9L1"],
 			icehammer: ["9L1"],

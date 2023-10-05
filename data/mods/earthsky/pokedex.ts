@@ -1192,7 +1192,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Ice"],
 		gender: "N",
 		baseStats: {hp: 127, atk: 41, def: 67, spa: 97, spd: 179, spe: 59},
-		abilities: {0: "Beast Boost"},
+		abilities: {0: "Beast Boost", H: "Simple"},
 		heightm: 0.3,
 		weightkg: 2.2,
 		color: "Pink",
@@ -1205,7 +1205,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Ice"],
 		gender: "N",
 		baseStats: {hp: 81, atk: 83, def: 77, spa: 99, spd: 111, spe: 119},
-		abilities: {0: "Protosynthesis"},
+		abilities: {0: "Protosynthesis", H: "Snow Cloak"},
 		heightm: 1.7,
 		weightkg: 29.9,
 		color: "White",
@@ -1215,10 +1215,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	orbiterunit: {
 		num: -584,
 		name: "Orbiter Unit",
-		types: ["Psychic", "Steel"],
+		types: ["Psychic", "Bug"],
 		gender: "N",
 		baseStats: {hp: 84, atk: 90, def: 102, spa: 100, spd: 102, spe: 92},
-		abilities: {0: "Quark Drive"},
+		abilities: {0: "Quark Drive", H: "Magic Guard"},
 		heightm: 1.4,
 		weightkg: 56.0,
 		color: "Green",
@@ -2021,6 +2021,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 60, atk: 50, def: 70, spa: 50, spd: 100, spe: 65},
 	},
+	swellow: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 85, def: 60, spa: 50, spd: 50, spe: 125},
+	},
 	seedot: {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Battle Armor"},
@@ -2675,6 +2679,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	sliggoohisui: {
 		inherit: true,
+		types: ["Dragon", "Steel"],
 		abilities: {0: "Liquid Ooze", 1: "Shell Armor", H: "Gooey"},
 	},
 	goodra: {
@@ -2683,6 +2688,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	goodrahisui: {
 		inherit: true,
+		types: ["Dragon", "Steel"],
 		abilities: {0: "Liquid Ooze", 1: "Shell Armor", H: "Gooey"},
 	},
 	pumpkaboosmall: {
@@ -2931,6 +2937,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Steam Engine", 1: "Flame Body", H: "Heat Sink"},
 	},
+	applin: {
+		inherit: true,
+		abilities: {0: "Ripen", 1: "Gluttony", H: "Overcoat"},
+	},
 	arrokuda: {
 		inherit: true,
 		abilities: {0: "Swift Swim", H: "Against Current"},
@@ -3032,6 +3042,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	zamazentacrowned: {
 		inherit: true,
 		baseStats: {hp: 92, atk: 110, def: 145, spa: 80, spd: 145, spe: 108},
+	},
+	eternatus: {
+		inherit: true,
+		baseStats: {hp: 140, atk: 90, def: 100, spa: 145, spd: 100, spe: 115},
 	},
 	kubfu: {
 		inherit: true,
@@ -3322,6 +3336,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gholdengo: {
 		inherit: true,
 		types: ["Ghost", "Steel"],
+		exclusiveHidden: true,
 	},
 	dipplin: {
 		inherit: true,
@@ -3795,6 +3810,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	dedenne: {
 		inherit: true,
+		abilities: {0: "Cheek Pouch", 1: "Pickup", H: "Induction"}, //hardcoding because for some stupid reason it's not registering despite the algorithm literally changing it
 		color: "Orange",
 	},
 	xerneas: {

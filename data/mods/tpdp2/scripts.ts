@@ -18,7 +18,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
-		customTiers: ['TPDP OU, TPDP LC'],
+		customTiers: ['TPDP OU', 'TPDP LC'],
 	},
 	pokemon: {
 		trySetStatus(status: string | Condition, source: Pokemon | null = null, sourceEffect: Effect | null = null) {
