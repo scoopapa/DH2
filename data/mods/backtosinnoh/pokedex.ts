@@ -425,6 +425,14 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Keen Eye", 1: "Precipitate"},
 	},
+	surskit: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Rain Dish"},
+	},
+	masquerain: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Precipitate"},
+	},
 	shroomish: {
 		inherit: true,
 		abilities: { 0: "Effect Spore" },
