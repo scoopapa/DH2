@@ -29,4 +29,22 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 95, atk: 110, def: 110, spa: 55, spd: 80, spe: 70},
 		abilities: {0: "Battle Armor", 1: "Intimidate", H: "Tough Claws"},
 	},
+	helioliskancient: {
+		name: "Heliolisk-Ancient",
+		types: ["Fire", "Electric"],
+		baseStats: {hp: 62, atk: 109, def: 52, spa: 55, spd: 94, spe: 109},
+		abilities: {0: "Flame Body", 1: "Solar Power", H: "Galvanize"},
+	},
+	laprasabyss: {
+		name: "Lapras-Abyss",
+		types: ["Water", "Dark"],
+		baseStats: {hp: 130, atk: 90, def: 85, spa: 100, spd: 95, spe: 35},
+		abilities: {0: "Heatproof", 1: "Shell Armor", H: "Rough Skin"},
+	},
+	meganiumsonic: {
+		name: "Meganium-Sonic",
+		types: ["Grass", "Electric"],
+		baseStats: {hp: 109, atk: 74, def: 81, spa: 108, spd: 111, spe: 42},
+		abilities: {0: "Punk Rock", H: "Leaf Guard"},
+	},
 };
