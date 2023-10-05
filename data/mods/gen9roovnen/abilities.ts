@@ -550,7 +550,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
 			if (['endeavor', 'fling', 'iceball', 'rollout', 'seismictoss', 'nightshade'].includes(move.id)) return;
-			if (!move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
+			if (!move.flags['charge'] && !move.isZ && !move.isMax) {
 				move.multihit = 3;
 				move.multihitType = 'maternalpower';
 			}
@@ -619,7 +619,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onEnd(target) {
 				this.add('-message', `${target.name} is ready to dash!`);
 				this.actions.useMove("Dash", target);
-				pokemon.removeVolatile('dashhappy');
+				target.removeVolatile('dashhappy');
 			},
 		},
 		name: "Dash Happy",
