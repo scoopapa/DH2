@@ -22,7 +22,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Boombox",
-		shortDesc: "This Pokemon's moves have a 30% chance of badly poisoning.",
+		shortDesc: "This Pokemon's moves have a 30% chance of confusing.",
 		rating: 4.5,
 		num: 305,
 	},
