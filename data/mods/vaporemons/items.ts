@@ -822,8 +822,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 6,
 		desc: "Raises holder's Sp. Defense by 1 stage before it is hit by a special attack. Single use.",
 	},
-	bindingband: {
-		name: "Binding Band",
+	bindingbands: {
+		name: "Binding Bands",
 		spritenum: 31,
 		fling: {
 			basePower: 60,
@@ -834,9 +834,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		// old effects removed in statuses
-		num: 544,
-		gen: 5,
 		desc: "(Partially functional) Against trapped targets: 1.5x move power and accuracy.",
 	},
 	slingshot: {
