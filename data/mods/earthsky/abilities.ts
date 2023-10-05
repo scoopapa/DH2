@@ -2244,7 +2244,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		name: "Run Away",
-		desc: "Holder may switch out even when trapped by another Pokemon.",
+		desc: "This Pokemon may switch out even when trapped by another Pokemon.",
 		rating: 1,
 		num: 50,
 	},
@@ -2335,6 +2335,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		inherit: true,
 		//Actual changes made in scripts.ts as edits to useMoveInner and hitStepMoveHitLoop.
 		desc: "This Pokemon's attacks with secondary effects have their power multiplied by 1.3, but the secondary effects are removed.",
+		shortDesc: "This Pokemon's attacks with secondary effects have 1.3x power; nullifies the effects.",
 	},
 	shieldsdown: {
 		onSwitchIn(pokemon) {

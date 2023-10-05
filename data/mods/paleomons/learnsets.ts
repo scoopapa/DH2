@@ -224,7 +224,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			captivate: ["9L1", "4M"],
 			celebrate: ["9L1", "7S1"],
 			confide: ["9L1", "7M", "6M"],
-			confide: ["9L1", "7M", "6M"],
 			crunch: ["9L1", "8M", "8L30", "8V", "7L33", "6L33", "5L33", "4L33"],
 			curse: ["9L1", "8E", "7E", "7V", "6E", "5E", "4E", "3E"],
 			defog: ["9L1", "7T", "4M"],

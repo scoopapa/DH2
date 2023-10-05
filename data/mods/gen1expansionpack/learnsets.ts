@@ -1073,7 +1073,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	cheep: {
 		learnset: {
-			bubble: ["1L17"],
+			peck: ["1L1"],
+			bubble: ["1L1", "1L17"],
 			counter: ["1L19", "1L25", "1M"],
 			bubblebeam: ["1L21", "1M"],
 			lowkick: ["1L23"],
@@ -1082,7 +1083,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["1L36"],
 			highjumpkick: ["1L40"],
 			strength: ["1L42", "1M"],
-			hydropump: ["1L48"],
+			hydropump: ["1L44"],
+			drillpeck: ["1L48"],
 			megapunch: ["1M"],
 			megakick: ["1M"],
 			bodyslam: ["1M"],
@@ -1117,7 +1119,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	jabetta: {
 		learnset: {
-			bubble: ["1L17"], //had the same learn levels iirc
+			peck: ["1L1"],
+			bubble: ["1L1", "1L17"], //had the same learn levels iirc
 			counter: ["1L19", "1L25", "1M"],
 			bubblebeam: ["1L21", "1M"],
 			lowkick: ["1L23"],
@@ -1126,7 +1129,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["1L36"],
 			highjumpkick: ["1L40"],
 			strength: ["1L42", "1M"],
-			hydropump: ["1L48"],
+			hydropump: ["1L46"],
+			drillpeck: ["1L52"],
 			megapunch: ["1M"],
 			megakick: ["1M"],
 			bodyslam: ["1M"],

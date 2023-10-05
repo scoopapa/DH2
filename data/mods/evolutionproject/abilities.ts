@@ -270,6 +270,17 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -9,
 	},
+	snowpack: {
+		shortDesc: "Defense +2 when hit by an Ice-type move.",
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Ice') {
+				this.boost({def: 2});
+			}
+		},
+		name: "Snowpack",
+		rating: 1.5,
+		num: -10,
+	},
 
 	// modded form-changing Abilities
 
@@ -278,12 +289,30 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
 			if (
-				(attacker.species.baseSpecies !== 'Aegislash' && !attacker.species.name.startsWith('Condana')) || attacker.transformed
+				(!attacker.species.name.startsWith('Aegislash') && !attacker.species.name.startsWith('Condana')) || attacker.transformed
 			) return;
-			if (move.category === 'Status' && move.id !== 'kingsshield') return;
-			if (attacker.species.baseSpecies === 'Aegislash') {
+			if ((move.category === 'Status' && move.id !== 'kingsshield') || move.id == 'flurry') return;//if using a non-kings-shield status move, or if using Flurry
+			if (attacker.species.name === 'Aegislash' || attacker.species.name === 'Aegislash-Blade') {
 				const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
 				if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+			} else if (attacker.species.name === 'Aegislash-Verdant' || attacker.species.name === 'Aegislash-Verdant-Blade') {
+				const targetForme = (move.id === 'kingsshield' ? 'Aegislash-Verdant' : 'Aegislash-Verdant-Blade');
+				if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+				this.add('-message', `${attacker.name} changed to ${move.id === 'kingsshield' ? 'Shield Forme' : 'Blade Forme'}!`);
+				this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
+				if (!this.effectState.busted) { // this is just to make a dt that only shows up once per Condana
+					const species = this.dex.species.get(attacker.species.name);
+					const abilities = species.abilities;
+					const baseStats = species.baseStats;
+					const type = species.types[0];
+					if (species.types[1]) {
+						const type2 = species.types[1];
+						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="http://play.pokemonshowdown.com/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+					} else {
+						this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+					}
+					this.effectState.busted = true;
+				}
 			} else if (attacker.species.name.startsWith('Condana') && attacker.species.name !== 'Condana-Coiled') {
 				// Condana can't learn King's Shield, so it can't change back to Slither Forme (by design)
 				attacker.formeChange('Condana-Coiled');
@@ -345,5 +374,133 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Hunger Switch",
 		rating: 1,
 		num: 258,
+	},
+	zenmode: {
+		inherit: true,
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (
+				(pokemon.baseSpecies.baseSpecies !== 'Darmanitan'//we aren't a Darmanitan,
+				&& pokemon.baseSpecies.baseSpecies !== 'Overchill'//and we aren't an Overchill,
+				&& !(//and we are NOT
+					pokemon.species.forme.includes('Kalos')//specifically a mon whose forme name includes Kalos,
+					&& pokemon.baseSpecies.baseSpecies == 'Qwilfish')//and whose base species is Qwilfish.
+					//Ugh this made my brain spin.
+				) || pokemon.transformed) {
+				return;
+			}
+			if (pokemon.hp <= pokemon.maxhp / 2 && !['Zen', 'Galar-Zen', 'Kalos-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen', 'Galar-Zen', 'Kalos-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
+				pokemon.removeVolatile('zenmode');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zenmode'];
+			if ((pokemon.species.baseSpecies === 'Darmanitan' || ['Overchill-Zen', 'Qwilfish-Kalos-Zen'].includes(pokemon.species.name)) && pokemon.species.battleOnly) {
+				pokemon.formeChange(pokemon.species.battleOnly as string, this.effect, false, '[silent]');
+				//This is when we leave or die so I dunno if this is helpful
+				//this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (!pokemon.species.name.includes('Darmanitan')) {//The non-Darmanitans
+					let targetForme = pokemon.species.name.includes('Kalos') ? 'Qwilfish-Kalos-Zen' : 'Overchill-Zen';
+					if (!pokemon.species.id.includes('zen')) pokemon.formeChange(targetForme);
+				} else if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+				} else {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+				}
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			},
+			onEnd(pokemon) {
+				if (['Zen', 'Galar-Zen', 'Kalos-Zen'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+				}
+			},
+		},
+	},
+	iceface: {
+		inherit: true,
+		shortDesc: "If Eiscue/Froslass-Theater, first physical hit deals 0 damage. Effect restored in Hail.",
+		onStart(pokemon) {
+			if (this.field.isWeather(['hail', 'snow']) &&
+				(pokemon.species.id === 'eiscuenoice' || pokemon.species.id === 'froslasstheaterunmasked') && !pokemon.transformed) {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				if (pokemon.species.id === 'eiscuenoice') pokemon.formeChange('Eiscue', this.effect, true);
+				if (pokemon.species.id === 'froslasstheaterunmasked') pokemon.formeChange('Froslass-Theater', this.effect, true);
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
+				(target.species.id === 'eiscue' || target.species.id === 'froslasstheater') && !target.transformed
+			) {
+				this.add('-activate', target, 'ability: Ice Face');
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && target.species.id !== 'froslasstheater') || target.transformed) return;
+			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || (target.species.id !== 'eiscue' && target.species.id !== 'froslasstheater') || target.transformed) return;
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if ((pokemon.species.id === 'eiscue' || pokemon.species.id === 'froslasstheater') && this.effectState.busted) {
+				if (pokemon.species.id === 'eiscue') pokemon.formeChange('Eiscue-Noice', this.effect, true);
+				if (pokemon.species.id === 'froslasstheater') {
+					pokemon.formeChange('Froslass-Theater-Unmasked', this.effect, true);
+					this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+					if (!this.effectState.dataMod) { // this is just to make a dt that only shows up once per Klefki
+						const species = this.dex.species.get(pokemon.species.name);
+						const abilities = species.abilities;
+						const baseStats = species.baseStats;
+						const type = species.types[0];
+						if (species.types[1]) {
+							const type2 = species.types[1];
+							this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"><img src="http://play.pokemonshowdown.com/sprites/types/${type2}.png" alt="${type2}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+						} else {
+							this.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + `</span> <span class="col typecol"><img src="http://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abilities[0] + `</span><span class="col abilitycol"></span></span><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+						}
+						this.effectState.dataMod = true;
+					}
+				}
+			}
+		},
+		onWeatherChange(pokemon, source, sourceEffect) {
+			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
+			if ((sourceEffect as Ability)?.suppressWeather) return;
+			if (!pokemon.hp) return;
+			if (this.field.isWeather(['hail', 'snow']) &&
+				(pokemon.species.id === 'eiscuenoice' || pokemon.species.id === 'froslasstheaterunmasked') && !pokemon.transformed) {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				if (pokemon.species.id === 'eiscuenoice') pokemon.formeChange('Eiscue', this.effect, true);
+				if (pokemon.species.id === 'froslasstheaterunmasked') pokemon.formeChange('Froslass-Theater', this.effect, true);
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
+			}
+		},
 	},
 };
