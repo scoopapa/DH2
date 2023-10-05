@@ -1007,6 +1007,86 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, sets Mud Sport and Water Sport. This Pokemon's mud moves deal double damage.",
 		rating: 5,
 	},
+	exoskeleton: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hasType('Bug')) {
+				if (move.type === 'Rock' || move.type === 'Fire' || move.type === 'Flying') {
+					this.debug('Exoskeleton Bug neutralize');
+					return this.chainModify(0.5);
+				}
+			}
+			else if (!target.hasType('Bug')) {
+				if (move.type === 'Fighting' || move.type === 'Ground' || move.type === 'Grass') {
+					this.debug('Exoskeleton non-Bug neutralize');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock' && target.hasType('Bug')) {
+				return damage / 2;
+			}
+		},
+		isBreakable: true,
+		name: "Exoskeleton",
+		rating: 4,
+		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: Bug resistances.",
+	},
+	bluntforce: {
+		// This should be applied directly to the stat as opposed to chaining with the others
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return target.getMoveHitData(move).typeMod === 0;
+			}
+		},
+		name: "Blunt Force",
+		rating: 3.5,
+		shortDesc: "This Pokemon's physical moves have 1.5x power but can't be super effective.",
+	},
+	waterveil: {
+		onStart(source) {
+			this.actions.useMove("Aqua Ring", source);
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Water Veil');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Water Veil",
+		rating: 2,
+		num: 41,
+		shortDesc: "This Pokemon uses Aqua Ring on switch-in. This Pokemon can't be burned.",
+	},
+	shielddust: {
+		onModifySecondaries(secondaries) {
+			this.debug('Shield Dust prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.secondaries) {
+				this.debug('Shield Dust neutralize');
+				return this.chainModify(0.67);
+			}
+		},
+		isBreakable: true,
+		name: "Shield Dust",
+		rating: 4,
+		num: 19,
+		shortDesc: "Moves with secondary effects against user: 0.67x power, secondary effects cannot activate.",
+	},
 	
 // unchanged abilities
 	damp: {
