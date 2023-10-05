@@ -226,6 +226,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Protosmosis", H: "Seed Sower"},
 	},
+	slitherwing: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Shield Dust"},
+	},
 	irontreads: {
 		inherit: true,
 		abilities: {0: "Rune Drive"},
@@ -244,7 +248,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	ironmoth: {
 		inherit: true,
-		abilities: {0: "Photon Drive"},
+		abilities: {0: "Photon Drive", H: "Exoskeleton"},
+	},
+	ironthorns: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Blunt Force"},
 	},
 	roaringmoon: {
 		inherit: true,
@@ -476,7 +484,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	leafeon: {
 		inherit: true,
-		abilities: {0: "Seed Sower", H: "Chlorophyll"},
+		abilities: {0: "Chlorophyll", H: "Sharpness"},
 	},
 	diglett: {
 		inherit: true,
@@ -537,7 +545,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	tinkaton: {
 		inherit: true,
-		abilities: {0: "Mold Breaker", 1: "Counteract", H: "Sheer Force"},
+		abilities: {0: "Mold Breaker", 1: "Counteract", H: "Blunt Force"},
 	},
 	girafarig: {
 		inherit: true,
@@ -690,11 +698,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	cufant: {
 		inherit: true,
-		abilities: {0: "Sheer Force", 1: "Steely Spirit", H: "Heavy Metal"},
+		abilities: {0: "Blunt Force", 1: "Steely Spirit", H: "Heavy Metal"},
 	},
 	copperajah: {
 		inherit: true,
-		abilities: {0: "Sheer Force", 1: "Steely Spirit", H: "Heavy Metal"},
+		abilities: {0: "Blunt Force", 1: "Steely Spirit", H: "Heavy Metal"},
 	},
 	bronzor: {
 		inherit: true,
@@ -894,11 +902,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	barboach: {
 		inherit: true,
-		abilities: {0: "Anticipation", 1: "Oblivious", H: "Mud Wash"},
+		abilities: {0: "Water Veil", 1: "Oblivious", H: "Mud Wash"},
 	},
 	whiscash: {
 		inherit: true,
-		abilities: {0: "Anticipation", 1: "Oblivious", H: "Mud Wash"},
+		abilities: {0: "Water Veil", 1: "Oblivious", H: "Mud Wash"},
 	},
 	vaporeon: {
 		inherit: true,
@@ -1019,11 +1027,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	gligar: {
 		inherit: true,
-		abilities: {0: "Sand Force", 1: "Sand Veil", H: "Immunity"},
+		abilities: {0: "Sand Force", 1: "Exoskeleton", H: "Immunity"},
 	},
 	gliscor: {
 		inherit: true,
-		abilities: {0: "Sand Force", 1: "Sand Veil", H: "Poison Heal"},
+		abilities: {0: "Sand Force", 1: "Exoskeleton", H: "Poison Heal"},
 	},
 	slugma: {
 		inherit: true,
@@ -1067,7 +1075,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	milotic: {
 		inherit: true,
-		abilities: {0: "Marvel Scale", 1: "Competitive", H: "Sheer Heart"},
+		types: ["Water", "Fairy"],
+		abilities: {0: "Marvel Scale", 1: "Water Veil", H: "Sheer Heart"},
 	},
 	duskull: {
 		inherit: true,
@@ -1184,5 +1193,105 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	ogerpon: {
 		inherit: true,
 		abilities: {0: "Defiant", H: "Seed Sower"},
+	},
+	scizor: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Technician", H: "Exoskeleton"},
+	},
+	forretress: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Exoskeleton", H: "Overcoat"},
+	},
+	klawf: {
+		inherit: true,
+		abilities: {0: "Anger Shell", 1: "Exoskeleton", H: "Regenerator"},
+	},
+	corphish: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Exoskeleton", H: "Adaptability"},
+	},
+	crawdaunt: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Exoskeleton", H: "Adaptability"},
+	},
+	vikavolt: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Exoskeleton"},
+	},
+	tyranitar: {
+		inherit: true,
+		abilities: {0: "Sand Stream", 1: "Exoskeleton", H: "Unnerve"},
+	},
+	pupitar: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Exoskeleton"},
+	},
+	larvitar: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Exoskeleton", H: "Sand Veil"},
+	},
+	regidrago: {
+		inherit: true,
+		abilities: {0: "Dragon's Maw", H: "Blunt Force"},
+	},
+	tauros: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Blunt Force", H: "Sheer Force"},
+	},
+	dondozo: {
+		inherit: true,
+		abilities: {0: "Unaware", 1: "Blunt Force", H: "Water Veil"},
+	},
+	geodude: {
+		inherit: true,
+		abilities: {0: "Blunt Force", 1: "Sturdy", H: "Sand Veil"},
+	},
+	graveler: {
+		inherit: true,
+		abilities: {0: "Blunt Force", 1: "Sturdy", H: "Sand Veil"},
+	},
+	golem: {
+		inherit: true,
+		abilities: {0: "Blunt Force", 1: "Sturdy", H: "Sand Veil"},
+	},
+	rufflet: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Blunt Force", H: "Hustle"},
+	},
+	braviary: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Blunt Force", H: "Defiant"},
+	},
+	volcanion: {
+		inherit: true,
+		abilities: {0: "Water Absorb", H: "Water Veil"},
+	},
+	silicobra: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Sand Spit", H: "Shield Dust"},
+	},
+	sandaconda: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Sand Spit", H: "Shield Dust"},
+	},
+	larvesta: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Shield Dust", H: "Swarm"},
+	},
+	volcarona: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Shield Dust", H: "Swarm"},
+	},
+	wochien: {
+		inherit: true,
+		abilities: {0: "Tablets of Ruin", H: "Shield Dust"},
+	},
+	flareon: {
+		inherit: true,
+		abilities: {0: "Smelt", H: "Fur Coat"},
+	},
+	glaceon: {
+		inherit: true,
+		abilities: {0: "Snow Cloak", H: "Muscle Memory"},
 	},
 };
