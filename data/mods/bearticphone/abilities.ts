@@ -8,7 +8,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Big Swinger",
-		shortDesc: "This Pokemon's ball and bullet moves have their power multiplied by 1.5.",
+		shortDesc: "This Pokemon's ball and bullet moves have their power multiplied by 1.5x.",
 		rating: 3.5,
 		num: 292,
 	},
@@ -159,11 +159,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['bullet']) {
 				this.debug('Sharpshooter boost');
-				return this.chainModify(1.5);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		name: "Sharpshooter",
-		shortDesc: "This Pokemon's ball and bullet moves have their power multiplied by 1.5.",
+		shortDesc: "This Pokemon's ball and bullet moves have their power multiplied by 1.3x.",
 		rating: 3.5,
 		num: 292,
 	},
