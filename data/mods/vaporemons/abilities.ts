@@ -1008,6 +1008,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 	},
 	exoskeleton: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Exoskeleton');
+			this.add('-message', `${pokemon.name} sports a tough exoskeleton!`);
+		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.hasType('Bug')) {
 				if (move.type === 'Rock' || move.type === 'Fire' || move.type === 'Flying') {
