@@ -87,7 +87,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	   		this.battle.add('-hint', `Some effects can force a Pokemon to use ${move.name} again in a row.`);
 	   	}
 
-		   if (move.volatileStatus === 'confusion' && moveDidSomething && !move.isExternal) {
+		   if (move.volatileStatus === 'confusion' && move.secondary.volatileStatus === 'confusion' && moveDidSomething && !move.isExternal) {
 	   	   const feeters = [];
 			   for (const currentPoke of this.battle.getAllActive()) {
 				   if (pokemon === currentPoke) continue;
