@@ -87,30 +87,31 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	   		this.battle.add('-hint', `Some effects can force a Pokemon to use ${move.name} again in a row.`);
 	   	} 
 
-	   if (move.volatileStatus === 'confusion' && move.secondary.volatileStatus === 'confusion' && moveDidSomething && !move.isExternal) {
-			const feeters = [];
-			for (const currentPoke of this.getAllActive()) {
-				if (pokemon === currentPoke) continue;
-				if (currentPoke.hasAbility('twoleftfeet') && !currentPoke.isSemiInvulnerable()) {
-					feeters.push(currentPoke);
+	      if (move.volatileStatus === 'confusion' && move.secondary.volatileStatus === 'confusion' && moveDidSomething && !move.isExternal) {
+			   const feeters = [];
+			   for (const currentPoke of this.getAllActive()) {
+				   if (pokemon === currentPoke) continue;
+				   if (currentPoke.hasAbility('twoleftfeet') && !currentPoke.isSemiInvulnerable()) {
+					    feeters.push(currentPoke);
+					}
 				}
-			}
-			// Feeter activates in order of lowest speed stat to highest
-			// Note that the speed stat used is after any volatile replacements like Speed Swap,
-			// but before any multipliers like Agility or Choice Scarf
-			// Ties go to whichever Pokemon has had the ability for the least amount of time
-			feeters.sort(
-				(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
-			);
-			for (const feeter of feeters) {
-				if (this.faintMessages()) break;
-				if (feeter.fainted) continue;
-				this.add('-activate', feeter, 'ability: Two Left Feet');
-				const dancersTarget = target.side !== feeter.side && pokemon.side === feeter.side ? target : pokemon;
-				this.runMove(move.id, feeter, this.getTargetLoc(dancersTarget, feeter), this.dex.abilities.get('twoleftfeet'), undefined, true);
-			}
+			   // Feeter activates in order of lowest speed stat to highest
+			   // Note that the speed stat used is after any volatile replacements like Speed Swap,
+			   // but before any multipliers like Agility or Choice Scarf
+			   // Ties go to whichever Pokemon has had the ability for the least amount of time
+			   feeters.sort(
+				   (a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+			   );
+			   for (const feeter of feeters) {
+			   	if (this.faintMessages()) break;
+			   	if (feeter.fainted) continue;
+			   	this.add('-activate', feeter, 'ability: Two Left Feet');
+			   	const dancersTarget = target.side !== feeter.side && pokemon.side === feeter.side ? target : pokemon;
+			   	this.runMove(move.id, feeter, this.getTargetLoc(dancersTarget, feeter), this.dex.abilities.get('twoleftfeet'), undefined, true);
+		   	}
+	   	}
+		   if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 		}
-		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
    },
 	teambuilderConfig: {
 		excludeStandardTiers: true,
