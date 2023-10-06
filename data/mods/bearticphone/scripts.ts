@@ -101,7 +101,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			   const targetOf1stDance = this.battle.activeTarget!;
 			   for (const feeter of feeters) {
 				   if (this.battle.faintMessages()) break;
-				   if (dancer.fainted) continue;
+				   if (feeter.fainted) continue;
 				   this.battle.add('-activate', feeter, 'ability: Two Left Feet');
 				   const dancersTarget = !targetOf1stDance.isAlly(twoleftfeet) && pokemon.isAlly(twoleftfeet) ?
 					   targetOf1stDance :
