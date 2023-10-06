@@ -85,40 +85,32 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	   	this.battle.runEvent('AfterMove', pokemon, target, move);
 	   	if (move.flags['cantusetwice'] && pokemon.removeVolatile(move.id)) {
 	   		this.battle.add('-hint', `Some effects can force a Pokemon to use ${move.name} again in a row.`);
-	   	}
+	   	} 
 
-		   if (move.volatileStatus === 'confusion' && move.secondary.volatileStatus === 'confusion' && moveDidSomething && !move.isExternal) {
-	   	   const feeters = [];
-			   for (const currentPoke of this.battle.getAllActive()) {
-				   if (pokemon === currentPoke) continue;
-			    	if (currentPoke.hasAbility('twoleftfeet') && !currentPoke.isSemiInvulnerable()) {
-					   feeters.push(currentPoke);
-					}
-				}
-			   feeters.sort(
-				   (a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
-			   );
-			   const targetOf1stDance = this.battle.activeTarget!;
-			   for (const feeter of feeters) {
-				   if (this.battle.faintMessages()) break;
-				   if (feeter.fainted) continue;
-				   this.battle.add('-activate', feeter, 'ability: Two Left Feet');
-				   const dancersTarget = !targetOf1stDance.isAlly(twoleftfeet) && pokemon.isAlly(twoleftfeet) ?
-					   targetOf1stDance :
-					   pokemon;
-				   const dancersTargetLoc = feeter.getLocOf(dancersTarget);
-				   this.runMove(move.id, feeter, dancersTargetLoc, this.dex.abilities.get('twoleftfeet'), undefined, true);
+	   if (move.volatileStatus === 'confusion' && move.secondary.volatileStatus === 'confusion' && moveDidSomething && !move.isExternal) {
+			const feeters = [];
+			for (const currentPoke of this.getAllActive()) {
+				if (pokemon === currentPoke) continue;
+				if (currentPoke.hasAbility('twoleftfeet') && !currentPoke.isSemiInvulnerable()) {
+					feeters.push(currentPoke);
 				}
 			}
-	   	if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
-	   	this.battle.faintMessages();
-	   	this.battle.checkWin();
-
-		   if (this.battle.gen <= 4) {
-		   	// In gen 4, the outermost move is considered the last move for Copycat
-		   	this.battle.activeMove = oldActiveMove;
-	   	}
-   	}
+			// Feeter activates in order of lowest speed stat to highest
+			// Note that the speed stat used is after any volatile replacements like Speed Swap,
+			// but before any multipliers like Agility or Choice Scarf
+			// Ties go to whichever Pokemon has had the ability for the least amount of time
+			feeters.sort(
+				(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+			);
+			for (const feeter of feeters) {
+				if (this.faintMessages()) break;
+				if (feeter.fainted) continue;
+				this.add('-activate', feeter, 'ability: Two Left Feet');
+				const dancersTarget = target.side !== feeter.side && pokemon.side === feeter.side ? target : pokemon;
+				this.runMove(move.id, feeter, this.getTargetLoc(dancersTarget, feeter), this.dex.abilities.get('twoleftfeet'), undefined, true);
+			}
+		}
+		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
    },
 	teambuilderConfig: {
 		excludeStandardTiers: true,
