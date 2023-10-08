@@ -1186,6 +1186,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Hospitality", 1: "Healer", H: "Heatproof"},
 	},
+	poltchageistartisan: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Healer", H: "Heatproof"},
+	},
+	sinistchamasterpiece: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Healer", H: "Heatproof"},
+	},
 	fezandipiti: {
 		inherit: true,
 		abilities: {0: "Toxic Chain", H: "Gale Wings"},
