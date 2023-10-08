@@ -2040,11 +2040,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	stunfisk: {
 		inherit: true,
+		baseStats: {hp: 109, atk: 66, def: 84, spa: 101, spd: 99, spe: 32},
 		abilities: {0: "Static", 1: "Storm Drain", H: "Sand Veil"},
 	},
 	stunfiskgalar: {
 		inherit: true,
-		abilities: {0: "Mimicry", H: "Arena Trap"},
+		baseStats: {hp: 109, atk: 101, def: 99, spa: 66, spd: 84, spe: 32},
+		abilities: {0: "Mimicry", 1: "Adaptability", H: "Arena Trap"},
 	},
 	mienfoo: {
 		inherit: true,
@@ -2588,8 +2590,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Salazzlite",
 	},
+	stufful: {
+		inherit: true,
+		types: ["Fairy", "Fighting"],
+	},
 	bewear: {
 		inherit: true,
+		types: ["Fairy", "Fighting"],
 		baseStats: {hp: 115, atk: 125, def: 80, spa: 50, spd: 70, spe: 60},
 	},
 	tsareena: {
