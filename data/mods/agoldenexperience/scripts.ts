@@ -44,6 +44,10 @@ export const Scripts: ModdedBattleScriptsData = {
 
   init() {
 
+    // gen 9 tmp
+    this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
+    this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
+
     // distrib for PLA moves
 
     // headlongrush 
@@ -865,8 +869,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'wailord').learnset.superpower = ['9L1'];
     this.modData('Learnsets', 'wailord').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'grumpig').learnset.slackoff = ['9L1'];
-    delete this.modData('Learnsets', 'vibrava').learnset.sonicboom;;
-    delete this.modData('Learnsets', 'flygon').learnset.sonicboom;
     this.modData('Learnsets', 'cacturne').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'cacturne').learnset.earthquake = ['9L1'];
     this.modData('Learnsets', 'cacturne').learnset.scorchingsands = ['9L1'];
