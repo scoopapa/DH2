@@ -47,6 +47,7 @@ export const Scripts: ModdedBattleScriptsData = {
     // gen 9 tmp
     this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
+    delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
 
     // distrib for PLA moves
 
@@ -64,6 +65,7 @@ export const Scripts: ModdedBattleScriptsData = {
     // wavecrash 
     this.modData('Learnsets', 'kabutops').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'poliwrath').learnset.wavecrash = ['9L1'];
+    this.modData('Learnsets', 'azumarill').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'sharpedo').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'walrein').learnset.wavecrash = ['9L1'];
     this.modData('Learnsets', 'carracosta').learnset.wavecrash = ['9L1'];
@@ -695,6 +697,24 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'stonlet').learnset.mercuryshot = ['9T'];
     this.modData('Learnsets', 'rockster').learnset.mercuryshot = ['9T'];
 
+    // sweetheart 
+    this.modData('Learnsets', 'audino').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'blissey').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'tapufini').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'tapulele').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'alomomola').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'sylveon').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'luvdisc').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'wigglytuff').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'florges').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'enamorus').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'infarmatem').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'diancie').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'meganium').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'bewear').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'primarina').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'bellossom').learnset.sweetheart = ['9L1'];
+
     // chakraterrain 
     this.modData('Learnsets', 'hitmonchan').learnset.chakraterrain = ['9L1'];
     this.modData('Learnsets', 'hitmonlee').learnset.chakraterrain = ['9L1'];
@@ -1088,6 +1108,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'mienshao').learnset.courtchange = ['9L1'];
     this.modData('Learnsets', 'druddigon').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'bouffalant').learnset.headsmash = ['9L1'];
+    this.modData('Learnsets', 'bouffalant').learnset.milkdrink = ['9L1'];
     this.modData('Learnsets', 'heatmor').learnset.powerwhip = ['9L1'];
     this.modData('Learnsets', 'hydreigon').learnset.nightdaze = ['9L1'];
     this.modData('Learnsets', 'cobalion').learnset.bodypress = ['9L1'];

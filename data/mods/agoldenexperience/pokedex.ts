@@ -709,6 +709,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 75, atk: 50, def: 95, spa: 110, spd: 100, spe: 60},
 	},
+	azumarill: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 60, def: 80, spa: 50, spd: 80, spe: 50},
+	},
 	politoed: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 75, def: 100, spa: 100, spd: 100, spe: 60},
@@ -3162,6 +3166,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 65, atk: 100, def: 100, spa: 60, spd: 60, spe: 85},
 		abilities: {0: "Battle Armor", 1: "Defiant", H: "Strong Will"},
+	},
+	pincurchin: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 81, def: 115, spa: 91, spd: 105, spe: 15},
 	},
 	frosmoth: {
 		inherit: true,
