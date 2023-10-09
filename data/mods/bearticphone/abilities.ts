@@ -167,13 +167,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3.5,
 		num: 292,
 	},
-  twoleftfeet: {
+	twoleftfeet: {
 		onAfterMoveSecondary(target, source, move) {
-			const moves = ["Axe Kick", "Chatter", "Confuse Ray", "Confusion", "Dizzy Punch", "Dynamic Punch", "Flatter", "Hurricane", "Magical Torque", "Psybeam", "Rock Climb", "Secret Power", "Shadow Panic", "Signal Beam", "Strange Steam", "Supersonic", "Swagger", "Sweet Kiss", "Teeter Dance", "Water Pulse"];
+			const moves = ['axekick', 'chatter', 'confuseray', 'confusion', 'dizzypunch', 'dynamicpunch', 'flatter', 'hurricane', 'magicaltorque', 'psybeam', 'rockclimb', 'secretpower', 'shadowpanic', 'signalbeam', 'strangesteam', 'supersonic', 'swagger', 'sweetkiss', 'teeterdance', 'waterpulse'];
 			if (!source || source === target || !target.hp || !move.totalDamage) return;
-			const lastAttackedBy = target.getLastAttackedBy();
-			if (!lastAttackedBy) return;
-			if ((moves.includes(move.id)) || moves.includes(move.name))) && move.hasBounced === false) {
+			if ((moves.includes(move.id) || moves.includes(move.name))) {
+				if (move.hasBounced == true) return;
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
