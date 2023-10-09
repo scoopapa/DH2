@@ -2425,7 +2425,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			"amnesia", "assurance", "avalanche", "brine", "charm", "chillingwater", "eerieimpulse", "electricterrain", "electroball", "encore", "faketears", "futuresight", "grassyterrain", "hex", "hurricane", "hydropump", "mistyterrain", "nastyplot", "phantomforce", "powergem", "psychicterrain", "screech", "trailblaze", "whirlpool"
 		];*/
 		const droppedMachines = [ //Machines dropped from Earth & Sky; includes Flash, Natural Gift, and Toxic, which are re-added to their Pokemon after the algorithm
-			"agility", "aircutter", "airslash", "aurasphere", "batonpass", "beatup", "blazekick", "bodyslam", "bravebird", "bugbuzz", "bulletseed", "closecombat", "confide", "cosmicpower", "covet", "crosspoison", "crunch", "cut", "darkestlariat", "disarmingvoice", "doubleteam", "dragondance", "drainingkiss", "firefang", "firespin", "flareblitz", "flash", "focusenergy", "focuspunch", "guardswap", "heatcrash", "heavyslam", "highhorsepower", "icefang", "iciclespear", "imprison", "leafblade", "leafstorm", "liquidation", "magicalleaf", "megakick", "megapunch", "megahorn", "metalclaw", "mudshot", "mudslap", "muddywater", "mysticalfire", "naturalgift", "nightshade", "payday", "pinmissile", "playrough", "poisontail", "pollenpuff", "pounce", "powerswap", "poweruppunch", "powerwhip", "psychicfang", "psychocut", "razorshell", "revenge", "reversal", "rockblast", "sandtomb", "scaryface", "self-destruct", "solarblade", "speedswap", "spikes", "storedpower", "strugglebug", "superfang", "swagger", "swift", "takedown", "tailslap", "throatchop", "thunderfang", "toxic", "toxicspikes", "triattack", "venomdrench", "weatherball", "worryseed"
+			"agility", "aircutter", "airslash", "aurasphere", "batonpass", "beatup", "blazekick", "bodyslam", "bravebird", "bugbuzz", "bulletseed", "charge", "closecombat", "confide", "cosmicpower", "covet", "crosspoison", "crunch", "cut", "darkestlariat", "disarmingvoice", "doubleteam", "dragondance", "drainingkiss", "firefang", "firespin", "flareblitz", "flash", "focusenergy", "focuspunch", "guardswap", "haze", "heatcrash", "heavyslam", "highhorsepower", "icefang", "iciclespear", "imprison", "leafblade", "leafstorm", "liquidation", "lunge", "magicalleaf", "megakick", "megapunch", "megahorn", "metalclaw", "mudshot", "mudslap", "muddywater", "mysticalfire", "naturalgift", "nightshade", "payday", "pinmissile", "playrough", "poisontail", "pollenpuff", "pounce", "powerswap", "poweruppunch", "powerwhip", "psychicfang", "psychocut", "razorshell", "revenge", "reversal", "rockblast", "sandtomb", "scaryface", "self-destruct", "solarblade", "speedswap", "spikes", "storedpower", "strugglebug", "superfang", "swagger", "swift", "takedown", "tailslap", "throatchop", "thunderfang", "toxic", "toxicspikes", "triattack", "venomdrench", "weatherball", "worryseed"
 		];
 		const renamedMoves = [ //Also includes the replacement of Axe Kick and Hail with Jump Kick and Snowscape, respectively
 			"axekick","banefulbunker","chillingwater","clangoroussoul","doubleshock","flowertrick","hail","moongeistbeam","psyblade","psychicfangs","psyshieldbash","ragefist","stompingtantrum","strangesteam","sunsteelstrike","trailblaze"
@@ -2516,7 +2516,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			/* Moves */
 			let moveLearn; //store move learnset to save memory/time
-			let startGen = (((pokemon.num > 898 || pokemon.num < -68) || baseNine.includes(pokemonID)) ? 9 : (((pokemon.num > 807 || pokemon.num < -60) || baseEight.includes(pokemonID)) ? 8 : 7)); //Tags Gen for level/egg moves
+			let startGen; //Tags Gen for level/egg moves
+			if(baseSeven.includes(pokemonID)) startGen = 7;
+			else if ((pokemon.num > 898 || pokemon.num < -68) || baseNine.includes(pokemonID)) startGen = 9;
+			else if ((pokemon.num > 807 || pokemon.num < -60) || baseEight.includes(pokemonID)) startGen = 8;
+			else startGen = 7;
 			const levelString = new RegExp(startGen + 'L[0-9]+');
 			if(learnsetTest) console.log("Starting with Gen " + startGen);
 			
@@ -2570,7 +2574,7 @@ export const Scripts: ModdedBattleScriptsData = {
 							for(const prevoMeans of prevoLearn){
 								if(levelString.test(prevoMeans) && prevoMeans !== (startGen + "L1")){ //Showdown only stores the earliest level, so we only have to check for prevos not having it at 1
 									if(learnsetTest) console.log("This move is learned at level 1, but the prevo learns it later; using the later one");
-									moveMeans = ["8" + prevoMeans.substring(1)]; //The check comes before non-level means are compiled, so this overrides the level 1 with the other level
+									moveMeans = ["9" + prevoMeans.substring(1)]; //The check comes before non-level means are compiled, so this overrides the level 1 with the other level
 								}
 							}*/
 						} else {
@@ -2588,7 +2592,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if(learnsetTest) console.log("This move is taught by machine");
 					moveMeans.push("9M");
 				}
-				if((moveID === "lashout" || moveID === "poltergeist") && moveLearn.includes("8T")){
+				if(!moveMeans.includes("9M") && (moveID === "lashout" || moveID === "poltergeist") && moveLearn.includes("8T")){
 					if(learnsetTest) console.log("This move is taught by machine");
 					moveMeans.push("9M");
 				}
@@ -5631,6 +5635,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','milotic').learnset.wrap;
 		// Castform
 		this.modData('Learnsets','castform').learnset.lifedew = ["9D"];
+		this.modData('Learnsets','castform').learnset.aerate = ["9L5"];
 		this.modData('Learnsets','castform').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','castform').learnset.eerieimpulse = ["9M"];
 		this.modData('Learnsets','castform').learnset.electroball = ["9M"];
@@ -8620,6 +8625,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','bruxish').learnset.watergun;
 		// Drampa
 		this.modData('Learnsets','drampa').learnset.rage = ["9D"];
+		this.modData('Learnsets','drampa').learnset.aerate = ["9E"];
 		this.modData('Learnsets','drampa').learnset.fellswoop = ["9E"];
 		this.modData('Learnsets','drampa').learnset.strength = ["9M"];
 		// Dhelmise
@@ -10054,7 +10060,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','enamorus').learnset.naturalgift = ["9M"];
 		this.modData('Learnsets','enamorus').learnset.naturepower = ["9M"];
 		this.modData('Learnsets','enamorus').learnset.spite = ["9M"];
+		delete this.modData('Learnsets','enamorus').learnset.mysticalfire;
 		// Enamorus Therian
+		this.modData('Learnsets','enamorustherian').learnset = Utils.deepClone(this.modData('Learnsets','enamorus').learnset);
 		this.modData('Learnsets','enamorustherian').learnset.coil = ["9D"];
 		delete this.modData('Learnsets','enamorustherian').learnset.sweetscent;
 		// Sprigatito

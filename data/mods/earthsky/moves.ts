@@ -198,6 +198,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Twister");
 		},
+		desc: "If the current weather is Sunny Day or Rain Dance, this move's power is multiplied by 1.5.",
+		shortDesc: "Power multiplied by 1.5x in sun or rain.",
 	},
 	daydream: {
 		num: 1002,
@@ -2251,6 +2253,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "Prevents all active Pokemon from switching next turn. Escape Plan and a held Eject Button or Eject Pack will fail to make any Pokemon leave the field as well. A Pokemon can still switch out if it is holding Shed Shell, has Run Away, or uses Baton Pass or Teleport. Fails if the effect is already active.",
 		fail: "  [TARGET]'s exit was blocked!",
 	},
+	fakeout: {
+		inherit: true,
+		volatileStatus: 'flinch',
+		secondary: null,
+		desc: "Makes the target flinch; this is not considered a secondary effect and is not removed by Sheer Force or Shield Dust/Covert Cloak. Fails unless it is the user's first turn on the field.",
+		shortDesc: "Hits first and flinches. Only works on first turn out.",
+	},
 	falsesurrender: {
 		inherit: true,
 		basePower: 85,
@@ -4166,7 +4175,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "Has a 100% chance to lower the target's Defense by 1 stage.",
-		shortDesc: "Lowers the target's Defense by 1.",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
 	},
 	rockthrow: {
 		inherit: true,
@@ -4959,6 +4968,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 85,
 		pp: 15,
 		target: 'allAdjacentFoes',
+	},
+	strugglebug: {
+		inherit: true,
+		target: "normal",
+		desc: "Has a 100% chance to lower the target's Special Attack by 1 stage.",
+		shortDesc: "100% chance to lower the target's Sp. Atk by 1.",
 	},
 	stuffcheeks: {
 		inherit: true,
