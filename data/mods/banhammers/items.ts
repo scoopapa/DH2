@@ -33,7 +33,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
 				this.add('-fail', target, 'unboost', '[from] item: Clear Amulet', '[of] ' + target);
 			}
-		},
+		}
 		num: 1882,
 		desc: "Prevents other Pokemon from lowering the holder's stat stages.",
 	},
