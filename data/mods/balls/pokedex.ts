@@ -87,7 +87,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sychronize", 1: "Forewarn", H: "Analytic"},
 		weightkg: 21,
 	},
-	8ball: {
+	"8ball": {
 		num: 12,
 		species: "8ball",
 		types: ["Dark"],
