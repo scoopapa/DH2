@@ -70,4 +70,5 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	Dragonball: {
 		tier: "Balls",
 		doublesTier: "Balls",
+	},
 };
