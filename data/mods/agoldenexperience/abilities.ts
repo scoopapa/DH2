@@ -634,11 +634,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.flags['sound'] && !pokemon.volatiles['dynamax']) { // hardcode
-				move.type = 'Ground';
+				move.type = 'Rock';
 			}
 		},
 		name: "Desert Song",
-		shortDesc: "Turns sounds moves into Ground type moves.",
+		shortDesc: "Turns sounds moves into Rock type moves.",
 		rating: 1.5,
 		num: -26,
 	},
