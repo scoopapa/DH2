@@ -1769,7 +1769,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
 		banlist: [
 			'Alakazam', 'Excadrill-Base', 'Exploud', 'Lycanroc-Dusk', 'Naganadel-Base', 'Reuniclus-Base', 'Scizor', 'Scolipede-Base', 'Starmie-Base', 'Polteageist-Base',
-			'Polteageist-Antique', 'Volcarona', 'Baton Pass'
+			'Polteageist-Antique', 'Volcarona', 'Aegislash', 'Gyarados', 'Baton Pass'
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
