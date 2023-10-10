@@ -425,14 +425,6 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Keen Eye", 1: "Precipitate"},
 	},
-	surskit: {
-		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Rain Dish"},
-	},
-	masquerain: {
-		inherit: true,
-		abilities: {0: "Intimidate", 1: "Precipitate"},
-	},
 	shroomish: {
 		inherit: true,
 		abilities: { 0: "Effect Spore" },
@@ -483,11 +475,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	swablu: {
 		inherit: true,
-		abilities: {0: "Natural Cure", 1: "Fluffy"},
+		abilities: {0: "Natural Cure", H: "Fluffy"},
 	},
 	altaria: {
 		inherit: true,
-		abilities: {0: "Natural Cure", 1: "Fluffy"},
+		abilities: {0: "Natural Cure", H: "Fluffy"},
 	},
 	solrock: {
 		inherit: true,
