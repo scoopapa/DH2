@@ -29,8 +29,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			taunt: ["7L1"],
 			torment: ["7L1"],
 			weatherball: ["7L1"],
-		}},
-		basketball: {learnset: {
+		},
+   },
+	basketball: {learnset: {
 			doubleedge: ["7L1"],
 			earthpower: ["7L1"],
 			earthquake: ["7L1"],
