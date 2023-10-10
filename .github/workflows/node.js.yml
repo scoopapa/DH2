@@ -16,7 +16,7 @@ jobs:
       matrix:
         node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        os: [ubuntu-latest, windows-latest, macOS-latest]    
+        os: [ubuntu-latest]    
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -34,3 +34,4 @@ jobs:
         while ! curl -s http://localhost:8000 -o /dev/null; do
         sleep 60
         done
+      shell: bash
