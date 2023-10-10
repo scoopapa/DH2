@@ -1034,7 +1034,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Exoskeleton",
 		rating: 4,
-		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: Bug resistances.",
+		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: +Bug resistances.",
 	},
 	bluntforce: {
 		// This should be applied directly to the stat as opposed to chaining with the others
