@@ -43,7 +43,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	8ball: {
+	"8ball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
