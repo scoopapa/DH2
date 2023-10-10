@@ -143,4 +143,5 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Berserk", 1: "Intimidate", H: "Guts"},
 		weightkg: 20,
 	},
+}.
 	
