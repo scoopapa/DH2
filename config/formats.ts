@@ -2029,6 +2029,19 @@ export const Formats: FormatList = [
 		banlist: ['AG', 'Uber', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Soul Dew'],
 	},
 	{
+		name: "[Gen 9] Roovnen UU",
+		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9485572">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1ZzNqkSOwGYx2E1Rn28jCzGpJahMIcM-KjiGprjQAT68/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen9roovnen',
+		searchShow: false,
+		ruleset: ['[Gen 9] Roovnen OU'],
+		banlist: ['OU', 'UUBL'],
+		teambuilderFormat: 'UU',
+	},
+	/*{
 		name: "[Gen 9] Roovnen Uber",
 		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
 		threads: [
@@ -2040,7 +2053,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard'],
 		banlist: ['AG', 'Shadow Tag', 'Baton Pass'],
 		teambuilderFormat: 'Uber',
-	},
+	},*/
 	{
 		name: "[Gen 9] Roovnen Doubles",
 		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
