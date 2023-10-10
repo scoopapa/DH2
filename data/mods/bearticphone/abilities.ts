@@ -22,7 +22,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Boombox",
-		shortDesc: "This Pokemon's moves have a 30% chance of badly poisoning.",
+		shortDesc: "This Pokemon's moves have a 30% chance of confusing.",
 		rating: 4.5,
 		num: 305,
 	},
@@ -159,16 +159,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['bullet']) {
 				this.debug('Sharpshooter boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		name: "Sharpshooter",
-		shortDesc: "This Pokemon's ball and bullet moves have their power multiplied by 1.5.",
+		shortDesc: "This Pokemon's ball and bullet moves have their power multiplied by 1.3.",
 		rating: 3.5,
 		num: 292,
 	},
-  twoleftfeet: {
-	 // Two Left Feet confusion copying implemented in scripts.ts
+	twoleftfeet: {
+		onAfterMoveSecondary(target, source, move) {
+			const moves = ['axekick', 'chatter', 'confuseray', 'confusion', 'dizzypunch', 'dynamicpunch', 'flatter', 'hurricane', 'magicaltorque', 'psybeam', 'rockclimb', 'secretpower', 'shadowpanic', 'signalbeam', 'strangesteam', 'supersonic', 'swagger', 'sweetkiss', 'teeterdance', 'waterpulse'];
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			if ((moves.includes(move.id) || moves.includes(move.name))) {
+				if (move.hasBounced == true) return;
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			}
+		},
     name: "Two Left Feet",
 	 shortDesc: "After another Pokemon uses a move that can cause confusion, this Pokemon uses the same move.",
     rating: 4,

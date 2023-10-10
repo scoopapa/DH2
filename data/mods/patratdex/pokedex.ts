@@ -1516,9 +1516,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = { //
 		abilities: {0: "Skill Link"},
 		weightkg: 80,
 	},
-	hilarila: {
+	hilarilla: {
 		num: 9152,
-		name: "Hilarila",
+		name: "Hilarilla",
 		types: ["Normal"],
 		baseStats: {hp: 101, atk: 92, def: 81, spa: 80, spd: 61, spe: 100},
 		abilities: {0: "Klutz", 1: "Costar", H: "Unnerve"},

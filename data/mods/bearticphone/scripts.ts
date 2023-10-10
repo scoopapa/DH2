@@ -87,25 +87,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	   		this.battle.add('-hint', `Some effects can force a Pokemon to use ${move.name} again in a row.`);
 	   	}
 
-		   if (move.volatileStatus === 'confusion' && moveDidSomething && !move.isExternal) {
-	   	   const feeters = [];
-			   for (const currentPoke of this.battle.getAllActive()) {
-				   if (pokemon === currentPoke) continue;
-			    	if (currentPoke.hasAbility('twoleftfeet') && !currentPoke.isSemiInvulnerable()) {
-					   feeters.push(currentPoke);
-					}
-				}
-			   feeters.sort(
-				   (a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
-			   );
-			   for (const feeter of feeters) {
-				   if (this.battle.faintMessages()) break;
-				   if (feeter.fainted) continue;
-				   this.battle.add('-activate', feeter, 'ability: Two Left Feet');
-			   	const dancersTarget = target.side !== feeter.side && pokemon.side === feeter.side ? target : pokemon;
-			   	this.runMove(move.id, feeter, this.getTargetLoc(dancersTarget, feeter), this.dex.abilities.get('feeter'), undefined, true);
-		   	}
-		   }
 	   	if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 	   	this.battle.faintMessages();
 	   	this.battle.checkWin();
