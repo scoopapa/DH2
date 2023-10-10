@@ -31,7 +31,8 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			weatherball: ["7L1"],
 		},
    },
-	basketball: {learnset: {
+	basketball: {
+   	learnset: {
 			doubleedge: ["7L1"],
 			earthpower: ["7L1"],
 			earthquake: ["7L1"],
@@ -79,8 +80,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			weatherball: ["7L1"],
 			willowisp: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		football: {learnset: {
+		},
+   },
+	football: {
+		learnset: {
 			bulldoze: ["7L1"],
 			closecombat: ["7L1"],
 			doubleedge: ["7L1"],
@@ -113,8 +116,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			takedown: ["7L1"],
 			wildcharge: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		soccerball: {learnset: {
+		}.
+	},
+	soccerball: {
+		learnset: {
 			acrobatics: ["7L1"],
 			aurasphere: ["7L1"],
 			brickbreak: ["7L1"],
@@ -156,8 +161,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			weatherball: ["7L1"],
 			wildcharge: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		tennisball: {learnset: {
+		},
+	},
+	tennisball: {
+		learnset: {
 			acrobatics: ["7L1"],
 			aeroblast: ["7L1"],
 			aircutter: ["7L1"],
@@ -191,8 +198,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			whirlwind: ["7L1"],
 			wildcharge: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		cricketball: {learnset: {
+		},
+	},
+	cricketball: {
+		learnset: {
 			acrobatics: ["7L1"],
 			aircutter: ["7L1"],
 			airslash: ["7L1"],
@@ -223,8 +232,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			uturn: ["7L1"],
 			weatherball: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		watermelon: {learnset: {
+		},
+	},
+	watermelon: {
+		learnset: {
 			bodypress: ["7L1"],
 			calmmind: ["7L1"],
 			doubleedge: ["7L1"],
@@ -249,8 +260,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxic: ["7L1"],
 			watergun: ["7L1"],
 			waterpulse: ["7L1"],
-		}},
-		orange: {learnset: {
+		},
+	},
+	orange: {
+		learnset: {
 			absorb: ["7L1"],
 			aromatherapy: ["7L1"],
 			bulletseed: ["7L1"],
@@ -280,8 +293,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterpulse: ["7L1"],
 			worryseed: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		plasmaball: {learnset: {
+		},
+	},
+	plasmaball: {
+		learnset: {
 			darkpulse: ["7L1"],
 			discharge: ["7L1"],
 			eerieimpulse: ["7L1"],
@@ -305,8 +320,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			thunderwave: ["7L1"],
 			voltswitch: ["7L1"],
 			wildcharge: ["7L1"],
-		}},
-		snowball: {learnset: {
+		},
+	},
+	snowball: {
+		learnset: {
 			blizzard: ["7L1"],
 			doubleedge: ["7L1"],
 			earthpower: ["7L1"],
@@ -331,8 +348,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterpulse: ["7L1"],
 			wildcharge: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		crystalball: {learnset: {
+		},
+	},
+	crystalball: {
+		learnset: {
 			aurasphere: ["7L1"],
 			calmmind: ["7L1"],
 			confusion: ["7L1"],
@@ -367,8 +386,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			trickroom: ["7L1"],
 			wish: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		8ball: {learnset: {
+		},
+	},
+	"8ball": {
+		learnset: {
 			aurasphere: ["7L1"],
 			confusion: ["7L1"],
 			darkpulse: ["7L1"],
@@ -391,8 +412,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			substitute: ["7L1"],
 			taunt: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		confettiball: {learnset: {
+		},
+	},
+	confettiball: {
+		learnset: {
 			calmmind: ["7L1"],
 			dazzlinggleam: ["7L1"],
 			decorate: ["7L1"],
@@ -419,8 +442,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			thunderbolt: ["7L1"],
 			thunderwave: ["7L1"],
 			trick: ["7L1"],
-		}},
-		discoball: {learnset: {
+		},
+	},
+	discoball: {
+		learnset: {
 			autotomize: ["7L1"],
 			calmmind: ["7L1"],
 			dazzlinggleam: ["7L1"],
@@ -451,8 +476,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			voltswitch: ["7L1"],
 			wish: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		moon: {learnset: {
+		},
+	},
+	moon: {
+		learnset: {
 			bodypress: ["7L1"],
 			bulldoze: ["7L1"],
 			curse: ["7L1"],
@@ -491,8 +518,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tackle: ["7L1"],
 			willowisp: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		rock: {learnset: {
+		},
+	},
+	rock: {
+		learnset: {
 			ancientpower: ["7L1"],
 			bodypress: ["7L1"],
 			bulldoze: ["7L1"],
@@ -527,8 +556,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tackle: ["7L1"],
 			takedown: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
-		virus: {learnset: {
+		},
+	},
+	virus: {
+		learnset: {
 			acid: ["7L1"],
 			acidspray: ["7L1"],
 			barbbarrage: ["7L1"],
@@ -558,8 +589,10 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			toxicspikes: ["7L1"],
 			venoshock: ["7L1"],
 			wildcharge: ["7L1"],
-		}},
-		dragonball: {learnset: {
+		},
+	},
+	dragonball: {
+		learnset: {
 			airslash: ["7L1"],
 			aurasphere: ["7L1"],
 			blizzard: ["7L1"],
@@ -619,4 +652,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			weatherball: ["7L1"],
 			wildcharge: ["7L1"],
 			zenheadbutt: ["7L1"],
-		}},
+		},
+	},
+},
