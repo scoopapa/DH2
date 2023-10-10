@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: DH2 CI - Test Pull Requests
+name: DH2 CI - Run Pull Requests
 
 on:
   push:
@@ -29,10 +29,8 @@ jobs:
     - name: Build DH2
       run: npm run build --if-present
     - name: start DH2 server instance
-      run: node pokemon-showdown
-    - name: Sleep for 60 seconds
-      run: Start-Sleep -s 60
-      shell: bash
-    - name: stop DH2
-      run: killall node
-      shell: bash
+      run:
+        node pokemon-showdown &
+        while ! curl -s http://localhost:8000 -o /dev/null; do
+        sleep 60
+        done
