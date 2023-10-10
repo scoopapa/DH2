@@ -770,7 +770,101 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "Holder's neutral damamging moves deal 1.2x damage.",
 	},
-
+	keeberry: {
+		name: "Kee Berry",
+		spritenum: 593,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Fairy",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Physical') {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+				if (target.eatItem()) {
+					this.debug('kee activation');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (!target.getMoveHitData(move).crit) {
+						return this.chainModify(0.67);
+					}
+				}
+			}
+		},
+		onEat(pokemon) {
+			this.boost({def: 1});
+		},
+		num: 687,
+		gen: 6,
+		desc: "Raises holder's Defense by 1 stage before it is hit by a physical attack. Single use.",
+	},
+	marangaberry: {
+		name: "Maranga Berry",
+		spritenum: 597,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Dark",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Special') {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+				if (target.eatItem()) {
+					this.debug('maranga activation');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (!target.getMoveHitData(move).crit) {
+						return this.chainModify(0.67);
+					}
+				}
+			}
+		},
+		onEat(pokemon) {
+			this.boost({spd: 1});
+		},
+		num: 688,
+		gen: 6,
+		desc: "Raises holder's Sp. Defense by 1 stage before it is hit by a special attack. Single use.",
+	},
+	bindingband: {
+		name: "Binding Band",
+		spritenum: 31,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (target.volatiles['trapped'] || target.volatiles['partiallytrapped'] || target.volatiles['sandspit']) {
+				return this.chainModify(1.5);
+			}
+		},
+		// other effects removed in statuses
+		desc: "(Partially functional) Against trapped targets: 1.5x move power and accuracy.",
+		num: 544,
+		gen: 5,
+	},
+	slingshot: {
+		name: "Slingshot",
+		spritenum: 387,
+		fling: {
+			basePower: 60,
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && source.hp && target.hp && move && 
+				(move.id === 'uturn' || move.id === 'voltswitch' || move.id === 'flipturn' || 
+				move.id === 'round' || move.id === 'rollout' || move.id === 'partingshot')) {
+				if (!source.isActive || !this.canSwitch(source.side) || source.forceSwitchFlag || target.forceSwitchFlag) {
+					return;
+				}
+				if (this.runEvent('DragOut', source, target, move)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+					source.forceSwitchFlag = true;
+				}
+			}
+		},
+		desc: "If hit by pivoting move: attacker takes 1/8 of their max HP in damage and is forced out.",
+	},	
+	
 // unchanged items
 	boosterenergy: {
 		name: "Booster Energy",

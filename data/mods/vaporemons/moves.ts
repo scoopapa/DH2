@@ -374,6 +374,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psycho Cut", target);
 		},
+		self: {
+			sideCondition: 'echochamber',
+		},
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
@@ -813,7 +816,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onBasePowerPriority: 1,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.id === 'round') {
+				if (move.id === 'round' || move.id === 'echochamber') {
 					return this.chainModify(2);
 				}
 			},
@@ -942,6 +945,99 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+	},
+	rebuild: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Restores HP equal to the user's level × 1.25.",
+		name: "Rebuild",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+		},
+		onHit(pokemon) {
+			this.heal(pokemon.level * 1.25);
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		contestType: "Clever",
+	},
+	washaway: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+	   shortDesc: "Removes hazards and terrains, then forces out target.",
+		name: "Wash Away",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, mirror: 1, noassist: 1, failcopycat: 1},
+		forceSwitch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Surf", target);
+		},
+		onHit(target, source, move) {
+			let success = false;
+			const removeTarget = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'healingstones',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'healingstones',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Wash Away', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Wash Away', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+	},
+	echochamber: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+	   shortDesc: "1.5x power if a sound move was used last turn.",
+		name: "Echo Chamber",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Voice", target);
+		},
+		self: {
+			sideCondition: 'echochamber',
+		},
+		condition: {
+			duration: 2,
+			onBasePowerPriority: 1,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.id === 'echochamber') {
+					return this.chainModify(1.5);
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
 	},
 
 // all edited unchanged moves
@@ -2156,6 +2252,175 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 			},
+		},
+	},
+	boomburst: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	bugbuzz: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	clangingscales: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	clangoroussoul: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	confide: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	disarmingvoice: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	echoedvoice: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	eeriespell: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	growl: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	healbell: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	hypervoice: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	metalsound: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	howl: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	nobleroar: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	overdrive: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	partingshot: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	perishsong: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	relicsong: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	roar: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	screech: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	sing: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	snarl: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	snore: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	sparklingaria: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	chatter: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	supersonic: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	torchsong: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	uproar: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+			volatileStatus: 'uproar',
 		},
 	},
 };
