@@ -838,8 +838,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		onSourceModifyAccuracyPriority: -2,
+		onSourceModifyAccuracy(accuracy, target) {
+			if (typeof accuracy === 'number' && 
+				 (target.volatiles['trapped'] || 
+				  target.volatiles['partiallytrapped'] || 
+				  target.volatiles['sandspit'])) {
+				this.debug('Binding Band boosting accuracy');
+				return this.chainModify(1.5);
+			}
+		},
 		// other effects removed in statuses
-		desc: "(Partially functional) Against trapped targets: 1.5x move power and accuracy.",
+		desc: "Against trapped targets: 1.5x move power and accuracy.",
 		num: 544,
 		gen: 5,
 	},
