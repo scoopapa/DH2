@@ -111,19 +111,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBasePowerPriority: 6,
 		onBasePower(basePower, attacker, defender, move) {
+			if (this.getAllActive().some(x => x.hasAbility('downtoearth'))) return;
 			if (move.type === 'Poison' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
-				for (const active of this.getAllActive()) {
-					if (active.hasAbility('downtoearth')) {
-						this.add('-message', `${active.name} suppresses the effects of the terrain!`);
-						return;
-					}
-				}
 				this.debug('acidic terrain boost');
-				return this.chainModify([0x14CD, 0x1000]);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, source, target) {
+			if (this.getAllActive().some(x => x.hasAbility('downtoearth'))) return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Poison'] = true;
@@ -131,15 +127,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onTryHit(target, source, move) {
 			if (move.type === 'Poison') {
-				if (target.isGrounded() && !target.isSemiInvulnerable() && !this.dex.getImmunity('Poison', target)) {
-					for (const active of this.getAllActive()) {
-						if (active.hasAbility('downtoearth')) {
-							this.add('-message', `${active.name} suppresses the effects of the terrain!`);
-							this.add('-immune', target);
-							return null;
-						}
-					}
-				}
 				if ((!target.isGrounded() || target.isSemiInvulnerable()) && !this.dex.getImmunity('Poison', target)) {
 					this.add('-immune', target);
 					this.hint(`Only targets that are affected by terrain lose their immunity to Poison.`);
@@ -147,18 +134,18 @@ export const Conditions: {[k: string]: ConditionData} = {
 				}
 			}
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
-				this.add('-fieldstart', 'move: Acidic Terrain', '[from] ability: ' + effect, '[of] ' + source);
+				this.add('-fieldstart', 'move: Acidic Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
 				this.add('-message', "Poison-type moves used by grounded Pokémon will have their power increased.");
 				this.add('-message', "Grounded Steel-type Pokémon will also lose their immunity to Poison-type moves.");
 			} else {
 				this.add('-fieldstart', 'move: Acidic Terrain');
 			}
 		},
-		onResidualOrder: 21,
-		onResidualSubOrder: 2,
-		onEnd() {
+		onFieldResidualOrder: 27,
+		onFieldResidualSubOrder: 7,
+		onFieldEnd() {
 			this.add('-fieldend', 'move: Acidic Terrain');
 		},
  	},
@@ -172,7 +159,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-ability', source, 'Desert Gales');
@@ -205,6 +192,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual() {
 			this.add('-weather', 'Desert Gales', '[upkeep]');
 			this.add('-message', `The desert gales are raging!`);
+			this.eachEvent('Weather');
 		},
 		onEnd() {
 			this.add('-weather', 'none', '[silent]');
@@ -221,7 +209,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
-		onStart(battle, source, effect) {
+		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-ability', source, 'Diamond Dust');
@@ -249,6 +237,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onResidual() {
 			this.add('-weather', 'Diamond Dust', '[upkeep]');
 			this.add('-message', `The air is sparkling with diamond dust!`);
+			this.eachEvent('Weather');
 		},
 		onEnd() {
 			this.add('-weather', 'none', '[silent]');
