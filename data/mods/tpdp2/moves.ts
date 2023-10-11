@@ -6295,7 +6295,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-end', target, 'Magic Barrier');
 			},
 		},
-		},
 	},
 	merrydance: {
 		name: "Merry Dance",
