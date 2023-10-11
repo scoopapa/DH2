@@ -1770,7 +1770,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
 		banlist: [
 			'Alakazam', 'Excadrill-Base', 'Exploud', 'Lycanroc-Dusk', 'Naganadel-Base', 'Reuniclus-Base', 'Scizor', 'Scolipede-Base', 'Starmie-Base', 'Polteageist-Base',
-			'Polteageist-Antique', 'Volcarona', 'Aegislash', 'Gyarados', 'Moody', 'Baton Pass'
+			'Polteageist-Antique', 'Volcarona', 'Aegislash-Base', 'Gyarados', 'Moody', 'Baton Pass'
 		],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
@@ -1795,7 +1795,7 @@ export const Formats: FormatList = [
 			`<b>Evolution Project</b>: A small group's creative exercise being given a test run. More details when we go public!`,
 		],
 		gameType: 'doubles',
-		banlist: ['Aegislash', 'Scizor'],
+		banlist: ['Aegislash-Base', 'Scizor'],
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', '+Unobtainable', '+Past', 'Dynamax Clause', 'Z-Move Clause', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
