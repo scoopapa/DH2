@@ -7966,6 +7966,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			crosschop: ["7L44", "7E"],
 			crushclaw: ["7E"],
 			detect: ["7L40"],
+			direclaw: ["7L0"],
 			doublehit: ["7E"],
 			fakeout: ["7E"],
 			feint: ["7E"],
