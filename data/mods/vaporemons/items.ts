@@ -768,7 +768,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		gen: 8,
-		desc: "Holder's neutral damamging moves deal 1.2x damage.",
+		desc: "Holder's neutral damaging moves deal 1.2x damage.",
 	},
 	keeberry: {
 		name: "Kee Berry",
