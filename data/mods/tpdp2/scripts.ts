@@ -30,6 +30,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		sourceEffect: Effect | null = null,
 		ignoreImmunities = false
 	) {
+		console.log(this.status);
 		if (!this.hp) return false;
 		status = this.battle.dex.conditions.get(status);
 		if (this.battle.event) {
@@ -38,7 +39,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		}
 		if (!source) source = this;
 		
-		if (this.status.length !== 0) {
+		if (this.status && this.status.length !== 0) {
 			return this.setStatusTwo(this.status, source, sourceEffect, false, status);
 		}
 
@@ -116,7 +117,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					return false;
 				}
 			} else if (this.status) {
-				if(this.status.length < 6 && !['stp', 'hvybrn', 'hvypsn', 'shk', 'weakheavy'].includes(this.status)) {
+				if(this.status.length < 6 && !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(this.status)) {
 					newStatus.id = this.status + newStatus.id;
 					delete this.status;
 				} else {
