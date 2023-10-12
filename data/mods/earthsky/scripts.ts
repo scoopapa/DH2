@@ -5219,7 +5219,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','gardevoir').learnset.nightmare = ["9M"];
 		delete this.modData('Learnsets','gardevoir').learnset.knockoff;
 		// Surskit
-		this.modData('Learnsets','surskit').learnset.aquajet = ["9D"];
+		this.modData('Learnsets','surskit').learnset.soak = ["9D"];
 		delete this.modData('Learnsets','surskit').learnset.blizzard;
 		// Masquerain
 		this.modData('Learnsets','masquerain').learnset.glare = ["9D"];

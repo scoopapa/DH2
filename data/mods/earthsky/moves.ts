@@ -83,7 +83,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Apple Bomb",
 		pp: 20,
 		priority: 0,
-		flags: {snatch: 1, bullet: 1},
+		flags: {protect: 1, bullet: 1},
 		onModifyMove(move, pokemon) {
 			move.secondaries = [];
 			switch(pokemon.getItem().name){
@@ -126,15 +126,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						boosts: {spe: -1},
 					});
 					break;
+				case 'Fervintill':
+					move.secondaries.push({
+						chance: 100,
+						boosts: {spa: -1},
+					});
+					break;
+				case 'Malaconda':
+					move.secondaries.push({
+						chance: 100,
+						boosts: {atk: -1},
+					});
+					break;
 			}
 		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		desc: "If the user is holding a Tart Apple or is Flapple, has a 100% chance to lower the target's Defense by 1 stage. If the user is holding a Sweet Apple or is Appletun, has a 100% chance to lower the target's Special Defense by 1 stage. If the user is holding a Syrupy Apple or is Dipplin, has a 100% chance to lower the target's Speed by 1 stage. Holding an item overrides the species. If none of the above, has no secondary effect.",
+		desc: "If the user is holding a Tart Apple or is Flapple, has a 100% chance to lower the target's Defense by 1 stage. If the user is holding a Sweet Apple or is Appletun, has a 100% chance to lower the target's Special Defense by 1 stage. If the user is holding a Syrupy Apple or is Dipplin, has a 100% chance to lower the target's Speed by 1 stage. If the user is Fervintill, has a 100% chance to lower the target's Special Attack by 1 stage. If the user is Malaconda, has a 100% chance to lower the target's Attack by 1 stage. Holding an item overrides the species. If none of the above, has no secondary effect.",
 		shortDesc: "Lowers a stat by 1 depending on held Apple/user.",
-				isViable: true,
+		isViable: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Grav Apple", target);
