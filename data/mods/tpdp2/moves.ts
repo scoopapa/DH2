@@ -2,7 +2,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	atempo: {
 		name: "A Tempo",
 		shortDesc: "Clears everyone's stat modifiers.",
-		target: "normal",
+		target: "all",
 		type: "Sound",
 		category: "Status",
 		basePower: 0,
@@ -527,7 +527,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Baton Pass", target);
 		},
 		onHit(target) {
-			if (!this.canSwitch(target.side)) {
+			if (!this.canSwitch(target.side) || target.volatiles['commanded']) {
 				this.attrLastMove('[still]');
 				this.add('-fail', target);
 				return this.NOT_FAIL;
@@ -538,7 +538,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				source.skipBeforeSwitchOutEventFlag = true;
 			},
 		},
-		selfSwitch: true,
+		selfSwitch: 'copyvolatile',
 		// Class: EN
 		// Effect Chance: 100
 		// Effect ID: 61
@@ -1102,7 +1102,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				this.add('-message', `$The dead call upon {source.name}...`);
+				this.add('-message', `$The dead call upon ${source.name}...`);
 				this.add('-singlemove', pokemon, 'Call of the Dead');
 			},
 			onFaint(target, source, effect) {
@@ -2516,7 +2516,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 100,
-			volatileStatus: 'par'
+			status: 'par'
 		}
 		// Class: 2
 		// Effect Chance: 1000
@@ -4085,7 +4085,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	foresttherapy: {
 		name: "Forest Therapy",
 		shortDesc: "Heals the user's party of all status ailments.",
-		target: "self",
+		target: "allyTeam",
 		type: "Nature",
 		category: "Status",
 		basePower: 0,
@@ -4098,7 +4098,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Aromatherapy", target);
 		},
 		onHit(target, source, move) {
-			this.add('-activate', source, 'move: Aromatherapy');
+			this.add('-activate', source, 'move: Forest Therapy');
 			let success = false;
 			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
 			for (const ally of allies) {
@@ -4858,29 +4858,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Weather Ball", target);
 		},
-		basePowerCallback(pokemon, target, move) {
-			if (this.field.weather) {
-				switch (this.field.weather) {
-					case "aurora":
-						move.type = "Light";
-						break;
-					case "calm":
-						move.type = "Wind";
-						break;
-					case "duststorm":
-						move.type = "Earth";
-						break;
-					case "heavyfog":
-						move.type = "Dark";
-						break;
-					case "sunshower":
-						move.type = "Warped";
-						break;
-				}
-				return move.basePower * 2;
+		onModifyType(move, pokemon) {
+			switch (pokemon.effectiveWeather()) {
+				case "aurora":
+					move.type = "Light";
+					break;
+				case "calm":
+					move.type = "Wind";
+					break;
+				case "duststorm":
+					move.type = "Earth";
+					break;
+				case "heavyfog":
+					move.type = "Dark";
+					break;
+				case "sunshower":
+					move.type = "Warped";
+					break;
 			}
-			return move.basePower;
 		},
+		onModifyMove(move, pokemon) {
+			if (this.field.weather) move.basePower *= 2;
+		}
 	},
 	heavenlyinfluence: {
 		name: "Heavenly Influence",
@@ -6516,7 +6515,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHitPriority: 2,
 			onTryHit(target, source, move) {
-				if (target === source || move.hasBounced || (move.category === 'Status' && move.name !== 'Shinigami\'s Waltz')) {
+				if (target === source || 
+					move.hasBounced || 
+					move.category !== 'Status' || 
+					(move.target !== 'normal' && move.target !== 'foeSide') || 
+					move.name !== 'Shinigami\'s Waltz') {
 					return;
 				}
 				const newMove = this.dex.getActiveMove(move.id);
@@ -8515,7 +8518,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	recollection: {
 		name: "Recollection",
 		shortDesc: "Copies all of the foe's attributes.",
-		target: "self",
+		target: "normal",
 		type: "Void",
 		category: "Status",
 		basePower: 0,

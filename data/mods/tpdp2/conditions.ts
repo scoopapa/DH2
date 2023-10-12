@@ -1044,6 +1044,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			}
 			if (this.randomChance(1, 2)) {
 				this.add('-activate', pokemon, 'confusion');
+				this.add('-message', `${pokemon.name} is too confused to move!`);
 				return false;
 			}
 			/*
