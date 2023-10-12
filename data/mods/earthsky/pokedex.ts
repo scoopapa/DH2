@@ -4183,12 +4183,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	brattler: {
 		inherit: true,
 		number: -33,
-	},
+	},*/
 	malaconda: {
 		inherit: true,
-		number: -34,
+		//number: -34,
+		abilities: {0: "Harvest", 1: "Shed Skin", H: "Infiltrator"},
 	},
-	cawdet: {
+	/*cawdet: {
 		inherit: true,
 		number: -35,
 	},
