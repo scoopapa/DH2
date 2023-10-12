@@ -1093,7 +1093,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 3.125,
 		accuracy: true,
 		priority: 0,
-		flags: {},
+		flags: {bypasssub: 1, failcopycat: 1},
 		volatileStatus: 'callofthedead',
 		onPrepareHit(target, source) {
 			this.attrLastMove('[still]');
@@ -1668,7 +1668,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 12.5,
 		accuracy: 100,
 		priority: -5,
-		flags: {protect: 1, contact: 1, counter: 1},
+		flags: {protect: 1, contact: 1, counter: 1, failcopycat: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Counter", target);
@@ -4059,27 +4059,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Me First", target);
 		},
-		onTryHit(source, target, move) {
-			let targetAction = this.queue.willMove(target);
-			if (!targetAction || (targetAction && targetAction.move.category === "Status")) {
-				this.add('-fail', source);
-				return false;
-			}
-		},
-		onHit(target, source, move) {
-			let targetAction = this.queue.willMove(target);
-			if (targetAction) {
-				source.addVolatile('foresee');
-				this.useMove(targetAction.move, source, target, move);
-			}
+		onTryHit(target, pokemon) {
+			const action = this.queue.willMove(target);
+			if (!action) return false;
+			const move = this.dex.getActiveMove(action.move.id);
+			if (action.zmove || move.isZ || move.isMax) return false;
+			if (target.volatiles['mustrecharge']) return false;
+			if (move.category === 'Status' || move.flags['failmefirst']) return false;
+
+			pokemon.addVolatile('mefirst');
+			this.actions.useMove(move, pokemon, target);
+			return null;
 		},
 		condition: {
-			noCopy: true,
 			duration: 1,
-			onBasePower(relayVar, source, target, move) {
-				this.chainModify(1.5);
+			onBasePowerPriority: 12,
+			onBasePower(basePower) {
+				return this.chainModify(1.5);
 			},
-		}
+		},
 		// Class: EN
 		// Effect Chance: 100
 		// Effect ID: 208
@@ -6511,14 +6509,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onStart(target, source, effect) {
-				this.add('-singleturn', target, 'move: Magic Coat');
+				this.add('-singleturn', target, 'move: Mirage');
 				if (effect?.effectType === 'Move') {
 					this.effectState.pranksterBoosted = effect.pranksterBoosted;
 				}
 			},
 			onTryHitPriority: 2,
 			onTryHit(target, source, move) {
-				if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				if (target === source || move.hasBounced || (move.category === 'Status' && move.name !== 'Shinigami\'s Waltz')) {
 					return;
 				}
 				const newMove = this.dex.getActiveMove(move.id);
@@ -6626,7 +6624,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, failcopycat: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Metal Burst", target);
@@ -6719,7 +6717,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 12.5,
 		accuracy: 100,
 		priority: -5,
-		flags: {protect: 1, counter: 1},
+		flags: {protect: 1, counter: 1, failcopycat: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mirror Coat", target);
@@ -6985,20 +6983,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 12.5,
 		accuracy: true,
 		priority: 0,
-		flags: {},
+		flags: {failcopycat: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Copycat", target);
 		},
-		onTryHit(source, target, move) {
-			if (!source.lastMoveUsed || source.lastMoveUsed.id === 'neardeathevent') {
-				this.add('-fail', source);
+		onHit(pokemon) {
+			let move: Move | ActiveMove | null = this.lastMove;
+			if (!move) return;
+
+			if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+			if (move.flags['failcopycat'] || move.isZ || move.isMax) {
 				return false;
 			}
-		},
-		onHit(target, source, move) {
-			if (source.lastMoveUsed)
-				this.useMove(source.lastMoveUsed, source, target, move);
+			this.actions.useMove(move.id, pokemon);
 		},
 		// Class: EN
 		// Effect Chance: 100
@@ -7943,7 +7941,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Conversion", target);
 		},
 		onHit(target, source, move) {
-			const type = this.dex.getMove(target.moveSlots[0].id).type;
+			const type = this.dex.moves.get(target.moveSlots[0].id).type;
 			if (target.hasType(type) || !target.setType(type)) return false;
 			this.add('-start', target, 'typechange', type);
 		},
@@ -8134,14 +8132,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Illusion",
 		category: "Physical",
 		basePower: 50,
-		pp: 12.5,
-		accuracy: 100,
-		priority: 0,
-		flags: {protect: 1, contact: 1},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Pursuit", target);
-		},
 		basePowerCallback(pokemon, target, move) {
 			// You can't get here unless the pursuit succeeds
 			if (target.beingCalledBack || target.switchFlag) {
@@ -8150,9 +8140,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			return move.basePower;
 		},
+		pp: 12.5,
+		accuracy: 100,
+		priority: 0,
+		flags: {protect: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pursuit", target);
+		},
 		beforeTurnCallback(pokemon) {
 			for (const side of this.sides) {
-				if (side === pokemon.side) continue;
+				if (side.hasAlly(pokemon)) continue;
 				side.addSideCondition('pursuit', pokemon);
 				const data = side.getSideConditionData('pursuit');
 				if (!data.sources) {
@@ -8162,7 +8160,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		onModifyMove(move, source, target) {
-			if (target?.beingCalledBack) move.accuracy = true;
+			if (target?.beingCalledBack || target?.switchFlag) move.accuracy = true;
 		},
 		onTryHit(target, pokemon) {
 			target.side.removeSideCondition('pursuit');
@@ -8174,7 +8172,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				let alreadyAdded = false;
 				pokemon.removeVolatile('destinybond');
 				for (const source of this.effectState.sources) {
-					if (!this.queue.cancelMove(source) || !source.hp) continue;
+					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
 						this.add('-activate', pokemon, 'move: Pursuit');
 						alreadyAdded = true;
@@ -8184,16 +8182,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					if (source.canMegaEvo || source.canUltraBurst) {
 						for (const [actionIndex, action] of this.queue.entries()) {
 							if (action.pokemon === source && action.choice === 'megaEvo') {
-								this.runMegaEvo(source);
+								this.actions.runMegaEvo(source);
 								this.queue.list.splice(actionIndex, 1);
 								break;
 							}
 						}
 					}
-					this.runMove('pursuit', source, this.getTargetLoc(pokemon, source));
+					this.actions.runMove('pursuit', source, source.getLocOf(pokemon));
 				}
 			},
 		},
+		
 		// Class: BU
 		// Effect Chance: 100
 		// Effect ID: 148
@@ -8529,7 +8528,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Transform", target);
 		},
 		onHit(target, pokemon) {
-			if (!pokemon.transformInto(target, this.effect, false)) {
+			if (!pokemon.transformInto(target)) {
 				return false;
 			}
 		},
@@ -8544,6 +8543,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Void",
 		category: "Physical",
 		basePower: 0,
+		damageCallback(pokemon, target) {
+			return target.getUndynamaxedHP() - pokemon.hp;
+		},
 		pp: 3.125,
 		accuracy: 100,
 		priority: 0,
@@ -8552,14 +8554,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Endeavor", target);
 		},
-		onTryHit(source, target, move) {
-			if (source.hp >= target.hp) {
-				this.add('-fail', source);
-				return false;
-			}
-		},
-		onHit(target, source, move) {
-			target.damage(target.hp - source.hp);
+		onTryImmunity(target, pokemon) {
+			return pokemon.hp < target.hp;
 		},
 		// Class: BU
 		// Effect Chance: 100
@@ -8614,11 +8610,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Recycle", target);
 		},
 		onHit(pokemon) {
-			if (!pokemon.item && !pokemon.lastItem) {
-				pokemon.setItem(pokemon.lastItem);
-				pokemon.lastItem = '';
-				this.add('-item', pokemon, pokemon.getItem(), '[from] move: Resourcefulness');
-			}
+			if (pokemon.item || !pokemon.lastItem) return false;
+			const item = pokemon.lastItem;
+			pokemon.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] move: Recycle');
+			pokemon.setItem(item);
 		},
 		// Class: EN
 		// Effect Chance: 100
@@ -10538,11 +10534,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 21.875,
 		accuracy: true,
 		priority: 0,
-		flags: {protect: 1, contact: 1},
+		flags: {
+			contact: 1, protect: 1,
+			failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
+		},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Struggle", target);
 		},
+		onAfterMove(pokemon, target, move) {
+			this.damage(Math.round(pokemon.maxhp / 3), pokemon, pokemon);
+		}
 		// Class: BU
 		// Effect Chance: 100
 		// Effect ID: 1023
@@ -10611,8 +10613,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		stallingMove: true,
 		volatileStatus: 'supernaturalborder',
 		onPrepareHit(pokemon) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Protect", target);
+			this.add('-anim', pokemon, "Protect", pokemon);
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -10625,21 +10626,27 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect'])
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
-				if (move.smartTarget)
+				}
+				if (move.smartTarget) {
 					move.smartTarget = false;
-				else
+				} else {
 					this.add('-activate', target, 'move: Supernatural Border');
-				
+				}
 				const lockedmove = source.getVolatile('lockedmove');
 				if (lockedmove) {
-					if (source.volatiles['lockedmove'].duration === 2)
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
 						delete source.volatiles['lockedmove'];
+					}
 				}
 				return this.NOT_FAIL;
 			},
 		},
+		
 	},
 	swallowcut: {
 		name: "Swallow Cut",
@@ -10970,7 +10977,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'thornedivy',
 		onPrepareHit(pokemon) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Spiky Shield", target);
+			this.add('-anim', pokemon, "Spiky Shield");
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
 		onHit(pokemon) {
@@ -10979,27 +10986,39 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onStart(target) {
-				this.add('-singleturn', target, 'Thorned Ivy');
+				this.add('-singleturn', target, 'move: Thorned Ivy');
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
 				if (!move.flags['protect']) {
-					source.damage(source.maxhp / 16, target);
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
 				}
-				if (move.smartTarget)
+				if (move.smartTarget) {
 					move.smartTarget = false;
-				else
+				} else {
 					this.add('-activate', target, 'move: Thorned Ivy');
-				
+				}
 				const lockedmove = source.getVolatile('lockedmove');
 				if (lockedmove) {
-					if (source.volatiles['lockedmove'].duration === 2)
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
 						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.basePower >= 100) {
+					this.damage(source.baseMaxhp / 8, source, target);
 				}
 				return this.NOT_FAIL;
 			},
+			onHit(target, source, move) {
+				if (move.basePower >= 100) {
+					this.damage(source.baseMaxhp / 8, source, target);
+				}
+			},
 		},
+		
 		// Class: EN
 		// Effect Chance: 100
 		// Effect ID: 168
@@ -11606,7 +11625,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onDisableMove(pokemon) {
 				for (const moveSlot of pokemon.moveSlots) {
-					const move = this.dex.getMove(moveSlot.id);
+					const move = this.dex.moves.get(moveSlot.id);
 					if (move.category === 'Status') {
 						pokemon.disableMove(moveSlot.id);
 					}
@@ -11646,7 +11665,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	veilofwater: {
 		name: "Veil of Water",
 		shortDesc: "For 5 turns, the user's side cannot have their stats lowered by the foe's side.",
-		target: "allySide",
+		target: "normal",
 		type: "Water",
 		category: "Special",
 		basePower: 40,
@@ -12168,7 +12187,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Tail Glow", target);
 		},
-		boosts: {spa: 2}
+		boosts: {spa: 3}
 		// Class: EN
 		// Effect Chance: 100
 		// Effect ID: 69
@@ -12220,7 +12239,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Will-o-Wisp", target);
 		},
-		status: ['brn', 'dark']
+		status: 'darkbrn',
 		// Class: EN
 		// Effect Chance: 100
 		// Effect ID: 102

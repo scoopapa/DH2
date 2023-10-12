@@ -1177,9 +1177,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	hateincarnate: {
 		name: "Hate Incarnate",
-		shortDesc: "Damage the opponent if fainting is caused by an attack of 70 or more BP.",
-		onFaint(target, source, effect) {
-			if (effect.effectType === "Move" && effect.basePower >= 70)
+		shortDesc: "Damages the opponent if fainting is caused by an attack of 70 or more BP.",
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && move.basePower >= 70)
 				source.damage(source.baseMaxhp / 8);
 		},
 	},
