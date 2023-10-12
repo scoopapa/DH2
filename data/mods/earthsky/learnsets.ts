@@ -4617,6 +4617,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	daedestus: {
 		learnset: {
 			ember: ["9L1"],
+			bash: ["9L1"],
 			harden: ["9L5"],
 			magnetbomb: ["9L11"],
 			preheat: ["9L16"],
