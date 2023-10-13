@@ -48,7 +48,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if(status.id.length !== 0) return this.setStatusTwo(this.status, source, sourceEffect, false, status);
 			else {
 				this.status = status.id;
-				console.log("status: " + this.status + " (" + this.status.length + ")");
 				return true;
 			}
 		}
