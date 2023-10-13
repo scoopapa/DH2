@@ -1039,6 +1039,201 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		contestType: "Cool",
 	},
+	brickbreak: {
+		inherit: true,
+		basePower: 85,
+	},
+	psychicfangs: {
+		inherit: true,
+		flags: {bite: 1, protect: 1, mirror: 1},
+	},
+	sledgehammerblow: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+	   shortDesc: "Destroys screens, unless the target is immune.",
+		name: "Sledgehammer Blow",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gigaton Hammer", target);
+		},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Clever",
+	},
+	desertstorm: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+	   shortDesc: "Hits two turns after being used. Sets sands when it hits, even if the target is immune.",
+		name: "Desert Storm",
+		pp: 15,
+		priority: 0,
+		flags: {allyanim: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Defog", target);
+		},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'desertstorm',
+				source: source,
+				moveData: {
+					id: 'desertstorm',
+					name: "Desert Storm",
+					accuracy: 100,
+					basePower: 90,
+					category: "Physical",
+					priority: 0,
+					flags: {allyanim: 1, futuremove: 1},
+					ignoreImmunity: false,
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Sandsear Storm", target);
+					},
+					self: {
+						onHit(source) {
+							this.field.setWeather('sandstorm');
+						},
+						onMoveFail(source) {
+							this.field.setWeather('sandstorm');
+						},
+					},
+					effectType: 'Move',
+					type: 'Ground',
+				},
+			});
+			this.add('-start', source, 'move: Desert Storm');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Clever",
+	},
+	dragonrage: {
+		num: 82,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+	   shortDesc: "If the user is hit this turn, +1 SpA.",
+		isNonstandard: null,
+		name: "Dragon Rage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('dragonrage');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Dragon Rage');
+			},
+			onHit(target, source, move) {
+				if (target !== source && move.category !== 'Status') {
+					this.boost({spa: 1});
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	rage: {
+		num: 99,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+	   shortDesc: "If the user is hit this turn, +1 Atk.",
+		isNonstandard: null,
+		name: "Rage",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('rage');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Rage');
+			},
+			onHit(target, source, move) {
+				if (target !== source && move.category !== 'Status') {
+					this.boost({atk: 1});
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	latentvenom: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Hits two turns after being used. Foe: badly poisoned and -1 Def & SpD.",
+		name: "Latent Venom",
+		pp: 5,
+		priority: 0,
+		flags: {allyanim: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acid Spray", target);
+		},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'latentvenom',
+				source: source,
+				moveData: {
+					id: 'latentvenom',
+					name: "Latent Venom",
+					accuracy: 100,
+					basePower: 0,
+					category: "Status",
+					priority: 0,
+					flags: {allyanim: 1, futuremove: 1},
+					ignoreImmunity: false,
+					status: 'tox',
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Corrosive Gas", target);
+					},
+					boosts: {
+						def: -1,
+						spd: -1,
+					},
+					effectType: 'Move',
+					type: 'Poison',
+				},
+			});
+			this.add('-start', source, 'move: Latent Venom');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
 
 // all edited unchanged moves
 	stealthrock: {
