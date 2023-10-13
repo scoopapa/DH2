@@ -874,6 +874,40 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "If hit by pivoting move: attacker takes 1/8 of their max HP in damage and is forced out.",
 	},	
+	mantisclaw: {
+		name: "Mantis Claw",
+		spritenum: 251,
+		fling: {
+			basePower: 10,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Kleavor') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Scizor') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Scizor') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Scyther') {
+				return this.chainModify(1.5);
+			}
+		},
+		desc: "Scyther line: Immune to hazard damage, 1.5x Spe (Scyther), 1.3x Defenses (Scizor), 1.5x Attack (Kleavor).",
+		itemUser: ["Scyther", "Scizor", "Kleavor"],
+		gen: 9,
+	},
 	
 // unchanged items
 	boosterenergy: {
