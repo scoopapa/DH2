@@ -18,8 +18,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Water"],
 		abilities: {0: "Battle Spines", 1: "Merciless", H: "Regenerator"},
 	},
+	varoom: {
+		inherit: true,
+		abilities: {0: "Overcoat", 1: "Momentum", H: "Slow Start"},
+	},
 	revavroom: {
 		inherit: true,
+		abilities: {0: "Overcoat", 1: "Momentum", H: "Filter"},
 		otherFormes: ["Revavroom-Segin", "Revavroom-Schedar", "Revavroom-Navi", "Revavroom-Ruchbah", "Revavroom-Caph"],
 		formeOrder: ["Revavroom", "Revavroom-Segin", "Revavroom-Schedar", "Revavroom-Navi", "Revavroom-Ruchbah", "Revavroom-Caph"],
 	},
@@ -105,7 +110,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	donphan: {
 		inherit: true,
-		abilities: {0: "Sturdy", 1: "Overcoat", H: "Sand Veil"},
+		abilities: {0: "Sturdy", 1: "Overcoat", H: "Sand Spit"},
 	},
 	avalugg: {
 		inherit: true,
@@ -118,11 +123,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	misdreavus: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Death Aura"},
+		abilities: {0: "Levitate", 1: "Death Aura", H: "Fairy Ringer"},
 	},
 	mismagius: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Death Aura", H: "Cute Charm"},
+		abilities: {0: "Levitate", 1: "Death Aura", H: "Fairy Ringer"},
 	},
 	floette: {
 		inherit: true,
@@ -232,7 +237,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	irontreads: {
 		inherit: true,
-		abilities: {0: "Rune Drive"},
+		abilities: {0: "Rune Drive", H: "Momentum"},
 	},
 	ironbundle: {
 		inherit: true,
@@ -262,6 +267,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Rune Drive", H: "Outclass"},
 	},
+	ironleaves: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Justified"},
+	},
 	arboliva: {
 		inherit: true,
 		abilities: {0: "Seed Sower", 1: "Grass Pelt", H: "Harvest"},
@@ -276,7 +285,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	calyrex: {
 		inherit: true,
-		abilities: {0: "Unnerve", H: "Grass Pelt"},
+		abilities: {0: "Unnerve", 1: "Fairy Ringer", H: "Grass Pelt"},
 	},
 	swablu: {
 		inherit: true,
@@ -371,7 +380,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	wigglytuff: {
 		inherit: true,
-		abilities: {0: "Cute Charm", 1: "Competitive", H: "Cloud Nine"},
+		abilities: {0: "Cute Charm", 1: "Natural Cure", H: "Wind Rider"},
 	},
 	dudunsparce: {
 		inherit: true,
@@ -443,7 +452,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	froslass: {
 		inherit: true,
-		abilities: {0: "Snow Cloak", 1: "Death Aura", H: "Cursed Body"},
+		abilities: {0: "Snow Cloak", 1: "Death Aura", H: "Sheer Heart"},
 	},
 	houndoom: {
 		inherit: true,
@@ -557,7 +566,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	umbreon: {
 		inherit: true,
-		abilities: {0: "Synchronize", H: "Counteract"},
+		abilities: {0: "Fairy Ringer", H: "Counteract"},
 	},
 	drifloon: {
 		inherit: true,
@@ -959,7 +968,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	sandshrew: {
 		inherit: true,
-		abilities: {0: "Sand Veil", 1: "Battle Spines", H: "Sand Rush"},
+		abilities: {0: "Momentum", 1: "Battle Spines", H: "Sand Rush"},
 	},
 	sandshrewalola: {
 		inherit: true,
@@ -967,7 +976,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	sandslash: {
 		inherit: true,
-		abilities: {0: "Sand Veil", 1: "Battle Spines", H: "Sand Rush"},
+		abilities: {0: "Momentum", 1: "Battle Spines", H: "Sand Rush"},
 	},
 	sandslashalola: {
 		inherit: true,
@@ -1003,11 +1012,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	munchlax: {
 		inherit: true,
-		abilities: {0: "Thick Fat", 1: "Counteract", H: "Gluttony"},
+		abilities: {0: "Counteract", 1: "Thick Fat", H: "Gluttony"},
 	},
 	snorlax: {
 		inherit: true,
-		abilities: {0: "Thick Fat", 1: "Counteract", H: "Gluttony"},
+		abilities: {0: "Comatose", 1: "Thick Fat", H: "Gluttony"},
 	},
 	sentret: {
 		inherit: true,
@@ -1019,11 +1028,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	spinarak: {
 		inherit: true,
-		abilities: {0: "Battle Spines", 1: "Insomnia", H: "Sniper"},
+		abilities: {0: "Battle Spines", 1: "Swarm", H: "Sniper"},
 	},
 	ariados: {
 		inherit: true,
-		abilities: {0: "Battle Spines", 1: "Insomnia", H: "Sniper"},
+		abilities: {0: "Battle Spines", 1: "Swarm", H: "Sniper"},
 	},
 	gligar: {
 		inherit: true,
@@ -1222,9 +1231,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Hyper Cutter", 1: "Exoskeleton", H: "Adaptability"},
 	},
+	charjabug: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Swarm"},
+	},
 	vikavolt: {
 		inherit: true,
-		abilities: {0: "Levitate", H: "Exoskeleton"},
+		abilities: {0: "Levitate", 1: "Swarm", H: "Exoskeleton"},
 	},
 	tyranitar: {
 		inherit: true,
@@ -1301,5 +1314,109 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	glaceon: {
 		inherit: true,
 		abilities: {0: "Snow Cloak", H: "Muscle Memory"},
+	},
+	tarountula: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Swarm", H: "Stakeout"},
+	},
+	spidops: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Swarm", H: "Stakeout"},
+	},
+	cleffa: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Magic Guard", H: "Friend Guard"},
+	},
+	clefairy: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Magic Guard", H: "Friend Guard"},
+	},
+	clefable: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Magic Guard", H: "Unaware"},
+	},
+	shroomish: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Poison Heal", H: "Quick Feet"},
+	},
+	breloom: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Poison Heal", H: "Technician"},
+	},
+	chingling: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Fairy Ringer"},
+	},
+	chimecho: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Fairy Ringer"},
+	},
+	hoothoot: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Fairy Ringer", H: "Tinted Lens"},
+	},
+	noctowl: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Fairy Ringer", H: "Tinted Lens"},
+	},
+	teddiursa: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Quick Feet", H: "Fairy Ringer"},
+	},
+	ursaring: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Quick Feet", H: "Fairy Ringer"},
+	},
+	ursaluna: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Bulletproof", H: "Fairy Ringer"},
+	},
+	charcadet: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Flame Body"},
+	},
+	ceruledge: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Weak Armor"},
+	},
+	armarouge: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Weak Armor"},
+	},
+	rookidee: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
+	},
+	corvisquire: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
+	},
+	corviknight: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Justified", H: "Mirror Armor"},
+	},
+	cyclizar: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Momentum", H: "Regenerator"},
+	},
+	bramblin: {
+		inherit: true,
+		abilities: {0: "Wind Rider", 1: "Momentum", H: "Infiltrator"},
+	},
+	glalie: {
+		inherit: true,
+		abilities: {0: "Momentum", 1: "Moody", H: "Ice Body"},
+	},
+	okidogi: {
+		inherit: true,
+		abilities: {0: "Toxic Chain", H: "Intimidate"},
+	},
+	fezandipiti: {
+		inherit: true,
+		abilities: {0: "Toxic Chain", H: "Neutralizing Gas"},
+	},
+	munkidori: {
+		inherit: true,
+		abilities: {0: "Toxic Chain", H: "Magic Guard"},
 	},
 };
