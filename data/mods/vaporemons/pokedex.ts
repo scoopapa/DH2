@@ -1203,10 +1203,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Hospitality", 1: "Healer", H: "Heatproof"},
 	},
-	fezandipiti: {
-		inherit: true,
-		abilities: {0: "Toxic Chain", H: "Gale Wings"},
-	},
 	ogerpon: {
 		inherit: true,
 		abilities: {0: "Defiant", H: "Seed Sower"},
