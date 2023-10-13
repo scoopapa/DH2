@@ -2047,6 +2047,19 @@ export const Formats: FormatList = [
 		banlist: ['AG', 'Uber', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Soul Dew'],
 	},
 	{
+		name: "[Gen 9] Roovnen UU",
+		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9485572">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1ZzNqkSOwGYx2E1Rn28jCzGpJahMIcM-KjiGprjQAT68/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen9roovnen',
+		searchShow: false,
+		ruleset: ['[Gen 9] Roovnen OU'],
+		banlist: ['OU', 'UUBL'],
+		teambuilderFormat: 'UU',
+	},
+	/*{
 		name: "[Gen 9] Roovnen Uber",
 		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
 		threads: [
@@ -2058,7 +2071,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard'],
 		banlist: ['AG', 'Shadow Tag', 'Baton Pass'],
 		teambuilderFormat: 'Uber',
-	},
+	},*/
 	{
 		name: "[Gen 9] Roovnen Doubles",
 		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
@@ -2562,6 +2575,34 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 6] TPDP Stylemons",
+		mod: 'tpdp2',
+		debug: true,
+		desc: `TPDP Stylemons`,
+		ruleset: ['Standard NatDex', 'Stylemons Move Legality', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
+		banlist: ['Boundary Trance', 'Dream Shard', 
+		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
+		'Poison Labyrinth', 'Adverse Wind', //trapping
+		'Moody',
+		'Backup Plan', //baton pass
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['TPDP OU', 'TPDP LC'];
+			let natures = ['Red', 'Blue', 'Black', 'Green', 'White'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not allowed in TPDP.'];
+				}
+				if (!natures.includes(set.nature)) {
+					return [set.nature + ' is not a valid nature in TPDP. Hint: to set Red, Blue, Black, White, or Green nature, use the Import/Export button.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 6] TPDP Netplay",
 		mod: 'tpdp2',
 		debug: true,
@@ -2586,6 +2627,38 @@ export const Formats: FormatList = [
 				if (!natures.includes(set.nature)) {
 					return [set.nature + ' is not a valid nature in TPDP. Hint: to set Red, Blue, Black, White, or Green nature, use the Import/Export button.'];
 				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] White Tusk",
+
+		mod: 'whitetusk',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: ['All Pokemon', 'King\'s Rock', 'Baton Pass'],
+		unbanlist: ['Dust Bunnie', 'Rebirb', 'Strummingbird', 'Strummingbird-Viola', 'Strummingbird-Cello', 'Strummingbird-Contrabass', 'Strummingbird-Acoustic', 'Strummingbird-Electric', 'Strummingbird-Bass', 'Xylomist', 'Yeomelt', 'Zoplite', 'Yeoxylo', 'Xylozop', 'Zopyeo', 'Xylyeozop', 'Xylobone', 'Dormirr', 'Pufferfinch', 'Gumbawl', 'Gumbrawl-Empty', 'Gumbrawl-Bubble', 'Gumbrawl-Fresh', 'Gnawing Bark', 'Iron Mint', 'Caramilitant', 'Toughfee', 'Gasharmoir', 'Gumbrawl-Gachamech', 'Tartridge', 'Opixsi', 'Pinfrino', 'Leagle', 'Kuadrosin', 'Blite', 'Doctoxin', 'Moosquito', 'Parrox'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			let combinationTable = ['Xylomist', 'Yeomelt', 'Zoplite', 'Yeoxylo', 'Xylozop', 'Zopyeo', 'Xylyeozop'];
+			let combinationTest = [];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				console.log(template.name);
+				if (combinationTable.includes(template.name)) {
+					combinationTest.push(template.name);
+				}
+			}
+			if ((combinationTest.includes('Xylomist') && combinationTest.includes('Yeoxylo')) ||
+				(combinationTest.includes('Xylomist') && combinationTest.includes('Xylozop')) ||
+				(combinationTest.includes('Xylomist') && combinationTest.includes('Xylyeozop')) ||
+				(combinationTest.includes('Yeomelt') && combinationTest.includes('Yeoxylo')) ||
+				(combinationTest.includes('Yeomelt') && combinationTest.includes('Zopyeo')) ||
+				(combinationTest.includes('Yeomelt') && combinationTest.includes('Xylyeozop')) ||
+				(combinationTest.includes('Zoplite') && combinationTest.includes('Xylozop')) ||
+				(combinationTest.includes('Zoplite') && combinationTest.includes('Zopyeo')) ||
+				(combinationTest.includes('Zoplite') && combinationTest.includes('Xylyeozop'))) {
+				return ['You cannot have XYZ Pokemon with their combined forms.'];
 			}
 		},
 	},
