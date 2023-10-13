@@ -1272,7 +1272,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.id === 'hurricane' || move.id === 'bleakwindstorm' || move.id === 'sandsearstorm' || 
 				move.id === 'wildboltstorm' || move.id === 'springtidestorm' || move.id === 'whirlpool'
 				) {
-				this.heal(target.baseMaxhp / 8);
+				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -1288,7 +1288,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.id === 'hurricane' || move.id === 'bleakwindstorm' || move.id === 'sandsearstorm' || 
 				move.id === 'wildboltstorm' || move.id === 'springtidestorm' || move.id === 'whirlpool'
 				) {			
-				this.heal(pokemon.baseMaxhp / 8);
+				this.heal(target.baseMaxhp / 8);
 			}
 		},
 		name: "Momentum",
