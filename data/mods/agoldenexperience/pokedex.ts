@@ -709,6 +709,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Fairy"],
 		baseStats: {hp: 75, atk: 50, def: 95, spa: 110, spd: 100, spe: 60},
 	},
+	azumarill: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 60, def: 80, spa: 50, spd: 80, spe: 50},
+	},
 	politoed: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 75, def: 100, spa: 100, spd: 100, spe: 60},
@@ -1149,7 +1153,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Flygon",
 		forme: "Mega",
 		types: ["Ground", "Dragon"],
-		baseStats: {hp: 80, atk: 100, def: 105, spa: 100, spd: 105, spe: 130},
+		baseStats: {hp: 80, atk: 100, def: 100, spa: 110, spd: 100, spe: 130},
 		abilities: {0: "Desert Song"},
 		heightm: 2.8,
 		weightkg: 82,
@@ -2040,11 +2044,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	stunfisk: {
 		inherit: true,
+		baseStats: {hp: 109, atk: 66, def: 84, spa: 101, spd: 99, spe: 32},
 		abilities: {0: "Static", 1: "Storm Drain", H: "Sand Veil"},
 	},
 	stunfiskgalar: {
 		inherit: true,
-		abilities: {0: "Mimicry", H: "Arena Trap"},
+		baseStats: {hp: 109, atk: 101, def: 99, spa: 66, spd: 84, spe: 32},
+		abilities: {0: "Mimicry", 1: "Adaptability", H: "Arena Trap"},
 	},
 	mienfoo: {
 		inherit: true,
@@ -2163,22 +2169,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	genesectdouse: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 120, def: 105, spa: 120, spd: 105, spe: 119},
-		abilities: {0: "Water Bubble"},
+		baseStats: {hp: 81, atk: 120, def: 100, spa: 120, spd: 100, spe: 109},
+		abilities: {0: "Hydrophilic"},
 	},
 	genesectshock: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 125, def: 95, spa: 125, spd: 95, spe: 129},
+		baseStats: {hp: 81, atk: 115, def: 95, spa: 115, spd: 95, spe: 129},
 		abilities: {0: "Motor Drive"},
 	},
 	genesectburn: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 115, def: 120, spa: 115, spd: 120, spe: 99},
+		baseStats: {hp: 81, atk: 115, def: 110, spa: 115, spd: 110, spe: 99},
 		abilities: {0: "Heatproof"},
 	},
 	genesectchill: {
 		inherit: true,
-		baseStats: {hp: 81, atk: 140, def: 95, spa: 140, spd: 95, spe: 99},
+		baseStats: {hp: 81, atk: 125, def: 95, spa: 125, spd: 95, spe: 109},
 		abilities: {0: "Refrigerate"},
 	},
 
@@ -2406,28 +2412,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Ice", "Water"],
 		abilities: {0: "Refrigerate", 1: "Ice Body", H: "Sturdy"},
-		otherFormes: ["Avalugg-Hisui"],
-		formeOrder: ["Avalugg", "Avalugg-Hisui"],
 	},
 	avalugghisui: {
-		num: 713,
-		name: "Avalugg-Hisui",
-		baseSpecies: "Avalugg",
-		forme: "Hisui",
-		types: ["Ice", "Rock"],
-		baseStats: {hp: 95, atk: 127, def: 134, spa: 34, spd: 56, spe: 68},
-		abilities: {0: "Strong Jaw", 1: "Sheer Force", H: "Sturdy"},
-		heightm: 1.4,
-		weightkg: 262.4,
-		color: "Blue",
-		prevo: "Bergmite",
-		evoLevel: 37,
-		eggGroups: ["Monster", "Mineral"],
-	},
-	/*avalugghisui: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 127, def: 134, spa: 34, spd: 56, spe: 68},
-	},*/
+	},
 	noibat: {
 		inherit: true,
 		otherFormes: ["Noibat-Sinnoh"],
@@ -2440,7 +2429,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         forme: "Sinnoh",
         types: ["Ice", "Flying"],
         baseStats: {hp: 40, atk: 30, def: 35, spa: 45, spd: 40, spe: 55},
-        abilities: {0: "Fluffy", H: "Refrigerate"},
+        abilities: {0: "Levitate", H: "Fluffy"},
         heightm: 0.5,
         weightkg: 9,
         evos: ["Noivern-Sinnoh"],
@@ -2458,8 +2447,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
         baseSpecies: "Noivern",
         forme: "Sinnoh",
         types: ["Ice", "Dragon"],
-        baseStats: {hp: 85, atk: 83, def: 80, spa: 85, spd: 80, spe: 123},
-        abilities: {0: "Levitate", H: "Refrigerate"},
+		baseStats: {hp: 85, atk: 70, def: 80, spa: 97, spd: 80, spe: 123},
+        abilities: {0: "Levitate", H: "Aerilate"},
         heightm: 1.4,
         weightkg: 89,
 		prevo: "Noibat-Sinnoh",
@@ -2605,8 +2594,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Dragon"],
 		requiredItem: "Salazzlite",
 	},
+	stufful: {
+		inherit: true,
+		types: ["Fairy", "Fighting"],
+	},
 	bewear: {
 		inherit: true,
+		types: ["Fairy", "Fighting"],
 		baseStats: {hp: 115, atk: 125, def: 80, spa: 50, spd: 70, spe: 60},
 	},
 	tsareena: {
@@ -3172,6 +3166,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 65, atk: 100, def: 100, spa: 60, spd: 60, spe: 85},
 		abilities: {0: "Battle Armor", 1: "Defiant", H: "Strong Will"},
+	},
+	pincurchin: {
+		inherit: true,
+		baseStats: {hp: 68, atk: 81, def: 115, spa: 91, spd: 105, spe: 15},
 	},
 	frosmoth: {
 		inherit: true,
