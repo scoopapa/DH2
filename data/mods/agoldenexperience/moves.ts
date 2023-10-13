@@ -1340,6 +1340,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
+	},	
+	sweetheart: {
+		num: -1776,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Sweetheart",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			onHit(pokemon, source, move) {
+				this.add('-activate', source, 'move: Aromatherapy');
+				for (const ally of source.side.pokemon) {
+					if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+						continue;
+					}
+					ally.cureStatus();
+				}
+			},
+		},
+		shortDesc: "Heals the user's party's status conditions. Uses SpD instead of SpA.",
+		overrideOffensiveStat: 'spd',
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
 	},
 	chakraterrain: {
 		num: -40,

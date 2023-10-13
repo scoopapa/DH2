@@ -4617,6 +4617,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 	daedestus: {
 		learnset: {
 			ember: ["9L1"],
+			bash: ["9L1"],
 			harden: ["9L5"],
 			magnetbomb: ["9L11"],
 			preheat: ["9L16"],
@@ -7966,6 +7967,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			crosschop: ["7L44", "7E"],
 			crushclaw: ["7E"],
 			detect: ["7L40"],
+			direclaw: ["7L0"],
 			doublehit: ["7E"],
 			fakeout: ["7E"],
 			feint: ["7E"],

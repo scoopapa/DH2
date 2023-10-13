@@ -1,4 +1,5 @@
 export const Moves: {[moveid: string]: ModdedMoveData} = {
+	// DESERT GALES, DIAMOND DUST
 	moonlight: {
 		inherit: true,
 		onHit(pokemon) {
@@ -14,10 +15,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'desertgales':
 			case 'hail':
 			case 'diamonddust':
+			case 'snow':
 				factor = 0.25;
 				break;
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
 		},
 	},
 	morningsun: {
@@ -35,28 +42,38 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'desertgales':
 			case 'hail':
 			case 'diamonddust':
+			case 'snow':
 				factor = 0.25;
 				break;
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
 		},
 	},
-	shoreup: { // not modded for Kalos but it's with the other weather moves... feels somehow correct to have it here already
+	shoreup: {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
 			if (this.field.isWeather('sandstorm') || this.field.isWeather('desertgales')) {
 				factor = 0.667;
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
 		},
 	},
 	solarbeam: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			if (
-				['raindance', 'primordialsea', 'sandstorm', 'desertgales', 'hail', 'diamonddust'].includes(pokemon.effectiveWeather())
-			) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'desertgales', 'hail', 'diamonddust', 'snow'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -65,9 +82,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	solarblade: {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
-			if (
-				['raindance', 'primordialsea', 'sandstorm', 'desertgales', 'hail', 'diamonddust'].includes(pokemon.effectiveWeather())
-			) {
+			const weakWeathers = ['raindance', 'primordialsea', 'sandstorm', 'desertgales', 'hail', 'diamonddust', 'snow'];
+			if (weakWeathers.includes(pokemon.effectiveWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -88,10 +104,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'desertgales':
 			case 'hail':
 			case 'diamonddust':
+			case 'snow':
 				factor = 0.25;
 				break;
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
+			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
+			if (!success) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return success;
 		},
 	},
 	weatherball: {
@@ -109,12 +131,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			case 'sandstorm':
 				move.type = 'Rock';
 				break;
-			case 'hail':
-			case 'diamonddust':
-				move.type = 'Ice';
-				break;
 			case 'desertgales':
 				move.type = 'Ground';
+				break;
+			case 'hail':
+			case 'diamonddust':
+			case 'snow':
+				move.type = 'Ice';
 				break;
 			}
 		},
@@ -129,28 +152,30 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.basePower *= 2;
 				break;
 			case 'sandstorm':
+			case 'desertgales':
 				move.basePower *= 2;
 				break;
 			case 'hail':
 			case 'diamonddust':
-				move.basePower *= 2;
-				break;
-			case 'desertgales':
+			case 'snow':
 				move.basePower *= 2;
 				break;
 			}
+			this.debug('BP: ' + move.basePower);
 		},
 	},
+
+	// JUST DIAMOND DUST
 	auroraveil: {
 		inherit: true,
-		onTryHitSide() {
-			if (!this.field.isWeather('hail') && !this.field.isWeather('diamonddust')) return false;
+		onTry() {
+			return this.field.isWeather(['hail', 'diamonddust', 'snow']);
 		},
 	},
 	blizzard: {
 		inherit: true,
 		onModifyMove(move) {
-			if (this.field.isWeather('hail') || this.field.isWeather('diamonddust')) move.accuracy = true;
+			if (this.field.isWeather(['hail', 'diamonddust', 'snow'])) move.accuracy = true;
 		},
 	},
 };

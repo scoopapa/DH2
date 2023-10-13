@@ -395,7 +395,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -528,
 		name: "Tigrissle",
 		types: ["Bug", "Water"],
-		baseStats: {hp: 25, atk: 40, def: 40, spa: 30, spd: 25, spe: 60},
+		baseStats: {hp: 34, atk: 55, def: 45, spa: 45, spd: 30, spe: 60},
 		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Swift Swim"},
 		heightm: 0.6,
 		weightkg: 4.4,
@@ -407,7 +407,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -529,
 		name: "Beedive",
 		types: ["Bug", "Water"],
-		baseStats: {hp: 55, atk: 75, def: 80, spa: 65, spd: 70, spe: 80},
+		baseStats: {hp: 54, atk: 85, def: 90, spa: 75, spd: 70, spe: 80},
 		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Swift Swim"},
 		heightm: 1.0,
 		weightkg: 20.0,
@@ -1931,6 +1931,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 55, atk: 45, def: 25, spa: 25, spd: 45, spe: 15},
 	},
+	bellossom: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", H: "Hospitality"},
+	},
 	umbreon: {
 		inherit: true,
 		abilities: {0: "Synchronize", H: "Night Walker"},
@@ -1982,6 +1986,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	magcargo: {
 		inherit: true,
 		abilities: {0: "Magma Armor", 1: "Flame Body", H: "Drought"},
+	},
+	corsola: {
+		inherit: true,
+		abilities: {0: "Healer", 1: "Natural Cure", H: "Regenerator"},
 	},
 	corsolagalar: {
 		inherit: true,
@@ -2471,6 +2479,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredAbility: "Rage Mode",
 		battleOnly: "Darmanitan-Galar",
+	},
+	maractus: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Chlorophyll", H: "Dancer"},
 	},
 	zoruahisui: {
 		inherit: true,
@@ -4171,12 +4183,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	brattler: {
 		inherit: true,
 		number: -33,
-	},
+	},*/
 	malaconda: {
 		inherit: true,
-		number: -34,
+		//number: -34,
+		abilities: {0: "Harvest", 1: "Shed Skin", H: "Infiltrator"},
 	},
-	cawdet: {
+	/*cawdet: {
 		inherit: true,
 		number: -35,
 	},
@@ -4301,4 +4314,16 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		number: -65,
 	},*/
+	ababo: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Rattled", H: "Pixilate"},
+	},
+	scattervein: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Unnerve", H: "Pixilate"},
+	},
+	hemogoblin: {
+		inherit: true,
+		abilities: {0: "Heat Sink", 1: "Unnerve", H: "Pixilate"},
+	},
 };
