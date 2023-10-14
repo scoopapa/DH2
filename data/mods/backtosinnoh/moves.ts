@@ -183,7 +183,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onHit(target, source, side) {
 			if (this.effectState.layers == 0) return false;
-			this.add('-sidestart', side, 'Spikes');
+			this.add('-sideend', target.side, 'Spikes', '[from] move: Rapid Spin', '[of] ' + source);
+			this.add('-sidestart', source.side, 'Spikes');
 			this.effectState.layers--;
 		},
 		secondary: null,
