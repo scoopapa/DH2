@@ -72,7 +72,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 	},
 	mudbomb: {
-		num: -5,
+		num: 426,
 		accuracy: 100,
 		basePower: 80,
 		category: "Special",
@@ -144,6 +144,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+		shortDesc: "Hits two turns after being used.",
+		desc: "This attack hits two turns after being used.",
 		contestType: "Clever",
 	},
 	souldrain: { 
