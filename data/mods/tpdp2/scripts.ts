@@ -31,12 +31,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		ignoreImmunities = false
 	) {
 		if (!this.hp) return false;
-		if (Array.isArray(newStatus)) {
-			for (const s of newStatus) {
-				this.setStatus(s);
-			}
-			return;
-		}
 		status = this.battle.dex.conditions.get(status);
 		if (this.battle.event) {
 			if (!source) source = this.battle.event.source;

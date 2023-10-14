@@ -241,7 +241,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Desvega",
 		types: ["Bug"],
 		baseStats: {hp: 55, atk: 85, def: 55, spa: 30, spd: 55, spe: 55},
-		abilities: {0: "Telepathy", 1: "Tinted Lens", H: "Adaptabiltiy"},
+		abilities: {0: "Telepathy", 1: "Tinted Lens", H: "Adaptability"},
 		heightm: 0.5,
 		weightkg: 9,
 	},
@@ -1002,6 +1002,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Suction Cups", 1: "Water Veil", H: "Protean"},
 		heightm: 1,
 		weightkg: 1,
+		cosmeticFormes: ["Crayoct-Red", "Crayoct-Blue", "Crayoct-Yellow", "Crayoct-Pink", "Crayoct-Brown"],
+		formeOrder: ["Crayoct", "Crayoct-Red", "Crayoct-Blue", "Crayoct-Yellow", "Crayoct-Pink", "Crayoct-Brown"],
 	},
 	cramorantdesvega: {
 		num: 1437,
