@@ -2637,6 +2637,18 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: 56,
 	},
+	rebound: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target !== source && move?.category === 'Special' && !move.flags['sound']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		name: "Rebound",
+		shortDesc: "The opponent receives 1/8 recoil damage from special non-Sound moves.",
+		rating: 2.5,
+		num: 160,
+	},
 	//Gen 9 modifs
 	sharpness: {
 		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.3x",

@@ -68,6 +68,12 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'nidoking').learnset.mudbomb = ['4L1'];
     this.modData('Learnsets', 'nidoqueen').learnset.mudbomb = ['4L1'];
     this.modData('Learnsets', 'gligar').learnset.mudbomb = ['4L1'];
+    delete this.modData('Learnsets', 'skitty').learnset.mudbomb;
+    delete this.modData('Learnsets', 'delcatty').learnset.mudbomb;
+    delete this.modData('Learnsets', 'chansey').learnset.mudbomb;
+    delete this.modData('Learnsets', 'blissey').learnset.mudbomb;
+    delete this.modData('Learnsets', 'psyduck').learnset.mudbomb;
+    delete this.modData('Learnsets', 'golduck').learnset.mudbomb;
 
     // poisondarts 
     this.modData('Learnsets', 'beedrill').learnset.poisondarts = ['4L1'];
@@ -82,17 +88,17 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'spinarak').learnset.poisondarts = ['4L1'];
     this.modData('Learnsets', 'sparktus').learnset.poisondarts = ['4L1'];
 
-    // Starstorm 
-    this.modData('Learnsets', 'cleffa').learnset.Starstorm = ['4L1'];
-    this.modData('Learnsets', 'staryu').learnset.Starstorm = ['4L1'];
-    this.modData('Learnsets', 'altaria').learnset.Starstorm = ['4L1'];
-    this.modData('Learnsets', 'solrock').learnset.Starstorm = ['4L1'];
-    this.modData('Learnsets', 'lunatone').learnset.Starstorm = ['4L1'];
-    this.modData('Learnsets', 'latias').learnset.Starstorm = ['4L1'];
-    this.modData('Learnsets', 'latios').learnset.Starstorm = ['4L1'];
-    this.modData('Learnsets', 'rayquaza').learnset.Starstorm = ['4L1'];
-    this.modData('Learnsets', 'jirachi').learnset.Starstorm = ['4L1'];
-    this.modData('Learnsets', 'deoxys').learnset.Starstorm = ['4L1'];
+    // starstorm 
+    this.modData('Learnsets', 'cleffa').learnset.starstorm = ['4L1'];
+    this.modData('Learnsets', 'staryu').learnset.starstorm = ['4L1'];
+    this.modData('Learnsets', 'altaria').learnset.starstorm = ['4L1'];
+    this.modData('Learnsets', 'solrock').learnset.starstorm = ['4L1'];
+    this.modData('Learnsets', 'lunatone').learnset.starstorm = ['4L1'];
+    this.modData('Learnsets', 'latias').learnset.starstorm = ['4L1'];
+    this.modData('Learnsets', 'latios').learnset.starstorm = ['4L1'];
+    this.modData('Learnsets', 'rayquaza').learnset.starstorm = ['4L1'];
+    this.modData('Learnsets', 'jirachi').learnset.starstorm = ['4L1'];
+    this.modData('Learnsets', 'deoxys').learnset.starstorm = ['4L1'];
 
     // souldrain 
     this.modData('Learnsets', 'arbok').learnset.souldrain = ['4L1'];
