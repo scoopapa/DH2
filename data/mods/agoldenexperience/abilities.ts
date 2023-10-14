@@ -2649,6 +2649,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 2.5,
 		num: 160,
 	},
+	truant: {
+		name: "Truant",
+		shortDesc: "No competitive effect.",
+		desc: "No competitive effect.",
+		rating: 0,
+		num: 54,
+	},
 	//Gen 9 modifs
 	sharpness: {
 		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.3x",
