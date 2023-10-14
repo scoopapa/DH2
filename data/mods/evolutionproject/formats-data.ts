@@ -481,6 +481,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sandygast: {tier: "Evo (NFE)"},
 	palossand: {tier: "Evo!"},
 	palossnow: {tier: "Evo!"},
+
+	zubat: {tier: "Evo (NFE)"},
+	zubatvariant: {tier: "Evo (NFE)"},
+	golbat: {tier: "Evo (NFE)"},
+	golbatvariant: {tier: "Evo (NFE)"},
+	crobat: {tier: "Evo!"},
+	stalagbat: {tier: "Evo!"},
 	
 	magikarp: {tier: "Evo (NFE)"},
 	magikarpvariant: {tier: "Evo (NFE)"},

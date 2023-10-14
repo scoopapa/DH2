@@ -37,9 +37,13 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!sourceEffect) sourceEffect = this.battle.effect;
 		}
 		if (!source) source = this;
-		
-		if (this.status.length !== 0) {
-			return this.setStatusTwo(this.status, source, sourceEffect, false, status);
+
+		if (this.status && this.status.length !== 0) {
+			if(status.id.length !== 0) return this.setStatusTwo(this.status, source, sourceEffect, false, status);
+			else {
+				this.status = status.id;
+				return true;
+			}
 		}
 
 		if (!ignoreImmunities && status.id &&
@@ -90,12 +94,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			ignoreImmunities = false,
 			newStatus: string | string[] | Condition | Condition[],
 		) {
-			if (Array.isArray(newStatus)) {
-				for (const s of newStatus) {
-					this.setStatus(s);
-				}
-				return;
-			}
 			if (!this.hp) return false;
 			newStatus = this.battle.dex.conditions.get(newStatus);
 			
@@ -116,7 +114,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					return false;
 				}
 			} else if (this.status) {
-				if(this.status.length < 6 && !['stp', 'hvybrn', 'hvypsn', 'shk', 'weakheavy'].includes(this.status)) {
+				if(this.status.length < 6 && !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(this.status)) {
 					newStatus.id = this.status + newStatus.id;
 					delete this.status;
 				} else {
@@ -165,6 +163,15 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (newStatus.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, newStatus)) {
 				return false;
 			}
+			return true;
+		},
+		cureStatus(silent = false) {
+			if (!this.hp || !this.status) return false;
+			this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
+			if (this.status === 'stp' && this.removeVolatile('nightmare')) {
+				this.battle.add('-end', this, 'Nightmare', '[silent]');
+			}
+			this.setStatus('');
 			return true;
 		},
 		runImmunity(type: string, message?: string | boolean) {

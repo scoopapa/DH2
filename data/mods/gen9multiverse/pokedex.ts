@@ -17,7 +17,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	starmie: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 75, def: 95, spa: 100, spd: 95, spe: 115},
+		baseStats: {hp: 60, atk: 75, def: 95, spa: 110, spd: 95, spe: 115},
 		abilities: {0: "Natural Cure", 1: "Analytic", H: "Chromatophore"},
 	},
 	dragonite: {
@@ -34,6 +34,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hypno: {
 		inherit: true,
+		types: ["Psychic", "Poison"],
 		baseStats: {hp: 100, atk: 73, def: 70, spa: 93, spd: 125, spe: 67},
 		abilities: {0: "Insomnia", H: "Immunity"},
 	},
@@ -45,14 +46,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rapidash: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 100, def: 90, spa: 110, spd: 85, spe: 105},
+		baseStats: {hp: 90, atk: 110, def: 90, spa: 120, spd: 85, spe: 105},
 		abilities: {0: "Daymare", H: "Flash Fire"},
 	},
 	mewtwo: {
 		inherit: true,
 		types: ["Psychic", "Fighting"],
-		baseStats: {hp: 86, atk: 115, def: 100, spa: 64, spd: 95, spe: 90},
-		abilities: {0: "Steadfast", H: "Sword of Ruin"},
+		baseStats: {hp: 86, atk: 115, def: 100, spa: 64, spd: 95, spe: 100},
+		abilities: {0: "Steadfast"},
 	},
 	lanturn: {
 		inherit: true,
@@ -69,9 +70,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ursaring: {
 		inherit: true,
 		types: ["Normal", "Fairy"],
-		baseStats: {hp: 90, atk: 120, def: 95, spa: 70, spd: 80, spe: 55},
+		baseStats: {hp: 90, atk: 120, def: 105, spa: 70, spd: 90, spe: 55},
 		abilities: {0: "Guts"},
-		evos: null,
+		//evos: null,
 	},
 	donphan: {
 		inherit: true,
@@ -80,8 +81,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	hitmontop: {
 		inherit: true,
 		types: ["Fighting", "Steel"],
-		baseStats: {hp: 80, atk: 105, def: 100, spa: 40, spd: 110, spe: 60},
-		abilities: {0: "Regenerator", 1: "Intimidate", H: "Technician"},
+		baseStats: {hp: 80, atk: 115, def: 100, spa: 40, spd: 110, spe: 60},
+		abilities: {0: "Intimidate", H: "Technician"},
 	},
 	raikou: {
 		inherit: true,
@@ -90,7 +91,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hooh: {
 		inherit: true,
-		baseStats: {hp: 106, atk: 120, def: 95, spa: 80, spd: 104, spe: 75},
+		baseStats: {hp: 96, atk: 100, def: 95, spa: 80, spd: 104, spe: 75},
 		abilities: {0: "Regenerator"},
 	},
 	gardevoir: {
@@ -112,24 +113,24 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	absol: {
 		inherit: true,
-		types: ["Dark", "Steel"],
+		types: ["Dark"],
 		baseStats: {hp: 70, atk: 130, def: 60, spa: 115, spd: 60, spe: 115},
 		abilities: {0: "Justified", H: "Magic Bounce"},
 	},
 	glalie: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 120, def: 80, spa: 80, spd: 80, spe: 100},
+		baseStats: {hp: 80, atk: 130, def: 80, spa: 80, spd: 80, spe: 100},
 		abilities: {0: "Refrigerate", H: "Moody"},
 	},
 	regirock: {
 		inherit: true,
 		types: ["Rock", "Flying"],
 		baseStats: {hp: 80, atk: 105, def: 200, spa: 50, spd: 100, spe: 45},
-		abilities: {0: "Accretion"},
+		abilities: {0: "Accretion", H: "Rock Head"},
 	},
 	latias: {
 		inherit: true,
 		types: ["Dragon"],
-		baseStats: {hp: 80, atk: 80, def: 85, spa: 85, spd: 90, spe: 110},
+		baseStats: {hp: 80, atk: 80, def: 85, spa: 100, spd: 100, spe: 110},
 	},
 };

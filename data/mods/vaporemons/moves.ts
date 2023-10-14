@@ -189,7 +189,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.effectState.layers++;
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
+					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				let healAmounts = [0, 3]; // 1/8
 				this.heal(healAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -373,6 +374,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Psycho Cut", target);
+		},
+		self: {
+			sideCondition: 'echochamber',
 		},
 		secondary: null,
 		target: "normal",
@@ -813,7 +817,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 2,
 			onBasePowerPriority: 1,
 			onBasePower(basePower, attacker, defender, move) {
-				if (move.id === 'round') {
+				if (move.id === 'round' || move.id === 'echochamber') {
 					return this.chainModify(2);
 				}
 			},
@@ -943,6 +947,294 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	rebuild: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Restores HP equal to the user's level × 1.25.",
+		name: "Rebuild",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+		},
+		onHit(pokemon) {
+			this.heal(pokemon.level * 1.25);
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		contestType: "Clever",
+	},
+	washaway: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+	   shortDesc: "Removes hazards and terrains, then forces out target.",
+		name: "Wash Away",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, mirror: 1, noassist: 1, failcopycat: 1},
+		forceSwitch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Surf", target);
+		},
+		onHit(target, source, move) {
+			let success = false;
+			const removeTarget = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'healingstones',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge', 'healingstones',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Wash Away', '[of] ' + source);
+					success = true;
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Wash Away', '[of] ' + source);
+					success = true;
+				}
+			}
+			this.field.clearTerrain();
+			return success;
+		},
+		target: "normal",
+		type: "Water",
+		contestType: "Tough",
+	},
+	echochamber: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+	   shortDesc: "1.5x power if a sound move was used last turn.",
+		name: "Echo Chamber",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Voice", target);
+		},
+		self: {
+			sideCondition: 'echochamber',
+		},
+		condition: {
+			duration: 2,
+			onBasePowerPriority: 1,
+			onBasePower(basePower, attacker, defender, move) {
+				if (move.id === 'echochamber') {
+					return this.chainModify(1.5);
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	brickbreak: {
+		inherit: true,
+		basePower: 85,
+	},
+	psychicfangs: {
+		inherit: true,
+		flags: {bite: 1, protect: 1, mirror: 1},
+	},
+	sledgehammerblow: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+	   shortDesc: "Destroys screens, unless the target is immune.",
+		name: "Sledgehammer Blow",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gigaton Hammer", target);
+		},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Clever",
+	},
+	desertstorm: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+	   shortDesc: "(Partially functional) Hits two turns after being used. Sets sands when it hits, even if the target is immune.",
+		name: "Desert Storm",
+		pp: 15,
+		priority: 0,
+		flags: {allyanim: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Defog", target);
+		},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'desertstorm',
+				source: source,
+				moveData: {
+					id: 'desertstorm',
+					name: "Desert Storm",
+					accuracy: 100,
+					basePower: 90,
+					category: "Physical",
+					priority: 0,
+					flags: {allyanim: 1, futuremove: 1},
+					ignoreImmunity: false,
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Sandsear Storm", target);
+					},
+					self: {
+						onHit(source) {
+							this.field.setWeather('sandstorm');
+						},
+						onMoveFail(source) {
+							this.field.setWeather('sandstorm');
+						},
+					},
+					effectType: 'Move',
+					type: 'Ground',
+				},
+			});
+			this.add('-start', source, 'move: Desert Storm');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Clever",
+	},
+	dragonrage: {
+		num: 82,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+	   shortDesc: "If the user is hit this turn, +1 SpA.",
+		isNonstandard: null,
+		name: "Dragon Rage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('dragonrage');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Dragon Rage');
+			},
+			onHit(target, source, move) {
+				if (target !== source && move.category !== 'Status') {
+					this.boost({spa: 1});
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	rage: {
+		num: 99,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+	   shortDesc: "If the user is hit this turn, +1 Atk.",
+		isNonstandard: null,
+		name: "Rage",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('rage');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Rage');
+			},
+			onHit(target, source, move) {
+				if (target !== source && move.category !== 'Status') {
+					this.boost({atk: 1});
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	latentvenom: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Hits two turns after being used. Foe: badly poisoned and -1 Def & SpD.",
+		name: "Latent Venom",
+		pp: 5,
+		priority: 0,
+		flags: {allyanim: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acid Spray", target);
+		},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'latentvenom',
+				source: source,
+				moveData: {
+					id: 'latentvenom',
+					name: "Latent Venom",
+					accuracy: 100,
+					basePower: 0,
+					category: "Status",
+					priority: 0,
+					flags: {allyanim: 1, futuremove: 1},
+					ignoreImmunity: false,
+					status: 'tox',
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Corrosive Gas", target);
+					},
+					boosts: {
+						def: -1,
+						spd: -1,
+					},
+					effectType: 'Move',
+					type: 'Poison',
+				},
+			});
+			this.add('-start', source, 'move: Latent Venom');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
 
 // all edited unchanged moves
 	stealthrock: {
@@ -961,7 +1253,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
+					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				if (pokemon.hasAbility('smelt')) {
 					const fireHazard = this.dex.getActiveMove('Stealth Rock');
@@ -1002,7 +1295,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
+					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -1039,7 +1333,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) {
 					return;
 				} else if (this.effectState.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -1069,7 +1363,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -2156,6 +2450,175 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 			},
+		},
+	},
+	boomburst: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	bugbuzz: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	clangingscales: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	clangoroussoul: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	confide: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	disarmingvoice: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	echoedvoice: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	eeriespell: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	growl: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	healbell: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	hypervoice: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	metalsound: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	howl: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	nobleroar: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	overdrive: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	partingshot: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	perishsong: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	relicsong: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	roar: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	screech: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	sing: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	snarl: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	snore: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	sparklingaria: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	chatter: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	supersonic: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	torchsong: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+		},
+	},
+	uproar: {
+		inherit: true,
+		self: {
+			sideCondition: 'echochamber',
+			volatileStatus: 'uproar',
 		},
 	},
 };

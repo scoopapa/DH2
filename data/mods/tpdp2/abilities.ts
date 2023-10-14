@@ -1177,9 +1177,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	hateincarnate: {
 		name: "Hate Incarnate",
-		shortDesc: "Damage the opponent if fainting is caused by an attack of 70 or more BP.",
-		onFaint(target, source, effect) {
-			if (effect.effectType === "Move" && effect.basePower >= 70)
+		shortDesc: "Damages the opponent if fainting is caused by an attack of 70 or more BP.",
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && move.basePower >= 70)
 				source.damage(source.baseMaxhp / 8);
 		},
 	},
@@ -2200,8 +2200,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(target) {
 			for (const foe of target.foes()) {
 				for (const move of foe.moves) {
-					if (this.dex.getEffectiveness(this.dex.getMove(move), target) > 0) {
-						this.add('-move', foe, this.dex.getMove(move).name, '[from] ability: Sixth Sense', '[of] ' + target, '[identify]');
+					if (this.dex.getEffectiveness(this.dex.moves.get(move), target) > 0) {
+						this.add('-activate', foe, 'ability: Sixth Sense', this.dex.moves.get(move).name, '[of] ' + target, '[identify]');
 					}
 				}
 			}

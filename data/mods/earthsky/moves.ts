@@ -83,7 +83,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Apple Bomb",
 		pp: 20,
 		priority: 0,
-		flags: {snatch: 1, bullet: 1},
+		flags: {protect: 1, bullet: 1},
 		onModifyMove(move, pokemon) {
 			move.secondaries = [];
 			switch(pokemon.getItem().name){
@@ -126,15 +126,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 						boosts: {spe: -1},
 					});
 					break;
+				case 'Fervintill':
+					move.secondaries.push({
+						chance: 100,
+						boosts: {spa: -1},
+					});
+					break;
+				case 'Malaconda':
+					move.secondaries.push({
+						chance: 100,
+						boosts: {atk: -1},
+					});
+					break;
 			}
 		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		desc: "If the user is holding a Tart Apple or is Flapple, has a 100% chance to lower the target's Defense by 1 stage. If the user is holding a Sweet Apple or is Appletun, has a 100% chance to lower the target's Special Defense by 1 stage. If the user is holding a Syrupy Apple or is Dipplin, has a 100% chance to lower the target's Speed by 1 stage. Holding an item overrides the species. If none of the above, has no secondary effect.",
+		desc: "If the user is holding a Tart Apple or is Flapple, has a 100% chance to lower the target's Defense by 1 stage. If the user is holding a Sweet Apple or is Appletun, has a 100% chance to lower the target's Special Defense by 1 stage. If the user is holding a Syrupy Apple or is Dipplin, has a 100% chance to lower the target's Speed by 1 stage. If the user is Fervintill, has a 100% chance to lower the target's Special Attack by 1 stage. If the user is Malaconda, has a 100% chance to lower the target's Attack by 1 stage. Holding an item overrides the species. If none of the above, has no secondary effect.",
 		shortDesc: "Lowers a stat by 1 depending on held Apple/user.",
-				isViable: true,
+		isViable: true,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Grav Apple", target);
@@ -198,6 +210,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Twister");
 		},
+		desc: "If the current weather is Sunny Day or Rain Dance, this move's power is multiplied by 1.5.",
+		shortDesc: "Power multiplied by 1.5x in sun or rain.",
 	},
 	daydream: {
 		num: 1002,
@@ -1453,6 +1467,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-end', pokemon, 'move: Bide', '[silent]');
 			},
 		},
+		desc: "The user spends this turn locked into this move. On the turn after using this move, the user attacks the last Pokemon that hit it, inflicting double the damage in HP it lost to attacks during that turn. If the last Pokemon that hit it is no longer active, the user attacks a random opposing Pokemon instead. If the user is prevented from moving during this move's use, the effect ends. This move does not check accuracy and does not ignore type immunity.",
+		shortDesc: "Waits one turns; deals double the damage taken.",
 	},
 	bind: {
 		inherit: true,
@@ -1501,7 +1517,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onHit(target, source, move) {
 			return target.addVolatile('blocked', source, move, 'trapper');
 		},
-		desc: "Prevents the target from switching out. Escape Plan and a held Eject Button or Eject Pack will fail to make the target leave the field as well. The target can still switch out if it is holding Shed Shell, has Run Away, or uses Baton Pass or Teleport. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
+		desc: "Prevents the target from switching out. Damaging switch moves, Escape Plan and a held Eject Button or Eject Pack will fail to make the target leave the field as well. The target can still switch out if it is holding Shed Shell, has Run Away, or uses Baton Pass, Escape Tunnel, Slip Away, or Teleport. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
 	},
 	bodyslam: {
 		inherit: true,
@@ -1520,6 +1536,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			volatileStatus: 'flinch',
 		},
 		unviable: true,
+		desc: "Has a 30% chance to make the target flinch.",
+		shortDesc: "30% chance to make the target flinch.",
 	},
 	bonerush: {
 		inherit: true,
@@ -1665,6 +1683,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		contestType: "Cool", 
+		desc: "If this move is successful, the user loses 1/2 of its maximum HP, rounded up.",
+		shortDesc: "User loses 50% max HP after hit.",
 	},
 	clamp: {
 		inherit: true,
@@ -1745,6 +1765,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-start', source, 'typechange', bestType);
 		},
 		unviable: true,
+		desc: "The user's typing changes to the type that has the best advantage over the type (after modifications) of the last move used by the target. It will prioritize any type that is immune to the move, followed by types that are doubly resistant, then normally resistant, then neutral to the move. If multiple types are possible after any of these choices, it will prioritize types that are super effective against that type. If multiple types are still possible, it will prioritize types matching any of the user's damaging moves. Fails if the target has not made a move, if the user cannot change its type, or if this move would only be able to select the user's current type.",
+		shortDesc: "Changes user's type to have best advantage to target's last move.",
 	},
 	coreenforcer: {
 		inherit: true,
@@ -2044,6 +2066,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 5,
 		contestType: "Cute",
+		desc: "Hits twice. If the first hit breaks the target's substitute, it will take damage for the second hit. In Double or Triple Battles, this move attempts to hit the targeted Pokemon and a random adjacent ally once each. If hitting one of these Pokemon would be prevented by immunity, protection, semi-invulnerability, an Ability, or accuracy, it attempts to hit another eligible Pokemon instead; if none exists, the other Pokemon will be targeted twice. If this move is redirected, it hits that target twice.",
+		shortDesc: "Hits twice. Doubles/Triples: Tries to hit two foes.",
 	},
 	dragonenergy: {
 		inherit: true,
@@ -2134,6 +2158,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: 85,
 		target: 'allAdjacentFoes',
+		shortDesc: "Lowers foe(s) Sp. Atk by 2.",
 	},
 	eggbomb: {
 		inherit: true,
@@ -2248,8 +2273,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		desc: "Prevents all active Pokemon from switching next turn. Escape Plan and a held Eject Button or Eject Pack will fail to make any Pokemon leave the field as well. A Pokemon can still switch out if it is holding Shed Shell, has Run Away, or uses Baton Pass or Teleport. Fails if the effect is already active.",
+		desc: "Prevents all active Pokemon from switching next turn. Damaging switch moves, Escape Plan, and a held Eject Button or Eject Pack will fail to make any Pokemon leave the field as well. A Pokemon can still switch out if it is holding Shed Shell, has Run Away, or uses Baton Pass, Escape Tunnel, Slip Away, or Teleport. Fails if the effect is already active.",
 		fail: "  [TARGET]'s exit was blocked!",
+	},
+	fakeout: {
+		inherit: true,
+		volatileStatus: 'flinch',
+		secondary: null,
+		desc: "Makes the target flinch; this is not considered a secondary effect and is not removed by Sheer Force or Shield Dust/Covert Cloak. Fails unless it is the user's first turn on the field.",
+		shortDesc: "Hits first and flinches. Only works on first turn out.",
 	},
 	falsesurrender: {
 		inherit: true,
@@ -2263,6 +2295,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: 85,
 		target: 'allAdjacentFoes',
+		shortDesc: "Lowers foe(s) Attack by 2.",
 	},
 	firefang: {
 		inherit: true,
@@ -2318,6 +2351,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
+		desc: "If one of the user's allies chose to use Grass Pledge or Water Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, obtain STAB regardless of the user's type, and set a secondary effect. If combined with Grass Pledge, a sea of fire appears on the target's side for 4 turns, which causes damage to grounded non-Fire types equal to 1/8 of their maximum HP, rounded down, at the end of each turn during effect, including the last turn. If combined with Water Pledge, a rainbow appears on the user's side for 4 turns, which doubles secondary effect chances and stacks with the Serene Grace Ability, except effects that cause flinching can only have their chance doubled once. This move does not consume the user's Fire Gem.",
 	},
 	fishiousrend: {
 		inherit: true,
@@ -2705,6 +2739,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
+		desc: "If one of the user's allies chose to use Water Pledge or Fire Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, obtain STAB regardless of the user's type, and set a secondary effect. If combined with Water Pledge, a swamp appears on the target's side for 4 turns, which halves the Speed of all grounded Pokemon on that side. If combined with Fire Pledge, a sea of fire appears on the target's side for 4 turns, which causes damage to grounded non-Fire types equal to 1/8 of their maximum HP, rounded down, at the end of each turn during effect, including the last turn. This move does not consume the user's Grass Gem.",
 	},
 	grasswhistle: {
 		inherit: true,
@@ -2762,6 +2797,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-fieldend', 'move: Grassy Terrain');
 			},
 		},
+		desc: "For 5 turns, the terrain becomes Grassy Terrain. During the effect, the power of Grass-type attacks used by grounded Pokemon is multiplied by 1.3, the power of Bulldoze, Earthquake, and Magnitude used against grounded Pokemon is multiplied by 0.5, and grounded Pokemon have 1/16 of their maximum HP, rounded down, restored at the end of each turn, including the last turn. Camouflage transforms the user into a Grass type, Nature Power becomes Energy Ball, and Secret Power becomes Grass type and has a 30% chance to cause sleep. If a Pokemon uses Hydro Cannon, Origin Pulse, Muddy Water, Surf, Water Pledge, Water Spout, Whirlpool, or Tidal Wave, a swamp appears on the target's side for 4 turns, which halves the Speed of all grounded Pokemon on that side. If a Pokemon uses Blast Burn, Burn Up, Fire Spin, Fire Pledge, Inferno, Napalm, Overheat, or Searing Shot, a sea of fire appears on the target's side for 4 turns, which causes damage to grounded non-Fire types equal to 1/8 of their maximum HP, rounded down, at the end of each turn during effect, including the last turn. In both cases, the terrain returns to normal. Fails if the current terrain is Grassy Terrain.",
 	},
 	growl: {
 		inherit: true,
@@ -2834,6 +2870,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Attack Order", target);
 			this.add('-anim', target, "Heal Order");
 		},
+		desc: "The target restores 1/2 of its maximum HP, rounded half up.",
+		shortDesc: "Heals user or ally by 50% of its max HP.",
 	},
 	healpulse: {
 		inherit: true,
@@ -2855,7 +2893,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return success;
 		},
 		target: 'anyAlly',
-		isViable: true,
+		desc: "The target restores 1/2 of its maximum HP, rounded half up.",
+		shortDesc: "Heals user or ally by 50% of its max HP.",
 	},
 	heartstamp: {
 		inherit: true,
@@ -2937,6 +2976,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
+		desc: "Power doubles with each successful hit, up to a maximum of 160 power. The power is reset if this move misses or another move is used.",
 		shortDesc: "Power doubles on each hit, up to 160.",
 	},
 	icefang: {
@@ -2967,6 +3007,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-enditem', pokemon, item.name, '[from] move: Incinerate');
 			}
 		},
+		desc: "The target loses its held item if it is consumable.",
 		shortDesc: "Destroys foe(s)' consumable items.",
 	},
 	inferno: {
@@ -2995,6 +3036,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return null;
 			},
 		},
+		desc: "The user has 1/8 of its maximum HP restored at the end of each turn, but it is prevented from switching out and other Pokemon cannot force the user to switch out. The user can still switch out if it uses Baton Pass, Escape Plan, Parting Shot, Slip Away, Teleport, U-turn, or Volt Switch. If the user leaves the field using Baton Pass, the replacement will remain trapped and still receive the healing effect. During the effect, the user loses its floating status if it has any and cannot gain floating status by any means, and its use of the moves Bounce, Fell Swoop, Fly, Sky Drop, Flying Press, Jump Kick, High Jump Kick, and Splash will fail.",
 		shortDesc: "Heals 1/8 max HP per turn. Traps/grounds user.",
 	},
 	irondefense: {
@@ -3177,6 +3219,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-end', pokemon, 'move: Lock-On', '[silent]');
 			}
 		},
+		desc: "The target cannot avoid the user's next move, even if the target is semi-invulerable due to being in the middle of a move such as Fly. The effect ends if either the user or the target leaves the field. Fails if this effect is active for the user.",
 		shortDesc: "Next attack on target: No Guard effect.",
 	},
 	lovelykiss: {
@@ -3269,6 +3312,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-fieldend', 'move: Magic Room', '[of] ' + this.effectState.source);
 			},
 		},
+		desc: "For 5 turns, the held items of all active Pokemon have no effect. An item's effect of causing forme changes is unaffected, but any other effects from such items are negated. During the effect,  Mega Evolution and Ultra Burst cannot be performed, and Fling, Natural Gift, Poltergeist, Stuff Cheeks, and Teatime are prevented from being used by all active Pokemon. If this move is used during the effect, the effect ends.",
+		shortDesc: "For 5 turns, all held items have no effect. No Mega/Ultra Burst.",
 	},
 	magnetrise: {
 		inherit: true,
@@ -3325,6 +3370,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 		contestType: "Beautiful",
+		desc: "Prevents the target from switching out; overrides a Ghost-type target's immunity to being trapped. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Escape Tunnel, Parting Shot, Slip Away, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
+		shortDesc: "Prevents the target from switching out, even if it's a Ghost.",
 	},
 	meditate: {
 		inherit: true,
@@ -3357,6 +3404,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 85,
 		pp: 15,
 		target: 'allAdjacentFoes',
+		shortDesc: "Lowers foe(s) Sp. Def by 2.",
 	},
 	meteorbeam: {
 		inherit: true,
@@ -3510,6 +3558,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				spa: -1,
 			},
 		},
+		desc: "Has a 10% chance to lower the target's Special Attack by 1 stage.",
+		shortDesc: "10% chance to lower the target's Sp. Atk by 1.",
 	},
 	moonlight: {
 		inherit: true,
@@ -3597,6 +3647,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-fieldend', 'move: Mud Sport');
 			},
 		},
+		desc: "For 5 turns, all Electric-type attacks used by any active Pokemon have their power multiplied by 0.33, and Pokemon cannot become paralyzed. Fails if this effect is already active.",
+		shortDesc: "For 5 turns, no paralysis and Electric-type attacks have 1/3 power.",
 	},
 	muddywater: {
 		inherit: true,
@@ -3729,6 +3781,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		accuracy: 85,
 		target: "allAdjacentFoes",
 		contestType: "Cool",
+		shortDesc: "Lowers foe(s) Attack and Sp. Atk by 1.",
 	},
 	obstruct: {
 		inherit: true,
@@ -3806,7 +3859,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "As long as the target remains active, it cannot become Evasive, and Normal- and Fighting-type attacks can hit the target if it is a Ghost type. Existing Evasiveness is removed. Fails if the target is already affected.",
-		shortDesc: "Ignore Ghost immunities. Evasiveness removed.",
+		shortDesc: "Target loses Ghost immunities and can't become Evasive.",
 	},
 	orderup: {
 		inherit: true,
@@ -3831,6 +3884,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		hasSheerForce: false,
+		desc: "If this move is successful and an ally Tatsugiri has activated its Commander Ability, raises user's Attack by 1 stage if the Tatsugiri is Curly Form, Defense by 1 stage if Droopy Form, or Speed by 1 stage if Stretchy Form. This boost does not occur if the user has Sheer Force.",
 	},
 	originpulse: {
 		inherit: true,
@@ -3861,7 +3915,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		desc: "If this move is successful, it breaks through the target's Bunker Down, Detect, King's Shield, Protect, Slip Away, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Shadow Punch, Shadow Sneak, Shadow Claw, Phantom Force, and Shadow Force; these moves also have their damage doubled. If the user is holding a Power Herb, the move completes in one turn.",
+		desc: "If this move is successful, it breaks through the target's Bunker Down, Detect, King's Shield, Protect, Silk Trap, Slip Away, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Shadow Punch, Shadow Sneak, Shadow Claw, Phantom Force, and Shadow Force; these moves also have their damage doubled. If the user is holding a Power Herb, the move completes in one turn.",
 	},
 	pinmissile: {
 		inherit: true,
@@ -4128,6 +4182,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			return Math.min(160, Math.floor((pokemon.happiness * 10) / 25)) || 1;
 		},
 		unviable: true,
+		desc: "Power is equal to the greater of (user's Happiness * 2/5), rounded down, or 1. During a Link Battle, happiness is capped to 160, causing this move's power to become capped to 60.",
+		shortDesc: "Max 60 power at maximum allowed Happiness.",
 	},
 	revenge: {
 		inherit: true,
@@ -4166,7 +4222,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 		},
 		desc: "Has a 100% chance to lower the target's Defense by 1 stage.",
-		shortDesc: "Lowers the target's Defense by 1.",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
 	},
 	rockthrow: {
 		inherit: true,
@@ -4360,7 +4416,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			status: 'par',
 		},
 		isViable: true,
-		desc: "Has a 30% chance to cause a secondary effect on the target based on the battle terrain. Causes paralysis on the regular Wi-Fi terrain, causes paralysis during Electric Terrain, lowers Special Attack by 1 stage during Misty Terrain, causes sleep during Grassy Terrain, and confuses during Psychic Terrain. During Midnight, it causes sleep.",
+		desc: "Has a 30% chance to cause a secondary effect on the target. This move's type and the effect change based on the battle terrain: Causes paralysis on the regular Wi-Fi terrain, causes paralysis during Electric Terrain, lowers Special Attack by 1 stage during Misty Terrain, causes sleep during Grassy Terrain, and confuses during Psychic Terrain. During Midnight, it causes sleep.",
 	},
 	shadowclaw: {
 		inherit: true,
@@ -4598,6 +4654,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 95,
 		accuracy: 90,
 		target: 'allAdjacentFoes',
+		shortDesc: "10% chance to poison adjacent foes.",
 	},
 	smackdown: {
 		inherit: true,
@@ -4888,6 +4945,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.damage(Math.round(pokemon.maxhp / 2), pokemon, pokemon, this.dex.conditions.get('Steel Beam'), true);
 			}
 		},
+		desc: "If this move is successful, the user loses 1/2 of its maximum HP, rounded up.",
+		shortDesc: "User loses 50% max HP after hit.",
 		contestType: "Cool", 
 	},
 	stickyweb: {
@@ -4958,7 +5017,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: 85,
 		pp: 15,
-		target: 'allAdjacentFoes',
+	},
+	strugglebug: {
+		inherit: true,
+		target: "normal",
+		desc: "Has a 100% chance to lower the target's Special Attack by 1 stage.",
+		shortDesc: "100% chance to lower the target's Sp. Atk by 1.",
 	},
 	stuffcheeks: {
 		inherit: true,
@@ -5239,9 +5303,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		onHit(target, source, move) {
 			let success = target.trySetStatus('psn', source, move);
-			console.log(success);
 			if(target.addVolatile('trapped', source, move, 'trapper')) success = true;
-			console.log(success);
 			return success;
 		},
 		secondary: null,
@@ -5350,7 +5412,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Outrage");
 		},
-		desc: "Power is equal to 50+(X*50), where X is the total number of times the user has been hit by a damaging attack since it was sent out, even if the user did not lose HP from the attack. Each hit of a multi-hit attack is counted, but confusion damage is not counted.",
+		desc: "Power is equal to 50+(X*50), where X is the total number of times the user has been hit by a damaging attack since it was sent out, even if the user did not lose HP from the attack. Each hit of a multi-hit attack is counted, but confusion damage is not counted. Caps at 350 power.",
 		shortDesc: "+50 power for each time user was hit since switch-in.",
 	},
 	visegrip: {
@@ -5381,6 +5443,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				move.self = {sideCondition: 'waterpledge'};
 			}
 		},
+		desc: "If one of the user's allies chose to use Fire Pledge or Grass Pledge this turn, the slower Pokemon will takes its turn immediately after the faster one; the faster Pledge will do nothing and the slower one will have 150 BP, obtain STAB regardless of the user's type, and set a secondary effect. If combined with Fire Pledge, a rainbow appears on the user's side for 4 turns, which doubles secondary effect chances and stacks with the Serene Grace Ability, except effects that cause flinching can only have their chance doubled once. If combined with Grass Pledge, a swamp appears on the target's side for 4 turns, which halves the Speed of all grounded Pokemon on that side. This move does not consume the user's Grass Gem.",
 	},
 	waterpulse: {
 		inherit: true,
@@ -5421,6 +5484,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-fieldend', 'move: Water Sport');
 			},
 		},
+		desc: "For 5 turns, all Fire-type attacks used by any active Pokemon have their power multiplied by 0.33, and Pokemon cannot become burned. Fails if this effect is already active.",
+		shortDesc: "For 5 turns, no burn and Fire-type attacks have 1/3 power.",
 	},
 	weatherball: {
 		inherit: true,
@@ -5910,6 +5975,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
+	},
+	gravity: {
+		inherit: true,
+		desc: "For 5 turns, the evasiveness of all active Pokemon is multiplied by 0.6. At the time of use, Bounce, Fly, Magnet Rise, Rising Chorus, Sky Drop, and Telekinesis end immediately for all active Pokemon. During the effect, Bounce, Fell Swoop, Fly, Flying Press, High Jump Kick, Jump Kick, Magnet Rise, Sky Drop, Splash, and Telekinesis are prevented from being used by all active Pokemon. Ground-type attacks, Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability can affect Flying types or Pokemon with the Levitate Ability. Fails if this move is already in effect.",
 	},
 	hiddenpowerfairy: { //Used only in Glyphic Spell Adapt... for now.
 		num: 237,

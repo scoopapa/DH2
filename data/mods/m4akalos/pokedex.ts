@@ -102,7 +102,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		megaAbility: {0: "Mana Gate"},
 		megaStats: {hp: 65, atk: 90, def: 85, spa: 160, spd: 105, spe: 120},
 		megaStone: "Espeonite",
-		movepoolAdditions: ["magicpowder", "speedswap"],
+		movepoolAdditions: ["speedswap"],
 		megaCreator: "XtheGAMEmaster",
 	},
 
@@ -122,7 +122,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		mega: "sylveonmega",
 		megaName: "Sylveon-Mega",
 		megaAbility: {0: "Tough Claws"},
-		megaStats: {hp: 95, atk: 100, def: 100, spa: 140, spd: 120, spe: 70},
+		megaStats: {hp: 95, atk: 145, def: 65, spa: 140, spd: 120, spe: 60},
 		megaStone: "Sylveonite",
 		movepoolAdditions: ["grassknot", "stompingtantrum"],
 		megaCreator: "Snowdrops and zxgzxg",
