@@ -177,9 +177,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Special",
 		name: "Magnetic Blast",
+		sideCondition: 'spikes',
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onHit(target, source, side) {
+			if (this.effectState.layers == 0) return false;
+			this.add('-sidestart', side, 'Spikes');
+			this.effectState.layers--;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Steel",

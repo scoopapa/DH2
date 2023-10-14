@@ -110,7 +110,12 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'banette').learnset.souldrain = ['4L1'];
     this.modData('Learnsets', 'dusclops').learnset.souldrain = ['4L1'];
 
-    //TODO: Magnetic Blast
+    // magneticblast 
+    this.modData('Learnsets', 'magnemite').learnset.magneticblast = ['4L1'];
+    this.modData('Learnsets', 'electrode').learnset.magneticblast = ['4L1'];
+    this.modData('Learnsets', 'nosepass').learnset.magneticblast = ['4L1'];
+    this.modData('Learnsets', 'voltorb').learnset.magneticblast = ['4L1'];
+    this.modData('Learnsets', 'registeel').learnset.magneticblast = ['4L1'];
 
     // cyclonescatter 
     this.modData('Learnsets', 'aerodactyl').learnset.cyclonescatter = ['4L1'];
