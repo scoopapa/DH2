@@ -17,4 +17,14 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			this.add('rule', 'Protect Clause: Protecting moves are banned');
 		},
 	},
+	fieldeffectclause: {
+		effectType: 'ValidatorRule',
+		name: 'Field Effect Clause',
+		desc: "Bans moves that set a field effect",
+		banlist: ['Spikes', 'Toxic Spikes', 'Stealth Rock', 'Sticky Web', 'Stone Axe', 'Ceaseless Edge', 'Wonder Room', 
+				'Trick Room', 'Magic Room', 'Lucky Chant', 'Tailwind', 'Safeguard', 'Gravity'],
+		onBegin() {
+			this.add('rule', 'Field Effect Clause: Field Effects are banned');
+		},
+	},
 };
