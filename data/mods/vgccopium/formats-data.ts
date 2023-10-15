@@ -255,18 +255,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FE",
 		doublesTier: "FE",
 	},
-	articuno: {
-		tier: "FE",
-		doublesTier: "FE",
-	},
-	zapdos: {
-		tier: "FE",
-		doublesTier: "FE",
-	},
-	moltres: {
-		tier: "FE",
-		doublesTier: "FE",
-	},
 	dratini: {
 		tier: "LC",
 		doublesTier: "LC",
