@@ -649,7 +649,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber'],
 		unbanlist: ['Sand Veil'],
 	},
-	{
+	/*{
 		name: "[Gen 8] JolteMons Random Battle",
 		desc: `Pok&eacute;mon, items, abilities, and moves are redesigned for OU, and new items, abilities, and moves are added, all without changing base stats.`,
 		threads: [
@@ -659,7 +659,7 @@ export const Formats: FormatList = [
 		mod: 'gen8joltemons',
 		team: 'random',
 		ruleset: ['Dynamax Clause', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Mega Data Mod', 'Z-Move Clause'],
-	},
+	},*/
 	{
 		name: "[Gen 6] NEXT OU",
 		threads: [
@@ -1303,7 +1303,6 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3713983/">Fortemons</a>`,
 		],
 
-		mod: 'gen9',
 		searchShow: false,
 		ruleset: ['Standard OMs', 'Sleep Clause Mod', 'Min Source Gen = 9'],
 		banlist: [
@@ -2227,7 +2226,6 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712296/">Inheritance</a>`,
 		],
 
-		mod: 'gen9predlc',
 		searchShow: false,
 		ruleset: ['Standard OMs', 'Ability Clause = 1', 'Sleep Moves Clause', 'Terastal Clause', 'Min Source Gen = 9'],
 		banlist: [
@@ -2946,7 +2944,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Cottonee', 'Dragonite', 'Jirachi', 'Kyurem-Black', 'Mew', 'Togekiss', 'Whimsicott', 'Victini', 'Focus Band', 'Focus Sash', 'Quick Claw', 'Soul Dew', 'Perish Song'],
 		unbanlist: ['Genesect', 'Landorus', 'Manaphy', 'Thundurus', 'Tornadus-Therian'],
 	},
-	{
+	/*{
 		name: "[Gen 1] PU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3700527/">RBY PU Metagame Discussion &amp; Resources</a>`,
@@ -2956,7 +2954,7 @@ export const Formats: FormatList = [
 		// searchShow: false,
 		ruleset: ['[Gen 1] NU'],
 		banlist: ['NU', 'PUBL'],
-	},
+	},*/
 
 	// Past Gens OU
 	///////////////////////////////////////////////////////////////////
@@ -3566,7 +3564,7 @@ export const Formats: FormatList = [
 		mod: 'gen9',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
-	{
+	/*{
 		name: "[Gen 9] Custom Game",
 
 		mod: 'gen9',
@@ -3575,7 +3573,7 @@ export const Formats: FormatList = [
 		battle: {trunc: Math.trunc},
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
-	},
+	},*/
 
 	// B2/W2 Singles
 	///////////////////////////////////////////////////////////////////

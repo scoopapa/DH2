@@ -2555,7 +2555,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		//Suction Cups floating block implemented in scripts.ts as part of pokemon.canFloat()
 		shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. Prevents floating.",
-		shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. This Pokemon cannot gain floating status.",
+		//shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. This Pokemon cannot gain floating status.",
 	},
 	sweetveil: {
 		inherit: true,
