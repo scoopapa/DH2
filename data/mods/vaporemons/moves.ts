@@ -1104,7 +1104,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					onPrepareHit(target, source, move) {
 						this.attrLastMove('[still]');
 						this.add('-anim', source, "Sandsear Storm", target);
+						this.field.setWeather('sandstorm');
 					},
+					/*
 					self: {
 						onHit(source) {
 							this.field.setWeather('sandstorm');
@@ -1113,6 +1115,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 							this.field.setWeather('sandstorm');
 						},
 					},
+	  				*/
 					effectType: 'Move',
 					type: 'Ground',
 				},
