@@ -1710,6 +1710,118 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] Bench Abilities (Test)",
+		desc: [
+			"<b>Bench Abilities</b>: A Pet Mod based on SM Battle Spot Singles, in which Pokemon have 'bench abilities' that passively aid their allies when they aren't actively in battle."
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/.3648706/">Bench Abilities on Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/14GDawSGTJsvZD6aAaTgnsdygPRFb3Kx1Pb6lEksvXLo/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		ruleset: [ 'Species Clause', 'Moody Clause', 'Baton Pass Clause', 
+					'Evasion Moves Clause', 'OHKO Clause', 'Swagger Clause', 'Endless Battle Clause', 
+					'Team Preview', 'HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod', 'Standard GBU',
+					'Standard NatDex'],
+		banlist: ['Unreleased'],
+		mod: "benchabilities",
+		maxForcedLevel: 50,
+		teamLength: {
+			validate: [3, 6],
+			battle: 3,
+		},		
+		onBegin() {
+			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
+			for (let pokemon of allPokemon) {
+				let benchAbility = ''
+				let template = pokemon.template
+				if (template.abilities.S){
+					benchAbility = this.toID(template.abilities.S);
+				}
+				let battle = pokemon.battle;
+				if ( !battle.benchPokemon ) {
+					battle.benchPokemon = [];
+					// use this function to retrieve a pokemon's info table using their bench ability ( retrieves FIRST pokemon with that ability )
+					battle.benchPokemon.getPKMNInfo = function( ability, side ) 
+					{ 
+						let battle = side.battle
+						let allyBench = battle.benchPokemon[ side.id ]
+						ability = this.toID( ability )
+						for (let i = 0; i < 6; i++ ) {
+							let pkmnInfo = allyBench[ i ];
+							if ( pkmnInfo && pkmnInfo.ability === ability ) {
+								return pkmnInfo;
+							}
+						}
+					};
+				}
+				let sideID = pokemon.side.id;
+				if ( !battle.benchPokemon[ sideID ] ) {
+					battle.benchPokemon[ sideID ] = [];
+				}
+				let allyBench = battle.benchPokemon[ sideID ]
+				let pkmnInfo = {}
+				// add code here if you need more info about bench pokemon for an ability
+				pkmnInfo[ 'id' ] = pokemon.id;
+				pkmnInfo[ 'name' ] = pokemon.name;
+				pkmnInfo[ 'types' ] = pokemon.types;
+				pkmnInfo[ 'ability' ] = benchAbility;
+				pkmnInfo[ 'item' ] = pokemon.item;
+				//-----------------------------------------------------------------------
+				allyBench.push( pkmnInfo )
+			}
+		},
+		onBeforeSwitchIn(pokemon) {
+			let battle = pokemon.battle;
+			let sideID = pokemon.side.id;
+			let allyBench = battle.benchPokemon[ sideID ];
+			if ( battle.turn === 0 ) {
+				for (const ally of pokemon.side.pokemon) {
+					for ( var pos in allyBench ) {
+						 if ( allyBench[ pos ].id === ally.id 
+							|| allyBench[ pos ].id === pokemon.id )
+						{					
+							 delete allyBench[ pos ];
+						}
+					}
+				}
+			}
+			for ( var pos in allyBench ) {  
+				let benchAbility = allyBench[ pos ].ability
+				if ( benchAbility !== '' ) {
+					let effect = 'ability' + benchAbility;
+					pokemon.volatiles[effect] = {id: effect, target: pokemon};
+				}
+			}
+		},
+		onSwitchInPriority: 2,
+		onSwitchIn: function (pokemon) {
+			let battle = pokemon.battle;
+			let sideID = pokemon.side.id;
+			let allyBench = battle.benchPokemon[ sideID ];
+			for ( var pos in allyBench) {
+				let benchAbility = allyBench[ pos ].ability
+				if ( benchAbility !== '' ) {
+					let effect = 'ability' + benchAbility;
+					delete pokemon.volatiles[effect];
+					pokemon.addVolatile(effect);
+				}
+			}
+		},
+		onAfterMega: function (pokemon) {
+			let battle = pokemon.battle;
+			let sideID = pokemon.side.id;
+			let allyBench = battle.benchPokemon[ sideID ];
+			pokemon.removeVolatile('ability' + pokemon.baseAbility);
+			for (var pos in allyBench) {  
+				let benchAbility = allyBench[ pos ].ability
+				if ( benchAbility !== '' ) {
+					let effect = 'ability' + benchAbility;
+					pokemon.addVolatile(effect);
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Dream World Theorymons",
 		desc: '<b>[Gen 8] Gen 9 Dream World Theorymons</b>: A testing ground for the Gen 9 OU Theorymons metagame.',
 		mod: 'outheorymons',
