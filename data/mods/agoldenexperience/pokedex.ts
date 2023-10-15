@@ -949,6 +949,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 95, atk: 80, def: 105, spa: 40, spd: 90, spe: 100},
 	},
+	blissey: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Rebound", H: "Healer"},
+	},
 	raikou: {
 		inherit: true,
 		abilities: {0: "Pressure", H: "Berserk"},
@@ -3896,24 +3900,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Hyper Drill",
 		eggGroups: ["Field"],
-	},
-	bisharp: {
-		inherit: true,
-		evos: ["Kingambit"],
-	},
-	kingambit: {
-		num: 983,
-		name: "Kingambit",
-		types: ["Dark", "Steel"],
-		baseStats: {hp: 100, atk: 135, def: 120, spa: 60, spd: 85, spe: 50},
-		abilities: {0: "Defiant", 1: "Supreme Overlord", H: "Pressure"},
-		heightm: 2,
-		weightkg: 120,
-		color: "Black",
-		prevo: "Bisharp",
-		evoType: "other",
-		evoCondition: "Defeat 3 Bisharp leading Pawniard and level-up",
-		eggGroups: ["Human-Like"],
 	},
 	greattusk: {
 		num: 984,

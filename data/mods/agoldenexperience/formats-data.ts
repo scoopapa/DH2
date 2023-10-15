@@ -718,7 +718,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "NFE",
 	},
 	blissey: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	tangela: {
@@ -1545,7 +1545,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	slaking: {
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	nincada: {
