@@ -213,7 +213,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "OU",
 	},
 	diglett: {
-		tier: "OU",
+		tier: "LC",
 	},
 	dugtrio: {
 		tier: "OU",
@@ -1254,7 +1254,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	shelgon: {
-		tier: "OU",
+		tier: "NFE",
 	},
 	salamence: {
 		tier: "Uber",
