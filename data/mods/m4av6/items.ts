@@ -153,150 +153,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Lycanroc, this item allows it to Mega Evolve in battle.",
 	},
-	electricseed: {
-		name: "Electric Seed",
-		spritenum: 664,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
-				pokemon.useItem();
-			}
-		},
-		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
-			if (this.field.isTerrain('electricterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
-				pokemon.useItem();
-			}
-		},
-		boosts: {
-			def: 1,
-		},
-		num: 881,
-		gen: 7,
-		desc: "If the terrain is Electric Terrain, raises holder's Defense by 1 stage. Single use.",
-	},
-	psychicseed: {
-		name: "Psychic Seed",
-		spritenum: 665,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
-				pokemon.useItem();
-			}
-		},
-		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
-			if (this.field.isTerrain('psychicterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
-				pokemon.useItem();
-			}
-		},
-		boosts: {
-			spd: 1,
-		},
-		num: 882,
-		gen: 7,
-		desc: "If the terrain is Psychic Terrain, raises holder's Sp. Def by 1 stage. Single use.",
-	},
-	mistyseed: {
-		name: "Misty Seed",
-		spritenum: 666,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain('mistyterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
-				pokemon.useItem();
-			}
-		},
-		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
-			if (this.field.isTerrain('mistyterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
-				pokemon.useItem();
-			}
-		},
-		boosts: {
-			spd: 1,
-		},
-		num: 883,
-		gen: 7,
-		desc: "If the terrain is Misty Terrain, raises holder's Sp. Def by 1 stage. Single use.",
-	},
-	grassyseed: {
-		name: "Grassy Seed",
-		spritenum: 667,
-		fling: {
-			basePower: 10,
-		},
-		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
-				pokemon.useItem();
-			}
-		},
-		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
-			if (this.field.isTerrain('grassyterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
-				pokemon.useItem();
-			}
-		},
-		boosts: {
-			def: 1,
-		},
-		num: 884,
-		gen: 7,
-		desc: "If the terrain is Grassy Terrain, raises holder's Defense by 1 stage. Single use.",
-	},
 	vikavoltite: {
 		name: "Vikavoltite",
 		spritenum: 607,
@@ -892,25 +748,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 10,
 		},
 		onStart(pokemon) {
-			if (!pokemon.ignoringItem() && this.field.isTerrain('acidicterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
+			if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
 				pokemon.useItem();
 			}
 		},
-		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
+		onTerrainChange(pokemon) {
 			if (this.field.isTerrain('acidicterrain')) {
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('downtoearth')) {
-						this.debug('Down-to-Earth prevents Seed use');
-						return;
-					}
-				}
 				pokemon.useItem();
 			}
 		},

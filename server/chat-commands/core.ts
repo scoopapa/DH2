@@ -17,6 +17,7 @@
 import {Utils} from '../../lib';
 import type {UserSettings} from '../users';
 import type {GlobalPermission} from '../user-groups';
+import {BestOfGame} from '../room-battle';
 
 export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 	userdetails(target, user, trustable) {
@@ -778,6 +779,11 @@ export const commands: Chat.ChatCommands = {
 		`!showset [number] - shows the set of the pokemon corresponding to that number (in original Team Preview order, not necessarily current order)`,
 	],
 
+	confirmready(target, room, user) {
+		const game = this.requireGame(BestOfGame);
+		game.confirmReady(user.id);
+	},
+
 	async acceptopenteamsheets(target, room, user, connection, cmd) {
 		room = this.requireRoom();
 		const battle = room.battle;
@@ -1269,21 +1275,24 @@ export const commands: Chat.ChatCommands = {
 	forcewin(target, room, user) {
 		room = this.requireRoom();
 		this.checkCan('forcewin');
-		if (!room.battle) {
+		if (
+			!room.battle &&
+			!(room.game && typeof (room.game as any).tie === 'function' && typeof (room.game as any).win === 'function')
+		) {
 			this.errorReply("/forcewin - This is not a battle room.");
 			return false;
 		}
 
-		room.battle.endType = 'forced';
+		if (room.battle) room.battle.endType = 'forced';
 		if (!target) {
-			room.battle.tie();
+			(room.game as any).tie();
 			this.modlog('FORCETIE');
 			return false;
 		}
 		const targetUser = Users.getExact(target);
 		if (!targetUser) return this.errorReply(this.tr`User '${target}' not found.`);
 
-		room.battle.win(targetUser);
+		(room.game as any).win(targetUser);
 		this.modlog('FORCEWIN', targetUser.id);
 	},
 	forcewinhelp: [
@@ -1471,7 +1480,7 @@ export const commands: Chat.ChatCommands = {
 		const format = originalFormat.effectType === 'Format' ? originalFormat : Dex.formats.get('Anything Goes');
 		if (format.effectType !== 'Format') return this.popupReply(this.tr`Please provide a valid format.`);
 
-		return TeamValidatorAsync.get(format.id).validateTeam(user.battleSettings.team).then(result => {
+		return TeamValidatorAsync.get(format.id).validateTeam(user.battleSettings.team, {user: user.id}).then(result => {
 			const matchMessage = (originalFormat === format ? "" : this.tr`The format '${originalFormat.name}' was not found.`);
 			if (result.startsWith('1')) {
 				connection.popup(`${(matchMessage ? matchMessage + "\n\n" : "")}${this.tr`Your team is valid for ${format.name}.`}`);

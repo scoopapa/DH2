@@ -29,7 +29,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				if (!this.dataCache.Learnsets[id]) this.dataCache.Learnsets[id] = {learnset: {}}; // create a blank learnset entry so we don't need a learnsets file (thank you ink)
 				const learnset = this.dataCache.Learnsets[this.toID(copyMoves)].learnset;
 				for (const moveid in learnset) {
-					this.modData('Learnsets', id).learnset[moveid] = ['8M'];
+					this.modData('Learnsets', id).learnset[moveid] = learnset[moveid].filter(
+						(method) => !method.includes('S')
+					);
 				}
 				if (newMon.movepoolAdditions) {
 					for (const move of newMon.movepoolAdditions) {
@@ -44,7 +46,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				// hard-coding a bit for Eclipseroid specifically (may rework if we get more fusions later but kinda doubt)
 				if (newMon.name === 'Eclipseroid') {
 					for (const moveid in this.dataCache.Learnsets[this.toID("Lunatone")].learnset) {
-						this.modData('Learnsets', id).learnset[moveid] = ['8M'];
+						this.modData('Learnsets', id).learnset[moveid] = this.dataCache.Learnsets[this.toID("Lunatone")].learnset[moveid].filter(
+							(method) => !method.includes('S')
+						);
 					}
 				}
 			}
