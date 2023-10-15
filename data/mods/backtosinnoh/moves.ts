@@ -182,10 +182,100 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onHit(target, source, side) {
-			if (this.effectState.layers == 0) return false;
+			let layers = 0;
+			if (target.side.sideConditions['spikes']) {
+				layers += target.side.sideConditions['spikes'].layers;
+			}
+			if (target.side.foe.sideConditions['spikes']) {
+				layers += target.side.foe.sideConditions['spikes'].layers;
+			}
+			if (layers == 0) return false;
 			this.add('-sideend', target.side, 'Spikes', '[from] move: Rapid Spin', '[of] ' + source);
 			this.add('-sidestart', source.side, 'Spikes');
 			this.effectState.layers--;
+		},
+		onHitField(target, source) {
+			const sideConditions = [
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', //just to future proof lol
+			];
+			let success = false;
+			if (this.gameType === "freeforall") {
+				// random integer from 1-3 inclusive
+				const offset = this.random(3) + 1;
+				// the list of all sides in counterclockwise order
+				const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
+				const temp: {[k: number]: typeof source.side.sideConditions} = {0: {}, 1: {}, 2: {}, 3: {}};
+				for (const side of sides) {
+					for (const id in side.sideConditions) {
+						if (!sideConditions.includes(id)) continue;
+						temp[side.n][id] = side.sideConditions[id];
+						delete side.sideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						this.add('-sideend', side, effectName, '[silent]');
+						success = true;
+					}
+				}
+				for (let i = 0; i < 4; i++) {
+					const sourceSideConditions = temp[sides[i].n];
+					const targetSide = sides[(i + offset) % 4]; // the next side in rotation
+					for (const id in sourceSideConditions) {
+						targetSide.sideConditions[id] = sourceSideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						let layers = sourceSideConditions[id].layers || 1;
+						for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
+					}
+				}
+			} else {
+				const sourceSideConditions = source.side.sideConditions;
+				const targetSideConditions = source.side.foe.sideConditions;
+				const sourceTemp: typeof sourceSideConditions = {};
+				const targetTemp: typeof targetSideConditions = {};
+				for (const id in sourceSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					sourceTemp[id] = sourceSideConditions[id];
+					delete sourceSideConditions[id];
+					success = true;
+				}
+				for (const id in targetSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					targetTemp[id] = targetSideConditions[id];
+					delete targetSideConditions[id];
+					success = true;
+				}
+				for (const id in sourceTemp) {
+					targetSideConditions[id] = sourceTemp[id];
+				}
+				for (const id in targetTemp) {
+					sourceSideConditions[id] = targetTemp[id];
+				}
+				this.add('-swapsideconditions');
+			}
+			if (!success) return false;
+			this.add('-activate', source, 'move: Magnetic Blast');
+		},
+		condition: {
+			onDamagingHitOrder: 1,
+			onDamagingHit(damage, target, source, move) {
+				if (move.flags['contact']) {
+					let success = undefined;
+					if (target.side.getSideCondition('spikes') || target.side.foe.getSideCondition('spikes')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', target, 'Gravitational Pull');
+						}
+						let layers = 0;
+						if (target.side.sideConditions['spikes']) {
+							layers += target.side.sideConditions['spikes'].layers;
+						}
+						if (target.side.foe.sideConditions['spikes']) {
+							layers += target.side.foe.sideConditions['spikes'].layers;
+						}
+						const damageAmounts = [0, 3, 4, 6, 6, 6, 6]; // 1/8, 1/6, 1/4 - caps at 3
+						this.damage(damageAmounts[layers] * source.maxhp / 24, source, target);
+						// this.add('-message', `${source.name} was hurt by the spikes!`);
+					}
+				}
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -197,7 +287,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		num: -10,
 		accuracy: 100,
 		basePower: 60,
-		category: "Physical",
+		category: "Special",
 		name: "Cyclone Scatter",
 		pp: 15,
 		priority: -3,
@@ -234,6 +324,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "normal",
+		shortDesc: "-3 priority. Bounces back most status moves.",
+		desc: "-3 priority. Bounces back most status moves.",
 		type: "Flying",
 		contestType: "Tough",
 	},
@@ -272,6 +364,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 60,
 		category: "Special",
 		name: "Defog",
+		shortDesc: "If weather is up, deals double damage. Remove weather.",
 		pp: 20,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
