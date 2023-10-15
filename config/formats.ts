@@ -3655,7 +3655,7 @@ export const Formats: FormatList = [
 			'Sand Rush', 'Sand Veil', 'Berry Juice', 'Soul Dew', 'Baton Pass', 'Dragon Rage', 'Sonic Boom', 'Swagger',
 		],
 	},
-	{
+	/*{
 		name: "[Gen 5] Monotype",
 		desc: `All the Pok&eacute;mon on a team must share a type.`,
 		threads: [
@@ -3666,7 +3666,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['[Gen 5] OU', 'Same Type Clause', '!Gems Clause'],
 		banlist: ['Latios'],
-	},
+	},*/
 	{
 		name: "[Gen 5] ZU",
 		threads: [
@@ -3773,7 +3773,7 @@ export const Formats: FormatList = [
 		banlist: ['UU', 'NUBL'],
 		unbanlist: ['Agility + Baton Pass'],
 	},
-	{
+	/*{
 		name: "[Gen 2] 1v1",
 		threads: [`&bullet; <a href="https://www.smogon.com/forums/posts/8031464/">GSC 1v1</a>`],
 
@@ -3787,7 +3787,7 @@ export const Formats: FormatList = [
 			'Alakazam', 'Clefable', 'Snorlax', 'Zapdos', 'Berserk Gene', 'Focus Band', 'King\'s Rock', 'Quick Claw',
 			'Attract', 'Destiny Bond', 'Explosion', 'Perish Song', 'Present', 'Self-Destruct', 'Swagger',
 		],
-	},
+	},*/
 	{
 		name: "[Gen 2] Nintendo Cup 2000",
 		threads: [
@@ -3829,7 +3829,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['Standard'],
 	},
-	{
+	/*{
 		name: "[Gen 1] UU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3573896/">RBY UU Metagame Discussion</a>`,
@@ -3840,7 +3840,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['[Gen 1] OU', 'APT Clause', 'Sleep Moves Clause'],
 		banlist: ['OU', 'UUBL'],
-	},
+	},*/
 	{
 		name: "[Gen 1] NU",
 		threads: [
