@@ -427,3 +427,4 @@ export const Moves: {[moveid: string]: MoveData} = {
 			xscissor: ["8L1"],
 		},
 	},
+};
