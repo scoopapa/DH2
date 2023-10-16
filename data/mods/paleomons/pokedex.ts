@@ -141,6 +141,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Flying", "Fighting"],
 		baseStats: {hp: 105, atk: 100, def: 60, spa: 60, spd: 75, spe: 120},
 		abilities: {0: "Cloud Nine", H: "Scrappy"},
+		weightkg: 11,
 	},
 	brawlutra: {
 		num: 17,
@@ -148,6 +149,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ground", "Fighting"],
 		baseStats: {hp: 95, atk: 110, def: 60, spa: 65, spd: 65, spe: 90},
 		abilities: {0: "Fur Coat", H: "Swift Swim"},
+		weightkg: 34,
 	},
 	goldoco: {
 		num: 18,
@@ -155,5 +157,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Steel"],
 		baseStats: {hp: 100, atk: 135, def: 100, spa: 50, spd: 70, spe: 50},
 		abilities: {0: "Good As Gold"},
+		weightkg: 40,
 	},
 }
