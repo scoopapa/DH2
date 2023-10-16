@@ -1,3 +1,4 @@
+export const Moves: {[moveid: string]: MoveData} = {
 	kabuto: {
 		learnset: {
 			inherit: true,
