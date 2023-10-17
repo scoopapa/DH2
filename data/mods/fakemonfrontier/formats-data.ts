@@ -1,4 +1,8 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	alliglacier: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	batacomb: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
@@ -8,6 +12,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "FFOU",
 	},
 	cetenor: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	deciberd: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
@@ -31,7 +39,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	goddease: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	harletritus: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	hootsydazey: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
@@ -51,6 +67,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	lunacorn: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	magiheel: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
@@ -64,6 +84,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "FFOU",
 	},
 	phantasohm: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	pirrote: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
