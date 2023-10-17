@@ -1399,6 +1399,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Wind Rider", 1: "Momentum", H: "Infiltrator"},
 	},
+	brambleghast: {
+		inherit: true,
+		abilities: {0: "Wind Rider", 1: "Momentum", H: "Infiltrator"},
+	},
 	glalie: {
 		inherit: true,
 		abilities: {0: "Momentum", 1: "Moody", H: "Ice Body"},
