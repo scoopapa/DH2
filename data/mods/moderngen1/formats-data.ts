@@ -2690,7 +2690,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	palkia: {
 		inherit: true,
 		gen: 1,
-		tier: "UU",
+		tier: "Uber",
 	},
 	palkiaorigin: {
 		inherit: true,
