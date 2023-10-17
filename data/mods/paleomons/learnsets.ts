@@ -1,4 +1,4 @@
-export const Moves: {[moveid: string]: MoveData} = {
+export const Learnsets: {[k: string]: LearnsetData} = {
 	kabuto: {
 		learnset: {
 			inherit: true,
