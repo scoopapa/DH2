@@ -147,7 +147,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Tactical Monarch",
 		shortDesc: "On switchin, or when the opponent switches in, switches out if the opponent has a supereffective move. Once per battle.",
 	},
-
+	bombardier: {
+		shortDesc: "This Pokemon's ball and bomb moves have 1.5x power.",
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bullet']) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Bombardier",
+	},
 
 	//buffed
 	keeneye: {
@@ -181,7 +190,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 
 			const dazzlingHolder = this.effectState.target;
-			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.forceSwitch) {
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && (move.forceSwitch || move.selfSwitch)) {
 				this.attrLastMove('[still]');
 				this.add('cant', dazzlingHolder, 'ability: Suction Cups', move, '[of] ' + target);
 				return false;

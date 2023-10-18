@@ -2519,7 +2519,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		copyData: "Golbat",
 		
 		types: ["Poison", "Rock"],
-		baseStats: {hp: 75, atk: 90, def: 70, spa: 65, spd: 70, spe: 80},
+		baseStats: {hp: 75, atk: 90, def: 70, spa: 65, spd: 75, spe: 80},
 		abilities: {0: "Solid Rock", H: "Infiltrator"},
 		movepoolAdditions: ["mineraldrain", "sandstorm", "rockslide", "rockblast", "stealthrock", "stoneedge", "smackdown", "dig"],
 		movepoolDeletions: ["roost", "toxic", "bravebird", "airslash", "acrobatics", "hurricane", "aircutter", "fly", "aerialace", "dualwingbeat"],
