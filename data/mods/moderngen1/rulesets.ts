@@ -12,7 +12,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		effectType: 'ValidatorRule',
 		name: 'Protect Clause',
 		desc: "Bans moves that protect the user",
-		banlist: ['Protect', 'Baneful Bunker', 'Detect', 'King\u2019s Shield', 'Obstruct', 'Silk Trap', 'Spiky Shield'],
+		banlist: ['Protect', 'Detect'/*, 'Baneful Bunker', 'King\u2019s Shield', 'Obstruct', 'Silk Trap', 'Spiky Shield'*/],
 		onBegin() {
 			this.add('rule', 'Protect Clause: Protecting moves are banned');
 		},
