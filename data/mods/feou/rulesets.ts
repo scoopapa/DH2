@@ -74,7 +74,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			}
 		},
 		onSwitchIn(pokemon) {
-			let species = this.dex.species.get(pokemon.species.name);
+			let species;
 			let switchedIn = pokemon.switchedIn;
 			if (pokemon.illusion) {
 				species = this.dex.species.get(pokemon.illusion.species.name);
@@ -84,6 +84,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				if (pokemon.illusion.switchedIn) return;
 				pokemon.illusion.switchedIn = true;
 			} else {
+				species = this.dex.species.get(pokemon.species.name);
 				// console.log(pokemon.name + " is being reported");
 				if (!pokemon.isModded) return;
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
