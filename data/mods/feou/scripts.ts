@@ -15,29 +15,31 @@ export const Scripts: ModdedBattleScriptsData = {
 			) {
 				return altForme.name;
 			}
-			if (pokemon.baseSpecies.name === "Amphamence") {
-				if (item.name === "Salamencite") {
-					return "Amphamence-Mega-X"; 
-				}
-				if (item.name === "Ampharosite") {
-					return "Amphamence-Mega-Y"; 
-				}
-			}
-			else if (pokemon.baseSpecies.name === "Tyranix") {
-				if (item.name === "Tyranitarite") {
-					return "Tyranix-Mega-X"; 
-				}
-				if (item.name === "Steelixite") {
-					return "Tyranix-Mega-Y"; 
-				}
-			}
-			else if (pokemon.baseSpecies.name === "Mawlakazam") {
-				if (item.name === "Mawilite") {
-					return "Mawlakazam-Mega-X"; 
-				}
-				if (item.name === "Alakazite") {
-					return "Mawlakazam-Mega-Y"; 
-				}
+			switch (pokemon.baseSpecies.name) {
+				case "Amphamence":
+					if (item.name === "Salamencite") {
+						return "Amphamence-Mega-X"; 
+					}
+					if (item.name === "Ampharosite") {
+						return "Amphamence-Mega-Y"; 
+					}
+					break;
+				case "Tyranix":
+					if (item.name === "Tyranitarite") {
+						return "Tyranix-Mega-X"; 
+					}
+					if (item.name === "Steelixite") {
+						return "Tyranix-Mega-Y"; 
+					}
+					break;
+				case "Mawlakazam":
+					if (item.name === "Mawilite") {
+						return "Mawlakazam-Mega-X"; 
+					}
+					if (item.name === "Alakazite") {
+						return "Mawlakazam-Mega-Y"; 
+					}
+					break;
 			}
 			
 			return item.megaStone;
