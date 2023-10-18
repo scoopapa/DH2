@@ -1131,7 +1131,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	wailord: {
 		inherit: true,
 		baseStats: {hp: 170, atk: 100, def: 55, spa: 100, spd: 55, spe: 70},
-		abilities: {0: "Blowhole", 1: "Oblivious", H: "Pressure"},
+		abilities: {0: "Water Veil", 1: "Oblivious", H: "Blowhole"},
 	},
 	camerupt: {
 		inherit: true,
@@ -5045,7 +5045,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Water", "Dark"],
 		gender: "N",
 		baseStats: {hp: 121, atk: 133, def: 127, spa: 49, spd: 51, spe: 89},
-		abilities: {0: "Protosynthesis", H: "Blowhole"},
+		abilities: {0: "Protosynthesis", H: "Water Veil"},
 		heightm: 17.5,
 		weightkg: 999.9,
 		color: "White",
