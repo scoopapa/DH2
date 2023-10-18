@@ -4119,6 +4119,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
+	dipplin: {
+		tier: "UU",
+		doublesTier: "DUU",
+		// natDexTier: "UU",
+	},
 	silicobra: {
 		tier: "LC",
 	},
@@ -4406,6 +4411,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	ursaluna: {
 		tier: "OU",
 		doublesTier: "DOU",
+	},
+	ursalunabloodmoon: {
+		tier: "OU",
+		doublesTier: "DOU",
+		// natDexTier: "OU",
 	},
 	basculegion: {
 		tier: "UU",
