@@ -653,6 +653,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'magearna').learnset.spikes;
 		delete this.modData('Learnsets', 'magearna').learnset.trick;
 		delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
+		delete this.modData('Learnsets', 'magearna').learnset.agility;
 		this.modData('Learnsets', 'dragalge').learnset.lifedew = ['9L1'];
 		this.modData("Learnsets", "dipplin").learnset.peekaboo = ["9L1"];
 		this.modData("Learnsets", "dipplin").learnset.shelter = ["9L1"];
