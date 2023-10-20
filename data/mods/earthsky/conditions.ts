@@ -365,7 +365,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return;
 			}
 			if (
-				!pokemon.ignoringItem() && move.id !== this.effectState.move && move.id !== 'struggle' && !(pokemon.volatiles['nointerrupt']?.ignore.includes('choicelock'))
+				!pokemon.ignoringItem() && move.id !== this.effectState.move && move.id !== 'struggle' && !(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('choicelock'))
 			) {
 				// Fails unless the Choice item is being ignored, and no PP is lost
 				this.addMove('move', pokemon, move.name);
