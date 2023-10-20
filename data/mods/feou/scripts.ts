@@ -200,7 +200,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
-				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor'])) &&
+				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite'])) &&
 				!this.battle.suppressingAbility(this)
 			) return null;
 			if ('magnetrise' in this.volatiles) return false;
