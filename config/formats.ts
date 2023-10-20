@@ -816,7 +816,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] VaporeMons",
 		mod: 'vaporemons',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
-		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay'],
 	},
 	///////////////////////////////////////////////////////////////
 	///////////////////// Gen 8 Pet Mods //////////////////////////
@@ -2813,19 +2813,6 @@ export const Formats: FormatList = [
 		mod: 'vgccopium',
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets'],
-		banlist: ['Raichu-Alola', 'Diglett-Alola', 'Dugtrio-Alola', 'Meowth-Alola', 'Persian-Alola', 'Grimer-Alola', 'Muk-Alola',
-					 'Voltorb-Hisui', 'Electrode-Hisui', 'Kleavor', 'Articuno-Galar', 'Moltres-Galar', 'Zapdos-Galar', 'Typhlosion-Hisui',
-					 'Qwilfish-Hisui', 'Overqwil', 'Sneasel-Hisui', 'Sneasler', 'Ursaluna-Base', 'Wyrdeer', 'Uxie', 'Mesprit', 'Azelf',
-					 'Heatran', 'Cresselia', 'Samurott-Hisui', 'Lilligant-Hisui', 'Braviary-Hisui', 'Tornadus', 'Thundurus', 'Landorus',
-					 'Sliggoo-Hisui', 'Goodra-Hisui', 'Avalugg-Hisui', 'Kubfu', 'Urshifu', 'Regieleki', 'Regidrago', 'Glastrier', 'Spectrier',
-					 'Enamorus', 'Sandshrew-Alola', 'Sandslash-Alola', 'Ninetales-Alola', 'Vulpix-Alola', 'Geodude-Alola', 'Graveler-Alola',
-					 'Golem-Alola', 'Weezing-Galar', 'Zapdos', 'Articuno', 'Moltres'],
-	},
-	{
-		name: "[Gen 9] vgc reg e but you only have sv (Bo3)",
-		mod: 'vgccopium',
-		gameType: 'doubles',
-		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Best of = 3'],
 		banlist: ['Raichu-Alola', 'Diglett-Alola', 'Dugtrio-Alola', 'Meowth-Alola', 'Persian-Alola', 'Grimer-Alola', 'Muk-Alola',
 					 'Voltorb-Hisui', 'Electrode-Hisui', 'Kleavor', 'Articuno-Galar', 'Moltres-Galar', 'Zapdos-Galar', 'Typhlosion-Hisui',
 					 'Qwilfish-Hisui', 'Overqwil', 'Sneasel-Hisui', 'Sneasler', 'Ursaluna-Base', 'Wyrdeer', 'Uxie', 'Mesprit', 'Azelf',
