@@ -91,6 +91,5 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		eventData: [
 			{generation: 8, level: 50, nature: "Mild", ivs: {hp: 31, atk: 30, def: 30, spa: 31, spd: 31, spe: 0}, moves: ["fleurcannon", "flashcannon", "defensecurl", "rest"], pokeball: "cherishball"},
 		],
-		eventOnly: true,
 	},
 };
