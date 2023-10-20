@@ -539,36 +539,4 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "DOU",
 	},
-	bouffalu: {
-		tier: "FEOU",
-		doublesTier: "DOU",
-		randomBattleMoves: ["earthquake", "toxic", "spikes", "whirlwind"],
-		randomBattleLevel: 75,
-	},
-	okiferro: {
-		tier: "FEOU",
-		doublesTier: "DOU",
-		randomBattleMoves: ["powerwhip", "drainpunch", "swordsdance", "knockoff"],
-		randomBattleLevel: 75,
-	},
-	dragocoal: {
-		tier: "FEOU",
-		doublesTier: "DOU",
-		randomBattleMoves: ["flareblitz", "dragontail", "roost", "spikes"],
-		randomBattleLevel: 75,
-	},
-	dracoly: {
-		tier: "FELC",
-		doublesTier: "DOU",
-	},
-	dragocar: {
-		tier: "FENFE",
-		doublesTier: "DOU",
-  },
-	vikadrago: {
-		tier: "FEOU",
-		doublesTier: "DOU",
-		randomBattleMoves: ["dracometeor", "earthpower", "stickyweb", "voltswitch"],
-		randomBattleLevel: 75,
-	},
 };
