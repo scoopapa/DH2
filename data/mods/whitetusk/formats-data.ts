@@ -59,7 +59,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gumbawl: {
 		tier: "White Tusk",
 	},
-	gumbrawlempty: {
+	gumbrawl: {
 		tier: "White Tusk",
 	},
 	gumbrawlbubble: {

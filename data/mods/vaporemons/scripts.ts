@@ -62,7 +62,7 @@ export const Scripts: ModdedBattleScriptsData = {
 						if (!move.spreadHit) this.battle.attrLastMove('[miss]');
 						this.battle.add('-miss', pokemon, target);
 					}
-					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+					if (!move.ohko && move.category !== 'Status' && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
 							this.battle.boost({accuracy: 2, spe: 2}, pokemon);
 					}
 					hitResults[i] = false;
@@ -188,6 +188,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'drednaw').learnset.stoneaxe = ['9L1'];
     	delete this.modData('Learnsets', 'regieleki').learnset.electroweb;
     	delete this.modData('Learnsets', 'meloetta').learnset.sing;
+    	delete this.modData('Learnsets', 'meloetta').learnset.swordsdance;
     	delete this.modData('Learnsets', 'magnemite').learnset.electroweb;
     	delete this.modData('Learnsets', 'magnezone').learnset.electroweb;
     	delete this.modData('Learnsets', 'magneton').learnset.electroweb;
@@ -653,6 +654,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'magearna').learnset.spikes;
 		delete this.modData('Learnsets', 'magearna').learnset.trick;
 		delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
+		delete this.modData('Learnsets', 'magearna').learnset.agility;
 		this.modData('Learnsets', 'dragalge').learnset.lifedew = ['9L1'];
 		this.modData("Learnsets", "dipplin").learnset.peekaboo = ["9L1"];
 		this.modData("Learnsets", "dipplin").learnset.shelter = ["9L1"];

@@ -15,23 +15,31 @@ export const Scripts: ModdedBattleScriptsData = {
 			) {
 				return altForme.name;
 			}
-			if (item.name === "Salamencite" && pokemon.baseSpecies.name === "Amphamence") {
-				return "Amphamence-Mega-X"; 
-			}
-			if (item.name === "Ampharosite" && pokemon.baseSpecies.name === "Amphamence") {
-				return "Amphamence-Mega-Y"; 
-			}
-			if (item.name === "Tyranitarite" && pokemon.baseSpecies.name === "Tyranix") {
-				return "Tyranix-Mega-X"; 
-			}
-			if (item.name === "Steelixite" && pokemon.baseSpecies.name === "Tyranix") {
-				return "Tyranix-Mega-Y"; 
-			}
-			if (item.name === "Alakazite" && pokemon.baseSpecies.name === "Mawlakazam") {
-				return "Mawlakazam-Mega-Y"; 
-			}
-			if (item.name === "Mawilite" && pokemon.baseSpecies.name === "Mawlakazam") {
-				return "Mawlakazam-Mega-X"; 
+			switch (pokemon.baseSpecies.name) {
+				case "Amphamence":
+					if (item.name === "Salamencite") {
+						return "Amphamence-Mega-X"; 
+					}
+					if (item.name === "Ampharosite") {
+						return "Amphamence-Mega-Y"; 
+					}
+					break;
+				case "Tyranix":
+					if (item.name === "Tyranitarite") {
+						return "Tyranix-Mega-X"; 
+					}
+					if (item.name === "Steelixite") {
+						return "Tyranix-Mega-Y"; 
+					}
+					break;
+				case "Mawlakazam":
+					if (item.name === "Mawilite") {
+						return "Mawlakazam-Mega-X"; 
+					}
+					if (item.name === "Alakazite") {
+						return "Mawlakazam-Mega-Y"; 
+					}
+					break;
 			}
 			
 			return item.megaStone;
@@ -200,7 +208,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 			if (!negateImmunity && this.hasType('Flying') && !('roost' in this.volatiles)) return false;
 			if (
-				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor'])) &&
+				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite'])) &&
 				!this.battle.suppressingAbility(this)
 			) return null;
 			if ('magnetrise' in this.volatiles) return false;

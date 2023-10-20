@@ -391,6 +391,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'sudowoodo').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'smeargle').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'hitmontop').learnset.golemstrike = ['9T'];
+    this.modData('Learnsets', 'tyranitar').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'blaziken').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'aggron').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'absol').learnset.golemstrike = ['9T'];
@@ -423,6 +424,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'carracosta').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'golurk').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'bisharp').learnset.golemstrike = ['9T'];
+    this.modData('Learnsets', 'terrakion').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'landorus').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'chesnaught').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'diggersby').learnset.golemstrike = ['9T'];
@@ -860,6 +862,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'mantine').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'houndour').learnset.dantesinferno = ['9L1'];
     this.modData('Learnsets', 'houndoom').learnset.dantesinferno = ['9L1'];
+    this.modData('Learnsets', 'tyranitar').learnset.rockwrecker = ['9T'];
 
     //gen 3:
     this.modData('Learnsets', 'blaziken').learnset.roost = ['9L1'];
