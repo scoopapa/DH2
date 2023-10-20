@@ -2275,4 +2275,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FE",
 		doublesTier: "FE",
 	},
+	ogerponwellspring: {
+		tier: "FE",
+		doublesTier: "FE",
+	},
+	ogerponcornerstone: {
+		tier: "FE",
+		doublesTier: "FE",
+	},
+	ogerponhearthflame: {
+		tier: "FE",
+		doublesTier: "FE",
+	},
 };

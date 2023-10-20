@@ -185,6 +185,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Soul-Heart", H: "Healer"},
 	},
+	magearnaoriginal: {
+		inherit: true,
+		abilities: {0: "Soul-Heart", H: "Healer"},
+	},
 	mesprit: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Healer"},
