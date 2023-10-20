@@ -3182,6 +3182,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 25,
 	},
+	liquidation: {
+		inherit: true,
+		basePower: 95,
+		accuracy: 90,
+		contestType: "Tough",
+	},
 	lockon: {
 		inherit: true,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
@@ -3410,6 +3416,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 5,
 		contestType: "Beautiful",
+	},
+	meteormash: {
+		inherit: true,
+		basePower: 95,
 	},
 	milkdrink: {
 		inherit: true,
@@ -6886,10 +6896,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	lifedew: {
 		inherit: true,
 		contestType: "Beautiful",
-	},
-	liquidation: {
-		inherit: true,
-		contestType: "Tough",
 	},
 	meteorassault: {
 		inherit: true,
