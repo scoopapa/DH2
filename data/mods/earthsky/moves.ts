@@ -6324,7 +6324,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBeforeMovePriority: 5,
 			onBeforeMove(attacker, defender, move) {
-				if (move.category === 'Status' && move.id !== 'mefirst' && !(pokemon.volatiles['nointerrupt']?.ignore.includes('taunt'))) {
+				if (move.category === 'Status' && move.id !== 'mefirst' && !(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('taunt'))) {
 					this.add('cant', attacker, 'move: Taunt', move);
 					return false;
 				}
