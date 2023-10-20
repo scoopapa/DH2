@@ -2489,6 +2489,91 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Prehistoric Hunter",
 		rating: 3,
 	},
+	lawnmowerofruin: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Lawnmower of Ruin');
+		},
+		onAnyModifySpA(spa, source, target, move) {
+			const abilityHolder = this.effectState.target;
+			if (source.hasAbility('Lawnmower of Ruin')) return;
+			if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
+			if (move.ruinedSpA !== abilityHolder) return;
+			this.debug('Lawnmower of Ruin SpA drop');
+			return this.chainModify(0.75);
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Grass') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Lawnmower of Ruin');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (move.type === 'Grass') {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		isBreakable: true,
+		name: "Lawnmower of Ruin",
+		rating: 4.5,
+		shortDesc: "Sap Sipper + Vessel of Ruin.",
+	},
+	barbedchain: {
+      onAfterMove(target, source, move) {
+			if (target !== source && move.flags['contact'] && move.totalDamage) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		name: "Barbed Chain",
+		shortDesc: "This Pokemon’s contact moves do an additional 1/8 of the target’s max HP in damage.",
+	},
+	steamyscales: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= target.maxhp) {
+				this.debug('Steamy Scales weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (['Water', 'Fire'].includes(move.type)) {
+				this.boost({spe: 6});
+			}
+		},
+		isBreakable: true,
+		name: "Steamy Scales",
+		shortDesc: "Multiscale + Steam Engine",
+	},
+	marvelsteam: {
+		onDamagingHit(damage, target, source, move) {
+			if (['Water', 'Fire'].includes(move.type)) {
+				this.boost({spe: 6, def: 6});
+			}
+		},
+		name: "Marvel Steam",
+		shortDesc: "This Pokemon's Spe & Def are raised by 6 stages after it is damaged by Fire/Water moves.",
+	},
+	hellkite: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon' || move.type === 'Ground') {
+				this.debug('Hellkite boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon' || move.type === 'Ground') {
+				this.debug('Hellkite boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Hellkite",
+		shortDesc: "Levitate + This Pokemon's Dragon & Ground moves deal 1.5x damage.",
+	},
 
 	//Vanilla abilities
 	naturalcure: {
