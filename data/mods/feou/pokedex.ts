@@ -830,45 +830,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 122.5,
 	},
 	
-	bouffalu: {
- // fusion: ['Bouffalant', 'Ting-Lu'],
-		num: 56,
-		name: "Bouffa-Lu",
-		types: ["Normal", "Ground"],
-		baseStats: {hp: 125, atk: 110, def: 110, spa: 47, spd: 87, spe: 50},
-		abilities: {0: "Lawnmower of Ruin"}, 
-		weightkg: 397.15, 
-	},
-	
-	okiferro: {
- // fusion: ['Okidogi', 'Ferrothorn'],
-		num: 57,
-		species: "Okiferro", 
-		gender: "M",
-		types: ["Grass", "Fighting"],
-		baseStats: {hp: 85, atk: 115, def: 125, spa: 60, spd: 105, spe: 50},
-		abilities: {0: "Barbed Chain"}, 
-		weightkg: 101, 
-	},
-	dragocoal: {
- // fusion: ['Dragonite', 'Coalossal'],
-		num: 58, 
-		species: "Dragocoal", 
-		types: ["Fire", "Dragon"],
-		baseStats: {hp: 100, atk: 120, def: 110, spa: 90, spd: 95, spe: 55},
-		abilities: {0: "Steamy Scales"}, 
-		weightkg: 260.25, 
-	},
-	vikadrago: {
- // fusion: ['Vikavolt', 'Regidrago'],
-		num: 59, 
-		types: ["Bug", "Dragon"],
-		species: "Vikadrago", 
-		baseStats: {hp: 145, atk: 85, def: 70, spa: 125, spd: 65, spe: 65},
-		abilities: {0: "Hellkite"}, 
-		weightkg: 122.5, 
-	},
-	
 // LCs and NFEs
 	varantis: {
  // fusion: ['Varoom', 'Fomantis'],
@@ -1085,7 +1046,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 1022,
 		name: "Dragocar",
 		types: ["Fire", "Dragon"],
-		baseStats: {hp: 70, atk: 75, def: 58, spa: 80, spd: 70, spe: 60},
+		baseStats: {hp: 70, atk: 75, def: 80, spa: 75, spd: 70, spe: 60},
 		abilities: {0: "Marvel Steam"},
 		weightkg: 47.3,
 		evos: ["Dragocoal"],
