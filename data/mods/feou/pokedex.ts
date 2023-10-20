@@ -797,7 +797,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	bouffalu: {
  // fusion: ['Bouffalant', 'Ting-Lu'],
 		num: 56,
-		name: "Bouffa-lu",
+		name: "Bouffa-Lu",
 		types: ["Normal", "Ground"],
 		baseStats: {hp: 125, atk: 110, def: 110, spa: 47, spd: 87, spe: 60}, 
 		abilities: {0: "Lawnmower of Ruin"},
