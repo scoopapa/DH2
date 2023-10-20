@@ -539,4 +539,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FELC",
 		doublesTier: "DOU",
 	},
+	dracoly: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	dragocar: {
+		tier: "FENFE",
+		doublesTier: "DOU",
+		randomBattleMoves: ["flamethrower", "bodypress", "spikes", "willowisp"],
+		randomBattleLevel: 88,
+	},
 };
