@@ -2808,7 +2808,7 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	{ 
+	{
 		name: "[Gen 9] vgc reg e but you only have sv",
 		mod: 'vgccopium',
 		gameType: 'doubles',
