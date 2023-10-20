@@ -2508,7 +2508,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	
 	barbedchain: {
-	   shortDesc: "Deal 12.5% of the target's max HP when making contact",
+	   shortDesc: "This Pokemon’s contact moves do an additional 1/8 of the target’s max HP in damage.",
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
 			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
@@ -2518,7 +2518,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Barbed Chain",
 	},
-	
 	steamyscales: {
 	   shortDesc: "Steam Engine + Multiscale",
 		onDamagingHit(damage, target, source, move) {
@@ -2526,11 +2525,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({spe: 6});
 			}
 		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= target.maxhp) {
+				this.debug('Steamy Scales weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
 		name: "Steamy Scales",
 	},
-	
 	marvelsteam: {
-	   shortDesc: "When hit by a damaging Water or Fire-type move, gain +6 to Def and Spe.",
+	   shortDesc: "When hit by a damaging Water or Fire-type move, +6 to Def and Spe.",
 		onDamagingHit(damage, target, source, move) {
 			if (['Water', 'Fire'].includes(move.type)) {
 				this.boost({def: 6, spe: 6});
@@ -2538,9 +2543,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Marvel Steam",
 	},
-	
 	hellkite: {
-	   shortDesc: "Levitate effects + x1.5 power to Dragon and Ground moves.",
+	   shortDesc: "Levitate effects + 1.5x power to Dragon and Ground moves.",
 		//floatation under scripts.ts
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
@@ -2558,8 +2562,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Hellkite",
 	},
-
-	
 
 	//Vanilla abilities
 	naturalcure: {
