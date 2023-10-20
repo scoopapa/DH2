@@ -2575,6 +2575,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		isBreakable: true,
 		name: "Hellkite",
 	},
 
