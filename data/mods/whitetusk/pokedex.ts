@@ -190,7 +190,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sticky Hold", 1: "Weak Armor", H: "Prankster"},
 		weightkg: 1,
 	},
-	gumbrawlempty: {
+	gumbrawl: {
 		num: 9016,
 		name: "Gumbrawl",
 		baseForme: "Empty",
