@@ -828,7 +828,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 59, 
 		types: ["Bug", "Dragon"],
 		species: "Vikadrago", 
-		baseStats: {hp: 140, atk: 85, def: 70, spa: 125, spd: 65, spe: 65},
+		baseStats: {hp: 145, atk: 85, def: 70, spa: 125, spd: 65, spe: 65},
 		abilities: {0: "Hellkite"}, 
 		weightkg: 122.5, 
 	},
