@@ -2504,9 +2504,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.debug('Lawnmower of Ruin SpA drop');
 			return this.chainModify(0.75);
 		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Grass') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Lawnmower of Ruin');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (move.type === 'Grass') {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		isBreakable: true,
 		name: "Lawnmower of Ruin",
 	},
-	
 	barbedchain: {
 	   shortDesc: "This Pokemon’s contact moves do an additional 1/8 of the target’s max HP in damage.",
 		onSourceDamagingHit(damage, target, source, move) {
