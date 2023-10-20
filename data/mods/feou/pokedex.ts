@@ -799,7 +799,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 56,
 		name: "Bouffa-Lu",
 		types: ["Normal", "Ground"],
-		baseStats: {hp: 125, atk: 110, def: 110, spa: 47, spd: 87, spe: 60}, 
+		baseStats: {hp: 125, atk: 110, def: 110, spa: 47, spd: 87, spe: 50}, 
 		abilities: {0: "Lawnmower of Ruin"},
 		weightkg: 397.2,
 	},
