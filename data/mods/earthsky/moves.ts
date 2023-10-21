@@ -5626,7 +5626,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBeforeMovePriority: 2,
 			onBeforeMove(pokemon, target, move) {
-				if(pokemon.volatiles['nointerrupt']?.ignore.includes('attract')) return;
+				if(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('attract')) return;
 				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
 				if (this.randomChance(1, 2)) {
 					this.add('cant', pokemon, 'Attract');
@@ -5878,7 +5878,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onOverrideAction(pokemon, target, move) {
 				if(
-				  !(pokemon.volatiles['nointerrupt']?.ignore.includes('encore'))
+				  !(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('encore'))
 				  && (move.id !== this.effectState.move)
 				)
 					return this.effectState.move;
