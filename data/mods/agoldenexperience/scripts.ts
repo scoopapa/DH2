@@ -45,8 +45,11 @@ export const Scripts: ModdedBattleScriptsData = {
   init() {
 
     // gen 9 tmp
+    this.modData('Learnsets', 'ironmoth').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
+    this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
+    this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
 
     // distrib for PLA moves
