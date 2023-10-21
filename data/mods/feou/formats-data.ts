@@ -495,6 +495,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["swordsdance", "suckerpunch", "psychicfangs", "playrough"],
 		randomBattleLevel: 75,
 	},
+	bouffalu: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["earthquake", "toxic", "spikes", "whirlwind"],
+		randomBattleLevel: 75,
+	},
+	okiferro: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["powerwhip", "knockoff", "spikes", "leechseed", "drainpunch", "swordsdance"],
+		randomBattleLevel: 75,
+	},
+	dragocoal: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["flareblitz", "dragontail", "roost", "rapidspin"],
+		randomBattleLevel: 75,
+	},
+	vikadrago: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["stickyweb", "earthpower", "dracometeor", "voltswitch"],
+		randomBattleLevel: 75,
+	},
 	larvix: {
 		tier: "FELC",
 		doublesTier: "DOU",
@@ -514,5 +538,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	rowlax: {
 		tier: "FELC",
 		doublesTier: "DOU",
+	},
+	dracoly: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	dragocar: {
+		tier: "FENFE",
+		doublesTier: "DOU",
+		randomBattleMoves: ["flamethrower", "bodypress", "spikes", "willowisp"],
+		randomBattleLevel: 88,
 	},
 };

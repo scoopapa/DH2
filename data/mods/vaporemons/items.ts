@@ -266,7 +266,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	blunderpolicy: {
 		inherit: true,
-		desc: "If the holder misses due to accuracy, its Speed and accuracy are raised by 2 stages. Single use.",
+		desc: "If the holder misses an attacking move, its Speed and accuracy are raised by 2 stages. Single use.",
 	},
 	punchingglove: {
 		name: "Punching Glove",
