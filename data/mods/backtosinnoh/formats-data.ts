@@ -199,12 +199,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	fearow: {
 		tier: "OU",
 	},
-	ekans: {
-		tier: "LC",
-	},
-	arbok: {
-		tier: "OU",
-	},
 	pichu: {
 		tier: "LC",
 	},
