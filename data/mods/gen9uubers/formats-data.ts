@@ -187,7 +187,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "AG",
 	},
-	ogerponheartflame: {
+	ogerponhearthflame: {
 		inherit: true,
 		tier: "AG",
 	},

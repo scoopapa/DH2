@@ -185,6 +185,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Soul-Heart", H: "Healer"},
 	},
+	magearnaoriginal: {
+		inherit: true,
+		abilities: {0: "Soul-Heart", H: "Healer"},
+	},
 	mesprit: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Healer"},
@@ -1396,6 +1400,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shed Skin", 1: "Momentum", H: "Regenerator"},
 	},
 	bramblin: {
+		inherit: true,
+		abilities: {0: "Wind Rider", 1: "Momentum", H: "Infiltrator"},
+	},
+	brambleghast: {
 		inherit: true,
 		abilities: {0: "Wind Rider", 1: "Momentum", H: "Infiltrator"},
 	},

@@ -355,7 +355,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gen: 1,
 		name: "Tricules",
 		types: ["Bug", "Steel"],
-		baseStats: {hp: 65, atk: 125, def: 140, spa: 55, spd: 55, spe: 85},
+		baseStats: {hp: 65, atk: 125, def: 140, spa: 55, spd: 55, spe: 45},
 		abilities: {},
 		prevo: "Pinsir",
 		evoLevel: 42,
