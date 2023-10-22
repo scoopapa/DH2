@@ -45,6 +45,8 @@ export const Scripts: ModdedBattleScriptsData = {
   init() {
 
     // gen 9 tmp
+    this.modData('Learnsets', 'overqwil').learnset.pursuit = ['9L1'];
+    this.modData('Learnsets', 'overqwil').learnset.earthquake = ['9L1'];
     this.modData('Learnsets', 'ironmoth').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
