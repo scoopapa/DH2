@@ -825,8 +825,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Magcargo-Mega", "Magcargo-Sinnoh"],
 		formeOrder: ["Magcargo", "Magcargo-Mega", "Magcargo-Sinnoh"],
-		// otherFormes: ["Magcargo-Mega"],
-		// formeOrder: ["Magcargo", "Magcargo-Mega"],
 	},
 	magcargomega: {
 		num: 219,
@@ -1461,9 +1459,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 71, atk: 112, def: 64, spa: 64, spd: 59, spe: 112},
 	},
+	stunky: {
+		inherit: true,
+		abilities: {0: "Neutralizing Gas", 1: "Aftermath", H: "Keen Eye"},
+	},
 	skuntank: {
 		inherit: true,
 		baseStats: {hp: 103, atk: 51, def: 77, spa: 93, spd: 71, spe: 84},
+		abilities: {0: "Neutralizing Gas", 1: "Aftermath", H: "Keen Eye"},
 	},
 	bronzong: {
 		inherit: true,
