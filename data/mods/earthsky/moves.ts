@@ -3182,12 +3182,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 25,
 	},
-	liquidation: {
-		inherit: true,
-		basePower: 95,
-		accuracy: 90,
-		contestType: "Tough",
-	},
 	lockon: {
 		inherit: true,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
@@ -3416,10 +3410,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 5,
 		contestType: "Beautiful",
-	},
-	meteormash: {
-		inherit: true,
-		basePower: 95,
 	},
 	milkdrink: {
 		inherit: true,
@@ -5626,7 +5616,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBeforeMovePriority: 2,
 			onBeforeMove(pokemon, target, move) {
-				if(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('attract')) return;
+				if(pokemon.volatiles['nointerrupt']?.ignore.includes('attract')) return;
 				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
 				if (this.randomChance(1, 2)) {
 					this.add('cant', pokemon, 'Attract');
@@ -5878,7 +5868,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onOverrideAction(pokemon, target, move) {
 				if(
-				  !(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('encore'))
+				  !(pokemon.volatiles['nointerrupt']?.ignore.includes('encore'))
 				  && (move.id !== this.effectState.move)
 				)
 					return this.effectState.move;
@@ -6324,7 +6314,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBeforeMovePriority: 5,
 			onBeforeMove(attacker, defender, move) {
-				if (move.category === 'Status' && move.id !== 'mefirst' && !(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('taunt'))) {
+				if (move.category === 'Status' && move.id !== 'mefirst' && !(pokemon.volatiles['nointerrupt']?.ignore.includes('taunt'))) {
 					this.add('cant', attacker, 'move: Taunt', move);
 					return false;
 				}
@@ -6896,6 +6886,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	lifedew: {
 		inherit: true,
 		contestType: "Beautiful",
+	},
+	liquidation: {
+		inherit: true,
+		contestType: "Tough",
 	},
 	meteorassault: {
 		inherit: true,

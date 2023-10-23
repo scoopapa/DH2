@@ -313,13 +313,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	glameowsartori: {
-		tier: "LC",
+		tier: "NFE",
 	},
 	puruglysartori: {
 		tier: "ES",
 	},
 	phantumpsartori: {
-		tier: "LC",
+		tier: "NFE",
 	},
 	// New Megas
 	butterfreemega: {
