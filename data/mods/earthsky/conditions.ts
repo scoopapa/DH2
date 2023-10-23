@@ -38,7 +38,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['defrost'] || (pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('frz'))) return;
+			if (move.flags['defrost'] || (pokemon.volatiles['nointerrupt']?.ignore.includes('frz'))) return;
 			if (this.randomChance(pokemon.statusData.time, 4)) {
 				pokemon.cureStatus();
 				return;
@@ -258,7 +258,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon) {
-			if(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('par')) return;
+			if(pokemon.volatiles['nointerrupt']?.ignore.includes('par')) return;
 			if (this.randomChance(1, 4)) {
 				this.add('cant', pokemon, 'par');
 				return false;
@@ -278,7 +278,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 					return;
 				}
 			}
-			if(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('slp')) return;
+			if(pokemon.volatiles['nointerrupt']?.ignore.includes('slp')) return;
 			this.add('cant', pokemon, 'slp');
 			if (move.sleepUsable) {
 				return;
@@ -327,7 +327,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				pokemon.removeVolatile('confusion');
 				return;
 			}
-			if(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('confusion')) return;
+			if(pokemon.volatiles['nointerrupt']?.ignore.includes('confusion')) return;
 			this.add('-activate', pokemon, 'confusion');
 			if (!this.randomChance(33, 100)) {
 				return;
@@ -345,7 +345,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		duration: 1,
 		onBeforeMovePriority: 8,
 		onBeforeMove(pokemon) {
-			if(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('flinch')) return;
+			if(pokemon.volatiles['nointerrupt']?.ignore.includes('flinch')) return;
 			this.add('cant', pokemon, 'flinch');
 			this.runEvent('Flinch', pokemon);
 			return false;
@@ -365,7 +365,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return;
 			}
 			if (
-				!pokemon.ignoringItem() && move.id !== this.effectState.move && move.id !== 'struggle' && !(pokemon.volatiles['nointerrupt'] && pokemon.volatiles['nointerrupt'].ignore.includes('choicelock'))
+				!pokemon.ignoringItem() && move.id !== this.effectState.move && move.id !== 'struggle' && !(pokemon.volatiles['nointerrupt']?.ignore.includes('choicelock'))
 			) {
 				// Fails unless the Choice item is being ignored, and no PP is lost
 				this.addMove('move', pokemon, move.name);
