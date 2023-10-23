@@ -1471,7 +1471,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		rating: 3.5,
 		num: 301,
 		desc: "If this Pokemon is Ogerpon, raises a stat 1 stage on switch-in based on its mask: Teal Mask raises Speed, Wellspring Mask raises Special Defense, Hearthstone Mask raises Attack, and Cornerstone Mask raises Defense.",
-		shortDesc: "On switch-in, raises stat 1 stage based on Mask.",
+		shortDesc: "On switch-in, raises stat 1 stage based on Mask; default Speed.",
 	},
 	flareboost: {
 		name: "Flare Boost",
@@ -1633,6 +1633,18 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		shortDesc: "On switch-in, summons Electric Terrain. During Electric Terrain, Sp. Atk is 1.1x.",
 	},
 	//Harvest change implemented in the item-removing effects.
+	healer: {
+		name: "Healer",
+		onStart(pokemon) {
+			for (const ally of pokemon.adjacentAllies()) {
+				this.add('-activate', pokemon, 'ability: Healer');
+				ally.cureStatus();
+			}
+		},
+		rating: 0,
+		num: 131,
+		shortDesc: "On switch-in, this Pokemon cures adjacent allies' non-volatile status.",
+	},
 	heatproof: {
 		inherit: true,
 		onSourceBasePower(basePower, attacker, defender, move) {
@@ -2555,7 +2567,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		//Suction Cups floating block implemented in scripts.ts as part of pokemon.canFloat()
 		shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. Prevents floating.",
-		//shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. This Pokemon cannot gain floating status.",
+		desc: "This Pokemon cannot be forced out by another Pokemon's attack/item. This Pokemon cannot gain floating status.",
 	},
 	sweetveil: {
 		inherit: true,
