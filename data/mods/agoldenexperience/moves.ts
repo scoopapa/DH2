@@ -914,7 +914,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.moveLastTurnResult === false) return move.basePower * 2; // if the last move failed
-			if (pokemon.volatiles['indomitablespirit'].boost === 'lastMoveResisted') return move.basePower * 2; // if the last move was resisted
+			if (pokemon.volatiles['indomitablespirit'].boost === 'lastMoveResisted') return move.basePower * 2; // if the last move was resisted - problematic line
 			return move.basePower;
 		},
 		onPrepareHit: function(target, source) {	
@@ -3767,13 +3767,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 50,
 		basePowerCallback(pokemon) {
-			return Math.min(350, 50 + 25 * pokemon.timesAttacked);
+			return Math.min(200, 50 + 25 * pokemon.timesAttacked);
 		},
 		category: "Physical",
 		name: "Rage Fist",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		shortDesc: "+25 power for each time user was hit. Max 6 hits.",
 		secondary: null,
 		target: "normal",
 		type: "Ghost",

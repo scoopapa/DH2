@@ -1701,8 +1701,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	wailord: {
-		tier: "(PU)",
-		doublesTier: "(DUU)",
+		tier: "UUBL",
+		doublesTier: "DUU",
 	},
 	numel: {
 		tier: "LC",
@@ -1798,8 +1798,8 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	whiscashmega: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "UU",
+		doublesTier: "DUU",
 	},
 	corphish: {
 		tier: "LC",
@@ -3847,7 +3847,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	kommoo: {
-		tier: "UUBL",
+		tier: "OU",
 		doublesTier: "(DUU)",
 	},
 	kommoototem: {
@@ -4118,6 +4118,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	appletungmax: {
 		isNonstandard: "Past",
 		tier: "Illegal",
+	},
+	dipplin: {
+		tier: "UU",
+		doublesTier: "DUU",
+		// natDexTier: "UU",
 	},
 	silicobra: {
 		tier: "LC",
@@ -4406,6 +4411,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	ursaluna: {
 		tier: "OU",
 		doublesTier: "DOU",
+	},
+	ursalunabloodmoon: {
+		tier: "OU",
+		doublesTier: "DOU",
+		// natDexTier: "OU",
 	},
 	basculegion: {
 		tier: "UU",

@@ -1,7 +1,7 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	/* FEG9 abils */
 	unfiltered: {
-	  shortDesc: "Filter + Contrary + NvE Moves deal 4/3x damage.",
+	  shortDesc: "Filter + Contrary + This Pokemon's NvE Moves deal 4/3x damage.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Unfiltered neutralize');
@@ -102,7 +102,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  name: "Galvanic Relay",
     },
 	forestfury: {
-	  shortDesc: "Effects of Intimidate and Hyper Cutter + This Pokemon can't be statused by opponents.",
+	  shortDesc: "Intimidate + Hyper Cutter + This Pokemon can't be statused by opponents.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
@@ -2351,9 +2351,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyModifySpD(spd, target, source, move) {
 			const abilityHolder = this.effectState.target;
-			if (target.hasAbility('Sponge of Ruin')) return;
-			if (!move.ruinedSpD?.hasAbility('Sponge of Ruin')) move.ruinedSpD = abilityHolder;
-			if (move.ruinedSpD !== abilityHolder) return;
+			if (target.hasAbility(['Sponge of Ruin', 'Beads of Ruin'])) return;
+			if (!move.ruinedSpD?.hasAbility(['Sponge of Ruin', 'Beads of Ruin'])) move.ruinedSpD = abilityHolder;
+			else if (move.ruinedSpD !== abilityHolder) return;
 			this.debug('Sponge of Ruin SpD drop');
 			return this.chainModify(0.75);
 		},
@@ -2488,6 +2488,95 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Prehistoric Hunter",
 		rating: 3,
+	},
+	lawnmowerofruin: {
+	   shortDesc: "Sap Sipper + Vessel of Ruin",
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Lawnmower of Ruin');
+			this.add('-message', `${pokemon.name}'s Lawnmower of Ruin weakened the Sp. Atk of all surrounding Pokémon!`);
+		},
+		onAnyModifySpA(spa, source, target, move) {
+			const abilityHolder = this.effectState.target;
+			if (source.hasAbility(['Vessel of Ruin', 'Lawnmower of Ruin'])) return;
+			if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
+			else if (move.ruinedSpA !== abilityHolder) return;
+			this.debug('Lawnmower of Ruin SpA drop');
+			return this.chainModify(0.75);
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Grass') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Lawnmower of Ruin');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (move.type === 'Grass') {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		isBreakable: true,
+		name: "Lawnmower of Ruin",
+	},
+	barbedchain: {
+	   shortDesc: "This Pokemon’s contact moves do an additional 1/8 of the target’s max HP in damage.",
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source)) {
+				this.damage(target.baseMaxhp / 8, target, source)
+			}
+		},
+		name: "Barbed Chain",
+	},
+	steamyscales: {
+	   shortDesc: "Steam Engine + Multiscale",
+		onDamagingHit(damage, target, source, move) {
+			if (['Water', 'Fire'].includes(move.type)) {
+				this.boost({spe: 6});
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= target.maxhp) {
+				this.debug('Steamy Scales weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Steamy Scales",
+	},
+	marvelsteam: {
+	   shortDesc: "When hit by a damaging Water or Fire-type move, +6 to Def and Spe.",
+		onDamagingHit(damage, target, source, move) {
+			if (['Water', 'Fire'].includes(move.type)) {
+				this.boost({def: 6, spe: 6});
+			}
+		},
+		name: "Marvel Steam",
+	},
+	hellkite: {
+	   shortDesc: "Levitate effects + 1.5x power to Dragon and Ground moves.",
+		//floatation under scripts.ts
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (['Dragon','Ground'].includes(move.type)) {
+				this.debug('Hellkite boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (['Dragon','Ground'].includes(move.type)) {
+				this.debug('Hellkite boost');
+				return this.chainModify(1.5);
+			}
+		},
+		isBreakable: true,
+		name: "Hellkite",
 	},
 
 	//Vanilla abilities

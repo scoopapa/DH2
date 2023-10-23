@@ -35,4 +35,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Beautiful",
 	},
+	decibloom: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Decibloom",
+		shortDesc: "30% chance to raise the user's Special Attack by 1.",
+		pp: 80,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1},
+		secondary: {
+			chance: 30,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Grass",
+	},
 };

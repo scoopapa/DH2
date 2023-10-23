@@ -5359,6 +5359,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			liquidation: ["9M"],
 			scaleshot: ["9T"],
 			flipturn: ["9T"],
+			seajaws: ["9T"],
 		},
 	},
 	mercurino: {
