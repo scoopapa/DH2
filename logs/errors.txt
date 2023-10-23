@@ -5117,16 +5117,3 @@ Additional information:
 |-heal|p1a: Defense Tokiko|100/394|[from] item: Food Rations
 |-heal|p2a: Defense Tokiko|368/394|[from] item: Food Rations
 |upkeep
-
-
-TypeError: esrules.push is not a function
-    at ModdedDex.init (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\data\mods\earthsky\scripts.js:2653:27)
-    at ModdedDex.loadData (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\sim\dex.js:544:20)
-    at get data [as data] (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\sim\dex.js:140:17)
-    at DexFormats.get (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\sim\dex-formats.js:430:18)
-    at DexFormats.validateRule (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\sim\dex-formats.js:701:42)
-    at DexFormats.getRuleTable (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\sim\dex-formats.js:506:29)
-    at DexFormats.getRuleTable (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\sim\dex-formats.js:474:28)
-    at get formatListText [as formatListText] (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\server\rooms.js:1230:37)
-    at GlobalRoomState.handleConnect (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\server\rooms.js:1474:82)
-    at Object.socketConnect (C:\Users\rosef\Documents\GitHub\scoopapa-DH\DH2\dist\server\users.js:1303:16)
