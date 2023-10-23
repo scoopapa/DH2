@@ -389,7 +389,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Odin's Wrath",
 		pp: 10,
 		priority: 0,
