@@ -21,7 +21,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 
 			const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 
-			this.trySpreadMoveHit([target], data.source, hitMove);
+			this.actions.trySpreadMoveHit([target], data.source, hitMove);
 		},
 	},
 };

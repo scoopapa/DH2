@@ -36,7 +36,7 @@ const longwhip: ConditionData = {
 		if (data.source.isActive) {
 			this.add('-anim', data.source, hitMove, data.target);
 		}
-		this.trySpreadMoveHit([data.target], data.source, hitMove);
+		this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
 	},
 	onEnd(target) {
 		// unlike a future move, Long Whip activates each turn
@@ -73,7 +73,7 @@ const longwhip: ConditionData = {
 		if (data.source.isActive) {
 			this.add('-anim', data.source, hitMove, data.target);
 		}
-		this.trySpreadMoveHit([data.target], data.source, hitMove);
+		this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
 	},
 };
 export const Conditions: {[k: string]: ConditionData} = {
