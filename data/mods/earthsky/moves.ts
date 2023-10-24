@@ -6721,6 +6721,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	expandingforce: null,
 	fierywrath: null,
 	flipturn: null,
+	freezingglare: null,
 	gearup: null,
 	grassyglide: null,
 	gravapple: null,
