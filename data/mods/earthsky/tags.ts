@@ -47,21 +47,4 @@ export const Tags: {[id: string]: ModdedTagData} = {
 		name: "ES",
 		pokemonFilter: species => species.tier === 'ES',
 	},
-	//True custom tiers don't work for indiscernable reasons
-	esuber: {
-		name: "ES Uber",
-		pokemonFilter: species => species.tier === 'ES Uber',
-	},
-	esou: {
-		name: "ES OU",
-		pokemonFilter: species => species.tier === 'ES OU',
-	},
-	esnfe: {
-		name: "ES NFE",
-		pokemonFilter: species => species.tier === 'ES NFE',
-	},
-	eslc: {
-		name: "ES LC",
-		pokemonFilter: species => species.tier === 'ES LC',
-	},
 };

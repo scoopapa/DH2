@@ -1247,7 +1247,7 @@ export const Formats: FormatList = [
 	},
 	
 	{
-		name: "[Gen 8] M4A OU (Natdex)",
+		name: "[Gen 8] M4A OU NatDex",
 		desc: ["<b>Megas for All</b>: A Pet Mod that aims to create unique Mega Evolutions for every fully evolved Pokémon. Plays like National Dex, just with more Megas.",
 		      ],
 		threads: [
@@ -1807,7 +1807,6 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zLXacuxUs05muhn3fTty_UW2ww3KSZCmnzdsUzVR-x8/edit?usp=sharing">Competitive Cheat Sheet</a>`,
 		],
-		//gen: 9,
 		mod: 'earthsky',
 		ruleset: [ 'Earth & Sky', 'Restricted Rules'],
 		banlist: [
@@ -1816,17 +1815,14 @@ export const Formats: FormatList = [
 			'Ho-Oh', 'Kartana', 'Koraidon', 'Kyogre', 'Kyurem', 'Landorus-Base', 'Lucario-Mega', 'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Miraidon',
 			'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Robo Bundle',
 			'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom',
-			/*'ES Uber', */'Oceides', 'Hatar', 'Zuros', 'Norphaval', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+			'Oceides', 'Hatar', 'Zuros', 'Norphaval', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass',
 		],
-		//formatType: 'natdex',
-		teambuilderFormat: 'National Dex',
 	},
 	{
 		name: "[Gen 9] Earth & Sky Horizons Triples",
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zLXacuxUs05muhn3fTty_UW2ww3KSZCmnzdsUzVR-x8/edit?usp=sharing">Competitive Cheat Sheet</a>`,
 		],
-		//gen: 9,
 		mod: 'earthsky',
 		gameType: 'triples',
 		ruleset: [ 'Earth & Sky', 'Restricted Rules', 'Gravity Sleep Clause'],
@@ -1835,34 +1831,26 @@ export const Formats: FormatList = [
 			'Dialga', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Groudon', 'Ho-Oh', 'Koraidon', 'Kyogre', 'Kyurem', 'Landorus-Base',
 			'Lugia', 'Lunala', 'Marshadow', 'Mewtwo', 'Miraidon', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Pheromosa',
 			'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom',
-			/*'ES Uber', */'Oceides', 'Hatar', 'Zuros', 'Norphaval', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass',
+			'Oceides', 'Hatar', 'Zuros', 'Norphaval', 'Arena Trap', 'Power Construct', 'Shadow Tag', 'Baton Pass',
 		],
-		//formatType: 'natdex',
-		teambuilderFormat: 'National Dex',
 	},
 	{
 		name: "[Gen 9] Earth & Sky Horizons Dex",
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zLXacuxUs05muhn3fTty_UW2ww3KSZCmnzdsUzVR-x8/edit?usp=sharing">Competitive Cheat Sheet</a>`,
 		],
-		//gen: 9,
 		mod: 'earthsky',
 		ruleset: [ '[Gen 9] Earth & Sky Horizons OU', 'Horizons Pokedex',],
 		banlist: ['Diancie-Mega', 'Manaphy', 'Mawile-Mega', 'Melmetal', 'Meloetta-Pirouette'],
-		//formatType: 'natdex',
-		teambuilderFormat: 'National Dex',
 	},
 	{
 		name: "[Gen 9] Earth & Sky Horizons Ubers",
 		threads: [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1zLXacuxUs05muhn3fTty_UW2ww3KSZCmnzdsUzVR-x8/edit?usp=sharing">Competitive Cheat Sheet</a>`,
 		],
-		//gen: 9,
 		mod: 'earthsky',
 		ruleset: [ 'Earth & Sky',],
 		banlist: [],
-		//formatType: 'natdex',
-		teambuilderFormat: 'National Dex',
 	},
 	{
 		name: "[Gen 8] Evolution Project",
