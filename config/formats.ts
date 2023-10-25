@@ -1744,7 +1744,7 @@ export const Formats: FormatList = [
 					'Drizzle', 'Drought', 'Aerodactylite', 'Alakazite', 'Ampharosite', 'Arbokinite', 'Baskironite', 'Blazikenite', 'Butterfrite', 'Cacturnite X', 'Centiskorchite X', 'Centiskorchite Y', 'Charizardite X', 'Charizardite Y', 'Dhelmite', 'Diancite', 'Flygonite', 'Froslassite', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Gyaradosite', 'Houndoominite', 'Infarmatemite', 'Krookodite', 'Latiasite', 'Lopunnite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Ribombinite', 'Salamencite', 'Sceptilite', 'Scizorite', 'Swampertite', 'Terreptilite', 
 				'Latiosite', 'Pidgeotite', 'Pinsirite', 'Sablenite', 'Darmanitan-Galar + Zen Mode', 'Light Clay',
 			'Abomasite', 'Absolite', 'Aggronite', 'Altarianite', 'Audinite', 'Beedrillite', 'Blastoisinite', 'Cacturnite Y', 'Cameruptite', 'Chesnaughtite', 'Crobatite', 'Crustlite', 'Delphite', 'Feraligatrite', 'Golisopodite', 'Heracronite', 'Illumite', 'Kangaskhanite', 
-			'Machampite', 'Manectite', 'Meganite', 'Noctowlite', 'Rocksterite', 'Sharpedinite', 'Steelixite', 'Typhlosionite', 'Venusaurite', 'Zoroarkinite'],
+			'Machampite', 'Manectite', 'Meganite', 'Noctowlite', 'Rocksterite', 'Sharpedonite', 'Steelixite', 'Typhlosionite', 'Venusaurite', 'Zoroarkite'],
 		teambuilderFormat: 'National Dex UU',
 		onChangeSet(set) {
 			const item = this.toID(set.item);
