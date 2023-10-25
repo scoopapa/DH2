@@ -171,7 +171,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		desc: "Sets healing stones on the user's side, healing Pokemon that switch in for 1/8th of their max HP.",
-		shortDesc: "Heals grounded allies on switch-in.",
+		shortDesc: "Heals allies on switch-in.",
 		isViable: true,
 		name: "Healing Stones",
 		pp: 20,

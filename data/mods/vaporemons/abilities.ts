@@ -443,6 +443,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Rune Drive",
 		rating: 3,
+		shortDesc: "Misty Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	photondrive: {
 		onStart(pokemon) {
@@ -508,6 +509,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Photon Drive",
 		rating: 3,
+		shortDesc: "Grassy Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	neurondrive: {
 		onStart(pokemon) {
@@ -573,6 +575,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Neuron Drive",
 		rating: 3,
+		shortDesc: "Psychic Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	protosmosis: {
 		onStart(pokemon) {
@@ -639,6 +642,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Protosmosis",
 		rating: 3,
+		shortDesc: "Rain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	protocrysalis: {
 		onStart(pokemon) {
@@ -705,6 +709,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Protocrysalis",
 		rating: 3,
+		shortDesc: "Sandstorm active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	protostasis: {
 		onStart(pokemon) {
@@ -771,6 +776,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Protostasis",
 		rating: 3,
+		shortDesc: "Snow active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	counteract: {
 		name: "Counteract",
