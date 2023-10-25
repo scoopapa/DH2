@@ -2401,14 +2401,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (!source.hp || !source.isActive || target.transformed || target.isSemiInvulnerable()) return;
-			if (['screamcomorantgulping', 'screamcomorantgorging'].includes(target.species.id)) {
+			if (['screamcormorantgulping', 'screamcormorantgorging'].includes(target.species.id)) {
 				this.damage(source.baseMaxhp / 4, source, target);
-				if (target.species.id === 'screamcomorantgulping') {
+				if (target.species.id === 'screamcormorantgulping') {
 					this.boost({def: -1}, source, target, null, true);
 				} else {
 					source.trySetStatus('par', target, move);
 				}
-				target.formeChange('screamcomorant', move);
+				target.formeChange('screamcormorant', move);
 				delete target.volatiles['prehistorichunter'];
 			}
 		},
@@ -2416,16 +2416,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (
 				effect && effect.id === 'surf' && source.hasAbility('prehistorichunter') &&
-				source.species.name === 'Scream Comorant' && !source.transformed
+				source.species.name === 'Scream Cormorant' && !source.transformed
 			) {
-				const forme = source.hp <= source.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+				const forme = source.hp <= source.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 				source.formeChange(forme, effect);
 				source.addVolatile('prehistorichunter');				
 			}
 		},
 		onWeatherChange(pokemon) {
 			// if (pokemon.transformed) return;
-			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isWeather('sunnyday')) {
 				pokemon.addVolatile('prehistorichunter');
@@ -2441,7 +2441,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+				const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 				if (effect?.id === 'boosterenergy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Prehistoric Hunter', '[fromitem]');
