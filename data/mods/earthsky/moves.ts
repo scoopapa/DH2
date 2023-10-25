@@ -3187,6 +3187,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 25,
 	},
+	liquidation: {
+		inherit: true,
+		basePower: 95,
+		accuracy: 90,
+		contestType: "Tough",
+	},
 	lockon: {
 		inherit: true,
 		flags: {protect: 1, reflectable: 1, mirror: 1},
@@ -3415,6 +3421,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		pp: 5,
 		contestType: "Beautiful",
+	},
+	meteormash: {
+		inherit: true,
+		basePower: 95,
 	},
 	milkdrink: {
 		inherit: true,
@@ -4195,6 +4205,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 70,
 	},
+	revivalblessing: {
+		inherit: true,
+		tags: {'nosleeptalk': 1, 'failcopycat': 1, 'noassist': 1},
+	},
 	roaroftime: {
 		inherit: true,
 		basePower: 160,
@@ -4774,6 +4788,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 90,
 		viable: false,
+	},
+	snowscape: {
+		inherit: true,
+		desc: "For 5 turns, the weather becomes Snow. During the effect, the Defense of Ice-type Pokemon is multiplied by 1.5 when taking damage from a physical attack. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are an Ice type or have the Ice Breaker, Ice Body, Magic Guard, Magma Armor, Overcoat, Purifying Salt, Snow Cloak, or Snow Plow Abilities. If a Pokemon is frozen, the residual damage will combine to 1/8 of its max HP sourced from being frozen. Lasts for 8 turns if the user is holding Icy Rock. Fails if the current weather is Snow.",
+		shortDesc: "For 5 turns: Ice types 1.5x Def, cold hurts others.",
 	},
 	soak: {
 		inherit: true,
@@ -6322,7 +6341,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			},
 			onBeforeMovePriority: 5,
 			onBeforeMove(attacker, defender, move) {
-				if (move.category === 'Status' && move.id !== 'mefirst' && !(pokemon.volatiles['nointerrupt']?.ignore.includes('taunt'))) {
+				if (move.category === 'Status' && move.id !== 'mefirst' && !(attacker.volatiles['nointerrupt']?.ignore.includes('taunt'))) {
 					this.add('cant', attacker, 'move: Taunt', move);
 					return false;
 				}
@@ -6485,11 +6504,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.actions.useMove(randomMove, pokemon);
 		},
 		desc: "One of the user's known moves, besides this move, is selected for use at random. Fails if the user is not asleep. The selected move does not have PP deducted from it, and can currently have 0 PP. This move cannot select Assist, Beak Blast, Belch, Bide, Copycat, Dynamax Cannon, Focus Punch, Me First, Metronome, Mimic, Mirror Move, Nature Power, Revival Blessing, Shell Trap, Sketch, Sleep Talk, Slip Away, Struggle, Uproar, or any two-turn move.",
-	},
-	snowscape: {
-		inherit: true,
-		desc: "For 5 turns, the weather becomes Snow. During the effect, the Defense of Ice-type Pokemon is multiplied by 1.5 when taking damage from a physical attack. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are an Ice type or have the Ice Breaker, Ice Body, Magic Guard, Magma Armor, Overcoat, Purifying Salt, Snow Cloak, or Snow Plow Abilities. If a Pokemon is frozen, the residual damage will combine to 1/8 of its max HP sourced from being frozen. Lasts for 8 turns if the user is holding Icy Rock. Fails if the current weather is Snow.",
-		shortDesc: "For 5 turns: Ice types 1.5x Def, cold hurts others.",
 	},
 	
 	/* Renamed and deleted moves */
@@ -6909,10 +6923,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	lifedew: {
 		inherit: true,
 		contestType: "Beautiful",
-	},
-	liquidation: {
-		inherit: true,
-		contestType: "Tough",
 	},
 	meteorassault: {
 		inherit: true,
