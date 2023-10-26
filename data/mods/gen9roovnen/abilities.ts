@@ -999,9 +999,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target.removeVolatile('corrupted');
 			}
 		},
+		condition: {
+			noCopy: true,
+			onSourceModifyDamage(damage, source, target, move) {
+				if (source.hasAbility('corruption') || ['yorlator', 'mranovo', 'curtowal'].includes(source.species.id)) return;
+				if (move.type === 'Dark') return this.chainModify(1.5);
+			},
+		},
 		name: "Corruption",
 		isPermanent: true,
-		shortDesc: "Active Pokemon without this ability are weak to Dark.",
+		shortDesc: "Active Pokemon without this ability receive 1.5x damage from Dark-type moves.",
 		rating: 4,
 		num: 356,
 	},

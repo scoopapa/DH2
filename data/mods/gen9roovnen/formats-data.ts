@@ -8056,20 +8056,20 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sigisin: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	bredoom: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	frosgross: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	abomacruel: {
 		isNonstandard: null,
@@ -8080,14 +8080,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	porygonv: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	latakuno: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "AG",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	yorlator: {
 		isNonstandard: null,
