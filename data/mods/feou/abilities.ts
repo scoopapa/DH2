@@ -190,7 +190,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
-			if (source == target) return;
+			if (source === target) return;
 			const user = this.effectState.target;
 			if (user.volatiles['lightdrive'] && !user.volatiles['lightdrive'].fromWeightDiff) return;
 			if (source === user) {
@@ -1052,7 +1052,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyAtk(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1062,7 +1062,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
 				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
@@ -1080,7 +1080,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpA(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1090,7 +1090,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
 				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
@@ -1113,7 +1113,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyAtk(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1123,7 +1123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
 				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
@@ -1141,7 +1141,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpA(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1151,7 +1151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
 				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
@@ -1606,7 +1606,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
-			if (source == target) return;
+			if (source === target) return;
 			const user = this.effectState.target;
 			if (user.volatiles['weightoflife'] && !user.volatiles['weightoflife'].fromWeightDiff) return;
 			if (source === user) {
