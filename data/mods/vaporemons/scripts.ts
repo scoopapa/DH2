@@ -1125,6 +1125,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'sandslash').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'tyranitar').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'rockruff').learnset.desertstorm  = ['9L1'];
+		this.modData('Learnsets', 'lycanrocdusk').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'whiscash').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'nosepass').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'stonjourner').learnset.desertstorm  = ['9L1'];
