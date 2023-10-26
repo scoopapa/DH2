@@ -48,6 +48,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	arbok: {
 		inherit: true,
+		baseStats: {hp: 90, atk: 95, def: 69, spa: 65, spd: 79, spe: 80},
 		abilities: {0: "Intimidate", 1: "Shed Skin", H: "Poison Point"},
 		otherFormes: ["Arbok-Mega"],
 		formeOrder: ["Arbok", "Arbok-Mega"],
@@ -58,7 +59,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Arbok",
 		forme: "Mega",
 		types: ["Poison", "Dark"],
-		baseStats: {hp: 60, atk: 112, def: 119, spa: 65, spd: 112, spe: 80},
+		baseStats: {hp: 90, atk: 112, def: 119, spa: 65, spd: 112, spe: 80},
 		abilities: {0: "Regenerator"},
 		heightm: 3.5,
 		weightkg: 86,
