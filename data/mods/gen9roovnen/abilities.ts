@@ -384,6 +384,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	mountaineer: {
 		inherit: true,
 		isNonstandard: null,
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return damage / 2;
+			}
+		},
+		onTryHit() {},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				return this.chainModify(0.5);
+			}
+		},
+		shortDesc: "On switch-in, user receives 0.5x damage from Rock attacks and Stealth Rock.",
 	},
 	
 	//Roovnen
