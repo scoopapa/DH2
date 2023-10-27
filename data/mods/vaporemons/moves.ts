@@ -2819,4 +2819,121 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {bypasssub: 1, snatch: 1},
 	},
+	terablast: {
+		num: 851,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Tera Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, mustpressure: 1},
+		onPrepareHit(target, source, move) {
+			if (source.terastallized) {
+				this.attrLastMove('[anim] Tera Blast ' + source.teraType);
+			}
+		},
+		onModifyType(move, pokemon, target) {
+			if (pokemon.terastallized) {
+				move.type = pokemon.teraType;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if ((pokemon.terastallized || pokemon.hasItem('terashard')) && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	doubleshock: {
+		num: 892,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Double Shock",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Electric')) return;
+			this.add('-fail', pokemon, 'move: Double Shock');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		self: {
+			onHit(pokemon) {
+				if (pokemon.hasItem('terashard') && pokemon.teraType === Electric) return;
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Clever",
+	},
+	burnup: {
+		num: 682,
+		accuracy: 100,
+		basePower: 130,
+		category: "Special",
+		name: "Burn Up",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1},
+		onTryMove(pokemon, target, move) {
+			if (pokemon.hasType('Fire')) return;
+			this.add('-fail', pokemon, 'move: Burn Up');
+			this.attrLastMove('[still]');
+			return null;
+		},
+		self: {
+			onHit(pokemon) {
+				if (pokemon.hasItem('terashard') && pokemon.teraType === Electric) return;
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Clever",
+	},
+	roost: {
+		num: 355,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Roost",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		heal: [1, 2],
+		self: {
+			volatileStatus: 'roost',
+		},
+		condition: {
+			duration: 1,
+			onResidualOrder: 25,
+			onStart(target) {
+				if (!target.terastallized && !target.hasItem('terashard')) {
+					this.add('-singleturn', target, 'move: Roost');
+				} else if (target.terastallized === "Flying" || target.hasItem('terashard')) {
+					this.add('-hint', "If a Flying Terastallized Pokemon uses Roost, it remains Flying-type.");
+				}
+			},
+			onTypePriority: -1,
+			onType(types, pokemon) {
+				this.effectState.typeWas = types;
+				return types.filter(type => type !== 'Flying');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
 };
