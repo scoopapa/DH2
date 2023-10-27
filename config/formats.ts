@@ -575,7 +575,7 @@ export const Formats: FormatList = [
 		//	'&bullet; <a href="https://docs.google.com/spreadsheets/d/1wbFWGR5pVcnTTyuy7vAUSrPxqSZsNF-Okx-v1hvD2Vc/edit?usp=sharing">Spreadsheet</a>',
 		],
 		mod: 'paleomons', 
-	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod', '!! Min Source Gen = 8'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		],
