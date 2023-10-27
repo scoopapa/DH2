@@ -120,7 +120,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(pokemon) {
 			let factor = 0.25;
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
-			console.log(pokemon.side);
+			for(const condition of sideConditions) {
+				if (pokemon.side.sideConditions[condition]) factor = 0.5;
+			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
 			if (!success) {
 				this.add('-fail', pokemon, 'heal');
