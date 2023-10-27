@@ -4107,7 +4107,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	conkeldurr: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	tympole: {
@@ -4637,7 +4637,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	haxorus: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	cubchoo: {
@@ -6700,7 +6700,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dracozolt: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	arctozolt: {
@@ -7797,7 +7797,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	angrain: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	fevee: {
