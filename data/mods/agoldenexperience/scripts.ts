@@ -45,6 +45,8 @@ export const Scripts: ModdedBattleScriptsData = {
   init() {
 
     // gen 9 tmp
+    this.modData('Learnsets', 'basculegion').learnset.shadowsneak = ['9L1'];
+    this.modData('Learnsets', 'basculegionf').learnset.shadowsneak = ['9L1'];
     this.modData('Learnsets', 'overqwil').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'overqwil').learnset.earthquake = ['9L1'];
     this.modData('Learnsets', 'lokix').learnset.highjumpkick = ['9L1'];
