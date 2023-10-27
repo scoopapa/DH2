@@ -861,7 +861,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	outclass: {
 		onSourceHit(target, source, move) {
-			if (!move || !target || source.types[1] || source.volatiles['outclass']) return;
+			if (!move || !target || source.types[1] || source.volatiles['outclass'] || target.hasItem('terashard')) return;
 			let targetType = target.types[0]
 			if (target !== source && move.category !== 'Status' &&
 				 !source.hasType(targetType) && source.addType(targetType) && targetType !== '???') {
@@ -971,7 +971,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const type = move.type;
 			if (
 				target.isActive && move.effectType === 'Move' && target !== source &&
-				type !== '???'
+				type !== '???' && !target.hasItem('terashard')
 			) {
 				if (!target.setType(type)) return false;
 				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
@@ -1529,5 +1529,41 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ice Body",
 		rating: 1,
 		num: 115,
+	},
+	libero: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.libero) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.libero = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.libero;
+		},
+		name: "Libero",
+		rating: 4,
+		num: 236,
+	},
+	protean: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.protean) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.protean = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.protean;
+		},
+		name: "Protean",
+		rating: 4,
+		num: 168,
 	},
 };
