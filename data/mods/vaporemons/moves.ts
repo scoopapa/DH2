@@ -176,7 +176,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Healing Stones",
 		pp: 20,
 		priority: 0,
-		flags: {nonsky: 1, heal: 1},
+		flags: {nonsky: 1, heal: 1, snatch: 1},
 		sideCondition: 'healingstones',
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1212,7 +1212,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Latent Venom",
 		pp: 5,
 		priority: 0,
-		flags: {allyanim: 1, futuremove: 1},
+		flags: {allyanim: 1, futuremove: 1, snatch: 1},
 		ignoreImmunity: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -1254,6 +1254,169 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Cool",
 	},
+	pivotfail: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Prevents pivoting moves from being used for the rest of the turn.",
+		name: "Pivot Fail",
+		pp: 5,
+		priority: 0,
+		flags: {},
+		volatileStatus: 'pivotfail',
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-message', `${pokemon.name}'s pivoting moves will fail for the rest of the turn!`);
+			},
+			onBeforeMovePriority: 6,
+			onBeforeMove(pokemon, target, move) {
+				if (!move.isZ && !move.isMax && move.selfSwitch) {
+					this.add('cant', pokemon, 'move: Smack Down');
+					return false;
+				}
+			},
+			onModifyMove(move, pokemon, target) {
+				if (!move.isZ && !move.isMax && move.selfSwitch) {
+					this.add('cant', pokemon, 'move: Smack Down');
+					return false;
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Rock",
+	},
+	smackdown: {
+		num: 479,
+		accuracy: 100,
+		basePower: 65,
+		category: "Physical",
+	   shortDesc: "Removes the target's Ground immunity and causes pivoting moves to fail.",
+		name: "Smack Down",
+		isViable: true,
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		volatileStatus: 'smackdown',
+		onHit(target) {
+			target.addVolatile('pivotfail');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				let applies = false;
+				if (pokemon.hasType('Flying') || pokemon.hasAbility('levitate')) applies = true;
+				if (pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] ||
+					this.field.getPseudoWeather('gravity')) applies = false;
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					applies = true;
+					this.queue.cancelMove(pokemon);
+					pokemon.removeVolatile('twoturnmove');
+				}
+				if (pokemon.volatiles['magnetrise']) {
+					applies = true;
+					delete pokemon.volatiles['magnetrise'];
+				}
+				if (pokemon.volatiles['telekinesis']) {
+					applies = true;
+					delete pokemon.volatiles['telekinesis'];
+				}
+				if (!applies) return false;
+				this.add('-start', pokemon, 'Smack Down');
+			},
+			onRestart(pokemon) {
+				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
+					this.queue.cancelMove(pokemon);
+					pokemon.removeVolatile('twoturnmove');
+					this.add('-start', pokemon, 'Smack Down');
+				}
+			},
+			// groundedness implemented in battle.engine.js:BattlePokemon#isGrounded
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	rootpull: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+	   shortDesc: "100% chance to lower the target's Speed by 1 (2 if Flying-type).",
+		name: "Root Pull",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Trailblaze", target);
+		},
+		onHit(target) {
+			if (target.hasType('Flying') && !move.hasSheerForce && !target.hasItem('covertcloak') && !target.hasAbility('shielddust')) {
+				this.boost({spe: -1}, target);
+			}
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Grass",
+	},
+	snatch: {
+		num: 289,
+		accuracy: 100,
+		basePower: 30,
+		category: "Physical",
+		isNonstandard: null,
+		isViable: true,
+		name: "Snatch",
+		pp: 10,
+		priority: 2,
+		flags: {bypasssub: 1, mustpressure: 1, noassist: 1, failcopycat: 1, protect: 1, mirror: 1},
+		self: {
+			onHit(pokemon, source, move) {
+				pokemon.addVolatile('snatch');
+			},
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'Snatch');
+			},
+			onAnyPrepareHitPriority: -1,
+			onAnyPrepareHit(source, target, move) {
+				const snatchUser = this.effectState.source;
+				if (snatchUser.isSkyDropped()) return;
+				if (!move || move.isZ || move.isMax || !move.flags['snatch'] || move.sourceEffect === 'snatch') {
+					return;
+				}
+				snatchUser.removeVolatile('snatch');
+				this.add('-activate', snatchUser, 'move: Snatch', '[of] ' + source);
+				this.actions.useMove(move.id, snatchUser);
+				return null;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	tailslap: {
+		inherit: true,
+		accuracy: 100,
+	},
+	pinmissile: {
+		inherit: true,
+		accuracy: 100,
+	},
+	rockblast: {
+		inherit: true,
+		accuracy: 100,
+	},
 
 // all edited unchanged moves
 	stealthrock: {
@@ -1264,7 +1427,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Stealth Rock",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1},
+		flags: {reflectable: 1, snatch: 1},
 		sideCondition: 'stealthrock',
 		condition: {
 			// this is a side condition
@@ -1299,7 +1462,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Spikes",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1, nonsky: 1, mustpressure: 1},
+		flags: {reflectable: 1, nonsky: 1, mustpressure: 1, snatch: 1},
 		sideCondition: 'spikes',
 		condition: {
 			// this is a side condition
@@ -1334,7 +1497,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Toxic Spikes",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1, nonsky: 1, mustpressure: 1},
+		flags: {reflectable: 1, nonsky: 1, mustpressure: 1, snatch: 1},
 		sideCondition: 'toxicspikes',
 		condition: {
 			// this is a side condition
@@ -1375,7 +1538,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Sticky Web",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1},
+		flags: {reflectable: 1, snatch: 1},
 		sideCondition: 'stickyweb',
 		condition: {
 			onSideStart(side) {
@@ -2643,5 +2806,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	jetpunch: {
 		inherit: true,
 		isViable: true,
+	},
+	revivalblessing: {
+		inherit: true,
+		flags: {snatch: 1},
+	},
+	shedtail: {
+		inherit: true,
+		flags: {snatch: 1},
+	},
+	aromaticmist: {
+		inherit: true,
+		flags: {bypasssub: 1, snatch: 1},
 	},
 };
