@@ -1405,7 +1405,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	brambleghast: {
 		inherit: true,
-		abilities: {0: "Wind Rider", 1: "Momentum", H: "Infiltrator"},
+		abilities: {0: "Wind Rider", 1: "Sand Rush", H: "Infiltrator"},
 	},
 	glalie: {
 		inherit: true,
@@ -1422,5 +1422,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	munkidori: {
 		inherit: true,
 		abilities: {0: "Toxic Chain", H: "Magic Guard"},
+	},
+	sneasler: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Muscle Memory", H: "Poison Touch"},
 	},
 };
