@@ -2172,7 +2172,7 @@ export const Formats: FormatList = [
 		mod: 'gen9roovnen',
 		searchShow: false,
 		ruleset: ['[Gen 9] Roovnen OU'],
-		banlist: ['OU', 'UUBL'],
+		banlist: ['OU', 'UUBL', 'Light Clay'],
 		teambuilderFormat: 'UU',
 	},
 	/*{

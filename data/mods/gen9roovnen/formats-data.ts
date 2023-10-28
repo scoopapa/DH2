@@ -5177,7 +5177,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	malamar: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	binacle: {
@@ -7444,7 +7444,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ceruledge: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	toedscool: {
@@ -7849,7 +7849,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	manutz: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	decani: {
