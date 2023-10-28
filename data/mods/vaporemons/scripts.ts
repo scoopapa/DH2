@@ -909,6 +909,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "shaymin").learnset.windbreaker = ["9L1"];
 		this.modData("Learnsets", "darkrai").learnset.choke = ["9L1"];
 		this.modData("Learnsets", "darkrai").learnset.throatchop = ["9L1"];
+		this.modData("Learnsets", "darkrai").learnset.comeuppance = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.choke = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.parry = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.stormthrow = ["9L1"];
