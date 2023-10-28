@@ -1353,13 +1353,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
-				if (!activated && target.positiveBoosts()) {
+				if (!activated) {
 					this.add('-ability', pokemon, 'Prehistoric Might', 'boost');
 					activated = true;
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else {
+				} else if (target.positiveBoosts()) {
 					this.boost({spe: -2}, target, pokemon, null, true);
 				}
 			}
