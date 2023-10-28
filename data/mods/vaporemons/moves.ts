@@ -1353,7 +1353,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Trailblaze", target);
 		},
 		onHit(target) {
-			if (target.hasType('Flying') && !move.hasSheerForce && !target.hasItem('covertcloak') && !target.hasAbility('shielddust')) {
+			if (target.hasType('Flying') && !target.hasItem('covertcloak') && !target.hasAbility('shielddust')) {
 				this.boost({spe: -1}, target);
 			}
 		},
