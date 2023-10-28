@@ -3762,6 +3762,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Clever",
 	},
+	lastrespects: {
+		num: 854,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon, target, move) {
+			return 50 + 15 * pokemon.side.totalFainted + 15 * target.side.totalFainted;
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('spa', false, true) > pokemon.getStat('atk', false, true)) move.category = 'Special';
+		},
+		category: "Physical",
+		name: "Last Respects",
+		shortDesc: "+15 power for each time a Pokemon fainted. Special if user's SpA > Atk.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+	},
 	ragefist: {
 		num: 889,
 		accuracy: 100,
