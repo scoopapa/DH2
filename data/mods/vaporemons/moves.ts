@@ -2864,7 +2864,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		self: {
 			onHit(pokemon) {
-				if (pokemon.hasItem('terashard') && pokemon.teraType === Electric) return;
+				if (pokemon.hasItem('terashard') && pokemon.teraType === 'Electric') return;
 				pokemon.setType(pokemon.getTypes(true).map(type => type === "Electric" ? "???" : type));
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Double Shock');
 			},
@@ -2891,7 +2891,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		self: {
 			onHit(pokemon) {
-				if (pokemon.hasItem('terashard') && pokemon.teraType === Electric) return;
+				if (pokemon.hasItem('terashard') && pokemon.teraType === 'Fire') return;
 				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes().join('/'), '[from] move: Burn Up');
 			},
