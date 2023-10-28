@@ -993,7 +993,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	greeneyed: {
 		name: "Green-Eyed",
 		onStart(source) {
-			this.actions.useMove("Snatch", source);
+			source.addVolatile('snatch');
+			this.add('-message', `${source.name} is waiting for a target to make a move!`);
 		},
 		shortDesc: "On switch-in, if the foe uses a Snatchable move, this Pokemon uses it instead.",
 		rating: 3,
