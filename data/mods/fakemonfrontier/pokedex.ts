@@ -1,4 +1,11 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	alliglacier: {
+		num: 1006,
+		name: "Alliglacier",
+		types: ["Ice", "Water"],
+		baseStats: {hp: 85, atk: 125, def: 110, spa: 65, spd: 85, spe: 75},
+		abilities: {0: "Water Absorb", 1: "Thermal Exchange", H: "Slush Rush"},
+	},
 	batacomb: {
 		num: 1.1,
 		name: "Batacomb",
@@ -25,6 +32,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Inner Focus", 1: "Regenerator", H: "Reckless"},
 		height: 23,
 		weightkg: 23,
+	},
+	deciberd: {
+		num: 1002,
+		name: "Deciberd",
+		types: ["Electric", "Flying"],
+		baseStats: {hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 86},
+		abilities: {0: "Punk Rock", 1: "Intimidate", H: "Competitive"},
 	},
 	dizmuth: {
 		num: 4.1,
@@ -71,6 +85,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		height: 12.7,
 		weightkg: 12.7,
 	},
+	goddease: {
+		num: 1003,
+		name: "Goddease",
+		types: ["Normal", "Flying"],
+		baseStats: {hp: 80, atk: 120, def: 100, spa: 90, spd: 140, spe: 70},
+		abilities: {0: "Pressure"},
+	},
 	harletritus: {
 		num: 9.1,
 		name: "Harletritus",
@@ -79,6 +100,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Sand Stream", H: "Unnerve"},
 		height: 60,
 		weightkg: 60,
+	},
+	hootsydazey: {
+		num: 1005,
+		name: "Hootsydazey",
+		types: ["Dark", "Fairy"],
+		baseStats: {hp: 88, atk: 55, def: 96, spa: 94, spd: 111, spe: 111},
+		abilities: {0: "Toxic Chain", H: "Technician"},
 	},
 	kaerust: {
 		num: 10.1,
@@ -116,6 +144,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		height: 4.2,
 		weightkg: 4.2,
 	},
+	lunacorn: {
+		num: 1004,
+		name: "Lunacorn",
+		types: ["Grass", "Fairy"],
+		baseStats: {hp: 62, atk: 68, def: 138, spa: 105, spd: 65, spe: 72},
+		abilities: {0: "Flower Veil", H: "Triage"},
+	},
 	magiheel: {
 		num: 14.1,
 		name: "Magiheel",
@@ -151,6 +186,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Shadow Shield"},
 		height: 6,
 		weightkg: 6,
+	},
+	pirrote: {
+		num: 1001,
+		name: "Pirrote",
+		types: ["Flying", "Steel"],
+		baseStats: {hp: 98, atk: 121, def: 82, spa: 52, spd: 80, spe: 91},
+		abilities: {0: "Trace", H: "Iron Barbs"},
 	},
 	pollusk: {
 		num: 18.1,

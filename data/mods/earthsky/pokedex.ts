@@ -395,7 +395,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -528,
 		name: "Tigrissle",
 		types: ["Bug", "Water"],
-		baseStats: {hp: 25, atk: 40, def: 40, spa: 30, spd: 25, spe: 60},
+		baseStats: {hp: 34, atk: 55, def: 45, spa: 45, spd: 30, spe: 60},
 		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Swift Swim"},
 		heightm: 0.6,
 		weightkg: 4.4,
@@ -407,7 +407,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: -529,
 		name: "Beedive",
 		types: ["Bug", "Water"],
-		baseStats: {hp: 55, atk: 75, def: 80, spa: 65, spd: 70, spe: 80},
+		baseStats: {hp: 54, atk: 85, def: 90, spa: 75, spd: 70, spe: 80},
 		abilities: {0: "Battle Armor", 1: "Compound Eyes", H: "Swift Swim"},
 		heightm: 1.0,
 		weightkg: 20.0,
@@ -1114,7 +1114,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic"],
 		gender: "F",
 		baseStats: {hp: 95, atk: 90, def: 90, spa: 140, spd: 100, spe: 85},
-		abilities: {0: "Tactician", H: "Analytic"},
+		abilities: {0: "Tactician", H: "Telepathy"},
 		heightm: 1.9,
 		weightkg: 275.0,
 		tags: ["Sub-Legendary"],
@@ -1744,6 +1744,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Swarm", H: "Anger Point"},
 	},
+	nidoranm: {
+		inherit: true,
+		baseStats: {hp: 46, atk: 57, def: 42, spa: 40, spd: 40, spe: 50},
+	},
 	meowth: {
 		inherit: true,
 		abilities: {0: "Pickup", 1: "Technician", H: "Super Luck"},
@@ -1922,6 +1926,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	ledian: {
 		inherit: true,
 		abilities: {0: "Swarm", 1: "Early Bird", H: "Super Luck"},
+		baseStats: {hp: 55, atk: 35, def: 50, spa: 65, spd: 110, spe: 85},
 	},
 	politoed: {
 		inherit: true,
@@ -1930,6 +1935,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	wooperpaldea: {
 		inherit: true,
 		baseStats: {hp: 55, atk: 45, def: 25, spa: 25, spd: 45, spe: 15},
+	},
+	bellossom: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", H: "Hospitality"},
 	},
 	umbreon: {
 		inherit: true,
@@ -1982,6 +1991,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	magcargo: {
 		inherit: true,
 		abilities: {0: "Magma Armor", 1: "Flame Body", H: "Drought"},
+	},
+	corsola: {
+		inherit: true,
+		abilities: {0: "Healer", 1: "Natural Cure", H: "Regenerator"},
 	},
 	corsolagalar: {
 		inherit: true,
@@ -2471,6 +2484,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field"],
 		requiredAbility: "Rage Mode",
 		battleOnly: "Darmanitan-Galar",
+	},
+	maractus: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Chlorophyll", H: "Dancer"},
 	},
 	zoruahisui: {
 		inherit: true,
@@ -3108,7 +3125,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	wyrdeer: {
 		inherit: true,
 		baseStats: {hp: 93, atk: 105, def: 62, spa: 105, spd: 75, spe: 85},
-		abilities: {0: "Fur Coat", 1: "Frisk", H: "Unnerve"},
+		abilities: {0: "Fur Coat", 1: "Frisk", H: "Sap Sipper"},
 		evoType: "levelMove",
 		evoMove: "Barrier Bash",
 	},
@@ -3140,7 +3157,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	sneasler: {
 		inherit: true,
-		abilities: {0: "Pressure", H: "Poison Touch"},
+		abilities: {0: "Unburden", H: "Poison Touch"},
 	},
 	overqwil: {
 		inherit: true,
@@ -3991,6 +4008,20 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	blastoisegmax: null,
 	butterfreegmax: null,
 	raticatealolatotem: null,
+	pikachu: {
+		num: 25,
+		name: "Pikachu",
+		types: ["Electric"],
+		baseStats: {hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90},
+		abilities: {0: "Static", H: "Lightning Rod"},
+		heightm: 0.4,
+		weightkg: 6,
+		color: "Yellow",
+		prevo: "Pichu",
+		evoType: "levelFriendship",
+		evos: ["Raichu", "Raichu-Alola"],
+		eggGroups: ["Field", "Fairy"],
+	},
 	pikachucosplay: null,
 	pikachurockstar: null,
 	pikachubelle: null,
@@ -4088,7 +4119,44 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	revenankh: {
 		inherit: true,
-		abilities: {0: "Shed Skin", 1: "Air Lock", H: "Soul Drain"},
+		abilities: {0: "Shed Skin", 1: "Soul Drain", H: "Air Lock"},
+	},
+	colossoil: {
+		inherit: true,
+		//number: -20,
+		abilities: {0: "Emergence", 1: "Guts", H: "Unnerve"},
+	},
+	necturine: {
+		inherit: true,
+		//number: -27,
+		abilities: {0: "Forewarn", H: "Telepathy"},
+	},
+	brattler: {
+		inherit: true,
+		//number: -33,
+		abilities: {0: "Rattled", 1: "Shed Skin", H: "Infiltrator"},
+	},
+	malaconda: {
+		inherit: true,
+		//number: -34,
+		abilities: {0: "Harvest", 1: "Shed Skin", H: "Infiltrator"},
+	},
+	volkritter: {
+		inherit: true,
+		//number: -37,
+		abilities: {0: "Analytic", 1: "Unnerve", H: "Infiltrator"},
+	},
+	ababo: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Rattled", H: "Pixilate"},
+	},
+	scattervein: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Unnerve", H: "Pixilate"},
+	},
+	hemogoblin: {
+		inherit: true,
+		abilities: {0: "Heat Sink", 1: "Unnerve", H: "Pixilate"},
 	},
 	/*nohface: { //CAPs should be renumbered this way, but it interferes with sprites at the moment
 		inherit: true,
@@ -4113,13 +4181,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	dorsoil: {
 		inherit: true,
 		number: -19,
-	},*/
-	colossoil: {
-		inherit: true,
-		//number: -20,
-		abilities: {0: "Emergence", 1: "Guts", H: "Unnerve"},
 	},
-	/*protowatt: {
+	protowatt: {
 		inherit: true,
 		number: -21,
 	},
@@ -4142,13 +4205,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	tomohawk: {
 		inherit: true,
 		number: -26,
-	},*/
-	necturine: {
-		inherit: true,
-		//number: -27,
-		abilities: {0: "Forewarn", H: "Telepathy"},
 	},
-	/*necturna: {
+	necturna: {
 		inherit: true,
 		number: -28,
 	},
@@ -4172,10 +4230,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		number: -33,
 	},
-	malaconda: {
-		inherit: true,
-		number: -34,
-	},
 	cawdet: {
 		inherit: true,
 		number: -35,
@@ -4183,13 +4237,8 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	cawmodore: {
 		inherit: true,
 		number: -36,
-	},*/
-	volkritter: {
-		inherit: true,
-		//number: -37,
-		abilities: {0: "Analytic", 1: "Unnerve", H: "Infiltrator"},
 	},
-	/*volkraken: {
+	volkraken: {
 		inherit: true,
 		number: -38,
 	},

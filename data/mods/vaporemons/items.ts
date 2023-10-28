@@ -266,7 +266,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	blunderpolicy: {
 		inherit: true,
-		desc: "If the holder misses due to accuracy, its Speed and accuracy are raised by 2 stages. Single use.",
+		desc: "If the holder misses an attacking move, its Speed and accuracy are raised by 2 stages. Single use.",
 	},
 	punchingglove: {
 		name: "Punching Glove",
@@ -768,7 +768,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		gen: 8,
-		desc: "Holder's neutral damamging moves deal 1.2x damage.",
+		desc: "Holder's neutral damaging moves deal 1.2x damage.",
 	},
 	keeberry: {
 		name: "Kee Berry",
@@ -838,8 +838,18 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		onSourceModifyAccuracyPriority: -2,
+		onSourceModifyAccuracy(accuracy, target) {
+			if (typeof accuracy === 'number' && 
+				 (target.volatiles['trapped'] || 
+				  target.volatiles['partiallytrapped'] || 
+				  target.volatiles['sandspit'])) {
+				this.debug('Binding Band boosting accuracy');
+				return this.chainModify(1.5);
+			}
+		},
 		// other effects removed in statuses
-		desc: "(Partially functional) Against trapped targets: 1.5x move power and accuracy.",
+		desc: "Against trapped targets: 1.5x move power and accuracy.",
 		num: 544,
 		gen: 5,
 	},
@@ -863,7 +873,42 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		desc: "If hit by pivoting move: attacker takes 1/8 of their max HP in damage and is forced out.",
+		gen: 9,
 	},	
+	mantisclaw: {
+		name: "Mantis Claw",
+		spritenum: 251,
+		fling: {
+			basePower: 10,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Kleavor') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Scizor') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Scizor') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Scyther') {
+				return this.chainModify(1.5);
+			}
+		},
+		desc: "Scyther line: Immune to hazard damage, 1.5x Spe (Scyther), 1.3x Defenses (Scizor), 1.5x Attack (Kleavor).",
+		itemUser: ["Scyther", "Scizor", "Kleavor"],
+		gen: 9,
+	},
 	
 // unchanged items
 	boosterenergy: {

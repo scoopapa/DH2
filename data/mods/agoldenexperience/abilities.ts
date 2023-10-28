@@ -430,10 +430,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			onAfterMove(source, target, move) {
 				for (const pokemon of this.getAllActive()) {
 					if (pokemon === source) continue;
-					/*if (!pokemon.hp) {
-						source.removeVolatile('implode');
-						return;
-					}*/
 				}
 				if (this.effectState.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");
@@ -453,76 +449,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -20,
 	},
 	microclimate: {
-		//onSwitchIn(pokemon) {
-		// 	this.effectState.switchingIn = true;
-		// },
-		// onStart(pokemon) {
-		// 	// Cloud Nine does not activate when Skill Swapped or when Neutralizing Gas leaves the field
-		// 	if (!this.effectState.switchingIn) return;
-		// 	this.add('-ability', pokemon, 'Microclimate');
-		// 	this.effectState.switchingIn = false;
-		// },
-		// onSourceModifyAtk(atk, attacker, defender, move) {
-		// 	if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate strengthen');
-		// 		return this.chainModify(2);
-		// 	}
-		// 	else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate weaken');
-		// 		return this.chainModify(0.5);
-		// 	}
-		// 	else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate weaken');
-		// 		return this.chainModify(0.5);
-		// 	}
-		// 	else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate strengthen');
-		// 		return this.chainModify(2);
-		// 	}
-		// },
-		// onSourceModifySpAPriority: 5,
-		// onSourceModifySpA(atk, attacker, defender, move) {
-		// 	if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate strengthen');
-		// 		return this.chainModify(2);
-		// 	}
-		// 	else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate weaken');
-		// 		return this.chainModify(0.5);
-		// 	}
-		// 	else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate weaken');
-		// 		return this.chainModify(0.5);
-		// 	}
-		// 	else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate strengthen');
-		// 		return this.chainModify(2);
-		// 	}
-		// },
-		// onBasePowerPriority: 21,
-		// onBasePower(basePower, attacker, defender, move) {
-		// 	if (['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		if (move.type === 'Fire') {
-		// 			this.debug('Microclimate boost');
-		// 			return this.chainModify(2);
-		// 		}
-		// 		else if (move.type === 'Water') {
-		// 			this.debug('Microclimate boost');
-		// 			return this.chainModify(0.5);
-		// 		}
-		// 	}
-		// 	else if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		if (move.type === 'Fire') {
-		// 			this.debug('Microclimate boost');
-		// 			return this.chainModify(0.5);
-		// 		}
-		// 		else if (move.type === 'Water') {
-		// 			this.debug('Microclimate boost');
-		// 			return this.chainModify(2);
-		// 		}
-		// 	}
-		// },
-		// suppressWeather: true,
 		onStart(pokemon) {
 			if (this.field.isWeather('sunnyday')) {
 			   this.field.setWeather('raindance');
@@ -634,11 +560,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.flags['sound'] && !pokemon.volatiles['dynamax']) { // hardcode
-				move.type = 'Ground';
+				move.type = 'Rock';
 			}
 		},
 		name: "Desert Song",
-		shortDesc: "Turns sounds moves into Ground type moves.",
+		shortDesc: "Turns sounds moves into Rock type moves.",
 		rating: 1.5,
 		num: -26,
 	},
@@ -803,7 +729,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					if (data.source.isActive) {
 						this.add('-anim', data.source, hitMove, data.target);
 					}
-					this.trySpreadMoveHit([data.target], data.source, hitMove);
+					this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
 				}
 			},
 		},
@@ -853,21 +779,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onStart(source) {
 			this.field.setTerrain('chakraterrain');
 		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gravity", target);
+		},
 		name: "Chakra Surge",
 		shortDesc: "On switch-in, sets Chakra Terrain.",
 		rating: 4,
 		num: -36,
 	},
-	/*swordsmanship: {
-		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.3x",
-		onBasePowerPriority: 8,
-		onBasePower(basePower, attacker, defender, move) {
-			if (bladeMoves.includes(move.id)) {
-				return this.chainModify(1.3);
-			}
-		},
-		name: "Swordsmanship",
-	},*/
 	striker: {
 		shortDesc: "Boosts the power of kicking moves by 1.3x",
 		onBasePowerPriority: 8,
@@ -910,7 +830,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			this.debug('Solar Core - remove charge turn for ' + move.id);
 			this.attrLastMove('[still]');
 			this.addMove('-anim', pokemon, move.name, target);
-			return false; // skip charge turn
+			return false; 
 		},
 		name: "Cosmic Energy",
 		rating: 2,
@@ -1754,6 +1674,29 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Ice Face",
 		rating: 3,
 		num: 248,
+	},
+	battlebond: {
+		inherit: true,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'greninjabond' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Greninja-Ash', this.effect, true);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, attacker) {
+			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash' &&
+				!attacker.transformed) {
+				move.multihit = 3;
+			}
+		},
+		shortDesc: "After KOing a Pokemon: becomes Ash-Greninja, Water Shuriken hits 3 times.",
+		desc: "After KOing a Pokemon: becomes Ash-Greninja, Water Shuriken hits 3 times.",
+		isNonstandard: null,
+		rating: 4,
 	},
 	powerspot: {
 		onAllyBasePowerPriority: 22,
@@ -2636,6 +2579,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "This Pokemon receives 20% less damage from all attacks.",
 		rating: 4,
 		num: 56,
+	},
+	rebound: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target !== source && move?.category === 'Special' && !move.flags['sound']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		name: "Rebound",
+		shortDesc: "The opponent receives 1/8 recoil damage from special non-Sound moves.",
+		rating: 2.5,
+		num: 160,
+	},
+	truant: {
+		name: "Truant",
+		shortDesc: "No competitive effect.",
+		desc: "No competitive effect.",
+		rating: 0,
+		num: 54,
 	},
 	//Gen 9 modifs
 	sharpness: {

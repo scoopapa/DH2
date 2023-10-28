@@ -786,7 +786,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 			player.inProgressMatch = null;
 			matchFrom.room.setParent(null);
 			this.completedMatches.add(matchFrom.room.roomid);
-			if (matchFrom.room.battle) matchFrom.room.battle.forfeit(player.name);
+			matchFrom.room.game?.forfeit?.(player.name);
 		}
 
 		let matchTo = null;
@@ -799,7 +799,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 			const matchRoom = matchTo.inProgressMatch!.room;
 			matchRoom.setParent(null);
 			this.completedMatches.add(matchRoom.roomid);
-			if (matchRoom.battle) matchRoom.battle.forfeit(player.id);
+			if (matchRoom.game) matchRoom.game.forfeit?.(player.id);
 			matchTo.inProgressMatch = null;
 		}
 
@@ -1088,7 +1088,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 			tour: this,
 			parentid: this.roomid,
 		});
-		if (!room?.battle) throw new Error(`Failed to create battle in ${room}`);
+		if (!room?.game) throw new Error(`Failed to create battle in ${room}`);
 
 		challenge.from.pendingChallenge = null;
 		player.pendingChallenge = null;
@@ -1100,7 +1100,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 
 		this.isBracketInvalidated = true;
 		if (this.autoDisqualifyTimeout !== Infinity) this.runAutoDisqualify();
-		if (this.forceTimer) room.battle.timer.start();
+		if (this.forceTimer) room.game.startTimer();
 		this.update();
 	}
 
@@ -1147,12 +1147,12 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		if (this.completedMatches.has(room.roomid)) return;
 		this.completedMatches.add(room.roomid);
 		room.setParent(null);
-		if (!room.battle) throw new Error("onBattleWin called without a battle");
+		if (!room.game) throw new Error("onBattleWin called without a battle");
 		if (!room.p1 || !room.p2) throw new Error("onBattleWin called with missing players");
 		const p1 = this.playerTable[room.p1.id];
 		const p2 = this.playerTable[room.p2.id];
 		const winner = this.playerTable[winnerid];
-		const score = room.battle.score || [0, 0];
+		const score = (room.game as any).score || [0, 0];
 
 		let result: 'win' | 'loss' | 'draw' = 'draw';
 		if (p1 === winner) {
@@ -1296,6 +1296,16 @@ function createTournament(
 	if (playerCap && parseInt(playerCap) < 2) {
 		output.errorReply("You cannot have a player cap that is less than 2.");
 		return;
+	}
+	if (name?.trim().length) {
+		if (output.checkChat(name) !== name) {
+			throw new Chat.ErrorMessage(`You cannot use filtered words in tour names.`);
+		}
+
+		if (name.length > MAX_CUSTOM_NAME_LENGTH) {
+			throw new Chat.ErrorMessage(`The tournament's name cannot exceed ${MAX_CUSTOM_NAME_LENGTH} characters.`);
+		}
+		if (name.includes('|')) throw new Chat.ErrorMessage("The tournament's name cannot include the | symbol.");
 	}
 	const tour = room.game = new Tournament(
 		room, format, createTournamentGenerator(generator, generatorMod, output)!, playerCap, isRated, name
@@ -1986,9 +1996,9 @@ const commands: Chat.ChatCommands = {
 				for (const player of tournament.players) {
 					const curMatch = player.inProgressMatch;
 					if (curMatch) {
-						const battle = curMatch.room.battle;
+						const battle = curMatch.room.game;
 						if (battle) {
-							battle.timer.start();
+							battle.startTimer();
 						}
 					}
 				}

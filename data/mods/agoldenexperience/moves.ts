@@ -914,7 +914,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.moveLastTurnResult === false) return move.basePower * 2; // if the last move failed
-			if (pokemon.volatiles['indomitablespirit'].boost === 'lastMoveResisted') return move.basePower * 2; // if the last move was resisted
+			if (pokemon.volatiles['indomitablespirit'].boost === 'lastMoveResisted') return move.basePower * 2; // if the last move was resisted - problematic line
 			return move.basePower;
 		},
 		onPrepareHit: function(target, source) {	
@@ -1340,6 +1340,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 		contestType: "Tough",
+	},	
+	sweetheart: {
+		num: -1776,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Sweetheart",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+			onHit(pokemon, source, move) {
+				this.add('-activate', source, 'move: Aromatherapy');
+				for (const ally of source.side.pokemon) {
+					if (ally !== source && (ally.volatiles['substitute'] && !move.infiltrates)) {
+						continue;
+					}
+					ally.cureStatus();
+				}
+			},
+		},
+		shortDesc: "Heals the user's party's status conditions. Uses SpD instead of SpA.",
+		overrideOffensiveStat: 'spd',
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
 	},
 	chakraterrain: {
 		num: -40,
@@ -2788,7 +2814,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpower: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		name: "Hidden Power",
 		shortDesc: "Varies in type based on the user's IVs. Physical if user's Atk > Sp. Atk.",
@@ -2809,7 +2835,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerbug: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Bug",
@@ -2828,7 +2854,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerdark: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Dark",
@@ -2847,7 +2873,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerdragon: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Dragon",
@@ -2866,7 +2892,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerelectric: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Electric",
@@ -2885,7 +2911,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerfighting: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Fighting",
@@ -2904,7 +2930,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerfire: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Fire",
@@ -2923,7 +2949,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerflying: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Flying",
@@ -2942,7 +2968,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerghost: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Ghost",
@@ -2961,7 +2987,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowergrass: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Grass",
@@ -2980,7 +3006,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerground: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Ground",
@@ -2999,7 +3025,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerice: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Ice",
@@ -3018,7 +3044,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerpoison: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Poison",
@@ -3037,7 +3063,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerpsychic: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Psychic",
@@ -3056,7 +3082,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerrock: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Rock",
@@ -3075,7 +3101,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowersteel: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Steel",
@@ -3094,7 +3120,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	hiddenpowerwater: {
 		num: 237,
 		accuracy: 100,
-		basePower: 100,
+		basePower: 80,
 		category: "Special",
 		realMove: "Hidden Power",
 		name: "Hidden Power Water",
@@ -3741,13 +3767,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 50,
 		basePowerCallback(pokemon) {
-			return Math.min(350, 50 + 25 * pokemon.timesAttacked);
+			return Math.min(200, 50 + 25 * pokemon.timesAttacked);
 		},
 		category: "Physical",
 		name: "Rage Fist",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		shortDesc: "+25 power for each time user was hit. Max 6 hits.",
 		secondary: null,
 		target: "normal",
 		type: "Ghost",

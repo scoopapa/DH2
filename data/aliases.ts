@@ -83,8 +83,8 @@ export const Aliases: {[alias: string]: string} = {
 	gen6ag: "[Gen 6] Anything Goes",
 	crossevo: "[Gen 9] Cross Evolution",
 	mayhem: "[Gen 9] Random Battle Mayhem",
-	omotm: "[Gen 9] Frantic Fusions",
-	lcotm: "[Gen 7] Pure Hackmons",
+	omotm: "[Gen 9] Convergence",
+	lcotm: "[Gen 9] Godly Gift",
 
 	// mega evos
 	fabio: "Ampharos-Mega",
@@ -1025,7 +1025,7 @@ export const Aliases: {[alias: string]: string} = {
 	depletion: "G-Max Depletion",
 	drumsolo: "G-Max Drum Solo",
 	finale: "G-Max Finale",
-	fireball: "G-Max Fireball",
+	//fireball: "G-Max Fireball",
 	foamburst: "G-Max Foam Burst",
 	goldrush: "G-Max Gold Rush",
 	gravitas: "G-Max Gravitas",

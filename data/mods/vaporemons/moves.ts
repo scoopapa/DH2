@@ -83,6 +83,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 65,
 		category: "Special",
 		shortDesc: "Sets Sticky Web on the target's side.",
+		isViable: true,
 		name: "Electroweb",
 		pp: 15,
 		priority: 0,
@@ -101,6 +102,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		shortDesc: "Raises user's Atk by 1 on turn 1. Hits turn 2.",
+		isViable: true,
+		isNonstandard: null,
 		name: "Skull Bash",
 		pp: 10,
 		priority: 0,
@@ -128,6 +131,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "Removes Spikes and Stealth Rock from the field. +1 Def for every type of hazard cleared.",
+		isViable: true,
 		name: "Shelter",
 		pp: 10,
 		priority: 0,
@@ -167,7 +171,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		desc: "Sets healing stones on the user's side, healing Pokemon that switch in for 1/8th of their max HP.",
-		shortDesc: "Heals grounded allies on switch-in.",
+		shortDesc: "Heals allies on switch-in.",
 		isViable: true,
 		name: "Healing Stones",
 		pp: 20,
@@ -189,7 +193,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.effectState.layers++;
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
+					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				let healAmounts = [0, 3]; // 1/8
 				this.heal(healAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -206,6 +211,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
+		isViable: true,
 		name: "Jungle Healing",
 		pp: 10,
 		priority: 0,
@@ -224,6 +230,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		shortDesc: "User: healed 1/3 max HP. Next switch-in: healed 1/4 max HP.",
+		isViable: true,
 		name: "Life Dew",
 		pp: 10,
 		priority: 0,
@@ -280,6 +287,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 70,
 		category: "Physical",
+		isNonstandard: null,
+		isViable: true,
 		name: "Storm Throw",
 		pp: 10,
 		priority: 0,
@@ -295,6 +304,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: true,
 		basePower: 70,
 		category: "Special",
+		isViable: true,
 		name: "Frost Breath",
 		pp: 10,
 		priority: 0,
@@ -442,6 +452,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Physical",
 		shortDesc: "Heals the user by 75% of the damage dealt.",
+		isViable: true,
 		name: "Pluck",
 		pp: 10,
 		priority: 0,
@@ -682,6 +693,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		shortDesc: "+50 power for each time user was hit. Max 3 hits.",
 		category: "Physical",
+		isViable: true,
 		name: "Raging Fury",
 		pp: 10,
 		priority: 0,
@@ -775,6 +787,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return move.basePower;
 		},
 		category: "Physical",
+		isViable: true,
 	   shortDesc: "Switches the user out. 2x power if Rollout or Defense Curl was used last turn.",
 		name: "Rollout",
 		pp: 15,
@@ -804,6 +817,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Special",
 	   shortDesc: "Switches the user out. 2x power if Round was used last turn.",
+		isViable: true,
 		name: "Round",
 		pp: 15,
 		priority: 0,
@@ -921,6 +935,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Special",
 	   shortDesc: "Raises user's Sp. Atk by 1 on turn 1. Hits turn 2. Hits in 1 turn in Sand.",
+		isViable: true,
 		name: "Meteor Beam",
 		pp: 10,
 		priority: 0,
@@ -1039,6 +1054,206 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		contestType: "Cool",
 	},
+	brickbreak: {
+		inherit: true,
+		basePower: 85,
+	},
+	psychicfangs: {
+		inherit: true,
+		flags: {bite: 1, protect: 1, mirror: 1},
+	},
+	sledgehammerblow: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+	   shortDesc: "Destroys screens, unless the target is immune.",
+		name: "Sledgehammer Blow",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gigaton Hammer", target);
+		},
+		onTryHit(pokemon) {
+			// will shatter screens through sub, before you hit
+			pokemon.side.removeSideCondition('reflect');
+			pokemon.side.removeSideCondition('lightscreen');
+			pokemon.side.removeSideCondition('auroraveil');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Clever",
+	},
+	desertstorm: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+	   shortDesc: "(Partially functional) Hits two turns after being used. Sets sands when it hits, even if the target is immune.",
+		name: "Desert Storm",
+		pp: 15,
+		priority: 0,
+		flags: {allyanim: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Defog", target);
+		},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'desertstorm',
+				source: source,
+				moveData: {
+					id: 'desertstorm',
+					name: "Desert Storm",
+					accuracy: 100,
+					basePower: 90,
+					category: "Physical",
+					priority: 0,
+					flags: {allyanim: 1, futuremove: 1},
+					ignoreImmunity: false,
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Sandsear Storm", target);
+						this.field.setWeather('sandstorm');
+					},
+					/*
+					self: {
+						onHit(source) {
+							this.field.setWeather('sandstorm');
+						},
+						onMoveFail(source) {
+							this.field.setWeather('sandstorm');
+						},
+					},
+	  				*/
+					effectType: 'Move',
+					type: 'Ground',
+				},
+			});
+			this.add('-start', source, 'move: Desert Storm');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Clever",
+	},
+	dragonrage: {
+		num: 82,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+	   shortDesc: "If the user is hit this turn, +1 SpA.",
+		isNonstandard: null,
+		isViable: true,
+		name: "Dragon Rage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('dragonrage');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Dragon Rage');
+			},
+			onHit(target, source, move) {
+				if (target !== source && move.category !== 'Status') {
+					this.boost({spa: 1});
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	rage: {
+		num: 99,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+	   shortDesc: "If the user is hit this turn, +1 Atk.",
+		isNonstandard: null,
+		isViable: true,
+		name: "Rage",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('rage');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Rage');
+			},
+			onHit(target, source, move) {
+				if (target !== source && move.category !== 'Status') {
+					this.boost({atk: 1});
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Tough",
+	},
+	latentvenom: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Hits two turns after being used. Foe: badly poisoned and -1 Def & SpD.",
+		name: "Latent Venom",
+		pp: 5,
+		priority: 0,
+		flags: {allyanim: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acid Spray", target);
+		},
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'latentvenom',
+				source: source,
+				moveData: {
+					id: 'latentvenom',
+					name: "Latent Venom",
+					accuracy: 100,
+					basePower: 0,
+					category: "Status",
+					priority: 0,
+					flags: {allyanim: 1, futuremove: 1},
+					ignoreImmunity: false,
+					status: 'tox',
+					onPrepareHit(target, source, move) {
+						this.attrLastMove('[still]');
+						this.add('-anim', source, "Corrosive Gas", target);
+					},
+					boosts: {
+						def: -1,
+						spd: -1,
+					},
+					effectType: 'Move',
+					type: 'Poison',
+				},
+			});
+			this.add('-start', source, 'move: Latent Venom');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Cool",
+	},
 
 // all edited unchanged moves
 	stealthrock: {
@@ -1057,7 +1272,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
 			onEntryHazard(pokemon) {
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
+					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				const typeMod = this.clampIntRange(pokemon.runEffectiveness(this.dex.getActiveMove('stealthrock')), -6, 6);
 				if (pokemon.hasAbility('smelt')) {
 					const fireHazard = this.dex.getActiveMove('Stealth Rock');
@@ -1098,7 +1314,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') ||
+					 pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
 				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 			},
@@ -1135,7 +1352,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if (pokemon.hasType('Poison')) {
 					this.add('-sideend', pokemon.side, 'move: Toxic Spikes', '[of] ' + pokemon);
 					pokemon.side.removeSideCondition('toxicspikes');
-				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) {
+				} else if (pokemon.hasType('Steel') || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) {
 					return;
 				} else if (this.effectState.layers >= 2) {
 					pokemon.trySetStatus('tox', pokemon.side.foe.active[0]);
@@ -1165,7 +1382,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-sidestart', side, 'move: Sticky Web');
 			},
 			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes')) return;
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('overcoat') || pokemon.hasItem('dancingshoes') || pokemon.hasItem('mantisclaw')) return;
 				this.add('-activate', pokemon, 'move: Sticky Web');
 				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
 			},
@@ -2422,5 +2639,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			sideCondition: 'echochamber',
 			volatileStatus: 'uproar',
 		},
+	},
+	jetpunch: {
+		inherit: true,
+		isViable: true,
 	},
 };

@@ -443,6 +443,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Rune Drive",
 		rating: 3,
+		shortDesc: "Misty Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	photondrive: {
 		onStart(pokemon) {
@@ -508,6 +509,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Photon Drive",
 		rating: 3,
+		shortDesc: "Grassy Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	neurondrive: {
 		onStart(pokemon) {
@@ -573,6 +575,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Neuron Drive",
 		rating: 3,
+		shortDesc: "Psychic Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	protosmosis: {
 		onStart(pokemon) {
@@ -639,6 +642,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Protosmosis",
 		rating: 3,
+		shortDesc: "Rain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	protocrysalis: {
 		onStart(pokemon) {
@@ -705,6 +709,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Protocrysalis",
 		rating: 3,
+		shortDesc: "Sandstorm active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	protostasis: {
 		onStart(pokemon) {
@@ -771,6 +776,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Protostasis",
 		rating: 3,
+		shortDesc: "Snow active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	counteract: {
 		name: "Counteract",
@@ -1034,7 +1040,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Exoskeleton",
 		rating: 4,
-		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: Bug resistances.",
+		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: +Bug resistances.",
 	},
 	bluntforce: {
 		// This should be applied directly to the stat as opposed to chaining with the others
@@ -1093,6 +1099,206 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 19,
 		shortDesc: "Moves with secondary effects against user: 0.67x power, secondary effects cannot activate.",
+	},
+	blaze: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Blaze boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Blaze boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Blaze",
+		rating: 2,
+		num: 66,
+		shortDesc: "1.2x Power on Fire attacks. At 1/3 or less HP, all of this Pokemon's moves deal 1.5x damage.",
+	},
+	torrent: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Torrent boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Torrent low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Torrent boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Torrent low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Torrent",
+		rating: 2,
+		num: 67,
+		shortDesc: "1.2x Power on Water attacks. At 1/3 or less HP, all of this Pokemon's moves deal 1.5x damage.",
+	},
+	overgrow: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Overgrow boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overgrow low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Overgrow boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overgrow low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Overgrow",
+		rating: 2,
+		num: 65,
+		shortDesc: "1.2x Power on Grass attacks. At 1/3 or less HP, all of this Pokemon's moves deal 1.5x damage.",
+	},
+	swarm: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Swarm boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Swarm low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Swarm boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Swarm low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Swarm",
+		rating: 2,
+		num: 68,
+		shortDesc: "1.2x Power on Bug attacks. At 1/3 or less HP, all of this Pokemon's moves deal 1.5x damage.",
+	},
+	fairyringer: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Fairy Ringer');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Fairy' || move.flags['pledgecombo']) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Fairy Ringer');
+				}
+				return this.effectState.target;
+			}
+		},
+		isBreakable: true,
+		name: "Fairy Ringer",
+		rating: 3,
+		shortDesc: "This Pokemon draws Fairy moves to itself to raise Sp. Atk by 1; Fairy immunity.",
+	},
+	justified: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Dark') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Justified');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Dark' || move.flags['pledgecombo']) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Justified');
+				}
+				return this.effectState.target;
+			}
+		},
+		isBreakable: true,
+		name: "Justified",
+		rating: 3,
+		num: 154,
+		shortDesc: "This Pokemon draws Dark moves to itself to raise Atk by 1; Dark immunity.",
+	},
+	momentum: {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.id === 'rapidspin' || move.id === 'icespinner' || move.id === 'spinout' ||
+				move.id === 'blazingtorque' || move.id === 'combattorque' || move.id === 'noxioustorque' ||				
+				move.id === 'wickedtorque' || move.id === 'drillrun' || move.id === 'gyroball' ||
+				move.id === 'rollout' || move.id === 'iceball' || move.id === 'flipturn' ||
+				move.id === 'uturn' || move.id === 'electrodrift' || move.id === 'darkestlariat' ||
+				move.id === 'flamewheel' || move.id === 'aurawheel' || move.id === 'shiftgear' ||
+				move.id === 'mortalspin' || move.id === 'geargrind' || move.id === 'steelroller' ||
+				move.id === 'rototiller' || move.id === 'steamroller' || move.id === 'tripleaxel' ||
+				move.id === 'triplekick' || move.id === 'firespin' || move.id === 'leaftornado' ||
+				move.id === 'hurricane' || move.id === 'bleakwindstorm' || move.id === 'sandsearstorm' || 
+				move.id === 'wildboltstorm' || move.id === 'springtidestorm' || move.id === 'whirlpool'
+				) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.id === 'rapidspin' || move.id === 'icespinner' || move.id === 'spinout' ||
+				move.id === 'blazingtorque' || move.id === 'combattorque' || move.id === 'noxioustorque' ||				
+				move.id === 'wickedtorque' || move.id === 'drillrun' || move.id === 'gyroball' ||
+				move.id === 'rollout' || move.id === 'iceball' || move.id === 'flipturn' ||
+				move.id === 'uturn' || move.id === 'electrodrift' || move.id === 'darkestlariat' ||
+				move.id === 'flamewheel' || move.id === 'aurawheel' || move.id === 'shiftgear' ||
+				move.id === 'mortalspin' || move.id === 'geargrind' || move.id === 'steelroller' ||
+				move.id === 'rototiller' || move.id === 'steamroller' || move.id === 'tripleaxel' ||
+				move.id === 'triplekick' || move.id === 'firespin' || move.id === 'leaftornado' ||
+				move.id === 'hurricane' || move.id === 'bleakwindstorm' || move.id === 'sandsearstorm' || 
+				move.id === 'wildboltstorm' || move.id === 'springtidestorm' || move.id === 'whirlpool'
+				) {			
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		name: "Momentum",
+		shortDesc: "The user heals 1/8 of its HP if it uses or gets hit by a spinning move.",
 	},
 	
 // unchanged abilities
