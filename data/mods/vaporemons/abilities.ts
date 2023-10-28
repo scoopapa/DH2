@@ -1302,8 +1302,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	cudchew: {
 		onStart(pokemon) {
-			if (pokemon.item.isBerry) {
-				pokemon.eatItem();
+			if (pokemon.getItem().isBerry) {
+				pokemon.eatItem(true);
 				this.add('-message', `${pokemon.name}'s ate its berry!`);
 			}
 		},
