@@ -1,5 +1,5 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	inherit: 'gen9',
+	gen: 9,
 	init() {
 		this.modData("Learnsets", "absol").learnset.comeuppance = ["9L1"];
 		this.modData("Learnsets", "absol").learnset.postponerage = ["9L1"];

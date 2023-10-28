@@ -1,4 +1,4 @@
-export const Learnsets: {[k: string]: LearnsetData} = {
+export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	kabuto: {
 		learnset: {
 			inherit: true,

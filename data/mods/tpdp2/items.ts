@@ -1665,21 +1665,53 @@ export const Items: {[k: string]: ModdedItemData} = {
 	youmascrollblack: {
 		name: "Youma Scroll: Black",
 		shortDesc: "A scroll with a black hemming written by various youkai. This item cannot be disposed.",
-		//Handled in Bibliophilia ability
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.changesFrom === 'Extra Kosuzu') {
+				return this.chainModify(2);
+			}
+		},
 	},
 	youmascrollblue: {
 		name: "Youma Scroll: Blue",
 		shortDesc: "A scroll with a blue hemming written by various youkai. This item cannot be disposed.",
-		//Handled in Bibliophilia ability
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.changesFrom === 'Extra Kosuzu') {
+				return this.chainModify(2);
+			}
+		},
 	},
 	youmascrollred: {
 		name: "Youma Scroll: Red",
 		shortDesc: "A scroll with a red hemming written by various youkai. This item cannot be disposed.",
-		//Handled in Bibliophilia ability
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.changesFrom === 'Extra Kosuzu') {
+				return this.chainModify(2);
+			}
+		},
 	},
 	youmascrollwhite: {
 		name: "Youma Scroll: White",
 		shortDesc: "A scroll with a white hemming written by various youkai. This item cannot be disposed.",
-		//Handled in Bibliophilia ability
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.changesFrom === 'Extra Kosuzu') {
+				return this.chainModify(2);
+			}
+		},
 	},
 };

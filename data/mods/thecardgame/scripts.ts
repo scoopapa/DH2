@@ -1,6 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	inherit: 'gen9',
 	init() {
 		for (const id in this.data.Pokedex) {
 			const types = Array.from(new Set(this.data.Pokedex[id].types.map(type => (

@@ -1,45 +1,45 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	baseball: {
+	"baseball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	basketball: {
+	"basketball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	football: {
+	"football": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	soccerball: {
+	"soccerball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	tennisball: {
+	"tennisball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	cricketball: {
+	"cricketball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	watermelon: {
+	"watermelon": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	orange: {
+	"orange": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	plasmaball: {
+	"plasmaball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	snowball: {
+	"snowball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	crystalball: {
+	"crystalball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
@@ -47,27 +47,27 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	confettiball: {
+	"confettiball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	discoball: {
+	"discoball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	moon: {
+	"moon": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	rock: {
+	"rock": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	virus: {
+	"virus": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},
-	dragonball: {
+	"dragonball": {
 		tier: "Balls",
 		doublesTier: "Balls",
 	},

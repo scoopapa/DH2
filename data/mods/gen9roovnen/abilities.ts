@@ -384,6 +384,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	mountaineer: {
 		inherit: true,
 		isNonstandard: null,
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return damage / 2;
+			}
+		},
+		onTryHit() {},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				return this.chainModify(0.5);
+			}
+		},
+		shortDesc: "On switch-in, user receives 0.5x damage from Rock attacks and Stealth Rock.",
 	},
 	
 	//Roovnen
@@ -999,9 +1011,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target.removeVolatile('corrupted');
 			}
 		},
+		condition: {
+			noCopy: true,
+			onSourceModifyDamage(damage, source, target, move) {
+				if (source.hasAbility('corruption') || ['yorlator', 'mranovo', 'curtowal'].includes(source.species.id)) return;
+				if (move.type === 'Dark') return this.chainModify(1.5);
+			},
+		},
 		name: "Corruption",
 		isPermanent: true,
-		shortDesc: "Active Pokemon without this ability are weak to Dark.",
+		shortDesc: "Active Pokemon without this ability receive 1.5x damage from Dark-type moves.",
 		rating: 4,
 		num: 356,
 	},

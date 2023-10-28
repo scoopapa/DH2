@@ -1,5 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-	baseball: {
+	"baseball": {
 		learnset: {
 			boomburst: ["9L1"],
 			doubleedge: ["9L1"],
@@ -31,7 +31,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			weatherball: ["9L1"],
 		},
 	},
-	basketball: {
+	"basketball": {
 		learnset: {
 			doubleedge: ["9L1"],
 			earthpower: ["9L1"],
@@ -82,7 +82,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	football: {
+	"football": {
 		learnset: {
 			bulldoze: ["9L1"],
 			closecombat: ["9L1"],
@@ -118,7 +118,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	soccerball: {
+	"soccerball": {
 		learnset: {
 			acrobatics: ["9L1"],
 			aurasphere: ["9L1"],
@@ -163,7 +163,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	tennisball: {
+	"tennisball": {
 		learnset: {
 			acrobatics: ["9L1"],
 			aeroblast: ["9L1"],
@@ -200,7 +200,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	cricketball: {
+	"cricketball": {
 		learnset: {
 			acrobatics: ["9L1"],
 			aircutter: ["9L1"],
@@ -234,7 +234,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	watermelon: {
+	"watermelon": {
 		learnset: {
 			bodypress: ["9L1"],
 			calmmind: ["9L1"],
@@ -262,7 +262,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			waterpulse: ["9L1"],
 		},
 	},
-	orange: {
+	"orange": {
 		learnset: {
 			absorb: ["9L1"],
 			aromatherapy: ["9L1"],
@@ -295,7 +295,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	plasmaball: {
+	"plasmaball": {
 		learnset: {
 			darkpulse: ["9L1"],
 			discharge: ["9L1"],
@@ -322,7 +322,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wildcharge: ["9L1"],
 		},
 	},
-	snowball: {
+	"snowball": {
 		learnset: {
 			blizzard: ["9L1"],
 			doubleedge: ["9L1"],
@@ -350,7 +350,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	crystalball: {
+	"crystalball": {
 		learnset: {
 			aurasphere: ["9L1"],
 			calmmind: ["9L1"],
@@ -414,7 +414,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	confettiball: {
+	"confettiball": {
 		learnset: {
 			calmmind: ["9L1"],
 			dazzlinggleam: ["9L1"],
@@ -444,7 +444,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			trick: ["9L1"],
 		},
 	},
-	discoball: {
+	"discoball": {
 		learnset: {
 			autotomize: ["9L1"],
 			calmmind: ["9L1"],
@@ -478,7 +478,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	moon: {
+	"moon": {
 		learnset: {
 			bodypress: ["9L1"],
 			bulldoze: ["9L1"],
@@ -520,7 +520,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	rock: {
+	"rock": {
 		learnset: {
 			ancientpower: ["9L1"],
 			bodypress: ["9L1"],
@@ -558,7 +558,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	virus: {
+	"virus": {
 		learnset: {
 			acid: ["9L1"],
 			acidspray: ["9L1"],
@@ -591,7 +591,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			wildcharge: ["9L1"],
 		},
 	},
-	dragonball: {
+	"dragonball": {
 		learnset: {
 			airslash: ["9L1"],
 			aurasphere: ["9L1"],
