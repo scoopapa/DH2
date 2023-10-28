@@ -1347,7 +1347,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.removeVolatile('permafrost');
 			},
 		},
-		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 SpA/SpD when hit by Ice.",
+		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 Def/SpD when hit by Ice.",
 		rating: 4,
 	},
 	prehistoricmight: {
