@@ -1,5 +1,5 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
-	baseball: {
+	"baseball": {
 		num: 1,
 		name: "Baseball",
 		types: ["Normal"],
@@ -7,7 +7,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Reckless", 1: "Shadow Tag", H: "Magic Guard"},
 		weightkg: 5,
 	},
-	basketball: {
+	"basketball": {
 		num: 2,
 		name: "Basketball",
 		types: ["Fire"],
@@ -15,7 +15,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Flame Body", 1: "Drought", H: "Magic Bounce"},
 		weightkg: 15,
 	},
-	football: {
+	"football": {
 		num: 3,
 		name: "Football",
 		types: ["Ground"],
@@ -23,7 +23,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Rock Head", 1: "Stamina", H: "Hustle"},
 		weightkg: 9,
 	},
-	soccerball: {
+	"soccerball": {
 		num: 4,
 		name: "Soccerball",
 		types: ["Fighting"],
@@ -31,7 +31,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Stakeout", 1: "Trace", H: "Speed Boost"},
 		weightkg: 12,
 	},
-	tennisball: {
+	"tennisball": {
 		num: 5,
 		name: "Tennisball",
 		types: ["Flying"],
@@ -39,7 +39,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Unburden", 1: "Adaptability", H: "Aerilate"},
 		weightkg: 3,
 	},
-	cricketball: {
+	"cricketball": {
 		num: 6,
 		name: "Cricketball",
 		types: ["Bug"],
@@ -47,7 +47,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Rattled", 1: "Sniper", H: "Sheer Force"},
 		weightkg: 4,
 	},
-	watermelon: {
+	"watermelon": {
 		num: 7,
 		name: "Watermelon",
 		types: ["Water"],
@@ -55,7 +55,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Drizzle", 1: "Water Absorb", H: "Unaware"},
 		weightkg: 25,
 	},
-	orange: {
+	"orange": {
 		num: 8,
 		name: "Orange",
 		types: ["Grass"],
@@ -63,7 +63,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Grassy Surge", 1: "Ripen", H: "Natural Cure"},
 		weightkg: 13,
 	},
-	plasmaball: {
+	"plasmaball": {
 		num: 9,
 		name: "Plasmaball",
 		types: ["Electric"],
@@ -71,7 +71,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Electric Surge", 1: "Static", H: "Electromorphosis"},
 		weightkg: 34,
 	},
-	snowball: {
+	"snowball": {
 		num: 10,
 		name: "Snowball",
 		types: ["Ice"],
@@ -79,7 +79,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Snow Warning", 1: "Slush Rush", H: "Refrigerate"},
 		weightkg: 2,
 	},
-	crystalball: {
+	"crystalball": {
 		num: 11,
 		name: "Crystalball",
 		types: ["Psychic"],
@@ -95,7 +95,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Simple", 1: "Sturdy", H: "Illusion"},
 		weightkg: 3,
 	},
-	confettiball: {
+	"confettiball": {
 		num: 13,
 		name: "Confettiball",
 		types: ["Fairy"],
@@ -103,7 +103,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Misty Surge", 1: "Aftermath", H: "Prankster"},
 		weightkg: 3,
 	},
-	discoball: {
+	"discoball": {
 		num: 14,
 		name: "Discoball",
 		types: ["Steel"],
@@ -111,7 +111,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Mirror Armor", 1: "Soundproof", H: "Levitate"},
 		weightkg: 42,
 	},
-	moon: {
+	"moon": {
 		num: 15,
 		name: "Moon",
 		types: ["Ghost"],
@@ -119,7 +119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Rocky Payload", 1: "Unnerve", H: "Pressure"},
 		weightkg: 1000,
 	},
-	rock: {
+	"rock": {
 		num: 16,
 		name: "Rock",
 		types: ["Rock"],
@@ -127,7 +127,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Solid Rock", 1: "Moxie", H: "Sand Stream"},
 		weightkg: 88,
 	},
-	virus: {
+	"virus": {
 		num: 17,
 		name: "Virus",
 		types: ["Poison"],
@@ -135,7 +135,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Merciless", 1: "Corrosion", H: "Regenerator"},
 		weightkg: 1,
 	},
-	dragonball: {
+	"dragonball": {
 		num: 18,
 		name: "Dragonball",
 		types: ["Dragon"],
