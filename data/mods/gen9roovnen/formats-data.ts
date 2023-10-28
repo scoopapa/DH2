@@ -1354,7 +1354,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gyarados: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	gyaradosmega: {
@@ -1564,7 +1564,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dragonite: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	mewtwo: {
@@ -1588,7 +1588,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mew: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	chikorita: {
@@ -5139,7 +5139,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aegislash: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	aegislashblade: {
@@ -7217,7 +7217,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	garganacl: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	glimmet: {
