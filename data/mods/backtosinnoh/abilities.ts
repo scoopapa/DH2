@@ -23,9 +23,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (!target.hp && this.checkMoveMakesContact(move, source, target, true) && source.hp) {
-				const item = target.takeItem();
+				const item = source.takeItem();
 				if (item) {
-					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
+					this.add('-enditem', source, item.name, '[from] ability: Confiscate', '[of] ' + target);
 				}
 			}
 		},
