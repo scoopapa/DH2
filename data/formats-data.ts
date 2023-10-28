@@ -3245,7 +3245,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	basculegion: {
 		tier: "RU",
-		doublesTier: "DBL",
+		doublesTier: "DUber",
 		natDexTier: "RU",
 	},
 	basculegionf: {
@@ -4703,7 +4703,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	kartana: {
 		isNonstandard: "Past",
 		tier: "Illegal",
-		natDexTier: "UU",
+		natDexTier: "UUBL",
 	},
 	guzzlord: {
 		isNonstandard: "Past",
@@ -5514,7 +5514,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "NFE",
 	},
 	garganacl: {
-		tier: "UU",
+		tier: "UUBL",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},

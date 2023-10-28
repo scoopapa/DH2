@@ -1063,7 +1063,7 @@ export abstract class BasicRoom {
 			if (!time || time < 5) {
 				throw new Error(`Invalid time setting for automodchat (${Utils.visualize(this.settings.autoModchat)})`);
 			}
-			if (this.modchatTimer) clearTimeout(this.modchatTimer);
+			if (this.modchatTimer) return;
 			this.modchatTimer = setTimeout(() => {
 				if (!this.settings.autoModchat) return;
 				const {rank} = this.settings.autoModchat;
@@ -1080,6 +1080,7 @@ export abstract class BasicRoom {
 				// automodchat will always exist
 				this.settings.autoModchat.active = oldSetting || true;
 				this.saveSettings();
+				this.modchatTimer = null;
 			}, time * 60 * 1000);
 		}
 	}
@@ -2013,23 +2014,6 @@ export class GameRoom extends BasicRoom {
 		if (user.named) {
 			this.reportJoin('j', user.getIdentityWithStatus(this), user);
 		}
-
-		// This is only here because of an issue with private logs not getting resent
-		// when a user reloads on a battle and autojoins. This should be removed when that gets fixed.
-		void (async () => {
-			if (this.battle) {
-				const player = this.battle.playerTable[user.id];
-				if (player && this.battle.players.every(curPlayer => curPlayer.wantsOpenTeamSheets)) {
-					let buf = '|uhtml|ots|';
-					for (const curPlayer of this.battle.players) {
-						const team = await this.battle.getTeam(curPlayer.id);
-						if (!team) continue;
-						buf += Utils.html`<div class="infobox" style="margin-top:5px"><details><summary>Open Team Sheet for ${curPlayer.name}</summary>${Teams.export(team, {hideStats: true})}</details></div>`;
-					}
-					player.sendRoom(buf);
-				}
-			}
-		})();
 
 		this.users[user.id] = user;
 		this.userCount++;
