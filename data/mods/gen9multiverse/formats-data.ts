@@ -71,4 +71,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latias: {
 		tier: "MV",
 	},
+	luxray: {
+		tier: "MV",
+	},
+	floatzel: {
+		tier: "MV",
+	},
+	garchomp: {
+		tier: "MV",
+	},
+	drapion: {
+		tier: "MV",
+	},
+	electivire: {
+		tier: "MV",
+	},
+	yanmega: {
+		tier: "MV",
+	},
+	heatran: {
+		tier: "MV",
+	},
 };
