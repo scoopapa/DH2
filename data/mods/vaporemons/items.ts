@@ -42,7 +42,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.type === type && pokemon.baseSpecies.types.includes(type) && !pokemon.hasAbility('adaptability')) {
 				move.stab = 2;
 			};
-			else if (move.type === type && pokemon.baseSpecies.types.includes(type) && pokemon.hasAbility('adaptability')) {
+			if (move.type === type && pokemon.baseSpecies.types.includes(type) && pokemon.hasAbility('adaptability')) {
 				move.stab = 2.25;
 			};
 		},
