@@ -1320,6 +1320,67 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 291,
 		shortDesc: "Eats berry on switch-in, recycles berry on switch-out.",
 	},
+	permafrost: {
+		name: "Permafrost",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Permafrost');
+			this.add('-message', `${pokemon.name}'s freezing aura turns water into ice!`);
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Ice') {
+				this.boost({def: 1, spd: 1});
+			}
+		},
+		onFoeBeforeMovePriority: 13,
+		onFoeBeforeMove(attacker, defender, move) {
+			attacker.addVolatile('permafrost');
+		},
+		condition: {
+			onModifyTypePriority: -1,
+			onModifyType(move, pokemon) {
+				if (move.type === 'Water') {
+					move.type = 'Ice';
+				}
+			},
+			onAfterMove(pokemon) {
+				pokemon.removeVolatile('permafrost');
+			},
+		},
+		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 SpA/SpD when hit by Ice.",
+		rating: 4,
+	},
+	prehistoricmight: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated && target.positiveBoosts()) {
+					this.add('-ability', pokemon, 'Prehistoric Might', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -2}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Prehistoric Might",
+		rating: 2.5,
+		shortDesc: "On switch-in, the foe's Speed is lowered by 2 stages if it has a positive stat boost.",
+	},
+	synchronize: {
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				for (const foes of pokemon.adjacentFoes()) {
+					this.damage(damage, source, target);
+				}
+			}
+		},
+		name: "Synchronize",
+		rating: 2,
+		num: 28,
+		shortDesc: "If this Pokemon takes indirect damage, the opponent takes the same amount of damage.",
+	},
 	
 // unchanged abilities
 	damp: {
