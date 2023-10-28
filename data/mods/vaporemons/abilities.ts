@@ -1648,4 +1648,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 168,
 	},
+	adaptability: {
+		onModifyMove(move, pokemon) {
+			if (move.type === pokemon.teraType && pokemon.baseSpecies.types.includes(pokemon.teraType) && pokemon.hasItem('terashard')) {
+				move.stab = 2.25;
+			} else {
+				move.stab = 2;
+			}
+		},
+		name: "Adaptability",
+		rating: 4,
+		num: 91,
+	},
 };
