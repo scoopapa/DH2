@@ -39,12 +39,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyMove(move, pokemon) {
 			const type = pokemon.teraType;
-			if (move.type === type && pokemon.baseSpecies.types.includes(type) && !pokemon.hasAbility('adaptability')) {
+			if (move.type === type && pokemon.baseSpecies.types.includes(type)) {
 				move.stab = 2;
-			};
-			if (move.type === type && pokemon.baseSpecies.types.includes(type) && pokemon.hasAbility('adaptability')) {
-				move.stab = 2.25;
-			};
+			}
 		},
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
