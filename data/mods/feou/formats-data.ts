@@ -463,7 +463,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["rapidspin", "uturn", "stoneaxe", "earthquake"],
 		randomBattleLevel: 75,
 	},
-	screamcomorant: {
+	screamcormorant: {
 		tier: "FEOU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["surf", "roost", "stealthrock", "dazzlinggleam"],

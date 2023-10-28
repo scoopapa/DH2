@@ -49,8 +49,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
-			if (attacker.hasAbility('prehistorichunter') && attacker.species.name === 'Scream Comorant' && !attacker.transformed) {
-				const forme = attacker.hp <= attacker.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+			if (attacker.hasAbility('prehistorichunter') && attacker.species.name === 'Scream Cormorant' && !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 				attacker.formeChange(forme, move);
 			}
 			this.add('-prepare', attacker, move.name);

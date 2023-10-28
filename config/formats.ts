@@ -2831,7 +2831,7 @@ export const Formats: FormatList = [
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}} */
 			let speciesTable = {};
-			let combinationTable = ['Xylomist', 'Yeomelt', 'Zoplite', 'Yeoxylo', 'Xylozop', 'Zopyeo', 'Xylyeozop'];
+			const combinationTable = ['Xylomist', 'Yeomelt', 'Zoplite', 'Yeoxylo', 'Xylozop', 'Zopyeo', 'Xylyeozop'];
 			let combinationTest = [];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
@@ -2840,16 +2840,12 @@ export const Formats: FormatList = [
 					combinationTest.push(template.name);
 				}
 			}
-			if ((combinationTest.includes('Xylomist') && combinationTest.includes('Yeoxylo')) ||
-				(combinationTest.includes('Xylomist') && combinationTest.includes('Xylozop')) ||
-				(combinationTest.includes('Xylomist') && combinationTest.includes('Xylyeozop')) ||
-				(combinationTest.includes('Yeomelt') && combinationTest.includes('Yeoxylo')) ||
-				(combinationTest.includes('Yeomelt') && combinationTest.includes('Zopyeo')) ||
-				(combinationTest.includes('Yeomelt') && combinationTest.includes('Xylyeozop')) ||
-				(combinationTest.includes('Zoplite') && combinationTest.includes('Xylozop')) ||
-				(combinationTest.includes('Zoplite') && combinationTest.includes('Zopyeo')) ||
-				(combinationTest.includes('Zoplite') && combinationTest.includes('Xylyeozop'))) {
-				return ['You cannot have XYZ Pokemon with their combined forms.'];
+			if (combinationTest.length > 1) {	//Skip the check if only one was found at most
+				if ((combinationTest.includes('Xylomist') && (combinationTest.includes('Yeoxylo') || combinationTest.includes('Xylozop') || combinationTest.includes('Xylyeozop')))
+					|| (combinationTest.includes('Yeomelt') && (combinationTest.includes('Yeoxylo') || combinationTest.includes('Zopyeo') || combinationTest.includes('Xylyeozop')))
+					|| (combinationTest.includes('Zoplite') && (combinationTest.includes('Xylozop') || combinationTest.includes('Zopyeo') || combinationTest.includes('Xylyeozop')))) {
+					return ['You cannot have XYZ Pokemon with their combined forms.'];
+				}
 			}
 		},
 	},
