@@ -861,7 +861,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	outclass: {
 		onSourceHit(target, source, move) {
-			if (!move || !target || source.types[1] || source.volatiles['outclass']) return;
+			if (!move || !target || source.types[1] || source.volatiles['outclass'] || target.hasItem('terashard')) return;
 			let targetType = target.types[0]
 			if (target !== source && move.category !== 'Status' &&
 				 !source.hasType(targetType) && source.addType(targetType) && targetType !== '???') {
@@ -971,7 +971,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const type = move.type;
 			if (
 				target.isActive && move.effectType === 'Move' && target !== source &&
-				type !== '???'
+				type !== '???' && !target.hasItem('terashard')
 			) {
 				if (!target.setType(type)) return false;
 				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
@@ -993,7 +993,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	greeneyed: {
 		name: "Green-Eyed",
 		onStart(source) {
-			this.actions.useMove("Snatch", source);
+			this.add('-ability', source, 'Green-Eyed');
+			source.addVolatile('snatch');
 		},
 		shortDesc: "On switch-in, if the foe uses a Snatchable move, this Pokemon uses it instead.",
 		rating: 3,
@@ -1300,6 +1301,93 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Momentum",
 		shortDesc: "The user heals 1/8 of its HP if it uses or gets hit by a spinning move.",
 	},
+	cudchew: {
+		onStart(pokemon) {
+			if (pokemon.getItem().isBerry) {
+				pokemon.eatItem(true);
+				this.add('-message', `${pokemon.name}'s ate its berry!`);
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+				pokemon.setItem(pokemon.lastItem);
+				pokemon.lastItem = '';
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Cud Chew');
+				this.add('-message', `${pokemon.name}'s regenerated its berry!`);
+			}
+		},
+		name: "Cud Chew",
+		rating: 4,
+		num: 291,
+		shortDesc: "Eats berry on switch-in, recycles berry on switch-out.",
+	},
+	permafrost: {
+		name: "Permafrost",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Permafrost');
+			this.add('-message', `${pokemon.name}'s freezing aura turns water into ice!`);
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Ice') {
+				this.boost({def: 1, spd: 1});
+			}
+		},
+		onFoeBeforeMovePriority: 13,
+		onFoeBeforeMove(attacker, defender, move) {
+			attacker.addVolatile('permafrost');
+		},
+		condition: {
+			onModifyTypePriority: -1,
+			onModifyType(move, pokemon) {
+				if (move.type === 'Water') {
+					move.type = 'Ice';
+				}
+			},
+			onAfterMove(pokemon) {
+				pokemon.removeVolatile('permafrost');
+			},
+		},
+		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 SpA/SpD when hit by Ice.",
+		rating: 4,
+	},
+	prehistoricmight: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Prehistoric Might', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else if (target.positiveBoosts()) {
+					this.boost({spe: -2}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Prehistoric Might",
+		rating: 2.5,
+		shortDesc: "On switch-in, the foe's Speed is lowered by 2 stages if it has a positive stat boost.",
+	},
+	/*
+	synchronize: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.effectType !== 'Move') {
+				for (const foes of target.adjacentFoes()) {
+					this.damage(damage, source, target);
+				}
+			}
+		},
+		name: "Synchronize",
+		rating: 2,
+		num: 28,
+		shortDesc: "If this Pokemon takes indirect damage, the opponent takes the same amount of damage.",
+	},
+ */
+	synchronize: {
+		inherit: true,
+		shortDesc: "(Non-functional placeholder) If this Pokemon takes indirect damage, the opponent takes the same amount of damage.",
+	},
 	
 // unchanged abilities
 	damp: {
@@ -1529,5 +1617,53 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ice Body",
 		rating: 1,
 		num: 115,
+	},
+	libero: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.libero) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.libero = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.libero;
+		},
+		name: "Libero",
+		rating: 4,
+		num: 236,
+	},
+	protean: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.protean) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.protean = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.protean;
+		},
+		name: "Protean",
+		rating: 4,
+		num: 168,
+	},
+	adaptability: {
+		onModifyMove(move, pokemon) {
+			if (move.type === pokemon.teraType && pokemon.baseSpecies.types.includes(pokemon.teraType) && pokemon.hasItem('terashard')) {
+				move.stab = 2.25;
+			} else {
+				move.stab = 2;
+			}
+		},
+		name: "Adaptability",
+		rating: 4,
+		num: 91,
 	},
 };
