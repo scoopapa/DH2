@@ -1371,7 +1371,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	synchronize: {
 		onDamage(damage, target, source, effect) {
 			if (effect.effectType !== 'Move') {
-				for (const foes of pokemon.adjacentFoes()) {
+				for (const foes of target.adjacentFoes()) {
 					this.damage(damage, source, target);
 				}
 			}
