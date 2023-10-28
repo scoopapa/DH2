@@ -1300,6 +1300,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Momentum",
 		shortDesc: "The user heals 1/8 of its HP if it uses or gets hit by a spinning move.",
 	},
+	cudchew: {
+		onStart(pokemon) {
+			if (pokemon.item.isBerry) {
+				pokemon.eatItem();
+				this.add('-message', `${pokemon.name}'s ate its berry!`);
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+				pokemon.setItem(pokemon.lastItem);
+				pokemon.lastItem = '';
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Cud Chew');
+				this.add('-message', `${pokemon.name}'s regenerated its berry!`);
+			}
+		},
+		name: "Cud Chew",
+		rating: 4,
+		num: 291,
+		shortDesc: "Eats berry on switch-in, recycles berry on switch-out.",
+	},
 	
 // unchanged abilities
 	damp: {
