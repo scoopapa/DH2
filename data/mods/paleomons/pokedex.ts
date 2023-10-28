@@ -117,7 +117,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Bayleef-Sonic",
 		baseSpecies: "Bayleef",
 		changesFrom: "Bayleef",
-		evos: ["Bayleef-Sonic"],
+		evos: ["Meganium-Sonic"],
 		prevo: "Chikorita-Sonic",
 		forme: "Sonic",
 		types: ["Grass", "Electric"],

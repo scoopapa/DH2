@@ -729,7 +729,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					if (data.source.isActive) {
 						this.add('-anim', data.source, hitMove, data.target);
 					}
-					this.trySpreadMoveHit([data.target], data.source, hitMove);
+					this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
 				}
 			},
 		},
