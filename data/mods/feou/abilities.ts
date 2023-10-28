@@ -190,7 +190,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
-			if (source == target) return;
+			if (source === target) return;
 			const user = this.effectState.target;
 			if (user.volatiles['lightdrive'] && !user.volatiles['lightdrive'].fromWeightDiff) return;
 			if (source === user) {
@@ -1052,7 +1052,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyAtk(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1062,7 +1062,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
 				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
@@ -1080,7 +1080,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpA(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1090,7 +1090,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
 				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
@@ -1113,7 +1113,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyAtk(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1123,7 +1123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
 				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
@@ -1141,7 +1141,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpA(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1151,7 +1151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
 				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
@@ -1606,7 +1606,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
-			if (source == target) return;
+			if (source === target) return;
 			const user = this.effectState.target;
 			if (user.volatiles['weightoflife'] && !user.volatiles['weightoflife'].fromWeightDiff) return;
 			if (source === user) {
@@ -2158,7 +2158,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const additionalBannedAbilities = [
 					// Zen Mode included here for compatability with Gen 5-6
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
-					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'pillage'
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -2401,14 +2401,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (!source.hp || !source.isActive || target.transformed || target.isSemiInvulnerable()) return;
-			if (['screamcomorantgulping', 'screamcomorantgorging'].includes(target.species.id)) {
+			if (['screamcormorantgulping', 'screamcormorantgorging'].includes(target.species.id)) {
 				this.damage(source.baseMaxhp / 4, source, target);
-				if (target.species.id === 'screamcomorantgulping') {
+				if (target.species.id === 'screamcormorantgulping') {
 					this.boost({def: -1}, source, target, null, true);
 				} else {
 					source.trySetStatus('par', target, move);
 				}
-				target.formeChange('screamcomorant', move);
+				target.formeChange('screamcormorant', move);
 				delete target.volatiles['prehistorichunter'];
 			}
 		},
@@ -2416,16 +2416,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (
 				effect && effect.id === 'surf' && source.hasAbility('prehistorichunter') &&
-				source.species.name === 'Scream Comorant' && !source.transformed
+				source.species.name === 'Scream Cormorant' && !source.transformed
 			) {
-				const forme = source.hp <= source.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+				const forme = source.hp <= source.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 				source.formeChange(forme, effect);
 				source.addVolatile('prehistorichunter');				
 			}
 		},
 		onWeatherChange(pokemon) {
 			// if (pokemon.transformed) return;
-			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isWeather('sunnyday')) {
 				pokemon.addVolatile('prehistorichunter');
@@ -2441,7 +2441,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+				const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 				if (effect?.id === 'boosterenergy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Prehistoric Hunter', '[fromitem]');

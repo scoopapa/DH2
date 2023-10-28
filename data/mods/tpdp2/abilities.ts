@@ -262,18 +262,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					break;
 			}
 		},
-		onModifyAtk(relayVar, source, target, move) {
-			if (source.forme === "Red") this.chainModify(2);
-		},
-		onModifyDef(relayVar, source, target, move) {
-			if (source.forme === "Blue") this.chainModify(2);
-		},
-		onModifySpA(relayVar, source, target, move) {
-			if (source.forme === "Black") this.chainModify(2);
-		},
-		onModifySpD(relayVar, source, target, move) {
-			if (source.forme === "White") this.chainModify(2);
-		},
 	},
 	boundaryblurrer: {
 		name: "Boundary Blurrer",
@@ -1187,7 +1175,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Healing Power",
 		shortDesc: "Recovers 1/3 of maximum HP when switching out.",
 		onSwitchOut(pokemon) {
-			pokemon.heal(pokemon.baseMaxhp / 3);
+			if(!pokemon.status.includes('weak')) 
+				pokemon.heal(pokemon.baseMaxhp / 3);
 		},
 	},
 	hobgoblin: {
@@ -1413,13 +1402,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	knownlimits: {
 		name: "Known Limits",
 		shortDesc: "Gives and receives less damage from skills that don't match the user's type.",
-		onDamage(damage, target, source, effect) {
-			if (effect.effectType === "Move" && !source.hasAbility(effect.type))
-				this.chainModify(2,3);
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (!attacker.types.includes(move.type)) {
+				return this.chainModify(2, 3);
+			}
 		},
-		onFoeDamage(damage, target, source, effect) {
-			if (effect.effectType === "Move" && !source.hasAbility(effect.type))
-				this.chainModify(2,3);
+		onSourceBasePowerPriority: 17,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (!attacker.types.includes(move.type)) {
+				return this.chainModify(2, 3);
+			}
 		},
 	},
 	kouteisearth: {

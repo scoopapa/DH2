@@ -1,5 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'gen9',
+	gen: 9,
 	actions: {
 		// for rage fist
 		runSwitch(pokemon: Pokemon) {

@@ -7712,7 +7712,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			highhorsepower: ["9L1"],
 		},
 	},
-	screamcomorant: {
+	screamcormorant: {
 		learnset: {
 			amnesia: ["9L1"],
 			batonpass: ["9L1"],

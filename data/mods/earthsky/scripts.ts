@@ -13,7 +13,135 @@ import {Utils} from '../../../lib';
 export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ['ES', 'OU', 'Uber', 'NFE', 'LC'],
+		customTiers: ['ES', 'Uber', 'OU', 'NFE', 'LC'],
+		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet | null): boolean {
+			const dex = this.dex;
+
+			let abilityid: ID = set ? toID(set.ability) : '' as ID;
+			const itemid: ID = set ? toID(set.item) : '' as ID;
+
+			if (itemid === 'pidgeotite') abilityid = 'noguard' as ID;
+			if (itemid === 'blastoisinite' || itemid === 'magmortarite') abilityid = 'megalauncher' as ID;
+			if (itemid === 'heracronite') abilityid = 'skilllink' as ID;
+			if (itemid === 'cameruptite') abilityid = 'sheerforce' as ID;
+			if (itemid === 'aerodactylite' || itemid === 'charizardmegax') abilityid = 'toughclaws' as ID;
+			if (itemid === 'glalitite') abilityid = 'refrigerate' as ID;
+			if (itemid === 'galladite') abilityid = 'sharpness' as ID;
+
+			switch (id) {
+			case 'aquastep': case 'chargebeam': case 'fierydance': case 'flamecharge': case 'nuzzle': case 'poweruppunch': case 'torchsong':
+				return abilityid !== 'sheerforce';
+			case 'solarbeam': case 'solarblade':
+				return ['desolateland', 'drought', 'chlorophyll', 'orichalcumpulse'].includes(abilityid) || itemid === 'powerherb';
+			case 'dynamicpunch': case 'grasswhistle': case 'inferno': case 'sing': case 'zapcannon': 
+				return ['supermassive', 'noguard'].includes(abilityid);
+			case 'heatcrash': case 'heavyslam':
+				return species.weightkg >= (species.evos ? 75 : 130);
+			case 'firepledge': case 'grasspledge': case 'waterpledge':
+				return ['fireplaque', 'grassplaque', 'waterplaque'].includes(itemid);
+
+			case 'acrobatics':
+				return itemid === '' || set?.item.consumable;
+			case 'aerialace':
+				return ['sharpness', 'technician'].includes(abilityid) && !moves.includes('bravebird');
+			case 'ancientpower':
+				return ['serenegrace', 'technician', 'sheerforce'].includes(abilityid) || !moves.includes('powergem');
+			case 'aromaticmist':
+				return abilityid === 'mistysurge';
+			case 'attract':
+				return abilityid === 'irresistable';
+			case 'bellydrum':
+				return moves.includes('aquajet') || moves.includes('extremespeed') ||
+					['iceface', 'unburden'].includes(abilityid);
+			case 'bugbite':
+				return species.types.includes('Bug') && ['technician', 'strongjaw'].includes(abilityid);
+			case 'chillywater':
+				return !moves.includes('scald');
+			case 'feint':
+				return abilityid === 'refrigerate';
+			case 'floralhealing':
+			case 'flowershield':
+				return abilityid === 'grassysurge';
+			case 'hiddenpowerelectric':
+				return !moves.includes('thunderbolt');
+			case 'hiddenpowerfighting':
+				return !(moves.includes('aurasphere') || moves.includes('focusblast'));
+			case 'hiddenpowerfire':
+				return !(moves.includes('flamethrower') || moves.includes('mysticalfire'));
+			case 'hiddenpowergrass':
+				return !(moves.includes('energyball') || moves.includes('grassknot') || moves.includes('gigadrain'));
+			case 'hiddenpowerice':
+				return !(moves.includes('icebeam') || moves.includes('aurorabeam') || moves.includes('glaciate'));
+			case 'hypnosis':
+				return ['baddreams', 'compoundeyes', 'insomnia'].includes(abilityid);
+			case 'icepunch':
+				return ['sheerforce', 'ironfist'].includes(abilityid);
+			case 'irontail':
+				return abilityid === 'supermassive' || species.types.includes('Steel') || !(moves.includes('ironhead') || moves.includes('gunkshot') || moves.includes('poisonjab'));
+			case 'jumpkick':
+				return !moves.includes('highjumpkick');
+			case 'magneticflux':
+				return abilityid === 'induction';
+			case 'outrage':
+				return abilityid === 'owntempo';
+			case 'phantomforce':
+				return !(moves.includes('shadowforce') || moves.includes('poltergeist') || moves.includes('shadowclaw')) || this.formatType !== 'singles';
+			case 'poisonfang':
+				return species.types.includes('Poison') && !(moves.includes('gunkshot') || moves.includes('poisonjab'));
+			case 'shadowpunch':
+				return abilityid === 'ironfist';
+			case 'smackdown':
+				return abilityid === 'technician' || species.types.includes('Ground');
+			case 'tantrum':
+				return !(moves.includes('earthquake') || moves.includes('drillrun') || moves.includes('highhorsepower')) || this.formatType !== 'singles';
+			}
+
+			if (this.formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
+				return true;
+			}
+			const modMoveData = BattleMovedex[id];
+			if (!modMoveData) return true;
+			if (modMoveData.category === 'Status') {
+				return this.GOOD_STATUS_MOVES.includes(id);
+			}
+			const moveData = BattleMovedex[id];
+			if (!moveData) return true;
+			if (moveData.category === 'Status') {
+				return this.GOOD_STATUS_MOVES.includes(id);
+			}
+			if (moveData.flags?.charge) {
+				return abilityid === 'tireless' || itemid === 'powerherb';
+			}
+			if (moveData.flags?.recharge) {
+				return abilityid === 'tireless';
+			}
+			if (moveData.flags?.slicing && abilityid === 'sharpness') {
+				return true;
+			}
+			if (moveData.flags?.bludg && abilityid === 'bludgeon' && id !== 'bash') {
+				if(id === 'swing' && set?.item.consumable) return false;
+				return true;
+			}
+			if(moveData.multihit?.length && moveData.basePower > 15 && (['skilllink', 'technician'].includes(abilityid) || itemid === 'loadeddice')){
+				return true;
+			}
+			if (moveData.basePower < 75) {
+				return this.GOOD_WEAK_MOVES.includes(id);
+			}
+			return !this.BAD_STRONG_MOVES.includes(id);
+		},
+		GOOD_STATUS_MOVES: [
+			'acidarmor', 'agility', 'aromatherapy', 'auroraveil', 'autotomize', 'batonpass', 'bellydrum', 'bulkup', 'bunkerdown', 'calmmind', 'coil', 'cottonguard', 'courtchange', 'curse', 'defog', 'destinybond', 'detect', 'disable', 'dragondance', 'eminence', 'encore', 'escapetunnel', 'filletaway', 'geomancy', 'glare', 'haze', 'healbell', 'healingwish', 'healorder', 'healpulse', 'heartswap', 'honeclaws', 'irondefense', 'kingsshield', 'leechseed', 'lightscreen', 'lovelykiss', 'lunardance', 'magiccoat', 'memento', 'midnight', 'milkdrink', 'moonlight', 'morningsun', 'nastyplot', 'naturesmadness', 'noretreat', 'obstruct', 'painsplit', 'partingshot', 'perishsong', 'preheat', 'protect', 'quiverdance', 'rebound', 'recover', 'reflect', 'reflecttype', 'rejuvenate', 'rest', 'revivalblessing', 'roar', 'rockpolish', 'roost', 'rototiller', 'shellsmash', 'shelter', 'shiftgear', 'shoreup', 'silktrap', 'slackoff', 'sleeppowder', 'sleeptalk', 'slipaway', 'softboiled', 'spikes', 'spikyshield', 'spore', 'stealthrock', 'stickyweb', 'strengthsap', 'substitute', 'switcheroo', 'swordsdance', 'synthesis', 'tailglow', 'tailwind', 'taunt', 'thunderwave', 'toxic', 'transform', 'trick', 'victorydance', 'warriorssoul', 'whirlwind', 'willowisp', 'wish', 'yawn',
+		],
+		GOOD_WEAK_MOVES: [
+			'accelerock', 'ambush', 'aquacutter', 'aquajet', 'avalanche', 'bind', 'boltbeak', 'bonemerang', 'bulletpunch', 'circlethrow', 'clamp', 'clearsmog', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'equalizer', 'facade', 'firefang', 'fishiousrend', 'flowertrap', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'iciclespear', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalstrike', 'naturesmadness', 'nightshade', 'nuzzle', 'pelletshot', 'populationbomb', 'psychocut', 'pursuit', 'quickattack', 'rapidspin', 'rockblast', 'ruination', 'saltcure', 'seismictoss', 'shadowclaw', 'shadowsneak', 'skydrop', 'snaptrap', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailhead', 'uturn', 'vengefulspirit', 'voltswitch', 'watershuriken', 'weatherball',
+		],
+		BAD_STRONG_MOVES: [
+			'belch', 'burnup', 'crushclaw', 'dragonrush', 'dreameater', 'eggbomb', 'falsesurrender', 'flyingpress', 'hyperbeam', 'hyperfang', 'hyperspacehole', 'jawlock', 'landswrath', 'megakick', 'megapunch', 'muddywater', 'nightdaze', 'pollenpuff', 'selfdestruct', 'shelltrap', 'slam', 'smartstrike', 'submission', 'synchronoise', 'takedown', 'thrash', 'uproar', 'vitalthrow',
+		],
+		GOOD_DOUBLES_MOVES: [
+			'allyswitch', 'barbbarrage', 'bulldoze', 'electroweb', 'faketears', 'fling', 'followme', 'helpinghand', 'junglehealing', 'lifedew', 'muddywater', 'pollenpuff', 'psychup', 'ragepowder', 'safeguard', 'skillswap', 'snarl', 'snipeshot', 'wideguard',
+		],
 	},
 	/* sim edits */
 	pokemon: {
@@ -2118,7 +2246,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
 				//Additional check for required move
 				if (altForme?.isMega && altForme?.requiredMove) {
-					if(pokemon.baseMoves.includes(this.toID(altForme.requiredMove))){
+					if(pokemon.baseMoves.includes(this.battle.toID(altForme.requiredMove))){
 						return item.megaStone;
 					}
 				} else {
@@ -2409,17 +2537,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		const baseNine = [ //Pokemon using their Gen IX learnsets as a base
 			"wooper", "wooperpaldea", "quagsire", "riolu", "lucario", "basculin", "basculinbluestriped", "basculinwhitestriped", "rowlet", "dartrix", "decidueye", "decidueyehisui", "indeedee", "indeedeef", "kleavor"
 		];
-		const deletedItems = [
+		/*const deletedItems = [
 			"adamantcrystal", "griseouscore", "luckypunch", "lustrousglobe", "punchingglove", "throatspray", "utilityumbrella",
-		];
+		];*/
 		/*const deletedAbilities = [
 			"angershell", "asoneglastrier", "asonespectrier", "battlebond", "chillingneigh", "curiousmedicine", "dragonsmaw", "gorillatactics", "grimneigh", "libero", "lingeringaroma", "mirrorarmor", "perishbody", "punkrock", "steelyspirit", "supremeoverlord", "transistor", "unseenfist", "wellbakedbody",
 		];*/
 		const renamedAbilities = [
-			"aurabreak", "emergencyexit", "wimpout", "minus", "plus", "powerofalchemy", "powerspot", "queenlymajesty", "rebound", "slushrush", "tanglinghair",
+			"aurabreak", "emergencyexit", "wimpout", "minus", "plus", "powerofalchemy", "powerspot", "queenlymajesty", "slushrush", "tanglinghair",
 		];
 		const newNameAbilities = [
-			"climatebreak", "escapeplan", "escapeplan", "induction", "induction", "alchemy", "poweraura", "majesty", "emergence", "snowplow", "tangling",
+			"climatebreak", "escapeplan", "escapeplan", "induction", "induction", "alchemy", "poweraura", "majesty", "snowplow", "tangling",
 		];
 		const deletedMoves = [
 			"appleacid", "bittermalice", "bleakwindstorm", "burningjealousy", "ceaselessedge", "chillyreception", "coaching", "comeuppance", "corrosivegas", "decorate", "doodle", "dualwingbeat", "esperwing", "expandingforce", "fierywrath", "flipturn", "gearup", "grassyglide", "gravapple", "hydrosteam", "hyperdrill", "icespinner", "infernalparade", "kinesis", "kowtowcleave", "luminacrash", "makeitrain", "matchagotcha", "mistyexplosion", "mortalspin", "mountaingale", "mysticalpower", "risingvoltage", "sandsearstorm", "scaleshot", "scorchingsands", "shadowstrike", "shellsidearm", "skittersmack", "springtidestorm", "steelroller", "syrupbomb", "takeheart", "terablast", "terrainpulse", "thunderouskick", "tidyup", "triplearrows", "tripleaxel", "tripledive", "twinbeam", "wildboltstorm"
@@ -2428,7 +2556,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			"amnesia", "assurance", "avalanche", "brine", "charm", "chillingwater", "eerieimpulse", "electricterrain", "electroball", "encore", "faketears", "futuresight", "grassyterrain", "hex", "hurricane", "hydropump", "mistyterrain", "nastyplot", "phantomforce", "powergem", "psychicterrain", "screech", "trailblaze", "whirlpool"
 		];*/
 		const droppedMachines = [ //Machines dropped from Earth & Sky; includes Flash, Natural Gift, and Toxic, which are re-added to their Pokemon after the algorithm
-			"agility", "aircutter", "airslash", "aurasphere", "batonpass", "beatup", "blazekick", "bodyslam", "bravebird", "bugbuzz", "bulletseed", "charge", "closecombat", "confide", "cosmicpower", "covet", "crosspoison", "crunch", "cut", "darkestlariat", "disarmingvoice", "doubleteam", "dragondance", "drainingkiss", "firefang", "firespin", "flareblitz", "flash", "focusenergy", "focuspunch", "guardswap", "haze", "heatcrash", "heavyslam", "highhorsepower", "icefang", "iciclespear", "imprison", "leafblade", "leafstorm", "liquidation", "lunge", "magicalleaf", "megakick", "megapunch", "megahorn", "metalclaw", "mudshot", "mudslap", "muddywater", "mysticalfire", "naturalgift", "nightshade", "payday", "pinmissile", "playrough", "poisontail", "pollenpuff", "pounce", "powerswap", "poweruppunch", "powerwhip", "psychicfangs", "psychocut", "razorshell", "revenge", "reversal", "rockblast", "sandtomb", "scaryface", "self-destruct", "solarblade", "speedswap", "spikes", "storedpower", "strugglebug", "superfang", "swagger", "swift", "takedown", "tailslap", "throatchop", "thunderfang", "toxic", "toxicspikes", "triattack", "venomdrench", "weatherball", "worryseed"
+			"agility", "aircutter", "airslash", "aurasphere", "batonpass", "beatup", "blazekick", "bodyslam", "bravebird", "bugbuzz", "bulletseed", "charge", "closecombat", "confide", "cosmicpower", "covet", "crosspoison", "crunch", "cut", "darkestlariat", "disarmingvoice", "doubleteam", "dragondance", "drainingkiss", "firefang", "firespin", "flareblitz", "flash", "focusenergy", "focuspunch", "guardswap", "haze", "heatcrash", "heavyslam", "highhorsepower", "icefang", "iciclespear", "imprison", "leafblade", "leafstorm", "liquidation", "lunge", "magicalleaf", "megakick", "megapunch", "megahorn", "metalclaw", "mudshot", "mudslap", "muddywater", "mysticalfire", "naturalgift", "nightshade", "payday", "pinmissile", "playrough", "poisontail", "pollenpuff", "pounce", "powerswap", "poweruppunch", "powerwhip", "psychicfangs", "psychocut", "razorshell", "revenge", "reversal", "rockblast", "sandtomb", "scaryface", "selfdestruct", "solarblade", "speedswap", "spikes", "storedpower", "strugglebug", "superfang", "swagger", "swift", "takedown", "tailslap", "throatchop", "thunderfang", "toxic", "toxicspikes", "triattack", "venomdrench", "weatherball", "worryseed"
 		];
 		const renamedMoves = [ //Also includes the replacement of Axe Kick and Hail with Jump Kick and Snowscape, respectively
 			"axekick","banefulbunker","chillingwater","clangoroussoul","doubleshock","flowertrick","hail","moongeistbeam","psyblade","psychicfangs","psyshieldbash","ragefist","stompingtantrum","strangesteam","sunsteelstrike","trailblaze"
@@ -2445,7 +2573,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		for (let pokemon of this.species.all()) {
 			const pokemonID = this.toID(pokemon.name);
 			const learnsetTest = false;//["dedenne"].includes(pokemonID);
-			const formatsTest = false;//["zygarde"].includes(pokemonID);
+			const formatsTest = false;//["basculin", "basculinbluestriped", "basculinwhitestriped"].includes(pokemonID);
 			if(formatsTest) console.log(pokemonID);
 			 //Don't do anything with new or deleted Pokemon
 			if(pokemon === null || pokemon.num < -500 || (pokemon.forme && (["Egelas","Sartori"].includes(pokemon.forme) || pokemon.baseSpecies === "Revavroom" ||
@@ -2480,10 +2608,11 @@ export const Scripts: ModdedBattleScriptsData = {
 								pokemon.tier = pokemon.prevo ? "NFE" : "LC";
 								pokemon.natDexTier = pokemon.prevo ? "NFE" : "LC";
 							} else {
-								this.modData('FormatsData', pokemonID).tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
-								this.modData('FormatsData', pokemonID).natDexTier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
-								pokemon.tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
-								pokemon.natDexTier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
+								const tier = esrules.isBannedSpecies(pokemon) ? "Uber" : "OU";
+								this.modData('FormatsData', pokemonID).tier = tier;
+								this.modData('FormatsData', pokemonID).natDexTier = tier;
+								pokemon.tier = tier;
+								pokemon.natDexTier = tier;
 							}
 						}/* else if (pokemonID.endsWith('gmax')) {
 							this.modData('FormatsData', pokemonID).tier = "Illegal";
@@ -2694,8 +2823,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		}*/
 		for(let move of this.moves.all()) {
 			const moveID = this.toID(move.name);
-			if(moveID.endsWith('torque') || move.isNonstandard === "Past") delete move.isNonstandard;
-			if(move.zMove) delete move.zMove;
+			if(moveID.endsWith('torque') || move.isNonstandard === "Past") {
+				this.modData('Moves',moveID).isNonstandard = null;
+				move.isNonstandard = null;
+			}
 		}
 		/*for(const moveID of renamedMoves) {
 			//delete Object.keys(Dex.moves)[moveID];
@@ -2719,7 +2850,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		}*/
 		for(let item of this.items.all()){
 			const itemID = this.toID(item.name);
-			if((item.isNonstandard === "Past" || item.isNonstandard === "Unobtainable") && !item.zMove) delete item.isNonstandard;
+			
+			if((item.isNonstandard === "Past" || item.isNonstandard === "Unobtainable") && !item.zMove){
+				this.modData('Items',itemID).isNonstandard = null;
+				item.isNonstandard = null;
+			}
 			if(item.isBerry && !item.consumable) item.consumable = true; //I manually added the flag to the ones I edited, but there are some I didn't edit.
 			if(item.fling && item.fling.basePower === 10){ //Fling BP buffs
 				if(item.isBerry || item === "airballoon") continue;
@@ -2727,10 +2862,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if(itemID.startsWith('tr')) delete item.fling; //TRs can't be Flung anymore.
 		}
-		for(const itemID of deletedItems) {
+		/*for(const itemID of deletedItems) {
 			//delete this.modData('Items', itemID);
 			this.modData('Items', itemID).isNonstandard = "Unobtainable";
-		}
+		}*/
 		
 		/* individual Pokemon moveset edits */
 		// Bulbasaur
@@ -3411,6 +3546,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','slowpoke').learnset.flamethrower;
 		delete this.modData('Learnsets','slowpoke').learnset.flash;
 		delete this.modData('Learnsets','slowpoke').learnset.nightmare;
+		delete this.modData('Learnsets','slowpoke').learnset.waterfall;
 		// Slowpoke Galar
 		this.modData('Learnsets','slowpokegalar').learnset.autotomize = ["9D"];
 		this.modData('Learnsets','slowpokegalar').learnset.afteryou = ["9M"];
@@ -3431,6 +3567,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','slowbro').learnset.flash;
 		delete this.modData('Learnsets','slowbro').learnset.metronome;
 		delete this.modData('Learnsets','slowbro').learnset.nightmare;
+		delete this.modData('Learnsets','slowbro').learnset.waterfall;
 		// Slowbro Galar
 		this.modData('Learnsets','slowbrogalar').learnset.snipeshot = ["9D"];
 		this.modData('Learnsets','slowbrogalar').learnset.afteryou = ["9M"];
@@ -3530,9 +3667,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','shellder').learnset.shelter = ["9L61"];
 		this.modData('Learnsets','shellder').learnset.hydropump = ["9M"];
 		this.modData('Learnsets','shellder').learnset.liquidation = ["9E"];
+		delete this.modData('Learnsets','shellder').learnset.waterfall;
 		// Cloyster
 		this.modData('Learnsets','cloyster').learnset.sharpen = ["9D"];
+		this.modData('Learnsets','cloyster').learnset.shelter = ["9L1"];
 		this.modData('Learnsets','cloyster').learnset.hydropump = ["9M"];
+		delete this.modData('Learnsets','cloyster').learnset.waterfall;
 		// Gastly
 		this.modData('Learnsets','gastly').learnset.poisonfang = ["9D"];
 		this.modData('Learnsets','gastly').learnset.smog = ["9L1"];
@@ -4497,6 +4637,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','slowking').learnset.flash = ["9M"];
 		this.modData('Learnsets','slowking').learnset.stasis = ["9T"];
 		delete this.modData('Learnsets','slowking').learnset.blizzard;
+		delete this.modData('Learnsets','slowking').learnset.waterfall;
 		// Slowking Galar
 		this.modData('Learnsets','slowkinggalar').learnset.spicyextract = ["9D"];
 		this.modData('Learnsets','slowkinggalar').learnset.toxic = ["9M"];
@@ -4768,8 +4909,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','houndoom').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','houndoom').learnset.toxic = ["9M"];
 		// Kingdra
-		this.modData('Learnsets','kingdra').learnset.storedpower = ["9D"];
-		this.modData('Learnsets','kingdra').learnset.whirlpool = ["9L0","9M"];
+		this.modData('Learnsets','kingdra').learnset.chaoticstorm = ["9D"];
+		this.modData('Learnsets','kingdra').learnset.storedpower = ["9L1"];
+		this.modData('Learnsets','kingdra').learnset.whirlpool = ["9L0", "9M"];
 		this.modData('Learnsets','kingdra').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','kingdra').learnset.toxic = ["9M"];
 		// Phanpy
@@ -5221,6 +5363,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Surskit
 		this.modData('Learnsets','surskit').learnset.soak = ["9D"];
 		delete this.modData('Learnsets','surskit').learnset.blizzard;
+		delete this.modData('Learnsets','surskit').learnset.waterfall;
 		// Masquerain
 		this.modData('Learnsets','masquerain').learnset.glare = ["9D"];
 		this.modData('Learnsets','masquerain').learnset.terrify = ["9L0"];
@@ -5228,6 +5371,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','masquerain').learnset.nightmare = ["9M"];
 		delete this.modData('Learnsets','masquerain').learnset.blizzard;
 		delete this.modData('Learnsets','masquerain').learnset.scaryface;
+		delete this.modData('Learnsets','masquerain').learnset.waterfall;
 		// Shroomish
 		this.modData('Learnsets','shroomish').learnset.doubleedge = ["9D"];
 		this.modData('Learnsets','shroomish').learnset.naturalgift = ["9M"];
@@ -5239,6 +5383,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','breloom').learnset.naturalgift = ["9M"];
 		this.modData('Learnsets','breloom').learnset.toxic = ["9M"];
 		delete this.modData('Learnsets','breloom').learnset.synthesis;
+		this.modData('Learnsets','breloom').learnset.trailhead = ["9M"];
 		// Slakoth
 		this.modData('Learnsets','slakoth').learnset.bide = ["9D"];
 		this.modData('Learnsets','slakoth').learnset.chillywater = ["9M"];
@@ -5320,6 +5465,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','azurill').learnset.chillywater = ["9M"];
 		delete this.modData('Learnsets','azurill').learnset.blizzard;
 		delete this.modData('Learnsets','azurill').learnset.icebeam;
+		delete this.modData('Learnsets','azurill').learnset.waterfall;
 		// Nosepass
 		this.modData('Learnsets','nosepass').learnset.electrify = ["9D"];
 		this.modData('Learnsets','nosepass').learnset.headsmash = ["9E"];
@@ -5613,7 +5759,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','anorith').learnset.stoneaxe = ["9L61"];
 		delete this.modData('Learnsets','anorith').learnset.knockoff;
 		// Armaldo
-		this.modData('Learnsets','armaldo').learnset.aquacutter = ["9D"];
+		this.modData('Learnsets','armaldo').learnset.liquidation = ["9D"];
 		this.modData('Learnsets','armaldo').learnset.ancientpower = ["9L10"];
 		this.modData('Learnsets','armaldo').learnset.metalclaw = ["9L13"];
 		this.modData('Learnsets','armaldo').learnset.furycutter = ["9L16"];
@@ -5744,6 +5890,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','clamperl').learnset.chillywater = ["9M"];
 		delete this.modData('Learnsets','clamperl').learnset.blizzard;
 		delete this.modData('Learnsets','clamperl').learnset.icebeam;
+		delete this.modData('Learnsets','clamperl').learnset.waterfall;
 		// Huntail
 		this.modData('Learnsets','huntail').learnset.tailglow = ["9D"];
 		this.modData('Learnsets','huntail').learnset.terrify = ["9L9"];
@@ -6106,10 +6253,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Shellos
 		this.modData('Learnsets','shellos').learnset.slipaway = ["9D"];
 		delete this.modData('Learnsets','shellos').learnset.blizzard;
+		delete this.modData('Learnsets','shellos').learnset.waterfall;
 		// Gastrodon
 		this.modData('Learnsets','gastrodon').learnset.slipaway = ["9D"];
 		this.modData('Learnsets','gastrodon').learnset.flash = ["9M"];
 		delete this.modData('Learnsets','gastrodon').learnset.blizzard;
+		delete this.modData('Learnsets','gastrodon').learnset.waterfall;
 		// Ambipom
 		this.modData('Learnsets','ambipom').learnset.swing = ["9D"];
 		this.modData('Learnsets','ambipom').learnset.dualchop = ["9L1", "9M"];
@@ -9123,6 +9272,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','chewtle').learnset.superfang = ["9M"];
 		this.modData('Learnsets','chewtle').learnset.waterpulse = ["9M"];
 		delete this.modData('Learnsets','chewtle').learnset.dragontail;
+		delete this.modData('Learnsets','chewtle').learnset.waterfall;
 		// Drednaw
 		this.modData('Learnsets','drednaw').learnset.fakeout = ["9D"];
 		this.modData('Learnsets','drednaw').learnset.aquatail = ["9M"];
@@ -9134,6 +9284,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','drednaw').learnset.superfang = ["9M"];
 		this.modData('Learnsets','drednaw').learnset.waterpulse = ["9M"];
 		delete this.modData('Learnsets','drednaw').learnset.meteorbeam;
+		delete this.modData('Learnsets','drednaw').learnset.waterfall;
 		// Yamper
 		this.modData('Learnsets','yamper').learnset.nuzzle = ["9D"];
 		this.modData('Learnsets','yamper').learnset.chargebeam = ["9M"];
@@ -11694,7 +11845,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','roaringmoon').learnset.doubleedge;
 		delete this.modData('Learnsets','roaringmoon').learnset.uturn;
 		// Valiant Droid
-		this.modData('Learnsets','valiantdroid').learnset.secretsword = ["9D"];
+		this.modData('Learnsets','valiantdroid').learnset.energyblade = ["9D"];
 		this.modData('Learnsets','valiantdroid').learnset.metaledge = ["9L70"];
 		this.modData('Learnsets','valiantdroid').learnset.allyswitch = ["9M"];
 		this.modData('Learnsets','valiantdroid').learnset.dreameater = ["9M"];
@@ -11934,19 +12085,18 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','ogerponcornerstone').learnset.highjumpkick;
 
 		// Syclar
-		this.modData('Learnsets','syclar').learnset.firstimpression = ["9D"];
+		this.modData('Learnsets','syclar').learnset.ambush = ["9D"];
 		this.modData('Learnsets','syclar').learnset.leechlife = ["9L1"];
 		this.modData('Learnsets','syclar').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','syclar').learnset.vitaldrain = ["9M"];
 		delete this.modData('Learnsets','syclar').learnset.absorb;
 		// Syclant
-		this.modData('Learnsets','syclant').learnset.firstimpression = ["9D"];
+		this.modData('Learnsets','syclant').learnset.ambush = ["9D"];
 		this.modData('Learnsets','syclant').learnset.leechlife = ["9L1"];
 		this.modData('Learnsets','syclant').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','syclant').learnset.nastyplot = ["9M"];
 		this.modData('Learnsets','syclant').learnset.screech = ["9M"];
 		this.modData('Learnsets','syclant').learnset.stringshot = ["9M"];
-		this.modData('Learnsets','syclant').learnset.trailhead = ["9M"];
 		this.modData('Learnsets','syclant').learnset.vitaldrain = ["9M"];
 		delete this.modData('Learnsets','syclant').learnset.absorb;
 		// Revenankh
@@ -11955,20 +12105,18 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','revenankh').learnset.poltergeist = ["9M"];
 		// Embirch
 		this.modData('Learnsets','embirch').learnset.strangesmoke = ["9D"];
-		this.modData('Learnsets','embirch').learnset.trailhead = ["9M"];
 		this.modData('Learnsets','embirch').learnset.pelletshot = ["9E"];
 		// Flarelm
 		this.modData('Learnsets','flarelm').learnset.strangesmoke = ["9D"];
 		this.modData('Learnsets','flarelm').learnset.preheat = ["9L1"];
 		this.modData('Learnsets','flarelm').learnset.fullcollide = ["9M"];
-		this.modData('Learnsets','flarelm').learnset.trailhead = ["9M"];
 		delete this.modData('Learnsets','flarelm').learnset.earthquake;
 		// Pyroak
 		this.modData('Learnsets','pyroak').learnset.strangesmoke = ["9D"];
+		this.modData('Learnsets','pyroak').learnset.leafstorm = ["9L1"];
 		this.modData('Learnsets','pyroak').learnset.preheat = ["9L1"];
 		this.modData('Learnsets','pyroak').learnset.napalm = ["9L64"];
 		this.modData('Learnsets','pyroak').learnset.fullcollide = ["9M"];
-		this.modData('Learnsets','pyroak').learnset.trailhead = ["9M"];
 		// Breezi
 		this.modData('Learnsets','breezi').learnset.aerate = ["9D"];
 		this.modData('Learnsets','breezi').learnset.bounce = ["9M"];
@@ -11998,15 +12146,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Privatyke
 		this.modData('Learnsets','privatyke').learnset.throatchop = ["9D"];
 		this.modData('Learnsets','privatyke').learnset.whitewater = ["9L4"];
-		this.modData('Learnsets','privatyke').learnset.chillywater = ["9M"];
+		this.modData('Learnsets','privatyke').learnset.aquacutter = ["9L32"];
+		this.modData('Learnsets','privatyke').learnset.bubblebeam = ["9E"];
 		this.modData('Learnsets','privatyke').learnset.octazooka = ["9E"];
 		delete this.modData('Learnsets','privatyke').learnset.blizzard;
 		delete this.modData('Learnsets','privatyke').learnset.earthquake;
 		// Arghonaut
 		this.modData('Learnsets','arghonaut').learnset.throatchop = ["9D"];
-		this.modData('Learnsets','arghonaut').learnset.lashout = ["9L1"];
+		this.modData('Learnsets','arghonaut').learnset.lashout = ["9L0"];
 		this.modData('Learnsets','arghonaut').learnset.whitewater = ["9L4"];
-		this.modData('Learnsets','arghonaut').learnset.chillywater = ["9M"];
+		this.modData('Learnsets','arghonaut').learnset.aquacutter = ["9L32"];
 		this.modData('Learnsets','arghonaut').learnset.hydropump = ["9M"];
 		delete this.modData('Learnsets','arghonaut').learnset.blizzard;
 		// Nohface
@@ -12028,7 +12177,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','kitsunoh').learnset.shadowstrike;
 		// Monohm
 		this.modData('Learnsets','monohm').learnset.mindreader = ["9D"];
-		this.modData('Learnsets','monohm').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','monohm').learnset.eerieimpulse = ["9M"];
 		this.modData('Learnsets','monohm').learnset.electroball = ["9M"];
 		delete this.modData('Learnsets','monohm').learnset.blizzard;
@@ -12036,15 +12184,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','monohm').learnset.icebeam;
 		// Duohm
 		this.modData('Learnsets','duohm').learnset.mindreader = ["9D"];
-		this.modData('Learnsets','duohm').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','duohm').learnset.eerieimpulse = ["9M"];
 		this.modData('Learnsets','duohm').learnset.electroball = ["9M"];
 		delete this.modData('Learnsets','duohm').learnset.blizzard;
 		delete this.modData('Learnsets','duohm').learnset.fireblast;
 		delete this.modData('Learnsets','duohm').learnset.icebeam;
 		// Cyclohm
-		this.modData('Learnsets','cyclohm').learnset.mindreader = ["9D"];
-		this.modData('Learnsets','cyclohm').learnset.cyclohm = ["9M"];
+		this.modData('Learnsets','cyclohm').learnset.chaoticstorm = ["9D"];
 		this.modData('Learnsets','cyclohm').learnset.eerieimpulse = ["9M"];
 		this.modData('Learnsets','cyclohm').learnset.electroball = ["9M"];
 		this.modData('Learnsets','cyclohm').learnset.hurricane = ["9M"];
@@ -12068,12 +12214,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','colossoil').learnset.furyattack;
 		// Protowatt
 		this.modData('Learnsets','protowatt').learnset.mefirst = ["9D"];
-		this.modData('Learnsets','protowatt').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','protowatt').learnset.flash = ["9M"];
 		// Krilowatt
 		this.modData('Learnsets','krilowatt').learnset.heartswap = ["9D"];
 		this.modData('Learnsets','krilowatt').learnset.mindreader = ["9L46"];
-		this.modData('Learnsets','krilowatt').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','krilowatt').learnset.eerieimpulse = ["9M"];
 		this.modData('Learnsets','krilowatt').learnset.electricterrain = ["9M"];
 		this.modData('Learnsets','krilowatt').learnset.electroball = ["9M"];
@@ -12093,7 +12237,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','scratchet').learnset.tussle = ["9L4"];
 		this.modData('Learnsets','scratchet').learnset.pounce = ["9L23"];
 		this.modData('Learnsets','scratchet').learnset.roar = ["9M"];
-		this.modData('Learnsets','scratchet').learnset.trailhead = ["9M"];
 		// Tomohawk
 		this.modData('Learnsets','tomohawk').learnset.morningsun = ["9D"];
 		this.modData('Learnsets','tomohawk').learnset.whirlwind = ["9L0"];
@@ -12120,7 +12263,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','tomohawk').learnset.hurricane = ["9M"];
 		this.modData('Learnsets','tomohawk').learnset.roar = ["9M"];
 		this.modData('Learnsets','tomohawk').learnset.skyattack = ["9M"];
-		this.modData('Learnsets','tomohawk').learnset.trailhead = ["9M"];
 		// Necturine
 		this.modData('Learnsets','necturine').learnset.sketch = ["9D"];
 		this.modData('Learnsets','necturine').learnset.toxic = ["9M"];
@@ -12189,7 +12331,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','snugglow').learnset.supersonic = ["9L6"];
 		this.modData('Learnsets','snugglow').learnset.acid = ["9L9"];
 		this.modData('Learnsets','snugglow').learnset.pounce = ["9L12"];
-		this.modData('Learnsets','snugglow').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','snugglow').learnset.dive = ["9M"];
 		this.modData('Learnsets','snugglow').learnset.electroball = ["9M"];
 		this.modData('Learnsets','snugglow').learnset.surf = ["9M"];
@@ -12202,7 +12343,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','plasmanta').learnset.acid = ["9L9"];
 		this.modData('Learnsets','plasmanta').learnset.pounce = ["9L12"];
 		this.modData('Learnsets','plasmanta').learnset.bodypress = ["9M"];
-		this.modData('Learnsets','plasmanta').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','plasmanta').learnset.dive = ["9M"];
 		this.modData('Learnsets','plasmanta').learnset.electroball = ["9M"];
 		this.modData('Learnsets','plasmanta').learnset.surf = ["9M"];
@@ -12211,23 +12351,23 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','floatoy').learnset.playnice = ["9D"];
 		this.modData('Learnsets','floatoy').learnset.splash = ["9L1"];
 		this.modData('Learnsets','floatoy').learnset.whitewater = ["9L3"];
-		this.modData('Learnsets','floatoy').learnset.chillywater = ["9M"];
 		delete this.modData('Learnsets','floatoy').learnset.blizzard;
 		// Caimanoe
 		this.modData('Learnsets','caimanoe').learnset.muddywater = ["9D"];
 		this.modData('Learnsets','caimanoe').learnset.splash = ["9L1"];
 		this.modData('Learnsets','caimanoe').learnset.whitewater = ["9L3"];
-		this.modData('Learnsets','caimanoe').learnset.chillywater = ["9M"];
 		delete this.modData('Learnsets','caimanoe').learnset.blizzard;
 		// Naviathan
-		this.modData('Learnsets','naviathan').learnset.nobleroar = ["9D"];
+		this.modData('Learnsets','naviathan').learnset.dragonhammer = ["9D"];
+		this.modData('Learnsets','naviathan').learnset.nobleroar = ["9L0"];
 		this.modData('Learnsets','naviathan').learnset.splash = ["9L1"];
 		this.modData('Learnsets','naviathan').learnset.whitewater = ["9L3"];
+		this.modData('Learnsets','naviathan').learnset.wavecrash = ["9L74"];
 		this.modData('Learnsets','naviathan').learnset.bodypress = ["9M"];
 		this.modData('Learnsets','naviathan').learnset.breakingswipe = ["9M"];
-		this.modData('Learnsets','naviathan').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','naviathan').learnset.screech = ["9M"];
 		this.modData('Learnsets','naviathan').learnset.steelbeam = ["9T"];
+		delete this.modData('Learnsets','naviathan').learnset.selfdestruct;
 		// Crucibelle
 		this.modData('Learnsets','crucibelle').learnset.venomdrench = ["9D"];
 		this.modData('Learnsets','crucibelle').learnset.assurance = ["9M"];
@@ -12284,32 +12424,32 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','caribolt').learnset.trailhead = ["9M"];
 		// Smogecko
 		this.modData('Learnsets','smogecko').learnset.strangesmoke = ["9D"];
-		this.modData('Learnsets','smogecko').learnset.preheat = ["9L1"];
-		this.modData('Learnsets','smogecko').learnset.tussle = ["9L1"];
+		this.modData('Learnsets','smogecko').learnset.tussle = ["9L13"];
+		this.modData('Learnsets','smogecko').learnset.preheat = ["9L44"];
+		this.modData('Learnsets','smogecko').learnset.screech = ["9M"];
 		this.modData('Learnsets','smogecko').learnset.toxic = ["9M"];
 		// Smoguana
 		this.modData('Learnsets','smoguana').learnset.strangesmoke = ["9D"];
-		this.modData('Learnsets','smoguana').learnset.preheat = ["9L1"];
-		this.modData('Learnsets','smoguana').learnset.tussle = ["9L1"];
+		this.modData('Learnsets','smoguana').learnset.tussle = ["9L13"];
+		this.modData('Learnsets','smoguana').learnset.preheat = ["9L46"];
+		this.modData('Learnsets','smoguana').learnset.screech = ["9M"];
 		this.modData('Learnsets','smoguana').learnset.toxic = ["9M"];
 		// Smokomodo
 		this.modData('Learnsets','smokomodo').learnset.strangesmoke = ["9D"];
-		this.modData('Learnsets','smokomodo').learnset.preheat = ["9L1"];
-		this.modData('Learnsets','smokomodo').learnset.tussle = ["9L1"];
+		this.modData('Learnsets','smokomodo').learnset.tussle = ["9L13"];
+		this.modData('Learnsets','smokomodo').learnset.preheat = ["9L49"];
+		this.modData('Learnsets','smokomodo').learnset.screech = ["9M"];
 		this.modData('Learnsets','smokomodo').learnset.toxic = ["9M"];
 		// Swirlpool
 		this.modData('Learnsets','swirlpool').learnset.lifedew = ["9D"];
-		this.modData('Learnsets','swirlpool').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','swirlpool').learnset.toxic = ["9M"];
 		delete this.modData('Learnsets','swirlpool').learnset.blizzard;
 		// Coribalis
 		this.modData('Learnsets','coribalis').learnset.lifedew = ["9D"];
-		this.modData('Learnsets','coribalis').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','coribalis').learnset.toxic = ["9M"];
 		delete this.modData('Learnsets','coribalis').learnset.blizzard;
 		// Snaelstrom
 		this.modData('Learnsets','snaelstrom').learnset.lifedew = ["9D"];
-		this.modData('Learnsets','snaelstrom').learnset.chillywater = ["9M"];
 		this.modData('Learnsets','snaelstrom').learnset.toxic = ["9M"];
 		delete this.modData('Learnsets','snaelstrom').learnset.blizzard;
 		// Justyke
@@ -12363,14 +12503,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','chromera').learnset.roar = ["9M"];
 		this.modData('Learnsets','chromera').learnset.signalbeam = ["9M"];
 		this.modData('Learnsets','chromera').learnset.strength = ["9M"];
-		//Venomicon
+		// Venomicon
 		this.modData('Learnsets','venomicon').learnset.jawlock = ["9D"];
 		this.modData('Learnsets','venomicon').learnset.curse = ["9L50"];
 		this.modData('Learnsets','venomicon').learnset.fellswoop = ["9L55"];
 		this.modData('Learnsets','venomicon').learnset.hurricane = ["9M"];
 		this.modData('Learnsets','venomicon').learnset.toxic = ["9M"];
 		delete this.modData('Learnsets','venomicon').learnset.coil;
-		//Saharascal
+		// Saharascal
 		this.modData('Learnsets','saharascal').learnset.jumpkick = ["9D"];
 		this.modData('Learnsets','saharascal').learnset.dustspray = ["9L4"];
 		this.modData('Learnsets','saharascal').learnset.tussle = ["9L16"];
@@ -12380,7 +12520,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','saharascal').learnset.smackdown = ["9M"];
 		this.modData('Learnsets','saharascal').learnset.waterpulse = ["9M"];
 		this.modData('Learnsets','saharascal').learnset.watergun = ["9E"];
-		//Saharaja
+		// Saharaja
 		this.modData('Learnsets','saharaja').learnset.diamondstorm = ["9D"];
 		this.modData('Learnsets','saharaja').learnset.highhorsepower = ["9L0"];
 		this.modData('Learnsets','saharaja').learnset.dustspray = ["9L1"];
@@ -12391,7 +12531,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','saharaja').learnset.strength = ["9M"];
 		this.modData('Learnsets','saharaja').learnset.waterpulse = ["9M"];
 		delete this.modData('Learnsets','saharaja').learnset.watergun;
-		//Ababo
+		// Ababo
 		this.modData('Learnsets','ababo').learnset.splash = ["9D"];
 		this.modData('Learnsets','ababo').learnset.tackle = ["9L1"];
 		this.modData('Learnsets','ababo').learnset.drainingkiss = ["9L12"];
@@ -12408,7 +12548,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','ababo').learnset.flamethrower;
 		delete this.modData('Learnsets','ababo').learnset.metronome;
 		delete this.modData('Learnsets','ababo').learnset.pound;
-		//Scattervein
+		// Scattervein
 		this.modData('Learnsets','scattervein').learnset.lovelykiss = ["9D"];
 		this.modData('Learnsets','scattervein').learnset.leechlife = ["9L0"];
 		this.modData('Learnsets','scattervein').learnset.tackle = ["9L1"];
@@ -12433,12 +12573,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','scattervein').learnset.shockwave = ["9M"];
 		this.modData('Learnsets','scattervein').learnset.torment = ["9M"];
 		this.modData('Learnsets','scattervein').learnset.vitaldrain = ["9M"];
+		delete this.modData('Learnsets','scattervein').learnset.extremespeed;
 		delete this.modData('Learnsets','scattervein').learnset.moonblast;
 		delete this.modData('Learnsets','scattervein').learnset.moonlight;
 		delete this.modData('Learnsets','scattervein').learnset.thunder;
 		delete this.modData('Learnsets','scattervein').learnset.thunderbolt;
 		delete this.modData('Learnsets','scattervein').learnset.wrap;
-		//Hemogoblin
+		// Hemogoblin
 		this.modData('Learnsets','hemogoblin').learnset.lovelykiss = ["9D"];
 		this.modData('Learnsets','hemogoblin').learnset.flameburst = ["9L0"];
 		this.modData('Learnsets','hemogoblin').learnset.flareblitz = ["9L1"];
