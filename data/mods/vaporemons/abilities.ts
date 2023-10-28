@@ -1369,6 +1369,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		shortDesc: "On switch-in, the foe's Speed is lowered by 2 stages if it has a positive stat boost.",
 	},
+	/*
 	synchronize: {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.effectType !== 'Move') {
@@ -1381,6 +1382,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2,
 		num: 28,
 		shortDesc: "If this Pokemon takes indirect damage, the opponent takes the same amount of damage.",
+	},
+ */
+	synchronize: {
+		inherit: true,
+		shortDesc: "(Non-functional placeholder) If this Pokemon takes indirect damage, the opponent takes the same amount of damage.",
 	},
 	
 // unchanged abilities
