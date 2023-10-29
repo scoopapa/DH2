@@ -72,7 +72,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Daleomons",
 	},
 	cranidos: {
-		tier: "Paleomons",
+		tier: "Paleomons LC",
 		doublesTier: "Daleomons",
 	},
 	rampardos: {
@@ -80,7 +80,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Daleomons",
 	},
 	shieldon: {
-		tier: "Paleomons",
+		tier: "Paleomons LC",
 		doublesTier: "Daleomons",
 	},
 	bastiodon: {
@@ -88,7 +88,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Daleomons",
 	},
 	archen: {
-		tier: "Paleomons",
+		tier: "Paleomons LC",
 		doublesTier: "Daleomons",
 	},
 	archeops: {
@@ -96,7 +96,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Daleomons",
 	},
 	tirtouga: {
-		tier: "Paleomons",
+		tier: "Paleomons LC",
 		doublesTier: "Daleomons",
 	},
 	carracosta: {
@@ -104,7 +104,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Daleomons",
 	},
 	tyrunt: {
-		tier: "Paleomons",
+		tier: "Paleomons LC",
 		doublesTier: "Daleomons",
 	},
 	tyrantrum: {
@@ -112,7 +112,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "Daleomons",
 	},
 	amaura: {
-		tier: "Paleomons",
+		tier: "Paleomons LC",
 		doublesTier: "Daleomons",
 	},
 	aurorus: {
