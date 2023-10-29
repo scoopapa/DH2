@@ -23,7 +23,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 112, def: 90, spa: 87, spd: 78, spe: 67},
 		abilities: {0: "Unfiltered"},
 		weightkg: 69.3,
-		prevo: "Varantis",
+		// prevo: "Varantis",
 	},
 	rotoghold: {
  // fusion: ['Gholdengo', 'Rotom'],
@@ -61,7 +61,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 76, def: 84, spa: 122, spd: 102, spe: 67},
 		abilities: {0: "Grassy Surge"},
 		weightkg: 63.9,
-		prevo: "Dollava",
+		// prevo: "Dollava",
 	},
 	zarubok: {
  // fusion: ['Zarude', 'Arbok'],
@@ -107,7 +107,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 130, def: 105, spa: 75, spd: 75, spe: 50},
 		abilities: {0: "Scrap Rock"},
 		weightkg: 160,
-		prevo: "Rhytrix",
+		// prevo: "Rhytrix",
 	},
 	slitherking: {
  // fusion: ['Slither Wing', 'Klefki'],
@@ -145,7 +145,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 95, def: 85, spa: 70, spd: 105, spe: 65},
 		abilities: {0: "Neutralizing Gas"},
 		weightkg: 36.3,
-		prevo: "Grimeblu-Alola",
+		// prevo: "Grimeblu-Alola",
 		otherFormes: ["Muktaria-Alola-Mega"],
 		formeOrder: ["Muktaria-Alola", "Muktaria-Alola-Mega"],
 	},
@@ -226,7 +226,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 82, atk: 123, def: 75, spa: 75, spd: 65, spe: 104},
 		abilities: {0: "Squall"},
 		weightkg: 148.5,
-		prevo: "Bramblinub",
+		// prevo: "Bramblinub",
 	},
 	meowscoriosensu: {
  // fusion: ['Meowscarada', 'Oricorio-Sensu'],
@@ -377,7 +377,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 90, def: 105, spa: 105, spd: 70, spe: 85},
 		abilities: {0: "Rejuvenate"},
 		weightkg: 104.3,
-		prevo: "Stargela",
+		// prevo: "Stargela",
 	},
 	floatzera: {
  // fusion: ['Floatzel', 'Zeraora'],
@@ -429,7 +429,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 92, atk: 105, def: 82, spa: 112, spd: 85, spe: 95},
 		abilities: {0: "Shock Factor"},
 		weightkg: 82.1,
-		prevo: "Flaalgon",
+		// prevo: "Flaalgon",
 		otherFormes: ["Amphamence-Mega-X", "Amphamence-Mega-Y"],
 		formeOrder: ["Amphamence", "Amphamence-Mega-X", "Amphamence-Mega-Y"],
 	},
@@ -497,7 +497,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 101, atk: 125, def: 83, spa: 86, spd: 79, spe: 96}, 
 		abilities: {0: "Vital Metal Body"},
 		weightkg: 131,
-		prevo: "Cosmonkey",
+		// prevo: "Cosmonkey",
 	},
 	bellikiss: {
  // fusion: ['Bellibolt', 'Togekiss'],
@@ -507,7 +507,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 107, atk: 57, def: 94, spa: 111, spd: 99, spe: 62}, 
 		abilities: {0: "Fortunomorphosis"},
 		weightkg: 75.5,
-		prevo: "Tadpi",
+		// prevo: "Tadpi",
 	},
 	samuraiaihisui: {
  // fusion: ['Samurott-Hisui', 'Grafaiai'],
@@ -516,7 +516,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Poison"],
 		baseStats: {hp: 76, atk: 121, def: 77, spa: 90, spd: 68, spe: 97}, 
 		abilities: {0: "Rebel's Blade"},
-		prevo: "Shroowott",
+		// prevo: "Shroowott",
 		weightkg: 42.7,
 	},
 	florgerouge: {
@@ -528,7 +528,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 81, atk: 62, def: 84, spa: 118, spd: 135, spe: 75}, 
 		abilities: {0: "Burning Petals"},
 		weightkg: 47.5,
-		prevo: "Charbebe",
+		// prevo: "Charbebe",
 	},
 	urshiluxerapidstrike: {
  // fusion: ['Vanilluxe', 'Urshifu'],
@@ -538,7 +538,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 120, def: 92, spa: 88, spd: 77, spe: 98}, 
 		abilities: {0: "Snowblind"},
 		weightkg: 81.3,
-		prevo: "Vanifu",
+		// prevo: "Vanifu",
 	},
 	tinkovish: {
  // fusion: ['Tinkaton', 'Arctovish'],
@@ -558,7 +558,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 87, atk: 109, def: 155, spa: 75, spd: 102, spe: 45}, 
 		abilities: {0: "Sand Wrath"},
 		weightkg: 301,
-		prevo: "Larvix",
+		// prevo: "Larvix",
 		otherFormes: ["Tyranix-Mega-X", "Tyranix-Mega-Y"],
 		formeOrder: ["Tyranix", "Tyranix-Mega-X", "Tyranix-Mega-Y"],
 	},
@@ -596,7 +596,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 105, def: 100, spa: 110, spd: 120, spe: 60}, 
 		abilities: {0: "Pondweed"},
 		weightkg: 208,
-		prevo: "Marshgoo-Hisui",
+		// prevo: "Marshgoo-Hisui",
 		otherFormes: ["Goopert-Hisui-Mega"],
 		formeOrder: ["Goopert-Hisui", "Goopert-Hisui-Mega"],
 	},
@@ -621,7 +621,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 120, def: 110, spa: 70, spd: 80, spe: 85}, 
 		abilities: {0: "Frisk Exchange"},
 		weightkg: 112,
-		prevo: "Frigiboo-Large",
+		// prevo: "Frigiboo-Large",
 	},
 	cresserace: {
  // fusion: ['Cinderace', 'Cresselia'],
@@ -651,7 +651,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 108, def: 70, spa: 82, spd: 105, spe: 50}, 
 		abilities: {0: "Fat Fingers"},
 		weightkg: 248.3,
-		prevo: "Rowlax",
+		// prevo: "Rowlax",
 	},
 	corvizolt: {
  // fusion: ['Corviknight', 'Dracozolt'],
@@ -838,7 +838,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 120, def: 110, spa: 90, spd: 95, spe: 55}, 
 		abilities: {0: "Steamy Scales"},
 		weightkg: 260.3,
-		prevo: "Dragocar",
+		// prevo: "Dragocar",
 	},
 	vikadrago: {
  // fusion: ['Vikavolt', 'Regidrago'],
@@ -869,7 +869,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 58, def: 59, spa: 79, spd: 76, spe: 56},
 		abilities: {0: "Growth Spurt"},
 		weightkg: 15.5,
-		prevo: "Smoliqwil",
+		// prevo: "Smoliqwil",
 		evos: ["Arbolosion-Hisui"],
 	},
 	smoliqwil: {
@@ -900,7 +900,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 105, def: 100, spa: 57, spd: 60, spe: 46},
 		abilities: {0: "Reachless"},
 		weightkg: 68,
-		prevo: "Rhylet",
+		// prevo: "Rhylet",
 		evos: ["Deciperior-Hisui"],
 	},
 	grimeblualola: {
@@ -951,7 +951,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 67, atk: 85, def: 77, spa: 70, spd: 55, spe: 51},
 		abilities: {0: "Shell Shock"},
 		weightkg: 61.9,
-		prevo: "Mareegon",
+		// prevo: "Mareegon",
 		evos: ["Amphamence"],
 	},
 	cosmonkey: {
@@ -1033,7 +1033,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 80, def: 80, spa: 80, spd: 95, spe: 45},
 		abilities: {0: "Pondweed"},
 		weightkg: 48.3,
-		prevo: "Goomud",
+		// prevo: "Goomud",
 		evos: ["Goopert-Hisui"],
 	},
 	frigiboolarge: {
@@ -1074,7 +1074,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 75, def: 80, spa: 75, spd: 70, spe: 60},
 		abilities: {0: "Marvel Steam"},
 		weightkg: 47.3,
-		prevo: "Dracoly",
+		// prevo: "Dracoly",
 		evos: ["Dragocoal"],
 	},
 };
