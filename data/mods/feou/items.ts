@@ -27,8 +27,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	boosterenergy: {
 		inherit: true,
+		onStart() {
+			this.effectState.started = true;
+		},
 		onUpdate(pokemon) {
-			if (pokemon.transformed) return;
+			if (!this.effectState.started || pokemon.transformed) return;
 			if (this.queue.peek(true)?.choice === 'runSwitch') return;
 
 			if (!this.field.isWeather('sunnyday')) {
