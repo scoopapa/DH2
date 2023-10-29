@@ -731,7 +731,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	   shortDesc: "Required to make Parry work.",
 	   name: "Parry Condition",
 	   pp: 10,
-	   priority: 6,
+	   priority: 0,
 	   flags: {},
 		volatileStatus: 'parrycondition',
 		onPrepareHit(target, source, move) {
