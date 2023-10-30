@@ -258,7 +258,7 @@ export const Formats: FormatList = [
             let allowedTiers = ['hi', 'C'];
             for (const set of team) {
                 let template = this.dex.species.get(set.species);
-                if ((template.tier !== 'hi') && (template.tier !== 'c')) {
+                if ((template.tier !== 'hi') && (template.tier !== 'C')) {
                     return [set.species + ' is not legal in [Gen 9] Blindsided.'];
                 }
             }
