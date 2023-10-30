@@ -283,8 +283,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 	},
 	blunderpolicy: {
-		inherit: true,
-		desc: "If the holder misses an attacking move, its Speed and accuracy are raised by 2 stages. Single use.",
+		name: "Blunder Policy",
+		spritenum: 716,
+		fling: {
+			basePower: 80,
+		},
+		onUpdate(pokemon) {
+			if (pokemon.moveThisTurnResult === false) {
+				this.boost({spe: 2});
+				pokemon.useItem();
+			}
+		},
+		// Item activation located in scripts.js
+		num: 1121,
+		gen: 8,
+		desc: "+2 Speed if the holder's move fails. Single use.",
 	},
 	punchingglove: {
 		name: "Punching Glove",
