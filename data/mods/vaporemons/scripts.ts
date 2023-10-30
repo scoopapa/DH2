@@ -1,78 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	actions: {
-		inherit: true,
-		hitStepAccuracy(targets, pokemon, move) {
-			const hitResults = [];
-			for (const [i, target] of targets.entries()) {
-				this.battle.activeTarget = target;
-				// calculate true accuracy
-				let accuracy = move.accuracy;
-				if (move.ohko) { // bypasses accuracy modifiers
-					if (!target.isSemiInvulnerable()) {
-						accuracy = 30;
-						if (move.ohko === 'Ice' && this.gen >= 7 && !pokemon.hasType('Ice')) {
-							accuracy = 20;
-						}
-						if (!target.volatiles['dynamax'] && pokemon.level >= target.level &&
-							(move.ohko === true || !target.hasType(move.ohko))) {
-							accuracy += (pokemon.level - target.level);
-						} else {
-							this.battle.add('-immune', target, '[ohko]');
-							hitResults[i] = false;
-							continue;
-						}
-					}
-				} else {
-					const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
-	
-					let boosts;
-					let boost!: number;
-					if (accuracy !== true) {
-						if (!move.ignoreAccuracy) {
-							boosts = this.battle.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
-							boost = this.battle.clampIntRange(boosts['accuracy'], -6, 6);
-							if (boost > 0) {
-								accuracy *= boostTable[boost];
-							} else {
-								accuracy /= boostTable[-boost];
-							}
-						}
-						if (!move.ignoreEvasion) {
-							boosts = this.battle.runEvent('ModifyBoost', target, null, null, {...target.boosts});
-							boost = this.battle.clampIntRange(boosts['evasion'], -6, 6);
-							if (boost > 0) {
-								accuracy /= boostTable[boost];
-							} else if (boost < 0) {
-								accuracy *= boostTable[-boost];
-							}
-						}
-					}
-					accuracy = this.battle.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
-				}
-				if (move.alwaysHit || (move.id === 'toxic' && this.gen >= 6 && pokemon.hasType('Poison'))) {
-					accuracy = true; // bypasses ohko accuracy modifiers
-				} else {
-					accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
-				}
-				if (accuracy !== true && !this.battle.randomChance(accuracy, 100)) {
-					if (move.smartTarget) {
-						move.smartTarget = false;
-					} else {
-						if (!move.spreadHit) this.battle.attrLastMove('[miss]');
-						this.battle.add('-miss', pokemon, target);
-					}
-					if (!move.ohko && move.category !== 'Status' && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
-							this.battle.boost({accuracy: 2, spe: 2}, pokemon);
-					}
-					hitResults[i] = false;
-					continue;
-				}
-				hitResults[i] = true;
-			}
-			return hitResults;
-		},
-	},
 	pokemon: {
 		ignoringAbility() {
 			let neutralizinggas = false;
@@ -1252,6 +1179,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "brambleghast").learnset.spikyshield = ["9L1"];
 		this.modData("Learnsets", "brambleghast").learnset.whirlwind = ["9L1"];
 		this.modData("Learnsets", "brambleghast").learnset.wrap = ["9L1"];
+		this.modData("Learnsets", "brambleghast").learnset.swordsdance = ["9L1"];
 		this.modData('Learnsets', 'heatran').learnset.smackdown = ['9L1'];
 		this.modData('Learnsets', 'garchomp').learnset.smackdown = ['9L1'];
 		this.modData('Learnsets', 'applin').learnset.rootpull = ['9L1'];
