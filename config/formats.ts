@@ -255,7 +255,7 @@ export const Formats: FormatList = [
 		],
         onValidateTeam(team, format) {
             let speciesTable = {};
-            let allowedTiers = ['hi', 'c'];
+            let allowedTiers = ['hi', 'C'];
             for (const set of team) {
                 let template = this.dex.species.get(set.species);
                 if ((template.tier !== 'hi') && (template.tier !== 'c')) {
