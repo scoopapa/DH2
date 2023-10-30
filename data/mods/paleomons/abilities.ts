@@ -5,22 +5,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(target) {
 			if (!this.field.getPseudoWeather('gravity')) {
 				this.add('-ability', target, 'First Flight');
-				target.addVolatile('flight');
+				target.addVolatile('firstflight');
 			}
 		},
 		condition: {
 			onStart(target) {
 				if (target.volatiles['smackdown'] || target.volatiles['ingrain']) return false;
-				this.add('-start', target, 'First Flight');
+				this.add('-start', target, 'First Flight', '[silent]');
 			},
 			onImmunity(type) {
 				if (type === 'Ground') return false;
 			},
 			onDamagingHit(damage, target, source, move) {
-				source.removeVolatile('flight');
+				source.removeVolatile('firstflight');
 			},
 			onEnd(target) {
-				this.add('-end', target, 'First Flight');
+				this.add('-end', target, 'First Flight', '[silent]');
 			},
 		},
 	},
