@@ -2,6 +2,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	dynamax: {
 		name: 'Dynamax',
 		noCopy: true,
+		duration: 3,
 		durationCallback(source, effect) {
 			if (source.gigantamax) return 0;
 		},
@@ -25,18 +26,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.maxhp = Math.floor(pokemon.maxhp * ratio);
 			pokemon.hp = Math.floor(pokemon.hp * ratio);
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
-		},
-		onBasePowerPriority: 30,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.isMax && move.category !== 'Status' && (move.type === 'Fighting' || move.type === 'Poison')) {
-				return move.basepower - 10;
-			}
-			if (move.isMax && move.category !== 'Status' && (move.type === 'Flying')) {
-				return move.basepower - 40;
-			}
-			else if (move.isMax && move.category !== 'Status' && (move.type !== 'Flying' || move.type !== 'Fighting' || move.type !== 'Poison')) {
-				return move.basepower - 20;
-			}
 		},
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
