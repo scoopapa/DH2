@@ -1308,11 +1308,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	buizel: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Technician", H: "Water Veil"},
+		abilities: {0: "Swift Swim", 1: "Reckless", H: "Water Veil"},
 	},
 	floatzel: {
 		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Technician", H: "Water Veil"},
+		baseStats: {hp: 85, atk: 115, def: 55, spa: 75, spd: 50, spe: 115},
+		abilities: {0: "Swift Swim", 1: "Reckless", H: "Water Veil"},
 	},
 	cherrim: {
 		inherit: true,
@@ -1347,7 +1348,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	skuntank: {
 		inherit: true,
-		baseStats: {hp: 103, atk: 51, def: 77, spa: 93, spd: 71, spe: 84},
+		baseStats: {hp: 103, atk: 93, def: 77, spa: 51, spd: 71, spe: 84},
 		abilities: {0: "Neutralizing Gas", 1: "Aftermath", H: "Keen Eye"},
 	},
 	bronzong: {
@@ -1571,7 +1572,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Water", "Fighting"],
 		baseStats: {hp: 85, atk: 120, def: 85, spa: 78, spd: 60, spe: 100},
-		abilities: {0: "Torrent", H: "Pride"},
+		abilities: {0: "Torrent", H: "Supreme Overlord"},
 		otherFormes: ["Samurott-Hisui", "Samurott-Galar"],
 		formeOrder: ["Samurott", "Samurott-Hisui", "Samurott-Galar"],
 	},
