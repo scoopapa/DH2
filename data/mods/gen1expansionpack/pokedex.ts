@@ -542,7 +542,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	steelix: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 85, def: 200, spa: 65, spd: 65, spe: 30},
+		baseStats: {hp: 75, atk: 85, def: 200, spa: 55, spd: 55, spe: 30},
 		gen: 1,
 	},
 	rhyperior: {

@@ -73,7 +73,7 @@ export const TeamsHandler = new class {
 		if (!includePrivate) where.push('private IS NULL');
 
 		const result = await this.query<StoredTeam>(
-			`SELECT * FROM teams${where.length ? ` WHERE ${where.join(' AND ')}` : ''} LIMIT ${count}`,
+			`SELECT * FROM teams${where.length ? ` WHERE ${where.join(' AND ')}` : ''} ORDER BY date DESC LIMIT ${count}`,
 			args,
 		);
 		return result.filter(row => {
@@ -402,6 +402,7 @@ export const commands: Chat.ChatCommands = {
 
 			const page = isEdit ? 'edit' : 'upload';
 			if (id) {
+				connection.send(`|queryresponse|teamupload|` + JSON.stringify({teamid: id, teamName}));
 				connection.send(`>view-teams-${page}\n|deinit`);
 				this.parse(`/join view-teams-view-${id}-${id}`);
 			} else {

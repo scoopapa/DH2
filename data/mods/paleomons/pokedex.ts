@@ -156,7 +156,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Goldoco",
 		types: ["Steel"],
 		baseStats: {hp: 100, atk: 135, def: 100, spa: 50, spd: 70, spe: 50},
-		abilities: {0: "Good As Gold"},
+		abilities: {0: "Good as Gold"},
 		weightkg: 40,
 	},
 	cranidos: {
