@@ -2222,6 +2222,33 @@ export const Formats: FormatList = [
 		unbanlist: ['Orchile', 'Dolphena', 'Scalaron', 'Rantler', 'Cobracotta', 'Albatrygon', 'Electangle', 'Torgeist', 'Platypad', 'Soleron', 'Nunopod', 'Zeploom', 'Brawnkey', 'Salamalix', 'Cinnastar', "Muab'Boa", 'Volvolpa', 'Harzodia', 'Cyllindrake', 'Kodokai', 'Jaegorm', 'Jaegorm-Collective', 'Faerenheit', 'Cellsius', 'Kelven', 'Salaos', 'Morndos', 'Pythos', 'Quadringo', 'Corundell', 'Flocura' ],
 	},
 	{
+        name: "[Gen 9] Spookymod",
+        desc: [
+            "jumpscaare",
+        ],
+        threads: [
+            `&bullet; <a href="https://www.youtube.com/shorts/bbZCltuyZlM">Spookymod on Smogon Forums</a>`,
+              ],
+        ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Z-Move Clause', 'Spokymod'],
+        banlist: [],
+        onValidateTeam(team, format) {
+            /**@type {{[k: string]: true}} */
+            let speciesTable = {};
+            let f = false;
+            let ff = false;
+            for (const set of team) {
+                if(set.species === 'Flutter Mane') f = true;
+                if(set.species === 'Flutter Mane 2') ff = true;
+                if(f && ff) return ['Did you think you could bring two Flutter Manes to a game? Are you stupid?'];
+                let template = this.dex.species.get(set.species);
+                if (template.tier !== 'SM') {
+                    return [set.species + ' is not usable in Spookymod.'];
+                }
+            }
+        },
+        mod: 'sm',
+    },
+	{
 		name: "[Gen 9] Super Types OU",
 		desc: "The Super Type mechanic from Scootopia, only it's applied to current gen 9 OU.",
 		threads: [
