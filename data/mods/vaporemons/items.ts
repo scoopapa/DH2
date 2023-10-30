@@ -37,6 +37,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
 		},
+		onModifyMove(move, pokemon) {
+			const type = pokemon.teraType;
+			if (move.type === type && pokemon.baseSpecies.types.includes(type)) {
+				move.stab = 2;
+			}
+		},
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60 && move.type === attacker.teraType && !move.multihit && move.priority < 0.1) {
+				this.debug('Tera Shard boost');
+				return move.basepower = 60;
+			}
+			if (move.id === 'terablast') {
+				return move.basepower = 100;
+			}
+		},
 		onTryHit(pokemon, target, move) {
 			if (move.id === 'soak' || move.id === 'magicpowder') {
 				this.add('-immune', pokemon, '[from] item: Tera Shard');
@@ -265,8 +283,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 	},
 	blunderpolicy: {
-		inherit: true,
-		desc: "If the holder misses due to accuracy, its Speed and accuracy are raised by 2 stages. Single use.",
+		name: "Blunder Policy",
+		spritenum: 716,
+		fling: {
+			basePower: 80,
+		},
+		onUpdate(pokemon) {
+			if (pokemon.moveThisTurnResult === false) {
+				this.boost({spe: 2});
+				pokemon.useItem();
+			}
+		},
+		// Item activation located in scripts.js
+		num: 1121,
+		gen: 8,
+		desc: "+2 Speed if the holder's move fails. Single use.",
 	},
 	punchingglove: {
 		name: "Punching Glove",
@@ -907,6 +938,33 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Scyther line: Immune to hazard damage, 1.5x Spe (Scyther), 1.3x Defenses (Scizor), 1.5x Attack (Kleavor).",
 		itemUser: ["Scyther", "Scizor", "Kleavor"],
+		gen: 9,
+	},
+	clearamulet: {
+		name: "Clear Amulet",
+		spritenum: 747,
+		fling: {
+			basePower: 30,
+		},
+		onTryBoost(boost, target, source, effect) {
+			// Don't bounce self stat changes, or boosts that have already bounced
+			if (!source || target === source || !boost || effect.name === 'Mirror Armor' || effect.name === 'Clear Amulet') return;
+			let b: BoostID;
+			for (b in boost) {
+				if (boost[b]! < 0) {
+					if (target.boosts[b] === -6) continue;
+					const negativeBoost: SparseBoostsTable = {};
+					negativeBoost[b] = boost[b];
+					delete boost[b];
+					if (source.hp) {
+						this.add('-item', target, 'Clear Amulet');
+						this.boost(negativeBoost, source, target, null, true);
+					}
+				}
+			}
+		},
+		num: 1882,
+		desc: "If this Pokemon's stat stages would be lowered, the attacker's are lowered instead.",
 		gen: 9,
 	},
 	

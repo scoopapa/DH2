@@ -1,5 +1,4 @@
 export const Scripts: ModdedBattleScriptsData = {
-  inherit: 'gen9',
   gen: 9,
   actions: {
     canMegaEvo(pokemon) {
@@ -45,8 +44,20 @@ export const Scripts: ModdedBattleScriptsData = {
   init() {
 
     // gen 9 tmp
+    this.modData('Learnsets', 'basculegion').learnset.shadowsneak = ['9L1'];
+    this.modData('Learnsets', 'basculegionf').learnset.shadowsneak = ['9L1'];
+    this.modData('Learnsets', 'overqwil').learnset.pursuit = ['9L1'];
+    this.modData('Learnsets', 'overqwil').learnset.earthquake = ['9L1'];
+    this.modData('Learnsets', 'lokix').learnset.highjumpkick = ['9L1'];
+    this.modData('Learnsets', 'maushold').learnset.armthrust = ['9L1'];
+    this.modData('Learnsets', 'screamtail').learnset.followme = ['9L1'];
+    this.modData('Learnsets', 'ironjugulis').learnset.strengthsap = ['9L1'];
+    this.modData('Learnsets', 'ironjugulis').learnset.stealthrock = ['9L1'];
+    this.modData('Learnsets', 'ironmoth').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
+    this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
+    this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
 
     // distrib for PLA moves
@@ -842,6 +853,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'noctowl').learnset.uturn = ['9L1'];
     this.modData('Learnsets', 'lanturn').learnset.tailglow = ['9L1'];
     this.modData('Learnsets', 'bellossom').learnset.weatherball = ['9L1'];
+    this.modData('Learnsets', 'ampharos').learnset.wish = ['9L1'];
+    this.modData('Learnsets', 'ampharos').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'sudowoodo').learnset.teramorphosis = ['9L1'];
     this.modData('Learnsets', 'politoed').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'politoed').learnset.lifedew = ['9L1'];

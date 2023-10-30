@@ -53,18 +53,19 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 					if (species.types[type] !== baseSpecies.types[type]) {
 						// console.log(species.types[type] + " is different from " + baseSpecies.types[type]);
 						modded = true;
+						break;
 					}
 				}
-				if (species.baseStats.hp !== baseSpecies.baseStats.hp) modded = true;
-				else if (species.baseStats.atk !== baseSpecies.baseStats.atk) modded = true;
-				else if (species.baseStats.def !== baseSpecies.baseStats.def) modded = true;
-				else if (species.baseStats.spa !== baseSpecies.baseStats.spa) modded = true;
-				else if (species.baseStats.spd !== baseSpecies.baseStats.spd) modded = true;
-				else if (species.baseStats.spe !== baseSpecies.baseStats.spe) modded = true;
-				else if (species.abilities[0] !== baseSpecies.abilities[0]) modded = true;
-				else if (species.abilities[1] !== baseSpecies.abilities[1]) modded = true;
-				else if (species.abilities['H'] !== baseSpecies.abilities['H']) modded = true;
-				else if (species.abilities['S'] !== baseSpecies.abilities['S']) modded = true;
+				modded = modded ||/*if*/ (species.baseStats.hp !== baseSpecies.baseStats.hp/*) modded = true;
+				else if (*/ || species.baseStats.atk !== baseSpecies.baseStats.atk/*) modded = true;
+				else if (*/ || species.baseStats.def !== baseSpecies.baseStats.def/*) modded = true;
+				else if (*/ || species.baseStats.spa !== baseSpecies.baseStats.spa/*) modded = true;
+				else if (*/ || species.baseStats.spd !== baseSpecies.baseStats.spd/*) modded = true;
+				else if (*/ || species.baseStats.spe !== baseSpecies.baseStats.spe/*) modded = true;
+				else if (*/ || species.abilities[0] !== baseSpecies.abilities[0]/*) modded = true;
+				else if (*/ || species.abilities[1] !== baseSpecies.abilities[1]/*) modded = true;
+				else if (*/ || species.abilities['H'] !== baseSpecies.abilities['H']/*) modded = true;
+				else if (*/ || species.abilities['S'] !== baseSpecies.abilities['S'])/* modded = true*/;
 				if (modded) {
 					pokemon.isModded = true;
 					// console.log(species.name + " is different from in canon");

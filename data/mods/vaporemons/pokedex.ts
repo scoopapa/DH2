@@ -114,7 +114,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	avalugg: {
 		inherit: true,
-		abilities: {0: "Overcoat", 1: "Ice Body", H: "Sturdy"},
+		abilities: {0: "Overcoat", 1: "Permafrost", H: "Sturdy"},
+	},
+	avalugghisui: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Permafrost", H: "Sturdy"},
 	},
 	vespiquen: {
 		inherit: true,
@@ -182,6 +186,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Healer", 1: "Synchronize", H: "Psychic Surge"},
 	},
 	magearna: {
+		inherit: true,
+		abilities: {0: "Soul-Heart", H: "Healer"},
+	},
+	magearnaoriginal: {
 		inherit: true,
 		abilities: {0: "Soul-Heart", H: "Healer"},
 	},
@@ -301,7 +309,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	articuno: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Gale Wings", H: "Snow Cloak"},
+		abilities: {0: "Pressure", 1: "Gale Wings", H: "Permafrost"},
 	},
 	rotomfan: {
 		inherit: true,
@@ -310,6 +318,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	rotomheat: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Smelt"},
+	},
+	rotomfrost: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Permafrost"},
 	},
 	bombirdier: {
 		inherit: true,
@@ -807,7 +819,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	camerupt: {
 		inherit: true,
-		abilities: {0: "Smelt", 1: "Solid Rock", H: "Anger Point"},
+		abilities: {0: "Smelt", 1: "Solid Rock", H: "Cud Chew"},
 	},
 	rolycoly: {
 		inherit: true,
@@ -1253,7 +1265,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	tauros: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Blunt Force", H: "Sheer Force"},
+		abilities: {0: "Intimidate", 1: "Blunt Force", H: "Cud Chew"},
 	},
 	dondozo: {
 		inherit: true,
@@ -1309,7 +1321,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	glaceon: {
 		inherit: true,
-		abilities: {0: "Snow Cloak", H: "Muscle Memory"},
+		abilities: {0: "Permafrost", H: "Muscle Memory"},
 	},
 	tarountula: {
 		inherit: true,
@@ -1349,11 +1361,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	hoothoot: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Fairy Ringer", H: "Tinted Lens"},
+		abilities: {0: "Synchronize", 1: "Fairy Ringer", H: "Tinted Lens"},
 	},
 	noctowl: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Fairy Ringer", H: "Tinted Lens"},
+		abilities: {0: "Synchronize", 1: "Fairy Ringer", H: "Tinted Lens"},
 	},
 	teddiursa: {
 		inherit: true,
@@ -1401,11 +1413,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	brambleghast: {
 		inherit: true,
-		abilities: {0: "Wind Rider", 1: "Momentum", H: "Infiltrator"},
+		abilities: {0: "Wind Rider", 1: "Sand Rush", H: "Infiltrator"},
+	},
+	snorunt: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Moody", H: "Permafrost"},
 	},
 	glalie: {
 		inherit: true,
-		abilities: {0: "Momentum", 1: "Moody", H: "Ice Body"},
+		abilities: {0: "Momentum", 1: "Moody", H: "Permafrost"},
 	},
 	okidogi: {
 		inherit: true,
@@ -1418,5 +1434,93 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	munkidori: {
 		inherit: true,
 		abilities: {0: "Toxic Chain", H: "Magic Guard"},
+	},
+	sneasler: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Muscle Memory", H: "Poison Touch"},
+	},
+	lechonk: {
+		inherit: true,
+		abilities: {0: "Aroma Veil", 1: "Cud Chew", H: "Thick Fat"},
+	},
+	oinkologne: {
+		inherit: true,
+		abilities: {0: "Lingering Aroma", 1: "Cud Chew", H: "Thick Fat"},
+	},
+	oinkolognef: {
+		inherit: true,
+		abilities: {0: "Aroma Veil", 1: "Cud Chew", H: "Thick Fat"},
+	},
+	mareep: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Cud Chew", H: "Plus"},
+	},
+	flaaffy: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Cud Chew", H: "Plus"},
+	},
+	ampharos: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Cud Chew", H: "Plus"},
+	},
+	cryogonal: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Permafrost"},
+	},
+	growlithehisui: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Prehistoric Might", H: "Rock Head"},
+	},
+	arcaninehisui: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Prehistoric Might", H: "Rock Head"},
+	},
+	kleavor: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Prehistoric Might", H: "Sharpness"},
+	},
+	piloswine: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Prehistoric Might", H: "Thick Fat"},
+	},
+	mamoswine: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Prehistoric Might", H: "Thick Fat"},
+	},
+	yanma: {
+		inherit: true,
+		abilities: {0: "Speed Boost", 1: "Compound Eyes", H: "Prehistoric Might"},
+	},
+	yanmega: {
+		inherit: true,
+		abilities: {0: "Speed Boost", 1: "Tinted Lens", H: "Prehistoric Might"},
+	},
+	stonjourner: {
+		inherit: true,
+		abilities: {0: "Power Spot", H: "Prehistoric Might"},
+	},
+	walkingwake: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Prehistoric Might"},
+	},
+	gallade: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Sharpness", H: "Justified"},
+	},
+	diancie: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Synchronize"},
+	},
+	drowzee: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Forewarn", H: "Synchronize"},
+	},
+	hypno: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Forewarn", H: "Synchronize"},
+	},
+	bruxish: {
+		inherit: true,
+		abilities: {0: "Dazzling", 1: "Strong Jaw", H: "Synchronize"},
 	},
 };

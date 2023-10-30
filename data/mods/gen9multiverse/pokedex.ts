@@ -133,4 +133,42 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dragon"],
 		baseStats: {hp: 80, atk: 80, def: 85, spa: 100, spd: 100, spe: 110},
 	},
+	luxray: {
+		inherit: true,
+		types: ["Electric", "Ground"],
+		baseStats: {hp: 80, atk: 110, def: 70, spa: 95, spd: 70, spe: 106},
+		abilities: {0: "Intimidate", 1: "Volt Absorb", H: "Lion's Pride"},
+		prevo: null,
+	},
+	floatzel: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 105, def: 65, spa: 85, spd: 60, spe: 120},
+	},
+	garchomp: {
+		inherit: true,
+		baseStats: {hp: 98, atk: 110, def: 105, spa: 88, spd: 85, spe: 114},
+		abilities: {0: "Rough Skin", H: "Sand Force"},
+		prevo: null,
+	},
+	drapion: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 110, def: 110, spa: 60, spd: 75, spe: 95},
+		abilities: {0: "Battle Armor", 1: "Sniper", H: "Vessel of Ruin"},
+	},
+	electivire: {
+		inherit: true,
+		types: ["Electric", "Fighting"],
+		baseStats: {hp: 85, atk: 110, def: 70, spa: 105, spd: 70, spe: 90},
+		abilities: {0: "Motor Drive", 1: "Iron Fist", H: "Neuroforce"},
+	},
+	yanmega: {
+		inherit: true,
+		baseStats: {hp: 96, atk: 76, def: 96, spa: 126, spd: 66, spe: 95},
+		abilities: {0: "Speed Boost", H: "Tinted Lens"},
+	},
+	heatran: {
+		inherit: true,
+		baseStats: {hp: 86, atk: 110, def: 101, spa: 125, spd: 101, spe: 77},
+		abilities: {0: "Divine Idol", 1: "Flash Fire", H: "Flame Body"},
+	},
 };

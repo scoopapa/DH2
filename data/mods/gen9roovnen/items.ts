@@ -264,10 +264,11 @@ export const Items: {[k: string]: ModdedItemData} = {
                 this.attrLastMove('[still]');
 				this.boost({atk: 1}, source);
                 this.add('cant', target, 'item: Collection Bag', move, '[of] ' + source);
+				source.useItem();
                 return false;
             }
         },
-		shortDesc: "The user raises its Attack when hazards are used against it.",
+		shortDesc: "The user raises its Attack when hazards are used against it. Single Use.",
 		num: 2412,
 		gen: 9,
 	},

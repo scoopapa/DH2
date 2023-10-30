@@ -71,5 +71,53 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",
 	},
+	cranidos: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	rampardos: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	shieldon: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	bastiodon: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	archen: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	archeops: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	tirtouga: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	carracosta: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	tyrunt: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	tyrantrum: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	amaura: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	aurorus: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
 
 };
