@@ -45,6 +45,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'primeape').learnset.bulkup;
 		delete this.modData('Learnsets', 'mankey').learnset.bulkup;    
 	},
+	actions: {
+		inherit: true,
 	  	modifyDamage(baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false) {
 	  		const tr = this.battle.trunc;
 	  		if (!move.type) move.type = '???';
@@ -121,7 +123,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	  		// ...but 16-bit truncation happens even later, and can truncate to 0
 	  		return tr(baseDamage, 16);
 		}
-		} getActiveMaxMove(move: Move, pokemon: Pokemon) {
+		getActiveMaxMove(move: Move, pokemon: Pokemon) {
 			if (typeof move === 'string') move = this.dex.getActiveMove(move);
 			if (move.name === 'Struggle') return this.dex.getActiveMove(move);
 			let maxMove = this.dex.getActiveMove(this.MAX_MOVES[move.category === 'Status' ? move.category : move.type]);
