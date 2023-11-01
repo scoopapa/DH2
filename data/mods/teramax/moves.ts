@@ -13,7 +13,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		self: {
-			onHit(move, pokemon) {
+			onHit(pokemon) {
 				let bp = Math.min(350, 50 + 25 * pokemon.timesAttacked);
 				this.damage(bp, pokemon, pokemon);
 			},
