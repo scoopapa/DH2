@@ -837,6 +837,12 @@ export const Formats: FormatList = [
 		mod: 'smashstereotypes',
 	},
 	{
+		name: "[Gen 9] TeraMax",
+		mod: 'teramax',
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	},
+	{
 		name: "[Gen 9] Triple Threat",
 		desc: [
 			"<b>Triple Threat</b>: A micrometa where Pokemon are allowed to have up to three types.",
