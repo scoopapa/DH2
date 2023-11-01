@@ -242,7 +242,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
-				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				!(move.isZ && move.category !== 'Status') && move.name === 'Explosion' && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Fire';
 				move.typeChangerBoosted = this.effect;
 			}
