@@ -14,8 +14,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		self: {
 			onHit(move, pokemon) {
-			  let bp = move.basePower;
-					this.damage(bp, pokemon, pokemon);
+				let bp = Math.min(350, 50 + 25 * pokemon.timesAttacked);
+				this.damage(bp, pokemon, pokemon);
 			},
 		},
 		secondary: null,
