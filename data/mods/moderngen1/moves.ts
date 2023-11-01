@@ -623,10 +623,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		gen: 1,
 	},
-	drillpeck: {
-		inherit: true,
-		gen: 1,
-	},
 	drillrun: {
 		inherit: true,
 		gen: 1,
@@ -808,10 +804,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 1,
 	},
 	firepledge: {
-		inherit: true,
-		gen: 1,
-	},
-	firepunch: {
 		inherit: true,
 		gen: 1,
 	},

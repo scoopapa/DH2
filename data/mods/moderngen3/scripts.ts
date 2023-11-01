@@ -1,6 +1,6 @@
 export const Scripts: ModdedBattleScriptsData = {
-	inherit: 'gen2',
-	gen: 2,
+	inherit: 'gen3',
+	gen: 3,
 	init() {
 		const specialTypes = ['Fire', 'Water', 'Grass', 'Ice', 'Electric', 'Dark', 'Psychic', 'Dragon'];
 		let newCategory = '';

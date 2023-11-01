@@ -3891,22 +3891,22 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	genesectburn: {
 		inherit: true,
 		gen: 2,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	genesectchill: {
 		inherit: true,
 		gen: 2,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	genesectdouse: {
 		inherit: true,
 		gen: 2,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	genesectshock: {
 		inherit: true,
 		gen: 2,
-		tier: "Illegal",
+		tier: "OU",
 	},
 	chespin: {
 		inherit: true,
@@ -3994,6 +3994,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	vivillon: {
+		inherit: true,
+		gen: 2,
+		tier: "OU",
+	},
+	vivillonfancy: {
+		inherit: true,
+		gen: 2,
+		tier: "OU",
+	},
+	vivillonpokeball: {
 		inherit: true,
 		gen: 2,
 		tier: "OU",
@@ -4896,7 +4906,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	poipole: {
 		inherit: true,
 		gen: 2,
-		tier: "OU",
+		tier: "NFE",
 	},
 	naganadel: {
 		inherit: true,
@@ -5113,6 +5123,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 2,
 		tier: "OU",
 	},
+	cramorantgorging: {
+		inherit: true,
+		gen: 2,
+		tier: "Illegal",
+	},
+	cramorantgulping: {
+		inherit: true,
+		gen: 2,
+		tier: "Illegal",
+	},
 	arrokuda: {
 		inherit: true,
 		gen: 2,
@@ -5129,6 +5149,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	toxtricity: {
+		inherit: true,
+		gen: 2,
+		tier: "OU",
+	},
+	toxtricitylowkey: {
 		inherit: true,
 		gen: 2,
 		tier: "OU",
@@ -5252,6 +5277,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		gen: 2,
 		tier: "OU",
+	},
+	morpekohangry: {
+		inherit: true,
+		gen: 2,
+		tier: "Illegal",
 	},
 	cufant: {
 		inherit: true,
@@ -5946,6 +5976,21 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	ogerpon: {
+		inherit: true,
+		gen: 2,
+		tier: "OU",
+	},
+	ogerponhearthflame: {
+		inherit: true,
+		gen: 2,
+		tier: "OU",
+	},
+	ogerponwellspring: {
+		inherit: true,
+		gen: 2,
+		tier: "OU",
+	},
+	ogerponcornerstone: {
 		inherit: true,
 		gen: 2,
 		tier: "OU",

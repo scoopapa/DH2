@@ -2934,28 +2934,28 @@ export const Formats: FormatList = [
 		banlist: ['Basculin-White-Striped', 'Qwilfish-Hisui', 'Sneasel', 'Stantler', 'Tangela', 'Sneasel-Hisui', 'Dunsparce', 'Scyther', 'Girafarig', 'Type: Null', 'Fake Out'],
 	},
 	{
-		name: "[Gen 1] Modern Gen 2",
+		name: "[Gen 2] Modern Gen 2",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-2.3725808/">Smogon Thread</a>`,
 		],
 		mod: 'moderngen2',
 		searchShow: false,
 		ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
-		banlist: ['Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew'],	
+		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew'],	
 	},
 	{
-		name: "[Gen 1] Modern Gen 2 Uber",
+		name: "[Gen 2] Modern Gen 2 Uber",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-2.3725808/">Smogon Thread</a>`,
 		],
 		mod: 'moderngen2',
 		searchShow: false,
 		ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
-		banlist: ['Uber', 'Fake Out', 'Baton Pass', 'Rusted Sword'],
+		banlist: ['AG', 'Fake Out', 'Baton Pass', 'Rusted Sword'],
 		teambuilderFormat: 'Uber',
 	},
 	{
-		name: "[Gen 1] Modern Gen 2 LC",
+		name: "[Gen 2] Modern Gen 2 LC",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-2.3725808/">Smogon Thread</a>`,
 		],
@@ -2963,5 +2963,47 @@ export const Formats: FormatList = [
 		searchShow: false,
 		ruleset: ['Standard', 'Little Cup', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
 		banlist: ['Basculin-White-Striped', 'Qwilfish-Hisui', 'Sneasel-Hisui', 'Dunsparce', 'Scyther', 'Girafarig', 'Type: Null', 'Fake Out', 'Sonic Boom', 'Dragon Rage'],
+	},
+	{
+		name: "[Gen 3] Modern Gen 3",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen3',
+		searchShow: false,
+		ruleset: ['Standard', 'Z-Move Clause'],
+		banlist: ['AG', 'Uber', 'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush', 'Power Construct', 'Battle Bond'],	
+	},
+	{
+		name: "[Gen 3] Modern Gen 3 Ubers",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen3',
+		searchShow: false,
+		ruleset: ['Standard', 'Z-Move Clause'],
+		banlist: ['AG'],
+		teambuilderFormat: 'Uber',
+	},
+	{
+		name: "[Gen 4] Modern Gen 4",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen4',
+		searchShow: false,
+		ruleset: ['Standard'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Shadow Tag', 'Moody', 'Sand Rush', 'Power Construct', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Soul Dew'],	
+	},
+	{
+		name: "[Gen 4] Modern Gen 4 Ubers",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen4',
+		searchShow: false,
+		ruleset: ['Standard'],
+		banlist: ['AG'],
+		teambuilderFormat: 'Uber',
 	},
 ];
