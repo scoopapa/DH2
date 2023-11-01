@@ -2,7 +2,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	teambuilderConfig: {
 		excludeStandardTiers: true,
-		customTiers: ["TMFE", "NFE", "TMLC"],
+		customTiers: ["TMFE", "TMNFE", "TMLC"],
 	},
 	actions: {
 	inherit: true,
