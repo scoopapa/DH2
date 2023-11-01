@@ -979,6 +979,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'honchkrow').learnset.dualwingbeat = ['9L1'];
     this.modData('Learnsets', 'honchkrow').learnset.throatchop = ['9L1'];
     this.modData('Learnsets', 'honchkrow').learnset.partingshot = ['9L1'];
+    this.modData('Learnsets', 'skuntank').learnset.stompingtantrum = ['9L1'];
+    this.modData('Learnsets', 'skuntank').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'spiritomb').learnset.strengthsap = ['9L1'];
     this.modData('Learnsets', 'chatot').learnset.hurricane = ['9L1'];
     this.modData('Learnsets', 'croagunk').learnset.closecombat = ['9L1'];
@@ -1036,7 +1038,6 @@ export const Scripts: ModdedBattleScriptsData = {
     //gen 5:
     this.modData('Learnsets', 'serperior').learnset.mudshot = ['9L1'];
     this.modData('Learnsets', 'serperior').learnset.hurricane = ['9L1'];
-    this.modData('Learnsets', 'samurott').learnset.workup = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.megakick = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.glare = ['9L1'];
     this.modData('Learnsets', 'stoutland').learnset.doubleedge = ['9L1'];
@@ -1133,8 +1134,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'reshiram').learnset.calmmind = ['9L1'];
 
     //gen 6:
-    this.modData('Learnsets', 'chesnaught').learnset.bodypress = ['9L1'];
-    this.modData('Learnsets', 'delphox').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'delphox').learnset.recover = ['9L1'];
     this.modData('Learnsets', 'delphox').learnset.speedswap = ['9L1'];
     this.modData('Learnsets', 'delphox').learnset.teleport = ['9L1'];
@@ -1172,7 +1171,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'gumshoos').learnset.closecombat = ['9L1'];
     this.modData('Learnsets', 'crabominable').learnset.iceshard = ['9L1'];
     this.modData('Learnsets', 'crabominable').learnset.hammerarm = ['9L1'];
-    this.modData('Learnsets', 'oricorio').learnset.quiverdance = ['9L1'];
     this.modData('Learnsets', 'oricorio').learnset.healingwish = ['9L1'];
     this.modData('Learnsets', 'oricorio').learnset.destinybond = ['9L1'];
     this.modData('Learnsets', 'lycanroc').learnset.extremespeed = ['9L1'];
