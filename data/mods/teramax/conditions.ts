@@ -34,7 +34,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onBeforeSwitchOut(pokemon) {
 			if (!pokemon.gigantamax) {
 				pokemon.removeVolatile('dynamax');
-			},
+			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.id === 'behemothbash' || move.id === 'behemothblade' || move.id === 'dynamaxcannon') {
