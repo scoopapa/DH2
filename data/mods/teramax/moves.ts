@@ -13,7 +13,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		self: {
-			onHit(pokemon) {
+			onHit(move, pokemon) {
 			  let bp = move.basePower;
 					this.damage(bp, pokemon, pokemon);
 			},
