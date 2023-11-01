@@ -1,12 +1,7 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	zenmode: {
 		priorityChargeCallback(move, attacker, defender) {
-			if (attacker.baseSpecies.baseSpecies !== 'Darmanitan' || attacker.transformed || move.category === 'Status') {
-				return;
-			}
-			if (move.category === 'Special' && !['Zen', 'Galar-Zen'].includes(attacker.species.forme)) {
-				attacker.addVolatile('zenmode');
-			}
+			attacker.addVolatile('zenmode');
 		},
 		onEnd(pokemon) {
 			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
@@ -17,11 +12,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		condition: {
-			onStart(pokemon) {
-				if (!pokemon.species.name.includes('Galar')) {
-					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
-				} else {
-					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+			onStart(move, pokemon) {
+				if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed || move.category === 'Status') {
+					return;
+				}
+				if (move.category === 'Special' && !['Zen', 'Galar-Zen'].includes(attacker.species.forme)) {
+					if (!pokemon.species.name.includes('Galar')) {
+						if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+					} else {
+						if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+					}
 				}
 			},
 			onEnd(pokemon) {
