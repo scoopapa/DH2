@@ -101,7 +101,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	  		// ...but 16-bit truncation happens even later, and can truncate to 0
 	  		return tr(baseDamage, 16);
 		}
-	}
 		getActiveMaxMove(move: Move, pokemon: Pokemon) {
 			if (typeof move === 'string') move = this.dex.getActiveMove(move);
 			if (move.name === 'Struggle') return this.dex.getActiveMove(move);
