@@ -1190,7 +1190,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			confide: ["7M", "6M"],
 			confuseray: ["9M", "9L1", "8L1", "7L1", "6L1", "5L1", "4L1"],
 			curse: ["9L40", "8L40", "7L1", "6L1", "5L1", "4L1"],
-			darkpulse: ["9M", "9L50", "8M", "8L50", "7M", "7L49", "6M", "6L49", "5T", "5L49", "5S0", "4M", "4L49"],1
+			darkpulse: ["9M", "9L50", "8M", "8L50", "7M", "7L49", "6M", "6L49", "5T", "5L49", "5S0", "4M", "4L49"],
 			destinybond: ["9E", "8E", "7E", "6E", "5E", "4E"],
 			disable: ["9E", "8E", "7E"],
 			doubleteam: ["7M", "6M", "5M", "4M"],
