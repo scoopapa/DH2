@@ -248,7 +248,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	
 			// old-gens
 			this.lastMove = null;
-		}
+		},
 		canDynamaxNow(): boolean {
 			if (this.battle.gen !== 9) return false;
 			// In multi battles, players on a team are alternatingly given the option to dynamax each turn
@@ -258,7 +258,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			//		return false;
 			// }
 			return !this.dynamaxUsed;
-		}
+		},
 		chooseMove(
 			moveText?: string | number,
 			targetLoc = 0,
@@ -509,6 +509,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (terastallize) this.choice.terastallize = true;
 	
 			return true;
-		}
+		},
 	},
 };
