@@ -3,6 +3,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Wishing Stone",
 		spritenum: 22,
 		onTakeItem: false,
+		zMove: true,
 		onStart(pokemon) {
 			pokemon.canDynamax = true;
 			pokemon.canTerastalize = false;
