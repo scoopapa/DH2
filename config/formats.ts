@@ -839,7 +839,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] TeraMax",
 		mod: 'teramax',
-		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Dynamax Clause', 'Data Mod'],
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
