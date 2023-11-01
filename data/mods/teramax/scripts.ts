@@ -77,10 +77,10 @@ export const Scripts: ModdedBattleScriptsData = {
 						maxNewPower = maxPowers[i]
 						break
 					}
-				}
+				}			
+				return maxNewPower;
 			}
-			return maxNewPower;
-		}
+		
 	  	modifyDamage(baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false) {
 	  		const tr = this.battle.trunc;
 	  		if (!move.type) move.type = '???';
