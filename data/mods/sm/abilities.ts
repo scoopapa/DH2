@@ -282,9 +282,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFaint(pokemon) {
 			if (pokemon.name === 'Trevenant' && !pokemon.zombie && this.canSwitch(pokemon.side)) {
-				this.add('-ability', pokemon, 'Revive');
-				pokemon.zombie = true;
-				pokemon.hp = Math.floor(pokemon.maxhp / 2);
+				if (pokemon.formeChange('Trevenant-Revenant', this.effect, true)) {
+					this.add('-ability', pokemon, 'Revive');
+					pokemon.zombie = true;
+					pokemon.hp = Math.floor(pokemon.maxhp / 2);
+					pokemon.setAbility('reckless');
+				}
 			}
 		},
 	},
@@ -375,6 +378,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	cursedbody: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if(this.effectState.cursed) return;
+			return this.chainModify(0.75);
+		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.effectState.cursed || source.volatiles['disable']) return;
 			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
@@ -386,7 +393,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			delete this.effectState.cursed;
 		},
 		name: "Cursed Body",
-		shortDesc: "When this Pokemon is damaged by an attack, that attack is disabled. Once per switchin.",
+		shortDesc: "When this Pokemon is damaged by an attack, it takes 75% damage and that attack is disabled. Once per switchin.",
 	},
 	magician: {
 		name: "Magician",

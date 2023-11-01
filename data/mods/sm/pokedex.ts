@@ -19,9 +19,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		num: 2,
 		name: "Banette-Mega",
+		baseSpecies: null,
 		types: ["Ghost"],
 		baseStats: {hp: 64, atk: 165, def: 63, spa: 110, spd: 63, spe: 35},
 		abilities: {0: "Tough Claws"},
+		requiredItem: null,
 	},
 	ceruledge: {
 		num: 3,
@@ -65,7 +67,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Tiny",
 		types: ["Ghost", "Grass", "Fire", "Fairy"],
 		baseStats: {hp: 5, atk: 81, def: 129, spa: 81, spd: 75, spe: 169},
-		abilities: {0: "Grassy Surge"},
+		abilities: {0: "Dazzling"},
 	},
 	gourgeist: {
 		inherit: true,
@@ -73,7 +75,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Gourgeist",
 		types: ["Ghost", "Grass", "Fire", "Fairy"],
 		baseStats: {hp: 55, atk: 91, def: 109, spa: 91, spd: 75, spe: 119},
-		abilities: {0: "Poison Heal"},
+		abilities: {0: "Drought"},
 	},
 	gourgeistlarge: {
 		inherit: true,
@@ -225,6 +227,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Grass", "Fighting"],
 		baseStats: {hp: 85, atk: 110, def: 106, spa: 65, spd: 102, spe: 57},
 		abilities: {0: "Natural Cure", 1: "Triage", H: "Revive"},
+	},
+	trevenantrevenant: {
+		num: 24,
+		name: "Trevenant-Revenant",
+		baseSpecies: "Trevenant",
+		forme: "Revenant",
+		types: ["Ghost", "Rock", "Fighting"],
+		baseStats: {hp: 85, atk: 110, def: 76, spa: 65, spd: 72, spe: 117},
+		abilities: {0: "Reckless"},
 	},
 	ursalunabloodmoon: {
 		num: 25,

@@ -22,6 +22,10 @@ export function getName(name: string): string {
 }
 
 export const Moves: {[k: string]: ModdedMoveData} = {
+	knockoff: {
+		inherit: true,
+		basePower: 20,
+	},
 	bitterblade: {
 		inherit: true,
 		basePower: 75,

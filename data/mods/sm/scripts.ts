@@ -28,7 +28,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 					this.runEvent('BeforeFaint', pokemon, faintData.source, faintData.effect)) {
 				this.add('faint', pokemon);
 				if (
-					!(pokemon.species.name === 'Drifugiri' && pokemon.ability === 'zombiefish' && !pokemon.zombie &&
+					!(pokemon.species.name === 'Trevenant' && pokemon.ability === 'revive' && !pokemon.zombie &&
 					  !pokemon.transformed && this.canSwitch(pokemon.side))
 				) {
 					pokemon.side.pokemonLeft--;
