@@ -29,7 +29,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 3,
 		name: "Ceruledge",
 		types: ["Ghost", "Fire"],
-		baseStats: {hp: 75, atk: 125, def: 80, spa: 60, spd: 100, spe: 85},
+		baseStats: {hp: 85, atk: 115, def: 80, spa: 60, spd: 110, spe: 75},
 		abilities: {0: "Sharpness", H: "Triage"},
 	},
 	dofagrigus: {
@@ -75,7 +75,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Gourgeist",
 		types: ["Ghost", "Grass", "Fire", "Fairy"],
 		baseStats: {hp: 55, atk: 91, def: 109, spa: 91, spd: 75, spe: 119},
-		abilities: {0: "Drought"},
+		abilities: {0: "Desolate Land"},
 	},
 	gourgeistlarge: {
 		inherit: true,
@@ -321,7 +321,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Ceruledge",
 		forme: "Shrunken",
 		types: ["Ghost", "Fire"],
-		baseStats: {hp: 75, atk: 62, def: 40, spa: 30, spd: 50, spe: 42},
+		baseStats: {hp: 85, atk: 57, def: 40, spa: 30, spd: 55, spe: 37},
 		abilities: {0: "Sharpness", H: "Triage"},
 		battleOnly: "Ceruledge",
 	},

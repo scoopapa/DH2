@@ -69,6 +69,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	ceruledge: {
 		learnset: {
+			shadowbone: ["9M"],
 			allyswitch: ["9L42"],
 			astonish: ["9L1"],
 			bitterblade: ["9L48"],
@@ -212,6 +213,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	eddyazbear: {
 		learnset: {
+			shadowbone: ["9M"],
 			poltergeist: ["8L1"],
 			shadowpunch: ["8L1"],
 			phantomforce: ["8L1"],
@@ -250,6 +252,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	fluttermane: {
 		learnset: {
+			ominouswind: ["9M"],
+			lick: ["9M"],
 			astonish: ["9L1"],
 			chargebeam: ["9M"],
 			charm: ["9M"],
@@ -302,6 +306,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	fluttermane2: {
 		learnset: {
+			ominouswind: ["9M"],
+			lick: ["9M"],
 			astonish: ["9L1"],
 			chargebeam: ["9M"],
 			charm: ["9M"],
@@ -354,6 +360,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	gourgeisttiny: {
 		learnset: {
+			shadowbone: ["9M"],
+			moongeistbeam: ["9M"],
 			allyswitch: ["8M", "7T"],
 			astonish: ["8L1", "7L1", "6L1"],
 			attract: ["8M", "7M", "6M"],
@@ -442,6 +450,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	gourgeist: {
 		learnset: {
+			shadowbone: ["9M"],
+			moongeistbeam: ["9M"],
 			allyswitch: ["8M", "7T"],
 			astonish: ["8L1", "7L1", "6L1"],
 			attract: ["8M", "7M", "6M"],
@@ -531,6 +541,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	gourgeistlarge: {
 		learnset: {
+			shadowbone: ["9M"],
+			moongeistbeam: ["9M"],
 			allyswitch: ["8M", "7T"],
 			astonish: ["8L1", "7L1", "6L1"],
 			attract: ["8M", "7M", "6M"],
@@ -619,6 +631,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	gourgeistgigantic: {
 		learnset: {
+			shadowbone: ["9M"],
+			moongeistbeam: ["9M"],
 			allyswitch: ["8M", "7T"],
 			astonish: ["8L1", "7L1", "6L1"],
 			attract: ["8M", "7M", "6M"],
@@ -708,6 +722,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	houndstone: {
 		learnset: {
+			shadowbone: ["9M"],
 			bite: ["9L6"],
 			bodypress: ["9M"],
 			bulldoze: ["9M"],
@@ -837,6 +852,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	jableye: {
 		learnset: {
+			shadowbone: ["9M"],
+			moongeistbeam: ["9M"],
 			ragefist: ["9M"],
 			aerialace: ["9M", "7M", "6M", "5M", "4M", "3M"],
 			allyswitch: ["8M", "7T"],
@@ -1151,6 +1168,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	spiritomb: {
 		learnset: {
+			ominouswind: ["9M"],
+			shadowbone: ["9M"],
 			stoneedge: ["9M"],
 			rockslide: ["9M"],
 			rockthrow: ["9M"],
@@ -1251,6 +1270,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	quagsiredead: {
 		learnset: {
+			shadowbone: ["9M"],
 			shadowpunch: ["8L1"],
 			acidspray: ["9M"],
 			afteryou: ["7T", "6T", "5T"],
@@ -1450,6 +1470,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	shedinja: {
 		learnset: {
+			shadowbone: ["9M"],
 			absorb: ["8L23", "7L1"],
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
 			agility: ["8M", "4R", "3R"],
@@ -1526,6 +1547,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	trevenant: {
 		learnset: {
+			shadowbone: ["9M"],
 			allyswitch: ["8M", "7T"],
 			astonish: ["9L1", "8L1", "7L1", "6L5"],
 			attract: ["8M", "7M", "6M"],
@@ -1632,6 +1654,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	ursalunabloodmoon: {
 		learnset: {
+			shadowbone: ["9M"],
+			moongeistbeam: ["9M"],
 			avalanche: ["9M"],
 			bloodmoon: ["9L70", "9S0"],
 			bodypress: ["9M"],
@@ -1715,6 +1739,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	venomicon: {
 		learnset: {
+			ominouswind: ["9M"],
 			acidspray: ["9M"],
 			aircutter: ["9M", "9L15", "8L15"],
 			airslash: ["9M", "8M"],
@@ -1798,6 +1823,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	venomiconepilogue: {
 		learnset: {
+			ominouswind: ["9M"],
 			acidspray: ["9M"],
 			aircutter: ["9M", "9L15", "8L15"],
 			airslash: ["9M", "8M"],
@@ -2057,6 +2083,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	yveltal: {
 		learnset: {
+			shadowbone: ["9M"],
 			acrobatics: ["8M", "7M", "6M"],
 			aerialace: ["7M", "6M"],
 			airslash: ["8M", "8L35", "7L10", "6L10"],

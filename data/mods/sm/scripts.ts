@@ -7,11 +7,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		// only to specify the order of custom tiers
 		customTiers: ['SM'],
 	},
-	
-	init() {
-		
-	},
-
 	faintMessages(lastFirst = false) {
 		if (this.ended) return;
 		const length = this.faintQueue.length;

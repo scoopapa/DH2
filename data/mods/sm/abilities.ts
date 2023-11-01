@@ -77,7 +77,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	jankster: {
 		onTryHit(pokemon, target, move) {
-			if (move.type === 'Ghost') {
+			if (move.type === 'Fairy') {
 				this.add('-immune', pokemon, '[from] ability: Jankster');
 				this.damage(100, pokemon, pokemon);
 				return null;
@@ -85,7 +85,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isBreakable: true,
 		name: "Jankster",
-		shortDesc: "This Pokemon loses 100 HP when hit by a Ghost-type move; immune to Ghost.",
+		shortDesc: "This Pokemon loses 100 HP when hit by a Fairy-type move; immune to Fairy.",
 	},
 	jumpscare: {
 		onStart(pokemon) {
