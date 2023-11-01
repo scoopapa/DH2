@@ -122,7 +122,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	  		if (this.battle.gen !== 5 && !baseDamage) return 1;
 	  		// ...but 16-bit truncation happens even later, and can truncate to 0
 	  		return tr(baseDamage, 16);
-		}
+		},
 		getActiveMaxMove(move: Move, pokemon: Pokemon) {
 			if (typeof move === 'string') move = this.dex.getActiveMove(move);
 			if (move.name === 'Struggle') return this.dex.getActiveMove(move);
@@ -145,7 +145,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			maxMove.priority = move.priority;
 			maxMove.isZOrMaxPowered = true;
 			return maxMove;
-		}
+		},
 		newMaxPower(move){
 			let oldMaxPowers = [100, 110, 120, 130, 140, 150];
 			let oldweakMaxPowers = [70, 80, 85, 90, 95, 100];
@@ -179,6 +179,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			return maxNewPower;
-		}
+		},
 	},
 };
