@@ -47,6 +47,12 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	actions: {
 		inherit: true,
+		canTerastallize(pokemon: Pokemon) {
+			if (pokemon.getItem().zMove || pokemon.canMegaEvo || this.dex.gen !== 9 || pokemon.hasItem('wishingstone')) {
+				return null;
+			}
+			return pokemon.teraType;
+		},
 	  	modifyDamage(baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false) {
 	  		const tr = this.battle.trunc;
 	  		if (!move.type) move.type = '???';
