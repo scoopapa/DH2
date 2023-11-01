@@ -1,8 +1,12 @@
 export const Items: { [itemid: string]: ModdedItemData; } = {
 	sugarbag: {
+		onStart(pokemon) {
+			this.add('-item', pokemon, 'Sugar Bag');
+			this.hint("Sugar Bag!");
+		},
 		onModifySpe(spe, pokemon) {
 			if (!(pokemon.activeMoveActions > 1)) {
-				return this.chainModify(1.3);
+				return this.chainModify(1.5);
 			}
 		},
 		name: "Sugar Bag",

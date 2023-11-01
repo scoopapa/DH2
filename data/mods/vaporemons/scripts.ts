@@ -1,78 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	actions: {
-		inherit: true,
-		hitStepAccuracy(targets, pokemon, move) {
-			const hitResults = [];
-			for (const [i, target] of targets.entries()) {
-				this.battle.activeTarget = target;
-				// calculate true accuracy
-				let accuracy = move.accuracy;
-				if (move.ohko) { // bypasses accuracy modifiers
-					if (!target.isSemiInvulnerable()) {
-						accuracy = 30;
-						if (move.ohko === 'Ice' && this.gen >= 7 && !pokemon.hasType('Ice')) {
-							accuracy = 20;
-						}
-						if (!target.volatiles['dynamax'] && pokemon.level >= target.level &&
-							(move.ohko === true || !target.hasType(move.ohko))) {
-							accuracy += (pokemon.level - target.level);
-						} else {
-							this.battle.add('-immune', target, '[ohko]');
-							hitResults[i] = false;
-							continue;
-						}
-					}
-				} else {
-					const boostTable = [1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3];
-	
-					let boosts;
-					let boost!: number;
-					if (accuracy !== true) {
-						if (!move.ignoreAccuracy) {
-							boosts = this.battle.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
-							boost = this.battle.clampIntRange(boosts['accuracy'], -6, 6);
-							if (boost > 0) {
-								accuracy *= boostTable[boost];
-							} else {
-								accuracy /= boostTable[-boost];
-							}
-						}
-						if (!move.ignoreEvasion) {
-							boosts = this.battle.runEvent('ModifyBoost', target, null, null, {...target.boosts});
-							boost = this.battle.clampIntRange(boosts['evasion'], -6, 6);
-							if (boost > 0) {
-								accuracy /= boostTable[boost];
-							} else if (boost < 0) {
-								accuracy *= boostTable[-boost];
-							}
-						}
-					}
-					accuracy = this.battle.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
-				}
-				if (move.alwaysHit || (move.id === 'toxic' && this.gen >= 6 && pokemon.hasType('Poison'))) {
-					accuracy = true; // bypasses ohko accuracy modifiers
-				} else {
-					accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
-				}
-				if (accuracy !== true && !this.battle.randomChance(accuracy, 100)) {
-					if (move.smartTarget) {
-						move.smartTarget = false;
-					} else {
-						if (!move.spreadHit) this.battle.attrLastMove('[miss]');
-						this.battle.add('-miss', pokemon, target);
-					}
-					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
-							this.battle.boost({accuracy: 2, spe: 2}, pokemon);
-					}
-					hitResults[i] = false;
-					continue;
-				}
-				hitResults[i] = true;
-			}
-			return hitResults;
-		},
-	},
 	pokemon: {
 		ignoringAbility() {
 			let neutralizinggas = false;
@@ -188,6 +115,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'drednaw').learnset.stoneaxe = ['9L1'];
     	delete this.modData('Learnsets', 'regieleki').learnset.electroweb;
     	delete this.modData('Learnsets', 'meloetta').learnset.sing;
+    	delete this.modData('Learnsets', 'meloetta').learnset.swordsdance;
     	delete this.modData('Learnsets', 'magnemite').learnset.electroweb;
     	delete this.modData('Learnsets', 'magnezone').learnset.electroweb;
     	delete this.modData('Learnsets', 'magneton').learnset.electroweb;
@@ -653,6 +581,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'magearna').learnset.spikes;
 		delete this.modData('Learnsets', 'magearna').learnset.trick;
 		delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
+		delete this.modData('Learnsets', 'magearna').learnset.agility;
 		this.modData('Learnsets', 'dragalge').learnset.lifedew = ['9L1'];
 		this.modData("Learnsets", "dipplin").learnset.peekaboo = ["9L1"];
 		this.modData("Learnsets", "dipplin").learnset.shelter = ["9L1"];
@@ -907,6 +836,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "shaymin").learnset.windbreaker = ["9L1"];
 		this.modData("Learnsets", "darkrai").learnset.choke = ["9L1"];
 		this.modData("Learnsets", "darkrai").learnset.throatchop = ["9L1"];
+		this.modData("Learnsets", "darkrai").learnset.comeuppance = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.choke = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.parry = ["9L1"];
 		this.modData("Learnsets", "timburr").learnset.stormthrow = ["9L1"];
@@ -1123,6 +1053,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'sandslash').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'tyranitar').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'rockruff').learnset.desertstorm  = ['9L1'];
+		this.modData('Learnsets', 'lycanrocdusk').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'whiscash').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'nosepass').learnset.desertstorm  = ['9L1'];
 		this.modData('Learnsets', 'stonjourner').learnset.desertstorm  = ['9L1'];
@@ -1234,5 +1165,139 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "fezandipiti").learnset.willowisp = ["9L1"];
 		this.modData("Learnsets", "snorlax").learnset.rollout = ["9L1"];
 		this.modData("Learnsets", "snorlax").learnset.slackoff = ["9L1"];
+    	delete this.modData('Learnsets', 'sneasler').learnset.acrobatics;
+    	delete this.modData('Learnsets', 'darkrai').learnset.trick;
+    	delete this.modData('Learnsets', 'darkrai').learnset.hypnosis;
+    	delete this.modData('Learnsets', 'darkrai').learnset.psychic;
+    	delete this.modData('Learnsets', 'darkrai').learnset.nastyplot;
+    	delete this.modData('Learnsets', 'darkrai').learnset.calmmind;
+    	delete this.modData('Learnsets', 'mew').learnset.steelbeam;
+		this.modData("Learnsets", "brambleghast").learnset.pinmissile = ["9L1"];
+		this.modData("Learnsets", "brambleghast").learnset.poisonjab = ["9L1"];
+		this.modData("Learnsets", "brambleghast").learnset.sandstorm = ["9L1"];
+		this.modData("Learnsets", "brambleghast").learnset.sandtomb = ["9L1"];
+		this.modData("Learnsets", "brambleghast").learnset.spikyshield = ["9L1"];
+		this.modData("Learnsets", "brambleghast").learnset.whirlwind = ["9L1"];
+		this.modData("Learnsets", "brambleghast").learnset.wrap = ["9L1"];
+		this.modData("Learnsets", "brambleghast").learnset.swordsdance = ["9L1"];
+		this.modData('Learnsets', 'heatran').learnset.smackdown = ['9L1'];
+		this.modData('Learnsets', 'garchomp').learnset.smackdown = ['9L1'];
+		this.modData('Learnsets', 'applin').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'bellsprout').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'bounsweet').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'bramblin').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'brutebonnet').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'capsakid').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'chespin').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'decidueye').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'fomantis').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'grookey').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'hoppip').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'leafeon').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'lotad').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'petilil').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'phantump').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'seedot').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'shaymin').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'skiddo').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'smoliv').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'snover').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'sprigatito').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'sunkern').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'turtwig').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'tropius').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'wochien').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'zarude').learnset.rootpull = ['9L1'];
+		this.modData('Learnsets', 'sneasel').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'sneaselhisui').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'shuppet').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'munchlax').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'meowth').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'meowthgalar').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'meowthalola').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'poochyena').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'ekans').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'zorua').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'zoruahisui').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'fletchling').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'litleo').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'noibat').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'salandit').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'cleffa').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'drowzee').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'happiny').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'mewtwo').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'mew').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'aipom').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'umbreon').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'murkrow').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'eevee').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'misdreavus').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'houndour').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'ralts').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'shroomish').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'sableye').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'gulpin').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'spoink').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'seviper').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'duskull').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'chingling').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'stunky').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'croagunk').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'spiritomb').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'froslass').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'rotom').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'darkrai').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'sandile').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'gothita').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'vullaby').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'fennekin').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'froakie').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'mareanie').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'oranguru').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'passimian').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'mimikyu').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'bruxish').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'cacnea').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'impidimp').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'moltresgalar').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'nuzleaf').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'grimeralola').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'zarude').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'sprigatito').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'brutebonnet').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'maschiff').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'munkidori').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'greavard').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'zangoose').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'tinglu').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'capsakid').learnset.snatch = ['9L1'];
+		this.modData('Learnsets', 'vulpix').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'vulpixalola').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'buizel').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'aipom').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'cyclizar').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'tauros').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'skwovet').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'meowth').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'meowthalola').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'stunky').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'lycanroc').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'zacian').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'zamazenta').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'grafaiai').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'flareon').learnset.tailslap = ['9L1'];
+		this.modData('Learnsets', 'aipom').learnset.rockblast = ['9L1'];
+		this.modData('Learnsets', 'clawitzer').learnset.rockblast = ['9L1'];
+		this.modData('Learnsets', 'passimian').learnset.rockblast = ['9L1'];
+		this.modData('Learnsets', 'falinks').learnset.rockblast = ['9L1'];
+		this.modData('Learnsets', 'sandslash').learnset.pinmissile = ['9L1'];
+		this.modData('Learnsets', 'sandslashalola').learnset.pinmissile = ['9L1'];
+		this.modData('Learnsets', 'lokix').learnset.pinmissile = ['9L1'];
+		this.modData('Learnsets', 'vikavolt').learnset.pinmissile = ['9L1'];
+		this.modData('Learnsets', 'vespiquen').learnset.pinmissile = ['9L1'];
+		this.modData('Learnsets', 'cloyster').learnset.pinmissile = ['9L1'];
+		this.modData('Learnsets', 'pincurchin').learnset.pinmissile = ['9L1'];
+		this.modData('Learnsets', 'scyther').learnset.pinmissile = ['9L1'];
   },
 };

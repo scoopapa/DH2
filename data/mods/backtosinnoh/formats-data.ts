@@ -44,6 +44,92 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		isNonstandard: null,
 		gen: 4,
 	},
+	sableye: {
+		tier: "LC",
+	},
+	sablenvy: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	tangela: {
+		tier: "LC",
+	},
+	tangrowth: {
+		tier: "Illegal",
+	},
+	brambela: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	murkrow: {
+		tier: "LC",
+	},
+	honchkrow: {
+		tier: "Illegal",
+	},
+	huginkrow: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	delibird: {
+		tier: "LC",
+	},
+	elfowl: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	hoppip: {
+		tier: "LC",
+	},
+	skiploom: {
+		tier: "NFE",
+	},
+	jumpluff: {
+		tier: "OU",
+	},
+	gyrobloom: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	aipom: {
+		tier: "LC",
+	},
+	ambipom: {
+		tier: "Illegal",
+	},
+	similash: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	bonsly: {
+		tier: "Illegal",
+	},
+	sudowoodo: {
+		tier: "LC",
+	},
+	putrewoodo: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+	ekans: {
+		tier: "LC",
+	},
+	arbok: {
+		tier: "NFE",
+	},
+	adnocana: {
+		tier: "OU",
+		isNonstandard: null,
+		gen: 4,
+	},
+
 
 
 
@@ -111,12 +197,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	fearow: {
-		tier: "OU",
-	},
-	ekans: {
-		tier: "LC",
-	},
-	arbok: {
 		tier: "OU",
 	},
 	pichu: {
@@ -213,7 +293,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "OU",
 	},
 	diglett: {
-		tier: "OU",
+		tier: "LC",
 	},
 	dugtrio: {
 		tier: "OU",
@@ -433,12 +513,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	},
 	blissey: {
 		tier: "OU",
-	},
-	tangela: {
-		tier: "OU",
-	},
-	tangrowth: {
-		tier: "Illegal",
 	},
 	kangaskhan: {
 		tier: "OU",
@@ -686,27 +760,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	azumarill: {
 		tier: "OU",
 	},
-	bonsly: {
-		tier: "Illegal",
-	},
-	sudowoodo: {
-		tier: "OU",
-	},
-	hoppip: {
-		tier: "LC",
-	},
-	skiploom: {
-		tier: "NFE",
-	},
-	jumpluff: {
-		tier: "OU",
-	},
-	aipom: {
-		tier: "OU",
-	},
-	ambipom: {
-		tier: "Illegal",
-	},
 	sunkern: {
 		tier: "LC",
 	},
@@ -724,12 +777,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	},
 	quagsire: {
 		tier: "OU",
-	},
-	murkrow: {
-		tier: "OU",
-	},
-	honchkrow: {
-		tier: "Illegal",
 	},
 	misdreavus: {
 		tier: "OU",
@@ -813,9 +860,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	octillery: {
-		tier: "OU",
-	},
-	delibird: {
 		tier: "OU",
 	},
 	mantyke: {
@@ -1026,9 +1070,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	delcatty: {
-		tier: "OU",
-	},
-	sableye: {
 		tier: "OU",
 	},
 	mawile: {
@@ -1254,7 +1295,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	shelgon: {
-		tier: "OU",
+		tier: "NFE",
 	},
 	salamence: {
 		tier: "Uber",

@@ -16284,7 +16284,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Secret Sword",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
@@ -19247,7 +19247,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, bullet: 1},
 		condition: {
 			noCopy: true,
-			duration: 3,
+			duration: 4,
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Syrup Bomb');
 			},
@@ -19256,7 +19256,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.boost({spe: -1});
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Syrup Bomb');
+				this.add('-end', pokemon, 'Syrup Bomb', '[silent]');
 			},
 		},
 		secondary: {

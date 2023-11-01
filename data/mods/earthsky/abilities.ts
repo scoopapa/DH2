@@ -775,7 +775,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
-				this.useMove(newMove, target, source);
+				this.actions.useMove(newMove, target, source);
 				return null;
 			}
 		},
@@ -787,7 +787,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
-				this.useMove(newMove, target, source);
+				this.actions.useMove(newMove, target, source);
 				return null;
 			}
 		},
@@ -846,7 +846,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 					const kaboom = this.dex.getMove('explosion');
 					kaboom.willCrit = true;
 					kaboom.ignoreImmunity = {'Normal': true,};
-					this.useMove(kaboom, pokemon);
+					this.actions.useMove(kaboom, pokemon);
 				}
 			}
 		},
@@ -885,7 +885,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				kaboom.willCrit = true;
 				kaboom.ignoreImmunity = {};
 				kaboom.ignoreImmunity['Normal'] = true;
-				this.useMove(kaboom, pokemon);
+				this.actions.useMove(kaboom, pokemon);
 			}
 			pokemon.abilityState.warnMoves = [];
 		},
@@ -1448,6 +1448,33 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		desc: "While this Pokemon has 1/2 or less of its maximum HP, its Attack and Special Attack are reduced by 1/3.",
 		shortDesc: "When this Pokemon has 1/2 or less of its max HP, Atk and Sp. Atk are reduced by 1/3.",
 	},
+	dryskin: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Water' || (move.twoType && move.twoType === 'Water'))) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Dry Skin');
+				}
+				return null;
+			}
+		},
+		onFoeBasePowerPriority: 17,
+		onFoeBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.target !== defender) return;
+			if ((move.type === 'Fire' || (move.twoType && move.twoType === 'Fire'))) {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 16);
+			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 16, target, target);
+			}
+		},
+		desc: "This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move. The power of Fire-type moves is multiplied by 1.25 when used on this Pokemon. At the end of each turn, this Pokemon restores 1/16 of its maximum HP, rounded down, if the weather is Rain Dance, and loses 1/16 of its maximum HP, rounded down, if the weather is Sunny Day. The weather effects are prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "This Pokemon is healed 1/4 by Water, 1/16 by Rain; is hurt 1.25x by Fire, 1/16 by Sun.",
+	},
 	embodyaspect: {
 		onStart(pokemon) {
 			if(pokemon.baseSpecies === "Ogerpon"){
@@ -1471,7 +1498,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		rating: 3.5,
 		num: 301,
 		desc: "If this Pokemon is Ogerpon, raises a stat 1 stage on switch-in based on its mask: Teal Mask raises Speed, Wellspring Mask raises Special Defense, Hearthstone Mask raises Attack, and Cornerstone Mask raises Defense.",
-		shortDesc: "On switch-in, raises stat 1 stage based on Mask.",
+		shortDesc: "On switch-in, raises stat 1 stage based on Mask; Teal = Speed.",
 	},
 	flareboost: {
 		name: "Flare Boost",
@@ -1633,6 +1660,18 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		shortDesc: "On switch-in, summons Electric Terrain. During Electric Terrain, Sp. Atk is 1.1x.",
 	},
 	//Harvest change implemented in the item-removing effects.
+	healer: {
+		name: "Healer",
+		onStart(pokemon) {
+			for (const ally of pokemon.adjacentAllies()) {
+				this.add('-activate', pokemon, 'ability: Healer');
+				ally.cureStatus();
+			}
+		},
+		rating: 0,
+		num: 131,
+		shortDesc: "On switch-in, this Pokemon cures adjacent allies' non-volatile status.",
+	},
 	heatproof: {
 		inherit: true,
 		onSourceBasePower(basePower, attacker, defender, move) {
@@ -2063,7 +2102,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	owntempo: {
 		inherit: true,
 		onModifyMove(move) {
-			move.flags = move.flags.concat({'failcopycat': 1, 'failmefirst': 1, 'failmimic': 1,});
+			move.flags = {...move.flags, 'failcopycat': 1, 'failmefirst': 1, 'failmimic': 1,};
 			delete move.flags['mirror'];
 			delete move.flags['snatch'];
 			move.noSketch = true; //Currently does nothing
@@ -2555,7 +2594,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		//Suction Cups floating block implemented in scripts.ts as part of pokemon.canFloat()
 		shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. Prevents floating.",
-		//shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. This Pokemon cannot gain floating status.",
+		desc: "This Pokemon cannot be forced out by another Pokemon's attack/item. This Pokemon cannot gain floating status.",
 	},
 	sweetveil: {
 		inherit: true,
@@ -3118,24 +3157,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 
 			if (!target.runImmunity(move.type) || !(move.twoType && target.runImmunity(move.twoType))) return;
 			return 0;
-		},
-	},
-	dryskin: {
-		inherit: true,
-		onTryHit(target, source, move) {
-			if (target !== source && (move.type === 'Water' || (move.twoType && move.twoType === 'Water'))) {
-				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Dry Skin');
-				}
-				return null;
-			}
-		},
-		onFoeBasePowerPriority: 17,
-		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.target !== defender) return;
-			if ((move.type === 'Fire' || (move.twoType && move.twoType === 'Fire'))) {
-				return this.chainModify(1.25);
-			}
 		},
 	},
 	fairyaura: {
@@ -3724,7 +3745,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
-			this.useMove(newMove, target, source);
+			this.actions.useMove(newMove, target, source);
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
@@ -3735,7 +3756,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
-			this.useMove(newMove, this.effectState.target, source);
+			this.actions.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {

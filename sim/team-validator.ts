@@ -1013,6 +1013,9 @@ export class TeamValidator {
 		}
 
 		if (!problems.length) {
+			if (set.gender === '' && !species.gender) {
+				set.gender = ['M', 'F'][Math.floor(Math.random() * 2)];
+			}
 			if (adjustLevel) set.level = adjustLevel;
 			return null;
 		}
@@ -1026,7 +1029,7 @@ export class TeamValidator {
 
 		const allowAVs = ruleTable.has('allowavs');
 		const evLimit = ruleTable.evLimit;
-		const canBottleCap = dex.gen >= 7 && (set.level >= (dex.gen < 9 ? 100 : 50) || !ruleTable.has('obtainablemisc'));
+		const canBottleCap = dex.gen >= 7 && (set.level >= (dex.gen < 9 ? 100 : 50) || !ruleTable.has('obtainablemisc')) || dex.mod('moderngen1');
 
 		if (!set.evs) set.evs = TeamValidator.fillStats(null, evLimit === null ? 252 : 0);
 		if (!set.ivs) set.ivs = TeamValidator.fillStats(null, 31);
@@ -1057,6 +1060,9 @@ export class TeamValidator {
 			} else if (!canBottleCap) {
 				set.ivs = TeamValidator.fillStats(dex.types.get(set.hpType).HPivs, 31);
 			}
+		}
+		if (!set.hpType && set.moves.some(m => dex.moves.get(m).id === 'hiddenpower')) {
+			set.hpType = dex.getHiddenPower(set.ivs).type;
 		}
 
 		const cantBreedNorEvolve = (species.eggGroups[0] === 'Undiscovered' && !species.prevo && !species.nfe);
@@ -1369,6 +1375,9 @@ export class TeamValidator {
 		} else if (species.id === 'shedinja') {
 			// Shedinja and Nincada are different Egg groups; Shedinja itself is genderless
 			eggGroups = dex.species.get('nincada').eggGroups;
+		} else if (species.id === 'guardia') {
+			// KEP Guardia - doesn't exist outside of gen 1
+			eggGroups = dex.species.get('marowak').eggGroups;
 		} else if (dex !== this.dex) {
 			// Gen 1 tradeback; grab the egg groups from Gen 2
 			eggGroups = dex.species.get(species.id).eggGroups;
@@ -2018,7 +2027,7 @@ export class TeamValidator {
 		let requiredIVs = 0;
 		if (eventData.ivs) {
 			/** In Gen 7+, IVs can be changed to 31 */
-			const canBottleCap = dex.gen >= 7 && set.level >= (dex.gen < 9 ? 100 : 50);
+			const canBottleCap = dex.gen >= 7 && set.level >= (dex.gen < 9 ? 100 : 50) || dex.mod('moderngen1');
 
 			if (!set.ivs) set.ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
 			let statName: StatID;

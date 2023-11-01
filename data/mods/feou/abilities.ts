@@ -1,7 +1,7 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	/* FEG9 abils */
 	unfiltered: {
-	  shortDesc: "Filter + Contrary + NvE Moves deal 4/3x damage.",
+	  shortDesc: "Filter + Contrary + This Pokemon's NvE Moves deal 4/3x damage.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Unfiltered neutralize');
@@ -102,7 +102,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  name: "Galvanic Relay",
     },
 	forestfury: {
-	  shortDesc: "Effects of Intimidate and Hyper Cutter + This Pokemon can't be statused by opponents.",
+	  shortDesc: "Intimidate + Hyper Cutter + This Pokemon can't be statused by opponents.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
@@ -190,7 +190,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
-			if (source == target) return;
+			if (source === target) return;
 			const user = this.effectState.target;
 			if (user.volatiles['lightdrive'] && !user.volatiles['lightdrive'].fromWeightDiff) return;
 			if (source === user) {
@@ -1052,7 +1052,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyAtk(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1062,7 +1062,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
 				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
@@ -1080,7 +1080,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpA(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1090,7 +1090,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
 				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
@@ -1113,7 +1113,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyAtk(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1123,7 +1123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
 				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
@@ -1141,7 +1141,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpA(atk, attacker, defender, move) {
 			//this.effectState.bestStat = attacker.getBestStat(false, true);
 			const dyschronoUser = this.effectState.target;
-			if (defender == dyschronoUser) {
+			if (defender === dyschronoUser) {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
@@ -1151,7 +1151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker == dyschronoUser) {
+			} else if (attacker === dyschronoUser) {
 				const bestStat = defender.getBestStat(false,true);
 				if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
 				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
@@ -1606,7 +1606,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyPrepareHit(source, target, move) {
 			if (move.hasBounced) return;
-			if (source == target) return;
+			if (source === target) return;
 			const user = this.effectState.target;
 			if (user.volatiles['weightoflife'] && !user.volatiles['weightoflife'].fromWeightDiff) return;
 			if (source === user) {
@@ -2158,7 +2158,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const additionalBannedAbilities = [
 					// Zen Mode included here for compatability with Gen 5-6
 					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
-					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'pillage'
 				];
 				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
 					possibleTargets.splice(rand, 1);
@@ -2351,9 +2351,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyModifySpD(spd, target, source, move) {
 			const abilityHolder = this.effectState.target;
-			if (target.hasAbility('Sponge of Ruin')) return;
-			if (!move.ruinedSpD?.hasAbility('Sponge of Ruin')) move.ruinedSpD = abilityHolder;
-			if (move.ruinedSpD !== abilityHolder) return;
+			if (target.hasAbility(['Sponge of Ruin', 'Beads of Ruin'])) return;
+			if (!move.ruinedSpD?.hasAbility(['Sponge of Ruin', 'Beads of Ruin'])) move.ruinedSpD = abilityHolder;
+			else if (move.ruinedSpD !== abilityHolder) return;
 			this.debug('Sponge of Ruin SpD drop');
 			return this.chainModify(0.75);
 		},
@@ -2401,14 +2401,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (!source.hp || !source.isActive || target.transformed || target.isSemiInvulnerable()) return;
-			if (['screamcomorantgulping', 'screamcomorantgorging'].includes(target.species.id)) {
+			if (['screamcormorantgulping', 'screamcormorantgorging'].includes(target.species.id)) {
 				this.damage(source.baseMaxhp / 4, source, target);
-				if (target.species.id === 'screamcomorantgulping') {
+				if (target.species.id === 'screamcormorantgulping') {
 					this.boost({def: -1}, source, target, null, true);
 				} else {
 					source.trySetStatus('par', target, move);
 				}
-				target.formeChange('screamcomorant', move);
+				target.formeChange('screamcormorant', move);
 				delete target.volatiles['prehistorichunter'];
 			}
 		},
@@ -2416,16 +2416,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (
 				effect && effect.id === 'surf' && source.hasAbility('prehistorichunter') &&
-				source.species.name === 'Scream Comorant' && !source.transformed
+				source.species.name === 'Scream Cormorant' && !source.transformed
 			) {
-				const forme = source.hp <= source.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+				const forme = source.hp <= source.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 				source.formeChange(forme, effect);
 				source.addVolatile('prehistorichunter');				
 			}
 		},
 		onWeatherChange(pokemon) {
 			// if (pokemon.transformed) return;
-			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isWeather('sunnyday')) {
 				pokemon.addVolatile('prehistorichunter');
@@ -2441,7 +2441,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
-			const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+				const forme = pokemon.hp <= pokemon.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 				if (effect?.id === 'boosterenergy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Prehistoric Hunter', '[fromitem]');
@@ -2488,6 +2488,95 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Prehistoric Hunter",
 		rating: 3,
+	},
+	lawnmowerofruin: {
+	   shortDesc: "Sap Sipper + Vessel of Ruin",
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Lawnmower of Ruin');
+			this.add('-message', `${pokemon.name}'s Lawnmower of Ruin weakened the Sp. Atk of all surrounding Pokémon!`);
+		},
+		onAnyModifySpA(spa, source, target, move) {
+			const abilityHolder = this.effectState.target;
+			if (source.hasAbility(['Vessel of Ruin', 'Lawnmower of Ruin'])) return;
+			if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
+			else if (move.ruinedSpA !== abilityHolder) return;
+			this.debug('Lawnmower of Ruin SpA drop');
+			return this.chainModify(0.75);
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Grass') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Lawnmower of Ruin');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (move.type === 'Grass') {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		isBreakable: true,
+		name: "Lawnmower of Ruin",
+	},
+	barbedchain: {
+	   shortDesc: "This Pokemon’s contact moves do an additional 1/8 of the target’s max HP in damage.",
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (this.checkMoveMakesContact(move, target, source)) {
+				this.damage(target.baseMaxhp / 8, target, source)
+			}
+		},
+		name: "Barbed Chain",
+	},
+	steamyscales: {
+	   shortDesc: "Steam Engine + Multiscale",
+		onDamagingHit(damage, target, source, move) {
+			if (['Water', 'Fire'].includes(move.type)) {
+				this.boost({spe: 6});
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= target.maxhp) {
+				this.debug('Steamy Scales weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Steamy Scales",
+	},
+	marvelsteam: {
+	   shortDesc: "When hit by a damaging Water or Fire-type move, +6 to Def and Spe.",
+		onDamagingHit(damage, target, source, move) {
+			if (['Water', 'Fire'].includes(move.type)) {
+				this.boost({def: 6, spe: 6});
+			}
+		},
+		name: "Marvel Steam",
+	},
+	hellkite: {
+	   shortDesc: "Levitate effects + 1.5x power to Dragon and Ground moves.",
+		//floatation under scripts.ts
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (['Dragon','Ground'].includes(move.type)) {
+				this.debug('Hellkite boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (['Dragon','Ground'].includes(move.type)) {
+				this.debug('Hellkite boost');
+				return this.chainModify(1.5);
+			}
+		},
+		isBreakable: true,
+		name: "Hellkite",
 	},
 
 	//Vanilla abilities
