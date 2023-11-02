@@ -218,8 +218,9 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
 				let potentialMoves = 0;
+				let revealed = new Array();
 				for (const moveSlot of target.moveSlots) {
-					if (moveSlot.revealed) continue;
+					if (revealed.includes(moveSlot)) continue;
 					potentialMoves++;
 				}
 				let r = 0;
@@ -227,12 +228,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					r = this.random(potentialMoves);
 				}
 				for (const moveSlot of target.moveSlots) {
-					if (moveSlot.revealed) continue;
+					if (revealed.includes(moveSlot)) continue;
 					if (r === 0) {
 						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
 					}
 					r--;
-					moveSlot.revealed = true;
+					revealed.push(moveSlot);
 					return;
 				}
 			}

@@ -801,6 +801,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.side.removeSideCondition('auroraveil');
 			}
 		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fishious Rend", target);
+		},
 		secondary: null,
 		shortDesc: "Destroys screens, unless the target is immune to Water.",
 		target: "normal",
@@ -1326,7 +1330,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Mercury Shot",
 		pp: 15,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, defrost: 1},
+		flags: {protect: 1, mirror: 1},
 		thawsTarget: true,
 		secondary: {
 			chance: 30,
