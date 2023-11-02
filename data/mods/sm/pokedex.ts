@@ -112,7 +112,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	jableye: {
 		num: 14,
 		name: "Jableye",
-		types: ["Ghost", "Dark"],
+		types: ["Ghost", "Dark", "Poison"],
 		baseStats: {hp: 50, atk: 75, def: 100, spa: 75, spd: 100, spe: 50},
 		abilities: {0: "Justified", H: "Jankster"},
 	},
@@ -272,8 +272,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	xorygonz: {
 		num: 29,
 		name: "XORygon-Z",
-		baseSpecies: "XORygon",
-		forme: "Z",
 		types: ["Ghost", "Steel", "Ice", "Poison"],
 		baseStats: {hp: 85, atk: 90, def: 70, spa: 125, spd: 75, spe: 90},
 		abilities: {0: "Mutual Exclusion", H: "Ahexual"},

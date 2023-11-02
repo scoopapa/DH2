@@ -20,6 +20,23 @@ export const Scripts: ModdedBattleScriptsData = {
 		// only to specify the order of custom tiers
 		customTiers: ['TPDP OU', 'TPDP LC'],
 	},
+	
+	battle: {
+        spreadModify(baseStats: StatsTable, set: PokemonSet): StatsTable {
+            const modStats: SparseStatsTable = {atk: 10, def: 10, spa: 10, spd: 10, spe: 10};
+            const tr = this.trunc;
+            let statName: keyof StatsTable;
+            for (statName in modStats) {
+                const stat = baseStats[statName];
+                modStats[statName] = tr(((2 * (stat + set.ivs[statName]) + set.evs[statName]) / 100) * set.level + 5);
+            }
+            if ('hp' in baseStats) {
+                const stat = baseStats['hp'];
+                modStats['hp'] = ((2 * (stat + set.ivs['hp']) + set.evs['hp']) / 100 + 1) * set.level + 10;
+            }
+            return this.natureModify(modStats as StatsTable, set);
+        }
+    },
 	pokemon: {
 		trySetStatus(status: string | Condition, source: Pokemon | null = null, sourceEffect: Effect | null = null) {
 			return this.setStatus(status, source, sourceEffect);
