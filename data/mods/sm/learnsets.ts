@@ -816,6 +816,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	houndstone: {
 		learnset: {
 			shadowbone: ["9M"],
+			cottonguard: ["9M"],
 			bite: ["9L6"],
 			bodypress: ["9M"],
 			bulldoze: ["9M"],
@@ -1090,6 +1091,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	jobapplication: {
 		learnset: {
+			spite: ["9M"],
 			poltergeist: ["8L1"],
 			phantomforce: ["8L1"],
 			spiritshackle: ["8L1"],
