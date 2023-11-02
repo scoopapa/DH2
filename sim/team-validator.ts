@@ -950,7 +950,7 @@ export class TeamValidator {
 				problems.push(`${name} has a Gen 4 ability and isn't evolved - it can't use moves from Gen 3.`);
 			}
 			const canUseAbilityPatch = dex.gen >= 8 && format.mod !== 'gen8dlc1';
-			if (setSources.isHidden && !canUseAbilityPatch && setSources.maxSourceGen() < 5) {
+			if (setSources.isHidden && !canUseAbilityPatch && setSources.maxSourceGen() < 5 && (this.dex.currentMod !== 'moderngen3' || this.dex.currentMod !== 'moderngen4')) {
 				problems.push(`${name} has a Hidden Ability - it can't use moves from before Gen 5.`);
 			}
 			if (
@@ -2180,7 +2180,7 @@ export class TeamValidator {
 			);
 			if (setSources.sourcesBefore < 5) setSources.sourcesBefore = 0;
 			const canUseAbilityPatch = dex.gen >= 8 && this.format.mod !== 'gen8dlc1';
-			if (!setSources.size() && !canUseAbilityPatch) {
+			if (!setSources.size() && !canUseAbilityPatch && (this.dex.currentMod !== 'moderngen3' || this.dex.currentMod !== 'moderngen4')) {
 				problems.push(`${name} has a hidden ability - it can't have moves only learned before gen 5.`);
 				return problems;
 			}
