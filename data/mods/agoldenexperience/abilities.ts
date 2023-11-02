@@ -1262,7 +1262,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Reveals a random move of each adjacent opponent when this Pokemon hits them with a Sound move.",
 		onSourceHit(target, source, move) {
 			if (move.flags['sound']) {
-				for (const target of pokemon.side.foe.active) {
+				for (const target of pokemon.side.foe.active) { //pokemon not defined
 					if (!target || target.fainted) continue;
 					let potentialMoves = 0;
 					for (const moveSlot of target.moveSlots) {

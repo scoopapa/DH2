@@ -1178,8 +1178,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onModifyCritRatio(critRatio, source, target) {
-			if (target.hasBoosts) return 5;
+		onModifyMove(move, pokemon, target) {
+			let hasBoost = false;
+			let i: BoostID;
+			if(!target) return;
+			for (i in target.boosts) {
+				if (target.boosts[i] !== 0) hasBoost = true;
+			}
+			if (hasBoost) move.critRatio = 5;
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
