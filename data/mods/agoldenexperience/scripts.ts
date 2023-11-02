@@ -72,8 +72,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				foeActive.removeVolatile('substitutebroken');
 			}
 		}
-		pokemon.draggedIn = null;
+    this.battle.runEvent('HiveMind', pokemon); // making Hive Mind activate at the appropriate time
     pokemon.addVolatile('indomitablespirit'); // yes this is a really ugly way to do this but it's better than a ruleset okay
+		pokemon.draggedIn = null;
 		return true;
 	},
 
