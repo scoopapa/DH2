@@ -1319,6 +1319,7 @@ export class TeamValidator {
 			if(source === '9D'){ //MODDED: Earth & Sky Hidden Moves use 'D' source
 				return; //Limiting Hidden Moves is done in a separate rule
 			} else {
+				if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
 				eventData = {
 					generation: 5,
 					level: 10,
