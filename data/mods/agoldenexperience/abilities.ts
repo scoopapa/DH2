@@ -211,7 +211,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -10,
 	},
-	divination: {
+	divination: {//still doesn't work
 		shortDesc: "Reveals a random move of each adjacent opponent on entry.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Divination');
@@ -279,7 +279,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onStart(pokemon) {
 			let bp = 0;
 			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.getMove(moveSlot.move);
+				const move = this.dex.moves.get(moveSlot.move);
 				if (move.category === 'Status') continue;
 				if (move.basePower > bp) {
 					bp = move.basePower;
@@ -1276,7 +1276,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					for (const moveSlot of target.moveSlots) {
 						if (moveSlot.revealed) continue;
 						if (r === 0) {
-							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
 						}
 						r--;
 						moveSlot.revealed = true;
