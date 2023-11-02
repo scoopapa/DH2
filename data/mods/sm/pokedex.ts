@@ -20,6 +20,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 2,
 		name: "Banette-Mega",
 		baseSpecies: null,
+		forme: null,
 		types: ["Ghost"],
 		baseStats: {hp: 64, atk: 165, def: 63, spa: 110, spd: 63, spe: 35},
 		abilities: {0: "Tough Claws"},
