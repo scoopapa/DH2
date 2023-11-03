@@ -29,6 +29,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.maxhp = Math.floor(pokemon.maxhp * ratio);
 			pokemon.hp = Math.floor(pokemon.hp * ratio);
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			pokemon.clearBoosts();
+			this.add('-clearboost', pokemon);
 		},
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
