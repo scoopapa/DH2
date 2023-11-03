@@ -139,7 +139,14 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (gMaxMove.exists && gMaxMove.type === move.type) maxMove = gMaxMove;
 				}
 				if (!move.maxMove?.basePower) throw new Error(`${move.name} doesn't have a maxMove basePower`);
-				if (!['gmaxdrumsolo', 'gmaxfireball', 'gmaxhydrosnipe', 'maxguard'].includes(maxMove.id)) {
+				if (!['gmaxdrumsolo', 'gmaxfireball', 'gmaxhydrosnipe', 'maxguard',
+					  'gmaxbefuddle', 'gmaxcannonade', 'gmaxcentiferno', 'gmaxchistrike',
+					  'gmaxcuddle', 'gmaxdepletion', 'gmaxfinale', 'gmaxfoamburst',
+					  'gmaxgoldrush', 'gmaxgravitas', 'gmaxmalodor', 'gmaxmeltdown',
+					  'gmaxoneblow', 'gmaxrapidflow', 'gmaxreplenish', 'gmaxresonance',
+					  'gmaxsandblast', 'gmaxsmite', 'gmaxsnooze', 'gmaxsteelsurge',
+					  'gmaxterror', 'gmaxvinelash', 'gmaxvolcalith', 'gmaxvoltcrash', 'gmaxwildfire', 'gmaxwindrage',
+					  'gmaxstonesurge', 'gmaxstunshock', 'gmaxsweetness', 'gmaxtartness'].includes(maxMove.id)) {
 					maxMove.basePower = move.maxMove.basePower;
 				}
 				maxMove.category = move.category;
