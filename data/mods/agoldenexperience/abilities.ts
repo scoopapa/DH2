@@ -218,9 +218,8 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			for (const target of pokemon.side.foe.active) {
 				if (!target || target.fainted) continue;
 				let potentialMoves = 0;
-				let revealed = new Array();
 				for (const moveSlot of target.moveSlots) {
-					if (revealed.includes(moveSlot)) continue;
+					if (moveSlot.revealed) continue;
 					potentialMoves++;
 				}
 				let r = 0;
@@ -228,12 +227,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					r = this.random(potentialMoves);
 				}
 				for (const moveSlot of target.moveSlots) {
-					if (revealed.includes(moveSlot)) continue;
+					if (moveSlot.revealed) continue;
 					if (r === 0) {
 						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
 					}
 					r--;
-					revealed.push(moveSlot);
+                    moveSlot.revealed = true;
 					return;
 				}
 			}
@@ -544,8 +543,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	evaporate: {
 		desc: "If the Pokemon or the opponent uses a Water type move, it triggers the Haze effect. Immune to Water.",
 		shortDesc: "Haze when any Pokemon uses a Water move; Water immunity.",
-		onAnyTryMove(target, source, effect) {
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
 			if (move.type === 'Water') {
+				for (const pokemon of this.getAllActive()) {
+					pokemon.clearBoosts();
+				   return null;
+				}
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
 				this.add('-immune', target, '[from] ability: Evaporate');
 				for (const pokemon of this.getAllActive()) {
 					pokemon.clearBoosts();
