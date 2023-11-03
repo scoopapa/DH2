@@ -5,7 +5,10 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem: false,
 		zMove: true,
 		onStart(pokemon) {
-			pokemon.side.canDynamaxNow() = true;
+			for (const side of this.sides) {
+				side.dynamaxUsed = false;
+			}
+			pokemon.canDynamaxNow() = true;
 		},
 		num: -1000,
 		gen: 9,
