@@ -10,6 +10,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.effectState.turns = 0;
 			pokemon.removeVolatile('minimize');
 			pokemon.removeVolatile('substitute');
+			for (const side of this.sides) {
+				side.addSideCondition('dynamaxused', pokemon);
+			}
 			if (pokemon.volatiles['torment']) {
 				delete pokemon.volatiles['torment'];
 				this.add('-end', pokemon, 'Torment', '[silent]');
