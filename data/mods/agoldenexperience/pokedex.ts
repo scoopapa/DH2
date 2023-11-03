@@ -3101,6 +3101,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Mold Breaker", 1: "Own Tempo", H: "Sheer Force"},
 	},
+	palafinhero: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 140, def: 97, spa: 116, spd: 97, spe: 100},
+	},
 	cyclizar: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 105, def: 65, spa: 95, spd: 85, spe: 121}, 

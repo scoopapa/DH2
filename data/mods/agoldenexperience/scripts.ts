@@ -86,6 +86,9 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'overqwil').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'overqwil').learnset.earthquake = ['9L1'];
     this.modData('Learnsets', 'lokix').learnset.highjumpkick = ['9L1'];
+    this.modData('Learnsets', 'pawmot').learnset.stompingtantrum = ['9L1'];
+    this.modData('Learnsets', 'pawmot').learnset.uturn = ['9L1'];
+    this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'maushold').learnset.armthrust = ['9L1'];
     this.modData('Learnsets', 'screamtail').learnset.followme = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.strengthsap = ['9L1'];
@@ -96,6 +99,12 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
+    delete this.modData('Learnsets', 'espathra').learnset.storedpower;
+    delete this.modData('Learnsets', 'urshifu').learnset.swordsdance;
+    delete this.modData('Learnsets', 'urshifurapidstrike').learnset.swordsdance;
+    delete this.modData('Learnsets', 'baxcalibur').learnset.scaleshot;
+    delete this.modData('Learnsets', 'gholdengo').learnset.nastyplot;
+    delete this.modData('Learnsets', 'garganacl').learnset.saltcure;
 
     // distrib for PLA moves
 
