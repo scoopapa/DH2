@@ -22,6 +22,10 @@ export function getName(name: string): string {
 }
 
 export const Moves: {[k: string]: ModdedMoveData} = {
+	knockoff: {
+		inherit: true,
+		basePower: 20,
+	},
 	bitterblade: {
 		inherit: true,
 		basePower: 75,
@@ -29,8 +33,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	poltergeist: {
 		inherit: true,
+		shortDesc: "Fails if the target has no held item. Removes the target's item.",
 		basePower: 100,
 		accuracy: 100,
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Poltergeist', '[of] ' + source);
+				}
+			}
+		},
 	},
 	spiritshackle: {
 		shortDesc: "Removes the target's Ghost type.",

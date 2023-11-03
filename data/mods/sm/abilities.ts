@@ -77,7 +77,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	jankster: {
 		onTryHit(pokemon, target, move) {
-			if (move.type === 'Ghost') {
+			if (move.type === 'Fairy') {
 				this.add('-immune', pokemon, '[from] ability: Jankster');
 				this.damage(100, pokemon, pokemon);
 				return null;
@@ -85,7 +85,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isBreakable: true,
 		name: "Jankster",
-		shortDesc: "This Pokemon loses 100 HP when hit by a Ghost-type move; immune to Ghost.",
+		shortDesc: "This Pokemon loses 100 HP when hit by a Fairy-type move; immune to Fairy.",
 	},
 	jumpscare: {
 		onStart(pokemon) {
@@ -242,7 +242,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
-				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				!(move.isZ && move.category !== 'Status') && move.name === 'Explosion' && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Fire';
 				move.typeChangerBoosted = this.effect;
 			}
@@ -282,9 +282,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onFaint(pokemon) {
 			if (pokemon.name === 'Trevenant' && !pokemon.zombie && this.canSwitch(pokemon.side)) {
-				this.add('-ability', pokemon, 'Revive');
-				pokemon.zombie = true;
-				pokemon.hp = Math.floor(pokemon.maxhp / 2);
+				if (pokemon.formeChange('Trevenant-Revenant', this.effect, true)) {
+					this.add('-ability', pokemon, 'Revive');
+					pokemon.zombie = true;
+					pokemon.hp = Math.floor(pokemon.maxhp / 2);
+					pokemon.setAbility('reckless');
+				}
 			}
 		},
 	},
@@ -375,6 +378,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	cursedbody: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if(this.effectState.cursed) return;
+			return this.chainModify(0.75);
+		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.effectState.cursed || source.volatiles['disable']) return;
 			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
@@ -386,7 +393,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			delete this.effectState.cursed;
 		},
 		name: "Cursed Body",
-		shortDesc: "When this Pokemon is damaged by an attack, that attack is disabled. Once per switchin.",
+		shortDesc: "When this Pokemon is damaged by an attack, it takes 75% damage and that attack is disabled. Once per switchin.",
 	},
 	magician: {
 		name: "Magician",
