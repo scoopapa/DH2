@@ -139,12 +139,12 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (gMaxMove.exists && gMaxMove.type === move.type) maxMove = gMaxMove;
 				}
 				if (!move.maxMove?.basePower) throw new Error(`${move.name} doesn't have a maxMove basePower`);
-				if (!['gmaxdrumsolo', 'gmaxfireball', 'gmaxhydrosnipe', 'maxguard',
+				if (!['gmaxdrumsolo', 'gmaxfireball', 'gmaxhydrosnipe', 'gmaxwindrage',
 					  'gmaxbefuddle', 'gmaxcannonade', 'gmaxcentiferno', 'gmaxchistrike',
 					  'gmaxcuddle', 'gmaxdepletion', 'gmaxfinale', 'gmaxfoamburst',
 					  'gmaxgoldrush', 'gmaxgravitas', 'gmaxmalodor', 'gmaxmeltdown',
 					  'gmaxoneblow', 'gmaxrapidflow', 'gmaxreplenish', 'gmaxresonance',
-					  'gmaxsandblast', 'gmaxsmite', 'gmaxsnooze', 'gmaxsteelsurge', 'gmaxwindrage',
+					  'gmaxsandblast', 'gmaxsmite', 'gmaxsnooze', 'gmaxsteelsurge',
 					  'gmaxterror', 'gmaxvinelash', 'gmaxvolcalith', 'gmaxvoltcrash', 'gmaxwildfire',
 					  'gmaxstonesurge', 'gmaxstunshock', 'gmaxsweetness', 'gmaxtartness'].includes(maxMove.id)) {
 					maxMove.basePower = move.maxMove.basePower;
@@ -160,10 +160,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			return maxMove;
 		},
 		newMaxPower(move){
-			let oldMaxPowers = [90, 100, 110, 120, 130, 140, 150];
-			let oldweakMaxPowers = [70, 75, 80, 85, 90, 95, 100];
-			let weakMaxPowers = [60, 65, 70, 75, 80, 85, 90];
-			let maxPowers = [70, 80, 90, 100, 110, 120, 130];
+			let oldMaxPowers = [0, 90, 100, 110, 120, 130, 140, 150];
+			let oldweakMaxPowers = [0, 70, 75, 80, 85, 90, 95, 100];
+			let weakMaxPowers = [0, 60, 65, 70, 75, 80, 85, 90];
+			let maxPowers = [0, 70, 80, 90, 100, 110, 120, 130];
 			let maxNewPower = 110;
 			if (!move.basePower) {
 				return maxNewPower;
