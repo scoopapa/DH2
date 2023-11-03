@@ -8,7 +8,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			for (const side of this.sides) {
 				side.dynamaxUsed = false;
 			}
-			pokemon.canDynamax = true;
+		},
+		onSwitchOut(pokemon) {
+			for (const side of this.sides) {
+				side.dynamaxUsed = true;
+			}
 		},
 		num: -1000,
 		gen: 9,
