@@ -6,7 +6,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		zMove: true,
 		onStart(pokemon) {
 			for (const side of this.sides) {
-				if (side.getSideCondition('dynamaxused')) {
+				if (pokemon.side.sideConditions['dynamaxused']) {
 					side.dynamaxUsed = true;
 				} else {
 					side.dynamaxUsed = false;				
