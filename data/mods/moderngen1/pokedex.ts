@@ -980,6 +980,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		gen: 1,
 	},
+	rayquazamega: {
+		inherit: true,
+		gen: 1,
+	},
 	jirachi: {
 		inherit: true,
 		gen: 1,

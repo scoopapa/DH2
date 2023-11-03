@@ -1,4 +1,8 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	plasmafists: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	refresh: {
 		inherit: true,
 		isNonstandard: null,

@@ -412,9 +412,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 1017 && (move.type === 'Grass' || move.type === 'Rock')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
 		num: 2406,
 		gen: 9,
-		desc: "Ogerpon holder gains Rock type, changes Hidden Move/Ability, Embody Aspect raises Defense.",
+		desc: "Ogerpon holder gains Rock type, changes Hidden Move, 1.2x Grass/Rock damage.",
 	},
 	dragonscale: {
 		inherit: true,
@@ -479,9 +485,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 1017 && (move.type === 'Grass' || move.type === 'Fire')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
 		num: 2408,
 		gen: 9,
-		desc: "Ogerpon holder gains Fire type, changes Hidden Move/Ability, Embody Aspect raises Attack.",
+		desc: "Ogerpon holder gains Fire type, changes Hidden Move, 1.2x Grass/Fire damage.",
 	},
 	iapapaberry: {
 		inherit: true,
@@ -884,9 +896,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 1017 && (move.type === 'Grass' || move.type === 'Water')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
 		num: 2407,
 		gen: 9,
-		desc: "Ogerpon holder gains Water type, changes Hidden Move/Ability, Embody Aspect raises Sp. Def.",
+		desc: "Ogerpon holder gains Water type, changes Hidden Move, 1.2x Grass/Water damage.",
 	},
 	whippeddream: {
 		inherit: true,
