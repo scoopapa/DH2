@@ -465,7 +465,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					dynamax = false;
 				} else {
 					if (this.battle.gen !== 9) {
-						return this.emitChoiceError(`Can't move: Dynamaxing doesn't outside of Gen 9.`);
+						return this.emitChoiceError(`Can't move: Dynamaxing doesn't exist outside of Gen 9.`);
 					} else if (pokemon.side.canDynamaxNow()) {
 						return this.emitChoiceError(`Can't move: ${pokemon.name} can't Dynamax now.`);
 					} else if (pokemon.side.allySide?.canDynamaxNow()) {
