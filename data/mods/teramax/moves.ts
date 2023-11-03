@@ -22,6 +22,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 	},
+
+// Max and GMax Moves
+	maxhailstorm: {
+		num: 763,
+		accuracy: true,
+		basePower: 10,
+		category: "Physical",
+		isNonstandard: "Past",
+		name: "Max Hailstorm",
+		pp: 10,
+		priority: 0,
+		flags: {},
+		isMax: true,
+		self: {
+			onHit(source) {
+				if (!source.volatiles['dynamax']) return;
+				this.field.setWeather('snow');
+			},
+		},
+		target: "adjacentFoe",
+		type: "Ice",
+		contestType: "Cool",
+	},
 	dynamaxused: {
 		shortDesc: "Prevents Dynamax from being used multiple times.",
 		accuracy: true,
