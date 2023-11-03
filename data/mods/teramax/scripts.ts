@@ -153,10 +153,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			return maxMove;
 		},
 		newMaxPower(move){
-			let oldMaxPowers = [100, 110, 120, 130, 140, 150];
-			let oldweakMaxPowers = [70, 80, 85, 90, 95, 100];
-			let weakMaxPowers = [60, 70, 75, 80, 85, 90];
-			let maxPowers = [80, 90, 100, 110, 120, 130];
+			let oldMaxPowers = [90, 100, 110, 120, 130, 140, 150];
+			let oldweakMaxPowers = [70, 75, 80, 85, 90, 95, 100];
+			let weakMaxPowers = [60, 65, 70, 75, 80, 85, 90];
+			let maxPowers = [70, 80, 90, 100, 110, 120, 130];
 			let maxNewPower = 110;
 			if (!move.basePower) {
 				return maxNewPower;
