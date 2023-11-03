@@ -5,18 +5,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onTakeItem: false,
 		zMove: true,
 		onStart(pokemon) {
-			for (const side of this.sides) {
-				if (pokemon.side.sideConditions['dynamaxused']) {
-					side.dynamaxUsed = true;
-				} else {
-					side.dynamaxUsed = false;				
-				}
+			if (pokemon.side.sideConditions['dynamaxused']) {
+				pokemon.side.dynamaxUsed = true;
+			} else {
+				pokemon.side.dynamaxUsed = false;				
 			}
 		},
 		onSwitchOut(pokemon) {
-			for (const side of this.sides) {
-				side.dynamaxUsed = true;
-			}
+			pokemon.side.dynamaxUsed = true;
 		},
 		num: -1000,
 		gen: 9,
