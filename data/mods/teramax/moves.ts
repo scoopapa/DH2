@@ -843,11 +843,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	gmaxwindrage: {
 		num: 1000,
 		accuracy: true,
-		basePower: 10,
+		basePower: 110,
 		category: "Physical",
 		isNonstandard: "Gigantamax",
 		name: "G-Max Wind Rage",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {},
 		isMax: "Corviknight",
