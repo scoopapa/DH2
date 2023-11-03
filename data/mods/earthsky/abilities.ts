@@ -1475,31 +1475,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		desc: "This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move. The power of Fire-type moves is multiplied by 1.25 when used on this Pokemon. At the end of each turn, this Pokemon restores 1/16 of its maximum HP, rounded down, if the weather is Rain Dance, and loses 1/16 of its maximum HP, rounded down, if the weather is Sunny Day. The weather effects are prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "This Pokemon is healed 1/4 by Water, 1/16 by Rain; is hurt 1.25x by Fire, 1/16 by Sun.",
 	},
-	embodyaspect: {
-		onStart(pokemon) {
-			if(pokemon.baseSpecies === "Ogerpon"){
-				switch(pokemon.forme){
-					case "Wellspring":
-						this.boost({spd: 1}, pokemon);
-						break;
-					case "Hearthflame":
-						this.boost({atk: 1}, pokemon);
-						break;
-					case "Cornerstone":
-						this.boost({def: 1}, pokemon);
-						break;
-					default:
-						this.boost({spe: 1}, pokemon);
-						break;
-				}
-			}
-		},
-		name: "Embody Aspect",
-		rating: 3.5,
-		num: 301,
-		desc: "If this Pokemon is Ogerpon, raises a stat 1 stage on switch-in based on its mask: Teal Mask raises Speed, Wellspring Mask raises Special Defense, Hearthstone Mask raises Attack, and Cornerstone Mask raises Defense.",
-		shortDesc: "On switch-in, raises stat 1 stage based on Mask; Teal = Speed.",
-	},
 	flareboost: {
 		name: "Flare Boost",
 		rating: 3,
@@ -3731,6 +3706,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	transistor: null,
 	unseenfist: null,
 	wellbakedbody: null,
+	embodyaspectteal: null,
+	embodyaspectwellspring: null,
+	embodyaspecthearthflame: null,
+	embodyaspectcornerstone: null,
 	
 	/* CAP */
 	emergence: {

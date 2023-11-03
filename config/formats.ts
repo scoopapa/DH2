@@ -2156,37 +2156,6 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 1] Modern Gen 1",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
-		],
-		mod: 'moderngen1',
-		searchShow: false,
-		ruleset: ['Standard', 'Partial Trapping Clause', 'Protect Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items', '!Obtainable Misc'],
-		banlist: ['Uber', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Flatter'],	
-	},
-	{
-		name: "[Gen 1] Modern Gen 1 Ubers",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
-		],
-		mod: 'moderngen1',
-		searchShow: false,
-		ruleset: ['Standard', 'Partial Trapping Clause', 'Protect Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items', '!Obtainable Misc'],
-		banlist: ['AG', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Flatter'],	
-		teambuilderFormat: 'Uber',
-	},
-	{
-		name: "[Gen 1] Modern Gen 1 UU",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
-		],
-		mod: 'moderngen1',
-		searchShow: false,
-		ruleset: ['Standard', 'Partial Trapping Clause', 'Protect Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items', '!Obtainable Misc'],
-		banlist: ['Uber', 'OU', 'UUBL', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Flatter'],	
-	},
-	{
 		name: "[Gen 9] Patratdex",
 		desc: `<b>Patratdex</b>: Galvantic's Solomod, containing a new regional dex with a bunch of new stuff, notably 151 Fakemon.`,
 		mod: 'patratdex',
@@ -2219,7 +2188,7 @@ export const Formats: FormatList = [
 		mod: 'gen9roovnen',
 		searchShow: false,
 		ruleset: ['Standard'],
-		banlist: ['AG', 'Uber', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Soul Dew'],
+		banlist: ['AG', 'Uber', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Soul Dew', 'Shadow Dew'],
 	},
 	{
 		name: "[Gen 9] Roovnen UU",
@@ -2231,8 +2200,21 @@ export const Formats: FormatList = [
 		mod: 'gen9roovnen',
 		searchShow: false,
 		ruleset: ['[Gen 9] Roovnen OU'],
-		banlist: ['OU', 'UUBL'],
+		banlist: ['OU', 'UUBL', 'Light Clay'],
 		teambuilderFormat: 'UU',
+	},
+	{
+		name: "[Gen 9] Roovnen RU",
+		desc: '<b>A solomod with Pokémon based on and related to Austria, Germany and Switzerland',
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9485572">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1ZzNqkSOwGYx2E1Rn28jCzGpJahMIcM-KjiGprjQAT68/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'gen9roovnen',
+		searchShow: false,
+		ruleset: ['[Gen 9] Roovnen UU'],
+		banlist: ['UU', 'RUBL'],
+		teambuilderFormat: 'RU',
 	},
 	/*{
 		name: "[Gen 9] Roovnen Uber",
@@ -2934,5 +2916,124 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+	},
+	{
+		section: "Modern Gen Series",
+		column: 3,
+		// name: "moderngenseries",
+	},
+	{
+		name: "[Gen 1] Modern Gen 1",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen1',
+		searchShow: false,
+		ruleset: ['Standard', 'Partial Trapping Clause', 'Protect Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items'],
+		banlist: ['Uber', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Flatter'],	
+	},
+	{
+		name: "[Gen 1] Modern Gen 1 Uber",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen1',
+		searchShow: false,
+		ruleset: ['Standard', 'Partial Trapping Clause', 'Protect Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items'],
+		banlist: ['AG', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Flatter'],	
+		teambuilderFormat: 'Uber',
+	},
+	{
+		name: "[Gen 1] Modern Gen 1 UU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen1',
+		searchShow: false,
+		ruleset: ['Standard', 'Partial Trapping Clause', 'Protect Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items'],
+		banlist: ['Uber', 'OU', 'UUBL', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Flatter'],	
+	},
+	{
+		name: "[Gen 1] Modern Gen 1 LC",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen1',
+		searchShow: false,
+		ruleset: ['Standard', 'Little Cup', 'Partial Trapping Clause', 'Field Effect Clause', 'Sleep Moves Clause', '+No Ability', '-All Abilities', '-All Items'],
+		banlist: ['Basculin-White-Striped', 'Qwilfish-Hisui', 'Sneasel', 'Stantler', 'Tangela', 'Sneasel-Hisui', 'Dunsparce', 'Scyther', 'Girafarig', 'Type: Null', 'Fake Out'],
+	},
+	{
+		name: "[Gen 2] Modern Gen 2",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-2.3725808/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen2',
+		searchShow: false,
+		ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
+		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew'],	
+	},
+	{
+		name: "[Gen 2] Modern Gen 2 Uber",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-2.3725808/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen2',
+		searchShow: false,
+		ruleset: ['Standard', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
+		banlist: ['AG', 'Fake Out', 'Baton Pass', 'Rusted Sword'],
+		teambuilderFormat: 'Uber',
+	},
+	{
+		name: "[Gen 2] Modern Gen 2 LC",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-2.3725808/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen2',
+		searchShow: false,
+		ruleset: ['Standard', 'Little Cup', 'Sleep Moves Clause', '+No Ability', '-All Abilities'],
+		banlist: ['Basculin-White-Striped', 'Qwilfish-Hisui', 'Sneasel-Hisui', 'Dunsparce', 'Scyther', 'Girafarig', 'Type: Null', 'Fake Out', 'Sonic Boom', 'Dragon Rage'],
+	},
+	{
+		name: "[Gen 3] Modern Gen 3",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen3',
+		searchShow: false,
+		ruleset: ['Standard', 'Z-Move Clause'],
+		banlist: ['AG', 'Uber', 'Assist', 'Baton Pass', 'Arena Trap', 'Shadow Tag', 'Sand Veil', 'Snow Cloak', 'Moody', 'Sand Rush', 'Power Construct', 'Battle Bond'],	
+	},
+	{
+		name: "[Gen 3] Modern Gen 3 Ubers",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen3',
+		searchShow: false,
+		ruleset: ['Standard', 'Z-Move Clause'],
+		banlist: ['AG'],
+		teambuilderFormat: 'Uber',
+	},
+	{
+		name: "[Gen 4] Modern Gen 4",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen4',
+		searchShow: false,
+		ruleset: ['Standard'],
+		banlist: ['AG', 'Uber', 'Arena Trap', 'Shadow Tag', 'Moody', 'Sand Rush', 'Power Construct', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Assist', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Soul Dew'],	
+	},
+	{
+		name: "[Gen 4] Modern Gen 4 Ubers",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-3.3713372/">Smogon Thread</a>`,
+		],
+		mod: 'moderngen4',
+		searchShow: false,
+		ruleset: ['Standard'],
+		banlist: ['AG'],
+		teambuilderFormat: 'Uber',
 	},
 ];

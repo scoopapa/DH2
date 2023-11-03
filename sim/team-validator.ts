@@ -825,6 +825,7 @@ export class TeamValidator {
 
 		let moveProblems;
 		if (ruleTable.has('obtainablemoves')) {
+			if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
 			moveProblems = this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name, moveLegalityWhitelist);
 			problems.push(...moveProblems);
 		}
@@ -1319,6 +1320,7 @@ export class TeamValidator {
 			if(source === '9D'){ //MODDED: Earth & Sky Hidden Moves use 'D' source
 				return; //Limiting Hidden Moves is done in a separate rule
 			} else {
+				if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
 				eventData = {
 					generation: 5,
 					level: 10,
@@ -2180,6 +2182,7 @@ export class TeamValidator {
 			if (setSources.sourcesBefore < 5) setSources.sourcesBefore = 0;
 			const canUseAbilityPatch = dex.gen >= 8 && this.format.mod !== 'gen8dlc1';
 			if (!setSources.size() && !canUseAbilityPatch) {
+				if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
 				problems.push(`${name} has a hidden ability - it can't have moves only learned before gen 5.`);
 				return problems;
 			}

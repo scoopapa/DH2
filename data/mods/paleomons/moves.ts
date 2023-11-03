@@ -49,7 +49,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		name: "Decibloom",
 		shortDesc: "30% chance to raise the user's Special Attack by 1.",
-		pp: 80,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1},
 		onPrepareHit(target, source, move) {
