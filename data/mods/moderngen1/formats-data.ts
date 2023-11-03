@@ -3645,6 +3645,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 		tier: "UU",
 	},
+	meloettapirouette: {
+		inherit: true,
+		gen: 1,
+		tier: "UU",
+	},
 	genesect: {
 		inherit: true,
 		gen: 1,
@@ -4653,7 +4658,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	poipole: {
 		inherit: true,
 		gen: 1,
-		tier: "UU",
+		tier: "NFE",
 	},
 	naganadel: {
 		inherit: true,

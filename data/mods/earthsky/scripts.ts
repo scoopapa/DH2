@@ -15,8 +15,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		excludeStandardTiers: true,
 		customTiers: ['ES', 'Uber', 'OU', 'NFE', 'LC'],
 		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet | null): boolean {
-			const dex = this.dex;
-
 			let abilityid: ID = set ? toID(set.ability) : '' as ID;
 			const itemid: ID = set ? toID(set.item) : '' as ID;
 
@@ -99,11 +97,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
 				return true;
 			}
-			const modMoveData = BattleMovedex[id];
-			if (!modMoveData) return true;
-			if (modMoveData.category === 'Status') {
-				return this.GOOD_STATUS_MOVES.includes(id);
-			}
 			const moveData = BattleMovedex[id];
 			if (!moveData) return true;
 			if (moveData.category === 'Status') {
@@ -122,19 +115,22 @@ export const Scripts: ModdedBattleScriptsData = {
 				if(id === 'swing' && set?.item.consumable) return false;
 				return true;
 			}
+			if (moveData.flags?.bite && abilityid === 'strongjaw' && id !== 'bite') {
+				return true;
+			}
 			if(moveData.multihit?.length && moveData.basePower > 15 && (['skilllink', 'technician'].includes(abilityid) || itemid === 'loadeddice')){
 				return true;
 			}
-			if (moveData.basePower < 75) {
+			if (moveData.basePower < 75 && !(abilityid === 'technician' && moveData.basePower >= 50)) {
 				return this.GOOD_WEAK_MOVES.includes(id);
 			}
 			return !this.BAD_STRONG_MOVES.includes(id);
 		},
 		GOOD_STATUS_MOVES: [
-			'acidarmor', 'agility', 'aromatherapy', 'auroraveil', 'autotomize', 'batonpass', 'bellydrum', 'bulkup', 'bunkerdown', 'calmmind', 'coil', 'cottonguard', 'courtchange', 'curse', 'defog', 'destinybond', 'detect', 'disable', 'dragondance', 'eminence', 'encore', 'escapetunnel', 'filletaway', 'geomancy', 'glare', 'haze', 'healbell', 'healingwish', 'healorder', 'healpulse', 'heartswap', 'honeclaws', 'irondefense', 'kingsshield', 'leechseed', 'lightscreen', 'lovelykiss', 'lunardance', 'magiccoat', 'memento', 'midnight', 'milkdrink', 'moonlight', 'morningsun', 'nastyplot', 'naturesmadness', 'noretreat', 'obstruct', 'painsplit', 'partingshot', 'perishsong', 'preheat', 'protect', 'quiverdance', 'rebound', 'recover', 'reflect', 'reflecttype', 'rejuvenate', 'rest', 'revivalblessing', 'roar', 'rockpolish', 'roost', 'rototiller', 'shellsmash', 'shelter', 'shiftgear', 'shoreup', 'silktrap', 'slackoff', 'sleeppowder', 'sleeptalk', 'slipaway', 'softboiled', 'spikes', 'spikyshield', 'spore', 'stealthrock', 'stickyweb', 'strengthsap', 'substitute', 'switcheroo', 'swordsdance', 'synthesis', 'tailglow', 'tailwind', 'taunt', 'thunderwave', 'toxic', 'transform', 'trick', 'victorydance', 'warriorssoul', 'whirlwind', 'willowisp', 'wish', 'yawn',
+			'acidarmor', 'agility', 'aromatherapy', 'auroraveil', 'autotomize', 'batonpass', 'bellydrum', 'bulkup', 'bunkerdown', 'calmmind', 'coil', 'cottonguard', 'courtchange', 'curse', 'defog', 'destinybond', 'detect', 'disable', 'doubleteam', 'dragondance', 'eminence', 'encore', 'escapetunnel', 'filletaway', 'geomancy', 'glare', 'haze', 'healbell', 'healblock', 'healorder', 'healpulse', 'healingwish', 'heartswap', 'honeclaws', 'irondefense', 'kingsshield', 'leechseed', 'lightscreen', 'lovelykiss', 'lunardance', 'magiccoat', 'meditate', 'memento', 'midnight', 'milkdrink', 'moonlight', 'morningsun', 'nastyplot', 'naturesmadness', 'noretreat', 'obstruct', 'painsplit', 'partingshot', 'perishsong', 'preheat', 'protect', 'quiverdance', 'rebound', 'recover', 'reflect', 'reflecttype', 'rejuvenate', 'rest', 'revivalblessing', 'roar', 'rockpolish', 'roost', 'rototiller', 'shellsmash', 'shelter', 'shiftgear', 'shoreup', 'silktrap', 'slackoff', 'sleeppowder', 'sleeptalk', 'slipaway', 'softboiled', 'spiderweb', 'spikes', 'spikyshield', 'spore', 'stasis', 'stealthrock', 'stickyweb', 'strengthsap', 'substitute', 'switcheroo', 'swordsdance', 'synthesis', 'tailglow', 'tailwind', 'taunt', 'thunderwave', 'toxic', 'transform', 'trick', 'victorydance', 'warriorssoul', 'whirlwind', 'willowisp', 'wish', 'yawn',
 		],
 		GOOD_WEAK_MOVES: [
-			'accelerock', 'ambush', 'aquacutter', 'aquajet', 'avalanche', 'bind', 'boltbeak', 'bonemerang', 'bulletpunch', 'circlethrow', 'clamp', 'clearsmog', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'equalizer', 'facade', 'firefang', 'fishiousrend', 'flowertrap', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'iciclespear', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalstrike', 'naturesmadness', 'nightshade', 'nuzzle', 'pelletshot', 'populationbomb', 'psychocut', 'pursuit', 'quickattack', 'rapidspin', 'rockblast', 'ruination', 'saltcure', 'seismictoss', 'shadowclaw', 'shadowsneak', 'skydrop', 'snaptrap', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailhead', 'uturn', 'vengefulspirit', 'voltswitch', 'watershuriken', 'weatherball',
+			'accelerock', 'ambush', 'aquacutter', 'aquajet', 'avalanche', 'bind', 'boltbeak', 'bonemerang', 'bulletpunch', 'circlethrow', 'clamp', 'clearsmog', 'crushgrip', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'equalizer', 'facade', 'firefang', 'fishiousrend', 'flowertrap', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'iciclespear', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalstrike', 'naturesmadness', 'nightshade', 'nuzzle', 'pelletshot', 'populationbomb', 'psychocut', 'pursuit', 'quickattack', 'rapidspin', 'rockblast', 'ruination', 'saltcure', 'secretpower', 'seismictoss', 'shadowclaw', 'shadowsneak', 'skydrop', 'snaptrap', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailhead', 'uturn', 'vengefulspirit', 'voltswitch', 'watershuriken', 'weatherball',
 		],
 		BAD_STRONG_MOVES: [
 			'belch', 'burnup', 'crushclaw', 'dragonrush', 'dreameater', 'eggbomb', 'falsesurrender', 'flyingpress', 'hyperbeam', 'hyperfang', 'hyperspacehole', 'jawlock', 'landswrath', 'megakick', 'megapunch', 'muddywater', 'nightdaze', 'pollenpuff', 'selfdestruct', 'shelltrap', 'slam', 'smartstrike', 'submission', 'synchronoise', 'takedown', 'thrash', 'uproar', 'vitalthrow',
@@ -2529,10 +2525,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			"Victreebell", "Darmanitan-Rage", "Lycanroc-Twilight", "Robo Bundle", "Mecha Jugulis", "Press Hands", "Astro Glider", "Armor Thorns", "Valiant Droid", "Saber Leaves"
 		];*/
 		const baseSeven = [ //Pokemon modified to use a relative's Gen VII learnset as a base
-			"meowthgalar", "perrserker", "growlithehisui", "arcaninehisui", "ponytagalar", "rapidashgalar", "slowpokegalar", "slowbrogalar", "slowkinggalar", "voltorbhisui", "electrodehisui", "weezinggalar", "taurospaldeacombat", "taurospaldeablaze", "taurospaldeaaqua", "articunogalar", "zapdosgalar", "moltresgalar", "typhlosionhisui", "qwilfishhisui", "overqwil", "sneaselhisui", "sneasler", "corsolagalar", "cursola", "samurotthisui", "lilliganthisui", "yamaskgalar", "runerigus", "zoruahisui", "zoroarkhisui", "stunfiskgalar", "braviaryhisui", "sliggoohisui", "goodrahisui", "avalugghisui", "decidueyehisui", "regieleki", "regidrago", "wyrdeer", "ursaluna", "toedscool", "toedscruel", "wiglett", "wugtrio", "kingambit"
+			"meowthgalar", "perrserker", "growlithehisui", "arcaninehisui", "ponytagalar", "rapidashgalar", "slowpokegalar", "slowbrogalar", "slowkinggalar", "voltorbhisui", "electrodehisui", "weezinggalar", "taurospaldeacombat", "taurospaldeablaze", "taurospaldeaaqua", "articunogalar", "zapdosgalar", "moltresgalar", "typhlosionhisui", "sneaselhisui", "sneasler", "corsolagalar", "cursola", "samurotthisui", "lilliganthisui", "yamaskgalar", "runerigus", "zoruahisui", "zoroarkhisui", "stunfiskgalar", "braviaryhisui", "sliggoohisui", "goodrahisui", "avalugghisui", "decidueyehisui", "regieleki", "regidrago", "wyrdeer", "ursaluna", "toedscool", "toedscruel", "wiglett", "wugtrio", "kingambit"
 		];
 		const baseEight = [ //Pokemon using their Gen VIII learnsets as a base
-			"bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "vileplume", "farfetchd", "farfetchdgalar", "hitmonlee", "hitmonchan", "mrmime", "mrmimegalar", "scyther", "pinsir", "bellossom", "qwilfish", "qwilfishhisui", "scizor", "heracross", "remoraid", "octillery", "tyrogue", "hitmontop", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "zigzagoon", "zigzagoongalar", "linoone", "linoonegalar", "seedot", "nuzleaf", "shiftry", "lotad", "lombre", "lunatone", "solrock", "bagon", "shelgon", "salamence", "kyogre", "groudon", "rayquaza", "mimejr", "uxie", "mesprit", "azelf", "dialga", "palkia", "giratina", "darumaka", "darmanitan", "reshiram", "zekrom", "kyurem", "fletchling", "fletchinder", "talonflame", "swirlix", "slurpuff", "bergmite", "avalugg", "xerneas", "yveltal", "zygarde",
+			"bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "vileplume", "farfetchd", "farfetchdgalar", "hitmonlee", "hitmonchan", "mrmime", "mrmimegalar", "scyther", "pinsir", "bellossom", "qwilfish", "qwilfishhisui", "overqwil", "scizor", "heracross", "remoraid", "octillery", "tyrogue", "hitmontop", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "zigzagoon", "zigzagoongalar", "linoone", "linoonegalar", "seedot", "nuzleaf", "shiftry", "lotad", "lombre", "lunatone", "solrock", "bagon", "shelgon", "salamence", "kyogre", "groudon", "rayquaza", "mimejr", "uxie", "mesprit", "azelf", "dialga", "palkia", "giratina", "darumaka", "darmanitan", "reshiram", "zekrom", "kyurem", "fletchling", "fletchinder", "talonflame", "swirlix", "slurpuff", "bergmite", "avalugg", "xerneas", "yveltal", "zygarde",
 		];
 		const baseNine = [ //Pokemon using their Gen IX learnsets as a base
 			"wooper", "wooperpaldea", "quagsire", "riolu", "lucario", "basculin", "basculinbluestriped", "basculinwhitestriped", "rowlet", "dartrix", "decidueye", "decidueyehisui", "indeedee", "indeedeef", "kleavor"
@@ -4721,6 +4717,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','qwilfish').learnset.fellstinger = ["9D"];
 		this.modData('Learnsets','qwilfish').learnset.whitewater = ["9L12"];
 		this.modData('Learnsets','qwilfish').learnset.pinmissile = ["9L24"];
+		this.modData('Learnsets','qwilfish').learnset.barbbarrage = ["9L28"];
 		this.modData('Learnsets','qwilfish').learnset.brine = ["9L32","9M"];
 		this.modData('Learnsets','qwilfish').learnset.aquatail = ["9L48","9M"];
 		this.modData('Learnsets','qwilfish').learnset.toxic = ["9L52", "9M"];
@@ -4735,9 +4732,19 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','qwilfish').learnset.takedown;
 		// Qwilfish Hisui
 		this.modData('Learnsets','qwilfishhisui').learnset.fellstinger = ["9D"];
-		this.modData('Learnsets','qwilfishhisui').learnset.painsplit = ["9M"];
-		this.modData('Learnsets','qwilfishhisui').learnset.torment = ["9M"];
+		this.modData('Learnsets','qwilfishhisui').learnset.whitewater = ["9L12"];
+		this.modData('Learnsets','qwilfishhisui').learnset.pinmissile = ["9L24"];
+		this.modData('Learnsets','qwilfishhisui').learnset.brine = ["9L32","9M"];
+		this.modData('Learnsets','qwilfishhisui').learnset.aquatail = ["9L48","9M"];
 		this.modData('Learnsets','qwilfishhisui').learnset.toxic = ["9L52", "9M"];
+		this.modData('Learnsets','qwilfishhisui').learnset.mortalstrike = ["9L60"];
+		this.modData('Learnsets','qwilfishhisui').learnset.nightmare = ["9M"];
+		this.modData('Learnsets','qwilfishhisui').learnset.revenge = ["9E"];
+		this.modData('Learnsets','qwilfishhisui').learnset.painsplit = ["9M"];
+		this.modData('Learnsets','qwilfishhisui').learnset.signalbeam = ["9M"];
+		this.modData('Learnsets','qwilfishhisui').learnset.torment = ["9M"];
+		delete this.modData('Learnsets','qwilfishhisui').learnset.acupressure;
+		delete this.modData('Learnsets','qwilfishhisui').learnset.blizzard;
 		delete this.modData('Learnsets','qwilfishhisui').learnset.gyroball;
 		delete this.modData('Learnsets','qwilfishhisui').learnset.shockwave;
 		delete this.modData('Learnsets','qwilfishhisui').learnset.thunderwave;
@@ -10225,9 +10232,22 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','sneasler').learnset.knockoff = ["9M"];
 		// Overqwil
 		this.modData('Learnsets','overqwil').learnset.fellstinger = ["9D"];
+		this.modData('Learnsets','overqwil').learnset.whitewater = ["9L12"];
+		this.modData('Learnsets','overqwil').learnset.pinmissile = ["9L24"];
+		this.modData('Learnsets','overqwil').learnset.brine = ["9L32","9M"];
+		this.modData('Learnsets','overqwil').learnset.aquatail = ["9L48","9M"];
+		this.modData('Learnsets','overqwil').learnset.toxic = ["9L52", "9M"];
 		this.modData('Learnsets','overqwil').learnset.mortalstrike = ["9L60"];
+		this.modData('Learnsets','overqwil').learnset.nightmare = ["9M"];
+		this.modData('Learnsets','overqwil').learnset.revenge = ["9E"];
 		this.modData('Learnsets','overqwil').learnset.painsplit = ["9M"];
+		this.modData('Learnsets','overqwil').learnset.signalbeam = ["9M"];
 		this.modData('Learnsets','overqwil').learnset.torment = ["9M"];
+		delete this.modData('Learnsets','overqwil').learnset.acupressure;
+		delete this.modData('Learnsets','overqwil').learnset.blizzard;
+		delete this.modData('Learnsets','overqwil').learnset.gyroball;
+		delete this.modData('Learnsets','overqwil').learnset.shockwave;
+		delete this.modData('Learnsets','overqwil').learnset.thunderwave;
 		// Enamorus
 		this.modData('Learnsets','enamorus').learnset.sweetscent = ["9D"];
 		this.modData('Learnsets','enamorus').learnset.captivate = ["9L1"];
@@ -11416,6 +11436,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','farigiraf').learnset.telekinesis = ["9M"];
 		// Dudunsparce
 		this.modData('Learnsets','dudunsparce').learnset.dragondance = ["9D"];
+		this.modData('Learnsets','dudunsparce').learnset.aerate = ["9L1"];
 		this.modData('Learnsets','dudunsparce').learnset.mudslap = ["9L8"];
 		this.modData('Learnsets','dudunsparce').learnset.yawn = ["9L13"];
 		this.modData('Learnsets','dudunsparce').learnset.ancientpower = ["9L16"];

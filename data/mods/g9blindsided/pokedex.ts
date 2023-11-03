@@ -1257,7 +1257,7 @@ electhog: {
 	name: "Electhog",
 	types: ["Normal", "Electric"],
 	baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 100},
-	abilities: {0: "Iron Barbs", H: "Lightningrod"},
+	abilities: {0: "Iron Barbs", H: "Lightning Rod"},
 	height: 999,
 	weightkg: 5,
 },
