@@ -859,10 +859,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Winter Storm"}, 
 		weightkg: 112.8,
 	 },
-	 weezlunabloodmoon: {
+	 weezalunabloodmoon: {
 		num: 61, 
 		//fusion: ["Weezing", "Ursaluna-Bloodmoon"],
-		name: "Weezluna-Bloodmoon", 
+		name: "Weezaluna-Bloodmoon", 
 		gender: "M",
 		types: ["Ground", "Poison"],
 		baseStats: {hp: 89, atk: 80, def: 120, spa: 110, spd: 67, spe: 56}, 
@@ -1135,7 +1135,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 72, def: 72, spa: 55, spd: 67, spe: 37}, 
 		abilities: {0: "Honey Moon"}, 
 		weightkg: 4.9,
-		evos: ["Weezluna-Bloodmoon"],
+		evos: ["Weezaluna-Bloodmoon"],
 	},
 	timdough: {
 		num: 1024, 
