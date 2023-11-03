@@ -10,7 +10,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			} else {
 				pokemon.side.dynamaxUsed = false;				
 			}
-			if (pokemon.gigantamax) {
+			if (pokemon.gigantamax && pokemon.side.sideConditions['gmaxused']) {
 				pokemon.addVolatile('dynamax');
 			}
 		},
