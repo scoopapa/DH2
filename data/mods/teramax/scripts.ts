@@ -158,7 +158,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			let weakMaxPowers = [60, 65, 70, 75, 80, 85, 90];
 			let maxPowers = [70, 80, 90, 100, 110, 120, 130];
 			let maxNewPower = 110;
-			if (!move.basePower) {
+			if (!move.basePower && move.category !== 'Status') {
 				return maxNewPower;
 			} else if (!move.maxMove?.basePower){
 				return null;
