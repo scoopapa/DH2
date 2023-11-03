@@ -868,7 +868,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Poison"],
 		baseStats: {hp: 89, atk: 80, def: 120, spa: 110, spd: 67, spe: 56}, 
 		abilities: {0: "Air Control"}, 
-		weightkg: 171.25,
+		weightkg: 171.3,
 		//prevo: "Koffursa",
 	 },
 	 amigotrio: {
