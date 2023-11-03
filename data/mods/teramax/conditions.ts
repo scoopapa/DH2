@@ -8,7 +8,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.removeVolatile('substitute');
 			pokemon.side.addSideCondition('dynamaxused', pokemon);
 			if (pokemon.gigantamax) {
+				let gmaxAbility = pokemon.getAbility()
 				pokemon.side.addSideCondition('gmaxused', pokemon);
+				pokemon.setAbility(gmaxAbility, pokemon, true);
 			}
 			if (pokemon.volatiles['torment']) {
 				delete pokemon.volatiles['torment'];
