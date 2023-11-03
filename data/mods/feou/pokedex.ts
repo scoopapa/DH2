@@ -871,10 +871,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 171.3,
 		//prevo: "Koffursa",
 	 },
-	 amigotrio: {
+	 amigotrioalola: {
 		num: 62, 
 		//fusion: ["Dugtrio-Alola", "Flamigo"],
-		name: "Amigotrio", 
+		name: "Amigotrio-Alola", 
 		types: ["Flying", "Ground"],
 		baseStats: {hp: 60, atk: 110, def: 70, spa: 65, spd: 70, spe: 105}, 
 		abilities: {0: "Lively Locks"}, 
@@ -894,6 +894,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 64, 
 		//fusion: ["Braviary-Hisui", "Empoleon"],
 		name: "Empoliary-Hisui", 
+		 gender: "M",
 		types: ["Water", "Psychic"],
 		baseStats: {hp: 104, atk: 84, def: 79, spa: 111, spd: 95, spe: 65}, 
 		abilities: {0: "Sharp Goggles"}, 
