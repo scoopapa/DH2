@@ -4617,7 +4617,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	baxcalibur: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
