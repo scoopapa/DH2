@@ -1,4 +1,5 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	/*
 	zenmode: {
 		priorityChargeCallback(move, attacker, defender) {
 			attacker.addVolatile('zenmode');
@@ -34,6 +35,36 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Zen Mode",
 		rating: 0,
 		shortDesc: "Changes this Pokemon's form to Zen Mode before using a Special move.",
+		num: 161,
+	}, */
+	zenmode: {
+		onBeforeMovePriority: 9,
+		onBeforeMove(pokemon, target, move) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
+				return;
+			}
+			if (move.category === 'Special' && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+				} else {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+				}
+			},
+			onEnd(pokemon) {
+				if (['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly as string);
+				}
+			},
+		},
+		isPermanent: true,
+		name: "Zen Mode",
+		shortDesc: "(Partially functional placeholder) Changes this Pokemon's form to Zen Mode before using a Special move.",
+		rating: 3,
 		num: 161,
 	},
 	gorillatactics: {
@@ -76,7 +107,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityState.choiceLock = "";
 		},
 		name: "Gorilla Tactics",
-		rating: 4.5,
+		rating: 4,
 		num: 255,
 	},
 };
