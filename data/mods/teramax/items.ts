@@ -8,7 +8,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			for (const side of this.sides) {
 				side.dynamaxUsed = false;
 			}
-			pokemon.canDynamaxNow() = true;
+			pokemon.canDynamax = true;
 		},
 		num: -1000,
 		gen: 9,
