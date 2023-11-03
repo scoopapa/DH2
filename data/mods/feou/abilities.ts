@@ -2600,13 +2600,44 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Well-Baked Flame Orb",
 	},
 	honeymoon: {
-		shortDesc: "Effects of Levitate.",
+		shortDesc: "Levitate + Honey Gather",
 		// airborneness implemented in scripts.ts
 		isBreakable: true,
 		name: "Honey Moon",
 	},
+	aircontrol: {
+		shortDesc: "Levitate effects + Ignores type-based immunities to Ground",
+		onModifyMovePriority: -5,
+		onModifyMove(move, attacker, defender) {
+			if (!defender.hasType('Flying')) return; //Type-based immunities were specified, not ability-based. 
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Ground'] = true;
+			}
+		},
+		name: "Air Control",
+	},
+	livelylocks: {
+		shortDesc: "Copies opponent's stat changes to Speed on switch-in",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Lively Locks', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: target.boosts['spe']}, pokemon);
+					return;
+				}
+			}
+		},
+		name: "Lively Locks",
+	},
 	angrybird: {
-		shortDesc: "Defaint + Competitive",
+		shortDesc: "Defiant + Competitive",
 		onAfterEachBoost(boost, target, source, effect) {
 			if (!source || target.isAlly(source)) {
 				if (effect.id === 'stickyweb') {
