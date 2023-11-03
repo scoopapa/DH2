@@ -920,7 +920,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onDamagePriority: -20,
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'maxguard' ) {
-				return false;
+				return 0;
 			}
 		},
 		onHit(pokemon) {
