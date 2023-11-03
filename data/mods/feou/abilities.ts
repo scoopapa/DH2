@@ -2620,18 +2620,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	livelylocks: {
 		shortDesc: "Copies opponent's stat changes to Speed on switch-in",
 		onStart(pokemon) {
-			let activated = false;
+			//Currently because Costar bypasses sub Lively Locks too will bypass sub 
+			
+			//let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
-				if (!activated) {
+			//	if (!activated) {
 					this.add('-ability', pokemon, 'Lively Locks', 'boost');
-					activated = true;
-				}
-				if (target.volatiles['substitute']) {
-					this.add('-immune', target);
-				} else {
+			//		activated = true;
+			//	}
+			//	if (target.volatiles['substitute']) {
+			//		this.add('-immune', target);
+			//	} else {
 					this.boost({spe: target.boosts['spe']}, pokemon);
 					return;
-				}
+			//	}
 			}
 		},
 		name: "Lively Locks",
