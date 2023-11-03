@@ -36,6 +36,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onBeforeSwitchOut(pokemon) {
 			pokemon.removeVolatile('dynamax');
 		},
+		onModifyDamage(damage, source, target, move) {
+			if (target.terastallized) {
+				return this.chainModify(0.75);
+			}
+		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.id === 'behemothbash' || move.id === 'behemothblade' || move.id === 'dynamaxcannon') {
 				return this.chainModify(2);
