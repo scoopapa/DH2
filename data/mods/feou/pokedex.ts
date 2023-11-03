@@ -484,6 +484,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
  // fusion: ['Celebi', 'Zapdos'],
 		num: 35,
 		name: "Celedos",
+		gender: "N",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 95, atk: 95, def: 95, spa: 115, spd: 100, spe: 100}, 
 		abilities: {0: "Natural Pressures"},
