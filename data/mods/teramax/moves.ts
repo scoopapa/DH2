@@ -1033,8 +1033,4 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	trickortreat: {
-		inherit: true,
-		isNonstandard: null,
-	},
 };
