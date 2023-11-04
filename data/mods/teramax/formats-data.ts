@@ -1448,7 +1448,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	shedinja: {
-		tier: "TMFE",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	hitmonlee: {
