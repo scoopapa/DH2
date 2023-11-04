@@ -2252,43 +2252,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3,
 		num: 89,
 	},
-	slowstart: {
-		// shortDesc: "Atk, SpA halved for 5 turns. Boost all stats after 5 turns. Timer does not reset on switch.",
-		shortDesc: "Atk, SpA halved for 5 turns. Timer does not reset on switch.",
-		onStart(pokemon) {
-			if (!pokemon.slowStartInit) {
-				pokemon.slowStartInit = true;
-				pokemon.slowStartTurns = 5;
-			}
-			if (pokemon.slowStartTurns > 0) pokemon.addVolatile('slowstart');
-		},
-		onResidual(pokemon) {
-			if (pokemon.slowStartTurns && pokemon.slowStartTurns > 0) pokemon.slowStartTurns--;
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['slowstart'];
-			this.add('-end', pokemon, 'Slow Start', '[silent]');
-		},
-		condition: {
-			duration: 5,
-			durationCallback(pokemon) {
-				return pokemon.slowStartTurns;
-			},
-			onStart(target) {
-				this.add('-start', target, 'ability: Slow Start');
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				return this.chainModify(0.5);
-			},
-			onModifySpA(spa, pokemon) {
-				return this.chainModify(0.5);
-			},
-		},
-		name: "Slow Start",
-		rating: -1,
-		num: 112,
-	},
 	rkssystem: {
 		shortDesc: "Non-STAB moves have 1.2x power.",
 		onBasePowerPriority: 23,

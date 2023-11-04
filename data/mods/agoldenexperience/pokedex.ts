@@ -1494,6 +1494,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Grass"],
 		abilities: {0: "Levitate", H: "Sharpness"},
 	},
+	regigigas: {
+		inherit: true,
+		abilities: {0: "Slow Start", H: "Clear Body"},
+	},
 	cresselia: {
 		inherit: true,
 		types: ["Psychic", "Fairy"],
