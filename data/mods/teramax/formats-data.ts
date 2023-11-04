@@ -2823,6 +2823,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 		doublesTier: "DOU",
 	},
+	/*
 	squirtle: {
 		tier: "TMLC",
 		doublesTier: "DOU",
@@ -2852,6 +2853,75 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	melmetal: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+ */
+	froakie: {
+		tier: "TMLC",
+		doublesTier: "DOU",
+	},
+	frogadier: {
+		tier: "TMNFE",
+		doublesTier: "DOU",
+	},
+	greninja: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	oshawott: {
+		tier: "TMLC",
+		doublesTier: "DOU",
+	},
+	dewott: {
+		tier: "TMNFE",
+		doublesTier: "DOU",
+	},
+	samurott: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	rowlet: {
+		tier: "TMLC",
+		doublesTier: "DOU",
+	},
+	dartrix: {
+		tier: "TMNFE",
+		doublesTier: "DOU",
+	},
+	decidueye: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	cyndaquil: {
+		tier: "TMLC",
+		doublesTier: "DOU",
+	},
+	quilava: {
+		tier: "TMNFE",
+		doublesTier: "DOU",
+	},
+	typhlosion: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	chespin: {
+		tier: "TMLC",
+		doublesTier: "DOU",
+	},
+	quilladin: {
+		tier: "TMNFE",
+		doublesTier: "DOU",
+	},
+	chesnaught: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	walkingwake: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	ironleaves: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
