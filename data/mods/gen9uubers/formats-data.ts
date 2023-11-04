@@ -19,6 +19,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "AG",
 	},
+	gliscor: {
+		inherit: true,
+		tier: "AG",
+	},
+	giratina: {
+		inherit: true,
+		tier: "AG",
+	},
 	giratinaorigin: {
 		inherit: true,
 		tier: "AG",
@@ -61,7 +69,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	arceusghost: {
 		inherit: true,
-		tier: "AG",
+		tier: "Uber",
 	},
 	arceusgrass: {
 		inherit: true,
@@ -111,6 +119,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "AG",
 	},
+	hatterene: {
+		inherit: true,
+		tier: "AG",
+	},
+	grimmsnarl: {
+		inherit: true,
+		tier: "AG",
+	},
 	zaciancrowned: {
 		inherit: true,
 		tier: "AG",
@@ -136,6 +152,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "AG",
 	},
 	glimmora: {
+		inherit: true,
+		tier: "AG",
+	},
+	dondozo: {
 		inherit: true,
 		tier: "AG",
 	},
@@ -169,7 +189,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	baxcalibur: {
 		inherit: true,
-		tier: "AG",
+		tier: "Uber",
 	},
 	tinglu: {
 		inherit: true,

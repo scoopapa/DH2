@@ -2916,7 +2916,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Fake Out', 'Confuse Ray', 'Supersonic', 'Swagger', 'Sweet Kiss', 'Flatter'],	
 	},
 	{
-		name: "[Gen 1] Modern Gen 1 Uber",
+		name: "[Gen 1] Modern Gen 1 Ubers",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-1.3711533/">Smogon Thread</a>`,
 		],
@@ -2957,7 +2957,7 @@ export const Formats: FormatList = [
 		banlist: ['AG', 'Uber', 'Fake Out', 'Shell Smash', 'Last Respects', 'Baton Pass', 'Alakazite', 'Soul Dew'],	
 	},
 	{
-		name: "[Gen 2] Modern Gen 2 Uber",
+		name: "[Gen 2] Modern Gen 2 Ubers",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/gen-9-modern-gen-2.3725808/">Smogon Thread</a>`,
 		],
