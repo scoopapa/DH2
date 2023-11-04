@@ -27,6 +27,19 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 130, atk: 115, def: 70, spa: 75, spd: 50, spe: 95},
 		abilities: {0: "Vital Spirit", 1: "Cursed Body", H: "Iron Fist"},
 	},
+	wochien: {
+		inherit: true,
+		types: ["Dark", "Poison"],
+		baseStats: {hp: 85, atk: 85, def: 100, spa: 105, spd: 125, spe: 70},
+	},
+	chienpao: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 100, spd: 90, spe: 120},
+	},
+	chiyu: {
+		inherit: true,
+		baseStats: {hp: 55, atk: 70, def: 80, spa: 135, spd: 125, spe: 105},
+	},
 
 // GMaxes
 	venusaurgmax: {
