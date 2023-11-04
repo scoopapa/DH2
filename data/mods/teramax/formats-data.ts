@@ -2059,7 +2059,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	drampla: {
+	drampa: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
