@@ -2576,11 +2576,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	koraidon: {
-		tier: "TMFE",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	miraidon: {
-		tier: "TMFE",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	walkingwake: {
