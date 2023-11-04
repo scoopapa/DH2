@@ -2917,12 +2917,4 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	walkingwake: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	ironleaves: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 };
