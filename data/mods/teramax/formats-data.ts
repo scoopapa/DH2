@@ -119,16 +119,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	zigzagoon: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
 	zigzagoongalar: {
 		tier: "TMLC",
-		doublesTier: "DOU",
-	},
-	linoone: {
-		tier: "TMFE",
 		doublesTier: "DOU",
 	},
 	linoonegalar: {
@@ -263,24 +255,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	vulpixalola: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
-	ninetalesalola: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	growlithe: {
 		tier: "TMLC",
-		doublesTier: "DOU",
-	},
-	growlithehisui: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
-	arcaninehisui: {
-		tier: "TMFE",
 		doublesTier: "DOU",
 	},
 	arcanine: {
@@ -443,10 +419,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
-	diglettalola: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
 	drilbur: {
 		tier: "TMLC",
 		doublesTier: "DOU",
@@ -468,10 +440,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	meowth: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
-	meowthalola: {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
@@ -540,10 +508,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	wynaut: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
-	farfetchd: {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
@@ -719,10 +683,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
-	ponyta: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
 	ponytagalar: {
 		tier: "TMLC",
 		doublesTier: "DOU",
@@ -760,10 +720,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	mimejr: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
-	darumaka: {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
@@ -811,10 +767,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
-	slowpoke: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
 	slowpokegalar: {
 		tier: "TMLC",
 		doublesTier: "DOU",
@@ -827,19 +779,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
-	grimeralola: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
 	drowzee: {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
 	voltorb: {
-		tier: "TMLC",
-		doublesTier: "DOU",
-	},
-	voltorbhisui: {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
@@ -1199,10 +1143,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMNFE",
 		doublesTier: "DOU",
 	},
-	basculinwhitestriped: {
-		tier: "TMNFE",
-		doublesTier: "DOU",
-	},
 	carkol: {
 		tier: "TMNFE",
 		doublesTier: "DOU",
@@ -1255,19 +1195,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMNFE",
 		doublesTier: "DOU",
 	},
-	qwilfishhisui: {
-		tier: "TMNFE",
-		doublesTier: "DOU",
-	},
 	lampent: {
 		tier: "TMNFE",
 		doublesTier: "DOU",
 	},
 	sneasel: {
-		tier: "TMNFE",
-		doublesTier: "DOU",
-	},
-	sneaselhisui: {
 		tier: "TMNFE",
 		doublesTier: "DOU",
 	},
@@ -1300,10 +1232,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	sliggoo: {
-		tier: "TMNFE",
-		doublesTier: "DOU",
-	},
-	sliggoohisui: {
 		tier: "TMNFE",
 		doublesTier: "DOU",
 	},
@@ -1623,14 +1551,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	basculegion: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	basculegionf: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	wishiwashi: {
 		tier: "TMFE",
 		doublesTier: "DOU",
@@ -1659,10 +1579,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	dugtrioalola: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	swoobat: {
 		tier: "TMFE",
 		doublesTier: "DOU",
@@ -1680,10 +1596,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	persian: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	persianalola: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -1720,10 +1632,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	raichu: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	raichualola: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -1819,10 +1727,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	stunfisk: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	shuckle: {
 		tier: "TMFE",
 		doublesTier: "DOU",
@@ -1847,10 +1751,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	corsola: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	grimmsnarl: {
 		tier: "TMFE",
 		doublesTier: "DOU",
@@ -1872,10 +1772,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	sawk: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	weezing: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -2007,10 +1903,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	rapidash: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	rapidashgalar: {
 		tier: "TMFE",
 		doublesTier: "DOU",
@@ -2052,10 +1944,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	qwilfish: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	overqwil: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -2211,10 +2099,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	avalugghisui: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	dhelmise: {
 		tier: "TMFE",
 		doublesTier: "DOU",
@@ -2231,19 +2115,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	mrmime: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	mrrime: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
 	darmanitangalar: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	darmanitan: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -2315,10 +2191,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	goodrahisui: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	goodra: {
 		tier: "TMFE",
 		doublesTier: "DOU",
@@ -2340,14 +2212,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	scizor: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	kleavor: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	tauros: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -2375,19 +2239,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
+	slowpoke: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
 	slowbro: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	slowbrogalar: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	slowking: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	slowkinggalar: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -2399,15 +2259,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	mukalola: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	electrode: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	electrodehisui: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -2459,23 +2311,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	sneasler: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	ursaluna: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	houndoom: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
 	donphan: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	wyrdeer: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -2575,10 +2415,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	lilliganthisui: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	lumineon: {
 		tier: "TMFE",
 		doublesTier: "DOU",
@@ -2616,10 +2452,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	cryogonal: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
-	braviaryhisui: {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
@@ -2988,10 +2820,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	eternatus: {
-		tier: "Uber",
-		doublesTier: "DOU",
-	},
-	ursalunabloodmoon: {
 		tier: "Uber",
 		doublesTier: "DOU",
 	},
