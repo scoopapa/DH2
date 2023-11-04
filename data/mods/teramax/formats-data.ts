@@ -51,6 +51,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMLC",
 		doublesTier: "DOU",
 	},
+	metapod: {
+		tier: "TMNFE",
+		doublesTier: "DOU",
+	},
 	butterfree: {
 		tier: "TMFE",
 		doublesTier: "DOU",
@@ -2989,6 +2993,38 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	ursalunabloodmoon: {
 		tier: "Uber",
+		doublesTier: "DOU",
+	},
+	squirtle: {
+		tier: "TMLC",
+		doublesTier: "DOU",
+	},
+	wartortle: {
+		tier: "TMNFE",
+		doublesTier: "DOU",
+	},
+	blastoise: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	bulbasaur: {
+		tier: "TMLC",
+		doublesTier: "DOU",
+	},
+	ivysaur: {
+		tier: "TMNFE",
+		doublesTier: "DOU",
+	},
+	venusaur: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
+	meltan: {
+		tier: "TMLC",
+		doublesTier: "DOU",
+	},
+	melmetal: {
+		tier: "TMFE",
 		doublesTier: "DOU",
 	},
 };
