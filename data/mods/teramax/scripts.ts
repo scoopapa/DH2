@@ -156,6 +156,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					  'gmaxterror', 'gmaxvinelash', 'gmaxvolcalith', 'gmaxvoltcrash', 'gmaxwildfire',
 					  'gmaxstonesurge', 'gmaxstunshock', 'gmaxsweetness', 'gmaxtartness'].includes(maxMove.id)) {
 					maxMove.basePower = move.maxMove.basePower;
+					maxMove.pp = move.maxMove.pp;
 				}
 				maxMove.category = move.category;
 			}
