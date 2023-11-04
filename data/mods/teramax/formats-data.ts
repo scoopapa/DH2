@@ -2913,4 +2913,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
+	wooloo: {
+		tier: "TMLC",
+		doublesTier: "DOU",
+	},
+	dubwool: {
+		tier: "TMFE",
+		doublesTier: "DOU",
+	},
 };
