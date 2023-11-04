@@ -43,7 +43,15 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "annihilape").learnset.strengthsap = ["9L1"];
 		delete this.modData('Learnsets', 'annihilape').learnset.bulkup;
 		delete this.modData('Learnsets', 'primeape').learnset.bulkup;
-		delete this.modData('Learnsets', 'mankey').learnset.bulkup;    
+		delete this.modData('Learnsets', 'mankey').learnset.bulkup;
+		delete this.modData('Learnsets', 'chienpao').learnset.suckerpunch;    
+		this.modData("Learnsets", "chienpao").learnset.freezedry = ["9L1"];
+		this.modData("Learnsets", "chienpao").learnset.icebeam = ["9L1"];
+		this.modData("Learnsets", "chienpao").learnset.nastyplot = ["9L1"];
+		this.modData("Learnsets", "chiyu").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "tinglu").learnset.curse = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "wochien").learnset.sludgebomb = ["9L1"];
 	},
 	actions: {
 		inherit: true,
