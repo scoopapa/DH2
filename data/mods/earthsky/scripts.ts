@@ -571,6 +571,19 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.setStatus('');
 			return true;
 		},
+		clearStatus() {
+			if (!this.hp || !this.status) return false;
+			const result: boolean = this.battle.runEvent('RemoveStatus', this, null, null, this.status);
+			if (!result) {
+				this.battle.debug('cure status [' + status.id + '] interrupted');
+				return result;
+			}
+			if (this.status === 'slp' && this.removeVolatile('nightmare')) {
+				this.battle.add('-end', this, 'Nightmare', '[silent]');
+			}
+			this.setStatus('');
+			return true;
+		},
 		trySetStatus( //Actually uses ignoreImmunities option for Corrosion and Mycelium Might on moves.
 		  status: string | Condition, source: Pokemon | null = null, sourceEffect: Effect | null = null) {
 			/*status = this.battle.dex.conditions.get(status); //I would like to clean this up if the cases I'm preparing for with this code don't actually exist
@@ -588,10 +601,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			return this.setStatus(this.status || status, source, sourceEffect, ignoreImmunities);
 		},
 		setStatus( //Simplifies immunity check per above, which also means Corrosion doesn't affect Toxic Orb on self.
-			status: Condition,
+			status: string | Condition,
 			source: Pokemon | null = null,
 			sourceEffect: Effect | null = null,
-			ignoreImmunities: boolean = false
+			ignoreImmunities: boolean = false,
 		) {
 			if (!this.hp) return false;
 			status = this.battle.dex.conditions.get(status);
@@ -621,7 +634,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			const prevStatus = this.status;
-			const prevStatusData = this.statusData;
+			const prevStatusState = this.statusState;
 			if (status.id) {
 				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
 				if (!result) {
@@ -631,18 +644,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			this.status = status.id;
-			this.statusData = {id: status.id, target: this};
-			if (source) this.statusData.source = source;
-			if (status.duration) this.statusData.duration = status.duration;
+			this.statusState = {id: status.id, target: this};
+			if (source) this.statusState.source = source;
+			if (status.duration) this.statusState.duration = status.duration;
 			if (status.durationCallback) {
-				this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 			}
 
-			if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
-				console.log('status start [' + status.id + '] interrupted');
+			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
+				this.battle.debug('status start [' + status.id + '] interrupted');
 				// cancel the setstatus
 				this.status = prevStatus;
-				this.statusData = prevStatusData;
+				this.statusState = prevStatusState;
 				return false;
 			}
 			if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
@@ -1394,20 +1407,24 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (eventid !== 'Start' && eventid !== 'TakeItem' && eventid !== 'Primal' &&
 				effect.effectType === 'Item' && (target instanceof Pokemon) && target.ignoringItem()) {
-				this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
+				this.debug(eventid + ' handler suppressed by Klutz or Magic Room');
 				return relayVar;
 			}
 			if (eventid !== 'End' && effect.effectType === 'Ability' && (target instanceof Pokemon) && target.ignoringAbility()) {
 				this.debug(eventid + ' handler suppressed by Gastro Acid or Neutralizing Gas');
 				return relayVar;
 			}
-			if (effect.effectType === 'Weather' && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
-			eventid !== 'FieldEnd' && this.field.suppressingWeather()) {
+			if (
+				effect.effectType === 'Weather' && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
+				eventid !== 'FieldEnd' && this.field.suppressingWeather()
+			) {
 				this.debug(eventid + ' handler suppressed by Cloud Nine or Midnight');
 				return relayVar;
 			}
-			if ((effect.effectType === 'Terrain' || eventid === 'Terrain') && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
-			eventid !== 'FieldEnd' && this.field.suppressingTerrain()) {
+			if (
+				(effect.effectType === 'Terrain' || eventid === 'Terrain') && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
+				eventid !== 'FieldEnd' && this.field.suppressingTerrain()
+			) {
 				this.debug(eventid + ' handler suppressed by Climate Break or Midnight');
 				return relayVar;
 			}
@@ -1561,7 +1578,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (eventid !== 'Start' && eventid !== 'SwitchIn' && eventid !== 'TakeItem' &&
 					effect.effectType === 'Item' && (effectHolder instanceof Pokemon) && effectHolder.ignoringItem()) {
 					if (eventid !== 'Update') {
-						this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
+						this.debug(eventid + ' handler suppressed by Klutz or Magic Room');
 					}
 					continue;
 				} else if (eventid !== 'End' && effect.effectType === 'Ability' &&
@@ -1571,16 +1588,16 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 					continue;
 				}
-				if ((effect.effectType === 'Weather' || eventid === 'Weather') && eventid !== 'FieldStart'
-					&& eventid !== 'FieldResidual' && eventid !== 'FieldEnd' && this.field.suppressingWeather()) {
-					this.debug(eventid + ' handler suppressed by Air Lock or Midnight');
+				if ((effect.effectType === 'Weather' || eventid === 'Weather') &&
+					eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingWeather()) {
+					this.debug(eventid + ' handler suppressed by Cloud Nine or Midnight');
 					continue;
 				}
-				if ((effect.effectType === 'Terrain' || eventid === 'Terrain') && eventid !== 'FieldStart'
-					&& eventid !== 'FieldResidual' && eventid !== 'FieldEnd' && this.field.suppressingTerrain()) {
+				if ((effect.effectType === 'Terrain' || eventid === 'Terrain') &&
+					eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingTerrain()) {
 					this.debug(eventid + ' handler suppressed by Climate Break or Midnight');
 					continue;
-					}
+				}
 				let returnVal;
 				if (typeof handler.callback === 'function') {
 					const parentEffect = this.effect;
@@ -1629,7 +1646,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			let handlers = this.findBattleEventHandlers(callbackName, 'duration');
 			handlers = handlers.concat(this.findFieldEventHandlers(this.field, `onField${eventid}`, 'duration'));
 			for (const side of this.sides) {
-				handlers = handlers.concat(this.findSideEventHandlers(side, `onSide${eventid}`, 'duration'));
+				if (side.n < 2 || !side.allySide) {
+					handlers = handlers.concat(this.findSideEventHandlers(side, `onSide${eventid}`, 'duration'));
+				}
 				for (const active of side.active) {
 					if (!active) continue;
 					if(active.volatiles['stasis']){
@@ -1647,7 +1666,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				const effect = handler.effect;
 				const pokemon = (handler.effectHolder as Pokemon);
 				if (pokemon.fainted) continue;
-				if (handler.state && handler.state.duration) {
+				if (handler.end && handler.state && handler.state.duration) {
 					if(stasisMons.includes(pokemon)){
 						if(pokemon.volatiles['stasis']?.affectedStatuses.includes(effect.id)){
 							continue;
@@ -1656,7 +1675,8 @@ export const Scripts: ModdedBattleScriptsData = {
 					handler.state.duration--;
 					if (!handler.state.duration) {
 						const endCallArgs = handler.endCallArgs || [handler.effectHolder, effect.id];
-						handler.end!.call(...endCallArgs as [any, ...any[]]);
+						handler.end.call(...endCallArgs as [any, ...any[]]);
+						if (this.ended) return;
 						continue;
 					}
 				}
@@ -1667,6 +1687,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (handler.callback) {
 					this.singleEvent(handlerEventid, effect, handler.state, handler.effectHolder, null, null, relayVar, handler.callback);
 				}
+
 				this.faintMessages();
 				if (this.ended) return;
 			}
