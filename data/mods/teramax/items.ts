@@ -4,7 +4,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 22,
 		onTakeItem: false,
 		zMove: true,
-		onStart(pokemon) {
+		onSwitchIn(pokemon) {
 			if (pokemon.side.sideConditions['dynamaxused']) {
 				pokemon.side.dynamaxUsed = true;
 			} else {
