@@ -1605,20 +1605,32 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 74, atk: 108, def: 60, spa: 58, spd: 60, spe: 120},
 		abilities: {0: "Racketeering", 1: "Unburden", H: "Prankster"},
 	},
+	pansage: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Unburden", H: "Overgrow"},
+	},
 	simisage: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 116, def: 60, spa: 80, spd: 60, spe: 107},
-		abilities: {0: "Gorilla Tactics", H: "Overgrow"},
+		abilities: {0: "Ripen", 1: "Unburden", H: "Overgrow"},
+	},
+	pansear: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Unburden", H: "Blaze"},
 	},
 	simisear: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 98, def: 60, spa: 98, spd: 60, spe: 107},
-		abilities: {0: "Gorilla Tactics", H: "Blaze"},
+		abilities: {0: "Cheek Pouch", 1: "Unburden", H: "Blaze"},
+	},
+	panpour: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Unburden", H: "Torrent"},
 	},
 	simipour: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 80, def: 60, spa: 116, spd: 60, spe: 107},
-		abilities: {0: "Gorilla Tactics", H: "Torrent"},
+		abilities: {0: "Harvest", 1: "Unburden", H: "Torrent"},
 	},
 	musharna:{
 		inherit: true,
@@ -2206,10 +2218,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 100, def: 122, spa: 45, spd: 88, spe: 54},
 		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
 	},
-	bergmite: {
-		inherit: true,
-		evos: ["Avalugg", "Avalugg-Hisui"],
-	},
 	avalugg: {
 		inherit: true,
 		types: ["Ice", "Water"],
@@ -2267,10 +2275,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	//gen 7 :
-	dartrix: {
-		inherit: true,
-		evos: ["Decidueye", "Decidueye-Hisui"],
-	},
 	decidueye: {
 		inherit: true,
 		baseStats: {hp: 78, atk: 107, def: 85, spa: 70, spd: 100, spe: 90},

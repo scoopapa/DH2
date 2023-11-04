@@ -4948,9 +4948,9 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		natDexTier: "UU",
 	},
 	ogerponhearthflame: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 	ogerponcornerstone: {
 		tier: "OU",
