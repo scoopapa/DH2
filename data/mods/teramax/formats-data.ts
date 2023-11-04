@@ -1256,7 +1256,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	hypno: {
-		tier: "TMNFE",
+		tier: "TMFE",
 		doublesTier: "DOU",
 	},
 	chansey: {
