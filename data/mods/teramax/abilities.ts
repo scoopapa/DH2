@@ -109,5 +109,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Gorilla Tactics",
 		rating: 4,
 		num: 255,
+		shortDesc: "Attack is 1.5x, but can only select the first move it executes & item is disabled.",
+	},
+	beadsofruin: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Beads of Ruin');
+		},
+		onAnyModifyAccuracyPriority: -1,
+		onAnyModifyAccuracy(accuracy, target, source) {
+			if (source.isAlly(this.effectState.target) && typeof accuracy === 'number' && !target.hasAbility('Beads of Ruin')) {
+				return this.chainModify([5120, 4096]);
+			}
+		},
+		name: "Beads of Ruin",
+		rating: 4.5,
+		num: 284,
+		shortDesc: "Active Pokemon without this Ability have their Evasiveness multiplied by 0.75.",
 	},
 };
