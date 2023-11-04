@@ -987,4 +987,54 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
+
+// undexiting moves
+	boltbeak: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fishiousrend: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	triplekick: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	purify: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	decorate: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	trickortreat: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	topsyturvy: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	shelltrap: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	octolock: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	anchorshot: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sparklingaria: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	trickortreat: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
