@@ -1679,10 +1679,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
-	dipplin: {
-		tier: "TMFE",
-		doublesTier: "DOU",
-	},
 	meowstic: {
 		tier: "TMFE",
 		doublesTier: "DOU",
