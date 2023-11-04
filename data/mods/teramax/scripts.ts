@@ -144,7 +144,41 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (move.category !== 'Status') {
 				if (pokemon.gigantamax && pokemon.canGigantamax) {
 					const gMaxMove = this.dex.getActiveMove(pokemon.canGigantamax);
-					if (gMaxMove.exists && gMaxMove.type === move.type) maxMove = gMaxMove;
+					if (gMaxMove.exists) { 
+						if ((move.name === 'Drum Beating' && pokemon.baseSpecies.baseSpecies === 'Rillaboom') ||
+							(move.name === 'Frenzy Plant' && pokemon.baseSpecies.baseSpecies === 'Venusaur') ||
+							(move.name === 'Blast Burn' && pokemon.baseSpecies.baseSpecies === 'Charizard') ||
+							(move.name === 'Hydro Cannon' && pokemon.baseSpecies.baseSpecies === 'Blastoise') ||
+							(move.name === 'Pollen Puff' && pokemon.baseSpecies.baseSpecies === 'Butterfree') ||
+							(move.name === 'Volt Tackle' && pokemon.baseSpecies.baseSpecies === 'Pikachu') ||
+							(move.name === 'Pay Day' && pokemon.baseSpecies.baseSpecies === 'Meowth') ||
+							(move.name === 'Dynamic Punch' && pokemon.baseSpecies.baseSpecies === 'Machamp') ||
+							(move.name === 'Shadow Ball' && pokemon.baseSpecies.baseSpecies === 'Gengar') ||
+							(move.name === 'Crabhammer' && pokemon.baseSpecies.baseSpecies === 'Kingler') ||
+							(move.name === 'Freeze-Dry' && pokemon.baseSpecies.baseSpecies === 'Lapras') ||
+							(move.name === 'Last Resort' && pokemon.baseSpecies.baseSpecies === 'Eevee') ||
+							(move.name === 'Body Slam' && pokemon.baseSpecies.baseSpecies === 'Snorlax') ||
+							(move.name === 'Gunk Shot' && pokemon.baseSpecies.baseSpecies === 'Garbodor') ||
+							(move.name === 'Double Iron Bash' && pokemon.baseSpecies.baseSpecies === 'Melmetal') ||
+							(move.name === 'Pyro Ball' && pokemon.baseSpecies.baseSpecies === 'Cinderace') ||
+							(move.name === 'Snipe Shot' && pokemon.baseSpecies.baseSpecies === 'Inteleon') ||
+							(move.name === 'Brave Bird' && pokemon.baseSpecies.baseSpecies === 'Corviknight') ||
+							(move.name === 'Psychic' && pokemon.baseSpecies.baseSpecies === 'Orbeetle') ||
+							(move.name === 'Razor Shell' && pokemon.baseSpecies.baseSpecies === 'Drednaw') || 
+							(move.name === 'Power Gem' && pokemon.baseSpecies.baseSpecies === 'Coalossal') ||
+							(move.name === 'Grav Apple' && pokemon.baseSpecies.baseSpecies === 'Flapple') ||
+							(move.name === 'Apple Acid' && pokemon.baseSpecies.baseSpecies === 'Appletun') ||
+							(move.name === 'Sand Tomb' && pokemon.baseSpecies.baseSpecies === 'Sandaconda') ||
+							(move.name === 'Fire Lash' && pokemon.baseSpecies.baseSpecies === 'Centiskorch') ||
+							(move.name === 'Overdrive' && pokemon.baseSpecies.baseSpecies === 'Toxtricity') ||
+							(move.name === 'Dazzling Gleam' && pokemon.baseSpecies.baseSpecies === 'Hatterene') ||
+							(move.name === 'False Surrender' && pokemon.baseSpecies.baseSpecies === 'Grimmsnarl') ||
+							(move.name === 'Draining Kiss' && pokemon.baseSpecies.baseSpecies === 'Alcremie') ||
+							(move.name === 'Heavy Slam' && pokemon.baseSpecies.baseSpecies === 'Copperajah') ||
+							(move.name === 'Draco Meteor' && pokemon.baseSpecies.baseSpecies === 'Excadrill') ||
+							(move.name === 'Wicked Blow' && pokemon.baseSpecies.baseSpecies === 'Urshifu') ||
+							(move.name === 'Surging Strikes' && pokemon.baseSpecies.baseSpecies === 'Urshifu')) maxMove = gMaxMove;
+					}
 				}
 				if (!move.maxMove?.basePower) throw new Error(`${move.name} doesn't have a maxMove basePower`);
 				if (!['gmaxdrumsolo', 'gmaxfireball', 'gmaxhydrosnipe', 'gmaxwindrage',
@@ -156,7 +190,6 @@ export const Scripts: ModdedBattleScriptsData = {
 					  'gmaxterror', 'gmaxvinelash', 'gmaxvolcalith', 'gmaxvoltcrash', 'gmaxwildfire',
 					  'gmaxstonesurge', 'gmaxstunshock', 'gmaxsweetness', 'gmaxtartness'].includes(maxMove.id)) {
 					maxMove.basePower = move.maxMove.basePower;
-					maxMove.pp = move.maxMove.pp;
 				}
 				maxMove.category = move.category;
 			}
