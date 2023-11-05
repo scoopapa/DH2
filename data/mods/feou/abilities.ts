@@ -2615,6 +2615,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Ground'] = true;
 			}
 		},
+		isBreakable: true,
 		name: "Air Control",
 	},
 	livelylocks: {
@@ -2625,6 +2626,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			//let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 			//	if (!activated) {
+					if (!target.boosts['spe']) continue;
 					this.add('-ability', pokemon, 'Lively Locks', 'boost');
 			//		activated = true;
 			//	}
@@ -2691,16 +2693,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sharp Goggles",
 	},
 	winterstorm: {
-		shortDesc: "During snow, deal 12.5% of each opponent's max HP in damage at end of turn.",
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
-		onResidual(pokemon) {
-			if (!pokemon.hp) return;
-			if (this.field.isWeather(['hail', 'snow'])) {
-				for (const target of pokemon.foes()) {
-					this.damage(target.baseMaxhp / 8, target, pokemon);
+		shortDesc: "Under snow, heal 6.25% of own max HP and damage opponents for 12.5% of their max HP at end of turn.",
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail' || effect.id === 'snow') {
+				this.heal(target.baseMaxhp / 16);
+				for (const pokemon of target.foes()) {
+					this.damage(pokemon.baseMaxhp / 8, pokemon, target);
 				}
 			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
 		},
 		name: "Winter Storm",
 	},
