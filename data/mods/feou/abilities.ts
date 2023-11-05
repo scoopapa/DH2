@@ -2690,6 +2690,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Sharp Goggles",
 	},
+	winterstorm: {
+		shortDesc: "During snow, deal 12.5% of each opponent's max HP in damage at end of turn.",
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			if (this.field.isWeather(['hail', 'snow'])) {
+				for (const target of pokemon.foes()) {
+					this.damage(target.baseMaxhp / 8, target, pokemon);
+				}
+			}
+		},
+		name: "Winter Storm",
+	},
 
 	//Vanilla abilities
 	naturalcure: {
