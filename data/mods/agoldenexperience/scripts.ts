@@ -6,7 +6,7 @@ export const Scripts: ModdedBattleScriptsData = {
       const item = pokemon.getItem();
       if (
         altForme?.isMega && altForme?.requiredMove &&
-				pokemon.baseMoves.includes(this.dex.toID(altForme.requiredMove)) && !item.zMove
+        pokemon.baseMoves.includes(this.dex.toID(altForme.requiredMove)) && !item.zMove
       ) {
         return altForme.name;
       }
@@ -41,6 +41,43 @@ export const Scripts: ModdedBattleScriptsData = {
     },
   },
 
+  runSwitch(pokemon: Pokemon) {
+		this.battle.runEvent('Swap', pokemon);
+
+		if (this.battle.gen >= 5) {
+			this.battle.runEvent('SwitchIn', pokemon);
+		}
+
+		this.battle.runEvent('EntryHazard', pokemon);
+
+		if (this.battle.gen <= 4) {
+			this.battle.runEvent('SwitchIn', pokemon);
+		}
+
+		if (this.battle.gen <= 2) {
+			// pokemon.lastMove is reset for all Pokemon on the field after a switch. This affects Mirror Move.
+			for (const poke of this.battle.getAllActive()) poke.lastMove = null;
+			if (!pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.battle.turn) {
+				this.battle.runEvent('AfterSwitchInSelf', pokemon);
+			}
+		}
+		if (!pokemon.hp) return false;
+		pokemon.isStarted = true;
+		if (!pokemon.fainted) {
+			this.battle.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+			this.battle.singleEvent('Start', pokemon.getItem(), pokemon.itemState, pokemon);
+		}
+		if (this.battle.gen === 4) {
+			for (const foeActive of pokemon.foes()) {
+				foeActive.removeVolatile('substitutebroken');
+			}
+		}
+    this.battle.runEvent('HiveMind', pokemon); // making Hive Mind activate at the appropriate time
+    pokemon.addVolatile('indomitablespirit'); // yes this is a really ugly way to do this but it's better than a ruleset okay
+		pokemon.draggedIn = null;
+		return true;
+	},
+
   init() {
 
     // gen 9 tmp
@@ -49,6 +86,9 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'overqwil').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'overqwil').learnset.earthquake = ['9L1'];
     this.modData('Learnsets', 'lokix').learnset.highjumpkick = ['9L1'];
+    this.modData('Learnsets', 'pawmot').learnset.stompingtantrum = ['9L1'];
+    this.modData('Learnsets', 'pawmot').learnset.uturn = ['9L1'];
+    this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'maushold').learnset.armthrust = ['9L1'];
     this.modData('Learnsets', 'screamtail').learnset.followme = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.strengthsap = ['9L1'];
@@ -59,6 +99,17 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
+    delete this.modData('Learnsets', 'flittle').learnset.storedpower;
+    delete this.modData('Learnsets', 'espathra').learnset.storedpower;
+    delete this.modData('Learnsets', 'urshifu').learnset.swordsdance;
+    delete this.modData('Learnsets', 'urshifurapidstrike').learnset.swordsdance;
+    delete this.modData('Learnsets', 'baxcalibur').learnset.scaleshot;
+    delete this.modData('Learnsets', 'gimmighoul').learnset.nastyplot;
+    delete this.modData('Learnsets', 'gholdengo').learnset.nastyplot;
+    delete this.modData('Learnsets', 'naclstack').learnset.saltcure;
+    delete this.modData('Learnsets', 'garganacl').learnset.saltcure;
+    delete this.modData('Learnsets', 'pawmot').learnset.revivalblessing;
+    delete this.modData('Learnsets', 'rabsca').learnset.revivalblessing;
 
     // distrib for PLA moves
 
@@ -1048,14 +1099,20 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'simisage').learnset.stompingtantrum = ['9L1'];
     this.modData('Learnsets', 'simisage').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'simisage').learnset.closecombat = ['9L1'];
+    this.modData('Learnsets', 'simisage').learnset.monkeybusiness = ['9L1'];
+    this.modData('Learnsets', 'simisage').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'simisear').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'simisear').learnset.stompingtantrum = ['9L1'];
     this.modData('Learnsets', 'simisear').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'simisear').learnset.closecombat = ['9L1'];
+    this.modData('Learnsets', 'simisear').learnset.monkeybusiness = ['9L1'];
+    this.modData('Learnsets', 'simisear').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'simipour').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'simipour').learnset.stompingtantrum = ['9L1'];
     this.modData('Learnsets', 'simipour').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'simipour').learnset.closecombat = ['9L1'];
+    this.modData('Learnsets', 'simipour').learnset.monkeybusiness = ['9L1'];
+    this.modData('Learnsets', 'simipour').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'musharna').learnset.teleport = ['9L1'];
     this.modData('Learnsets', 'unfezant').learnset.knockoff = ['9L1'];
     this.modData('Learnsets', 'unfezant').learnset.nastyplot = ['9L1'];
@@ -1176,6 +1233,9 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'lycanroc').learnset.extremespeed = ['9L1'];
     this.modData('Learnsets', 'lycanrocmidnight').learnset.knockoff = ['9L1'];
     this.modData('Learnsets', 'wishiwashi').learnset.blizzard = ['9L1'];
+    this.modData('Learnsets', 'wishiwashi').learnset.aquajet = ['9L1'];
+    this.modData('Learnsets', 'wishiwashi').learnset.thunder = ['9L1'];
+    this.modData('Learnsets', 'wishiwashi').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'bewear').learnset.playrough = ['9L1'];
     this.modData('Learnsets', 'comfey').learnset.moonblast = ['9L1'];
     this.modData('Learnsets', 'golisopod').learnset.uturn = ['9L1'];

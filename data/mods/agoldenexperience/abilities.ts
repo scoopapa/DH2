@@ -211,7 +211,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -10,
 	},
-	divination: {
+	divination: {//still doesn't work
 		shortDesc: "Reveals a random move of each adjacent opponent on entry.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Divination');
@@ -229,10 +229,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				for (const moveSlot of target.moveSlots) {
 					if (moveSlot.revealed) continue;
 					if (r === 0) {
-						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
 					}
 					r--;
-					moveSlot.revealed = true;
+                    moveSlot.revealed = true;
 					return;
 				}
 			}
@@ -278,7 +278,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onStart(pokemon) {
 			let bp = 0;
 			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.getMove(moveSlot.move);
+				const move = this.dex.moves.get(moveSlot.move);
 				if (move.category === 'Status') continue;
 				if (move.basePower > bp) {
 					bp = move.basePower;
@@ -543,8 +543,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	evaporate: {
 		desc: "If the Pokemon or the opponent uses a Water type move, it triggers the Haze effect. Immune to Water.",
 		shortDesc: "Haze when any Pokemon uses a Water move; Water immunity.",
-		onAnyTryMove(target, source, effect) {
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
 			if (move.type === 'Water') {
+				for (const pokemon of this.getAllActive()) {
+					pokemon.clearBoosts();
+				   return null;
+				}
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
 				this.add('-immune', target, '[from] ability: Evaporate');
 				for (const pokemon of this.getAllActive()) {
 					pokemon.clearBoosts();
@@ -723,7 +732,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				delete data.moveData.flags['protect'];
 
 				if (move.category === 'Status') {
-					this.useMove(move, target, data.target);
+					this.actions.useMove(move, target, data.target);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 					if (data.source.isActive) {
@@ -1261,7 +1270,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Reveals a random move of each adjacent opponent when this Pokemon hits them with a Sound move.",
 		onSourceHit(target, source, move) {
 			if (move.flags['sound']) {
-				for (const target of pokemon.side.foe.active) {
+				for (const target of pokemon.side.foe.active) { //pokemon not defined
 					if (!target || target.fainted) continue;
 					let potentialMoves = 0;
 					for (const moveSlot of target.moveSlots) {
@@ -1275,7 +1284,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					for (const moveSlot of target.moveSlots) {
 						if (moveSlot.revealed) continue;
 						if (r === 0) {
-							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
 						}
 						r--;
 						moveSlot.revealed = true;
@@ -2242,43 +2251,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Iron Fist",
 		rating: 3,
 		num: 89,
-	},
-	slowstart: {
-		// shortDesc: "Atk, SpA halved for 5 turns. Boost all stats after 5 turns. Timer does not reset on switch.",
-		shortDesc: "Atk, SpA halved for 5 turns. Timer does not reset on switch.",
-		onStart(pokemon) {
-			if (!pokemon.slowStartInit) {
-				pokemon.slowStartInit = true;
-				pokemon.slowStartTurns = 5;
-			}
-			if (pokemon.slowStartTurns > 0) pokemon.addVolatile('slowstart');
-		},
-		onResidual(pokemon) {
-			if (pokemon.slowStartTurns && pokemon.slowStartTurns > 0) pokemon.slowStartTurns--;
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['slowstart'];
-			this.add('-end', pokemon, 'Slow Start', '[silent]');
-		},
-		condition: {
-			duration: 5,
-			durationCallback(pokemon) {
-				return pokemon.slowStartTurns;
-			},
-			onStart(target) {
-				this.add('-start', target, 'ability: Slow Start');
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				return this.chainModify(0.5);
-			},
-			onModifySpA(spa, pokemon) {
-				return this.chainModify(0.5);
-			},
-		},
-		name: "Slow Start",
-		rating: -1,
-		num: 112,
 	},
 	rkssystem: {
 		shortDesc: "Non-STAB moves have 1.2x power.",

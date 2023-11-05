@@ -1248,7 +1248,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	//gen 4 :
 	torterra: {
 		inherit: true,
-		types: ["Grass", "Rock"],
+		// types: ["Grass", "Rock"],
 		baseStats: {hp: 95, atk: 109, def: 105, spa: 75, spd: 90, spe: 56},
 		abilities: {0: "Overgrow", H: "Microclimate"},
 	},
@@ -1494,6 +1494,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Grass"],
 		abilities: {0: "Levitate", H: "Sharpness"},
 	},
+	regigigas: {
+		inherit: true,
+		abilities: {0: "Slow Start", H: "Clear Body"},
+	},
 	cresselia: {
 		inherit: true,
 		types: ["Psychic", "Fairy"],
@@ -1605,20 +1609,32 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 74, atk: 108, def: 60, spa: 58, spd: 60, spe: 120},
 		abilities: {0: "Racketeering", 1: "Unburden", H: "Prankster"},
 	},
+	pansage: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Unburden", H: "Overgrow"},
+	},
 	simisage: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 116, def: 60, spa: 80, spd: 60, spe: 107},
-		abilities: {0: "Gorilla Tactics", H: "Overgrow"},
+		abilities: {0: "Ripen", 1: "Unburden", H: "Overgrow"},
+	},
+	pansear: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Unburden", H: "Blaze"},
 	},
 	simisear: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 98, def: 60, spa: 98, spd: 60, spe: 107},
-		abilities: {0: "Gorilla Tactics", H: "Blaze"},
+		abilities: {0: "Cheek Pouch", 1: "Unburden", H: "Blaze"},
+	},
+	panpour: {
+		inherit: true,
+		abilities: {0: "Gluttony", 1: "Unburden", H: "Torrent"},
 	},
 	simipour: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 80, def: 60, spa: 116, spd: 60, spe: 107},
-		abilities: {0: "Gorilla Tactics", H: "Torrent"},
+		abilities: {0: "Harvest", 1: "Unburden", H: "Torrent"},
 	},
 	musharna:{
 		inherit: true,
@@ -2206,10 +2222,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 100, def: 122, spa: 45, spd: 88, spe: 54},
 		abilities: {0: "Night Light", 1: "Frisk", H: "Flash Fire"},
 	},
-	bergmite: {
-		inherit: true,
-		evos: ["Avalugg", "Avalugg-Hisui"],
-	},
 	avalugg: {
 		inherit: true,
 		types: ["Ice", "Water"],
@@ -2267,10 +2279,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	//gen 7 :
-	dartrix: {
-		inherit: true,
-		evos: ["Decidueye", "Decidueye-Hisui"],
-	},
 	decidueye: {
 		inherit: true,
 		baseStats: {hp: 78, atk: 107, def: 85, spa: 70, spd: 100, spe: 90},
@@ -3100,6 +3108,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	tinkaton: {
 		inherit: true,
 		abilities: {0: "Mold Breaker", 1: "Own Tempo", H: "Sheer Force"},
+	},
+	palafinhero: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 140, def: 97, spa: 116, spd: 97, spe: 100},
 	},
 	cyclizar: {
 		inherit: true,
