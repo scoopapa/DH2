@@ -2819,7 +2819,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Uber",
 		doublesTier: "DOU",
 	},
-	/*
 	squirtle: {
 		tier: "TMLC",
 		doublesTier: "DOU",
@@ -2852,7 +2851,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
- */
 	froakie: {
 		tier: "TMLC",
 		doublesTier: "DOU",
