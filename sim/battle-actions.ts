@@ -1,6 +1,6 @@
 import {Dex, toID} from './dex';
 
-const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'anyAlly' | 'adjacentFoe']);
+const CHOOSABLE_TARGETS = new Set(['normal', 'any', 'adjacentAlly', 'adjacentAllyOrSelf', 'anyAlly' || 'adjacentFoe']);
 
 export class BattleActions {
 	battle: Battle;
