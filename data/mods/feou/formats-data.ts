@@ -519,6 +519,37 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["stickyweb", "earthpower", "dracometeor", "voltswitch"],
 		randomBattleLevel: 75,
 	},
+	icekrai: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["nastyplot", "blizzard", "darkpulse", "thunderbolt"],
+		randomBattleLevel: 75,
+	},
+	weezalunabloodmoon: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["earthpower", "sludgewave", "calmmind", "toxicspikes"],
+		randomBattleLevel: 75,
+	},
+	conkelbun: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["facade", "machpunch", "knockoff", "playrough"],
+		randomBattleLevel: 75,
+	},
+	amigotrioalola: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["bravebird", "earthquake", "uturn", "swordsdance"],
+		randomBattleLevel: 75,
+	},
+	empoliaryhisui: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["esperwing", "surf", "flipturn", "stealthrock", "calmmind"],
+		randomBattleLevel: 75,
+	},
+
 	larvix: {
 		tier: "FELC",
 		doublesTier: "DOU",
@@ -548,5 +579,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 		randomBattleMoves: ["flamethrower", "bodypress", "spikes", "willowisp"],
 		randomBattleLevel: 88,
+	},
+	koffursa: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	timdough: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	ruffleplup: {
+		tier: "FELC",
+		doublesTier: "DOU",
 	},
 };

@@ -2578,6 +2578,118 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Hellkite",
 	},
+	
+	wellbakedflameorb: {
+		shortDesc: "Guts + Well-Baked Body",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (attacker.status) {
+				if (attacker.status === 'brn' && move.id !== 'facade') return this.chainModify(3);
+				return this.chainModify(1.5);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				if (!this.boost({def: 2})) {
+					this.add('-immune', target, '[from] ability: Well-Baked Body');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Well-Baked Flame Orb",
+	},
+	honeymoon: {
+		shortDesc: "Levitate + Honey Gather",
+		// airborneness implemented in scripts.ts
+		isBreakable: true,
+		name: "Honey Moon",
+	},
+	aircontrol: {
+		shortDesc: "Levitate effects + Ignores type-based immunities to Ground",
+		onModifyMovePriority: -5,
+		onModifyMove(move, attacker, defender) {
+			if (!defender.hasType('Flying')) return; //Type-based immunities were specified, not ability-based. 
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Ground'] = true;
+			}
+		},
+		name: "Air Control",
+	},
+	livelylocks: {
+		shortDesc: "Copies opponent's stat changes to Speed on switch-in",
+		onStart(pokemon) {
+			//Currently because Costar bypasses sub Lively Locks too will bypass sub 
+			
+			//let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+			//	if (!activated) {
+					this.add('-ability', pokemon, 'Lively Locks', 'boost');
+			//		activated = true;
+			//	}
+			//	if (target.volatiles['substitute']) {
+			//		this.add('-immune', target);
+			//	} else {
+					this.boost({spe: target.boosts['spe']}, pokemon);
+					return;
+			//	}
+			}
+		},
+		name: "Lively Locks",
+	},
+	angrybird: {
+		shortDesc: "Defiant + Competitive",
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Angry Bird only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+					break;
+				}
+			}
+			if (statsLowered) {
+				this.boost({atk: 2, spa: 2}, target, target, null, false, true);
+			}
+		},
+		name: "Angry Bird",
+	},
+	sharpgoggles: {
+		shortDesc: "Tinted Lens + Competitive",
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+		},
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Sharp Goggles/Competitive only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					statsLowered = true;
+					break;
+				}
+			}
+			if (statsLowered) {
+				this.boost({spa: 2}, target, target, null, false, true);
+			}
+		},
+		name: "Sharp Goggles",
+	},
 
 	//Vanilla abilities
 	naturalcure: {
