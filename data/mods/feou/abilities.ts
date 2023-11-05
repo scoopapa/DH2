@@ -2695,7 +2695,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	winterstorm: {
 		shortDesc: "Under snow, heal 6.25% of own max HP and damage opponents for 12.5% of their max HP at end of turn.",
 		onWeather(target, source, effect) {
-			if (effect.id === 'hail' || effect.id === 'snow') {
+			if (effect.id === 'snow' || effect.id === 'hail') {
 				this.heal(target.baseMaxhp / 16);
 				for (const pokemon of target.foes()) {
 					this.damage(pokemon.baseMaxhp / 8, pokemon, target);
