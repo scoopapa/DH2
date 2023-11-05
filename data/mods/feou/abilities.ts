@@ -2142,32 +2142,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.foes().some(
 				foeActive => foeActive && foeActive.isAdjacent(pokemon) && foeActive.ability === 'noability'
-			) || !['zoinkazenta'].includes(pokemon.species.id)) {
+			) || pokemon.species.id !== 'zoinkazenta') {
 				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && foeActive.isAdjacent(pokemon));
-			while (possibleTargets.length) {
+			if (!pokemon.isStarted || this.effectState.gaveUp || !this.effectState.switchingIn) return;
+			const additionalBannedAbilities = [
+				// Zen Mode included here for compatability with Gen 5-6
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
+				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'pillage'
+			];
+			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().isPermanent
+				&& !additionalBannedAbilities.includes(foeActive.ability) && foeActive.isAdjacent(pokemon));
+			if (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 				const target = possibleTargets[rand];
 				const ability = target.getAbility();
-				const additionalBannedAbilities = [
-					// Zen Mode included here for compatability with Gen 5-6
-					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
-					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'pillage'
-				];
-				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
-					possibleTargets.splice(rand, 1);
-					continue;
+				if (pokemon.setAbility(ability) && target.setAbility('pillage')) {
+					this.add('-ability', target, 'Pillage', '[from] ability: Pillage', '[of] ' + pokemon);
+					this.add('-ability', pokemon, ability.name, '[from] ability: Pillage', '[of] ' + target);
+				} else {
+					pokemon.setAbility('pillage');
 				}
-				target.setAbility('pillage', pokemon);
-				pokemon.setAbility(ability);
-				this.add('-activate', pokemon, 'ability: Pillage', ability.name, 'Pillage', '[of] ' + target);
-				return;
 			}
 		},
 		rating: 5,
