@@ -1344,7 +1344,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				const species = curPoke.species;
 				// pokemon can't get Natural Cure
-				if (!Object.values(species.abilities).includes('Rejuvenate')) {
+				if (!Object.values(species.abilities).includes('Natural Cure') && !Object.values(species.abilities).includes('Natural Pressures') && !Object.values(species.abilities).includes('Rejuvenate')) {
 					// this.add('-message', "" + curPoke + " skipped: no Rejuvenate");
 					continue;
 				}
@@ -1359,7 +1359,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					continue;
 				}
 
-				if (curPoke.hasAbility(['naturalcure','rejuvenate'])) {
+				if (curPoke.hasAbility(['naturalcure','rejuvenate','naturalpressures'])) {
 					// this.add('-message', "" + curPoke + " confirmed: could be Rejuvenate (and is)");
 					cureList.push(curPoke);
 				} else {
@@ -1377,7 +1377,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				// It's not possible to know what pokemon were cured
 
 				// Unlike a -hint, this is real information that battlers need, so we use a -message
-				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Rejuvenate.)");
+				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Natural Cure.)");
 
 				for (const pkmn of cureList) {
 					pkmn.showCure = false;
@@ -1727,7 +1727,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				const species = curPoke.species;
 				// pokemon can't get Natural Pressures
-				if (!Object.values(species.abilities).includes('Natural Pressures')) {
+				if (!Object.values(species.abilities).includes('Natural Cure') && !Object.values(species.abilities).includes('Natural Pressures') && !Object.values(species.abilities).includes('Rejuvenate')) {
 					// this.add('-message', "" + curPoke + " skipped: no Natural Pressures");
 					continue;
 				}
@@ -1742,7 +1742,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					continue;
 				}
 
-				if (curPoke.hasAbility('naturalpressures')) {
+				if (curPoke.hasAbility(['naturalpressures','naturalcure','rejuvenate'])) {
 					// this.add('-message', "" + curPoke + " confirmed: could be Natural Pressures (and is)");
 					cureList.push(curPoke);
 				} else {
@@ -1760,7 +1760,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				// It's not possible to know what pokemon were cured
 
 				// Unlike a -hint, this is real information that battlers need, so we use a -message
-				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Natural Pressures.)");
+				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Natural Cure.)");
 
 				for (const pkmn of cureList) {
 					pkmn.showCure = false;
@@ -2762,7 +2762,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				const species = curPoke.species;
 				// pokemon can't get Natural Cure
-				if (!Object.values(species.abilities).includes('Natural Cure') && !Object.values(species.abilities).includes('Rejuvenate')) {
+				if (!Object.values(species.abilities).includes('Natural Cure') && !Object.values(species.abilities).includes('Natural Pressures') && !Object.values(species.abilities).includes('Rejuvenate')) {
 					// this.add('-message', "" + curPoke + " skipped: no Natural Cure");
 					continue;
 				}
@@ -2777,7 +2777,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					continue;
 				}
 
-				if (curPoke.hasAbility(['naturalcure','rejuvenate'])) {
+				if (curPoke.hasAbility(['naturalcure','rejuvenate','naturalpressures'])) {
 					// this.add('-message', "" + curPoke + " confirmed: could be Natural Cure (and is)");
 					cureList.push(curPoke);
 				} else {
