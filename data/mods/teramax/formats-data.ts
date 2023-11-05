@@ -2863,6 +2863,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
+	greninjabond: {
+		tier: "Illegal",
+		doublesTier: "DOU",
+	},
 	oshawott: {
 		tier: "TMLC",
 		doublesTier: "DOU",
