@@ -1,6 +1,6 @@
 import {Utils} from '../../../lib';
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
-	inherit: 'gen9',
+	gen: 9,
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,
