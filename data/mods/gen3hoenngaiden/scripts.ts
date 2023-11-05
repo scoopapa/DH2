@@ -7,8 +7,12 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	init() {
 
+		for (const i in this.data.Pokedex) {
+			delete this.data.Pokedex[i].abilities['H'];
+		}
+
 		// list Pokemon by VR rank
-		for (const id in this.dataCache.Pokedex) {
+		for (const id in this.dataCache?.Pokedex) {
 			if (this.modData('FormatsData', id) && this.modData('FormatsData', id).tier !== 'Uber') {
 				if (this.modData('FormatsData', id).rank !== 'Unranked') {
 					this.modData('FormatsData', id).tier = this.modData('FormatsData', id).rank;
