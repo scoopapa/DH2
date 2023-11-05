@@ -2576,7 +2576,38 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Hellkite",
 	},
-	
+	feistytempo: {
+		shortDesc: "Guts + Own Tempo",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (attacker.status) {
+				if (attacker.status === 'brn' && move.id !== 'facade') return this.chainModify(3);
+				return this.chainModify(1.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Feisty Tempo');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Feisty Tempo');
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['intimidate','forestfury','shockfactor'].includes(effect.id)) {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+		},
+		isBreakable: true,
+		name: "Feisty Tempo",
+	},
 	wellbakedflameorb: {
 		shortDesc: "Guts + Well-Baked Body",
 		onModifyAtkPriority: 5,
