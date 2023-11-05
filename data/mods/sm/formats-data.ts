@@ -123,4 +123,4 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SM",
 		doublesTier: "DOU",
 	},
-}
+};
