@@ -2520,7 +2520,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	magnezone: {
-		rank: "S2",
+		rank: "Unranked",
 		
 		tier: "OU",
 	},
