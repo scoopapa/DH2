@@ -92,4 +92,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	heatran: {
 		tier: "MV",
 	},
+	serperior: {
+		tier: "MV",
+	},
+	whimsicott: {
+		tier: "MV",
+	},
+	sigilyph: {
+		tier: "MV",
+	},
+	cofagrigus: {
+		tier: "MV",
+	},
+	vanilluxe: {
+		tier: "MV",
+	},
+	escavalier: {
+		tier: "MV",
+	},
+	volcarona: {
+		tier: "MV",
+	},
 };
