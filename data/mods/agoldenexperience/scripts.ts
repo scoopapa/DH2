@@ -91,13 +91,14 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'maushold').learnset.armthrust = ['9L1'];
     this.modData('Learnsets', 'screamtail').learnset.followme = ['9L1'];
-    this.modData('Learnsets', 'ironjugulis').learnset.strengthsap = ['9L1'];
-    this.modData('Learnsets', 'ironjugulis').learnset.stealthrock = ['9L1'];
+    this.modData('Learnsets', 'houndstone').learnset.strengthsap = ['9L1'];
+    this.modData('Learnsets', 'houndstone').learnset.stealthrock = ['9L1'];
     this.modData('Learnsets', 'ironmoth').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
+    this.modData('Learnsets', 'fezandipiti').learnset.defog = ['9L1'];
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
     delete this.modData('Learnsets', 'flittle').learnset.storedpower;
     delete this.modData('Learnsets', 'espathra').learnset.storedpower;
@@ -874,6 +875,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'exeggutor').learnset.aurasphere = ['9L1'];
     this.modData('Learnsets', 'marowak').learnset.rockpolish = ['9L1'];
     this.modData('Learnsets', 'hitmonlee').learnset.tropkick = ['9L1'];
+    this.modData('Learnsets', 'weezinggalar').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'seaking').learnset.dragondance = ['9L1'];
     this.modData('Learnsets', 'starmie').learnset.calmmind = ['9L1'];
     this.modData('Learnsets', 'starmie').learnset.futuresight = ['9L1'];
@@ -1127,6 +1129,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'zebstrika').learnset.flareblitz = ['9L1'];
     this.modData('Learnsets', 'zebstrika').learnset.jumpkick = ['9L1'];
     this.modData('Learnsets', 'zebstrika').learnset.highhorsepower = ['9L1'];
+    this.modData('Learnsets', 'gigalith').learnset.scorchingsands = ['9L1'];
+    this.modData('Learnsets', 'gigalith').learnset.thunderbolt = ['9L1'];
     this.modData('Learnsets', 'seismitoad').learnset.gunkshot = ['9L1'];
     this.modData('Learnsets', 'throh').learnset.bodypress = ['9L1'];
     this.modData('Learnsets', 'krookodile').learnset.partingshot = ['9L1'];

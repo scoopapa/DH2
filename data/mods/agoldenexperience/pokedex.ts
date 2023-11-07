@@ -1677,10 +1677,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoLevel: 32,
 		eggGroups: ["Flying"],
 	},
+	roggenrola: {
+		inherit: true,
+		baseStats: {hp: 55, atk: 25, def: 85, spa: 75, spd: 25, spe: 15},
+		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Solar Power"},
+	},
+	boldore: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 50, def: 105, spa: 105, spd: 40, spe: 20},
+		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Solar Power"},
+	},
 	gigalith: {
 		inherit: true,
-		baseStats: {hp: 95, atk: 135, def: 130, spa: 50, spd: 80, spe: 25},
-		abilities: {0: "Sturdy", 1: "Sand Stream", H: "Hard Rock"},
+		baseStats: {hp: 85, atk: 60, def: 130, spa: 135, spd: 80, spe: 25},
+		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Solar Power"},
 	},
 	swoobat: {
 		inherit: true,
