@@ -2301,7 +2301,7 @@ export const Formats: FormatList = [
                 }
             }
         },
-        mod: 'sm',
+        mod: 'spookymod',
     },
 	{
 		name: "[Gen 9] Super Types OU",
