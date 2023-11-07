@@ -134,4 +134,45 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: -8,
 	},
+	coldsweat: {
+		onStart(pokemon) {
+			let weather = 'snow';
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						weather = 'raindance';
+						return;
+					}
+				}
+			}
+			this.field.setWeather(weather, pokemon);
+		},
+		onAnySwitchIn(pokemon) {
+			if (pokemon === this.effectState.target) return;
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.field.setWeather('raindance', pokemon);
+						return;
+					}
+				}
+			}
+		},
+		name: "Cold Sweat",
+		shortDesc: "Summons Snow upon entry. Rain if opponent has a SE or OHKO move.",
+		rating: 4,
+		num: -9,
+	},
 };

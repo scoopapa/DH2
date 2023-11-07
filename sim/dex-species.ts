@@ -29,6 +29,8 @@ export interface SpeciesFormatsData {
 	isNonstandard?: Nonstandard | null;
 	natDexTier?: TierTypes.Singles | TierTypes.Other;
 	tier?: TierTypes.Singles | TierTypes.Other;
+	rank?: string | null;
+	randomBattleMoves?: string[] | null;
 }
 
 export type ModdedSpeciesFormatsData = SpeciesFormatsData & {inherit?: true};
@@ -232,6 +234,9 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	 */
 	readonly natDexTier: TierTypes.Singles | TierTypes.Other;
 
+	// Rank; separate from tier, used for teambuilder display
+	readonly rank?: string;
+
 	constructor(data: AnyObject) {
 		super(data);
 		// eslint-disable-next-line @typescript-eslint/no-this-alias
@@ -254,6 +259,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 		this.tier = data.tier || '';
 		this.doublesTier = data.doublesTier || '';
 		this.natDexTier = data.natDexTier || '';
+		this.rank = data.rank || '';
 		this.evos = data.evos || [];
 		this.evoType = data.evoType || undefined;
 		this.evoMove = data.evoMove || undefined;
@@ -508,7 +514,7 @@ export class DexSpecies {
 			species.canHatch = species.canHatch ||
 				(!['Ditto', 'Undiscovered'].includes(species.eggGroups[0]) && !species.prevo && species.name !== 'Manaphy');
 			if (this.dex.gen === 1) species.bst -= species.baseStats.spd;
-			if (this.dex.gen < 5 && (!this.dex.currentMod === 'moderngen3' || !this.dex.currentMod === 'moderngen4')) delete species.abilities['H'];
+			if (this.dex.gen < 5 && (!(this.dex.currentMod === 'moderngen3') && !(this.dex.currentMod === 'moderngen4'))) delete species.abilities['H'];
 			if (this.dex.gen === 3 && this.dex.abilities.get(species.abilities['1']).gen === 4) delete species.abilities['1'];
 		} else {
 			species = new Species({

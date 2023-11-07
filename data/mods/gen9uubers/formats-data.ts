@@ -147,6 +147,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		tier: "AG",
 	},
+	basculegionf: {
+		inherit: true,
+		tier: "AG",
+	},
 	skeledirge: {
 		inherit: true,
 		tier: "AG",
