@@ -157,30 +157,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Bombardier",
 	},
-	icecurse: {
-		onStart(pokemon) {
-			let activated = false;
-			for (const target of pokemon.adjacentFoes()) {
-				if (!activated) {
-					this.add('-ability', pokemon, 'Ice Curse');
-					activated = true;
-				}
-				if (target.volatiles['substitute']) {
-					this.add('-immune', target);
-				} else {
-					this.add('-start', target, 'typeadd', 'Ice', '[from] ability: Ice Curse');
-				}
-			}
-		},
-		name: "Ice Curse",
-		shortDesc: "On switchin, this Pokemon adds Ice to adjacent Pokemon's typings.",
-	},
-	rockbottom: {
-		
-		name: "Rock Bottom",
-		shortDesc: "This Pokemon's stat changes cannot be lowered.",
-	},
-	
+
 	//buffed
 	keeneye: {
 		inherit: true,
