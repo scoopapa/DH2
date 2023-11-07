@@ -978,6 +978,14 @@ export const Formats: FormatList = [
 		teambuilderFormat: "OU",
 	},
 	{
+		name: "[Gen 8] CCaPM 2022",
+		desc: `<b>ccapm</b>: ccapm `,
+		mod: "ccapm2022",
+		ruleset: ['Standard', 'Data Mod', 'Godly Gift Mod'],
+		banlist: ['Uber'],
+		unbanlist: ['Unicorn', 'Platypus', 'Power Plant', 'Druddigod', 'Snek', 'Ghost Car', 'Trapjaw Fireant', 'Duck', 'groundpoison', 'groundpoison-Crystallized', 'Metal Snek', 'Roc With Ram Horns', 'ghostnormal', 'Cartesian Plane Dragon', 'better than cinderace as soccer', 'Statue'],
+	},
+	{
 		name: "[Gen 2] Crystal: Sevii Islands",
 		desc: ["<b>Crystal: Sevii Islands</b>- A Gen 2 pet mod that aims to create new Pokemon, items, and moves for the GSC OU Metagame."],
 		threads: [
