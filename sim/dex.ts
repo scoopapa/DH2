@@ -228,7 +228,7 @@ export class ModdedDex {
 	 * Also checks immunity to some statuses.
 	 */
 	getImmunity(
-		source: {type: string} | string,
+		source: {type: string, twoType?: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): boolean {
 		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files
@@ -254,7 +254,7 @@ export class ModdedDex {
 	}
 
 	getEffectiveness(
-		source: {type: string} | string,
+		source: {type: string, twoType?: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): number {
 		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files

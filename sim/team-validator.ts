@@ -823,11 +823,10 @@ export class TeamValidator {
 			}
 		}
 
-		let moveProblems;
-		if (ruleTable.has('obtainablemoves')) {
-			if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
+		var moveProblems;
+		if (ruleTable.has('obtainablemoves') && (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4')) {
 			moveProblems = this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name, moveLegalityWhitelist);
-			problems.push(...moveProblems);
+			problems.push(...moveProblems!);
 		}
 
 		let eventOnlyData;
@@ -937,7 +936,7 @@ export class TeamValidator {
 			setSources.sourcesBefore = 0;
 			if (moveProblems && !moveProblems.length) {
 				problems.push(...this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name,
-					moveLegalityWhitelist));
+					moveLegalityWhitelist)!);
 			}
 		}
 

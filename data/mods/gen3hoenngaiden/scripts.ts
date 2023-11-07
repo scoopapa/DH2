@@ -1,7 +1,27 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 3,
 	inherit: 'gen3',
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ['New','S1','S2','A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','D1','D2','D3','E','Unranked','NFE','LC','Uber'],
+	},
 	init() {
+
+		for (const i in this.data.Pokedex) {
+			delete this.data.Pokedex[i].abilities['H'];
+		}
+
+		// list Pokemon by VR rank
+		for (const id in this.dataCache?.Pokedex) {
+			if (this.modData('FormatsData', id) && this.modData('FormatsData', id).tier !== 'Uber') {
+				if (this.modData('FormatsData', id).rank !== 'Unranked') {
+					this.modData('FormatsData', id).tier = this.modData('FormatsData', id).rank;
+				} else {
+					this.modData('FormatsData', id).tier = 'Unranked';
+				}
+			}
+		};
+
 		this.modData('Learnsets', 'jumpluff').learnset.rapidspin = ['3L1'];
 		this.modData('Learnsets', 'jumpluff').learnset.batonpass = ['3L1'];
 		this.modData('Learnsets', 'tropius').learnset.dragondance = ['3L1'];
