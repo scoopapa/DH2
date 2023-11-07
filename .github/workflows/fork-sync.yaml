@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron:  '*/12 0 * * *'
+    - cron:  '0 */12 * * *'
     # scheduled every 12 hours
   workflow_dispatch:
 
