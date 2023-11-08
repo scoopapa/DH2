@@ -37,6 +37,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
 		},
+		onModifyMove(move, pokemon) {
+			const type = pokemon.teraType;
+			if (move.type === type && pokemon.baseSpecies.types.includes(type)) {
+				move.stab = 2;
+			}
+		},
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60 && move.type === attacker.teraType && !move.multihit && move.priority < 0.1) {
+				this.debug('Tera Shard boost');
+				return move.basepower = 60;
+			}
+			if (move.id === 'terablast') {
+				return move.basepower = 100;
+			}
+		},
 		onTryHit(pokemon, target, move) {
 			if (move.id === 'soak' || move.id === 'magicpowder') {
 				this.add('-immune', pokemon, '[from] item: Tera Shard');
@@ -265,8 +283,21 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 	},
 	blunderpolicy: {
-		inherit: true,
-		desc: "If the holder misses due to accuracy, its Speed and accuracy are raised by 2 stages. Single use.",
+		name: "Blunder Policy",
+		spritenum: 716,
+		fling: {
+			basePower: 80,
+		},
+		onUpdate(pokemon) {
+			if (pokemon.moveThisTurnResult === false) {
+				this.boost({spe: 2});
+				pokemon.useItem();
+			}
+		},
+		// Item activation located in scripts.js
+		num: 1121,
+		gen: 8,
+		desc: "+2 Speed if the holder's move fails. Single use.",
 	},
 	punchingglove: {
 		name: "Punching Glove",
@@ -768,9 +799,175 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		gen: 8,
-		desc: "Holder's neutral damamging moves deal 1.2x damage.",
+		desc: "Holder's neutral damaging moves deal 1.2x damage.",
 	},
-
+	keeberry: {
+		name: "Kee Berry",
+		spritenum: 593,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Fairy",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Physical') {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+				if (target.eatItem()) {
+					this.debug('kee activation');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (!target.getMoveHitData(move).crit) {
+						return this.chainModify(0.67);
+					}
+				}
+			}
+		},
+		onEat(pokemon) {
+			this.boost({def: 1});
+		},
+		num: 687,
+		gen: 6,
+		desc: "Raises holder's Defense by 1 stage before it is hit by a physical attack. Single use.",
+	},
+	marangaberry: {
+		name: "Maranga Berry",
+		spritenum: 597,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Dark",
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Special') {
+				const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+				if (hitSub) return;
+				if (target.eatItem()) {
+					this.debug('maranga activation');
+					this.add('-enditem', target, this.effect, '[weaken]');
+					if (!target.getMoveHitData(move).crit) {
+						return this.chainModify(0.67);
+					}
+				}
+			}
+		},
+		onEat(pokemon) {
+			this.boost({spd: 1});
+		},
+		num: 688,
+		gen: 6,
+		desc: "Raises holder's Sp. Defense by 1 stage before it is hit by a special attack. Single use.",
+	},
+	bindingband: {
+		name: "Binding Band",
+		spritenum: 31,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (target.volatiles['trapped'] || target.volatiles['partiallytrapped'] || target.volatiles['sandspit']) {
+				return this.chainModify(1.5);
+			}
+		},
+		onSourceModifyAccuracyPriority: -2,
+		onSourceModifyAccuracy(accuracy, target) {
+			if (typeof accuracy === 'number' && 
+				 (target.volatiles['trapped'] || 
+				  target.volatiles['partiallytrapped'] || 
+				  target.volatiles['sandspit'])) {
+				this.debug('Binding Band boosting accuracy');
+				return this.chainModify(1.5);
+			}
+		},
+		// other effects removed in statuses
+		desc: "Against trapped targets: 1.5x move power and accuracy.",
+		num: 544,
+		gen: 5,
+	},
+	slingshot: {
+		name: "Slingshot",
+		spritenum: 387,
+		fling: {
+			basePower: 60,
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && source.hp && target.hp && move && 
+				(move.id === 'uturn' || move.id === 'voltswitch' || move.id === 'flipturn' || 
+				move.id === 'round' || move.id === 'rollout' || move.id === 'partingshot')) {
+				if (!source.isActive || !this.canSwitch(source.side) || source.forceSwitchFlag || target.forceSwitchFlag) {
+					return;
+				}
+				if (this.runEvent('DragOut', source, target, move)) {
+					this.damage(source.baseMaxhp / 8, source, target);
+					source.forceSwitchFlag = true;
+				}
+			}
+		},
+		desc: "If hit by pivoting move: attacker takes 1/8 of their max HP in damage and is forced out.",
+		gen: 9,
+	},	
+	mantisclaw: {
+		name: "Mantis Claw",
+		spritenum: 251,
+		fling: {
+			basePower: 10,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Kleavor') {
+				return this.chainModify(1.5);
+			}
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Scizor') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Scizor') {
+				return this.chainModify(1.3);
+			}
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Scyther') {
+				return this.chainModify(1.5);
+			}
+		},
+		desc: "Scyther line: Immune to hazard damage, 1.5x Spe (Scyther), 1.3x Defenses (Scizor), 1.5x Attack (Kleavor).",
+		itemUser: ["Scyther", "Scizor", "Kleavor"],
+		gen: 9,
+	},
+	clearamulet: {
+		name: "Clear Amulet",
+		spritenum: 747,
+		fling: {
+			basePower: 30,
+		},
+		onTryBoost(boost, target, source, effect) {
+			// Don't bounce self stat changes, or boosts that have already bounced
+			if (!source || target === source || !boost || effect.name === 'Mirror Armor' || effect.name === 'Clear Amulet') return;
+			let b: BoostID;
+			for (b in boost) {
+				if (boost[b]! < 0) {
+					if (target.boosts[b] === -6) continue;
+					const negativeBoost: SparseBoostsTable = {};
+					negativeBoost[b] = boost[b];
+					delete boost[b];
+					if (source.hp) {
+						this.add('-item', target, 'Clear Amulet');
+						this.boost(negativeBoost, source, target, null, true);
+					}
+				}
+			}
+		},
+		num: 1882,
+		desc: "If this Pokemon's stat stages would be lowered, the attacker's are lowered instead.",
+		gen: 9,
+	},
+	
 // unchanged items
 	boosterenergy: {
 		name: "Booster Energy",

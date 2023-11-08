@@ -179,7 +179,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 	},
-	corrupted: {
+	/*corrupted: {
 		name: 'Corrupted',
 		// this is a volatile status
 		onEffectivenessPriority: -1,
@@ -189,7 +189,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return 1;
 			}
 		},
-	},
+	},*/
 	hardenedshell: {
 		name: 'Hardened Shell',
 		// this is a volatile status

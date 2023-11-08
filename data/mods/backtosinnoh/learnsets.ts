@@ -495,4 +495,66 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			whirlpool: ["4L1"],
 		},
 	},
+	sablenvy: {
+		learnset: {
+			diamondcharge: ["4L1"],
+			hyperbeam: ["4L1"],
+			souldrain: ["4L1"],
+		},
+	},
+	brambela: {
+		learnset: {
+			earthquake: ["4L1"],
+			mudbomb: ["4L1"],
+			poisondarts: ["4L1"],
+			rapidspin: ["4L1"],
+			rockslide: ["4L1"],
+			sandstorm: ["4L1"],
+			spikes: ["4L1"],
+			thornwhip: ["4L1"],
+		},
+	},
+	huginkrow: {
+		learnset: {
+			guidedstrike: ["4L1"],
+			nightslash: ["4L1"],
+			iciclespear: ["4L1"],
+			odinswrath: ["4L1"],
+		},
+	},
+	elfowl: {
+		learnset: {
+			cyclonescatter: ["4L1"],
+		},
+	},
+	gyrobloom: {
+		learnset: {
+			bulletseed: ["4L1"],
+			defog: ["4L1"],
+			steelwing: ["4L1"],
+			rapidspin: ["4L1"],
+			thunderwave: ["4L1"],
+			irondefense: ["4L1"],
+		},
+	},
+	similash: {
+		learnset: {
+			lassograb: ["4L1"],
+			bind: ["4L1"],
+			knockoff: ["4L1"],
+		},
+	},
+	putrewoodo: {
+		learnset: {
+			souldrain: ["4L1"],
+			diamondcharge: ["4L1"],
+		},
+	},
+	adnocana: {
+		learnset: {
+			dragondance: ["4L1"],
+			poisondarts: ["4L1"],
+		},
+	},
+
 };

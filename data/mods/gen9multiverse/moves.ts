@@ -1,4 +1,8 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	plasmafists: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	refresh: {
 		inherit: true,
 		isNonstandard: null,
@@ -247,7 +251,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 	},
 	calmingsoul: {
-		num: 105,
+		num: -7,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -264,5 +268,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Normal",
+	},
+	psychoshiftier: {
+		num: -8,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Transfers the user's status ailment to the target.",
+		name: "Psycho Shiftier",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psycho Shift", target);
+		},
+		onTryHit(target, source, move) {
+			if (!source.status) return false;
+			move.status = source.status;
+		},
+		self: {
+			onHit(pokemon) {
+				pokemon.cureStatus();
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
 	},
 };

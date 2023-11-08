@@ -197,7 +197,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onStart(pokemon, source) {
 				this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
-				this.effectState.boundDivisor = source.hasItem('bindingband') ? 6 : 8;
+				this.effectState.boundDivisor = source.hasItem('bindingband') ? 8 : 8;
 			},
 			onResidualOrder: 13,
 			onResidual(pokemon) {
@@ -443,6 +443,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Rune Drive",
 		rating: 3,
+		shortDesc: "Misty Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	photondrive: {
 		onStart(pokemon) {
@@ -508,6 +509,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Photon Drive",
 		rating: 3,
+		shortDesc: "Grassy Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	neurondrive: {
 		onStart(pokemon) {
@@ -573,6 +575,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Neuron Drive",
 		rating: 3,
+		shortDesc: "Psychic Terrain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	protosmosis: {
 		onStart(pokemon) {
@@ -639,6 +642,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Protosmosis",
 		rating: 3,
+		shortDesc: "Rain active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	protocrysalis: {
 		onStart(pokemon) {
@@ -705,6 +709,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Protocrysalis",
 		rating: 3,
+		shortDesc: "Sandstorm active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	protostasis: {
 		onStart(pokemon) {
@@ -771,6 +776,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isPermanent: true,
 		name: "Protostasis",
 		rating: 3,
+		shortDesc: "Snow active or Booster Energy used: highest stat is 1.3x, or 1.5x if Speed.",
 	},
 	counteract: {
 		name: "Counteract",
@@ -855,7 +861,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	outclass: {
 		onSourceHit(target, source, move) {
-			if (!move || !target || source.types[1] || source.volatiles['outclass']) return;
+			if (!move || !target || source.types[1] || source.volatiles['outclass'] || target.hasItem('terashard')) return;
 			let targetType = target.types[0]
 			if (target !== source && move.category !== 'Status' &&
 				 !source.hasType(targetType) && source.addType(targetType) && targetType !== '???') {
@@ -965,7 +971,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const type = move.type;
 			if (
 				target.isActive && move.effectType === 'Move' && target !== source &&
-				type !== '???'
+				type !== '???' && !target.hasItem('terashard')
 			) {
 				if (!target.setType(type)) return false;
 				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
@@ -987,7 +993,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	greeneyed: {
 		name: "Green-Eyed",
 		onStart(source) {
-			this.actions.useMove("Snatch", source);
+			this.add('-ability', source, 'Green-Eyed');
+			source.addVolatile('snatch');
 		},
 		shortDesc: "On switch-in, if the foe uses a Snatchable move, this Pokemon uses it instead.",
 		rating: 3,
@@ -1006,6 +1013,374 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "On switch-in, sets Mud Sport and Water Sport. This Pokemon's mud moves deal double damage.",
 		rating: 5,
+	},
+	exoskeleton: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Exoskeleton');
+			this.add('-message', `${pokemon.name} sports a tough exoskeleton!`);
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hasType('Bug')) {
+				if (move.type === 'Rock' || move.type === 'Fire' || move.type === 'Flying') {
+					this.debug('Exoskeleton Bug neutralize');
+					return this.chainModify(0.5);
+				}
+			}
+			else if (!target.hasType('Bug')) {
+				if (move.type === 'Fighting' || move.type === 'Ground' || move.type === 'Grass') {
+					this.debug('Exoskeleton non-Bug neutralize');
+					return this.chainModify(0.5);
+				}
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock' && target.hasType('Bug')) {
+				return damage / 2;
+			}
+		},
+		isBreakable: true,
+		name: "Exoskeleton",
+		rating: 4,
+		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: +Bug resistances.",
+	},
+	bluntforce: {
+		// This should be applied directly to the stat as opposed to chaining with the others
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod === 1) {
+				return this.chainModify(0.5);
+			}
+			else if (move && target.getMoveHitData(move).typeMod > 1) {
+				return this.chainModify(0.25);
+			}
+		},
+		name: "Blunt Force",
+		rating: 3.5,
+		shortDesc: "(Mostly functional) This Pokemon's physical moves have 1.5x power but can't be super effective.",
+	},
+	waterveil: {
+		onStart(source) {
+			this.actions.useMove("Aqua Ring", source);
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Water Veil');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Water Veil",
+		rating: 2,
+		num: 41,
+		shortDesc: "This Pokemon uses Aqua Ring on switch-in. This Pokemon can't be burned.",
+	},
+	shielddust: {
+		onModifySecondaries(secondaries) {
+			this.debug('Shield Dust prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.secondaries) {
+				this.debug('Shield Dust neutralize');
+				return this.chainModify(0.67);
+			}
+		},
+		isBreakable: true,
+		name: "Shield Dust",
+		rating: 4,
+		num: 19,
+		shortDesc: "Moves with secondary effects against user: 0.67x power, secondary effects cannot activate.",
+	},
+	blaze: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Blaze boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Blaze boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Blaze",
+		rating: 2,
+		num: 66,
+		shortDesc: "1.2x Power on Fire attacks. At 1/3 or less HP, all of this Pokemon's moves deal 1.5x damage.",
+	},
+	torrent: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Torrent boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Torrent low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Torrent boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Torrent low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Torrent",
+		rating: 2,
+		num: 67,
+		shortDesc: "1.2x Power on Water attacks. At 1/3 or less HP, all of this Pokemon's moves deal 1.5x damage.",
+	},
+	overgrow: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Overgrow boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overgrow low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass') {
+				this.debug('Overgrow boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overgrow low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Overgrow",
+		rating: 2,
+		num: 65,
+		shortDesc: "1.2x Power on Grass attacks. At 1/3 or less HP, all of this Pokemon's moves deal 1.5x damage.",
+	},
+	swarm: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Swarm boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Swarm low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				this.debug('Swarm boost');
+				return this.chainModify(1.2);
+			}
+			else if (attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Swarm low HP boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Swarm",
+		rating: 2,
+		num: 68,
+		shortDesc: "1.2x Power on Bug attacks. At 1/3 or less HP, all of this Pokemon's moves deal 1.5x damage.",
+	},
+	fairyringer: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fairy') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Fairy Ringer');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Fairy' || move.flags['pledgecombo']) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Fairy Ringer');
+				}
+				return this.effectState.target;
+			}
+		},
+		isBreakable: true,
+		name: "Fairy Ringer",
+		rating: 3,
+		shortDesc: "This Pokemon draws Fairy moves to itself to raise Sp. Atk by 1; Fairy immunity.",
+	},
+	justified: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Dark') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Justified');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Dark' || move.flags['pledgecombo']) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Justified');
+				}
+				return this.effectState.target;
+			}
+		},
+		isBreakable: true,
+		name: "Justified",
+		rating: 3,
+		num: 154,
+		shortDesc: "This Pokemon draws Dark moves to itself to raise Atk by 1; Dark immunity.",
+	},
+	momentum: {
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.id === 'rapidspin' || move.id === 'icespinner' || move.id === 'spinout' ||
+				move.id === 'blazingtorque' || move.id === 'combattorque' || move.id === 'noxioustorque' ||				
+				move.id === 'wickedtorque' || move.id === 'drillrun' || move.id === 'gyroball' ||
+				move.id === 'rollout' || move.id === 'iceball' || move.id === 'flipturn' ||
+				move.id === 'uturn' || move.id === 'electrodrift' || move.id === 'darkestlariat' ||
+				move.id === 'flamewheel' || move.id === 'aurawheel' || move.id === 'shiftgear' ||
+				move.id === 'mortalspin' || move.id === 'geargrind' || move.id === 'steelroller' ||
+				move.id === 'rototiller' || move.id === 'steamroller' || move.id === 'tripleaxel' ||
+				move.id === 'triplekick' || move.id === 'firespin' || move.id === 'leaftornado' ||
+				move.id === 'hurricane' || move.id === 'bleakwindstorm' || move.id === 'sandsearstorm' || 
+				move.id === 'wildboltstorm' || move.id === 'springtidestorm' || move.id === 'whirlpool'
+				) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.id === 'rapidspin' || move.id === 'icespinner' || move.id === 'spinout' ||
+				move.id === 'blazingtorque' || move.id === 'combattorque' || move.id === 'noxioustorque' ||				
+				move.id === 'wickedtorque' || move.id === 'drillrun' || move.id === 'gyroball' ||
+				move.id === 'rollout' || move.id === 'iceball' || move.id === 'flipturn' ||
+				move.id === 'uturn' || move.id === 'electrodrift' || move.id === 'darkestlariat' ||
+				move.id === 'flamewheel' || move.id === 'aurawheel' || move.id === 'shiftgear' ||
+				move.id === 'mortalspin' || move.id === 'geargrind' || move.id === 'steelroller' ||
+				move.id === 'rototiller' || move.id === 'steamroller' || move.id === 'tripleaxel' ||
+				move.id === 'triplekick' || move.id === 'firespin' || move.id === 'leaftornado' ||
+				move.id === 'hurricane' || move.id === 'bleakwindstorm' || move.id === 'sandsearstorm' || 
+				move.id === 'wildboltstorm' || move.id === 'springtidestorm' || move.id === 'whirlpool'
+				) {			
+				this.heal(target.baseMaxhp / 8);
+			}
+		},
+		name: "Momentum",
+		shortDesc: "The user heals 1/8 of its HP if it uses or gets hit by a spinning move.",
+	},
+	cudchew: {
+		onStart(pokemon) {
+			if (pokemon.getItem().isBerry) {
+				pokemon.eatItem(true);
+				this.add('-message', `${pokemon.name}'s ate its berry!`);
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+				pokemon.setItem(pokemon.lastItem);
+				pokemon.lastItem = '';
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Cud Chew');
+				this.add('-message', `${pokemon.name}'s regenerated its berry!`);
+			}
+		},
+		name: "Cud Chew",
+		rating: 4,
+		num: 291,
+		shortDesc: "Eats berry on switch-in, recycles berry on switch-out.",
+	},
+	permafrost: {
+		name: "Permafrost",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Permafrost');
+			this.add('-message', `${pokemon.name}'s freezing aura turns water into ice!`);
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Ice') {
+				this.boost({def: 1, spd: 1});
+			}
+		},
+		onFoeBeforeMovePriority: 13,
+		onFoeBeforeMove(attacker, defender, move) {
+			attacker.addVolatile('permafrost');
+		},
+		condition: {
+			onModifyTypePriority: -1,
+			onModifyType(move, pokemon) {
+				if (move.type === 'Water') {
+					move.type = 'Ice';
+				}
+			},
+			onAfterMove(pokemon) {
+				pokemon.removeVolatile('permafrost');
+			},
+		},
+		shortDesc: "Water moves used against this Pokemon become Ice-type. +1 Def/SpD when hit by Ice.",
+		rating: 4,
+	},
+	prehistoricmight: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Prehistoric Might', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else if (target.positiveBoosts()) {
+					this.boost({spe: -2}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Prehistoric Might",
+		rating: 2.5,
+		shortDesc: "On switch-in, the foe's Speed is lowered by 2 stages if it has a positive stat boost.",
+	},
+	synchronize: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.effectType !== 'Move' && effect.id !== 'synchronize') {
+				for (const foes of target.adjacentFoes()) {
+					this.damage(damage, foes, target);
+				}
+			}
+		},
+		name: "Synchronize",
+		rating: 2,
+		num: 28,
+		shortDesc: "If this Pokemon takes indirect damage, the opponent takes the same amount of damage.",
 	},
 	
 // unchanged abilities
@@ -1236,5 +1611,53 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ice Body",
 		rating: 1,
 		num: 115,
+	},
+	libero: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.libero) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.libero = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
+			}
+		},
+		onSwitchIn() {
+			delete this.effectState.libero;
+		},
+		name: "Libero",
+		rating: 4,
+		num: 236,
+	},
+	protean: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.protean) return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.effectState.protean = true;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.protean;
+		},
+		name: "Protean",
+		rating: 4,
+		num: 168,
+	},
+	adaptability: {
+		onModifyMove(move, pokemon) {
+			if (move.type === pokemon.teraType && pokemon.baseSpecies.types.includes(pokemon.teraType) && pokemon.hasItem('terashard')) {
+				move.stab = 2.25;
+			} else {
+				move.stab = 2;
+			}
+		},
+		name: "Adaptability",
+		rating: 4,
+		num: 91,
 	},
 };

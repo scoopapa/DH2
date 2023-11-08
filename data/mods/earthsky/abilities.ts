@@ -775,7 +775,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
-				this.useMove(newMove, target, source);
+				this.actions.useMove(newMove, target, source);
 				return null;
 			}
 		},
@@ -787,7 +787,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
-				this.useMove(newMove, target, source);
+				this.actions.useMove(newMove, target, source);
 				return null;
 			}
 		},
@@ -846,7 +846,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 					const kaboom = this.dex.getMove('explosion');
 					kaboom.willCrit = true;
 					kaboom.ignoreImmunity = {'Normal': true,};
-					this.useMove(kaboom, pokemon);
+					this.actions.useMove(kaboom, pokemon);
 				}
 			}
 		},
@@ -885,7 +885,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				kaboom.willCrit = true;
 				kaboom.ignoreImmunity = {};
 				kaboom.ignoreImmunity['Normal'] = true;
-				this.useMove(kaboom, pokemon);
+				this.actions.useMove(kaboom, pokemon);
 			}
 			pokemon.abilityState.warnMoves = [];
 		},
@@ -1256,6 +1256,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		rating: 1.5,
 		num: 145,
 		desc: "If another Pokemon tries to lower this Pokemon's Defense stat stage, it raises by that amount instead.",
+		shortDesc: "If Defense is attempted to be lowered by others, raises by that amount instead.",
 	},
 	climatebreak: {
 		onStart(pokemon) {
@@ -1318,6 +1319,8 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
 			}
 		},
+		desc: "After being hit by a move, the user's typing changes to the type that has the best advantage over the move's type, after modifications. It will prioritize any type that is immune to the move, followed by types that are doubly resistant, then normally resistant, then neutral to the move. If multiple types are possible after any of these choices, it will prioritize types that are super effective against that type. If multiple types are still possible, it will prioritize types matching any of the user's damaging moves. Fails if the target has not made a move, if the user cannot change its type, or if this move would only be able to select the user's current type.",
+		shortDesc: "This Pokemon's type changes to the type most advantageous against a move it's hit by, unless it has the type.",
 	},
 	commander: {
 		inherit: true,
@@ -1342,6 +1345,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				}
 			}
 		},
+		desc: "If this Pokemon is a Tatsugiri and a Dondozo is an active ally, this Pokemon goes into the Dondozo's mouth. The Dondozo has its Attack, Special Attack, Speed, Defense, and Special Defense raised by 2 stages. During the effect, this Pokemon cannot select an action, and it is treated as an invalid target for other moves, causing them to redirect, fail, or miss. This Pokemon still takes indirect damage during the effect; if it faints, the effect ends, and Dondozo's stats will be reduced by 2 stages. If the Dondozo switches out or faints during the effect, this Pokemon regains the ability to select an action on its next turn.",
 	},
 	corrosion: {
 		inherit: true,
@@ -1444,30 +1448,32 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		desc: "While this Pokemon has 1/2 or less of its maximum HP, its Attack and Special Attack are reduced by 1/3.",
 		shortDesc: "When this Pokemon has 1/2 or less of its max HP, Atk and Sp. Atk are reduced by 1/3.",
 	},
-	embodyaspect: {
-		onStart(pokemon) {
-			if(pokemon.baseSpecies === "Ogerpon"){
-				switch(pokemon.forme){
-					case "Wellspring":
-						this.boost({spd: 1}, pokemon);
-						break;
-					case "Hearthflame":
-						this.boost({atk: 1}, pokemon);
-						break;
-					case "Cornerstone":
-						this.boost({def: 1}, pokemon);
-						break;
-					default:
-						this.boost({spe: 1}, pokemon);
-						break;
+	dryskin: {
+		inherit: true,
+		onTryHit(target, source, move) {
+			if (target !== source && (move.type === 'Water' || (move.twoType && move.twoType === 'Water'))) {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Dry Skin');
 				}
+				return null;
 			}
 		},
-		name: "Embody Aspect",
-		rating: 3.5,
-		num: 301,
-		desc: "If this Pokemon is Ogerpon, raises a stat 1 stage on switch-in based on its mask: Teal Mask raises Speed, Wellspring Mask raises Special Defense, Hearthstone Mask raises Attack, and Cornerstone Mask raises Defense.",
-		shortDesc: "On switch-in, raises stat 1 stage based on Mask.",
+		onFoeBasePowerPriority: 17,
+		onFoeBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.target !== defender) return;
+			if ((move.type === 'Fire' || (move.twoType && move.twoType === 'Fire'))) {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 16);
+			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 16, target, target);
+			}
+		},
+		desc: "This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move. The power of Fire-type moves is multiplied by 1.25 when used on this Pokemon. At the end of each turn, this Pokemon restores 1/16 of its maximum HP, rounded down, if the weather is Rain Dance, and loses 1/16 of its maximum HP, rounded down, if the weather is Sunny Day. The weather effects are prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "This Pokemon is healed 1/4 by Water, 1/16 by Rain; is hurt 1.25x by Fire, 1/16 by Sun.",
 	},
 	flareboost: {
 		name: "Flare Boost",
@@ -1629,6 +1635,18 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		shortDesc: "On switch-in, summons Electric Terrain. During Electric Terrain, Sp. Atk is 1.1x.",
 	},
 	//Harvest change implemented in the item-removing effects.
+	healer: {
+		name: "Healer",
+		onStart(pokemon) {
+			for (const ally of pokemon.adjacentAllies()) {
+				this.add('-activate', pokemon, 'ability: Healer');
+				ally.cureStatus();
+			}
+		},
+		rating: 0,
+		num: 131,
+		shortDesc: "On switch-in, this Pokemon cures adjacent allies' non-volatile status.",
+	},
 	heatproof: {
 		inherit: true,
 		onSourceBasePower(basePower, attacker, defender, move) {
@@ -1675,6 +1693,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		rating: 2,
 		num: 52,
 		desc: "If another Pokemon tries to lower this Pokemon's Attack stat stage, it raises by that amount instead.",
+		shortDesc: "If Attack is attempted to be lowered by others, raises by that amount instead.",
 	},
 	icebody: {
 		inherit: true,
@@ -1708,7 +1727,8 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		},
 		rating: 0.5,
 		num: 35,
-		shortDesc: "While this Pokemon is active, Midnight disappears and cannot be activated.",
+		desc: "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's Evasiveness. While this Pokemon is active, supernatural darkness is dispelled and cannot be set.",
+		shortDesc: "Accuracy can't be lowered by others, ignores Evasiveness, and dispels Midnight.",
 	},
 	immunity: {
 		inherit: true,
@@ -1738,6 +1758,8 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			this.debug('insomnia - enhancing accuracy');
 			return accuracy * 1.3;
 		},
+		desc: "This Pokemon cannot fall asleep. Gaining this Ability while asleep cures it. During supernatural darkness, this Pokemon's moves have their accuracy multiplied by 1.3.",
+		shortDesc: "Cannot fall asleep; gaining while asleep cures it. Accuracy 1.3x in Midnight.",
 	},
 	intrepidsword: {
 		inherit: true, //woo, two lines of code since I override the onStart
@@ -1774,6 +1796,8 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
+		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.3.",
+		shortDesc: "This Pokemon's punch-based attacks have 1.3x power.",
 	},
 	klutz: {
 		inherit: true,
@@ -1932,7 +1956,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		desc: "This Pokemon's ball, bomb, cannon, and pulse moves have their power multiplied by 1.3. Heal Pulse restores 2/3 of a target's maximum HP, rounded half down.",
-		shortDesc: "This Pokemon's ballistic moves (Shadow Ball, Sludge Bomb, Flash Cannon, etc) have 1.3x power.",
+		shortDesc: "This Pokemon's ballistic moves have 1.3x power.",
 	},
 	mimicry: {
 		inherit: true,
@@ -2053,7 +2077,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	owntempo: {
 		inherit: true,
 		onModifyMove(move) {
-			move.flags = move.flags.concat({'failcopycat': 1, 'failmefirst': 1, 'failmimic': 1,});
+			move.flags = {...move.flags, 'failcopycat': 1, 'failmefirst': 1, 'failmimic': 1,};
 			delete move.flags['mirror'];
 			delete move.flags['snatch'];
 			move.noSketch = true; //Currently does nothing
@@ -2202,7 +2226,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		rating: 2,
 		num: 272,
 		desc: "The power of Ghost-type attacks against this Pokemon is halved, and it is immune to freeze and cold damage from Snow.",
-		shortDesc: "Halves power of Ghost-type attacks against this Pokemon; no freeze, no cold damage.",
+		shortDesc: "Halves power of Ghost-type attacks against this Pokemon; no freeze or cold damage.",
 	},
 	raindish: {
 		inherit: true,
@@ -2235,6 +2259,22 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 		num: 223,
 		desc: "This Pokemon copies the Ability of an ally that fainted this turn. Abilities that cannot be copied are \"No Ability\", Alchemy, As One, Comatose, Disguise, Flower Gift, Forecast, Glyphic Spell, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Rage Mode, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, Zen Mode, and Zero to Hero.",
 		shortDesc: "This Pokemon copies the Ability of an ally that fainted.",
+	},
+	rivalry: {
+		inherit: true,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.gender && defender.gender) {
+				if (attacker.gender === defender.gender) {
+					this.debug('Rivalry boost');
+					return this.chainModify(1.5);
+				} else {
+					this.debug('Rivalry weaken');
+					return this.chainModify(0.75);
+				}
+			}
+		},
+		desc: "This Pokemon's attacks have their power multiplied by 1.5 against targets of the same gender or multiplied by 0.75 against targets of the opposite gender. There is no modifier if either this Pokemon or the target is genderless.",
+		shortDesc: "This Pokemon's attacks do 1.5x on same gender targets; 0.75x on opposite gender.",
 	},
 	runaway: {
 		onTrapPokemonPriority: -10,
@@ -2528,7 +2568,8 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			pokemon.removeVolatile('risingchorus');
 		},
 		//Suction Cups floating block implemented in scripts.ts as part of pokemon.canFloat()
-		shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. Also prevents floating.",
+		shortDesc: "This Pokemon cannot be forced out by another Pokemon's attack/item. Prevents floating.",
+		desc: "This Pokemon cannot be forced out by another Pokemon's attack/item. This Pokemon cannot gain floating status.",
 	},
 	sweetveil: {
 		inherit: true,
@@ -2649,7 +2690,13 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	vitalspirit: {
 		inherit: true,
 		onChangeBoost(boost, target, source, effect) {
-			if (source && target === source) return;
+			if(source && target === source) return;
+			if (!source || target.side === source.side) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Vital Spirit only affects Speed lowered by other Pokemon.", true, source.side);
+				}
+				return;
+			}
 			if (boost.spe && boost.spe < 0) {
 				delete boost.spe;
 				if (!(effect as ActiveMove).secondaries) {
@@ -3085,24 +3132,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 
 			if (!target.runImmunity(move.type) || !(move.twoType && target.runImmunity(move.twoType))) return;
 			return 0;
-		},
-	},
-	dryskin: {
-		inherit: true,
-		onTryHit(target, source, move) {
-			if (target !== source && (move.type === 'Water' || (move.twoType && move.twoType === 'Water'))) {
-				if (!this.heal(target.baseMaxhp / 4)) {
-					this.add('-immune', target, '[from] ability: Dry Skin');
-				}
-				return null;
-			}
-		},
-		onFoeBasePowerPriority: 17,
-		onFoeBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.target !== defender) return;
-			if ((move.type === 'Fire' || (move.twoType && move.twoType === 'Fire'))) {
-				return this.chainModify(1.25);
-			}
 		},
 	},
 	fairyaura: {
@@ -3677,6 +3706,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	transistor: null,
 	unseenfist: null,
 	wellbakedbody: null,
+	embodyaspectteal: null,
+	embodyaspectwellspring: null,
+	embodyaspecthearthflame: null,
+	embodyaspectcornerstone: null,
 	
 	/* CAP */
 	emergence: {
@@ -3691,7 +3724,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
-			this.useMove(newMove, target, source);
+			this.actions.useMove(newMove, target, source);
 			return null;
 		},
 		onAllyTryHitSide(target, source, move) {
@@ -3702,7 +3735,7 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
-			this.useMove(newMove, this.effectState.target, source);
+			this.actions.useMove(newMove, this.effectState.target, source);
 			return null;
 		},
 		condition: {

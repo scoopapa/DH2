@@ -2,6 +2,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	berryjuice: {
 		inherit: true,
 		isNonstandard: null,
+		rating: 1,
 	},
 	blackbelt: {
 		inherit: true,
@@ -41,6 +42,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	dragonfang: {
 		inherit: true,
 		onModifySpA() {},
+		rating: 0,
 	},
 	dragonscale: {
 		inherit: true,
@@ -49,6 +51,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return damage * 1.1;
 			}
 		},
+		rating: 2,
 	},
 	fastball: {
 		inherit: true,
@@ -120,6 +123,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return 3;
 			}
 		},
+	},
+	lumberry: {
+		inherit: true,
+		rating: 2,
 	},
 	lureball: {
 		inherit: true,

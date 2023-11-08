@@ -4863,7 +4863,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 
 			const additionalBannedSourceAbilities = [
 				// Zen Mode included here for compatability with Gen 5-6
-				'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+				'commander', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
 			];
 			if (
 				target.ability === source.ability ||
@@ -15633,7 +15633,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 
 			const additionalBannedTargetAbilities = [
 				// Zen Mode included here for compatability with Gen 5-6
-				'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard', 'zenmode',
+				'commander', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard', 'zenmode',
 			];
 
 			if (target.getAbility().isPermanent || additionalBannedTargetAbilities.includes(target.ability) ||
@@ -16284,7 +16284,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Secret Sword",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
 		type: "Fighting",
@@ -19247,7 +19247,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, bullet: 1},
 		condition: {
 			noCopy: true,
-			duration: 3,
+			duration: 4,
 			onStart(pokemon) {
 				this.add('-start', pokemon, 'Syrup Bomb');
 			},
@@ -19256,7 +19256,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.boost({spe: -1});
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Syrup Bomb');
+				this.add('-end', pokemon, 'Syrup Bomb', '[silent]');
 			},
 		},
 		secondary: {
@@ -19663,6 +19663,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, mustpressure: 1},
+		onPrepareHit(target, source, move) {
+			if (source.terastallized) {
+				this.attrLastMove('[anim] Tera Blast ' + source.teraType);
+			}
+		},
 		onModifyType(move, pokemon, target) {
 			if (pokemon.terastallized) {
 				move.type = pokemon.teraType;

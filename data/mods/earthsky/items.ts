@@ -28,7 +28,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Cures infatuation. Single use.",
 		num: 1019,
-		rating: 0,
+		rating: 1,
 	},
 	fireplaque: {
 		name: "Fire Plaque",
@@ -55,7 +55,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If the holder uses Grass Pledge or Water Pledge, it will add the combination side effect of that Pledge. Increases the power of the holder's Fire Pledge by 50%.",
 		shortDesc: "Grass/Water Pledge: Add side condition. Fire Pledge x1.5 base power.",
 		num: 1017,
-		rating: 2,
+		rating: -1,
 	},
 	grassplaque: {
 		name: "Grass Plaque",
@@ -82,7 +82,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If the holder uses Water Pledge or Fire Pledge, it will add the combination side effect of that Pledge. Increases the power of the holder's Grass Pledge by 50%.",
 		shortDesc: "Water/Fire Pledge: Add side condition. Grass Pledge x1.5 base power.",
 		num: 1016,
-		rating: 2,
+		rating: -1,
 	},
 	hopoberry: {
 		name: "Hopo Berry",
@@ -107,7 +107,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Restores all PP to the first of the holder's moves to reach 0 PP. Single use.",
 		num: 1020,
-		rating: 2,
 	},
 	koknuberry: {
 		name: "Koknu Berry",
@@ -127,7 +126,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Cures flinching. Single use.",
 		num: 1002,
-		rating: 3,
 	},
 	meteorite: {
 		name: "Meteorite",
@@ -167,7 +165,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If the holder uses Grass Pledge or Water Pledge, it will add the combination side effect of that Pledge. Increases the power of the holder's Water Pledge by 50%.",
 		shortDesc: "Fire/Grass Pledge: Add side condition. Water Pledge x1.5 base power.",
 		num: 1018,
-		rating: 2,
+		rating: -1,
 	},
 	butterfreenite: {
 		name: "Butterfreenite",
@@ -353,6 +351,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Bitter food (-Sp. Defense Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpD Nature, it's 50%, but confuses. Single use.",
+		rating: 2,
 	},
 	bignugget: {
 		inherit: true,
@@ -373,6 +372,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		shortDesc: "Holder gains 1.5x HP from passive healing.",
 		desc: "Holder gains 1.5x HP from the passive healing provided by Aqua Ring, Ingrain, Leech Seed, Dry Skin, Rain Dish, Ice Body, Poison Heal, and Grassy Terrain.",
+		rating: 2,
 	},
 	brightpowder: {
 		name: "Bright Powder",
@@ -412,8 +412,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 1017 && (move.type === 'Grass' || move.type === 'Rock')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
 		num: 2406,
 		gen: 9,
+		desc: "Ogerpon holder gains Rock type, changes Hidden Move, 1.2x Grass/Rock damage.",
 	},
 	dragonscale: {
 		inherit: true,
@@ -421,9 +428,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifyDef(def, pokemon) {
 			return this.chainModify([0x1199, 0x1000]);
 		},
-		rating: 3,
 		desc: "Holder's Defense is multiplied by 1.1x. Evolves Seadra into Kingdra and Burrorm into Burryrm when traded.",
 		shortDesc: "Holder Defense is multiplied by 1.1x.",
+		rating: 2,
 	},
 	electirizer: {
 		inherit: true,
@@ -433,9 +440,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
-		rating: 1,
 		desc: "Holder and allies' Electric-type moves have 1.1x power. Evolves Electabuzz into Electivire when traded.",
 		shortDesc: "Holder and allies' Electric-type moves have 1.1x power.",
+		rating: 2,
 	},
 	figyberry: {
 		inherit: true,
@@ -454,6 +461,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Spicy food (-Attack Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -Atk Nature, it's 50%, but confuses. Single use.",
+		rating: 2,
 	},
 	fullincense: {
 		name: "Full Incense",
@@ -477,8 +485,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 1017 && (move.type === 'Grass' || move.type === 'Fire')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
 		num: 2408,
 		gen: 9,
+		desc: "Ogerpon holder gains Fire type, changes Hidden Move, 1.2x Grass/Fire damage.",
 	},
 	iapapaberry: {
 		inherit: true,
@@ -497,6 +512,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Dry food (-Sp. Attack Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -SpA Nature, it's 50%, but confuses. Single use.",
+		rating: 2,
 	},
 	ironball: {
 		name: "Iron Ball",
@@ -517,6 +533,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 278,
 		gen: 4,
+		rating: 1,
 		desc: "The holder is grounded and cannot be made to float. The holder's Speed is halved. When Flung, grounds the target and counts as a projectile move.",
 		shortDesc: "Holder is grounded, Speed halved. Grounds the target when Flung.",
 	},
@@ -526,11 +543,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical') {
 				if (target.eatItem()) {
-					this.damage(source.baseMaxhp / 4, source, target);
+					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 2 : 4), source, target);
 				}
 			}
 		},
 		desc: "If holder is hit by a physical move, attacker loses 1/4 of its max HP. Single use.",
+		rating: 2,
 	},
 	laxincense: {
 		name: "Lax Incense",
@@ -539,8 +557,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 20,
 		},
 		num: 255,
-		rating: 0,
 		gen: 3,
+		rating: 0,
 		desc: "No competitive use.",
 	},
 	magmarizer: {
@@ -551,9 +569,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
-		rating: 1,
 		desc: "Holder and allies' Fire-type moves have 1.1x power. Evolves Magmar into Magmortar when traded.",
 		shortDesc: "Holder and allies' Fire-type moves have 1.1x power.",
+		rating: 2,
 	},
 	magoberry: {
 		inherit: true,
@@ -572,6 +590,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sweet food (-Speed Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -Spe Nature, it's 50%, but confuses. Single use.",
+		rating: 2,
 	},
 	metalpowder: {
 		name: "Metal Powder",
@@ -583,9 +602,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 287,
 		num: 257,
 		gen: 2,
-		rating: 3,
 		desc: "When Flung, increases the target's Defense and Sp. Def stats by 1 stage. Fails if target is immune to powder.",
 		shortDesc: "When Flung, +1 Def and Sp. Def. Counts as a powder move.",
+		rating: 0,
 	},
 	micleberry: {
 		inherit: true,
@@ -601,6 +620,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			},
 		},
 		desc: "Holder's next non-OHKO move never misses when at 1/4 max HP or less. Single use.",
+		rating: 2,
 	},
 	muscleband: {
 		name: "Muscle Band",
@@ -613,7 +633,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return this.chainModify([0x1199, 0x1000]);
 		},
 		num: 266,
-		rating: 3,
+		rating: 2,
 		gen: 4,
 		desc: "Holder's Attack is multiplied by 1.1x.",
 	},
@@ -640,7 +660,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 314,
 		gen: 4,
-		rating: 1,
+		rating: 2,
 		desc: "Holder and allies' Psychic-type moves have 1.1x power.",
 	},
 	prismscale: {
@@ -649,7 +669,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onModifySpD(spd, pokemon) {
 			return this.chainModify([0x1199, 0x1000]);
 		},
-		rating: 3,
+		rating: 2,
 		desc: "Holder's Sp. Defense is multiplied by 1.1x. Evolves Feebas into Milotic when traded.",
 		shortDesc: "Holder Special Defense is multiplied by 1.1x.",
 	},
@@ -661,7 +681,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				if (this.activeMove.id !== 'struggle') return null;
 			}
 		},
-		rating: 3,
+		rating: 2,
 		desc: "This Pokemon does not take recoil damage besides Struggle and crash damage. Evolves Rhydon into Rhyperior when traded.",
 		shortDesc: "This Pokemon does not take recoil damage besides Struggle/crash damage.",
 	},
@@ -675,7 +695,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 274,
 		gen: 4,
-		rating: 3,
+		rating: 0,
 		desc: "When Flung, increases the target's Speed by 1 stage. Fails if target is immune to powder.",
 		shortDesc: "When Flung, +1 Speed. Counts as a powder move.",
 	},
@@ -687,7 +707,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
-		rating: 1,
+		rating: 2,
 		desc: "Holder and allies' Ghost-type moves have 1.1x power. Evolves Dusclops into Dusknoir when traded.",
 		shortDesc: "Holder and allies' Ghost-type moves have 1.1x power.",
 	},
@@ -704,7 +724,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 315,
-		rating: 1,
+		rating: 2,
 		gen: 4,
 		desc: "Holder and allies' Rock-type moves have 1.1x power.",
 	},
@@ -721,7 +741,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 318,
-		rating: 1,
+		rating: 2,
 		gen: 4,
 		desc: "Holder and allies' Grass-type moves have 1.1x power.",
 	},
@@ -731,11 +751,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Special') {
 				if (target.eatItem()) {
-					this.damage(source.baseMaxhp / 4, source, target);
+					this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 2 : 4), source, target);
 				}
 			}
 		},
 		desc: "If holder is hit by a special move, attacker loses 1/4 of its max HP. Single use.",
+		rating: 2,
 	},
 	sachet: {
 		inherit: true,
@@ -748,7 +769,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return this.chainModify([0x1199, 0x1000]);
 			}
 		},
-		rating: 1,
+		rating: 2,
 		desc: "Holder and allies' Fairy-type moves have 1.1x power. Evolves Spritzee into Aromatisse when traded.",
 		shortDesc: "Holder and allies' Fairy-type moves have 1.1x power.",
 	},
@@ -765,7 +786,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 254,
-		rating: 1,
+		rating: 2,
 		gen: 3,
 		desc: "Holder and allies' Water-type moves have 1.1x power.",
 	},
@@ -778,6 +799,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "The user recovers 1/5 of the damage, rounded half up, dealt by each of its attacks. The healing occurs even if an attack hits a substitute.",
 		shortDesc: "After an attack, holder gains 1/5 of the damage in HP dealt to other Pokemon.",
+		rating: 2,
 	},
 	silverpowder: {
 		inherit: true,
@@ -861,6 +883,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 317,
 		gen: 4,
+		rating: 1,
 		desc: "Prevents Egg Bomb, Explosion, Mind Blown, Napalm, Searing Shot, Self-Destruct, Shell Trap, and the Aftermath Ability from having an effect.",
 		shortDesc: "Prevents explosion-based moves and Abilities.",
 	},
@@ -873,8 +896,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
 			return true;
 		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.num === 1017 && (move.type === 'Grass' || move.type === 'Water')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
 		num: 2407,
 		gen: 9,
+		desc: "Ogerpon holder gains Water type, changes Hidden Move, 1.2x Grass/Water damage.",
 	},
 	whippeddream: {
 		inherit: true,
@@ -891,7 +921,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			return false;
 		},
-		rating: 3,
+		rating: 2,
 		desc: "Holder cannot fall asleep. Gaining this item while asleep cures it. Evolves Swirlix into Slurpuff when traded.",
 		shortDesc: "Holder cannot fall asleep. Gaining this item while asleep cures it.",
 	},
@@ -912,6 +942,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Sour food (-Defense Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -Def Nature, it's 50%, but confuses. Single use.",
+		rating: 2,
 	},
 	wiseglasses: {
 		name: "Wise Glasses",
@@ -924,7 +955,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return this.chainModify([0x1199, 0x1000]);
 		},
 		num: 267,
-		rating: 3,
+		rating: 2,
 		gen: 4,
 		desc: "Holder's Sp. Attack is multiplied by 1.1x.",
 	},
@@ -990,7 +1021,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		num: 540,
-		rating: 4,
+		rating: 3,
 		gen: 5,
 	},
 	
@@ -1007,12 +1038,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	buggem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Bug' || (move.twoType && move.twoType === 'Bug')) && source.useItem()) {
+			if (move && (move.type === 'Bug' || (move.twoType && move.twoType === 'Bug')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Bug-type attack will have 1.3x power. Single use.",
 	},
 	blackbelt: {
 		inherit: true,
@@ -1050,12 +1083,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	darkgem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Dark' || (move.twoType && move.twoType === 'Dark')) && source.useItem()) {
+			if (move && (move.type === 'Dark' || (move.twoType && move.twoType === 'Dark')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Dark-type attack will have 1.3x power. Single use.",
 	},
 	dracoplate: {
 		inherit: true,
@@ -1078,12 +1113,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	dragongem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Dragon' || (move.twoType && move.twoType === 'Dr')) && source.useItem()) {
+			if (move && (move.type === 'Dragon' || (move.twoType && move.twoType === 'Dragon')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Dragon-type attack will have 1.3x power. Single use.",
 	},
 	dreadplate: {
 		inherit: true,
@@ -1104,42 +1141,50 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	electricgem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Electric' || (move.twoType && move.twoType === 'Electric')) && source.useItem()) {
+			if (move && (move.type === 'Electric' || (move.twoType && move.twoType === 'Electric')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Electric-type attack will have 1.3x power. Single use.",
 	},
 	fairygem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Fairy' || (move.twoType && move.twoType === 'Fairy')) && source.useItem()) {
+			if (move && (move.type === 'Fairy' || (move.twoType && move.twoType === 'Fairy')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Fairy-type attack will have 1.3x power. Single use.",
 	},
 	fightinggem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Fighting' || (move.twoType && move.twoType === 'Fighting')) && source.useItem()) {
+			if (move && (move.type === 'Fighting' || (move.twoType && move.twoType === 'Fighting')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Fighting-type attack will have 1.3x power. Single use.",
 	},
 	firegem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Fire' || (move.twoType && move.twoType === 'Fire')) && source.useItem()) {
+			if (move && (move.type === 'Fire' || (move.twoType && move.twoType === 'Fire')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Fire-type attack will have 1.3x power. Single use.",
 	},
 	flameplate: {
 		inherit: true,
@@ -1162,32 +1207,38 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	ghostgem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Ghost' || (move.twoType && move.twoType === 'Ghost')) && source.useItem()) {
+			if (move && (move.type === 'Ghost' || (move.twoType && move.twoType === 'Ghost')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Ghost-type attack will have 1.3x power. Single use.",
 	},
 	grassgem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Grass' || (move.twoType && move.twoType === 'Grass')) && source.useItem()) {
+			if (move && (move.type === 'Grass' || (move.twoType && move.twoType === 'Grass')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Grass-type attack will have 1.3x power. Single use.",
 	},
 	groundgem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Ground' || (move.twoType && move.twoType === 'Ground')) && source.useItem()) {
+			if (move && (move.type === 'Ground' || (move.twoType && move.twoType === 'Ground')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Ground-type attack will have 1.3x power. Single use.",
 	},
 	hardstone: {
 		inherit: true,
@@ -1200,12 +1251,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	icegem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Ice' || (move.twoType && move.twoType === 'Ice')) && source.useItem()) {
+			if (move && (move.type === 'Ice' || (move.twoType && move.twoType === 'Ice')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Ice-type attack will have 1.3x power. Single use.",
 	},
 	icicleplate: {
 		inherit: true,
@@ -1301,12 +1354,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	normalgem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Normal' || (move.twoType && move.twoType === 'Normal')) && source.useItem()) {
+			if (move && (move.type === 'Normal' || (move.twoType && move.twoType === 'Normal')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Normal-type attack will have 1.3x power. Single use.",
 	},
 	pixieplate: {
 		inherit: true,
@@ -1329,32 +1384,38 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	poisongem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Poison' || (move.twoType && move.twoType === 'Poison')) && source.useItem()) {
+			if (move && (move.type === 'Poison' || (move.twoType && move.twoType === 'Poison')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Poison-type attack will have 1.3x power. Single use.",
 	},
 	psychicgem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Psychic' || (move.twoType && move.twoType === 'Psychic')) && source.useItem()) {
+			if (move && (move.type === 'Psychic' || (move.twoType && move.twoType === 'Psychic')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Psychic-type attack will have 1.3x power. Single use.",
 	},
 	rockgem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Rock' || (move.twoType && move.twoType === 'Rock')) && source.useItem()) {
+			if (move && (move.type === 'Rock' || (move.twoType && move.twoType === 'Rock')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Rock-type attack will have 1.3x power. Single use.",
 	},
 	sharpbeak: {
 		inherit: true,
@@ -1423,12 +1484,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	steelgem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Steel' || (move.twoType && move.twoType === 'Steel')) && source.useItem()) {
+			if (move && (move.type === 'Steel' || (move.twoType && move.twoType === 'Steel')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Steel-type attack will have 1.3x power. Single use.",
 	},
 	stoneplate: {
 		inherit: true,
@@ -1457,12 +1520,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	watergem: {
 		inherit: true,
 		consumable: true,
-		onSourceTryPrimaryHit(target, source, move) {
+		onPrepareHit(source, target, move) {
 			if (target === source || move.category === 'Status') return;
-			if ((move.type === 'Water' || (move.twoType && move.twoType === 'Water')) && source.useItem()) {
+			if (move && (move.type === 'Water' || (move.twoType && move.twoType === 'Water')) && source.useItem()) {
 				source.addVolatile('gem');
 			}
 		},
+		onSourceTryPrimaryHit(target, source, move) {},
+		desc: "Holder's first Water-type attack will have 1.3x power. Single use.",
 	},
 	zapplate: {
 		inherit: true,
@@ -1494,7 +1559,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		shortDesc: "Holder gains floating status. Pops when hit.",
-		desc: "The holder becomes immune to Ground-type attacks, Arena Trap, and entry hazards other than Stealth Rock. The holder will not benefit from Terrain, and the moves Dig, Dive, Roost, and Ingrain will fail. The balloon pops when hit. This item has no effect when held by Diglett, Dugtrio, Sandygast, Palossand, Burrorm, or Burryrm.",
+		desc: "The holder becomes immune to Ground-type attacks, Arena Trap, and entry hazards other than Stealth Rock. The holder will not benefit from Terrain, and the moves Dig, Dive, Roost, and Ingrain will fail. The balloon pops when hit. This item has no effect when held by Diglett, Dugtrio, Sandygast, Palossand, Wiglett, Wugtrio, Burrorm, Burryrm, Dorsoil, or Colossoil.",
 	},
 	bindingband: {
 		inherit: true,
@@ -1513,7 +1578,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return critRatio + 2;
 			}
 		},
-		itemUser: ["Farfetch\u2019d", "Sirfetch\u2019d", "Kendo\u2019no"],
+		itemUser: ["Farfetch\u2019d", "Sirfetch\u2019d", "Farfetch\u2019d-Galar", "Kendo\u2019no"],
 		desc: "If held by a Farfetch’d, Sirfetch’d, or Kendo'no, its critical hit ratio is raised by 2 stages.",
 		shortDesc: "If held by a Farfetch’d family member, its critical hit ratio is raised by 2 stages.",
 	},
@@ -1560,16 +1625,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		shortDesc: "Holder's use of Apple Bomb lowers Sp. Defense.",
 		desc: "When used by the holder, the move Apple Bomb lowers Special Defense. Evolves Applin into Appletun when used.",
+		rating: -1,
 	},
 	syrupyapple: {
 		inherit: true,
 		shortDesc: "Holder's use of Apple Bomb lowers Speed.",
 		desc: "When used by the holder, the move Apple Bomb lowers Speed. Evolves Applin into Dipplin when used.",
+		rating: -1,
 	},
 	tartapple: {
 		inherit: true,
 		shortDesc: "Holder's use of Apple Bomb lowers Defense.",
 		desc: "When used by the holder, the move Apple Bomb lowers Defense. Evolves Applin into Flapple when used.",
+		rating: -1,
 	},
 	/* Natural Gift adjustments (also type-reduction edits for dual-type moves) */
 	cheriberry: {
@@ -1619,6 +1687,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 70,
 			type: "Fighting",
 		},
+		rating: 1,
 	},
 	oranberry: {
 		inherit: true,
@@ -2344,34 +2413,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		consumable: true,
 	},
 	/* Deleted items*/
-	adamantcrystal: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
-	griseouscore: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
-	luckypunch: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
-	lustrousglobe: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
-	punchingglove: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
-	throatspray: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
-	utilityumbrella: {
-		inherit: true,
-		isNonstandard: "Unobtainable",
-	},
+	adamantcrystal: null,
+	griseouscore: null,
+	luckypunch: null,
+	lustrousglobe: null,
+	punchingglove: null,
+	throatspray: null,
+	utilityumbrella: null,
+	/* These items would otherwise be restored in the algorithm and we don't need to load them anyway */
+	berserkgene: null,
+	berry: null,
+	bitterberry: null,
+	burntberry: null,
+	goldberry: null,
+	iceberry: null,
+	mintberry: null,
+	miracleberry: null,
+	mysteryberry: null,
+	pinkbow: null,
+	polkadotbow: null,
+	przcureberry: null,
+	psncureberry: null,
 	/* idk why these items are coded, but they're changed too! */
 	diveball: {
 		inherit: true,

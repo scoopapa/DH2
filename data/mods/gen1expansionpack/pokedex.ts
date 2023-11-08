@@ -329,7 +329,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {},
 		prevo: "Marowak",
 		evoType: "trade",
-		evoCondition: "with a Kangaskhan" //I believe this wouldn't cause a crash as iirc they aren't actually coded in, just displayed with /dt. If it causes problems, just remove it, as it's not like this specific evo condition actually exists in RBY anyway.
+		evoCondition: "with a Kangaskhan", //I believe this wouldn't cause a crash as iirc they aren't actually coded in, just displayed with /dt. If it causes problems, just remove it, as it's not like this specific evo condition actually exists in RBY anyway.
+		eggGroups: ["Monster"],
 	},
 	totartle: {
 		num: 1184,
@@ -354,7 +355,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		gen: 1,
 		name: "Tricules",
 		types: ["Bug", "Steel"],
-		baseStats: {hp: 65, atk: 125, def: 140, spa: 55, spd: 55, spe: 85},
+		baseStats: {hp: 65, atk: 125, def: 140, spa: 55, spd: 55, spe: 45},
 		abilities: {},
 		prevo: "Pinsir",
 		evoLevel: 42,
@@ -541,7 +542,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	steelix: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 85, def: 200, spa: 65, spd: 65, spe: 30},
+		baseStats: {hp: 75, atk: 85, def: 200, spa: 55, spd: 55, spe: 30},
 		gen: 1,
 	},
 	rhyperior: {

@@ -211,7 +211,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -10,
 	},
-	divination: {
+	divination: {//still doesn't work
 		shortDesc: "Reveals a random move of each adjacent opponent on entry.",
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Divination');
@@ -229,10 +229,10 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				for (const moveSlot of target.moveSlots) {
 					if (moveSlot.revealed) continue;
 					if (r === 0) {
-						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
 					}
 					r--;
-					moveSlot.revealed = true;
+                    moveSlot.revealed = true;
 					return;
 				}
 			}
@@ -278,7 +278,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onStart(pokemon) {
 			let bp = 0;
 			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.getMove(moveSlot.move);
+				const move = this.dex.moves.get(moveSlot.move);
 				if (move.category === 'Status') continue;
 				if (move.basePower > bp) {
 					bp = move.basePower;
@@ -430,10 +430,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			onAfterMove(source, target, move) {
 				for (const pokemon of this.getAllActive()) {
 					if (pokemon === source) continue;
-					/*if (!pokemon.hp) {
-						source.removeVolatile('implode');
-						return;
-					}*/
 				}
 				if (this.effectState.recoil && move.totalDamage) {
 					if (!this.activeMove) throw new Error("Battle.activeMove is null");
@@ -453,76 +449,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: -20,
 	},
 	microclimate: {
-		//onSwitchIn(pokemon) {
-		// 	this.effectState.switchingIn = true;
-		// },
-		// onStart(pokemon) {
-		// 	// Cloud Nine does not activate when Skill Swapped or when Neutralizing Gas leaves the field
-		// 	if (!this.effectState.switchingIn) return;
-		// 	this.add('-ability', pokemon, 'Microclimate');
-		// 	this.effectState.switchingIn = false;
-		// },
-		// onSourceModifyAtk(atk, attacker, defender, move) {
-		// 	if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate strengthen');
-		// 		return this.chainModify(2);
-		// 	}
-		// 	else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate weaken');
-		// 		return this.chainModify(0.5);
-		// 	}
-		// 	else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate weaken');
-		// 		return this.chainModify(0.5);
-		// 	}
-		// 	else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate strengthen');
-		// 		return this.chainModify(2);
-		// 	}
-		// },
-		// onSourceModifySpAPriority: 5,
-		// onSourceModifySpA(atk, attacker, defender, move) {
-		// 	if (move.type === 'Fire' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate strengthen');
-		// 		return this.chainModify(2);
-		// 	}
-		// 	else if (move.type === 'Water' && ['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate weaken');
-		// 		return this.chainModify(0.5);
-		// 	}
-		// 	else if (move.type === 'Fire' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate weaken');
-		// 		return this.chainModify(0.5);
-		// 	}
-		// 	else if (move.type === 'Water' && ['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		this.debug('Microclimate strengthen');
-		// 		return this.chainModify(2);
-		// 	}
-		// },
-		// onBasePowerPriority: 21,
-		// onBasePower(basePower, attacker, defender, move) {
-		// 	if (['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
-		// 		if (move.type === 'Fire') {
-		// 			this.debug('Microclimate boost');
-		// 			return this.chainModify(2);
-		// 		}
-		// 		else if (move.type === 'Water') {
-		// 			this.debug('Microclimate boost');
-		// 			return this.chainModify(0.5);
-		// 		}
-		// 	}
-		// 	else if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
-		// 		if (move.type === 'Fire') {
-		// 			this.debug('Microclimate boost');
-		// 			return this.chainModify(0.5);
-		// 		}
-		// 		else if (move.type === 'Water') {
-		// 			this.debug('Microclimate boost');
-		// 			return this.chainModify(2);
-		// 		}
-		// 	}
-		// },
-		// suppressWeather: true,
 		onStart(pokemon) {
 			if (this.field.isWeather('sunnyday')) {
 			   this.field.setWeather('raindance');
@@ -617,8 +543,17 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	evaporate: {
 		desc: "If the Pokemon or the opponent uses a Water type move, it triggers the Haze effect. Immune to Water.",
 		shortDesc: "Haze when any Pokemon uses a Water move; Water immunity.",
-		onAnyTryMove(target, source, effect) {
+		onSourceHit(target, source, move) {
+			if (!move || !target) return;
 			if (move.type === 'Water') {
+				for (const pokemon of this.getAllActive()) {
+					pokemon.clearBoosts();
+				   return null;
+				}
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
 				this.add('-immune', target, '[from] ability: Evaporate');
 				for (const pokemon of this.getAllActive()) {
 					pokemon.clearBoosts();
@@ -634,11 +569,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.flags['sound'] && !pokemon.volatiles['dynamax']) { // hardcode
-				move.type = 'Ground';
+				move.type = 'Rock';
 			}
 		},
 		name: "Desert Song",
-		shortDesc: "Turns sounds moves into Ground type moves.",
+		shortDesc: "Turns sounds moves into Rock type moves.",
 		rating: 1.5,
 		num: -26,
 	},
@@ -797,13 +732,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				delete data.moveData.flags['protect'];
 
 				if (move.category === 'Status') {
-					this.useMove(move, target, data.target);
+					this.actions.useMove(move, target, data.target);
 				} else {
 					const hitMove = new this.dex.Move(data.moveData) as ActiveMove;
 					if (data.source.isActive) {
 						this.add('-anim', data.source, hitMove, data.target);
 					}
-					this.trySpreadMoveHit([data.target], data.source, hitMove);
+					this.actions.trySpreadMoveHit([data.target], data.source, hitMove);
 				}
 			},
 		},
@@ -853,21 +788,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onStart(source) {
 			this.field.setTerrain('chakraterrain');
 		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gravity", target);
+		},
 		name: "Chakra Surge",
 		shortDesc: "On switch-in, sets Chakra Terrain.",
 		rating: 4,
 		num: -36,
 	},
-	/*swordsmanship: {
-		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.3x",
-		onBasePowerPriority: 8,
-		onBasePower(basePower, attacker, defender, move) {
-			if (bladeMoves.includes(move.id)) {
-				return this.chainModify(1.3);
-			}
-		},
-		name: "Swordsmanship",
-	},*/
 	striker: {
 		shortDesc: "Boosts the power of kicking moves by 1.3x",
 		onBasePowerPriority: 8,
@@ -910,7 +839,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			this.debug('Solar Core - remove charge turn for ' + move.id);
 			this.attrLastMove('[still]');
 			this.addMove('-anim', pokemon, move.name, target);
-			return false; // skip charge turn
+			return false; 
 		},
 		name: "Cosmic Energy",
 		rating: 2,
@@ -1341,7 +1270,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "Reveals a random move of each adjacent opponent when this Pokemon hits them with a Sound move.",
 		onSourceHit(target, source, move) {
 			if (move.flags['sound']) {
-				for (const target of pokemon.side.foe.active) {
+				for (const target of pokemon.side.foe.active) { //pokemon not defined
 					if (!target || target.fainted) continue;
 					let potentialMoves = 0;
 					for (const moveSlot of target.moveSlots) {
@@ -1355,7 +1284,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 					for (const moveSlot of target.moveSlots) {
 						if (moveSlot.revealed) continue;
 						if (r === 0) {
-							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.getMove(moveSlot.move).name}!`);
+							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
 						}
 						r--;
 						moveSlot.revealed = true;
@@ -1754,6 +1683,29 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Ice Face",
 		rating: 3,
 		num: 248,
+	},
+	battlebond: {
+		inherit: true,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'greninjabond' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Greninja-Ash', this.effect, true);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, attacker) {
+			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash' &&
+				!attacker.transformed) {
+				move.multihit = 3;
+			}
+		},
+		shortDesc: "After KOing a Pokemon: becomes Ash-Greninja, Water Shuriken hits 3 times.",
+		desc: "After KOing a Pokemon: becomes Ash-Greninja, Water Shuriken hits 3 times.",
+		isNonstandard: null,
+		rating: 4,
 	},
 	powerspot: {
 		onAllyBasePowerPriority: 22,
@@ -2300,43 +2252,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3,
 		num: 89,
 	},
-	slowstart: {
-		// shortDesc: "Atk, SpA halved for 5 turns. Boost all stats after 5 turns. Timer does not reset on switch.",
-		shortDesc: "Atk, SpA halved for 5 turns. Timer does not reset on switch.",
-		onStart(pokemon) {
-			if (!pokemon.slowStartInit) {
-				pokemon.slowStartInit = true;
-				pokemon.slowStartTurns = 5;
-			}
-			if (pokemon.slowStartTurns > 0) pokemon.addVolatile('slowstart');
-		},
-		onResidual(pokemon) {
-			if (pokemon.slowStartTurns && pokemon.slowStartTurns > 0) pokemon.slowStartTurns--;
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['slowstart'];
-			this.add('-end', pokemon, 'Slow Start', '[silent]');
-		},
-		condition: {
-			duration: 5,
-			durationCallback(pokemon) {
-				return pokemon.slowStartTurns;
-			},
-			onStart(target) {
-				this.add('-start', target, 'ability: Slow Start');
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				return this.chainModify(0.5);
-			},
-			onModifySpA(spa, pokemon) {
-				return this.chainModify(0.5);
-			},
-		},
-		name: "Slow Start",
-		rating: -1,
-		num: 112,
-	},
 	rkssystem: {
 		shortDesc: "Non-STAB moves have 1.2x power.",
 		onBasePowerPriority: 23,
@@ -2636,6 +2551,25 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		desc: "This Pokemon receives 20% less damage from all attacks.",
 		rating: 4,
 		num: 56,
+	},
+	rebound: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (target !== source && move?.category === 'Special' && !move.flags['sound']) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		name: "Rebound",
+		shortDesc: "The opponent receives 1/8 recoil damage from special non-Sound moves.",
+		rating: 2.5,
+		num: 160,
+	},
+	truant: {
+		name: "Truant",
+		shortDesc: "No competitive effect.",
+		desc: "No competitive effect.",
+		rating: 0,
+		num: 54,
 	},
 	//Gen 9 modifs
 	sharpness: {

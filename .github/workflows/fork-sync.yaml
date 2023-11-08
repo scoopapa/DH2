@@ -1,0 +1,32 @@
+on:
+  schedule:
+    - cron:  '0 */12 * * *'
+    # scheduled every 12 hours
+  workflow_dispatch:
+
+jobs:
+  sync_with_upstream:
+    runs-on: ubuntu-latest
+    name: Sync main with upstream latest
+
+    steps:
+    - name: Checkout main
+      uses: actions/checkout@v2
+      with:
+        ref: main
+        
+    - name: Pull upstream changes
+      id: sync
+      uses: aormsby/Fork-Sync-With-Upstream-action@v3.1
+      with:
+        target_sync_branch: main
+        # REQUIRED 'target_repo_token' exactly like this!
+        target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+        upstream_sync_branch: main
+        upstream_sync_repo: scoopapa/DH2
+
+        # Set test_mode true to run tests instead of the true action!!
+        test_mode: true
+
+    - name: Timestamp
+      run: date

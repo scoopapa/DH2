@@ -20,6 +20,23 @@ export const Scripts: ModdedBattleScriptsData = {
 		// only to specify the order of custom tiers
 		customTiers: ['TPDP OU', 'TPDP LC'],
 	},
+	
+	battle: {
+        spreadModify(baseStats: StatsTable, set: PokemonSet): StatsTable {
+            const modStats: SparseStatsTable = {atk: 10, def: 10, spa: 10, spd: 10, spe: 10};
+            const tr = this.trunc;
+            let statName: keyof StatsTable;
+            for (statName in modStats) {
+                const stat = baseStats[statName];
+                modStats[statName] = tr(((2 * (stat + set.ivs[statName]) + set.evs[statName]) / 100) * set.level + 5);
+            }
+            if ('hp' in baseStats) {
+                const stat = baseStats['hp'];
+                modStats['hp'] = ((2 * (stat + set.ivs['hp']) + set.evs['hp']) / 100 + 1) * set.level + 10;
+            }
+            return this.natureModify(modStats as StatsTable, set);
+        }
+    },
 	pokemon: {
 		trySetStatus(status: string | Condition, source: Pokemon | null = null, sourceEffect: Effect | null = null) {
 			return this.setStatus(status, source, sourceEffect);
@@ -37,9 +54,13 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!sourceEffect) sourceEffect = this.battle.effect;
 		}
 		if (!source) source = this;
-		
-		if (this.status.length !== 0) {
-			return this.setStatusTwo(this.status, source, sourceEffect, false, status);
+
+		if (this.status && this.status.length !== 0) {
+			if(status.id.length !== 0) return this.setStatusTwo(this.status, source, sourceEffect, false, status);
+			else {
+				this.status = status.id;
+				return true;
+			}
 		}
 
 		if (!ignoreImmunities && status.id &&
@@ -90,12 +111,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			ignoreImmunities = false,
 			newStatus: string | string[] | Condition | Condition[],
 		) {
-			if (Array.isArray(newStatus)) {
-				for (const s of newStatus) {
-					this.setStatus(s);
-				}
-				return;
-			}
 			if (!this.hp) return false;
 			newStatus = this.battle.dex.conditions.get(newStatus);
 			
@@ -116,7 +131,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					return false;
 				}
 			} else if (this.status) {
-				if(this.status.length < 6 && !['stp', 'hvybrn', 'hvypsn', 'shk', 'weakheavy'].includes(this.status)) {
+				if(this.status.length < 6 && !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(this.status)) {
 					newStatus.id = this.status + newStatus.id;
 					delete this.status;
 				} else {
@@ -165,6 +180,15 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (newStatus.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, newStatus)) {
 				return false;
 			}
+			return true;
+		},
+		cureStatus(silent = false) {
+			if (!this.hp || !this.status) return false;
+			this.battle.add('-curestatus', this, this.status, silent ? '[silent]' : '[msg]');
+			if (this.status === 'stp' && this.removeVolatile('nightmare')) {
+				this.battle.add('-end', this, 'Nightmare', '[silent]');
+			}
+			this.setStatus('');
 			return true;
 		},
 		runImmunity(type: string, message?: string | boolean) {

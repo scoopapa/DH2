@@ -1374,7 +1374,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	mountainbreeze: {
 		num: 922,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 60,
 		category: "Special",
 		shortDesc: "If resisted, the target will be weak to Ice.",
 		name: "Mountain Breeze",
