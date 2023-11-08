@@ -1453,5 +1453,17 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets', 'squawkabilly').learnset.naturalgift = ['9L1'];
 		this.modData('Learnsets', 'aipom').learnset.naturalgift = ['9L1'];
 		this.modData('Learnsets', 'grimeralola').learnset.naturalgift = ['9L1'];
+		this.modData("Learnsets", "krookodile").learnset.skullbash = ["9L1"];
+		this.modData("Learnsets", "krookodile").learnset.ceaselessedge = ["9L1"];
+		this.modData("Learnsets", "krookodile").learnset.falsesurrender = ["9L1"];
+		this.modData("Learnsets", "krookodile").learnset.dragondance = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.fairywind = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.drainingkiss = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.moonblast = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.peekaboo = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.round = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.echochamber = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.thunderwave = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.courtchange = ["9L1"];
   },
 };
