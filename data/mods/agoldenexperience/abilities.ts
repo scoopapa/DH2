@@ -1276,37 +1276,11 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	sonar: {
 		shortDesc: "Reveals a random move of each adjacent opponent when this Pokemon hits them with a Sound move.",
-		// onSourceHit(target, source, move) {
-		// 	if (move.flags['sound']) {
-		// 		for (const targ of target.side.foe.active) { //pokemon not defined
-		// 			if (!targ || targ.fainted) continue;
-		// 			let potentialMoves = 0;
-		// 			for (const moveSlot of targ.moveSlots) {
-		// 				if (moveSlot.revealed) continue;
-		// 				potentialMoves++;
-		// 			}
-		// 			let r = 0;
-		// 			if (potentialMoves) {
-		// 				r = this.random(potentialMoves);
-		// 			}
-		// 			for (const moveSlot of targ.moveSlots) {
-		// 				if (moveSlot.revealed) continue;
-		// 				if (r === 0) {
-		// 					this.add('-message', `${(targ.illusion ? targ.illusion.name : targ.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
-		// 				}
-		// 				r--;
-		// 				moveSlot.revealed = true;
-		// 				return;
-		// 			}
-		// 		}
-		// 	}
-		// },
 		onSourceHit(target, source, move){
 			if (move.flags['sound']) {
-				for (const targ of target.side.foe.active) {
+				for (const targ of source.side.foe.active) {
 					if (targ.fainted) return;
 					const temp = this.sample(targ.moveSlots);
-					// const move = target.moves.indexOf(temp.id);
 					this.add('-message', targ.name + "'s Mental Note revealed the move " + temp.move + "!");
 				}
 			}
