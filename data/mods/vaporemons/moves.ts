@@ -1508,17 +1508,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			'attract', 'curse', 'disable', 'electrify', 'embargo', 'encore', 'foresight', 'gastroacid', 'foresight', 'miracleeye',
 			'glaiverush', 'healblock', 'throatchop', 'windbreaker', 'nightmare', 'octolock', 'powder', 'saltcure', 'smackdown',
 			'syrupbomb', 'tarshot', 'telekinesis', 'yawn'];
-			const boosts: SparseBoostsTable = {};
-			let i: BoostName;
-			for (i in pokemon.boosts) {
-				if (pokemon.boosts[i] < 0) {
-					this.effectState.lashout = true;
-				} else { 
-					this.effectState.lashout = false;
+			for (const volatile of negativeVolatiles) {
+				if (pokemon.status || pokemon.volatiles[volatile] || pokemon.negativeBoosts()) {
+					return this.chainModify(2);
 				}
-			}
-			if (pokemon.status || pokemon.volatiles[negativeVolatiles] || this.effectState.lashout) {
-				return this.chainModify(2);
 			}
 		},
 		secondary: null,
