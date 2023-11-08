@@ -67,7 +67,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	seginstarshard: {
 		name: "Segin Star Shard",
-		spritenum: 658,
+		spritenum: 646,
 		fling: {
 			basePower: 20,
 			status: 'slp',
@@ -105,7 +105,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},	
 	schedarstarshard: {
 		name: "Schedar Star Shard",
-		spritenum: 658,
+		spritenum: 632,
 		fling: {
 			basePower: 20,
 			status: 'brn',
@@ -143,7 +143,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},	
 	navistarshard: {
 		name: "Navi Star Shard",
-		spritenum: 658,
+		spritenum: 638,
 		fling: {
 			basePower: 20,
 			status: 'psn',
@@ -181,7 +181,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},	
 	ruchbahstarshard: {
 		name: "Ruchbah Star Shard",
-		spritenum: 658,
+		spritenum: 648,
 		fling: {
 			basePower: 20,
 			volatilestatus: 'confusion',
@@ -219,7 +219,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},	
 	caphstarshard: {
 		name: "Caph Star Shard",
-		spritenum: 658,
+		spritenum: 637,
 		fling: {
 			basePower: 20,
 			status: 'par',
@@ -257,7 +257,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},	
 	tuffytuff: {
 		name: "Tuffy-Tuff",
-		spritenum: 251,
+		spritenum: 692,
 		fling: {
 			basePower: 10,
 		},
@@ -363,7 +363,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	baseballbat: {
 		name: "Baseball Bat",
-		spritenum: 0, // TODO
+		spritenum: 465,
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['contact']) {
@@ -461,7 +461,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	airfreshener: {
 		name: "Air Freshener",
-		spritenum: 383,
+		spritenum: 713,
 		fling: {
 			basePower: 30,
 		},
@@ -472,7 +472,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	dancingshoes: {
 		name: "Dancing Shoes",
-		spritenum: 390,
+		spritenum: 715,
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Meloetta') {
 				pokemon.formeChange('Meloetta-Pirouette');
@@ -508,7 +508,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	charizarditeshardx: {
 		name: "Charizardite Shard X",
-		spritenum: 658,
+		spritenum: 585,
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Charizard') return false;
 			return true;
@@ -547,7 +547,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},	
 	charizarditeshardy: {
 		name: "Charizardite Shard Y",
-		spritenum: 658,
+		spritenum: 586,
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Charizard') return false;
 			return true;
@@ -643,7 +643,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	mithrilarmor: {
 		name: "Mithril Armor",
-		spritenum: 390,
+		spritenum: 744,
 		fling: {
 			basePower: 80,
 		},
@@ -659,7 +659,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	tiedyeband: {
 		name: "Tie-Dye Band",
-		spritenum: 390,
+		spritenum: 297,
 		fling: {
 			basePower: 30,
 		},
@@ -718,7 +718,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	sandclock: {
 		name: "Sand Clock",
-		spritenum: 390,
+		spritenum: 453,
 		fling: {
 			basePower: 30,
 		},
@@ -734,7 +734,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	snowglobe: {
 		name: "Snow Globe",
-		spritenum: 390,
+		spritenum: 221,
 		fling: {
 			basePower: 30,
 		},
@@ -750,7 +750,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	handmirror: {
 		name: "Hand Mirror",
-		spritenum: 390,
+		spritenum: 747,
 		fling: {
 			basePower: 30,
 		},
@@ -908,7 +908,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},	
 	mantisclaw: {
 		name: "Mantis Claw",
-		spritenum: 251,
+		spritenum: 382,
 		fling: {
 			basePower: 10,
 		},
@@ -988,6 +988,92 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 217,
 		gen: 2,
 	},
+	protectivepads: {
+		name: "Protective Pads",
+		spritenum: 663,
+		fling: {
+			basePower: 30,
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Protective Pads boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		// protective effect handled in Battle#checkMoveMakesContact
+		num: 880,
+		gen: 7,
+		desc: "This Pokemon's recoil moves deal 1.2x damage and all of its moves don't make contact.",
+	},
+	desertrose: {
+		name: "Desert Rose",
+		spritenum: 603,
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Florges') return false;
+			return true;
+		},
+		onSwitchIn(pokemon) {
+			this.add('-message', `${pokemon.name}'s flower blooms in the sandstorm!`);
+			pokemon.setAbility('sandveil', pokemon, true);
+			this.add('-activate', pokemon, 'ability: Sand Veil');
+		},
+		onResidualOrder: 5,
+		onResidualSubOrder: 5,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.name === 'Florges' && this.field.isWeather('sandstorm')) {
+				this.heal(pokemon.baseMaxhp / 8);
+			}
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.name === 'Florges' && this.field.isWeather('sandstorm')) {
+				return this.chainModify(1.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['healblock'] && pokemon.baseSpecies.baseSpecies === 'Florges') {
+				this.add('-activate', pokemon, 'item: Desert Rose');
+				pokemon.removeVolatile('healblock');
+				this.add('-end', pokemon, 'move: Heal Block', '[from] item: Desert Rose');
+			}
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'healblock' && target.baseSpecies.baseSpecies === 'Florges') {
+				this.add('-immune', target, 'healblock', '[from] item: Desert Rose');
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'healblock' && pokemon.baseSpecies.baseSpecies === 'Florges') {
+				this.add('-immune', pokemon, '[from] item: Desert Rose');
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target, source, effect) {
+			if (['healblock'].includes(status.id)) {
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'item: Desert Rose', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		itemUser: ["Florges"],
+		gen: 9,
+		desc: "Florges: Ability becomes Sand Veil, immune to Heal Block, 12.5% recovery and 1.5x SpD in Sand.",
+	},
+	diancitestonefragment: {
+		name: "Diancite Stone Fragment",
+		spritenum: 624,
+		onTakeItem: false,
+		onSwitchIn(pokemon) {
+			this.add('-item', pokemon, 'Diancite Stone Fragment');
+			pokemon.setAbility('magicbounce', pokemon, true);
+			this.add('-activate', pokemon, 'ability: Magic Bounce');
+			this.boost({atk: 1, spa: 1, spe: 1});
+		},
+		itemUser: ["Diancie"],
+		gen: 9,
+		desc: "Diancie: Ability becomes Magic Bounce, +1 Atk/SpA/Spe.",
+	},	
 	
 // unchanged items
 	boosterenergy: {
