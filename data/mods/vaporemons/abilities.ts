@@ -1432,7 +1432,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (status.id === 'flinch') return null;
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.bst < source.bst) {
+			if (target.baseSpecies.bst < source.baseSpecies.bst) {
 				this.debug('Steadfast weaken');
 				return this.chainModify(0.5);
 			}
