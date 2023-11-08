@@ -1465,5 +1465,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "delphox").learnset.echochamber = ["9L1"];
 		this.modData("Learnsets", "delphox").learnset.thunderwave = ["9L1"];
 		this.modData("Learnsets", "delphox").learnset.courtchange = ["9L1"];
+		this.modData("Learnsets", "rotom").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "rotom").learnset.painsplit = ["9L1"];
+		this.modData("Learnsets", "rotom").learnset.memento = ["9L1"];
+		this.modData("Learnsets", "rotom").learnset.weatherball = ["9L1"];
+		this.modData("Learnsets", "rotom").learnset.dazzlinggleam = ["9L1"];
   },
 };
