@@ -468,7 +468,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						const noAttackSleep = 'ignored orders and kept sleeping!';
 						this.add('-message', `${pokemon.name} ${(pokemon.status === 'slp' && ['sleeptalk', 'snore'].includes(pokemon.move)) ? noAttackSleep : this.sample(noAttack)}`);
 					}
-					this.add('cant', pokemon, 'Confuse Ray');
 					return null;
 				}
 			},
