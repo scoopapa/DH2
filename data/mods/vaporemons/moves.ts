@@ -1505,9 +1505,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon) {
 			const negativeVolatiles = ['confusion', 'taunt', 'torment', 'trapped', 'partiallytrapped', 'leechseed', 'sandspit',
-												'attract', 'curse', 'disable', 'electrify', 'embargo', 'encore', 'foresight', 'gastroacid',
-												'foresight', 'miracleeye', 'glaiverush', 'healblock', 'throatchop', 'windbreaker', 'nightmare',
-											  	'octolock', 'powder', 'saltcure', 'smackdown', 'syrupbomb', 'tarshot', 'telekinesis', 'yawn'];
+			'attract', 'curse', 'disable', 'electrify', 'embargo', 'encore', 'foresight', 'gastroacid', 'foresight', 'miracleeye',
+			'glaiverush', 'healblock', 'throatchop', 'windbreaker', 'nightmare', 'octolock', 'powder', 'saltcure', 'smackdown',
+			'syrupbomb', 'tarshot', 'telekinesis', 'yawn'];
 			const boosts: SparseBoostsTable = {};
 			let i: BoostName;
 			for (i in pokemon.boosts) {
