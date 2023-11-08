@@ -1090,7 +1090,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
-	   shortDesc: "(Partially functional) Hits two turns after being used. Sets sands when it hits, even if the target is immune.",
+	   shortDesc: "Hits two turns after being used. Sets sands when it hits, even if the target is immune.",
 		name: "Desert Storm",
 		pp: 15,
 		priority: 0,
