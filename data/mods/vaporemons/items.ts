@@ -967,6 +967,27 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If this Pokemon's stat stages would be lowered, the attacker's are lowered instead.",
 		gen: 9,
 	},
+	quickclaw: {
+		name: "Quick Claw",
+		spritenum: 373,
+		fling: {
+			basePower: 20,
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move?.priority > 0.1) {
+				this.debug('Quick Claw boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			if (move?.priority > 0.1) delete move.flags['contact'];
+		},
+		desc: "Holder's priority attacks have 1.2x power and do not make contact.",
+		num: 217,
+		gen: 2,
+	},
 	
 // unchanged items
 	boosterenergy: {
