@@ -286,6 +286,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Dark Aura", H: "Intimidate"},
 	},
 	zoroarkhisui: {
+		inherit: true,
 		num: 31,
 		name: "Zoroark-Hisui",
 		baseSpecies: "Zoroark",
@@ -422,7 +423,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Normal", "Psychic"],
 		baseStats: {hp: 70, atk: 42, def: 38, spa: 52, spd: 48, spe: 47},
 		abilities: {0: "Inner Focus", 1: "Scrappy", H: "Psychic Surge"},
-		battleOnly: "Shrunken",
+		battleOnly: "Indeedee",
 	},
 	jableyeshrunken: {
 		num: 14,
@@ -432,7 +433,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Dark"],
 		baseStats: {hp: 50, atk: 25, def: 38, spa: 25, spd: 38, spe: 25},
 		abilities: {0: "Justified", H: "Jankster"},
-		battleOnly: "Shrunken",
+		battleOnly: "Jableye",
 	},
 	jobapplicationshrunken: {
 		num: 15,
@@ -577,7 +578,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	xorygonzshrunken: {
 		num: 29,
 		name: "XORygon-Z-Shrunken",
-		baseSpecies: "XORygon",
+		baseSpecies: "XORygon-Z",
 		forme: "Z-Shrunken",
 		types: ["Ghost", "Steel", "Ice", "Poison"],
 		baseStats: {hp: 85, atk: 45, def: 35, spa: 62, spd: 38, spe: 45},

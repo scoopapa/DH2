@@ -1344,7 +1344,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				const species = curPoke.species;
 				// pokemon can't get Natural Cure
-				if (!Object.values(species.abilities).includes('Rejuvenate')) {
+				if (!Object.values(species.abilities).includes('Natural Cure') && !Object.values(species.abilities).includes('Natural Pressures') && !Object.values(species.abilities).includes('Rejuvenate')) {
 					// this.add('-message', "" + curPoke + " skipped: no Rejuvenate");
 					continue;
 				}
@@ -1359,7 +1359,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					continue;
 				}
 
-				if (curPoke.hasAbility(['naturalcure','rejuvenate'])) {
+				if (curPoke.hasAbility(['naturalcure','rejuvenate','naturalpressures'])) {
 					// this.add('-message', "" + curPoke + " confirmed: could be Rejuvenate (and is)");
 					cureList.push(curPoke);
 				} else {
@@ -1377,7 +1377,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				// It's not possible to know what pokemon were cured
 
 				// Unlike a -hint, this is real information that battlers need, so we use a -message
-				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Rejuvenate.)");
+				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Natural Cure.)");
 
 				for (const pkmn of cureList) {
 					pkmn.showCure = false;
@@ -1727,7 +1727,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				const species = curPoke.species;
 				// pokemon can't get Natural Pressures
-				if (!Object.values(species.abilities).includes('Natural Pressures')) {
+				if (!Object.values(species.abilities).includes('Natural Cure') && !Object.values(species.abilities).includes('Natural Pressures') && !Object.values(species.abilities).includes('Rejuvenate')) {
 					// this.add('-message', "" + curPoke + " skipped: no Natural Pressures");
 					continue;
 				}
@@ -1742,7 +1742,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					continue;
 				}
 
-				if (curPoke.hasAbility('naturalpressures')) {
+				if (curPoke.hasAbility(['naturalpressures','naturalcure','rejuvenate'])) {
 					// this.add('-message', "" + curPoke + " confirmed: could be Natural Pressures (and is)");
 					cureList.push(curPoke);
 				} else {
@@ -1760,7 +1760,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				// It's not possible to know what pokemon were cured
 
 				// Unlike a -hint, this is real information that battlers need, so we use a -message
-				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Natural Pressures.)");
+				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Natural Cure.)");
 
 				for (const pkmn of cureList) {
 					pkmn.showCure = false;
@@ -2142,32 +2142,30 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.foes().some(
 				foeActive => foeActive && foeActive.isAdjacent(pokemon) && foeActive.ability === 'noability'
-			) || !['zoinkazenta'].includes(pokemon.species.id)) {
+			) || pokemon.species.id !== 'zoinkazenta') {
 				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && foeActive.isAdjacent(pokemon));
-			while (possibleTargets.length) {
+			if (!pokemon.isStarted || this.effectState.gaveUp || !this.effectState.switchingIn) return;
+			const additionalBannedAbilities = [
+				// Zen Mode included here for compatability with Gen 5-6
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
+				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'pillage'
+			];
+			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().isPermanent
+				&& !additionalBannedAbilities.includes(foeActive.ability) && foeActive.isAdjacent(pokemon));
+			if (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
 				const target = possibleTargets[rand];
 				const ability = target.getAbility();
-				const additionalBannedAbilities = [
-					// Zen Mode included here for compatability with Gen 5-6
-					'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
-					'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'pillage'
-				];
-				if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) {
-					possibleTargets.splice(rand, 1);
-					continue;
+				if (pokemon.setAbility(ability) && target.setAbility('pillage')) {
+					this.add('-ability', target, 'Pillage', '[from] ability: Pillage', '[of] ' + pokemon);
+					this.add('-ability', pokemon, ability.name, '[from] ability: Pillage', '[of] ' + target);
+				} else {
+					pokemon.setAbility('pillage');
 				}
-				target.setAbility('pillage', pokemon);
-				pokemon.setAbility(ability);
-				this.add('-activate', pokemon, 'ability: Pillage', ability.name, 'Pillage', '[of] ' + target);
-				return;
 			}
 		},
 		rating: 5,
@@ -2578,7 +2576,38 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Hellkite",
 	},
-	
+	feistytempo: {
+		shortDesc: "Guts + Own Tempo",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (attacker.status) {
+				if (attacker.status === 'brn' && move.id !== 'facade') return this.chainModify(3);
+				return this.chainModify(1.5);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Feisty Tempo');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (move?.volatileStatus === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Feisty Tempo');
+			}
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (['intimidate','forestfury','shockfactor'].includes(effect.id)) {
+				delete boost.atk;
+				this.add('-immune', target, '[from] ability: Own Tempo');
+			}
+		},
+		isBreakable: true,
+		name: "Feisty Tempo",
+	},
 	wellbakedflameorb: {
 		shortDesc: "Guts + Well-Baked Body",
 		onModifyAtkPriority: 5,
@@ -2615,6 +2644,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Ground'] = true;
 			}
 		},
+		isBreakable: true,
 		name: "Air Control",
 	},
 	livelylocks: {
@@ -2625,6 +2655,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			//let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 			//	if (!activated) {
+					if (!target.boosts['spe']) continue;
 					this.add('-ability', pokemon, 'Lively Locks', 'boost');
 			//		activated = true;
 			//	}
@@ -2691,16 +2722,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sharp Goggles",
 	},
 	winterstorm: {
-		shortDesc: "During snow, deal 12.5% of each opponent's max HP in damage at end of turn.",
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
-		onResidual(pokemon) {
-			if (!pokemon.hp) return;
-			if (this.field.isWeather(['hail', 'snow'])) {
-				for (const target of pokemon.foes()) {
-					this.damage(target.baseMaxhp / 8, target, pokemon);
+		shortDesc: "Under snow, heal 6.25% of own max HP and damage opponents for 12.5% of their max HP at end of turn.",
+		onWeather(target, source, effect) {
+			if (effect.id === 'snow' || effect.id === 'hail') {
+				this.heal(target.baseMaxhp / 16);
+				for (const pokemon of target.foes()) {
+					this.damage(pokemon.baseMaxhp / 8, pokemon, target);
 				}
 			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
 		},
 		name: "Winter Storm",
 	},
@@ -2730,7 +2762,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				const species = curPoke.species;
 				// pokemon can't get Natural Cure
-				if (!Object.values(species.abilities).includes('Natural Cure') && !Object.values(species.abilities).includes('Rejuvenate')) {
+				if (!Object.values(species.abilities).includes('Natural Cure') && !Object.values(species.abilities).includes('Natural Pressures') && !Object.values(species.abilities).includes('Rejuvenate')) {
 					// this.add('-message', "" + curPoke + " skipped: no Natural Cure");
 					continue;
 				}
@@ -2745,7 +2777,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					continue;
 				}
 
-				if (curPoke.hasAbility(['naturalcure','rejuvenate'])) {
+				if (curPoke.hasAbility(['naturalcure','rejuvenate','naturalpressures'])) {
 					// this.add('-message', "" + curPoke + " confirmed: could be Natural Cure (and is)");
 					cureList.push(curPoke);
 				} else {
