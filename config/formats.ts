@@ -1874,6 +1874,12 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 2] Crystal Legacy",
+		mod: 'gen2crystallegacy',
+		desc: `A Solomod centered around Crystal Legacy.`,
+		ruleset: ['Standard', 'Data Mod'],
+	},
+	{
 		name: "[Gen 9] Dream World Theorymons",
 		desc: '<b>[Gen 8] Gen 9 Dream World Theorymons</b>: A testing ground for the Gen 9 OU Theorymons metagame.',
 		mod: 'outheorymons',
