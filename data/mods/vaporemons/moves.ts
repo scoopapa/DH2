@@ -1450,12 +1450,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Flying Press",
 		pp: 10,
 		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, distance: 1, nonsky: 1},
-		onModifyMove(move, pokemon, target) {
-			const flyingFp = this.dex.getActiveMove('Stealth Rock');
-			flyingFp.type = 'Flying';
-			const typeMod = this.clampIntRange(pokemon.runEffectiveness(flyingFp), -6, 6);
-			if (target.runEffectiveness(move) < typeMod) {
-				move.type = 'Flying';
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			for (const target of pokemon.side.foe.active) {
+			const type1 = 'Fighting';
+			const type2 = 'Flying';
+				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target) ||
+					 pokemon.hasType('Flying') && !pokemon.hasType('Fighting')) {
+					move.type = 'Flying';
+				}
 			}
 		},
 		priority: 0,
@@ -1478,12 +1481,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hyper Beam", target);
 		},
-		onModifyMove(move, pokemon, target) {
-			const electricFp = this.dex.getActiveMove('Stealth Rock');
-			electricFp.type = 'Electric';
-			const typeMod = this.clampIntRange(pokemon.runEffectiveness(electricFp), -6, 6);
-			if (target.runEffectiveness(move) < typeMod) {
-				move.type = 'Electric';
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			for (const target of pokemon.side.foe.active) {
+			const type1 = 'Bug';
+			const type2 = 'Electric';
+				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target) ||
+					 pokemon.hasType('Electric') && !pokemon.hasType('Bug')) {
+					move.type = 'Electric';
+				}
 			}
 		},
 		priority: 0,
