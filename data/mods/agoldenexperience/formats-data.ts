@@ -5238,8 +5238,6 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	ameba: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	solens: {
 		tier: "UU",
