@@ -1417,6 +1417,150 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: 100,
 	},
+	signalbeam: {
+		num: 324,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+	   shortDesc: "Nullifies the target's Ability.",
+		isNonstandard: null,
+		name: "Signal Beam",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target) {
+			if (target.getAbility().isPermanent) return;
+			target.addVolatile('gastroacid');
+		},
+		onAfterSubDamage(damage, target) {
+			if (target.getAbility().isPermanent) return;
+			target.addVolatile('gastroacid');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Beautiful",
+	},
+	flyingpress: {
+		num: 560,
+		accuracy: 95,
+		basePower: 100,
+		category: "Physical",
+	   shortDesc: "Either Fighting or Flying-type, whichever is more effective.",
+		name: "Flying Press",
+		pp: 10,
+		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, distance: 1, nonsky: 1},
+		onModifyMove(move, pokemon, target) {
+			const flyingFp = this.dex.getActiveMove('Stealth Rock');
+			flyingFp.type = 'Flying';
+			const typeMod = this.clampIntRange(pokemon.runEffectiveness(flyingFp), -6, 6);
+			if (target.runEffectiveness(move) < typeMod) {
+				move.type = 'Flying';
+			}
+		},
+		priority: 0,
+		secondary: null,
+		target: "any",
+		type: "Fighting",
+		zMove: {basePower: 170},
+		contestType: "Tough",
+	},
+	softwarecrash: {
+		num: 560,
+		accuracy: 95,
+		basePower: 100,
+		category: "Special",
+	   shortDesc: "Either Bug or Electric-type, whichever is more effective.",
+		name: "Software Crash",
+		pp: 10,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hyper Beam", target);
+		},
+		onModifyMove(move, pokemon, target) {
+			const electricFp = this.dex.getActiveMove('Stealth Rock');
+			electricFp.type = 'Electric';
+			const typeMod = this.clampIntRange(pokemon.runEffectiveness(electricFp), -6, 6);
+			if (target.runEffectiveness(move) < typeMod) {
+				move.type = 'Electric';
+			}
+		},
+		priority: 0,
+		secondary: null,
+		target: "any",
+		type: "Bug",
+		zMove: {basePower: 170},
+		contestType: "Tough",
+	},
+	lashout: {
+		num: 808,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+	   shortDesc: "2x power if the user has negative stat changes or a status.",
+		name: "Lash Out",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onBasePower(basePower, pokemon) {
+			const negativeVolatiles = ['confusion', 'taunt', 'torment', 'trapped', 'partiallytrapped', 'leechseed', 'sandspit',
+												'attract', 'curse', 'disable', 'electrify', 'embargo', 'encore', 'foresight', 'gastroacid',
+												'foresight', 'miracleeye', 'glaiverush', 'healblock', 'throatchop', 'windbreaker', 'nightmare',
+											  	'octolock', 'powder', 'saltcure', 'smackdown', 'syrupbomb', 'tarshot', 'telekinesis', 'yawn'];
+			const boosts: SparseBoostsTable = {};
+			let i: BoostName;
+			for (i in pokemon.boosts) {
+				if (pokemon.boosts[i] < 0) {
+					this.effectState.lashout = true;
+				} else { 
+					this.effectState.lashout = false;
+				}
+			}
+			if (pokemon.status || pokemon.volatiles[negativeVolatiles] || this.effectState.lashout) {
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+	},
+	naturalgift: {
+		num: 363,
+		accuracy: 100,
+		basePower: 0,
+		category: "Physical",
+	   shortDesc: "Type and power based on user's berry.",
+		isNonstandard: null,
+		name: "Natural Gift",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			if (pokemon.ignoringItem()) return;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return;
+			move.type = item.naturalGift.type;
+		},
+		onPrepareHit(target, pokemon, move) {
+			if (pokemon.ignoringItem()) return false;
+			const item = pokemon.getItem();
+			if (!item.naturalGift) return false;
+			move.basePower = item.naturalGift.basePower;
+			this.debug('BP: ' + move.basePower);
+		},
+		onBasePower(basePower, pokemon) {
+			if (pokemon.hasAbility('ripen') || pokemon.hasAbility('harvest')) {
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {basePower: 160},
+		maxMove: {basePower: 130},
+		contestType: "Clever",
+	},
 
 // all edited unchanged moves
 	stealthrock: {
