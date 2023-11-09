@@ -140,8 +140,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 50,
 		shortDesc: "+10 power for each PP used.",
-		basePowerCallback(pokemon) {
-			return basePower + 10 * (pp - moveSlot.pp);
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower + 10 * (pp - moveSlot.pp);
 		},
 		secondary: null,
 	},
@@ -427,6 +427,54 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if(random2 === 0) source.cureStatus();
 				else this.heal(source.baseMaxhp / 4, source);
 			}
+		},
+	},
+	confuseray: {
+		inherit: true,
+		priority: 1,
+		shortDesc: "Fails if the opponent is using an attack. May cause the opponent to disobey.",
+		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+		volatileStatus: 'confuseray',
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Confuse Ray', '[silent]');
+				this.add('-message', `${pokemon.name} became disobedient!`);
+			},
+			onBeforeMove(pokemon, target, move) {
+				if(this.random(2) === 0) {
+					let rand = this.random(10);
+					if (rand < 1) {
+						if(pokemon.setStatus('slp', pokemon, move)) this.add('-message', `${pokemon.name} began to nap!`);
+						else rand = 3;
+					} else if (rand < 3) {
+						this.add('-message', `${pokemon.name} won't obey!`);
+						const damage = this.actions.getConfusionDamage(pokemon, 40);
+						if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
+						const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
+						this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
+					} if (rand >= 3) {
+						const noAttack = ['ignored orders!', 
+										  'is loafing around!',
+										  'turned away!',
+										  'pretended not to notice!'];
+						const noAttackSleep = 'ignored orders and kept sleeping!';
+						this.add('-message', `${pokemon.name} ${(pokemon.status === 'slp' && ['sleeptalk', 'snore'].includes(pokemon.move)) ? noAttackSleep : this.sample(noAttack)}`);
+					}
+					return null;
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Confuse Ray', '[silent]');
+				this.add('-message', `${pokemon.name} got its act together!`);
+			},
 		},
 	},
 	grassyglide: {
