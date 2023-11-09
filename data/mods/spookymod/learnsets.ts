@@ -1739,7 +1739,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	trevenant: {
 		learnset: {
-			ragefist: ["9T"],
 			shadowbone: ["9M"],
 			allyswitch: ["9M", "9T"],
 			astonish: ["9L1", "9L1", "9L1", "9L9"],

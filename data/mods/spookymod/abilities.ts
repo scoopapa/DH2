@@ -302,7 +302,32 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	powerofalchemy: {
 		name: "Power of Alchemy",
-		shortDesc: "",
+		shortDesc: "On switch-in, swaps ability with the opponent.",
+		onSwitchIn(pokemon) {
+			this.effectState.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if (!pokemon.isStarted || !this.effectState.switchingIn) return;
+			const additionalBannedAbilities = [
+				// Zen Mode included here for compatability with Gen 5-6
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
+				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode'
+			];
+			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().isPermanent
+				&& !additionalBannedAbilities.includes(foeActive.ability) && foeActive.isAdjacent(pokemon));
+			if (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const ability = target.getAbility();
+				if (pokemon.setAbility(ability) && target.setAbility('powerofalchemy')) {
+					this.add('-ability', target, 'Power of Alchemy');
+					this.add('-ability', pokemon, ability.name);
+				} else {
+					pokemon.setAbility('powerofalchemy');
+				}
+			}
+		},
 	},
 	ppressure: {
 		onStart(pokemon) {
