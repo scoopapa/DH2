@@ -1446,7 +1446,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 100,
 		category: "Physical",
-	   shortDesc: "Either Fighting or Flying-type, whichever is more effective.",
+	   shortDesc: "(Partially functional) Either Fighting or Flying-type, whichever is more effective.",
 		name: "Flying Press",
 		pp: 10,
 		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, distance: 1, nonsky: 1},
@@ -1455,9 +1455,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const target of pokemon.side.foe.active) {
 			const type1 = 'Fighting';
 			const type2 = 'Flying';
-			const effectiveness1 = this.dex.getEffectiveness(type1, target);
-			const effectiveness2 = this.dex.getEffectiveness(type2, target);
-				if (effectiveness1 < effectiveness2 || effectiveness1 = effectiveness2 && pokemon.hasType('Flying') && !pokemon.hasType('Fighting')) {
+				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
 					move.type = 'Flying';
 				}
 			}
@@ -1474,7 +1472,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 100,
 		category: "Special",
-	   shortDesc: "Either Bug or Electric-type, whichever is more effective.",
+	   shortDesc: "(Partially functional) Either Bug or Electric-type, whichever is more effective.",
 		name: "Software Crash",
 		pp: 10,
 		flags: {protect: 1, mirror: 1},
@@ -1487,9 +1485,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			for (const target of pokemon.side.foe.active) {
 			const type1 = 'Bug';
 			const type2 = 'Electric';
-			const effectiveness1 = this.dex.getEffectiveness(type1, target);
-			const effectiveness2 = this.dex.getEffectiveness(type2, target);
-				if (effectiveness1 < effectiveness2 || effectiveness1 = effectiveness2 && pokemon.hasType('Electric') && !pokemon.hasType('Bug')) {
+				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
 					move.type = 'Electric';
 				}
 			}
