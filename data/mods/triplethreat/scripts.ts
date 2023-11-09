@@ -112,5 +112,42 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "overqwil").learnset.irondefense = ["9L1"];
 		this.modData("Learnsets", "overqwil").learnset.uturn = ["9L1"];
 		this.modData("Learnsets", "overqwil").learnset.recover = ["9L1"];
+		
+		// Magcargo
+		this.modData("Learnsets", "magcargo").learnset.magmastorm = ["9L1"];
+		this.modData("Learnsets", "magcargo").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "magcargo").learnset.gigadrain = ["9L1"];
+		this.modData("Learnsets", "magcargo").learnset.energyball = ["9L1"];
+		// Iron Thorns
+		this.modData("Learnsets", "ironthorns").learnset.zingzap = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.focuspunch = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.hammerarm = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.circlethrow = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.counter = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.seismictoss = ["9L1"];
+		this.modData("Learnsets", "ironthorns").learnset.bulkup = ["9L1"];
+		
+		// Regieleki
+		this.modData("Learnsets", "regieleki").learnset.aeroblast = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.hurricane = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.bravebird = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.flashcannon = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.ironhead = ["9L1"];
+		this.modData("Learnsets", "regieleki").learnset.steelbeam = ["9L1"];
+		// Hatterene
+		this.modData("Learnsets", "hatterene").learnset.outrage = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.dragonclaw = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.breakingswipe = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.dragontail = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.dracometeor = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.dragonpulse = ["9L1"];
+		this.modData("Learnsets", "hatterene").learnset.moonblast = ["9L1"];
+		// Furret
+		this.modData("Learnsets", "furret").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "furret").learnset.headlongrush = ["9L1"];
+		this.modData("Learnsets", "furret").learnset.lightsaunter = ["9L1"];
+
 	},
 };
