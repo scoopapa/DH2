@@ -211,30 +211,13 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4,
 		num: -10,
 	},
-	divination: {//still doesn't work
+	divination: {
 		shortDesc: "Reveals a random move of each adjacent opponent on entry.",
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Divination');
 			for (const target of pokemon.side.foe.active) {
-				if (!target || target.fainted) continue;
-				let potentialMoves = 0;
-				for (const moveSlot of target.moveSlots) {
-					if (moveSlot.revealed) continue;
-					potentialMoves++;
-				}
-				let r = 0;
-				if (potentialMoves) {
-					r = this.random(potentialMoves);
-				}
-				for (const moveSlot of target.moveSlots) {
-					if (moveSlot.revealed) continue;
-					if (r === 0) {
-						this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
-					}
-					r--;
-                    moveSlot.revealed = true;
-					return;
-				}
+				if (target.fainted) return;
+				const temp = this.sample(target.moveSlots);
+				this.add('-message', pokemon.name + "'s Divination revealed the move " + temp.move + "!");
 			}
 		},
 		name: "Divination",
@@ -1268,28 +1251,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	sonar: {
 		shortDesc: "Reveals a random move of each adjacent opponent when this Pokemon hits them with a Sound move.",
-		onSourceHit(target, source, move) {
+		onSourceHit(target, source, move){
 			if (move.flags['sound']) {
-				for (const target of pokemon.side.foe.active) { //pokemon not defined
-					if (!target || target.fainted) continue;
-					let potentialMoves = 0;
-					for (const moveSlot of target.moveSlots) {
-						if (moveSlot.revealed) continue;
-						potentialMoves++;
-					}
-					let r = 0;
-					if (potentialMoves) {
-						r = this.random(potentialMoves);
-					}
-					for (const moveSlot of target.moveSlots) {
-						if (moveSlot.revealed) continue;
-						if (r === 0) {
-							this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
-						}
-						r--;
-						moveSlot.revealed = true;
-						return;
-					}
+				for (const targ of source.side.foe.active) {
+					if (targ.fainted) return;
+					const temp = this.sample(targ.moveSlots);
+					this.add('-message', target.name + "'s Sonar revealed the move " + temp.move + "!");
 				}
 			}
 		},
