@@ -2923,4 +2923,132 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
+	venusaurgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	charizardgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	blastoisegmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	butterfreegmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	pikachugmax: {
+		isNonstandard: null,
+		tier: "TMNFE",
+	},
+	meowthgmax: {
+		isNonstandard: null,
+		tier: "TMLC",
+	},
+	machampgmax: {
+		isNonstandard: null,
+		tier: "TMFE",,
+	},
+	gengargmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	kinglergmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	laprasgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	eeveegmax: {
+		isNonstandard: null,
+		tier: "TMLC",
+	},
+	snorlaxgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	garbodorgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	melmetalgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	rillaboomgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	cinderacegmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	inteleongmax: {
+		isNonstandard: null,
+		tier: "TMFE",,
+	},
+	corviknightgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	orbeetlegmax: {
+		isNonstandard: null,
+		tier: "TMFE",,
+	},
+	drednawgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	coalossalgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	flapplegmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	appletungmax: {
+		isNonstandard: null,
+		tier: "TMFE",,
+	},
+	sandacondagmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	toxtricitygmax: {
+		isNonstandard: null,
+		tier: "TMFE",,
+	},
+	toxtricitylowkeygmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	centiskorchgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	hatterenegmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	grimmsnarlgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	alcremiegmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	copperajahgmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},
+	duraludongmax: {
+		isNonstandard: null,
+		tier: "TMFE",
+	},	
 };
