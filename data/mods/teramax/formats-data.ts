@@ -2975,10 +2975,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: null,
 		tier: "TMFE",
 	},
-	melmetalgmax: {
-		isNonstandard: null,
-		tier: "TMFE",
-	},
 	rillaboomgmax: {
 		isNonstandard: null,
 		tier: "TMFE",
