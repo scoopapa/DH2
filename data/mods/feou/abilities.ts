@@ -73,7 +73,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  name: "All-Devouring",
     },
 	galvanicrelay: {
-	  shortDesc: "Mycelium Might + Transistor; Electric attacks also ignore the foe's ability.",
+	  shortDesc: "Mycelium Might + Transistor; Electric attacks also ignore abilities.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Electric') {
@@ -189,24 +189,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyPrepareHit(source, target, move) {
-			if (move.hasBounced) return;
-			if (source === target) return;
+			if (move.hasBounced || source === target) return;
 			const user = this.effectState.target;
 			if (user.volatiles['lightdrive'] && !user.volatiles['lightdrive'].fromWeightDiff) return;
+			var yourweight;
 			if (source === user) {
-				if (user.getWeight() < target.getWeight() && !user.volatiles['lightdrive']) {
-					user.addVolatile('lightdrive');
-					user.volatiles['lightdrive'].fromWeightDiff = true;
-				} else if (user.volatiles['lightdrive'] && user.getWeight() >= target.getWeight()) {
-					user.removeVolatile('lightdrive');
-				}
+				yourweight = target.getWeight();
 			} else if (target === user) {
-				if (user.getWeight() < source.getWeight() && !user.volatiles['lightdrive']) {
-					user.addVolatile('lightdrive');
-					user.volatiles['lightdrive'].fromWeightDiff = true;
-				} else if (user.volatiles['lightdrive'] && user.getWeight() >= source.getWeight()) {
-					user.removeVolatile('lightdrive');
-				}
+				yourweight = source.getWeight();
+			} else return;
+			const amILighter = user.getWeight() < yourweight;
+			if (amILighter && !user.volatiles['lightdrive']) {
+				user.addVolatile('lightdrive');
+				user.volatiles['lightdrive'].fromWeightDiff = true;
+			} else if (user.volatiles['lightdrive'] && !amILighter) {
+				user.removeVolatile('lightdrive');
 			}
 		},
 		onEnd(pokemon) {
@@ -280,7 +277,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor'].includes(effect.id)) {
+			if (['intimidate','forestfury','shockfactor'].includes(effect.id) && boost.atk) {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Scrap Rock');
 			}
@@ -313,6 +310,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move?.category === 'Status') {
 				move.pranksterBoosted = true;
 				return priority + 1;
+			}
+		},
+		onSourceTryHit(target, source, move) {
+			if (target.hasType('Dark') && move.pranksterBoosted) {
+				this.add('-immune', target);
+				return null;
 			}
 		},
 		onStart(pokemon) {
@@ -429,11 +432,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	regainpatience: {
 	  shortDesc: "Berserk + Regenerator",
 		onDamage(damage, target, source, effect) {
-			if (
-				effect.effectType === "Move" &&
-				!effect.multihit &&
-				(!effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce')))
-			) {
+			if (effect.effectType === "Move" && !effect.multihit && !effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce'))) {
 				this.effectState.checkedBerserk = false;
 			} else {
 				this.effectState.checkedBerserk = true;
@@ -616,7 +615,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor'].includes(effect.id)) {
+			if (['intimidate','forestfury','shockfactor'].includes(effect.id) && boost.atk) {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Primitive');
 			}
@@ -790,8 +789,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	choreography: {
 	  shortDesc: "Protean + Dancer",
 		onPrepareHit(source, target, move) {
-			if (this.effectState.choreography) return;
-			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
+			if (this.effectState.choreography/*) return;
+			if (*/|| move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
 				if (!source.setType(type)) return;
@@ -923,7 +922,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyBasePower(basePower, source, target, move) {
 			if (target === source || move.category === 'Status' || !move.secondaries) return;
 			if (!move.auraBooster) move.auraBooster = this.effectState.target;
-			if (move.auraBooster !== this.effectState.target) return;
+			else if (move.auraBooster !== this.effectState.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
 		name: "Aura Shield",
@@ -945,21 +944,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onCriticalHit(target, source, move) {
-			if (!target) return;
-			if (target.species.id !== 'ironmimic' || target.transformed) return;
+			if (!target/*) return;
+			if (*/|| target.species.id !== 'ironmimic' || target.transformed) return;
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates/* && this.gen >= 6*/);
-			if (hitSub) return;
+			if (hitSub/*) return;
 
-			if (!target.runImmunity(move.type)) return;
+			if (*/|| !target.runImmunity(move.type)) return;
 			return false;
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (!target) return;
-			if (target.species.id !== 'ironmimic' || target.transformed) return;
+			if (!target/*) return;
+			if (*/|| target.species.id !== 'ironmimic' || target.transformed) return;
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates/* && this.gen >= 6*/);
-			if (hitSub) return;
+			if (hitSub/*) return;
 
-			if (!target.runImmunity(move.type)) return;
+			if (*/ || !target.runImmunity(move.type)) return;
 			return 0;
 		},
 		onUpdate(pokemon) {
@@ -1117,9 +1116,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (attacker.getBestStat(false, true) !== 'atk') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) { 
-					if (attacker.volatiles[paradox]) {
-						this.debug('Dyschronometria weaken');
+											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) {
+					if (attacker.hasAbility(paradox)) {
+						if (!attacker.volatiles[paradox]) return;
+						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
 				}
@@ -1130,7 +1130,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
 											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) { 
-					if (defender.volatiles[paradox]) {
+					if (defender.hasAbility(paradox)) {
+						if (!defender.volatiles[paradox]) return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([5325, 4096]);
 					}
@@ -1145,9 +1146,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (attacker.getBestStat(false, true) !== 'spa') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) { 
-					if (attacker.volatiles[paradox]) {
-						this.debug('Dyschronometria weaken');
+											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter']) { 
+					if (attacker.hasAbility(paradox)) {
+						if (!attacker.volatiles[paradox]) return;
+						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
 				}
@@ -1157,8 +1159,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) { 
-					if (defender.volatiles[paradox]) {
+											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter']) { 
+					if (defender.hasAbility(paradox)) {
+						if (!defender.volatiles[paradox]) return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([5325, 4096]);
 					}
@@ -1194,25 +1197,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk') return;
+				if (this.effectState.bestStat !== 'atk' || target.hasAbility('dyschronometria')) return;
 				this.debug('Dyschronometria atk boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifyDefPriority: 6,
 			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def') return;
+				if (this.effectState.bestStat !== 'def' || source.hasAbility('dyschronometria')) return;
 				this.debug('Dyschronometria def boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa') return;
+				if (this.effectState.bestStat !== 'spa' || target.hasAbility('dyschronometria')) return;
 				this.debug('Dyschronometria spa boost');
 				return this.chainModify([5325, 4096]);
 			},
 			onModifySpDPriority: 6,
 			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd') return;
+				if (this.effectState.bestStat !== 'spd' || source.hasAbility('dyschronometria')) return;
 				this.debug('Dyschronometria spd boost');
 				return this.chainModify([5325, 4096]);
 			},
@@ -1411,8 +1414,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'brn') return;
-			if ((effect as Move)?.status) {
-				this.heal(target.baseMaxhp / 4);
+			if ((effect as Move)?.status && !this.heal(target.baseMaxhp / 4)) {
 				this.add('-immune', target, '[from] ability: Electromagnetic Veil');
 			}
 			return false;
@@ -1432,11 +1434,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Levitate + Cursed Body",
 		onDamagingHit(damage, target, source, move) {
 			if (source.volatiles['disable']) return;
-			if (!move.isFutureMove) {
-				if (this.randomChance(3, 10)) {
+			if (!move.isFutureMove/*) {
+				if (*/&& this.randomChance(3, 10)) {
 					source.addVolatile('disable', this.effectState.target);
 				}
-			}
+			//}
 		},
 		isBreakable: true,
 		name: "Rising Tension",
@@ -1605,24 +1607,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyPrepareHit(source, target, move) {
-			if (move.hasBounced) return;
-			if (source === target) return;
+			if (move.hasBounced || source === target) return;
 			const user = this.effectState.target;
 			if (user.volatiles['weightoflife'] && !user.volatiles['weightoflife'].fromWeightDiff) return;
+			var yourweight;
 			if (source === user) {
-				if (user.getWeight() > target.getWeight() && !user.volatiles['weightoflife']) {
-					user.addVolatile('weightoflife');
-					user.volatiles['weightoflife'].fromWeightDiff = true;
-				} else if (user.volatiles['weightoflife'] && user.getWeight() <= target.getWeight()) {
-					user.removeVolatile('weightoflife');
-				}
+				yourweight = target.getWeight();
 			} else if (target === user) {
-				if (user.getWeight() > source.getWeight() && !user.volatiles['weightoflife']) {
-					user.addVolatile('weightoflife');
-					user.volatiles['weightoflife'].fromWeightDiff = true;
-				} else if (user.volatiles['weightoflife'] && user.getWeight() <= source.getWeight()) {
-					user.removeVolatile('weightoflife');
-				}
+				yourweight = source.getWeight();
+			} else return;
+			const amIHeavier = user.getWeight() > yourweight;
+			if (amIHeavier && !user.volatiles['weightoflife']) {
+				user.addVolatile('weightoflife');
+				user.volatiles['weightoflife'].fromWeightDiff = true;
+			} else if (user.volatiles['weightoflife'] && !amIHeavier) {
+				user.removeVolatile('weightoflife');
 			}
 		},
 		onEnd(pokemon) {
@@ -1956,7 +1955,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return critRatio + 1;
 		},
 		onBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor'].includes(effect.id)) {
+			if (['intimidate','forestfury','shockfactor'].includes(effect.id) && boost.atk) {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Own Luck');
 			}
@@ -2021,7 +2020,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isWeather('sandstorm')) {
-				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+				if (['Rock','Ground','Steel'].includes(move.type)) {
 					this.debug('Sand Wrath boost');
 					return this.chainModify([0x14CD, 0x1000]);
 				}
@@ -2600,9 +2599,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor'].includes(effect.id)) {
+			if (['intimidate','forestfury','shockfactor'].includes(effect.id) && boost.atk) {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Own Tempo');
+				this.add('-immune', target, '[from] ability: Feisty Tempo');
 			}
 		},
 		isBreakable: true,
@@ -2654,9 +2653,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			
 			//let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
+				if (!target.boosts['spe']) continue;
 			//	if (!activated) {
-					if (!target.boosts['spe']) continue;
-					this.add('-ability', pokemon, 'Lively Locks', 'boost');
+			//		this.add('-ability', pokemon, 'Lively Locks', 'boost');
 			//		activated = true;
 			//	}
 			//	if (target.volatiles['substitute']) {
@@ -2678,16 +2677,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				return;
 			}
-			let statsLowered = false;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					statsLowered = true;
-					break;
+					this.boost({atk: 2, spa: 2}, target, target, null, false, true);
+					return;
 				}
-			}
-			if (statsLowered) {
-				this.boost({atk: 2, spa: 2}, target, target, null, false, true);
 			}
 		},
 		name: "Angry Bird",
@@ -2707,16 +2702,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				return;
 			}
-			let statsLowered = false;
 			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
-					statsLowered = true;
-					break;
+					this.boost({spa: 2}, target, target, null, false, true);
+					return;
 				}
-			}
-			if (statsLowered) {
-				this.boost({spa: 2}, target, target, null, false, true);
 			}
 		},
 		name: "Sharp Goggles",
