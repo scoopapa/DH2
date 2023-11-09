@@ -1456,7 +1456,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const type1 = 'Fighting';
 			const type2 = 'Flying';
 				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
-					if (!target.hastype('Ghost') && !pokemon.hasAbility('scrappy') && !target.hasItem('ringtarget') && !pokemon.hasAbility('mindseye')) {
+					if (!target.hasType('Ghost') && !pokemon.hasAbility('scrappy') && !target.hasItem('ringtarget') && !pokemon.hasAbility('mindseye')) {
 						move.type = 'Flying';
 					}
 				}
@@ -1488,7 +1488,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const type1 = 'Bug';
 			const type2 = 'Electric';
 				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
-					if (!target.hastype('Ground') && !target.hasItem('ringtarget')) {
+					if (!target.hasType('Ground') && !target.hasItem('ringtarget')) {
 						move.type = 'Electric';
 					}
 				}
