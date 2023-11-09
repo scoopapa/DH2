@@ -59,7 +59,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dark",
 	},
 	stoneaxe: {
-		num: -1014,
+		num: 830,
 		accuracy: 100,
 		basePower: 65,
 		category: "Physical",
