@@ -2949,7 +2949,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	machampgmax: {
 		isNonstandard: null,
-		tier: "TMFE",,
+		tier: "TMFE",
 	},
 	gengargmax: {
 		isNonstandard: null,
@@ -2989,7 +2989,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	inteleongmax: {
 		isNonstandard: null,
-		tier: "TMFE",,
+		tier: "TMFE",
 	},
 	corviknightgmax: {
 		isNonstandard: null,
@@ -2997,7 +2997,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	orbeetlegmax: {
 		isNonstandard: null,
-		tier: "TMFE",,
+		tier: "TMFE",
 	},
 	drednawgmax: {
 		isNonstandard: null,
@@ -3013,7 +3013,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	appletungmax: {
 		isNonstandard: null,
-		tier: "TMFE",,
+		tier: "TMFE",
 	},
 	sandacondagmax: {
 		isNonstandard: null,
@@ -3021,7 +3021,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	toxtricitygmax: {
 		isNonstandard: null,
-		tier: "TMFE",,
+		tier: "TMFE",
 	},
 	toxtricitylowkeygmax: {
 		isNonstandard: null,
