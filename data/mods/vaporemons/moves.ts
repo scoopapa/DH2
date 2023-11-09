@@ -1446,7 +1446,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 100,
 		category: "Physical",
-	   shortDesc: "(Partially functional) Either Fighting or Flying-type, whichever is more effective.",
+	   shortDesc: "(Mostly functional) Either Fighting or Flying-type, whichever is more effective.",
 		name: "Flying Press",
 		pp: 10,
 		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, distance: 1, nonsky: 1},
@@ -1456,9 +1456,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			const type1 = 'Fighting';
 			const type2 = 'Flying';
 				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
-					if (!target.hasType('Ghost') && !pokemon.hasAbility('scrappy') && !target.hasItem('ringtarget') && !pokemon.hasAbility('mindseye')) {
-						move.type = 'Flying';
-					}
+					move.type = 'Flying';
+				} else if (target.hasType('Ghost') && !pokemon.hasAbility('scrappy') && !pokemon.hasAbility('mindseye') && !target.hasItem('ringtarget')) {
+					move.type = 'Flying';
 				}
 			}
 		},
@@ -1474,7 +1474,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 95,
 		basePower: 100,
 		category: "Special",
-	   shortDesc: "(Partially functional) Either Bug or Electric-type, whichever is more effective.",
+	   shortDesc: "(Mostly functional) Either Bug or Electric-type, whichever is more effective.",
 		name: "Software Crash",
 		pp: 10,
 		flags: {protect: 1, mirror: 1},
