@@ -109,6 +109,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	shadowbone: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "Uses the user's Defense in calculation. Lowers the user's Defense by 1.",
 		overrideOffensiveStat: 'def',
 		self: {
@@ -275,6 +276,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	moongeistbeam: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "Fails if the user did not use Moonlight in the previous turn. Ignores abilities.",
 		onTry(source, target) {
 			return source.lastMove === 'Moonlight';
@@ -302,6 +304,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	ominouswind: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "Forces the target out into a random ally. Doubles in power if the user was hit.",
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
@@ -319,10 +322,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	grudge: {
 		inherit: true,
+		isNonstandard: null,
 		priority: 1,
 	},
 	nightmare: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "A statused target is hurt 1/4 max HP per turn.",
 		volatileStatus: 'nightmare',
 		condition: {
@@ -397,10 +402,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "Normal",
+		type: "Ghost",
 	},
 	trickortreat: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "50% chance to trick, 50% chance to treat.",
 		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, trick: 1},
 		onHit(target, source) {
@@ -483,13 +489,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	wordsdance: {
 		accuracy: 100,
-		basePower: 0,
-		category: "Status",
+		basePower: 50,
+		category: "Special",
 		name: "Words Dance",
 		shortDesc: "Says a bunch of words to confuse the target.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1, dance: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1, dance: 1, sound: 1},
 		onPrepareHit(source, target, move) {
 			const messages = ['L 🇱 RATIO ➗ READ MARX 🧔‍♂️ 📕 NO TOUHOU GIRLS 🔫 👧 🚫 CISHET 👨‍👩‍👦 NEUROTYPICAL 🧠 👨‍💼 CRINGE 😬 NO DRIP 🌧️ 🚫 GAME FUN HAPPY TIMES 游戏乐趣快乐时光 🎲 🎮 ACCELERATE ⏩ ACCELERATE ⏩ ACCELERATE ⏩ 🧞‍♂️ 🎣 🌇 🔋 🪡 SQUID GAMES ‼️',
 			'Are you kidding ??? What the **** are you talking about man ? You are a biggest looser i ever seen in my life ! You was doing PIPI in your pampers when i was beating players much more stronger then you! You are not proffesional, because proffesionals knew how to lose and congratulate opponents, you are like a noob crying after i beat you! Be brave, be honest to yourself and stop this trush talkings!!! Everybody know that i am very good bh player, i can win anyone in the world in single game! And \"c\"ity \"s\"c is nobody for me, just a player who are crying every single time when loosing, ( remember what you say about Sevag ) !!! Stop playing with my name, i deserve to have a good name during whole my bh carrier, I am Officially inviting you to NDBH match with the Prize fund! Both of us will invest 5000$ and winner takes it all! I suggest all other people who\'s intrested in this situation, just take a look at my results in OMPL 8 and 9 tournaments, and that should be enough... No need to listen for every crying babe, ChampionLeonOM is always play Fair ! And if someone will continue Officially talk about me like that, we will meet in Court! God bless with true! True will never die ! Liers will kicked off...',
@@ -963,5 +969,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "self",
 		type: "Fairy",
+	},
+	mindblown: {
+		inherit: true,
+		isNonstandard: null,
 	},
 }

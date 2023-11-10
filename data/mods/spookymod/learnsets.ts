@@ -69,6 +69,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	banettemega: {
 		learnset: {
+			ragefist: ["9T"],
 			allyswitch: ["9T"],
 			attract: ["9M", "9M", "9M", "9M", "9M"],
 			bodyslam: ["9T"],
@@ -2342,6 +2343,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	zoroarkhisui: {
 		learnset: {
+			ragefist: ["9T"],
 			aerialace: ["9M"],
 			agility: ["9M", "9L99"],
 			bittermalice: ["9L99", "9S0"],

@@ -719,7 +719,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			iciclespear: ["9L1"],
 			iceshard: ["9L1"],
 			sheercold: ["9L1"],
-			frostbreath: ["9L1"],
 			earthpower: ["9L1"],
 			earthquake: ["9L1"],
 			bulldoze: ["9L1"],
