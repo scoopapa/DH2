@@ -681,7 +681,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		onHit(target, source, move) {
-			let bp = Math.min(200, 50 + 25 * pokemon.timesAttacked);
+			let bp = Math.min(200, 50 + 25 * source.timesAttacked);
 			this.add('-message', `Rage Fist currently has a BP of ${bp}!`);
 		},
 		secondary: null,
@@ -703,7 +703,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onHit(target, source, move) {
-			let bp = Math.min(200, 50 + 25 * pokemon.timesAttacked);
+			let bp = Math.min(200, 50 + 25 * source.timesAttacked);
 			this.add('-message', `Raging Fury currently has a BP of ${bp}!`);
 		},
 		secondary: null,
