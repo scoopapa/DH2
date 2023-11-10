@@ -465,7 +465,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			pokemon.trySetStatus('brnheavy', pokemon);
+			pokemon.trySetStatus('hvybrn', pokemon);
 		},
 	},
 	capturerope: {

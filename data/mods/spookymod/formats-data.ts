@@ -187,7 +187,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
-	meraIllegalusshrunken: {
+	merasmusshrunken: {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
@@ -247,5 +247,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
-
+	gourgeistsmall: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	gourgeistsuper: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	trevenantrevenant: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 };
