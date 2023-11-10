@@ -568,7 +568,6 @@ export class TeamValidator {
 		// fix pokepast.es bug with Fakemons having their Tera type auto-set to ???
 		if (set.teraType === '???') {
 			set.teraType = species.types[0];
-			
 		}
 
 		if (!set.level) set.level = ruleTable.defaultLevel;
