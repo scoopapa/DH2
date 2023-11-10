@@ -8677,22 +8677,20 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: -4,
-		flags: {protect: 1, counter: 1},
+		flags: {protect: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Splash", target);
 		},
 		basePowerCallback(pokemon, target, move) {
-			if (pokemon.volatiles['counter'].damage)
+			const damagedByTarget = pokemon.attackedBy.some(
+				p => p.source === target && p.damage > 0 && p.thisTurn
+			);
+			if (damagedByTarget) {
+				this.debug('BP doubled for getting hit by ' + target);
 				return move.basePower * 2;
+			}
 			return move.basePower;
-		},
-		beforeTurnCallback(pokemon) {
-			pokemon.addVolatile('counter');
-		},
-		onTry(source) {
-			if (!source.volatiles['counter']) return false;
-			if (source.volatiles['counter'].slot === null) return false;
 		},
 		// Class: 2
 		// Effect Chance: 100
