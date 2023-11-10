@@ -2861,7 +2861,7 @@ export const Formats: FormatList = [
 		mod: 'tpdp2',
 		debug: true,
 		desc: `a close approximation of Touhou Puppet Dance Performance`,
-		ruleset: ['Team Preview', 'Species Clause', 'Item Clause', 'Adjust Level Down = 50', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Species Clause', 'Item Clause', 'Adjust Level Down = 50', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
 		banlist: ['Boundary Trance', 'Dream Shard', 
 		'Camouflage', 'Favorable Wind', 'Dead of Night', //evasion
 		'Poison Labyrinth', 'Adverse Wind', //trapping

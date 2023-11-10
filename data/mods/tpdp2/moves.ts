@@ -2391,6 +2391,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		category: "Physical",
 		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			const damagedByTarget = pokemon.attackedBy.some(
+				p => p.source === target && p.damage > 0 && p.thisTurn
+			);
+			if (damagedByTarget) {
+				this.debug('BP doubled for getting hit by ' + target);
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		pp: 6.25,
 		accuracy: 100,
 		priority: -4,
@@ -2398,18 +2408,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Revenge", target);
-		},
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.volatiles['counter'].damage)
-				return move.basePower * 2;
-			return move.basePower;
-		},
-		beforeTurnCallback(pokemon) {
-			pokemon.addVolatile('counter');
-		},
-		onTry(source) {
-			if (!source.volatiles['counter']) return false;
-			if (source.volatiles['counter'].slot === null) return false;
 		},
 		// Class: 2
 		// Effect Chance: 100
@@ -6570,6 +6568,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Warped",
 		category: "Special",
 		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			const damagedByTarget = pokemon.attackedBy.some(
+				p => p.source === target && p.damage > 0 && p.thisTurn
+			);
+			if (damagedByTarget) {
+				this.debug('BP doubled for getting hit by ' + target);
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		pp: 6.25,
 		accuracy: 100,
 		priority: -4,
@@ -6577,18 +6585,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mirror Coat", target);
-		},
-		basePowerCallback(pokemon, target, move) {
-			if (pokemon.volatiles['counter'].damage)
-				return move.basePower * 2;
-			return move.basePower;
-		},
-		beforeTurnCallback(pokemon) {
-			pokemon.addVolatile('counter');
-		},
-		onTry(source) {
-			if (!source.volatiles['counter']) return false;
-			if (source.volatiles['counter'].slot === null) return false;
 		},
 		// Class: 2
 		// Effect Chance: 100
@@ -8571,6 +8567,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Illusion",
 		category: "Physical",
 		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			const damagedByTarget = pokemon.attackedBy.some(
+				p => p.source === target && p.damage > 0 && p.thisTurn
+			);
+			if (damagedByTarget) {
+				this.debug('BP doubled for getting hit by ' + target);
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
@@ -8578,20 +8584,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Revenge", target);
-		},
-		basePowerCallback(pokemon, target, move) {
-			let boosted = true;
-			for (const target of this.getAllActive()) {
-				if (target === pokemon) continue;
-				if (this.queue.willMove(target)) {
-					boosted = false;
-					break;
-				}
-			}
-			if (boosted) {
-				return move.basePower * 2;
-			}
-			return move.basePower;
 		},
 		// Class: BU
 		// Effect Chance: 100
@@ -8674,14 +8666,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Water",
 		category: "Physical",
 		basePower: 60,
-		pp: 6.25,
-		accuracy: 100,
-		priority: -4,
-		flags: {protect: 1},
-		onPrepareHit: function(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Splash", target);
-		},
 		basePowerCallback(pokemon, target, move) {
 			const damagedByTarget = pokemon.attackedBy.some(
 				p => p.source === target && p.damage > 0 && p.thisTurn
@@ -8691,6 +8675,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return move.basePower * 2;
 			}
 			return move.basePower;
+		},
+		pp: 6.25,
+		accuracy: 100,
+		priority: -4,
+		flags: {protect: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Splash", target);
 		},
 		// Class: 2
 		// Effect Chance: 100
