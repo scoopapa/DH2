@@ -680,6 +680,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		onHit(target, source, move) {
+			let bp = Math.min(200, 50 + 50 * source.timesAttacked);
+			this.add('-message', `Rage Fist currently has a BP of ${bp}!`);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -698,6 +702,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onHit(target, source, move) {
+			let bp = Math.min(200, 50 + 50 * source.timesAttacked);
+			this.add('-message', `Raging Fury currently has a BP of ${bp}!`);
+		},
 		secondary: null,
 		target: "normal",
 		type: "Fire",
@@ -1459,8 +1467,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					move.type = 'Flying';
 				} else if (target.hasType('Ghost') && !pokemon.hasAbility('scrappy') && !pokemon.hasAbility('mindseye') && !target.hasItem('ringtarget')) {
 					move.type = 'Flying';
+				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
+					if (pokemon.hasType('Flying') && !pokemon.hasType('Fighting')) {
+						move.type = 'Flying';
+					}
 				}
 			}
+		},
+		onHit(target, source, move) {
+			this.add('-message', `Flying Press dealt ${move.type}-type damage!`);
 		},
 		priority: 0,
 		secondary: null,
@@ -1491,8 +1506,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					if (!target.hasType('Ground') && !target.hasItem('ringtarget')) {
 						move.type = 'Electric';
 					}
+				} else if (this.dex.getEffectiveness(type1, target) === this.dex.getEffectiveness(type2, target)) {
+					if (pokemon.hasType('Electric') && !pokemon.hasType('Bug')) {
+						move.type = 'Electric';
+					}
 				}
 			}
+		},
+		onHit(target, source, move) {
+			this.add('-message', `Software Crash dealt ${move.type}-type damage!`);
 		},
 		priority: 0,
 		secondary: null,
