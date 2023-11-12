@@ -14,7 +14,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['ES', 'Uber', 'OU', 'NFE', 'LC'],
-		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet | null): boolean {
+		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet, dex: ModdedDex): boolean {
 			let abilityid: ID = set ? toID(set.ability) : '' as ID;
 			const itemid: ID = set ? toID(set.item) : '' as ID;
 
@@ -61,19 +61,19 @@ export const Scripts: ModdedBattleScriptsData = {
 			case 'flowershield':
 				return abilityid === 'grassysurge';
 			case 'hiddenpowerelectric':
-				return !moves.includes('thunderbolt');
+				return !(moves.includes('thunderbolt') || moves.includes('discharge'));
 			case 'hiddenpowerfighting':
 				return !(moves.includes('aurasphere') || moves.includes('focusblast'));
 			case 'hiddenpowerfire':
-				return !(moves.includes('flamethrower') || moves.includes('mysticalfire'));
+				return !(moves.includes('flamethrower') || moves.includes('heatwave') || moves.includes('lavaplume') || moves.includes('mysticalfire'));
 			case 'hiddenpowergrass':
 				return !(moves.includes('energyball') || moves.includes('grassknot') || moves.includes('gigadrain'));
 			case 'hiddenpowerice':
 				return !(moves.includes('icebeam') || moves.includes('aurorabeam') || moves.includes('glaciate'));
+			case 'hiddenpowerground':
+				return !moves.includes('earthpower');
 			case 'hypnosis':
 				return ['baddreams', 'compoundeyes', 'insomnia'].includes(abilityid);
-			case 'icepunch':
-				return ['sheerforce', 'ironfist'].includes(abilityid);
 			case 'ironhead':
 				return !moves.includes('metaledge');
 			case 'irontail':
@@ -94,6 +94,12 @@ export const Scripts: ModdedBattleScriptsData = {
 				return abilityid === 'ironfist';
 			case 'smackdown':
 				return abilityid === 'technician' || species.types.includes('Ground');
+			case 'submission':
+				return ['reckless', 'rockhead'].includes(abilityid) || itemid === 'protector' || !(moves.includes('closecombat') || moves.includes('highjumpkick') || moves.includes('jumpkick'));
+			case 'superpower':
+				return !(moves.includes('closecombat') || moves.includes('highjumpkick') || moves.includes('jumpkick'));
+			case 'swing':
+				return abiltiyid === 'bludgeon' && !(itemid === '' || dex.items.get(itemid)?.consumable);
 			case 'tantrum':
 				return !(moves.includes('earthquake') || moves.includes('drillrun') || moves.includes('highhorsepower')) || this.formatType !== 'singles';
 			}
@@ -101,7 +107,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (this.formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
 				return true;
 			}
-			const moveData = BattleMovedex[id];
+			const moveData = dex.moves.get(id);
 			if (!moveData) return true;
 			if (moveData.category === 'Status') {
 				return this.GOOD_STATUS_MOVES.includes(id);
@@ -116,7 +122,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				return true;
 			}
 			if (moveData.flags?.bludg && abilityid === 'bludgeon' && id !== 'bash') {
-				if(id === 'swing' && set?.item.consumable) return false;
 				return true;
 			}
 			if (moveData.flags?.bite && abilityid === 'strongjaw' && id !== 'bite') {
@@ -137,7 +142,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			'accelerock', 'ambush', 'aquacutter', 'aquajet', 'avalanche', 'bind', 'boltbeak', 'bonemerang', 'bulletpunch', 'circlethrow', 'clamp', 'clearsmog', 'crushgrip', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'equalizer', 'facade', 'firefang', 'fishiousrend', 'flowertrap', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'iciclespear', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalstrike', 'naturesmadness', 'nightshade', 'nuzzle', 'pelletshot', 'populationbomb', 'psychocut', 'pursuit', 'quickattack', 'rapidspin', 'rockblast', 'ruination', 'saltcure', 'secretpower', 'seismictoss', 'shadowclaw', 'shadowsneak', 'skydrop', 'snaptrap', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailhead', 'uturn', 'vengefulspirit', 'voltswitch', 'watershuriken', 'weatherball',
 		],
 		BAD_STRONG_MOVES: [
-			'belch', 'burnup', 'crushclaw', 'dragonrush', 'dreameater', 'eggbomb', 'falsesurrender', 'flyingpress', 'hyperbeam', 'hyperfang', 'hyperspacehole', 'jawlock', 'landswrath', 'megakick', 'megapunch', 'muddywater', 'nightdaze', 'pollenpuff', 'selfdestruct', 'shelltrap', 'slam', 'smartstrike', 'submission', 'synchronoise', 'takedown', 'thrash', 'uproar', 'vitalthrow',
+			'belch', 'burnup', 'completeshock', 'crushclaw', 'dreameater', 'eggbomb', 'falsesurrender', 'flyingpress', 'hyperfang', 'hyperspacehole', 'jawlock', 'landswrath', 'megapunch', 'muddywater', 'pollenpuff', 'selfdestruct', 'shelltrap', 'slam', 'smartstrike', 'synchronoise', 'takedown', 'thrash', 'uproar', 'vitalthrow',
 		],
 		GOOD_DOUBLES_MOVES: [
 			'allyswitch', 'barbbarrage', 'bulldoze', 'electroweb', 'faketears', 'fling', 'followme', 'helpinghand', 'junglehealing', 'lifedew', 'muddywater', 'pollenpuff', 'psychup', 'ragepowder', 'safeguard', 'skillswap', 'snarl', 'snipeshot', 'wideguard',

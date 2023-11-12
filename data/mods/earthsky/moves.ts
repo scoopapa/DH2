@@ -1478,6 +1478,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 90,
 		accuracy: 100,
 	},
+	blazingtorque: {
+		inherit: true,
+		basePower: 100,
+		contestType: "Cool",
+	},
 	blizzard: {
 		inherit: true,
 		secondary: {
@@ -1613,9 +1618,17 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Raging Bull", target);
 		},
 	},
-	burningtorque: {
+	burnup: {
 		inherit: true,
-		basePower: 100,
+		power: 140,
+		self: {
+			onHit(pokemon) {
+				if(pokemon.hasAbility('turboblaze')) return;
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Burn Up');
+			},
+		},
+		desc: "Fails unless the user is a Fire type. If this move is successful and the user's Ability isn't Turboblaze, the user's Fire type becomes typeless as long as it remains active.",
 	},
 	captivate: {
 		num: 445,
@@ -5618,18 +5631,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become poisoned. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Bunker Down, Detect, Endure, King's Shield, Obstruct, Protect, Rebound, Quick Guard, Silk Trap, Slip Away, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from moves. Contact: poison.",
-	},
-	burnup: {
-		inherit: true,
-		power: 140,
-		self: {
-			onHit(pokemon) {
-				if(pokemon.hasAbility('turboblaze')) return;
-				pokemon.setType(pokemon.getTypes(true).map(type => type === "Fire" ? "???" : type));
-				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'), '[from] move: Burn Up');
-			},
-		},
-		desc: "Fails unless the user is a Fire type. If this move is successful and the user's Ability isn't Turboblaze, the user's Fire type becomes typeless as long as it remains active.",
 	},
 	charge: {
 		inherit: true,
