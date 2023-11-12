@@ -2364,6 +2364,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	berryjuice: {
 		inherit: true,
 		consumable: true,
+		rating: 1,
 	},
 	ejectbutton: {
 		inherit: true,

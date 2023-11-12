@@ -17,6 +17,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet, dex: ModdedDex): boolean {
 			let abilityid: ID = set ? toID(set.ability) : '' as ID;
 			const itemid: ID = set ? toID(set.item) : '' as ID;
+			const formatType = (dex.modid.indexOf("triples") > 0) ? 'triples' : 'singles'; //Doubles isn't a current format, won't bother right now
 
 			if (itemid === 'pidgeotite') abilityid = 'noguard' as ID;
 			if (itemid === 'blastoisinite' || itemid === 'magmortarite') abilityid = 'megalauncher' as ID;
@@ -25,6 +26,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (itemid === 'aerodactylite' || itemid === 'charizardmegax') abilityid = 'toughclaws' as ID;
 			if (itemid === 'glalitite') abilityid = 'refrigerate' as ID;
 			if (itemid === 'galladite') abilityid = 'sharpness' as ID;
+			if (itemid === 'sharpedonite') abilityid = 'strongjaw' as ID;
+			
+			if (species.baseSpecies === "Unown") {
+				if(id.startsWith('hiddenpower')) return id === (species.forme ? 'hiddenpowerpsychic' : 'hiddenpower');
+				else return ["G", "P", "Q"].includes(species.forme); //Stored Power
+			}
 
 			switch (id) {
 			case 'aquastep': case 'chargebeam': case 'fierydance': case 'flamecharge': case 'nuzzle': case 'poweruppunch': case 'torchsong':
@@ -85,7 +92,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			case 'outrage':
 				return abilityid === 'owntempo';
 			case 'phantomforce':
-				return !(moves.includes('shadowforce') || moves.includes('poltergeist') || moves.includes('shadowclaw')) || this.formatType !== 'singles';
+				return !(moves.includes('shadowforce') || moves.includes('poltergeist') || moves.includes('shadowclaw')) || formatType !== 'singles';
 			case 'poisonfang':
 				return species.types.includes('Poison') && !(moves.includes('gunkshot') || moves.includes('poisonjab'));
 			case 'psychocut':
@@ -99,12 +106,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			case 'superpower':
 				return !(moves.includes('closecombat') || moves.includes('highjumpkick') || moves.includes('jumpkick'));
 			case 'swing':
-				return abiltiyid === 'bludgeon' && !(itemid === '' || dex.items.get(itemid)?.consumable);
+				return abilityid === 'bludgeon' && !(itemid === '' || dex.items.get(itemid)?.consumable);
 			case 'tantrum':
-				return !(moves.includes('earthquake') || moves.includes('drillrun') || moves.includes('highhorsepower')) || this.formatType !== 'singles';
+				return !(moves.includes('earthquake') || moves.includes('drillrun') || moves.includes('highhorsepower')) || formatType !== 'singles';
 			}
 
-			if (this.formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
+			if (formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
 				return true;
 			}
 			const moveData = dex.moves.get(id);
