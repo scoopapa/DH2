@@ -74,6 +74,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				return ['baddreams', 'compoundeyes', 'insomnia'].includes(abilityid);
 			case 'icepunch':
 				return ['sheerforce', 'ironfist'].includes(abilityid);
+			case 'ironhead':
+				return !moves.includes('metaledge');
 			case 'irontail':
 				return abilityid === 'supermassive' || species.types.includes('Steel') || !(moves.includes('ironhead') || moves.includes('gunkshot') || moves.includes('poisonjab'));
 			case 'jumpkick':
@@ -86,6 +88,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				return !(moves.includes('shadowforce') || moves.includes('poltergeist') || moves.includes('shadowclaw')) || this.formatType !== 'singles';
 			case 'poisonfang':
 				return species.types.includes('Poison') && !(moves.includes('gunkshot') || moves.includes('poisonjab'));
+			case 'psychocut':
+				return abilityid === 'sharpness' || !moves.includes('zenheadbutt');
 			case 'shadowpunch':
 				return abilityid === 'ironfist';
 			case 'smackdown':
@@ -2567,7 +2571,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			"climatebreak", "escapeplan", "escapeplan", "induction", "induction", "alchemy", "poweraura", "majesty", "snowplow", "tangling",
 		];
 		const deletedMoves = [
-			"appleacid", "bittermalice", "bleakwindstorm", "burningjealousy", "ceaselessedge", "chillyreception", "coaching", "comeuppance", "corrosivegas", "decorate", "doodle", "dualwingbeat", "esperwing", "expandingforce", "fierywrath", "flipturn", "gearup", "grassyglide", "gravapple", "hydrosteam", "hyperdrill", "icespinner", "infernalparade", "kinesis", "kowtowcleave", "luminacrash", "makeitrain", "matchagotcha", "mistyexplosion", "mortalspin", "mountaingale", "mysticalpower", "risingvoltage", "sandsearstorm", "scaleshot", "scorchingsands", "shadowstrike", "shellsidearm", "skittersmack", "springtidestorm", "steelroller", "syrupbomb", "takeheart", "terablast", "terrainpulse", "thunderouskick", "tidyup", "triplearrows", "tripleaxel", "tripledive", "twinbeam", "wildboltstorm"
+			"appleacid", "bittermalice", "bleakwindstorm", "burningjealousy", "ceaselessedge", "chillyreception", "coaching", "comeuppance", "corrosivegas", "decorate", "doodle", "dualwingbeat", "esperwing", "expandingforce", "fierywrath", "flipturn", "gearup", "grassyglide", "gravapple", "hydrosteam", "hyperdrill", "icespinner", "infernalparade", "kinesis", "kowtowcleave", "luminacrash", "makeitrain", "matchagotcha", "mistyexplosion", "mortalspin", "mountaingale", "mysticalpower", "ragingfury", "risingvoltage", "sandsearstorm", "scaleshot", "scorchingsands", "shadowstrike", "shellsidearm", "skittersmack", "springtidestorm", "steelroller", "syrupbomb", "takeheart", "terablast", "terrainpulse", "thunderouskick", "tidyup", "triplearrows", "tripleaxel", "tripledive", "twinbeam", "wildboltstorm"
 		];
 		/*const addedMachines = [ //Machines added in Gen VIII or IX and retained in Earth & Sky - currently not needed in the algorithm, but it's a long list so I don't want to delete it
 			"amnesia", "assurance", "avalanche", "brine", "charm", "chillingwater", "eerieimpulse", "electricterrain", "electroball", "encore", "faketears", "futuresight", "grassyterrain", "hex", "hurricane", "hydropump", "mistyterrain", "nastyplot", "phantomforce", "powergem", "psychicterrain", "screech", "trailblaze", "whirlpool"

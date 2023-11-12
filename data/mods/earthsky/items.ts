@@ -1204,6 +1204,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 	},
+		desc: "Holder's first Flying-type attack will have 1.3x power. Single use.",
 	ghostgem: {
 		inherit: true,
 		consumable: true,
