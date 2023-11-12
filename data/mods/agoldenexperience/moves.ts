@@ -765,13 +765,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
+		heal: [1, 2],
 		onHit(pokemon) {
-			let factor = 0.5;
 			if (this.field.isWeather('raindance') || this.field.isWeather('primordialsea')) {
-				const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-				return pokemon.cureStatus() || success;
+				return pokemon.cureStatus();
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
