@@ -6,7 +6,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	venusaur: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	venusaurmega: {
@@ -28,7 +28,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	charizardmegax: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	charizardmegay: {
@@ -841,7 +841,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	taurospaldeaaqua: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	magikarp: {
@@ -1716,7 +1716,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	torkoal: {
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	spoink: {
@@ -2466,7 +2466,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	serperior: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	serperiorgalar: {
@@ -2935,7 +2935,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	chandelure: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "(DUU)",
 	},
 	axew: {
@@ -3133,7 +3133,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	genesectshock: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	chespin: {
@@ -4961,488 +4961,317 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	//fakemons
 	tentarcohl: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	carsnail: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 9,
 	},
 	carcoliath: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	slidge: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	hustrack: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 9,
 	},
 	shusski: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	seagmate: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	gullcean: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 9,
 	},
 	admistral: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	magthief: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	snobberaven: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	fiyounfly: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	ledixy: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	terados: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	mosquitox: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	normear: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	paranormear: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	mossiden: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	statimoss: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	kistraw: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	origyrant: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	sharkutkie: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	mercurino: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	dauvifar: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	girafatak: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	girafataknocturnal: {
-		isNonstandard: null,
-		gen: 9,
+		
 	},
 	sylvardian: {
 		tier: "RU",
 		doublesTier: "DUU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	scarpent: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	terreptile: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	terreptilemega: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	stonlet: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	rockster: {
 		tier: "NU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	rockstermega: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	expecies: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	albirat: {
 		tier: "PU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	wizamadol: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	mystao: {
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	hopkineye: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	harvesking: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	foroyal: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 9,
 	},
 	dracoalt: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	incinemate: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	fugivern: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 9,
 	},
 	drinferno: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	hydrookie: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	scienstream: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 9,
 	},
 	medidragon: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	houndourgalar: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	baskiron: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	baskironmega: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	ameba: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	solens: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	snolbom: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	skojal: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	noibatsinnoh: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	noivernsinnoh: {
 		tier: "UU",
 		doublesTier: "DUU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	slugmasinnoh: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	magcargosinnoh: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 9,
 	},
 	leechuption: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	delistmas: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	jhex: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	maaltis: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	baalzebutis: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	goldiorno: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	slendawful: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	berkslash: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	nopainnogain: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	bubblure: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 9,
 	},
 	abysshark: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 9,
 	},
 	cymadalea: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	tapuwala: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	snoxin: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	florhoper: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	magroach: {
 		tier: "RU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	parafgufa: {
 		tier: "Uber",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	infarmatem: {
 		tier: "NU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	infarmatemmega: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	grimillia: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	irondrill: {
 		tier: "OU",
 		doublesTier: "DUU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	whitewhale: {
 		tier: "OU",
 		doublesTier: "DUU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	annoyog: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	raticket: {
 		tier: "UU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	golrobot: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	sautropius: {
 		tier: "NU",
 		doublesTier: "DUU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	meltic: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 	sithbull: {
 		tier: "OU",
 		doublesTier: "DOU",
-		isNonstandard: null,
-		gen: 9,
 	},
 
 	//unavailable

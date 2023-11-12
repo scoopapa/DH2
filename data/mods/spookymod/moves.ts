@@ -109,6 +109,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	shadowbone: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "Uses the user's Defense in calculation. Lowers the user's Defense by 1.",
 		overrideOffensiveStat: 'def',
 		self: {
@@ -140,8 +141,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		basePower: 50,
 		shortDesc: "+10 power for each PP used.",
-		basePowerCallback(pokemon) {
-			return basePower + 10 * (pp - moveSlot.pp);
+		basePowerCallback(pokemon, target, move) {
+			return move.basePower + 10 * (pp - moveSlot.pp);
 		},
 		secondary: null,
 	},
@@ -275,6 +276,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	moongeistbeam: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "Fails if the user did not use Moonlight in the previous turn. Ignores abilities.",
 		onTry(source, target) {
 			return source.lastMove === 'Moonlight';
@@ -302,6 +304,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	ominouswind: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "Forces the target out into a random ally. Doubles in power if the user was hit.",
 		basePower: 50,
 		basePowerCallback(pokemon, target, move) {
@@ -319,10 +322,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	grudge: {
 		inherit: true,
+		isNonstandard: null,
 		priority: 1,
 	},
 	nightmare: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "A statused target is hurt 1/4 max HP per turn.",
 		volatileStatus: 'nightmare',
 		condition: {
@@ -397,10 +402,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: null,
 		target: "adjacentFoe",
-		type: "Normal",
+		type: "Ghost",
 	},
 	trickortreat: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "50% chance to trick, 50% chance to treat.",
 		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, trick: 1},
 		onHit(target, source) {
@@ -429,19 +435,67 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 	},
+	confuseray: {
+		inherit: true,
+		priority: 1,
+		shortDesc: "Fails if the opponent is using an attack. May cause the opponent to disobey.",
+		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+		volatileStatus: 'confuseray',
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Confuse Ray', '[silent]');
+				this.add('-message', `${pokemon.name} became disobedient!`);
+			},
+			onBeforeMove(pokemon, target, move) {
+				if(this.random(2) === 0) {
+					let rand = this.random(10);
+					if (rand < 1) {
+						if(pokemon.setStatus('slp', pokemon, move)) this.add('-message', `${pokemon.name} began to nap!`);
+						else rand = 3;
+					} else if (rand < 3) {
+						this.add('-message', `${pokemon.name} won't obey!`);
+						const damage = this.actions.getConfusionDamage(pokemon, 40);
+						if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
+						const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
+						this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
+					} if (rand >= 3) {
+						const noAttack = ['ignored orders!', 
+										  'is loafing around!',
+										  'turned away!',
+										  'pretended not to notice!'];
+						const noAttackSleep = 'ignored orders and kept sleeping!';
+						this.add('-message', `${pokemon.name} ${(pokemon.status === 'slp' && ['sleeptalk', 'snore'].includes(pokemon.move)) ? noAttackSleep : this.sample(noAttack)}`);
+					}
+					return null;
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Confuse Ray', '[silent]');
+				this.add('-message', `${pokemon.name} got its act together!`);
+			},
+		},
+	},
 	grassyglide: {
 		inherit: true,
 		bp: 70,
 	},
 	wordsdance: {
 		accuracy: 100,
-		basePower: 0,
-		category: "Status",
+		basePower: 50,
+		category: "Special",
 		name: "Words Dance",
 		shortDesc: "Says a bunch of words to confuse the target.",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1, dance: 1},
+		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1, dance: 1, sound: 1},
 		onPrepareHit(source, target, move) {
 			const messages = ['L 🇱 RATIO ➗ READ MARX 🧔‍♂️ 📕 NO TOUHOU GIRLS 🔫 👧 🚫 CISHET 👨‍👩‍👦 NEUROTYPICAL 🧠 👨‍💼 CRINGE 😬 NO DRIP 🌧️ 🚫 GAME FUN HAPPY TIMES 游戏乐趣快乐时光 🎲 🎮 ACCELERATE ⏩ ACCELERATE ⏩ ACCELERATE ⏩ 🧞‍♂️ 🎣 🌇 🔋 🪡 SQUID GAMES ‼️',
 			'Are you kidding ??? What the **** are you talking about man ? You are a biggest looser i ever seen in my life ! You was doing PIPI in your pampers when i was beating players much more stronger then you! You are not proffesional, because proffesionals knew how to lose and congratulate opponents, you are like a noob crying after i beat you! Be brave, be honest to yourself and stop this trush talkings!!! Everybody know that i am very good bh player, i can win anyone in the world in single game! And \"c\"ity \"s\"c is nobody for me, just a player who are crying every single time when loosing, ( remember what you say about Sevag ) !!! Stop playing with my name, i deserve to have a good name during whole my bh carrier, I am Officially inviting you to NDBH match with the Prize fund! Both of us will invest 5000$ and winner takes it all! I suggest all other people who\'s intrested in this situation, just take a look at my results in OMPL 8 and 9 tournaments, and that should be enough... No need to listen for every crying babe, ChampionLeonOM is always play Fair ! And if someone will continue Officially talk about me like that, we will meet in Court! God bless with true! True will never die ! Liers will kicked off...',
@@ -915,5 +969,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "self",
 		type: "Fairy",
+	},
+	mindblown: {
+		inherit: true,
+		isNonstandard: null,
 	},
 }

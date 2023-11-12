@@ -2888,27 +2888,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {snatch: 1, heal: 1},
 		heal: [1, 2],
 		onHit(pokemon) {
-            for (const target of pokemon.side.foe.active) {
-                if (!target || target.fainted) continue;
-                let potentialMoves = 0;
-                for (const moveSlot of target.moveSlots) {
-                    if (moveSlot.revealed) continue;
-                    potentialMoves++;
-                }
-                let r = 0;
-                if (potentialMoves) {
-                    r = this.random(potentialMoves);
-                }
-                for (const moveSlot of target.moveSlots) {
-                    if (moveSlot.revealed) continue;
-                    if (r === 0) {
-                        this.add('-message', `${(target.illusion ? target.illusion.name : target.name)} knows the move ${this.dex.moves.get(moveSlot.move).name}!`);
-                    }
-                    r--;
-                    moveSlot.revealed = true;
-                    return;
-                }
-            }
+			for (const target of pokemon.side.foe.active) {
+				if (target.fainted) return;
+				const temp = this.sample(target.moveSlots);
+				this.add('-message', pokemon.name + "'s Awakening revealed the move " + temp.move + "!");
+			}
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');

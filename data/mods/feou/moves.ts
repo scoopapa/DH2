@@ -20,8 +20,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.type = 'Fighting';
 				break;
 			case 'Tauros-Paldea-Blaze':
-				move.type = 'Fire';
-				break;
 			case 'Golisoros-Paldea-Blaze':
 				move.type = 'Fire';
 				break;

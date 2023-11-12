@@ -123,4 +123,140 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "SM",
 		doublesTier: "DOU",
 	},
+	aegislashshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	banettemegashrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	ceruledgeshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	dofagrigusshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	eddyazbearshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	fluttermaneshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	fluttermane2shrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	gourgeisttinyshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	gourgeistshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	gourgeistlargeshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	gourgeistgiganticshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	houndstoneshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	indeedeeshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	jableyeshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	jobapplicationshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	lanturnevilshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	merasmusshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	necturnashrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	okestarspiritshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	ppiritombshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	quagsiredeadshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	rotomshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	shedinjashrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	trevenantshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	ursalunabloodmoonshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	venomiconshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	venomiconepilogueshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	wunalashrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	xorygonzshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	yveltalshrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	zoroarkhisuishrunken: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	gourgeistsmall: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	gourgeistsuper: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	trevenantrevenant: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 };

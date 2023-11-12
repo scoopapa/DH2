@@ -68,6 +68,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Ahexual",
 		shortDesc: "This Pokemon heals 1/4 max HP when hit by a trick move; immune to tricks.",
 	},
+	cursedbody: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if(this.effectState.cursed) return;
+			return this.chainModify(0.75);
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.effectState.cursed || source.volatiles['disable']) return;
+			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
+				this.effectState.cursed = true;
+				source.addVolatile('disable', this.effectState.target);
+			}
+		},
+		onSwitchIn(pokemon) {
+			delete this.effectState.cursed;
+		},
+		name: "Cursed Body",
+		shortDesc: "When this Pokemon is damaged by an attack, it takes 75% damage and that attack is disabled. Once per switchin.",
+	},
 	dummy: {
         onStart(pokemon) {
             this.actions.useMove("substitute", pokemon);
@@ -77,7 +95,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
     },
 	jankster: {
 		onTryHit(pokemon, target, move) {
-			if (move.type === 'Fairy') {
+			if (['Fairy', 'Dark', 'Ghost'].includes(move.type)) {
 				this.add('-immune', pokemon, '[from] ability: Jankster');
 				this.damage(100, pokemon, pokemon);
 				return null;
@@ -106,6 +124,81 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Jumpscare",
 		shortDesc: "On switchin, opposing Pokemon flinch. Once per battle.",
+	},
+	magician: {
+		name: "Magician",
+		shortDesc: "This Pokemon heals 1/16 max HP while behind a Substitute.",
+		onStart(pokemon) {
+			const switchin = ['I am here!', 
+							'I have come!', 
+							'Merasmus has risen!', 
+							'Cower fools! Merasmus is here!', 
+							'Run fools! Run from Merasmus!', 
+							'Merasmus the Wizard has come for your souls!', 
+							'(evil laughter)', 
+							'(wicked laughter)', 
+							'(diabolical laughter)', 
+							'Soldier! Never anger a magician!', 
+							'Welcome. To your doom!', 
+							'DOOM! All of you are doomed!', 
+							'Enjoy Halloween mortals, for it will be your last!', 
+							'Merasmus arrives on a tide of blood! *sotto voce* Oh hello, Soldier.'];
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(switchin)}`);
+		},
+		onResidual(pokemon) {
+			if(pokemon.volatiles['substitute']) {
+				const sub = ['Must hide and heal.', 
+							'Must hide and heal.', 
+							'Must hide. Get stronger.', 
+							'Must hide. Must heal.', 
+							'Must hide. Must heal.', 
+							'Merasmus must hide.', 
+							'Merasmus must hide.', 
+							'No strength. Must hide.', 
+							'No! This cannot be the end! Must hide.', 
+							'Fools! I will come back stronger!', 
+							'Fools! Do you not know you deal with the master of hiding!', 
+							'Fools! Feel the terror of my hiding!', 
+							'You cannot kill me fools! For I am great at hiding!', 
+							'The hide-ening! It is here! Okay, need to find a hiding-spot.', 
+							'Time to play hide-and-seek...your doom!', 
+							'Must hide. Get stronger.', 
+							'You have bested my magic! But can you withstand the dark power...of HIDING!'];
+				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(sub)}`);
+				this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+			}
+		},
+		onSwitchOut(pokemon) {
+			const switchout = ['Goodbye... Forever!', 
+								'Alright, I\'m leaving now.', 
+								'Alright, I\'m leaving now.', 
+								'Goodbye, everyone!', 
+								'Well, that was fun. Off I go!', 
+								'Alright, goodbye everyone!', 
+								'Enough! I leave.', 
+								'A-ha! Too slow! I leave!', 
+								'*Evil laugh* Goodbye, forever!', 
+								'*Evil laugh* Goodbye, forever! *sotto voce* I\'ll see you at home, Soldier.', 
+								'You have amused Merasmus, but now I must attend to other eldritch business. Farewell!', 
+								'*Evil laugh* I bid you, farewell!', 
+								'Farewell! Happy Halloween, everyone!', 
+								'I leave you... to your doom!'];
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(switchout)}`);
+		},
+		onFaint(pokemon) {
+			const faint = ['Ach, no!', 
+						'You win. No, wait, it\'s a tie! Argh...',
+						'Aaah!', 
+						'Aaah!', 
+						'Oooh!', 
+						'Nyyaaagh! I hate you so much, Soldier!',
+						'You haven\'t heard the last of Merasmus the Magician!', 
+						'I die, I diieeee... bye Soldier.', 'I die! Soldier, you were the wooorst roommate!', 
+						'I die! I curse this land, for a hundred years!- No! A thousand! Thousand year-oh, I die!', 
+						'Noooo!', 
+						'Noooo!'];
+			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(faint)}`);
+		},
 	},
 	mutualexclusion: {
 		onStart(pokemon) {
@@ -207,6 +300,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "PInfiltrator",
 		shortDesc: "This Pokemon's moves ignore Substitute/screens and deal an extra 1/8 max HP.",
 	},
+	powerofalchemy: {
+		name: "Power of Alchemy",
+		shortDesc: "On switch-in, swaps ability with the opponent.",
+		onSwitchIn(pokemon) {
+			this.effectState.switchingIn = true;
+		},
+		onStart(pokemon) {
+			if (!pokemon.isStarted || !this.effectState.switchingIn) return;
+			const additionalBannedAbilities = [
+				// Zen Mode included here for compatability with Gen 5-6
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
+				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode'
+			];
+			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().isPermanent
+				&& !additionalBannedAbilities.includes(foeActive.ability) && foeActive.isAdjacent(pokemon));
+			if (possibleTargets.length) {
+				let rand = 0;
+				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const target = possibleTargets[rand];
+				const ability = target.getAbility();
+				if (pokemon.setAbility(ability) && target.setAbility('powerofalchemy')) {
+					this.add('-ability', target, 'Power of Alchemy');
+					this.add('-ability', pokemon, ability.name);
+				} else {
+					pokemon.setAbility('powerofalchemy');
+				}
+			}
+		},
+	},
 	ppressure: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'PPressure');
@@ -291,48 +413,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	spoky: {
-		name: "Spoky",
-		shortDesc: "This Pokemon's type effectiveness is reversed when attacking or getting attacked.",
-		onStart(target) {
-			this.add('-ability', target, 'Spoky');
-		},
-		onEffectiveness(typeMod) {
-			return typeMod * -1;
-		},
-		onFoeEffectiveness(typeMod) {
-			return typeMod * -1;
-		},
-	},
-	undead: {
-		onModifyMovePriority: -5,
-		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Ghost'] = true;
-			}
-		},
-		name: "Undead",
-		shortDesc: "This Pokemon can hit Normal-types with Ghost attacks.",
-	},
-	wonderguard: {
-		onTryHit(target, source, move) {
-			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
-			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
-			this.debug('Wonder Guard immunity: ' + move.id);
-			if (target.runEffectiveness(move) > 0) {
-				if (move.smartTarget) {
-					move.smartTarget = false;
-				} else {
-					this.add('-immune', target, '[from] ability: Wonder Guard');
-				}
-				return null;
-			}
-		},
-		isBreakable: true,
-		name: "Wonder Guard",
-		shortDesc: "This Pokemon can only be hit by resisted attacks.",
-	},
 	shapeshift: {
 		name: "Shapeshift",
 		shortDesc: "If this Pokemon is a Rotom, certain moves cause it to change forme.",
@@ -377,97 +457,46 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	cursedbody: {
-		onSourceModifyDamage(damage, source, target, move) {
-			if(this.effectState.cursed) return;
-			return this.chainModify(0.75);
+	spoky: {
+		name: "Spoky",
+		shortDesc: "This Pokemon's type effectiveness is reversed when attacking or getting attacked.",
+		onStart(target) {
+			this.add('-ability', target, 'Spoky');
 		},
-		onDamagingHit(damage, target, source, move) {
-			if (this.effectState.cursed || source.volatiles['disable']) return;
-			if (!move.isMax && !move.flags['futuremove'] && move.id !== 'struggle') {
-				this.effectState.cursed = true;
-				source.addVolatile('disable', this.effectState.target);
-			}
+		onEffectiveness(typeMod) {
+			return typeMod * -1;
 		},
-		onSwitchIn(pokemon) {
-			delete this.effectState.cursed;
+		onFoeEffectiveness(typeMod) {
+			return typeMod * -1;
 		},
-		name: "Cursed Body",
-		shortDesc: "When this Pokemon is damaged by an attack, it takes 75% damage and that attack is disabled. Once per switchin.",
 	},
-	magician: {
-		name: "Magician",
-		shortDesc: "This Pokemon heals 1/16 max HP while behind a Substitute.",
-		onStart(pokemon) {
-			const switchin = ['I am here!', 
-							'I have come!', 
-							'Merasmus has risen!', 
-							'Cower fools! Merasmus is here!', 
-							'Run fools! Run from Merasmus!', 
-							'Merasmus the Wizard has come for your souls!', 
-							'(evil laughter)', 
-							'(wicked laughter)', 
-							'(diabolical laughter)', 
-							'Soldier! Never anger a magician!', 
-							'Welcome. To your doom!', 
-							'DOOM! All of you are doomed!', 
-							'Enjoy Halloween mortals, for it will be your last!', 
-							'Merasmus arrives on a tide of blood! *sotto voce* Oh hello, Soldier.'];
-			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(switchin)}`);
-		},
-		onResidual(pokemon) {
-			if(pokemon.volatiles['substitute']) {
-				const sub = ['Must hide and heal.', 
-							'Must hide and heal.', 
-							'Must hide. Get stronger.', 
-							'Must hide. Must heal.', 
-							'Must hide. Must heal.', 
-							'Merasmus must hide.', 
-							'Merasmus must hide.', 
-							'No strength. Must hide.', 
-							'No! This cannot be the end! Must hide.', 
-							'Fools! I will come back stronger!', 
-							'Fools! Do you not know you deal with the master of hiding!', 
-							'Fools! Feel the terror of my hiding!', 
-							'You cannot kill me fools! For I am great at hiding!', 
-							'The hide-ening! It is here! Okay, need to find a hiding-spot.', 
-							'Time to play hide-and-seek...your doom!', 
-							'Must hide. Get stronger.', 
-							'You have bested my magic! But can you withstand the dark power...of HIDING!'];
-				this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(sub)}`);
-				this.heal(pokemon.baseMaxhp / 16, pokemon, pokemon);
+	undead: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Ghost'] = true;
 			}
 		},
-		onSwitchOut(pokemon) {
-			const switchout = ['Goodbye... Forever!', 
-								'Alright, I\'m leaving now.', 
-								'Alright, I\'m leaving now.', 
-								'Goodbye, everyone!', 
-								'Well, that was fun. Off I go!', 
-								'Alright, goodbye everyone!', 
-								'Enough! I leave.', 
-								'A-ha! Too slow! I leave!', 
-								'*Evil laugh* Goodbye, forever!', 
-								'*Evil laugh* Goodbye, forever! *sotto voce* I\'ll see you at home, Soldier.', 
-								'You have amused Merasmus, but now I must attend to other eldritch business. Farewell!', 
-								'*Evil laugh* I bid you, farewell!', 
-								'Farewell! Happy Halloween, everyone!', 
-								'I leave you... to your doom!'];
-			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(switchout)}`);
+		name: "Undead",
+		shortDesc: "This Pokemon can hit Normal-types with Ghost attacks.",
+	},
+	wonderguard: {
+		onTryHit(target, source, move) {
+			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
+			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
+			this.debug('Wonder Guard immunity: ' + move.id);
+			if (target.runEffectiveness(move) > 0) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-immune', target, '[from] ability: Wonder Guard');
+				}
+				return null;
+			}
 		},
-		onFaint(pokemon) {
-			const faint = ['Ach, no!', 
-						'You win. No, wait, it\'s a tie! Argh...',
-						'Aaah!', 
-						'Aaah!', 
-						'Oooh!', 
-						'Nyyaaagh! I hate you so much, Soldier!',
-						'You haven\'t heard the last of Merasmus the Magician!', 
-						'I die, I diieeee... bye Soldier.', 'I die! Soldier, you were the wooorst roommate!', 
-						'I die! I curse this land, for a hundred years!- No! A thousand! Thousand year-oh, I die!', 
-						'Noooo!', 
-						'Noooo!'];
-			this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName('Merasmus')}|${this.sample(faint)}`);
-		},
+		isBreakable: true,
+		name: "Wonder Guard",
+		shortDesc: "This Pokemon can only be hit by resisted attacks.",
 	},
 }
