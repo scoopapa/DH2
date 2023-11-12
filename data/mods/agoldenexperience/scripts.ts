@@ -1731,8 +1731,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'jolteon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'flareon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'porygon').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'omanyte').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'omastar').learnset.hiddenpower;
     delete this.modData('Learnsets', 'kabuto').learnset.hiddenpower;
     delete this.modData('Learnsets', 'kabutops').learnset.hiddenpower;
     delete this.modData('Learnsets', 'aerodactyl').learnset.hiddenpower;
