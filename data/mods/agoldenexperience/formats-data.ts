@@ -2742,8 +2742,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	scrafty: {
-		tier: "PU",
-		doublesTier: "DUU",
+		tier: "RU",
 	},
 	sigilyph: {
 		tier: "NUBL",
@@ -5270,6 +5269,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	sithbull: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	scrafree: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},

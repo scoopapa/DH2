@@ -3255,6 +3255,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
+	enragedtext: {
+		num: -59,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Enraged Text",
+		shortDesc: "Raises the user's Atk by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, sound: 1},
+		self: {
+			boosts: {
+				atk: 1,
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		contestType: "Clever",
+	},
 	defog: {
 		inherit: true,
 		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, wind: 1},

@@ -8662,4 +8662,13 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			spiritbreak: ["9L1"],
 		},
 	},
+	scrafree: {
+		learnset: {
+			enragedtext: ["9L1"],
+			boomburst: ["9L1"],
+			dragontail: ["9L1"],
+			tailslap: ["9L1"],
+			powerwhip: ["9L1"],
+		},
+	},
 };

@@ -1806,8 +1806,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	scrafty: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 90, def: 115, spa: 45, spd: 115, spe: 58},
 		abilities: {0: "Shed Skin", 1: "Moxie", H: "Disillusioned"},
+		evos: ["Scrafree"],
 	},
 	cofagrigus: {
 		inherit: true,
@@ -4225,5 +4225,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 123,
 		prevo: "Granbull",
 		eggGroups: ["Field", "Fairy"],
+	},
+	scrafree: {
+		num: 1001,
+		name: "Scrafree",
+		types: ["Dark", "Fighting"],
+		baseStats: {hp: 85, atk: 110, def: 90, spa: 80, spd: 90, spe: 83},
+		abilities: {0: "Unburden", 1: "Moxie", H: "Disillusioned"},
+		heightm: 1.5,
+		weightkg: 50,
+		prevo: "Scrafty",
+		eggGroups: ["Red"],
 	},
 }
