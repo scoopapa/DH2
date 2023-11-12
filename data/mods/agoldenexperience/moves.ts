@@ -1425,7 +1425,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Gravity", target);
+			this.add('-anim', source, "Psychic Terrain", target);
 		},
 		secondary: null,
 		target: "all",
@@ -3217,6 +3217,53 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Normal",
+	},
+	swarming: {
+		num: -57,
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Swarming",
+		shortDesc: "Lowers the user's and the target's SpD by one stage.",
+		desc: "Lowers the user's and the target's SpD by one stage.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spd: -1,
+			},
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Smart",
+	},
+	hardwareheat: {
+		num: -58,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Hardware Heat",
+		shortDesc: "Lowers the user's Speed by one stage.",
+		desc: "Lowers the user's Speed by one stage.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spe: -1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
 	},
 	//Gen 9
 	grassyglide: {

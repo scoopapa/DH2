@@ -143,6 +143,32 @@ export const Scripts: ModdedBattleScriptsData = {
 
     //    
 
+    // hardwareheat 
+    this.modData('Learnsets', 'magnezone').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'magearna').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'porygon').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'silvally').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'scizorgalar').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'genesect').learnset.hardwareheat = ['8L1'];
+
+    // swarming 
+    this.modData('Learnsets', 'mewtwo').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'baalzebutis').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'deoxys').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'genesect').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'silvally').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'porygon').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'snoxin').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'illumise').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'volbeat').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'magroach').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'scizorgalar').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'yanma').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'kricketune').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'annoyog').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'accelgor').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'parasect').learnset.swarming = ['8L1'];
+
     // underdog 
     this.modData('Learnsets', 'lillipup').learnset.underdog = ['9L1'];
     this.modData('Learnsets', 'herdier').learnset.underdog = ['9L1'];

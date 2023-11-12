@@ -603,7 +603,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	politoed: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 75, def: 100, spa: 100, spd: 100, spe: 60},
+		baseStats: {hp: 90, atk: 75, def: 90, spa: 100, spd: 100, spe: 60},
 	},
 	jumpluff: {
 		inherit: true,
@@ -3028,18 +3028,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 45, def: 125, spa: 130, spd: 60, spe: 95},
 		abilities: {0: "Light Metal", 1: "Clear Body", H: "Stalwart"},
 	},
-	/*zacian: {
-		inherit: true,
-		baseStats: {hp: 92, atk: 115, def: 115, spa: 115, spd: 115, spe: 118},
-	},
-	zaciancrowned: {
-		inherit: true,
-		baseStats: {hp: 92, atk: 145, def: 100, spa: 145, spd: 100, spe: 138},
-	},
-	zamazenta: {
-		inherit: true,
-		baseStats: {hp: 92, atk: 115, def: 115, spa: 115, spd: 115, spe: 118},
-	},*/
 	zacian: {
 		inherit: true,
 		abilities: {0: "Justified"},
