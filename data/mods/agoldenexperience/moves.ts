@@ -566,10 +566,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'frostbite',
 		condition: {
 			onStart(target) {
-				if(target.hasType('Fire') || target.hasType('Ice')) {
-					this.hint("Ice and Fire targets are immune to Frostbite.");
-					return;
-				}
 			  this.effectState.stage = 0;
 				this.add('-start', target, 'move: Frostbite');
 			},
@@ -588,6 +584,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.heal(damage, target, pokemon);
 				}
 			},
+		},
+		onTryImmunity(target) {
+			return (!target.hasType('Fire') && !target.hasType('Ice'));
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
@@ -977,6 +976,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		heal: [1, 2],
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bulk Up", target);
+		},
 		secondary: null,
 		target: "self",
 		type: "Fighting",
@@ -1135,6 +1138,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		boosts: {
 			spa: 1,
 			accuracy: 1,
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Calm Mind", target);
 		},
 		secondary: null,
 		target: "self",
@@ -1370,6 +1377,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					ally.cureStatus();
 				}
 			},
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dazzling Gleam", target);
 		},
 		shortDesc: "Heals the user's party's status conditions. Uses SpD instead of SpA.",
 		overrideOffensiveStat: 'spd',
@@ -1645,7 +1656,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 20,
 		category: "Special",
 		name: "Powder Snow",
-		pp: 25,
+		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
@@ -1690,23 +1701,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		}
 	},
 	lowsweep: {
-		num: 490,
-		accuracy: 100,
+		inherit: true,
 		basePower: 60,
-		category: "Physical",
-		name: "Low Sweep",
-		pp: 20,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			boosts: {
-				spe: -1,
-			},
-		},
-		target: "normal",
-		type: "Fighting",
-		contestType: "Clever",
 	},
 	powergem: {
 		num: 408,
@@ -2186,22 +2182,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	// 	type: "Grass",
 	// 	contestType: "Cool",
 	// },
-	chloroblast: {
-		num: 835,
-		accuracy: 95,
-		basePower: 150,
-		category: "Special",
-		name: "Chloroblast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		// Recoil implemented in battle-actions.ts
-		secondary: null,
-		target: "normal",
-		type: "Grass",
-	},
 	bittermalice: {
-		num: -1506,
+		num: 841,
 		accuracy: 100,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
@@ -2224,7 +2206,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	shelter: {
-		num: -1661,//change
+		num: 842,//change
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -2314,7 +2296,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "100% chance to +1 Speed; +2 crit ratio; -1 Def to target.",
 	},
 	wavecrash: {
-		num: -1710,
+		num: 834,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
@@ -2330,7 +2312,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	direclaw: {
-		num: -1398,
+		num: 827,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -3272,6 +3254,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Fire",
 		contestType: "Tough",
+	},
+	defog: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, wind: 1},
 	},
 	//Gen 9
 	grassyglide: {
