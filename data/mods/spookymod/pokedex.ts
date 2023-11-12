@@ -245,7 +245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Bloodmoon",
 		types: ["Ghost", "Normal", "Ground"],
 		baseStats: {hp: 113, atk: 100, def: 90, spa: 135, spd: 65, spe: 52},
-		abilities: {0: "Undead"},
+		abilities: {0: "Mind's Eye", H: "Undead"},
 	},
 	venomicon: {
 		num: 26,
@@ -542,7 +542,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Bloodmoon-Shrunken",
 		types: ["Ghost", "Normal", "Ground"],
 		baseStats: {hp: 113, atk: 50, def: 45, spa: 67, spd: 33, spe: 26},
-		abilities: {0: "Undead"},
+		abilities: {0: "Mind's Eye", H: "Undead"},
 		battleOnly: "Ursaluna",
 	},
 	venomiconshrunken: {

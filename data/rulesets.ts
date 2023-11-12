@@ -2385,7 +2385,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 			case 'lightthatburnsthesky':
 			case 'photongeyser': {
 				move.category = 'Special';
-				if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+				if (pokemon.getStat('atk', false, true) >= pokemon.getStat('spa', false, true)) move.category = 'Physical';
 				break;
 			}
 			case 'shellsidearm': {
@@ -2530,16 +2530,17 @@ export const Rulesets: {[k: string]: FormatData} = {
 						modded = true;
 					}
 				}
-				if (species.baseStats.hp !== baseSpecies.baseStats.hp) modded = true;
-				if (species.baseStats.atk !== baseSpecies.baseStats.atk) modded = true;
-				if (species.baseStats.def !== baseSpecies.baseStats.def) modded = true;
-				if (species.baseStats.spa !== baseSpecies.baseStats.spa) modded = true;
-				if (species.baseStats.spd !== baseSpecies.baseStats.spd) modded = true;
-				if (species.baseStats.spe !== baseSpecies.baseStats.spe) modded = true;
-				if (species.abilities[0] !== baseSpecies.abilities[0]) modded = true;
-				if (species.abilities[1] !== baseSpecies.abilities[1]) modded = true;
-				if (species.abilities['H'] !== baseSpecies.abilities['H']) modded = true;
-				if (species.abilities['S'] !== baseSpecies.abilities['S']) modded = true;
+				modded = modded ||
+				/*if*/ (species.baseStats.hp !== baseSpecies.baseStats.hp/*) modded = true;
+				if*/|| species.baseStats.atk !== baseSpecies.baseStats.atk/*) modded = true;
+				if*/|| species.baseStats.def !== baseSpecies.baseStats.def/*) modded = true;
+				if*/|| species.baseStats.spa !== baseSpecies.baseStats.spa/*) modded = true;
+				if*/|| species.baseStats.spd !== baseSpecies.baseStats.spd/*) modded = true;
+				if*/|| species.baseStats.spe !== baseSpecies.baseStats.spe/*) modded = true;
+				if*/|| species.abilities[0] !== baseSpecies.abilities[0]/*) modded = true;
+				if*/|| species.abilities[1] !== baseSpecies.abilities[1]/*) modded = true;
+				if*/|| species.abilities['H'] !== baseSpecies.abilities['H']/*) modded = true;
+				if*/|| species.abilities['S'] !== baseSpecies.abilities['S'])/* modded = true*/;
 				if (modded) {
 					pokemon.isModded = true;
 					// console.log(species.name + " is different from in canon");
