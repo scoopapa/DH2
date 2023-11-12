@@ -3240,6 +3240,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				spd: -1,
 			},
 		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bug Buzz", target);
+		},
 		target: "normal",
 		type: "Bug",
 		contestType: "Smart",
@@ -3259,6 +3263,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			boosts: {
 				spe: -1,
 			},
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Inferno", target);
 		},
 		secondary: null,
 		target: "normal",

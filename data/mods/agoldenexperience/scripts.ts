@@ -39,44 +39,46 @@ export const Scripts: ModdedBattleScriptsData = {
       }
       return item.megaStone;
     },
+
+    runSwitch(pokemon: Pokemon) {
+      this.battle.runEvent('Swap', pokemon);
+  
+      if (this.battle.gen >= 5) {
+        this.battle.runEvent('SwitchIn', pokemon);
+      }
+  
+      this.battle.runEvent('EntryHazard', pokemon);
+  
+      if (this.battle.gen <= 4) {
+        this.battle.runEvent('SwitchIn', pokemon);
+      }
+  
+      if (this.battle.gen <= 2) {
+        // pokemon.lastMove is reset for all Pokemon on the field after a switch. This affects Mirror Move.
+        for (const poke of this.battle.getAllActive()) poke.lastMove = null;
+        if (!pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.battle.turn) {
+          this.battle.runEvent('AfterSwitchInSelf', pokemon);
+        }
+      }
+      if (!pokemon.hp) return false;
+      pokemon.isStarted = true;
+      if (!pokemon.fainted) {
+        this.battle.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+        this.battle.singleEvent('Start', pokemon.getItem(), pokemon.itemState, pokemon);
+      }
+      if (this.battle.gen === 4) {
+        for (const foeActive of pokemon.foes()) {
+          foeActive.removeVolatile('substitutebroken');
+        }
+      }
+      this.battle.runEvent('HiveMind', pokemon); // making Hive Mind activate at the appropriate time
+      pokemon.addVolatile('indomitablespirit'); // yes this is a really ugly way to do this but it's better than a ruleset okay
+      pokemon.draggedIn = null;
+      return true;
+    },
   },
 
-  runSwitch(pokemon: Pokemon) {
-		this.battle.runEvent('Swap', pokemon);
-
-		if (this.battle.gen >= 5) {
-			this.battle.runEvent('SwitchIn', pokemon);
-		}
-
-		this.battle.runEvent('EntryHazard', pokemon);
-
-		if (this.battle.gen <= 4) {
-			this.battle.runEvent('SwitchIn', pokemon);
-		}
-
-		if (this.battle.gen <= 2) {
-			// pokemon.lastMove is reset for all Pokemon on the field after a switch. This affects Mirror Move.
-			for (const poke of this.battle.getAllActive()) poke.lastMove = null;
-			if (!pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.battle.turn) {
-				this.battle.runEvent('AfterSwitchInSelf', pokemon);
-			}
-		}
-		if (!pokemon.hp) return false;
-		pokemon.isStarted = true;
-		if (!pokemon.fainted) {
-			this.battle.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
-			this.battle.singleEvent('Start', pokemon.getItem(), pokemon.itemState, pokemon);
-		}
-		if (this.battle.gen === 4) {
-			for (const foeActive of pokemon.foes()) {
-				foeActive.removeVolatile('substitutebroken');
-			}
-		}
-    this.battle.runEvent('HiveMind', pokemon); // making Hive Mind activate at the appropriate time
-    pokemon.addVolatile('indomitablespirit'); // yes this is a really ugly way to do this but it's better than a ruleset okay
-		pokemon.draggedIn = null;
-		return true;
-	},
+ 
 
   init() {
 
