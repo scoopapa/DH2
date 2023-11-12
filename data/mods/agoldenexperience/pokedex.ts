@@ -3167,6 +3167,24 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Quark Drive", H: "Sand Stream"},
 	},
+	wochien: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 85, def: 135, spa: 95, spd: 100, spe: 70},
+		abilities: {0: "Leaf Dress"},
+	},
+	chienpao: {
+		inherit: true,
+		abilities: {0: "Sharpness"},
+	},
+	tinglu: {
+		inherit: true,
+		baseStats: {hp: 155, atk: 110, def: 80, spa: 55, spd: 125, spe: 45},
+		abilities: {0: "Sturdy"},
+	},
+	chiyu: {
+		inherit: true,
+		abilities: {0: "Magma Armor"},
+	},
 	roaringmoon: {
 		inherit: true,
 		abilities: {0: "Protosynthesis", H: "Anger Point"},
