@@ -2,6 +2,31 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	rotomfan: {
 		learnset: {
 			windbreaker: ["9L1"],
+			aircutter: ["9L1"],
+		},
+	},
+	rotomfrost: {
+		learnset: {
+			blizzard: ["9L1"],
+			freezedry: ["9L1"],
+		},
+	},
+	rotomheat: {
+		learnset: {
+			overheat: ["9L1"],
+			lavaplume: ["9L1"],
+		},
+	},
+	rotomwash: {
+		learnset: {
+			hydropump: ["9L1"],
+			washaway: ["9L1"],
+		},
+	},
+	rotommow: {
+		learnset: {
+			leafstorm: ["9L1"],
+			grassknot: ["9L1"],
 		},
 	},
 	magearnaoriginal: {

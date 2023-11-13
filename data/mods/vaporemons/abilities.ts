@@ -1382,6 +1382,118 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 28,
 		shortDesc: "If this Pokemon takes indirect damage, the opponent takes the same amount of damage.",
 	},
+	illusion: {
+		onBeforeSwitchIn(pokemon) {
+			pokemon.illusion = null;
+			// yes, you can Illusion an active pokemon but only if it's to your right
+			for (let i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				const possibleTarget = pokemon.side.pokemon[i];
+				if (!possibleTarget.fainted) {
+					// If Ogerpon is in the last slot while the Illusion Pokemon is Terastallized
+					// Illusion will not disguise as anything
+					if (!pokemon.terastallized || possibleTarget.species.baseSpecies !== 'Ogerpon') {
+						pokemon.illusion = possibleTarget;
+					}
+					break;
+				}
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.illusion) {
+				this.debug('Illusion weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (target.illusion) {
+				this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, source, move);
+			}
+		},
+		onEnd(pokemon) {
+			if (pokemon.illusion) {
+				this.debug('illusion cleared');
+				pokemon.illusion = null;
+				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
+					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				this.add('replace', pokemon, details);
+				this.add('-end', pokemon, 'Illusion');
+			}
+		},
+		onFaint(pokemon) {
+			pokemon.illusion = null;
+		},
+		name: "Illusion",
+		rating: 4.5,
+		num: 149,
+		shortDesc: "This Pokemon appears as the last Pokemon in the party until it takes direct damage, which is halved while disguised.",
+	},
+	steadfast: {
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.baseSpecies.bst < source.baseSpecies.bst) {
+				this.debug('Steadfast weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Steadfast",
+		rating: 4,
+		num: 80,
+		shortDesc: "This Pokemon takes 0.5x damage from higher BST foes and can't flinch.",
+	},
+	fairfight: {
+		name: "Fair Fight",
+		onStart(source) {
+			let activated = false;
+			for (const pokemon of source.foes()) {
+				if (!activated) {
+					this.add('-ability', source, 'Fair Fight');
+					this.add('-message', `${source.name}'s wants to have a fair fight!`);
+				}
+				activated = true;
+				if (!pokemon.volatiles['fairfight']) {
+					pokemon.addVolatile('fairfight');
+				}
+				if (!source.volatiles['fairfight']) {
+					source.addVolatile('fairfight');
+				}
+			}
+		},
+		onAnySwitchIn(pokemon) {
+			const source = this.effectState.target;
+			if (pokemon === source) return;
+			for (const target of source.foes()) {
+				if (!target.volatiles['fairfight']) {
+					target.addVolatile('fairfight');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			for (const target of pokemon.foes()) {
+				target.removeVolatile('fairfight');
+			}
+		},
+		condition: {
+			onTryBoost(boost, target, source, effect) {
+				if (effect.effectType === 'Move' && effect.infiltrates) return;
+				if (source) {
+					let showMsg = false;
+					let i: BoostID;
+					for (i in boost) {
+						if (boost[i]! < 0 || boost[i]! > 0) {
+							delete boost[i];
+							showMsg = true;
+						}
+					}
+					if (showMsg && !(effect as ActiveMove).secondaries) {
+						this.add('-activate', target, 'ability: Fair Fight');
+					}
+				}
+			},
+		},
+		shortDesc: "While this Pokemon is active, no stat changes can occur.",
+	},
 	
 // unchanged abilities
 	damp: {
