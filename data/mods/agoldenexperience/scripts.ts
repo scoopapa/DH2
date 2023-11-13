@@ -1077,6 +1077,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'lumineon').learnset.quiverdance = ['9L1'];
     this.modData('Learnsets', 'lumineon').learnset.tailglow = ['9L1'];
     this.modData('Learnsets', 'lumineon').learnset.airslash = ['9L1'];
+    this.modData('Learnsets', 'lumineon').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'lickilicky').learnset.sludgebomb = ['9L1'];
     this.modData('Learnsets', 'lickilicky').learnset.poisonjab = ['9L1'];
     this.modData('Learnsets', 'lickilicky').learnset.poisontail = ['9L1'];
@@ -1291,6 +1292,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'tapubulu').learnset.playrough = ['9L1'];
     this.modData('Learnsets', 'tapubulu').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'tapubulu').learnset.junglehealing = ['9L1'];
+    this.modData('Learnsets', 'tapubulu').learnset.grassyglide = ['9L1'];
     this.modData('Learnsets', 'solgaleo').learnset.swordsdance = ['9L1'];
     delete this.modData('Learnsets', 'pheromosa').learnset.drillrun;
     delete this.modData('Learnsets', 'pheromosa').learnset.tripleaxel;
@@ -1299,6 +1301,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'guzzlord').learnset.partingshot = ['9L1'];
     this.modData('Learnsets', 'guzzlord').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'guzzlord').learnset.spikes = ['9L1'];
+    this.modData('Learnsets', 'guzzlord').learnset.boomburst = ['9L1'];
     this.modData('Learnsets', 'necrozma').learnset.focusblast = ['9L1'];
     delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
     delete this.modData('Learnsets', 'magearna').learnset.storedpower;
