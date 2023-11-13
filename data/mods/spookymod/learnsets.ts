@@ -1113,6 +1113,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rocksmash: ["9L1"],
 			frustration: ["9L1"],
 			slackoff: ["9L1"],
+			lashout: ["9L1"],
 			return: ["9L1"],
 			sleeptalk: ["9L1"],
 			substitute: ["9L1"],
@@ -1267,6 +1268,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			foulplay: ["9M", "9M"],
 			taunt: ["9M", "9M"],
 			partingshot: ["9M", "9M"],
+			expandingforce: ["9L1"],
 		},
 	},
 	necturna: {
