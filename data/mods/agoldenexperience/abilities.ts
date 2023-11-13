@@ -2042,32 +2042,32 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 0,
 		num: 161,
 	},
-	transistor: {
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Electric') {
-				this.debug('Transistor boost');
-				return this.chainModify(1.2);
-			}
-		},
-		onModifySpAPriority: 5,
-		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Electric') {
-				this.debug('Transistor boost');
-				return this.chainModify(1.2);
-			}
-		},
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Electric') {
-				this.add('-immune', target, '[from] ability: Transistor');
-				return null;
-			}
-		},
-		name: "Transistor",
-		shortDesc: "This Pokemon gets x1.2 in its attacking stat when using an Electric move. Immune to Electric type moves.",
-		rating: 3.5,
-		num: 262,
-	},
+	// transistor: {
+	// 	onModifyAtkPriority: 5,
+	// 	onModifyAtk(atk, attacker, defender, move) {
+	// 		if (move.type === 'Electric') {
+	// 			this.debug('Transistor boost');
+	// 			return this.chainModify(1.2);
+	// 		}
+	// 	},
+	// 	onModifySpAPriority: 5,
+	// 	onModifySpA(atk, attacker, defender, move) {
+	// 		if (move.type === 'Electric') {
+	// 			this.debug('Transistor boost');
+	// 			return this.chainModify(1.2);
+	// 		}
+	// 	},
+	// 	onTryHit(target, source, move) {
+	// 		if (target !== source && move.type === 'Electric') {
+	// 			this.add('-immune', target, '[from] ability: Transistor');
+	// 			return null;
+	// 		}
+	// 	},
+	// 	name: "Transistor",
+	// 	shortDesc: "This Pokemon gets x1.2 in its attacking stat when using an Electric move. Immune to Electric type moves.",
+	// 	rating: 3.5,
+	// 	num: 262,
+	// },
 	dragonsmaw: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
