@@ -1690,7 +1690,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gigalith: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 60, def: 130, spa: 135, spd: 80, spe: 25},
-		abilities: {0: "Sturdy", 1: "Weak Armor", H: "Solar Power"},
+		abilities: {0: "Sturdy", 1: "Sand Stream", H: "Solar Power"},
 	},
 	swoobat: {
 		inherit: true,

@@ -2972,13 +2972,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	oniwind: {
+	tenguwind: {
 		num: -53,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
 		shortDesc: "Sets Tailwind.",
-		name: "Oni Wind",
+		name: "Tengu Wind",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, wind: 1, mirror: 1},
