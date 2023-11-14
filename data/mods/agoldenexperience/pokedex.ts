@@ -3133,6 +3133,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	fluttermane: {
 		inherit: true,
+		types: ["Ghost", "Flying"],
 		abilities: {0: "Protosynthesis", H: "Levitate"},
 	},
 	slitherwing: {
