@@ -103,6 +103,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'tinkaton').learnset.fissure = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
+    this.modData('Learnsets', 'ironvaliant').learnset.sacredsword = ['9L1'];
+    this.modData('Learnsets', 'ironvaliant').learnset.airslash = ['9L1'];
     this.modData('Learnsets', 'wochien').learnset.synthesis = ['9L1'];
     this.modData('Learnsets', 'fezandipiti').learnset.defog = ['9L1'];
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
