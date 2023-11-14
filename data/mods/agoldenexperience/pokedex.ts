@@ -603,7 +603,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	politoed: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 75, def: 100, spa: 100, spd: 100, spe: 60},
+		baseStats: {hp: 90, atk: 75, def: 90, spa: 100, spd: 100, spe: 60},
 	},
 	jumpluff: {
 		inherit: true,
@@ -1806,8 +1806,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	scrafty: {
 		inherit: true,
-		baseStats: {hp: 75, atk: 90, def: 115, spa: 45, spd: 115, spe: 58},
 		abilities: {0: "Shed Skin", 1: "Moxie", H: "Disillusioned"},
+		evos: ["Scrafree"],
 	},
 	cofagrigus: {
 		inherit: true,
@@ -3028,18 +3028,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 45, def: 125, spa: 130, spd: 60, spe: 95},
 		abilities: {0: "Light Metal", 1: "Clear Body", H: "Stalwart"},
 	},
-	/*zacian: {
-		inherit: true,
-		baseStats: {hp: 92, atk: 115, def: 115, spa: 115, spd: 115, spe: 118},
-	},
-	zaciancrowned: {
-		inherit: true,
-		baseStats: {hp: 92, atk: 145, def: 100, spa: 145, spd: 100, spe: 138},
-	},
-	zamazenta: {
-		inherit: true,
-		baseStats: {hp: 92, atk: 115, def: 115, spa: 115, spd: 115, spe: 118},
-	},*/
 	zacian: {
 		inherit: true,
 		abilities: {0: "Justified"},
@@ -3178,6 +3166,24 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ironthorns: {
 		inherit: true,
 		abilities: {0: "Quark Drive", H: "Sand Stream"},
+	},
+	wochien: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 85, def: 135, spa: 95, spd: 100, spe: 70},
+		abilities: {0: "Leaf Dress"},
+	},
+	chienpao: {
+		inherit: true,
+		abilities: {0: "Sharpness"},
+	},
+	tinglu: {
+		inherit: true,
+		baseStats: {hp: 155, atk: 110, def: 80, spa: 55, spd: 125, spe: 45},
+		abilities: {0: "Sturdy"},
+	},
+	chiyu: {
+		inherit: true,
+		abilities: {0: "Magma Armor"},
 	},
 	roaringmoon: {
 		inherit: true,
@@ -4219,5 +4225,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 123,
 		prevo: "Granbull",
 		eggGroups: ["Field", "Fairy"],
+	},
+	scrafree: {
+		num: 1001,
+		name: "Scrafree",
+		types: ["Dark", "Fighting"],
+		baseStats: {hp: 85, atk: 110, def: 90, spa: 80, spd: 90, spe: 83},
+		abilities: {0: "Unburden", 1: "Moxie", H: "Disillusioned"},
+		heightm: 1.5,
+		weightkg: 50,
+		prevo: "Scrafty",
+		eggGroups: ["Red"],
 	},
 }

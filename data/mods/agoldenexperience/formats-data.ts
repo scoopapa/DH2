@@ -397,7 +397,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DUU",
 	},
 	arcaninehisui: {
-		tier: "UUBL",
+		tier: "UU",
 		doublesTier: "DUU",
 	},
 	poliwag: {
@@ -2742,8 +2742,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	scrafty: {
-		tier: "PU",
-		doublesTier: "DUU",
+		tier: "RU",
 	},
 	sigilyph: {
 		tier: "NUBL",
@@ -4820,9 +4819,9 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		natDexTier: "OU",
 	},
 	chienpao: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 	wochien: {
 		tier: "RU",
@@ -4830,9 +4829,9 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		natDexTier: "RU",
 	},
 	chiyu: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
-		natDexTier: "Uber",
+		natDexTier: "OU",
 	},
 	koraidon: {
 		tier: "Uber",
@@ -5270,6 +5269,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	sithbull: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	scrafree: {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
