@@ -682,8 +682,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		rating: 2,
-		desc: "This Pokemon does not take recoil damage besides Struggle and crash damage. Evolves Rhydon into Rhyperior when traded.",
-		shortDesc: "This Pokemon does not take recoil damage besides Struggle/crash damage.",
+		desc: "This Pokemon does not take recoil damage from regular moves such as Take Down. Struggle, crash damage, and moves that cost HP upon use such as Steel Beam will still apply. Evolves Rhydon into Rhyperior when traded.",
+		shortDesc: "This Pokemon does not take standard recoil damage.",
 	},
 	quickpowder: {
 		name: "Quick Powder",
@@ -1203,6 +1203,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				source.addVolatile('gem');
 			}
 		},
+		desc: "Holder's first Flying-type attack will have 1.3x power. Single use.",
 	},
 	ghostgem: {
 		inherit: true,
@@ -2363,6 +2364,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	berryjuice: {
 		inherit: true,
 		consumable: true,
+		rating: 1,
 	},
 	ejectbutton: {
 		inherit: true,

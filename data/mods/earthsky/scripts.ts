@@ -14,9 +14,10 @@ export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		excludeStandardTiers: true,
 		customTiers: ['ES', 'Uber', 'OU', 'NFE', 'LC'],
-		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet | null): boolean {
+		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet, dex: ModdedDex): boolean {
 			let abilityid: ID = set ? toID(set.ability) : '' as ID;
 			const itemid: ID = set ? toID(set.item) : '' as ID;
+			const formatType = (dex.modid.indexOf("triples") > 0) ? 'triples' : 'singles'; //Doubles isn't a current format, won't bother right now
 
 			if (itemid === 'pidgeotite') abilityid = 'noguard' as ID;
 			if (itemid === 'blastoisinite' || itemid === 'magmortarite') abilityid = 'megalauncher' as ID;
@@ -25,6 +26,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (itemid === 'aerodactylite' || itemid === 'charizardmegax') abilityid = 'toughclaws' as ID;
 			if (itemid === 'glalitite') abilityid = 'refrigerate' as ID;
 			if (itemid === 'galladite') abilityid = 'sharpness' as ID;
+			if (itemid === 'sharpedonite') abilityid = 'strongjaw' as ID;
+			
+			if (species.baseSpecies === "Unown") {
+				if(id.startsWith('hiddenpower')) return id === (species.forme ? 'hiddenpowerpsychic' : 'hiddenpower');
+				else return ["G", "P", "Q"].includes(species.forme); //Stored Power
+			}
 
 			switch (id) {
 			case 'aquastep': case 'chargebeam': case 'fierydance': case 'flamecharge': case 'nuzzle': case 'poweruppunch': case 'torchsong':
@@ -61,19 +68,21 @@ export const Scripts: ModdedBattleScriptsData = {
 			case 'flowershield':
 				return abilityid === 'grassysurge';
 			case 'hiddenpowerelectric':
-				return !moves.includes('thunderbolt');
+				return !(moves.includes('thunderbolt') || moves.includes('discharge'));
 			case 'hiddenpowerfighting':
 				return !(moves.includes('aurasphere') || moves.includes('focusblast'));
 			case 'hiddenpowerfire':
-				return !(moves.includes('flamethrower') || moves.includes('mysticalfire'));
+				return !(moves.includes('flamethrower') || moves.includes('heatwave') || moves.includes('lavaplume') || moves.includes('mysticalfire'));
 			case 'hiddenpowergrass':
 				return !(moves.includes('energyball') || moves.includes('grassknot') || moves.includes('gigadrain'));
 			case 'hiddenpowerice':
 				return !(moves.includes('icebeam') || moves.includes('aurorabeam') || moves.includes('glaciate'));
+			case 'hiddenpowerground':
+				return !moves.includes('earthpower');
 			case 'hypnosis':
 				return ['baddreams', 'compoundeyes', 'insomnia'].includes(abilityid);
-			case 'icepunch':
-				return ['sheerforce', 'ironfist'].includes(abilityid);
+			case 'ironhead':
+				return !moves.includes('metaledge');
 			case 'irontail':
 				return abilityid === 'supermassive' || species.types.includes('Steel') || !(moves.includes('ironhead') || moves.includes('gunkshot') || moves.includes('poisonjab'));
 			case 'jumpkick':
@@ -83,21 +92,29 @@ export const Scripts: ModdedBattleScriptsData = {
 			case 'outrage':
 				return abilityid === 'owntempo';
 			case 'phantomforce':
-				return !(moves.includes('shadowforce') || moves.includes('poltergeist') || moves.includes('shadowclaw')) || this.formatType !== 'singles';
+				return !(moves.includes('shadowforce') || moves.includes('poltergeist') || moves.includes('shadowclaw')) || formatType !== 'singles';
 			case 'poisonfang':
 				return species.types.includes('Poison') && !(moves.includes('gunkshot') || moves.includes('poisonjab'));
+			case 'psychocut':
+				return abilityid === 'sharpness' || !moves.includes('zenheadbutt');
 			case 'shadowpunch':
 				return abilityid === 'ironfist';
 			case 'smackdown':
 				return abilityid === 'technician' || species.types.includes('Ground');
+			case 'submission':
+				return ['reckless', 'rockhead'].includes(abilityid) || itemid === 'protector' || !(moves.includes('closecombat') || moves.includes('highjumpkick') || moves.includes('jumpkick'));
+			case 'superpower':
+				return !(moves.includes('closecombat') || moves.includes('highjumpkick') || moves.includes('jumpkick'));
+			case 'swing':
+				return abilityid === 'bludgeon' && !(itemid === '' || dex.items.get(itemid)?.consumable);
 			case 'tantrum':
-				return !(moves.includes('earthquake') || moves.includes('drillrun') || moves.includes('highhorsepower')) || this.formatType !== 'singles';
+				return !(moves.includes('earthquake') || moves.includes('drillrun') || moves.includes('highhorsepower')) || formatType !== 'singles';
 			}
 
-			if (this.formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
+			if (formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
 				return true;
 			}
-			const moveData = BattleMovedex[id];
+			const moveData = dex.moves.get(id);
 			if (!moveData) return true;
 			if (moveData.category === 'Status') {
 				return this.GOOD_STATUS_MOVES.includes(id);
@@ -112,7 +129,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				return true;
 			}
 			if (moveData.flags?.bludg && abilityid === 'bludgeon' && id !== 'bash') {
-				if(id === 'swing' && set?.item.consumable) return false;
 				return true;
 			}
 			if (moveData.flags?.bite && abilityid === 'strongjaw' && id !== 'bite') {
@@ -133,7 +149,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			'accelerock', 'ambush', 'aquacutter', 'aquajet', 'avalanche', 'bind', 'boltbeak', 'bonemerang', 'bulletpunch', 'circlethrow', 'clamp', 'clearsmog', 'crushgrip', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'equalizer', 'facade', 'firefang', 'fishiousrend', 'flowertrap', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'iciclespear', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalstrike', 'naturesmadness', 'nightshade', 'nuzzle', 'pelletshot', 'populationbomb', 'psychocut', 'pursuit', 'quickattack', 'rapidspin', 'rockblast', 'ruination', 'saltcure', 'secretpower', 'seismictoss', 'shadowclaw', 'shadowsneak', 'skydrop', 'snaptrap', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailhead', 'uturn', 'vengefulspirit', 'voltswitch', 'watershuriken', 'weatherball',
 		],
 		BAD_STRONG_MOVES: [
-			'belch', 'burnup', 'crushclaw', 'dragonrush', 'dreameater', 'eggbomb', 'falsesurrender', 'flyingpress', 'hyperbeam', 'hyperfang', 'hyperspacehole', 'jawlock', 'landswrath', 'megakick', 'megapunch', 'muddywater', 'nightdaze', 'pollenpuff', 'selfdestruct', 'shelltrap', 'slam', 'smartstrike', 'submission', 'synchronoise', 'takedown', 'thrash', 'uproar', 'vitalthrow',
+			'belch', 'burnup', 'completeshock', 'crushclaw', 'dreameater', 'eggbomb', 'falsesurrender', 'flyingpress', 'hyperfang', 'hyperspacehole', 'jawlock', 'landswrath', 'megapunch', 'muddywater', 'pollenpuff', 'selfdestruct', 'shelltrap', 'slam', 'smartstrike', 'synchronoise', 'takedown', 'thrash', 'uproar', 'vitalthrow',
 		],
 		GOOD_DOUBLES_MOVES: [
 			'allyswitch', 'barbbarrage', 'bulldoze', 'electroweb', 'faketears', 'fling', 'followme', 'helpinghand', 'junglehealing', 'lifedew', 'muddywater', 'pollenpuff', 'psychup', 'ragepowder', 'safeguard', 'skillswap', 'snarl', 'snipeshot', 'wideguard',
@@ -571,6 +587,19 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.setStatus('');
 			return true;
 		},
+		clearStatus() {
+			if (!this.hp || !this.status) return false;
+			const result: boolean = this.battle.runEvent('RemoveStatus', this, null, null, this.status);
+			if (!result) {
+				this.battle.debug('cure status [' + status.id + '] interrupted');
+				return result;
+			}
+			if (this.status === 'slp' && this.removeVolatile('nightmare')) {
+				this.battle.add('-end', this, 'Nightmare', '[silent]');
+			}
+			this.setStatus('');
+			return true;
+		},
 		trySetStatus( //Actually uses ignoreImmunities option for Corrosion and Mycelium Might on moves.
 		  status: string | Condition, source: Pokemon | null = null, sourceEffect: Effect | null = null) {
 			/*status = this.battle.dex.conditions.get(status); //I would like to clean this up if the cases I'm preparing for with this code don't actually exist
@@ -588,10 +617,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			return this.setStatus(this.status || status, source, sourceEffect, ignoreImmunities);
 		},
 		setStatus( //Simplifies immunity check per above, which also means Corrosion doesn't affect Toxic Orb on self.
-			status: Condition,
+			status: string | Condition,
 			source: Pokemon | null = null,
 			sourceEffect: Effect | null = null,
-			ignoreImmunities: boolean = false
+			ignoreImmunities: boolean = false,
 		) {
 			if (!this.hp) return false;
 			status = this.battle.dex.conditions.get(status);
@@ -621,7 +650,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			}
 			const prevStatus = this.status;
-			const prevStatusData = this.statusData;
+			const prevStatusState = this.statusState;
 			if (status.id) {
 				const result: boolean = this.battle.runEvent('SetStatus', this, source, sourceEffect, status);
 				if (!result) {
@@ -631,18 +660,18 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			this.status = status.id;
-			this.statusData = {id: status.id, target: this};
-			if (source) this.statusData.source = source;
-			if (status.duration) this.statusData.duration = status.duration;
+			this.statusState = {id: status.id, target: this};
+			if (source) this.statusState.source = source;
+			if (status.duration) this.statusState.duration = status.duration;
 			if (status.durationCallback) {
-				this.statusData.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
+				this.statusState.duration = status.durationCallback.call(this.battle, this, source, sourceEffect);
 			}
 
-			if (status.id && !this.battle.singleEvent('Start', status, this.statusData, this, source, sourceEffect)) {
-				console.log('status start [' + status.id + '] interrupted');
+			if (status.id && !this.battle.singleEvent('Start', status, this.statusState, this, source, sourceEffect)) {
+				this.battle.debug('status start [' + status.id + '] interrupted');
 				// cancel the setstatus
 				this.status = prevStatus;
-				this.statusData = prevStatusData;
+				this.statusState = prevStatusState;
 				return false;
 			}
 			if (status.id && !this.battle.runEvent('AfterSetStatus', this, source, sourceEffect, status)) {
@@ -1394,20 +1423,24 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (eventid !== 'Start' && eventid !== 'TakeItem' && eventid !== 'Primal' &&
 				effect.effectType === 'Item' && (target instanceof Pokemon) && target.ignoringItem()) {
-				this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
+				this.debug(eventid + ' handler suppressed by Klutz or Magic Room');
 				return relayVar;
 			}
 			if (eventid !== 'End' && effect.effectType === 'Ability' && (target instanceof Pokemon) && target.ignoringAbility()) {
 				this.debug(eventid + ' handler suppressed by Gastro Acid or Neutralizing Gas');
 				return relayVar;
 			}
-			if (effect.effectType === 'Weather' && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
-			eventid !== 'FieldEnd' && this.field.suppressingWeather()) {
+			if (
+				effect.effectType === 'Weather' && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
+				eventid !== 'FieldEnd' && this.field.suppressingWeather()
+			) {
 				this.debug(eventid + ' handler suppressed by Cloud Nine or Midnight');
 				return relayVar;
 			}
-			if ((effect.effectType === 'Terrain' || eventid === 'Terrain') && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
-			eventid !== 'FieldEnd' && this.field.suppressingTerrain()) {
+			if (
+				(effect.effectType === 'Terrain' || eventid === 'Terrain') && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
+				eventid !== 'FieldEnd' && this.field.suppressingTerrain()
+			) {
 				this.debug(eventid + ' handler suppressed by Climate Break or Midnight');
 				return relayVar;
 			}
@@ -1561,7 +1594,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (eventid !== 'Start' && eventid !== 'SwitchIn' && eventid !== 'TakeItem' &&
 					effect.effectType === 'Item' && (effectHolder instanceof Pokemon) && effectHolder.ignoringItem()) {
 					if (eventid !== 'Update') {
-						this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
+						this.debug(eventid + ' handler suppressed by Klutz or Magic Room');
 					}
 					continue;
 				} else if (eventid !== 'End' && effect.effectType === 'Ability' &&
@@ -1571,16 +1604,16 @@ export const Scripts: ModdedBattleScriptsData = {
 					}
 					continue;
 				}
-				if ((effect.effectType === 'Weather' || eventid === 'Weather') && eventid !== 'FieldStart'
-					&& eventid !== 'FieldResidual' && eventid !== 'FieldEnd' && this.field.suppressingWeather()) {
-					this.debug(eventid + ' handler suppressed by Air Lock or Midnight');
+				if ((effect.effectType === 'Weather' || eventid === 'Weather') &&
+					eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingWeather()) {
+					this.debug(eventid + ' handler suppressed by Cloud Nine or Midnight');
 					continue;
 				}
-				if ((effect.effectType === 'Terrain' || eventid === 'Terrain') && eventid !== 'FieldStart'
-					&& eventid !== 'FieldResidual' && eventid !== 'FieldEnd' && this.field.suppressingTerrain()) {
+				if ((effect.effectType === 'Terrain' || eventid === 'Terrain') &&
+					eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingTerrain()) {
 					this.debug(eventid + ' handler suppressed by Climate Break or Midnight');
 					continue;
-					}
+				}
 				let returnVal;
 				if (typeof handler.callback === 'function') {
 					const parentEffect = this.effect;
@@ -1629,7 +1662,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			let handlers = this.findBattleEventHandlers(callbackName, 'duration');
 			handlers = handlers.concat(this.findFieldEventHandlers(this.field, `onField${eventid}`, 'duration'));
 			for (const side of this.sides) {
-				handlers = handlers.concat(this.findSideEventHandlers(side, `onSide${eventid}`, 'duration'));
+				if (side.n < 2 || !side.allySide) {
+					handlers = handlers.concat(this.findSideEventHandlers(side, `onSide${eventid}`, 'duration'));
+				}
 				for (const active of side.active) {
 					if (!active) continue;
 					if(active.volatiles['stasis']){
@@ -1647,7 +1682,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				const effect = handler.effect;
 				const pokemon = (handler.effectHolder as Pokemon);
 				if (pokemon.fainted) continue;
-				if (handler.state && handler.state.duration) {
+				if (handler.end && handler.state && handler.state.duration) {
 					if(stasisMons.includes(pokemon)){
 						if(pokemon.volatiles['stasis']?.affectedStatuses.includes(effect.id)){
 							continue;
@@ -1656,7 +1691,8 @@ export const Scripts: ModdedBattleScriptsData = {
 					handler.state.duration--;
 					if (!handler.state.duration) {
 						const endCallArgs = handler.endCallArgs || [handler.effectHolder, effect.id];
-						handler.end!.call(...endCallArgs as [any, ...any[]]);
+						handler.end.call(...endCallArgs as [any, ...any[]]);
+						if (this.ended) return;
 						continue;
 					}
 				}
@@ -1667,6 +1703,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (handler.callback) {
 					this.singleEvent(handlerEventid, effect, handler.state, handler.effectHolder, null, null, relayVar, handler.callback);
 				}
+
 				this.faintMessages();
 				if (this.ended) return;
 			}
@@ -2546,7 +2583,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			"climatebreak", "escapeplan", "escapeplan", "induction", "induction", "alchemy", "poweraura", "majesty", "snowplow", "tangling",
 		];
 		const deletedMoves = [
-			"appleacid", "bittermalice", "bleakwindstorm", "burningjealousy", "ceaselessedge", "chillyreception", "coaching", "comeuppance", "corrosivegas", "decorate", "doodle", "dualwingbeat", "esperwing", "expandingforce", "fierywrath", "flipturn", "gearup", "grassyglide", "gravapple", "hydrosteam", "hyperdrill", "icespinner", "infernalparade", "kinesis", "kowtowcleave", "luminacrash", "makeitrain", "matchagotcha", "mistyexplosion", "mortalspin", "mountaingale", "mysticalpower", "risingvoltage", "sandsearstorm", "scaleshot", "scorchingsands", "shadowstrike", "shellsidearm", "skittersmack", "springtidestorm", "steelroller", "syrupbomb", "takeheart", "terablast", "terrainpulse", "thunderouskick", "tidyup", "triplearrows", "tripleaxel", "tripledive", "twinbeam", "wildboltstorm"
+			"appleacid", "bittermalice", "bleakwindstorm", "burningjealousy", "ceaselessedge", "chillyreception", "coaching", "comeuppance", "corrosivegas", "decorate", "doodle", "dualwingbeat", "esperwing", "expandingforce", "fierywrath", "flipturn", "gearup", "grassyglide", "gravapple", "hydrosteam", "hyperdrill", "icespinner", "infernalparade", "kinesis", "kowtowcleave", "luminacrash", "makeitrain", "matchagotcha", "mistyexplosion", "mortalspin", "mountaingale", "mysticalpower", "ragingfury", "risingvoltage", "sandsearstorm", "scaleshot", "scorchingsands", "shadowstrike", "shellsidearm", "skittersmack", "springtidestorm", "steelroller", "syrupbomb", "takeheart", "terablast", "terrainpulse", "thunderouskick", "tidyup", "triplearrows", "tripleaxel", "tripledive", "twinbeam", "wildboltstorm"
 		];
 		/*const addedMachines = [ //Machines added in Gen VIII or IX and retained in Earth & Sky - currently not needed in the algorithm, but it's a long list so I don't want to delete it
 			"amnesia", "assurance", "avalanche", "brine", "charm", "chillingwater", "eerieimpulse", "electricterrain", "electroball", "encore", "faketears", "futuresight", "grassyterrain", "hex", "hurricane", "hydropump", "mistyterrain", "nastyplot", "phantomforce", "powergem", "psychicterrain", "screech", "trailblaze", "whirlpool"

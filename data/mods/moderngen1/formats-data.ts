@@ -3765,6 +3765,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 		tier: "UU",
 	},
+	vivillonfancy: {
+		inherit: true,
+		gen: 1,
+		tier: "UU",
+	},
+	vivillonpokeball: {
+		inherit: true,
+		gen: 1,
+		tier: "UU",
+	},
 	litleo: {
 		inherit: true,
 		gen: 1,
@@ -4088,7 +4098,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zygardecomplete: {
 		inherit: true,
 		gen: 1,
-		tier: "UU",
+		tier: "Illegal",
 	},
 	diancie: {
 		inherit: true,
@@ -4663,7 +4673,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	naganadel: {
 		inherit: true,
 		gen: 1,
-		tier: "UU",
+		tier: "Uber",
 	},
 	stakataka: {
 		inherit: true,
@@ -4875,6 +4885,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 		tier: "UU",
 	},
+	cramorantgorging: {
+		inherit: true,
+		gen: 1,
+		tier: "Illegal",
+	},
+	cramorantgulping: {
+		inherit: true,
+		gen: 1,
+		tier: "Illegal",
+	},
 	arrokuda: {
 		inherit: true,
 		gen: 1,
@@ -4891,6 +4911,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	toxtricity: {
+		inherit: true,
+		gen: 1,
+		tier: "UU",
+	},
+	toxtricitylowkey: {
 		inherit: true,
 		gen: 1,
 		tier: "UU",
@@ -5014,6 +5039,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		inherit: true,
 		gen: 1,
 		tier: "UU",
+	},
+	morpekohangry: {
+		inherit: true,
+		gen: 1,
+		tier: "Illegal",
 	},
 	cufant: {
 		inherit: true,
