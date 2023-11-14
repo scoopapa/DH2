@@ -97,7 +97,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		name: "Yuckduck",
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 40, atk: 56, def: 20, spa: 30, spd: 33, spe: 66},
-		abilities: {0: "Vital Spirit", H: "Rain Dish"},
+		abilities: {0: "Vital Spirit", 1: "Rain Dish"},
 		weightkg: 10,
 		evos: ["Swanger"],
 		eggGroups: ["Flying", "Field"],
@@ -107,7 +107,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		name: "Swanger",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 50, atk: 71, def: 40, spa: 40, spd: 53, spe: 86},
-		abilities: {0: "Vital Spirit", H: "Rain Dish"},
+		abilities: {0: "Vital Spirit", 1: "Rain Dish"},
 		weightkg: 21,
 		prevo: "Yuckduck",
 		evos: ["Aggreswan"],
@@ -118,7 +118,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		name: "Aggreswan",
 		types: ["Water", "Flying"],
 		baseStats: {hp: 70, atk: 101, def: 60, spa: 70, spd: 73, spe: 111},
-		abilities: {0: "Vital Spirit", H: "Water Veil"},
+		abilities: {0: "Vital Spirit", 1: "Water Veil"},
 		weightkg: 51,
 		prevo: "Swanger",
 		eggGroups: ["Flying", "Field"],
@@ -128,7 +128,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		name: "Capybaby",
 		types: ["Normal"],
 		baseStats: {hp: 80, atk: 31, def: 72, spa: 50, spd: 47, spe: 25},
-		abilities: {0: "Natural Cure", H: "Oblivious"},
+		abilities: {0: "Natural Cure", 1: "Oblivious"},
 		weightkg: 60,
 		evos: ["Capyblue"],
 		eggGroups: ["Field"],
@@ -138,7 +138,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		name: "Capyblue",
 		types: ["Normal", "Water"],
 		baseStats: {hp: 110, atk: 51, def: 102, spa: 80, spd: 67, spe: 30},
-		abilities: {0: "Natural Cure", H: "Water Veil"},
+		abilities: {0: "Natural Cure", 1: "Water Veil"},
 		weightkg: 60,
 		prevo: "Capybaby",
 		eggGroups: ["Field"],
@@ -148,7 +148,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		name: "Kotora",
 		types: ["Electric"],
 		baseStats: {hp: 45, atk: 52, def: 42, spa: 48, spd: 41, spe: 50},
-		abilities: {0: "Static", H: "Run Away"},
+		abilities: {0: "Static", 1: "Run Away"},
 		weightkg: 15,
 		evos: ["Raitora"],
 		eggGroups: ["Field"],
@@ -158,7 +158,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		name: "Raitora",
 		types: ["Electric"],
 		baseStats: {hp: 60, atk: 82, def: 72, spa: 63, spd: 56, spe: 65},
-		abilities: {0: "Static", H: "Intimidate"},
+		abilities: {0: "Static", 1: "Intimidate"},
 		weightkg: 34,
 		prevo: "Kotora",
 		evos: ["Gorotora"],
@@ -169,7 +169,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		name: "Gorotora",
 		types: ["Electric"],
 		baseStats: {hp: 100, atk: 107, def: 82, spa: 87, spd: 76, spe: 70},
-		abilities: {0: "Static", H: "Intimidate"},
+		abilities: {0: "Static", 1: "Intimidate"},
 		weightkg: 69,
 		prevo: "Raitora",
 		eggGroups: ["Field"],
@@ -259,7 +259,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		evos: ["Similash"],
 	},
-	similash: {
+	similas1: {
 		num: -23,
 		name: "Similash",
 		types: ["Normal", "Fighting"],
@@ -362,11 +362,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Compound Eyes", 1: "Overcoat"},
 	},
-	venomoth: {
+	venomot1: {
 		inherit: true,
 		abilities: {0: "Shield Dust", 1: "Overcoat"},
 	},
-	meowth: {
+	meowt1: {
 		inherit: true,
 		abilities: { 0: "Pickup"},
 	},
@@ -492,7 +492,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 	},
 	flaaffy: {
 		inherit: true,
-		abilities: {0: "Static", H: "Fluffy"},
+		abilities: {0: "Static", 1: "Fluffy"},
 	},
 	politoed: {
 		inherit: true,
@@ -618,7 +618,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Precipitate"},
 	},
-	shroomish: {
+	shroomis1: {
 		inherit: true,
 		abilities: { 0: "Effect Spore" },
 	},
@@ -678,11 +678,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Levitate", 1: "Sunshine"},
 	},
-	barboach: {
+	barboac1: {
 		inherit: true,
 		abilities: { 0: "Oblivious"},
 	},
-	whiscash: {
+	whiscas1: {
 		inherit: true,
 		abilities: { 0: "Oblivious"},
 	},
