@@ -3247,7 +3247,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			astonish: ["9L1"],
 			calmmind: ["9M"],
 			chargebeam: ["9M"],
-			charm: ["9M"],//
+			charm: ["9M"],
 			clearmind: ["9M"],
 			confuseray: ["9M", "9L1"],
 			darkpulse: ["9M"],
