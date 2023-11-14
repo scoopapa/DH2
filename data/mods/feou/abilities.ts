@@ -1304,7 +1304,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	
-	circuitbreaker: {
+	firewall: {
 	  shortDesc: "Quark Drive + x1.5 power to Fire-type moves when active",
 		onStart(pokemon) {
 			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
