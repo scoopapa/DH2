@@ -285,6 +285,14 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Flying", "Psychic"],
 		baseStats: {hp: 86, atk: 80, def: 74, spa: 125, spd: 81, spe: 80},
 		abilities: {0: "Be Not Afraid"},
+		otherFormes: ["Heirfriar-Holy"],
+	},
+	heirfriarholy: {
+		num: 1041,
+		name: "Heirfriar-Holy",
+		types: ["Flying", "Psychic"],
+		baseStats: {hp: 86, atk: 80, def: 74, spa: 125, spd: 81, spe: 80},
+		abilities: {0: "Be Not Afraid"},
 	},
 	jeffrey: {
 		num: 1042,
