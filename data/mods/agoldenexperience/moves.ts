@@ -3434,6 +3434,133 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
+	// blazingtorque: {
+	// 	num: 896,
+	// 	accuracy: 100,
+	// 	basePower: 80,
+	// 	category: "Physical",
+	// 	isNonstandard: "Unobtainable",
+	// 	name: "Blazing Torque",
+	// 	pp: 10,
+	// 	priority: 0,
+	// 	flags: {
+	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
+	// 	},
+	// 	secondary: {
+	// 		chance: 30,
+	// 		status: 'brn',
+	// 	},
+	// 	target: "normal",
+	// 	type: "Fire",
+	// },
+	// combattorque: {
+	// 	num: 899,
+	// 	accuracy: 100,
+	// 	basePower: 100,
+	// 	category: "Physical",
+	// 	isNonstandard: "Unobtainable",
+	// 	name: "Combat Torque",
+	// 	pp: 10,
+	// 	priority: 0,
+	// 	flags: {
+	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
+	// 	},
+	// 	secondary: {
+	// 		chance: 30,
+	// 		status: 'par',
+	// 	},
+	// 	target: "normal",
+	// 	type: "Fighting",
+	// },
+	// magicaltorque: {
+	// 	num: 900,
+	// 	accuracy: 100,
+	// 	basePower: 100,
+	// 	category: "Physical",
+	// 	isNonstandard: "Unobtainable",
+	// 	name: "Magical Torque",
+	// 	pp: 10,
+	// 	priority: 0,
+	// 	flags: {
+	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
+	// 	},
+	// 	secondary: {
+	// 		chance: 30,
+	// 		volatileStatus: 'confusion',
+	// 	},
+	// 	target: "normal",
+	// 	type: "Fairy",
+	// },
+	// noxioustorque: {
+	// 	num: 898,
+	// 	accuracy: 100,
+	// 	basePower: 100,
+	// 	category: "Physical",
+	// 	isNonstandard: "Unobtainable",
+	// 	name: "Noxious Torque",
+	// 	pp: 10,
+	// 	priority: 0,
+	// 	flags: {
+	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
+	// 	},
+	// 	secondary: {
+	// 		chance: 30,
+	// 		status: 'psn',
+	// 	},
+	// 	target: "normal",
+	// 	type: "Poison",
+	// },
+	// wickedtorque: {
+	// 	num: 897,
+	// 	accuracy: 100,
+	// 	basePower: 80,
+	// 	category: "Physical",
+	// 	isNonstandard: "Unobtainable",
+	// 	name: "Wicked Torque",
+	// 	pp: 10,
+	// 	priority: 0,
+	// 	flags: {
+	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
+	// 	},
+	// 	secondary: {
+	// 		chance: 10,
+	// 		status: 'slp',
+	// 	},
+	// 	target: "normal",
+	// 	type: "Dark",
+	// },
+	blazingtorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	combattorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	magicaltorque: {
+		inherit: true,
+		isNonstandard: null,
+		secondary: {
+			chance: 30,
+			boosts: {
+				def: -1,
+			},
+		},
+	},
+	noxioustorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	wickedtorque: {
+		inherit: true,
+		isNonstandard: null,
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: -1,
+			},
+		},
+	},
 
 	// Endless Dream field
 	wakeupslap: {
