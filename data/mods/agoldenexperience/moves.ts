@@ -1865,28 +1865,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	photongeyser: {
-		num: 722,
-		accuracy: 100,
-		basePower: 100,
+		inherit: true,
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.species.name === 'Necrozma-Ultra' && pokemon.hasAbility('neuroforce')) {
 				return move.basePower + 20;
 			}
 			return move.basePower;
 		},
-		category: "Special",
-		name: "Photon Geyser",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
-		},
-		ignoreAbility: true,
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		contestType: "Cool",
 	},
 	eternabeam: {
 		num: 795,
@@ -1909,34 +1894,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "User loses 50% max HP.",
 	},
 	wickedblow: {
-		num: 817,
-		accuracy: 100,
+		inherit: true,
 		basePower: 60,
-		category: "Physical",
-		name: "Wicked Blow",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, punch: 1, mirror: 1},
-		willCrit: true,
-		secondary: null,
-		target: "normal",
-		type: "Dark",
 	},
 	bouncybubble: {
-		num: 733,
-		accuracy: 100,
+		inherit: true,
 		basePower: 90,
-		category: "Special",
-		shortDesc: "Heals 50% of damages dealt.",
-		name: "Bouncy Bubble",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, heal: 1},
-		drain: [1, 2],
-		secondary: null,
-		target: "normal",
-		type: "Water",
-		contestType: "Clever",
+		isNonstandard: null,
 	},
 	buzzybuzz: {
 		num: 734,
@@ -2071,7 +2035,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	ragingfury: {
-		num: 833,//change
+		num: 833,
 		accuracy: 100,
 		basePower: 130,
 		category: "Physical",
@@ -3434,101 +3398,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
-	// blazingtorque: {
-	// 	num: 896,
-	// 	accuracy: 100,
-	// 	basePower: 80,
-	// 	category: "Physical",
-	// 	isNonstandard: "Unobtainable",
-	// 	name: "Blazing Torque",
-	// 	pp: 10,
-	// 	priority: 0,
-	// 	flags: {
-	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
-	// 	},
-	// 	secondary: {
-	// 		chance: 30,
-	// 		status: 'brn',
-	// 	},
-	// 	target: "normal",
-	// 	type: "Fire",
-	// },
-	// combattorque: {
-	// 	num: 899,
-	// 	accuracy: 100,
-	// 	basePower: 100,
-	// 	category: "Physical",
-	// 	isNonstandard: "Unobtainable",
-	// 	name: "Combat Torque",
-	// 	pp: 10,
-	// 	priority: 0,
-	// 	flags: {
-	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
-	// 	},
-	// 	secondary: {
-	// 		chance: 30,
-	// 		status: 'par',
-	// 	},
-	// 	target: "normal",
-	// 	type: "Fighting",
-	// },
-	// magicaltorque: {
-	// 	num: 900,
-	// 	accuracy: 100,
-	// 	basePower: 100,
-	// 	category: "Physical",
-	// 	isNonstandard: "Unobtainable",
-	// 	name: "Magical Torque",
-	// 	pp: 10,
-	// 	priority: 0,
-	// 	flags: {
-	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
-	// 	},
-	// 	secondary: {
-	// 		chance: 30,
-	// 		volatileStatus: 'confusion',
-	// 	},
-	// 	target: "normal",
-	// 	type: "Fairy",
-	// },
-	// noxioustorque: {
-	// 	num: 898,
-	// 	accuracy: 100,
-	// 	basePower: 100,
-	// 	category: "Physical",
-	// 	isNonstandard: "Unobtainable",
-	// 	name: "Noxious Torque",
-	// 	pp: 10,
-	// 	priority: 0,
-	// 	flags: {
-	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
-	// 	},
-	// 	secondary: {
-	// 		chance: 30,
-	// 		status: 'psn',
-	// 	},
-	// 	target: "normal",
-	// 	type: "Poison",
-	// },
-	// wickedtorque: {
-	// 	num: 897,
-	// 	accuracy: 100,
-	// 	basePower: 80,
-	// 	category: "Physical",
-	// 	isNonstandard: "Unobtainable",
-	// 	name: "Wicked Torque",
-	// 	pp: 10,
-	// 	priority: 0,
-	// 	flags: {
-	// 		protect: 1, failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
-	// 	},
-	// 	secondary: {
-	// 		chance: 10,
-	// 		status: 'slp',
-	// 	},
-	// 	target: "normal",
-	// 	type: "Dark",
-	// },
 	blazingtorque: {
 		inherit: true,
 		isNonstandard: null,
@@ -3541,11 +3410,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 		secondary: {
-			chance: 30,
+			chance: 20,
 			boosts: {
 				def: -1,
 			},
 		},
+		shortDesc: "20% chance to lower target's Def by 1.",
+		desc: "20% chance to lower target's Def by 1.",
 	},
 	noxioustorque: {
 		inherit: true,
@@ -3555,11 +3426,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 		secondary: {
-			chance: 10,
+			chance: 20,
 			boosts: {
 				atk: -1,
 			},
 		},
+		shortDesc: "20% chance to lower target's Atk by 1.",
+		desc: "20% chance to lower target's Atk by 1.",
 	},
 
 	// Endless Dream field
