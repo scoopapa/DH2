@@ -263,7 +263,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onUpdate(pokemon) {
 			if (['heirfriar'].includes(pokemon.species.id) && this.effectState.busted) {
-				const speciesid = pokemon.species.id === 'heirfriar' ? 'Heirfriar-Holy';
+				const speciesid = pokemon.species.id === 'Heirfriar-Holy';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
@@ -278,7 +278,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	beantheredonethat: {
 		onAfterMoveSecondary(target, source, move) {
 			const moves = ['acidrmor', 'accupressure', 'agility', 'amnesia', 'aromaticmist', 'autotomize', 'barrier', 'bellydrum', 'bulkup', 'calmmind', 'charge', 'clangoroussoul', 'coaching', 'coil', 'cosmicpower', 'cottonguard', 'curse', 'defendorder', 'defensecurl', 'doubleteam', 'dragondance', 'geomancy', 'growth', 'harden', 'honeclaws', 'howl', 'irondefense', 'meditate', 'minimize', 'nastyplot', 'noretreat', 'quiverdance', 'rockpolish', 'rototiller', 'sharpen', 'shellsmash', 'shiftgear', 'stuffcheeks', 'swordsdance', 'tailglow', 'takeheart'];
-			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			if (!source || source != target || !target.hp) return;
 			if ((moves.includes(move.id) || moves.includes(move.name))) {
 				if (move.hasBounced == true) return;
 				const newMove = this.dex.getActiveMove(move.id);
@@ -288,17 +288,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
-    name: "Bean There Done that",
-	 shortDesc: "After another Pokemon uses a status move that raises stats, this Pokemon uses the same move.",
-    rating: 4,
-  },
-  lawbreaker: {
+		name: "Bean There Done That",
+		shortDesc: "After another Pokemon uses a status move that raises stats, this Pokemon uses the same move.",
+		rating: 4,
+	},
+	lawbreaker: {
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Steel'] = true;
-				move.ignoreImmunity['Steel'] = true;
+				move.ignoreImmunity['Poison'] = true;
 				move.ignoreImmunity['Fairy'] = true;
 				move.ignoreImmunity['Ground'] = true;
 				move.ignoreImmunity['Ghost'] = true;
@@ -307,7 +307,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				move.ignoreImmunity['Electric'] = true;
 			}
 		},
-		name: "Lawbreaker",
+		name: "Law Breaker",
 		rating: 4,
 		num: 113,
 	},
@@ -325,19 +325,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3.5,
 		num: 273,
 	},
-	bullseye: {
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				onModifyCritRatio(critRatio) {
-					return critRatio + 1;
-				}
-			}
+    bullseye: {
+        onSourceAfterFaint(length, target, source, effect) {
+            this.actions.useMove(newMove, target, source);
 		},
-		name: "Bullseye",
-	   shortDesc: "This Pokemon's Crit Ratio is raised by 1 stage if it attacks and KOes another Pokemon.",
-		rating: 3,
-		num: 153,
-	},
+        name: "Bullseye",
+		shortDesc: "This Pokemon's Crit Ratio is raised by 1 stage if it attacks and KOes another Pokemon.",
+        rating: 0,
+        num: 1111,
+    },
 	comedicslip: {
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target, true)) {
@@ -395,16 +391,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 198,
 	},
 	guidinglight: {
-		onSwitchOut(pokemon) {
-			this.boost({evasion: -1}, target, pokemon, null, true);
-		},
-		name: "Guiding Light",
-		shortDesc: "This Pokemon lowers the Attack of opponents by 1 stage when it switches out.",
-	},
+        onSwitchOut(pokemon) {
+            for (const target of pokemon.foes()) {
+              this.boost({evasion: -1}, target, pokemon, null, true);
+            }
+        },
+        name: "Guiding Light",
+        shortDesc: "This Pokemon lowers the Evasion of opponents by 1 stage when it switches out.",
+    },
 	recharge: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				pokemon.heal(pokemon.baseMaxhp / 3);
+				this.heal(source.baseMaxhp / 3);
 			}
 		},
 		name: "Recharge",
