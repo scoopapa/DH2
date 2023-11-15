@@ -94,7 +94,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	starsforce: {
 		desc: "When this Pokémon has 1/3 or less of its maximum HP, rounded down, all of its stats are x1.5.",
-		shortDesc: "At 1/3 or less of max HP, Defense and Special Defense are doubled.",
+		shortDesc: "At 1/3 or less of max HP, all stats are x1.5.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (attacker.hp <= attacker.maxhp / 3) {
