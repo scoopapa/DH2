@@ -628,17 +628,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		}
 	},
-	octazooka: {
-		inherit: true,
-		accuracy: 100,
-		basePower: 80,
-		category: "Physical",
-		shortDesc: "30% chance to poison the target.",
-		secondary: {
-			chance: 30,
-			status: 'psn',
-		}
-	},
 	inkburst: {
 		num: -24,
 		accuracy: 100,
@@ -799,6 +788,55 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 
+	//vanilla moves
+	octazooka: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "30% chance to poison the target.",
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		}
+	},
+	haze: {
+		inherit: true,
+		onHitField() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				if(!pokemon.hasAbility('rockbottom')) pokemon.clearBoosts();
+			}
+		},
+	},
+	topsyturvy: {
+		inherit: true,
+		onHit(target) {
+			if(target.hasAbility('rockbottom')) {
+				this.add("-fail", target, "unboost", "[from] ability: Rock Bottom", "[of] " + target);
+				return false;
+			}
+			let success = false;
+			let i: BoostID;
+			for (i in target.boosts) {
+				if (target.boosts[i] === 0) continue;
+				target.boosts[i] = -target.boosts[i];
+				success = true;
+			}
+			if (!success) return false;
+			this.add('-invertboost', target, '[from] move: Topsy-Turvy');
+		},
+	},
+	clearsmog: {
+		inherit: true,
+		onHit(target) {
+			if(!target.hasAbility('rockbottom')) {
+				target.clearBoosts();
+				this.add('-clearboost', target);
+			}
+		},
+	},
+	
 	//loria moves just in case
 	citrusysting: {
 		accuracy: 90,
