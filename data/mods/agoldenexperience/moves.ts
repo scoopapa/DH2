@@ -2880,6 +2880,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	braveblade: {
 		desc: "Physical if it would be stronger (Shell Side Arm clone). Hits Dark types for neutral damages.",
+		shortDesc: "Physical if stronger. Hits Dark types for neutral damages.",
 		num: -50,
 		accuracy: 100,
 		basePower: 80,
