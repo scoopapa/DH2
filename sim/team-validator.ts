@@ -565,6 +565,11 @@ export class TeamValidator {
 			set.teraType = species.types[0];
 		}
 
+		// fix pokepast.es bug with Fakemons having their Tera type auto-set to ???
+		if (set.teraType === '???') {
+			set.teraType = species.types[0];
+		}
+
 		if (!set.level) set.level = ruleTable.defaultLevel;
 
 		let adjustLevel = ruleTable.adjustLevel;
@@ -823,10 +828,11 @@ export class TeamValidator {
 			}
 		}
 
-		var moveProblems;
-		if (ruleTable.has('obtainablemoves') && (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4')) {
+		let moveProblems;
+		if (ruleTable.has('obtainablemoves')) {
+			if (this.dex.currentMod === 'moderngen3' || this.dex.currentMod === 'moderngen4') return;
 			moveProblems = this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name, moveLegalityWhitelist);
-			problems.push(...moveProblems!);
+			problems.push(...moveProblems);
 		}
 
 		let eventOnlyData;
@@ -936,7 +942,7 @@ export class TeamValidator {
 			setSources.sourcesBefore = 0;
 			if (moveProblems && !moveProblems.length) {
 				problems.push(...this.validateMoves(outOfBattleSpecies, set.moves, setSources, set, name,
-					moveLegalityWhitelist)!);
+					moveLegalityWhitelist));
 			}
 		}
 

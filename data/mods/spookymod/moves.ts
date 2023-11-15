@@ -122,6 +122,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	spectralthief: {
 		shortDesc: "Fails if the target has no stat boosts. Steals the target's stat boosts before attacking.",
 		inherit: true,
+		isNonstandard: null,
 		onTry(source) {
 			if(target.positiveBoosts() === 0) return false;
 		},
@@ -492,10 +493,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 50,
 		category: "Special",
 		name: "Words Dance",
-		shortDesc: "Says a bunch of words to confuse the target.",
+		shortDesc: "Says a bunch of words to confuse the target. Hits Ghost-types neutrally. 50% chance to lower the target's Defense by 1.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, trick: 1, dance: 1, sound: 1},
+		ignoreImmunity: {'Normal': true},
 		onPrepareHit(source, target, move) {
 			const messages = ['L 🇱 RATIO ➗ READ MARX 🧔‍♂️ 📕 NO TOUHOU GIRLS 🔫 👧 🚫 CISHET 👨‍👩‍👦 NEUROTYPICAL 🧠 👨‍💼 CRINGE 😬 NO DRIP 🌧️ 🚫 GAME FUN HAPPY TIMES 游戏乐趣快乐时光 🎲 🎮 ACCELERATE ⏩ ACCELERATE ⏩ ACCELERATE ⏩ 🧞‍♂️ 🎣 🌇 🔋 🪡 SQUID GAMES ‼️',
 			'Are you kidding ??? What the **** are you talking about man ? You are a biggest looser i ever seen in my life ! You was doing PIPI in your pampers when i was beating players much more stronger then you! You are not proffesional, because proffesionals knew how to lose and congratulate opponents, you are like a noob crying after i beat you! Be brave, be honest to yourself and stop this trush talkings!!! Everybody know that i am very good bh player, i can win anyone in the world in single game! And \"c\"ity \"s\"c is nobody for me, just a player who are crying every single time when loosing, ( remember what you say about Sevag ) !!! Stop playing with my name, i deserve to have a good name during whole my bh carrier, I am Officially inviting you to NDBH match with the Prize fund! Both of us will invest 5000$ and winner takes it all! I suggest all other people who\'s intrested in this situation, just take a look at my results in OMPL 8 and 9 tournaments, and that should be enough... No need to listen for every crying babe, ChampionLeonOM is always play Fair ! And if someone will continue Officially talk about me like that, we will meet in Court! God bless with true! True will never die ! Liers will kicked off...',
@@ -509,7 +511,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-message', this.sample(messages));
 		},
 		volatileStatus: 'confusion',
-		secondary: null,
+		secondary: {
+			chance: 50,
+			boosts: {
+				def: -1,
+			},
+		},
 		target: "normal",
 		type: "Normal",
 	},

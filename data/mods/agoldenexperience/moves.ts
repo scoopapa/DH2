@@ -566,10 +566,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		volatileStatus: 'frostbite',
 		condition: {
 			onStart(target) {
-				if(target.hasType('Fire') || target.hasType('Ice')) {
-					this.hint("Ice and Fire targets are immune to Frostbite.");
-					return;
-				}
 			  this.effectState.stage = 0;
 				this.add('-start', target, 'move: Frostbite');
 			},
@@ -588,6 +584,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.heal(damage, target, pokemon);
 				}
 			},
+		},
+		onTryImmunity(target) {
+			return (!target.hasType('Fire') && !target.hasType('Ice'));
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
@@ -766,13 +765,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
+		heal: [1, 2],
 		onHit(pokemon) {
-			let factor = 0.5;
 			if (this.field.isWeather('raindance') || this.field.isWeather('primordialsea')) {
-				const success = !!this.heal(this.modify(pokemon.maxhp, 0.25));
-				return pokemon.cureStatus() || success;
+				return pokemon.cureStatus();
 			}
-			return !!this.heal(this.modify(pokemon.maxhp, factor));
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
@@ -977,6 +974,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		heal: [1, 2],
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bulk Up", target);
+		},
 		secondary: null,
 		target: "self",
 		type: "Fighting",
@@ -1135,6 +1136,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		boosts: {
 			spa: 1,
 			accuracy: 1,
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Calm Mind", target);
 		},
 		secondary: null,
 		target: "self",
@@ -1371,6 +1376,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dazzling Gleam", target);
+		},
 		shortDesc: "Heals the user's party's status conditions. Uses SpD instead of SpA.",
 		overrideOffensiveStat: 'spd',
 		secondary: null,
@@ -1425,7 +1434,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Gravity", target);
+			this.add('-anim', source, "Psychic Terrain", target);
 		},
 		secondary: null,
 		target: "all",
@@ -1539,44 +1548,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Tough",
 	},
 	triplekick: {
-		num: 167,
+		inherit: true,
 		accuracy: 90,
 		basePower: 20,
-		basePowerCallback(pokemon, target, move) {
-			return 20 * move.hit;
-		},
-		category: "Physical",
-		name: "Triple Kick",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		multihit: 3,
-		multiaccuracy: true,
-		secondary: null,
-		target: "normal",
-		type: "Fighting",
-		zMove: {basePower: 120},
-		maxMove: {basePower: 80},
-		contestType: "Cool",
 	},
 	playrough: {
-		num: 583,
+		inherit: true,
 		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		name: "Play Rough",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 10,
-			boosts: {
-				atk: -1,
-			},
-		},
-		target: "normal",
-		type: "Fairy",
-		contestType: "Cute",
 	},
 	payback: {
 		num: 371,
@@ -1645,7 +1623,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 20,
 		category: "Special",
 		name: "Powder Snow",
-		pp: 25,
+		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
@@ -1690,23 +1668,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		}
 	},
 	lowsweep: {
-		num: 490,
-		accuracy: 100,
+		inherit: true,
 		basePower: 60,
-		category: "Physical",
-		name: "Low Sweep",
-		pp: 20,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		secondary: {
-			chance: 100,
-			boosts: {
-				spe: -1,
-			},
-		},
-		target: "normal",
-		type: "Fighting",
-		contestType: "Clever",
 	},
 	powergem: {
 		num: 408,
@@ -1770,28 +1733,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	darkvoid: {
-		num: 464,
+		inherit: true,
 		accuracy: 80,
-		basePower: 0,
-		category: "Status",
-		isNonstandard: "Past",
-		name: "Dark Void",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
-		status: 'slp',
-		onTryMove(pokemon, target, move) {
-			if (pokemon.species.name === 'Darkrai' || move.hasBounced) {
-				return;
-			}
-			this.add('-fail', pokemon, 'move: Dark Void');
-			this.hint("Only a Pokemon whose form is Darkrai can use this move.");
-			return null;
-		},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Dark",
-		contestType: "Clever",
 	},
 	freezeshock: {
 		num: 553,
@@ -1811,6 +1754,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 30,
 			status: 'par',
 		},
+		shortDesc: "Drops the user's Atk by 2 stages after use. Has a 30% chance to paralyze the target.",
+		desc: "Drops the user's Atk by 2 stages after use. Has a 30% chance to paralyze the target.",
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
@@ -1833,6 +1778,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 30,
 			status: 'brn',
 		},
+		shortDesc: "Drops the user's SpA by 2 stages after use. Has a 30% chance to burn the target.",
+		desc: "Drops the user's SpA by 2 stages after use. Has a 30% chance to burn the target.",
 		target: "normal",
 		type: "Ice",
 		contestType: "Beautiful",
@@ -2124,7 +2071,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	ragingfury: {
-		num: -1200,//change
+		num: 833,//change
 		accuracy: 100,
 		basePower: 130,
 		category: "Physical",
@@ -2186,22 +2133,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	// 	type: "Grass",
 	// 	contestType: "Cool",
 	// },
-	chloroblast: {
-		num: 835,
-		accuracy: 95,
-		basePower: 150,
-		category: "Special",
-		name: "Chloroblast",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		// Recoil implemented in battle-actions.ts
-		secondary: null,
-		target: "normal",
-		type: "Grass",
-	},
 	bittermalice: {
-		num: -1506,
+		num: 841,
 		accuracy: 100,
 		basePower: 60,
 		basePowerCallback(pokemon, target, move) {
@@ -2224,7 +2157,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	shelter: {
-		num: -1661,//change
+		num: 842,//change
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -2314,7 +2247,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "100% chance to +1 Speed; +2 crit ratio; -1 Def to target.",
 	},
 	wavecrash: {
-		num: -1710,
+		num: 834,
 		accuracy: 100,
 		basePower: 75,
 		category: "Physical",
@@ -2330,7 +2263,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	direclaw: {
-		num: -1398,
+		num: 827,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -3218,6 +3151,85 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacentFoes",
 		type: "Normal",
 	},
+	swarming: {
+		num: -57,
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Swarming",
+		shortDesc: "Lowers the user's and the target's SpD by one stage.",
+		desc: "Lowers the user's and the target's SpD by one stage.",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spd: -1,
+			},
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spd: -1,
+			},
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bug Buzz", target);
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Smart",
+	},
+	hardwareheat: {
+		num: -58,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Hardware Heat",
+		shortDesc: "Lowers the user's Speed by one stage.",
+		desc: "Lowers the user's Speed by one stage.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		self: {
+			boosts: {
+				spe: -1,
+			},
+		},
+		onPrepareHit: function(target, source) {	
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Inferno", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Tough",
+	},
+	enragedtext: {
+		num: -59,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Enraged Text",
+		shortDesc: "Raises the user's Atk by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, sound: 1},
+		self: {
+			boosts: {
+				atk: 1,
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		contestType: "Clever",
+	},
+	defog: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, wind: 1},
+	},
 	//Gen 9
 	grassyglide: {
 		inherit: true,
@@ -3269,58 +3281,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 	},
 	axekick: {
-		num: 853,
-		accuracy: 90,
-		basePower: 120,
-		category: "Physical",
-		name: "Axe Kick",
-		shortDesc: "30% confusion. User loses 50% max HP if miss.",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		hasCrashDamage: true,
-		onMoveFail(target, source, move) {
-			this.damage(source.baseMaxhp / 2, source, source, this.dex.conditions.get('High Jump Kick'));
-		},
-		secondary: {
-			chance: 30,
-			volatileStatus: 'confusion',
-		},
-		target: "normal",
+		inherit: true,
 		type: "Dark",
 	},
 	ragingbull: {
-		num: 873,
-		accuracy: 100,
+		inherit: true,
 		basePower: 120,
-		category: "Physical",
-		name: "Raging Bull",
-		shortDesc: "Destroys screens. Type depends on user's form.",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onTryHit(pokemon) {
-			// will shatter screens through sub, before you hit
-			pokemon.side.removeSideCondition('reflect');
-			pokemon.side.removeSideCondition('lightscreen');
-			pokemon.side.removeSideCondition('auroraveil');
-		},
-		onModifyType(move, pokemon) {
-			switch (pokemon.species.name) {
-			case 'Tauros-Paldea-Combat':
-				move.type = 'Fighting';
-				break;
-			case 'Tauros-Paldea-Blaze':
-				move.type = 'Fire';
-				break;
-			case 'Tauros-Paldea-Aqua':
-				move.type = 'Water';
-				break;
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
 	},
 	chillyreception: {
 		num: 881,
@@ -3341,19 +3307,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 	},
 	bitterblade: {
-		num: 891,
-		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		name: "Bitter Blade",
-		shortDesc: "User recovers 50% of the damage dealt.",
-		pp: 10,
-		priority: 0,
+		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1, heal: 1},
-		drain: [1, 2],
-		secondary: null,
-		target: "normal",
-		type: "Fire",
 	},
 	tidyup: {
 		num: 882,
@@ -3381,7 +3336,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			}
 			if (success) this.add('-activate', pokemon, 'move: Tidy Up');
-			return !!this.boost({atk: 1, spe: 1}, pokemon, pokemon, null, false, true) || success;
+			return !!this.boost({atk: 1, spe: 1, accuracy: 1}, pokemon, pokemon, null, false, true) || success;
 		},
 		secondary: null,
 		target: "self",
@@ -3440,42 +3395,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
 		shortDesc: "+25 power for each time user was hit. Max 6 hits.",
+		desc: "Power increases by 25 for each time the user was hit this turn. Max 6 hits.",
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
 	},
 	glaiverush: {
-		num: 862,
-		accuracy: 100,
+		inherit: true,
 		basePower: 110,
-		category: "Physical",
-		name: "Glaive Rush",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		self: {
-			volatileStatus: 'glaiverush',
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon) {
-				this.add('-singlemove', pokemon, 'Glaive Rush', '[silent]');
-			},
-			onAccuracy() {
-				return true;
-			},
-			onSourceModifyDamage() {
-				return this.chainModify(2);
-			},
-			onBeforeMovePriority: 100,
-			onBeforeMove(pokemon) {
-				this.debug('removing Glaive Rush drawback before attack');
-				pokemon.removeVolatile('glaiverush');
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Dragon",
 	},
 	gigatonhammer: {
 		num: 893,
@@ -3577,7 +3504,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	ultrasleep: { //this move is only for Endless Dream ability
-		num: -1433,
+		num: -9999,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",

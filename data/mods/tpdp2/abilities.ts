@@ -1312,16 +1312,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	instantwin: {
 		name: "Instant Win",
 		shortDesc: "Your speed is increased by 50% on the first turn after entering the field.",
-		onStart(pokemon) {
-			this.boost({spe: 1}, pokemon);
-			pokemon.addVolatile('instantwin');
-		},
-		condition: {
-			duration: 1,
-			onEnd(pokemon) {
-				this.add('-ability', pokemon, 'Instant Win');
-				this.boost({spe: -1}, pokemon);
-			},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.activeTurns) return this.chainModify(1.5);
 		},
 	},
 	intuition: {
