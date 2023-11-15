@@ -184,4 +184,272 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	 shortDesc: "After another Pokemon uses a move that can cause confusion, this Pokemon uses the same move.",
     rating: 4,
   },
+  rollingboil: {
+		onModifySpe(spe, pokemon) {
+			if (pokemon.status === 'brn') {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Rolling Boil",
+	   shortDesc: "If this Pokemon is burned, its Speed is 1.5x",
+		rating: 2.5,
+		num: 95,
+	},
+	flashbang: {
+		onStart(pokemon) {
+			if (pokemon.syrupTriggered) return;
+			pokemon.syrupTriggered = true;
+			this.add('-ability', pokemon, 'Flashbang');
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Flashbang', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spd: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Flashbang",
+		shortDesc: "On switch-in, this Pokemon lowers the Special Defense of opponents 1 stage. Once per battle.",
+		rating: 1.5,
+		num: 306,
+	},
+	mindovermatter: {
+		onModifyMovePriority: 8,
+		onModifyMove(move, pokemon) {
+			if (move.flags['contact'] && move.category === 'Physical') move.category = 'Special';
+		},
+		name: "Mind Over Matter",
+		shortDesc: "Contact moves use Special Attack",
+	},
+	benotafraid: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && effect.effectType === 'Move' &&
+				['heirfriar'].includes(target.species.id) && !target.transformed
+			) {
+				this.add('-activate', target, 'ability: Be Not Afraid');
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, source, move) {
+			if (!target) return;
+			if (!['heirfriar'].includes(target.species.id) || target.transformed) {
+				return;
+			}
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || move.category === 'Status') return;
+			if (!['heirfriar'].includes(target.species.id) || target.transformed) {
+				return;
+			}
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (['heirfriar'].includes(pokemon.species.id) && this.effectState.busted) {
+				const speciesid = pokemon.species.id === 'heirfriar' ? 'Heirfriar-Holy';
+				pokemon.formeChange(speciesid, this.effect, true);
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
+			}
+		},
+		isBreakable: true,
+		isPermanent: true,
+		name: "Be Not Afraid",
+		shortDesc: "The first hit it takes is blocked, and it takes 1/8 HP damage instead.",
+		rating: 3.5,
+		num: 209,
+	},
+	beantheredonethat: {
+		onAfterMoveSecondary(target, source, move) {
+			const moves = ['acidrmor', 'accupressure', 'agility', 'amnesia', 'aromaticmist', 'autotomize', 'barrier', 'bellydrum', 'bulkup', 'calmmind', 'charge', 'clangoroussoul', 'coaching', 'coil', 'cosmicpower', 'cottonguard', 'curse', 'defendorder', 'defensecurl', 'doubleteam', 'dragondance', 'geomancy', 'growth', 'harden', 'honeclaws', 'howl', 'irondefense', 'meditate', 'minimize', 'nastyplot', 'noretreat', 'quiverdance', 'rockpolish', 'rototiller', 'sharpen', 'shellsmash', 'shiftgear', 'stuffcheeks', 'swordsdance', 'tailglow', 'takeheart'];
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			if ((moves.includes(move.id) || moves.includes(move.name))) {
+				if (move.hasBounced == true) return;
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			}
+		},
+    name: "Bean There Done that",
+	 shortDesc: "After another Pokemon uses a status move that raises stats, this Pokemon uses the same move.",
+    rating: 4,
+  },
+  lawbreaker: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Steel'] = true;
+				move.ignoreImmunity['Steel'] = true;
+				move.ignoreImmunity['Fairy'] = true;
+				move.ignoreImmunity['Ground'] = true;
+				move.ignoreImmunity['Ghost'] = true;
+				move.ignoreImmunity['Normal'] = true;
+				move.ignoreImmunity['Dark'] = true;
+				move.ignoreImmunity['Electric'] = true;
+			}
+		},
+		name: "Lawbreaker",
+		rating: 4,
+		num: 113,
+	},
+	rockdodger: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Rock') {
+				if (!this.boost({spe: 2})) {
+					this.add('-immune', target, '[from] ability: Rock Dodger');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Rock Dodger",
+		rating: 3.5,
+		num: 273,
+	},
+	bullseye: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				onModifyCritRatio(critRatio) {
+					return critRatio + 1;
+				}
+			}
+		},
+		name: "Bullseye",
+	   shortDesc: "This Pokemon's Crit Ratio is raised by 1 stage if it attacks and KOes another Pokemon.",
+		rating: 3,
+		num: 153,
+	},
+	comedicslip: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Comedic Slip');
+				this.boost({evasion: -1}, source, target, null, true);
+			}
+		},
+		name: "Comedic Slip",
+		shortDesc: "Pokemon making contact with this Pokemon have their evasion lowered by 1 stage.",
+		rating: 2,
+		num: 183,
+	},
+	mobmentality: {
+		onStart(pokemon) {
+			if (pokemon.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Mob Mentality');
+				const fallen = Math.min(pokemon.side.totalFainted, 5);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen) {
+				const powMod = [6144, 5734, 5325, 4915, 4506, 4096];
+				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
+		},
+		name: "Mob Mentality",
+		shortDesc: "This Pokemon's moves have 10% more power for each unfainted ally, up to 5 allies.",
+		rating: 4,
+		num: 293,
+	},
+	cashout: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Stakeout boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Stakeout boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Cash Out",
+		rating: 4.5,
+		num: 198,
+	},
+	guidinglight: {
+		onSwitchOut(pokemon) {
+			this.boost({evasion: -1}, target, pokemon, null, true);
+		},
+		name: "Guiding Light",
+		shortDesc: "This Pokemon lowers the Attack of opponents by 1 stage when it switches out.",
+	},
+	recharge: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				pokemon.heal(pokemon.baseMaxhp / 3);
+			}
+		},
+		name: "Recharge",
+		rating: 3,
+		num: 153,
+	},
+	megaton: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ground') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				return this.chainModify(2);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Megaton');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Megaton');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Megaton",
+		rating: 4.5,
+		num: 199,
+	},
 };
