@@ -309,7 +309,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	openingact: {
-	  shortDesc: "Protosynthesis + Prankster. Protosynthesis also activates for the turn upon using a priority move.",
+	  shortDesc: "Protosynthesis + Prankster. Protosynthesis also activates when using a priority move.",
 		onPrepareHit(source, target, move) {
 			const isItSunny = this.field.isWeather('sunnyday');
 			if (move.priority > 0) {
@@ -1982,7 +1982,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	burningpetals: {
-	  shortDesc: "Flash Fire effects. This side's Fire-types can't have stats lowered or status inflicted by other Pokemon.",
+	  shortDesc: "This side's Fire-types can't have stats lowered or status inflicted by other Pokemon and this Pokemon can't be damaged by Fire-type moves; x1.5 power to own Fire-type moves if either is attempted.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				move.accuracy = true;
