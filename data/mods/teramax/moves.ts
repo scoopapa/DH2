@@ -714,7 +714,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		self: {
 			onHit(source) {
 				for (const pokemon of source.foes()) {
-					pokemon.addVolatile('leechseed');
+				if (!pokemon.hasType('Grass')) {
+						pokemon.addVolatile('leechseed');
+					}
 				}
 			},
 		},
