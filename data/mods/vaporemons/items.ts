@@ -905,6 +905,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "If hit by pivoting move: attacker takes 1/8 of their max HP in damage and is forced out.",
 		gen: 9,
+		num: -1100,
 	},	
 	mantisclaw: {
 		name: "Mantis Claw",
