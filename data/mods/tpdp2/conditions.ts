@@ -38,10 +38,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			}
 			this.effectState.stage = 0;
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'hvybrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'hvybrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'hvybrn');
+				this.add('-status', target, 'hvybrn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been heavily burned!`);
 		},
 		onSwitchIn() {
 			this.effectState.stage = 0;
@@ -91,10 +92,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 				return false;
 			}
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'shk', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'shk', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'shk');
+				this.add('-status', target, 'shk', '[silent]');
 			}
+			this.add('-message', `${target.name} has been shocked!`);
 		},
 		onModifySpe(spe, pokemon) {
 			if (!pokemon.hasAbility('gale')) {
@@ -116,10 +118,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		endFromMove: "  [POKEMON]'s [MOVE] restored its sight!",
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'dark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'dark', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'dark');
+				this.add('-status', target, 'dark', '[silent]');
 			}
+			this.add('-message', `${target.name} has been blinded!`);
 		},
 		onModifyAtk(atk, pokemon) {
 			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
@@ -135,10 +138,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		endFromItem: "[POKEMON]'s [ITEM] healed its status!",
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'fear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'fear', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'fear');
+				this.add('-status', target, 'fear', '[silent]');
 			}
+			this.add('-message', `${target.name} has been scared!`);
 		},
 		onModifySpA(atk, pokemon) {
 			if (!pokemon.hasAbility('pride'))
@@ -156,12 +160,13 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		cant: "[POKEMON] is stopped!",
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'stp', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'stp', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else if (sourceEffect && sourceEffect.effectType === 'Move') {
-				this.add('-status', target, 'stp', '[from] move: ' + sourceEffect.name);
+				this.add('-status', target, 'stp', '[from] move: ' + sourceEffect.name, '[silent]');
 			} else {
-				this.add('-status', target, 'stp');
+				this.add('-status', target, 'stp', '[silent]');
 			}
+			this.add('-message', `${target.name} has been stopped!`);
 			// 1-3 turns
 			this.effectState.startTime = this.random(2, 5);
 			this.effectState.time = this.effectState.startTime;
@@ -248,10 +253,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		stackCondition: 'weakheavy',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'weak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'weak', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'weak');
+				this.add('-status', target, 'weak', '[silent]');
 			}
+			this.add('-message', `${target.name} has been weakened!`);
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
@@ -280,10 +286,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		endFromItem: "[POKEMON]'s [ITEM] healed its status!",
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'weakheavy', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'weakheavy', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'weakheavy');
+				this.add('-status', target, 'weakheavy', '[silent]');
 			}
+			this.add('-message', `${target.name} has been heavily weakened!`);
 		},
 		onDisableMove(pokemon) {
 			for (const moveSlot of pokemon.moveSlots) {
@@ -315,10 +322,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'brnpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'brnpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'brnpsn');
+				this.add('-status', target, 'brnpsn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been poisoned!`);
 		},
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 8);
@@ -331,10 +339,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'brndark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'brndark', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'brndark');
+				this.add('-status', target, 'brndark', '[silent]');
 			}
+			this.add('-message', `${target.name} has been blinded!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -350,10 +359,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'brnfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'brnfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'brnfear');
+				this.add('-status', target, 'brnfear', '[silent]');
 			}
+			this.add('-message', `${target.name} has been scared!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -369,10 +379,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'brnpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'brnpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'brnpar');
+				this.add('-status', target, 'brnpar', '[silent]');
 			}
+			this.add('-message', `${target.name} has been paralyzed!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -389,10 +400,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'brnweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'brnweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'brnweak');
+				this.add('-status', target, 'brnweak', '[silent]');
 			}
+			this.add('-message', `${target.name} has been weakened!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -420,10 +432,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'psnbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'psnbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'psnbrn');
+				this.add('-status', target, 'psnbrn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been burned!`);
 		},
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 8);
@@ -436,10 +449,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'psndark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'psndark', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'psndark');
+				this.add('-status', target, 'psndark', '[silent]');
 			}
+			this.add('-message', `${target.name} has been blinded!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -455,10 +469,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'psnfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'psnfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'psnfear');
+				this.add('-status', target, 'psnfear', '[silent]');
 			}
+			this.add('-message', `${target.name} has been scared!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -474,10 +489,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'psnpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'psnpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'psnpar');
+				this.add('-status', target, 'psnpar', '[silent]');
 			}
+			this.add('-message', `${target.name} has been paralyzed!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -494,10 +510,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'psnweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'psnweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'psnweak');
+				this.add('-status', target, 'psnweak', '[silent]');
 			}
+			this.add('-message', `${target.name} has been weakened!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -525,10 +542,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'darkbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'darkbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'darkbrn');
+				this.add('-status', target, 'darkbrn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been burned!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -544,10 +562,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'darkpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'darkpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'darkpsn');
+				this.add('-status', target, 'darkpsn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been poisonedx!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -563,10 +582,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'darkfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'darkfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'darkfear');
+				this.add('-status', target, 'darkfear', '[silent]');
 			}
+			this.add('-message', `${target.name} has been scared!`);
 		},
 		onModifyAtk(atk, pokemon) {
 			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
@@ -583,10 +603,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'darkpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'darkpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'darkpar');
+				this.add('-status', target, 'darkpar', '[silent]');
 			}
+			this.add('-message', `${target.name} has been paralyzed!`);
 		},
 		onModifyAtk(atk, pokemon) {
 			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
@@ -604,10 +625,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'darkweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'darkweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'darkweak');
+				this.add('-status', target, 'darkweak', '[silent]');
 			}
+			this.add('-message', `${target.name} has been weakened!`);
 		},
 		onModifyAtk(atk, pokemon) {
 			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
@@ -636,10 +658,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'fearbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'fearbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'fearbrn');
+				this.add('-status', target, 'fearbrn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been burned!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -655,10 +678,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'fearpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'fearpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'fearpsn');
+				this.add('-status', target, 'fearpsn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been poisoned!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -674,10 +698,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'feardark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'feardark', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'feardark');
+				this.add('-status', target, 'feardark', '[silent]');
 			}
+			this.add('-message', `${target.name} has been blinded!`);
 		},
 		onModifyAtk(atk, pokemon) {
 			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
@@ -694,10 +719,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'fearpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'fearpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'fearpar');
+				this.add('-status', target, 'fearpar', '[silent]');
 			}
+			this.add('-message', `${target.name} has been paralyzed!`);
 		},
 		onModifySpA(atk, pokemon) {
 			if (!pokemon.hasAbility('pride'))
@@ -715,10 +741,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'fearweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'fearweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'fearweak');
+				this.add('-status', target, 'fearweak', '[silent]');
 			}
+			this.add('-message', `${target.name} has been weakened!`);
 		},
 		onModifySpA(atk, pokemon) {
 			if (!pokemon.hasAbility('pride'))
@@ -747,10 +774,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'parbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'parbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'parbrn');
+				this.add('-status', target, 'parbrn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been burned!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -767,10 +795,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'parpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'parpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'parpsn');
+				this.add('-status', target, 'parpsn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been poisoned!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -787,9 +816,9 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'pardark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'pardark', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'pardark');
+				this.add('-status', target, 'pardark', '[silent]');
 			}
 		},
 		onModifyAtk(atk, pokemon) {
@@ -808,10 +837,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'parfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'parfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'parfear');
+				this.add('-status', target, 'parfear', '[silent]');
 			}
+			this.add('-message', `${target.name} has been scared!`);
 		},
 		onModifySpA(atk, pokemon) {
 			if (!pokemon.hasAbility('pride'))
@@ -829,10 +859,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'parweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'parweak', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'parweak');
+				this.add('-status', target, 'parweak', '[silent]');
 			}
+			this.add('-message', `${target.name} has been weakened!`);
 		},
 		onModifySpe(spe, pokemon) {
 			if (!pokemon.hasAbility('gale')) {
@@ -862,10 +893,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'weakbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'weakbrn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'weakbrn');
+				this.add('-status', target, 'weakbrn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been burned!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -893,10 +925,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'weakpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'weakpsn', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'weakpsn');
+				this.add('-status', target, 'weakpsn', '[silent]');
 			}
+			this.add('-message', `${target.name} has been poisoned!`);
 		},
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
@@ -924,10 +957,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'weakdark', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'weakdark', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'weakdark');
+				this.add('-status', target, 'weakdark', '[silent]');
 			}
+			this.add('-message', `${target.name} has been blinded!`);
 		},
 		onModifyAtk(atk, pokemon) {
 			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
@@ -956,10 +990,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'weakfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'weakfear', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'weakfear');
+				this.add('-status', target, 'weakfear', '[silent]');
 			}
+			this.add('-message', `${target.name} has been scared!`);
 		},
 		onModifySpA(atk, pokemon) {
 			if (!pokemon.hasAbility('pride'))
@@ -988,10 +1023,11 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		statusSlots: 2,
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'weakpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
+				this.add('-status', target, 'weakpar', '[from] ability: ' + sourceEffect.name, '[of] ' + source, '[silent]');
 			} else {
-				this.add('-status', target, 'weakpar');
+				this.add('-status', target, 'weakpar', '[silent]');
 			}
+			this.add('-message', `${target.name} has been paralyzed!`);
 		},
 		onModifySpe(spe, pokemon) {
 			if (!pokemon.hasAbility('gale')) {
@@ -1023,13 +1059,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		end: "[POKEMON] regained its stance!",
 		duration: 2,
 		onStart(target, source, sourceEffect) {
-			this.add('-start', target, 'stancebreak');
+			this.add('-start', target, 'stancebreak', '[silent]');
+			this.add('-message', `${target.name}'s stance broke!`);
 		},
 		onAccuracy(accuracy, target, source, move) {
 			return true;
 		},
 		onEnd(target) {
-			this.add('-end', target, 'stancebreak');
+			this.add('-end', target, 'stancebreak', '[silent]');
+			this.add('-message', `${target.name} regained its stance!`);
 		},
 	},
 	confusion: {
@@ -1107,7 +1145,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			}
 		},
 		onFieldStart(battle, source, effect) {
-			this.add('-message', `An aurora filled the sky!`);
+			this.add('-message', `The weather became Aurora!`);
 			if (effect?.effectType === 'Ability') {
 				this.add('-weather', 'Aurora', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
@@ -1141,7 +1179,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			}
 		},
 		onFieldStart(battle, source, effect) {
-			this.add('-message', `A heavy fog descended!`);
+			this.add('-message', `The weather became Heavy Fog!`);
 			if (effect?.effectType === 'Ability') {
 				this.add('-weather', 'Heavy Fog', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
@@ -1168,7 +1206,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			return 5;
 		},
 		onStart(field, source, effect) {
-			this.add('-message', `A dust storm kicked up!`);
+			this.add('-message', `The weather became Dust Storm!`);
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Dust Storm', '[from] ability: ' + effect.name, '[of] ' + source);
@@ -1200,7 +1238,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			return 5;
 		},
 		onFieldStart(field, source, effect) {
-			this.add('-message', `A sunshower began to fall!`);
+			this.add('-message', `The weather became Sunshower!`);
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'Sunshower', '[from] ability: ' + effect.name, '[of] ' + source);
