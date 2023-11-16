@@ -276,39 +276,30 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 209,
 	},
 	beantheredonethat: {
-		onAfterMoveSecondary(target, source, move) {
-			const moves = ['acidrmor', 'accupressure', 'agility', 'amnesia', 'aromaticmist', 'autotomize', 'barrier', 'bellydrum', 'bulkup', 'calmmind', 'charge', 'clangoroussoul', 'coaching', 'coil', 'cosmicpower', 'cottonguard', 'curse', 'defendorder', 'defensecurl', 'doubleteam', 'dragondance', 'geomancy', 'growth', 'harden', 'honeclaws', 'howl', 'irondefense', 'meditate', 'minimize', 'nastyplot', 'noretreat', 'quiverdance', 'rockpolish', 'rototiller', 'sharpen', 'shellsmash', 'shiftgear', 'stuffcheeks', 'swordsdance', 'tailglow', 'takeheart'];
-			if (!source || source != target || !target.hp) return;
-			if ((moves.includes(move.id) || moves.includes(move.name))) {
-				if (move.hasBounced == true) return;
-				const newMove = this.dex.getActiveMove(move.id);
-				newMove.hasBounced = true;
-				newMove.pranksterBoosted = false;
-				this.actions.useMove(newMove, target, source);
-				return null;
+		onFoeAfterBoost(boost, target, source, effect) {
+			if (effect?.name === 'Opportunist' || effect?.name === 'Mirror Herb') return;
+			const pokemon = this.effectState.target;
+			const positiveBoosts: Partial<BoostsTable> = {};
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! > 0) {
+					positiveBoosts[i] = boost[i];
+				}
 			}
+			if (Object.keys(positiveBoosts).length < 1) return;
+			this.boost(positiveBoosts, pokemon);
 		},
 		name: "Bean There Done That",
-		shortDesc: "After another Pokemon uses a status move that raises stats, this Pokemon uses the same move.",
+		shortDesc: "Currently works like Opportunist.", //After another Pokemon uses a status move that raises stats, this Pokemon uses the same move. "
 		rating: 4,
-	},
+  },
 	lawbreaker: {
-		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
-			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Steel'] = true;
-				move.ignoreImmunity['Poison'] = true;
-				move.ignoreImmunity['Fairy'] = true;
-				move.ignoreImmunity['Ground'] = true;
-				move.ignoreImmunity['Ghost'] = true;
-				move.ignoreImmunity['Normal'] = true;
-				move.ignoreImmunity['Dark'] = true;
-				move.ignoreImmunity['Electric'] = true;
-			}
+			move.ignoreImmunity = true;
 		},
 		name: "Law Breaker",
 		rating: 4,
+		shortDesc: "This pokemon ignores ype based immunities",
 		num: 113,
 	},
 	rockdodger: {
@@ -323,16 +314,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		isBreakable: true,
 		name: "Rock Dodger",
 		rating: 3.5,
+		shortDesc: "This Pokemon's Speed is raised 2 stages if hit by a Rock move; Rock immunity.",
 		num: 273,
 	},
     bullseye: {
-        onSourceAfterFaint(length, target, source, effect) {
-            this.actions.useMove(newMove, target, source);
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.actions.useMove("focusenergy", source, source);
+			}
 		},
-        name: "Bullseye",
-		shortDesc: "This Pokemon's Crit Ratio is raised by 1 stage if it attacks and KOes another Pokemon.",
-        rating: 0,
-        num: 1111,
+		name: "Bullseye",
+		shortDesc: "Uses Focus Energy currently - KOing an opponent raises crit ratio by 1",
+		rating: 3,
+		num: 153,
     },
 	comedicslip: {
 		onDamagingHit(damage, target, source, move) {
@@ -347,7 +341,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 183,
 	},
 	mobmentality: {
-		onStart(pokemon) {
+		/*onStart(pokemon) {
 			if (pokemon.side.totalFainted) {
 				this.add('-activate', pokemon, 'ability: Mob Mentality');
 				const fallen = Math.min(pokemon.side.totalFainted, 5);
@@ -362,12 +356,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.effectState.fallen) {
 				const powMod = [6144, 5734, 5325, 4915, 4506, 4096];
-				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.fallen]}/4096`);
+				this.debug(`Mob Mentality boost: ${powMod[this.effectState.fallen]}/4096`);
 				return this.chainModify([powMod[this.effectState.fallen], 4096]);
 			}
-		},
+		},*/
 		name: "Mob Mentality",
-		shortDesc: "This Pokemon's moves have 10% more power for each unfainted ally, up to 5 allies.",
+		shortDesc: "Uncoded - This Pokemon's moves have 10% more power for each unfainted ally, up to 5 allies.",
 		rating: 4,
 		num: 293,
 	},
@@ -402,11 +396,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	recharge: {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.heal(source.baseMaxhp / 3);
+				this.add('-activate', source, 'Recharge');
+				source.heal(source.baseMaxhp / 3);
+				this.add('-heal', source, source.getHealth, '[silent]')
 			}
 		},
 		name: "Recharge",
 		rating: 3,
+		shortDesc: "This Pokemon heals for 1/3 of it's max HP after KOing an opponent.",
 		num: 153,
 	},
 	megaton: {
@@ -448,6 +445,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		isBreakable: true,
 		name: "Megaton",
 		rating: 4.5,
+		shortDesc: "This Pokemon's Electric power is 2x; it can't be burned; Ground power against it is halved.",
 		num: 199,
 	},
+	
 };
