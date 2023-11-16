@@ -448,7 +448,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 	boundarytrance: { // Illegal
 		name: "Boundary Trance",
 		shortDesc: "A stone with rainbow and transparent blue halves. Special Puppets holding this will have greatly increased stats.",
-		
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
 			return this.chainModify(2);
@@ -746,6 +748,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 	dreamshard: { // Illegal
 		name: "Dream Shard",
 		shortDesc: "Mysterious gem that constantly changes color. A special Puppet holding this will have increased stats.",
+		onTakeItem(item, pokemon, source, move) {
+			return false;
+		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
 			return this.chainModify(1.1);
