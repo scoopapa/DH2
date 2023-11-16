@@ -1819,7 +1819,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: 135,
 	},
 	rebelsblade: {
-	  shortDesc: "Effects of Sharpness. This Pokemon's slicing moves have a 30% chance of poisoning.",
+	  shortDesc: "This Pokemon's slicing moves have x1.5 power and a 30% chance to inflict poisoning.",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['slicing']) {
@@ -2179,7 +2179,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHit(target, source, move) {
 			if (target !== source && ['Grass','Water'].includes(move.type)) {
 				if (!this.boost({atk: 1})) {
-					this.add('-immune', target, '[from] ability: Sap Sipper');
+					this.add('-immune', target, '[from] ability: Pondweed');
 				}
 				return null;
 			}
