@@ -203,7 +203,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				user.addVolatile('lightdrive');
 				user.volatiles['lightdrive'].fromWeightDiff = true;
 			} else if (user.volatiles['lightdrive']) {
-				user.removeVolatile('lightdrive');
+				if (this.field.isTerrain('electricterrain')) {
+					user.volatiles['lightdrive'].fromWeightDiff = false;
+				} else {
+					user.removeVolatile('lightdrive');
+				}
 			}
 		},
 		onEnd(pokemon) {
@@ -307,13 +311,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	openingact: {
 	  shortDesc: "Protosynthesis + Prankster. Protosynthesis also activates for the turn upon using a priority move.",
 		onPrepareHit(source, target, move) {
+			const isItSunny = this.field.isWeather('sunnyday');
 			if (move.priority > 0) {
-				if (!source.volatiles['openingact']) {
-					source.addVolatile('openingact');
-					source.volatiles['openingact'].fromPriority = true;
-				}
+				if (isItSunny || source.volatiles['openingact']) return;
+				source.addVolatile('openingact');
+				source.volatiles['openingact'].fromPriority = true;
 			} else if (source.volatiles['openingact']?.fromPriority) {
-				source.removeVolatile('openingact');
+				if (isItSunny) {
+					source.volatiles['openingact'].fromPriority = false;
+				} else {
+					source.removeVolatile('openingact');
+				}
 			}
 		},
 		onModifyPriority(priority, pokemon, target, move) {
@@ -819,6 +827,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					active.switchFlag = false;
 				}
 			}
+			this.add('-activate', target, 'ability: Mad Cow');
 			for (const pokemon of target.adjacentFoes()) {
 				if (pokemon.volatiles['substitute']) {
 					this.add('-immune', pokemon);
@@ -827,13 +836,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			target.switchFlag = true;
-			this.add('-activate', target, 'ability: Emergency Exit');
 		},
 		name: "Mad Cow",
 		rating: 3.5,
 	},
 	choreography: {
-	  shortDesc: "Protean + Dancer",
+	  shortDesc: "Protean + Dancer; Dancer is once per switch-in instead of Protean.",
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
 			const type = move.type;
@@ -1018,15 +1026,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!target/*) return;
 			if (*/|| target.species.id !== 'ironmimic' || target.transformed || !target.runImmunity(move.type)) return;
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates/* && this.gen >= 6*/);
-			if (hitSub) return;
-			return false;
+			if (!hitSub) return false;
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target/*) return;
 			if (*/|| target.species.id !== 'ironmimic' || target.transformed || !target.runImmunity(move.type)) return;
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates/* && this.gen >= 6*/);
-			if (hitSub) return;
-			return 0;
+			if (!hitSub) return 0;
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'ironmimic' && this.effectState.busted) {
@@ -1572,8 +1578,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	risingtension: {
 	  shortDesc: "Levitate + Cursed Body",
 		onDamagingHit(damage, target, source, move) {
-			if (source.volatiles['disable']) return;
-			if (!move.isFutureMove/*) {
+			if (!source.volatiles['disable']/*) return;
+			if (*/ && !move.isFutureMove/*) {
 				if (*/&& this.randomChance(3, 10)) {
 					source.addVolatile('disable', this.effectState.target);
 				}
@@ -1598,7 +1604,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const abilityHolder = this.effectState.target;
 			if (source.hasAbility('Grindset')) return;
 			if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
-			if (move.ruinedAtk !== abilityHolder) return;
+			else if (move.ruinedAtk !== abilityHolder) return;
 			this.debug('Grindset Atk drop');
 			return this.chainModify(0.5);
 		},
@@ -1638,7 +1644,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyMove(move) {
-			if (!move || !move.recoil || !move.hasCrashDamage || move.target === 'self') return;
+			if (!move || !(move.recoil || move.hasCrashDamage) || move.target === 'self') return;
 			if (!move.secondaries) {
 				move.secondaries = [];
 			}
@@ -1761,7 +1767,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				user.addVolatile('weightoflife');
 				user.volatiles['weightoflife'].fromWeightDiff = true;
 			} else if (user.volatiles['weightoflife']) {
-				user.removeVolatile('weightoflife');
+				if (this.field.isWeather('sunnyday')) {
+					user.volatiles['weightoflife'].fromWeightDiff = false;
+				} else {
+					user.removeVolatile('weightoflife');
+				}
 			}
 		},
 		onEnd(pokemon) {
