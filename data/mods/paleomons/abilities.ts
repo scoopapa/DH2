@@ -66,4 +66,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
 	},
+	nightwatch: {
+		shortDesc: "This Pokemon's attacks have 1.5x power against Dark types.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if(target.hasType('Dark')) return this.chainModify(1.5);
+		},
+	},
 };

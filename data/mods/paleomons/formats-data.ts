@@ -119,5 +119,60 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",
 	},
-
+	fuecocoancient: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	crocalorancient: {
+		tier: "Paleomons NFE",
+		doublesTier: "Daleomons",
+	},
+	skeledirgeancient: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	pumpkabooancient: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	pumpkabooancientsmall: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	pumpkabooancientlarge: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	pumpkabooancientsuper: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	gourgeistancient: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	gourgeistancientsmall: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	gourgeistancientlarge: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	gourgeistancientsuper: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	zubatancient: {
+		tier: "Paleomons LC",
+		doublesTier: "Daleomons",
+	},
+	golbatancient: {
+		tier: "Paleomons NFE",
+		doublesTier: "Daleomons",
+	},
+	crobatancient: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
 };

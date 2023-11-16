@@ -157,7 +157,44 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Bombardier",
 	},
-
+	icecurse: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Ice Curse');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.add('-start', target, 'typeadd', 'Ice', '[from] ability: Ice Curse');
+				}
+			}
+		},
+		name: "Ice Curse",
+		shortDesc: "On switchin, this Pokemon adds Ice to adjacent Pokemon's typings.",
+	},
+	rockbottom: {
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Rock Bottom", "[of] " + target);
+			}
+		},
+		//clear and invert boost immunity implemented in moves.ts
+		name: "Rock Bottom",
+		shortDesc: "This Pokemon's stats cannot be changed by the opponent.",
+	},
+	
 	//buffed
 	keeneye: {
 		inherit: true,
