@@ -442,7 +442,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	regainpatience: {
 	  shortDesc: "Berserk + Regenerator",
 		onDamage(damage, target, source, effect) {
-			if (effect.effectType === "Move" && !effect.multihit && !effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce'))) {
+			if (effect.effectType === "Move" && !effect.multihit && !effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility(['overwhelming','sheerforce','forceofnature']))) {
 				this.effectState.checkedBerserk = false;
 			} else {
 				this.effectState.checkedBerserk = true;
