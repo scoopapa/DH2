@@ -963,12 +963,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+			if (unawareUser === this.activePokemon) {
+				if (pokemon !== this.activeTarget) return;
 				boosts['def'] = 0;
 				boosts['spd'] = 0;
 				boosts['evasion'] = 0;
 			}
-			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+			else if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
 				boosts['spa'] = 0;
@@ -1015,26 +1016,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onCriticalHit(target, source, move) {
 			if (!target/*) return;
-			if (*/|| target.species.id !== 'ironmimic' || target.transformed) return;
+			if (*/|| target.species.id !== 'ironmimic' || target.transformed || !target.runImmunity(move.type)) return;
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates/* && this.gen >= 6*/);
-			if (hitSub/*) return;
-
-			if (*/|| !target.runImmunity(move.type)) return;
+			if (hitSub) return;
 			return false;
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target/*) return;
-			if (*/|| target.species.id !== 'ironmimic' || target.transformed) return;
+			if (*/|| target.species.id !== 'ironmimic' || target.transformed || !target.runImmunity(move.type)) return;
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates/* && this.gen >= 6*/);
-			if (hitSub/*) return;
-
-			if (*/ || !target.runImmunity(move.type)) return;
+			if (hitSub) return;
 			return 0;
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'ironmimic' && this.effectState.busted) {
-				const speciesid = /*pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' :*/ 'Iron Mimic-Busted';
-				pokemon.formeChange(speciesid, this.effect, true);
+				//const speciesid = /*pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' :*/ 'Iron Mimic-Busted';
+				//pokemon.formeChange(speciesid, this.effect, true);
+				pokemon.formeChange('Iron Mimic-Busted', this.effect, true);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
@@ -1367,7 +1365,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Circuit Breaker');
+				this.add('-end', pokemon, 'Firewall');
 			},
 		},
 		isPermanent: true,
@@ -2063,12 +2061,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectState.target;
 			if (unawareUser === pokemon) return;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+			if (unawareUser === this.activePokemon) {
+				if (pokemon !== this.activeTarget) return;
 				boosts['def'] = 0;
 				boosts['spd'] = 0;
 				boosts['evasion'] = 0;
 			}
-			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+			else if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
 				boosts['atk'] = 0;
 				boosts['def'] = 0;
 				boosts['spa'] = 0;
