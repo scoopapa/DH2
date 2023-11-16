@@ -274,7 +274,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			move.ignoreImmunity ||= {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Fighting'] = true;
 				move.ignoreImmunity['Normal'] = true;
@@ -1542,7 +1542,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.setStatus('');
 			// only reset .showCure if it's false
 			// (once you know a Pokemon has Natural Cure, its cures are always known)
-			if (!pokemon.showCure) pokemon.showCure = undefined;
+			pokemon.showCure ||= undefined;
 		},
 		name: "Rejuvenate",
 		rating: 3,
@@ -1645,9 +1645,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMove(move) {
 			if (!move || !(move.recoil || move.hasCrashDamage) || move.target === 'self') return;
-			if (!move.secondaries) {
-				move.secondaries = [];
-			}
+			move.secondaries ||= [];
 			move.secondaries.push({
 				chance: 30,
 				status: 'par',
@@ -1928,7 +1926,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 			// only reset .showCure if it's false
 			// (once you know a Pokemon has Natural Pressures, its cures are always known)
-			if (!pokemon.showCure) pokemon.showCure = undefined;
+			pokemon.showCure ||= undefined;
 		},
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Natural Pressures');
@@ -2267,8 +2265,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	freeflight: {
 	  shortDesc: "Libero + Levitate",
 		onPrepareHit(source, target, move) {
-			if (this.effectState.libero) return;
-			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
+			if (this.effectState.libero/*) return;
+			if (*/|| move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
 				if (!source.setType(type)) return;
@@ -2306,8 +2304,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().isPermanent
 				&& !additionalBannedAbilities.includes(foeActive.ability) && foeActive.isAdjacent(pokemon));
 			if (possibleTargets.length) {
-				let rand = 0;
-				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
+				const rand = (possibleTargets.length > 1) ? this.random(possibleTargets.length) : 0;
 				const target = possibleTargets[rand];
 				const ability = target.getAbility();
 				if (pokemon.setAbility(ability) && target.setAbility('pillage')) {
@@ -2519,8 +2516,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name}'s Sponge of Ruin weakened the Sp. Def of all surrounding Pokémon!`);
 		},
 		onAnyModifySpD(spd, target, source, move) {
-			const abilityHolder = this.effectState.target;
 			if (target.hasAbility(['Sponge of Ruin', 'Beads of Ruin'])) return;
+			const abilityHolder = this.effectState.target;
 			if (!move.ruinedSpD?.hasAbility(['Sponge of Ruin', 'Beads of Ruin'])) move.ruinedSpD = abilityHolder;
 			else if (move.ruinedSpD !== abilityHolder) return;
 			this.debug('Sponge of Ruin SpD drop');
@@ -2666,8 +2663,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name}'s Lawnmower of Ruin weakened the Sp. Atk of all surrounding Pokémon!`);
 		},
 		onAnyModifySpA(spa, source, target, move) {
-			const abilityHolder = this.effectState.target;
 			if (source.hasAbility(['Vessel of Ruin', 'Lawnmower of Ruin'])) return;
+			const abilityHolder = this.effectState.target;
 			if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
 			else if (move.ruinedSpA !== abilityHolder) return;
 			this.debug('Lawnmower of Ruin SpA drop');
@@ -2695,10 +2692,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	   shortDesc: "This Pokemon’s contact moves do an additional 1/8 of the target’s max HP in damage.",
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
-			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
-			if (this.checkMoveMakesContact(move, target, source)) {
-				this.damage(target.baseMaxhp / 8, target, source)
-			}
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak') || !this.checkMoveMakesContact(move, target, source)) return; 
+			this.damage(target.baseMaxhp / 8, target, source)
 		},
 		name: "Barbed Chain",
 	},
@@ -2810,7 +2805,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMovePriority: -5,
 		onModifyMove(move, attacker, defender) {
 			if (!defender.hasType('Flying')) return; //Type-based immunities were specified, not ability-based. 
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			move.ignoreImmunity ||= {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Ground'] = true;
 			}
@@ -2977,7 +2972,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 			// only reset .showCure if it's false
 			// (once you know a Pokemon has Natural Cure, its cures are always known)
-			if (!pokemon.showCure) pokemon.showCure = undefined;
+			pokemon.showCure ||= undefined;
 		},
 		name: "Natural Cure",
 		rating: 2.5,
