@@ -330,12 +330,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return priority + 1;
 			}
 		},
-		onSourceTryHit(target, source, move) {
-			if (target.hasType('Dark') && move.pranksterBoosted) {
-				this.add('-immune', target);
-				return null;
-			}
-		},
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
