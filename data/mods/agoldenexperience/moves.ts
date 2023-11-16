@@ -1865,28 +1865,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	photongeyser: {
-		num: 722,
-		accuracy: 100,
-		basePower: 100,
+		inherit: true,
 		basePowerCallback(pokemon, target, move) {
 			if (pokemon.species.name === 'Necrozma-Ultra' && pokemon.hasAbility('neuroforce')) {
 				return move.basePower + 20;
 			}
 			return move.basePower;
 		},
-		category: "Special",
-		name: "Photon Geyser",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
-		},
-		ignoreAbility: true,
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		contestType: "Cool",
 	},
 	eternabeam: {
 		num: 795,
@@ -1909,34 +1894,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "User loses 50% max HP.",
 	},
 	wickedblow: {
-		num: 817,
-		accuracy: 100,
+		inherit: true,
 		basePower: 60,
-		category: "Physical",
-		name: "Wicked Blow",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, punch: 1, mirror: 1},
-		willCrit: true,
-		secondary: null,
-		target: "normal",
-		type: "Dark",
 	},
 	bouncybubble: {
-		num: 733,
-		accuracy: 100,
+		inherit: true,
 		basePower: 90,
-		category: "Special",
-		shortDesc: "Heals 50% of damages dealt.",
-		name: "Bouncy Bubble",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, heal: 1},
-		drain: [1, 2],
-		secondary: null,
-		target: "normal",
-		type: "Water",
-		contestType: "Clever",
+		isNonstandard: null,
 	},
 	buzzybuzz: {
 		num: 734,
@@ -2071,7 +2035,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Clever",
 	},
 	ragingfury: {
-		num: 833,//change
+		num: 833,
 		accuracy: 100,
 		basePower: 130,
 		category: "Physical",
@@ -2880,6 +2844,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	braveblade: {
 		desc: "Physical if it would be stronger (Shell Side Arm clone). Hits Dark types for neutral damages.",
+		shortDesc: "Physical if stronger. Hits Dark types for neutral damages.",
 		num: -50,
 		accuracy: 100,
 		basePower: 80,
@@ -2972,13 +2937,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	oniwind: {
+	windscall: {
 		num: -53,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
 		shortDesc: "Sets Tailwind.",
-		name: "Oni Wind",
+		name: "Wind's Call",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, wind: 1, mirror: 1},
@@ -3432,6 +3397,42 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Steel",
+	},
+	blazingtorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	combattorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	magicaltorque: {
+		inherit: true,
+		isNonstandard: null,
+		secondary: {
+			chance: 20,
+			boosts: {
+				def: -1,
+			},
+		},
+		shortDesc: "20% chance to lower target's Def by 1.",
+		desc: "20% chance to lower target's Def by 1.",
+	},
+	noxioustorque: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	wickedtorque: {
+		inherit: true,
+		isNonstandard: null,
+		secondary: {
+			chance: 20,
+			boosts: {
+				atk: -1,
+			},
+		},
+		shortDesc: "20% chance to lower target's Atk by 1.",
+		desc: "20% chance to lower target's Atk by 1.",
 	},
 
 	// Endless Dream field
