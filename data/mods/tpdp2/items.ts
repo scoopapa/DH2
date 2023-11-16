@@ -437,7 +437,28 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	boundarytrance: { // Illegal
 		name: "Boundary Trance",
-		shortDesc: "[Unimplemented] A stone with rainbow and transparent blue halves. Special Puppets holding this will have greatly increased stats.",
+		shortDesc: "A stone with rainbow and transparent blue halves. Special Puppets holding this will have greatly increased stats.",
+		
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(2);
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(2);
+		},
 	},
 	bronzemirror: {
 		name: "Bronze Mirror",
@@ -702,7 +723,27 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	dreamshard: { // Illegal
 		name: "Dream Shard",
-		shortDesc: "[Unimplemented] Mysterious gem that constantly changes color. A special Puppet holding this will have increased stats.",
+		shortDesc: "Mysterious gem that constantly changes color. A special Puppet holding this will have increased stats.",
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(1.1);
+		},
 	},
 	echeloncharm: {
 		name: "Echelon Charm",
