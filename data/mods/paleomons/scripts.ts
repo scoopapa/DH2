@@ -207,6 +207,5 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		delete this.modData('Learnsets', 'aurorus').learnset.rocktomb;
 		delete this.modData('Learnsets', 'aurorus').learnset.stealthrock;
 		delete this.modData('Learnsets', 'aurorus').learnset.stoneedge;
-
 	},
 };

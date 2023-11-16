@@ -5744,7 +5744,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			jewelrystorm: ["6M"],
 			ultrahightone: ["6M"],
 			eyeoflaplace: ["6M"],
-			ultrahightone: ["6M"],
 			supernaturalborder: ["6M"],
 			magicbarrier: ["6M"],
 			unconsciousmind: ["6M"],
