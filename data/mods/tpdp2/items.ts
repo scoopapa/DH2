@@ -1,6 +1,7 @@
 export const Items: {[k: string]: ModdedItemData} = {
 	absorber: {
 		name: "Absorber",
+		rating: 3,
 		shortDesc: "This Puppet heals 18% max HP when hit by a not-very-effective skill.",
 		onDamagingHit(damage, target, source, move) {
 			if (target.getMoveHitData(move).typeMod < 0)
@@ -56,10 +57,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	ancientcoin: { // Useless
 		name: "Ancient Coin",
+		rating: 0,
 		shortDesc: "You can't continue if you only have one! When held, the chances of successful Puppet sealing is increased.",
 	},
-	ancientlunarsake: {
+	ancientlunarsake: { // Useless
 		name: "Ancient Lunar Sake",
+		rating: 0,
 		shortDesc: "Millennium brewed sake. When held by the first Puppet in your party, Puppet encounters will decrease.",
 	},
 	antiaquacharm: {
@@ -118,6 +121,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	antidotecharm: {
 		name: "Antidote Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Poison.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -364,6 +368,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	bandage: {
 		name: "Bandage",
+		rating: 1,
 		shortDesc: "If a Puppet holding this uses an absorption skill the recovered amount will be increased.",
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
@@ -375,6 +380,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	bellhairpin: { //Useless
 		name: "Bell Hairpin",
+		rating: 0,
 		shortDesc: "A small, bell-shaped hairpin. When held by the first Puppet in your party, Puppet encounters will increase.",
 	},
 	binoculars: {
@@ -387,6 +393,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	blackchoker: {
 		name: "Black Choker",
+		rating: 3,
 		shortDesc: "When held, a Puppet can withstand one skill that would otherwise KO them.",
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
@@ -400,6 +407,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	blackring: {
 		name: "Black Ring",
+		rating: 1,
 		shortDesc: "A Puppet holding this has a chance to survive a lethal attack that would otherwise KO it.",
 		onDamagePriority: -40,
 		onDamage(damage, target, source, effect) {
@@ -409,12 +417,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 			}
 		},
 	},
-	blindingorb: {
+	blindingorb: { //Useless
 		name: "Blinding Orb",
+		rating: 0,
 		shortDesc: "A Puppet holding this item will always be able to escape from a wild battle.",
 	},
 	blitzcharm: {
 		name: "Blitz Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will raise the Puppet's Critical Hit rate.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -462,6 +472,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	bronzemirror: {
 		name: "Bronze Mirror",
+		rating: 1,
 		shortDesc: "When the opposing Puppet's stats are changed the Puppet holding this will reflect the same stat changes.",
 		onFoeAfterBoost(boost, target, source, effect) {
 			if (effect?.fullname?.endsWith('Bronze Mirror')) return;
@@ -518,6 +529,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	choicebelt: {
 		name: "Choice Belt",
+		rating: 3,
 		shortDesc: "Boosts Speed, but you're locked into using the first skill used.",
 		onStart(pokemon) {
 			if (pokemon.volatiles['choicelock'])
@@ -535,6 +547,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	choiceearrings: {
 		name: "Choice Earrings",
+		rating: 3,
 		shortDesc: "Boosts the power of Spread Attack skills but you're locked into using the first skill used.",
 		onStart(pokemon) {
 			if (pokemon.volatiles['choicelock'])
@@ -552,6 +565,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	choicering: {
 		name: "Choice Ring",
+		rating: 3,
 		shortDesc: "Boosts the power of Focus Attack skills but you're locked into using the first skill used.",
 		onStart(pokemon) {
 			if (pokemon.volatiles['choicelock'])
@@ -573,6 +587,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	claritycharm: {
 		name: "Clarity Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from confusion.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -596,6 +611,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	columncharm: {
 		name: "Column Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will raise the Puppet's FoDef stat.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -610,10 +626,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	combathandbook: { // Useless
 		name: "Combat Handbook",
+		rating: 0,
 		shortDesc: "A fighting manual. When held, it increases EXP gained in battle.",
 	},
 	counterbit: {
 		name: "Counter Bit",
+		rating: 3,
 		shortDesc: "When held, if you receive damage from a BU-skill, damage will be dealt back to the attacker.",
 		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
@@ -647,6 +665,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	curingcharm: {
 		name: "Curing Charm",
+		rating: 3,
 		shortDesc: "When held, it can recover from all ailments.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -661,6 +680,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	curseddoll: {
 		name: "Cursed Doll",
+		rating: 1,
 		shortDesc: "When held skills that wouldn't hit due to type immunity will now work.",
 		onFoeImmunity(type, pokemon) {
 			if (this.dex.types.get(type))
@@ -669,6 +689,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	deadlysecrets: {
 		name: "Deadly Secrets",
+		rating: 3,
 		shortDesc: "A book detailing the tricks of battle. Skills will deal more damage if it pierces the barrier.",
 		onModifyDamage(damage, source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod > 0) {
@@ -716,6 +737,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	dragonamulet: {
 		name: "Dragon Amulet",
+		rating: 3,
 		shortDesc: "A Puppet holding this item is no longer susceptible to critical hits.",
 		onFoeModifyCritRatio(relayVar, source, target, move) {
 			return 0;
@@ -829,6 +851,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	foodrations: {
 		name: "Food Rations",
+		rating: 3,
 		shortDesc: "A stockpile of food. When held by a Puppet it'll recover 1/16th of their max HP per turn during battle.",
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
@@ -854,6 +877,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	goldenhairpin: {
 		name: "Golden Hairpin",
+		rating: 3,
 		shortDesc: "The Puppet holding this will have increased FoDef, but it will not be able to use support skills.",
 		onModifyDefPriority: 15,
 		onModifyDef(relayVar, target, source, move) {
@@ -866,6 +890,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	hakureiamulet: { // Useless
 		name: "Hakurei Amulet",
+		rating: 0,
 		shortDesc: "Amulet that holds the gracious power of the Hakurei. When held, EXP and PP gained will increase.",
 	},
 	halogodstone: {
@@ -885,6 +910,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	healingcharm: {
 		name: "Healing Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover 20 HP.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -901,6 +927,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	heavyarmor: {
 		name: "Heavy Armor",
+		rating: 1,
 		shortDesc: "A Puppet holding this always moves last within its priority bracket.",
 		onFractionalPriority: -0.1,
 	},
@@ -927,6 +954,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	hexagoncharm: {
 		name: "Hexagon Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will raise the Puppet's SpDef stat.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -955,6 +983,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	ironwillribbon: {
 		name: "Iron Will Ribbon",
+		rating: 1,
 		shortDesc: "If the Puppet holding this only knows 3 skills, the damage received will be reduced.",
 		onFoeModifyDamage(relayVar, target, source, move) {
 			var moveCount:number = 0;
@@ -997,6 +1026,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	jarofpoison: {
 		name: "Jar of Poison",
+		rating: 3,
 		shortDesc: "Will heal 1/16th the Puppet's max HP if it's the Poison type. Otherwise the Puppet takes passive damage every turn.",
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
@@ -1039,6 +1069,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	largeshield: {
 		name: "Large Shield",
+		rating: 1,
 		shortDesc: "When held, resisted attacks will deal reduced damage, and barrier piercing attacks will deal more damage.",
 		onSourceModifyDamage(relayVar, source, target, move) {
 			if (move) {
@@ -1055,6 +1086,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	laylasamulet: { // Useless
 		name: "Layla's Amulet",
+		rating: 0,
 		shortDesc: "Hidden under an old photograph. When held by a Puppet, the item drop rates from battle are doubled.",
 	},
 	lifecharm: {
@@ -1075,6 +1107,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	lightcharm: {
 		name: "Light Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Darkness.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -1097,6 +1130,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	massagecharm: {
 		name: "Massage Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Paralysis.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -1123,6 +1157,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	nativegrace: { // Useless
 		name: "Native Grace",
+		rating: 0,
 		shortDesc: "A charm given by Suwako. If held, EXP and PP gain in battle will be doubled.",
 	},
 	obsidian: {
@@ -1148,6 +1183,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	ointmentcharm: {
 		name: "Ointment Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Burn.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -1220,6 +1256,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	pinpointcharm: {
 		name: "Pinpoint Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will raise the Puppet's Accuracy stat.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -1268,6 +1305,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	radianthairpin: {
 		name: "Radiant Hairpin",
+		rating: 3,
 		shortDesc: "This Puppet's skills gain 1% more power for each percent above 70%.",
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
@@ -1299,6 +1337,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	reflectbit: {
 		name: "Reflect Bit",
+		rating: 3,
 		shortDesc: "When held, if you receive damage from a EN-skill, damage will be dealt back to the attacker.",
 		onDamagingHitOrder: 2,
 		onDamagingHit(damage, target, source, move) {
@@ -1309,6 +1348,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	reliefcharm: {
 		name: "Relief Charm",
+		rating: 1,
 		shortDesc: "When held, it can recover from Fear.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -1386,6 +1426,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	rotationcharm: {
 		name: "Rotation Charm",
+		rating: 1,
 		shortDesc: "In a pinch, this will sharply raise one random stat.",
 		isBerry: true,
 		onUpdate(pokemon) {
@@ -1466,6 +1507,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	silverhairpin: {
 		name: "Silver Hairpin",
+		rating: 3,
 		shortDesc: "The Puppet holding this will have increased SpDef, but it will not be able to use support skills.",
 		onModifyDefPriority: 15,
 		onModifySpD(relayVar, target, source, move) {
@@ -1497,6 +1539,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		onEat(pokemon) {
 			this.boost({spe: 1});
 		},
+		rating: 3,
 	},
 	smallbit: {
 		name: "Small Bit",
@@ -1533,6 +1576,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	sturdyrope: {
 		name: "Sturdy Rope",
+		rating: 1,
 		shortDesc: "A sturdy rope that increases the power of binding moves when held.",
 		//Implemented in conditions.ts
 	},
@@ -1584,6 +1628,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	tengugeta: {
 		name: "Tengu Geta",
+		rating: 3,
 		shortDesc: "Holder is immune to hazards.",
 		// Implemented in moves.ts
 	},
@@ -1687,6 +1732,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	woodensword: { // Useless
 		name: "Wooden Sword",
+		rating: 0,
 		shortDesc: "A wooden sword designed for training. A Puppet holding this will increase the amount of PP it earns from battle.",
 	},
 	yggdrasilseed: {
