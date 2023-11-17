@@ -26,6 +26,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	decorate: {
 		num: 777,
 		shortDesc: "Swaps all stat changes with target.",
+		isNonstandard: null,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1081,10 +1082,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	purify: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	decorate: {
 		inherit: true,
 		isNonstandard: null,
 	},
