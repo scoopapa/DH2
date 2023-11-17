@@ -20,5 +20,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1000,
 		gen: 9,
 		desc: "Allows this the holder to Dynamax.",
+		rating: 3,
 	},
 };
