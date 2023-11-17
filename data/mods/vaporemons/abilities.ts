@@ -1013,7 +1013,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "On switch-in, sets Mud Sport and Water Sport. This Pokemon's mud moves deal double damage.",
 		rating: 5,
-	}, /*
+	}, 
 	exoskeleton: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Exoskeleton');
@@ -1043,7 +1043,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: +Bug resistances.",
 	},
- */
+ /*
 	exoskeleton: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Exoskeleton');
@@ -1093,6 +1093,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: +Bug resistances.",
 	},
+ */
 	bluntforce: {
 		// This should be applied directly to the stat as opposed to chaining with the others
 		onModifyAtkPriority: 5,
@@ -1118,7 +1119,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			},
 			onAfterMove(pokemon) {
-				defender.removeVolatile('bluntforce');
+				pokemon.removeVolatile('bluntforce');
 			},
 		},
 		name: "Blunt Force",
