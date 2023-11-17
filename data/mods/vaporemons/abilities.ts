@@ -1099,7 +1099,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
 			return this.modify(atk, 1.5);
-		}, /*
+		}, 
 		onModifyDamage(damage, source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod === 1) {
 				return this.chainModify(0.5);
@@ -1107,10 +1107,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			else if (move && target.getMoveHitData(move).typeMod > 1) {
 				return this.chainModify(0.25);
 			}
-		}, */
+		}, 
+	/*
 		onBeforeMovePriority: 5,
 		onBeforeMove(attacker, defender, move) {
-			attacker.addVolatile('bluntforce');
+			defender.addVolatile('bluntforce');
 		},
 		condition: {
 			onEffectiveness(typeMod, target, type, move) {
@@ -1122,6 +1123,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.removeVolatile('bluntforce');
 			},
 		},
+	*/
 		name: "Blunt Force",
 		rating: 3.5,
 		shortDesc: "(Mostly functional) This Pokemon's physical moves have 1.5x power but can't be super effective.",
