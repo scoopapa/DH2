@@ -1013,7 +1013,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		shortDesc: "On switch-in, sets Mud Sport and Water Sport. This Pokemon's mud moves deal double damage.",
 		rating: 5,
-	},
+	}, /*
 	exoskeleton: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Exoskeleton');
@@ -1043,12 +1043,62 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: +Bug resistances.",
 	},
+ */
+	exoskeleton: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Exoskeleton');
+			this.add('-message', `${pokemon.name} sports a tough exoskeleton!`);
+		},
+	  onEffectivenessPriority: -1,
+        onEffectiveness(typeMod, target, type, move) {
+            if (target.hasType('Bug') && move && move.effectType === 'Move' && 
+					 move.category !== 'Status' && ['Fire', 'Flying', 'Rock'].includes(move.type)) {
+            	if (target.getMoveHitData(move).typeMod === 2) {
+                    return 1;
+                }
+            	else if (target.getMoveHitData(move).typeMod === 1) {
+                    return 0;
+                }
+	            else if (target.getMoveHitData(move).typeMod === 0) {
+                    return -1;
+                }
+		         else if (target.getMoveHitData(move).typeMod === -1) {
+                    return -2;
+                }
+            } else {
+            if (move && move.effectType === 'Move' 
+					 && move.category !== 'Status' && ['Fighting', 'Grass', 'Ground'].includes(move.type)) {
+            	if (target.getMoveHitData(move).typeMod === 2) {
+                  return 1;
+               }
+            	else if (target.getMoveHitData(move).typeMod === 1) {
+                  return 0;
+               }
+	         	else if (target.getMoveHitData(move).typeMod === 0) {
+                  return -1;
+               }
+		      	else if (target.getMoveHitData(move).typeMod === -1) {
+                  return -2;
+            	}
+				}
+      	}
+      },
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock' && target.hasType('Bug')) {
+				return damage / 2;
+			}
+		},
+		isBreakable: true,
+		name: "Exoskeleton",
+		rating: 4,
+		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: +Bug resistances.",
+	},
 	bluntforce: {
 		// This should be applied directly to the stat as opposed to chaining with the others
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
 			return this.modify(atk, 1.5);
-		},
+		}, /*
 		onModifyDamage(damage, source, target, move) {
 			if (move && target.getMoveHitData(move).typeMod === 1) {
 				return this.chainModify(0.5);
@@ -1056,6 +1106,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			else if (move && target.getMoveHitData(move).typeMod > 1) {
 				return this.chainModify(0.25);
 			}
+		}, */
+		onBeforeMovePriority: 5,
+		onBeforeMove(attacker, defender, move) {
+			defender.addVolatile('bluntforce');
+		},
+		condition: {
+			onEffectiveness(typeMod, target, type, move) {
+				if (move && target.getMoveHitData(move).typeMod === 1) {
+					return 0;
+				}
+			},
+			onAfterMove(pokemon) {
+				defender.removeVolatile('bluntforce');
+			},
 		},
 		name: "Blunt Force",
 		rating: 3.5,
