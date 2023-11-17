@@ -2241,7 +2241,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, charge: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Solar Beam", target);
@@ -3689,7 +3689,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, charge: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Skull Bash", target);
@@ -4275,7 +4275,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 3.125,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, charge: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sky Attack", target);
