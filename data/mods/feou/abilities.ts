@@ -1020,13 +1020,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!target/*) return;
 			if (*/|| target.species.id !== 'ironmimic' || target.transformed || !target.runImmunity(move.type)) return;
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates/* && this.gen >= 6*/);
-			if (!hitSub) return false;
+			if (hitSub) return;
+			return false;
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target/*) return;
 			if (*/|| target.species.id !== 'ironmimic' || target.transformed || !target.runImmunity(move.type)) return;
 			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates/* && this.gen >= 6*/);
-			if (!hitSub) return 0;
+			if (hitSub) return;
+			return 0;
 		},
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'ironmimic' && this.effectState.busted) {
