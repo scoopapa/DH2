@@ -1816,12 +1816,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Beautiful",
 	},
-	multiattack: {
+	multiattackage: {
 		num: 718,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
 		name: "Multi-Attack",
+		realMove: "Multi Attack",
 		shortDesc: "Changes type to match user's first type.",
 		pp: 10,
 		priority: 0,
@@ -2244,12 +2245,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Tough",
 	},
-	fissure: {
+	fissureage: {
 		num: 90,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
 		name: "Fissure",
+		realMove: "Fissure",
 		desc: "10% chance to lower the target's Defense by 1.",
 		shortDesc: "10% chance to lower the target's Defense by 1.",
 		pp: 10,
@@ -2265,12 +2267,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ground",
 		contestType: "Tough",
 	},
-	sheercold: {
+	sheercoldage: {
 		num: 329,
 		accuracy: 100,
 		basePower: 150,
 		category: "Special",
 		name: "Sheer Cold",
+		realMove: "Sheer Cold",
 		desc: "Sets Hail. User faints after use.",
 		shortDesc: "Sets Hail. User faints after use.",
 		pp: 5,
@@ -2283,12 +2286,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	mistyexplosion: {
+	mistyexplosionage: {
 		num: 802,
 		accuracy: 100,
 		basePower: 150,
 		category: "Special",
 		name: "Misty Explosion",
+		realMove: "Misty Explosion",
 		desc: "Sets Misty Terrain. User faints after use.",
 		shortDesc: "Sets Misty Terrain. User faints after use.",
 		pp: 5,
@@ -2300,12 +2304,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacent",
 		type: "Fairy",
 	},
-	guillotine: {
+	guillotineage: {
 		num: 12,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
 		name: "Guillotine",
+		realMove: "Guillotine",
 		desc: "Raises user's Attack by 1 if this KOes the target.",
 		shortDesc: "Raises user's Attack by 1 if this KOes the target.",
 		pp: 10,
@@ -2325,6 +2330,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 		category: "Physical",
 		name: "Horn Drill",
+		realMove: "Horn Drill",
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
 		pp: 10,
@@ -3327,7 +3333,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Clever",
 	},
-	lastrespects: {
+	lastrespectsage: {
 		num: 854,
 		accuracy: 100,
 		basePower: 50,
@@ -3339,6 +3345,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Last Respects",
+		realMove: "Last Respects",
 		shortDesc: "+15 power for each time a Pokemon fainted. Special if user's SpA > Atk.",
 		pp: 10,
 		priority: 0,
@@ -3347,7 +3354,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 	},
-	ragefist: {
+	ragefistage: {
 		num: 889,
 		accuracy: 100,
 		basePower: 50,
@@ -3356,6 +3363,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Rage Fist",
+		realMove: "Rage Fist",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
