@@ -58,7 +58,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 80,
 		category: "Special",
-		name: "Matcha Gotcha",
+		name: "Apple Acid",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
