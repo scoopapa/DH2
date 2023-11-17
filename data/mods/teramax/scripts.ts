@@ -52,6 +52,20 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "tinglu").learnset.curse = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "flapple").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "flapple").learnset.scaleshot = ["9L1"];
+		this.modData("Learnsets", "alcremie").learnset.moonblast = ["9L1"];
+		this.modData("Learnsets", "alcremie").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "appletun").learnset.flamethrower = ["9L1"];
+		this.modData("Learnsets", "appletun").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "appletun").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "butterfree").learnset.mysticalfire = ["9L1"];
+		this.modData("Learnsets", "butterfree").learnset.spore = ["9L1"];
+		this.modData("Learnsets", "butterfree").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "butterfree").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "centiskorch").learnset.firstimpression = ["9L1"];
+		this.modData("Learnsets", "centiskorch").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "centiskorch").learnset.wildcharge = ["9L1"];
 	},
 	actions: {
 		inherit: true,
