@@ -8170,7 +8170,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onBeforeSwitchOut(pokemon) {
 				this.debug('Pursuit start');
 				let alreadyAdded = false;
-				pokemon.removeVolatile('destinybond');
+				pokemon.removeVolatile('callofthedead');
 				for (const source of this.effectState.sources) {
 					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
