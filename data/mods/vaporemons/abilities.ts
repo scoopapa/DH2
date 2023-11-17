@@ -1110,7 +1110,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		}, */
 		onBeforeMovePriority: 5,
 		onBeforeMove(attacker, defender, move) {
-			defender.addVolatile('bluntforce');
+			attacker.addVolatile('bluntforce');
 		},
 		condition: {
 			onEffectiveness(typeMod, target, type, move) {
