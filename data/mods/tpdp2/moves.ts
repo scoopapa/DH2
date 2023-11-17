@@ -1196,6 +1196,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	changeling: {
 		name: "Changeling",
+		viable: true,
 		shortDesc: "If it inflicts damage, the user switches for another puppet. Ends battles against wild puppets.",
 		target: "normal",
 		type: "Dark",
@@ -2240,7 +2241,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, charge: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Solar Beam", target);
@@ -3688,7 +3689,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, charge: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Skull Bash", target);
@@ -4274,7 +4275,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 3.125,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, charge: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sky Attack", target);
@@ -8169,7 +8170,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			onBeforeSwitchOut(pokemon) {
 				this.debug('Pursuit start');
 				let alreadyAdded = false;
-				pokemon.removeVolatile('destinybond');
+				pokemon.removeVolatile('callofthedead');
 				for (const source of this.effectState.sources) {
 					if (!source.isAdjacent(pokemon) || !this.queue.cancelMove(source) || !source.hp) continue;
 					if (!alreadyAdded) {
@@ -8191,7 +8192,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		
+		isNonstandard: null,
 		// Class: BU
 		// Effect Chance: 100
 		// Effect ID: 148
