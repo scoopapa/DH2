@@ -17,6 +17,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onSwitchOut(pokemon) {
 			pokemon.side.dynamaxUsed = true;
 		},
+		onFaint(pokemon) {
+			pokemon.side.dynamaxUsed = true;
+		},
 		num: -1000,
 		gen: 9,
 		desc: "Allows this the holder to Dynamax.",
