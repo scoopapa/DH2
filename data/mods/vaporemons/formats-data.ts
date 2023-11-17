@@ -1608,12 +1608,80 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	ogerponcornerstone: {
-		tier: "OU",
-		doublesTier: "DOU",
-	},
-	ogerponwellspring: {
 		tier: "UU",
 		doublesTier: "DOU",
 	},
-
+	ogerponwellspring: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	qwilfishhisui: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	hattrem: {
+		tier: "NFE",
+		doublesTier: "DOU",
+	},
+	gabite: {
+		tier: "NFE",
+		doublesTier: "DOU",
+	},
+	gurdurr: {
+		tier: "NFE",
+		doublesTier: "DOU",
+	},
+	misdreavus: {
+		tier: "NFE",
+		doublesTier: "DOU",
+	},
+	naclstack: {
+		tier: "NFE",
+		doublesTier: "DOU",
+	},
+	pikachu: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	quaxwell: {
+		tier: "NFE",
+		doublesTier: "DOU",
+	},
+	thwackey: {
+		tier: "NFE",
+		doublesTier: "DOU",
+	},
+	poliwrath: {
+		tier: "RU",
+		doublesTier: "DOU",
+	},
+	tinkatuff: {
+		tier: "NFE",
+		doublesTier: "DOU",
+	},
+	revavroomcaph: {
+		tier: "Illegal",
+		doublesTier: "(DUU)",
+		natDexTier: "RU",
+	},
+	revavroomnavi: {
+		tier: "Illegal",
+		doublesTier: "(DUU)",
+		natDexTier: "RU",
+	},
+	revavroomruchbah: {
+		tier: "Illegal",
+		doublesTier: "(DUU)",
+		natDexTier: "RU",
+	},
+	revavroomschedar: {
+		tier: "Illegal",
+		doublesTier: "(DUU)",
+		natDexTier: "RU",
+	},
+	revavroomsegin: {
+		tier: "Illegal",
+		doublesTier: "(DUU)",
+		natDexTier: "RU",
+	}, 
 };
