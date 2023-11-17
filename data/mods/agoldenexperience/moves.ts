@@ -2292,7 +2292,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 150,
 		category: "Special",
 		name: "Misty Explosion AGE",
-		realMove: "Misty Explosion",
 		desc: "Sets Misty Terrain. User faints after use.",
 		shortDesc: "Sets Misty Terrain. User faints after use.",
 		pp: 5,
