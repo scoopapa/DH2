@@ -41,7 +41,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 70, def: 80, spa: 135, spd: 125, spe: 105},
 	},
 
-// GMaxes
+// GMaxes and Buffs to GMax base forms
 	venusaurgmax: {
 		inherit: true,
 		abilities: {0: "Flower Veil"},
@@ -54,8 +54,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Bulletproof"},
 	},
+	butterfree: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
+		abilities: {0: "Compound Eyes", H: "Magic Guard"},
+	},
 	butterfreegmax: {
 		inherit: true,
+		baseStats: {hp: 60, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
 		abilities: {0: "Magic Bounce"},
 	},
 	meowthgmax: {
@@ -126,13 +132,25 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Earth Eater"},
 	},
+	flapple: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 120, def: 95, spa: 80, spd: 67, spe: 88},
+		abilities: {0: "Ripen", 1: "Gluttony", H: "Hustle"},
+	},
 	flapplegmax: {
 		inherit: true,
-		abilities: {0: "Supersweet Syrup"},
+		baseStats: {hp: 70, atk: 120, def: 95, spa: 80, spd: 67, spe: 88},
+		abilities: {0: "Tinted Lens"},
+	},
+	appletun: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 75, def: 90, spa: 120, spd: 100, spe: 25},
+		abilities: {0: "Ripen", 1: "Harvest", H: "Thick Fat"},
 	},
 	appletungmax: {
 		inherit: true,
-		abilities: {0: "Supersweet Syrup"},
+		baseStats: {hp: 110, atk: 75, def: 90, spa: 120, spd: 100, spe: 25},
+		abilities: {0: "Grassy Surge"},
 	},
 	sandacondagmax: {
 		inherit: true,
@@ -146,9 +164,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Electromorphosis"},
 	},
+	centiskorch: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 135, def: 85, spa: 75, spd: 100, spe: 65},
+		abilities: {0: "Flash Fire", 1: "Magic Bounce", H: "Flame Body"},
+	},
 	centiskorchgmax: {
 		inherit: true,
-		abilities: {0: "Unnerve"},
+		baseStats: {hp: 100, atk: 135, def: 85, spa: 75, spd: 100, spe: 65},
+		abilities: {0: "Dry Skin"},
 	},
 	hatterenegmax: {
 		inherit: true,
@@ -158,8 +182,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Tangling Hair"},
 	},
+	alcremie: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 60, def: 90, spa: 120, spd: 125, spe: 70},
+		abilities: {0: "Gooey", H: "Aroma Veil"},
+	},
 	alcremiegmax: {
 		inherit: true,
+		baseStats: {hp: 65, atk: 60, def: 90, spa: 120, spd: 125, spe: 70},
 		abilities: {0: "Well-Baked Body"},
 	},
 	copperajahgmax: {
