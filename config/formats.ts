@@ -445,7 +445,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 3] Hoenn Gaiden",
+		name: "[Gen 3] Hoenn Gaiden OU",
 		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-pet-mod-of-the-season.3714737/">Hoenn Gaiden on Smogon Forums</a>`,
@@ -454,24 +454,6 @@ export const Formats: FormatList = [
 		ruleset: ['HG Standard', 'Data Mod', 'Freeze Clause Mod'],
 		banlist: ['Uber'],
 		unbanlist: ['Sand Veil',],
-	},
-	{
-		name: "[Gen 3] Hoenn Gaiden UU",
-		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-pet-mod-of-the-season.3714737/">Hoenn Gaiden on Smogon Forums</a>`,
-		],
-
-		mod: 'gen3uuhoenngaiden',
-		searchShow: false,
-		ruleset: ['Standard', 'Data Mod', 'Freeze Clause Mod'],
-		banlist: [
-				'Uber', 'OU', 'UUBL', 'Snow Warning', 'Air Balloon',
-				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 
-				'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 
-				'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
-		],
-		unbanlist: [],
 	},
 	{
 		name: "[Gen 8] Megas for All: Kalos",
@@ -2541,6 +2523,23 @@ export const Formats: FormatList = [
 		section: "Pet Mods Bonus Formats",
 		column: 3,
 		// name: "petmodsbonusformats",
+	},
+	{
+		name: "[Gen 3] Hoenn Gaiden UU",
+		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-pet-mod-of-the-season.3714737/">Hoenn Gaiden on Smogon Forums</a>`,
+		],
+
+		mod: 'gen3uuhoenngaiden',
+		ruleset: ['Standard', 'Data Mod', 'Freeze Clause Mod'],
+		banlist: [
+				'Uber', 'OU', 'UUBL', 'Snow Warning', 'Air Balloon',
+				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 
+				'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 
+				'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
+		],
+		unbanlist: [],
 	},
 	{
 		name: "[Gen 8] JolteMons Random Battle",
