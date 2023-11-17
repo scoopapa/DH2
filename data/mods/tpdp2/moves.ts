@@ -8192,7 +8192,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		
+		isNonstandard: null,
 		// Class: BU
 		// Effect Chance: 100
 		// Effect ID: 148
