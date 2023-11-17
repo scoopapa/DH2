@@ -86,8 +86,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		onHit(pokemon, source) {
-			if (pokemon.getMoveHitData(move).typeMod < 0) {
+		onHit(target, source, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
 				this.field.addPseudoWeather('gravity', source, source.move);
 			}
 		},
