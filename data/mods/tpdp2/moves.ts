@@ -1196,6 +1196,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	changeling: {
 		name: "Changeling",
+		viable: true,
 		shortDesc: "If it inflicts damage, the user switches for another puppet. Ends battles against wild puppets.",
 		target: "normal",
 		type: "Dark",
