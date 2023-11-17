@@ -1,8 +1,4 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	pokemon: {
-		tier: "Tier",
-		doublesTier: "DOU",
-	},
 	charizard: {
 		tier: "UU",
 		doublesTier: "DOU",
