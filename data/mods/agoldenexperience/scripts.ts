@@ -950,6 +950,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'bellossom').learnset.weatherball = ['9L1'];
     this.modData('Learnsets', 'ampharos').learnset.wish = ['9L1'];
     this.modData('Learnsets', 'ampharos').learnset.moonlight = ['9L1'];
+    this.modData('Learnsets', 'azumarill').learnset.bulkup = ['9L1'];
     this.modData('Learnsets', 'sudowoodo').learnset.teramorphosis = ['9L1'];
     this.modData('Learnsets', 'politoed').learnset.flipturn = ['9L1'];
     this.modData('Learnsets', 'politoed').learnset.lifedew = ['9L1'];
