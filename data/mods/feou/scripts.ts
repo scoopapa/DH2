@@ -55,6 +55,26 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return null;
 		},
+		hitStepTryImmunity(targets, pokemon, move) {
+			const hitResults = [];
+			for (const [i, target] of targets.entries()) {
+				if (/*this.battle.gen >= 6 && */move.flags['powder'] && target !== pokemon && !this.dex.getImmunity('powder', target)) {
+					this.battle.debug('natural powder immunity');
+				} else if (this.battle.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
+					if (/*this.battle.gen >= 7 && */move.pranksterBoosted && pokemon.hasAbility(['prankster','openingact']) && !targets[i].isAlly(pokemon)
+						 && !this.dex.getImmunity('prankster', target)) {
+						this.battle.debug('natural prankster immunity');
+						if (!target.illusion) this.battle.hint("Since gen 7, Dark is immune to Prankster moves.");
+					} else {
+						hitResults[i] = true;
+						continue;
+					}
+				}
+				this.battle.add('-immune', target);
+				hitResults[i] = false;
+			}
+			return hitResults;
+		}
 
 		/*
   			runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) {
