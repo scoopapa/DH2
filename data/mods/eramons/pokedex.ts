@@ -728,7 +728,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	planeknight: {
 		num: -122,
 		name: "Planeknight",
-		types: ["Flying", "Steel"],
+		types: ["Water", "Flying"],
 		baseStats: {hp: 89, atk: 40, def: 105, spa: 95, spd: 70, spe: 96},
 		abilities: {0: "Cloud Nine", 1: "Lightning Rod", H: "Mirror Armor"},
 		heightm: 2.2,
