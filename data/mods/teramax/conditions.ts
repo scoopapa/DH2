@@ -9,129 +9,135 @@ export const Conditions: {[k: string]: ConditionData} = {
 			pokemon.side.addSideCondition('dynamaxused', pokemon);
 			if (pokemon.gigantamax) {
 				pokemon.side.addSideCondition('gmaxused', pokemon);
-				if (pokemon.baseSpecies.name === 'Venusaur') {
-					pokemon.setAbility('flowerveil', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Flower Veil');
-				}
-				if (pokemon.baseSpecies.name === 'Charizard') {
-					pokemon.setAbility('moldbreaker', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Mold Breaker');
-				}
-				if (pokemon.baseSpecies.name === 'Blastoise') {
-					pokemon.setAbility('bulletproof', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Bulletproof');
-				}
-				if (pokemon.baseSpecies.name === 'Butterfree') {
-					pokemon.setAbility('magicbounce', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Magic Bounce');
-				}
-				if (pokemon.baseSpecies.name === 'Pikachu') {
-					pokemon.setAbility('hugepower', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Huge Power');
-				}
-				if (pokemon.baseSpecies.name === 'Meowth') {
-					pokemon.setAbility('limber', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Limber');
-				}
-				if (pokemon.baseSpecies.name === 'Machamp') {
-					pokemon.setAbility('scrappy', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Scrappy');
-				}
-				if (pokemon.baseSpecies.name === 'Gengar') {
-					pokemon.setAbility('mummu', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Mummy');
-				}
-				if (pokemon.baseSpecies.name === 'Kingler') {
-					pokemon.setAbility('angershell', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Anger Shell');
-				}
-				if (pokemon.baseSpecies.name === 'Lapras') {
-					pokemon.setAbility('icescales', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Ice Scales');
-				}
-				if (pokemon.baseSpecies.name === 'Eevee') {
-					pokemon.setAbility('friendguard', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Friend Guard');
-				}
-				if (pokemon.baseSpecies.name === 'Snorlax') {
-					pokemon.setAbility('sapsipper', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Sap Sipper');
-				}
-				if (pokemon.baseSpecies.name === 'Garbodor') {
-					pokemon.setAbility('toxicdebris', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Toxic Debris');
-				}
-				if (pokemon.baseSpecies.name === 'Melmetal') {
-					pokemon.setAbility('liquidooze', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Liquid Ooze');
-				}
-				if (pokemon.baseSpecies.name === 'Rillaboom') {
-					pokemon.setAbility('grasspelt', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Grass Pelt');
-				}
-				if (pokemon.baseSpecies.name === 'Cinderace') {
-					pokemon.setAbility('quickfeet', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Quick Feet');
-				}
-				if (pokemon.baseSpecies.name === 'Inteleon') {
-					pokemon.setAbility('stormdrain', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Storm Drain');
-				}
-				if (pokemon.baseSpecies.name === 'Corviknight') {
-					pokemon.setAbility('ironbarbs', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Iron Barbs');
-				}
-				if (pokemon.baseSpecies.name === 'Orbeetle') {
-					pokemon.setAbility('magicguard', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Magic Guard');
-				}
-				if (pokemon.baseSpecies.name === 'Drednaw') {
-					pokemon.setAbility('solidrock', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Solid Rock');
-				}
-				if (pokemon.baseSpecies.name === 'Coalossal') {
-					pokemon.setAbility('eartheater', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Earth Eater');
-				}
-				if (pokemon.baseSpecies.name === 'Flapple' || pokemon.baseSpecies.name === 'Appletun') {
-					pokemon.setAbility('supersweetsyrup', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Supersweet Syrup');
-				}
-				if (pokemon.baseSpecies.name === 'Sandaconda') {
-					pokemon.setAbility('sandrush', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Sand Rush');
-				}
-				if (pokemon.baseSpecies.name === 'Toxtricity') {
-					pokemon.setAbility('electromorphosis', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Electromorphosis');
-				}
-				if (pokemon.baseSpecies.name === 'Centiskorch') {
-					pokemon.setAbility('unnerve', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Unnerve');
-				}
-				if (pokemon.baseSpecies.name === 'Hatterene') {
-					pokemon.setAbility('naturalcure', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Natural Cure');
-				}
-				if (pokemon.baseSpecies.name === 'Grimmsnarl') {
-					pokemon.setAbility('tanglinghair', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Tangling Hair');
-				}
-				if (pokemon.baseSpecies.name === 'Alcremie') {
-					pokemon.setAbility('wellbakedbody', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Well-Baked Body');
-				}
-				if (pokemon.baseSpecies.name === 'Copperajah') {
-					pokemon.setAbility('stamina', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Stamina');
-				}
-				if (pokemon.baseSpecies.name === 'Duraludon') {
-					pokemon.setAbility('pressure', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Pressure');
-				}
-				if (pokemon.baseSpecies.name === 'Urshifu') {
-					pokemon.setAbility('innerfocus', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Inner Focus');
+				switch (pokemon.baseSpecies.name) {
+					case 'Venusaur':
+						pokemon.setAbility('flowerveil', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Flower Veil');
+						break;
+					case 'Charizard':
+						pokemon.setAbility('moldbreaker', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Mold Breaker');
+						break;
+					case 'Blastoise':
+						pokemon.setAbility('bulletproof', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Bulletproof');
+						break;
+					case 'Butterfree':
+						pokemon.setAbility('magicbounce', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Magic Bounce');
+						break;
+					case 'Pikachu':
+						pokemon.setAbility('hugepower', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Huge Power');
+						break;
+					case 'Meowth':
+						pokemon.setAbility('limber', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Limber');
+						break;
+					case 'Machamp':
+						pokemon.setAbility('scrappy', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Scrappy');
+						break;
+					case 'Gengar':
+						pokemon.setAbility('mummy', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Mummy');
+						break;
+					case 'Kingler':
+						pokemon.setAbility('angershell', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Anger Shell');
+						break;
+					case 'Lapras':
+						pokemon.setAbility('icescales', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Ice Scales');
+						break;
+					case 'Eevee':
+						pokemon.setAbility('friendguard', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Friend Guard');
+						break;
+					case 'Snorlax':
+						pokemon.setAbility('sapsipper', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Sap Sipper');
+						break;
+					case 'Garbodor':
+						pokemon.setAbility('toxicdebris', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Toxic Debris');
+						break;
+					case 'Melmetal':
+						pokemon.setAbility('liquidooze', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Liquid Ooze');
+						break;
+					case 'Rillaboom':
+						pokemon.setAbility('grasspelt', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Grass Pelt');
+						break;
+					case 'Cinderace':
+						pokemon.setAbility('quickfeet', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Quick Feet');
+						break;
+					case 'Inteleon':
+						pokemon.setAbility('stormdrain', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Storm Drain');
+						break;
+					case 'Corviknight':
+						pokemon.setAbility('ironbarbs', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Iron Barbs');
+						break;
+					case 'Orbeetle':
+						pokemon.setAbility('magicguard', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Magic Guard');
+						break;
+					case 'Drednaw':
+						pokemon.setAbility('solidrock', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Solid Rock');
+						break;
+					case 'Coalossal':
+						pokemon.setAbility('eartheater', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Earth Eater');
+						break;
+					case 'Appletun':
+						pokemon.setAbility('grassysurge', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Grassy Surge');
+						break;
+					case 'Flapple':
+						pokemon.setAbility('tintedlens', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Tinted Lens');
+						break;
+					case 'Sandaconda':
+						pokemon.setAbility('sandrush', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Sand Rush');
+						break;
+					case 'Toxtricity':
+						pokemon.setAbility('electromorphosis', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Electromorphosis');
+						break;
+					case 'Centiskorch':
+						pokemon.setAbility('dryskin', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Dry Skin');
+						break;
+					case 'Hatterene':
+						pokemon.setAbility('naturalcure', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Natural Cure');
+						break;
+					case 'Grimmsnarl':
+						pokemon.setAbility('tanglinghair', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Tangling Hair');
+						break;
+					case 'Alcremie':
+						pokemon.setAbility('wellbakedbody', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Well-Baked Body');
+						break;
+					case 'Copperajah':
+						pokemon.setAbility('stamina', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Stamina');
+						break;
+					case 'Duraludon':
+						pokemon.setAbility('pressure', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Pressure');
+						break;
+					case 'Urshifu':
+						pokemon.setAbility('innerfocus', pokemon, true);
+						this.add('-activate', pokemon, 'ability: Inner Focus');
+						break;
 				}
 			}
 			if (pokemon.volatiles['torment']) {
@@ -166,7 +172,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onSourceModifyDamage(damage, source, target, move) {
-			if (move.id === 'behemothbash' || move.id === 'behemothblade' || move.id === 'dynamaxcannon') {
+			if (['behemothbash','behemothblade','dynamaxcannon'].includes(move.id)) {
 				return this.chainModify(2);
 			}
 		},

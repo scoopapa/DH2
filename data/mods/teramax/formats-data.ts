@@ -1551,6 +1551,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TMFE",
 		doublesTier: "DOU",
 	},
+	basculinwhitestriped: {
+		tier: "Illegal",
+		doublesTier: "DOU",
+	},
 	wishiwashi: {
 		tier: "TMFE",
 		doublesTier: "DOU",
