@@ -698,12 +698,12 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData("Learnsets", "beheeyem").learnset.toxic;
 
 		// Dracozolt
-		this.modData("Learnsets", "beheeyem").learnset.dragonhammer = ["9L1"];
-		this.modData("Learnsets", "beheeyem").learnset.uturn = ["9L1"];
-		this.modData("Learnsets", "beheeyem").learnset.volttackle = ["9L1"];
-		delete this.modData("Learnsets", "beheeyem").learnset.boltbeak;
-		delete this.modData("Learnsets", "beheeyem").learnset.discharge;
-		delete this.modData("Learnsets", "beheeyem").learnset.thunder;
+		this.modData("Learnsets", "dracozolt").learnset.dragonhammer = ["9L1"];
+		this.modData("Learnsets", "dracozolt").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "dracozolt").learnset.volttackle = ["9L1"];
+		delete this.modData("Learnsets", "dracozolt").learnset.boltbeak;
+		delete this.modData("Learnsets", "dracozolt").learnset.discharge;
+		delete this.modData("Learnsets", "dracozolt").learnset.thunder;
 
 		//Genesect
 		this.modData("Learnsets", "genesect").learnset.aurasphere = ["9L1"];
