@@ -2843,7 +2843,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Black & White 3",
 
-		mod: 'bw3',
+		mod: 'blackandwhite3',
 		ruleset: ['Standard NatDex', 'Data Mod'],
 		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass',
 		'Sceptilite', 'Blazikenite', 'Swampertite', 'Gardevoirite', 'Galladite', 'Alakazite', 'Gyaradosite',
