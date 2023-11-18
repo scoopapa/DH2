@@ -124,6 +124,9 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'garganacl').learnset.saltcure;
     delete this.modData('Learnsets', 'pawmot').learnset.revivalblessing;
     delete this.modData('Learnsets', 'rabsca').learnset.revivalblessing;
+    delete this.modData('Learnsets', 'pawniard').learnset.knockoff;
+    delete this.modData('Learnsets', 'bisharp').learnset.knockoff;
+    delete this.modData('Learnsets', 'kingambit').learnset.knockoff;
 
     // distrib for PLA moves
 

@@ -259,7 +259,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		evos: ["Similash"],
 	},
-	similas1: {
+	similash: {
 		num: -23,
 		name: "Similash",
 		types: ["Normal", "Fighting"],
@@ -362,11 +362,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Compound Eyes", 1: "Overcoat"},
 	},
-	venomot1: {
+	venomoth: {
 		inherit: true,
 		abilities: {0: "Shield Dust", 1: "Overcoat"},
 	},
-	meowt1: {
+	meowth: {
 		inherit: true,
 		abilities: { 0: "Pickup"},
 	},
@@ -618,7 +618,7 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Precipitate"},
 	},
-	shroomis1: {
+	shroomish: {
 		inherit: true,
 		abilities: { 0: "Effect Spore" },
 	},
@@ -678,11 +678,11 @@ export const Pokedex: { [k: string]: ModdedSpeciesData; } = {
 		inherit: true,
 		abilities: {0: "Levitate", 1: "Sunshine"},
 	},
-	barboac1: {
+	barboach: {
 		inherit: true,
 		abilities: { 0: "Oblivious"},
 	},
-	whiscas1: {
+	whiscash: {
 		inherit: true,
 		abilities: { 0: "Oblivious"},
 	},

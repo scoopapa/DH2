@@ -383,6 +383,36 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Eramons",
+		desc: [
+			`<b>Eramons</b>: A Gen 9 Pet Mod based on broad strokes of real-life historical time periods.`,
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3727769/">Gen 9 Eramons</a>`,
+		],
+		
+		mod: 'eramons',
+		ruleset: ['Standard'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onValidateTeam(team, format, teamHas) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			let era : string[] = [];
+			let allowedTiers = ['ECiv', 'Med', 'PrDay', 'FFut'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				let tier = template.tier;
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Eramons.'];
+				}
+				if (!(era.includes(tier))) {
+					era.push(tier)
+				}
+			}
+			if (era.length > 1) return ['Each Pokemon needs to be from the same era.'];
+		},
+	},
+	{
 		name: "[Gen 9] Fakemon Frontier OU",
 		desc: `<b>[Gen 9] Fakemon Frontier OU</b>: A meta where the only legal Pokemon are community-made Fakemon that follow two of four predetermined "rules."`,
 		threads: [
@@ -445,7 +475,7 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 3] Hoenn Gaiden",
+		name: "[Gen 3] Hoenn Gaiden OU",
 		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-pet-mod-of-the-season.3714737/">Hoenn Gaiden on Smogon Forums</a>`,
@@ -454,24 +484,6 @@ export const Formats: FormatList = [
 		ruleset: ['HG Standard', 'Data Mod', 'Freeze Clause Mod'],
 		banlist: ['Uber'],
 		unbanlist: ['Sand Veil',],
-	},
-	{
-		name: "[Gen 3] Hoenn Gaiden UU",
-		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-pet-mod-of-the-season.3714737/">Hoenn Gaiden on Smogon Forums</a>`,
-		],
-
-		mod: 'gen3uuhoenngaiden',
-		searchShow: false,
-		ruleset: ['Standard', 'Data Mod', 'Freeze Clause Mod'],
-		banlist: [
-				'Uber', 'OU', 'UUBL', 'Snow Warning', 'Air Balloon',
-				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 
-				'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 
-				'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
-		],
-		unbanlist: [],
 	},
 	{
 		name: "[Gen 8] Megas for All: Kalos",
@@ -877,6 +889,13 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] VaporeMons",
+		desc: [
+			"<b>VaporeMons</b>: The third mod in the SylveMons series where Pokemon, items, abilities and moves are redesigned for OU (and new items, abilities and moves are added) without changing base stats.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/vaporemons-slate-1-discussion-phase.3722917/">Thread on the Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1_5AwZ24dPu3-5m5yOyIO4OTPmW9OwIWXXzZ5IJZkj4c/edit?usp=sharing">Spreadsheet</a>`,
+		],
 		mod: 'vaporemons',
 		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay'],
@@ -2543,6 +2562,23 @@ export const Formats: FormatList = [
 		// name: "petmodsbonusformats",
 	},
 	{
+		name: "[Gen 3] Hoenn Gaiden UU",
+		desc: ["<b>Hoenn Gaiden</b>: A Gen 3 pet mod that aims to devamp Gen 4-8 Pokemon, moves and items into the Gen 3 mechanics."],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/hoenn-gaiden-pet-mod-of-the-season.3714737/">Hoenn Gaiden on Smogon Forums</a>`,
+		],
+
+		mod: 'gen3uuhoenngaiden',
+		ruleset: ['Standard', 'Data Mod', 'Freeze Clause Mod'],
+		banlist: [
+				'Uber', 'OU', 'UUBL', 'Snow Warning', 'Air Balloon',
+				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 
+				'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 
+				'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
+		],
+		unbanlist: [],
+	},
+	{
 		name: "[Gen 8] JolteMons Random Battle",
 		desc: `Pok&eacute;mon, items, abilities, and moves are redesigned for OU, and new items, abilities, and moves are added, all without changing base stats.`,
 		threads: [
@@ -2646,6 +2682,20 @@ export const Formats: FormatList = [
 				this.add('-end', pokemon, oMegaSpecies.requiredItem || oMegaSpecies.requiredMove, '[silent]');
 			}
 		},
+	},
+	{
+		name: "[Gen 9] VaporeMons UU",
+		desc: [
+			"<b>VaporeMons</b>: The third mod in the SylveMons series where Pokemon, items, abilities and moves are redesigned for OU (and new items, abilities and moves are added) without changing base stats.",
+		],
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/vaporemons-slate-1-discussion-phase.3722917/">Thread on the Smogon Forums</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1_5AwZ24dPu3-5m5yOyIO4OTPmW9OwIWXXzZ5IJZkj4c/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'vaporemons',
+		teambuilderFormat: 'UU',
+		ruleset: ['Standard', 'Terastal Clause', 'Data Mod'],
+		banlist: ['OU', 'UUBL', 'Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail', 'Light Clay', 'Dancing Shoes'],
 	},
 	
 	///////////////////////////////////////////////////////////////
