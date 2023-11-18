@@ -93,9 +93,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 					pokemon.setAbility('eartheater', pokemon, true);
 					this.add('-activate', pokemon, 'ability: Earth Eater');
 				}
-				if (pokemon.baseSpecies.name === 'Flapple' || pokemon.baseSpecies.name === 'Appletun') {
-					pokemon.setAbility('supersweetsyrup', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Supersweet Syrup');
+				if (pokemon.baseSpecies.name === 'Appletun') {
+					pokemon.setAbility('grassysurge', pokemon, true);
+					this.add('-activate', pokemon, 'ability: Grassy Surge');
+				}
+				if (pokemon.baseSpecies.name === 'Flapple') {
+					pokemon.setAbility('tintedlens', pokemon, true);
+					this.add('-activate', pokemon, 'ability: Tinted Lens');
 				}
 				if (pokemon.baseSpecies.name === 'Sandaconda') {
 					pokemon.setAbility('sandrush', pokemon, true);
@@ -106,8 +110,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 					this.add('-activate', pokemon, 'ability: Electromorphosis');
 				}
 				if (pokemon.baseSpecies.name === 'Centiskorch') {
-					pokemon.setAbility('unnerve', pokemon, true);
-					this.add('-activate', pokemon, 'ability: Unnerve');
+					pokemon.setAbility('dryskin', pokemon, true);
+					this.add('-activate', pokemon, 'ability: Dry Skin');
 				}
 				if (pokemon.baseSpecies.name === 'Hatterene') {
 					pokemon.setAbility('naturalcure', pokemon, true);
