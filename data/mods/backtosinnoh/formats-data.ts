@@ -1,56 +1,63 @@
 export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	sparktus: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 4,
 	},
 	cactamp: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 4,
 	},
 	succurent: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 	kindlamb: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 4,
 	},
 	spaark: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 4,
 	},
 	inferam: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 	slapole: {
 		tier: "LC",
-		isNonstandard: null,
-		gen: 4,
 	},
 	strikroak: {
 		tier: "NFE",
-		isNonstandard: null,
-		gen: 4,
 	},
 	yamatoad: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
+	},
+	yuckduck: {
+		tier: "LC",
+	},
+	swanger: {
+		tier: "NFE",
+	},
+	aggreswan: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	capybaby: {
+		tier: "LC",
+	},
+	capyblue: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	kotora: {
+		tier: "LC",
+	},
+	raitora: {
+		tier: "NFE",
+	},
+	gorotora: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	sableye: {
 		tier: "LC",
 	},
 	sablenvy: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 	tangela: {
 		tier: "LC",
@@ -60,8 +67,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	},
 	brambela: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 	murkrow: {
 		tier: "LC",
@@ -71,16 +76,12 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	},
 	huginkrow: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 	delibird: {
 		tier: "LC",
 	},
 	elfowl: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 	hoppip: {
 		tier: "LC",
@@ -93,8 +94,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	},
 	gyrobloom: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 	aipom: {
 		tier: "LC",
@@ -104,8 +103,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	},
 	similash: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 	bonsly: {
 		tier: "Illegal",
@@ -115,8 +112,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	},
 	putrewoodo: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 	ekans: {
 		tier: "LC",
@@ -126,8 +121,6 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 	},
 	adnocana: {
 		tier: "OU",
-		isNonstandard: null,
-		gen: 4,
 	},
 
 
@@ -1298,7 +1291,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	salamence: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	beldum: {
 		tier: "LC",

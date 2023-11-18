@@ -4,8 +4,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by a Light-type skill, damage is nullified and SpAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Light') {
-				this.add('-immune', target, '[from] ability: Absorbent');
-				this.boost({spa: 1});
+				if(!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Absorbent');
+				}
 				return null;
 			}
 		},
@@ -746,8 +747,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by an Electric-type skill, damage is nullified and SpAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
-				this.add('-immune', target, '[from] ability: Electromagnetic');
-				this.boost({spa: 1});
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Electromagnetic');
+				}
 				return null;
 			}
 		},
@@ -954,8 +956,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by a Nature-type skill, damage is nullified and SpAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Nature') {
-				this.add('-immune', target, '[from] ability: Cloak of Darkness');
-				target.boostBy({spa: 1});
+				if (!target.boostBy({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Cloak of Darkness');
+				}
 				return null;
 			}
 		},
@@ -1252,8 +1255,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by an Warped-type skill, damage is nullified and any status ailment is cured.",
 		onTryHit(source, target, move) {
 			if (target !== source && move.type === "Warped") {
-				this.add('-immune', target, '[from] ability: In Sync');
-				source.clearStatus();
+				if (!source.clearStatus()) {
+					this.add('-immune', target, '[from] ability: In Sync');
+				}
 				return null;
 			}
 		},
@@ -1312,16 +1316,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	instantwin: {
 		name: "Instant Win",
 		shortDesc: "Your speed is increased by 50% on the first turn after entering the field.",
-		onStart(pokemon) {
-			this.boost({spe: 1}, pokemon);
-			pokemon.addVolatile('instantwin');
-		},
-		condition: {
-			duration: 1,
-			onEnd(pokemon) {
-				this.add('-ability', pokemon, 'Instant Win');
-				this.boost({spe: -1}, pokemon);
-			},
+		onModifySpe(spe, pokemon) {
+			if (!pokemon.activeTurns) return this.chainModify(1.5);
 		},
 	},
 	intuition: {
@@ -1481,8 +1477,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by a Fighting-type skill, damage is nullified and FoAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fighting') {
-				this.add('-immune', target, "[from] ability: Master's Defense");
-				this.boost({atk: 1});
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, "[from] ability: Master's Defense");
+				}
 				return null;
 			}
 		},
@@ -1499,8 +1496,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by a Steel-type skill, damage is nullified and FoAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Steel') {
-				this.add('-immune', target, "[from] ability: Metallurgy");
-				this.boost({atk: 1});
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, "[from] ability: Metallurgy");
+				}
 				return null;
 			}
 		},
@@ -1624,8 +1622,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by a Dark-type skill, damage is nullified and FoAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Dark') {
-				this.add('-immune', target, "[from] ability: Negative Aura");
-				this.boost({atk: 1});
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Negative Aura');
+				}
 				return null;
 			}
 		},
@@ -2223,8 +2222,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by a Wind-type skill, damage is nullified and Speed is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Wind') {
-				this.add('-immune', target, '[from] ability: Smooth Sailing');
-				this.boost({spe: 1});
+				if (!this.boost({spe: 1})) {
+					this.add('-immune', target, '[from] ability: Smooth Sailing');
+				}
 				return null;
 			}
 		},
@@ -2275,8 +2275,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by a Sound-type skill, damage is nullified, FoAtk is raised, and SpAtk is raised.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Sound') {
-				this.add('-immune', target, '[from] ability: Sound Absorb');
-				this.boost({atk: 1, spa: 1});
+				if (!this.boost({atk: 1, spa: 1})) {
+					this.add('-immune', target, '[from] ability: Sound Absorb');
+				}
 				return null;
 			}
 		},
@@ -2574,8 +2575,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "When hit by an Illusion-type skill, damage is nullified and any status ailment is cured.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Illusion') {
-				this.add('-immune', target, '[from] ability: Unwavering Heart');
-				target.clearStatus();
+				if(!target.clearStatus()){
+					this.add('-immune', target, '[from] ability: Unwavering Heart');
+				}
 				return null;
 			}
 		},

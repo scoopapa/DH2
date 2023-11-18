@@ -39,44 +39,46 @@ export const Scripts: ModdedBattleScriptsData = {
       }
       return item.megaStone;
     },
+
+    runSwitch(pokemon: Pokemon) {
+      this.battle.runEvent('Swap', pokemon);
+  
+      if (this.battle.gen >= 5) {
+        this.battle.runEvent('SwitchIn', pokemon);
+      }
+  
+      this.battle.runEvent('EntryHazard', pokemon);
+  
+      if (this.battle.gen <= 4) {
+        this.battle.runEvent('SwitchIn', pokemon);
+      }
+  
+      if (this.battle.gen <= 2) {
+        // pokemon.lastMove is reset for all Pokemon on the field after a switch. This affects Mirror Move.
+        for (const poke of this.battle.getAllActive()) poke.lastMove = null;
+        if (!pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.battle.turn) {
+          this.battle.runEvent('AfterSwitchInSelf', pokemon);
+        }
+      }
+      if (!pokemon.hp) return false;
+      pokemon.isStarted = true;
+      if (!pokemon.fainted) {
+        this.battle.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+        this.battle.singleEvent('Start', pokemon.getItem(), pokemon.itemState, pokemon);
+      }
+      if (this.battle.gen === 4) {
+        for (const foeActive of pokemon.foes()) {
+          foeActive.removeVolatile('substitutebroken');
+        }
+      }
+      this.battle.runEvent('HiveMind', pokemon); // making Hive Mind activate at the appropriate time
+      pokemon.addVolatile('indomitablespirit'); // yes this is a really ugly way to do this but it's better than a ruleset okay
+      pokemon.draggedIn = null;
+      return true;
+    },
   },
 
-  runSwitch(pokemon: Pokemon) {
-		this.battle.runEvent('Swap', pokemon);
-
-		if (this.battle.gen >= 5) {
-			this.battle.runEvent('SwitchIn', pokemon);
-		}
-
-		this.battle.runEvent('EntryHazard', pokemon);
-
-		if (this.battle.gen <= 4) {
-			this.battle.runEvent('SwitchIn', pokemon);
-		}
-
-		if (this.battle.gen <= 2) {
-			// pokemon.lastMove is reset for all Pokemon on the field after a switch. This affects Mirror Move.
-			for (const poke of this.battle.getAllActive()) poke.lastMove = null;
-			if (!pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.battle.turn) {
-				this.battle.runEvent('AfterSwitchInSelf', pokemon);
-			}
-		}
-		if (!pokemon.hp) return false;
-		pokemon.isStarted = true;
-		if (!pokemon.fainted) {
-			this.battle.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
-			this.battle.singleEvent('Start', pokemon.getItem(), pokemon.itemState, pokemon);
-		}
-		if (this.battle.gen === 4) {
-			for (const foeActive of pokemon.foes()) {
-				foeActive.removeVolatile('substitutebroken');
-			}
-		}
-    this.battle.runEvent('HiveMind', pokemon); // making Hive Mind activate at the appropriate time
-    pokemon.addVolatile('indomitablespirit'); // yes this is a really ugly way to do this but it's better than a ruleset okay
-		pokemon.draggedIn = null;
-		return true;
-	},
+ 
 
   init() {
 
@@ -94,10 +96,21 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'houndstone').learnset.strengthsap = ['9L1'];
     this.modData('Learnsets', 'houndstone').learnset.stealthrock = ['9L1'];
     this.modData('Learnsets', 'ironmoth').learnset.scorchingsands = ['9L1'];
+    this.modData('Learnsets', 'revavroom').learnset.combattorque = ['9L1'];
+    this.modData('Learnsets', 'revavroom').learnset.blazingtorque = ['9L1'];
+    this.modData('Learnsets', 'revavroom').learnset.magicaltorque = ['9L1'];
+    this.modData('Learnsets', 'revavroom').learnset.noxioustorque = ['9L1'];
+    this.modData('Learnsets', 'revavroom').learnset.wickedtorque = ['9L1'];
     this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
+    this.modData('Learnsets', 'tinkaton').learnset.icepunch = ['9L1'];
+    this.modData('Learnsets', 'tinkaton').learnset.thunderpunch = ['9L1'];
+    this.modData('Learnsets', 'tinkaton').learnset.fissure = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
+    this.modData('Learnsets', 'ironvaliant').learnset.sacredsword = ['9L1'];
+    this.modData('Learnsets', 'ironvaliant').learnset.airslash = ['9L1'];
+    this.modData('Learnsets', 'wochien').learnset.synthesis = ['9L1'];
     this.modData('Learnsets', 'fezandipiti').learnset.defog = ['9L1'];
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
     delete this.modData('Learnsets', 'flittle').learnset.storedpower;
@@ -111,6 +124,9 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'garganacl').learnset.saltcure;
     delete this.modData('Learnsets', 'pawmot').learnset.revivalblessing;
     delete this.modData('Learnsets', 'rabsca').learnset.revivalblessing;
+    delete this.modData('Learnsets', 'pawniard').learnset.knockoff;
+    delete this.modData('Learnsets', 'bisharp').learnset.knockoff;
+    delete this.modData('Learnsets', 'kingambit').learnset.knockoff;
 
     // distrib for PLA moves
 
@@ -142,6 +158,32 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'mamoswine').learnset.mountaingale = ['9L1'];
 
     //    
+
+    // hardwareheat 
+    this.modData('Learnsets', 'magnezone').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'magearna').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'porygon').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'silvally').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'scizorgalar').learnset.hardwareheat = ['8L1'];
+    this.modData('Learnsets', 'genesect').learnset.hardwareheat = ['8L1'];
+
+    // swarming 
+    this.modData('Learnsets', 'mewtwo').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'baalzebutis').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'deoxys').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'genesect').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'silvally').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'porygon').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'snoxin').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'illumise').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'volbeat').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'magroach').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'scizorgalar').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'yanma').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'kricketune').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'annoyog').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'accelgor').learnset.swarming = ['8L1'];
+    this.modData('Learnsets', 'parasect').learnset.swarming = ['8L1'];
 
     // underdog 
     this.modData('Learnsets', 'lillipup').learnset.underdog = ['9L1'];
@@ -943,7 +985,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'dustox').learnset.ragepowder = ['9L1'];
     this.modData('Learnsets', 'ludicolo').learnset.calmmind = ['9L1'];
     this.modData('Learnsets', 'ludicolo').learnset.happydance = ['9L1'];
-    this.modData('Learnsets', 'shiftry').learnset.oniwind = ['9L1'];
+    this.modData('Learnsets', 'shiftry').learnset.windscall = ['9L1'];
     this.modData('Learnsets', 'masquerain').learnset.glare = ['9L1'];
     this.modData('Learnsets', 'masquerain').learnset.meanlook = ['9L1'];
     this.modData('Learnsets', 'masquerain').learnset.partingshot = ['9L1'];
@@ -1045,6 +1087,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'lumineon').learnset.quiverdance = ['9L1'];
     this.modData('Learnsets', 'lumineon').learnset.tailglow = ['9L1'];
     this.modData('Learnsets', 'lumineon').learnset.airslash = ['9L1'];
+    this.modData('Learnsets', 'lumineon').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'lickilicky').learnset.sludgebomb = ['9L1'];
     this.modData('Learnsets', 'lickilicky').learnset.poisonjab = ['9L1'];
     this.modData('Learnsets', 'lickilicky').learnset.poisontail = ['9L1'];
@@ -1091,6 +1134,8 @@ export const Scripts: ModdedBattleScriptsData = {
     //gen 5:
     this.modData('Learnsets', 'serperior').learnset.mudshot = ['9L1'];
     this.modData('Learnsets', 'serperior').learnset.hurricane = ['9L1'];
+    this.modData('Learnsets', 'samurott').learnset.closecombat = ['9L1'];
+    this.modData('Learnsets', 'samurott').learnset.crosschop = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.megakick = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.glare = ['9L1'];
     this.modData('Learnsets', 'stoutland').learnset.doubleedge = ['9L1'];
@@ -1257,6 +1302,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'tapubulu').learnset.playrough = ['9L1'];
     this.modData('Learnsets', 'tapubulu').learnset.slackoff = ['9L1'];
     this.modData('Learnsets', 'tapubulu').learnset.junglehealing = ['9L1'];
+    this.modData('Learnsets', 'tapubulu').learnset.grassyglide = ['9L1'];
     this.modData('Learnsets', 'solgaleo').learnset.swordsdance = ['9L1'];
     delete this.modData('Learnsets', 'pheromosa').learnset.drillrun;
     delete this.modData('Learnsets', 'pheromosa').learnset.tripleaxel;
@@ -1265,6 +1311,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'guzzlord').learnset.partingshot = ['9L1'];
     this.modData('Learnsets', 'guzzlord').learnset.pursuit = ['9L1'];
     this.modData('Learnsets', 'guzzlord').learnset.spikes = ['9L1'];
+    this.modData('Learnsets', 'guzzlord').learnset.boomburst = ['9L1'];
     this.modData('Learnsets', 'necrozma').learnset.focusblast = ['9L1'];
     delete this.modData('Learnsets', 'magearna').learnset.drainingkiss;
     delete this.modData('Learnsets', 'magearna').learnset.storedpower;
@@ -1705,8 +1752,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'jolteon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'flareon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'porygon').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'omanyte').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'omastar').learnset.hiddenpower;
     delete this.modData('Learnsets', 'kabuto').learnset.hiddenpower;
     delete this.modData('Learnsets', 'kabutops').learnset.hiddenpower;
     delete this.modData('Learnsets', 'aerodactyl').learnset.hiddenpower;

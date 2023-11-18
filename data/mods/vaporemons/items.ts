@@ -22,6 +22,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 296,
 		desc: "Damaging draining moves deal 30% more damage, status draining moves heal 30% more.",
 		gen: 4,
+		rating: 3,
 	},
 	terashard: {
 		name: "Tera Shard",
@@ -64,6 +65,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1000,
 		gen: 9,
 		desc: "Holder becomes its Tera Type on switch-in.",
+		rating: 3,
 	},
 	seginstarshard: {
 		name: "Segin Star Shard",
@@ -98,7 +100,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		forcedForme: "Revavroom-Segin",
-		itemUser: ["Revavroom-Segin"],
+		itemUser: ["Revavroom"],
 		num: -1001,
 		gen: 9,
 		desc: "Revavroom: Becomes Dark-type, Ability: Intimidate, 1.2x Dark/Poison/Steel power.",
@@ -136,7 +138,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		forcedForme: "Revavroom-Schedar",
-		itemUser: ["Revavroom-Schedar"],
+		itemUser: ["Revavroom"],
 		num: -1002,
 		gen: 9,
 		desc: "Revavroom: Becomes Fire-type, Ability: Speed Boost, 1.2x Fire/Poison/Steel power.",
@@ -174,7 +176,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		forcedForme: "Revavroom-Navi",
-		itemUser: ["Revavroom-Navi"],
+		itemUser: ["Revavroom"],
 		num: -1003,
 		gen: 9,
 		desc: "Revavroom: Becomes Poison-type, Ability: Toxic Debris, 1.2x Poison/Steel power.",
@@ -212,7 +214,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		forcedForme: "Revavroom-Ruchbah",
-		itemUser: ["Revavroom-Ruchbah"],
+		itemUser: ["Revavroom"],
 		num: -1004,
 		gen: 9,
 		desc: "Revavroom: Becomes Fairy-type, Ability: Misty Surge, 1.2x Fairy/Poison/Steel power.",
@@ -250,7 +252,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		forcedForme: "Revavroom-Caph",
-		itemUser: ["Revavroom-Caph"],
+		itemUser: ["Revavroom"],
 		num: -1005,
 		gen: 9,
 		desc: "Revavroom: Becomes Fighting-type, Ability: Stamina, 1.2x Fighting/Poison/Steel power.",
@@ -298,6 +300,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1121,
 		gen: 8,
 		desc: "+2 Speed if the holder's move fails. Single use.",
+		rating: 3,
 	},
 	punchingglove: {
 		name: "Punching Glove",
@@ -316,6 +319,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder's punch-based attacks have 1.2x power and do not make contact.",
 		num: 1884,
 		gen: 9,
+		rating: 3,
 	},
 	razorclaw: {
 		name: "Razor Claw",
@@ -337,6 +341,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder's slicing-based attacks have 1.2x power and do not make contact.",
 		num: 326,
 		gen: 4,
+		rating: 3,
 	},
 	razorfang: {
 		name: "Razor Fang",
@@ -360,6 +365,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 327,
 		gen: 4,
 		isNonstandard: null,
+		rating: 3,
 	},
 	baseballbat: {
 		name: "Baseball Bat",
@@ -417,6 +423,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder's contact moves have 1.25x power. If hit by bullet/bomb move, it deals 50% damage and the item breaks.",
 		num: -1007,
 		gen: 9,
+		rating: 3,
 	}, 
 	walkietalkie: {
 		name: "Walkie-Talkie",
@@ -469,6 +476,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder's wind-based attacks heal the party's status.",
 		num: -1009,
 		gen: 9,
+		rating: 3,
 	},
 	dancingshoes: {
 		name: "Dancing Shoes",
@@ -656,6 +664,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1030,
 		gen: 8,
 		desc: "Holder is immune to critical hits and has 1.2x Defense.",
+		rating: 3,
 	},
 	tiedyeband: {
 		name: "Tie-Dye Band",
@@ -674,6 +683,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1031,
 		gen: 8,
 		desc: "Holder's non-STAB moves deal 30% more damage, but its STAB moves deal 0.67x damage.",
+		rating: 3,		
 	},
 	herosbubble: {
 		name: "Hero's Bubble",
@@ -731,6 +741,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1033,
 		gen: 8,
 		desc: "If the holder is a Rock-type, its SpD is boosted 1.5x.",
+		rating: 3,
 	},
 	snowglobe: {
 		name: "Snow Globe",
@@ -747,6 +758,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1034,
 		gen: 8,
 		desc: "If the holder is an Ice-type, its Def is boosted 1.5x.",
+		rating: 3,
 	},
 	handmirror: {
 		name: "Hand Mirror",
@@ -762,6 +774,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1035,
 		gen: 8,
 		desc: "Holder takes 2/3 damage from foes that share a type.",
+		rating: 3,
 	},
 	powerherb: {
 		onChargeMove(pokemon, target, move) {
@@ -786,6 +799,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 271,
 		gen: 4,
 		desc: "Holder's two-turn moves and recharge complete in one turn (except Sky Drop). Single use.",
+		rating: 3,
 	},
 	leatherbelt: {
 		name: "Leather Belt",
@@ -800,6 +814,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		gen: 8,
 		desc: "Holder's neutral damaging moves deal 1.2x damage.",
+		rating: 3,
 	},
 	keeberry: {
 		name: "Kee Berry",
@@ -828,6 +843,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 687,
 		gen: 6,
 		desc: "Raises holder's Defense by 1 stage before it is hit by a physical attack. Single use.",
+		rating: 3,
 	},
 	marangaberry: {
 		name: "Maranga Berry",
@@ -856,6 +872,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 688,
 		gen: 6,
 		desc: "Raises holder's Sp. Defense by 1 stage before it is hit by a special attack. Single use.",
+		rating: 3,
 	},
 	bindingband: {
 		name: "Binding Band",
@@ -883,6 +900,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Against trapped targets: 1.5x move power and accuracy.",
 		num: 544,
 		gen: 5,
+		rating: 3,
 	},
 	slingshot: {
 		name: "Slingshot",
@@ -905,6 +923,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "If hit by pivoting move: attacker takes 1/8 of their max HP in damage and is forced out.",
 		gen: 9,
+		num: -1100,
+		rating: 3,
 	},	
 	mantisclaw: {
 		name: "Mantis Claw",
@@ -966,6 +986,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 1882,
 		desc: "If this Pokemon's stat stages would be lowered, the attacker's are lowered instead.",
 		gen: 9,
+		rating: 3,
 	},
 	quickclaw: {
 		name: "Quick Claw",
@@ -987,6 +1008,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Holder's priority attacks have 1.2x power and do not make contact.",
 		num: 217,
 		gen: 2,
+		rating: 3,
 	},
 	protectivepads: {
 		name: "Protective Pads",
@@ -1005,6 +1027,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 880,
 		gen: 7,
 		desc: "This Pokemon's recoil moves deal 1.2x damage and all of its moves don't make contact.",
+		rating: 3,
 	},
 	desertrose: {
 		name: "Desert Rose",

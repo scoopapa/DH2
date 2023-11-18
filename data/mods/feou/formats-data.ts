@@ -138,7 +138,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	solvaliantmega: {
-		tier: "Uber",
+		tier: "FEOU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["moonblast", "knockoff", "closecombat", "fireblast"],
 		randomBattleLevel: 73,

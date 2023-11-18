@@ -290,6 +290,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 104,
 		gen: 4,
+		rating: 0,
 		isNonstandard: "Past",
 	},
 	aspearberry: {
@@ -458,6 +459,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1111,
 		gen: 8,
+		rating: 0,
 		isNonstandard: "Past",
 	},
 	bignugget: {
@@ -1930,6 +1932,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 82,
 		gen: 1,
+		rating: 0,
 	},
 	firiumz: {
 		name: "Firium Z",
@@ -7167,6 +7170,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 84,
 		gen: 1,
+		rating: 0,
 	},
 	wateriumz: {
 		name: "Waterium Z",

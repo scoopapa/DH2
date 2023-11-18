@@ -20,5 +20,18 @@ export const Scripts: ModdedBattleScriptsData = {
 	teambuilderConfig: {
 		rbyTradebacks: true,
 		specialTypes: ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psychic', 'Dark', 'Dragon', 'Fairy'],
+		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet | null): boolean {
+			switch (id) {
+				// steel hierarchy
+				case 'mirrorshot': if (moves.includes('magnetbomb')) return false;
+				case 'magnetbomb': if (moves.includes('smartstrike')) return false;
+				case 'smartstrike': return !moves.includes('ironhead');
+				// dark hierarchy
+				case 'brutalswing': if (moves.includes('feintattack')) return false;
+				case 'feintattack': if (moves.includes('nightslash')) return false;
+				case 'nightslash': if (moves.includes('falsesurrender')) return false;
+				case 'falsesurrender': return !moves.includes('kowtowcleave');
+			}
+		},
 	},
 };

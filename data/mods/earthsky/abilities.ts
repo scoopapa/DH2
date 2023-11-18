@@ -340,9 +340,9 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 	},
 	souldrain: {
 		onAfterMoveSecondarySelfPriority: -1,
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.category !== 'Status' && !pokemon.forceSwitchFlag) {
-				this.heal(pokemon.lastDamage / 5, pokemon);
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (move.category !== 'Status' && !source.forceSwitchFlag) {
+				this.heal(move.totalDamage / 5, source);
 			}
 		},
 		name: "Soul Drain",
@@ -1131,10 +1131,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		onAfterMoveSecondarySelfPriority: -1,
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if(pokemon.abilityState.forme === 'Ice') return;
-			if (move.category !== 'Status' && !pokemon.forceSwitchFlag) {
-				this.heal(pokemon.lastDamage / 5, pokemon);
+		onAfterMoveSecondarySelf(source, target, move) {
+			if(source.abilityState.forme === 'Ice') return;
+			if (move.category !== 'Status' && !source.forceSwitchFlag) {
+				this.heal(move.totalDamage / 5, source);
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -1218,10 +1218,10 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			}
 		},
 		onAfterMoveSecondarySelfPriority: -1,
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if(pokemon.abilityState.forme === 'Ice') return;
-			if (move.category !== 'Status' && !pokemon.forceSwitchFlag) {
-				this.heal(pokemon.lastDamage / 5, pokemon);
+		onAfterMoveSecondarySelf(source, target, move) {
+			if(source.abilityState.forme === 'Ice') return;
+			if (move.category !== 'Status' && !source.forceSwitchFlag) {
+				this.heal(move.totalDamage / 5, source);
 			}
 		},
 		onImmunity(type, pokemon) {
