@@ -37,18 +37,18 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData("Learnsets", "stonjourner").learnset.powergem;
 
 		// Claywheel
-		this.modData("Learnsets", "claywheel").learnset.energyball = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.flipturn = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.gigadrain = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.grassyterrain = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.hydropump = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.icespinner = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.leechseed = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.muddywater = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.surf = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.synthesis = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.trailblaze = ["9l1"];
-		this.modData("Learnsets", "claywheel").learnset.woodhammer = ["9l1"];
+		this.modData("Learnsets", "claywheel").learnset.energyball = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.flipturn = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.gigadrain = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.grassyterrain = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.hydropump = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.icespinner = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.leechseed = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.muddywater = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.surf = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.synthesis = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.trailblaze = ["9L1"];
+		this.modData("Learnsets", "claywheel").learnset.woodhammer = ["9L1"];
 		delete this.modData("Learnsets", "claywheel").learnset.bulldoze;
 		delete this.modData("Learnsets", "claywheel").learnset.chargebeam;
 		delete this.modData("Learnsets", "claywheel").learnset.confusion;

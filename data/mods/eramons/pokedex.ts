@@ -1,5 +1,3 @@
-import { truncate } from "fs";
-
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	//Early Civilization
 	copperajah: {
