@@ -2245,13 +2245,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Poison",
 		contestType: "Tough",
 	},
-	fissureage: {
+	fissure: {
 		num: 90,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
 		name: "Fissure",
-		realMove: "Fissure",
 		desc: "10% chance to lower the target's Defense by 1.",
 		shortDesc: "10% chance to lower the target's Defense by 1.",
 		pp: 10,
@@ -2267,13 +2266,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ground",
 		contestType: "Tough",
 	},
-	sheercoldage: {
+	sheercold: {
 		num: 329,
 		accuracy: 100,
 		basePower: 150,
 		category: "Special",
 		name: "Sheer Cold",
-		realMove: "Sheer Cold",
 		desc: "Sets Hail. User faints after use.",
 		shortDesc: "Sets Hail. User faints after use.",
 		pp: 5,
@@ -2321,13 +2319,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allAdjacent",
 		type: "Fairy",
 	},
-	guillotineage: {
+	guillotine: {
 		num: 12,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
 		name: "Guillotine",
-		realMove: "Guillotine",
 		desc: "Raises user's Attack by 1 if this KOes the target.",
 		shortDesc: "Raises user's Attack by 1 if this KOes the target.",
 		pp: 10,
