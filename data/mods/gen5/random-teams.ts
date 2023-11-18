@@ -176,7 +176,6 @@ export class RandomGen5Teams extends RandomGen6Teams {
 
 		// Develop additional move lists
 		const badWithSetup = ['healbell', 'pursuit', 'toxic'];
-		const statusInflictingMoves = ['stunspore', 'thunderwave', 'toxic', 'willowisp', 'yawn'];
 		// Nature Power is Earthquake this gen
 		const statusMoves = this.dex.moves.all()
 			.filter(move => move.category === 'Status' && move.id !== 'naturepower')
@@ -200,9 +199,6 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			[['bodyslam', 'return'], ['bodyslam', 'doubleedge']],
 			[['gigadrain', 'leafstorm'], ['leafstorm', 'petaldance', 'powerwhip']],
 			[['drainpunch', 'focusblast'], ['closecombat', 'highjumpkick', 'superpower']],
-
-			// Status move incompatibilities
-			[statusInflictingMoves, statusInflictingMoves],
 
 			// Assorted hardcodes go here:
 			// Zebstrika
@@ -228,6 +224,11 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		for (const pair of incompatiblePairs) this.incompatibleMoves(moves, movePool, pair[0], pair[1]);
 
 		if (species.id === 'dugtrio') this.incompatibleMoves(moves, movePool, statusMoves, 'memento');
+
+		const statusInflictingMoves = ['stunspore', 'thunderwave', 'toxic', 'willowisp', 'yawn'];
+		if (!abilities.has('Prankster') && role !== 'Staller') {
+			this.incompatibleMoves(moves, movePool, statusInflictingMoves, statusInflictingMoves);
+		}
 	}
 
 	// Generate random moveset for a given species, role, preferred type.
@@ -295,7 +296,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		}
 
 		// Enforce hazard removal on Bulky Support and Spinner if the team doesn't already have it
-		if (['Bulky Support', 'Spinner'] && !teamDetails.rapidSpin) {
+		if (['Bulky Support', 'Spinner'].includes(role) && !teamDetails.rapidSpin) {
 			if (movePool.includes('rapidspin')) {
 				counter = this.addMove('rapidspin', moves, types, abilities, teamDetails, species, isLead, isDoubles,
 					movePool, preferredType, role);
@@ -678,6 +679,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		if (species.id === 'wobbuffet') return 'Custap Berry';
 		if (ability === 'Harvest') return 'Sitrus Berry';
 		if (species.id === 'ditto') return 'Choice Scarf';
+		if (species.id === 'exploud' && role === 'Bulky Attacker') return 'Choice Band';
 		if (ability === 'Poison Heal' || moves.has('facade')) return 'Toxic Orb';
 		if (ability === 'Speed Boost' && species.id !== 'ninjask') return 'Life Orb';
 		if (species.nfe) return 'Eviolite';
@@ -690,7 +692,6 @@ export class RandomGen5Teams extends RandomGen6Teams {
 				return (counter.get('Physical') > counter.get('Special')) ? 'Choice Band' : 'Choice Specs';
 			}
 		}
-		if (species.id === 'exploud' && moves.has('sleeptalk')) return 'Choice Band';
 		if (moves.has('bellydrum')) return 'Sitrus Berry';
 		if (moves.has('shellsmash')) return 'White Herb';
 		if (moves.has('psychoshift')) return 'Flame Orb';
@@ -947,7 +948,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		const typeWeaknesses: {[k: string]: number} = {};
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 
-		const pokemonList = (this.gen === 5) ? Object.keys(this.randomSets) : Object.keys(this.randomData);
+		const pokemonList = Object.keys(this.randomSets);
 		const [pokemonPool, baseSpeciesPool] = this.getPokemonPool(type, pokemon, isMonotype, pokemonList);
 		while (baseSpeciesPool.length && pokemon.length < this.maxTeamSize) {
 			const baseSpecies = this.sampleNoReplace(baseSpeciesPool);
@@ -1009,15 +1010,8 @@ export class RandomGen5Teams extends RandomGen6Teams {
 			// Okay, the set passes, add it to our team
 			pokemon.push(set);
 
-			if (pokemon.length === this.maxTeamSize) {
-				// Set Zoroark's level to be the same as the last Pokemon
-				for (const poke of pokemon) {
-					if (poke.ability === 'Illusion') poke.level = pokemon[this.maxTeamSize - 1].level;
-				}
-
-				// Don't bother tracking details for the last Pokemon
-				break;
-			}
+			// Don't bother tracking details for the last Pokemon
+			if (pokemon.length === this.maxTeamSize) break;
 
 			// Now that our Pokemon has passed all checks, we can increment our counters
 			baseFormes[species.baseSpecies] = 1;
