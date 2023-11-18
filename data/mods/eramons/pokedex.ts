@@ -667,7 +667,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rotom: {
 		inherit: true,
-		baseStats: {hp: 50, atk: 50, def: 77, spa: 95, spd: 77, spe: 91},
+		baseStats: {hp: 60, atk: 50, def: 77, spa: 105, spd: 77, spe: 111},
 		abilities: {0: "Shadow Shield"},
 		otherFormes: undefined,
 		formeOrder: undefined,
