@@ -1102,15 +1102,12 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	dudunsparce: {
 		tier: "BW OU",
-		natDextier: "BW OU",
 	},
 	dudunsparcethreesegment: {
 		tier: "BW OU",
-		natDextier: "BW OU",
 	},
 	kingambit: {
-		tier: "BW OU",
-		natDextier: "BW OU",
+		tier: "BW Uber",
 	},
 	hopkineye: {
 		tier: "BW OU",
