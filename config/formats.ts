@@ -392,7 +392,7 @@ export const Formats: FormatList = [
 		],
 		
 		mod: 'eramons',
-		ruleset: ['Standard'],
+		ruleset: ['Standard', 'Data Mod'],
 		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 		onValidateTeam(team, format, teamHas) {
 			/**@type {{[k: string]: true}} */
