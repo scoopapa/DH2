@@ -385,7 +385,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Dollhouse",
 		desc: [
-			"<b>Dollhouse</b>: An Ubers-based mod where, instead of bans, Pokemon are removed from the metagame by being turned into held items.",
+			"<b>Dollhouse</b>: An OU-based mod where, instead of bans, Pokemon are removed from the metagame by being turned into held items.",
 		],
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/dollhouse.3731495/">Thread on the Smogon Forums</a>`,
