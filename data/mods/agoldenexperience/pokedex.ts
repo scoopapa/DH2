@@ -1,7 +1,4 @@
-import { Streams } from "pokemon-showdown";
-import { TriumvirateModeTrivia } from "../../../server/chat-plugins/trivia";
-
-export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	//Vanilla mons (+ custom megas and regional forms) :
 
 	//gen 1 :
@@ -1365,7 +1362,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lucariomega: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 155, def: 88, spa: 130, spd: 80, spe: 102},
+		baseStats: {hp: 70, atk: 145, def: 88, spa: 130, spd: 80, spe: 112},
 		abilities: {0: "Mega Launcher"},
 	},
 	drapion: {

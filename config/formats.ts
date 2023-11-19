@@ -2842,6 +2842,32 @@ export const Formats: FormatList = [
 		// name: "nonpetmodformats",
 	},
 	{
+		name: "[Gen 9] Black & White 3",
+
+		mod: 'blackandwhite3',
+		ruleset: ['Standard NatDex', 'Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass',
+		'Last Respects', 'Shed Tail', 
+		'Sceptilite', 'Blazikenite', 'Swampertite', 'Gardevoirite', 'Galladite', 'Alakazite', 'Gyaradosite',
+		'Sablenite', 'Mawilite', 'Aggronite', 'Medichamite', 'Manectite', 'Sharpedonite', 'Cameruptite', 
+		'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite', 
+		'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
+		'Blue Orb', 'Red Orb', //this is just copied from ANL's lol
+		'Beedrill-Mega', 'Pidgeot-Mega', //?????
+	],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			let allowedTiers = ['BW OU', "BW NFE", "BW LC"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Black & White 3 OU.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Littlest Cup",
 		desc: [
 			"<b>Littlest Cup</b>: A National Dex metagame where only Baby Pokemon are allowed."

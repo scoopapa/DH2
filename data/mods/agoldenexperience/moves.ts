@@ -2284,23 +2284,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	mistyexplosionage: {
-		num: 802,
-		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		name: "Misty Explosion AGE",
-		desc: "Sets Misty Terrain. User faints after use.",
-		shortDesc: "Sets Misty Terrain. User faints after use.",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		selfdestruct: "always",
-		terrain: 'mistyterrain',
-		secondary: null,
-		target: "allAdjacent",
-		type: "Fairy",
-	},
 	mistyexplosion: {
 		num: 802,
 		accuracy: 100,
@@ -3106,6 +3089,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "allies",
 		type: "Water",
 	},
+	lunarblessing: {
+		num: 849,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Lunar Blessing",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.33));
+			return pokemon.cureStatus() || success;
+		},
+		shortDesc: "User and allies: healed 1/3 max HP, status cured.",
+		secondary: null,
+		target: "allies",
+		type: "Psychic",
+	},
 	monkeybusiness: {
 		num: -56,
 		accuracy: 100,
@@ -3274,22 +3275,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 120,
 	},
 	chillyreception: {
-		num: 881,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Chilly Reception",
+		inherit: true,
 		shortDesc: "Starts Hail. User switches out.",
-		pp: 10,
-		priority: 0,
-		flags: {},
-		// TODO show prepare message before the "POKEMON used MOVE!" message
-		// This happens even before sleep shows its "POKEMON is fast asleep." message
 		weather: 'hail',
-		selfSwitch: true,
-		secondary: null,
-		target: "all",
-		type: "Ice",
 	},
 	bitterblade: {
 		inherit: true,
@@ -3328,26 +3316,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 	},
 	hyperdrill: {
-		num: 887,
-		accuracy: 100,
-		basePower: 100,
-		category: "Physical",
-		name: "Hyper Drill",
+		inherit: true,
 		shortDesc: "Bypasses protection without breaking it. 50% chance to lower target's Def by 2 stages.",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, mirror: 1},
 		secondary: {
 			chance: 50,
 			boosts: {
 				def: -2,
 			},
 		},
-		target: "normal",
-		type: "Normal",
-		contestType: "Clever",
 	},
-	lastrespectsage: {
+	lastrespects: {
 		num: 854,
 		accuracy: 100,
 		basePower: 50,
@@ -3359,7 +3337,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Last Respects",
-		realMove: "Last Respects",
 		shortDesc: "+15 power for each time a Pokemon fainted. Special if user's SpA > Atk.",
 		pp: 10,
 		priority: 0,
@@ -3368,7 +3345,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 	},
-	ragefistage: {
+	ragefist: {
 		num: 889,
 		accuracy: 100,
 		basePower: 50,
@@ -3377,7 +3354,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		category: "Physical",
 		name: "Rage Fist",
-		realMove: "Rage Fist",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
@@ -3392,33 +3368,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 	},
 	gigatonhammer: {
-		num: 893,
-		accuracy: 100,
-		basePower: 160,
-		category: "Physical",
-		name: "Gigaton Hammer",
+		inherit: true,
 		shortDesc: "Cannot be used twice in a row. Super effective on Steel targets.",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Steel') return 1;
 		},
-		onDisableMove(pokemon) {
-			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.disableMove('gigatonhammer');
-		},
-		beforeMoveCallback(pokemon) {
-			if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.addVolatile('gigatonhammer');
-		},
-		onAfterMove(pokemon) {
-			if (pokemon.removeVolatile('gigatonhammer')) {
-				this.add('-hint', "Some effects can force a Pokemon to use Gigaton Hammer again in a row.");
-			}
-		},
-		condition: {},
-		secondary: null,
-		target: "normal",
-		type: "Steel",
 	},
 	blazingtorque: {
 		inherit: true,
