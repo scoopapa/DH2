@@ -1008,7 +1008,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (
-				effect && effect.effectType === 'Move' && target.species.id === 'ironmimic' && !target.transformed
+				effect?.effectType === 'Move' && target.species.id === 'ironmimic' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Faulty Photon');
 				this.effectState.busted = true;
@@ -2576,7 +2576,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (
-				effect && effect.id === 'surf' && source.hasAbility('prehistorichunter') &&
+				effect?.id === 'surf' && source.hasAbility('prehistorichunter') &&
 				source.species.name === 'Scream Cormorant' && !source.transformed
 			) {
 				const forme = source.hp <= source.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
