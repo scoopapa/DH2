@@ -9,7 +9,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onChangeBoost(boost, target, source, effect) {
-			if (effect && effect.id === 'zpower') return;
+			if (effect?.id === 'zpower') return;
 			let i: BoostID;
 			for (i in boost) {
 				boost[i]! *= -1;
@@ -65,7 +65,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	alldevouring: {
 	  shortDesc: "Beast Boost + Run Away",
 		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
+			if (effect?.effectType === 'Move') {
 				const bestStat = source.getBestStat(true, true);
 				this.boost({[bestStat]: length}, source);
 			}
@@ -338,7 +338,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isWeather('sunnyday')) {
 				pokemon.addVolatile('openingact');
-			} else if (pokemon.volatiles['openingact'] && !(pokemon.volatiles['openingact'].fromBooster || pokemon.volatiles['openingact'].fromPriority)) {
+			} else if (!(pokemon.volatiles['openingact']?.fromBooster || pokemon.volatiles['openingact']?.fromPriority)) {
 				pokemon.removeVolatile('openingact');
 			}
 		},
@@ -839,8 +839,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onPrepareHit(source, target, move) {
 			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
 			const type = move.type;
-			if (type && type !== '???' && source.getTypes().join() !== type) {
-				if (!source.setType(type)) return;
+			if (type && type !== '???' && source.getTypes().join() !== type && source.setType(type)) {
 				this.add('-start', source, 'typechange', type, '[from] ability: Choreography');
 			}
 		},
@@ -1471,8 +1470,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// since you can see how many of your opponent's pokemon are statused.
 			// The only ambiguous situation happens in Doubles/Triples, where multiple pokemon
 			// that could have Natural Cure switch out, but only some of them get cured.
-			if (pokemon.side.active.length === 1) return;
-			if (pokemon.showCure === true || pokemon.showCure === false) return;
+			if (pokemon.side.active.length === 1/*) return;
+			if (*/|| pokemon.showCure === true || pokemon.showCure === false) return;
 
 			const cureList = [];
 			let noCureCount = 0;
@@ -1853,8 +1852,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// since you can see how many of your opponent's pokemon are statused.
 			// The only ambiguous situation happens in Doubles/Triples, where multiple pokemon
 			// that could have Natural Pressures switch out, but only some of them get cured.
-			if (pokemon.side.active.length === 1) return;
-			if (pokemon.showCure === true || pokemon.showCure === false) return;
+			if (pokemon.side.active.length === 1/*) return;
+			if (*/|| pokemon.showCure === true || pokemon.showCure === false) return;
 
 			const cureList = [];
 			let noCureCount = 0;
@@ -2266,8 +2265,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.effectState.libero/*) return;
 			if (*/|| move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
 			const type = move.type;
-			if (type && type !== '???' && source.getTypes().join() !== type) {
-				if (!source.setType(type)) return;
+			if (type && type !== '???' && source.getTypes().join() !== type && source.setType(type)) {
 				this.effectState.libero = true;
 				this.add('-start', source, 'typechange', type, '[from] ability: Free Flight');
 			}
@@ -2353,8 +2351,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!source || target === source || !boost || effect.name === 'Hourglass') return;
 			let b: BoostID;
 			for (b in boost) {
-				if (boost[b]! < 0) {
-					if (target.boosts[b] === -6) continue;
+				if (boost[b]! < 0 && target.boosts[b] > -6) {
 					const negativeBoost: SparseBoostsTable = {};
 					negativeBoost[b] = boost[b];
 					delete boost[b];
@@ -2678,10 +2675,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (source === this.effectState.target || !target.isAlly(source)) return;
-			if (move.type === 'Grass') {
-				this.boost({atk: 1}, this.effectState.target);
-			}
+			if (source === this.effectState.target || !target.isAlly(source) || move.type !== 'Grass') return;
+			this.boost({atk: 1}, this.effectState.target);
 		},
 		isBreakable: true,
 		name: "Lawnmower of Ruin",
@@ -2690,7 +2685,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	   shortDesc: "This Pokemon’s contact moves do an additional 1/8 of the target’s max HP in damage.",
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Toxic Chain's effect
-			if (target.hasAbility('shielddust') || target.hasItem('covertcloak') || !this.checkMoveMakesContact(move, target, source)) return; 
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak') || !target.hp || !this.checkMoveMakesContact(move, target, source)) return; 
 			this.damage(target.baseMaxhp / 8, target, source)
 		},
 		name: "Barbed Chain",
@@ -2901,8 +2896,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// since you can see how many of your opponent's pokemon are statused.
 			// The only ambiguous situation happens in Doubles/Triples, where multiple pokemon
 			// that could have Natural Cure switch out, but only some of them get cured.
-			if (pokemon.side.active.length === 1) return;
-			if (pokemon.showCure === true || pokemon.showCure === false) return;
+			if (pokemon.side.active.length === 1/*) return;
+			if (*/|| pokemon.showCure === true || pokemon.showCure === false) return;
 
 			const cureList = [];
 			let noCureCount = 0;
