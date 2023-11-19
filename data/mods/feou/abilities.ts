@@ -444,7 +444,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	regainpatience: {
 	  shortDesc: "Berserk + Regenerator",
 		onDamage(damage, target, source, effect) {
-			if (effect.effectType === "Move" && !effect.multihit && !effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility(['overwhelming','sheerforce','forceofnature']))) {
+			if (effect.effectType === "Move" && !effect.multihit && !effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility(['overwhelming','sheerforce','forceofnature','sandwrath']))) {
 				this.effectState.checkedBerserk = false;
 			} else {
 				this.effectState.checkedBerserk = true;
@@ -2158,21 +2158,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	sandwrath: {
-	  shortDesc: "Sand Stream + Sand Force",
+	  shortDesc: "Sand Stream + Sheer Force",
 		onStart(source) {
 			this.field.setWeather('sandstorm');
 		},
-		onBasePowerPriority: 21,
-		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('sandstorm')) {
-				if (['Rock','Ground','Steel'].includes(move.type)) {
-					this.debug('Sand Wrath boost');
-					return this.chainModify([0x14CD, 0x1000]);
-				}
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
 			}
 		},
-		onImmunity(type, pokemon) {
-			if (type === 'sandstorm') return false;
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
 		},
 		name: "Sand Wrath",
 		rating: 3,
