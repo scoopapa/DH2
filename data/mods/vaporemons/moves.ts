@@ -1224,6 +1224,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 	   shortDesc: "Hits two turns after being used. Foe: badly poisoned and -1 Def & SpD.",
 		name: "Latent Venom",
+		viable: true,
 		pp: 5,
 		priority: 0,
 		flags: {allyanim: 1, futuremove: 1, snatch: 1},
@@ -1422,14 +1423,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tailslap: {
 		inherit: true,
 		accuracy: 100,
+		viable: true,
 	},
 	pinmissile: {
 		inherit: true,
 		accuracy: 100,
+		viable: true,
 	},
 	rockblast: {
 		inherit: true,
 		accuracy: 100,
+		viable: true,
 	},
 	signalbeam: {
 		num: 324,
@@ -1438,6 +1442,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 	   shortDesc: "Nullifies the target's Ability.",
 		isNonstandard: null,
+		viable: true,
 		name: "Signal Beam",
 		pp: 10,
 		priority: 0,
@@ -1462,6 +1467,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 	   shortDesc: "(Mostly functional) Either Fighting or Flying-type, whichever is more effective.",
 		name: "Flying Press",
+		viable: true,
 		pp: 10,
 		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, distance: 1, nonsky: 1},
 		onModifyTypePriority: -1,

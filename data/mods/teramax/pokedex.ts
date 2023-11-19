@@ -34,7 +34,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	chienpao: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 110, def: 80, spa: 100, spd: 90, spe: 120},
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 100, spd: 80, spe: 120},
 	},
 	chiyu: {
 		inherit: true,
