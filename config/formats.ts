@@ -2675,6 +2675,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		// Starting innate abilities in scripts#actions
 		onSwitchOut(pokemon) {
 			// @ts-ignore
 			const oMegaSpecies = this.dex.species.get(pokemon.species.originalSpecies);

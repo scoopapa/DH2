@@ -1106,9 +1106,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	embodyaspectcornerstone: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Cornerstone-Tera' && !pokemon.transformed) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Cornerstone-Tera' && !pokemon.transformed && !this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({def: 1}, pokemon);
 			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
 		},
 		name: "Embody Aspect (Cornerstone)",
 		rating: 3.5,
@@ -1116,9 +1120,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	embodyaspecthearthflame: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Hearthflame-Tera' && !pokemon.transformed) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Hearthflame-Tera' && !pokemon.transformed && !this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({atk: 1}, pokemon);
 			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
 		},
 		name: "Embody Aspect (Hearthflame)",
 		rating: 3.5,
@@ -1126,9 +1134,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	embodyaspectteal: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Teal-Tera' && !pokemon.transformed) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Teal-Tera' && !pokemon.transformed && !this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({spe: 1}, pokemon);
 			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
 		},
 		name: "Embody Aspect (Teal)",
 		rating: 3.5,
@@ -1136,9 +1148,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	embodyaspectwellspring: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Wellspring-Tera' && !pokemon.transformed) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Wellspring-Tera' && !pokemon.transformed && !this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({spd: 1}, pokemon);
 			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
 		},
 		name: "Embody Aspect (Wellspring)",
 		rating: 3.5,
@@ -1933,6 +1949,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details);
 				this.add('-end', pokemon, 'Illusion');
+				if (this.ruleTable.has('illusionlevelmod')) {
+					this.hint("Illusion Level Mod is active, so this Pok\u00e9mon's true level was hidden.", true);
+				}
 			}
 		},
 		onFaint(pokemon) {
@@ -2763,6 +2782,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			for (const pokemon of sortedActive) {
 				if (pokemon !== source) {
 					if (pokemon.getAbility().isPermanent) continue; // does not interact with e.g Ice Face, Zen Mode
+					if (pokemon.hasItem('abilityshield')) continue; // don't restart abilities that weren't suppressed
 
 					// Will be suppressed by Pokemon#ignoringAbility if needed
 					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
