@@ -2429,6 +2429,17 @@ export const Formats: FormatList = [
 		'Skiddo', 'Sliggoo', 'Sliggoo-Hisui', 'Stantler', 'Swablu', 'Tepig', 'Thwackey', 'Torchic', 'Torkoal', 'Torracat', 'Typhlosion', 'Typhlosion-Hisui', 'Watchog', 'Wyrdeer', 'Zebstrika', 'Zweilous',
 		],
 	},
+	{
+		name: "[Gen 2] SeaGSCull",
+		desc: '<b>[Gen 2] SeaGSCull</b>: AU format using the GS framework.',
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1ZG8X-_3lE-IzBbVDtcTS_cBoz7_RMfIM8P8UyzSMYr4/edit?usp=sharing">No Thread Available</a>`,
+		],
+
+		mod: 'gen2SeaGSCull',
+		ruleset: ['Standard'],
+		banlist: ['Uber'],
+	},
 	///////////////////////////////////////////////////////////////
 	///////////////////// Non-Smogon Mods /////////////////////////
 	///////////////////////////////////////////////////////////////
