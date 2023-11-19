@@ -392,7 +392,7 @@ export const Formats: FormatList = [
 		],
 		
 		mod: 'eramons',
-		ruleset: ['Standard', 'Data Mod'],
+		ruleset: ['Standard', 'Terastal Clause'],
 		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 		onValidateTeam(team, format, teamHas) {
 			/**@type {{[k: string]: true}} */
@@ -2675,6 +2675,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
+		// Starting innate abilities in scripts#actions
 		onSwitchOut(pokemon) {
 			// @ts-ignore
 			const oMegaSpecies = this.dex.species.get(pokemon.species.originalSpecies);
@@ -2839,6 +2840,32 @@ export const Formats: FormatList = [
 		section: "Non-Pet Mod Formats",
 		column: 3,
 		// name: "nonpetmodformats",
+	},
+	{
+		name: "[Gen 9] Black & White 3",
+
+		mod: 'blackandwhite3',
+		ruleset: ['Standard NatDex', 'Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass',
+		'Last Respects', 'Shed Tail', 
+		'Sceptilite', 'Blazikenite', 'Swampertite', 'Gardevoirite', 'Galladite', 'Alakazite', 'Gyaradosite',
+		'Sablenite', 'Mawilite', 'Aggronite', 'Medichamite', 'Manectite', 'Sharpedonite', 'Cameruptite', 
+		'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite', 
+		'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
+		'Blue Orb', 'Red Orb', //this is just copied from ANL's lol
+		'Beedrill-Mega', 'Pidgeot-Mega', //?????
+	],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			let allowedTiers = ['BW OU', "BW NFE", "BW LC"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Black & White 3 OU.'];
+				}
+			}
+		},
 	},
 	{
 		name: "[Gen 9] Littlest Cup",
