@@ -5160,6 +5160,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		hyperbeam: ["9L1"],
 		hypervoice: ["9L1"],
 		liquidation: ["9L1"],
+		machpunch: ["9L1"],
 		megapunch: ["9L1"],
 		metalclaw: ["9L1"],
 		metronome: ["9L1"],
