@@ -146,8 +146,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const pokemon of source.foes()) {
 				if (!activated) {
 					this.add('-ability', source, 'Death Aura');
+					activated = true;
 				}
-				activated = true;
 				if (!pokemon.volatiles['healblock']) {
 					pokemon.addVolatile('healblock');
 				}
@@ -314,61 +314,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 						this.hint("Transform Mimicry changes you to your original un-transformed types.");
 					}
 				}
-			}
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasItem('electricseed')) {
-					if (!pokemon.ignoringItem() && this.field.isTerrain('electricterrain')) {
+				if (pokemon.ignoringItem()) continue;
+				if (
+					(pokemon.hasItem('psychicseed') && this.field.isTerrain('psychicterrain'))
+					 || (pokemon.hasItem('electricseed') && this.field.isTerrain('electricterrain'))
+					 || (pokemon.hasItem('grassyseed') && this.field.isTerrain('grassyterrain'))
+					 || (pokemon.hasItem('mistyseed') && this.field.isTerrain('mistyterrain'))
+					) {
 						for (const target of this.getAllActive()) {
-							if (target.hasAbility('cloudnine')) {
-								if (target === source) continue;
+							if (target.hasAbility('cloudnine') && target !== source) {
 								this.debug('Cloud Nine prevents Seed use');
 								return;
 							}
 						}
 						pokemon.useItem();
-					}
-				}
-			}
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasItem('psychicseed')) {
-					if (!pokemon.ignoringItem() && this.field.isTerrain('psychicterrain')) {
-						for (const target of this.getAllActive()) {
-							if (target.hasAbility('cloudnine')) {
-								if (target === source) continue;
-								this.debug('Cloud Nine prevents Seed use');
-								return;
-							}
-						}
-						pokemon.useItem();
-					}
-				}
-			}
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasItem('grassyseed')) {
-					if (!pokemon.ignoringItem() && this.field.isTerrain('grassyterrain')) {
-						for (const target of this.getAllActive()) {
-							if (target.hasAbility('cloudnine')) {
-								if (target === source) continue;
-								this.debug('Cloud Nine prevents Seed use');
-								return;
-							}
-						}
-						pokemon.useItem();
-					}
-				}
-			}
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasItem('mistyseed')) {
-					if (!pokemon.ignoringItem() && this.field.isTerrain('mistyterrain')) {
-						for (const target of this.getAllActive()) {
-							if (target.hasAbility('cloudnine')) {
-								if (target === source) continue;
-								this.debug('Cloud Nine prevents Seed use');
-								return;
-							}
-						}
-						pokemon.useItem();
-					}
 				}
 			}
 		},
@@ -921,7 +880,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.category === 'Special') return this.chainModify([5325, 4096]);
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (boost.spa && (boost.spa < 0 || boost.spa > 0)) {
+			if (boost.spa) {
 				delete boost.spa;
 				if (!(effect as ActiveMove).secondaries) {
 					this.add("-fail", target, "unboost", "Special Attack", "[from] ability: Sheer Heart", "[of] " + target);
@@ -1007,7 +966,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${source.name}'s splashed around in the mud!`);
 		},
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.name === 'Muddy Water' || move.name === 'Mud Shot' || move.name === 'Mud Bomb' || move.name === 'Mud-Slap') {
+			if (['Muddy Water','Mud Shot','Mud Bomb','Mud-Slap'].includes(move.name)) {
 				return this.chainModify(2);
 			}
 		},
@@ -1021,17 +980,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.hasType('Bug')) {
-				if (move.type === 'Rock' || move.type === 'Fire' || move.type === 'Flying') {
+				if (['Rock','Fire','Flying'].includes(move.type)) {
 					this.debug('Exoskeleton Bug neutralize');
 					return this.chainModify(0.5);
 				}
 			}
-			else if (!target.hasType('Bug')) {
-				if (move.type === 'Fighting' || move.type === 'Ground' || move.type === 'Grass') {
+			else //{
+				if (['Fighting','Ground','Grass'].includes(move.type)) {
 					this.debug('Exoskeleton non-Bug neutralize');
 					return this.chainModify(0.5);
 				}
-			}
+			//}
 		},
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock' && target.hasType('Bug')) {
@@ -1171,24 +1130,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	blaze: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Fire') {
-				this.debug('Blaze boost');
-				return this.chainModify(1.2);
-			}
-			else if (attacker.hp <= attacker.maxhp / 3) {
+			if (attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Blaze low HP boost');
 				return this.chainModify(1.5);
+			}
+			else if (move.type === 'Fire') {
+				this.debug('Blaze boost');
+				return this.chainModify(1.2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Fire') {
-				this.debug('Blaze boost');
-				return this.chainModify(1.2);
-			}
-			else if (attacker.hp <= attacker.maxhp / 3) {
+			if (attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Blaze low HP boost');
 				return this.chainModify(1.5);
+			}
+			else if (move.type === 'Fire') {
+				this.debug('Blaze boost');
+				return this.chainModify(1.2);
 			}
 		},
 		name: "Blaze",
@@ -1199,24 +1158,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	torrent: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Water') {
-				this.debug('Torrent boost');
-				return this.chainModify(1.2);
-			}
-			else if (attacker.hp <= attacker.maxhp / 3) {
+			if (attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Torrent low HP boost');
 				return this.chainModify(1.5);
+			}
+			else if (move.type === 'Water') {
+				this.debug('Torrent boost');
+				return this.chainModify(1.2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Water') {
-				this.debug('Torrent boost');
-				return this.chainModify(1.2);
-			}
-			else if (attacker.hp <= attacker.maxhp / 3) {
+			if (attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Torrent low HP boost');
 				return this.chainModify(1.5);
+			}
+			else if (move.type === 'Water') {
+				this.debug('Torrent boost');
+				return this.chainModify(1.2);
 			}
 		},
 		name: "Torrent",
@@ -1227,24 +1186,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	overgrow: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Grass') {
-				this.debug('Overgrow boost');
-				return this.chainModify(1.2);
-			}
-			else if (attacker.hp <= attacker.maxhp / 3) {
+			if (attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Overgrow low HP boost');
 				return this.chainModify(1.5);
+			}
+			else if (move.type === 'Grass') {
+				this.debug('Overgrow boost');
+				return this.chainModify(1.2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Grass') {
-				this.debug('Overgrow boost');
-				return this.chainModify(1.2);
-			}
-			else if (attacker.hp <= attacker.maxhp / 3) {
+			if (attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Overgrow low HP boost');
 				return this.chainModify(1.5);
+			}
+			else if (move.type === 'Grass') {
+				this.debug('Overgrow boost');
+				return this.chainModify(1.2);
 			}
 		},
 		name: "Overgrow",
@@ -1255,24 +1214,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	swarm: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
-			if (move.type === 'Bug') {
-				this.debug('Swarm boost');
-				return this.chainModify(1.2);
-			}
-			else if (attacker.hp <= attacker.maxhp / 3) {
+			if (attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Swarm low HP boost');
 				return this.chainModify(1.5);
+			}
+			else if (move.type === 'Bug') {
+				this.debug('Swarm boost');
+				return this.chainModify(1.2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
-			if (move.type === 'Bug') {
-				this.debug('Swarm boost');
-				return this.chainModify(1.2);
-			}
-			else if (attacker.hp <= attacker.maxhp / 3) {
+			if (attacker.hp <= attacker.maxhp / 3) {
 				this.debug('Swarm low HP boost');
 				return this.chainModify(1.5);
+			}
+			else if (move.type === 'Bug') {
+				this.debug('Swarm boost');
+				return this.chainModify(1.2);
 			}
 		},
 		name: "Swarm",
@@ -1334,34 +1293,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	momentum: {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.id === 'rapidspin' || move.id === 'icespinner' || move.id === 'spinout' ||
-				move.id === 'blazingtorque' || move.id === 'combattorque' || move.id === 'noxioustorque' ||				
-				move.id === 'wickedtorque' || move.id === 'drillrun' || move.id === 'gyroball' ||
-				move.id === 'rollout' || move.id === 'iceball' || move.id === 'flipturn' ||
-				move.id === 'uturn' || move.id === 'electrodrift' || move.id === 'darkestlariat' ||
-				move.id === 'flamewheel' || move.id === 'aurawheel' || move.id === 'shiftgear' ||
-				move.id === 'mortalspin' || move.id === 'geargrind' || move.id === 'steelroller' ||
-				move.id === 'rototiller' || move.id === 'steamroller' || move.id === 'tripleaxel' ||
-				move.id === 'triplekick' || move.id === 'firespin' || move.id === 'leaftornado' ||
-				move.id === 'hurricane' || move.id === 'bleakwindstorm' || move.id === 'sandsearstorm' || 
-				move.id === 'wildboltstorm' || move.id === 'springtidestorm' || move.id === 'whirlpool'
-				) {
+			if (['rapidspin','icespinner','spinout','blazingtorque','combattorque','noxioustorque',
+				  'wickedtorque','drillrun','gyroball','rollout','iceball','flipturn','uturn','electrodrift',
+				  'darkestlariat','flamewheel','aurawheel','shiftgear','mortalspin','geargrind','steelroller',
+				  'rototiller','steamroller','tripleaxel','triplekick','firespin','leaftornado','hurricane',
+				  'bleakwindstorm','sandsearstorm','wildboltstorm','springtimestorm','whirlpool'].includes(move.id))
+			{
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (move.id === 'rapidspin' || move.id === 'icespinner' || move.id === 'spinout' ||
-				move.id === 'blazingtorque' || move.id === 'combattorque' || move.id === 'noxioustorque' ||				
-				move.id === 'wickedtorque' || move.id === 'drillrun' || move.id === 'gyroball' ||
-				move.id === 'rollout' || move.id === 'iceball' || move.id === 'flipturn' ||
-				move.id === 'uturn' || move.id === 'electrodrift' || move.id === 'darkestlariat' ||
-				move.id === 'flamewheel' || move.id === 'aurawheel' || move.id === 'shiftgear' ||
-				move.id === 'mortalspin' || move.id === 'geargrind' || move.id === 'steelroller' ||
-				move.id === 'rototiller' || move.id === 'steamroller' || move.id === 'tripleaxel' ||
-				move.id === 'triplekick' || move.id === 'firespin' || move.id === 'leaftornado' ||
-				move.id === 'hurricane' || move.id === 'bleakwindstorm' || move.id === 'sandsearstorm' || 
-				move.id === 'wildboltstorm' || move.id === 'springtidestorm' || move.id === 'whirlpool'
-				) {			
+			if (['rapidspin','icespinner','spinout','blazingtorque','combattorque','noxioustorque',
+				  'wickedtorque','drillrun','gyroball','rollout','iceball','flipturn','uturn','electrodrift',
+				  'darkestlariat','flamewheel','aurawheel','shiftgear','mortalspin','geargrind','steelroller',
+				  'rototiller','steamroller','tripleaxel','triplekick','firespin','leaftornado','hurricane',
+				  'bleakwindstorm','sandsearstorm','wildboltstorm','springtimestorm','whirlpool'].includes(move.id))
+			{
 				this.heal(target.baseMaxhp / 8);
 			}
 		},
@@ -1421,13 +1368,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
+				if (!target.positiveBoosts()) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Prehistoric Might', 'boost');
 					activated = true;
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.positiveBoosts()) {
+				} else {
 					this.boost({spe: -2}, target, pokemon, null, true);
 				}
 			}
@@ -1516,7 +1464,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const pokemon of source.foes()) {
 				if (!activated) {
 					this.add('-ability', source, 'Fair Fight');
-					this.add('-message', `${source.name}'s wants to have a fair fight!`);
+					this.add('-message', `${source.name} wants to have a fair fight!`);
 				}
 				activated = true;
 				if (!pokemon.volatiles['fairfight']) {
@@ -1793,11 +1741,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	libero: {
 		onPrepareHit(source, target, move) {
-			if (this.effectState.libero) return;
-			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			if (this.effectState.libero/*) return;
+			if (*/|| move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
 			const type = move.type;
-			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type) {
-				if (!source.setType(type)) return;
+			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type && source.setType(type)) {
 				this.effectState.libero = true;
 				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
 			}
@@ -1811,11 +1758,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	protean: {
 		onPrepareHit(source, target, move) {
-			if (this.effectState.protean) return;
-			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
+			if (this.effectState.protean/*) return;
+			if (*/|| move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
 			const type = move.type;
-			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type) {
-				if (!source.setType(type)) return;
+			if (type && type !== '???' && !source.hasItem('terashard') && source.getTypes().join() !== type && source.setType(type)) {
 				this.effectState.protean = true;
 				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
 			}
