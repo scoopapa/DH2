@@ -227,7 +227,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return this.chainModify([5324, 4096]);
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
-			if (source && source !== target && move && move.category !== 'Status' && !source.forceSwitchFlag && !source.hasAbility('forceofnature')) {
+			if (source && source !== target && move && move.category !== 'Status' && !source.forceSwitchFlag && !source.hasAbility(['sandwrath','forceofnature'])) {
 				this.damage(source.baseMaxhp / 10, source, source, this.dex.items.get('lifeorb'));
 			}
 		},
