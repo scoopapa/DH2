@@ -734,7 +734,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.actions.useMove("Parry Condition", pokemon);
 		}, 
 		beforeMoveCallback(pokemon) {
-			this.actions.useMove("Parry", pokemon);
+			this.actions.useMove("Parry Attack", pokemon);
 		},
 	   secondary: {}, // sheer force boosted
 	   target: "normal",
@@ -788,6 +788,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	  target: "normal",
 	  type: "Fighting",
 	  contestType: "Clever",
+    },
+  parryattack: {
+	   accuracy: 100,
+	   basePower: 80,
+	   category: "Physical",
+	   shortDesc: "Required to make Parry work.",
+	   name: "Parry Attack",
+	   pp: 10,
+	   priority: 0,
+	   flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mach Punch", target);
+		},
+	   secondary: {}, // sheer force boosted
+	   target: "normal",
+	   type: "Fighting",
+	   contestType: "Clever",
     },
 	rollout: {
 		num: 205,
