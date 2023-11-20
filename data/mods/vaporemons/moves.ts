@@ -837,12 +837,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return;
 				}
 				const parryHolder = this.effectState.target;
-				if ((source.isAlly(parryHolder) || move.target === 'all') && move.priority > 0.1
+				if ((source.isAlly(parryHolder) || move.target === 'all') &&
 					(!source.hasAbility('innerfocus') || !source.hasAbility('shielddust') ||
 					!source.hasAbility('steadfast') || !source.hasItem('covertcloak') || 
 				 	!source.hasAbility('sandveil') && !this.field.isWeather('sandstorm') ||
 				 	!source.hasAbility('sunblock') && !this.field.isWeather('sunnyday')  ||
-				 	!source.hasAbility('snowcloak') && !this.field.isWeather('snow'))) {
+				 	!source.hasAbility('snowcloak') && !this.field.isWeather('snow'))
+					&& move.priority > 0.1) {
 					this.attrLastMove('[still]');
 					this.add('cant', parryHolder, 'move: Parry', move, '[of] ' + target);
 					return false;
