@@ -4,4 +4,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OU",
 		doublesTier: "OU",
 	},
+	blunderbuzz: {
+		tier: "OU",
+		doublesTier: "OU",
+	},
 };
