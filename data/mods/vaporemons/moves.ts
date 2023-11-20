@@ -729,9 +729,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mach Punch", target);
 		},
-	   priorityChargeCallback(pokemon) {
+	   priorityChargeCallback(pokemon, target, move) {
+			this.add('-anim', source, "Mach Punch", pokemon);
 			this.add('-message', `${pokemon.name} is attempting to parry!`);
-		//	this.actions.useMove("Parry Condition", pokemon);
+			target.addVolatile('parrycondition');
 	   }, 
 	   secondary: {}, // sheer force boosted
 	   target: "normal",
@@ -778,9 +779,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('cant', pokemon, move, move);
 				this.add('-message', `${pokemon.name}'s attack was parried!`);
 				return false;
-				if (pokemon.hasAbility('steadfast')) {
-					this.boost({spe: 1}, pokemon);					
-				}
 			}
 		},
 	  },	
