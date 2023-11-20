@@ -715,7 +715,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fire",
-	},
+	}, /*
   parry: {
 	   accuracy: 100,
 	   basePower: 80,
@@ -803,6 +803,57 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Mach Punch", target);
 		},
 	   secondary: {}, // sheer force boosted
+	   target: "normal",
+	   type: "Fighting",
+	   contestType: "Clever",
+    }, */
+  parry: {
+	   accuracy: 100,
+	   basePower: 80,
+	   category: "Physical",
+	   shortDesc: "(Mostly functional placeholder) If the foe used a priority move, this move hits before that move and flinches the foe.",
+	   name: "Parry",
+	   pp: 10,
+	   priority: 0,
+	   flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mach Punch", target);
+		},
+		priorityChargeCallback(pokemon) {
+			this.add('-anim', pokemon, "Mat Block", pokemon);
+			this.add('-message', `${pokemon.name} is attempting to parry!`);
+			for (const side of pokemon.side.foeSidesWithConditions()) {
+				side.addSideCondition('parry');
+			}
+		},
+	   secondary: {}, // sheer force boosted
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Parry');
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, move) {
+				// Quick Guard blocks moves with positive priority, even those given increased priority by Prankster or Gale Wings.
+				// (e.g. it blocks 0 priority moves boosted by Prankster or Gale Wings; Quick Claw/Custap Berry do not count)
+				if (move.priority <= 0.1) return;
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				this.add('-activate', target, 'move: Parry');
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				return this.NOT_FAIL;
+			},
+		},
 	   target: "normal",
 	   type: "Fighting",
 	   contestType: "Clever",
