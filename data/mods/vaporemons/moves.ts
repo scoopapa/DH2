@@ -821,7 +821,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Mach Punch", target);
 		},
 		priorityChargeCallback(pokemon) {
-			this.add('-anim', pokemon, "Mat Block", pokemon);
+			this.add('-anim', pokemon, "Imprison", pokemon);
 			this.add('-message', `${pokemon.name} is attempting to parry!`);
 			pokemon.addVolatile('parry');
 		},
