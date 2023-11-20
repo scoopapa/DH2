@@ -823,35 +823,25 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priorityChargeCallback(pokemon) {
 			this.add('-anim', pokemon, "Mat Block", pokemon);
 			this.add('-message', `${pokemon.name} is attempting to parry!`);
-			for (const side of pokemon.side.foeSidesWithConditions()) {
-				side.addSideCondition('parry');
-			}
+			pokemon.addVolatile('parry');
 		},
 	   secondary: {}, // sheer force boosted
 		condition: {
 			duration: 1,
-			onSideStart(target, source) {
+			onStart(target, source) {
 				this.add('-singleturn', source, 'Parry');
 			},
-			onTryHitPriority: 4,
-			onTryHit(target, source, move) {
-				// Quick Guard blocks moves with positive priority, even those given increased priority by Prankster or Gale Wings.
-				// (e.g. it blocks 0 priority moves boosted by Prankster or Gale Wings; Quick Claw/Custap Berry do not count)
-				if (move.priority <= 0.1) return;
-				if (!move.flags['protect']) {
-					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
-					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+			onFoeTryMove(target, source, move) {
+				const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+				if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
 					return;
 				}
-				this.add('-activate', target, 'move: Parry');
-				const lockedmove = source.getVolatile('lockedmove');
-				if (lockedmove) {
-					// Outrage counter is reset
-					if (source.volatiles['lockedmove'].duration === 2) {
-						delete source.volatiles['lockedmove'];
-					}
+				const parryHolder = this.effectState.target;
+				if ((source.isAlly(parryHolder) || move.target === 'all') && move.priority > 0.1) {
+					this.attrLastMove('[still]');
+					this.add('cant', parryHolder, 'move: Parry', move, '[of] ' + target);
+					return false;
 				}
-				return this.NOT_FAIL;
 			},
 		},
 	   target: "normal",
