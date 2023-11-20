@@ -730,10 +730,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Mach Punch", target);
 		},
 	   priorityChargeCallback(pokemon, target, move) {
-			this.add('-anim', pokemon, "Imprison", target);
 			this.add('-message', `${pokemon.name} is attempting to parry!`);
-			target.addVolatile('parrycondition');
-	   }, 
+			this.actions.useMove("Parry Condition", pokemon);
+		}, 
 	   secondary: {}, // sheer force boosted
 	   target: "normal",
 	   type: "Fighting",
