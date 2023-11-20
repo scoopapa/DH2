@@ -745,7 +745,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	   shortDesc: "Required to make Parry work.",
 	   name: "Parry Condition",
 	   pp: 10,
-	   priority: 0,
+	   priority: 6,
 	   flags: {},
 		volatileStatus: 'parrycondition',
 		onPrepareHit(target, source, move) {
@@ -2177,7 +2177,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHitPriority: 4,
 			onTryHit(target, source, effect) {
-				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
+				if (effect && (effect.priority <= 0.1 || effect.target === 'self' || effect.id === 'parrycondition')) {
 					return;
 				}
 				if (target.isSemiInvulnerable() || target.isAlly(source)) return;
@@ -3120,5 +3120,53 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Flying",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
+	},
+	quickguard: {
+		num: 501,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Quick Guard",
+		pp: 15,
+		priority: 3,
+		flags: {snatch: 1},
+		sideCondition: 'quickguard',
+		onTry() {
+			return !!this.queue.willAct();
+		},
+		onHitSide(side, source) {
+			source.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onSideStart(target, source) {
+				this.add('-singleturn', source, 'Quick Guard');
+			},
+			onTryHitPriority: 4,
+			onTryHit(target, source, move) {
+				// Quick Guard blocks moves with positive priority, even those given increased priority by Prankster or Gale Wings.
+				// (e.g. it blocks 0 priority moves boosted by Prankster or Gale Wings; Quick Claw/Custap Berry do not count)
+				if (move.priority <= 0.1 || move.id === 'parrycondition') return;
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				this.add('-activate', target, 'move: Quick Guard');
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				return this.NOT_FAIL;
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Fighting",
+		zMove: {boost: {def: 1}},
+		contestType: "Cool",
 	},
 };
