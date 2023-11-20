@@ -2242,7 +2242,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTryHitPriority: 4,
 			onTryHit(target, source, effect) {
-				if (effect && (effect.priority <= 0.1 || effect.target === 'self' || effect.id === 'parrycondition')) {
+				if (effect && (effect.priority <= 0.1 || effect.target === 'self')) {
 					return;
 				}
 				if (target.isSemiInvulnerable() || target.isAlly(source)) return;
