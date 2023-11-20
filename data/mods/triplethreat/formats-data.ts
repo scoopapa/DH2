@@ -35,4 +35,52 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "TT",
 		doublesTier: "DTT",
 	},
+	omastar: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	cyclizar: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	deliriophage: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	chilupo: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	zangoose: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	overqwil: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	magcargo: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	ironthorns: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	brrrwtick: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	hatterene: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	regieleki: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
+	furret: {
+		tier: "TT",
+		doublesTier: "DTT",
+	},
 };

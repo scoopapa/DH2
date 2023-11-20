@@ -15,7 +15,7 @@ export const Aliases: {[alias: string]: string} = {
 	bss: "[Gen 9] Battle Stadium Singles Series 2",
 	vgc: "[Gen 9] VGC 2023 Series 2",
 	bsd: "[Gen 9] VGC 2023 Series 2",
-	randdubs: "[Gen 8] Random Doubles Battle",
+	randdubs: "[Gen 9] Random Doubles Battle",
 	doubles: "[Gen 9] Doubles OU",
 	dou: "[Gen 9] Doubles OU",
 	dubs: "[Gen 9] Doubles OU",
@@ -83,8 +83,8 @@ export const Aliases: {[alias: string]: string} = {
 	gen6ag: "[Gen 6] Anything Goes",
 	crossevo: "[Gen 9] Cross Evolution",
 	mayhem: "[Gen 9] Random Battle Mayhem",
-	omotm: "[Gen 9] Force of the Fallen",
-	lcotm: "[Gen 9] Inheritance",
+	omotm: "[Gen 9] Shared Power",
+	lcotm: "[Gen 9] Protean Palace",
 
 	// mega evos
 	fabio: "Ampharos-Mega",
@@ -1025,7 +1025,7 @@ export const Aliases: {[alias: string]: string} = {
 	depletion: "G-Max Depletion",
 	drumsolo: "G-Max Drum Solo",
 	finale: "G-Max Finale",
-	fireball: "G-Max Fireball",
+	//fireball: "G-Max Fireball",
 	foamburst: "G-Max Foam Burst",
 	goldrush: "G-Max Gold Rush",
 	gravitas: "G-Max Gravitas",

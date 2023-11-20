@@ -233,7 +233,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunder: ["1M"],
 			teleport: ["1M"],
 			reflect: ["1M"],
-			swift: ["1M"],
 			flash: ["1M"],
 			
 			toxic: ["1M"],
@@ -317,6 +316,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			reflect: ["1M"],
 			metronome: ["1M"],
 			psywave: ["1M"],
+			surf: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -369,6 +369,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			reflect: ["1M"],
 			metronome: ["1M"],
 			psywave: ["1M"],
+			surf: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -684,7 +685,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			firepunch: ["2M"],
 			thunderpunch: ["2M"],
 			headbutt: ["2M"],
-			roar: ["2M"],
 			lick: ["2E"], // lickitung
 			thrash: ["2E"], // cubone 
 			flamethrower: ["1T"],
@@ -829,7 +829,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			strength: ["1M"],
 			
 			toxic: ["1M"],
-			rage: ["1M"],
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
@@ -841,7 +840,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			icepunch: ["2M"],
 			thunderpunch: ["2M"],
 			headbutt: ["2M"],
-			roar: ["2M"],
 			thrash: ["2E"], // cubone
 			cometpunch: ["2E"], // kangaskhan
 			
@@ -1018,7 +1016,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			//tradeback moves | field
 			headbutt: ["2M"],
 			roar: ["2M"],
-			quickattack: ["2E"], // girafarig
 			
 		},
 		encounters: [
@@ -1030,7 +1027,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			disarmingvoice: ["1L1"],
 			growl: ["1L1"],
 			drainingkiss: ["1L1"],
-			disarmingvoice: ["1L16"],
 			sweetkiss: ["1L25"],
 			confuseray: ["1L31"],
 			charm: ["1L37"],
@@ -1077,7 +1073,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	cheep: {
 		learnset: {
-			bubble: ["1L17"],
+			peck: ["1L1"],
+			bubble: ["1L1", "1L17"],
 			counter: ["1L19", "1L25", "1M"],
 			bubblebeam: ["1L21", "1M"],
 			lowkick: ["1L23"],
@@ -1086,7 +1083,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["1L36"],
 			highjumpkick: ["1L40"],
 			strength: ["1L42", "1M"],
-			hydropump: ["1L48"],
+			hydropump: ["1L44"],
+			drillpeck: ["1L48"],
 			megapunch: ["1M"],
 			megakick: ["1M"],
 			bodyslam: ["1M"],
@@ -1109,7 +1107,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			//tradeback moves | water 2
 			defensecurl: ["2M"],
 			headbutt: ["2M"],
-			waterfall: ["2M"],
 			aurorabeam: ["2E"], // remoraid
 			agility: ["2E"], // goldeen
 			wingattack: ["2E"],
@@ -1122,7 +1119,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	jabetta: {
 		learnset: {
-			bubble: ["1L17"], //had the same learn levels iirc
+			peck: ["1L1"],
+			bubble: ["1L1", "1L17"], //had the same learn levels iirc
 			counter: ["1L19", "1L25", "1M"],
 			bubblebeam: ["1L21", "1M"],
 			lowkick: ["1L23"],
@@ -1131,7 +1129,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["1L36"],
 			highjumpkick: ["1L40"],
 			strength: ["1L42", "1M"],
-			hydropump: ["1L48"],
+			hydropump: ["1L46"],
+			drillpeck: ["1L52"],
 			megapunch: ["1M"],
 			megakick: ["1M"],
 			bodyslam: ["1M"],
@@ -1218,6 +1217,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swift: ["1M"],
 			skullbash: ["1M"],
 			thunderwave: ["1M"],
+			flash: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -1255,6 +1255,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swift: ["1M"],
 			skullbash: ["1M"],
 			thunderwave: ["1M"],
+			flash: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -1290,6 +1291,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swift: ["1M"],
 			skullbash: ["1M"],
 			thunderwave: ["1M"],
+			flash: ["1M"],
 			
 			toxic: ["1M"],
 			rage: ["1M"],
@@ -1322,8 +1324,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			doubleedge: ["1M"],
 			watergun: ["1M"],
 			bubblebeam: ["1M"],
-			icebeam: ["1M"],
-			blizzard: ["1M"],
+			thunder: ["1M"], // was ice beam, changed in 1.4 for an electric/dragon approach.
+			thunderbolt: ["1M"], // was blizzard, see above
 			hyperbeam: ["1M"],
 			submission: ["1M"],
 			counter: ["1M"],
@@ -1550,7 +1552,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rage: ["1M"],
 			mimic: ["1M"],
 			doubleteam: ["1M"],
-			bide: ["1M"],
 			rest: ["1M"],
 			substitute: ["1M"],
 		},
@@ -1703,7 +1704,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			skyattack: ["1M"],
 			fly: ["1M"],
 			toxic: ["1M"],
-			rage: ["1M"],
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
@@ -1775,7 +1775,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 5},
 		],
 	},
-	kokana: {
+	gentlarva: {
 		learnset: {
 			leechlife: ["1L1"],
 			stringshot: ["1L1"],
@@ -1784,7 +1784,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 2},
 		],
 	},
-	kasanagi: {
+	pupal: {
 		learnset: {
 			harden: ["1L7"],
 		},
@@ -1911,7 +1911,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			psychic: ["1M"],
 			doubleteam: ["1M"],
 			dreameater: ["1M"],
-			rest: ["1M"],
 			flash: ["1M"],
 		},
 	},
@@ -1952,7 +1951,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			psychic: ["1M"],
 			doubleteam: ["1M"],
 			dreameater: ["1M"],
-			rest: ["1M"],
 			flash: ["1M"],
 		},
 	},
@@ -2524,7 +2522,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			selfdestruct: ["1M"],
 			fireblast: ["1M"],
 			skullbash: ["1M"],
-			rest: ["1M"],
 			psywave: ["1M"],
 			rockslide: ["1M"],
 			substitute: ["1M"],
@@ -2557,7 +2554,16 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			substitute: ["1M"],
 			thunderbolt: ["1M"],
+			sing: ["2S3"],
+			dizzypunch: ["2S0"],
+			petaldance: ["2S1"],
 		},
+		eventData: [
+			{generation: 2, level: 5, shiny: 1, moves: ["thundershock", "charm", "dizzypunch"]},
+			{generation: 2, level: 5, shiny: 1, moves: ["thundershock", "charm", "petaldance"]},
+			{generation: 2, level: 5, shiny: 1, moves: ["thundershock", "charm", "scaryface"]},
+			{generation: 2, level: 5, shiny: 1, moves: ["thundershock", "charm", "sing"]},
+		],
 	},
 	elekid: {
 		learnset: {
@@ -2631,6 +2637,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			strength: ["1M"],
 			flash: ["1M"],
+			flamethrower: ["2T"],
 			
 			earthquake: ["1M"],
 			fissure: ["1M"],
@@ -2794,7 +2801,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			thunderwave: ["1M"],
 			psywave: ["1M"],
-			triattack: ["1M"],
 			substitute: ["1M"],
 			flash: ["1M"],
 			
@@ -2830,7 +2836,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			thunderwave: ["1M"],
 			psywave: ["1M"],
-			triattack: ["1M"],
 			substitute: ["1M"],
 			flash: ["1M"],
 			
@@ -2974,7 +2979,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			substitute: ["1M"],
 			hyperbeam: ["1M"],
-			disarmingvoice: ["1L16"],
 			drainingkiss: ["1L30"],
 			dazzlinggleam: ["1L36"],
 		},
@@ -3088,7 +3092,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			icepunch: ["2M"],
 			firepunch: ["2M"],
 			hypnosis: ["2E"],
-			psybeam: ["2E"],
 		},
 		encounters: [
 			{generation: 1, level: 23},
@@ -3380,7 +3383,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			
 			headbutt: ["2M"],
-			dreameater: ["2M"],
 			firepunch: ["2M"],
 			icepunch: ["2M"],
 			thunderpunch: ["2M"],
@@ -3466,7 +3468,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			
 			defensecurl: ["2M"],
 			headbutt: ["2M"],
-			bite: ["2L5"],
 			cut: ["2M"],
 			strength: ["2M"],
 			roar: ["2M"],
@@ -3509,7 +3510,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			
 			defensecurl: ["2M"],
 			headbutt: ["2M"],
-			bite: ["2L5"],
 			cut: ["2M"],
 			strength: ["2M"],
 			roar: ["2M"],
@@ -3555,8 +3555,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
-			rest: ["1M"],
-			substitute: ["1M"],
 		},
 	},
 	sandshrewalola: {
@@ -3584,11 +3582,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
-			rest: ["1M"],
 			substitute: ["1M"],
 			
 			counter: ["2E"],
-			defensecurl: ["2M"],
 			headbutt: ["2M"],
 		},
 		encounters: [
@@ -3621,11 +3617,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			mimic: ["1M"],
 			doubleteam: ["1M"],
 			bide: ["1M"],
-			rest: ["1M"],
 			substitute: ["1M"],
 			
 			counter: ["2E"],
-			defensecurl: ["2M"],
 			headbutt: ["2M"],
 		},
 	},
@@ -4022,7 +4016,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			
 			firepunch: ["2M"],
-			thunderpunch: ["2M"],
 			headbutt: ["2M"],
 			flamethrower: ["2T"],
 		},
@@ -4067,7 +4060,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			
 			firepunch: ["2M"],
-			thunderpunch: ["2M"],
 			headbutt: ["2M"],
 			flamethrower: ["2T"],
 		},
@@ -4113,7 +4105,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			
 			firepunch: ["2M"],
-			thunderpunch: ["2M"],
 			headbutt: ["2M"],
 			flamethrower: ["2T"],
 		},
@@ -4148,7 +4139,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			substitute: ["1M"],
 			
-			tackle: ["2L1"],
 			quickattack: ["2L16"],
 			furyattack: ["2L40"],
 			headbutt: ["2M"],
@@ -4193,7 +4183,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			substitute: ["1M"],
 			
-			tackle: ["2L1"],
 			quickattack: ["2L16"],
 			furyattack: ["2L40"],
 			headbutt: ["2M"],
@@ -4328,8 +4317,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			substitute: ["1M"],
 			
-			tackle: ["2L1"],
-			dreameater: ["2M"],
 			flamethrower: ["2T"],
 			stomp: ["2L13"],
 			icepunch: ["2M"],
@@ -4379,8 +4366,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rest: ["1M"],
 			substitute: ["1M"],
 			
-			tackle: ["2L1"],
-			dreameater: ["2M"],
 			flamethrower: ["2T"],
 			stomp: ["2L13"],
 			icepunch: ["2M"],
@@ -4705,7 +4690,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["1M"],
 			takedown: ["1M"],
 			doubleedge: ["1M"],
-			hyperbeam: ["1M"],
 			teleport: ["1M"],
 			swift: ["1M"],
 			skyattack: ["1M"],
@@ -4717,7 +4701,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			doubleteam: ["1M"],
 			bide: ["1M"],
 			rest: ["1M"],
-			substitute: ["1M"],
 			
 			roar: ["2M"],
 		},
@@ -5345,14 +5328,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		tackle: ["1L15", "2L15"],
 	}},
 	magikarporangedapples: {learnset: {
-		bubble: ["2S1"],
-		dragonrage: ["1S0"],
-		flail: ["2L30"],
-		reversal: ["2S2"],
-		splash: ["1L1", "2L1", "2S1", "2S2"],
-		tackle: ["1L15", "2L15"],
-	}},
-	magikarppinktwotone: {learnset: {
 		bubble: ["2S1"],
 		dragonrage: ["1S0"],
 		flail: ["2L30"],

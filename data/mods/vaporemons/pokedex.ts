@@ -4,10 +4,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fairy", "Dragon"],
 		abilities: {0: "Protosmosis", H: "Cute Charm"},
 	},
+	crabrawler: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Iron Fist", H: "Fair Fight"},
+	},
 	crabominable: {
 		inherit: true,
 		types: ["Fighting", "Water"],
-		abilities: {0: "Fur Coat", 1: "Iron Fist", H: "Snow Cloak"},
+		abilities: {0: "Fur Coat", 1: "Iron Fist", H: "Fair Fight"},
 	},
 	mareanie: {
 		inherit: true,
@@ -18,8 +22,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Water"],
 		abilities: {0: "Battle Spines", 1: "Merciless", H: "Regenerator"},
 	},
+	varoom: {
+		inherit: true,
+		abilities: {0: "Overcoat", 1: "Momentum", H: "Slow Start"},
+	},
 	revavroom: {
 		inherit: true,
+		abilities: {0: "Overcoat", 1: "Momentum", H: "Filter"},
 		otherFormes: ["Revavroom-Segin", "Revavroom-Schedar", "Revavroom-Navi", "Revavroom-Ruchbah", "Revavroom-Caph"],
 		formeOrder: ["Revavroom", "Revavroom-Segin", "Revavroom-Schedar", "Revavroom-Navi", "Revavroom-Ruchbah", "Revavroom-Caph"],
 	},
@@ -105,11 +114,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	donphan: {
 		inherit: true,
-		abilities: {0: "Sturdy", 1: "Overcoat", H: "Sand Veil"},
+		abilities: {0: "Sturdy", 1: "Overcoat", H: "Sand Spit"},
 	},
 	avalugg: {
 		inherit: true,
-		abilities: {0: "Overcoat", 1: "Ice Body", H: "Sturdy"},
+		abilities: {0: "Overcoat", 1: "Permafrost", H: "Sturdy"},
+	},
+	avalugghisui: {
+		inherit: true,
+		abilities: {0: "Strong Jaw", 1: "Permafrost", H: "Sturdy"},
 	},
 	vespiquen: {
 		inherit: true,
@@ -118,11 +131,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	misdreavus: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Death Aura"},
+		abilities: {0: "Levitate", 1: "Death Aura", H: "Fairy Ringer"},
 	},
 	mismagius: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Death Aura", H: "Cute Charm"},
+		abilities: {0: "Levitate", 1: "Death Aura", H: "Fairy Ringer"},
 	},
 	floette: {
 		inherit: true,
@@ -180,6 +193,10 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Soul-Heart", H: "Healer"},
 	},
+	magearnaoriginal: {
+		inherit: true,
+		abilities: {0: "Soul-Heart", H: "Healer"},
+	},
 	mesprit: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Healer"},
@@ -212,7 +229,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	greattusk: {
 		inherit: true,
-		abilities: {0: "Protocrysalis"},
+		abilities: {0: "Protocrysalis", H: "Muscle Memory"},
 	},
 	sandyshocks: {
 		inherit: true,
@@ -220,23 +237,27 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	fluttermane: {
 		inherit: true,
-		abilities: {0: "Protostasis"},
+		abilities: {0: "Protostasis", H: "Illusion"},
 	},
 	brutebonnet: {
 		inherit: true,
 		abilities: {0: "Protosmosis", H: "Seed Sower"},
 	},
+	slitherwing: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Shield Dust"},
+	},
 	irontreads: {
 		inherit: true,
-		abilities: {0: "Rune Drive"},
+		abilities: {0: "Rune Drive", H: "Momentum"},
 	},
 	ironbundle: {
 		inherit: true,
-		abilities: {0: "Neuron Drive"},
+		abilities: {0: "Neuron Drive", H: "Water Veil"},
 	},
 	ironhands: {
 		inherit: true,
-		abilities: {0: "Photon Drive"},
+		abilities: {0: "Photon Drive", H: "Fair Fight"},
 	},
 	ironjugulis: {
 		inherit: true,
@@ -244,15 +265,23 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	ironmoth: {
 		inherit: true,
-		abilities: {0: "Photon Drive"},
+		abilities: {0: "Photon Drive", H: "Exoskeleton"},
+	},
+	ironthorns: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Blunt Force"},
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protostasis"},
+		abilities: {0: "Protostasis", H: "Gale Wings"},
 	},
 	ironvaliant: {
 		inherit: true,
 		abilities: {0: "Rune Drive", H: "Outclass"},
+	},
+	ironleaves: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Justified"},
 	},
 	arboliva: {
 		inherit: true,
@@ -268,7 +297,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	calyrex: {
 		inherit: true,
-		abilities: {0: "Unnerve", H: "Grass Pelt"},
+		abilities: {0: "Unnerve", 1: "Fairy Ringer", H: "Grass Pelt"},
 	},
 	swablu: {
 		inherit: true,
@@ -284,7 +313,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	articuno: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Gale Wings", H: "Snow Cloak"},
+		abilities: {0: "Pressure", 1: "Gale Wings", H: "Permafrost"},
 	},
 	rotomfan: {
 		inherit: true,
@@ -293,6 +322,22 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	rotomheat: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Smelt"},
+	},
+	rotomfrost: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Permafrost"},
+	},
+	rotom: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Adaptability"},
+	},
+	rotomwash: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Water Veil"},
+	},
+	rotommow: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Natural Cure"},
 	},
 	bombirdier: {
 		inherit: true,
@@ -351,7 +396,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	lycanroc: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Cloud Nine"},
+		abilities: {0: "Steadfast", 1: "Sand Rush", H: "Cloud Nine"},
 	},
 	igglybuff: {
 		inherit: true,
@@ -363,7 +408,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	wigglytuff: {
 		inherit: true,
-		abilities: {0: "Cute Charm", 1: "Competitive", H: "Cloud Nine"},
+		abilities: {0: "Cute Charm", 1: "Natural Cure", H: "Wind Rider"},
 	},
 	dudunsparce: {
 		inherit: true,
@@ -435,7 +480,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	froslass: {
 		inherit: true,
-		abilities: {0: "Snow Cloak", 1: "Death Aura", H: "Cursed Body"},
+		abilities: {0: "Snow Cloak", 1: "Death Aura", H: "Sheer Heart"},
 	},
 	houndoom: {
 		inherit: true,
@@ -476,7 +521,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	leafeon: {
 		inherit: true,
-		abilities: {0: "Seed Sower", H: "Chlorophyll"},
+		abilities: {0: "Chlorophyll", H: "Sharpness"},
 	},
 	diglett: {
 		inherit: true,
@@ -496,7 +541,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	krookodile: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Moxie", H: "Sand Spit"},
+		abilities: {0: "Intimidate", 1: "Moxie", H: "Prehistoric Might"},
 	},
 	sandygast: {
 		inherit: true,
@@ -537,7 +582,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	tinkaton: {
 		inherit: true,
-		abilities: {0: "Mold Breaker", 1: "Counteract", H: "Sheer Force"},
+		abilities: {0: "Mold Breaker", 1: "Counteract", H: "Blunt Force"},
 	},
 	girafarig: {
 		inherit: true,
@@ -549,7 +594,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	umbreon: {
 		inherit: true,
-		abilities: {0: "Synchronize", H: "Counteract"},
+		abilities: {0: "Fairy Ringer", H: "Counteract"},
 	},
 	drifloon: {
 		inherit: true,
@@ -665,7 +710,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	hariyama: {
 		inherit: true,
-		abilities: {0: "Thick Fat", 1: "Guts", H: "Purifying Salt"},
+		abilities: {0: "Fair Fight", 1: "Guts", H: "Purifying Salt"},
 	},
 	mukalola: {
 		inherit: true,
@@ -690,11 +735,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	cufant: {
 		inherit: true,
-		abilities: {0: "Sheer Force", 1: "Steely Spirit", H: "Heavy Metal"},
+		abilities: {0: "Blunt Force", 1: "Steely Spirit", H: "Heavy Metal"},
 	},
 	copperajah: {
 		inherit: true,
-		abilities: {0: "Sheer Force", 1: "Steely Spirit", H: "Heavy Metal"},
+		abilities: {0: "Blunt Force", 1: "Steely Spirit", H: "Heavy Metal"},
 	},
 	bronzor: {
 		inherit: true,
@@ -746,7 +791,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	lucario: {
 		inherit: true,
-		abilities: {0: "Sheer Heart", 1: "Inner Focus", H: "Justified"},
+		abilities: {0: "Sheer Heart", 1: "Steadfast", H: "Justified"},
 	},
 	gothita: {
 		inherit: true,
@@ -790,7 +835,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	camerupt: {
 		inherit: true,
-		abilities: {0: "Smelt", 1: "Solid Rock", H: "Anger Point"},
+		abilities: {0: "Smelt", 1: "Solid Rock", H: "Cud Chew"},
 	},
 	rolycoly: {
 		inherit: true,
@@ -894,11 +939,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	barboach: {
 		inherit: true,
-		abilities: {0: "Anticipation", 1: "Oblivious", H: "Mud Wash"},
+		abilities: {0: "Water Veil", 1: "Oblivious", H: "Mud Wash"},
 	},
 	whiscash: {
 		inherit: true,
-		abilities: {0: "Anticipation", 1: "Oblivious", H: "Mud Wash"},
+		abilities: {0: "Water Veil", 1: "Oblivious", H: "Mud Wash"},
 	},
 	vaporeon: {
 		inherit: true,
@@ -948,5 +993,606 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	dragalge: {
 		inherit: true,
 		abilities: {0: "Poison Point", 1: "Color Change", H: "Adaptability"},
+	},
+	sandshrew: {
+		inherit: true,
+		abilities: {0: "Momentum", 1: "Battle Spines", H: "Sand Rush"},
+	},
+	sandshrewalola: {
+		inherit: true,
+		abilities: {0: "Steely Spirit", 1: "Battle Spines", H: "Slush Rush"},
+	},
+	sandslash: {
+		inherit: true,
+		abilities: {0: "Momentum", 1: "Battle Spines", H: "Sand Rush"},
+	},
+	sandslashalola: {
+		inherit: true,
+		abilities: {0: "Steely Spirit", 1: "Battle Spines", H: "Slush Rush"},
+	},
+	bellsprout: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Seed Sower", H: "Gluttony"},
+	},
+	weepinbell: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Seed Sower", H: "Gluttony"},
+	},
+	victreebel: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Seed Sower", H: "Gluttony"},
+	},
+	poliwag: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Mud Wash", H: "Swift Swim"},
+	},
+	poliwhirl: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Mud Wash", H: "Swift Swim"},
+	},
+	poliwrath: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Mud Wash", H: "Swift Swim"},
+	},
+	politoed: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Mud Wash", H: "Drizzle"},
+	},
+	munchlax: {
+		inherit: true,
+		abilities: {0: "Counteract", 1: "Thick Fat", H: "Gluttony"},
+	},
+	snorlax: {
+		inherit: true,
+		abilities: {0: "Comatose", 1: "Thick Fat", H: "Gluttony"},
+	},
+	sentret: {
+		inherit: true,
+		abilities: {0: "Cute Charm", 1: "Keen Eye", H: "Frisk"},
+	},
+	furret: {
+		inherit: true,
+		abilities: {0: "Cute Charm", 1: "Keen Eye", H: "Frisk"},
+	},
+	spinarak: {
+		inherit: true,
+		abilities: {0: "Battle Spines", 1: "Swarm", H: "Sniper"},
+	},
+	ariados: {
+		inherit: true,
+		abilities: {0: "Battle Spines", 1: "Swarm", H: "Sniper"},
+	},
+	gligar: {
+		inherit: true,
+		abilities: {0: "Sand Force", 1: "Exoskeleton", H: "Immunity"},
+	},
+	gliscor: {
+		inherit: true,
+		abilities: {0: "Sand Force", 1: "Exoskeleton", H: "Poison Heal"},
+	},
+	slugma: {
+		inherit: true,
+		abilities: {0: "Smelt", 1: "Flame Body", H: "Weak Armor"},
+	},
+	magcargo: {
+		inherit: true,
+		abilities: {0: "Smelt", 1: "Flame Body", H: "Weak Armor"},
+	},
+	lotad: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Rain Dish", H: "Overcoat"},
+	},
+	lombre: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Rain Dish", H: "Overcoat"},
+	},
+	ludicolo: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Rain Dish", H: "Overcoat"},
+	},
+	seedot: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Cloud Nine"},
+	},
+	nuzleaf: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Cloud Nine"},
+	},
+	shiftry: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Wind Rider", H: "Cloud Nine"},
+	},
+	volbeat: {
+		inherit: true,
+		abilities: {0: "Cute Charm", 1: "Swarm", H: "Prankster"},
+	},
+	illumise: {
+		inherit: true,
+		abilities: {0: "Cute Charm", 1: "Tinted Lens", H: "Prankster"},
+	},
+	milotic: {
+		inherit: true,
+		types: ["Water", "Fairy"],
+		abilities: {0: "Marvel Scale", 1: "Water Veil", H: "Sheer Heart"},
+	},
+	duskull: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Death Aura", H: "Frisk"},
+	},
+	dusclops: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Death Aura", H: "Frisk"},
+	},
+	dusknoir: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Death Aura", H: "Frisk"},
+	},
+	turtwig: {
+		inherit: true,
+		abilities: {0: "Overgrow", H: "Sand Force"},
+	},
+	grotle: {
+		inherit: true,
+		abilities: {0: "Overgrow", H: "Sand Force"},
+	},
+	torterra: {
+		inherit: true,
+		abilities: {0: "Overgrow", H: "Sand Force"},
+	},
+	chimchar: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Muscle Memory"},
+	},
+	monferno: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Muscle Memory"},
+	},
+	infernape: {
+		inherit: true,
+		abilities: {0: "Blaze", H: "Muscle Memory"},
+	},
+	phione: {
+		inherit: true,
+		abilities: {0: "Hydration", H: "Healer"},
+	},
+	manaphy: {
+		inherit: true,
+		abilities: {0: "Hydration", H: "Healer"},
+	},
+	shaymin: {
+		inherit: true,
+		abilities: {0: "Serene Grace", H: "Grass Pelt"},
+	},
+	gurdurr: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Sheer Force", H: "Steely Spirit"},
+	},
+	sewaddle: {
+		inherit: true,
+		abilities: {0: "Grass Pelt", 1: "Chlorophyll", H: "Overcoat"},
+	},
+	swadloon: {
+		inherit: true,
+		abilities: {0: "Grass Pelt", 1: "Chlorophyll", H: "Overcoat"},
+	},
+	leavanny: {
+		inherit: true,
+		abilities: {0: "Grass Pelt", 1: "Chlorophyll", H: "Overcoat"},
+	},
+	ducklett: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Big Pecks", H: "Gale Wings"},
+	},
+	swanna: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Big Pecks", H: "Gale Wings"},
+	},
+	litwick: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Flash Fire", H: "Smelt"},
+	},
+	lampent: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Flash Fire", H: "Smelt"},
+	},
+	chandelure: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Flash Fire", H: "Smelt"},
+	},
+	mienfoo: {
+		inherit: true,
+		abilities: {0: "Outclass", 1: "Regenerator", H: "Reckless"},
+	},
+	mienshao: {
+		inherit: true,
+		abilities: {0: "Outclass", 1: "Regenerator", H: "Reckless"},
+	},
+	cutiefly: {
+		inherit: true,
+		abilities: {0: "Cute Charm", 1: "Shield Dust", H: "Healer"},
+	},
+	ribombee: {
+		inherit: true,
+		abilities: {0: "Cute Charm", 1: "Shield Dust", H: "Healer"},
+	},
+	poltchageist: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Healer", H: "Heatproof"},
+	},
+	sinistcha: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Healer", H: "Heatproof"},
+	},
+	poltchageistartisan: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Healer", H: "Heatproof"},
+	},
+	sinistchamasterpiece: {
+		inherit: true,
+		abilities: {0: "Hospitality", 1: "Healer", H: "Heatproof"},
+	},
+	ogerpon: {
+		inherit: true,
+		abilities: {0: "Defiant", H: "Seed Sower"},
+	},
+	scizor: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Technician", H: "Exoskeleton"},
+	},
+	forretress: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Exoskeleton", H: "Overcoat"},
+	},
+	klawf: {
+		inherit: true,
+		abilities: {0: "Anger Shell", 1: "Exoskeleton", H: "Regenerator"},
+	},
+	corphish: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Exoskeleton", H: "Adaptability"},
+	},
+	crawdaunt: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Exoskeleton", H: "Adaptability"},
+	},
+	charjabug: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Swarm"},
+	},
+	vikavolt: {
+		inherit: true,
+		abilities: {0: "Levitate", 1: "Swarm", H: "Exoskeleton"},
+	},
+	tyranitar: {
+		inherit: true,
+		abilities: {0: "Sand Stream", 1: "Exoskeleton", H: "Unnerve"},
+	},
+	pupitar: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Exoskeleton"},
+	},
+	larvitar: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Exoskeleton", H: "Sand Veil"},
+	},
+	regidrago: {
+		inherit: true,
+		abilities: {0: "Dragon's Maw", H: "Blunt Force"},
+	},
+	tauros: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Blunt Force", H: "Cud Chew"},
+	},
+	dondozo: {
+		inherit: true,
+		abilities: {0: "Unaware", 1: "Blunt Force", H: "Water Veil"},
+	},
+	geodude: {
+		inherit: true,
+		abilities: {0: "Blunt Force", 1: "Sturdy", H: "Sand Veil"},
+	},
+	graveler: {
+		inherit: true,
+		abilities: {0: "Blunt Force", 1: "Sturdy", H: "Sand Veil"},
+	},
+	golem: {
+		inherit: true,
+		abilities: {0: "Blunt Force", 1: "Sturdy", H: "Sand Veil"},
+	},
+	rufflet: {
+		inherit: true,
+		abilities: {0: "Fair Fight", 1: "Blunt Force", H: "Hustle"},
+	},
+	braviary: {
+		inherit: true,
+		abilities: {0: "Fair Fight", 1: "Blunt Force", H: "Defiant"},
+	},
+	braviaryhisui: {
+		inherit: true,
+		abilities: {0: "Fair Fight", 1: "Sheer Force", H: "Tinted Lens"},
+	},
+	volcanion: {
+		inherit: true,
+		abilities: {0: "Water Absorb", H: "Water Veil"},
+	},
+	silicobra: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Sand Spit", H: "Shield Dust"},
+	},
+	sandaconda: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Sand Spit", H: "Shield Dust"},
+	},
+	larvesta: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Shield Dust", H: "Swarm"},
+	},
+	volcarona: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Shield Dust", H: "Swarm"},
+	},
+	wochien: {
+		inherit: true,
+		abilities: {0: "Tablets of Ruin", H: "Shield Dust"},
+	},
+	flareon: {
+		inherit: true,
+		abilities: {0: "Smelt", H: "Fur Coat"},
+	},
+	glaceon: {
+		inherit: true,
+		abilities: {0: "Permafrost", H: "Muscle Memory"},
+	},
+	tarountula: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Steadfast", H: "Stakeout"},
+	},
+	spidops: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Steadfast", H: "Stakeout"},
+	},
+	cleffa: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Magic Guard", H: "Friend Guard"},
+	},
+	clefairy: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Magic Guard", H: "Friend Guard"},
+	},
+	clefable: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Magic Guard", H: "Unaware"},
+	},
+	shroomish: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Poison Heal", H: "Quick Feet"},
+	},
+	breloom: {
+		inherit: true,
+		abilities: {0: "Fairy Ringer", 1: "Poison Heal", H: "Technician"},
+	},
+	chingling: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Fairy Ringer"},
+	},
+	chimecho: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Fairy Ringer"},
+	},
+	hoothoot: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Fairy Ringer", H: "Tinted Lens"},
+	},
+	noctowl: {
+		inherit: true,
+		abilities: {0: "Synchronize", 1: "Fairy Ringer", H: "Tinted Lens"},
+	},
+	teddiursa: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Quick Feet", H: "Fairy Ringer"},
+	},
+	ursaring: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Quick Feet", H: "Fairy Ringer"},
+	},
+	ursaluna: {
+		inherit: true,
+		abilities: {0: "Guts", 1: "Bulletproof", H: "Fairy Ringer"},
+	},
+	charcadet: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Flame Body"},
+	},
+	ceruledge: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Weak Armor"},
+	},
+	armarouge: {
+		inherit: true,
+		abilities: {0: "Flash Fire", 1: "Justified", H: "Weak Armor"},
+	},
+	rookidee: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
+	},
+	corvisquire: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
+	},
+	corviknight: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Justified", H: "Mirror Armor"},
+	},
+	cyclizar: {
+		inherit: true,
+		abilities: {0: "Shed Skin", 1: "Momentum", H: "Regenerator"},
+	},
+	bramblin: {
+		inherit: true,
+		abilities: {0: "Wind Rider", 1: "Momentum", H: "Infiltrator"},
+	},
+	brambleghast: {
+		inherit: true,
+		abilities: {0: "Wind Rider", 1: "Sand Rush", H: "Infiltrator"},
+	},
+	snorunt: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Moody", H: "Permafrost"},
+	},
+	glalie: {
+		inherit: true,
+		abilities: {0: "Momentum", 1: "Moody", H: "Permafrost"},
+	},
+	okidogi: {
+		inherit: true,
+		abilities: {0: "Toxic Chain", H: "Intimidate"},
+	},
+	fezandipiti: {
+		inherit: true,
+		abilities: {0: "Toxic Chain", H: "Neutralizing Gas"},
+	},
+	munkidori: {
+		inherit: true,
+		abilities: {0: "Toxic Chain", H: "Magic Guard"},
+	},
+	sneasler: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Muscle Memory", H: "Poison Touch"},
+	},
+	lechonk: {
+		inherit: true,
+		abilities: {0: "Aroma Veil", 1: "Cud Chew", H: "Thick Fat"},
+	},
+	oinkologne: {
+		inherit: true,
+		abilities: {0: "Lingering Aroma", 1: "Cud Chew", H: "Thick Fat"},
+	},
+	oinkolognef: {
+		inherit: true,
+		abilities: {0: "Aroma Veil", 1: "Cud Chew", H: "Thick Fat"},
+	},
+	mareep: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Cud Chew", H: "Plus"},
+	},
+	flaaffy: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Cud Chew", H: "Plus"},
+	},
+	ampharos: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Cud Chew", H: "Plus"},
+	},
+	cryogonal: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Permafrost"},
+	},
+	growlithehisui: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Prehistoric Might", H: "Rock Head"},
+	},
+	arcaninehisui: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Prehistoric Might", H: "Rock Head"},
+	},
+	growlithe: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Fair Fight", H: "Justified"},
+	},
+	arcanine: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Fair Fight", H: "Justified"},
+	},
+	kleavor: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Prehistoric Might", H: "Sharpness"},
+	},
+	piloswine: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Prehistoric Might", H: "Thick Fat"},
+	},
+	mamoswine: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Prehistoric Might", H: "Thick Fat"},
+	},
+	yanma: {
+		inherit: true,
+		abilities: {0: "Speed Boost", 1: "Compound Eyes", H: "Prehistoric Might"},
+	},
+	yanmega: {
+		inherit: true,
+		abilities: {0: "Speed Boost", 1: "Tinted Lens", H: "Prehistoric Might"},
+	},
+	stonjourner: {
+		inherit: true,
+		abilities: {0: "Power Spot", H: "Prehistoric Might"},
+	},
+	walkingwake: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Prehistoric Might"},
+	},
+	gallade: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Sharpness", H: "Justified"},
+	},
+	diancie: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Synchronize"},
+	},
+	drowzee: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Forewarn", H: "Synchronize"},
+	},
+	hypno: {
+		inherit: true,
+		abilities: {0: "Insomnia", 1: "Forewarn", H: "Synchronize"},
+	},
+	bruxish: {
+		inherit: true,
+		abilities: {0: "Dazzling", 1: "Strong Jaw", H: "Synchronize"},
+	},
+	ditto: {
+		inherit: true,
+		abilities: {0: "Limber", 1: "Illusion", H: "Imposter"},
+	},
+	perrserker: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Tough Claws", H: "Steely Spirit"},
+	},
+	sunkern: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Steadfast"},
+	},
+	sunflora: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Steadfast"},
+	},
+	jangmoo: {
+		inherit: true,
+		abilities: {0: "Bulletproof", 1: "Fair Fight", H: "Overcoat"},
+	},
+	hakamoo: {
+		inherit: true,
+		abilities: {0: "Bulletproof", 1: "Fair Fight", H: "Overcoat"},
+	},
+	kommoo: {
+		inherit: true,
+		abilities: {0: "Bulletproof", 1: "Fair Fight", H: "Overcoat"},
+	},
+	oshawott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Fair Fight"},
+	},
+	dewott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Fair Fight"},
+	},
+	samurott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Fair Fight"},
+	},
+	delphox: {
+		inherit: true,
+		types: ["Fire", "Fairy"],
 	},
 };

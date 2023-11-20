@@ -4,6 +4,12 @@
  */
 
 export const Moves: {[k: string]: ModdedMoveData} = {
+	brutalswing: {
+		inherit: true,
+		category: "Special",
+		type: "Dark",
+		gen: 1,
+	},
 	bulletpunch: {
 		inherit: true,
 		category: "Physical",
@@ -154,12 +160,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 1,
 		accuracy: true,
 		basePower: 0,
-		category: "Status",
 		name: "Shelter",
 		pp: 10,
 		secondary: null,
 		target: "self",
-		type: "Steel",
 	},
 	smartstrike: {
 		inherit: true,

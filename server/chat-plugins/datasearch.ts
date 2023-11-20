@@ -624,11 +624,16 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		uubl: 'UUBL', uu: 'UU',
 		rubl: 'RUBL', ru: 'RU',
 		nubl: 'NUBL', nu: 'NU',
-		publ: 'PUBL', pu: 'PU', zu: '(PU)',
+		publ: 'PUBL', pu: 'PU',
+		zubl: 'ZUBL', zu: 'ZU',
 		nfe: 'NFE',
 		lc: 'LC',
 		cap: 'CAP', caplc: 'CAP LC', capnfe: 'CAP NFE',
 	});
+	if (mod.gen !== 9) {
+		allTiers.zu = 'ZU';
+		allTiers.zubl = 'ZUBL';
+	}
 	const allDoublesTiers: {[k: string]: TierTypes.Singles | TierTypes.Other} = Object.assign(Object.create(null), {
 		doublesubers: 'DUber', doublesuber: 'DUber', duber: 'DUber', dubers: 'DUber',
 		doublesou: 'DOU', dou: 'DOU',
@@ -1123,7 +1128,8 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 			if (alts.tiers && Object.keys(alts.tiers).length) {
 				let tier = dex[mon].tier;
 				if (nationalSearch) tier = dex[mon].natDexTier;
-				if (tier.startsWith('(') && tier !== '(PU)') tier = tier.slice(1, -1) as TierTypes.Singles;
+				if (tier === '(PU)') tier = 'ZU';
+				if (tier.startsWith('(')) tier = tier.slice(1, -1) as TierTypes.Singles;
 				// if (tier === 'New') tier = 'OU';
 				if (alts.tiers[tier]) continue;
 				if (Object.values(alts.tiers).includes(false) && alts.tiers[tier] !== false) continue;
@@ -1303,11 +1309,16 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	let results: string[] = [];
 	for (const mon of Object.keys(dex).sort()) {
 		if (singleTypeSearch !== null && (dex[mon].types.length === 1) !== singleTypeSearch) continue;
-		const isRegionalForm = ["Alola", "Galar", "Hisui", "Paldea"].includes(dex[mon].forme) &&
-			dex[mon].name !== "Pikachu-Alola";
+		const isRegionalForm = (["Alola", "Galar", "Hisui"].includes(dex[mon].forme) || dex[mon].forme.startsWith("Paldea")) &&
+			dex[mon].baseSpecies !== "Pikachu";
+		const maskForm = dex[mon].baseSpecies === "Ogerpon" && !dex[mon].forme.endsWith("Tera");
 		const allowGmax = (gmaxSearch || tierSearch);
-		if (!isRegionalForm && dex[mon].baseSpecies && results.includes(dex[mon].baseSpecies) &&
+		if (!isRegionalForm && !maskForm && dex[mon].baseSpecies && results.includes(dex[mon].baseSpecies) &&
 			getSortValue(mon) === getSortValue(dex[mon].baseSpecies)) continue;
+		const teraFormeChangesFrom = dex[mon].forme.endsWith("Tera") ? !Array.isArray(dex[mon].battleOnly) ?
+			dex[mon].battleOnly as string : null : null;
+		if (teraFormeChangesFrom && results.includes(teraFormeChangesFrom) &&
+			getSortValue(mon) === getSortValue(teraFormeChangesFrom)) continue;
 		if (dex[mon].isNonstandard === 'Gigantamax' && !allowGmax) continue;
 		results.push(dex[mon].name);
 	}
@@ -1387,6 +1398,7 @@ function runMovesearch(target: string, cmd: string, canAll: boolean, message: st
 	const allTargets: {[k: string]: string} = {
 		oneally: 'adjacentAlly',
 		userorally: 'adjacentAllyOrSelf',
+		useroranyally: 'anyAlly',
 		oneadjacentopponent: 'adjacentFoe',
 		all: 'all',
 		alladjacent: 'allAdjacent',
@@ -2623,12 +2635,14 @@ function runLearn(target: string, cmd: string, canAll: boolean, formatid: string
 		if (!dex) return {error: `"${formatid}" is not a supported format.`};
 
 		gen = dex.gen;
-		format = new Dex.Format({mod: formatid});
 		formatName = `Gen ${gen}`;
+		format = new Dex.Format({mod: formatid});
+		const ruleTable = dex.formats.getRuleTable(format);
 		if (minSourceGen) {
 			formatName += ` (Min Source Gen = ${minSourceGen})`;
-			const ruleTable = dex.formats.getRuleTable(format);
 			ruleTable.minSourceGen = minSourceGen;
+		} else if (gen >= 9) {
+			ruleTable.minSourceGen = gen;
 		}
 	} else {
 		gen = Dex.forFormat(format).gen;

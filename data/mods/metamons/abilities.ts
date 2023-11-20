@@ -34,6 +34,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 201,
 	},
 	chimera: {
+		onModifySpeciesPriority: 2,
+		onModifySpecies(species, target, source, effect) {
+			if (!target) return; 
+			if (effect && ['imposter', 'transform'].includes(effect.id)) return;
+			const types = [...new Set(target.baseMoveSlots.slice(0, 2).map(move => this.dex.moves.get(move.id).type))];
+			return {...species, types: types};
+		},
+		onSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
+		},
 		shortDesc: "(Placeholder) User's type matches that of its first two moves (new type is displayed).",
 		name: "Chimera",
 		rating: 3,
@@ -109,7 +119,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Unnerve', 'boost');
 					activated = true;
@@ -216,7 +226,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
 			)) ||
 			pokemon.species.id !== 'jellicent') {
 				this.effectState.gaveUp = true;
@@ -225,7 +235,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
 			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -321,11 +331,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Dancer",
 		// implemented in runMove in scripts.js
 	   onModifyMove(move) {
-	      if (!move.flags['dance']) return;
+	      if (!move.flags['dance'] || move.category === 'Status') return;
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
-			  move.category = 'Physical';
+			  move.category === 'Physical';
 			} else if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
-		     move.category = 'Special';
+		     move.category === 'Special';
 			}
 		},
 		rating: 1.5,

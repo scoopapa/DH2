@@ -1,5 +1,13 @@
 export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
+	alliglacier: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	batacomb: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	centufowl: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
@@ -7,7 +15,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	deciberd: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	dizmuth: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	embeluga: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
@@ -15,11 +31,23 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	gestower: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	gobblen: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	goddease: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	harletritus: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	hootsydazey: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
@@ -39,6 +67,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	lunacorn: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	magiheel: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
@@ -55,7 +87,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
+	pirrote: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	pollusk: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
 	puffrost: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	punctgris: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},
@@ -88,6 +132,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		doublesTier: "FFOU",
 	},
 	swampent: {
+		tier: "FFOU",
+		doublesTier: "FFOU",
+	},
+	thermollusk: {
 		tier: "FFOU",
 		doublesTier: "FFOU",
 	},

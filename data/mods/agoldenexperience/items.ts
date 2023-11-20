@@ -1,5 +1,5 @@
 export const Items: {[itemid: string]: ModdedItemData} = {
-	paraorb: {
+    paraorb: {
 		name: "Para Orb",
 		spritenum: 515,
 		fling: {
@@ -30,7 +30,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		desc: "At the end of each turn, tries to freeze the holder.",
 		shortDesc: "Tries to freeze the holder.",
-		num: -1,
+		num: -2,
 		gen: 4,
 	},
 	relicsheet: {
@@ -46,7 +46,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		itemUser: ["Meloetta"],
-		num: -2,
+		num: -3,
 		gen: 8,
 		desc: "If held by Meloetta: Pirouette Forme on entry.",
 	},
@@ -60,11 +60,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.getAbility().isPermanent) return;
 			pokemon.addVolatile('gastroacid');
 		},
-		num: -3,
+		num: -4,
 		gen: 8,
 	},
 
-	// mega stones
+	//mega stones
 	meteorfragment: {
 		name: "Meteor Fragment",
 		spritenum: 578,
@@ -75,7 +75,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -6,
+		num: -5,
 		gen: 8,
 		desc: "If held by a Rayquaza, this item allows it to Mega Evolve in battle.",
 	},
@@ -88,7 +88,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -7,
+		num: -6,
 		gen: 8,
 		desc: "If held by a Necrozma-Dusk-Mane, this item allows it to Ultra Burst in battle.",
 	},
@@ -102,7 +102,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -8,
+		num: -7,
 		gen: 8,
 		desc: "If held by a Butterfree, this item allows it to Mega Evolve in battle.",
 	},
@@ -116,7 +116,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -9,
+		num: -8,
 		gen: 8,
 		desc: "If held by a Arbok, this item allows it to Mega Evolve in battle.",
 	},
@@ -130,7 +130,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -10,
+		num: -9,
 		gen: 8,
 		desc: "If held by a Wigglytuff, this item allows it to Mega Evolve in battle.",
 	},
@@ -144,7 +144,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -11,
+		num: -10,
 		gen: 8,
 		desc: "If held by a Machamp, this item allows it to Mega Evolve in battle.",
 	},
@@ -158,7 +158,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -12,
+		num: -11,
 		gen: 8,
 		desc: "If held by a Meganium, this item allows it to Mega Evolve in battle.",
 	},
@@ -172,7 +172,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -13,
+		num: -12,
 		gen: 8,
 		desc: "If held by a Typhlosion, this item allows it to Mega Evolve in battle.",
 	},
@@ -186,7 +186,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -14,
+		num: -13,
 		gen: 8,
 		desc: "If held by a Feraligatr, this item allows it to Mega Evolve in battle.",
 	},
@@ -200,7 +200,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -15,
+		num: -14,
 		gen: 8,
 		desc: "If held by a Noctowl, this item allows it to Mega Evolve in battle.",
 	},
@@ -214,7 +214,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -16,
+		num: -15,
 		gen: 8,
 		desc: "If held by a Crobat, this item allows it to Mega Evolve in battle.",
 	},
@@ -228,7 +228,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -17,
+		num: -16,
 		gen: 8,
 		desc: "If held by a Magcargo, this item allows it to Mega Evolve in battle.",
 	},
@@ -242,7 +242,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -18,
+		num: -17,
 		gen: 8,
 		desc: "If held by a Volbeat, this item allows it to Mega Evolve in battle.",
 	},
@@ -256,7 +256,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -19,
+		num: -18,
 		gen: 8,
 		desc: "If held by a Illumise, this item allows it to Mega Evolve in battle.",
 	},
@@ -270,7 +270,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -20,
+		num: -19,
 		gen: 8,
 		desc: "If held by a Flygon, this item allows it to Mega Evolve in battle.",
 	},
@@ -284,7 +284,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -21,
+		num: -20,
 		gen: 8,
 		desc: "If held by a Cacturne, this item allows it to Mega Evolve in battle.",
 	},
@@ -298,7 +298,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -22,
+		num: -21,
 		gen: 8,
 		desc: "If held by a Cacturne, this item allows it to Mega Evolve in battle.",
 	},
@@ -312,7 +312,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -23,
+		num: -22,
 		gen: 8,
 		desc: "If held by a Whiscash, this item allows it to Mega Evolve in battle.",
 	},
@@ -326,7 +326,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -24,
+		num: -23,
 		gen: 8,
 		desc: "If held by a Froslass, this item allows it to Mega Evolve in battle.",
 	},
@@ -340,7 +340,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -25,
+		num: -24,
 		gen: 8,
 		desc: "If held by a Krookodile, this item allows it to Mega Evolve in battle.",
 	},
@@ -354,7 +354,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -26,
+		num: -25,
 		gen: 8,
 		desc: "If held by a Crustle, this item allows it to Mega Evolve in battle.",
 	},
@@ -368,7 +368,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -27,
+		num: -26,
 		gen: 8,
 		desc: "If held by a Zoroark, this item allows it to Mega Evolve in battle.",
 	},
@@ -382,7 +382,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -28,
+		num: -27,
 		gen: 8,
 		desc: "If held by a Chesnaught, this item allows it to Mega Evolve in battle.",
 	},
@@ -396,7 +396,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -29,
+		num: -28,
 		gen: 8,
 		desc: "If held by a Delphox, this item allows it to Mega Evolve in battle.",
 	},
@@ -410,7 +410,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -30,
+		num: -29,
 		gen: 8,
 		desc: "If held by a Ribombee, this item allows it to Mega Evolve in battle.",
 	},
@@ -424,7 +424,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -31,
+		num: -30,
 		gen: 8,
 		desc: "If held by a Salazzle, this item allows it to Mega Evolve in battle.",
 	},
@@ -438,7 +438,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -32,
+		num: -31,
 		gen: 8,
 		desc: "If held by a Golisopod, this item allows it to Mega Evolve in battle.",
 	},
@@ -452,7 +452,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -33,
+		num: -32,
 		gen: 8,
 		desc: "If held by a Dhelmise, this item allows it to Mega Evolve in battle.",
 	},
@@ -466,7 +466,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -34,
+		num: -33,
 		gen: 8,
 		desc: "If held by a Centiskorch, this item allows it to Mega Evolve in battle.",
 	},
@@ -480,24 +480,24 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -35,
+		num: -34,
 		gen: 8,
 		desc: "If held by a Centiskorch, this item allows it to Mega Evolve in battle.",
 	},
-	frosmite: {
-		name: "Frosmite",
-		spritenum: 578,
-		megaStone: "Frosmoth-Mega",
-		megaEvolves: "Frosmoth",
-		itemUser: ["Frosmoth"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -36,
-		gen: 8,
-		desc: "If held by a Frosmoth, this item allows it to Mega Evolve in battle.",
-	},
+	// frosmite: { //removed
+	// 	name: "Frosmite",
+	// 	spritenum: 578,
+	// 	megaStone: "Frosmoth-Mega",
+	// 	megaEvolves: "Frosmoth",
+	// 	itemUser: ["Frosmoth"],
+	// 	onTakeItem(item, source) {
+	// 		if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+	// 		return true;
+	// 	},
+	// 	num: -36,
+	// 	gen: 8,
+	// 	desc: "If held by a Frosmoth, this item allows it to Mega Evolve in battle.",
+	// },
 	baskironite: {
 		name: "Baskironite",
 		spritenum: 578,
@@ -508,7 +508,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -37,
+		num: -35,
 		gen: 8,
 		desc: "If held by a Baskiron, this item allows it to Mega Evolve in battle.",
 	},
@@ -522,7 +522,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -38,
+		num: -36,
 		gen: 8,
 		desc: "If held by a Terreptile, this item allows it to Mega Evolve in battle.",
 	},
@@ -536,7 +536,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -39,
+		num: -37,
 		gen: 8,
 		desc: "If held by a Rockster, this item allows it to Mega Evolve in battle.",
 	},
@@ -550,7 +550,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -40,
+		num: -38,
 		gen: 8,
 		desc: "If held by a Infarmatem, this item allows it to Mega Evolve in battle.",
 	},
@@ -567,8 +567,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				pokemon.useItem();
 			}
 		},
-		onAnyTerrainStart() {
-			const pokemon = this.effectState.target;
+		onTerrainChange(pokemon) {
 			if (this.field.isTerrain('chakraterrain')) {
 				pokemon.useItem();
 			}
@@ -576,7 +575,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		boosts: {
 			def: 1,
 		},
-		num: -41,
+		num: -39,
 		gen: 8,
 	},
 	honey: {
@@ -584,7 +583,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		num: -42,
+		num: -40,
 		gen: 4,
     	shortDesc: "Pokemon with the ability Honey Gather or Sweet Veil heal 12.5% when holding this item. Heals status.",
 		onAfterSetStatus(status, pokemon) {
@@ -605,14 +604,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onDisableMove(pokemon) {
+		onDisableMove: function(pokemon) {
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
 		onModifyDamage(damage, source, target, move) {
 			return this.chainModify([0x14CC, 0x1000]);
 		},
 		desc: "Holder's move have 1.2x BP, but it can't use the same move twice in a row.",
-		num: -43,
+		num: -41,
 		gen: 8,
 	},
 	deepseascale: {
@@ -649,141 +648,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 226,
 		gen: 3,
 	},
-
-	// Gen 9
-	abilityshield: {
-		name: "Ability Shield",
-		spritenum: 0, // TODO
-		shortDesc: "Holder's Ability cannot be changed by any effect.",
-		ignoreKlutz: true,
-		// Neutralizing Gas protection implemented in Pokemon.ignoringAbility() within sim/pokemon.ts
-		// and in Neutralizing Gas itself within data/abilities.ts
-		onSetAbility(ability, target, source, effect) {
-			if (effect && effect.effectType === 'Ability' && effect.name !== 'Trace') {
-				this.add('-ability', source, effect);
-			}
-			this.add('-block', target, 'item: Ability Shield');
-			return null;
-		},
-		// Mold Breaker protection implemented in Battle.suppressingAbility() within sim/battle.ts
-		num: 1881,
-		gen: 8,
-	},
-	clearamulet: {
-		name: "Clear Amulet",
-		shortDesc: "Prevents other Pokemon from lowering the holder's stat stages.",
-		spritenum: 0, // TODO
-		onTryBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			let showMsg = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! < 0) {
-					delete boost[i];
-					showMsg = true;
-				}
-			}
-			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
-				this.add('-fail', target, 'unboost', '[from] item: Clear Amulet', '[of] ' + target);
-			}
-		},
-		num: 1882,
-		gen: 8,
-	},
-	mirrorherb: {
-		name: "Mirror Herb",
-		shortDesc: "When an opposing Pokemon raises a stat stage, the holder copies it. Single use.",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 0, // TODO
-		onFoeAfterBoost(boost, target, source, effect) {
-			if (effect?.name === 'Opportunist' || effect?.name === 'Mirror Herb') return;
-			const boostPlus: SparseBoostsTable = {};
-			let statsRaised = false;
-			let i: BoostID;
-			for (i in boost) {
-				if (boost[i]! > 0) {
-					boostPlus[i] = boost[i];
-					statsRaised = true;
-				}
-			}
-			if (!statsRaised) return;
-			const pokemon: Pokemon = this.effectState.target;
-			pokemon.useItem();
-			this.boost(boostPlus, pokemon);
-		},
-		num: 1883,
-		gen: 8,
-	},
-	punchingglove: {
-		name: "Punching Glove",
-		shortDesc: "Holder's punch-based attacks have 1.1x power and do not make contact.",
-		spritenum: 0, // TODO
-		onBasePowerPriority: 23,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['punch']) {
-				this.debug('Punching Glove boost');
-				return this.chainModify([4506, 4096]);
-			}
-		},
-		onModifyMovePriority: 1,
-		onModifyMove(move) {
-			if (move.flags['punch']) delete move.flags['contact'];
-		},
-		num: 1884,
-		gen: 8,
-	},
-	covertcloak: {
-		name: "Covert Cloak",
-		shortDesc: "Holder is not affected by the secondary effect of another Pokemon's attack.",
-		fling: {
-			basePower: 10,
-		},
-		spritenum: 0, // TODO
-		onModifySecondaries(secondaries) {
-			this.debug('Covert Cloak prevent secondary');
-			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
-		},
-		num: 1885,
-		gen: 8,
-	},
-	loadeddice: {
-		name: "Loaded Dice",
-		shortDesc: "Holder's moves that hit 2-5 times hit 4-5 times; Population Bomb hits 4-10 times.",
-		spritenum: 0, // TODO
-		// partially implemented in sim/battle-actions.ts:BattleActions#hitStepMoveHitLoop
-		onModifyMove(move) {
-			if (move.multiaccuracy) {
-				delete move.multiaccuracy;
-			}
-		},
-		num: 1886,
-		gen: 8,
-	},
-	boosterenergy: {
-		name: "Booster Energy",
-		shortDesc: "Activates the Protosynthesis or Quark Drive Abilities. Single use.",
-		spritenum: 0, // TODO
-		onUpdate(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.queue.peek(true)?.choice === 'runSwitch') return;
-
-			if (pokemon.hasAbility('protosynthesis') && !pokemon.volatiles['protosynthesis'] && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
-				pokemon.addVolatile('protosynthesis');
-			}
-			if (pokemon.hasAbility('quarkdrive') && !pokemon.volatiles['quarkdrive'] && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
-				pokemon.addVolatile('quarkdrive');
-			}
-		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.tags.includes("Paradox")) return false;
-			return true;
-		},
-		num: 1880,
-		gen: 8,
-	},
-
 	// sandwiches
 	mightysandwichkoraidon: {
 		name: "Mighty Sandwich (Koraidon)",
@@ -797,7 +661,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		forcedForme: "Koraidon",
 		itemUser: ["Koraidon"],
-		num: -1104,
+		num: -42,
 		gen: 8,
 	},
 	mightysandwichmiraidon: {
@@ -812,12 +676,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		forcedForme: "Miraidon",
 		itemUser: ["Miraidon"],
-		num: -1184,
+		num: -43,
 		gen: 8,
 	},
 	// identitycard: { //WIP
 	// 	name: "Identity Card",
-	// 	spritenum: 0,
+	// 	spritenum: 0, 
 	// 	shortDesc: "Holder's typing cannot be changed by any effect.",
 	// 	ignoreKlutz: true,
 	// 	onHit(pokemon) {
@@ -825,7 +689,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	// 			this.add('-block', target, 'item: Identity Card');
 	// 		}
 	// 	},
-	// 	num: -1881,
+	// 	num: -44,
 	// 	gen: 8,
 	// },
-};
+}

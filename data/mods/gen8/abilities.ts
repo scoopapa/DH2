@@ -387,6 +387,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	heatproof: {
 		inherit: true,
+		onSourceModifyAtk() {},
+		onSourceModifySpA() {},
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Heatproof BP weaken');
+				return this.chainModify(0.5);
+			}
+		},
 		rating: 2,
 	},
 	heavymetal: {
@@ -431,6 +440,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	illuminate: {
 		inherit: true,
+		onTryBoost() {},
+		onModifyMove() {},
+		isBreakable: undefined,
 		rating: 0,
 	},
 	illusion: {
@@ -579,7 +591,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	mirrorarmor: {
 		inherit: true,
-		rating: 2,
+		rating: 2.5,
 	},
 	mistysurge: {
 		inherit: true,

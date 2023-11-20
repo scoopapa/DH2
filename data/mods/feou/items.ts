@@ -27,8 +27,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	boosterenergy: {
 		inherit: true,
+		onStart() {
+			this.effectState.started = true;
+		},
 		onUpdate(pokemon) {
-			if (pokemon.transformed) return;
+			if (!this.effectState.started || pokemon.transformed) return;
 			if (this.queue.peek(true)?.choice === 'runSwitch') return;
 
 			if (!this.field.isWeather('sunnyday')) {
@@ -44,7 +47,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			if (!this.field.isTerrain('electricterrain')) {
 				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'dyschronometria',
-											'faultyphoton']) { 
+											'faultyphoton', 'firewall']) { 
 					if (pokemon.hasAbility(quark)) {
 						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
 							pokemon.addVolatile(quark);
@@ -212,5 +215,22 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		num: 670,
 		desc: "If held by a Druddizor, this item allows it to Mega Evolve in battle.",
+	},
+	
+	lifeorb: {
+		name: "Life Orb",
+		spritenum: 249,
+		fling: {
+			basePower: 30,
+		},
+		onModifyDamage(damage, source, target, move) {
+			return this.chainModify([5324, 4096]);
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (source && source !== target && move && move.category !== 'Status' && !source.forceSwitchFlag && !source.hasAbility(['sandwrath','forceofnature'])) {
+				this.damage(source.baseMaxhp / 10, source, source, this.dex.items.get('lifeorb'));
+			}
+		},
+		num: 270,
 	},
 };

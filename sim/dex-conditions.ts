@@ -95,10 +95,8 @@ export interface EventMethods {
 		this: Battle, status: Condition, target: Pokemon, source: Pokemon, sourceEffect: Effect
 	) => boolean | null | void;
 	onTryEatItem?: boolean | ((this: Battle, item: Item, pokemon: Pokemon) => boolean | void);
-	/* FIXME: onTryHeal() is run with two different sets of arguments */
 	onTryHeal?: (
-		((this: Battle, relayVar: number, target: Pokemon, source: Pokemon, effect: Effect) => number | boolean | void) |
-		((this: Battle, pokemon: Pokemon) => boolean | void) | boolean
+		((this: Battle, relayVar: number, target: Pokemon, source: Pokemon, effect: Effect) => number | boolean | void)
 	);
 	onTryHit?: MoveEventMethods['onTryHit'];
 	onTryHitField?: MoveEventMethods['onTryHitField'];
@@ -606,7 +604,7 @@ export type ModdedConditionData = ConditionData & {inherit?: true};
 
 export class Condition extends BasicEffect implements
 	Readonly<BasicEffect & SideConditionData & FieldConditionData & PokemonConditionData> {
-	declare readonly effectType: 'Condition' | 'Weather' | 'Status' | 'Terastal';
+	declare readonly effectType: 'Condition' | 'Terrain' | 'Weather' | 'Status' | 'Terastal';
 	declare readonly counterMax?: number;
 
 	declare readonly durationCallback?: (this: Battle, target: Pokemon, source: Pokemon, effect: Effect | null) => number;
@@ -623,7 +621,7 @@ export class Condition extends BasicEffect implements
 		super(data);
 		// eslint-disable-next-line @typescript-eslint/no-this-alias
 		data = this;
-		this.effectType = (['Weather', 'Status'].includes(data.effectType) ? data.effectType : 'Condition');
+		this.effectType = (['Terrain', 'Weather', 'Status'].includes(data.effectType) ? data.effectType : 'Condition');
 	}
 }
 

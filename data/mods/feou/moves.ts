@@ -20,8 +20,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.type = 'Fighting';
 				break;
 			case 'Tauros-Paldea-Blaze':
-				move.type = 'Fire';
-				break;
 			case 'Golisoros-Paldea-Blaze':
 				move.type = 'Fire';
 				break;
@@ -49,8 +47,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
-			if (attacker.hasAbility('prehistorichunter') && attacker.species.name === 'Scream Comorant' && !attacker.transformed) {
-				const forme = attacker.hp <= attacker.maxhp / 2 ? 'screamcomorantgorging' : 'screamcomorantgulping';
+			if (attacker.hasAbility('prehistorichunter') && attacker.species.name === 'Scream Cormorant' && !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'screamcormorantgorging' : 'screamcormorantgulping';
 				attacker.formeChange(forme, move);
 			}
 			this.add('-prepare', attacker, move.name);
@@ -81,6 +79,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Beautiful",
+	},
+	darkvoid: {
+		num: 464,
+		accuracy: 50,
+		basePower: 0,
+		category: "Status",
+		name: "Dark Void",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		status: 'slp',
+		onTry(source, target, move) {
+			if (source.species.name === 'Icekrai' || move.hasBounced) {
+				return;
+			}
+			this.add('-fail', source, 'move: Dark Void');
+			this.hint("Only a Pokemon whose form is Darkrai or a fusion thereof can use this move.");
+			return null;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Dark",
+		contestType: "Clever",
 	},
 	boltbeak: {
 		inherit: true,

@@ -228,10 +228,18 @@ export class ModdedDex {
 	 * Also checks immunity to some statuses.
 	 */
 	getImmunity(
-		source: {type: string} | string,
+		source: {type: string, twoType?: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): boolean {
-		const sourceType: string = typeof source !== 'string' ? source.type : source;
+		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files
+		let sourceType: string = "";
+		if(typeof source !== 'string'){
+			if(source.twoType){
+				return this.getImmunity(source.type, target) && this.getImmunity(source.twoType, target);
+			} else {
+				sourceType = source.type;
+			}
+		} else sourceType = source;
 		// @ts-ignore
 		const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
 		if (Array.isArray(targetTyping)) {
@@ -246,10 +254,18 @@ export class ModdedDex {
 	}
 
 	getEffectiveness(
-		source: {type: string} | string,
+		source: {type: string, twoType?: string} | string,
 		target: {getTypes: () => string[]} | {types: string[]} | string[] | string
 	): number {
-		const sourceType: string = typeof source !== 'string' ? source.type : source;
+		// MODDED: Fully dual-typed moves for Earth & Sky - can't be done in mod's files
+		let sourceType: string = "";
+		if(typeof source !== 'string'){
+			if(source.twoType){
+				return this.getEffectiveness(source.type, target) + this.getEffectiveness(source.twoType, target);
+			} else {
+				sourceType = source.type;
+			}
+		} else sourceType = source;
 		// @ts-ignore
 		const targetTyping: string[] | string = target.getTypes?.() || target.types || target;
 		let totalTypeMod = 0;

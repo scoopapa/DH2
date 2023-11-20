@@ -28,7 +28,7 @@ export const Tags: {[id: string]: ModdedTagData} = {
 	},
 	bullet: {
 		name: "Shot",
-		desc: "Boosted 1.5x by Mega Launcher. Doesn't affect Bulletproof Pokémon.",
+		desc: "Boosted 1.3x by Mega Launcher. Doesn't affect Bulletproof Pokémon.",
 		moveFilter: move => 'bullet' in move.flags,
 	},
 	bludg: {
@@ -36,27 +36,15 @@ export const Tags: {[id: string]: ModdedTagData} = {
 		desc: "Boosted 1.5x by Bludgeon.",
 		moveFilter: move => 'bludg' in move.flags,
 	},
+	slicing: {
+		name: "Slicing",
+		desc: "Boosted 1.3x by Sharpness.",
+		moveFilter: move => 'slicing' in move.flags,
+	},
 	// Tiers
 	// -----
-	earthsky: {
-		name: "ES OU",
+	es: {
+		name: "ES",
 		pokemonFilter: species => species.tier === 'ES',
-	},
-	// True custom tiers don't work for indiscernable reasons
-	esuber: {
-		name: "ES Uber",
-		pokemonFilter: species => species.tier === 'ES Uber',
-	},
-	esou: {
-		name: "ES OU",
-		pokemonFilter: species => species.tier === 'ES OU',
-	},
-	esnfe: {
-		name: "ES NFE",
-		pokemonFilter: species => species.tier === 'ES NFE',
-	},
-	eslc: {
-		name: "ES LC",
-		pokemonFilter: species => species.tier === 'ES LC',
 	},
 };

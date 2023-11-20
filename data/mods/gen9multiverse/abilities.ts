@@ -96,4 +96,83 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: -6,
 	},
+	lionspride: {
+		onModifyMove(move, pokemon, target) {
+			if (!target) return;
+			const atk = pokemon.getStat('atk', false, true);
+			const spa = pokemon.getStat('spa', false, true);
+			const def = target.getStat('def', false, true);
+			const spd = target.getStat('spd', false, true);
+			const physical = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * atk) / def) / 50);
+			const special = Math.floor(Math.floor(Math.floor(Math.floor(2 * pokemon.level / 5 + 2) * 90 * spa) / spd) / 50);
+			if (physical > special || (physical === special && this.random(2) === 0)) {
+				move.category = 'Physical';
+			} else {
+				move.category = 'Special';
+			}
+		},
+		onHit(target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " " + move.name);
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!source.isAlly(target)) this.hint(move.category + " " + move.name);
+		},
+		name: "Lion's Pride",
+		shortDesc: "This Pokemon's moves change category, depending on which is stronger.",
+		rating: 2,
+		num: -7,
+	},
+	divineidol: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (['Dark', 'Ghost'].includes(move.type)) {
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Divine Idol",
+		shortDesc: "Halves damage taken from Ghost- or Dark-type moves.",
+		rating: 4,
+		num: -8,
+	},
+	coldsweat: {
+		onStart(pokemon) {
+			let weather = 'snow';
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						weather = 'raindance';
+						return;
+					}
+				}
+			}
+			this.field.setWeather(weather, pokemon);
+		},
+		onAnySwitchIn(pokemon) {
+			if (pokemon === this.effectState.target) return;
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.field.setWeather('raindance', pokemon);
+						return;
+					}
+				}
+			}
+		},
+		name: "Cold Sweat",
+		shortDesc: "Summons Snow upon entry. Rain if opponent has a SE or OHKO move.",
+		rating: 4,
+		num: -9,
+	},
 };

@@ -12,7 +12,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	froakie: {tier: "Kalos (NFE)"},
 	frogadier: {tier: "Kalos (NFE)"},
-	greninja: {tier: "Uber"},
+	greninja: {tier: "Kalos"},
 
 	bunnelby: {tier: "Kalos (NFE)"},
 	diggersby: {tier: "Kalos"},
@@ -174,7 +174,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 
 	honedge: {tier: "Kalos (NFE)"},
 	doublade: {tier: "Kalos (NFE)"},
-	aegislash: {tier: "Uber"},
+	aegislash: {tier: "Kalos"},
 
 	venipede: {tier: "Kalos (NFE)"},
 	whirlipede: {tier: "Kalos (NFE)"},
