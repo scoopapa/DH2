@@ -341,12 +341,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 183,
 	},
 	mobmentality: {
-		/*onStart(pokemon) {
-			if (pokemon.side.totalFainted) {
+		onStart(pokemon) {
+			const allies = pokemon.side.pokemon;
+			if (pokemon.side.totalFainted < allies.length - 1) {
 				this.add('-activate', pokemon, 'ability: Mob Mentality');
 				const fallen = Math.min(pokemon.side.totalFainted, 5);
 				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
-				this.effectState.fallen = fallen;
+				this.effectState.fallen = (allies.length - 1) - fallen;
 			}
 		},
 		onEnd(pokemon) {
@@ -359,7 +360,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.debug(`Mob Mentality boost: ${powMod[this.effectState.fallen]}/4096`);
 				return this.chainModify([powMod[this.effectState.fallen], 4096]);
 			}
-		},*/
+		},
 		name: "Mob Mentality",
 		shortDesc: "Uncoded - This Pokemon's moves have 10% more power for each unfainted ally, up to 5 allies.",
 		rating: 4,
