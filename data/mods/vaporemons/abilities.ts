@@ -1785,4 +1785,61 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 91,
 	},
+	armortail: {
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const armorTailHolder = this.effectState.target;
+			if ((source.isAlly(armorTailHolder) || move.target === 'all') && move.id !== 'parrycondition' && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', armorTailHolder, 'ability: Armor Tail', move, '[of] ' + target);
+				return false;
+			}
+		},
+		isBreakable: true,
+		name: "Armor Tail",
+		rating: 2.5,
+		num: 296,
+	},
+	dazzling: {
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectState.target;
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.id !== 'parrycondition' && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', dazzlingHolder, 'ability: Dazzling', move, '[of] ' + target);
+				return false;
+			}
+		},
+		isBreakable: true,
+		name: "Dazzling",
+		rating: 2.5,
+		num: 219,
+	},
+	queenlymajesty: {
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectState.target;
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.id !== 'parrycondition' && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', dazzlingHolder, 'ability: Queenly Majesty', move, '[of] ' + target);
+				return false;
+			}
+		},
+		isBreakable: true,
+		name: "Queenly Majesty",
+		rating: 2.5,
+		num: 214,
+	},
 };
