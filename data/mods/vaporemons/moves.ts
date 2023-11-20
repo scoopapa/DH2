@@ -731,7 +731,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 	   priorityChargeCallback(pokemon) {
 			this.add('-message', `${pokemon.name} is attempting to parry!`);
-			this.actions.useMove("Parry Condition", pokemon);
+		//	this.actions.useMove("Parry Condition", pokemon);
 	   }, 
 	   secondary: {}, // sheer force boosted
 	   target: "normal",
