@@ -734,7 +734,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.actions.useMove("Parry Condition", pokemon);
 		}, 
 		beforeMoveCallback(pokemon) {
-			return true;
+			this.actions.useMove("Parry", pokemon);
 		},
 	   secondary: {}, // sheer force boosted
 	   target: "normal",
