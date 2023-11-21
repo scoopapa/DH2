@@ -46,7 +46,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				return ['fireplaque', 'grassplaque', 'waterplaque'].includes(itemid);
 
 			case 'acrobatics':
-				return itemid === '' || set?.item.consumable;
+				return itemid === '' || dex.items.get(itemid)?.consumable;
 			case 'aerialace':
 				return ['sharpness', 'technician'].includes(abilityid) && !moves.includes('bravebird');
 			case 'ancientpower':
@@ -70,7 +70,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			case 'hiddenpowerelectric':
 				return !(moves.includes('thunderbolt') || moves.includes('discharge'));
 			case 'hiddenpowerfighting':
-				return !(moves.includes('aurasphere') || moves.includes('focusblast'));
+				return abilityid === 'technician' || !(moves.includes('aurasphere') || moves.includes('focusblast'));
 			case 'hiddenpowerfire':
 				return !(moves.includes('flamethrower') || moves.includes('heatwave') || moves.includes('lavaplume') || moves.includes('mysticalfire'));
 			case 'hiddenpowergrass':
@@ -110,6 +110,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			case 'tantrum':
 				return !(moves.includes('earthquake') || moves.includes('drillrun') || moves.includes('highhorsepower')) || formatType !== 'singles';
 			}
+			case 'wildcharge':
+				return !(moves.includes('volttackle') || moves.includes('zingzap'));
 
 			if (formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
 				return true;
@@ -137,7 +139,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if(moveData.multihit?.length && moveData.basePower > 15 && (['skilllink', 'technician'].includes(abilityid) || itemid === 'loadeddice')){
 				return true;
 			}
-			if (moveData.basePower < 75 && !(abilityid === 'technician' && moveData.basePower >= 50)) {
+			if (moveData.basePower < 75 && !(abilityid === 'technician' && movedata.basePower <= 60 && moveData.basePower >= 50)) {
 				return this.GOOD_WEAK_MOVES.includes(id);
 			}
 			return !this.BAD_STRONG_MOVES.includes(id);
@@ -146,7 +148,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			'acidarmor', 'agility', 'aromatherapy', 'auroraveil', 'autotomize', 'batonpass', 'bellydrum', 'bulkup', 'bunkerdown', 'calmmind', 'coil', 'cottonguard', 'courtchange', 'curse', 'defog', 'destinybond', 'detect', 'disable', 'doubleteam', 'dragondance', 'eminence', 'encore', 'escapetunnel', 'filletaway', 'geomancy', 'glare', 'haze', 'healbell', 'healblock', 'healorder', 'healpulse', 'healingwish', 'heartswap', 'honeclaws', 'irondefense', 'kingsshield', 'leechseed', 'lightscreen', 'lovelykiss', 'lunardance', 'magiccoat', 'meditate', 'memento', 'midnight', 'milkdrink', 'moonlight', 'morningsun', 'nastyplot', 'naturesmadness', 'noretreat', 'obstruct', 'painsplit', 'partingshot', 'perishsong', 'preheat', 'protect', 'quiverdance', 'rebound', 'recover', 'reflect', 'reflecttype', 'rejuvenate', 'rest', 'revivalblessing', 'roar', 'rockpolish', 'roost', 'rototiller', 'shellsmash', 'shelter', 'shiftgear', 'shoreup', 'silktrap', 'slackoff', 'sleeppowder', 'sleeptalk', 'slipaway', 'softboiled', 'spiderweb', 'spikes', 'spikyshield', 'spore', 'stasis', 'stealthrock', 'stickyweb', 'strengthsap', 'substitute', 'switcheroo', 'swordsdance', 'synthesis', 'tailglow', 'tailwind', 'taunt', 'thunderwave', 'toxic', 'transform', 'trick', 'victorydance', 'warriorssoul', 'whirlwind', 'willowisp', 'wish', 'yawn',
 		],
 		GOOD_WEAK_MOVES: [
-			'accelerock', 'ambush', 'aquacutter', 'aquajet', 'avalanche', 'bind', 'boltbeak', 'bonemerang', 'bulletpunch', 'circlethrow', 'clamp', 'clearsmog', 'crushgrip', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'equalizer', 'facade', 'firefang', 'fishiousrend', 'flowertrap', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'iciclespear', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalstrike', 'naturesmadness', 'nightshade', 'nuzzle', 'pelletshot', 'populationbomb', 'psychocut', 'pursuit', 'quickattack', 'rapidspin', 'rockblast', 'ruination', 'saltcure', 'secretpower', 'seismictoss', 'shadowclaw', 'shadowsneak', 'skydrop', 'snaptrap', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailhead', 'uturn', 'vengefulspirit', 'voltswitch', 'watershuriken', 'weatherball',
+			'accelerock', 'ambush', 'aquacutter', 'aquajet', 'avalanche', 'bind', 'boltbeak', 'bonemerang', 'bulletpunch', 'circlethrow', 'clamp', 'clearsmog', 'crushgrip', 'doubleironbash', 'dragondarts', 'dragontail', 'drainingkiss', 'endeavor', 'equalizer', 'facade', 'firefang', 'fishiousrend', 'flowertrap', 'freezedry', 'frustration', 'geargrind', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'iciclespear', 'knockoff', 'lastrespects', 'lowkick', 'machpunch', 'mortalstrike', 'naturesmadness', 'nightshade', 'nuzzle', 'pelletshot', 'populationbomb', 'psychocut', 'pursuit', 'quickattack', 'rapidspin', 'rockblast', 'ruination', 'saltcure', 'seismictoss', 'shadowclaw', 'shadowsneak', 'skydrop', 'snaptrap', 'stoneaxe', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap', 'trailhead', 'uturn', 'vengefulspirit', 'voltswitch', 'watershuriken', 'weatherball',
 		],
 		BAD_STRONG_MOVES: [
 			'belch', 'burnup', 'completeshock', 'crushclaw', 'dreameater', 'eggbomb', 'falsesurrender', 'flyingpress', 'hyperfang', 'hyperspacehole', 'jawlock', 'landswrath', 'megapunch', 'muddywater', 'pollenpuff', 'selfdestruct', 'shelltrap', 'slam', 'smartstrike', 'synchronoise', 'takedown', 'thrash', 'uproar', 'vitalthrow',
@@ -1210,7 +1212,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				Math.abs(acrossFromTargetLoc - sourceLoc) <= 1 :
 				Math.abs(targetLoc - sourceLoc) === 1);
 			const canTargetAny = source.tacticianBoosted;
-			if(targetType === 'anyAlly') console.log("anyAlly target? " + !isFoe || isSelf);
 
 			if (this.gameType === 'freeforall' && targetType === 'adjacentAlly') {
 				// moves targeting one ally can instead target foes in Battle Royal
@@ -4248,10 +4249,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','articunogalar').learnset.trickroom = ["9L48","9M"];
 		this.modData('Learnsets','articunogalar').learnset.doubleteam = ["9L54"];
 		this.modData('Learnsets','articunogalar').learnset.extrasensory = ["9L60"];
-		this.modData('Learnsets','articunogalar').learnset.dreameater = ["9L66","9M"];
+		this.modData('Learnsets','articunogalar').learnset.futuresight = ["9L66","9M"];
 		this.modData('Learnsets','articunogalar').learnset.recover = ["9L72"];
 		this.modData('Learnsets','articunogalar').learnset.hurricane = ["9L78","9M"];
-		this.modData('Learnsets','articunogalar').learnset.futuresight = ["9L84","9M"];
+		this.modData('Learnsets','articunogalar').learnset.storedpower = ["9L84","9M"];
 		this.modData('Learnsets','articunogalar').learnset.laserfocus = ["9M"];
 		this.modData('Learnsets','articunogalar').learnset.telekinesis = ["9M"];
 		// Zapdos
@@ -4653,7 +4654,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','espeon').learnset.flash = ["9M"];
 		this.modData('Learnsets','espeon').learnset.nightmare = ["9M"];
 		// Umbreon
-		this.modData('Learnsets','umbreon').learnset.nightdaze = ["9D"];
+		this.modData('Learnsets','umbreon').learnset.moonblast = ["9D"];
+		this.modData('Learnsets','umbreon').learnset.meanlook = ["925"];
+		this.modData('Learnsets','umbreon').learnset.nightdaze = ["9L37"];
+		this.modData('Learnsets','umbreon').learnset.assurance = ["9M"];
 		this.modData('Learnsets','umbreon').learnset.flash = ["9M"];
 		this.modData('Learnsets','umbreon').learnset.nightmare = ["9M"];
 		this.modData('Learnsets','umbreon').learnset.toxic = ["9M"];
@@ -11009,6 +11013,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','flittle').learnset.roost;
 		// Espathra
 		this.modData('Learnsets','espathra').learnset.lusterpurge = ["9D"];
+		this.modData('Learnsets','espathra').learnset.storedpower = ["9L0"];
 		this.modData('Learnsets','espathra').learnset.uproar = ["9L34", "9M"];
 		this.modData('Learnsets','espathra').learnset.allyswitch = ["9M"];
 		this.modData('Learnsets','espathra').learnset.bounce = ["9M"];
