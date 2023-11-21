@@ -498,6 +498,17 @@ export const Formats: FormatList = [
 		unbanlist: ['Sand Veil',],
 	},
 	{
+		name: "[Gen 9] Ironmons",
+		desc: ["<b>Ironmons</b>: A OU based Pet Mod that aims to create new Paradox forms for existing Pokemon, both past and future.",
+		      ],
+		threads: [
+				`&bullet; <a href="https://www.smogon.com/forums/threads/ironmons.3731566/">Ironmons on Smogon Forums</a>`
+		      ],
+		mod: 'ironmons',
+		ruleset: ['Standard'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
+	},
+	{
 		name: "[Gen 8] Megas for All: Kalos",
 		desc: ["<b>Megas for All</b>: A Pet Mod that aims to create unique Mega Evolutions for every fully evolved Pokémon. Current season is focused on the Kalos dex!",
 		      ],
