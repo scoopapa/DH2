@@ -109,9 +109,9 @@ export const Scripts: ModdedBattleScriptsData = {
 				return abilityid === 'bludgeon' && !(itemid === '' || dex.items.get(itemid)?.consumable);
 			case 'tantrum':
 				return !(moves.includes('earthquake') || moves.includes('drillrun') || moves.includes('highhorsepower')) || formatType !== 'singles';
-			}
 			case 'wildcharge':
 				return !(moves.includes('volttackle') || moves.includes('zingzap'));
+			}
 
 			if (formatType !== 'singles' && this.GOOD_DOUBLES_MOVES.includes(id)) {
 				return true;
