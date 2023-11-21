@@ -715,7 +715,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fire",
-	},
+	}, /*
   parry: {
 	   accuracy: 100,
 	   basePower: 80,
@@ -732,7 +732,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	   priorityChargeCallback(pokemon) {
 			this.add('-message', `${pokemon.name} is attempting to parry!`);
 			this.actions.useMove("Parry Condition", pokemon);
-	   }, 
+		}, 
+		beforeMoveCallback(pokemon) {
+			this.actions.useMove("Parry Attack", pokemon);
+		},
 	   secondary: {}, // sheer force boosted
 	   target: "normal",
 	   type: "Fighting",
@@ -745,7 +748,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	   shortDesc: "Required to make Parry work.",
 	   name: "Parry Condition",
 	   pp: 10,
-	   priority: 0,
+	   priority: 6,
 	   flags: {},
 		volatileStatus: 'parrycondition',
 		onPrepareHit(target, source, move) {
@@ -778,9 +781,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('cant', pokemon, move, move);
 				this.add('-message', `${pokemon.name}'s attack was parried!`);
 				return false;
-				if (pokemon.hasAbility('steadfast')) {
-					this.boost({spe: 1}, pokemon);					
-				}
 			}
 		},
 	  },	
@@ -788,6 +788,71 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	  target: "normal",
 	  type: "Fighting",
 	  contestType: "Clever",
+    },
+  parryattack: {
+	   accuracy: 100,
+	   basePower: 80,
+	   category: "Physical",
+	   shortDesc: "Required to make Parry work.",
+	   name: "Parry Attack",
+	   pp: 10,
+	   priority: 0,
+	   flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mach Punch", target);
+		},
+	   secondary: {}, // sheer force boosted
+	   target: "normal",
+	   type: "Fighting",
+	   contestType: "Clever",
+    }, */
+  parry: {
+	   accuracy: 100,
+	   basePower: 80,
+	   category: "Physical",
+	   shortDesc: "If the foe used a priority move, this move hits before that move and flinches the foe.",
+	   name: "Parry",
+	   pp: 10,
+	   priority: 0,
+	   flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Mach Punch", target);
+		},
+		priorityChargeCallback(pokemon) {
+			this.add('-anim', pokemon, "Imprison", pokemon);
+			this.add('-message', `${pokemon.name} is attempting to parry!`);
+			pokemon.addVolatile('parry');
+		},
+	   secondary: {}, // sheer force boosted
+		condition: {
+			duration: 1,
+			onStart(target, source) {
+				this.add('-singleturn', source, 'Parry');
+			},
+			onFoeTryMove(target, source, move) {
+				const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+				if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+					return;
+				}
+				const parryHolder = this.effectState.target;
+				if ((source.isAlly(parryHolder) || move.target === 'all') &&
+					(!source.hasAbility('innerfocus') || !source.hasAbility('shielddust') ||
+					!source.hasAbility('steadfast') || !source.hasItem('covertcloak') || 
+				 	!source.hasAbility('sandveil') && !this.field.isWeather('sandstorm') ||
+				 	!source.hasAbility('sunblock') && !this.field.isWeather('sunnyday')  ||
+				 	!source.hasAbility('snowcloak') && !this.field.isWeather('snow'))
+					&& move.priority > 0.1) {
+					this.attrLastMove('[still]');
+					this.add('cant', parryHolder, 'move: Parry', move, '[of] ' + target);
+					return false;
+				}
+			},
+		},
+	   target: "normal",
+	   type: "Fighting",
+	   contestType: "Clever",
     },
 	rollout: {
 		num: 205,
@@ -1224,6 +1289,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 	   shortDesc: "Hits two turns after being used. Foe: badly poisoned and -1 Def & SpD.",
 		name: "Latent Venom",
+		viable: true,
 		pp: 5,
 		priority: 0,
 		flags: {allyanim: 1, futuremove: 1, snatch: 1},
@@ -1422,14 +1488,17 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tailslap: {
 		inherit: true,
 		accuracy: 100,
+		viable: true,
 	},
 	pinmissile: {
 		inherit: true,
 		accuracy: 100,
+		viable: true,
 	},
 	rockblast: {
 		inherit: true,
 		accuracy: 100,
+		viable: true,
 	},
 	signalbeam: {
 		num: 324,
@@ -1438,6 +1507,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 	   shortDesc: "Nullifies the target's Ability.",
 		isNonstandard: null,
+		viable: true,
 		name: "Signal Beam",
 		pp: 10,
 		priority: 0,
@@ -1462,6 +1532,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 	   shortDesc: "(Mostly functional) Either Fighting or Flying-type, whichever is more effective.",
 		name: "Flying Press",
+		viable: true,
 		pp: 10,
 		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, distance: 1, nonsky: 1},
 		onModifyTypePriority: -1,
