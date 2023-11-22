@@ -15,11 +15,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	boombox: {
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Boombox's effect
-			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')
+				 || this.randomChance(7, 10)) return;
 
-			if (this.randomChance(3, 10)) {
-				target.addVolatile('confusion', source);
-			}
+			target.addVolatile('confusion', source);
+			
 		},
 		name: "Boombox",
 		shortDesc: "This Pokemon's moves have a 30% chance of confusing.",
@@ -90,10 +90,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (source === this.effectState.target || !target.isAlly(source)) return;
-			if (move.type === 'Rock') {
-				this.boost({atk: 1}, this.effectState.target);
-			}
+			if (source === this.effectState.target || !target.isAlly(source) || move.type !== 'Rock') return;
+			this.boost({atk: 1}, this.effectState.target);
 		},
 		isBreakable: true,
 		name: "Molten Fury",
@@ -104,7 +102,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	phantomthief: {
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			move.ignoreImmunity ||= {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Ghost'] = true;
 			}
@@ -122,9 +120,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	quackery: {
 		onStart(pokemon) {
-			for (const pokemon of this.getAllActive()) {
-				pokemon.clearBoosts();
-				this.add('-clearboost', pokemon, '[from] ability: Quackery', '[of] ' + pokemon);
+			for (const target of this.getAllActive()) {
+				target.clearBoosts();
+				this.add('-clearboost', target, '[from] ability: Quackery', '[of] ' + pokemon);
 			}
 		},
 		name: "Quackery",
@@ -136,21 +134,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onTryHitPriority: 1,
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fire') {
-				if (!this.boost({atk: 1})) {
+				if (!this.boost({spe: 1})) {
 					this.add('-immune', target, '[from] ability: Rocket Propulsion');
 				}
 				return null;
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (source === this.effectState.target || !target.isAlly(source)) return;
-			if (move.type === 'Fire') {
-				this.boost({spe: 1}, this.effectState.target);
-			}
+			if (source === this.effectState.target || !target.isAlly(source) || move.type !== 'Fire') return;
+			this.boost({spe: 1}, this.effectState.target);			
 		},
 		isBreakable: true,
 		name: "Rocket Propulsion",
-		shortDesc: "This Pokemon's Attack is raised 1 stage if hit by a Fire move; Fire immunity.",
+		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by a Fire move; Fire immunity.",
 		rating: 3,
 		num: 157,
 	},
@@ -159,7 +155,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['bullet']) {
 				this.debug('Sharpshooter boost');
-				return this.chainModify(1.3);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		name: "Sharpshooter",
@@ -169,10 +165,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	twoleftfeet: {
 		onAfterMoveSecondary(target, source, move) {
+			if (!source || source === target || !target.hp || !move.totalDamage || move.hasBounced) return;
 			const moves = ['axekick', 'chatter', 'confuseray', 'confusion', 'dizzypunch', 'dynamicpunch', 'flatter', 'hurricane', 'magicaltorque', 'psybeam', 'rockclimb', 'secretpower', 'shadowpanic', 'signalbeam', 'strangesteam', 'supersonic', 'swagger', 'sweetkiss', 'teeterdance', 'waterpulse'];
-			if (!source || source === target || !target.hp || !move.totalDamage) return;
-			if ((moves.includes(move.id) || moves.includes(move.name))) {
-				if (move.hasBounced == true) return;
+			if (moves.includes(move.id) || moves.includes(move.name)) {
 				const newMove = this.dex.getActiveMove(move.id);
 				newMove.hasBounced = true;
 				newMove.pranksterBoosted = false;
@@ -230,8 +225,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (
-				effect && effect.effectType === 'Move' &&
-				['heirfriar'].includes(target.species.id) && !target.transformed
+				effect?.effectType === 'Move' &&
+				target.species.id === 'heirfriar' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Be Not Afraid');
 				this.effectState.busted = true;
@@ -239,30 +234,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onCriticalHit(target, source, move) {
-			if (!target) return;
-			if (!['heirfriar'].includes(target.species.id) || target.transformed) {
+			if (!target/*) return;
+			if (*/|| target.species.id !== 'heirfriar' || target.transformed || !target.runImmunity(move.type)) {
 				return;
 			}
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
 
-			if (!target.runImmunity(move.type)) return;
 			return false;
 		},
 		onEffectiveness(typeMod, target, type, move) {
-			if (!target || move.category === 'Status') return;
-			if (!['heirfriar'].includes(target.species.id) || target.transformed) {
+			if (!target || move.category === 'Status'/*) return;
+			if (*/|| target.species.id !== 'heirfriar' || target.transformed || !target.runImmunity(move.type)) {
 				return;
 			}
 
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
-
-			if (!target.runImmunity(move.type)) return;
 			return 0;
 		},
 		onUpdate(pokemon) {
-			if (['heirfriar'].includes(pokemon.species.id) && this.effectState.busted) {
+			if (pokemon.species.id === 'heirfriar' && this.effectState.busted) {
 				const speciesid = pokemon.species.id === 'Heirfriar-Holy';
 				pokemon.formeChange(speciesid, this.effect, true);
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
@@ -318,13 +310,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 273,
 	},
     bullseye: {
+		onStart(pokemon) {
+			this.effectState.boosts = 0;
+		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
-				this.actions.useMove("focusenergy", source, source);
+				this.add('-ability', source, 'Bullseye');
+				const newboosts = this.effectState.boosts+1;
+				this.add('-end', pokemon, `bullseye${newboosts-1}`, '[silent]');
+				this.add('-start', pokemon, `bullseye${newboosts}`, '[silent]');
+				this.effectState.boosts = newboosts;
 			}
 		},
+		onModifyCritRatio(critRatio) {
+			if (!this.effectState.boosts) return;
+			return critRatio + this.effectState.boosts;
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `bullseye${this.effectState.boosts}`, '[silent]');
+		},
 		name: "Bullseye",
-		shortDesc: "Uses Focus Energy currently - KOing an opponent raises crit ratio by 1",
+		shortDesc: "KOing an opponent raises crit ratio by 1",
 		rating: 3,
 		num: 153,
     },
@@ -342,27 +348,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	mobmentality: {
 		onStart(pokemon) {
-			const allies = pokemon.side.pokemon;
-			if (pokemon.side.totalFainted < allies.length - 1) {
+			const benched = (pokemon.side.pokemon.length - 1) - pokemon.side.totalFainted;
+			if (benched) {
 				this.add('-activate', pokemon, 'ability: Mob Mentality');
-				const fallen = Math.min(pokemon.side.totalFainted, 5);
-				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
-				this.effectState.fallen = (allies.length - 1) - fallen;
+				const unfainted = Math.min(benched, 5);
+				this.add('-start', pokemon, `unfainted${unfainted}`, '[silent]');
+				this.effectState.unfainted = unfainted;
 			}
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
+			this.add('-end', pokemon, `unfainted${this.effectState.unfainted$}`, '[silent]');
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.effectState.fallen) {
-				const powMod = [6144, 5734, 5325, 4915, 4506, 4096];
+			if (this.effectState.unfainted) {
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
 				this.debug(`Mob Mentality boost: ${powMod[this.effectState.fallen]}/4096`);
 				return this.chainModify([powMod[this.effectState.fallen], 4096]);
 			}
 		},
 		name: "Mob Mentality",
-		shortDesc: "Uncoded - This Pokemon's moves have 10% more power for each unfainted ally, up to 5 allies.",
+		shortDesc: "This Pokemon's moves have 10% more power for each unfainted ally, up to 5 allies.",
 		rating: 4,
 		num: 293,
 	},
