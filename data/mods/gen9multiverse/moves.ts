@@ -1,4 +1,8 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	kingsshield: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	plasmafists: {
 		inherit: true,
 		isNonstandard: null,

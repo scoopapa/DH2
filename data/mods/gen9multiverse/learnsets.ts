@@ -2997,7 +2997,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			leer: ["9L1"],
 			lowkick: ["9L1"],
 			megakick: ["9L1"],
-			megakick: ["9L1"],
 			megapunch: ["9L1"],
 			mudshot: ["9L1"],
 			mudslap: ["9L1"],
