@@ -2855,11 +2855,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	yamper: {
 		inherit: true,
-		abilities: {0: "Ball Fetch", 1: "Speed Boost", H: "Rattled"},
+		types: ["Electric", "Normal"],
+		abilities: {0: "Ball Fetch", 1: "Run Away", H: "Rattled"},
 	},
 	boltund: {
 		inherit: true,
-		abilities: {0: "Strong Jaw", 1: "Speed Boost", H: "Competitive"},
+		types: ["Electric", "Normal"],
+		baseStats: {hp: 69, atk: 110, def: 60, spa: 90, spd: 60, spe: 121},
+		abilities: {0: "Strong Jaw", 1: "Stakeout", H: "Competitive"},
 	},
 	coalossal: {
 		inherit: true,
