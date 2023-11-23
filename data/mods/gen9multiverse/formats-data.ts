@@ -113,4 +113,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	volcarona: {
 		tier: "MV",
 	},
+	diggersby: {
+		tier: "MV",
+	},
+	pancham: {
+		tier: "MV",
+	},
+	aegislash: {
+		tier: "MV",
+	},
+	aegislashblade: {
+		tier: "Illegal",
+	},
+	dragalge: {
+		tier: "MV",
+	},
+	sylveon: {
+		tier: "MV",
+	},
+	goodra: {
+		tier: "MV",
+	},
+	volcanion: {
+		tier: "MV",
+	},
 };

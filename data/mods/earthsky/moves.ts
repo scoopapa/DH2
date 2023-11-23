@@ -497,6 +497,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Brutal Swing", target);
 		},
 	},
+	metaledge: {
+		num: 1036,
+		basePower: 90,
+		accuracy: 100,
+		category: "Physical",
+		name: "Metal Edge",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		critRatio: 2,
+		secondary: null,
+		desc: "Has a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio.",
+		target: "normal",
+		type: "Steel",
+		contestType: "Cool",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Metal Claw", target);
+		},
+	},
 	midnight: {
 		num: 1010,
 		basePower: 0,
@@ -516,12 +537,12 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				return 5;
 			},
 			onFieldStart(battle, source, effect) {
-				this.add('-fieldstart', 'move: Midnight');
+				//this.add('-fieldstart', 'move: Midnight');
 				this.add('-message', "The battlefield became very dark!");
 				//Suppression implemented in scripts.ts as edits to sim/field.ts
 			},
 			onFieldEnd() {
-				this.add('-fieldend', 'move: Midnight');
+				//this.add('-fieldend', 'move: Midnight');
 				this.add('-message', "The darkness disappeared from the field.");
 			},
 		},
@@ -558,27 +579,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Extrasensory", target);
-		},
-	},
-	metaledge: {
-		num: 1036,
-		basePower: 90,
-		accuracy: 100,
-		category: "Physical",
-		name: "Metal Edge",
-		pp: 15,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
-		critRatio: 2,
-		secondary: null,
-		desc: "Has a higher chance for a critical hit.",
-		shortDesc: "High critical hit ratio.",
-		target: "normal",
-		type: "Steel",
-		contestType: "Cool",
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Metal Claw", target);
 		},
 	},
 	moltenslag: {
