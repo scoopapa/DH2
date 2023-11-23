@@ -200,4 +200,41 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		prevo: null,
 	},
+	diggersby: {
+		inherit: true,
+		baseStats: {hp: 87, atk: 56, def: 97, spa: 50, spd: 87, spe: 78},
+		abilities: {0: "Pickup", H: "Huge Power"},
+	},
+	pancham: {
+		inherit: true,
+		types: ["Fighting", "Dark"],
+		baseStats: {hp: 90, atk: 100, def: 70, spa: 55, spd: 70, spe: 72},
+	},
+	aegislash: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 40, def: 140, spa: 40, spd: 140, spe: 60},
+		prevo: null,
+	},
+	aegislashblade: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 130, def: 50, spa: 130, spd: 50, spe: 60},
+		prevo: null,
+	},
+	dragalge: {
+		inherit: true,
+		baseStats: {hp: 79, atk: 75, def: 90, spa: 97, spd: 123, spe: 44},
+	},
+	sylveon: {
+		inherit: true,
+		abilities: {0: "Cute Charm", H: "Pixelgreat"},
+	},
+	goodra: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 105, def: 70, spa: 115, spd: 140, spe: 80},
+		abilities: {0: "Sap Sipper", 1: "Gooey", H: "Neuroforce"},
+	},
+	volcanion: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 70, def: 100, spa: 110, spd: 90, spe: 80},
+	},
 };
