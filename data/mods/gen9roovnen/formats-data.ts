@@ -157,7 +157,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pidgeot: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	pidgeotmega: {
@@ -336,13 +336,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	raichu: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	raichualola: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	sandshrew: {
@@ -398,7 +398,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	nidoking: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	cleffa: {
@@ -430,7 +430,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ninetales: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	ninetalesalola: {
@@ -505,8 +505,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	parasect: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
-		doublesTier: "DOU",
+		tier: "(PU)",
 	},
 	venonat: {
 		inherit: true,
@@ -562,12 +561,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
-	meowthgmax: {
-		inherit: true,
-		isNonstandard: "Past",
-		tier: "Illegal",
-		doublesTier: "Illegal",
-	},
 	persian: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -606,7 +599,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	primeape: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "NFE",
+		tier: "PU",
 	},
 	growlithe: {
 		inherit: true,
@@ -621,7 +614,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	arcanine: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	arcaninehisui: {
@@ -715,7 +708,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	victreebel: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	tentacool: {
@@ -726,7 +719,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tentacruel: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	geodude: {
@@ -1050,7 +1043,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	marowak: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	marowakalola: {
@@ -1073,19 +1066,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hitmonlee: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	hitmonchan: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	hitmontop: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	lickitung: {
@@ -1247,7 +1240,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	scyther: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "NFE",
+		tier: "NU",
+		doublesTier: "DOU",
 	},
 	scizor: {
 		inherit: true,
@@ -1274,9 +1268,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	jynx: {
 		inherit: true,
-		isNonstandard: null,
-		tier: "RU",
-		doublesTier: "DOU",
+		tier: "PU",
 	},
 	elekid: {
 		inherit: true,
@@ -1291,7 +1283,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	electivire: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	magby: {
@@ -1307,13 +1299,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	magmortar: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	pinsir: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	pinsirmega: {
@@ -1325,13 +1317,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tauros: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PUBL",
 		doublesTier: "DOU",
 	},
 	taurospaldeacombat: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	taurospaldeablaze: {
@@ -1343,7 +1335,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	taurospaldeaaqua: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	magikarp: {
@@ -1366,7 +1358,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lapras: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	laprasgmax: {
@@ -1378,7 +1370,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ditto: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	eevee: {
@@ -1401,49 +1393,49 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vaporeon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	jolteon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	flareon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	espeon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 	},
 	umbreon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	leafeon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	glaceon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	sylveon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	porygon: {
@@ -1454,7 +1446,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	porygon2: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "NFE",
+		tier: "RU",
+		doublesTier: "NFE",
 	},
 	porygonz: {
 		inherit: true,
@@ -1489,7 +1482,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aerodactyl: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	aerodactylmega: {
@@ -1506,7 +1499,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	snorlax: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	snorlaxgmax: {
@@ -1564,7 +1557,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dragonite: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UUBL",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	mewtwo: {
@@ -1707,7 +1700,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lanturn: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "NFE",
+		tier: "PU",
 	},
 	togepi: {
 		inherit: true,
@@ -1735,7 +1728,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	xatu: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	mareep: {
@@ -1751,7 +1744,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ampharos: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	ampharosmega: {
@@ -1840,7 +1833,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	yanmega: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	wooper: {
@@ -1856,7 +1849,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	quagsire: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	murkrow: {
@@ -1908,7 +1901,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	farigiraf: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	pineco: {
@@ -2062,7 +2055,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	piloswine: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "NFE",
+		tier: "NU",
+		doublesTier: "DOU",
 	},
 	mamoswine: {
 		inherit: true,
@@ -2169,13 +2163,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	smeargle: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	miltank: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	raikou: {
@@ -2393,7 +2387,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ludicolo: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	seedot: {
@@ -2409,7 +2403,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	shiftry: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	taillow: {
@@ -2579,13 +2573,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	delcatty: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	sableye: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	sableyemega: {
@@ -2597,7 +2591,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mawile: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	mawilemega: {
@@ -2756,7 +2750,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	camerupt: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	cameruptmega: {
@@ -2838,25 +2832,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zangoose: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	seviper: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	lunatone: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	solrock: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	barboach: {
@@ -2879,7 +2873,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crawdaunt: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 	},
 	baltoy: {
@@ -2890,7 +2884,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	claydol: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	lileep: {
@@ -2901,7 +2895,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cradily: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	anorith: {
@@ -2912,7 +2906,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	armaldo: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	feebas: {
@@ -2982,7 +2976,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dusknoir: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	tropius: {
@@ -3006,7 +3000,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	absol: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	absolmega: {
@@ -3154,7 +3148,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latias: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "UUBL",
 		doublesTier: "DOU",
 	},
 	latiasmega: {
@@ -3166,7 +3160,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latios: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	latiosmega: {
@@ -3238,7 +3232,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	deoxysspeed: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	turtwig: {
@@ -3254,7 +3248,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	torterra: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	chimchar: {
@@ -3468,7 +3462,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	drifblim: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	buneary: {
@@ -3479,7 +3473,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lopunny: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	lopunnymega: {
@@ -3508,7 +3502,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	skuntank: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	bronzor: {
@@ -3519,7 +3513,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bronzong: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	chatot: {
@@ -3531,7 +3525,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	spiritomb: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	gible: {
@@ -3612,9 +3606,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	carnivine: {
 		inherit: true,
-		isNonstandard: null,
-		tier: "RU",
-		doublesTier: "DOU",
+		tier: "(PU)",
 	},
 	finneon: {
 		inherit: true,
@@ -3636,7 +3628,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	abomasnow: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	abomasnowmega: {
@@ -3648,7 +3640,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rotom: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	rotomheat: {
@@ -3660,25 +3652,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rotomwash: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	rotomfrost: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PUBL",
 		doublesTier: "DOU",
 	},
 	rotomfan: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	rotommow: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	uxie: {
@@ -3756,7 +3748,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	phione: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	manaphy: {
@@ -4039,7 +4031,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zebstrika: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	roggenrola: {
@@ -4055,7 +4047,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gigalith: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	woobat: {
@@ -4153,7 +4145,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	leavanny: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	venipede: {
@@ -4296,7 +4288,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crustle: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	scraggy: {
@@ -4330,13 +4322,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cofagrigus: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	runerigus: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	tirtouga: {
@@ -4478,7 +4470,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vanilluxe: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	deerling: {
@@ -4489,7 +4481,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sawsbuck: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	emolga: {
@@ -4506,7 +4498,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	escavalier: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	foongus: {
@@ -4575,7 +4567,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	klinklang: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	tynamo: {
@@ -4591,7 +4583,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	eelektross: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	elgyem: {
@@ -4666,7 +4658,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	accelgor: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	stunfisk: {
@@ -4695,7 +4687,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	druddigon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	golett: {
@@ -4706,7 +4698,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	golurk: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	pawniard: {
@@ -4717,13 +4709,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bisharp: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "NFE",
+		tier: "NUBL",
 		doublesTier: "NFE",
 	},
 	bouffalant: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	rufflet: {
@@ -4780,7 +4772,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hydreigon: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	larvesta: {
@@ -5054,7 +5046,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pyroar: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	flabebe: {
@@ -5099,7 +5091,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pangoro: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	furfrou: {
@@ -5134,7 +5126,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	doublade: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "NFE",
+		tier: "PU",
 	},
 	aegislash: {
 		inherit: true,
@@ -5154,7 +5146,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aromatisse: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	swirlix: {
@@ -5303,7 +5295,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	klefki: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 	},
 	phantump: {
@@ -5314,7 +5306,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	trevenant: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	pumpkaboo: {
@@ -5403,7 +5395,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zygarde: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	zygarde10: {
@@ -5456,7 +5448,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dartrix: {
 		inherit: true,
-		iisNonstandard: "Past",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
@@ -5581,25 +5573,25 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	oricorio: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	oricoriopompom: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 	},
 	oricoriopau: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PUBL",
 		doublesTier: "DOU",
 	},
 	oricoriosensu: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 	},
 	cutiefly: {
@@ -5610,7 +5602,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ribombee: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	ribombeetotem: {
@@ -5677,7 +5669,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mudsdale: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	dewpider: {
@@ -5704,7 +5696,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lurantis: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	lurantistotem: {
@@ -5721,7 +5713,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	shiinotic: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	salandit: {
@@ -5750,7 +5742,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bewear: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	bounsweet: {
@@ -5772,19 +5764,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	comfey: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	oranguru: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	passimian: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	wimpod: {
@@ -5968,6 +5960,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
+	mimikyubusted: {
+		inherit: true,
+		isNonstandard: "Past",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 	mimikyutotem: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -5983,7 +5981,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	bruxish: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	drampa: {
@@ -5995,7 +5993,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dhelmise: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	jangmoo: {
@@ -6181,7 +6179,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	meltan: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	melmetal: {
@@ -6407,7 +6405,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	coalossal: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	coalossalgmax: {
@@ -6424,7 +6422,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	flapple: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	flapplegmax: {
@@ -6436,7 +6434,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	appletun: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	appletungmax: {
@@ -6466,7 +6464,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cramorant: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	cramorantgulping: {
@@ -6497,13 +6495,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toxtricity: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	toxtricitylowkey: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	toxtricitygmax: {
@@ -6556,7 +6554,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	polteageist: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	hatenna: {
@@ -6596,7 +6594,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	grimmsnarl: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	grimmsnarlgmax: {
@@ -6643,7 +6641,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	frosmoth: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	stonjourner: {
@@ -6706,19 +6704,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	arctozolt: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PUBL",
 		doublesTier: "DOU",
 	},
 	dracovish: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	arctovish: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	duraludon: {
@@ -6894,7 +6892,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	meowscarada: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "OU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	fuecoco: {
@@ -6905,7 +6903,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	crocalor: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "NFE",
+		tier: "PU",
 	},
 	skeledirge: {
 		inherit: true,
@@ -6967,7 +6965,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lokix: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	rellor: {
@@ -7026,7 +7024,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	veluza: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	finizen: {
@@ -7108,7 +7106,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	maushold: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	cetoddle: {
@@ -7119,7 +7117,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cetitan: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PUBL",
 		doublesTier: "DOU",
 	},
 	frigibax: {
@@ -7147,7 +7145,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cyclizar: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	pawmi: {
@@ -7201,7 +7199,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	klawf: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	nacli: {
@@ -7212,7 +7210,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	naclstack: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "NFE",
+		tier: "PU",
 	},
 	garganacl: {
 		inherit: true,
@@ -7252,7 +7250,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dachsbun: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	maschiff: {
@@ -7263,7 +7261,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mabosstiff: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	bramblin: {
@@ -7393,7 +7391,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	wochien: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	chiyu: {
@@ -7438,7 +7436,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	armarouge: {
 		inherit: true,
 		isNonstandard: null,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	ceruledge: {
@@ -7490,7 +7488,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dipplin: {
 		inherit: true,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	poltchageist: {
@@ -7514,12 +7512,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	fezandipiti: {
 		inherit: true,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	ogerpon: {
 		inherit: true,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	ogerponwellspring: {
@@ -7529,7 +7527,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	ogerponhearthflame: {
 		inherit: true,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	ogerponcornerstone: {
@@ -7576,7 +7574,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dragonairroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "NFE",
+		tier: "NUBL",
+		doublesTier: "NFE",
 	},
 	dragoniteroovnen: {
 		isNonstandard: null,
@@ -7587,7 +7586,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	torkoalroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "NFE",
+		tier: "NU",
+		doublesTier: "DOU",
 	},
 	roggenrolaroovnen: {
 		isNonstandard: null,
@@ -7602,7 +7602,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gigalithroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	sewaddleroovnen: {
@@ -7618,7 +7618,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	leavannyroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	golettroovnen: {
@@ -7634,7 +7634,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	carkolroovnen: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "NFE",
+		tier: "PU",
 	},
 
 	//Roovnen Pokemon
@@ -7651,7 +7651,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	elchunst: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	poniarc: {
@@ -7667,7 +7667,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	klimyross: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	synake: {
@@ -7726,7 +7726,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	igloiceus: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	boltria: {
@@ -7748,7 +7748,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ranschaef: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	antron: {
@@ -7759,7 +7759,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	queant: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	volecz: {
@@ -7770,7 +7770,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lidektro: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	yoar: {
@@ -7786,7 +7786,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	wildaxe: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	graid: {
@@ -7797,7 +7797,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	angrain: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "UUBL",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	fevee: {
@@ -7808,36 +7808,37 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pauleon: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 	},
 	orkave: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	taurot: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "NFE",
+		tier: "PUBL",
+		doublesTier: "NFE",
 	},
 	minowing: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	kramlauf: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	ressuredom: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	gargion: {
@@ -7849,13 +7850,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	manutz: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "UUBL",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	decani: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	burschuss: {
@@ -7883,13 +7884,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	seganube: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	jealokais: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	amethiz: {
@@ -7905,7 +7906,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	juwyvern: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	patwinis: {
@@ -7916,31 +7917,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	rautwinis: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	volkobil: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	expremoos: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DOU",
 	},
 	expremoosf: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 	},
 	seditzel: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	planind: {
@@ -7951,31 +7952,31 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ysiogue: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	prehuck: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	musalkas: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	fossgoo: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "(PU)",
 		doublesTier: "DOU",
 	},
 	goltink: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "PU",
 		doublesTier: "DOU",
 	},
 	tropalm: {
@@ -7987,7 +7988,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hypsand: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "RUBL",
 		doublesTier: "DOU",
 	},
 	laichto: {
@@ -8005,13 +8006,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lockossal: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DOU",
 	},
 	pauption: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	naturthis: {
@@ -8023,13 +8024,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	kunturthis: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "UU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	glacone: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "NFE",
+		tier: "NU",
+		doublesTier: "DOU",
 	},
 	oetzowak: {
 		isNonstandard: null,
@@ -8045,7 +8047,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	praspin: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "NFE",
+		tier: "PU",
+		doublesTier: "NFE",
 	},
 	radriss: {
 		isNonstandard: null,
@@ -8056,7 +8059,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sigisin: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	bredoom: {
@@ -8080,13 +8083,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	porygonv: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	latakuno: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	yorlator: {
@@ -8098,13 +8101,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	mranovo: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	curtowal: {
 		isNonstandard: null,
 		gen: 9,
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	guadock: {
