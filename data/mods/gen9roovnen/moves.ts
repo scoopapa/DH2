@@ -971,15 +971,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	knockoff: {
 		inherit: true,
-		basePower: 50,
 		onBasePower(basePower, source, target, move) {
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return;
 			if (item.id) {
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			}
 		},
-		shortDesc: "1.2x damage if foe holds an item. Removes item.",
+		shortDesc: "1.3x damage if foe holds an item. Removes item.",
 	},
 	lastrespects: {
 		inherit: true,
