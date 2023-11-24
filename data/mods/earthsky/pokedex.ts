@@ -1890,17 +1890,21 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Run Away", 1: "Adaptability", H: "Fluffy"},
 	},
+	jolteon: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 95, def: 60, spa: 110, spd: 65, spe: 130},
+	},
 	articunogalar: {
 		inherit: true,
-		abilities: {0: "Pressure", H: "Competitive"},
+		abilities: {0: "Unnerve", H: "Competitive"},
 	},
 	zapdosgalar: {
 		inherit: true,
-		abilities: {0: "Pressure", H: "Defiant"},
+		abilities: {0: "Unnerve", H: "Defiant"},
 	},
 	moltresgalar: {
 		inherit: true,
-		abilities: {0: "Pressure", H: "Berserk"},
+		abilities: {0: "Unnerve", H: "Berserk"},
 	},
 	cyndaquil: {
 		inherit: true,
@@ -2404,6 +2408,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Serene Grace", H: "Limber"},
 		exclusiveHidden: true,
+	},
+	oshawott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Relentless"},
+	},
+	dewott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Relentless"},
+	},
+	samurott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Relentless"},
 	},
 	herdier: {
 		inherit: true,
@@ -4055,6 +4071,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	dialgaorigin: null,
 	palkiaorigin: null,
 	garbodorgmax: null,
+	greninjabond: null,
 	floetteeternal: null,
 	gumshoostotem: null,
 	vikavolttotem: null,
