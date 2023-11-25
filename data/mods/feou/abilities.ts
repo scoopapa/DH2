@@ -1960,6 +1960,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add("-fail", target, "unboost", "[from] ability: Vital Metal Body", "[of] " + target);
 			}
 		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.add('-immune', target, '[from] ability: Vital Metal Body');
+				return null;
+			}
+		},
 		name: "Vital Metal Body",
 		rating: 3,
 	},
@@ -2087,6 +2093,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-immune', target, '[from] ability: Unvital');
 			}
 			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.add('-immune', target, '[from] ability: Vital Metal Body');
+				return null;
+			}
 		},
 		name: "Unvital",
 		rating: 3,
