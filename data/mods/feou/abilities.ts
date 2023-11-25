@@ -1540,7 +1540,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Electric moves or burned; Electric & Burn immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
-				if (!this.heal(target.baseMaxhp*.25)) {
+				if (!this.heal(target.baseMaxhp/4)) {
 					this.add('-immune', target, '[from] ability: Electromagnetic Veil');
 				}
 				return null;
@@ -1548,7 +1548,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'brn') return;
-			if ((effect as Move)?.status && !this.heal(target.baseMaxhp*.25)) {
+			if ((effect as Move)?.status && !this.heal(target.baseMaxhp/4)) {
 				this.add('-immune', target, '[from] ability: Electromagnetic Veil');
 			}
 			return false;
@@ -2096,7 +2096,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onTryAddVolatile(status, target) {
 			if (status.id === 'yawn') {
-				this.add('-immune', target, '[from] ability: Vital Metal Body');
+				this.add('-immune', target, '[from] ability: Unvital');
 				return null;
 			}
 		},
