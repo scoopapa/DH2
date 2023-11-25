@@ -4957,7 +4957,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		natDexTier: "UU",
 	},
 
-	//fakemons
+	// Fakemons
 	tentarcolh: {
 		tier: "LC",
 	},

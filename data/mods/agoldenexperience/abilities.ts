@@ -161,23 +161,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4.5,
 		num: -7,
 	},
-	// reflex: { //removed
-	// 	onFoeTryMove(target, source, move) {
-	// 		const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
-	// 		if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
-	// 			return;
-	// 		}
-	// 		const dazzlingHolder = this.effectState.target;
-	// 		if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
-	// 			this.attrLastMove('[still]');
-	// 			this.add('cant', dazzlingHolder, 'ability: Reflex', move, '[of] ' + target);
-	// 			return false;
-	// 		}
-	// 	},
-	// 	name: "Reflex",
-	// 	rating: 2.5,
-	// 	num: -8,
-	// },
 	perforating: {
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
@@ -256,51 +239,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "If this Pokemon is hit by a physical super effective move, it takes neutral damage.",
 		num: -12,
 	},
-	//unused due to deleted Fakemons
-	/*shortcircuit: {
-		onStart(pokemon) {
-			let bp = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.moves.get(moveSlot.move);
-				if (move.category === 'Status') continue;
-				if (move.basePower > bp) {
-					bp = move.basePower;
-				}
-				if (pokemon.volatiles['abilitylock']) {
-					this.debug('removing abilitylock: ' + pokemon.volatiles['abilitylock']);
-				}
-				pokemon.removeVolatile('abilitylock');
-			}
-		},
-		onModifyMove(move, pokemon) {
-			pokemon.addVolatile('abilitylock');
-		},
-		name: "Short Circuit",
-		rating: 0.5,
-		num: -14,
-	},
-	sadism: {
-		shortDesc: "This Pokemon's moves will always crit on statused target.",
-		onModifyCritRatio(critRatio, source, target) {
-			if (target.status || target.hasAbility('comatose')) return 5;
-		},
-		name: "sadism",
-		rating: 1.5,
-		num: -15,
-	},
-	bipolar: {
-		onBeforeMovePriority: 0.5,
-		onBeforeMove(attacker, defender, move) {
-			if (attacker.species.baseSpecies !== 'Bipolectric' || attacker.transformed) return;
-			if (move.category === 'Status' && move.id !== 'icebarrier') return;
-			const targetForme = (move.id === 'icebarrier' ? 'Bipolectric-Permafrost' : 'Bipolectric');
-			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
-		},
-		isPermanent: true,
-		name: "Bipolar",
-		rating: 4,
-		num: -16,
-	},*/
 	mistymountain: { 
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
@@ -2042,32 +1980,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 0,
 		num: 161,
 	},
-	// transistor: {
-	// 	onModifyAtkPriority: 5,
-	// 	onModifyAtk(atk, attacker, defender, move) {
-	// 		if (move.type === 'Electric') {
-	// 			this.debug('Transistor boost');
-	// 			return this.chainModify(1.2);
-	// 		}
-	// 	},
-	// 	onModifySpAPriority: 5,
-	// 	onModifySpA(atk, attacker, defender, move) {
-	// 		if (move.type === 'Electric') {
-	// 			this.debug('Transistor boost');
-	// 			return this.chainModify(1.2);
-	// 		}
-	// 	},
-	// 	onTryHit(target, source, move) {
-	// 		if (target !== source && move.type === 'Electric') {
-	// 			this.add('-immune', target, '[from] ability: Transistor');
-	// 			return null;
-	// 		}
-	// 	},
-	// 	name: "Transistor",
-	// 	shortDesc: "This Pokemon gets x1.2 in its attacking stat when using an Electric move. Immune to Electric type moves.",
-	// 	rating: 3.5,
-	// 	num: 262,
-	// },
 	dragonsmaw: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
