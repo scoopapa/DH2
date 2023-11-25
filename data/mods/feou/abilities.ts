@@ -1666,7 +1666,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['circuitbreaker'];
-			this.add('-end', pokemon, 'Circuit Breaker', '[silent]');
+			this.add('-end', pokemon, 'Quark Drive', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -1674,10 +1674,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (effect?.id === 'boosterenergy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Circuit Breaker', '[fromitem]');
-					this.add('-message', `${pokemon.name} used its Booster Energy to overclock its Circuit Breaker!`);
+					this.add('-message', `${pokemon.name} used its Booster Energy to break the circuit harder!`);
 				} else {
 					this.add('-activate', pokemon, 'ability: Circuit Breaker');
-					this.add('-message', `The Electric Terrain overclocked ${pokemon.name}\'s Circuit Breaker!`);
+					this.add('-message', `The Electric Terrain lets ${pokemon.name} break the circuit harder!`);
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
@@ -1712,7 +1712,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Circuit Breaker');
+				this.add('-end', pokemon, 'Quark Drive', '[silent]');
 			},
 		},
 		isPermanent: true,
