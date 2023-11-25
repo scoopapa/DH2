@@ -78,14 +78,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Electric') {
 				this.debug('Galvanic Relay boost');
-				return this.chainModify(1.3);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Electric') {
 				this.debug('Galvanic Relay boost');
-				return this.chainModify(1.3);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		onFractionalPriorityPriority: -1,
@@ -146,12 +146,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
-			if (this.field.isWeather(['sunnyday', 'desolateland']) || this.randomChance(1, 2)) {
-				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
-					pokemon.setItem(pokemon.lastItem);
-					pokemon.lastItem = '';
-					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Growth Spurt');
-				}
+			if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry && (this.field.isWeather(['sunnyday', 'desolateland']) || this.randomChance(1, 2))) {
+				pokemon.setItem(pokemon.lastItem);
+				pokemon.lastItem = '';
+				this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Growth Spurt');
 			}
 		},
 		onAfterMoveSecondary(target, source, move) {
@@ -159,7 +157,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const lastAttackedBy = target.getLastAttackedBy();
 			if (!lastAttackedBy) return;
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
-			if (target.hp <= target.maxhp / 3 && target.hp + damage > target.maxhp / 3 && !target.item && this.dex.items.get(target.lastItem).isBerry) {
+			const threshold = target.maxhp / 3;
+			if (target.hp <= threshold && target.hp + damage > threshold && !target.item && this.dex.items.get(target.lastItem).isBerry) {
 					target.setItem(target.lastItem);
 					target.lastItem = '';
 					this.add('-item', target, target.getItem(), '[from] ability: Growth Spurt');
@@ -281,7 +280,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor','madcow'].includes(effect.id) && boost.atk) {
+			if (['Intimidate','Forest Fury','Shock Factor','Mad Cow'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Scrap Rock');
 			}
@@ -444,20 +443,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	regainpatience: {
 	  shortDesc: "Berserk + Regenerator",
 		onDamage(damage, target, source, effect) {
-			if (effect.effectType === "Move" && !effect.multihit && !effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility(['overwhelming','sheerforce','forceofnature','sandwrath']))) {
-				this.effectState.checkedBerserk = false;
-			} else {
-				this.effectState.checkedBerserk = true;
-			}
+			this.effectState.checkedBerserk = !!(effect.effectType !== "Move" || effect.multihit || effect.negateSecondary
+															|| (effect.hasSheerForce && source.hasAbility(['overwhelming','sheerforce','forceofnature','sandwrath'])));
 		},
 		onTryEatItem(item) {
 			const healingItems = [
 				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
 			];
-			if (healingItems.includes(item.id)) {
-				return this.effectState.checkedBerserk;
-			}
-			return true;
+			return (!healingItems.includes(item.id) || this.effectState.checkedBerserk);
 		},
 		onAfterMoveSecondary(target, source, move) {
 			this.effectState.checkedBerserk = true;
@@ -465,7 +458,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const lastAttackedBy = target.getLastAttackedBy();
 			if (!lastAttackedBy) return;
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
-			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+			const threshold = target.maxhp*.5;
+			if (target.hp <= threshold && target.hp + damage > threshold) {
 				this.boost({spa: 1}, target, target);
 			}
 		},
@@ -478,8 +472,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	quarksurge: {
 	  shortDesc: "Quark Drive + Electric Surge",
 		onStart(pokemon) {
-			this.field.setTerrain('electricterrain');
 			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+			this.field.setTerrain('electricterrain');
 		},
 		onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
@@ -627,7 +621,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor','madcow'].includes(effect.id) && boost.atk) {
+			if (['Intimidate','Forest Fury','Shock Factor','Mad Cow'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Primitive');
 			}
@@ -713,14 +707,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target.addVolatile('systempurge');
 			}
 		},
-		onTerrainChange(pokemon) {
+		/*onTerrainChange(pokemon) {
 			if (pokemon.transformed) return;
 			if (this.field.isTerrain('electricterrain')) {
 				pokemon.addVolatile('systempurge');
 			} else if (!pokemon.volatiles['systempurge']?.fromBooster) {
 				pokemon.removeVolatile('systempurge');
 			}
-		},
+		},*/
 		onEnd(pokemon) {
 			delete pokemon.volatiles['systempurge'];
 			this.add('-end', pokemon, 'System Purge', '[silent]');
@@ -731,8 +725,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (effect?.id === 'boosterenergy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: System Purge', '[fromitem]');
+					this.add('-message', `${pokemon.name} used its booster energy to activate a System Purge!`);
 				} else {
 					this.add('-activate', pokemon, 'ability: System Purge');
+					this.add('-message', `${pokemon.name} activated a System Purge in response to the attack!`);
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'systempurge' + this.effectState.bestStat);
@@ -781,7 +777,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const lastAttackedBy = target.getLastAttackedBy();
 			if (!lastAttackedBy) return;
 			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
-			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+			if (target.hp <= target.maxhp*.5 && target.hp + damage > target.maxhp*.5) {
 				target.addVolatile('delayedreaction');
 				this.add('-ability', target, 'Delayed Reaction');
 				this.add('-message', `${target.name} is getting ready to leave the battlefield!`);
@@ -1007,9 +1003,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
-			if (
-				effect?.effectType === 'Move' && target.species.id === 'ironmimic' && !target.transformed
-			) {
+			if (effect?.effectType === 'Move' && target.species.id === 'ironmimic' && !target.transformed) {
 				this.add('-activate', target, 'ability: Faulty Photon');
 				this.effectState.busted = true;
 				return 0;
@@ -1463,7 +1457,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	rejuvenate: {
-	  shortDesc: "If statused, heals the status when switching out; else restores 1/3 Max HP when switching out.",
+	  shortDesc: "On switch-out: If no status then heal 1/3 Max HP, else heal status",
 		onCheckShow(pokemon) {
 			// This is complicated
 			// For the most part, in-game, it's obvious whether or not Natural Cure activated,
@@ -1546,7 +1540,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Electric moves or burned; Electric & Burn immunity.",
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Electric') {
-				if (!this.heal(target.baseMaxhp / 4)) {
+				if (!this.heal(target.baseMaxhp*.25)) {
 					this.add('-immune', target, '[from] ability: Electromagnetic Veil');
 				}
 				return null;
@@ -1554,7 +1548,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onSetStatus(status, target, source, effect) {
 			if (status.id !== 'brn') return;
-			if ((effect as Move)?.status && !this.heal(target.baseMaxhp / 4)) {
+			if ((effect as Move)?.status && !this.heal(target.baseMaxhp*.25)) {
 				this.add('-immune', target, '[from] ability: Electromagnetic Veil');
 			}
 			return false;
@@ -1562,7 +1556,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'ability: Electromagnetic Veil');
-				this.heal(target.baseMaxhp / 4);
+				this.heal(target.baseMaxhp*.25);
 				pokemon.cureStatus();
 			}
 		},
@@ -1654,8 +1648,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Quark Drive + Mold Breaker",
 		onStart(pokemon) {
 			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
-			this.add('-ability', pokemon, 'Circuit Breaker');
-			this.add('-message', `${pokemon.name} breaks the circuit!`);
+			if (!this.field.isTerrain('electricterrain')) {
+				this.add('-ability', pokemon, 'Circuit Breaker');
+				this.add('-message', `${pokemon.name} breaks the circuit!`);
+			}
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
@@ -1678,8 +1674,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (effect?.id === 'boosterenergy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Circuit Breaker', '[fromitem]');
+					this.add('-message', `${pokemon.name} used its Booster Energy to overclock its Circuit Breaker!`);
 				} else {
 					this.add('-activate', pokemon, 'ability: Circuit Breaker');
+					this.add('-message', `The Electric Terrain overclocked ${pokemon.name}\'s Circuit Breaker!`);
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
 				this.add('-start', pokemon, 'circuitbreaker' + this.effectState.bestStat);
@@ -2003,7 +2001,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllySetStatus(status, target, source, effect) {
 			if (target.hasType('Fire') && source && target !== source && effect && effect.id !== 'yawn') {
 				this.debug('interrupting setStatus with Burning Petals');
-				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
 					const effectHolder = this.effectState.target;
 					if (!effectHolder.addVolatile('burningpetals')) this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
 				}
@@ -2011,7 +2009,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllyTryAddVolatile(status, target) {
-			if (target.hasType('Fire') && status.id === 'yawn') {
+			if (status.id === 'yawn' && target.hasType('Fire')) {
 				this.debug('Burning Petals blocking yawn');
 				const effectHolder = this.effectState.target;
 				if (!effectHolder.addVolatile('burningpetals')) this.add('-block', target, 'ability: Burning Petals', '[of] ' + effectHolder);
@@ -2099,7 +2097,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return critRatio + 1;
 		},
 		onBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor','madcow'].includes(effect.id) && boost.atk) {
+			if (['Intimidate','Forest Fury','Shock Factor','Mad Cow'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Own Luck');
 			}
@@ -2108,7 +2106,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	armourlock: {
-	  shortDesc: "This Pokemon cannot be struck by a critical hit nor have its item removed.",
+	  shortDesc: "This Pokemon can neither be critted nor have its item removed.",
 		onTakeItem(item, pokemon, source) {
 			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
@@ -2231,10 +2229,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  shortDesc: "Frisk + Thermal Exchange",
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
-				if (!target || target.fainted) continue;
-				if (target.item) {
-					this.add('-item', target, target.getItem().name, '[from] ability: Frisk Exchange', '[of] ' + pokemon, '[identify]');
-				}
+				if (!target || target.fainted || !target.item) continue;
+				this.add('-item', target, target.getItem().name, '[from] ability: Frisk Exchange', '[of] ' + pokemon, '[identify]');
 			}
 		},
 		onDamagingHit(damage, target, source, move) {
@@ -2299,17 +2295,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			];
 			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().isPermanent
 				&& !additionalBannedAbilities.includes(foeActive.ability) && foeActive.isAdjacent(pokemon));
-			if (possibleTargets.length) {
-				const rand = (possibleTargets.length > 1) ? this.random(possibleTargets.length) : 0;
-				const target = possibleTargets[rand];
-				const ability = target.getAbility();
-				if (pokemon.setAbility(ability) && target.setAbility('pillage')) {
-					this.add('-ability', target, 'Pillage', '[from] ability: Pillage', '[of] ' + pokemon);
-					this.add('-ability', pokemon, ability.name, '[from] ability: Pillage', '[of] ' + target);
-				} else {
-					pokemon.setAbility('pillage');
-				}
+			if (!possibleTargets.length) return;
+			const rand = (possibleTargets.length > 1) ? this.random(possibleTargets.length) : 0;
+			const target = possibleTargets[rand];
+			const ability = target.getAbility();
+			if (pokemon.setAbility(ability) && target.setAbility('pillage')) {
+				this.add('-ability', target, 'Pillage', '[from] ability: Pillage', '[of] ' + pokemon);
+				this.add('-ability', pokemon, ability.name, '[from] ability: Pillage', '[of] ' + target);
+			} else {
+				pokemon.setAbility('pillage');
 			}
+			
 		},
 		rating: 5,
 	},
@@ -2759,7 +2755,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (['intimidate','forestfury','shockfactor','madcow'].includes(effect.id) && boost.atk) {
+			if (['Intimidate','Forest Fury','Shock Factor','Mad Cow'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
 				this.add('-immune', target, '[from] ability: Feisty Tempo');
 			}
