@@ -61,8 +61,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (/*this.battle.gen >= 6 && */move.flags['powder'] && target !== pokemon && !this.dex.getImmunity('powder', target)) {
 					this.battle.debug('natural powder immunity');
 				} else if (this.battle.singleEvent('TryImmunity', move, {}, target, pokemon, move)) {
-					if (/*this.battle.gen >= 7 && */move.pranksterBoosted && pokemon.hasAbility(['prankster','openingact']) && !targets[i].isAlly(pokemon)
-						 && !this.dex.getImmunity('prankster', target)) {
+					if (/*this.battle.gen >= 7 && */move.pranksterBoosted && !this.dex.getImmunity('prankster', target) && pokemon.hasAbility(['prankster','openingact'])
+						 && !targets[i].isAlly(pokemon)) {
 						this.battle.debug('natural prankster immunity');
 						if (!target.illusion) this.battle.hint("Since gen 7, Dark is immune to Prankster moves.");
 					} else {
@@ -76,8 +76,10 @@ export const Scripts: ModdedBattleScriptsData = {
 			return hitResults;
 		}
 
-		/*
-  			runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) {
+  		runMove(
+			moveOrMoveName: Move | string, pokemon: Pokemon, targetLoc: number, sourceEffect?: Effect | null,
+			zMove?: string, externalMove?: boolean, maxMove?: string, originalTarget?: Pokemon
+			) {
 				pokemon.activeMoveActions++;
 				let target = this.battle.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
 				let baseMove = this.dex.getActiveMove(moveOrMoveName);
@@ -197,7 +199,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 				this.battle.faintMessages();
 				this.battle.checkWin();
-			},*/
+			},
 
 		/*
 			useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove, maxMove) {
@@ -326,7 +328,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				} else {
 					if (!targets.length) {
 						this.battle.attrLastMove('[notarget]');
-						this.battle.add(this.battle.gen >= 5 ? '-fail' : '-notarget', pokemon);
+						//this.battle.add(this.battle.gen >= 5 ? '-fail' : '-notarget', pokemon);
+						this.battle.add('-fail', pokemon);
 						return false;
 					}
 					//if (this.battle.gen === 4 && move.selfdestruct === 'always') {
@@ -362,44 +365,27 @@ export const Scripts: ModdedBattleScriptsData = {
   		*/
 	},
 	pokemon: { 
-		/*
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
-			if (!(type in this.battle.dex.data.TypeChart)) {
-				if (type === 'Fairy' || type === 'Dark' || type === 'Steel') return true;
+			if (!this.battle.dex.types.isName(type)) {
 				throw new Error("Use runStatusImmunity for " + type);
 			}
 			if (this.fainted) return false;
-			const negateResult = this.battle.runEvent('NegateImmunity', this, type);
-			let isGrounded;
-			if (type === 'Ground') {
-				isGrounded = this.isGrounded(!negateResult);
-				if (isGrounded === null) {
-					if (message) {
-						if (this.hasAbility('holygrail')) {
-							this.battle.add('-immune', this, '[from] ability: Holy Grail');
-						} else if (this.hasAbility('risingtension')) {
-							this.battle.add('-immune', this, '[from] ability: Rising Tension');
-						} else if (this.hasAbility('freeflight')) {
-							this.battle.add('-immune', this, '[from] ability: Free Flight');
-						} else if (this.hasAbility('airbornearmor')) {
-							this.battle.add('-immune', this, '[from] ability: Airborne Armor');
-						} else {
-							this.battle.add('-immune', this, '[from] ability: Levitate');
-						}
-					}
-					return false;
-				}
-			}
-			if (!negateResult) return true;
-			if ((isGrounded === undefined && !this.battle.dex.getImmunity(type, this)) || isGrounded === false) {
-				if (message) {
+	
+			const negateImmunity = !this.battle.runEvent('NegateImmunity', this, type);
+			const notImmune = type === 'Ground' ?
+				this.isGrounded(negateImmunity) :
+				negateImmunity || this.battle.dex.getImmunity(type, this);
+			if (notImmune) return true;
+			if (message) {
+				if (notImmune === null) {
+					this.battle.add('-immune', this, '[from] ability: ' + getAbility().name);
+				} else {
 					this.battle.add('-immune', this);
 				}
-				return false;
 			}
-			return true;
-		}, */
+			return false;
+		},
 		isGrounded(negateImmunity = false) {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;
 			if ('ingrain' in this.volatiles/* && this.battle.gen >= 4*/) return true;
