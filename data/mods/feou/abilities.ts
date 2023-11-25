@@ -1680,7 +1680,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-message', `The Electric Terrain overclocked ${pokemon.name}\'s Circuit Breaker!`);
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'circuitbreaker' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
