@@ -74,7 +74,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				hitResults[i] = false;
 			}
 			return hitResults;
-		}
+		},
 
   		runMove(
 			moveOrMoveName: Move | string, pokemon: Pokemon, targetLoc: number, sourceEffect?: Effect | null,
