@@ -1907,7 +1907,7 @@ export const Formats: FormatList = [
 		mod: 'agoldenexperience',
 		gameType: 'doubles',
 		teambuilderFormat: 'National Dex Doubles',
-		ruleset: ['Standard NatDex', 'Picked Team Size = 4', 'Adjust Level = 50', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Dynamax Clause', 'Mega Data Mod'],
 		banlist: [
 			'Mewtwo', 'Mew',
 			'Lugia', 'Ho-Oh', 'Celebi',
