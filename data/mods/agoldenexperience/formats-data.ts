@@ -4958,7 +4958,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 
 	//fakemons
-	tentarcohl: {
+	tentarcolh: {
 		tier: "LC",
 	},
 	carsnail: {

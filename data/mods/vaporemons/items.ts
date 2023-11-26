@@ -38,20 +38,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 			this.add('-message', `${pokemon.name}'s Tera Shard changed its type!`);
 		},
-		onModifyMove(move, pokemon) {
-			const type = pokemon.teraType;
-			if (move.type === type && pokemon.baseSpecies.types.includes(type)) {
-				move.stab = 2;
-			}
-		},
 		onBasePowerPriority: 30,
 		onBasePower(basePower, attacker, defender, move) {
-			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
-			this.debug('Base Power: ' + basePowerAfterMultiplier);
-			if (basePowerAfterMultiplier <= 60 && move.type === attacker.teraType && !move.multihit && move.priority < 0.1) {
-				this.debug('Tera Shard boost');
-				return move.basepower = 60;
-			}
 			if (move.id === 'terablast') {
 				return move.basepower = 100;
 			}
