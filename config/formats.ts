@@ -1908,8 +1908,8 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
 		],
 		mod: 'agoldenexperience',
-		// gameType: 'doubles',
-		// teambuilderFormat: 'National Dex Doubles',
+		gameType: 'doubles',
+		teambuilderFormat: 'National Dex Doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
 		banlist: [
 			'Mewtwo', 'Mew',
