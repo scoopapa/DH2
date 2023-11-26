@@ -4114,7 +4114,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         name: "Parafgufa",
         types: ["Water", "Grass"],
 		gender: "N",
-        baseStats: {hp: 110, atk: 80, def: 110, spa: 105, spd: 110, spe: 85},
+        baseStats: {hp: 110, atk: 80, def: 90, spa: 105, spd: 100, spe: 85},
         abilities: {0: "Microclimate"},
         heightm: 15,
         weightkg: 400,
@@ -4179,7 +4179,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	irondrill: {
 		num: -78,
 		name: "Iron Drill",
-		types: ["Fighting", "Steel"],
+		types: ["Steel", "Fighting"],
 		gender: "N",
 		baseStats: {hp: 114, atk: 140, def: 70, spa: 80, spd: 72, spe: 94},
 		abilities: {0: "Quark Drive", H: "Sand Rush"},

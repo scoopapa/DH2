@@ -5225,7 +5225,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	parafgufa: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	infarmatem: {

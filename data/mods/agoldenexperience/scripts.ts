@@ -83,10 +83,13 @@ export const Scripts: ModdedBattleScriptsData = {
   init() {
 
     // Gen 9 tmp
+    this.modData('Learnsets', 'samurotthisui').learnset.assurance = ['9L1'];
+    this.modData('Learnsets', 'decidueyehisui').learnset.spikes = ['9L1'];
     this.modData('Learnsets', 'basculegion').learnset.shadowsneak = ['9L1'];
     this.modData('Learnsets', 'basculegionf').learnset.shadowsneak = ['9L1'];
     this.modData('Learnsets', 'overqwil').learnset.pursuit = ['9L1'];
-    this.modData('Learnsets', 'overqwil').learnset.earthquake = ['9L1'];
+    this.modData('Learnsets', 'overqwil').learnset.explosion = ['9L1'];
+    this.modData('Learnsets', 'overqwil').learnset.painsplit = ['9L1'];
     this.modData('Learnsets', 'lokix').learnset.highjumpkick = ['9L1'];
     this.modData('Learnsets', 'pawmot').learnset.stompingtantrum = ['9L1'];
     this.modData('Learnsets', 'pawmot').learnset.uturn = ['9L1'];
@@ -106,6 +109,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'tinkaton').learnset.icepunch = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.thunderpunch = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.fissure = ['9L1'];
+    this.modData('Learnsets', 'screamtail').learnset.seismictoss = ['9L1'];
+    this.modData('Learnsets', 'screamtail').learnset.softboiled = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.downdraft = ['9L1'];
     this.modData('Learnsets', 'ironvaliant').learnset.sacredsword = ['9L1'];
