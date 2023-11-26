@@ -2487,4 +2487,54 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 3.5,
 		shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage.",
 	},
+	cheerleader: {
+		onStart(pokemon) {
+			this.boost({atk: 1}, pokemon);
+		},
+		shortDesc: "If the ally has Cheerleader: if Plusle, Atk, SpA and Speed x1.5; if Minun, Def, SpD and Speed x1.5.",
+		desc: "If the ally has Cheerleader: if Plusle, its Atk, SpA and Speed are x1.5; if Minun, its Def, SpD and Speed are x1.5.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader']) && pokemon.baseSpecies.baseSpecies === 'Plusle') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader']) && pokemon.baseSpecies.baseSpecies === 'Minun') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader']) && pokemon.baseSpecies.baseSpecies === 'Plusle') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader']) && pokemon.baseSpecies.baseSpecies === 'Minun') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader'])) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Cheerleader",
+		rating: 0,
+		num: -70,
+	},
 };

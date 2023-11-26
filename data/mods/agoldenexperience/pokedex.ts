@@ -927,6 +927,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 75, def: 90, spa: 140, spd: 80, spe: 135},
 	},
+	plusle: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 90, def: 60, spa: 95, spd: 75, spe: 105},
+		abilities: {0: "Plus", 1: "Cheerleader", H: "Lightning Rod"},
+	},
+	minun: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 40, def: 90, spa: 75, spd: 105, spe: 105},
+		abilities: {0: "Minus", 1: "Cheerleader", H: "Volt Absorb"},
+	},
 	volbeat: {
 		inherit: true,
 		prevo: "Fiyounfly",
