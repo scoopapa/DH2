@@ -966,13 +966,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Exoskeleton');
 			this.add('-message', `${pokemon.name} sports a tough exoskeleton!`);
 		},
+		/*
 		onSourceModifyDamage(damage, source, target, move) {
-			if (!target.hasType('Bug')/*) {
-				if (*/&& ['Fighting','Ground','Grass'].includes(move.type)) {
+			if (!target.hasType('Bug')) {
+				if (&& ['Fighting','Ground','Grass'].includes(move.type)) {
 					this.debug('Exoskeleton non-Bug neutralize');
 					return this.chainModify(0.5);
-				}
-			/*}
+				}}
 			else //{
 				if (['Rock','Fire','Flying'].includes(move.type)) {
 					this.debug('Exoskeleton Bug neutralize');
@@ -988,6 +988,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEffectiveness(typeMod, target, type, move) {
 			if (type === 'Bug' && typeMod > 0) return 0;
 		},
+		//Bug resistances for non-Bugs implemented in scripts.ts/pokemon
 		isBreakable: true,
 		name: "Exoskeleton",
 		rating: 4,
