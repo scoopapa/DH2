@@ -1050,7 +1050,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtk(atk) {
 			return this.modify(atk, 1.5);
 		}, 
-		onModifyDamage(damage, source, target, move) {
+		/*onModifyDamage(damage, source, target, move) {
 			if (move) {
 				const eff = target.getMoveHitData(move).typeMod;
 				if (eff < 1) return;
@@ -1061,23 +1061,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return this.chainModify(0.25);
 				}
 			}
-		}, 
-	/*
+		}, */
 		onBeforeMovePriority: 5,
 		onBeforeMove(attacker, defender, move) {
-			defender.addVolatile('bluntforce');
+			if (move.category === 'Physical') {
+				defender.addVolatile('bluntforce');
+			}
 		},
-		condition: {
-			onEffectiveness(typeMod, target, type, move) {
-				if (move && target.getMoveHitData(move).typeMod === 1) {
-					return 0;
-				}
+		condition: { //Effectiveness implemented in scripts.ts/pokemon, stuff here is meant to get rid of it after the move is used
+			onAfterMoveSecondary(pokemon) {
+				pokemon.removeVolatile('bluntforce');
 			},
-			onAfterMove(pokemon) {
+			//onBeforeMove and onResidual are meant to catch the event where the attack misses
+			onBeforeMove(attacker, defender, move) {
+				attacker.removeVolatile('bluntforce');
+			},
+			onResidual(pokemon) {
 				pokemon.removeVolatile('bluntforce');
 			},
 		},
-	*/
+	
 		name: "Blunt Force",
 		rating: 3.5,
 		shortDesc: "(Mostly functional) This Pokemon's physical moves have 1.5x power but can't be super effective.",
