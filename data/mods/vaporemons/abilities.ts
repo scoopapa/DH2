@@ -978,8 +978,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.debug('Exoskeleton Bug neutralize');
 					return this.chainModify(0.5);
 				}
-			//}*/
-		},
+			//}
+		},*/
 		/*onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock' && target.hasType('Bug')) {
 				return damage / 2;
@@ -1062,7 +1062,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return this.chainModify(0.25);
 				}
 			}
-		}, */
+		},*/
 		onBeforeMovePriority: 5,
 		onBeforeMove(attacker, defender, move) {
 			if (move.category === 'Physical') {
