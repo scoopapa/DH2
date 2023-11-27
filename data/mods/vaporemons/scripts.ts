@@ -30,7 +30,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				totalTypeMod += this.battle.runEvent('Effectiveness', this, type, move, typeMod);
 			}
 			if (this.hasAbility('exoskeleton') && !this.hasType('Bug') && this.battle.dex.getEffectiveness(move, 'Bug') < 0) totalTypeMod--;
-			if (totalTypeMod > 0 && this.volatiles['bluntforce']) return 0;
+			if (this.volatiles['bluntforce'] && totalTypeMod > 0) return 0;
 			return totalTypeMod;
 		}
 	},
