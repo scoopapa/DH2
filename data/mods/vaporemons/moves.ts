@@ -1606,22 +1606,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 70,
 		category: "Physical",
 	   shortDesc: "2x power if the user has negative stat changes or a status.",
-		viable: true,
 		name: "Lash Out",
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon) {
 			const negativeVolatiles = ['confusion', 'taunt', 'torment', 'trapped', 'partiallytrapped', 'leechseed', 'sandspit',
-			'attract', 'curse', 'disable', 'electrify', 'embargo', 'encore', 'foresight', 'gastroacid', 'foresight', 'miracleeye',
-			'glaiverush', 'healblock', 'throatchop', 'windbreaker', 'nightmare', 'octolock', 'powder', 'saltcure', 'smackdown',
-			'syrupbomb', 'tarshot', 'telekinesis', 'yawn'];
-			const boosts: SparseBoostsTable = {};
-			let i: BoostName;
+				'attract', 'curse', 'disable', 'electrify', 'embargo', 'encore', 'foresight', 'gastroacid', 'foresight', 'miracleeye',
+				'glaiverush', 'healblock', 'throatchop', 'windbreaker', 'nightmare', 'octolock', 'powder', 'saltcure', 'smackdown',
+				'syrupbomb', 'tarshot', 'telekinesis', 'yawn'];
+			let i: BoostID;
 			for (i in pokemon.boosts) {
 				for (const volatile of negativeVolatiles) {
-					if (pokemon.status || pokemon.volatiles[volatile] || pokemon.boosts[i] < 0) {
+					if (pokemon.status && pokemon.status !== 'brn' || pokemon.volatiles[volatile] || pokemon.boosts[i] < 0) {
 						return this.chainModify(2);
+					} else if (pokemon.status === 'brn') {
+						return this.chainModify(4);
 					}
 				}
 			}
