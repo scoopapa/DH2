@@ -5,9 +5,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ["TMFE", "TMNFE", "TMLC"],
 	},
 	init() {
-		for (const i in this.data.FormatsData) {
-			if (i.endsWith('gmax')) this.modData('FormatsData', i).tier = "TMFE";
-		}
 		this.modData("Learnsets", "darmanitangalar").learnset.terablast = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.icespinner = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.iceshard = ["9L1"];
