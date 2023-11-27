@@ -532,10 +532,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Surge');
 			},
 		},
-		activate: "  The Electric Terrain activated [POKEMON]'s Quark Drive!",
-		activateFromItem: "  [POKEMON] used its Booster Energy to activate its Quark Drive!",
-		start: "  [POKEMON]'s [STAT] was heightened!",
-		end: "  The effects of [POKEMON]'s Quark Drive wore off!",
 		isPermanent: true,
 		name: "Quark Surge",
 		rating: 3,
@@ -1834,9 +1830,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMove(move) {
 			if (!move || !move.flags['slicing'] || move.target === 'self') return;
-			if (!move.secondaries) {
-				move.secondaries = [];
-			}
+			move.secondaries ||= [];
 			move.secondaries.push({
 				chance: 30,
 				status: 'psn',
