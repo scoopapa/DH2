@@ -532,6 +532,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Surge');
 			},
 		},
+		activate: "  The Electric Terrain activated [POKEMON]'s Quark Drive!",
+		activateFromItem: "  [POKEMON] used its Booster Energy to activate its Quark Drive!",
+		start: "  [POKEMON]'s [STAT] was heightened!",
+		end: "  The effects of [POKEMON]'s Quark Drive wore off!",
 		isPermanent: true,
 		name: "Quark Surge",
 		rating: 3,
