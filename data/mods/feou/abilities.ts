@@ -225,7 +225,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Light Drive');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'lightdrive' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -257,13 +257,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Light Drive');
+				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		activate: "  The Electric Terrain activated [POKEMON]'s Quark Drive!",
-		activateFromItem: "  [POKEMON] used its Booster Energy to activate its Quark Drive!",
-		start: "  [POKEMON]'s [STAT] was heightened!",
-		end: "  The effects of [POKEMON]'s Quark Drive wore off!",
 		isPermanent: true,
 		name: "Light Drive",
 		rating: 1,
@@ -349,7 +345,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['openingact'];
-			this.add('-end', pokemon, 'Opening Act', '[silent]');
+			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -393,7 +389,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Opening Act');
+				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
 		isPermanent: true,
@@ -491,7 +487,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['quarksurge'];
-			this.add('-end', pokemon, 'Quark Surge', '[silent]');
+			this.add('-end', pokemon, 'Quark Drive', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -503,7 +499,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Quark Surge');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'quarksurge' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -535,9 +531,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Quark Surge');
+				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
+		activate: "  The Electric Terrain activated [POKEMON]'s Quark Drive!",
+		activateFromItem: "  [POKEMON] used its Booster Energy to activate its Quark Drive!",
+		start: "  [POKEMON]'s [STAT] was heightened!",
+		end: "  The effects of [POKEMON]'s Quark Drive wore off!",
 		isPermanent: true,
 		name: "Quark Surge",
 		rating: 3,
@@ -655,7 +655,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['primitive'];
-			this.add('-end', pokemon, 'Primitive', '[silent]');
+			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -667,7 +667,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Primitive');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'primitive' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -699,7 +699,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Primitive');
+				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
 		isPermanent: true,
@@ -723,7 +723,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},*/
 		onEnd(pokemon) {
 			delete pokemon.volatiles['systempurge'];
-			this.add('-end', pokemon, 'System Purge', '[silent]');
+			this.add('-end', pokemon, 'Quark Drive', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -737,7 +737,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-message', `${pokemon.name} activated a System Purge in response to the attack!`);
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'systempurge' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -769,7 +769,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'System Purge');
+				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
 		isPermanent: true,
@@ -1050,8 +1050,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEnd(pokemon) {
-			delete pokemon.volatiles['faultyphoton'];
-			this.add('-end', pokemon, 'Faulty Photon', '[silent]');
+			delete pokemon.volatiles['quarkdrive'];
+			this.add('-end', pokemon, 'Quark Drive', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -1063,7 +1063,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Faulty Photon');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'faultyphoton' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -1095,7 +1095,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Faulty Photon');
+				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
 		isPermanent: true,
@@ -1322,7 +1322,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['firewall'];
-			this.add('-end', pokemon, 'Firewall', '[silent]');
+			this.add('-end', pokemon, 'Quark Drive', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -1334,7 +1334,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Firewall');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'firewall' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -1370,7 +1370,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Firewall');
+				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
 		isPermanent: true,
@@ -1395,7 +1395,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['nanorepairs'];
-			this.add('-end', pokemon, 'Nanorepairs', '[silent]');
+			this.add('-end', pokemon, 'Quark Drive', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -1407,7 +1407,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Nanorepairs');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'nanorepairs' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -1439,7 +1439,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Nanorepairs');
+				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
 		isPermanent: true,
@@ -1724,7 +1724,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Quark Drive', '[silent]');
+				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
 		isPermanent: true,
@@ -1779,7 +1779,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['weightoflife'];
-			this.add('-end', pokemon, 'Weight of Life', '[silent]');
+			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -1791,7 +1791,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Weight of Life');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'weightoflife' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -1823,7 +1823,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Weight of Life');
+				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
 		isPermanent: true,
@@ -2322,6 +2322,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const target = possibleTargets[rand];
 			const ability = target.getAbility();
 			if (pokemon.setAbility(ability) && target.setAbility('pillage')) {
+				this.add('-ability', pokemon, 'Pillage');
 				this.add('-activate', pokemon, 'move: Skill Swap', ability.name, 'Pillage', '[of] ' + target);
 			} else {
 				pokemon.setAbility('pillage');
@@ -2469,7 +2470,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['ancientmarble'];
-			this.add('-end', pokemon, 'Ancient Marble', '[silent]');
+			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -2481,7 +2482,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Ancient Marble');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'ancientmarble' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -2513,7 +2514,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Ancient Marble');
+				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
 		isPermanent: true,
@@ -2614,7 +2615,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['prehistorichunter'];
-			this.add('-end', pokemon, 'Prehistoric Hunter', '[silent]');
+			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -2623,12 +2624,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (effect?.id === 'boosterenergy') {
 					this.effectState.fromBooster = true;
 					this.add('-activate', pokemon, 'ability: Prehistoric Hunter', '[fromitem]');
+					this.add('-message', `${pokemon.name} used its Booster Energy to locate nearby prey!`);
 					pokemon.formeChange(forme, this.effect, false, '[msg]');
 				} else {
 					this.add('-activate', pokemon, 'ability: Prehistoric Hunter');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'prehistorichunter' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -2660,7 +2662,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Prehistoric Hunter');
+				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
 		isPermanent: true,
