@@ -992,7 +992,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Exoskeleton",
 		rating: 4,
-		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: +Bug resistances.",
+		shortDesc: "Removes Bug-type weaknesses if Bug, else adds Bug resistances.",
 	},
  /*
 	exoskeleton: {
@@ -1084,7 +1084,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	
 		name: "Blunt Force",
 		rating: 3.5,
-		shortDesc: "(Mostly functional) This Pokemon's physical moves have 1.5x power but can't be super effective.",
+		shortDesc: "This Pokemon's physical moves have 1.5x power but can't be super effective.",
 	},
 	waterveil: {
 		onStart(source) {
