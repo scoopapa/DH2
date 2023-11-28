@@ -134,15 +134,13 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (!externalMove) {
 					lockedMove = this.battle.runEvent('LockMove', pokemon);
 					if (lockedMove === true) lockedMove = false;
-					if (!lockedMove) {
-						if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
-							this.battle.add('cant', pokemon, 'nopp', move);
-							this.battle.clearActiveMove(true);
-							pokemon.moveThisTurnResult = false;
-							return;
-						}
-					} else {
+					if (lockedMove) {
 						sourceEffect = this.dex.conditions.get('lockedmove');
+					} else if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
+						this.battle.add('cant', pokemon, 'nopp', move);
+						this.battle.clearActiveMove(true);
+						pokemon.moveThisTurnResult = false;
+						return;
 					}
 					pokemon.moveUsed(move, targetLoc);
 				}
@@ -174,8 +172,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
 					const dancers = [];
 					for (const currentPoke of this.battle.getAllActive()) {
-						if (pokemon === currentPoke) continue;
-						if (currentPoke.hasAbility('choreography') && !currentPoke.abilityState.choreography && !currentPoke.isSemiInvulnerable()) {
+						if (currentPoke.hasAbility('choreography') && pokemon !== currentPoke && !currentPoke.abilityState.choreography
+							 && !currentPoke.isSemiInvulnerable() && !currentPoke.fainted) {
 							dancers.push(currentPoke);
 						}
 					}
@@ -189,7 +187,6 @@ export const Scripts: ModdedBattleScriptsData = {
 					const targetOf1stDance = this.battle.activeTarget!;
 					for (const dancer of dancers) {
 						if (this.battle.faintMessages()) break;
-						if (dancer.fainted) continue;
 						this.battle.add('-activate', dancer, 'ability: Choreography');
 						const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
 							targetOf1stDance :
@@ -328,17 +325,18 @@ export const Scripts: ModdedBattleScriptsData = {
 					damage = this.tryMoveHit(targets, pokemon, move);
 					if (damage === this.battle.NOT_FAIL) pokemon.moveThisTurnResult = null;
 					if (damage || damage === 0 || damage === undefined) moveResult = true;
+				} else if (targets.length) {
+					moveResult = this.trySpreadMoveHit(targets, pokemon, move);
 				} else {
-					if (!targets.length) {
+					//if (!targets.length) {
 						this.battle.attrLastMove('[notarget]');
 						//this.battle.add(this.battle.gen >= 5 ? '-fail' : '-notarget', pokemon);
 						this.battle.add('-fail', pokemon);
 						return false;
-					}
+					//}
 					//if (this.battle.gen === 4 && move.selfdestruct === 'always') {
 					//	this.battle.faint(pokemon, pokemon, move);
 					//}
-					moveResult = this.trySpreadMoveHit(targets, pokemon, move);
 				}
 				if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
 				if (!pokemon.hp) {
@@ -352,7 +350,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 				if (
 					!move.negateSecondary &&
-					!(move.hasSheerForce && pokemon.hasAbility(['sheerforce','forceofnature','sandwrath'])) &&
+					!(move.hasSheerForce && pokemon.hasAbility(['sheerforce','forceofnature','sandwrath','overwhelming'])) &&
 					!move.flags['futuremove']
 				) {
 					const originalHp = pokemon.hp;
@@ -364,7 +362,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 		
 				return true;
-			}
+			},
   		
 	},
 	pokemon: { 
