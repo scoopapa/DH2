@@ -910,6 +910,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 66, def: 90, spa: 130, spd: 100, spe: 90}, 
 		abilities: {0: "Heatproof Drive"}, 
 		weightkg: 19.1,
+		tags: ["Paradox"],
 	 },
 	aerowake: {
 		num: 66, 
@@ -982,6 +983,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		num: 70, 
 		//fusion: ["Tapu Lele", "Articuno-Galar"],
 		name: "Lelecuno-Galar", 
+		 gender: "N",
 		types: ["Psychic"],
 		baseStats: {hp: 80, atk: 85, def: 85, spa: 127, spd: 107, spe: 99}, 
 		abilities: {0: "Mind Domain"}, 
