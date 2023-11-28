@@ -2085,7 +2085,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 9] Lu-Gi-Oh",
-		mod: '00 lugioh',
+		mod: 'lugioh',
 		desc: `Testing..!`,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Z-Move Clause', /* 'Mega Data Mod' */],
 		onValidateTeam(team, format) {
