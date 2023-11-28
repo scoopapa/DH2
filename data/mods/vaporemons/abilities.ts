@@ -1,13 +1,11 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	zerotohero: {
 		onSourceAfterFaint(length, target, source, effect) {
-			if (effect?.effectType !== 'Move') {
+			if (effect?.effectType !== 'Move' || source.species.id !== 'palafin' || !source.hp || source.transformed || !source.side.foe.pokemonLeft) {
 				return;
 			}
-			if (source.species.id === 'palafin' && source.hp && !source.transformed && source.side.foe.pokemonLeft) {
-				this.add('-activate', source, 'ability: Zero to Hero');
-				source.formeChange('Palafin-Hero', this.effect, true);
-			}
+			this.add('-activate', source, 'ability: Zero to Hero');
+			source.formeChange('Palafin-Hero', this.effect, true);
 		},
 		isPermanent: true,
 		name: "Zero to Hero",
@@ -197,7 +195,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onStart(pokemon, source) {
 				this.add('-activate', pokemon, 'move: ' + this.effectState.sourceEffect, '[of] ' + source);
-				this.effectState.boundDivisor = source.hasItem('bindingband') ? 8 : 8;
+				this.effectState.boundDivisor = /*source.hasItem('bindingband') ? 8 :*/ 8;
 			},
 			onResidualOrder: 13,
 			onResidual(pokemon) {
@@ -249,14 +247,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!this.effectState.switchingIn) return;
 			this.add('-ability', pokemon, 'Cloud Nine');
 			this.effectState.switchingIn = false;
+			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
 			if (this.field.terrain) {
-				this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
-				let activated = false;
 				for (const other of pokemon.foes()) {
-					if (!activated) {
-						this.add('-ability', pokemon, 'Cloud Nine');
-					}
-					activated = true;
 					if (!other.volatiles['cloudnine']) {
 						other.addVolatile('cloudnine');
 					}
@@ -268,12 +261,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Cloud Nine');
 			this.add('-message', `${pokemon.name} suppresses the effects of the terrain!`);
 			if (this.field.terrain) {
-				let activated = false;
 				for (const other of pokemon.foes()) {
-					if (!activated) {
-						this.add('-ability', pokemon, 'Cloud Nine');
-					}
-					activated = true;
 					if (!other.volatiles['cloudnine']) {
 						other.addVolatile('cloudnine');
 					}
@@ -290,6 +278,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onEnd(source) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('cloudnine') && target !== source) {
+					this.debug('Cloud Nine is still active');
+					return;
+				}
+			}
 			if (this.field.terrain) {
 				const source = this.effectState.target;
 				for (const target of source.foes()) {
@@ -299,17 +293,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			source.abilityState.ending = true;
 			for (const pokemon of this.getAllActive()) {
 				if (pokemon.hasAbility('mimicry')) {
-					for (const target of this.getAllActive()) {
-						if (target.hasAbility('cloudnine') && target !== source) {
-							this.debug('Cloud Nine prevents type change');
-							return;
-						}
-					}
 					if (this.field.terrain) {
 						pokemon.addVolatile('mimicry');
 					} else {
 						const types = pokemon.baseSpecies.types;
-						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+						if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) continue;
 						this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
 						this.hint("Transform Mimicry changes you to your original un-transformed types.");
 					}
@@ -978,29 +966,33 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Exoskeleton');
 			this.add('-message', `${pokemon.name} sports a tough exoskeleton!`);
 		},
+		/*
 		onSourceModifyDamage(damage, source, target, move) {
-			if (target.hasType('Bug')) {
+			if (!target.hasType('Bug')) {
+				if (&& ['Fighting','Ground','Grass'].includes(move.type)) {
+					this.debug('Exoskeleton non-Bug neutralize');
+					return this.chainModify(0.5);
+				}}
+			else //{
 				if (['Rock','Fire','Flying'].includes(move.type)) {
 					this.debug('Exoskeleton Bug neutralize');
 					return this.chainModify(0.5);
 				}
-			}
-			else //{
-				if (['Fighting','Ground','Grass'].includes(move.type)) {
-					this.debug('Exoskeleton non-Bug neutralize');
-					return this.chainModify(0.5);
-				}
 			//}
-		},
-		onDamage(damage, target, source, effect) {
+		},*/
+		/*onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock' && target.hasType('Bug')) {
 				return damage / 2;
 			}
+		},*/
+		onEffectiveness(typeMod, target, type, move) {
+			if (type === 'Bug' && typeMod > 0) return 0;
 		},
+		//Bug resistances for non-Bugs implemented in scripts.ts/pokemon
 		isBreakable: true,
 		name: "Exoskeleton",
 		rating: 4,
-		shortDesc: "(Mostly functional) If Bug: no Bug weaknesses. If non-Bug: +Bug resistances.",
+		shortDesc: "Removes Bug-type weaknesses if Bug, else adds Bug resistances.",
 	},
  /*
 	exoskeleton: {
@@ -1059,33 +1051,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtk(atk) {
 			return this.modify(atk, 1.5);
 		}, 
-		onModifyDamage(damage, source, target, move) {
-			if (move && target.getMoveHitData(move).typeMod === 1) {
-				return this.chainModify(0.5);
+		/*onModifyDamage(damage, source, target, move) {
+			if (move) {
+				const eff = target.getMoveHitData(move).typeMod;
+				if (eff < 1) return;
+				if (eff === 1) {
+					return this.chainModify(0.5);
+				}
+				else {
+					return this.chainModify(0.25);
+				}
 			}
-			else if (move && target.getMoveHitData(move).typeMod > 1) {
-				return this.chainModify(0.25);
-			}
-		}, 
-	/*
+		},*/
 		onBeforeMovePriority: 5,
 		onBeforeMove(attacker, defender, move) {
-			defender.addVolatile('bluntforce');
+			if (move.category === 'Physical') {
+				defender.addVolatile('bluntforce');
+			}
 		},
-		condition: {
-			onEffectiveness(typeMod, target, type, move) {
-				if (move && target.getMoveHitData(move).typeMod === 1) {
-					return 0;
-				}
+		condition: { //Effectiveness implemented in scripts.ts/pokemon, stuff here is meant to get rid of it after the move is used
+			onAfterMoveSecondary(pokemon) {
+				pokemon.removeVolatile('bluntforce');
 			},
-			onAfterMove(pokemon) {
+			//onBeforeMove and onResidual are meant to catch the event where the attack misses
+			onBeforeMove(attacker, defender, move) {
+				attacker.removeVolatile('bluntforce');
+			},
+			onResidual(pokemon) {
 				pokemon.removeVolatile('bluntforce');
 			},
 		},
-	*/
+	
 		name: "Blunt Force",
 		rating: 3.5,
-		shortDesc: "(Mostly functional) This Pokemon's physical moves have 1.5x power but can't be super effective.",
+		shortDesc: "This Pokemon's physical moves have 1.5x power but can't be super effective.",
 	},
 	waterveil: {
 		onStart(source) {
@@ -1118,7 +1117,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.secondaries) {
 				this.debug('Shield Dust neutralize');
-				return this.chainModify(0.67);
+				return this.chainModify([2744,4096]); //Note that 2/3 would be closer to 2731/4096
 			}
 		},
 		isBreakable: true,
@@ -1136,7 +1135,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			else if (move.type === 'Fire') {
 				this.debug('Blaze boost');
-				return this.chainModify(1.2);
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -1147,7 +1146,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			else if (move.type === 'Fire') {
 				this.debug('Blaze boost');
-				return this.chainModify(1.2);
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		name: "Blaze",
@@ -1164,7 +1163,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			else if (move.type === 'Water') {
 				this.debug('Torrent boost');
-				return this.chainModify(1.2);
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -1175,7 +1174,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			else if (move.type === 'Water') {
 				this.debug('Torrent boost');
-				return this.chainModify(1.2);
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		name: "Torrent",
@@ -1192,7 +1191,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			else if (move.type === 'Grass') {
 				this.debug('Overgrow boost');
-				return this.chainModify(1.2);
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -1203,7 +1202,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			else if (move.type === 'Grass') {
 				this.debug('Overgrow boost');
-				return this.chainModify(1.2);
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		name: "Overgrow",
@@ -1220,7 +1219,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			else if (move.type === 'Bug') {
 				this.debug('Swarm boost');
-				return this.chainModify(1.2);
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		onModifySpAPriority: 5,
@@ -1231,7 +1230,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			else if (move.type === 'Bug') {
 				this.debug('Swarm boost');
-				return this.chainModify(1.2);
+				return this.chainModify([0x1333, 0x1000]);
 			}
 		},
 		name: "Swarm",
@@ -1496,7 +1495,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					let showMsg = false;
 					let i: BoostID;
 					for (i in boost) {
-						if (boost[i]! < 0 || boost[i]! > 0) {
+						if (boost[i]! !== 0) {
 							delete boost[i];
 							showMsg = true;
 						}
@@ -1542,9 +1541,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	mimicry: {
 		shortDesc: "This Pokémon's type changes to match the Terrain. Type reverts when Terrain ends.",
 		onStart(pokemon) {
+			if (pokemon.volatiles['cloudnine']) {
+				this.debug('Cloud Nine prevents type change (check 1)');
+				return;
+			}
 			for (const target of this.getAllActive()) {
 				if (target.hasAbility('cloudnine')) {
-					this.debug('Cloud Nine prevents type change');
+					this.debug('Cloud Nine prevents type change (check 2)');
 					return;
 				}
 			}
@@ -1558,9 +1561,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAnyTerrainStart() {
+			if (pokemon.volatiles['cloudnine']) {
+				this.debug('Cloud Nine prevents type change (check 1)');
+				return;
+			}
 			for (const target of this.getAllActive()) {
 				if (target.hasAbility('cloudnine')) {
-					this.debug('Cloud Nine prevents type change');
+					this.debug('Cloud Nine prevents type change (check 2)');
 					return;
 				}
 			}
@@ -1575,21 +1582,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onStart(pokemon) {
 				let newType;
 				switch (this.field.terrain) {
-				case 'electricterrain':
-					newType = 'Electric';
-					break;
-				case 'grassyterrain':
-					newType = 'Grass';
-					break;
-				case 'mistyterrain':
-					newType = 'Fairy';
-					break;
-				case 'psychicterrain':
-					newType = 'Psychic';
-					break;
-				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
-				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
+					case 'electricterrain':
+						newType = 'Electric';
+						break;
+					case 'grassyterrain':
+						newType = 'Grass';
+						break;
+					case 'mistyterrain':
+						newType = 'Fairy';
+						break;
+					case 'psychicterrain':
+						newType = 'Psychic';
+						break;
+					default:
+						return;
 				}
+				if (pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
+				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
 			},
 			onUpdate(pokemon) {
 				for (const target of this.getAllActive()) {
@@ -1617,10 +1626,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	surgesurfer: {
 		shortDesc: "If Electric Terrain is active, this Pokémon's Speed is doubled.",
-		onModifySpe(spe) {
+		onModifySpe(spe,pokemon) {
+			if (pokemon.volatiles['cloudnine']) {
+				this.debug('Cloud Nine prevents Speed increase (check 1)');
+				return;
+			}
 			for (const target of this.getAllActive()) {
 				if (target.hasAbility('cloudnine')) {
-					this.debug('Cloud Nine prevents Speed increase');
+					this.debug('Cloud Nine prevents Speed increase (check 2)');
 					return;
 				}
 			}
@@ -1775,7 +1788,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	adaptability: {
 		onModifyMove(move, pokemon) {
-			if (move.type === pokemon.teraType && pokemon.baseSpecies.types.includes(pokemon.teraType) && pokemon.hasItem('terashard')) {
+			if (move.type === pokemon.teraType && pokemon.hasItem('terashard') && pokemon.baseSpecies.types.includes(pokemon.teraType)) {
 				move.stab = 2.25;
 			} else {
 				move.stab = 2;
