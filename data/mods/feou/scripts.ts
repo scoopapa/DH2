@@ -379,7 +379,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (notImmune) return true;
 			if (message) {
 				if (notImmune === null) {
-					this.battle.add('-immune', this, '[from] ability: ' + getAbility().name);
+					this.battle.add('-immune', this, '[from] ability: ' + this.getAbility().name);
 				} else {
 					this.battle.add('-immune', this);
 				}
