@@ -40,19 +40,22 @@ export const Scripts: ModdedBattleScriptsData = {
 						return "Mawlakazam-Mega-Y"; 
 					}
 					break;
+				case "Chomptry":
+					if (item.name === "Garchompite") {
+						return "Chomptry-Mega";
+					}
 			}
 			
 			return item.megaStone;
 		},
 		canUltraBurst(pokemon) {
-			if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
-				pokemon.getItem().id === 'ultranecroziumz') {
-				return "Necrozma-Ultra";
-			}
-			if (['Necrotrik-Dawn-Wings'].includes(pokemon.baseSpecies.name) &&
-				pokemon.getItem().id === 'depletedultranecroziumz') {
+			if (pokemon.baseSpecies.name === 'Necrotrik-Dawn-Wings' && pokemon.getItem().id === 'depletedultranecroziumz') {
 				return "Necrotrik-Ultra";
 			}
+			/*if (['Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane'].includes(pokemon.baseSpecies.name) &&
+				pokemon.getItem().id === 'ultranecroziumz') {
+				return "Necrozma-Ultra";
+			}*/
 			return null;
 		},
 		hitStepTryImmunity(targets, pokemon, move) {
@@ -201,7 +204,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.checkWin();
 			},
 
-		/*
+		
 			useMoveInner(moveOrMoveName, pokemon, target, sourceEffect, zMove, maxMove) {
 				if (!sourceEffect && this.battle.effect.id) sourceEffect = this.battle.effect;
 				if (sourceEffect && ['instruct', 'custapberry'].includes(sourceEffect.id)) sourceEffect = null;
@@ -362,7 +365,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 				return true;
 			}
-  		*/
+  		
 	},
 	pokemon: { 
 		runImmunity(type: string, message?: string | boolean) {
