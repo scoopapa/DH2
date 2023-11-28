@@ -2084,6 +2084,23 @@ export const Formats: FormatList = [
 		unbanlist: ['Athleetah'],
 	},
 	{
+		name: "[Gen 9] Lu-Gi-Oh",
+		mod: '00 lugioh',
+		desc: `Testing..!`,
+		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod', 'Z-Move Clause', /* 'Mega Data Mod' */],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['Magic'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 1] Glitch OU",
 		mod: 'gen1glitch',
 		ruleset: ['Standard', 'Data Mod'],
