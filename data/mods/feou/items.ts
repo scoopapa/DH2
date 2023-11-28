@@ -31,8 +31,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			this.effectState.started = true;
 		},
 		onUpdate(pokemon) {
-			if (!this.effectState.started || pokemon.transformed) return;
-			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+			if (!this.effectState.started || pokemon.transformed/*) return;
+			if (*/|| this.queue.peek(true)?.choice === 'runSwitch') return;
 
 			if (!this.field.isWeather('sunnyday')) {
 				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife',
@@ -46,7 +46,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 			if (!this.field.isTerrain('electricterrain')) {
-				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'dyschronometria',
+				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'heatproofdrive',
 											'faultyphoton', 'firewall']) { 
 					if (pokemon.hasAbility(quark)) {
 						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
@@ -85,11 +85,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Garpyuku",
 		itemUser: ["Garpyuku"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if ([item.megaEvolves,"Chomptry"].includes(source.baseSpecies.baseSpecies)) return false;
 			return true;
 		},
 		num: 683,
-		desc: "If held by a Garpyuku, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Garpyuku or Chomptry, this item allows it to Mega Evolve in battle.",
 	},
 	gengarite: {
 		name: "Gengarite",
@@ -284,5 +284,31 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 212,
 		gen: 4,
 		rating: 1,
+	},
+	gyaradosite: {
+		name: "Gyaradosite",
+		spritenum: 589,
+		megaStone: "Overgyara-Mega",
+		megaEvolves: "Overgyara",
+		itemUser: ["Overgyara"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 670,
+		desc: "If held by an Overgyara, this item allows it to Mega Evolve in battle.",
+	},
+	aerodactylite: {
+		name: "Aerodactylite",
+		spritenum: 577,
+		megaStone: "Aero Wake-Mega",
+		megaEvolves: "Aero Wake",
+		itemUser: ["Aero Wake"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 670,
+		desc: "If held by an Aero Wake, this item allows it to Mega Evolve in battle.",
 	},
 };
