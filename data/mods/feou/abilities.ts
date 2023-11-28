@@ -3025,6 +3025,32 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Mind Domain",
 		rating: 4,
 	},
+	forcedfencer: {
+		shortDesc: "Pressure + Stance Change",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Forced Fencer');
+		},
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			return 1;
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Deoxyslash-Speed' || attacker.transformed) return;
+			var targetForme;
+			if (move.id === 'kingsshield') {
+				targetForme = 'Deoxyslash-Speed';
+			} else if (move.category !== 'Status') {
+				targetForme = 'Deoxyslash-Speed-Blade';
+			} else {
+				return;
+			}
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		isPermanent: true,
+		name: "Forced Fencer",
+		rating: 4,
+	},
 
 	//Vanilla abilities
 	naturalcure: {
