@@ -167,7 +167,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyDamage(damage, source, target, move) {
 			let ratio = Math.floor(source.getStat('spe') / target.getStat('spe'));
 			if (!isFinite(ratio)) ratio = 0;
-			if (ratio > 1) {
+			if (ratio > 0) {
 				if (target.hasType('Water') || target.hasType('Dragon')) {
 					return this.chainModify([4915, 4096]);
 				} else {
