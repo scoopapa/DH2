@@ -550,7 +550,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	ironmatcha: {
-		tier: "OU",
+		tier: "FEOU",
 		randomBattleMoves: ["matchagotcha", "sludgewave", "calmmind", "fierydance", "strengthsap"],
 		randomBattleLevel: 75,
 		doublesTier: "DOU",
