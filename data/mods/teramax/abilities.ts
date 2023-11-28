@@ -165,9 +165,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	commander: {
 		onModifyDamage(damage, source, target, move) {
-			const foeSpe = target.getStat('spe', false, true);
-			const userSpe = source.getStat('spe', false, true);
-			if (move && foeSpe < userSpe) {
+			let ratio = Math.floor(source.getStat('spe') / target.getStat('spe'));
+			if (!isFinite(ratio)) ratio = 0;
+			if (ratio > 1) {
 				if (target.hasType('Water') || target.hasType('Dragon')) {
 					return this.chainModify([4915, 4096]);
 				} else {
