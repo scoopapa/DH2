@@ -69,6 +69,22 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "centiskorch").learnset.firstimpression = ["9L1"];
 		this.modData("Learnsets", "centiskorch").learnset.superpower = ["9L1"];
 		this.modData("Learnsets", "centiskorch").learnset.wildcharge = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.headlongrush = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.bounce = ["9L1"];
+		this.modData("Learnsets", "falinks").learnset.rockblast = ["9L1"];
+		this.modData("Learnsets", "falinks").learnset.bulletseed = ["9L1"];
+		this.modData("Learnsets", "falinks").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "scovillian").learnset.flareblitz = ["9L1"];
+		this.modData("Learnsets", "scovillian").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "dudunsparce").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "dudunsparce").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.shoreup = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.icebeam = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.uturn = ["9L1"];
 	},
 	actions: {
 		inherit: true,
