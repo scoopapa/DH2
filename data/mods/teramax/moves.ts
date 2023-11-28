@@ -100,6 +100,77 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 	},
+	noretreat: {
+		num: 748,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "+1 to all stats. Once per switch-in.",
+		name: "No Retreat",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'noretreat',
+		onTry(source, target, move) {
+			if (source.volatiles['noretreat']) return false;
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'move: No Retreat');
+			},
+		},
+		boosts: {
+			atk: 1,
+			def: 1,
+			spa: 1,
+			spd: 1,
+			spe: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+	},
+	spicyextract: {
+		num: 858,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
+		viable: true,
+		name: "Spicy Extract",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				def: -1,
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Cute",
+	},
+	hyperdrill: {
+		num: 887,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Ignores resistances.",
+		name: "Hyper Drill",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, mirror: 1},
+		onEffectiveness(typeMod, target, type, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				return 0;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		contestType: "Clever",
+	},
 
 // Max and GMax Moves
 	gmaxbefuddle: {
