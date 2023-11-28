@@ -172,6 +172,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return this.chainModify([4915, 4096]);
 				} else {
 					return this.chainModify([4506, 4096]);
+				}
 			}
 		},
 		onUpdate(pokemon) {
