@@ -138,7 +138,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	   },
 		condition: {
 			duration: 2,
-			onStart(pokemon) {
+			onSwitchIn(pokemon) {
 				this.add('-message', `${pokemon.name} is being powered up by the Power Spot!`);
 			},
 			onModifyDamage(damage, source, target, move) {
