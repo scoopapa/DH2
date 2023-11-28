@@ -549,6 +549,74 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["esperwing", "surf", "flipturn", "stealthrock", "calmmind"],
 		randomBattleLevel: 75,
 	},
+	ironmatcha: {
+		tier: "OU",
+		randomBattleMoves: ["matchagotcha", "sludgewave", "calmmind", "fierydance", "strengthsap"],
+		randomBattleLevel: 75,
+		doublesTier: "DOU",
+	},
+	aerowake: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["hurricane", "earthpower", "hydropump", "flipturn"],
+		randomBattleLevel: 75,
+	},
+	aerowakemega: {
+		tier: "Uber",
+		requiredItem: "Aerodactylite",
+		doublesTier: "DOU",
+	},
+	anoraidon: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["collisioncourse", "uturn", "aquajet", "stoneedge"],
+		randomBattleLevel: 75,
+	},
+	lurret: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["tidyup", "knockoff", "doubleedge", "uturn","zenheadbutt"],
+		randomBattleLevel: 80,
+	},
+	deoxyslashspeed: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["kingsshield", "nastyplot", "psychoboost", "psyshock", "flashcannon", "swordsdance", "shadowsneak", "zenheadbutt", "ironhead"],
+		randomBattleLevel: 75,
+	},
+	lelecunogalar: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["freezingglare", "moonblast", "trick", "thunderbolt"],
+		randomBattleLevel: 75,
+	},
+	overgyara: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["crunch", "earthquake", "dragondance", "barbbarrage"],
+		randomBattleLevel: 75,
+	},
+	overgyaramega: {
+		tier: "FEOU",
+		requiredItem: "Gyaradosite",
+		doublesTier: "DOU",
+		randomBattleMoves: ["crunch", "earthquake", "dragondance", "barbbarrage"],
+		randomBattleLevel: 75,
+	},
+	chomptry: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["crunch", "scaleshot", "earthquake", "stoneedge", "earthpower", "dracometeor", "darkpulse", "fireblast"],
+		randomBattleLevel: 75,
+	},
+	chomptrymega: {
+		tier: "FEOU",
+		requiredItem: "Garchompite",
+		doublesTier: "DOU",
+		randomBattleMoves: ["crunch", "scaleshot", "earthquake", "stoneedge", "earthpower", "dracometeor", "darkpulse", "fireblast"],
+		randomBattleLevel: 75,
+	},
+
 
 	larvix: {
 		tier: "FELC",
@@ -590,6 +658,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	ruffleplup: {
 		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	fishkarphisui: {
+		tier: "FELC",
+		doublesTier: "DOU",
+		randomBattleMoves: ["destinybond", "toxicspikes", "taunt", "sleeptalk"],
+		randomBattleLevel: 100,
+	},
+	seeble: {
+		tier: "FELC",
+		doublesTier: "DOU",
+	},
+	nuzbite: {
+		tier: "FENFE",
 		doublesTier: "DOU",
 	},
 };
