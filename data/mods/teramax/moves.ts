@@ -155,6 +155,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		num: 887,
 		accuracy: 100,
 		basePower: 100,
+		basePowerCallback(pokemon, target, move) {
+			if (target.hasType('Steel') && target.hasType('Rock')) {
+				return move.basePower * 4;
+			} else if (target.hasType('Steel') || target.hasType('Rock')) {
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
 		category: "Physical",
 		shortDesc: "Ignores resistances.",
 		name: "Hyper Drill",
