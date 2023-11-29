@@ -912,8 +912,17 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 19.1,
 		tags: ["Paradox"],
 	 },
-	aerowake: {
+	anoraidon: {
 		num: 66, 
+		//fusion: ["Anorith", "Koraidon"],
+		name: "Anoraidon", 
+		types: ["Fighting", "Bug"],
+		baseStats: {hp: 75, atk: 115, def: 85, spa: 65, spd: 75, spe: 105}, 
+		abilities: {0: "Mercury Pulse"}, 
+		weightkg: 157.7,
+	 },
+	aerowake: {
+		num: 67, 
 		//fusion: ["Aerodactyl", "Walking Wake"],
 		name: "Aero Wake", 
 		types: ["Water", "Flying"],
@@ -924,7 +933,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: ["Aero Wake", "Aero Wake-Mega"],
 	 },
 	 aerowakemega: {
-		num: 66, 
+		num: 67, 
 		//fusion: ["Aerodactyl-Mega", "Walking Wake"],
 		name: "Aero Wake-Mega", 
 		baseSpecies: "Aero Wake",
@@ -936,16 +945,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		requiredItem: "Aerodactylite",
 		battleOnly: "Aero Wake",
 	 },
-	anoraidon: {
-		num: 67, 
-		//fusion: ["Anorith", "Koraidon"],
-		name: "Anoraidon", 
-		types: ["Fighting", "Bug"],
-		baseStats: {hp: 75, atk: 115, def: 85, spa: 65, spd: 75, spe: 105}, 
-		abilities: {0: "Mercury Pulse"}, 
-		weightkg: 157.7,
-	 },
-	lurret: {
+	/*lurret: {
 		num: 68, 
 		//fusion: ["Lugia", "Furret"],
 		name: "Lurret", 
@@ -953,9 +953,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 93, def: 97, spa: 67, spd: 104, spe: 100}, 
 		abilities: {0: "Frisk Scale"}, 
 		weightkg: 124.2,
-	 },
+	 },*/
 		deoxyslashspeed: {
-		num: 69, 
+		num: 68, 
 		//fusion: ["Deoxys-Speed", "Aegislash"],
 		name: "Deoxyslash-Speed", 
 		baseForme: "Shield",
@@ -967,7 +967,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: ["Deoxyslash-Speed", "Deoxyslash-Speed-Blade"],
 	 },
 	 deoxyslashspeedblade: {
-		num: 69, 
+		num: 68, 
 		//fusion: ["Deoxys-Speed", "Aegislash"],
 		name: "Deoxyslash-Speed-Blade", 
 		baseSpecies: "Deoxyslash-Speed",
@@ -979,7 +979,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		requiredAbility: "Forced Fencer",
 		battleOnly: "Deoxyslash-Speed",
 	 },
-	 lelecunogalar: {
+	 /*lelecunogalar: {
 		num: 70, 
 		//fusion: ["Tapu Lele", "Articuno-Galar"],
 		name: "Lelecuno-Galar", 
@@ -988,9 +988,9 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 85, def: 85, spa: 127, spd: 107, spe: 99}, 
 		abilities: {0: "Mind Domain"}, 
 		weightkg: 34.7,
-	 },
+	 },*/
 	overgyara: {
-		num: 71,
+		num: 69,
 		//fusion: ["Overqwil", "Gyarados"],
 		name: "Overgyara", 
 		types: ["Dark", "Flying"],
@@ -1002,7 +1002,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: ["Overgyara", "Overgyara-Mega"],
 	 },
 	 overgyaramega: {
-		num: 71, 
+		num: 69, 
 		//fusion: ["Overqwil", "Gyarados-Mega"],
 		name: "Overgyara-Mega", 
 		baseSpecies: "Overgyara",
@@ -1015,7 +1015,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Overgyara",
 	 },
 	chomptry: {
-		num: 72, 
+		num: 70, 
 		//fusion: ["Garchomp", "Shiftry"],
 		name: "Chomptry", 
 		types: ["Dragon", "Dark"],
@@ -1027,7 +1027,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: ["Chomptry", "Chomptry-Mega"],
 	 },
 	 chomptrymega: {
-		num: 72, 
+		num: 70, 
 		//fusion: ["Overqwil", "Gyarados-Mega"],
 		name: "Chomptry-Mega", 
 		baseSpecies: "Chomptry",
