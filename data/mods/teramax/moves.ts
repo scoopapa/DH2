@@ -1184,4 +1184,204 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+
+// changing hardcoded max move powers just to be safe
+	heatcrash: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	bonemerang: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	bonerush: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	bulletseed: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	cometpunch: {
+		inherit: true,
+		maxMove: {basePower: 100},
+	},
+	counter: {
+		inherit: true,
+		maxMove: {basePower: 55},
+	},
+	crushgrip: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
+	doublehit: {
+		inherit: true,
+		maxMove: {basePower: 100},
+	},
+	doubleironbash: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
+	doublekick: {
+		inherit: true,
+		maxMove: {basePower: 60},
+	},
+	dragondarts: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	dualchop: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	dualwingbeat: {
+		inherit: true,
+		maxMove: {basePower: 80},
+	},
+	electroball: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	endeavor: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	fissure: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	flail: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	frustration: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	return: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	furyswipes: {
+		inherit: true,
+		maxMove: {basePower: 80},
+	},
+	geargrind: {
+		inherit: true,
+		isNonstandard: null,
+		maxMove: {basePower: 110},
+	},
+	grassknot: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	guillotine: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	gyroball: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	heavyslam: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	horndrill: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	iciclespear: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	magnitude: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
+	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+		maxMove: {basePower: 75},
+	},
+	naturalgift: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	pinmissile: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	powertrip: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	punishment: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	risingvoltage: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
+	rockblast: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	scaleshot: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	seismictoss: {
+		inherit: true,
+		maxMove: {basePower: 55},
+	},
+	sheercold: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	spikecannon: {
+		inherit: true,
+		maxMove: {basePower: 100},
+	},
+	storedpower: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	surgingstrikes: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	tailslap: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	terrainpulse: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	tripleaxel: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
+	triplekick: {
+		inherit: true,
+		maxMove: {basePower: 60},
+	},
+	trumpcard: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	twineedle: {
+		inherit: true,
+		maxMove: {basePower: 80},
+	},
+	weatherball: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	wringout: {
+		inherit: true,
+		maxMove: {basePower: 120},
+	},
 };
