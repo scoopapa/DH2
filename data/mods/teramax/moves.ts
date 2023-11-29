@@ -161,8 +161,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
-		onEffectiveness(typeMod, target, type) {
-			if (type === 'Steel') return typeMod + 1;
+		onModifyDamage(damage, source, target, move) {
+			if (target.hasType('Steel') && target.hasType('Rock')) {
+				return this.chainModify(4);
+			} else if (target.getMoveHitData(move).typeMod < 0) {
+				return this.chainModify(2);
+			}
 		},
 		secondary: null,
 		target: "normal",
