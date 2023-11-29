@@ -931,6 +931,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 169.5,
 		otherFormes: ["Aero Wake-Mega"],
 		formeOrder: ["Aero Wake", "Aero Wake-Mega"],
+		tags: ["Paradox"],
 	 },
 	 aerowakemega: {
 		num: 67, 
@@ -944,6 +945,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 189.5,
 		requiredItem: "Aerodactylite",
 		battleOnly: "Aero Wake",
+		tags: ["Paradox"],
 	 },
 	/*lurret: {
 		num: 68, 
