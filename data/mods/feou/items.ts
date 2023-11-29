@@ -217,22 +217,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Druddizor, this item allows it to Mega Evolve in battle.",
 	},
 	
-	lifeorb: {
-		name: "Life Orb",
-		spritenum: 249,
-		fling: {
-			basePower: 30,
-		},
-		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([5324, 4096]);
-		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (source && source !== target && move && move.category !== 'Status' && !source.forceSwitchFlag && !source.hasAbility(['sandwrath','forceofnature'])) {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.items.get('lifeorb'));
-			}
-		},
-		num: 270,
-	},
 	jabocaberry: {
 		name: "Jaboca Berry",
 		spritenum: 230,
