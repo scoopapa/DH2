@@ -156,9 +156,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		basePowerCallback(pokemon, target, move) {
-			if (target.hasType('Steel') && target.hasType('Rock')) {
-				return move.basePower * 4;
-			} else if (target.hasType('Steel') || target.hasType('Rock')) {
+			if (target.hasType('Steel') || target.hasType('Rock')) {
 				return move.basePower * 2;
 			}
 			return move.basePower;
