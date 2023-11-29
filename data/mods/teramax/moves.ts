@@ -1226,10 +1226,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		maxMove: {basePower: 100},
 	},
-	doubleironbash: {
-		inherit: true,
-		maxMove: {basePower: 120},
-	},
 	doublekick: {
 		inherit: true,
 		maxMove: {basePower: 60},
@@ -1366,10 +1362,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	tripleaxel: {
 		inherit: true,
 		maxMove: {basePower: 120},
-	},
-	triplekick: {
-		inherit: true,
-		maxMove: {basePower: 60},
 	},
 	trumpcard: {
 		inherit: true,
