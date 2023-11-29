@@ -9770,7 +9770,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	lurret: {
+	/*lurret: {
 		learnset: {
 			aerialace: ["9L1"],
 			aeroblast: ["9L1"],
@@ -9894,7 +9894,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			waterpulse: ["9L1"],
 			zenheadbutt: ["9L1"],
 		},
-	},
+	},*/
 	deoxyslashspeed: {
 		learnset: {
 			aerialace: ["9L1"],
@@ -10035,7 +10035,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zenheadbutt: ["9L1"],
 		},
 	},
-	lelecunogalar: {
+	/*lelecunogalar: {
 		learnset: {
 			allyswitch: ["9L1"],
 			aromatherapy: ["9L1"],
@@ -10130,7 +10130,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			trickroom: ["9L1"],
 			uturn: ["9L1"],
 		},
-	},
+	},*/
 	overgyara: {
 		learnset: {
 			avalanche: ["9L1"],
