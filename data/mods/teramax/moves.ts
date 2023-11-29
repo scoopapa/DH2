@@ -160,7 +160,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		name: "Hyper Drill",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
 		onEffectiveness(typeMod, target, type, move) {
 			if (target.getMoveHitData(move).typeMod < 0) {
 				return 0;
