@@ -1182,8 +1182,18 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	geargrind: {
+		inherit: true,
+		maxMove: {basePower: 110},
+	},
+	multiattack: {
+		inherit: true,
+		isNonstandard: null,
+		maxMove: {basePower: 75},
+	},
 
-// changing hardcoded max move powers just to be safe
+	/*
+	// was used to change hardcoded maxmove BPs, but the code already changes the vast majority of them
 	heatcrash: {
 		inherit: true,
 		maxMove: {basePower: 110},
@@ -1297,11 +1307,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		maxMove: {basePower: 120},
 	},
-	multiattack: {
-		inherit: true,
-		isNonstandard: null,
-		maxMove: {basePower: 75},
-	},
 	naturalgift: {
 		inherit: true,
 		maxMove: {basePower: 110},
@@ -1381,5 +1386,5 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	wringout: {
 		inherit: true,
 		maxMove: {basePower: 120},
-	},
+	}, */
 };
