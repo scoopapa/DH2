@@ -1168,7 +1168,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.suppressedParadox ||= abilityHolder;
 				if (move.suppressedParadox !== abilityHolder || defender === abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
+											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (defender.hasAbility(paradox)) {
 						if (defender?.volatiles[paradox].bestStat !== 'def') return;
@@ -1183,7 +1183,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.suppressedParadox ||= abilityHolder;
 				if (move.suppressedParadox !== abilityHolder || attacker === abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
+											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
 						if (attacker?.volatiles[paradox].bestStat !== 'spa') return;
@@ -1198,7 +1198,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.suppressedParadox ||= abilityHolder;
 				if (move.suppressedParadox !== abilityHolder || defender === abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
+											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (defender.hasAbility(paradox)) {
 						if (defender?.volatiles[paradox].bestStat !== 'spd') return;
@@ -1257,6 +1257,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating damage boost');
+						return;
+					}
+				}
 				const isItFire = (move.type === 'Fire');
 				if (this.effectState.bestStat === 'atk') {
 					this.debug('Firewall atk boost');
@@ -1271,6 +1277,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating damage boost');
+						return;
+					}
+				}
 				const isItFire = (move.type === 'Fire');
 				if (this.effectState.bestStat === 'spa') {
 					this.debug('Firewall spa boost');
@@ -1285,6 +1297,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Firewall spe boost');
 				return this.chainModify(1.5);
 			},
