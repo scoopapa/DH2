@@ -1184,12 +1184,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	geargrind: {
 		inherit: true,
-		maxMove: {basePower: 110},
+		isNonstandard: null,
 	},
 	multiattack: {
 		inherit: true,
 		isNonstandard: null,
-		maxMove: {basePower: 75},
 	},
 
 	/*
