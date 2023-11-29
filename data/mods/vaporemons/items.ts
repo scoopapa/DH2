@@ -1021,7 +1021,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		name: "Desert Rose",
 		spritenum: 603,
 		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Florges') return false;
+			if (source.baseSpecies.num === 671) return false;
 			return true;
 		},
 		onSwitchIn(pokemon) {
@@ -1032,30 +1032,30 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
-			if (pokemon.baseSpecies.name === 'Florges' && this.field.isWeather('sandstorm')) {
+			if (pokemon.baseSpecies.num === 671 && this.field.isWeather('sandstorm')) {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.name === 'Florges' && this.field.isWeather('sandstorm')) {
+			if (pokemon.baseSpecies.num === 671 && this.field.isWeather('sandstorm')) {
 				return this.chainModify(1.5);
 			}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.volatiles['healblock'] && pokemon.baseSpecies.baseSpecies === 'Florges') {
+			if (pokemon.volatiles['healblock'] && pokemon.baseSpecies.num === 671) {
 				this.add('-activate', pokemon, 'item: Desert Rose');
 				pokemon.removeVolatile('healblock');
 				this.add('-end', pokemon, 'move: Heal Block', '[from] item: Desert Rose');
 			}
 		},
 		onHit(target, source, move) {
-			if (move?.volatileStatus === 'healblock' && target.baseSpecies.baseSpecies === 'Florges') {
+			if (move?.volatileStatus === 'healblock' && target.baseSpecies.num === 671) {
 				this.add('-immune', target, 'healblock', '[from] item: Desert Rose');
 			}
 		},
 		onTryHit(pokemon, target, move) {
-			if (move.id === 'healblock' && pokemon.baseSpecies.baseSpecies === 'Florges') {
+			if (move.id === 'healblock' && target.baseSpecies.num === 671) {
 				this.add('-immune', pokemon, '[from] item: Desert Rose');
 				return null;
 			}

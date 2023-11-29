@@ -40,6 +40,47 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 55, atk: 70, def: 80, spa: 135, spd: 125, spe: 105},
 	},
+	stonjourner: {
+		inherit: true,
+		types: ["Rock", "Ground"],
+		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 60, spe: 80},
+	},
+	falinks: {
+		inherit: true,
+		types: ["Fighting", "Rock"],
+		baseStats: {hp: 65, atk: 115, def: 100, spa: 70, spd: 60, spe: 110},
+		abilities: {0: "Battle Armor", 1: "Technician", H: "Defiant"},
+	},
+	scovillain: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 123, def: 65, spa: 93, spd: 65, spe: 95},
+		abilities: {0: "Chlorophyll", 1: "Intimidate", H: "Moody"},
+	},
+	dudunsparce: {
+		inherit: true,
+		baseStats: {hp: 130, atk: 100, def: 80, spa: 90, spd: 80, spe: 55},
+		abilities: {0: "Serene Grace", 1: "Stamina", H: "Rattled"},
+	},
+	dudunsparcethreesegment: {
+		inherit: true,
+		baseStats: {hp: 130, atk: 100, def: 80, spa: 90, spd: 80, spe: 55},
+		abilities: {0: "Serene Grace", 1: "Stamina", H: "Rattled"},
+	},
+	eiscue: {
+		inherit: true,
+		types: ["Ice", "Ground"],
+		baseStats: {hp: 75, atk: 110, def: 130, spa: 65, spd: 130, spe: 50},
+	},
+	eiscuenoice: {
+		inherit: true,
+		types: ["Ice", "Ground"],
+		baseStats: {hp: 75, atk: 110, def: 90, spa: 65, spd: 70, spe: 130},
+	},
+	tatsugiri: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 50, def: 70, spa: 120, spd: 95, spe: 92},
+		abilities: {0: "Commander", 1: "Natural Cure", H: "Storm Drain"},
+	},
 
 // GMaxes and Buffs to GMax base forms
 	venusaurgmax: {
