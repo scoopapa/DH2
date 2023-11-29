@@ -122,12 +122,12 @@ export const Scripts: ModdedBattleScriptsData = {
 					pokemon.addVolatile(move.id);
 				}
 		
-				if (move.beforeMoveCallback) {
-					if (move.beforeMoveCallback.call(this.battle, pokemon, target, move)) {
+				if (move.beforeMoveCallback/*) {
+					if (*/&& move.beforeMoveCallback.call(this.battle, pokemon, target, move)) {
 						this.battle.clearActiveMove(true);
 						pokemon.moveThisTurnResult = false;
 						return;
-					}
+					//}
 				}
 				pokemon.lastDamage = 0;
 				let lockedMove;
@@ -315,8 +315,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					move.ignoreImmunity = (move.category === 'Status');
 				}
 		
-				//if (this.battle.gen !== 4 && move.selfdestruct === 'always') {
-				if (move.selfdestruct === 'always') {
+				if (/*this.battle.gen !== 4 &&*/ move.selfdestruct === 'always') {
 					this.battle.faint(pokemon, pokemon, move);
 				}
 		
@@ -326,6 +325,9 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (damage === this.battle.NOT_FAIL) pokemon.moveThisTurnResult = null;
 					if (damage || damage === 0 || damage === undefined) moveResult = true;
 				} else if (targets.length) {
+					//if (this.battle.gen === 4 && move.selfdestruct === 'always') {
+					//	this.battle.faint(pokemon, pokemon, move);
+					//}
 					moveResult = this.trySpreadMoveHit(targets, pokemon, move);
 				} else {
 					//if (!targets.length) {
@@ -333,9 +335,6 @@ export const Scripts: ModdedBattleScriptsData = {
 						//this.battle.add(this.battle.gen >= 5 ? '-fail' : '-notarget', pokemon);
 						this.battle.add('-fail', pokemon);
 						return false;
-					//}
-					//if (this.battle.gen === 4 && move.selfdestruct === 'always') {
-					//	this.battle.faint(pokemon, pokemon, move);
 					//}
 				}
 				if (move.selfBoost && moveResult) this.moveHit(pokemon, pokemon, move, move.selfBoost, false, true);
@@ -356,7 +355,9 @@ export const Scripts: ModdedBattleScriptsData = {
 					const originalHp = pokemon.hp;
 					this.battle.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
 					this.battle.runEvent('AfterMoveSecondarySelf', pokemon, target, move);
-					if (pokemon && pokemon !== target && move.category !== 'Status' && pokemon.hp <= pokemon.maxhp / 2 && originalHp > pokemon.maxhp / 2) {
+					if (pokemon && pokemon !== target && move.category !== 'Status') {
+						const threshold = pokemon.maxhp * 0.5;
+						if (pokemon.hp <= threshold && originalHp > threshold)
 						this.battle.runEvent('EmergencyExit', pokemon, pokemon);
 					}
 				}
@@ -388,9 +389,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			return false;
 		},
 		isGrounded(negateImmunity = false) {
-			if ('gravity' in this.battle.field.pseudoWeather) return true;
-			if ('ingrain' in this.volatiles/* && this.battle.gen >= 4*/) return true;
-			if ('smackdown' in this.volatiles) return true;
+			if ('gravity' in this.battle.field.pseudoWeather/*) return true;
+			if (*/|| 'ingrain' in this.volatiles/* && this.battle.gen >= 4) return true;
+			if (*/|| 'smackdown' in this.volatiles) return true;
 			const item = (this.ignoringItem() ? '' : this.item);
 			if (item === 'ironball') return true;
 			// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
@@ -399,8 +400,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				(this.hasAbility(['levitate', 'holygrail', 'risingtension', 'freeflight', 'airbornearmor', 'hellkite','honeymoon','aircontrol'])) &&
 				!this.battle.suppressingAbility(this)
 			) return null;
-			if ('magnetrise' in this.volatiles) return false;
-			if ('telekinesis' in this.volatiles) return false;
+			if ('magnetrise' in this.volatiles/*) return false;
+			if (*/|| 'telekinesis' in this.volatiles) return false;
 			return item !== 'airballoon';
 		 },
      },
