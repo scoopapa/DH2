@@ -162,7 +162,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onEffectiveness(typeMod, target, type) {
-			if (type === 'Steel') return 0;
+			if (type === 'Steel') return typeMod + 1;
 		},
 		secondary: null,
 		target: "normal",
