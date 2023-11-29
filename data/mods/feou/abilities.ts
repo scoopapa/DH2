@@ -2855,7 +2855,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 				if (!activated) {
-					this.add('-ability', pokemon, 'Mad Cow', 'boost');
+					this.add('-ability', pokemon, 'Fishy Threat', 'boost');
 					activated = true;
 				}
 				if (target.volatiles['substitute']) {
