@@ -76,10 +76,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyMove(move) {
 			if (move.category === 'Status') {
 				move.ignoreAbility = true;
-			}
-		},
-		onModifyMove(move) {
-			if (move.category === 'Status') {
 				move.ignoreVolatiles = true;
 			}
 		},
@@ -127,5 +123,26 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "North Wind",
 		shortDesc: "User gains STAB on Flying moves and also gains Flying-type resistances.",
 		rating: 4.5,
+	},
+	fortitude: {
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Fortitude",
+		shortDesc: "If this Pokemon is statused, its Sp. Atk is multiplied by 1.5x.",
+		rating: 3.5,
+		num: 62,
+	},
+	gravitationalpull: {
+		onStart(source) {
+			this.add('-ability', source, 'Gravitational Pull');
+			this.field.addPseudoWeather('gravity', source, source.ability);
+		},
+		name: "Gravitational Pull",
+		shortDesc: "On switch-in, this Pokemon summons Gravity.",
+		rating: 4,
 	},
 };

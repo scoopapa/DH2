@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-		mysterelk: {
+	mysterelk: {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
@@ -491,6 +491,105 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	knightmare: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	queenmate: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	scraggydesvega: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	scraftydesvegaarbok: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	scraftydesvegatriassinge: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	scraftydesvegasandaconda: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	rotompoker: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	mawiledesvega: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	vulguile: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	casinova: {
+		tier: "Desvega OU",
+		doublesTier: "DOU",
+	},
+	silicuit: {
+		tier: "Desvega LC",
+		doublesTier: "DOU",
+	},
+	silipro: {
+		tier: "Desvega NFE",
+		doublesTier: "DOU",
+	},
+	silicom: {
+		tier: "Desvega OU",
+		doublesTier: "DOU",
+	},
+	pantalien: {
+		tier: "Desvega OU",
+		doublesTier: "DOU",
+	},
+	rootle: {
+		tier: "Desvega LC",
+		doublesTier: "DOU",
+	},
+	vipalm: {
+		tier: "Desvega OU",
+		doublesTier: "DOU",
+	},
+	embird: {
+		tier: "Desvega LC",
+		doublesTier: "DOU",
+	},
+	majesoar: {
+		tier: "Desvega OU",
+		doublesTier: "DOU",
+	},
+	misseal: {
+		tier: "Desvega LC",
+		doublesTier: "DOU",
+	},
+	pinnipoint: {
+		tier: "Desvega OU",
+		doublesTier: "DOU",
+	},
+	snolobe: {
+		tier: "Desvega LC",
+		doublesTier: "DOU",
+	},
+	freezerit: {
+		tier: "Desvega NFE",
+		doublesTier: "DOU",
+	},
+	icesty: {
+		tier: "Desvega OU",
+		doublesTier: "DOU",
+	},
+	tapuzaza: {
+		tier: "Desvega OU",
+		doublesTier: "DOU",
+	},
+
+	
+	
 	arcognition: {
 		tier: "Desvega Uber",
 		doublesTier: "DGX",

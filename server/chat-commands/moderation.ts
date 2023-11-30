@@ -544,7 +544,7 @@ export const commands: Chat.ChatCommands = {
 		// If used in pms, staff, help tickets or battles, log the warn to the global modlog.
 		const globalWarn = (
 			!room || ['staff', 'adminlog'].includes(room.roomid) ||
-			room.roomid.startsWith('help-') || (room.battle && !room.parent)
+			room.roomid.startsWith('help-') || (room.battle && (!room.parent || room.parent.type !== 'chat'))
 		);
 
 		const {targetUser, inputUsername, targetUsername, rest: reason} = this.splitUser(target);
@@ -564,7 +564,7 @@ export const commands: Chat.ChatCommands = {
 				`${targetID} was warned by ${user.name} while offline.${publicReason ? ` (${publicReason})` : ``}`
 			);
 			this.globalModlog('WARN OFFLINE', targetUser || targetID, privateReason);
-			Punishments.offlineWarns.set(targetID, reason);
+			Punishments.offlineWarns.set(targetID, publicReason);
 			if (saveReplay) this.parse('/savereplay forpunishment');
 			return;
 		}
@@ -793,7 +793,7 @@ export const commands: Chat.ChatCommands = {
 			);
 		}
 
-		this.addModAction(`${name} was banned ${week ? ' for a week' : ''} from ${room.title} by ${user.name}.${publicReason ? ` (${publicReason})` : ``}`);
+		this.addModAction(`${name} was banned${week ? ' for a week' : ''} from ${room.title} by ${user.name}.${publicReason ? ` (${publicReason})` : ``}`);
 
 		const time = week ? Date.now() + 7 * 24 * 60 * 60 * 1000 : null;
 		const affected = Punishments.roomBan(room, targetUser, time, null, privateReason);
@@ -1360,11 +1360,7 @@ export const commands: Chat.ChatCommands = {
 		const type = cmd.includes('name') ? 'NAMELOCK' : 'LOCK';
 		Punishments.punishRange(ip, reason, time, type);
 
-		if (year) {
-			this.addGlobalModAction(`${user.name} year-${type.toLowerCase()}ed the ${ipDesc}: ${reason}`);
-		} else {
-			this.addGlobalModAction(`${user.name} hour-${type.toLowerCase()}ed the ${ipDesc}: ${reason}`);
-		}
+		this.addGlobalModAction(`${user.name} ${year ? 'year' : 'hour'}-${type.toLowerCase()}ed the ${ipDesc}: ${reason}`);
 		this.globalModlog(
 			`${year ? 'YEAR' : 'RANGE'}${type}`,
 			null,

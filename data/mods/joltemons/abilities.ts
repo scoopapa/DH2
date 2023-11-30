@@ -486,7 +486,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
 			)) ||
 			pokemon.species.id !== 'spiritomb' && pokemon.species.id !== 'spectrier' && pokemon.species.id !== 'yamaskgalar' && pokemon.species.id !== 'runerigus' && pokemon.species.id !== 'cofagrigus' && pokemon.species.id !== 'cacturne' && pokemon.species.id !== 'hoopa' && pokemon.species.id !== 'marowak' && pokemon.species.id !== 'rotom') {
 				this.effectState.gaveUp = true;
@@ -495,7 +495,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
 			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -649,14 +649,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
 			if (pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && !foeActive.item
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && !foeActive.item
 			)) {
 				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -684,7 +684,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, identifies and copies the effect of the opponent's held item.",
 		onStart(pokemon) {
 			for (const target of pokemon.side.foe.active) {
-				if (!target || target.fainted || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || target.fainted || !target.isAdjacent(pokemon)) continue;
 				if (!target.item || this.dex.items.get(target.item).zMove || this.dex.items.get(target.item).megaStone) continue;
 				if (!pokemon.useItem) return;
 				pokemon.ability = target.item;
@@ -816,14 +816,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	trace: {
 		onStart(pokemon) {
 			if (pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
 			)) {
 				this.effectState.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);

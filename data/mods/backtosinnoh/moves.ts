@@ -1,4 +1,424 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
+	
+	thornwhip: {
+		num: -1,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thorn Whip",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onAfterMove(target, source, move) {
+			if (target !== source && move.category !== 'Status' && move.totalDamage) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		secondary: null,
+		shortDesc: "Opponent takes 1/8 HP of additional damage.",
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	parasite: {
+		num: -2,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Parasite",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		onHit(pokemon) {
+			const success = !!this.heal(this.modify(pokemon.maxhp, 0.125));
+		},
+		secondary: null,
+		shortDesc: "User heals 1/8 max HP.",
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	sparkshot: {
+		num: -3,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Spark Shot",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		shortDesc: "30% chance to paralyze the target.",
+		target: "allAdjacent",
+		type: "Electric",
+		contestType: "Beautiful",
+	},
+	guidedstrike: {
+		num: -4,
+		accuracy: 100,
+		basePower: 45,
+		category: "Physical",
+		name: "Guided Strike",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		shortDesc: "Always ends in a critical hit.",
+		willCrit: true,
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+	},
+	mudbomb: {
+		num: 426,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Mud Bomb",
+		shortDesc: "10% chance to lower the target's Sp.Defense by 1.",
+		pp: 15,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 20,
+			boosts: {
+				spd: -1,
+			},
+		},
+		target: "normal",
+		type: "Ground",
+		contestType: "Clever",
+	},
+	poisondarts: {
+		num: -6,
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+		name: "Poison Darts",
+		pp: 30,
+		priority: 0,
+		flags: {bullet: 1, protect: 1, mirror: 1},
+		multihit: [2, 5],
+		secondary: null,
+		target: "normal",
+		shortDesc: "Hits 2-5 times in one turn.",
+		type: "Poison",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
+	starstorm: {
+		num: -7,
+		accuracy: 101,
+		basePower: 120,
+		category: "Special",
+		name: "Starstorm",
+		pp: 5,
+		priority: 0,
+		flags: {allyanim: 1, futuremove: 1},
+		ignoreImmunity: true,
+		onTry(source, target) {
+			if (!target.side.addSlotCondition(target, 'futuremove')) return false;
+			Object.assign(target.side.slotConditions[target.position]['futuremove'], {
+				duration: 3,
+				move: 'starstorm',
+				source: source,
+				moveData: {
+					id: 'starstorm',
+					name: "Starstorm",
+					accuracy: 101,
+					basePower: 120,
+					category: "Special",
+					priority: 0,
+					flags: {allyanim: 1, futuremove: 1},
+					ignoreImmunity: false,
+					effectType: 'Move',
+					type: 'Rock',
+				},
+			});
+			this.add('-start', source, 'move: Future Sight');
+			return this.NOT_FAIL;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		shortDesc: "Hits two turns after being used.",
+		desc: "This attack hits two turns after being used.",
+		contestType: "Clever",
+	},
+	souldrain: { 
+		num: -8,
+		accuracy: 100,
+		basePower: 75,
+		category: "Physical",
+		name: "Soul Drain",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 3],
+		condition:
+		{
+			onTryHealPriority: 1,
+			onTryHeal(damage, target, source, effect) {
+				return this.chainModify(3);
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		shortDesc: "Heals the user for 1/3 of the damage dealt. If the target was a Ghost-Type, the user is healed for 100% of the damage dealt",
+		contestType: "Clever",
+	},
+	magneticblast: {
+		num: -9,
+		accuracy: 100,
+		basePower: 110,
+		category: "Special",
+		name: "Magnetic Blast",
+		sideCondition: 'spikes',
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target, source, side) {
+			let layers = 0;
+			if (target.side.sideConditions['spikes']) {
+				layers += target.side.sideConditions['spikes'].layers;
+			}
+			if (target.side.foe.sideConditions['spikes']) {
+				layers += target.side.foe.sideConditions['spikes'].layers;
+			}
+			if (layers == 0) return false;
+			this.add('-sideend', target.side, 'Spikes', '[from] move: Rapid Spin', '[of] ' + source);
+			this.add('-sidestart', source.side, 'Spikes');
+			this.effectState.layers--;
+		},
+		onHitField(target, source) {
+			const sideConditions = [
+				'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', //just to future proof lol
+			];
+			let success = false;
+			if (this.gameType === "freeforall") {
+				// random integer from 1-3 inclusive
+				const offset = this.random(3) + 1;
+				// the list of all sides in counterclockwise order
+				const sides = [this.sides[0], this.sides[2]!, this.sides[1], this.sides[3]!];
+				const temp: {[k: number]: typeof source.side.sideConditions} = {0: {}, 1: {}, 2: {}, 3: {}};
+				for (const side of sides) {
+					for (const id in side.sideConditions) {
+						if (!sideConditions.includes(id)) continue;
+						temp[side.n][id] = side.sideConditions[id];
+						delete side.sideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						this.add('-sideend', side, effectName, '[silent]');
+						success = true;
+					}
+				}
+				for (let i = 0; i < 4; i++) {
+					const sourceSideConditions = temp[sides[i].n];
+					const targetSide = sides[(i + offset) % 4]; // the next side in rotation
+					for (const id in sourceSideConditions) {
+						targetSide.sideConditions[id] = sourceSideConditions[id];
+						const effectName = this.dex.conditions.get(id).name;
+						let layers = sourceSideConditions[id].layers || 1;
+						for (; layers > 0; layers--) this.add('-sidestart', targetSide, effectName, '[silent]');
+					}
+				}
+			} else {
+				const sourceSideConditions = source.side.sideConditions;
+				const targetSideConditions = source.side.foe.sideConditions;
+				const sourceTemp: typeof sourceSideConditions = {};
+				const targetTemp: typeof targetSideConditions = {};
+				for (const id in sourceSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					sourceTemp[id] = sourceSideConditions[id];
+					delete sourceSideConditions[id];
+					success = true;
+				}
+				for (const id in targetSideConditions) {
+					if (!sideConditions.includes(id)) continue;
+					targetTemp[id] = targetSideConditions[id];
+					delete targetSideConditions[id];
+					success = true;
+				}
+				for (const id in sourceTemp) {
+					targetSideConditions[id] = sourceTemp[id];
+				}
+				for (const id in targetTemp) {
+					sourceSideConditions[id] = targetTemp[id];
+				}
+				this.add('-swapsideconditions');
+			}
+			if (!success) return false;
+			this.add('-activate', source, 'move: Magnetic Blast');
+		},
+		condition: {
+			onDamagingHitOrder: 1,
+			onDamagingHit(damage, target, source, move) {
+				if (move.flags['contact']) {
+					let success = undefined;
+					if (target.side.getSideCondition('spikes') || target.side.foe.getSideCondition('spikes')) {
+						if (!success) {
+							success = true;
+							this.add('-ability', target, 'Gravitational Pull');
+						}
+						let layers = 0;
+						if (target.side.sideConditions['spikes']) {
+							layers += target.side.sideConditions['spikes'].layers;
+						}
+						if (target.side.foe.sideConditions['spikes']) {
+							layers += target.side.foe.sideConditions['spikes'].layers;
+						}
+						const damageAmounts = [0, 3, 4, 6, 6, 6, 6]; // 1/8, 1/6, 1/4 - caps at 3
+						this.damage(damageAmounts[layers] * source.maxhp / 24, source, target);
+						// this.add('-message', `${source.name} was hurt by the spikes!`);
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		shortDesc: "One layer of spikes on the opponent's side of the field is moved on to your side of the field.",
+		contestType: "Beautiful",
+	},
+	cyclonescatter: {
+		num: -10,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Cyclone Scatter",
+		pp: 15,
+		priority: -3,
+		flags: {protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('cyclonescatter');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Cyclone Scatter');
+			},
+			onTryHitPriority: 2,
+			onTryHit(target, source, move) {
+				if (target === source || move.hasBounced || !move.flags['reflectable']) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = this.effectState.pranksterBoosted;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			},
+			onAllyTryHitSide(target, source, move) {
+				if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, this.effectState.target, source);
+				return null;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		shortDesc: "-3 priority. Bounces back most status moves.",
+		desc: "-3 priority. Bounces back most status moves.",
+		type: "Flying",
+		contestType: "Tough",
+	},
+	diamondcharge: {
+		num: -11,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Diamond Charge",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		recoil: [1, 4],
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		shortDesc: "Has 1/4 recoil.",
+		contestType: "Tough",
+	},
+	bulletseed: {
+		inherit: true,
+		basePower: 20,
+	},
+	iciclespear: {
+		inherit: true,
+		basePower: 20,
+	},
+	pinmissile: {
+		inherit: true,
+		basePower: 20,
+		accuracy: 100,
+	},
+	defog: {
+		num: 432,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Defog",
+		shortDesc: "If weather is up, deals double damage. Remove weather.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.effectiveWeather()) {
+				move.basePower *= 2;
+			}
+			this.debug('BP: ' + move.basePower);
+		},
+		onHit() {
+			this.field.clearWeather();
+		},
+		onAfterSubDamage() {
+			this.field.clearWeather();
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+	},
+	odinswrath: {
+		num: -12,
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
+		name: "Odin's Wrath",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
+		},
+		secondary: null,
+		target: "normal",
+		shortDesc: "Physical if user's Atk > Sp. Atk.",
+		desc: "Physical if user's Atk > Sp. Atk.",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	lassograb: {
+		num: -13,
+		accuracy: 90,
+		basePower: 80,
+		category: "Physical",
+		name: "Lasso Grab",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+
 	absorb: {
 		inherit: true,
 		pp: 20,
@@ -795,10 +1215,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	defog: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
 	discharge: {
 		inherit: true,
 		isNonstandard: "Past",
@@ -976,10 +1392,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: "Past",
 	},
 	mirrorshot: {
-		inherit: true,
-		isNonstandard: "Past",
-	},
-	mudbomb: {
 		inherit: true,
 		isNonstandard: "Past",
 	},

@@ -134,7 +134,7 @@ const BattleScripts = {
 			let lacksTarget = !target || target.fainted;
 			if (!lacksTarget) {
 				if (move.target === 'adjacentFoe' || move.target === 'adjacentAlly' || move.target === 'normal' || move.target === 'randomNormal') {
-					lacksTarget = !this.isAdjacent(target, pokemon);
+					lacksTarget = !target.isAdjacent(pokemon);
 				}
 			}
 			if (lacksTarget && !move.isFutureMove) {

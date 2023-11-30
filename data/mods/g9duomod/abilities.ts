@@ -86,7 +86,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Blazing Spirit', 'boost');
 					activated = true;
@@ -257,7 +257,6 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Draw Four",
-		shortDesc: "After knocking out target, if user knows less than 12 moves, it learns target's moves.",
 		rating: 3,
 		num: 9009,
 	},

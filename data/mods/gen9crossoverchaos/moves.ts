@@ -146,6 +146,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			move.type = item.naturalGift.type;
 		},
 		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Psystrike", target);
 			if (pokemon.ignoringItem()) return false;
 			const item = pokemon.getItem();
 			if (!item.naturalGift) return false;
@@ -156,10 +158,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.usedItemThisTurn = true;
 				this.runEvent('AfterUseItem', pokemon, null, null, item);
 			}
-		},
-		onPrepareHit(target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Psystrike", target);
 		},
 		secondary: null,
 		target: "normal",

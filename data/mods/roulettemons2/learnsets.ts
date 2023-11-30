@@ -193,6 +193,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		zingzap: ["7L1", "8L1", "9L1"],
 	}},	
 	cateloon: {learnset: {	
+		attackjumpkick: ["7L1", "8L1", "9L1"],
 		barrage: ["7L1", "8L1", "9L1"],
 		bite: ["7L1", "8L1", "9L1"],
 		bugbuzz: ["7L1", "8L1", "9L1"],
@@ -1389,6 +1390,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		weatherball: ["7L1", "8L1", "9L1"],
 	}},	
 	gastroal: {learnset: {	
+		trumpbell: ["7L1", "8L1", "9L1"],
 		astonish: ["7L1", "8L1", "9L1"],
 		aurasphere: ["7L1", "8L1", "9L1"],
 		bugbuzz: ["7L1", "8L1", "9L1"],
@@ -1629,6 +1631,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 		woodhammer: ["7L1", "8L1", "9L1"],
 	}},	
 	goosceon: {learnset: {	
+		milkslide: ["7L1", "8L1", "9L1"],
 		aircutter: ["7L1", "8L1", "9L1"],
 		airslash: ["7L1", "8L1", "9L1"],
 		aquastep: ["7L1", "8L1", "9L1"],

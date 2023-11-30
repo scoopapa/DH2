@@ -183,7 +183,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Jolteon",
 		inherit: true,
 		baseStats: {hp: 65, atk: 65, def: 60, spa: 110, spd: 95, spe: 130},
-		abilities: {0: "Volt Absorb", 1: "Battery", H: "Quick Feet", S: "Anticipation", S: "Run Away"},
+		abilities: {0: "Volt Absorb", 1: "Battery", H: "Quick Feet", S: "Run Away"},
 	},
 	kingler: {
 		name: "Kingler",

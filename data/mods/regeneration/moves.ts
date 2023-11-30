@@ -32,8 +32,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {},
-		onHit(pokemon) {
-			pokemon.addVolatile('torment');
+		self: {
+		   volatileStatus: 'encore',
 		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -272,9 +272,64 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			chance: 100,
 			status: 'psn',
 		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hurricane", target);
+		},
 		target: "normal",
-		type: "Flying",
+		type: "Bug",
 		zMove: {effect: 'crit2'},
+		contestType: "Tough",
+	},
+	splashback: {
+		num: 889,
+		accuracy: 100,
+		basePower: 50,
+		basePowerCallback(pokemon) {
+			return Math.min(300, 50 + 50 * pokemon.timesAttacked);
+		},
+		onEnd(pokemon) {
+			this.add('-end', pokemon, 'Splashback', '[silent]');
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flip Turn", target);
+		},
+		category: "Physical",
+		name: "Splashback",
+      shortDesc: "Base power increases by 50 every time this Pokemon is hit. Max 300 BP. Reset on switch out.",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	ragingtorrent: {
+		num: 612,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Raging Torrent",
+      shortDesc: "Lowers the target's Atk by 1. Inflicts Encore on the user.",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		self: {
+		   volatileStatus: 'encore',
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				atk: -1,
+			},
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Liquidation", target);
+		},
+		target: "normal",
+		type: "Water",
 		contestType: "Tough",
 	},
 };

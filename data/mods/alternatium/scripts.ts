@@ -1,4 +1,6 @@
 export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
+	gen: 8,
+	inherit: 'gen8',
 	teambuilderConfig: {
 		// for micrometas to only show custom tiers
 		excludeStandardTiers: true,

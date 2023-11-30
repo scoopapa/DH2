@@ -165,7 +165,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Static Cling",
 		shortDesc: "User cannot lose its item. Steals opponent's item on contact.",
 		rating: 4,
-		num: 1001,
+		num: -1,
 	},
 	rarecold: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -176,18 +176,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Rare Cold",
 		shortDesc: "User takes 30% less damage if user moves before the target.",
 		rating: 0,
-		num: 1002,
+		num: -2,
 	},
 	watercycle: {
 		onBasePower(basePower, attacker, defender, move) {
-			if (defender.volatiles['partiallytrapped']) {
+			if (defender.volatiles['partiallytrapped'] || defender.volatiles['trapped']) {
 				return this.chainModify(1.3);
 			}
 		},
 		name: "Water Cycle",
 		shortDesc: "User deal 1.3x damage to trapped targets.",
 		rating: 0,
-		num: 1003,
+		num: -3,
 	},
 	cloudburst: {
 		onBeforeMove(source, target, move) {
@@ -198,7 +198,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Cloud Burst",
 		shortDesc: "User summons Rain before executing an Electric-type move.",
 		rating: 0,
-		num: 1004,
+		num: -4,
 	},
 	packleader: {
 		onBasePowerPriority: 23,
@@ -210,7 +210,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Pack Leader",
 		shortDesc: "If this Pokemon goes first, it deals 1.3x damage.",
 		rating: 0,
-		num: 1005,
+		num: -5,
 	},
 	/* privatewifi: {
 		onStart(source) {
@@ -262,7 +262,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Private Wi-Fi",
 		shortDesc: "If this Pokemon switches in and the opposing Pokemon shares its type, both have their highest stat boosted.",
 		rating: 0,
-		num: 1006,
+		num: -6,
 	},*/
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
@@ -289,29 +289,32 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (source && source !== target && move && move.category !== 'Status') {
-				this.add('-ability', source, 'Life Gem');
 				this.damage(source.baseMaxhp / 10, source, source);
 			}
 		},
 		name: "Life Gem",
 		shortDesc: "Holder's attacks do 1.3x damage, and it loses 1/10 its max HP after the attack.",
 		rating: 3,
-		num: 1007,
+		num: -7,
 	},
 	powercore: {
-		onBoost(boost, target, source, effect) {
-			if (effect && effect.id === 'zpower') return;
+		onTryBoost(boost, target, source, effect) {
+			let showMsg = false;
 			let i: BoostID;
 			for (i in boost) {
-				boost[i] = 0;
-				this.add('-ability', target, 'Power Core');
-				this.hint("Power Core prevents stat changes for the user.");
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Power Core", "[of] " + target);
 			}
 		},
 		name: "Power Core",
 		shortDesc: "This Pokemon's stats cannot be changed.",
 		rating: 3,
-		num: 1008,
+		num: -8,
 	},
 	aerialmenace: {
 		onTryHitPriority: 1,
@@ -326,7 +329,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Aerial Menace",
 		shortDesc: "This Pokemon's attack is raised by one stage if hit by a Flying-type move; Flying-type immunity.",
 		rating: 3,
-		num: 1009,
+		num: -9,
 	},
 	shadowworld: {
 		onStart(pokemon) {
@@ -347,7 +350,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Shadow World",
 		shortDesc: "While active, Ghost & Dark moves have 1.2x power. Psychic & Fairy have 0.8x power.",
 		rating: 3,
-		num: 1010,
+		num: -10,
 	},
 	burnheal: {
 		onDamagePriority: 1,
@@ -367,7 +370,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Burn Heal",
 		shortDesc: "This Pokemon is healed by 1/8 of its max HP each turn when burned; no HP loss or damage reduction.",
 		rating: 4,
-		num: 1011,
+		num: -11,
 	},
 	sharpshooter: {
 		onStart(source) {
@@ -378,7 +381,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Sharpshooter",
 		shortDesc: "On switch-in, this Pokemon activates the Lock-On effect.",
 		rating: 2,
-		num: 1012,
+		num: -12,
 	},
 	forecast: {
 		onBasePowerPriority: 9,
@@ -396,13 +399,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	liquidscales: {
 		onDamagingHit(damage, target, source, move) {
 			if (move.category !== 'Status') {
+				this.add('-activate', target, 'ability: Liquid Scales');
 				this.heal(target.baseMaxhp / 10);
 			}
 		},
 		name: "Liquid Scales",
 		shortDesc: "If targeted by a foe's move, this Pokemon restores 1/10 max HP.",
 		rating: 3,
-		num: 1013,
+		num: -13,
 	},
 	flowergift: {
 		onModifyAtkPriority: 3,
@@ -435,7 +439,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Misty Coat",
 		shortDesc: "If Misty Terrain is active, this Pokemon's Special Defense is multiplied by 1.5.",
 		rating: 0.5,
-		num: 1014,
+		num: -14,
 	},
 	pulpup: {
 		onStart(pokemon) {
@@ -444,7 +448,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Pulp Up",
 		shortDesc: "On entry, at >= 2/3 HP; 1x Stockpile, at <= 1/3 HP; 3x Stockpile, else 2x Stockpile.",
 		rating: 3,
-		num: 1015,
+		num: -15,
 	},
 	asonearrokuda: {
 		onPreStart(pokemon) {
@@ -463,7 +467,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "As One (Arrokuda)",
 		shortDesc: "Mold Breaker + Swift Swim",
 		rating: 4,
-		num: 1016,
+		num: -16,
 	},
 	iceface: {
 		onSourceModifyAtkPriority: 6,
@@ -497,7 +501,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Wash Up",
 		shortDesc: "On switch-in, this Pokemon summons the Water Sport effect.",
 		rating: 2,
-		num: 1017,
+		num: -17,
 	},
 	darkaura: {
 		onStart(pokemon) {
@@ -565,7 +569,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onStart(pokemon) {
 			if ((pokemon.side.foe.active.some(
-				foeActive => foeActive && this.isAdjacent(pokemon, foeActive) && foeActive.ability === 'noability'
+				foeActive => foeActive && pokemon.isAdjacent(foeActive) && foeActive.ability === 'noability'
 			)) ||
 			pokemon.species.id !== 'morvilant') {
 				this.effectState.gaveUp = true;
@@ -574,7 +578,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp) return;
 			if (!this.effectState.switchingIn) return;
-			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			const possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);

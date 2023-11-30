@@ -5,7 +5,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: "The standard ruleset for all offical Smogon singles tiers (Ubers, OU, etc.)",
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Terastal Clause', 'Min Source Gen = 3',
+			'Terastal Clause', 'Min Source Gen = 9', 'Roovnen Move Dexits',
 		],
 	},
 	standarddoubles: {
@@ -14,8 +14,17 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 		desc: "The standard ruleset for all official Smogon doubles tiers",
 		ruleset: [
 			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
-			'Terastal Clause', 'Min Source Gen = 3',
+			'Terastal Clause', 'Min Source Gen = 9', 'Roovnen Move Dexits',
 		],
+	},
+	evasionitemsclause: {
+		effectType: 'ValidatorRule',
+		name: 'Evasion Items Clause',
+		desc: "Bans moves that lower the accuracy of moves used against the user",
+		banlist: ['Lax Incense'],
+		onBegin() {
+			this.add('rule', 'Evasion Items Clause: Evasion items are banned');
+		},
 	},
 	roovnendex: {
 		effectType: 'ValidatorRule',
@@ -26,7 +35,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				'Carkol-Base', 'Vulpix-Alola', 'Ninetales-Alola', 'Raichu-Alola', 'Growlithe-Hisui', 'Arcanine-Hisui', 'Slowpoke-Galar', 'Slowbro-Galar', 'Wooper-Paldea', 'Slowking-Galar', 'Yamask-Galar'],
 		onValidateSet(set, format) {
 			const roovnenDex = [
-				"Kunirsch", "Portrenti", "Elchunst", "Poniarc", "Sizzlorse", "Klimyross", "Zandound", "Fisound", "Synouder", "Pidgey", "Pidgeotto", "Pidgeot", "Nimmaup", "Kokick", "Schmesatt", "Antron", "Queant", 
+				"Kunirsch", "Portrenti", "Elchunst", "Poniarc", "Sizzlorse", "Klimyross", "Synake", "Wavettle", "Aeskound", "Pidgey", "Pidgeotto", "Pidgeot", "Nimmaup", "Kokick", "Schmesatt", "Antron", "Queant", 
 				"Nymble", "Lokix", "Erinox", "Igloiceus", "Paras", "Parasect", "Fevee", "Pauleon", "Kalaustry", "Ranschaef", "Shroomish", "Breloom", "Boltria", "Falicle", "Frezalk", "Gletschalk", "Snom", "Frosmoth", 
 				"Snover", "Abomasnow", "Cubone-Roovnen", "Glacone", "Oetzowak", "Mankey", "Primeape", "Annihilape", "Orkave", "Sewaddle-Roovnen", "Swadloon-Roovnen", "Leavanny-Roovnen", "Volecz", "Lidektro", "Yoar", 
 				"Boarax", "Wildaxe", "Zubat", "Golbat", "Crobat", "Roggenrola-Roovnen", "Boldore-Roovnen", "Gigalith-Roovnen", "Sableye", "Mawile", "Graid", "Angrain", "Amethiz", "Scalethyst", "Juwyvern", "Nacli", 
@@ -57,5 +66,19 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				return [`${species.baseSpecies} is not in the Roovnen Pokédex.`];
 			}
 		},
+	},
+	roovnenmovedexits: {
+		effectType: 'ValidatorRule',
+		name: 'Roovnen Move Dexits',
+		desc: "Bans dexited moves.",
+		banlist: [
+			'Absorb', 'Accelerock', 'Acid', 'Air Cutter', 'Aromatic Mist', 'Assurance', 'Astonish', 'Astral Barrage', 'Attack Order', 'Barb Barrage', 'Behemoth Bash', 'Behemoth Blade', 'Belch', 'Bind', 
+			'Bitter Malice', 'Blazing Torque', 'Bleakwind Storm', 'Blood Moon', 'Ceaseless Edge', 'Celebrate', 'Chloroblast', 'Circle Throw', 'Combat Torque', 'Cut', 'Defend Order', 'Diamond Storm', 'Dire Claw', 
+			'Doodle', 'Dragon Energy', 'Dragon Rush', 'Drum Beating', 'Dynamax Cannon', 'Eerie Impulse', 'Electro Ball', 'Fairy Wind', 'Fiery Wrath', 'Fire Lash', 'Force Palm', 'Freezing Glare', 'Glacial Lance', 
+			'Glare', 'Happy Hour', 'Heal Bell', 'Heal Order', 'Hold Hands', 'Hyperspace Fury', 'Hyperspace Hole', 'Inferno', 'Infernalparade', 'Jet Punch', 'Lunar Blessing', 'Lunar Dance', 'Magic Room', 'Magical Torque', 
+			'Magma Storm', 'Mortal Spin', 'Mud Shot', 'Mystical Power', 'Night Daze', 'No Retreat', 'Noxious Torque', 'Order Up', 'Origin Pulse', 'Pay Day', 'Precipice Blades', 'Present', 'Psyshield Bash', 'Relic Song', 
+			'Roar of Time', 'Sandsear Storm', 'Shadow Force', 'Sludge Wave', 'Snipe Shot', 'Spacial Rend', 'Spicy Extract', 'Spore', 'Springtide Storm', 'Steam Eruption', 'Surging Strikes', 'Tera Blast', 'Thunder Cage', 
+			'Thunderous Kick', 'Toxic', 'Triple Arrows', 'V-create', 'Victory Dance', 'Wicked Blow', 'Wicked Torque', 'Wildbolt Storm', 'Work Up'
+		],
 	},
 };

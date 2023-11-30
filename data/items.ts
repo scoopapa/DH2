@@ -167,7 +167,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
 		},
 		onEat(pokemon) {
 			this.heal(pokemon.baseMaxhp / 3);
@@ -177,6 +177,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 162,
 		gen: 3,
+		rating: 3,
 	},
 	airballoon: {
 		name: "Air Balloon",
@@ -289,6 +290,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 104,
 		gen: 4,
+		rating: 0,
 		isNonstandard: "Past",
 	},
 	aspearberry: {
@@ -311,6 +313,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 153,
 		gen: 3,
+		rating: 1,
 	},
 	assaultvest: {
 		name: "Assault Vest",
@@ -331,6 +334,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 640,
 		gen: 6,
+		rating: 3,
 	},
 	audinite: {
 		name: "Audinite",
@@ -354,6 +358,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 2344,
 		gen: 9,
+		rating: 0,
 	},
 	babiriberry: {
 		name: "Babiri Berry",
@@ -426,6 +431,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 183,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	berryjuice: {
 		name: "Berry Juice",
@@ -435,7 +441,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 2) {
-				if (this.runEvent('TryHeal', pokemon) && pokemon.useItem()) {
+				if (this.runEvent('TryHeal', pokemon, null, this.effect, 20) && pokemon.useItem()) {
 					this.heal(20);
 				}
 			}
@@ -443,6 +449,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 43,
 		gen: 2,
 		isNonstandard: "Past",
+		rating: 3,
 	},
 	berrysweet: {
 		name: "Berry Sweet",
@@ -452,6 +459,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1111,
 		gen: 8,
+		rating: 0,
 		isNonstandard: "Past",
 	},
 	bignugget: {
@@ -462,6 +470,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 581,
 		gen: 5,
+		rating: 0,
 	},
 	bigroot: {
 		name: "Big Root",
@@ -478,6 +487,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 296,
 		gen: 4,
+		rating: 1,
 	},
 	bindingband: {
 		name: "Binding Band",
@@ -488,6 +498,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		// implemented in statuses
 		num: 544,
 		gen: 5,
+		rating: 1,
 	},
 	blackbelt: {
 		name: "Black Belt",
@@ -597,6 +608,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 165,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	blunderpolicy: {
 		name: "Blunder Policy",
@@ -614,8 +626,11 @@ export const Items: {[itemid: string]: ItemData} = {
 		fling: {
 			basePower: 30,
 		},
+		onStart() {
+			this.effectState.started = true;
+		},
 		onUpdate(pokemon) {
-			if (pokemon.transformed) return;
+			if (!this.effectState.started || pokemon.transformed) return;
 			if (this.queue.peek(true)?.choice === 'runSwitch') return;
 
 			if (pokemon.hasAbility('protosynthesis') && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
@@ -640,6 +655,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 795,
 		gen: 7,
+		rating: 0,
 	},
 	brightpowder: {
 		name: "Bright Powder",
@@ -832,6 +848,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 149,
 		gen: 3,
+		rating: 1,
 	},
 	cherishball: {
 		name: "Cherish Ball",
@@ -910,6 +927,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1254,
 		gen: 8,
+		rating: 0,
 	},
 	choiceband: {
 		name: "Choice Band",
@@ -933,6 +951,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		isChoice: true,
 		num: 220,
+		rating: 3,
 		gen: 3,
 	},
 	choicescarf: {
@@ -957,6 +976,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		isChoice: true,
 		num: 287,
 		gen: 4,
+		rating: 3,
 	},
 	choicespecs: {
 		name: "Choice Specs",
@@ -981,6 +1001,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		isChoice: true,
 		num: 297,
 		gen: 4,
+		rating: 3,
 	},
 	chopleberry: {
 		name: "Chople Berry",
@@ -1015,6 +1036,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 100,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	clearamulet: {
 		name: "Clear Amulet",
@@ -1048,6 +1070,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1112,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	cobaberry: {
 		name: "Coba Berry",
@@ -1097,6 +1120,27 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 198,
 		gen: 4,
 	},
+	cornerstonemask: {
+		name: "Cornerstone Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Ogerpon-Cornerstone')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		forcedForme: "Ogerpon-Cornerstone",
+		itemUser: ["Ogerpon-Cornerstone"],
+		num: 2406,
+		gen: 9,
+	},
 	cornnberry: {
 		name: "Cornn Berry",
 		spritenum: 81,
@@ -1109,6 +1153,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 175,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	coverfossil: {
 		name: "Cover Fossil",
@@ -1119,6 +1164,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 572,
 		gen: 5,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	covertcloak: {
 		name: "Covert Cloak",
@@ -1141,6 +1187,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1253,
 		gen: 8,
+		rating: 0,
 	},
 	custapberry: {
 		name: "Custap Berry",
@@ -1166,7 +1213,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat() { },
 		num: 210,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 	},
 	damprock: {
 		name: "Damp Rock",
@@ -1227,6 +1273,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 109,
 		gen: 4,
+		rating: 0,
 	},
 	decidiumz: {
 		name: "Decidium Z",
@@ -1287,6 +1334,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 280,
 		gen: 4,
+		rating: 1,
 	},
 	diancite: {
 		name: "Diancite",
@@ -1318,6 +1366,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 102,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	dousedrive: {
 		name: "Douse Drive",
@@ -1409,6 +1458,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 235,
 		gen: 2,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	dragoniumz: {
 		name: "Dragonium Z",
@@ -1458,6 +1508,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 324,
 		gen: 4,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	durinberry: {
 		name: "Durin Berry",
@@ -1471,6 +1522,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 182,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	duskball: {
 		name: "Dusk Ball",
@@ -1487,6 +1539,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 108,
 		gen: 4,
+		rating: 0,
 	},
 	earthplate: {
 		name: "Earth Plate",
@@ -1582,6 +1635,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 322,
 		gen: 4,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	electricgem: {
 		name: "Electric Gem",
@@ -1663,12 +1717,12 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4)) return false;
 		},
 		onEat() { },
 		num: 208,
 		gen: 3,
-		isNonstandard: "Unobtainable",
+		rating: 1,
 	},
 	eviolite: {
 		name: "Eviolite",
@@ -1678,18 +1732,19 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe) {
+			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.id === 'dipplin') {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe) {
+			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.id === 'dipplin') {
 				return this.chainModify(1.5);
 			}
 		},
 		num: 538,
 		gen: 5,
+		rating: 3,
 	},
 	expertbelt: {
 		name: "Expert Belt",
@@ -1704,6 +1759,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 268,
 		gen: 4,
+		rating: 3,
 	},
 	fairiumz: {
 		name: "Fairium Z",
@@ -1716,6 +1772,21 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 793,
 		gen: 7,
 		isNonstandard: "Past",
+	},
+	fairyfeather: {
+		name: "Fairy Feather",
+		spritenum: 754,
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: 2401,
+		gen: 9,
 	},
 	fairygem: {
 		name: "Fairy Gem",
@@ -1811,7 +1882,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
 		},
 		onEat(pokemon) {
 			this.heal(pokemon.baseMaxhp / 3);
@@ -1821,6 +1892,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 159,
 		gen: 3,
+		rating: 3,
 	},
 	firegem: {
 		name: "Fire Gem",
@@ -1860,6 +1932,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 82,
 		gen: 1,
+		rating: 0,
 	},
 	firiumz: {
 		name: "Firium Z",
@@ -1939,6 +2012,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 539,
 		gen: 5,
+		rating: 1,
 	},
 	flowersweet: {
 		name: "Flower Sweet",
@@ -1949,6 +2023,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1113,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	flyinggem: {
 		name: "Flying Gem",
@@ -1963,6 +2038,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 556,
 		gen: 5,
 		isNonstandard: "Past",
+		rating: 3,
 	},
 	flyingmemory: {
 		name: "Flying Memory",
@@ -2007,6 +2083,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 230,
 		gen: 2,
+		rating: 1,
 	},
 	focussash: {
 		name: "Focus Sash",
@@ -2024,6 +2101,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 275,
 		gen: 4,
+		rating: 3,
 	},
 	fossilizedbird: {
 		name: "Fossilized Bird",
@@ -2034,6 +2112,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1105,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	fossilizeddino: {
 		name: "Fossilized Dino",
@@ -2044,6 +2123,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1108,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	fossilizeddrake: {
 		name: "Fossilized Drake",
@@ -2054,6 +2134,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1107,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	fossilizedfish: {
 		name: "Fossilized Fish",
@@ -2064,6 +2145,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1106,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	friendball: {
 		name: "Friend Ball",
@@ -2082,6 +2164,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 316,
 		gen: 4,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	galaricacuff: {
 		name: "Galarica Cuff",
@@ -2092,6 +2175,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1582,
 		gen: 8,
 		isNonstandard: "Unobtainable",
+		rating: 0,
 	},
 	galaricawreath: {
 		name: "Galarica Wreath",
@@ -2102,6 +2186,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1592,
 		gen: 8,
 		isNonstandard: "Unobtainable",
+		rating: 0,
 	},
 	galladite: {
 		name: "Galladite",
@@ -2243,6 +2328,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 796,
 		gen: 7,
+		rating: 0,
 	},
 	grassgem: {
 		name: "Grass Gem",
@@ -2475,6 +2561,27 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 4,
 		isPokeball: true,
 	},
+	hearthflamemask: {
+		name: "Hearthflame Mask",
+		spritenum: 760,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Ogerpon-Hearthflame')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		forcedForme: "Ogerpon-Hearthflame",
+		itemUser: ["Ogerpon-Hearthflame"],
+		num: 2408,
+		gen: 9,
+	},
 	heatrock: {
 		name: "Heat Rock",
 		spritenum: 193,
@@ -2499,6 +2606,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1120,
 		gen: 8,
+		rating: 3,
 		// Hazard Immunity implemented in moves.ts
 	},
 	helixfossil: {
@@ -2510,6 +2618,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 101,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	heracronite: {
 		name: "Heracronite",
@@ -2536,6 +2645,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 172,
 		gen: 3,
+		rating: 0,
 	},
 	houndoominite: {
 		name: "Houndoominite",
@@ -2566,7 +2676,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
 		},
 		onEat(pokemon) {
 			this.heal(pokemon.baseMaxhp / 3);
@@ -2576,6 +2686,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 163,
 		gen: 3,
+		rating: 3,
 	},
 	icegem: {
 		name: "Ice Gem",
@@ -2615,6 +2726,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 849,
 		gen: 7,
+		rating: 0,
 	},
 	icicleplate: {
 		name: "Icicle Plate",
@@ -2705,6 +2817,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 278,
 		gen: 4,
+		rating: 1,
 	},
 	ironplate: {
 		name: "Iron Plate",
@@ -2744,7 +2857,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat() { },
 		num: 211,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 	},
 	jawfossil: {
 		name: "Jaw Fossil",
@@ -2755,6 +2867,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 710,
 		gen: 6,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	kasibberry: {
 		name: "Kasib Berry",
@@ -2823,7 +2936,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 687,
 		gen: 6,
-		isNonstandard: "Unobtainable",
 	},
 	kelpsyberry: {
 		name: "Kelpsy Berry",
@@ -2836,6 +2948,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 170,
 		gen: 3,
+		rating: 0,
 	},
 	kangaskhanite: {
 		name: "Kangaskhanite",
@@ -2894,6 +3007,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onFractionalPriority: -0.1,
 		num: 279,
 		gen: 4,
+		rating: 0,
 	},
 	lansatberry: {
 		name: "Lansat Berry",
@@ -2967,6 +3081,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 85,
 		gen: 1,
+		rating: 0,
 	},
 	leek: {
 		name: "Leek",
@@ -2997,6 +3112,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 234,
 		gen: 2,
+		rating: 3,
 	},
 	leppaberry: {
 		name: "Leppa Berry",
@@ -3066,6 +3182,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 270,
 		gen: 4,
+		rating: 3,
 	},
 	lightball: {
 		name: "Light Ball",
@@ -3145,6 +3262,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1110,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	lucarionite: {
 		name: "Lucarionite",
@@ -3302,6 +3420,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 215,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	magmarizer: {
 		name: "Magmarizer",
@@ -3312,6 +3431,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 323,
 		gen: 4,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	magnet: {
 		name: "Magnet",
@@ -3343,7 +3463,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
 		},
 		onEat(pokemon) {
 			this.heal(pokemon.baseMaxhp / 3);
@@ -3353,6 +3473,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 161,
 		gen: 3,
+		rating: 3,
 	},
 	magostberry: {
 		name: "Magost Berry",
@@ -3366,6 +3487,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 176,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	mail: {
 		name: "Mail",
@@ -3386,6 +3508,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1861,
 		gen: 9,
+		rating: 0,
 	},
 	manectite: {
 		name: "Manectite",
@@ -3419,7 +3542,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 688,
 		gen: 6,
-		isNonstandard: "Unobtainable",
 	},
 	marshadiumz: {
 		name: "Marshadium Z",
@@ -3438,6 +3560,16 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1,
 		gen: 1,
 		isPokeball: true,
+	},
+	masterpieceteacup: {
+		name: "Masterpiece Teacup",
+		spritenum: 757,
+		fling: {
+			basePower: 80,
+		},
+		num: 2404,
+		gen: 9,
+		rating: 0,
 	},
 	mawilite: {
 		name: "Mawilite",
@@ -3524,6 +3656,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 219,
 		gen: 3,
+		rating: 3,
 	},
 	metagrossite: {
 		name: "Metagrossite",
@@ -3684,7 +3817,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 209,
 		gen: 4,
-		isNonstandard: "Unobtainable",
 	},
 	mimikiumz: {
 		name: "Mimikium Z",
@@ -3794,6 +3926,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 81,
 		gen: 1,
+		rating: 0,
 	},
 	muscleband: {
 		name: "Muscle Band",
@@ -3837,6 +3970,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 166,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	nestball: {
 		name: "Nest Ball",
@@ -3879,6 +4013,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 178,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	normalgem: {
 		name: "Normal Gem",
@@ -3952,6 +4087,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 103,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	oranberry: {
 		name: "Oran Berry",
@@ -3967,13 +4103,14 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, 10)) return false;
 		},
 		onEat(pokemon) {
 			this.heal(10);
 		},
 		num: 155,
 		gen: 3,
+		rating: 0,
 	},
 	ovalstone: {
 		name: "Oval Stone",
@@ -3983,6 +4120,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 110,
 		gen: 4,
+		rating: 0,
 	},
 	pamtreberry: {
 		name: "Pamtre Berry",
@@ -3996,6 +4134,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 180,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	parkball: {
 		name: "Park Ball",
@@ -4073,6 +4212,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 151,
 		gen: 3,
+		rating: 1,
 	},
 	persimberry: {
 		name: "Persim Berry",
@@ -4092,6 +4232,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 156,
 		gen: 3,
+		rating: 1,
 	},
 	petayaberry: {
 		name: "Petaya Berry",
@@ -4161,6 +4302,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 168,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	pinsirite: {
 		name: "Pinsirite",
@@ -4205,6 +4347,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 573,
 		gen: 5,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	poisonbarb: {
 		name: "Poison Barb",
@@ -4282,6 +4425,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 169,
 		gen: 3,
+		rating: 0,
 	},
 	poweranklet: {
 		name: "Power Anklet",
@@ -4295,6 +4439,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 293,
 		gen: 4,
+		rating: 0,
 	},
 	powerband: {
 		name: "Power Band",
@@ -4308,6 +4453,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 292,
 		gen: 4,
+		rating: 0,
 	},
 	powerbelt: {
 		name: "Power Belt",
@@ -4321,6 +4467,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 290,
 		gen: 4,
+		rating: 0,
 	},
 	powerbracer: {
 		name: "Power Bracer",
@@ -4334,6 +4481,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 289,
 		gen: 4,
+		rating: 0,
 	},
 	powerherb: {
 		onChargeMove(pokemon, target, move) {
@@ -4351,6 +4499,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 271,
 		gen: 4,
+		rating: 3,
 	},
 	powerlens: {
 		name: "Power Lens",
@@ -4364,6 +4513,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 291,
 		gen: 4,
+		rating: 0,
 	},
 	powerweight: {
 		name: "Power Weight",
@@ -4377,6 +4527,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 294,
 		gen: 4,
+		rating: 0,
 	},
 	premierball: {
 		name: "Premier Ball",
@@ -4404,7 +4555,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 537,
 		gen: 5,
-		isNonstandard: "Past",
+		rating: 0,
 	},
 	protectivepads: {
 		name: "Protective Pads",
@@ -4425,6 +4576,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 321,
 		gen: 4,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	psychicgem: {
 		name: "Psychic Gem",
@@ -4521,6 +4673,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 171,
 		gen: 3,
+		rating: 0,
 	},
 	quickball: {
 		name: "Quick Ball",
@@ -4574,6 +4727,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 177,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	rarebone: {
 		name: "Rare Bone",
@@ -4583,6 +4737,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 106,
 		gen: 4,
+		rating: 0,
 	},
 	rawstberry: {
 		name: "Rawst Berry",
@@ -4604,6 +4759,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 152,
 		gen: 3,
+		rating: 1,
 	},
 	razorclaw: {
 		name: "Razor Claw",
@@ -4639,7 +4795,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 327,
 		gen: 4,
-		isNonstandard: "Past",
 	},
 	razzberry: {
 		name: "Razz Berry",
@@ -4653,6 +4808,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 164,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	reapercloth: {
 		name: "Reaper Cloth",
@@ -4662,7 +4818,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 325,
 		gen: 4,
-		isNonstandard: "Past",
+		rating: 0,
 	},
 	redcard: {
 		name: "Red Card",
@@ -4722,6 +4878,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1115,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	rindoberry: {
 		name: "Rindo Berry",
@@ -4829,6 +4986,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 540,
 		gen: 5,
+		rating: 3,
 	},
 	roomservice: {
 		name: "Room Service",
@@ -4862,6 +5020,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 99,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	roseincense: {
 		name: "Rose Incense",
@@ -4921,7 +5080,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat() { },
 		num: 212,
 		gen: 4,
-		isNonstandard: "Unobtainable",
+		rating: 1,
 	},
 	rustedshield: {
 		name: "Rusted Shield",
@@ -4972,6 +5131,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 647,
 		gen: 6,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	safariball: {
 		name: "Safari Ball",
@@ -5008,6 +5168,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 711,
 		gen: 6,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	salacberry: {
 		name: "Salac Berry",
@@ -5028,6 +5189,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 203,
 		gen: 3,
+		rating: 3,
 	},
 	salamencite: {
 		name: "Salamencite",
@@ -5164,6 +5326,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 107,
 		gen: 4,
+		rating: 0,
 	},
 	shockdrive: {
 		name: "Shock Drive",
@@ -5249,7 +5412,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 4)) return false;
 		},
 		onEat(pokemon) {
 			this.heal(pokemon.baseMaxhp / 4);
@@ -5266,6 +5429,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 105,
 		gen: 4,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	skyplate: {
 		name: "Sky Plate",
@@ -5411,6 +5575,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 179,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	splashplate: {
 		name: "Splash Plate",
@@ -5501,6 +5666,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1114,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	steelixite: {
 		name: "Steelixite",
@@ -5633,6 +5799,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1109,
 		gen: 8,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	sunstone: {
 		name: "Sun Stone",
@@ -5642,6 +5809,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 80,
 		gen: 2,
+		rating: 0,
 	},
 	swampertite: {
 		name: "Swampertite",
@@ -5665,6 +5833,17 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1116,
 		gen: 8,
+		rating: 0,
+	},
+	syrupyapple: {
+		name: "Syrupy Apple",
+		spritenum: 755,
+		fling: {
+			basePower: 30,
+		},
+		num: 2402,
+		gen: 9,
+		rating: 0,
 	},
 	tamatoberry: {
 		name: "Tamato Berry",
@@ -5677,6 +5856,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onEat: false,
 		num: 174,
 		gen: 3,
+		rating: 0,
 	},
 	tangaberry: {
 		name: "Tanga Berry",
@@ -5721,6 +5901,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1117,
 		gen: 8,
+		rating: 0,
 	},
 	terrainextender: {
 		name: "Terrain Extender",
@@ -5773,6 +5954,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 83,
 		gen: 1,
+		rating: 0,
 	},
 	timerball: {
 		name: "Timer Ball",
@@ -6863,6 +7045,16 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 7,
 		isNonstandard: "Past",
 	},
+	unremarkableteacup: {
+		name: "Unremarkable Teacup",
+		spritenum: 756,
+		fling: {
+			basePower: 80,
+		},
+		num: 2403,
+		gen: 9,
+		rating: 0,
+	},
 	upgrade: {
 		name: "Up-Grade",
 		spritenum: 523,
@@ -6872,6 +7064,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 252,
 		gen: 2,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	utilityumbrella: {
 		name: "Utility Umbrella",
@@ -6977,6 +7170,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 84,
 		gen: 1,
+		rating: 0,
 	},
 	wateriumz: {
 		name: "Waterium Z",
@@ -7002,6 +7196,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 181,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	waveincense: {
 		name: "Wave Incense",
@@ -7037,6 +7232,27 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 639,
 		gen: 6,
 	},
+	wellspringmask: {
+		name: "Wellspring Mask",
+		spritenum: 759,
+		fling: {
+			basePower: 60,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (user.baseSpecies.name.startsWith('Ogerpon-Wellspring')) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
+			return true;
+		},
+		forcedForme: "Ogerpon-Wellspring",
+		itemUser: ["Ogerpon-Wellspring"],
+		num: 2407,
+		gen: 9,
+	},
 	wepearberry: {
 		name: "Wepear Berry",
 		spritenum: 533,
@@ -7049,6 +7265,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 167,
 		gen: 3,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	whippeddream: {
 		name: "Whipped Dream",
@@ -7059,6 +7276,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 646,
 		gen: 6,
 		isNonstandard: "Past",
+		rating: 0,
 	},
 	whiteherb: {
 		name: "White Herb",
@@ -7129,7 +7347,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, pokemon.baseMaxhp / 3)) return false;
 		},
 		onEat(pokemon) {
 			this.heal(pokemon.baseMaxhp / 3);
@@ -7139,6 +7357,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 160,
 		gen: 3,
+		rating: 3,
 	},
 	wiseglasses: {
 		name: "Wise Glasses",
@@ -7248,7 +7467,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, 10)) return false;
 		},
 		onEat(pokemon) {
 			this.heal(10);
@@ -7256,6 +7475,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 155,
 		gen: 2,
 		isNonstandard: "Past",
+		rating: 1,
 	},
 	bitterberry: {
 		name: "Bitter Berry",
@@ -7276,6 +7496,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 156,
 		gen: 2,
 		isNonstandard: "Past",
+		rating: 1,
 	},
 	burntberry: {
 		name: "Burnt Berry",
@@ -7298,6 +7519,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 153,
 		gen: 2,
 		isNonstandard: "Past",
+		rating: 1,
 	},
 	goldberry: {
 		name: "Gold Berry",
@@ -7314,7 +7536,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		onTryEatItem(item, pokemon) {
-			if (!this.runEvent('TryHeal', pokemon)) return false;
+			if (!this.runEvent('TryHeal', pokemon, null, this.effect, 30)) return false;
 		},
 		onEat(pokemon) {
 			this.heal(30);
@@ -7344,6 +7566,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 152,
 		gen: 2,
 		isNonstandard: "Past",
+		rating: 1,
 	},
 	mintberry: {
 		name: "Mint Berry",
@@ -7472,6 +7695,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 149,
 		gen: 2,
 		isNonstandard: "Past",
+		rating: 1,
 	},
 	psncureberry: {
 		name: "PSN Cure Berry",
@@ -7494,6 +7718,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 151,
 		gen: 2,
 		isNonstandard: "Past",
+		rating: 1,
 	},
 
 	// CAP items

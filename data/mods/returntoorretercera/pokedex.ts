@@ -41,13 +41,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 70, def: 95, spa: 70, spd: 95, spe: 70},
 		abilities: {0: "Triage", H: "Natural Cure"},
 	},
-	froslasspurified: {
-		num: -6,
-		name: "Froslass-Purified",
-		types: ["Ice", "Fairy"],
-		baseStats: {hp: 110, atk: 70, def: 95, spa: 70, spd: 95, spe: 70},
-		abilities: {0: "Triage", H: "Natural Cure"},
-	},
 	pluslepurified: {
 		num: -7,
 		name: "Plusle-Purified",

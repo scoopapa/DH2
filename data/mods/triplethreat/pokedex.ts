@@ -96,4 +96,42 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 85, atk: 105, def: 75, spa: 65, spd: 110, spe: 80},
 		abilities: {0: "Levitate", H: "Regenerator"},
 	},
+	magcargo: {
+		inherit: true,
+		types: ['Fire', 'Grass', 'Rock'],
+		baseStats: {hp: 95, atk: 50, def: 120, spa: 100, spd: 80, spe: 55},
+		abilities: {0: "Flash Fire", 1: "Flame Body", H: "Weak Armor"},
+	},
+	ironthorns: {
+		inherit: true,
+		types: ['Rock', 'Electric', 'Fighting'],
+		baseStats: {hp: 100, atk: 134, def: 104, spa: 50, spd: 110, spe: 72},
+		abilities: {0: "Quark Drive", H: "Sand Stream"},
+	},
+	brrrwtick: {
+		num: -4,
+		name: "Brrrwtick",
+		types: ["Ice", "Ground", "Bug"],
+		baseStats: {hp: 79, atk: 127, def: 79, spa: 97, spd: 79, spe: 109},
+		abilities: {0: "Beast Boost"},
+	},
+	regieleki: {
+		inherit: true,
+		types: ["Electric", "Steel", "Flying"],
+		baseStats: {hp: 95, atk: 90, def: 80, spa: 90, spd: 85, spe: 130},
+		abilities: {0: "Aerilate"},
+	},
+	hatterene: {
+		inherit: true,
+		name: "Hatterene",
+		types: ["Psychic", "Dragon", "Fairy"],
+		baseStats: {hp: 77, atk: 90, def: 95, spa: 116, spd: 103, spe: 29},
+	},
+	furret: {
+		inherit: true,
+		name: "Furret",
+		types: ["Normal", "Ground", "Flying"],
+		baseStats: {hp: 85, atk: 96, def: 84, spa: 45, spd: 65, spe: 100},
+		abilities: {0: "Fluffy", 1: "Keen Eye", H: "Frisk"},
+	},
 };

@@ -71,4 +71,70 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	latias: {
 		tier: "MV",
 	},
+	luxray: {
+		tier: "MV",
+	},
+	floatzel: {
+		tier: "MV",
+	},
+	garchomp: {
+		tier: "MV",
+	},
+	drapion: {
+		tier: "MV",
+	},
+	electivire: {
+		tier: "MV",
+	},
+	yanmega: {
+		tier: "MV",
+	},
+	heatran: {
+		tier: "MV",
+	},
+	serperior: {
+		tier: "MV",
+	},
+	whimsicott: {
+		tier: "MV",
+	},
+	sigilyph: {
+		tier: "MV",
+	},
+	cofagrigus: {
+		tier: "MV",
+	},
+	vanilluxe: {
+		tier: "MV",
+	},
+	escavalier: {
+		tier: "MV",
+	},
+	volcarona: {
+		tier: "MV",
+	},
+	diggersby: {
+		tier: "MV",
+	},
+	pancham: {
+		tier: "MV",
+	},
+	aegislash: {
+		tier: "MV",
+	},
+	aegislashblade: {
+		tier: "Illegal",
+	},
+	dragalge: {
+		tier: "MV",
+	},
+	sylveon: {
+		tier: "MV",
+	},
+	goodra: {
+		tier: "MV",
+	},
+	volcanion: {
+		tier: "MV",
+	},
 };

@@ -350,10 +350,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "DOU",
 	},
-	lairon: {
-		tier: "TERCERA NFE",
-		doublesTier: "DOU",
-	},
 	diglett: {
 		tier: "TERCERA NFE",
 		doublesTier: "DOU",
