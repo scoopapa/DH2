@@ -112,8 +112,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.hasAbility(['primitive','scraprock','feistytempo','ownluck'])) {
-					this.add('-immune', target, '[from] ability: ' + target.getAbility().name);
 				} else {
 					this.boost({atk: -1}, target, pokemon, null, true);
 				}
@@ -287,10 +285,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Normal'] = true;
 			}
 		},
-		onBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate' && boost.atk) {
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Scrap Rock');
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrap Rock', '[of] ' + target);
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Scrap Rock', '[of] ' + target);
 			}
 		},
 		isBreakable: true,
@@ -650,10 +651,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		onBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate' && boost.atk) {
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Primitive');
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Primitive', '[of] ' + target);
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Primitive', '[of] ' + target);
 			}
 		},
 		onWeatherChange(pokemon) {
@@ -847,8 +851,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.hasAbility(['primitive','scraprock','feistytempo','ownluck'])) {
-					this.add('-immune', target, '[from] ability: ' + target.getAbility().name);
 				} else {
 					this.boost({atk: -1}, target, pokemon, null, true);
 				}
@@ -1564,8 +1566,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.hasAbility(['primitive','scraprock','feistytempo','ownluck'])) {
-					this.add('-immune', target, '[from] ability: ' + target.getAbility().name);
 				} else {
 					this.boost({atk: -1}, target, pokemon, null, true);
 				}
@@ -2067,10 +2067,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyCritRatio(critRatio) {
 			return critRatio + 1;
 		},
-		onBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate' && boost.atk) {
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Own Luck');
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Luck', '[of] ' + target);
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Own Luck', '[of] ' + target);
 			}
 		},
 		name: "Own Luck",
@@ -2260,22 +2263,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp || !this.effectState.switchingIn) return;
 			const additionalBannedAbilities = [
-				// Zen Mode included here for compatability with Gen 5-6
 				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
-				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'pillage'
+				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'pillage'
 			];
 			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().isPermanent
 				&& !additionalBannedAbilities.includes(foeActive.ability) && foeActive.isAdjacent(pokemon));
 			if (!possibleTargets.length) return;
 			const rand = (possibleTargets.length > 1) ? this.random(possibleTargets.length) : 0;
 			const target = possibleTargets[rand];
+			const pillageAbil = pokemon.getAbility();
 			const ability = target.getAbility();
-			if (pokemon.setAbility(ability) && target.setAbility('pillage')) {
-				this.add('-ability', pokemon, 'Pillage');
-				this.add('-activate', pokemon, 'move: Skill Swap', ability.name, 'Pillage', '[of] ' + target);
-			} else {
-				pokemon.setAbility('pillage');
-			}
+			if (!this.runEvent('SetAbility', target, pokemon, this.effect, pillageAbil)
+			   || !this.runEvent('SetAbility', pokemon, pokemon, this.effect, ability)) return;
+			this.add('-ability', pokemon, 'Pillage');
+			this.add('-activate', pokemon, 'move: Skill Swap', ability, pillageAbil, '[of] ' + target);
+			this.singleEvent('End', pillageAbil, pillageAbil.abilityState, pokemon);
+			this.singleEvent('End', ability, ability.abilityState, target);
+			pokemon.ability = ability.id
+			pokemon.abilityState = {id: this.toID(pokemon.ability), target: pokemon};
+			target.ability = pillageAbil.id;
+			target.abilityState = {id: this.toID(pillageAbil.id), target: target};
+			this.singleEvent('Start', ability, pokemon.abilityState, pokemon);
+			this.singleEvent('Start', pillageAbil, target.abilityState, target);
 			
 		},
 		rating: 5,
@@ -2739,9 +2748,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate' && boost.atk) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Feisty Tempo');
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Feisty Tempo', '[of] ' + target);
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Feisty Tempo', '[of] ' + target);
 			}
 		},
 		isBreakable: true,
@@ -2878,8 +2890,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.hasAbility(['primitive','scraprock','feistytempo','ownluck'])) {
-					this.add('-immune', target, '[from] ability: ' + target.getAbility().name);
 				} else {
 					this.boost({spe: -2}, target, pokemon, null, true);
 				}
