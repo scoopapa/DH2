@@ -160,12 +160,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		gen: 1,
 		accuracy: true,
 		basePower: 0,
-		category: "Status",
 		name: "Shelter",
 		pp: 10,
 		secondary: null,
 		target: "self",
-		type: "Steel",
 	},
 	smartstrike: {
 		inherit: true,

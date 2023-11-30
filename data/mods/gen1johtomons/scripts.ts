@@ -12,6 +12,14 @@ export const Scripts: ModdedBattleScriptsData = {
 			(this.data.Pokedex[i] as any).gender = 'N';
 			(this.data.Pokedex[i] as any).eggGroups = null;
 		}
+		this.modData('Learnsets', 'dratini').learnset.outrage = ['1L1'];
+		this.modData('Learnsets', 'dragonair').learnset.outrage = ['1L1'];
+		this.modData('Learnsets', 'dragonite').learnset.outrage = ['1L1'];
+		this.modData('Learnsets', 'machop').learnset.vitalthrow = ['1L1'];
+		this.modData('Learnsets', 'machoke').learnset.vitalthrow = ['1L1'];
+		this.modData('Learnsets', 'machamp').learnset.vitalthrow = ['1L1'];
+		this.modData('Learnsets', 'hitmonchan').learnset.machpunch = ['1L1'];
+		this.modData('Learnsets', 'arcanine').learnset.extremespeed = ['1L1'];
 	},
 	// Gen 1 stores the last damage dealt by a move in the battle.
 	// This is used for the move Counter.
@@ -863,15 +871,5 @@ export const Scripts: ModdedBattleScriptsData = {
 
 		// And we are done.
 		return Math.floor(damage);
-	},
-	init() {
-		this.modData('Learnsets', 'dratini').learnset.outrage = ['1L1'];
-		this.modData('Learnsets', 'dragonair').learnset.outrage = ['1L1'];
-		this.modData('Learnsets', 'dragonite').learnset.outrage = ['1L1'];
-		this.modData('Learnsets', 'machop').learnset.vitalthrow = ['1L1'];
-		this.modData('Learnsets', 'machoke').learnset.vitalthrow = ['1L1'];
-		this.modData('Learnsets', 'machamp').learnset.vitalthrow = ['1L1'];
-		this.modData('Learnsets', 'hitmonchan').learnset.machpunch = ['1L1'];
-		this.modData('Learnsets', 'arcanine').learnset.extremespeed = ['1L1'];
 	},
 };

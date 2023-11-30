@@ -20,7 +20,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Acrid', 'boost');
 					activated = true;
@@ -332,13 +332,13 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		name: "Checkmate",
 		desc: "If the enemy has 33% health or less, it is trapped and cannot escape.",
 		onFoeTrapPokemon(pokemon) {
-			if (pokemon.hp / pokemon.baseMaxhp <= 0.33 && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hp / pokemon.baseMaxhp <= 0.33 && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon(pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if (!source || !this.isAdjacent(pokemon, source)) return;
+			if (!source || !pokemon.isAdjacent(source)) return;
 			if (pokemon.hp / pokemon.baseMaxhp <= 0.33) {
 				pokemon.maybeTrapped = true;
 			}
@@ -658,7 +658,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.side.foe.active) {
-				if (!target || !this.isAdjacent(target, pokemon)) continue;
+				if (!target || !target.isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Lesspell', 'boost');
 					activated = true;

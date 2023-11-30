@@ -241,6 +241,7 @@ export class Pokemon {
 	// Gen 9 only
 	swordBoost: boolean;
 	shieldBoost: boolean;
+	syrupTriggered: boolean;
 
 	/** Have this pokemon's Start events run yet? (Start events run every switch-in) */
 	isStarted: boolean;
@@ -253,7 +254,11 @@ export class Pokemon {
 	canMegaEvo: string | null | undefined;
 	canUltraBurst: string | null | undefined;
 	readonly canGigantamax: string | null;
-	canTerastallize: string | null;
+	/**
+	 * A Pokemon's Tera type if it can Terastallize, false if it is temporarily unable to tera and should have its
+	 * ability restored upon switching out, or null if its inability to tera is permanent.
+	 */
+	canTerastallize: string | false | null;
 	teraType: string;
 	baseTypes: string[];
 	terastallized?: string;
@@ -447,6 +452,7 @@ export class Pokemon {
 		this.truantTurn = false;
 		this.swordBoost = false;
 		this.shieldBoost = false;
+		this.syrupTriggered = false;
 		this.isStarted = false;
 		this.duringMove = false;
 
@@ -502,9 +508,10 @@ export class Pokemon {
 		const health = this.getHealth();
 		let details = this.details;
 		if (this.illusion) {
+			const level = this.battle.ruleTable.has('illusionlevelmod') ? this.illusion.level : this.level;
 			let displayedSpeciesName = this.illusion.species.name;
 			if (displayedSpeciesName === 'Greninja-Bond') displayedSpeciesName = 'Greninja';
-			const illusionDetails = displayedSpeciesName + (this.level === 100 ? '' : ', L' + this.level) +
+			const illusionDetails = displayedSpeciesName + (level === 100 ? '' : ', L' + level) +
 				(this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '');
 			details = illusionDetails;
 		}
@@ -818,7 +825,7 @@ export class Pokemon {
 		for (const pokemon of this.battle.getAllActive()) {
 			// can't use hasAbility because it would lead to infinite recursion
 			if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
-				!pokemon.transformed && !pokemon.abilityState.ending) {
+				!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
 				return true;
 			}
 		}
@@ -1190,7 +1197,8 @@ export class Pokemon {
 		const species = pokemon.species;
 		if (pokemon.fainted || this.illusion || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
 			(pokemon.transformed && this.battle.gen >= 2) || (this.transformed && this.battle.gen >= 5) ||
-			species.name === 'Eternatus-Eternamax') {
+			species.name === 'Eternatus-Eternamax' || (species.baseSpecies === 'Ogerpon' &&
+			(this.terastallized || pokemon.terastallized))) {
 			return false;
 		}
 
@@ -1284,6 +1292,10 @@ export class Pokemon {
 			}
 		}
 
+		// Pokemon transformed into Ogerpon cannot Terastallize
+		// restoring their ability to tera after they untransform is handled ELSEWHERE
+		if (this.species.baseSpecies === 'Ogerpon' && this.canTerastallize) this.canTerastallize = false;
+
 		return true;
 	}
 
@@ -1333,7 +1345,7 @@ export class Pokemon {
 	 * as well as sending all relevant messages sent to the client.
 	 */
 	formeChange(
-		speciesId: string | Species, source: Effect = this.battle.effect,
+		speciesId: string | Species, source: Effect | null = this.battle.effect,
 		isPermanent?: boolean, message?: string
 	) {
 		const rawSpecies = this.battle.dex.species.get(speciesId);
@@ -1353,7 +1365,10 @@ export class Pokemon {
 			let details = (this.illusion || this).details;
 			if (this.terastallized) details += `, tera:${this.terastallized}`;
 			this.battle.add('detailschange', this, details);
-			if (source.effectType === 'Item') {
+			if (!source) {
+				// Tera forme
+				// Ogerpon text goes here
+			} else if (source.effectType === 'Item') {
 				this.canTerastallize = null; // National Dex behavior
 				if (source.zMove) {
 					this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
@@ -1374,18 +1389,20 @@ export class Pokemon {
 				this.battle.add('-formechange', this, species.name, message);
 			}
 		} else {
-			if (source.effectType === 'Ability') {
+			if (source?.effectType === 'Ability') {
 				this.battle.add('-formechange', this, species.name, message, `[from] ability: ${source.name}`);
 			} else {
 				this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
 			}
 		}
-		if (isPermanent && !['disguise', 'iceface'].includes(source.id)) {
+		if (isPermanent && (!source || !['disguise', 'iceface'].includes(source.id))) {
 			if (this.illusion) {
 				this.ability = ''; // Don't allow Illusion to wear off
 			}
-			this.setAbility(species.abilities['0'], null, true);
-			this.baseAbility = this.ability;
+			// Ogerpon's forme change doesn't override permanent abilities
+			if (source || !this.getAbility().isPermanent) this.setAbility(species.abilities['0'], null, true);
+			// However, its ability does reset upon switching out
+			this.baseAbility = toID(species.abilities['0']);
 		}
 		if (this.terastallized) {
 			this.knownType = true;
@@ -1418,6 +1435,7 @@ export class Pokemon {
 		this.ability = this.baseAbility;
 		this.hpType = this.baseHpType;
 		this.hpPower = this.baseHpPower;
+		if (this.canTerastallize === false) this.canTerastallize = this.teraType;
 		for (const i in this.volatiles) {
 			if (this.volatiles[i].linkedStatus) {
 				this.removeLinkedVolatiles(this.volatiles[i].linkedStatus, this.volatiles[i].linkedPokemon);
@@ -1797,7 +1815,7 @@ export class Pokemon {
 		if (!isFromFormeChange) {
 			if (ability.isPermanent || this.getAbility().isPermanent) return false;
 		}
-		if (!isTransform) {
+		if (!isFromFormeChange && !isTransform) {
 			const setAbilityEvent: boolean | null = this.battle.runEvent('SetAbility', this, source, this.battle.effect, ability);
 			if (!setAbilityEvent) return setAbilityEvent;
 		}
@@ -1867,8 +1885,7 @@ export class Pokemon {
 			this.battle.debug('add volatile [' + status.id + '] interrupted');
 			return result;
 		}
-		this.volatiles[status.id] = {id: status.id};
-		this.volatiles[status.id].target = this;
+		this.volatiles[status.id] = {id: status.id, name: status.name, target: this};
 		if (source) {
 			this.volatiles[status.id].source = source;
 			this.volatiles[status.id].sourceSlot = source.getSlot();

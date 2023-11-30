@@ -2606,10 +2606,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
-	chingling: {
-		isNonstandard: "Past",
-		tier: "Illegal",
-	},
+	// chingling: {
+		// isNonstandard: "Past",
+		// tier: "Illegal",
+	// },
 
 	absolmega: {
 		isNonstandard: "Past",

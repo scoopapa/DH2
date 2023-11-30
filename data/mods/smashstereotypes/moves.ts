@@ -2571,7 +2571,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, heal: 1},
 		onHit(target, source) {
 			if (target.boosts.atk === -6) return false;
-			const atk = target.getStat('atk', false, true);
+			let atk = target.getStat('atk', false, true);
 			if (source.hasAbility('divinegrace')) atk = atk * 1.5;
 			const success = this.boost({atk: -1}, target, source, null, false, true);
 			return !!(this.heal(atk, source, target) || success);

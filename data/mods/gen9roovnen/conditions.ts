@@ -172,20 +172,14 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	mountainbreeze: {
 		name: 'Mountain Breeze',
 		// this is a volatile status
-		onStart(target, source, sourceEffect) {
-			this.add('-start', target, 'Mountain Breeze');
-		},
 		onEffectivenessPriority: -1,
 		onEffectiveness(typeMod, target, type, move) {
 			if (move && move.effectType === 'Move' && move.category !== 'Status' && move.type === 'Ice' && ['Fire', 'Ice', 'Steel', 'Water'].includes(type)) {
 				return 1;
 			}
 		},
-		onEnd(target) {
-			this.add('-end', target, 'Mountain Breeze');
-		},
 	},
-	corrupted: {
+	/*corrupted: {
 		name: 'Corrupted',
 		// this is a volatile status
 		onEffectivenessPriority: -1,
@@ -195,21 +189,15 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				return 1;
 			}
 		},
-	},
+	},*/
 	hardenedshell: {
 		name: 'Hardened Shell',
 		// this is a volatile status
-		onStart(target, source, sourceEffect) {
-			this.add('-start', target, 'Hardened Shell');
-		},
 		onEffectivenessPriority: -1,
 		onEffectiveness(typeMod, target, type, move) {
 			if (move && move.effectType === 'Move' && move.category !== 'Status' && ['Bug', 'Dragon', 'Fairy', 'Flying', 'Grass', 'Ice', 'Normal', 'Rock', 'Steel'].includes(move.type)) {
 				return -1;
 			}
-		},
-		onEnd(target) {
-			this.add('-end', target, 'Hardened Shell');
 		},
 	},
 };

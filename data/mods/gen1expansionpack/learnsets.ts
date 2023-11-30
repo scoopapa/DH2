@@ -2679,9 +2679,16 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["2M"],
 			dizzypunch: ["2E"],
 			doubleslap: ["2E"],
-			petaldance: ["2S0"],
-			sing: ["2S0"],
+			sing: ["2S3"],
+			dizzypunch: ["2S0"],
+			petaldance: ["2S1"],
 		},
+		eventData: [
+			{generation: 2, level: 5, shiny: 1, moves: ["thundershock", "charm", "dizzypunch"]},
+			{generation: 2, level: 5, shiny: 1, moves: ["thundershock", "charm", "petaldance"]},
+			{generation: 2, level: 5, shiny: 1, moves: ["thundershock", "charm", "scaryface"]},
+			{generation: 2, level: 5, shiny: 1, moves: ["thundershock", "charm", "sing"]},
+		],
 	},
 	elekid: {
 		learnset: {

@@ -60,13 +60,13 @@ exports.BattleAbilities = {
 	"entomb": {
 		shortDesc: "Traps Ghost types and has +4 priority when targeting them.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (pokemon.hasType('Ghost') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hasType('Ghost') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Ghost')) && this.isAdjacent(pokemon, source)) {
+			if ((!pokemon.knownType || pokemon.hasType('Ghost')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -79,7 +79,7 @@ exports.BattleAbilities = {
 	/*	onFoeSwitchOut: function (pokemon) {
 			for (const source of pokemon.side.foe.active) {
 			if (!source || source.fainted) continue;
-			if (pokemon.hasType('Ghost') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hasType('Ghost') && pokemon.isAdjacent(this.effectState.target)) {
 				this.add('-ability', source, 'Entomb');
 				return null;
 			}
@@ -269,14 +269,14 @@ regalreversal: {
 		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or are airborne.",
 		shortDesc: "Prevents adjacent foes from choosing to switch unless they are airborne.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (!this.isAdjacent(pokemon, this.effectState.target)) return;
+			if (!pokemon.isAdjacent(this.effectState.target)) return;
 			if (pokemon.isGrounded()) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if (!this.isAdjacent(pokemon, source)) return;
+			if (!pokemon.isAdjacent(source)) return;
 			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
 				pokemon.maybeTrapped = true;
 			}
@@ -1521,7 +1521,7 @@ regalreversal: {
 				return;
 			}
 			for (let i = 0; i < allyActive.length; i++) {
-				if (allyActive[i] && allyActive[i].hp && this.isAdjacent(pokemon, allyActive[i]) && allyActive[i].status && this.random(10) < 3) {
+				if (allyActive[i] && allyActive[i].hp && pokemon.isAdjacent(allyActive[i]) && allyActive[i].status && this.random(10) < 3) {
 					this.add('-activate', pokemon, 'ability: Healer');
 					allyActive[i].cureStatus();
 				}
@@ -1791,7 +1791,7 @@ regalreversal: {
 			let foeactive = pokemon.side.foe.active;
 			let activated = false;
 			for (let i = 0; i < foeactive.length; i++) {
-				if (!foeactive[i] || !this.isAdjacent(foeactive[i], pokemon)) continue;
+				if (!foeactive[i] || !foeactive[i].isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Intimidate', 'boost');
 					activated = true;
@@ -2008,13 +2008,13 @@ regalreversal: {
 		desc: "Prevents adjacent opposing Bug and Grass-type Pokemon from choosing to switch out unless they are immune to trapping.",
 		shortDesc: "Prevents adjacent Bug and Grass-type foes from choosing to switch.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (pokemon.hasType('Bug') || pokemon.hasType('Grass') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hasType('Bug') || pokemon.hasType('Grass') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Bug')) || pokemon.hasType('Gras') && this.isAdjacent(pokemon, source)) {
+			if ((!pokemon.knownType || pokemon.hasType('Bug')) || pokemon.hasType('Gras') && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -2158,13 +2158,13 @@ regalreversal: {
 		desc: "Prevents adjacent opposing Steel-type Pokemon from choosing to switch out unless they are immune to trapping.",
 		shortDesc: "Prevents adjacent Steel-type foes from choosing to switch.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (pokemon.hasType('Steel') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if ((!pokemon.knownType || pokemon.hasType('Steel')) && this.isAdjacent(pokemon, source)) {
+			if ((!pokemon.knownType || pokemon.hasType('Steel')) && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -2635,7 +2635,7 @@ regalreversal: {
 			let allActives = pokemon.side.active.concat(pokemon.side.foe.active);
 			for (let i = 0; i < allActives.length; i++) {
 				let target = allActives[i];
-				if (target.lastItem && target.usedItemThisTurn && this.isAdjacent(pokemon, target)) {
+				if (target.lastItem && target.usedItemThisTurn && pokemon.isAdjacent(target)) {
 					pickupTargets.push(target);
 				}
 			}
@@ -3340,13 +3340,13 @@ regalreversal: {
 		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or also have this Ability.",
 		shortDesc: "Prevents adjacent foes from choosing to switch unless they also have this Ability.",
 		onFoeTrapPokemon: function (pokemon) {
-			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, this.effectState.target)) {
+			if (!pokemon.hasAbility('shadowtag') && pokemon.isAdjacent(this.effectState.target)) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
 			if (!source) source = this.effectState.target;
-			if (!pokemon.hasAbility('shadowtag') && this.isAdjacent(pokemon, source)) {
+			if (!pokemon.hasAbility('shadowtag') && pokemon.isAdjacent(source)) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -4134,7 +4134,7 @@ regalreversal: {
 		shortDesc: "On switch-in, or when it can, this Pokemon copies a random adjacent foe's Ability.",
 		onUpdate: function (pokemon) {
 			if (!pokemon.isStarted) return;
-			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && this.isAdjacent(pokemon, foeActive));
+			let possibleTargets = pokemon.side.foe.active.filter(foeActive => foeActive && pokemon.isAdjacent(foeActive));
 			while (possibleTargets.length) {
 				let rand = 0;
 				if (possibleTargets.length > 1) rand = this.random(possibleTargets.length);
@@ -4597,7 +4597,7 @@ regalreversal: {
 			let foeactive = pokemon.side.foe.active;
 			let activated = false;
 			for (let i = 0; i < foeactive.length; i++) {
-				if (!foeactive[i] || !this.isAdjacent(foeactive[i], pokemon)) continue;
+				if (!foeactive[i] || !foeactive[i].isAdjacent(pokemon)) continue;
 				if (!activated) {
 					this.add('-ability', pokemon, 'Volcanic Haze', 'boost');
 					activated = true;
