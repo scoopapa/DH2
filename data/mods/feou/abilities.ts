@@ -2991,7 +2991,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Heatproof Drive",
 		rating: 4,
 	},
-	friskscale: {
+	/*friskscale: {
 	  shortDesc: "Frisk + Multiscale.",
 		onStart(pokemon) {
 			for (const target of pokemon.foes()) {
@@ -3009,7 +3009,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Frisk Scale",
 		rating: 3.5,
-	},
+	},*/
 	mercurypulse: {
 		shortDesc: "On switch-in, summons Rain Dance. During Rain Dance, Attack is 1.3333x.",
 		onStart(pokemon) {
@@ -3029,7 +3029,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Mercury Pulse",
 		rating: 4.5,
 	},
-	minddomain: {
+	/*minddomain: {
 		shortDesc: "Competitive effects. When Competitive activates or upon switching in, summon Psychic Terrain",
 		onStart(source) {
 			this.field.setTerrain('psychicterrain');
@@ -3052,7 +3052,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Mind Domain",
 		rating: 4,
-	},
+	},*/
 	forcedfencer: {
 		shortDesc: "Pressure + Stance Change",
 		onStart(pokemon) {
