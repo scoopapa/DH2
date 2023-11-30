@@ -867,8 +867,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const pokemon of target.adjacentFoes()) {
 				if (pokemon.volatiles['substitute']) {
 					this.add('-immune', pokemon);
-				} else if (pokemon.hasAbility(['primitive','scraprock','feistytempo','ownluck'])) {
-					this.add('-immune', target, '[from] ability: ' + target.getAbility().name);
 				} else {
 					this.boost({atk: -1}, pokemon, target, null, true);
 				}
