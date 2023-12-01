@@ -947,15 +947,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Aero Wake",
 		tags: ["Paradox"],
 	 },
-	/*lurret: {
-		num: 68, 
-		//fusion: ["Lugia", "Furret"],
-		name: "Lurret", 
-		types: ["Psychic", "Normal"],
-		baseStats: {hp: 95, atk: 93, def: 97, spa: 67, spd: 104, spe: 100}, 
-		abilities: {0: "Frisk Scale"}, 
-		weightkg: 124.2,
-	 },*/
 		deoxyslashspeed: {
 		num: 68, 
 		//fusion: ["Deoxys-Speed", "Aegislash"],
@@ -981,16 +972,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		requiredAbility: "Forced Fencer",
 		battleOnly: "Deoxyslash-Speed",
 	 },
-	 /*lelecunogalar: {
-		num: 70, 
-		//fusion: ["Tapu Lele", "Articuno-Galar"],
-		name: "Lelecuno-Galar", 
-		 gender: "N",
-		types: ["Psychic"],
-		baseStats: {hp: 80, atk: 85, def: 85, spa: 127, spd: 107, spe: 99}, 
-		abilities: {0: "Mind Domain"}, 
-		weightkg: 34.7,
-	 },*/
 	overgyara: {
 		num: 69,
 		//fusion: ["Overqwil", "Gyarados"],
@@ -1040,6 +1021,26 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 77.3,
 		requiredItem: "Garchompite",
 		battleOnly: "Chomptry",
+	 },
+	 lelecunogalar: {
+		num: 71, 
+		//fusion: ["Tapu Lele", "Articuno-Galar"],
+		name: "Lelecuno-Galar", 
+		 gender: "N",
+		types: ["Psychic"],
+		baseStats: {hp: 80, atk: 85, def: 85, spa: 127, spd: 107, spe: 99}, 
+		abilities: {0: "Mind Domain"}, 
+		weightkg: 34.7,
+	 },
+	farinape: {
+		num: 72, 
+		//fusion: ["Farigiraf", "Infernape"],
+		name: "Farinape", 
+		types: ["Psychic", "Fighting"],
+		baseStats: {hp: 100, atk: 100, def: 70, spa: 110, spd: 70, spe: 95}, 
+		abilities: {0: "Armor Fist"}, 
+		//prevo: "Chimcharig"
+		weightkg: 107.5,
 	 },
 	
 // LCs and NFEs
@@ -1330,5 +1331,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		weightkg: 42,
 		//prevo: "Seeble",
 		evos: ["Chomptry"],
+	 },
+	chimcharig: {
+		num: 1029, 
+		//fusion: ["Chimchar", "Girafarig"],
+		name: "Chimcharig", 
+		types: ["Fire", "Fighting"],
+		baseStats: {hp: 65, atk: 75, def: 55, spa: 75, spd: 55, spe: 75}, 
+		abilities: {0: "Fire Drinker"}, 
+		weightkg: 23.8,
 	 },
 };
