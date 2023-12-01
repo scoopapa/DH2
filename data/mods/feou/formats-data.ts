@@ -572,24 +572,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["collisioncourse", "uturn", "aquajet", "stoneedge"],
 		randomBattleLevel: 75,
 	},
-	/*lurret: {
-		tier: "FEOU",
-		doublesTier: "DOU",
-		randomBattleMoves: ["tidyup", "knockoff", "doubleedge", "uturn","zenheadbutt"],
-		randomBattleLevel: 80,
-	},*/
 	deoxyslashspeed: {
 		tier: "FEOU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["kingsshield", "nastyplot", "psychoboost", "psyshock", "flashcannon", "swordsdance", "shadowsneak", "zenheadbutt", "ironhead"],
 		randomBattleLevel: 75,
 	},
-	/*lelecunogalar: {
+	lelecunogalar: {
 		tier: "FEOU",
 		doublesTier: "DOU",
 		randomBattleMoves: ["freezingglare", "moonblast", "trick", "thunderbolt"],
 		randomBattleLevel: 75,
-	},*/
+	},
 	overgyara: {
 		tier: "FEOU",
 		doublesTier: "DOU",
@@ -616,7 +610,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["crunch", "scaleshot", "earthquake", "stoneedge", "earthpower", "dracometeor", "darkpulse", "fireblast"],
 		randomBattleLevel: 75,
 	},
-
+	farinape: {
+		tier: "FEOU",
+		doublesTier: "DOU",
+		randomBattleMoves: ["vacuumwave", "nastyplot", "twinbeam", "thunderbolt"],
+		randomBattleLevel: 75,
+	},
 
 	larvix: {
 		tier: "FELC",
@@ -672,6 +671,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	nuzbite: {
 		tier: "FENFE",
+		doublesTier: "DOU",
+	},
+	chimcharig: {
+		tier: "FELC",
 		doublesTier: "DOU",
 	},
 };
