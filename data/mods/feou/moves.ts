@@ -542,4 +542,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	naturesmadness: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
