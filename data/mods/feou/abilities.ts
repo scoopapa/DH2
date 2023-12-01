@@ -3027,7 +3027,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Mercury Pulse",
 		rating: 4.5,
 	},
-	/*minddomain: {
+	minddomain: {
 		shortDesc: "Competitive effects. When Competitive activates or upon switching in, summon Psychic Terrain",
 		onStart(source) {
 			this.field.setTerrain('psychicterrain');
@@ -3050,7 +3050,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Mind Domain",
 		rating: 4,
-	},*/
+	},
 	forcedfencer: {
 		shortDesc: "Pressure + Stance Change",
 		onStart(pokemon) {
