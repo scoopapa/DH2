@@ -2989,25 +2989,31 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Heatproof Drive",
 		rating: 4,
 	},
-	/*friskscale: {
-	  shortDesc: "Frisk + Multiscale.",
-		onStart(pokemon) {
-			for (const target of pokemon.foes()) {
-				if (target.item) {
-					this.add('-item', target, target.getItem().name, '[from] ability: Frisk Scale', '[of] ' + pokemon, '[identify]');
-				}
+	armorfist: {
+		shortDesc: "x1.2 power to punch and priority moves; Own side is protected from both",
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const armorTailHolder = this.effectState.target;
+			if ((source.isAlly(armorTailHolder) || move.target === 'all') && (move.priority > 0.1 || move.flags['punch'])) {
+				this.attrLastMove('[still]');
+				this.add('cant', armorTailHolder, 'ability: Armor Fist', move, '[of] ' + target);
+				return false;
 			}
 		},
-		onSourceModifyDamage(damage, source, target, move) {
-			if (target.hp >= target.maxhp) {
-				this.debug('Multiscale weaken');
-				return this.chainModify(0.5);
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch'] || move.priority > 0.1) {
+				this.debug('Armor Fist boost');
+				return this.chainModify([(move.priority > 0.1 && move.flags['punch']) ? 5898 : 4915, 4096]);
 			}
 		},
 		isBreakable: true,
-		name: "Frisk Scale",
-		rating: 3.5,
-	},*/
+		name: "Armor Fist",
+	},
 	mercurypulse: {
 		shortDesc: "On switch-in, summons Rain Dance. During Rain Dance, Attack is 1.3333x.",
 		onStart(pokemon) {
@@ -3026,6 +3032,40 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Mercury Pulse",
 		rating: 4.5,
+	},
+	firedrinker: {
+		shortDesc: "Sap Sipper + Blaze. Sap Sipper also activates against Fire-type moves.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && ['Fire','Grass'].includes(move.type)) {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Fire Drinker');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (['Fire','Grass'].includes(move.type)) {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Fire Drinker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Fire Drinker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		isBreakable: true,
+		name: "Fire Drinker",
 	},
 	minddomain: {
 		shortDesc: "Competitive effects. When Competitive activates or upon switching in, summon Psychic Terrain",
