@@ -112,8 +112,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.hasAbility(['primitive','scraprock','feistytempo','ownluck'])) {
-					this.add('-immune', target, '[from] ability: ' + target.getAbility().name);
 				} else {
 					this.boost({atk: -1}, target, pokemon, null, true);
 				}
@@ -253,6 +251,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Light Drive spe boost');
 				return this.chainModify(1.5);
 			},
@@ -281,10 +285,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Normal'] = true;
 			}
 		},
-		onBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate' && boost.atk) {
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Scrap Rock');
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrap Rock', '[of] ' + target);
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Scrap Rock', '[of] ' + target);
 			}
 		},
 		isBreakable: true,
@@ -385,6 +392,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Opening Act spe boost');
 				return this.chainModify(1.5);
 			},
@@ -527,6 +540,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Quark Surge spe boost');
 				return this.chainModify(1.5);
 			},
@@ -598,6 +617,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Once Upon a Time spe boost');
 				return this.chainModify(1.5);
 			},
@@ -626,10 +651,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		onBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate' && boost.atk) {
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Primitive');
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Primitive', '[of] ' + target);
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Primitive', '[of] ' + target);
 			}
 		},
 		onWeatherChange(pokemon) {
@@ -695,6 +723,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Primitive spe boost');
 				return this.chainModify(1.5);
 			},
@@ -765,6 +799,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('System Purge spe boost');
 				return this.chainModify(1.5);
 			},
@@ -811,8 +851,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.hasAbility(['primitive','scraprock','feistytempo','ownluck'])) {
-					this.add('-immune', target, '[from] ability: ' + target.getAbility().name);
 				} else {
 					this.boost({atk: -1}, target, pokemon, null, true);
 				}
@@ -829,8 +867,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const pokemon of target.adjacentFoes()) {
 				if (pokemon.volatiles['substitute']) {
 					this.add('-immune', pokemon);
-				} else if (pokemon.hasAbility(['primitive','scraprock','feistytempo','ownluck'])) {
-					this.add('-immune', target, '[from] ability: ' + target.getAbility().name);
 				} else {
 					this.boost({atk: -1}, pokemon, target, null, true);
 				}
@@ -1091,6 +1127,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Faulty Photon spe boost');
 				return this.chainModify(1.5);
 			},
@@ -1102,204 +1144,81 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Faulty Photon",
 		rating: 3,
-	}, /*
+	},
 	dyschronometria: {
-	  shortDesc: "This Pokemon ignores other Pokemon's stat stages and Paradox boosts when taking or doing damage.",
-		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectState.target;
-			if (unawareUser === pokemon) return;
-			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
-				boosts['def'] = 0;
-				boosts['spd'] = 0;
-				boosts['evasion'] = 0;
-			}
-			else if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
-				boosts['atk'] = 0;
-				boosts['def'] = 0;
-				boosts['spa'] = 0;
-				boosts['accuracy'] = 0;
-			}
-		},
-		onAnyModifyAtkPriority: 6,
+	  shortDesc: "While this Pokemon is active, all Paradox boosts are suppressed.",
+		onAnyModifyAtkPriority: 4,
 		onAnyModifyAtk(atk, attacker, defender, move) {
-			//this.effectState.bestStat = attacker.getBestStat(false, true);
-			const dyschronoUser = this.effectState.target;
-			if (defender === dyschronoUser) {
-				if (attacker.getBestStat(false, true) !== 'atk') return;
+				const abilityHolder = this.effectState.target;
+				move.suppressedParadox ||= abilityHolder;
+				if (move.suppressedParadox !== abilityHolder || attacker === abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker']) { 
-					if (attacker.volatiles[paradox]) {
-						this.debug('Dyschronometria weaken');
+											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
+					if (attacker.hasAbility(paradox)) {
+						if (attacker?.volatiles[paradox].bestStat !== 'atk') return;
+						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker === dyschronoUser) {
-				const bestStat = defender.getBestStat(false,true);
-				if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
-				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
+		},
+		onAnyModifyDefPriority: 5,
+		onAnyModifyDef(atk, attacker, defender, move) {
+				const abilityHolder = this.effectState.target;
+				move.suppressedParadox ||= abilityHolder;
+				if (move.suppressedParadox !== abilityHolder || defender === abilityHolder) return;
+				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
+											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall',
+											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
+					if (defender.hasAbility(paradox)) {
+						if (defender?.volatiles[paradox].bestStat !== 'def') return;
+						this.debug('Dyschronometria nullify');
+						return this.chainModify([3151, 4096]);
+					}
+				}
+		},
+		onAnyModifySpAPriority: 4,
+		onAnyModifySpA(atk, attacker, defender, move) {
+				const abilityHolder = this.effectState.target;
+				move.suppressedParadox ||= abilityHolder;
+				if (move.suppressedParadox !== abilityHolder || attacker === abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
-												'weightoflife', 'circuitbreaker']) { 
-					if (defender.volatiles[paradox]) {
-						this.debug('Dyschronometria nullify');
-						return this.chainModify([5325, 4096]);
-					}
-				}
-			}
-		},
-		onAnyModifySpAPriority: 5,
-		onAnyModifySpA(atk, attacker, defender, move) {
-			//this.effectState.bestStat = attacker.getBestStat(false, true);
-			const dyschronoUser = this.effectState.target;
-			if (defender === dyschronoUser) {
-				if (attacker.getBestStat(false, true) !== 'spa') return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker']) { 
-					if (attacker.volatiles[paradox]) {
-						this.debug('Dyschronometria weaken');
-						return this.chainModify([3151, 4096]);
-					}
-				}
-			} else if (attacker === dyschronoUser) {
-				const bestStat = defender.getBestStat(false,true);
-				if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
-				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
-												'weightoflife', 'circuitbreaker']) { 
-					if (defender.volatiles[paradox]) {
-						this.debug('Dyschronometria nullify');
-						return this.chainModify([5325, 4096]);
-					}
-				}
-			}
-		},
-		name: "Dyschronometria",
-		rating: 3,
-	}, */
-	dyschronometria: {
-	  shortDesc: "Quark Drive + This Pokemon ignores other Pokemon's Paradox boosts when taking or doing damage.",
-		onAnyModifyAtkPriority: 6,
-		onAnyModifyAtk(atk, attacker, defender, move) {
-			//this.effectState.bestStat = attacker.getBestStat(false, true);
-			const dyschronoUser = this.effectState.target;
-			if (defender === dyschronoUser) {
-				if (attacker.getBestStat(false, true) !== 'atk') return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) {
+											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
-						if (!attacker.volatiles[paradox]) return;
+						if (attacker?.volatiles[paradox].bestStat !== 'spa') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker === dyschronoUser) {
-				const bestStat = defender.getBestStat(false,true);
-				if (bestStat !== 'def' && (!move.defensiveCategory || move.defensiveCategory === 'Physical')) return;
-				if (move.defensiveCategory === 'Special' && bestStat !== 'spd') return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'dyschronometria', 'ancientmarble', 'prehistorichunter']) { 
-					if (defender.hasAbility(paradox)) {
-						if (!defender.volatiles[paradox]) return;
-						this.debug('Dyschronometria nullify');
-						return this.chainModify([5325, 4096]);
-					}
-				}
-			}
 		},
-		onAnyModifySpAPriority: 5,
-		onAnyModifySpA(atk, attacker, defender, move) {
-			//this.effectState.bestStat = attacker.getBestStat(false, true);
-			const dyschronoUser = this.effectState.target;
-			if (defender === dyschronoUser) {
-				if (attacker.getBestStat(false, true) !== 'spa') return;
+		onAnyModifySpDPriority: 5,
+		onAnyModifySpD(atk, attacker, defender, move) {
+				const abilityHolder = this.effectState.target;
+				move.suppressedParadox ||= abilityHolder;
+				if (move.suppressedParadox !== abilityHolder || defender === abilityHolder) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter']) { 
-					if (attacker.hasAbility(paradox)) {
-						if (!attacker.volatiles[paradox]) return;
+											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
+											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
+					if (defender.hasAbility(paradox)) {
+						if (defender?.volatiles[paradox].bestStat !== 'spd') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
 				}
-			} else if (attacker === dyschronoUser) {
-				const bestStat = defender.getBestStat(false,true);
-				if (bestStat !== 'spd' && (!move.defensiveCategory || move.defensiveCategory === 'Special')) return;
-				if (move.defensiveCategory === 'Physical' && bestStat !== 'def') return;
-				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
-											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
-											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter']) { 
-					if (defender.hasAbility(paradox)) {
-						if (!defender.volatiles[paradox]) return;
-						this.debug('Dyschronometria nullify');
-						return this.chainModify([5325, 4096]);
-					}
-				}
-			}
+		},
+		//Speed suppression in the other Paradox abilities
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Dyschronometria');
+			this.effectState.unnerved = true;
 		},
 		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'Dyschronometria');
+			this.effectState.unnerved = true;
 		},
-		onTerrainChange(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('dyschronometria');
-			} else if (!pokemon.volatiles['dyschronometria']?.fromBooster) {
-				pokemon.removeVolatile('dyschronometria');
-			}
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['dyschronometria'];
-			this.add('-end', pokemon, 'Dyschronometria', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				if (effect?.id === 'boosterenergy') {
-					this.effectState.fromBooster = true;
-					this.add('-activate', pokemon, 'ability: Dyschronometria', '[fromitem]');
-				} else {
-					this.add('-activate', pokemon, 'ability: Dyschronometria');
-				}
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'dyschronometria' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, source, target, move) {
-				if (this.effectState.bestStat !== 'atk' || target.hasAbility('dyschronometria')) return;
-				this.debug('Dyschronometria atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, target, source, move) {
-				if (this.effectState.bestStat !== 'def' || source.hasAbility('dyschronometria')) return;
-				this.debug('Dyschronometria def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(relayVar, source, target, move) {
-				if (this.effectState.bestStat !== 'spa' || target.hasAbility('dyschronometria')) return;
-				this.debug('Dyschronometria spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(relayVar, target, source, move) {
-				if (this.effectState.bestStat !== 'spd' || source.hasAbility('dyschronometria')) return;
-				this.debug('Dyschronometria spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe') return;
-				this.debug('Dyschronometria spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Dyschronometria');
-			},
+		onEnd() {
+			this.effectState.unnerved = false;
 		},
 		isBreakable: true,
 		isPermanent: true,
@@ -1338,6 +1257,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating damage boost');
+						return;
+					}
+				}
 				const isItFire = (move.type === 'Fire');
 				if (this.effectState.bestStat === 'atk') {
 					this.debug('Firewall atk boost');
@@ -1352,6 +1277,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating damage boost');
+						return;
+					}
+				}
 				const isItFire = (move.type === 'Fire');
 				if (this.effectState.bestStat === 'spa') {
 					this.debug('Firewall spa boost');
@@ -1366,6 +1297,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Firewall spe boost');
 				return this.chainModify(1.5);
 			},
@@ -1435,6 +1372,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Nanorepairs spe boost');
 				return this.chainModify(1.5);
 			},
@@ -1621,8 +1564,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				if (target.volatiles['substitute']) {
 					this.add('-immune', target);
-				} else if (target.hasAbility(['primitive','scraprock','feistytempo','ownluck'])) {
-					this.add('-immune', target, '[from] ability: ' + target.getAbility().name);
 				} else {
 					this.boost({atk: -1}, target, pokemon, null, true);
 				}
@@ -1720,6 +1661,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Circuit Breaker spe boost');
 				return this.chainModify(1.5);
 			},
@@ -2118,10 +2065,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyCritRatio(critRatio) {
 			return critRatio + 1;
 		},
-		onBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate' && boost.atk) {
+		onTryBoost(boost, target, source, effect) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Own Luck');
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Luck', '[of] ' + target);
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Own Luck', '[of] ' + target);
 			}
 		},
 		name: "Own Luck",
@@ -2311,22 +2261,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (!pokemon.isStarted || this.effectState.gaveUp || !this.effectState.switchingIn) return;
 			const additionalBannedAbilities = [
-				// Zen Mode included here for compatability with Gen 5-6
 				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
-				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode', 'pillage'
+				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'pillage'
 			];
 			const possibleTargets = pokemon.foes().filter(foeActive => foeActive && !foeActive.getAbility().isPermanent
 				&& !additionalBannedAbilities.includes(foeActive.ability) && foeActive.isAdjacent(pokemon));
 			if (!possibleTargets.length) return;
 			const rand = (possibleTargets.length > 1) ? this.random(possibleTargets.length) : 0;
 			const target = possibleTargets[rand];
+			const pillageAbil = pokemon.getAbility();
 			const ability = target.getAbility();
-			if (pokemon.setAbility(ability) && target.setAbility('pillage')) {
-				this.add('-ability', pokemon, 'Pillage');
-				this.add('-activate', pokemon, 'move: Skill Swap', ability.name, 'Pillage', '[of] ' + target);
-			} else {
-				pokemon.setAbility('pillage');
-			}
+			if (!this.runEvent('SetAbility', target, pokemon, this.effect, pillageAbil)
+			   || !this.runEvent('SetAbility', pokemon, pokemon, this.effect, ability)) return;
+			this.add('-ability', pokemon, 'Pillage');
+			this.add('-activate', pokemon, 'move: Skill Swap', ability, pillageAbil, '[of] ' + target);
+			this.singleEvent('End', pillageAbil, pillageAbil.abilityState, pokemon);
+			this.singleEvent('End', ability, ability.abilityState, target);
+			pokemon.ability = ability.id
+			pokemon.abilityState = {id: this.toID(pokemon.ability), target: pokemon};
+			target.ability = pillageAbil.id;
+			target.abilityState = {id: this.toID(pillageAbil.id), target: target};
+			this.singleEvent('Start', ability, pokemon.abilityState, pokemon);
+			this.singleEvent('Start', pillageAbil, target.abilityState, target);
 			
 		},
 		rating: 5,
@@ -2510,6 +2466,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Ancient Marble spe boost');
 				return this.chainModify(1.5);
 			},
@@ -2658,6 +2620,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Prehistoric Hunter spe boost');
 				return this.chainModify(1.5);
 			},
@@ -2778,9 +2746,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate' && boost.atk) {
+			if (['Intimidate','Mad Cow','Forest Fury','Shock Factor'].includes(effect.name) && boost.atk) {
 				delete boost.atk;
-				this.add('-immune', target, '[from] ability: Feisty Tempo');
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Feisty Tempo', '[of] ' + target);
+			} else if (effect.name === 'Fishy Threat' && boost.spe) {
+				delete boost.spe;
+				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Feisty Tempo', '[of] ' + target);
 			}
 		},
 		isBreakable: true,
@@ -2905,6 +2876,246 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'hail') return false;
 		},
 		name: "Winter Storm",
+	},
+	fishythreat: {
+	  shortDesc: "On switch-in, inflict -2 Speed to opponents.",
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Fishy Threat', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({spe: -2}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Fishy Threat",
+		rating: 3.5,
+	},
+	heatproofdrive: {
+	  shortDesc: "Heatproof + Quark Drive.",
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Heatproof Atk weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Heatproof SpA weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return damage / 2;
+			}
+		},
+		
+		onStart(pokemon) {
+			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+		},
+		onTerrainChange(pokemon) {
+			if (pokemon.transformed) return;
+			if (this.field.isTerrain('electricterrain')) {
+				pokemon.addVolatile('quarkdrive');
+			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
+				pokemon.removeVolatile('quarkdrive');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['heatproofdrive'];
+			this.add('-end', pokemon, 'Quark Drive', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				if (effect?.id === 'boosterenergy') {
+					this.effectState.fromBooster = true;
+					this.add('-activate', pokemon, 'ability: Heatproof Drive', '[fromitem]');
+				} else {
+					this.add('-activate', pokemon, 'ability: Heatproof Drive');
+				}
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'quarkdrive' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, source, target, move) {
+				if (this.effectState.bestStat !== 'atk') return;
+				this.debug('Quark Drive atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, target, source, move) {
+				if (this.effectState.bestStat !== 'def') return;
+				this.debug('Quark Drive def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(relayVar, source, target, move) {
+				if (this.effectState.bestStat !== 'spa') return;
+				this.debug('Quark Drive spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(relayVar, target, source, move) {
+				if (this.effectState.bestStat !== 'spd') return;
+				this.debug('Quark Drive spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
+				this.debug('Quark Drive spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Quark Drive');
+			},
+		},
+		isPermanent: true,
+		isBreakable: true,
+		name: "Heatproof Drive",
+		rating: 4,
+	},
+	armorfist: {
+		shortDesc: "x1.2 power to punch and priority moves; Own side is protected from both",
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const armorTailHolder = this.effectState.target;
+			if ((source.isAlly(armorTailHolder) || move.target === 'all') && (move.priority > 0.1 || move.flags['punch'])) {
+				this.attrLastMove('[still]');
+				this.add('cant', armorTailHolder, 'ability: Armor Fist', move, '[of] ' + target);
+				return false;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch'] || move.priority > 0.1) {
+				this.debug('Armor Fist boost');
+				return this.chainModify([(move.priority > 0.1 && move.flags['punch']) ? 5898 : 4915, 4096]);
+			}
+		},
+		isBreakable: true,
+		name: "Armor Fist",
+	},
+	mercurypulse: {
+		shortDesc: "On switch-in, summons Rain Dance. During Rain Dance, Attack is 1.3333x.",
+		onStart(pokemon) {
+			if (this.field.setWeather('raindance')) {
+				this.add('-activate', pokemon, 'Mercury Pulse', '[source]');
+			} else if (this.field.isWeather('raindance')) {
+				this.add('-activate', pokemon, 'ability: Mercury Pulse');
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.debug('Mercury boost');
+				return this.chainModify([5461, 4096]);
+			}
+		},
+		name: "Mercury Pulse",
+		rating: 4.5,
+	},
+	firedrinker: {
+		shortDesc: "Sap Sipper + Blaze. Sap Sipper also activates against Fire-type moves.",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && ['Fire','Grass'].includes(move.type)) {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Fire Drinker');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (['Fire','Grass'].includes(move.type)) {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Fire Drinker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Fire Drinker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		isBreakable: true,
+		name: "Fire Drinker",
+	},
+	minddomain: {
+		shortDesc: "Competitive effects. When Competitive activates or upon switching in, summon Psychic Terrain",
+		onStart(source) {
+			this.field.setTerrain('psychicterrain');
+		},
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Mind Domain/Competitive only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					this.boost({spa: 2}, target, target, null, false, true);
+					this.field.setTerrain('psychicterrain');
+					return;
+				}
+			}
+		},
+		name: "Mind Domain",
+		rating: 4,
+	},
+	forcedfencer: {
+		shortDesc: "Pressure + Stance Change",
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Forced Fencer');
+		},
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			return 1;
+		},
+		onModifyMovePriority: 1,
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Deoxyslash-Speed' || attacker.transformed) return;
+			var targetForme;
+			if (move.id === 'kingsshield') {
+				targetForme = 'Deoxyslash-Speed';
+			} else if (move.category !== 'Status') {
+				targetForme = 'Deoxyslash-Speed-Blade';
+			} else {
+				return;
+			}
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		isPermanent: true,
+		name: "Forced Fencer",
+		rating: 4,
 	},
 
 	//Vanilla abilities
@@ -3046,6 +3257,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Protosynthesis spe boost');
 				return this.chainModify(1.5);
 			},
@@ -3112,6 +3329,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Quark Drive spe boost');
 				return this.chainModify(1.5);
 			},
