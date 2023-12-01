@@ -564,10 +564,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	aeroblast: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	psychoboost: {
 		inherit: true,
 		isNonstandard: null,
