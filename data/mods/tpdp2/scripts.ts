@@ -21,14 +21,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ['TPDP OU', 'TPDP LC'],
 		
 		//viability
-		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet): boolean {
-			const dex = this.dex;
+		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet, dex: ModdedDex): boolean {
+			//const dex = this.dex;
 
 			let abilityid: ID = set ? toID(set.ability) : '' as ID;
 			const itemid: ID = set ? toID(set.item) : '' as ID;
 			
 			const GOOD_WEAK_MOVES = [
-			'plasmaball', 'smashspin', 'infinitescales', 'raid', 'tigerrush', 'icegatling', 'aquacutter', 'aquasonic', 'overtakestrike', 'springfirst', 'overray', 'shadowbomb', 'toxicspiral', 'strikeshot', 'trickster', 'cruciform', 'heavenlyinfluence', 'heavenlyblessing', 'earthlyinfluence', 'earthlyblessing', 'stonethrow', 'airstamp', 'twingears', 'darkarrow', 'twinthrust', 'pursuit', 'unfetteredsoul', 'geyser', 'firesign', 'watersign', 'naturesign', 'electricsign', 'earthsign', 'steelsign', 'soundsign', 'depressingrain', 'negativemist', 'mirrorworld', 'firewall', 'paniccall', 'st.elmo’sfire', 'loveorpain', 'blowfromcalamity', 'killingbite', 'lightningspeed', 'changeling',
+			'plasmaball', 'smashspin', 'infinitescales', 'raid', 'tigerrush', 'icegatling', 'aquacutter', 'aquasonic', 'overtakestrike', 'springfirst', 'overray', 'shadowbomb', 'toxicspiral', 'strikeshot', 'trickster', 'cruciform', 'heavenlyinfluence', 'heavenlyblessing', 'earthlyinfluence', 'earthlyblessing', 'stonethrow', 'airstamp', 'twingears', 'darkarrow', 'twinthrust', 'pursuit', 'unfetteredsoul', 'geyser', 'firesign', 'watersign', 'naturesign', 'electricsign', 'earthsign', 'steelsign', 'soundsign', 'depressingrain', 'negativemist', 'mirrorworld', 'firewall', 'paniccall', 'stelmosfire', 'loveorpain', 'blowfromcalamity', 'killingbite', 'lightningspeed', 'changeling',
 			] as ID[] as readonly ID[];
 			const BAD_STRONG_MOVES = [
 			'deflagration', 'aquarake', 'pulselaser', 'vacuumrupture', 'meteorimpact', 'gensokyotyphoon', 'firmspirit', 'gravityblast', 'blazeoftenmei', 'divinethunder', 'explodingfist', 'glamorpandemic', 'conflagration',
@@ -98,8 +98,10 @@ export const Scripts: ModdedBattleScriptsData = {
 					return abilityid !== 'charge';
 			}
 			
+			let moveData = dex.moves.get(id);
+			//console.log(moveData);
 			if (moveData.category === 'Status') {
-				return BattleMoveSearch.GOOD_STATUS_MOVES.includes(id);
+				return GOOD_STATUS_MOVES.includes(id);
 			}
 			if (moveData.basePower < 75 && !(abilityid === 'technician' && moveData.basePower <= 60 && moveData.basePower >= 50)) {
 				return GOOD_WEAK_MOVES.includes(id);
