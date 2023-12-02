@@ -130,9 +130,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Normal'] = true;
-      }
-      if (move.type === 'Normal') {
-        move.flags.cantusetwice = 1;
+      	}
+      	if (move.type === 'Normal') {
+        		move.flags.cantusetwice = 1;
 			}
 		},
 		num: -1006,
