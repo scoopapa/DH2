@@ -294,7 +294,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onModifyPriority(priority, pokemon, target, move) {
 			if (this.effectState.palafinPlushie) {
-          for (const moveSlot of attacker.moveSlots) {
+          for (const moveSlot of pokemon.moveSlots) {
             let moves = this.dex.getMove(moveSlot.move);
             let bp = moves.basePower;
             if (moves.ohko) bp = 160;
