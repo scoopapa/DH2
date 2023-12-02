@@ -2733,7 +2733,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (attacker.status) {
-				if (attacker.status === 'brn' && move.id !== 'facade') return this.chainModify(3);
+				//Burn attack cut being ignored is in scripts.ts/actions
 				return this.chainModify(1.5);
 			}
 		},
@@ -2768,7 +2768,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (attacker.status) {
-				if (attacker.status === 'brn' && move.id !== 'facade') return this.chainModify(3);
+				//Burn attack cut being ignored is in scripts.ts/actions
 				return this.chainModify(1.5);
 			}
 		},
