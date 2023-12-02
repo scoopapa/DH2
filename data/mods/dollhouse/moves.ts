@@ -18,7 +18,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			duration: 5,
   			durationCallback(target, source, effect) {
 				if (effect.id === 'ursalunabloodmoonplushie') {
-					return 2;
+					return 3;
 				}
 				return 5;
 			},
