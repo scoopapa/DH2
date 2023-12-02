@@ -21,6 +21,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1000,
 		desc: "Holder heals 12.5% of its max HP while statused.",
 		gen: 9,
+		rating: 3,
 	},
 	chienpaoplushie: {
 		name: "Chien-Pao Plushie",
@@ -39,6 +40,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1001,
 		desc: "Raises holder's Attack by 1 stage after it uses a slicing move. Single use.",
 		gen: 9,
+		rating: 3,
 	},
 	dragapultplushie: {
 		name: "Dragapult Plushie",
@@ -56,6 +58,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1002,
 		desc: "This Pokemon's Dragon-type moves hit a second time at 0.25x power.",
 		gen: 9,
+		rating: 3,
 	},
 	fluttermaneplushie: {
 		name: "Flutter Mane Plushie",
@@ -71,6 +74,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1003,
 		desc: "If Sun is active, the holder's attacks deal 1.2x damage.",
 		gen: 9,
+		rating: 3,
 	},
 	ogerponhearthflameplushie: {
 		name: "Ogerpon-Hearthflame Plushie",
@@ -91,6 +95,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1004,
 		desc: "The holder's Grass-type attacks become Fire-type.",
 		gen: 9,
+		rating: 3,
 	},
 	magearnaplushie: {
 		name: "Magearna Plushie",
@@ -112,6 +117,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1005,
 		desc: "(Mostly functional placeholder) Once per switch-in, the holder's highest of Def, SpA, SpD, or Spe is boosted by 1 stage when a Pokemon faints.",
 		gen: 9,
+		rating: 3,
 	},
 	ursalunabloodmoonplushie: {
 		name: "Ursaluna-Bloodmoon Plushie",
@@ -150,6 +156,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1006,
 		desc: "Holder's Normal moves deal 1.3x damage and ignore immunites, but can't be used twice in a row.",
 		gen: 9,
+		rating: 3,
 	},
 	ironbundleplushie: {
 		name: "Iron Bundle Plushie",
@@ -166,6 +173,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1007,
 		desc: "Holder's Ice-type moves deal double damage against Water-types.",
 		gen: 9,
+		rating: 3,
 	},
 	garganaclplushie: {
 		name: "Garganacl Plushie",
@@ -202,6 +210,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1008,
 		desc: "Rock-types: Takes 50% damage from Ghost-type moves, status immunity.",
 		gen: 9,
+		rating: 3,
 	},
 	manaphyplushie: {
 		name: "Manaphy Plushie",
@@ -209,7 +218,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-    onAfterMove(target, source, move) {
+    	onAfterMove(target, source, move) {
 			if (target !== source && move.type === 'Psychic') {
 			  this.actions.useMove("Heart Swap", target);
 			}
@@ -217,6 +226,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1009,
 		desc: "Holder uses Heart Swap after landing a Psychic-type attack.",
 		gen: 9,
+		rating: 3,
 	},
 	ironvaliantplushie: {
 		name: "Iron Valiant Plushie",
@@ -233,6 +243,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1010,
 		desc: "Holder's physical moves lower the foe's SpA by 1 stage after hitting.",
 		gen: 9,
+		rating: 3,
 	},
 	amoongussplushie: {
 		name: "Amoonguss Plushie",
@@ -248,6 +259,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1011,
 		desc: "Grass-types: Heal 25% of their max HP on switch out.",
 		gen: 9,
+		rating: 3,
 	},
 	annihilapeplushie: {
 		name: "Annihilape Plushie",
@@ -269,15 +281,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 					return;
 				}
 			},
-  		onResidualOrder: 29,
-  		onResidual(pokemon) {
+  			onResidualOrder: 29,
+  			onResidual(pokemon) {
 			  const lastDamagedBy = pokemon.getLastDamagedBy(true);
 				if (lastDamagedBy === undefined || !lastDamagedBy.thisTurn) {
 					pokemon.removeVolatile('annihilapeplushie');
 					return;
 				}
-  		},
-  		onDamagePriority: -101,
+  			},
+  			onDamagePriority: -101,
 			onDamage(damage, target, source, move) {
 				if (!move || move.effectType !== 'Move' || !source) return;
 				this.effectState.numConsecutive++;
@@ -292,6 +304,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1012,
 		desc: "Holder moves deal .2x more damage for every consecutive turn it's been damaged.",
 		gen: 9,
+		rating: 3,
 	},
 	palafinplushie: {
 		name: "Palafin Plushie",
@@ -324,5 +337,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -1013,
 		desc: "(Non-functional placeholder) First switch-in: -1 Defenses. Second switch-in+on: lowest <60 BP move has +1 priority.",
 		gen: 9,
+		rating: 3,
 	},
 };
