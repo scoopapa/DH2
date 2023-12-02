@@ -252,7 +252,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -364,7 +364,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Opening Act');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'openingact' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -393,7 +393,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -541,7 +541,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -577,7 +577,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEnd(pokemon) {
 			delete pokemon.volatiles['onceuponatime'];
-			this.add('-end', pokemon, 'Once Upon a Time', '[silent]');
+			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
 		},
 		condition: {
 			noCopy: true,
@@ -589,7 +589,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					this.add('-activate', pokemon, 'ability: Once Upon a Time');
 				}
 				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'onceuponatime' + this.effectState.bestStat);
+				this.add('-start', pokemon, 'protosynthesis' + this.effectState.bestStat);
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
@@ -627,7 +627,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			},
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Once Upon a Time');
+				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
 		onModifyMove(move) {
@@ -724,7 +724,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -800,7 +800,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1151,7 +1151,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyAtk(atk, attacker, defender, move) {
 				const abilityHolder = this.effectState.target;
 				move.suppressedParadox ||= abilityHolder;
-				if (move.suppressedParadox !== abilityHolder || attacker === abilityHolder) return;
+				if (move.suppressedParadox !== abilityHolder || attacker.isAlly(abilityHolder)) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
@@ -1166,7 +1166,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifyDef(atk, attacker, defender, move) {
 				const abilityHolder = this.effectState.target;
 				move.suppressedParadox ||= abilityHolder;
-				if (move.suppressedParadox !== abilityHolder || defender === abilityHolder) return;
+				if (move.suppressedParadox !== abilityHolder || defender.isAlly(abilityHolder)) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
@@ -1181,7 +1181,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpA(atk, attacker, defender, move) {
 				const abilityHolder = this.effectState.target;
 				move.suppressedParadox ||= abilityHolder;
-				if (move.suppressedParadox !== abilityHolder || attacker === abilityHolder) return;
+				if (move.suppressedParadox !== abilityHolder || attacker.isAlly(abilityHolder)) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
@@ -1196,7 +1196,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAnyModifySpD(atk, attacker, defender, move) {
 				const abilityHolder = this.effectState.target;
 				move.suppressedParadox ||= abilityHolder;
-				if (move.suppressedParadox !== abilityHolder || defender === abilityHolder) return;
+				if (move.suppressedParadox !== abilityHolder || defender.isAlly(abilityHolder)) return;
 				for (const paradox of ['faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
@@ -1257,8 +1257,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifyAtkPriority: 5,
 			onModifyAtk(atk, source, target, move) {
-				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.hasAbility('dyschronometria') && !pokemon.isAlly(source)) {
 						this.debug('Dyschronometria negating damage boost');
 						return;
 					}
@@ -1277,8 +1277,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpAPriority: 5,
 			onModifySpA(relayVar, source, target, move) {
-				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.hasAbility('dyschronometria') && !pokemon.isAlly(source)) {
 						this.debug('Dyschronometria negating damage boost');
 						return;
 					}
@@ -1298,7 +1298,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1373,7 +1373,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1509,7 +1509,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onUpdate(pokemon) {
 			if (pokemon.status === 'brn') {
 				this.add('-activate', pokemon, 'ability: Electromagnetic Veil');
-				this.heal(target.baseMaxhp*.25);
+				this.heal(target.baseMaxhp/4);
 				pokemon.cureStatus();
 			}
 		},
@@ -1543,8 +1543,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(1.5);
 		},
 		onAnyModifyAtk(atk, source, target, move) {
-			const abilityHolder = this.effectState.target;
 			if (source.hasAbility('Grindset')) return;
+			const abilityHolder = this.effectState.target;
 			if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
 			else if (move.ruinedAtk !== abilityHolder) return;
 			this.debug('Grindset Atk drop');
@@ -1662,7 +1662,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1766,6 +1766,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
+				for (const target of this.getAllActive()) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+						this.debug('Dyschronometria negating spe boost');
+						return;
+					}
+				}
 				this.debug('Weight of Life spe boost');
 				return this.chainModify(1.5);
 			},
@@ -2467,7 +2473,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -2621,7 +2627,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -2727,7 +2733,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (attacker.status) {
-				if (attacker.status === 'brn' && move.id !== 'facade') return this.chainModify(3);
+				//Burn attack cut being ignored is in scripts.ts/actions
 				return this.chainModify(1.5);
 			}
 		},
@@ -2762,7 +2768,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (attacker.status) {
-				if (attacker.status === 'brn' && move.id !== 'facade') return this.chainModify(3);
+				//Burn attack cut being ignored is in scripts.ts/actions
 				return this.chainModify(1.5);
 			}
 		},
@@ -2972,7 +2978,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -3068,7 +3074,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Fire Drinker",
 	},
 	minddomain: {
-		shortDesc: "Competitive effects. When Competitive activates or upon switching in, summon Psychic Terrain",
+		shortDesc: "Competitive + Psychic Surge. Competitive also summons Psychic Terrain.",
 		onStart(source) {
 			this.field.setTerrain('psychicterrain');
 		},
@@ -3258,7 +3264,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -3330,7 +3336,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe') return;
 				for (const target of this.getAllActive()) {
-					if (target !== pokemon && target.hasAbility('dyschronometria')) {
+					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}

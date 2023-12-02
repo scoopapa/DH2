@@ -562,8 +562,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 75,
 	},
 	aerowakemega: {
-		tier: "OU",
+		tier: "FEOU",
 		requiredItem: "Aerodactylite",
+		randomBattleMoves: ["liquidation", "dualwingbeat", "earthquake", "flipturn"],
 		doublesTier: "DOU",
 	},
 	anoraidon: {
