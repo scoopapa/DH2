@@ -98,7 +98,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		onAnyFaint(length, target, source, effect) {
+		onSourceAfterFaint(length, target, source, effect) {
 			if (this.effectState.magearnaPlushie) return;
 			if (effect && effect.effectType === 'Move') {
 				const bestStat = source.getBestStat(true, true);
