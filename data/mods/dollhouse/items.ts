@@ -131,8 +131,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Normal'] = true;
       	}
-      	if (move.type === 'Normal') {
-        		move.flags.cantusetwice = 1;
+		},
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.type === 'Normal') {
+				target.addVolatile('ursalunabloodmoonplushie');
+			}
+		},
+		condition: {
+			onDisableMove(pokemon) {
+				if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.disableMove('gigatonhammer');
+			},
+			beforeMoveCallback(pokemon) {
+				if (pokemon.lastMove?.id === 'gigatonhammer') pokemon.addVolatile('gigatonhammer');
 			}
 		},
 		num: -1006,
