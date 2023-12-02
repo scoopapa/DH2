@@ -135,7 +135,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.type === 'Normal') {
-				target.addVolatile('ursalunabloodmoonplushie');
+				target.addVolatile('disable');
 			}
 		},
 		condition: {
@@ -298,6 +298,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
+		/*
 		onStart(pokemon) {
 			if (this.effectState.palafinPlushie) return;
 			this.boost({def: -1, spd: -1});
@@ -318,8 +319,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
           }
         }
 		},
+  		*/
 		num: -1013,
-		desc: "First switch-in: -1 Defenses. Second switch-in+on: lowest <60 BP move has +1 priority.",
+		desc: "(Non-functional placeholder) First switch-in: -1 Defenses. Second switch-in+on: lowest <60 BP move has +1 priority.",
 		gen: 9,
 	},
 };
