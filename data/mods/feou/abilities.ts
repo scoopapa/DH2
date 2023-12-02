@@ -2996,7 +2996,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 	},
 	armorfist: {
-		shortDesc: "x1.2 power to punch and priority moves; Own side is protected from both",
+		shortDesc: "x1.2 power to punch and priority moves (stacking); Own side is protected from the sort",
 		onFoeTryMove(target, source, move) {
 			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
 			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
