@@ -135,6 +135,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onAfterMoveSecondarySelfPriority: -1,
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.type === 'Normal') {
+				pokemon.removeVolatile('disable');
 				pokemon.addVolatile('disable');
 			}
 		},
