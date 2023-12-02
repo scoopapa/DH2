@@ -199,7 +199,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
     onAfterMove(target, source, move) {
 			if (target !== source && move.type === 'Psychic') {
-			  this.actions.useMove("Heart Swap", source);
+			  this.actions.useMove("Heart Swap", target);
 			}
 		},
 		num: -1009,
