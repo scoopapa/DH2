@@ -306,7 +306,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
             }
           }
         }
-      }
 		},
 		num: -1013,
 		desc: "First switch-in: -1 Defenses. Second switch-in+on: lowest <60 BP move has +1 priority.",
