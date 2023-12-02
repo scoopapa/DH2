@@ -810,7 +810,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	parallelcircuit: {
 		num: -23,
-		accuracy: 95,
+		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
 		name: "Parallel Circuit",
