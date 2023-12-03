@@ -188,14 +188,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.side.foe.sideConditions['spikes']) {
 				layers += target.side.foe.sideConditions['spikes'].layers;
 			}
-			console.log(layers);
 			if (layers == 0) return false;
 			this.add('-sideend', target.side, 'Spikes', '[from] move: Magnetic Blast', '[of] ' + source);
 			this.add('-sidestart', source.side, 'Spikes');
 			for (let index = 0; index < layers-1; index++) {
 				this.add('-sidestart', target.side, 'Spikes');
 			}
-			// this.effectState.layers--;
 		},
 		secondary: null,
 		target: "normal",
