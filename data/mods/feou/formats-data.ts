@@ -565,6 +565,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEOU",
 		requiredItem: "Aerodactylite",
 		randomBattleMoves: ["liquidation", "dualwingbeat", "earthquake", "flipturn"],
+		randomBattleLevel: 75,
 		doublesTier: "DOU",
 	},
 	anoraidon: {
