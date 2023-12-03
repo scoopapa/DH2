@@ -2,7 +2,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	revarantis: {
 		tier: "FEOU",
 		doublesTier: "DOU",
-		randomBattleMoves: ["spinout", "overheat", "leafstorm", "synthesis"],
+		randomBattleMoves: ["spinout", "overheat", "superpower", "leafstorm", "synthesis"],
 		randomBattleLevel: 75,
 	},
 	varantis: {
