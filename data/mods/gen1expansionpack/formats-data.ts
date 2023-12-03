@@ -415,7 +415,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	vulpixalola: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	ninetalesalola: {
@@ -431,11 +431,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	meowthalola: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	meowthgalar: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	persianalola: {
@@ -443,7 +443,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	growlithehisui: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	arcaninehisui: {
@@ -463,7 +463,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	ponytagalar: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	rapidashgalar: {
@@ -483,7 +483,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		gen: 1,
 	},
 	grimeralola: {
-		tier: "LC",
+		tier: "NFE",
 		gen: 1,
 	},
 	mukalola: {
@@ -735,7 +735,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	vulpix: {
 		randomBattleMoves: ["bodyslam", "confuseray", "fireblast"],
 		exclusiveMoves: ["flamethrower", "reflect", "substitute"],
-		tier: "LC",
+		tier: "NFE",
 	},
 	ninetales: {
 		randomBattleMoves: ["bodyslam", "confuseray", "fireblast"],
