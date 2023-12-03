@@ -615,12 +615,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 	},
 	deepseascale: {
+		inherit: true,
 		name: "Deep Sea Scale",
 		shortDesc: "If held by a Clamperl or a Gorebyss, its Sp. Def is x1.5.",
-		spritenum: 93,
-		fling: {
-			basePower: 30,
-		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.baseSpecies.name === 'Gorebyss') {
@@ -628,16 +625,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		itemUser: ["Clamperl", "Gorebyss"],
-		num: 227,
-		gen: 3,
 	},
 	deepseatooth: {
+		inherit: true,
 		name: "Deep Sea Tooth",
 		shortDesc: "If held by a Clamperl or a Huntail, its Sp. Atk is x1.5.",
-		spritenum: 94,
-		fling: {
-			basePower: 90,
-		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.baseSpecies.name === 'Huntail') {
@@ -645,8 +637,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		itemUser: ["Clamperl", "Huntail"],
-		num: 226,
-		gen: 3,
 	},
 	// sandwiches
 	mightysandwichkoraidon: {
