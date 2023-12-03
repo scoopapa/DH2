@@ -177,7 +177,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 110,
 		category: "Special",
 		name: "Magnetic Blast",
-		sideCondition: 'spikes',
+		// sideCondition: 'spikes',
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
