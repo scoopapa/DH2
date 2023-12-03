@@ -4184,7 +4184,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Sudowoodo",
 		evoMove: "Mimic",
 		eggGroups: ["Mineral"],
-		canHatch: true,
 	},
 	irondrill: {
 		num: -78,
@@ -4196,6 +4195,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		heightm: 5,
 		weightkg: 999.9,
 		color: "Red",
+		tags: ["Paradox"],
 		eggGroups: ["Undiscovered"],
 	},
 	whitewhale: {
@@ -4208,6 +4208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		heightm: 17.5,
 		weightkg: 999.9,
 		color: "White",
+		tags: ["Paradox"],
 		eggGroups: ["Undiscovered"],
 	},
 }
