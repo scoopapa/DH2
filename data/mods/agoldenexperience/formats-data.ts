@@ -4483,8 +4483,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	spidops: {
-		tier: "(PU)",
-		doublesTier: "(DUU)",
+		tier: "NFE",
+	},
+	spyarn: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	nymble: {
 		tier: "LC",
@@ -4518,7 +4521,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	wugtrio: {
-		tier: "(PU)",
+		tier: "NU",
 		doublesTier: "(DUU)",
 	},
 	dondozo: {
@@ -4564,8 +4567,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	revavroom: {
-		tier: "UU",
-		doublesTier: "(DUU)",
+		tier: "RU",
+	},
+	verivavroom: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	orthworm: {
 		tier: "NU",
@@ -4594,17 +4600,14 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	baxcalibur: {
 		tier: "OU",
 		doublesTier: "DUU",
-		natDexTier: "OU",
 	},
 	tatsugiri: {
 		tier: "NU",
 		doublesTier: "DUber",
-		natDexTier: "RU",
 	},
 	cyclizar: {
 		tier: "UU",
 		doublesTier: "DUU",
-		natDexTier: "OU",
 	},
 	pawmi: {
 		tier: "LC",
@@ -4615,7 +4618,6 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	pawmot: {
 		tier: "UU",
 		doublesTier: "DUU",
-		natDexTier: "RU",
 	},
 	wattrel: {
 		tier: "LC",

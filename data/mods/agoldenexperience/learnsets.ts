@@ -3965,6 +3965,25 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			teramorphosis: ["9L1"],
 		},
 	},
+	spyarn: {
+		learnset: {
+			gyroball: ["9L1"],
+			metalburst: ["9L1"],
+			flashcannon: ["9L1"],
+			mirorshot: ["9L1"],
+			ironhead: ["9L1"],
+			steelbeam: ["9L1"],
+		},
+	},
+	verivavroom: {
+		learnset: {
+			combattorque: ['9L1'],
+			blazingtorque: ['9L1'],
+			magicaltorque: ['9L1'],
+			noxioustorque: ['9L1'],
+			wickedtorque: ['9L1'],
+		},
+	},
 	irondrill: {
 		learnset: {
 			aerialace: ["7M", "6M", "5M"],

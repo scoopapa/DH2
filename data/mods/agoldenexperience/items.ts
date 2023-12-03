@@ -679,6 +679,241 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -43,
 		gen: 8,
 	},
+	seginstar: {
+		name: "Segin Star",
+		spritenum: 646,
+		fling: {
+			basePower: 20,
+			status: 'slp',
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === -79 || pokemon.baseSpecies.num === -79) {
+				return false;
+			}
+			return true;
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Verivavroom') {			
+				this.add('-item', pokemon, 'Segin Star');
+				this.add('-anim', pokemon, "Cosmic Power", pokemon);
+				this.add('-message', `${pokemon.name}'s Segin Star changed its form and ability!`);
+			}
+		},
+		onStart(pokemon) {
+			const oldAbility = pokemon.setAbility('intimidate');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Intimidate', '[from] item: Segin Star');
+				return;
+			}
+			return oldAbility as false | null;
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Segin Star boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dark') {
+				this.debug('Segin Star boost');
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Verivavroom"],
+		num: -44,
+		gen: 9,
+		desc: "Verivavroom: Gains STAB on Dark-type, Ability: Intimidate.",
+	},	
+	schedarstar: {
+		name: "Schedar Star",
+		spritenum: 632,
+		fling: {
+			basePower: 20,
+			status: 'brn',
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === -79 || pokemon.baseSpecies.num === -79) {
+				return false;
+			}
+			return true;
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Verivavroom') {			
+				this.add('-item', pokemon, 'Schedar Star');
+				this.add('-anim', pokemon, "Cosmic Power", pokemon);
+				this.add('-message', `${pokemon.name}'s Schedar Star changed its form and ability!`);
+			}
+		},
+		onStart(pokemon) {
+			const oldAbility = pokemon.setAbility('speedboost');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Speed Boost', '[from] item: Schedar Star');
+				return;
+			}
+			return oldAbility as false | null;
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Segin Star boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Segin Star boost');
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Verivavroom"],
+		num: -45,
+		gen: 9,
+		desc: "Verivavroom: Gains STAB on Fire-type, Ability: Speed Boost.",
+	},	
+	navistar: {
+		name: "Navi Star ",
+		spritenum: 638,
+		fling: {
+			basePower: 20,
+			status: 'psn',
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === -79 || pokemon.baseSpecies.num === -79) {
+				return false;
+			}
+			return true;
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Verivavroom') {			
+				this.add('-item', pokemon, 'Schedar Star');
+				this.add('-anim', pokemon, "Cosmic Power", pokemon);
+				this.add('-message', `${pokemon.name}'s Schedar Star changed its form and ability!`);
+			}
+		},
+		onStart(pokemon) {
+			const oldAbility = pokemon.setAbility('toxicdebris');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Toxic Debris', '[from] item: Navi Star');
+				return;
+			}
+			return oldAbility as false | null;
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Segin Star boost');
+				return this.chainModify(2/1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Poison') {
+				this.debug('Segin Star boost');
+				return this.chainModify(2/1.5);
+			}
+		},
+		itemUser: ["Verivavroom"],
+		num: -46,
+		gen: 9,
+		desc: "Verivavroom: Gains better Poison-type, Ability: Toxic Debris.",
+	},	
+	ruchbahstar: {
+		name: "Ruchbah Star",
+		spritenum: 648,
+		fling: {
+			basePower: 20,
+			status: 'confusion',
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === -79 || pokemon.baseSpecies.num === -79) {
+				return false;
+			}
+			return true;
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Verivavroom') {			
+				this.add('-item', pokemon, 'Ruchbah Star');
+				this.add('-anim', pokemon, "Cosmic Power", pokemon);
+				this.add('-message', `${pokemon.name}'s Ruchbah Star changed its form and ability!`);
+			}
+		},
+		onStart(pokemon) {
+			const oldAbility = pokemon.setAbility('mistysurge');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Misty Surge', '[from] item: Ruchbah Star');
+				return;
+			}
+			return oldAbility as false | null;
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fairy') {
+				this.debug('Ruchbah Star boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fairy') {
+				this.debug('Ruchbah Star boost');
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Verivavroom"],
+		num: -47,
+		gen: 9,
+		desc: "Verivavroom: Gains STAB on Fairy-type, Ability: Misty Surge.",
+	},	
+	caphstar: {
+		name: "Caph Star",
+		spritenum: 637,
+		fling: {
+			basePower: 20,
+			status: 'par',
+		},
+		onTakeItem(item, pokemon, source) {
+			if (source?.baseSpecies.num === -79 || pokemon.baseSpecies.num === -79) {
+				return false;
+			}
+			return true;
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Verivavroom') {			
+				this.add('-item', pokemon, 'Caph Star');
+				this.add('-anim', pokemon, "Cosmic Power", pokemon);
+				this.add('-message', `${pokemon.name}'s Caph Star changed its form and ability!`);
+			}
+		},
+		onStart(pokemon) {
+			const oldAbility = pokemon.setAbility('stamina');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Stamina', '[from] item: Ruchbah Star');
+				return;
+			}
+			return oldAbility as false | null;
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Ruchbah Star boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fighting') {
+				this.debug('Ruchbah Star boost');
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Verivavroom"],
+		num: -48,
+		gen: 9,
+		desc: "Verivavroom: Gains STAB on Fighting-type, Ability: Stamina.",
+	},	
 	// identitycard: { //WIP
 	// 	name: "Identity Card",
 	// 	spritenum: 0, 
@@ -689,7 +924,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	// 			this.add('-block', target, 'item: Identity Card');
 	// 		}
 	// 	},
-	// 	num: -44,
+	// 	num: -49,
 	// 	gen: 8,
 	// },
 }
