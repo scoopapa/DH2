@@ -2843,6 +2843,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 120, atk: 95, def: 95, spa: 45, spd: 95, spe: 20},
 	},
+	rookidee: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
+	},
+	corvisquire: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
+	},
+	corviknight: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Justified", H: "Mirror Armor"},
+	},
 	orbeetle: {
 		inherit: true,
 		abilities: {0: "Neuroforce", 1: "Regenerator", H: "Psychic Surge"},
@@ -4132,7 +4144,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         num: -70,
         name: "Tapu Wala",
         types: ["Fighting", "Fairy"],
-        baseStats: {hp: 70, atk: 130, def: 85, spa: 115, spd: 75, spe: 95},
+        baseStats: {hp: 70, atk: 130, def: 85, spa: 95, spd: 75, spe: 115},
         abilities: {0: "Chakra Surge", H: "Telepathy"},
         heightm: 1.5,
         weightkg: 23.2,
