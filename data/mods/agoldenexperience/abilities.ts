@@ -1304,22 +1304,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 1.5,
 		num: -59,
 	},
-	pride: {
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				if (effect.category === 'Physical') {
-					this.boost({ atk: length }, source);
-				}
-				else if (effect.category === 'Special') {
-					this.boost({ spa: length }, source);
-				}
-			}
-		},
-		name: "Pride",
-		shortDesc: "After successfully KOing a foe with a move, gets +1 in the stat of the move that KO'd target.",
-		rating: 3,
-		num: -60,
-	},
+	// pride: {
+	// 	onSourceAfterFaint(length, target, source, effect) {
+	// 		if (effect && effect.effectType === 'Move') {
+	// 			if (effect.category === 'Physical') {
+	// 				this.boost({ atk: length }, source);
+	// 			}
+	// 			else if (effect.category === 'Special') {
+	// 				this.boost({ spa: length }, source);
+	// 			}
+	// 		}
+	// 	},
+	// 	name: "Pride",
+	// 	shortDesc: "After successfully KOing a foe with a move, gets +1 in the stat of the move that KO'd target.",
+	// 	rating: 3,
+	// 	num: -60,
+	// },
 	unconcerned: {
 		name: "Unconcerned",
 		onAnyModifyBoost(boosts, pokemon) {

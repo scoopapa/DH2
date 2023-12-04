@@ -1264,7 +1264,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	infernape: {
 		inherit: true,
-		abilities: {0: "Blaze", H: "Pride"},
+		baseStats: {hp: 76, atk: 104, def: 61, spa: 104, spd: 61, spe: 128},
+		abilities: {0: "Blaze", H: "Unconcerned"},
 	},
 	bibarel: {
 		inherit: true,
@@ -1371,7 +1372,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	lucario: {
 		inherit: true,
-		abilities: {0: "Chakra Surge", 1: "Pride", H: "Strong Will"},
+		abilities: {0: "Chakra Surge", 1: "Strong Will", H: "Justified"},
 	},
 	lucariomega: {
 		inherit: true,
@@ -2113,7 +2114,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	pyroar: {
 		inherit: true,
-		abilities: {0: "Rivalry", 1: "Supreme Overlord", H: "Pride"},
+		abilities: {0: "Rivalry", 1: "Unnerve", H: "Supreme Overlord"},
 	},
 	flabebe: {
 		inherit: true,
@@ -3087,10 +3088,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		abilities: {0: "Rattled", 1: "Adaptability", H: "Rock Head"},
 	},
 	// Gen 9
-	quaquaval: {
-		inherit: true,
-		abilities: {0: "Torrent", H: "Pride"},
-	},
 	lokix: {
 		inherit: true,
 		baseStats: {hp: 71, atk: 112, def: 78, spa: 52, spd: 55, spe: 92},
@@ -4064,7 +4061,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Goldiorno",
 		types: ["Fighting", "Fairy"],
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 85, spd: 80, spe: 115},
-		abilities: {0: "Natural Cure", 1: "Pride", H: "Grassy Surge"},
+		abilities: {0: "Natural Cure", H: "Grassy Surge"},
 		heightm: 1.72,
 		weightkg: 50,
 		color: "Yellow",
