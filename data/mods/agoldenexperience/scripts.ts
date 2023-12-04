@@ -919,6 +919,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'mukalola').learnset.seedbomb = ['9L1'];
     this.modData('Learnsets', 'mukalola').learnset.grassyglide = ['9L1'];
     this.modData('Learnsets', 'mukalola').learnset.toxicspikes = ['9L1'];
+    this.modData('Learnsets', 'mukalola').learnset.rototiller = ['9L1'];
     this.modData('Learnsets', 'electrode').learnset.wildcharge = ['9L1'];
     this.modData('Learnsets', 'exeggutor').learnset.focusblast = ['9L1'];
     this.modData('Learnsets', 'exeggutor').learnset.aurasphere = ['9L1'];
