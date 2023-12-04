@@ -1011,7 +1011,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	 },
 	 chomptrymega: {
 		num: 70, 
-		//fusion: ["Overqwil", "Gyarados-Mega"],
+		//fusion: ["Garchomp-Mega", "Shiftry"],
 		name: "Chomptry-Mega", 
 		baseSpecies: "Chomptry",
 		forme: "Mega",
