@@ -3506,6 +3506,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			flipturn: ["9T"],
 			lashout: ["9T"],
 			scaleshot: ["9T"],
+			dracometeor: ["9T"],
 		},
 	},
 	tapuwala: {
@@ -3963,6 +3964,25 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			seedbomb: ["9L1"],
 			ingrain: ["9L1"],
 			teramorphosis: ["9L1"],
+		},
+	},
+	spyarn: {
+		learnset: {
+			gyroball: ["9L1"],
+			metalburst: ["9L1"],
+			flashcannon: ["9L1"],
+			mirorshot: ["9L1"],
+			ironhead: ["9L1"],
+			steelbeam: ["9L1"],
+		},
+	},
+	verivavroom: {
+		learnset: {
+			combattorque: ['9L1'],
+			blazingtorque: ['9L1'],
+			magicaltorque: ['9L1'],
+			noxioustorque: ['9L1'],
+			wickedtorque: ['9L1'],
 		},
 	},
 	irondrill: {

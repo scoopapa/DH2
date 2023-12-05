@@ -250,6 +250,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Corrosion", 1: "Sticky Hold", H: "Poison Touch"},
 	},
+	mukalola: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Grassy Surge", H: "Power of Alchemy"},
+	},
 	gastly: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Neutralizing Gas"},
@@ -913,11 +917,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	meditite: {
 		inherit: true,
-		abilities: {0: "Pure Power", 1: "Telepathy", H: "Strong Will"},
+		abilities: {0: "Pure Power", 1: "Telepathy", H: "Chakra Surge"},
 	},
 	medicham: {
 		inherit: true,
-		abilities: {0: "Pure Power", 1: "Telepathy", H: "Strong Will"},
+		abilities: {0: "Pure Power", 1: "Telepathy", H: "Chakra Surge"},
 	},
 	manectric: {
 		inherit: true,
@@ -1260,7 +1264,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	infernape: {
 		inherit: true,
-		abilities: {0: "Blaze", H: "Pride"},
+		baseStats: {hp: 76, atk: 104, def: 61, spa: 104, spd: 61, spe: 128},
+		abilities: {0: "Blaze", H: "Unconcerned"},
 	},
 	bibarel: {
 		inherit: true,
@@ -1310,7 +1315,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	vespiquen: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Simple", H: "Unnerve"},
+		abilities: {0: "Pressure", 1: "Magic Guard", H: "Unnerve"},
 	},
 	buizel: {
 		inherit: true,
@@ -1367,11 +1372,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	lucario: {
 		inherit: true,
-		abilities: {0: "Chakra Surge", 1: "Pride", H: "Strong Will"},
+		abilities: {0: "Chakra Surge", 1: "Strong Will", H: "Justified"},
 	},
 	lucariomega: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 145, def: 88, spa: 130, spd: 80, spe: 112},
 		abilities: {0: "Mega Launcher"},
 	},
 	drapion: {
@@ -1426,7 +1430,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	electivire: {
 		inherit: true,
-		abilities: {0: "Motor Drive", 1: "Gorilla Tactics", H: "Vital Spirit"},
+		abilities: {0: "Motor Drive", 1: "Electric Surge", H: "Vital Spirit"},
 	},
 	magmortar: {
 		inherit: true,
@@ -2110,7 +2114,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	pyroar: {
 		inherit: true,
-		abilities: {0: "Rivalry", 1: "Supreme Overlord", H: "Pride"},
+		abilities: {0: "Rivalry", 1: "Unnerve", H: "Supreme Overlord"},
 	},
 	flabebe: {
 		inherit: true,
@@ -2840,6 +2844,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 120, atk: 95, def: 95, spa: 45, spd: 95, spe: 20},
 	},
+	rookidee: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
+	},
+	corvisquire: {
+		inherit: true,
+		abilities: {0: "Keen Eye", 1: "Justified", H: "Big Pecks"},
+	},
+	corviknight: {
+		inherit: true,
+		abilities: {0: "Pressure", 1: "Justified", H: "Mirror Armor"},
+	},
 	orbeetle: {
 		inherit: true,
 		abilities: {0: "Neuroforce", 1: "Regenerator", H: "Psychic Surge"},
@@ -3072,13 +3088,21 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		abilities: {0: "Rattled", 1: "Adaptability", H: "Rock Head"},
 	},
 	// Gen 9
-	quaquaval: {
-		inherit: true,
-		abilities: {0: "Torrent", H: "Pride"},
-	},
 	lokix: {
 		inherit: true,
 		baseStats: {hp: 71, atk: 112, def: 78, spa: 52, spd: 55, spe: 92},
+	},
+	fidough: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 55, def: 70, spa: 30, spd: 55, spe: 37},
+	},
+	dachsbun: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 80, def: 115, spa: 50, spd: 80, spe: 57},
+	},
+	arboliva: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 59, def: 90, spa: 125, spd: 109, spe: 39},
 	},
 	charcadet: {
 		inherit: true,
@@ -3092,6 +3116,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Flash Fire", 1: "Sharpness", H: "Weak Armor"},
 	},
+	kilowattrel: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 60, def: 60, spa: 115, spd: 60, spe: 125},
+	},
+	grafaiai: {
+		inherit: true,
+		baseStats: {hp: 63, atk: 95, def: 65, spa: 60, spd: 72, spe: 130},
+	},
+	toedscruel: {
+		inherit: true,
+		baseStats: {hp: 90, atk: 70, def: 65, spa: 80, spd: 120, spe: 100},
+	},
+	klawf: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 100, def: 115, spa: 35, spd: 55, spe: 85},
+	},
 	scovillain: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 118, def: 65, spa: 118, spd: 65, spe: 85},
@@ -3099,6 +3139,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	tinkaton: {
 		inherit: true,
 		abilities: {0: "Mold Breaker", 1: "Own Tempo", H: "Sheer Force"},
+	},
+	wiglett: {
+		inherit: true,
+		abilities: {0: "Gooey", 1: "Rattled", H: "Technician"},
+	},
+	wugtrio: {
+		inherit: true,
+		baseStats: {hp: 35, atk: 125, def: 50, spa: 50, spd: 70, spe: 120},
+		abilities: {0: "Gooey", 1: "Rattled", H: "Technician"},
 	},
 	palafinhero: {
 		inherit: true,
@@ -3111,6 +3160,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	houndstone: {
 		inherit: true,
 		baseStats: {hp: 92, atk: 101, def: 100, spa: 30, spd: 97, spe: 68},
+	},
+	flamigo: {
+		inherit: true,
+		baseStats: {hp: 82, atk: 125, def: 74, spa: 55, spd: 64, spe: 100},
 	},
 	greattusk: {
 		inherit: true,
@@ -3234,6 +3287,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	ironleaves: {
 		inherit: true,
 		abilities: {0: "Quark Drive", H: "Justified"},
+	},
+	munkidori: {
+		inherit: true,
+		abilities: {0: "Toxic Chain", H: "Psychic Surge"},
+	},
+	fezandipiti: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 70, def: 82, spa: 91, spd: 125, spe: 99},
+		abilities: {0: "Toxic Chain", H: "Magic Guard"},
 	},
 
 	// Fakemons:
@@ -3999,7 +4061,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Goldiorno",
 		types: ["Fighting", "Fairy"],
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 85, spd: 80, spe: 115},
-		abilities: {0: "Natural Cure", 1: "Pride", H: "Grassy Surge"},
+		abilities: {0: "Natural Cure", H: "Grassy Surge"},
 		heightm: 1.72,
 		weightkg: 50,
 		color: "Yellow",
@@ -4079,7 +4141,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         num: -70,
         name: "Tapu Wala",
         types: ["Fighting", "Fairy"],
-        baseStats: {hp: 70, atk: 130, def: 85, spa: 115, spd: 75, spe: 95},
+        baseStats: {hp: 70, atk: 130, def: 85, spa: 95, spd: 75, spe: 115},
         abilities: {0: "Chakra Surge", H: "Telepathy"},
         heightm: 1.5,
         weightkg: 23.2,
@@ -4184,22 +4246,41 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Sudowoodo",
 		evoMove: "Mimic",
 		eggGroups: ["Mineral"],
-		canHatch: true,
 	},
-	irondrill: {
+	spidops: {
+		inherit: true,
+		evos: ["Spyarn"],
+	},
+	spyarn: {
 		num: -78,
-		name: "Iron Drill",
-		types: ["Steel", "Fighting"],
-		gender: "N",
-		baseStats: {hp: 114, atk: 140, def: 70, spa: 80, spd: 72, spe: 94},
-		abilities: {0: "Quark Drive", H: "Sand Rush"},
+		name: "Spyarn",
+		types: ["Bug", "Steel"],
+		baseStats: {hp: 90, atk: 99, def: 112, spa: 62, spd: 106, spe: 35},
+		abilities: {0: "Insomnia", H: "Battle Armor"},
+		heightm: 1.2,
+		weightkg: 50,
+		prevo: "Spidops",
+		eggGroups: ["Bug"],
+	},
+	revavroom: {
+		inherit: true,
+		evos: ["Verivavroom"],
+	},
+	verivavroom: {
+		num: -79,
+		name: "Verivavroom",
+		types: ["Steel", "Poison"],
+		baseStats: {hp: 80, atk: 129, def: 100, spa: 54, spd: 77, spe: 80},
+		abilities: {0: "Overcoat", H: "Filter"},
 		heightm: 5,
-		weightkg: 999.9,
-		color: "Red",
-		eggGroups: ["Undiscovered"],
+		weightkg: 500,
+		color: "Gray",
+		prevo: "Revavroom",
+		evoLevel: 40,
+		eggGroups: ["Mineral"],
 	},
 	whitewhale: {
-		num: -79,
+		num: -80,
 		name: "White Whale",
 		types: ["Water", "Dark"],
 		gender: "N",
@@ -4208,6 +4289,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		heightm: 17.5,
 		weightkg: 999.9,
 		color: "White",
+		tags: ["Paradox"],
+		eggGroups: ["Undiscovered"],
+	},
+	irondrill: {
+		num: -81,
+		name: "Iron Drill",
+		types: ["Steel", "Fighting"],
+		gender: "N",
+		baseStats: {hp: 114, atk: 140, def: 70, spa: 80, spd: 72, spe: 94},
+		abilities: {0: "Quark Drive", H: "Sand Rush"},
+		heightm: 5,
+		weightkg: 999.9,
+		color: "Red",
+		tags: ["Paradox"],
 		eggGroups: ["Undiscovered"],
 	},
 }
