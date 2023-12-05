@@ -3506,6 +3506,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			flipturn: ["9T"],
 			lashout: ["9T"],
 			scaleshot: ["9T"],
+			dracometeor: ["9T"],
 		},
 	},
 	tapuwala: {
