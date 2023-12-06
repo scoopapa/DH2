@@ -3347,9 +3347,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noPPBoosts: true,
 		priority: 0,
 		flags: {contact: 1},
-		boosts: {
-			evasion: -1,
+		onAfterMove(source, target, move) {
+			this.boost({evasion: -1}, target, source);
 		},
+		multihit: [2, 5],
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -6808,10 +6809,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noPPBoosts: true,
 		priority: 0,
 		flags: {contact: 1},
-		secondary: {
-			chance: 80,
-			status: 'par',
+		onAfterMove(source, target, move) {
+			if (this.randomChance(4, 5s)) {
+				target.trySetStatus('par');
+			}
 		},
+		multihit: [1, 4],
+		secondary: null,
 		target: "normal",
 		type: "Grass",
 	},
@@ -7301,9 +7305,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noPPBoosts: true,
 		priority: 0,
 		flags: {contact: 1},
-		onHit(target, source, move) {
+		onAfterMove(source, target, move) {
 			this.boost({atk: -1, def: -1}, target, source);
-			this.boost({atk: 1, def: 1}, source, source);
+		},
+		multihit: [1, 2],
+		selfBoost: {
+			boosts: {
+				atk: 1,
+				def: 1,
+			},
 		},
 		drain: [4, 5],
 		secondary: null,
@@ -8421,7 +8431,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noPPBoosts: true,
 		priority: 0,
 		flags: {contact: 1},
-		multihit: [1,2],
+		multihit: [1, 2],
 		multiaccuracy: true,
 		secondary: null,
 		target: "normal",
