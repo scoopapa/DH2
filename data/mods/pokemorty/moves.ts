@@ -6810,7 +6810,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {contact: 1},
 		onAfterMove(source, target, move) {
-			if (this.randomChance(4, 5s)) {
+			if (this.randomChance(4, 5)) {
 				target.trySetStatus('par');
 			}
 		},
