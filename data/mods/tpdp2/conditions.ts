@@ -266,9 +266,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 				}
 			}
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
 		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -299,9 +305,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 				}
 			}
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
 		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -409,8 +421,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -519,8 +538,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -635,8 +661,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
 				return this.chainModify(0.5);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -751,8 +784,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			if (!pokemon.hasAbility('pride'))
 				return this.chainModify(0.5);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -870,8 +910,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 				return this.chainModify(0.25);
 			}
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -902,8 +949,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -934,8 +988,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		onResidual(pokemon){
 			this.damage(pokemon.baseMaxhp / 8);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -967,8 +1028,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			if (!pokemon.hasAbility('mindseye') && pokemon.moveThisTurn !== 'blowfromcalamity')
 				return this.chainModify(0.5);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -1000,8 +1068,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 			if (!pokemon.hasAbility('pride'))
 				return this.chainModify(0.5);
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
@@ -1034,8 +1109,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 				return this.chainModify(0.25);
 			}
 		},
+		onModifyMove(move, pokemon, target) {
+			if (move.flags['heal'] && !move.drain) {
+				this.add('cant', pokemon, 'condition: weak', move);
+				return false;
+			}
+		},
+		onBeforeMovePriority: 6,
 		onBeforeMove(pokemon, target, move) {
-			if (move.flags['heal'] && !move.isZ && !move.isMax) {
+			if (move.flags['heal'] && !move.drain) {
 				this.add('cant', pokemon, 'condition: weak', move);
 				return false;
 			}
