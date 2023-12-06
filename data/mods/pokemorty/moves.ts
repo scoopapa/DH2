@@ -2874,6 +2874,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
+		viable: true,
 	},
 	heavedown: {
 		num: 1182,
@@ -5028,8 +5029,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Holiday Spirit",
-		desc: "Has a 50% chance to raise the user's Attack, Defense and Speed by 3 stages.",
-		shortDesc: "50% chance to raise user's Atk, Def and Spe by 3.",
+		desc: "Raises the user's Attack, Defense and Speed by 3 stages.",
+		shortDesc: "Raises the user's Atk, Def and Spe by 3.",
 		pp: 5,
 		noPPBoosts: true,
 		priority: 0,
@@ -6502,7 +6503,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		noPPBoosts: true,
 		priority: 0,
 		flags: {contact: 1},
-		self: {
+		multihit: [1, 5],
+		selfBoost: {
 			boosts: {
 				spe: -1,
 			},
