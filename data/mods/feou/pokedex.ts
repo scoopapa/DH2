@@ -680,7 +680,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 83, atk: 101, def: 89, spa: 127, spd: 101, spe: 59}, 
 		abilities: {0: "Airborne Armor"},
 		weightkg: 186,
-		otherFormes: ["Necrotrik-Dawn-Wings"],
+		otherFormes: ["Necrotrik-Ultra"],
 		formeOrder: ["Necrotrik-Dawn-Wings", "Necrotrik-Ultra"],
 	},
 	necrotrikultra: {
