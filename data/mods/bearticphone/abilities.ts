@@ -363,8 +363,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.effectState.unfainted) {
 				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
-				this.debug(`Mob Mentality boost: ${powMod[this.effectState.fallen]}/4096`);
-				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+				this.debug(`Mob Mentality boost: ${powMod[this.effectState.unfainted]}/4096`);
+				return this.chainModify([powMod[this.effectState.unfainted], 4096]);
 			}
 		},
 		name: "Mob Mentality",
