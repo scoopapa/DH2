@@ -4,4 +4,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Clearing hazards heals 25% max HP per hazard.",
 		name: "Residue Cleaning",
 	},
+	mountaineer: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
