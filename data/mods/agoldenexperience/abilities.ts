@@ -314,14 +314,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isTerrain('grassyterrain')) {
-				if (move.type === 'Steel') {
-					this.debug('Wood Clearing boost');
-					return this.chainModify([0x14CD, 0x1000]);
-				}
+				this.debug('Wood Clearing boost');
+				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
 		name: "Wood Clearing",
-		shortDesc: "gets BP x1.3 on Grassy Surge.",
+		shortDesc: "This Pokemon's attacks do 1.3x in Grassy Terrain.",
 		rating: 2,
 		num: -17,
 	},

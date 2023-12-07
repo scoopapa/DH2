@@ -1489,6 +1489,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		eggGroups: ["Fairy", "Mineral"],
 		requiredItem: "Froslassite",
 	},
+	rotom: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Unburden"},
+	},
+	rotomheat: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Flame Body"},
+	},
+	rotomwash: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Storm Drain"},
+	},
+	rotomfrost: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Refrigerate"},
+	},
+	rotomfan: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Speed Boost"},
+	},
+	rotommow: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Wood Clearing"},
+	},
 	uxie: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 70, def: 130, spa: 70, spd: 130, spe: 95},
@@ -4083,7 +4107,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Berkslash",
 		types: ["Steel", "Poison"],
 		baseStats: {hp: 100, atk: 134, def: 98, spa: 65, spd: 68, spe: 55},
-		abilities: {0: "Wood Clearing"},
+		abilities: {0: "Wood Clearing", H: "Motor Drive"},
 		heightm: 1.9,
 		weightkg: 92,
 		eggGroups: ["Amorphous"],
