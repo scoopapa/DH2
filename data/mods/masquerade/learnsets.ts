@@ -84,6 +84,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			workup: ["9L1"],
 			yawn: ["9L1"],
 			zenheadbutt: ["9L1"],
+			drainingtusk: ["9L1"],
 		},
 	},
 	swampert: {
@@ -238,6 +239,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			uproar: ["9L1"],
 			voltswitch: ["9L1"],
 			wildcharge: ["9L1"],
+			powerblitz: ["9L1"],
 		},
 	},
 };
