@@ -139,7 +139,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if(moveData.multihit?.length && moveData.basePower > 15 && (['skilllink', 'technician'].includes(abilityid) || itemid === 'loadeddice')){
 				return true;
 			}
-			if (moveData.basePower < 75 && !(abilityid === 'technician' && movedata.basePower <= 60 && moveData.basePower >= 50)) {
+			if (moveData.basePower < 75 && !(abilityid === 'technician' && moveData.basePower <= 60 && moveData.basePower >= 50)) {
 				return this.GOOD_WEAK_MOVES.includes(id);
 			}
 			return !this.BAD_STRONG_MOVES.includes(id);
@@ -2648,12 +2648,7 @@ export const Scripts: ModdedBattleScriptsData = {
 								pokemon.tier = tier;
 								pokemon.natDexTier = tier;
 							}
-						}/* else if (pokemonID.endsWith('gmax')) {
-							this.modData('FormatsData', pokemonID).tier = "Illegal";
-							this.modData('FormatsData', pokemonID).natDexTier = "Illegal";
-							pokemon.tier = "Illegal";
-							pokemon.natDexTier = "Illegal";
-						}*/
+						}
 						break;
 					default: //All other non-standard Pokemon are to remain unusable
 						continue;
@@ -10637,6 +10632,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets','pawmot').learnset.bite;
 		// Tandemaus
 		this.modData('Learnsets','tandemaus').learnset.covet = ["9D"];
+		this.modData('Learnsets','tandemaus').learnset.batonpass = ["9L1"];
 		this.modData('Learnsets','tandemaus').learnset.afteryou = ["9M"];
 		this.modData('Learnsets','tandemaus').learnset.echoedvoice = ["9M"];
 		this.modData('Learnsets','tandemaus').learnset.endeavor = ["9M"];
@@ -10651,6 +10647,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData('Learnsets','tandemaus').learnset.trailhead = ["9M"];
 		// Maushold
 		this.modData('Learnsets','maushold').learnset.wideguard = ["9D"];
+		this.modData('Learnsets','maushold').learnset.batonpass = ["9L1"];
 		this.modData('Learnsets','maushold').learnset.afteryou = ["9M"];
 		this.modData('Learnsets','maushold').learnset.echoedvoice = ["9M"];
 		this.modData('Learnsets','maushold').learnset.embargo = ["9M"];

@@ -2139,7 +2139,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	eggbomb: {
 		inherit: true,
-		accuracy: 90,
+		basePower: 95,
+		accuracy: 100,
 	},
 	electroweb: {
 		inherit: true,

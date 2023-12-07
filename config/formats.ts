@@ -83,7 +83,7 @@ export const Formats: FormatList = [
 		threads: [],
 		mod: 'backtosinnoh',
 		ruleset: ['Standard', 'Data Mod'],
-		banlist: ['Uber', 'Arena Trap', 'Sand Veil', 'Quick Claw', 'Soul Dew', 'Baton Pass', 'Magnetic Blast'],
+		banlist: ['Uber', 'Arena Trap', 'Sand Veil', 'Quick Claw', 'Soul Dew', 'Baton Pass'],
 	},
 	{
 		name: "[Gen 9] Banhammers Cycle 2",
@@ -284,7 +284,7 @@ export const Formats: FormatList = [
 		threads: [
 			`&bullet: <a href="https://www.smogon.com/forums/threads/book-of-enigmas-slate-0-the-beginning-custom-abilities-names.3711490/">Thread on Smogon.`,
 		],
-		ruleset: ['Standard NatDex', 'Data Mod',],
+		ruleset: ['Standard NatDex', 'Data Mod', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 			'Sceptilite', 'Blazikenite', 'Swampertite', 'Gardevoirite', 'Galladite', 'Alakazite', 'Gyaradosite',
@@ -303,20 +303,6 @@ export const Formats: FormatList = [
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in Book of Enigmas OU.'];
 				}
-			}
-		},
-		validateSet(set, teamHas) { // stolen from SV Specualative
-			const species = this.dex.species.get(set.species);
-			const ability = this.dex.abilities.get(set.ability);
-			if (!set.hpType === 'Fairy' && !set.hpType === 'Normal') {
-				return this.validateSet(set, teamHas);
-			} else {
-				const terastal = set.hpType;
-				set.hpType = 'Fire';
-				const fakeValidation = this.validateSet(set, teamHas);
-				if (fakeValidation?.length) return fakeValidation;
-				set.hpType = terastal;
-				return null;
 			}
 		},
 		mod: 'bookofenigmas',
@@ -1705,56 +1691,8 @@ export const Formats: FormatList = [
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z', 
 					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Shed Tail', 'Light Clay',
 				'Rusted Sword', 'Rusted Shield', 'Revival Blessing'],
+		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 		teambuilderFormat: 'National Dex',
-		onChangeSet(set) {
-			const item = this.toID(set.item);
-			if (set.species === 'Zacian' || set.species === 'Zacian-Crowned') {
-				if (item === 'rustedsword') {
-					set.species = 'Zacian-Crowned';
-					set.ability = 'Intrepid Sword';
-					let ironHead = set.moves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						set.moves[ironHead] = 'behemothblade';
-					}
-				} else {
-					set.species = 'Zacian';
-				}
-			}
-			else if (set.species === 'Zamazenta' || set.species === 'Zamazenta-Crowned') {
-				if (item === 'rustedshield') {
-					set.species = 'Zamazenta-Crowned';
-					set.ability = 'Dauntless Shield';
-					let ironHead = set.moves.indexOf('ironhead');
-					if (ironHead >= 0) {
-						set.moves[ironHead] = 'behemothbash';
-					}
-				} else {
-					set.species = 'Zamazenta';
-				}
-			}
-		},
-		onValidateTeam(team, format){
-			/**@type {{[k: string]: true}} */
-			for (const set of team) {
-				if (set.species == 'Zacian-Crowned' && set.ability !== 'Intrepid Sword')
-					 return ["Zacian-Crowned can only have Intrepid Sword as its ability."]
-				if ((set.species !== 'Zacian-Crowned' && set.species !== 'Zacian') && set.ability === 'Intrepid Sword')
-					 return ["Only Zacian-Crowned can have Intrepid Sword as its ability."]
-			}
-		},
-	},
-	{
-		name: "[Gen 9] A Golden Experience Ubers",
-		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
-		threads: [
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
-		],
-		mod: 'agoldenexperience',
-		ruleset: ['Standard NatDex', 'Terastal Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
-		banlist: ['Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody',
-					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z', 
-					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang'],
-		teambuilderFormat: 'National Dex Ubers',
 		onChangeSet(set) {
 			const item = this.toID(set.item);
 			if (set.species === 'Zacian' || set.species === 'Zacian-Crowned') {
@@ -1803,8 +1741,9 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'OU', 'UUBL', 'Battle Bond', 'Power Construct', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z', 
 					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang',
-					'Drizzle', 'Drought', 'Aerodactylite', 'Alakazite', 'Ampharosite', 'Arbokinite', 'Baskironite', 'Blazikenite', 'Butterfrite', 'Cacturnite X', 'Centiskorchite X', 'Centiskorchite Y', 'Charizardite X', 'Charizardite Y', 'Dhelmite', 'Diancite', 'Flygonite', 'Froslassite', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Gyaradosite', 'Houndoominite', 'Krookodite', 'Latiasite', 'Lopunnite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Ribombinite', 'Salamencite', 'Sceptilite', 'Scizorite', 'Swampertite', 'Terreptilite', 
+					/*'Drizzle', 'Drought',*/ 'Aerodactylite', 'Alakazite', 'Ampharosite', 'Arbokinite', 'Baskironite', 'Blazikenite', 'Butterfrite', 'Cacturnite X', 'Centiskorchite X', 'Centiskorchite Y', 'Charizardite X', 'Charizardite Y', 'Dhelmite', 'Diancite', 'Flygonite', 'Froslassite', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Gyaradosite', 'Houndoominite', 'Krookodite', 'Latiasite', 'Lopunnite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Ribombinite', 'Salamencite', 'Sceptilite', 'Scizorite', 'Swampertite', 'Terreptilite', 
 				'Latiosite', 'Pidgeotite', 'Pinsirite', 'Sablenite', 'Darmanitan-Galar + Zen Mode', 'Light Clay', 'Revival Blessing'],
+		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 		teambuilderFormat: 'National Dex UU',
 		onChangeSet(set) {
 			const item = this.toID(set.item);
@@ -1854,13 +1793,14 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'RUBL','Battle Bond', 'Power Construct', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z', 
 					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang',
-					'Drizzle', 'Drought', 'Aerodactylite', 'Alakazite', 'Ampharosite', 'Arbokinite', 'Baskironite', 'Blazikenite', 'Butterfrite', 'Cacturnite X', 'Centiskorchite X', 'Centiskorchite Y', 'Charizardite X', 'Charizardite Y', 'Dhelmite', 'Diancite', 'Flygonite', 'Froslassite', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Gyaradosite', 'Houndoominite', 'Infarmatemite', 'Krookodite', 'Latiasite', 'Lopunnite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Ribombinite', 'Salamencite', 'Sceptilite', 'Scizorite', 'Swampertite', 'Terreptilite', 
+					/*'Drizzle', 'Drought',*/ 'Aerodactylite', 'Alakazite', 'Ampharosite', 'Arbokinite', 'Baskironite', 'Blazikenite', 'Butterfrite', 'Cacturnite X', 'Centiskorchite X', 'Centiskorchite Y', 'Charizardite X', 'Charizardite Y', 'Dhelmite', 'Diancite', 'Flygonite', 'Froslassite', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Gyaradosite', 'Houndoominite', 'Infarmatemite', 'Krookodite', 'Latiasite', 'Lopunnite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Ribombinite', 'Salamencite', 'Sceptilite', 'Scizorite', 'Swampertite', 'Terreptilite', 
 				'Latiosite', 'Pidgeotite', 'Pinsirite', 'Sablenite', 'Darmanitan-Galar + Zen Mode', 'Light Clay', 'Revival Blessing',
 			'Absolite', 'Aggronite', 'Altarianite', 'Audinite', 'Banettite', 'Beedrillite', 'Cacturnite Y', 'Chesnaughtite', 'Crobatite', 'Crustlite', 
 			'Delphite', 'Feraligatrite', 'Golisopodite', 'Heracronite', 'Kangaskhanite', 
 			'Machampite', 'Manectite', 'Meganite', 'Noctowlite', 'Rocksterite', 'Sharpedonite', 'Steelixite', 'Typhlosionite', 
 			'Venusaurite', 'Zoroarkite'],
-		teambuilderFormat: 'National Dex UU',
+		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
+		teambuilderFormat: 'National Dex RU',
 		onChangeSet(set) {
 			const item = this.toID(set.item);
 			if (set.species === 'Zacian' || set.species === 'Zacian-Crowned') {
@@ -1899,6 +1839,29 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] A Golden Experience VGC",
+		desc: `A fun metagame where we try to make everything viable, or at least usable. We also have new Fakemons!`,
+		threads: [
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1YJXE8wUNJijWSfNKIUqgObN5uEVgTliewTluGe0w4Y4/edit?usp=sharing">Spreadsheet for the mod</a>`,
+		],
+		mod: 'agoldenexperience',
+		gameType: 'doubles',
+		teambuilderFormat: 'National Dex Doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'VGC Timer', 'Dynamax Clause', 'Data Mod', 'Mega Data Mod'],
+		banlist: [
+			'Mewtwo', 'Mew',
+			'Lugia', 'Ho-Oh', 'Celebi',
+			'Kyogre', 'Groudon', 'Rayquaza', 'Jirachi', 'Deoxys',
+			'Dialga', 'Palkia', 'Giratina', 'Phione', 'Manaphy', 'Darkrai', 'Shaymin', 'Arceus',
+			'Victini', 'Reshiram', 'Zekrom', 'Kyurem', 'Keldeo', 'Meloetta', 'Genesect',
+			'Xerneas', 'Yveltal', 'Zygarde', 'Diancie', 'Hoopa', 'Volcanion',
+			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Magearna', 'Marshadow', 'Zeraora',
+			'Zacian', 'Zamazenta', 'Eternatus', 'Zarude', 'Calyrex',
+			'Koraidon', 'Miraidon',
+		],
+		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
+	},
+	{
 		name: "[Gen 9] Balls",
 		mod: 'balls',
 		desc: `A hilarious metagame filled with nothing but balls.`,
@@ -1915,7 +1878,7 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-	{
+  {
 		name: "[Gen 9] Conquest Dex",
 		mod: 'conquestdex',
 		desc: `A metagame based on the pokemon side game pokemon conquest`,
@@ -1932,6 +1895,33 @@ export const Formats: FormatList = [
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in Conquest Dex.'];
+        }
+      }
+    },
+},
+  {
+		name: "[Gen 9] Black & White 3",
+
+		mod: 'blackandwhite3',
+		teambuilderFormat: 'National Dex',
+		ruleset: ['Standard NatDex', 'Data Mod'],
+		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass',
+		'Last Respects', 'Shed Tail', 
+		'Sceptilite', 'Blazikenite', 'Swampertite', 'Gardevoirite', 'Galladite', 'Alakazite', 'Gyaradosite',
+		'Sablenite', 'Mawilite', 'Aggronite', 'Medichamite', 'Manectite', 'Sharpedonite', 'Cameruptite', 
+		'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite', 
+		'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
+		'Blue Orb', 'Red Orb', //this is just copied from ANL's lol
+		'Beedrill-Mega', 'Pidgeot-Mega', //?????
+	],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			let allowedTiers = ['BW OU', "BW NFE", "BW LC"];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Black & White 3 O
 				}
 			}
 		},
@@ -2258,6 +2248,38 @@ export const Formats: FormatList = [
 		onSwitchIn(pokemon) {
       	this.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 		},	
+	},
+	{
+		name: "[Gen 9] PokeMorty",
+		desc: `<b>PokeMorty</b>: A Gen 9 Mod made by SDM_0 heavily inspired by the video-game "Pocket Morty".`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9880923">Post in Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1NwWodcuBmT4fFpgK0PNlr9MslCWm97J3_2YrYP6OZVQ/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'pokemorty',
+		ruleset: ['Standard', 'Max Team Size = 5', '!Obtainable Abilities', 'Terastal Clause', '-All Items', 'Data Mod'],
+		banlist: ['Implode', 'Negative Space', 'Time Dilation', 'Grill Season', 'Use The Light', 
+		'Unspoken Bond', 'Bird Lover', 'Apex Genius', 'Training Complete', 'Abstracted Form', 
+		'Higher Education', 'Cell Division', 'Infiltrate', 'Mirror Image', 'Fast Charging', 
+		'Death Crystal', 'Magic Door', 'Strip Dance', 'Squid Costume', 'Cut the Chut', 'Bold And Daring'],
+		onValidateTeam(team) {
+			let speciesTable = {};
+			let allowedTiers = ['PM OU', 'PM NFE', 'PM LC'];
+			let problems = [];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					problems.push(`${set.species} is not a Morty.`);
+				}
+				if (this.dex.abilities.get(set.ability).id !== "noability") {
+					problems.push(`${set.species} can't have ${set.ability}.`);
+				}
+				if (!['bashful', 'docile', 'hardy', 'quirky', 'serious', ''].includes(this.toID(set.nature))) {
+					problems.push(`${set.species} can't have a non-neutral nature.`);
+				}
+			}
+			return problems;
+		},
 	},
 	{
 		name: "[Gen 8] Roulettemons The Solomod",
@@ -2890,32 +2912,6 @@ export const Formats: FormatList = [
 		section: "Non-Pet Mod Formats",
 		column: 3,
 		// name: "nonpetmodformats",
-	},
-	{
-		name: "[Gen 9] Black & White 3",
-
-		mod: 'blackandwhite3',
-		ruleset: ['Standard NatDex', 'Data Mod'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass',
-		'Last Respects', 'Shed Tail', 
-		'Sceptilite', 'Blazikenite', 'Swampertite', 'Gardevoirite', 'Galladite', 'Alakazite', 'Gyaradosite',
-		'Sablenite', 'Mawilite', 'Aggronite', 'Medichamite', 'Manectite', 'Sharpedonite', 'Cameruptite', 
-		'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite', 
-		'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
-		'Blue Orb', 'Red Orb', //this is just copied from ANL's lol
-		'Beedrill-Mega', 'Pidgeot-Mega', //?????
-	],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			let allowedTiers = ['BW OU', "BW NFE", "BW LC"];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Black & White 3 OU.'];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 9] Littlest Cup",

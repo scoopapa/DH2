@@ -161,23 +161,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 4.5,
 		num: -7,
 	},
-	// reflex: { //removed
-	// 	onFoeTryMove(target, source, move) {
-	// 		const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
-	// 		if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
-	// 			return;
-	// 		}
-	// 		const dazzlingHolder = this.effectState.target;
-	// 		if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
-	// 			this.attrLastMove('[still]');
-	// 			this.add('cant', dazzlingHolder, 'ability: Reflex', move, '[of] ' + target);
-	// 			return false;
-	// 		}
-	// 	},
-	// 	name: "Reflex",
-	// 	rating: 2.5,
-	// 	num: -8,
-	// },
 	perforating: {
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
@@ -256,51 +239,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		shortDesc: "If this Pokemon is hit by a physical super effective move, it takes neutral damage.",
 		num: -12,
 	},
-	//unused due to deleted Fakemons
-	/*shortcircuit: {
-		onStart(pokemon) {
-			let bp = 0;
-			for (const moveSlot of pokemon.moveSlots) {
-				const move = this.dex.moves.get(moveSlot.move);
-				if (move.category === 'Status') continue;
-				if (move.basePower > bp) {
-					bp = move.basePower;
-				}
-				if (pokemon.volatiles['abilitylock']) {
-					this.debug('removing abilitylock: ' + pokemon.volatiles['abilitylock']);
-				}
-				pokemon.removeVolatile('abilitylock');
-			}
-		},
-		onModifyMove(move, pokemon) {
-			pokemon.addVolatile('abilitylock');
-		},
-		name: "Short Circuit",
-		rating: 0.5,
-		num: -14,
-	},
-	sadism: {
-		shortDesc: "This Pokemon's moves will always crit on statused target.",
-		onModifyCritRatio(critRatio, source, target) {
-			if (target.status || target.hasAbility('comatose')) return 5;
-		},
-		name: "sadism",
-		rating: 1.5,
-		num: -15,
-	},
-	bipolar: {
-		onBeforeMovePriority: 0.5,
-		onBeforeMove(attacker, defender, move) {
-			if (attacker.species.baseSpecies !== 'Bipolectric' || attacker.transformed) return;
-			if (move.category === 'Status' && move.id !== 'icebarrier') return;
-			const targetForme = (move.id === 'icebarrier' ? 'Bipolectric-Permafrost' : 'Bipolectric');
-			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
-		},
-		isPermanent: true,
-		name: "Bipolar",
-		rating: 4,
-		num: -16,
-	},*/
 	mistymountain: { 
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
@@ -1366,22 +1304,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 1.5,
 		num: -59,
 	},
-	pride: {
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				if (effect.category === 'Physical') {
-					this.boost({ atk: length }, source);
-				}
-				else if (effect.category === 'Special') {
-					this.boost({ spa: length }, source);
-				}
-			}
-		},
-		name: "Pride",
-		shortDesc: "After successfully KOing a foe with a move, gets +1 in the stat of the move that KO'd target.",
-		rating: 3,
-		num: -60,
-	},
+	// pride: {
+	// 	onSourceAfterFaint(length, target, source, effect) {
+	// 		if (effect && effect.effectType === 'Move') {
+	// 			if (effect.category === 'Physical') {
+	// 				this.boost({ atk: length }, source);
+	// 			}
+	// 			else if (effect.category === 'Special') {
+	// 				this.boost({ spa: length }, source);
+	// 			}
+	// 		}
+	// 	},
+	// 	name: "Pride",
+	// 	shortDesc: "After successfully KOing a foe with a move, gets +1 in the stat of the move that KO'd target.",
+	// 	rating: 3,
+	// 	num: -60,
+	// },
 	unconcerned: {
 		name: "Unconcerned",
 		onAnyModifyBoost(boosts, pokemon) {
@@ -2042,32 +1980,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 0,
 		num: 161,
 	},
-	// transistor: {
-	// 	onModifyAtkPriority: 5,
-	// 	onModifyAtk(atk, attacker, defender, move) {
-	// 		if (move.type === 'Electric') {
-	// 			this.debug('Transistor boost');
-	// 			return this.chainModify(1.2);
-	// 		}
-	// 	},
-	// 	onModifySpAPriority: 5,
-	// 	onModifySpA(atk, attacker, defender, move) {
-	// 		if (move.type === 'Electric') {
-	// 			this.debug('Transistor boost');
-	// 			return this.chainModify(1.2);
-	// 		}
-	// 	},
-	// 	onTryHit(target, source, move) {
-	// 		if (target !== source && move.type === 'Electric') {
-	// 			this.add('-immune', target, '[from] ability: Transistor');
-	// 			return null;
-	// 		}
-	// 	},
-	// 	name: "Transistor",
-	// 	shortDesc: "This Pokemon gets x1.2 in its attacking stat when using an Electric move. Immune to Electric type moves.",
-	// 	rating: 3.5,
-	// 	num: 262,
-	// },
 	dragonsmaw: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
@@ -2574,5 +2486,93 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		rating: 3.5,
 		shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage.",
+	},
+	cheerleader: {
+		onStart(pokemon) {
+			this.boost({atk: 1}, pokemon);
+		},
+		shortDesc: "If the ally has Cheerleader: if Plusle, Atk, SpA and Speed x1.5; if Minun, Def, SpD and Speed x1.5.",
+		desc: "If the ally has Cheerleader: if Plusle, its Atk, SpA and Speed are x1.5; if Minun, its Def, SpD and Speed are x1.5.",
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader']) && pokemon.baseSpecies.baseSpecies === 'Plusle') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader']) && pokemon.baseSpecies.baseSpecies === 'Minun') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader']) && pokemon.baseSpecies.baseSpecies === 'Plusle') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpDPriority: 5,
+		onModifySpD(spd, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader']) && pokemon.baseSpecies.baseSpecies === 'Minun') {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		onModifySpePriority: 5,
+		onModifySpe(spe, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['cheerleader'])) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Cheerleader",
+		rating: 0,
+		num: -70,
+	},
+	seedsower: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hasType('Grass')) {
+				this.add('-activate', target, 'ability: Seed Sower');
+				source.addVolatile('leechseed', this.effectState.target);
+			}
+		},
+		name: "Seed Sower",
+		shortDesc: "When this Pokemon is hit by an attack, the effect of Leech Seed begins.",
+		rating: 3,
+		num: 269,
+	},
+	angershell: {
+		inherit: true,
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedAngerShell = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp < target.maxhp && target.hp + damage >= target.maxhp) {
+				this.boost({atk: 1, spa: 1, spe: 1, def: -1, spd: -1}, target, target);
+			}
+		},
+		shortDesc: "If this Pokemon is hit by an attack, its Attack, Sp. Atk, and Speed are raised by 1 stage. Its Defense and Sp. Def are lowered by 1 stage.",
+	},
+	electromorphosis: {
+		inherit: true,
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('charge');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.volatiles['charge']) {
+				return this.chainModify(0.75);
+			}
+		},
 	},
 };
