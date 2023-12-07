@@ -694,7 +694,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Neuroforce"},
 		weightkg: 66,
 		requiredItem: "Depleted Ultranecrozium Z",
-		battleOnly: ["Necrotrik-Dawn-Wings"],
+		battleOnly: "Necrotrik-Dawn-Wings", //["Necrotrik-Dawn-Wings"],
 	},
 	druddizor: {
  // fusion: ['Druddigon', 'Scizor'],
