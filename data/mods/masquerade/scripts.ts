@@ -19,6 +19,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			pokemon.addedType = '';
 			pokemon.knownType = true;
 			pokemon.apparentType = type;
+			pokemon.side.addSideCondition('teraused', pokemon);
 			if (pokemon.species.baseSpecies === 'Ogerpon') {
 				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
