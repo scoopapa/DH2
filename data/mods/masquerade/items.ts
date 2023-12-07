@@ -6,7 +6,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Emboar') return false;
@@ -24,8 +28,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+		onStart(pokemon) { 			
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null; 			
+			} else {
+				pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Emboar') return false;
@@ -44,7 +52,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Emboar') return false;
@@ -63,7 +75,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Delphox') return false;
@@ -82,7 +98,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Swampert') return false;
@@ -101,7 +121,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Chesnaught') return false;
@@ -120,7 +144,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Boltund') return false;
@@ -139,7 +167,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Boltund') return false;
@@ -158,7 +190,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Boltund') return false;
@@ -177,7 +213,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Gardevoir') return false;
@@ -196,7 +236,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Gardevoir') return false;
@@ -215,7 +259,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Gardevoir') return false;
@@ -234,7 +282,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Arboliva') return false;
@@ -253,7 +305,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Arboliva') return false;
@@ -272,7 +328,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Corviknight') return false;
@@ -291,7 +351,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 60,
 		},
 		onStart(pokemon) {
-      pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
 		},
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Corviknight') return false;
