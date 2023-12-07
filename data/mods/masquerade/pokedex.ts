@@ -185,7 +185,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	chesnaught: {
 		inherit: true,
-		otherFormes: ["Chesnaught- Armored", "Chesnaught-Armored-Tera"],
+		otherFormes: ["Chesnaught-Armored", "Chesnaught-Armored-Tera"],
 		formeOrder: ["Chesnaught", "Chesnaught-Armored", "Chesnaught-Armored-Tera"],
 		forceTeraType: "Grass",
 	},
