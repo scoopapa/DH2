@@ -1921,7 +1921,7 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Black & White 3 O
+					return [set.species + ' is not legal in Black & White 3 OU. '],
 				}
 			}
 		},
