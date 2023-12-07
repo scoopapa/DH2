@@ -24,8 +24,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.effectType === 'Move' &&
-				effect.category === 'Physical' && target.species.id === 'eisugiri' &&
-				!target.transformed && source.ability !== 'notpayingattentiontodondozoatallsorry'
+				effect.category === 'Physical' && target.species.id === 'eisugiri' && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Cold Commander');
 				this.effectState.busted = true;
@@ -35,7 +34,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onCriticalHit(target, type, move) {
 			if (!target) return;
-			// if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (move.category !== 'Physical' || target.species.id !== 'eisugiri' || target.transformed) return;
 			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
 			if (!target.runImmunity(move.type)) return;
@@ -43,7 +41,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target) return;
-			// if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (move.category !== 'Physical' || target.species.id !== 'eisugiri' || target.transformed) return;
 
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
@@ -119,7 +116,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryHit(target, source, move) {
 			this.debug('Commander Guard immunity: ' + move.id);
 			if (target === source || move.type === '???' || move.id === 'struggle') return;
-			if (!source.species.dondozo && source.species.id !== "shedigiri" && source.ability !== 'notpayingattentiontodondozoatallsorry') {
+			if (!source.species.dondozo && source.species.id !== "shedigiri") {
 				if (move.smartTarget) {
 					move.smartTarget = false;
 				} else {
@@ -136,6 +133,31 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'not paying attention to dondozo at all, sorry');
 			this.add('-message', '${pokemon.name} is ignoring Dondozo!');
+		},
+		onModifyMove(move, attacker, defender) {
+			if(defender.hasAbility(['imterrifiedofdondozo',
+									'coldcommander',
+									'commanderguard',
+									'imperialretreat',
+									'powerofdondozo',
+									'fishingseason',
+									'fishesofruin',
+									'fishout',
+									'fishbond',
+									'zombiefish',
+									'yeah',
+									'callforhelp',
+									'donzoless',
+									'falsedragon',
+									'dondozoshield',
+									'dondontzo',
+									'emergencymeeting',
+									'dondono',
+									'gyeah',
+									'fishnet',
+									'commatose',
+									'byeah',
+									'dondophobic'])) move.ignoreAbility = true;
 		},
 		// effects in various other abilities
 		name: "not paying attention to dondozo at all, sorry",
@@ -154,7 +176,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	powerofdondozo: {
 		onAnyModifyBoost(boosts, pokemon) {
 			const unawareUser = this.effectState.target;
-			if (pokemon.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (unawareUser === pokemon) return;
 			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
 				boosts['def'] = 0;
@@ -169,7 +190,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (status.id !== 'brn') return;
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Power of Dondozo');
@@ -196,7 +216,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'attract') return false;
 		},
 		onTryHit(pokemon, target, move) {
-			if (pokemon.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (move.id === 'attract' || move.id === 'captivate' || move.id === 'taunt') {
 				this.add('-immune', pokemon, '[from] ability: Power of Dondozo');
 				return null;
@@ -527,8 +546,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	callforhelp: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
-			if (source.ability !== 'notpayingattentiontodondozoatallsorry' &&
-				effect && effect.effectType === 'Move' &&
+			if (effect && effect.effectType === 'Move' &&
 				['mimigiri'].includes(target.species.id) && !target.transformed
 			) {
 				this.add('-activate', target, 'ability: Call for Help');
@@ -538,7 +556,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onCriticalHit(target, source, move) {
 			if (!target) return;
-			if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (!['mimigiri', 'mimigiritotem'].includes(target.species.id) || target.transformed) {
 				return;
 			}
@@ -550,7 +567,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target || move.category === 'Status') return;
-			if (source.ability === 'notpayingattentiontodondozoatallsorry') return;
 			if (!['mimigiri'].includes(target.species.id) || target.transformed) {
 				return;
 			}
