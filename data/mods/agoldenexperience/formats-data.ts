@@ -4414,11 +4414,11 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	basculegion: {
 		tier: "UU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 	basculegionf: {
-		tier: "RU",
-		doublesTier: "DOU",
+		tier: "UU",
+		doublesTier: "DUU",
 	},
 	sneasler: {
 		tier: "OU",
@@ -4426,7 +4426,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	overqwil: {
 		tier: "RU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 	enamorus: {
 		tier: "OU",
