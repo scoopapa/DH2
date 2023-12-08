@@ -680,7 +680,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 83, atk: 101, def: 89, spa: 127, spd: 101, spe: 59}, 
 		abilities: {0: "Airborne Armor"},
 		weightkg: 186,
-		otherFormes: ["Necrotrik-Dawn-Wings"],
+		otherFormes: ["Necrotrik-Ultra"],
 		formeOrder: ["Necrotrik-Dawn-Wings", "Necrotrik-Ultra"],
 	},
 	necrotrikultra: {
@@ -694,7 +694,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Neuroforce"},
 		weightkg: 66,
 		requiredItem: "Depleted Ultranecrozium Z",
-		battleOnly: ["Necrotrik-Dawn-Wings"],
+		battleOnly: "Necrotrik-Dawn-Wings", //["Necrotrik-Dawn-Wings"],
 	},
 	druddizor: {
  // fusion: ['Druddigon', 'Scizor'],
@@ -1011,7 +1011,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	 },
 	 chomptrymega: {
 		num: 70, 
-		//fusion: ["Overqwil", "Gyarados-Mega"],
+		//fusion: ["Garchomp-Mega", "Shiftry"],
 		name: "Chomptry-Mega", 
 		baseSpecies: "Chomptry",
 		forme: "Mega",

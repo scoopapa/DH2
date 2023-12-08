@@ -2612,13 +2612,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	usurpation: {
 		name: "Usurpation",
 		shortDesc: "Inverts the stat changes.",
-		onBoost(boost, target, source, effect) {
-			if (effect && effect.id === 'zpower') return;
+		onChangeBoost(boost, target, source, effect) {
 			let i: BoostID;
 			for (i in boost) {
 				boost[i]! *= -1;
 			}
 		},
+		isBreakable: true,
 	},
 	vanishingact: {
 		name: "Vanishing Act",
