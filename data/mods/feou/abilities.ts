@@ -1713,7 +1713,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else return;
 			
 			if (user.getWeight() > yourweight) {
-				if (!user.volatiles['weightoflife']) return;
+				if (user.volatiles['weightoflife']) return;
 				user.addVolatile('weightoflife');
 				user.volatiles['weightoflife'].fromWeightDiff = true;
 			} else if (user.volatiles['weightoflife']) {
