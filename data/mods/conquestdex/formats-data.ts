@@ -1,6 +1,6 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	eevee: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	vaporeon: {
 		tier: "Conq",
@@ -24,10 +24,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Conq",
 	},
 	ralts: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	kirlia: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	gardevoir: {
 		tier: "Conq",
@@ -36,247 +36,247 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Conq",
 	},
 	magikarp: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	gyarados: {
 		tier: "Conq",
 	},
 	pichu: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	pikachu: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	raichu: {
 		tier: "Conq",
 	},
 	wooper: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	quagsire: {
 		tier: "Conq",
 	},
 	igglybuff: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
-	jigglyConqff: {
-		tier: "Conq",
+	jigglybuff: {
+		tier: "ConqNFE",
 	},
 	wigglytuff: {
 		tier: "Conq",
 	},
 	zubat: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	golbat: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	crobat: {
 		tier: "Conq",
 	},
 	starly: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	staravia: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	staraptor: {
 		tier: "Conq",
 	},
 	bidoof: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	bibarel: {
 		tier: "Conq",
 	},
 	venipede: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	whirlipede: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	scolipede: {
 		tier: "Conq",
 	},
 	shinx: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	luxio: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	luxray: {
 		tier: "Conq",
 	},
 	litwick: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	lampent: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	chandelure: {
 		tier: "Conq",
 	},
 	roggenrola: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	boldore: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	gigalith: {
 		tier: "Conq",
 	},
 	petilil: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	lilligant: {
 		tier: "Conq",
 	},
 	mareep: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	flaaffy: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	ampharos: {
 		tier: "Conq",
 	},
 	cottonee: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	whimsicott: {
 		tier: "Conq",
 	},
 	riolu: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	lucario: {
 		tier: "Conq",
 	},
 	chingling: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	chimecho: {
 		tier: "Conq",
 	},
 	ekans: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	arbok: {
 		tier: "Conq",
 	},
 	pineco: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	forretress: {
 		tier: "Conq",
 	},
 	meowth: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	persian: {
 		tier: "Conq",
 	},
 	spheal: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	sealeo: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	walrein: {
 		tier: "Conq",
 	},
 	gothita: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	gothorita: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	gothitelle: {
 		tier: "Conq",
 	},
 	sandile: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	krokorok: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	krookodile: {
 		tier: "Conq",
 	},
 	duskull: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	dusclops: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	dusknoir: {
 		tier: "Conq",
 	},
 	munna: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	musharna: {
 		tier: "Conq",
 	},
 	blitzle: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	zebstrika: {
 		tier: "Conq",
 	},
 	dratini: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	dragonair: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	dragonite: {
 		tier: "Conq",
 	},
 	larvitar: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
-	Conqpitar: {
-		tier: "Conq",
+	pupitar: {
+		tier: "ConqNFE",
 	},
 	tyranitar: {
 		tier: "Conq",
 	},
 	beldum: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	metang: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	metagross: {
 		tier: "Conq",
 	},
 	gible: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	gabite: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	garchomp: {
 		tier: "Conq",
 	},
 	croagunk: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	toxicroak: {
 		tier: "Conq",
 	},
 	deino: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	zweilous: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	hydreigon: {
 		tier: "Conq",
 	},
 	snorunt: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	glalie: {
 		tier: "Conq",
@@ -285,244 +285,244 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Conq",
 	},
 	minccino: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	cinccino: {
 		tier: "Conq",
 	},
 	machop: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	machoke: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	machamp: {
 		tier: "Conq",
 	},
 	timburr: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	gurdurr: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	conkeldurr: {
 		tier: "Conq",
 	},
 	cubchoo: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	beartic: {
 		tier: "Conq",
 	},
 	oshawott: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	dewott: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	samurott: {
 		tier: "Conq",
 	},
 	charmander: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	charmeleon: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	charizard: {
 		tier: "Conq",
 	},
-		gastly: {
-		tier: "Conq",
+	gastly: {
+		tier: "Conqlc",
 	},
 	haunter: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	gengar: {
 		tier: "Conq",
 	},
 	chimchar: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	monferno: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	infernape: {
 		tier: "Conq",
 	},
 	snivy: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	servine: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	serperior: {
 		tier: "Conq",
 	},
 	tepig: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	pignite: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	emboar: {
 		tier: "Conq",
 	},
 	sewaddle: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	swadloon: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	leavanny: {
 		tier: "Conq",
 	},
 	abra: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	kadabra: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	alakazam: {
 		tier: "Conq",
 	},
 	treecko: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	grovyle: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	sceptile: {
 		tier: "Conq",
 	},
 	piplup: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	prinplup: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	empoleon: {
 		tier: "Conq",
 	},
 	pansage: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	simisage: {
 		tier: "Conq",
 	},
 	pansear: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	simisear: {
 		tier: "Conq",
 	},
 	panpour: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	simipour: {
 		tier: "Conq",
 	},
 	darumaka: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	darmanitan: {
 		tier: "Conq",
 	},
 	axew: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	fraxure: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	haxorus: {
 		tier: "Conq",
 	},
 	joltik: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	galvantula: {
 		tier: "Conq",
 	},
 	aron: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	lairon: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	aggron: {
 		tier: "Conq",
 	},
 	drilbur: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	excadrill: {
 		tier: "Conq",
 	},
 	zorua: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	zoroark: {
 		tier: "Conq",
 	},
 	skorupi: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	drapion: {
 		tier: "Conq",
 	},
 	pawniard: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	bisharp: {
 		tier: "Conq",
 	},
 	rhyhorn: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	rhydon: {
-		tier: "Conq",
+		tier: "ConqNFE",
 	},
 	rhyperior: {
 		tier: "Conq",
 	},
 	shieldon: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	bastiodon: {
 		tier: "Conq",
 	},
 	scraggy: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	scrafty: {
 		tier: "Conq",
 	},
 	drifloon: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	drifblim: {
 		tier: "Conq",
 	},
 	rufflet: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	braviary: {
 		tier: "Conq",
 	},
 	anorith: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	armaldo: {
 		tier: "Conq",
 	},
 	larvesta: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	volcarona: {
 		tier: "Conq",
 	},
 	onix: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	steelix: {
 		tier: "Conq",
@@ -531,7 +531,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Conq",
 	},
 	munchlax: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	snorlax: {
 		tier: "Conq",
@@ -540,13 +540,13 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Conq",
 	},
 	sneasel: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	weavile: {
 		tier: "Conq",
 	},
 	misdreavus: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	mismagius: {
 		tier: "Conq",
@@ -558,7 +558,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Conq",
 	},
 	scyther: {
-		tier: "Conq",
+		tier: "Conqlc",
 	},
 	scizor: {
 		tier: "Conq",

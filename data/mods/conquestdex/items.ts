@@ -15,6 +15,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			atk: 3,
 		},
 		num: 1001,
+		shortDesc: "If user is hit by a critical hit, its attack is raised by 3 stages.",
 		gen: 9,
 		rating: 3,
 	},
@@ -33,6 +34,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 1002,
+		shortDesc: "40% chance to boost power of attacks by 20%.",
 		gen: 9,
 	},
 	warfan: {
@@ -50,6 +52,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: 1003,
+		shortDesc: "20% chance to boost power of attacks by 50%.",
 		gen: 9,
 	},
 };
