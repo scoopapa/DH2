@@ -510,7 +510,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	furret: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 86, def: 71, spa: 45, spd: 62, spe: 111},
-		abilities: {0: "Run Away", 1: "Wimp Out", H: "Frisk"},
+		abilities: {0: "Run Away", 1: "Wimp Out", H: "Fur Coat"},
 	},
 	noctowl: {
 		inherit: true,
@@ -2179,7 +2179,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	barbaracle: {
 		inherit: true,
 		baseStats: {hp: 72, atk: 115, def: 115, spa: 44, spd: 86, spe: 68},
-		abilities: {0: "Tough Claws", 1: "Sniper", H: "Pickpocket"},
 	},
 	dragalge: {
 		inherit: true,
@@ -2822,7 +2821,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	pheromosa: {
 		inherit: true,
-		baseStats: {hp: 71, atk: 127, def: 59, spa: 127, spd: 59, spe: 127},
+		baseStats: {hp: 71, atk: 127, def: 53, spa: 127, spd: 53, spe: 139},
 	},
 	xurkitree: {
 		inherit: true,
