@@ -1156,7 +1156,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
-						if (attacker?.volatiles[paradox].bestStat !== 'atk') return;
+						if (attacker?.volatiles[paradox]?.bestStat !== 'atk') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1171,7 +1171,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (defender.hasAbility(paradox)) {
-						if (defender?.volatiles[paradox].bestStat !== 'def') return;
+						if (defender?.volatiles[paradox]?.bestStat !== 'def') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1186,7 +1186,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
-						if (attacker?.volatiles[paradox].bestStat !== 'spa') return;
+						if (attacker?.volatiles[paradox]?.bestStat !== 'spa') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1201,7 +1201,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (defender.hasAbility(paradox)) {
-						if (defender?.volatiles[paradox].bestStat !== 'spd') return;
+						if (defender?.volatiles[paradox]?.bestStat !== 'spd') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
