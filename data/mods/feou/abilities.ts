@@ -1075,7 +1075,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				//pokemon.formeChange(speciesid, this.effect, true);
 				pokemon.formeChange('Iron Mimic-Busted', this.effect, true);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get('Iron Mimic-Busted'));
 			}
 		},
 		onTerrainChange(pokemon) {
