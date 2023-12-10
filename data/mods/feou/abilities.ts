@@ -1075,7 +1075,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				//pokemon.formeChange(speciesid, this.effect, true);
 				pokemon.formeChange('Iron Mimic-Busted', this.effect, true);
 				this.add('-start', pokemon, 'typechange', pokemon.getTypes(true).join('/'), '[silent]');
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get('Iron Mimic-Busted'));
 			}
 		},
 		onTerrainChange(pokemon) {
@@ -1156,7 +1156,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
-						if (attacker?.volatiles[paradox].bestStat !== 'atk') return;
+						if (attacker?.volatiles[paradox]?.bestStat !== 'atk') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1171,7 +1171,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (defender.hasAbility(paradox)) {
-						if (defender?.volatiles[paradox].bestStat !== 'def') return;
+						if (defender?.volatiles[paradox]?.bestStat !== 'def') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1186,7 +1186,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs',
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (attacker.hasAbility(paradox)) {
-						if (attacker?.volatiles[paradox].bestStat !== 'spa') return;
+						if (attacker?.volatiles[paradox]?.bestStat !== 'spa') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1201,7 +1201,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive']) {
 					if (defender.hasAbility(paradox)) {
-						if (defender?.volatiles[paradox].bestStat !== 'spd') return;
+						if (defender?.volatiles[paradox]?.bestStat !== 'spd') return;
 						this.debug('Dyschronometria nullify');
 						return this.chainModify([3151, 4096]);
 					}
@@ -1713,7 +1713,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			} else return;
 			
 			if (user.getWeight() > yourweight) {
-				if (!user.volatiles['weightoflife']) return;
+				if (user.volatiles['weightoflife']) return;
 				user.addVolatile('weightoflife');
 				user.volatiles['weightoflife'].fromWeightDiff = true;
 			} else if (user.volatiles['weightoflife']) {
