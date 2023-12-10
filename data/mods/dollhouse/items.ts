@@ -49,8 +49,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onPrepareHit(source, target, move) {
-			if (move.type === 'Dragon' || !move.multihit || !move.flags['noparentalbond'] || !move.flags['charge'] ||
-			!move.flags['futuremove'] || !move.spreadHit || !move.isZ || !move.isMax) {
+			if (move.type === 'Dragon' && !move.multihit && !move.flags['noparentalbond'] && !move.flags['charge'] &&
+			!move.flags['futuremove'] && !move.spreadHit && !move.isZ && !move.isMax && move.category !== 'Status') {
 			  move.multihit = 2;
 			  move.multihitType = 'parentalbond';
       }

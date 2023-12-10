@@ -2447,6 +2447,16 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'Moody', 'Shadow Tag', 'Baton Pass', 'Kyurem', 'Slowking-Base', 'Slowbro-Base'],
 	},
 	{
+		name: "[Gen 1] Tradebacks Expanded",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/solomods-megathread.3711007/post-9881531">Post in Solomods Megathread</a>`,
+      	`&bullet; <a href="https://docs.google.com/spreadsheets/d/1F-e0PZF2LpVBS3yBzO-pCU6XPX1RfmoEucrhNgTco5Y/edit#gid=0">Spreadsheet</a>`,
+		],
+		mod: 'gen1tradebacksexpanded',
+		ruleset: ['Standard'],
+		banlist: ['Uber'],
+	},
+	{
 		name: "[Gen 9] UUbers",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3710870/">Ubers Metagame Discussion</a>`,
