@@ -1911,19 +1911,7 @@ export const Formats: FormatList = [
 		'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite', 
 		'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
 		'Blue Orb', 'Red Orb', //this is just copied from ANL's lol
-		'Beedrill-Mega', 'Pidgeot-Mega', //?????
 	],
-		onValidateTeam(team, format) {
-			/**@type {{[k: string]: true}} */
-			let speciesTable = {};
-			let allowedTiers = ['BW OU', "BW NFE", "BW LC"];
-			for (const set of team) {
-				let template = this.dex.species.get(set.species);
-				if (!allowedTiers.includes(template.tier)) {
-					return [set.species + ' is not legal in Black & White 3 OU.'];
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 9] Conquest Dex",
