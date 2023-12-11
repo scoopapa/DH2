@@ -1413,22 +1413,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					return this.chainModify([0x14CD, 0x1000]);
 				}
 			},
-			onStart(battle, source, effect) {
-				if (effect?.effectType === 'Ability') {
-					this.add('-fieldstart', 'move: Chakra Terrain', '[from] ability: ' + effect, '[of] ' + source);
-				} else {
-					this.add('-fieldstart', 'move: Chakra Terrain');
-				}
-			},
 			onAnyAccuracy(accuracy, target, source, move) {
-				if (move.type === 'Fighting' && (source === this.effectState.target || target === this.effectState.target) && (target.isGrounded() && !target.isSemiInvulnerable())) {
+				if (move.type === 'Fighting' && (target.isGrounded() && !target.isSemiInvulnerable())) {
 					return true;
 				}
 				return accuracy;
 			},
-			onResidualOrder: 21,
-			onResidualSubOrder: 2,
-			onEnd() {
+			onFieldStart(field, source, effect) {
+				if (effect?.effectType === 'Ability') {
+					this.add('-fieldstart', 'move: Chakra Terrain', '[from] ability: ' + effect.name, '[of] ' + source);
+					this.add('-message', "Fighting-type moves used by grounded Pokémon won't miss.");
+					this.add('-message', "Pulse moves will be boosted by 30%.");
+				} else {
+					this.add('-fieldstart', 'move: Chakra Terrain');
+				}
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 7,
+			onFieldEnd() {
 				this.add('-fieldend', 'move: Chakra Terrain');
 			},
 		},
@@ -1511,6 +1513,65 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
+	},
+	secretpower: {
+		inherit: true,
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('')) return;
+			move.secondaries = [];
+			if (this.field.isTerrain('electricterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			} else if (this.field.isTerrain('grassyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					status: 'slp',
+				});
+			} else if (this.field.isTerrain('mistyterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spa: -1,
+					},
+				});
+			} else if (this.field.isTerrain('psychicterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						spe: -1,
+					},
+				});
+			} else if (this.field.isTerrain('chakraterrain')) {
+				move.secondaries.push({
+					chance: 30,
+					boosts: {
+						def: -1,
+					},
+				});
+			}
+		},
+	},
+	camouflage: {
+		inherit: true,
+		onHit(target) {
+			let newType = 'Normal';
+			if (this.field.isTerrain('electricterrain')) {
+				newType = 'Electric';
+			} else if (this.field.isTerrain('grassyterrain')) {
+				newType = 'Grass';
+			} else if (this.field.isTerrain('mistyterrain')) {
+				newType = 'Fairy';
+			} else if (this.field.isTerrain('psychicterrain')) {
+				newType = 'Psychic';
+			} else if (this.field.isTerrain('chakraterrain')) {
+				newType = 'Fighting';
+			}
+
+			if (target.getTypes().join() === newType || !target.setType(newType)) return false;
+			this.add('-start', target, 'typechange', newType);
+		},
 	},
 	sonicboom: {
 		inherit: true,

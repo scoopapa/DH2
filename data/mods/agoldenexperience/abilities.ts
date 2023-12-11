@@ -314,14 +314,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isTerrain('grassyterrain')) {
-				if (move.type === 'Steel') {
-					this.debug('Wood Clearing boost');
-					return this.chainModify([0x14CD, 0x1000]);
-				}
+				this.debug('Wood Clearing boost');
+				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
 		name: "Wood Clearing",
-		shortDesc: "gets BP x1.3 on Grassy Surge.",
+		shortDesc: "This Pokemon's attacks do 1.3x in Grassy Terrain.",
 		rating: 2,
 		num: -17,
 	},
@@ -1304,22 +1302,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 1.5,
 		num: -59,
 	},
-	pride: {
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				if (effect.category === 'Physical') {
-					this.boost({ atk: length }, source);
-				}
-				else if (effect.category === 'Special') {
-					this.boost({ spa: length }, source);
-				}
-			}
-		},
-		name: "Pride",
-		shortDesc: "After successfully KOing a foe with a move, gets +1 in the stat of the move that KO'd target.",
-		rating: 3,
-		num: -60,
-	},
+	// pride: {
+	// 	onSourceAfterFaint(length, target, source, effect) {
+	// 		if (effect && effect.effectType === 'Move') {
+	// 			if (effect.category === 'Physical') {
+	// 				this.boost({ atk: length }, source);
+	// 			}
+	// 			else if (effect.category === 'Special') {
+	// 				this.boost({ spa: length }, source);
+	// 			}
+	// 		}
+	// 	},
+	// 	name: "Pride",
+	// 	shortDesc: "After successfully KOing a foe with a move, gets +1 in the stat of the move that KO'd target.",
+	// 	rating: 3,
+	// 	num: -60,
+	// },
 	unconcerned: {
 		name: "Unconcerned",
 		onAnyModifyBoost(boosts, pokemon) {
@@ -2536,5 +2534,43 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Cheerleader",
 		rating: 0,
 		num: -70,
+	},
+	seedsower: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hasType('Grass')) {
+				this.add('-activate', target, 'ability: Seed Sower');
+				source.addVolatile('leechseed', this.effectState.target);
+			}
+		},
+		name: "Seed Sower",
+		shortDesc: "When this Pokemon is hit by an attack, the effect of Leech Seed begins.",
+		rating: 3,
+		num: 269,
+	},
+	angershell: {
+		inherit: true,
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedAngerShell = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp < target.maxhp && target.hp + damage >= target.maxhp) {
+				this.boost({atk: 1, spa: 1, spe: 1, def: -1, spd: -1}, target, target);
+			}
+		},
+		shortDesc: "If this Pokemon is hit by an attack, its Attack, Sp. Atk, and Speed are raised by 1 stage. Its Defense and Sp. Def are lowered by 1 stage.",
+	},
+	electromorphosis: {
+		inherit: true,
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('charge');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.volatiles['charge']) {
+				return this.chainModify(0.75);
+			}
+		},
 	},
 };
