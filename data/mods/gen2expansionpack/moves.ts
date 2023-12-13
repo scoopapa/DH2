@@ -150,4 +150,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	// watersport: {
 	// 	num: -12,
 	// }
+	dazzlinggleam: {
+		num: -10,
+		inherit: true
+	},
+	drainingkiss: {
+		num: -11,
+		inherit: true
+	}
 };
