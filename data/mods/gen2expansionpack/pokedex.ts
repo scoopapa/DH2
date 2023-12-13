@@ -4,6 +4,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		otherFormes: ["Pichu-Spiky-eared"],
 		formeOrder: ["Pichu", "Pichu-Spiky-eared"],
+		gen: 1,
 	},
 	pichuspikyeared: {
 		inherit: true,
@@ -16,22 +17,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	raichualola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	eevee: {
 		inherit: true,
 	},
 	leafeon: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	glaceon: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	sylveon: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	rattata: {
 		inherit: true,
@@ -39,7 +40,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rattataalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	raticate: {
 		inherit: true,
@@ -47,7 +48,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	raticatealola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	meowth: {
 		inherit: true,
@@ -55,11 +56,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	meowthalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	meowthgalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	persian: {
 		inherit: true,
@@ -67,11 +68,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	persianalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	perrserker: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	geodude: {
 		inherit: true,
@@ -79,7 +80,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	geodudealola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	graveler: {
 		inherit: true,
@@ -87,7 +88,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	graveleralola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	golem: {
 		inherit: true,
@@ -95,7 +96,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	golemalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	sandshrew: {
 		inherit: true,
@@ -103,7 +104,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sandshrewalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	sandslash: {
 		inherit: true,
@@ -111,7 +112,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sandslashalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	vulpix: {
 		inherit: true,
@@ -119,7 +120,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	vulpixalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	ninetales: {
 		inherit: true,
@@ -127,15 +128,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ninetalesalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	annihilape: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	lickilicky: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	growlithe: {
 		inherit: true,
@@ -143,7 +144,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	growlithehisui: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	arcanine: {
 		inherit: true,
@@ -151,7 +152,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	arcaninehisui: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	farfetchd: {
 		inherit: true,
@@ -160,11 +161,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	farfetchdgalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	sirfetchd: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	diglett: {
 		inherit: true,
@@ -172,7 +173,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	diglettalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	dugtrio: {
 		inherit: true,
@@ -180,15 +181,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dugtrioalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	wiglett: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	wugtrio: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	voltorb: {
 		inherit: true,
@@ -196,7 +197,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	voltorbhisui: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	electrode: {
 		inherit: true,
@@ -204,19 +205,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	electrodehisui: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	toedscool: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	toedscruel: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	magnezone: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	slowpoke: {
 		inherit: true,
@@ -224,7 +225,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	slowpokegalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	slowbro: {
 		inherit: true,
@@ -232,15 +233,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	slowbrogalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	slowking: {
 		inherit: true,
-		otherFormes: ["Slowking-Galar"]
+		otherFormes: ["Slowking-Galar"],
+		gen: 1
 	},
 	slowkinggalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	ponyta: {
 		inherit: true,
@@ -248,7 +250,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ponytagalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	rapidash: {
 		inherit: true,
@@ -256,7 +258,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rapidashgalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	marowak: {
 		inherit: true,
@@ -265,7 +267,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	marowakalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	grimer: {
 		inherit: true,
@@ -273,7 +275,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	grimeralola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	muk: {
 		inherit: true,
@@ -281,7 +283,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mukalola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	weezing: {
 		inherit: true,
@@ -289,11 +291,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	weezinggalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	tangrowth: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	exeggutor: {
 		inherit: true,
@@ -301,15 +303,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	exeggutoralola: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	rhyperior: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	kleavor: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	tauros: {
 		inherit: true,
@@ -317,23 +319,23 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	taurospaldeacombat: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	taurospaldeablaze: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	taurospaldeaaqua: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	happiny: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	mimejr: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	mrmime: {
 		inherit: true,
@@ -341,35 +343,35 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mrmimegalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	mrrime: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	electivire: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	magmortar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	porygonz: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	munchlax: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	screamtail: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	sandyshocks: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	articuno: {
 		inherit: true,
@@ -377,7 +379,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	articunogalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	zapdos: {
 		inherit: true,
@@ -385,7 +387,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	zapdosgalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	moltres: {
 		inherit: true,
@@ -393,15 +395,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	moltresgalar: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	meltan: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	melmetal: {
 		inherit: true,
-		gen: 2
+		gen: 1
 	},
 	typhlosion: {
 		inherit: true,
@@ -562,7 +564,66 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		gen: 2
 	},
+	// KEP to JEP
+	cleffa: {
+		inherit: true,
+		gen: 1
+	},
+	igglybuff: {
+		inherit: true,
+		gen: 1
+	},
+	steelix: {
+		inherit: true,
+		gen: 1
+	},
+	politoed: {
+		inherit: true,
+		gen: 1
+	},
+	scizor: {
+		inherit: true,
+		gen: 1
+	},
+	tyrogue: {
+		inherit: true,
+		gen: 1
+	},
+	magby: {
+		inherit: true,
+		gen: 1
+	},
+	smoochum: {
+		inherit: true,
+		gen: 1
+	},
+	elekid: {
+		inherit: true,
+		gen: 1
+	},
+	espeon: {
+		inherit: true,
+		gen: 1
+	},
+	umbreon: {
+		inherit: true,
+		gen: 1
+	},
+	kingdra: {
+		inherit: true,
+		gen: 1
+	},
+	porygon2: {
+		inherit: true,
+		gen: 1
+	},
+	blissey: {
+		inherit: true,
+		gen: 1
+	},
+
 	// BETAMONS + EVO LINES UPDATES
+	// Procedurally generated using https://github.com/Rezzo64/JepJsonTransformer
 	"aercrow": {
 		num: -1,
 		eggGroups: ["None"],
@@ -602,7 +663,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Balumba",
 		"types": [
 			"Fairy",
@@ -670,7 +731,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Bellignan",
 		"types": [
 			"Grass",
@@ -966,7 +1027,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Croakozuna",
 		"types": [
 			"Water",
@@ -1281,7 +1342,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Gorochu",
 		"types": [
 			"Electric"
@@ -1325,7 +1386,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Guardia",
 		"types": [
 			"Ground"
@@ -1347,7 +1408,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Iguanarch",
 		"types": [
 			"Dragon"
@@ -1415,7 +1476,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Kolta",
 		"types": [
 			"Fire"
@@ -1486,7 +1547,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Luxwan",
 		"types": [
 			"Normal",
@@ -1558,7 +1619,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Ministare",
 		"types": [
 			"Dragon"
@@ -1625,7 +1686,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Omegadge",
 		"types": [
 			"Steel"
@@ -1790,7 +1851,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Pupal",
 		"types": [
 			"Bug"
@@ -1856,7 +1917,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Ramoose",
 		"types": [
 			"Normal",
@@ -2053,7 +2114,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Trampel",
 		"types": [
 			"Normal",
@@ -2076,7 +2137,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Tricules",
 		"types": [
 			"Bug",
@@ -2129,7 +2190,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Golduck"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Weirduck",
 		"types": [
 			"Water"
