@@ -1041,6 +1041,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	elebebi: {
 		tier: "OU",
 	},
+	electivire: {
+		tier: "OU",
+	},
 	mimmeo: {
 		tier: "OU",
 	},

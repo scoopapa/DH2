@@ -4932,6 +4932,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"bubblebeam": [
 				"1M"
 			],
+			crunch: ["2L41"],
 			"curse": [
 				"2M"
 			],
@@ -4983,7 +4984,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"1M"
 			],
 			"poisongas": [
-				"1L50"
+				"1L50", "2L1"
 			],
 			"protect": [
 				"2M"
@@ -5016,6 +5017,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"snore": [
 				"2M"
 			],
+			spikes: ["2L33"],
 			"strength": [
 				"1M",
 				"2M"
@@ -6240,6 +6242,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"nightmare": [
 				"2M"
 			],
+			outrage: ["2L55"],
 			"protect": [
 				"2M"
 			],
@@ -9163,7 +9166,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"1M"
 			],
 			"charm": [
-				"1L8"
+				"2L1", "1L8"
 			],
 			"counter": [
 				"1M"
@@ -9205,6 +9208,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"frustration": [
 				"2M"
 			],
+			healbell: ["2L9", "2E"],
 			"headbutt": [
 				"2M"
 			],
@@ -9228,7 +9232,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"1M"
 			],
 			"mimic": [
-				"1M"
+				"2L12", "1M"
 			],
 			"mudslap": [
 				"2M"
@@ -20910,9 +20914,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"1M",
 				"2M"
 			],
-			"brutalswing": [
-				"1L42"
-			],
 			"bubblebeam": [
 				"1M"
 			],
@@ -20972,9 +20973,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"icywind": [
 				"2M"
 			],
-			"ironhead": [
-				"1L49"
-			],
 			"irontail": [
 				"2M"
 			],
@@ -21010,7 +21008,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"1L19"
 			],
 			"sharpen": [
-				"2S0"
+				"2L37"
 			],
 			"skullbash": [
 				"1M"
@@ -26346,6 +26344,180 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			]
 		}
 	},
+	// MANUAL NEW ENTRIES
+	wooperpaldea: {
+		learnset: {
+			amnesia: ["2L21"],
+			ancientpower: ["2E"],
+			attract: ["2M"],
+			bellydrum: ["2S0"],
+			bodyslam: ["2E"],
+			curse: ["2M"],
+			defensecurl: ["2M"],
+			dig: ["2M"],
+			doubleteam: ["2M"],
+			dynamicpunch: ["2M"],
+			earthquake: ["2M", "2L31"],
+			endure: ["2M"],
+			flash: ["2M"],
+			frustration: ["2M"],
+			haze: ["2E"],
+			headbutt: ["2M"],
+			hiddenpower: ["2M"],
+			icebeam: ["2T"],
+			icepunch: ["2M"],
+			irontail: ["2M"],
+			mist: ["2E"],
+			mudslap: ["2M", "2L1"],
+			protect: ["2M"],
+			raindance: ["2M", "2L41"],
+			rest: ["2M"],
+			return: ["2M"],
+			rocksmash: ["2M"],
+			rollout: ["2M"],
+			safeguard: ["2E"],
+			sandstorm: ["2M"],
+			scaryface: ["2S1"],
+			slam: ["2L11"],
+			sleeptalk: ["2M"],
+			sludgebomb: ["2M"],
+			snore: ["2M"],
+			spikes: ["2L51"],
+			surf: ["2M"],
+			swagger: ["2M"],
+			tailwhip: ["2L1", "2S1", "2S0"],
+			toxic: ["2M, 2L41"],
+			watergun: ["2S1", "2S0"],
+			whirlpool: ["2M"],
+		},
+	},
+	clodsire: {
+		learnset: {
+			amnesia: ["2L23"],
+			attract: ["2M"],
+			curse: ["2M"],
+			defensecurl: ["2M"],
+			dig: ["2M"],
+			doubleteam: ["2M"],
+			dynamicpunch: ["2M"],
+			earthquake: ["2M", "2L35"],
+			endure: ["2M"],
+			flash: ["2M"],
+			frustration: ["2M"],
+			haze: ["2L59"],
+			headbutt: ["2M"],
+			hiddenpower: ["2M"],
+			hyperbeam: ["2M"],
+			icebeam: ["2T"],
+			icepunch: ["2M"],
+			irontail: ["2M"],
+			megahorn: ["2L41"],
+			mist: ["2L59"],
+			mudslap: ["2M", "2L1"],
+			protect: ["2M"],
+			raindance: ["2M", "2L47"],
+			rest: ["2M"],
+			return: ["2M"],
+			rocksmash: ["2M"],
+			rollout: ["2M"],
+			sandstorm: ["2M"],
+			slam: ["2L11"],
+			sleeptalk: ["2M"],
+			sludgebomb: ["2M"],
+			snore: ["2M"],
+			spikes: ["2L59"],
+			strength: ["2M"],
+			surf: ["2M"],
+			swagger: ["2M"],
+			tailwhip: ["2L1"],
+			toxic: ["2M", "2L47"],
+			whirlpool: ["2M"],
+		},
+	},
+	qatu: {
+		learnset: {
+			attract: ["2M"],
+			confuseray: ["2L50"],
+			curse: ["2M"],
+			detect: ["2M"],
+			doubleteam: ["2M"],
+			dreameater: ["2M"],
+			endure: ["2M"],
+			flash: ["2M"],
+			fly: ["2M"],
+			frustration: ["2M"],
+			futuresight: ["2L35"],
+			gigadrain: ["2M"],
+			hiddenpower: ["2M"],
+			leer: ["2L1"],
+			nightmare: ["2M"],
+			nightshade: ["2L10", "2L1"],
+			peck: ["2L1"],
+			protect: ["2M"],
+			psychic: ["2M", "2L65"],
+			psychup: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			solarbeam: ["2M"],
+			sunnyday: ["2M"],
+			swagger: ["2M"],
+			swift: ["2M"],
+			synchronize: ["2L35"],
+			teleport: ["2L20"],
+			thief: ["2M"],
+			toxic: ["2M"],
+		},
+	},
+	kleavor: {
+		learnset: {
+			quickattack: ["2L1", "1L1"],
+			leer: ["2L1", "1L17"],
+			focusenergy: ["2L6", "1L20"],
+			rockthrow: ["1L27"],
+			slash: ["2L36", "1L29"],
+			swordsdance: ["2L42", "1L35", "1M"],
+			agility: ["1L42"],
+			wingattack: ["1L50"],
+			takedown: ["1M"],
+			doubleedge: ["1M"],
+			hyperbeam: ["2M", "1M"],
+			swift: ["2M", "1M"],
+			skullbash: ["1M"],
+			rockslide: ["1M"],
+			cut: ["2M", "1M"],
+			strength: ["2M", "1M"],
+			toxic: ["2M", "1M"],
+			rage: ["1M"],
+			mimic: ["1M"],
+			doubleteam: ["2L48", "2M", "1L24", "1M"],
+			bide: ["1M"],
+			rest: ["2M", "1M"],
+			substitute: ["1M"],
+
+			pursuit: ["2L12"],
+			falseswipe: ["2L18"],
+			rockslash: ["2L30"],
+			headbutt: ["2M"],
+			curse: ["2M"],
+			hiddenpower: ["2M"],
+			sunnyday:  ["2M"],
+			snore: ["2M"],
+			protect: ["2M"],
+			endure: ["2M"],
+			frustration: ["2M"],
+			return: ["2M"],
+			swagger: ["2M"],
+			sleeptalk: ["2M"],
+			sandstorm: ["2M"],
+			detect: ["2M"],
+			attract: ["2M"],
+			thief: ["2M"],
+			steelwing: ["2M"],
+			furycutter: ["2M"],
+		}
+	},
 	// CROSS CUTTER:
 	pinsir: {
 		learnset: {
@@ -26459,7 +26631,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		],
 	},
 	// MEGAPHONE
-
 	hoothoot: {
 		learnset: {
 			attract: ["2M"],
@@ -26550,7 +26721,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		],
 	},
 	// SYNCHRONIZE
-
 	espeon: {
 		learnset: {
 			attract: ["2M"],

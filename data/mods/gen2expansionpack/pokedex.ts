@@ -17,7 +17,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	raichualola: {
 		inherit: true,
-		gen: 1
+		gen: 1,
+		"baseStats": {
+			"atk": 85,
+			"def": 50,
+			"hp": 60,
+			"spa": 95,
+			"spd": 85,
+			"spe": 100
+		},
 	},
 	eevee: {
 		inherit: true,
@@ -96,7 +104,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	golemalola: {
 		inherit: true,
-		gen: 1
+		gen: 1,
+		"baseStats": {
+			"atk": 110,
+			"def": 130,
+			"hp": 80,
+			"spa": 55,
+			"spd": 65,
+			"spe": 45
+		},
 	},
 	sandshrew: {
 		inherit: true,
@@ -181,7 +197,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dugtrioalola: {
 		inherit: true,
-		gen: 1
+		gen: 1,
+		"baseStats": {
+			"atk": 80,
+			"def": 60,
+			"hp": 35,
+			"spa": 50,
+			"spd": 70,
+			"spe": 110
+		},
 	},
 	wiglett: {
 		inherit: true,
@@ -189,7 +213,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	wugtrio: {
 		inherit: true,
-		gen: 1
+		gen: 1,
+		"baseStats": {
+			"atk": 80,
+			"def": 50,
+			"hp": 35,
+			"spa": 50,
+			"spd": 70,
+			"spe": 120
+		},
 	},
 	voltorb: {
 		inherit: true,
@@ -205,7 +237,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	electrodehisui: {
 		inherit: true,
-		gen: 1
+		gen: 1,
+		"baseStats": {
+			"atk": 50,
+			"def": 70,
+			"hp": 60,
+			"spa": 80,
+			"spd": 80,
+			"spe": 140
+		},
 	},
 	toedscool: {
 		inherit: true,
@@ -303,7 +343,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	exeggutoralola: {
 		inherit: true,
-		gen: 1
+		gen: 1,
+		"baseStats": {
+			"atk": 105,
+			"def": 85,
+			"hp": 95,
+			"spa": 125,
+			"spd": 65,
+			"spe": 45
+		},
 	},
 	rhyperior: {
 		inherit: true,
@@ -477,7 +525,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	corsolagalar: {
 		inherit: true,
-		gen: 2
+		gen: 2,
+		"baseStats": {
+			"atk": 55,
+			"def": 90,
+			"hp": 50,
+			"spa": 65,
+			"spd": 90,
+			"spe": 30
+		},
 	},
 	cursola: {
 		inherit: true,
@@ -502,7 +558,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	qwilfishhisui: {
 		inherit: true,
-		gen: 2
+		gen: 2,
+		"baseStats": {
+			"atk": 95,
+			"def": 75,
+			"hp": 65,
+			"spa": 55,
+			"spd": 55,
+			"spe": 85
+		},
 	},
 	overqwil: {
 		inherit: true,
@@ -731,6 +795,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Weepinbell",
+		evoType: "useItem", 
+		evoItem: "Sun Stone",
 		"gen": 1,
 		"name": "Bellignan",
 		"types": [
@@ -776,7 +843,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Zubat"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Bittybat",
 		"types": [
 			"Poison",
@@ -799,7 +866,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Blastoise"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Blastyke",
 		"types": [
 			"Water"
@@ -818,10 +885,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 65,
 			"spe": 50
 		},
-		"evos": [
-			""
-		],
-		"gen": 2,
+		evos: ["Pendraken"],
+		"gen": 1,
 		"name": "Blottle",
 		"types": [
 			"Water",
@@ -866,7 +931,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Tangela"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Burgela",
 		"types": [
 			"Grass"
@@ -888,7 +953,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Buu",
 		"types": [
 			"Ice"
@@ -910,7 +975,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Cactormus",
 		"types": [
 			"Grass",
@@ -956,6 +1021,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Pupal",
+		evoLevel: 10,
 		"gen": 2,
 		"name": "Carapthor",
 		"types": [
@@ -976,10 +1043,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 40,
 			"spe": 40
 		},
-		"evos": [
-			""
-		],
-		"gen": 2,
+		evos: ["Jabetta"],
+		"gen": 1,
 		"name": "Cheep",
 		"types": [
 			"Water"
@@ -1005,7 +1070,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Meowth"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Coinpur",
 		"types": [
 			"Normal"
@@ -1069,10 +1134,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 40,
 			"spe": 15
 		},
-		"evos": [
-			""
-		],
-		"gen": 2,
+		evos: ["Gawarhed"],
+		"gen": 1,
 		"name": "Decilla",
 		"types": [
 			"Rock"
@@ -1094,7 +1157,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		prevo: "Shellder",
+		evoType: "useItem",
+		evoItem: "Water Stone",
+		"gen": 1,
 		"name": "Disturban",
 		"types": [
 			"Water"
@@ -1120,7 +1186,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Doduo"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Dodaerie",
 		"types": [
 			"Normal",
@@ -1250,10 +1316,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 50,
 			"spe": 50
 		},
-		"evos": [
-			""
-		],
-		"gen": 2,
+		prevo: "Kotora",
+		evoLevel: 16,
+		evos: ["Gorotora"],
+		"gen": 1,
 		"name": "Gaotora",
 		"types": [
 			"Electric"
@@ -1275,7 +1341,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Gavillain",
 		"types": [
 			"Dragon",
@@ -1298,7 +1364,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		prevo: "Decilla",
+		evoLevel: 50,
+		"gen": 1,
 		"name": "Gawarhed",
 		"types": [
 			"Rock"
@@ -1317,9 +1385,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 25,
 			"spe": 45
 		},
-		"evos": [
-			""
-		],
+		evos: ["Pupal"],
 		"gen": 2,
 		"name": "Gentlarva",
 		"types": [
@@ -1342,6 +1408,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Raichu",
+		evoType: "trade",
 		"gen": 1,
 		"name": "Gorochu",
 		"types": [
@@ -1364,7 +1432,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		prevo: "Gaotora",
+		evoLevel: 36,
+		"gen": 1,
 		"name": "Gorotora",
 		"types": [
 			"Electric"
@@ -1383,9 +1453,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 100,
 			"spe": 65
 		},
-		"evos": [
-			""
-		],
+		prevo: "Marowak",
+		evoType: "trade",
+		evoCondition: "with a Kangaskhan", //I believe this wouldn't cause a crash as iirc they aren't actually coded in, just displayed with /dt. If it causes problems, just remove it, as it's not like this specific evo condition actually exists in RBY anyway.
 		"gen": 1,
 		"name": "Guardia",
 		"types": [
@@ -1409,6 +1479,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			""
 		],
 		"gen": 1,
+		prevo: "Ministare",
+		evoLevel: 50,
 		"name": "Iguanarch",
 		"types": [
 			"Dragon"
@@ -1430,7 +1502,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		prevo: "Cheep",
+		evoLevel: 30,
+		"gen": 1,
 		"name": "Jabetta",
 		"types": [
 			"Water",
@@ -1453,6 +1527,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Tangela",
 		"gen": 2,
 		"name": "Jungela",
 		"types": [
@@ -1474,7 +1549,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spe": 70
 		},
 		"evos": [
-			""
+			"Ponyta"
 		],
 		"gen": 1,
 		"name": "Kolta",
@@ -1495,10 +1570,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 35,
 			"spe": 40
 		},
-		"evos": [
-			""
-		],
-		"gen": 2,
+		evos: ["Gaotora"],
+		"gen": 1,
 		"name": "Kotora",
 		"types": [
 			"Electric"
@@ -1547,6 +1620,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Farfetch\u2019d",
+		evoLevel: 24,
 		"gen": 1,
 		"name": "Luxwan",
 		"types": [
@@ -1571,10 +1646,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 60,
 			"spe": 55
 		},
+		prevo: "Magnemite",
 		"evos": [
-			""
+			"Magneton"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Magnetite",
 		"types": [
 			"Electric",
@@ -1616,8 +1692,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 60,
 			"spe": 98
 		},
+		prevo: "Squeamata",
+		evoLevel: 30,
 		"evos": [
-			""
+			"Iguanarch"
 		],
 		"gen": 1,
 		"name": "Ministare",
@@ -1663,7 +1741,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		prevo: "Nidorino", // It seems we can't have convergent evolutions, so Nidorino will be used here. I believe it'll be functionally identical in the validator as long as I make it learn the Nidorina-exclusive moves via an event entry or something. 
+		evoType: "useItem", //NOTE TO SELF: Make the moves all learned at L1 and L50. The lowest reasonable level people will use this at is 50, and this will resolve any incompatabilities in the validator. The moves suck but let's make sure nobody becomes uncanny.
+		evoItem: "Moon Stone",
+		"gen": 1,
 		"name": "Nidoreign",
 		"types": [
 			"Poison",
@@ -1708,7 +1789,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Goldeen"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Orfry",
 		"types": [
 			"Water"
@@ -1752,7 +1833,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Paras"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Paraspor",
 		"types": [
 			"Bug",
@@ -1775,8 +1856,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Pendraken",
+		prevo: "Blottle",
+		evoLevel: 30,
 		"types": [
 			"Water",
 			"Fairy"
@@ -1848,9 +1931,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 30,
 			"spe": 40
 		},
-		"evos": [
-			""
-		],
+		evos: ["Carapthor"],
+		prevo: "Gentlarva",
+		evoLevel: 7,
 		"gen": 1,
 		"name": "Pupal",
 		"types": [
@@ -1871,9 +1954,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spe": 40
 		},
 		"evos": [
-			""
+			"Growlithe"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Pupperon",
 		"types": [
 			"Fire"
@@ -1938,9 +2021,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spe": 40
 		},
 		"evos": [
-			""
+			"Croakozuna"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Ribbito",
 		"types": [
 			"Water"
@@ -1962,7 +2045,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Sharpoon",
 		"types": [
 			"Water",
@@ -2014,7 +2097,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spe": 10
 		},
 		"evos": [
-			""
+			"Grimer"
 		],
 		"gen": 2,
 		"name": "Smujj",
@@ -2036,9 +2119,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spe": 88
 		},
 		"evos": [
-			""
+			"Ministare"
 		],
-		"gen": 2,
+		"gen": 1,
 		"name": "Squeamata",
 		"types": [
 			"Dragon"
@@ -2088,10 +2171,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spd": 105,
 			"spe": 78
 		},
-		"evos": [
-			""
-		],
-		"gen": 2,
+		/* It seemed less complicated to separate Blastoise and Totartle when coding so I went
+		** back on the branch evolution aspect. It's cool and gives a PokeGod aspect, 
+		** but it's more accurate and moves are retained properly anyway.
+		*/
+		prevo: "Wartortle", 
+		evoLevel: 43,
+		"gen": 1,
 		"name": "Totartle",
 		"types": [
 			"Water",
@@ -2137,6 +2223,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Pinsir",
+		evoLevel: 42,
 		"gen": 1,
 		"name": "Tricules",
 		"types": [
@@ -2196,4 +2284,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"Water"
 		]
 	}
+	// MANUAL INPUTS START HERE
+
 };
