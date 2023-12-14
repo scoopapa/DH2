@@ -157,5 +157,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	drainingkiss: {
 		num: -11,
 		inherit: true
+	},
+	fairywind: {
+		num: -12,
+		inherit: true		
 	}
 };
