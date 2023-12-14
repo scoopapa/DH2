@@ -628,6 +628,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		gen: 2
 	},
+	gougingfire: {
+		inherit: true,
+		gen: 2
+	},
 	// KEP to JEP
 	cleffa: {
 		inherit: true,

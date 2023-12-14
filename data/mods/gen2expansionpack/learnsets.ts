@@ -26947,6 +26947,644 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			furycutter: ["2M"],
 		}
 	},
+	reroad: {
+		learnset: {
+
+		}
+	},
+	sunbud: {
+		learnset: {
+
+		}
+	},
+	hippunk: {
+		learnset: {
+
+		}
+	},
+	pockle: {
+		learnset: {
+
+		}
+	},
+	caretorker: {
+		learnset: {
+
+		}
+	},
+	bonsly: {
+		learnset: {
+			attract: ["2M"],
+			curse: ["2M"],
+			defensecurl: ["2M"],
+			dig: ["2M"],
+			doubleteam: ["2M"],
+			dynamicpunch: ["2M"],
+			earthquake: ["2M"],
+			endure: ["2M"],
+			feintattack: ["2L30"],
+			firepunch: ["2M"],
+			flail: ["2L9"],
+			frustration: ["2M"],
+			headbutt: ["2M"],
+			hiddenpower: ["2M"],
+			icepunch: ["2M"],
+			lowkick: ["2L16"],
+			mimic: ["2L17", "2S0"],
+			mudslap: ["2M"],
+			protect: ["2M"],
+			psychup: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			rockslide: ["2L23"],
+			rocksmash: ["2M"],
+			rockthrow: ["2L1", "2S0"],
+			rollout: ["2M"],
+			sandstorm: ["2M"],
+			selfdestruct: ["2E"],
+			slam: ["2L37"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			strength: ["2M"],
+			sunnyday: ["2M"],
+			swagger: ["2M"],
+			thief: ["2M"],
+			thunderpunch: ["2M"],
+			toxic: ["2M"],
+		}
+	},
+	mantyke: {
+		learnset: {
+			agility: ["2L32"],
+			attract: ["2M"],
+			blizzard: ["2M"],
+			bubble: ["2L1", "2S0"],
+			bubblebeam: ["2L18"],
+			confuseray: ["2L49"],
+			curse: ["2M"],
+			doubleteam: ["2M"],
+			endure: ["2M"],
+			frustration: ["2M"],
+			gust: ["2S0"],
+			haze: ["2E"],
+			headbutt: ["2M"],
+			hiddenpower: ["2M"],
+			hydropump: ["2E"],
+			icebeam: ["2T"],
+			icywind: ["2M"],
+			mudslap: ["2M"],
+			protect: ["2M"],
+			raindance: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			slam: ["2E"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			supersonic: ["2L10"],
+			surf: ["2M"],
+			swagger: ["2M"],
+			swift: ["2M"],
+			tackle: ["2L1", "2S0"],
+			takedown: ["2L25"],
+			toxic: ["2M"],
+			twister: ["2E"],
+			waterfall: ["2M"],
+			whirlpool: ["2M"],
+			wingattack: ["2L40"],
+		}
+	},
+	corsolagalar: {
+		learnset: {
+			amnesia: ["2E"],
+			ancientpower: ["2L43"],
+			attract: ["2M"],
+			curse: ["2M"],
+			defensecurl: ["2M"],
+			doubleteam: ["2M"],
+			earthquake: ["2M"],
+			endure: ["2M"],
+			frustration: ["2M"],
+			harden: ["2L7"],
+			headbutt: ["2M"],
+			hiddenpower: ["2M"],
+			gigadrain: ["2M"],
+			icebeam: ["2T"],
+			mirrorcoat: ["2L37"],
+			mist: ["2E"],
+			mudslap: ["2M"],
+			nightshade: ["2L13"],
+			protect: ["2M"],
+			psychic: ["2M"],
+			raindance: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			rockslide: ["2E"],
+			rocksmash: ["2M"],
+			rollout: ["2M"],
+			safeguard: ["2E"],
+			sandstorm: ["2M"],
+			screech: ["2E"],
+			shadowball: ["2L31", "2M"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			spite: ["2L19"],
+			strength: ["2M"],
+			sunnyday: ["2M"],
+			surf: ["2M"],
+			swagger: ["2M"],
+			tackle: ["2L1"],
+			toxic: ["2M"],
+			whirlpool: ["2M"],
+		}
+	},
+	cursola: {
+		learnset: {
+			amnesia: ["2E"],
+			ancientpower: ["2L43"],
+			attract: ["2M"],
+			curse: ["2M"],
+			defensecurl: ["2M"],
+			doubleteam: ["2M"],
+			earthquake: ["2M"],
+			endure: ["2M"],
+			frustration: ["2M"],
+			harden: ["2L7"],
+			headbutt: ["2M"],
+			hiddenpower: ["2M"],
+			hyperbeam: ["2M"],
+			gigadrain: ["2M"],
+			icebeam: ["2T"],
+			mirrorcoat: ["2L37"],
+			mist: ["2E"],
+			mudslap: ["2M"],
+			nightshade: ["2L13"],
+			perishsong: ["2L60"],
+			pinmissile: ["2L54"],
+			protect: ["2M"],
+			psychic: ["2M"],
+			raindance: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			rockslide: ["2E"],
+			rocksmash: ["2M"],
+			rollout: ["2M"],
+			safeguard: ["2E"],
+			sandstorm: ["2M"],
+			screech: ["2E"],
+			shadowball: ["2L31", "2M"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			spite: ["2L19"],
+			strength: ["2M"],
+			sunnyday: ["2M"],
+			surf: ["2M"],
+			swagger: ["2M"],
+			tackle: ["2L1"],
+			toxic: ["2M"],
+			whirlpool: ["2M"],
+		}
+	},
+	wyrdeer: {
+		learnset: {
+			attract: ["2M"],
+			bite: ["2E"],
+			confuseray: ["2L49"],
+			curse: ["2M"],
+			detect: ["2M"],
+			disable: ["2E"],
+			doubleteam: ["2M"],
+			dreameater: ["2M"],
+			earthquake: ["2M"],
+			endure: ["2M"],
+			flash: ["2M"],
+			frustration: ["2M"],
+			headbutt: ["2M"],
+			hiddenpower: ["2M"],
+			hyperbeam: ["2M"],
+			hypnosis: ["2L15"],
+			leer: ["2L8"],
+			lightscreen: ["2E"],
+			megahorn: ["2L62"],
+			mudslap: ["2M"],
+			nightmare: ["2M"],
+			protect: ["2M"],
+			psybeam: ["2L55"],
+			psychic: ["2M"],
+			psychup: ["2M"],
+			raindance: ["2M"],
+			reflect: ["2E"],
+			rest: ["2M"],
+			return: ["2M"],
+			roar: ["2M"],
+			safeguard: ["2S0"],
+			sandattack: ["2L31"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			spite: ["2E"],
+			stomp: ["2L23"],
+			sunnyday: ["2M"],
+			swagger: ["2M"],
+			swift: ["2M"],
+			tackle: ["2L1", "2S0"],
+			takedown: ["2L40"],
+			thief: ["2M"],
+			toxic: ["2M"],
+		}
+	},
+	honchkrow: {
+		learnset: {
+			attract: ["2M"],
+			curse: ["2M"],
+			detect: ["2M"],
+			doubleteam: ["2M"],
+			dreameater: ["2M"],
+			drillpeck: ["2E"],
+			endure: ["2M"],
+			fly: ["2M"],
+			frustration: ["2M"],
+			haze: ["2L16"],
+			hiddenpower: ["2M"],
+			hyperbeam: ["2M"],
+			icywind: ["2M"],
+			meanlook: ["2L41"],
+			mirrormove: ["2E"],
+			mudslap: ["2M"],
+			nightmare: ["2M"],
+			peck: ["2L1", "2S0"],
+			protect: ["2M"],
+			psychup: ["2M"],
+			pursuit: ["2L11"],
+			quickattack: ["2E"],
+			rest: ["2M"],
+			return: ["2M"],
+			shadowball: ["2M"],
+			skyattack: ["2E"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			steelwing: ["2M"],
+			sunnyday: ["2M"],
+			swagger: ["2L25", "2M"],
+			swift: ["2M"],
+			thief: ["2M"],
+			toxic: ["2M"],
+			whirlwind: ["2E"],
+			wingattack: ["2L1", "2E"],
+		}
+	},
+	stricheel: {
+		learnset: {
+			attract: ["2M"],
+			beatup: ["2E"],
+			blizzard: ["2M"],
+			constrict: ["2L11"],
+			curse: ["2M"],
+			defensecurl: ["2M"],
+			doubleteam: ["2M"],
+			endure: ["2M"],
+			feintattack: ["2L30"],
+			focusenergy: ["2L38"],
+			flail: ["2E"],
+			flash: ["2M"],
+			frustration: ["2M"],
+			hiddenpower: ["2M"],
+			hydropump: ["2L66"],
+			icebeam: ["2T"],
+			icywind: ["2M"],
+			irontail: ["2M"],
+			leer: ["2L1"],
+			mudslap: ["2M"],
+			octazooka: ["2L25"],
+			protect: ["2M"],
+			psybeam: ["2L22"],
+			pursuit: ["2L1"],
+			raindance: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			scaryface: ["2L1"],
+			screech: ["2E"],
+			slam: ["2L1"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			spark: ["2L57"],
+			supersonic: ["2E"],
+			surf: ["2M"],
+			swagger: ["2M"],
+			swift: ["2M"],
+			tackle: ["2L1"],
+			thief: ["2M"],
+			thunder: ["2M"],
+			thunderbolt: ["2T"],
+			toxic: ["2M"],
+			waterfall: ["2M"],
+			watergun: ["2L1"],
+			whirlpool: ["2M"],
+			wrap: ["2L1"],
+			zapcannon: ["2M"],
+		}
+	},
+	lurreel: {
+		learnset: {
+			attract: ["2M"],
+			beatup: ["2E"],
+			blizzard: ["2M"],
+			constrict: ["2L11"],
+			crunch: ["2L30"],
+			curse: ["2M"],
+			defensecurl: ["2M"],
+			doubleteam: ["2M"],
+			endure: ["2M"],
+			feintattack: ["2L30"],
+			focusenergy: ["2L38"],
+			flail: ["2E"],
+			flash: ["2M"],
+			frustration: ["2M"],
+			hiddenpower: ["2M"],
+			hyperbeam: ["2M"],
+			hydropump: ["2L66"],
+			icebeam: ["2T"],
+			icywind: ["2M"],
+			irontail: ["2M"],
+			leer: ["2L1"],
+			mudslap: ["2M"],
+			octazooka: ["2L25"],
+			protect: ["2M"],
+			psybeam: ["2L22"],
+			pursuit: ["2L1"],
+			raindance: ["2M"],
+			rest: ["2M"],
+			return: ["2M"],
+			scaryface: ["2L1"],
+			screech: ["2E"],
+			slam: ["2L1"],
+			sleeptalk: ["2M"],
+			snore: ["2M"],
+			spark: ["2L57"],
+			supersonic: ["2E"],
+			surf: ["2M"],
+			swagger: ["2M"],
+			swift: ["2M"],
+			tackle: ["2L1"],
+			thief: ["2M"],
+			thunder: ["2M"],
+			thunderbolt: ["2T"],
+			toxic: ["2M"],
+			waterfall: ["2M"],
+			watergun: ["2L1"],
+			whirlpool: ["2M"],
+			wrap: ["2L1"],
+			zapcannon: ["2M"],
+		}
+	},
+	qwilfishhisui:  {
+		learnset: {
+
+		}
+	},
+	overqwil: {
+		learnset: {
+
+		}
+	},
+	kazeppelin: {
+		learnset: {
+
+		}
+	},
+	qwilfather: {
+		learnset: {
+
+		}
+	},
+	sailwing: {
+		learnset: {
+
+		}
+	},
+	grenmar: {
+		learnset: {
+
+		}
+	},
+	bunice: {
+		learnset: {
+
+		}
+	},
+	bundra: {
+		learnset: {
+
+		}
+	},
+	bunberg: {
+		learnset: {
+
+		}
+	},
+	bundrake: {
+		learnset: {
+
+		}
+	},
+	mamoswine: {
+		learnset: {
+
+		}
+	},
+	weavile: {
+		learnset: {
+
+		}
+	},
+	sneaselhisui: {
+		learnset: {
+
+		}
+	},
+	sneasler: {
+		learnset: {
+
+		}
+	},
+	warfurs: {
+		learnset: {
+
+		}
+	},
+	wearlycan: {
+		learnset: {
+
+		}
+	},
+	gliscor: {
+		learnset: {
+
+		}
+	},
+	waruchu: {
+		learnset: {
+
+		}
+	},
+	sonegg: {
+		learnset: {
+
+		}
+	},
+	cacawphony: {
+		learnset: {
+
+		}
+	},
+	trebir: {
+		learnset: {
+
+		}
+	},
+	sakuraze: {
+		learnset: {
+
+		}
+	},
+	amanobi: {
+		learnset: {
+
+		}
+	}, 
+	trustan: {
+		learnset: {
+
+		}
+	},
+	kuwaguard: {
+		learnset: {
+
+		}
+	},
+	tonquito:  {
+		learnset: {
+
+		}
+	},
+	molambino: {
+		learnset: {
+
+		}
+	},
+	luanbo: {
+		learnset: {
+
+		}
+	},
+	granbo: {
+		learnset: {
+
+		}
+	},
+	angore: {
+		learnset: {
+
+		}
+	},
+	eucla: {
+		learnset: {
+
+		}
+	},
+	kiwooked: {
+		learnset: {
+
+		}
+	},
+	cyclorp: {
+		learnset: {
+
+		}
+	},
+	kitsen: {
+		learnset: {
+
+		}
+	},
+	wispirit: {
+		learnset: {
+
+		}
+	},
+	coatl: {
+		learnset: {
+
+		}
+	},
+	mimear: {
+		learnset: {
+
+		}
+	},
+	togekiss: {
+		learnset: {
+
+		}
+	},
+	inoshika: {
+		learnset: {
+
+		}
+	},
+	ruddernaut: {
+		learnset: {
+
+		}
+	},
+	xylodon: {
+		learnset: {
+
+		}
+	},
+	xylofin: {
+		learnset: {
+
+		}
+	},
+	dokuroar: {
+		learnset: {
+
+		}
+	},
+	greattusk: {
+		learnset: {
+
+		}
+	},
+	fluttermane: {
+		learnset: {
+
+		}
+	},
+	irontreads: {
+		learnset: {
+
+		}
+	},
+	ironbundle: {
+		learnset: {
+
+		}
+	},
+	ironthorns: {
+		learnset: {
+
+		}
+	},
+	ragingbolt: {
+		learnset: {
+
+		}
+	},
+	gougingfire: {
+		learnset: {
+
+		}
+	},
 	// CROSS CUTTER:
 	pinsir: {
 		learnset: {
