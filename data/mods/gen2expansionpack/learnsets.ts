@@ -847,15 +847,18 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"1M"
 			],
 			"charm": [
+				"2L37",
 				"1L37"
 			],
 			"confuseray": [
+				"2L31",
 				"1L31"
 			],
 			"curse": [
 				"2M"
 			],
 			"dazzlinggleam": [
+				"2L43",
 				"1L43"
 			],
 			"defensecurl": [
@@ -865,6 +868,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"disarmingvoice": [
+				"2L12",
 				"1L1"
 			],
 			"doubleedge": [
@@ -875,6 +879,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"drainingkiss": [
+				"2L1",
 				"1L1"
 			],
 			"dreameater": [
@@ -899,6 +904,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"growl": [
+				"2L1",
 				"1L1"
 			],
 			"headbutt": [
@@ -987,6 +993,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"sweetkiss": [
+				"2L25",
 				"1L25"
 			],
 			"sweetscent": [
@@ -1019,7 +1026,13 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"whirlwind": [
 				"1M"
-			]
+			],
+			detect: ["2M"],
+			fairywind: ["2L1"],
+			gust: ["2L19"],
+			psychup:["2M"],
+			screech: ["2E"],
+			zapcannon: ["2M"],
 		}
 	},
 	"barreau": {
@@ -28263,6 +28276,121 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	mimear: {
 		learnset: {
 			// Copy Balumba once finished
+			"attract": [
+				"2M"
+			],
+			"charm": [
+				"2L13",
+			],
+			"curse": [
+				"2M"
+			],
+			"dazzlinggleam": [
+				"2L43",
+			],
+			"disarmingvoice": [
+				"2L1",
+			],
+			"doubleteam": [
+				"1M",
+				"2M"
+			],
+			"drainingkiss": [
+				"2L1",
+			],
+			"dreameater": [
+				"2M"
+			],
+			"endure": [
+				"2M"
+			],
+			"flash": [
+				"2M"
+			],
+			"fly": [
+				"2M"
+			],
+			"frustration": [
+				"2M"
+			],
+			"growl": [
+				"2L1",
+			],
+			"headbutt": [
+				"2M",
+			],
+			"hiddenpower": [
+				"2M"
+			],
+			"hyperbeam": [
+				"2M"
+			],
+			"nightmare": [
+				"2M"
+			],
+			"protect": [
+				"2M"
+			],
+			"psychic": [
+				"2M"
+			],
+			"psywave": [
+				"1M"
+			],
+			"raindance": [
+				"2M"
+			],
+			"reflect": [
+			],
+			"rest": [
+				"2M"
+			],
+			"return": [
+				"2M"
+			],
+			"shadowball": [
+				"2M"
+			],
+			"sleeptalk": [
+				"2M"
+			],
+			"snore": [
+				"2M"
+			],
+			"sunnyday": [
+				"2M"
+			],
+			"swagger": [
+				"2M"
+			],
+			"sweetkiss": [
+				"2E",
+			],
+			"sweetscent": [
+				"2M"
+			],
+			"swift": [
+				"1M",
+				"2M"
+			],
+			"thunder": [
+				"2M"
+			],
+			"thunderbolt": [
+				"2T"
+			],
+			"toxic": [
+				"2M"
+			],
+			detect: ["2M"],
+			lovelykiss: ["2E"],
+			mirrorcoat: ["2L32"],
+			playrough: ["2L21"],
+			present: ["2E"],
+			psychup:["2M"],
+			safeguard: ["2L37"],
+			screech: ["2E"],
+			zapcannon: ["2M"],
 		}
 	},
 	togekiss: {

@@ -150,8 +150,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	// watersport: {
 	// 	num: -12,
 	// }
+	//FAIRY
 	dazzlinggleam: {
 		num: -10,
+		inherit: true
+	},
+	disarmingvoice: {
+		num: -13,
 		inherit: true
 	},
 	drainingkiss: {
@@ -161,5 +166,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	fairywind: {
 		num: -12,
 		inherit: true		
+	},
+	playrough: {
+		num: -13,
+		inherit: true
 	}
 };
