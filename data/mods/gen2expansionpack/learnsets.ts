@@ -9586,6 +9586,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			hornattack: ["2L6"],
 			leer: ["2L1", "2S0"],
 			megahorn: ["2L54"],
+			megaphone: ["2L26"],
 			protect: ["2M"],
 			rest: ["2M"],
 			return: ["2M"],
@@ -21209,9 +21210,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"return": [
 				"2M"
 			],
-			"roar": [
-				"2M"
-			],
 			"screech": [
 				"1L19"
 			],
@@ -26408,7 +26406,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"splash": [
 				"2L1"
-			]
+			],
+			synchronize: ["2E"],
 		}
 	},
 	"zapdosgalar": {
@@ -29443,11 +29442,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			dig: ["2M"],
 			doubleteam: ["2M"],
 			dragonbreath: ["2M"],
-			dynamicpunch: ["2M"],
 			earthquake: ["2M", "2L61"],
 			endure: ["2M"],
 			fireblast: ["2M"],
-			firepunch: ["2M"],
 			flamethrower: ["2T"],
 			frustration: ["2M"],
 			furycutter: ["2M"],
@@ -29494,11 +29491,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			dig: ["2M"],
 			doubleteam: ["2M"],
 			dragonbreath: ["2M"],
-			dynamicpunch: ["2M"],
 			earthquake: ["2M", "2L61"],
 			endure: ["2M"],
 			fireblast: ["2M"],
-			firepunch: ["2M"],
 			flamethrower: ["2T"],
 			frustration: ["2M"],
 			furycutter: ["2M"],
