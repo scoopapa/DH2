@@ -149,6 +149,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			nightslash: ["9L1"],
 			sunnyday: ["9L1"],
 			hurricane: ["9L1"],
+			terablast: ["9L1"],
 		},
 	},
 	ironglider: {
@@ -342,6 +343,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			voltswitch: ["9L1"],
 			wildcharge: ["9L1"],
 			trailblaze: ["9L1"],
+			terablast: ["9L1"],
 		},
 	},
 };

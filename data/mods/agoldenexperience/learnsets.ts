@@ -3282,7 +3282,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			firefang: ["9M"],
 			flashcannon: ["9M"],
 			fling: ["9M"],
-			frustation: ["9M"],
+			frustration: ["9M"],
 			foulplay: ["9M"],
 			gigaimpact: ["9M"],
 			grassknot: ["9M"],

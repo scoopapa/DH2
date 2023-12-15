@@ -2035,10 +2035,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseStats: {hp: 89, atk: 115, def: 90, spa: 125, spd: 80, spe: 101},
 		abilities: {0: "Wind Rider", H: "Air Lock"},
 	},
-	kyurem: {
-		inherit: true,
-		baseStats: {hp: 125, atk: 130, def: 90, spa: 130, spd: 90, spe: 80},
-	},
 	keldeo: {
 		inherit: true,
 		abilities: {0: "Justified", H: "Sharpness"},
@@ -2801,7 +2797,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Dhelmise-Mega",
 		baseSpecies: "Dhelmise",
 		forme: "Mega",
-		types: ["Ghost", "Grass"],
+		types: ["Ghost", "Steel"],
 		gender: "N",
 		baseStats: {hp: 70, atk: 156, def: 120, spa: 101, spd: 110, spe: 60},
 		abilities: {0: "Boarding"},
@@ -3239,21 +3235,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	wochien: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 85, def: 135, spa: 95, spd: 100, spe: 70},
-		abilities: {0: "Leaf Dress"},
+		abilities: {0: "Tablets of Ruin", H: "Leaf Dress"},
 	},
 	chienpao: {
 		inherit: true,
-		abilities: {0: "Sharpness"},
+		abilities: {0: "Sword of Ruin", H: "Sharpness"},
 	},
 	tinglu: {
 		inherit: true,
-		baseStats: {hp: 155, atk: 110, def: 80, spa: 55, spd: 125, spe: 45},
-		abilities: {0: "Sturdy"},
+		abilities: {0: "Vessel of Ruin", H: "Sturdy"},
 	},
 	chiyu: {
 		inherit: true,
-		abilities: {0: "Magma Armor"},
+		abilities: {0: "Beads of Ruin", H: "Magma Armor"},
 	},
 	roaringmoon: {
 		inherit: true,

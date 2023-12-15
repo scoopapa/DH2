@@ -119,13 +119,9 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
     delete this.modData('Learnsets', 'flittle').learnset.storedpower;
     delete this.modData('Learnsets', 'espathra').learnset.storedpower;
-    delete this.modData('Learnsets', 'urshifu').learnset.swordsdance;
-    delete this.modData('Learnsets', 'urshifurapidstrike').learnset.swordsdance;
     delete this.modData('Learnsets', 'baxcalibur').learnset.scaleshot;
     delete this.modData('Learnsets', 'gimmighoul').learnset.nastyplot;
     delete this.modData('Learnsets', 'gholdengo').learnset.nastyplot;
-    delete this.modData('Learnsets', 'naclstack').learnset.saltcure;
-    delete this.modData('Learnsets', 'garganacl').learnset.saltcure;
     delete this.modData('Learnsets', 'pawmot').learnset.revivalblessing;
     delete this.modData('Learnsets', 'rabsca').learnset.revivalblessing;
     delete this.modData('Learnsets', 'pawniard').learnset.knockoff;
@@ -337,6 +333,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'zebstrika').learnset.parallelcircuit = ['9L1'];
     this.modData('Learnsets', 'pikachu').learnset.parallelcircuit = ['9L1'];
     this.modData('Learnsets', 'pawmi').learnset.parallelcircuit = ['9L1'];
+    this.modData('Learnsets', 'boltund').learnset.parallelcircuit = ['9L1'];
 
     // musclecare 
     this.modData('Learnsets', 'poliwrath').learnset.musclecare = ['9L1'];
@@ -1101,6 +1098,8 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'skuntank').learnset.swordsdance = ['9L1'];
     this.modData('Learnsets', 'spiritomb').learnset.strengthsap = ['9L1'];
     this.modData('Learnsets', 'chatot').learnset.hurricane = ['9L1'];
+    this.modData('Learnsets', 'lucario').learnset.synchronoise = ['9L1'];
+    this.modData('Learnsets', 'lucario').learnset.machpunch = ['9L1'];
     this.modData('Learnsets', 'croagunk').learnset.closecombat = ['9L1'];
     this.modData('Learnsets', 'croagunk').learnset.hydropump = ['9L1'];
     this.modData('Learnsets', 'croagunk').learnset.liquidation = ['9L1'];
