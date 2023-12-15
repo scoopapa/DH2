@@ -139,6 +139,23 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	uppercut: {
+		num: -14,
+		accuracy: 80,
+		basePower: 55,
+		category: "Physical",
+		name: "Uppercut",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		shortDesc: "30% chance to make the target flinch.",
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Fighting",
+	},
 	// Unfinished
 	// strongarm: {
 	// 	num: -10,
