@@ -25073,9 +25073,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"lick": [
 				"2L1"
 			],
-			"moonlight": [
-				"2L1"
-			],
 			"mudslap": [
 				"2M"
 			],
