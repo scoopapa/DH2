@@ -10222,12 +10222,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
-	slowmobius: {
+	slowmobious: {
 		num: 1543,
 		accuracy: 90,
 		basePower: 10,
 		category: "Physical",
-		name: "Slow Mobius",
+		name: "Slow Mobious",
 		shortDesc: "85% chance Hi crit ratio and crit boost.",
 		pp: 12,
 		noPPBoosts: true,
@@ -10252,7 +10252,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 80,
 		basePower: 145,
 		category: "Physical",
-		name: "Family KIlling Time",
+		name: "Family Killing Time",
 		shortDesc: "No additional effect.",
 		pp: 5,
 		noPPBoosts: true,
