@@ -187,5 +187,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	playrough: {
 		num: -15,
 		inherit: true
-	}
+	},
+	charm: {
+		inherit: true,
+		type: "Fairy"
+	},
+	sweetkiss: {
+		inherit: true,
+		type: "Fairy"
+	},
 };
