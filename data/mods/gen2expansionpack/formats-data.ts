@@ -1374,6 +1374,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	ragingbolt: {
 		tier: "OU",
 	},
+	gougingfire: {
+		tier: "OU",
+	},
 	shishi: {
 		tier: "Uber",
 	},

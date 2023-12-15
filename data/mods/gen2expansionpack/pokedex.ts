@@ -3274,7 +3274,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			""
 		],
 		"gen": 2,
-		"name": "Xylodon",
+		"name": "Xylofin",
 		"types": [
 			"Rock",
 			"Steel"
