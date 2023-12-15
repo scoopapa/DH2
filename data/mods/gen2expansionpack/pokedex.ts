@@ -2738,7 +2738,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spe": 65
 		},
 		"evos": [
-			"Cacawphony"
+			"Cacawphony", "Trebir"
 		],
 		"gen": 2,
 		"name": "Sonegg",
