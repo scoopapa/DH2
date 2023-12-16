@@ -864,9 +864,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"defensecurl": [
 				"2M"
 			],
-			"defnesecurl": [
-				"2M"
-			],
 			"disarmingvoice": [
 				"2L12",
 				"1L1"
@@ -20600,7 +20597,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"mimic": [
 				"1M"
 			],
-			mirrorcat: ["2L70"],
+			mirrorcoat: ["2L70"],
 			"mudslap": [
 				"2M"
 			],
@@ -20618,9 +20615,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"return": [
-				"2M"
-			],
-			"roar": [
 				"2M"
 			],
 			"rollout": [
