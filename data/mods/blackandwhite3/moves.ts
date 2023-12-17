@@ -1,5 +1,5 @@
-export const Moves: {[k: string]: ModdedMoveData} = {
-railwaysmash: {
+export const Moves: { [k: string]: ModdedMoveData; } = {
+	railwaysmash: {
 		num: -1,
 		accuracy: 100,
 		basePower: 120,
@@ -8,9 +8,9 @@ railwaysmash: {
 		shortDesc: "Has 33% recoil.",
 		pp: 15,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		recoil: [33, 100],
-		onPrepareHit: function(target, source) {	
+		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Iron Head", target);
 		},
@@ -26,7 +26,7 @@ railwaysmash: {
 		shortDesc: "Raises the user's Atk by 1.",
 		pp: 10,
 		priority: 0,
-		flags: {snatch: 1, sound: 1},
+		flags: { snatch: 1, sound: 1 },
 		self: {
 			boosts: {
 				atk: 1,
@@ -37,4 +37,4 @@ railwaysmash: {
 		type: "Fighting",
 		contestType: "Clever",
 	},
-}
+};
