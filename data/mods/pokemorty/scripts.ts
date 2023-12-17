@@ -4378,7 +4378,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	this.modData("Learnsets", "specopsmorty").learnset.rush = ["9L27"];
 	this.modData("Learnsets", "specopsmorty").learnset.blitz = ["9L33"];
 	this.modData("Learnsets", "specopsmorty").learnset.espionage = ["9L39"];
-	this.modData("Learnsets", "specopsmorty").learnset.coveroperation = ["9L45"];
+	this.modData("Learnsets", "specopsmorty").learnset.covertoperation = ["9L45"];
 
 	// Static Morty
 	this.modData("Learnsets", "staticmorty").learnset.plasmaburst = ["9L1"];
@@ -5078,7 +5078,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	this.modData("Learnsets", "operationmorty").learnset.clarity = ["9L17"];
 	this.modData("Learnsets", "operationmorty").learnset.heymom = ["9L19"];
 	this.modData("Learnsets", "operationmorty").learnset.headshot = ["9L24"];
-	this.modData("Learnsets", "operationmorty").learnset.coveroperation = ["9L32"];
+	this.modData("Learnsets", "operationmorty").learnset.covertoperation = ["9L32"];
 	this.modData("Learnsets", "operationmorty").learnset.headache = ["9L37"];
 
 	// Businesswoman Morty

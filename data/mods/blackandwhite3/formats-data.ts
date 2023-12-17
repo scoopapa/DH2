@@ -1,5 +1,4 @@
 export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
-
 	bulbasaur: {
 		tier: "Illegal",
 	},
@@ -2035,9 +2034,6 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	unfezant: {
-		tier: "OU",
-	},
-	unfezantf: {
 		tier: "OU",
 	},
 	blitzle: {
