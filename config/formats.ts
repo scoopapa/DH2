@@ -329,14 +329,6 @@ export const Formats: FormatList = [
 			}
 		},
 	},
-
-	// Other Metagames
-	///////////////////////////////////////////////////////////////////
-
-	{
-		section: "Other Metagames",
-		column: 2,
-	},
 	{
 		name: "[Gen 9] Crossover Chaos Gen 9",
 		desc: `Crossover Chaos, a micrometa designed to crossover characters from video game titles.`,
