@@ -2212,6 +2212,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		],
 		"eventData": [],
 		"learnset": {
+			amnesia: ["2E"],
 			"attract": [
 				"2M"
 			],
@@ -2300,6 +2301,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"raindance": [
 				"2M"
 			],
+			rapidspin: ["2E"],
 			"reflect": [
 				"1M"
 			],
@@ -16785,6 +16787,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		"encounters": [],
 		"eventData": [],
 		"learnset": {
+			amnesia: ["2E"],
 			"attract": [
 				"2M"
 			],
@@ -16896,6 +16899,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"raindance": [
 				"2M"
 			],
+			rapidspin: ["2E"],
 			"reflect": [
 				"1M"
 			],
@@ -26977,6 +26981,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			return: ["2M"],
 			rocksmash: ["2M"],
 			sleeptalk: ["2M"],
+			sludge: ["2E"],
 			snore: ["2M"],
 			surf: ["2M"],
 			swagger: ["2M"],
@@ -27800,6 +27805,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			snore: ["2M"],
 			strength: ["2M"],
 			sunnyday: ["2M"],
+			surf: ["2M"],
 			swagger: ["2M"],
 			swift: ["2M"],
 			tackle: ["2L1"],
@@ -29433,7 +29439,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			dig: ["2M"],
 			doubleteam: ["2M"],
 			dragonbreath: ["2M"],
-			earthquake: ["2M", "2L61"],
+			earthquake: ["2M"],
 			endure: ["2M"],
 			fireblast: ["2M"],
 			flamethrower: ["2T"],
@@ -29444,7 +29450,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			irontail: ["2M"],
 			leer: ["2L1"],
 			mudslap: ["2M"],
-			nightmare: ["2M"],
 			protect: ["2M"],
 			raindance: ["2M"],
 			rest: ["2M"],
@@ -29473,7 +29478,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			ancientpower: ["2L1"],
 			attract: ["2M"],
-			bite: ["2L1"],
 			crunch: ["2L47"],
 			curse: ["2M"],
 			cut: ["2M"],
@@ -29491,12 +29495,11 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			headbutt: ["2L1", "2M"],
 			hiddenpower: ["2M"],
 			hydropump: ["2L62"],
-			hyperbeam: ["2M", "2L75"],
+			hyperbeam: ["2M"],
 			icebeam: ["2T"],
 			irontail: ["2L40", "2M"],
 			leer: ["2L1"],
 			mudslap: ["2M"],
-			nightmare: ["2M"],
 			protect: ["2M"],
 			raindance: ["2M"],
 			rest: ["2M"],
