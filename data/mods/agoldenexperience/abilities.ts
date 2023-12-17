@@ -2415,6 +2415,56 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 2.5,
 		num: -69,
 	},
+	faithfulcompanion: {
+		onUpdate(pokemon) {
+			if (this.gameType !== 'doubles') return;
+			const ally = pokemon.allies()[0];
+			if (!ally || pokemon.transformed ||
+				pokemon.baseSpecies.baseSpecies !== 'Parrotnair' || ally.baseSpecies.baseSpecies !== 'Piratcy') {
+				return;
+			}
+		},
+		onAllyAfterUseItem(item, pokemon) {
+			if (pokemon.switchFlag) return;
+			const ally = pokemon.allies()[0];
+			if (!ally || pokemon.transformed ||
+				pokemon.baseSpecies.baseSpecies !== 'Parrotnair' || ally.baseSpecies.baseSpecies !== 'Piratcy') {
+				return;
+			}
+			const source = this.effectState.target;
+			const myItem = source.takeItem();
+			if (!myItem) return;
+			if (
+				!this.singleEvent('TakeItem', myItem, source.itemState, pokemon, source, this.effect, myItem) ||
+				!pokemon.setItem(myItem)
+			) {
+				source.item = myItem.id;
+				return;
+			}
+			this.add('-activate', source, 'ability: Faithful Companion', myItem, '[of] ' + pokemon);
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && move?.flags['contact']) {
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Faithful Companion', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Faithful Companion', '[of] ' + source);
+			}
+		},
+		name: "Faithful Companion",
+		shortDesc: "If the ally is Piratcy, gives to the ally this Pokemon's item, and steals an item from the opponent.",
+		rating: 0,
+		num: -70,
+	},
 	truant: {
 		name: "Truant",
 		shortDesc: "No competitive effect.",

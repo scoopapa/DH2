@@ -113,8 +113,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "NFE",
 	},
 	raticatealola: {
-		tier: "(PU)",
-		doublesTier: "(DUU)",
+		tier: "NFE",
 	},
 	raticatealolatotem: {
 		isNonstandard: "Past",
@@ -4572,6 +4571,26 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	verivavroomsegin: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	verivavroomschedar: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	verivavroomnavi: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	verivavroomruchbah: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	verivavroomcaph: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	orthworm: {
 		tier: "NU",
 		doublesTier: "(DUU)",
@@ -4630,8 +4649,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "(DUU)",
 	},
 	squawkabilly: {
-		tier: "(PU)",
-		doublesTier: "(DUU)",
+		tier: "LC",
 	},
 	flamigo: {
 		tier: "NUBL",
@@ -5177,6 +5195,26 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	raticket: {
 		tier: "UU",
+		doublesTier: "DOU",
+	},
+	piratcy: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	parrotnairblue: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	parrotnair: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	parrotnairyellow: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	parrotnairwhite: {
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	golrobot: {
