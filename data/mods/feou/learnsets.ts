@@ -2291,7 +2291,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			temperflare: ["9L1"],
 			skittersmack: ["9L1"],
 			sludgewave: ["9L1"],
-			breakingswipe: ["9L1"],
 		},
 	},
 	solvaliant: {
@@ -2443,8 +2442,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			vacuumwave: ["9L1"],
 			coaching: ["9L1"],
 			expandingforce: ["9L1"],
-			psychup: ["9L1"],
-			throatchop: ["9L1"],
 		},
 	},
 	golisorospaldeablaze: {
@@ -3413,7 +3410,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			highhorsepower: ["9L1"],
 			psychup: ["9L1"],
 			breakingswipe: ["9L1"],
-			curse: ["9L1"],
 			doubleedge: ["9L1"],
 			meteorbeam: ["9L1"],
 			supercellslam: ["9L1"],
@@ -6251,12 +6247,10 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			waterpulse: ["9L1"],
 			whirlpool: ["9L1"],
 			knockoff: ["9L1"],
-			muddywater: ["9L1"],
-			breakingswipe: ["9L1"],
 			hardpress: ["9L1"],
 		},
 	},
-		goomud: {
+	goomud: {
 		learnset: {
 			amnesia: ["9L1"],
 			ancientpower: ["9L1"],
@@ -9342,7 +9336,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			endeavor: ["9L1"],
 			sludgewave: ["9L1"],
 			scorchingsands: ["9L1"],
-			metalsound: ["9L1"],
 			curse: ["9L1"],
 			psychup: ["9L1"],
 			featherdance: ["9L1"],
