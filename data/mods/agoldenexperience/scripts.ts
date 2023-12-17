@@ -823,6 +823,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'bewear').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'primarina').learnset.sweetheart = ['9L1'];
     this.modData('Learnsets', 'bellossom').learnset.sweetheart = ['9L1'];
+    this.modData('Learnsets', 'milotic').learnset.sweetheart = ['9L1'];
 
     // chakraterrain 
     this.modData('Learnsets', 'hitmonchan').learnset.chakraterrain = ['9L1'];
