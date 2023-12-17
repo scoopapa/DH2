@@ -459,10 +459,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1111,
 		gen: 8,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	bignugget: {
 		name: "Big Nugget",
@@ -1071,10 +1068,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1112,
 		gen: 8,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	cobaberry: {
 		name: "Coba Berry",
@@ -1511,10 +1505,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 324,
 		gen: 4,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	durinberry: {
 		name: "Durin Berry",
@@ -1640,10 +1631,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 322,
 		gen: 4,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	electricgem: {
 		name: "Electric Gem",
@@ -2030,10 +2018,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1113,
 		gen: 8,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	flyinggem: {
 		name: "Flying Gem",
@@ -3271,10 +3256,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1110,
 		gen: 8,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	lucarionite: {
 		name: "Lucarionite",
@@ -3442,10 +3424,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 323,
 		gen: 4,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	magnet: {
 		name: "Magnet",
@@ -4599,10 +4578,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 321,
 		gen: 4,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	psychicgem: {
 		name: "Psychic Gem",
@@ -4903,10 +4879,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1115,
 		gen: 8,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	rindoberry: {
 		name: "Rindo Berry",
@@ -5693,10 +5666,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1114,
 		gen: 8,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	steelixite: {
 		name: "Steelixite",
@@ -5828,10 +5798,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1109,
 		gen: 8,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	sunstone: {
 		name: "Sun Stone",
@@ -7095,10 +7062,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 252,
 		gen: 2,
-<<<<<<< HEAD
 		rating: 0,
-=======
->>>>>>> ps/master
 	},
 	utilityumbrella: {
 		name: "Utility Umbrella",
