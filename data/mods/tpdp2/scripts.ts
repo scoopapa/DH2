@@ -99,7 +99,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			
 			let moveData = dex.moves.get(id);
-			//console.log(moveData);
+			if (moveData.flags.charge) return abilityid === 'fasttalker';
 			if (moveData.category === 'Status') {
 				return GOOD_STATUS_MOVES.includes(id);
 			}

@@ -437,7 +437,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, heal: 1,},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Drain Punch", target);
@@ -457,7 +457,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1, contact: 1},
+		flags: {protect: 1, contact: 1, heal: 1,},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Drain Punch", target);
@@ -1225,7 +1225,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 12.5,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, heal: 1,},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Parabolic Charge", target);
@@ -2932,7 +2932,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, heal: 1,},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Synthesis", target);
@@ -7311,7 +7311,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15.625,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, heal: 1,},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mega Drain", target);
@@ -7796,7 +7796,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 6.25,
 		accuracy: 100,
 		priority: 0,
-		flags: {protect: 1,},
+		flags: {protect: 1, heal: 1,},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Giga Drain", target);

@@ -175,4 +175,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Paleomons",
 		doublesTier: "Daleomons",
 	},
+	pesbasil: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	moscourge: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+	shivertherium: {
+		tier: "Paleomons",
+		doublesTier: "Daleomons",
+	},
+
 };

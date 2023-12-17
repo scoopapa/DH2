@@ -314,14 +314,12 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isTerrain('grassyterrain')) {
-				if (move.type === 'Steel') {
-					this.debug('Wood Clearing boost');
-					return this.chainModify([0x14CD, 0x1000]);
-				}
+				this.debug('Wood Clearing boost');
+				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
 		name: "Wood Clearing",
-		shortDesc: "gets BP x1.3 on Grassy Surge.",
+		shortDesc: "This Pokemon's attacks do 1.3x in Grassy Terrain.",
 		rating: 2,
 		num: -17,
 	},
@@ -1304,22 +1302,22 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 1.5,
 		num: -59,
 	},
-	pride: {
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				if (effect.category === 'Physical') {
-					this.boost({ atk: length }, source);
-				}
-				else if (effect.category === 'Special') {
-					this.boost({ spa: length }, source);
-				}
-			}
-		},
-		name: "Pride",
-		shortDesc: "After successfully KOing a foe with a move, gets +1 in the stat of the move that KO'd target.",
-		rating: 3,
-		num: -60,
-	},
+	// pride: {
+	// 	onSourceAfterFaint(length, target, source, effect) {
+	// 		if (effect && effect.effectType === 'Move') {
+	// 			if (effect.category === 'Physical') {
+	// 				this.boost({ atk: length }, source);
+	// 			}
+	// 			else if (effect.category === 'Special') {
+	// 				this.boost({ spa: length }, source);
+	// 			}
+	// 		}
+	// 	},
+	// 	name: "Pride",
+	// 	shortDesc: "After successfully KOing a foe with a move, gets +1 in the stat of the move that KO'd target.",
+	// 	rating: 3,
+	// 	num: -60,
+	// },
 	unconcerned: {
 		name: "Unconcerned",
 		onAnyModifyBoost(boosts, pokemon) {
@@ -2044,7 +2042,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	},
 	honeygather: {
 		name: "Honey Gather",
-		shortDesc: "At the end of each turn, if this Pokemon has no item, it gets Honey.",
+		shortDesc: "At the end of each turn, if this Pokemon has no item, it gets Honey. If it has honey, it heals 1/8 of its HP.",
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual(pokemon) {
@@ -2286,39 +2284,15 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 122,
 	},
 	gorillatactics: {
-		onStart(pokemon) {
-			pokemon.addVolatile('gorillatactics');
+		inherit: true,
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Gorilla Tactics Atk Boost');
+			return this.chainModify(1.3);
 		},
-		condition: {
-			onStart(pokemon) {
-				this.effectState.lastMove = '';
-				this.effectState.numConsecutive = 0;
-			},
-			onTryMovePriority: -2,
-			onTryMove(pokemon, target, move) {
-				if (!pokemon.hasAbility('Gorilla Tactics')) {
-					pokemon.removeVolatile('gorillatactics');
-					return;
-				}
-				if (this.effectState.lastMove === move.id && pokemon.moveLastTurnResult) {
-					this.effectState.numConsecutive++;
-				} else if (pokemon.volatiles['twoturnmove'] && this.effectState.lastMove !== move.id) {
-					this.effectState.numConsecutive = 1;
-				} else {
-					this.effectState.numConsecutive = 0;
-				}
-				this.effectState.lastMove = move.id;
-			},
-			onModifyDamage(damage, source, target, move) {
-				const dmgMod = [0x1000, 0x1333, 0x1666, 0x1999, 0x1CCC, 0x2000];
-				const numConsecutive = this.effectState.numConsecutive > 5 ? 5 : this.effectState.numConsecutive;
-				return this.chainModify([dmgMod[numConsecutive], 0x1000]);
-			},
-		},
-		name: "Gorilla Tactics",
-		shortDesc: "Damage of moves used on consecutive turns is increased. Max x2 after 5 turns.",
-		rating: 4.5,
-		num: 255,
+		shortDesc: "This Pokemon's Attack is 1.3x, but it can only select the first move it executes.",
 	},
 	quickdraw: {
 		desc: "This Pokémon moves first in its priority bracket when its target has 1/3 or less of its maximum HP, rounded down. Does not affect moves that have multiple targets.",
@@ -2337,7 +2311,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			onStart(pokemon) {
 				const action = this.queue.willMove(pokemon);
 				if (action) {
-					this.add('-ability', pokemon, 'Coup de Grass');
+					this.add('-ability', pokemon, 'Quick Draw');
 					this.add('-message', `${pokemon.name} prepared to move immediately!`);
 				}
 			},
@@ -2441,6 +2415,56 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		rating: 2.5,
 		num: -69,
 	},
+	faithfulcompanion: {
+		onUpdate(pokemon) {
+			if (this.gameType !== 'doubles') return;
+			const ally = pokemon.allies()[0];
+			if (!ally || pokemon.transformed ||
+				pokemon.baseSpecies.baseSpecies !== 'Parrotnair' || ally.baseSpecies.baseSpecies !== 'Piratcy') {
+				return;
+			}
+		},
+		onAllyAfterUseItem(item, pokemon) {
+			if (pokemon.switchFlag) return;
+			const ally = pokemon.allies()[0];
+			if (!ally || pokemon.transformed ||
+				pokemon.baseSpecies.baseSpecies !== 'Parrotnair' || ally.baseSpecies.baseSpecies !== 'Piratcy') {
+				return;
+			}
+			const source = this.effectState.target;
+			const myItem = source.takeItem();
+			if (!myItem) return;
+			if (
+				!this.singleEvent('TakeItem', myItem, source.itemState, pokemon, source, this.effect, myItem) ||
+				!pokemon.setItem(myItem)
+			) {
+				source.item = myItem.id;
+				return;
+			}
+			this.add('-activate', source, 'ability: Faithful Companion', myItem, '[of] ' + pokemon);
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && move?.flags['contact']) {
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Faithful Companion', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Faithful Companion', '[of] ' + source);
+			}
+		},
+		name: "Faithful Companion",
+		shortDesc: "If the ally is Piratcy, gives to the ally this Pokemon's item, and steals an item from the opponent.",
+		rating: 0,
+		num: -70,
+	},
 	truant: {
 		name: "Truant",
 		shortDesc: "No competitive effect.",
@@ -2449,6 +2473,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		num: 54,
 	},
 	sharpness: {
+		inherit: true,
 		shortDesc: "Boosts the power of sword, cut, slash, and blade moves by 1.3x",
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
@@ -2456,7 +2481,6 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(1.3);
 			}
 		},
-		name: "Sharpness",
 	},
 	snowwarning: {
 		inherit: true,
@@ -2536,5 +2560,91 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		name: "Cheerleader",
 		rating: 0,
 		num: -70,
+	},
+	seedsower: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hasType('Grass')) {
+				this.add('-activate', target, 'ability: Seed Sower');
+				source.addVolatile('leechseed', this.effectState.target);
+			}
+		},
+		name: "Seed Sower",
+		shortDesc: "When this Pokemon is hit by an attack, the effect of Leech Seed begins.",
+		rating: 3,
+		num: 269,
+	},
+	angershell: {
+		inherit: true,
+		onAfterMoveSecondary(target, source, move) {
+			this.effectState.checkedAngerShell = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp < target.maxhp && target.hp + damage >= target.maxhp) {
+				this.boost({atk: 1, spa: 1, spe: 1, def: -1, spd: -1}, target, target);
+			}
+		},
+		shortDesc: "If this Pokemon is hit by an attack, its Attack, Sp. Atk, and Speed are raised by 1 stage. Its Defense and Sp. Def are lowered by 1 stage.",
+	},
+	electromorphosis: {
+		inherit: true,
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			target.addVolatile('charge');
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.volatiles['charge']) {
+				return this.chainModify(0.75);
+			}
+		},
+	},
+	beadsofruin: {
+		inherit: true,
+		onAnyModifySpD(spd, target, source, move) {
+			const abilityHolder = this.effectState.target;
+			// if (target.hasAbility('Beads of Ruin')) return;
+			// if (!move.ruinedSpD?.hasAbility('Beads of Ruin')) move.ruinedSpD = abilityHolder;
+			// if (move.ruinedSpD !== abilityHolder) return;
+			this.debug('Beads of Ruin SpD drop');
+			return this.chainModify(0.83);
+		},
+		shortDesc: "Active Pokemon have their Sp. Def multiplied by 0.83, including this Pokemon.",
+	},
+	swordofruin: {
+		inherit: true,
+		onAnyModifyDef(def, target, source, move) {
+			const abilityHolder = this.effectState.target;
+			// if (target.hasAbility('Sword of Ruin')) return;
+			// if (!move.ruinedDef?.hasAbility('Sword of Ruin')) move.ruinedDef = abilityHolder;
+			// if (move.ruinedDef !== abilityHolder) return;
+			this.debug('Sword of Ruin Def drop');
+			return this.chainModify(0.83);
+		},
+		shortDesc: "Active Pokemon have their Defense multiplied by 0.83, including this Pokemon.",
+	},
+	tabletsofruin: {
+		inherit: true,
+		onAnyModifyAtk(atk, source, target, move) {
+			const abilityHolder = this.effectState.target;
+			// if (source.hasAbility('Tablets of Ruin')) return;
+			// if (!move.ruinedAtk) move.ruinedAtk = abilityHolder;
+			// if (move.ruinedAtk !== abilityHolder) return;
+			this.debug('Tablets of Ruin Atk drop');
+			return this.chainModify(0.83);
+		},
+		shortDesc: "Active Pokemon have their Attack multiplied by 0.83, including this Pokemon.",
+	},
+	vesselofruin: {
+		inherit: true,
+		onAnyModifySpA(spa, source, target, move) {
+			const abilityHolder = this.effectState.target;
+			// if (source.hasAbility('Vessel of Ruin')) return;
+			// if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
+			// if (move.ruinedSpA !== abilityHolder) return;
+			this.debug('Vessel of Ruin SpA drop');
+			return this.chainModify(0.83);
+		},
+		shortDesc: "Active Pokemon have their Sp. Atk multiplied by 0.83, including this Pokemon.",
 	},
 };

@@ -615,12 +615,9 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 8,
 	},
 	deepseascale: {
+		inherit: true,
 		name: "Deep Sea Scale",
 		shortDesc: "If held by a Clamperl or a Gorebyss, its Sp. Def is x1.5.",
-		spritenum: 93,
-		fling: {
-			basePower: 30,
-		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.baseSpecies.name === 'Gorebyss') {
@@ -628,16 +625,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		itemUser: ["Clamperl", "Gorebyss"],
-		num: 227,
-		gen: 3,
 	},
 	deepseatooth: {
+		inherit: true,
 		name: "Deep Sea Tooth",
 		shortDesc: "If held by a Clamperl or a Huntail, its Sp. Atk is x1.5.",
-		spritenum: 94,
-		fling: {
-			basePower: 90,
-		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			if (pokemon.baseSpecies.name === 'Clamperl' || pokemon.baseSpecies.name === 'Huntail') {
@@ -645,8 +637,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			}
 		},
 		itemUser: ["Clamperl", "Huntail"],
-		num: 226,
-		gen: 3,
 	},
 	// sandwiches
 	mightysandwichkoraidon: {
@@ -662,7 +652,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Koraidon",
 		itemUser: ["Koraidon"],
 		num: -42,
-		gen: 8,
+		gen: 9,
 	},
 	mightysandwichmiraidon: {
 		name: "Mighty Sandwich (Miraidon)",
@@ -677,8 +667,28 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		forcedForme: "Miraidon",
 		itemUser: ["Miraidon"],
 		num: -43,
-		gen: 8,
+		gen: 9,
 	},
+	// icemane: {
+	// 	name: "Ice Mane",
+	// 	spritenum: 715,
+	// 	fling: {
+	// 		basePower: 80,
+	// 	},
+	// 	num: -49,
+	// 	gen: 9,
+	// 	// Hazard Immunity implemented in moves.ts
+	// },
+	// phantommane: {
+	// 	name: "Phantom Mane",
+	// 	spritenum: 663,
+	// 	fling: {
+	// 		basePower: 30,
+	// 	},
+	// 	// protective effect handled in Battle#checkMoveMakesContact
+	// 	num: -50,
+	// 	gen: 9,
+	// },
 	// identitycard: { //WIP
 	// 	name: "Identity Card",
 	// 	spritenum: 0, 
@@ -689,7 +699,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	// 			this.add('-block', target, 'item: Identity Card');
 	// 		}
 	// 	},
-	// 	num: -44,
+	// 	num: -51,
 	// 	gen: 8,
 	// },
 }

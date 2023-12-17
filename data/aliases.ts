@@ -4,11 +4,13 @@ export const Aliases: {[alias: string]: string} = {
 	uber: "[Gen 9] Ubers",
 	anythinggoes: "[Gen 9] Anything Goes",
 	ubers: "[Gen 9] Ubers",
+	uubers: "[Gen 9] Ubers UU",
 	overused: "[Gen 9] OU",
 	underused: "[Gen 9] UU",
 	rarelyused: "[Gen 9] RU",
 	neverused: "[Gen 9] NU",
 	pu: "[Gen 9] PU",
+	zu: "[Gen 9] ZU",
 	zeroused: "[Gen 9] ZU",
 	mono: "[Gen 9] Monotype",
 	ag: "[Gen 9] Anything Goes",
@@ -83,8 +85,8 @@ export const Aliases: {[alias: string]: string} = {
 	gen6ag: "[Gen 6] Anything Goes",
 	crossevo: "[Gen 9] Cross Evolution",
 	mayhem: "[Gen 9] Random Battle Mayhem",
-	omotm: "[Gen 9] Shared Power",
-	lcotm: "[Gen 9] Protean Palace",
+	omotm: "[Gen 9] Tier Shift",
+	lcotm: "[Gen 9] Sketchmons",
 
 	// mega evos
 	fabio: "Ampharos-Mega",
@@ -1038,7 +1040,7 @@ export const Aliases: {[alias: string]: string} = {
 	resonance: "G-Max Resonance",
 	sandblast: "G-Max Sandblast",
 	smite: "G-Max Smite",
-	snooze: "G-Max Snooze",
+	//snooze: "G-Max Snooze",
 	steelsurge: "G-Max Steelsurge",
 	stonesurge: "G-Max Stonesurge",
 	stunshock: "G-Max Stun Shock",
@@ -1048,7 +1050,7 @@ export const Aliases: {[alias: string]: string} = {
 	vinelash: "G-Max Vine Lash",
 	volcalith: "G-Max Volcalith",
 	voltcrash: "G-Max Volt Crash",
-	wildfire: "G-Max Wildfire",
+	//wildfire: "G-Max Wildfire",
 	windrage: "G-Max Wind Rage",
 
 	// Japanese names
