@@ -1,5 +1,3 @@
-import { truncate } from "fs";
-
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	//Early Civilization
 	copperajah: {
@@ -667,7 +665,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rotom: {
 		inherit: true,
-		baseStats: {hp: 50, atk: 50, def: 77, spa: 95, spd: 77, spe: 91},
+		baseStats: {hp: 60, atk: 50, def: 77, spa: 105, spd: 77, spe: 111},
 		abilities: {0: "Shadow Shield"},
 		otherFormes: undefined,
 		formeOrder: undefined,
@@ -728,7 +726,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	planeknight: {
 		num: -122,
 		name: "Planeknight",
-		types: ["Flying", "Steel"],
+		types: ["Water", "Flying"],
 		baseStats: {hp: 89, atk: 40, def: 105, spa: 95, spd: 70, spe: 96},
 		abilities: {0: "Cloud Nine", 1: "Lightning Rod", H: "Mirror Armor"},
 		heightm: 2.2,

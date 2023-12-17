@@ -107,6 +107,7 @@ function setProbability(
 
 const GEN_NAMES: {[k: string]: string} = {
 	gen1: '[Gen 1]', gen2: '[Gen 2]', gen3: '[Gen 3]', gen4: '[Gen 4]', gen5: '[Gen 5]', gen6: '[Gen 6]', gen7: '[Gen 7]',
+	gen8: '[Gen 8]', gen9: '[Gen 9]',
 };
 
 const STAT_NAMES: {[k: string]: string} = {
@@ -762,10 +763,18 @@ export const commands: Chat.ChatCommands = {
 		const {dex} = this.splitFormat(target, true);
 		const isLetsGo = (dex.currentMod === 'gen7letsgo');
 
-		const species = dex.species.get(args[0]);
-		if (!species.exists) {
-			return this.errorReply(`Error: Pok\u00e9mon '${args[0].trim()}' does not exist.`);
+		const searchResults = dex.dataSearch(args[0], ['Pokedex']);
+
+		if (!searchResults || !searchResults.length) {
+			this.errorReply(`No Pok\u00e9mon named '${args[0]}' was found${Dex.gen > dex.gen ? ` in Gen ${dex.gen}` : ""}. (Check your spelling?)`);
+			return;
 		}
+
+		let inexactMsg = '';
+		if (searchResults[0].isInexact) {
+			inexactMsg = `No Pok\u00e9mon named '${args[0]}' was found${Dex.gen > dex.gen ? ` in Gen ${dex.gen}` : ""}. Searching for '${searchResults[0].name}' instead.`;
+		}
+		const species = dex.species.get(searchResults[0].name);
 		const extraFormatModifier = isLetsGo ? 'letsgo' : (dex.currentMod === 'gen8bdsp' ? 'bdsp' : '');
 		const doublesModifier = isDoubles ? 'doubles' : '';
 		const noDMaxModifier = isNoDMax ? 'nodmax' : '';
@@ -776,6 +785,7 @@ export const commands: Chat.ChatCommands = {
 		if (dex.gen === 1) {
 			const rbyMoves = getRBYMoves(species);
 			if (!rbyMoves) {
+				this.sendReply(inexactMsg);
 				return this.errorReply(`Error: ${species.name} has no Random Battle data in ${GEN_NAMES[toID(args[1])]}`);
 			}
 			movesets.push(`<span style="color:#999999;">Moves for ${species.name} in ${format.name}:</span>${rbyMoves}`);
@@ -783,6 +793,7 @@ export const commands: Chat.ChatCommands = {
 		} else if (isLetsGo) {
 			const lgpeMoves = getLetsGoMoves(species);
 			if (!lgpeMoves) {
+				this.sendReply(inexactMsg);
 				return this.errorReply(`Error: ${species.name} has no Random Battle data in [Gen 7 Let's Go]`);
 			}
 			movesets.push(`<span style="color:#999999;">Moves for ${species.name} in ${format.name}:</span><br />${lgpeMoves}`);
@@ -791,7 +802,7 @@ export const commands: Chat.ChatCommands = {
 			const setsToCheck = [species];
 			if (dex.gen >= 8 && !isNoDMax) setsToCheck.push(dex.species.get(`${args[0]}gmax`));
 			if (species.otherFormes) setsToCheck.push(...species.otherFormes.map(pkmn => dex.species.get(pkmn)));
-			if ([5, 6, 9].includes(dex.gen) || (dex.gen === 7 && !isDoubles)) {
+			if ([4, 5, 6, 9].includes(dex.gen) || (dex.gen === 7 && !isDoubles)) {
 				for (const pokemon of setsToCheck) {
 					const sets = getSets(pokemon, format.id);
 					if (!sets) continue;
@@ -800,7 +811,7 @@ export const commands: Chat.ChatCommands = {
 						buf += `<details><summary>${set.role}</summary>`;
 						if (dex.gen === 9) {
 							buf += `<b>Tera Type${Chat.plural(set.teraTypes)}</b>: ${set.teraTypes.join(', ')}<br/>`;
-						} else if (([5, 6, 7].includes(dex.gen)) && set.preferredTypes) {
+						} else if (([4, 5, 6, 7].includes(dex.gen)) && set.preferredTypes) {
 							buf += `<b>Preferred Type${Chat.plural(set.preferredTypes)}</b>: ${set.preferredTypes.join(', ')}<br/>`;
 						}
 						buf += `<b>Moves</b>: ${set.movepool.sort().map(formatMove).join(', ')}</details>`;
@@ -846,12 +857,14 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		if (!movesets.length) {
+			this.sendReply(inexactMsg);
 			return this.errorReply(`Error: ${species.name} has no Random Battle data in ${format.name}`);
 		}
 		let buf = movesets.join('<hr/>');
 		if (setCount <= 2) {
 			buf = buf.replace(/<details>/g, '<details open>');
 		}
+		this.sendReply(inexactMsg);
 		this.sendReplyBox(buf);
 	},
 	randombattleshelp: [
@@ -987,7 +1000,7 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		let setExists: boolean;
-		if ([5, 6, 9].includes(dex.gen) || dex.gen === 7 && format.gameType !== 'doubles') {
+		if ([4, 5, 6, 9].includes(dex.gen) || dex.gen === 7 && format.gameType !== 'doubles') {
 			setExists = !!getSets(species, format);
 		} else if (dex.gen === 7 && format.gameType === 'doubles') {
 			setExists = !!getData(species, format);

@@ -514,6 +514,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pokestarblackbelt: null,
 	pokestarufopropu2: null,
 	//Mons normally without their own tiering data that now need it for the algorithm
+	basculinbluestriped: {
+		tier: "LC",
+	},
+	basculinwhitestriped: {
+		tier: "LC",
+	},
 	toxtricitylowkey: {
 		tier: "OU",
 	},
@@ -530,6 +536,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	squawkabillywhite: {
+		tier: "OU",
+	},
+	mausholdfour: {
 		tier: "OU",
 	},
 	palafinhero: {

@@ -1327,6 +1327,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	rebelliontome: {
 		name: "Rebellion Tome",
 		shortDesc: "When held, if the user receives a barrier-piercing attack, FoAtk and SpAtk sharply raise.",
+		isBerry: true,
 		onDamagingHit(damage, target, source, move) {
 			if (target.getMoveHitData(move).typeMod > 0)
 				this.boost({atk: 2, spa: 2});

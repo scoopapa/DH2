@@ -312,7 +312,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	sneasler: {
-		tier: "UU",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	ursaring: {
@@ -580,7 +580,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	heatran: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	giratina: {
@@ -1528,7 +1528,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 	},
 	darkrai: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 	},
 	conkeldurr: {
@@ -1679,5 +1679,5 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
-	}, 
+	},
 };

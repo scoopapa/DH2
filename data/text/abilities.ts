@@ -1109,7 +1109,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	neutralizinggas: {
 		name: "Neutralizing Gas",
-		desc: "While this Pokemon is active, Abilities have no effect. This Ability activates before hazards and other Abilities take effect. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode Abilities.",
+		desc: "While this Pokemon is active, Abilities have no effect. This Ability activates before hazards and other Abilities take effect. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, Protosynthesis, Quark Drive, RKS System, Schooling, Shields Down, Stance Change, Zen Mode or Zero to Hero Abilities.",
 		shortDesc: "While this Pokemon is active, Abilities have no effect.",
 
 		start: "  Neutralizing gas filled the area!",
@@ -1265,6 +1265,10 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 			desc: "1/3 chance a Pokemon making contact with this Pokemon will be poisoned. This effect does not happen if this Pokemon did not lose HP from the attack.",
 			shortDesc: "1/3 chance a Pokemon making contact with this Pokemon will be poisoned.",
 		},
+	},
+	poisonpuppeteer: {
+		name: "Poison Puppeteer",
+		shortDesc: "If this Pokemon poisons or badly poisons a target, the target also becomes confused.",
 	},
 	poisontouch: {
 		name: "Poison Touch",
@@ -1931,6 +1935,23 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		shortDesc: "This Pokemon does not take damage from attacks made by its allies.",
 
 		block: "  [POKEMON] can't be hit by attacks from its ally Pok\u00E9mon!",
+	},
+	teraformzero: {
+		name: "Teraform Zero",
+		shortDesc: "On switch-in, ends the effects of weather and terrain. Once per battle.",
+	},
+	terashell: {
+		name: "Tera Shell",
+		desc: "If this Pokemon is at full HP, the effectiveness of attacks against it is changed to 0.5 unless this Pokemon is immune to the move. Multi-hit moves retain the same effectiveness throughout the attack.",
+		shortDesc: "If full HP, attacks taken have effectiveness changed to 0.5 unless naturally immune.",
+
+		activate: "  [POKEMON] made its shell gleam! It's distorting type matchups!",
+	},
+	terashift: {
+		name: "Tera Shift",
+		shortDesc: "If this Pokemon is a Terapagos, it transforms into its Terastal Form on entry.",
+
+		transform: "[POKEMON] transformed!",
 	},
 	teravolt: {
 		name: "Teravolt",

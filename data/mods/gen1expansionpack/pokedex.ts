@@ -367,7 +367,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 72, atk: 105, def: 75, spa: 63, spd: 63, spe: 70},
 		abilities: {},
-		prevo: "Farfetch'd",
+		prevo: "Farfetch\u2019d",
 		evoLevel: 24,
 	},
 	bellignan: {
