@@ -674,11 +674,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			uturn: ["9M"],
 			weatherball: ["9M"],
 		},
-		// eventOnly: true,
 	},
-	// tornadustherian: {
-	// 	eventOnly: true,
-	// },
 	thundurus: {
 		learnset: {
 			acrobatics: ["9M"],
@@ -756,11 +752,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			wildcharge: ["9M"],
 			zenheadbutt: ["9M"],
 		},
-		// eventOnly: true,
 	},
-	// thundurustherian: {
-	// 	eventOnly: true,
-	// },
 	landorus: {
 		learnset: {
 			acrobatics: ["9M"],
@@ -827,11 +819,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			uturn: ["9M"],
 			weatherball: ["9M"],
 		},
-		// eventOnly: true,
 	},
-	// landorustherian: {
-	// 	eventOnly: true,
-	// },
 	enamorus: {
 		learnset: {
 			acrobatics: ["9M"],
