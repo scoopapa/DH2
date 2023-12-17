@@ -369,7 +369,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	magmar: {
-		tier: "NU",
+		tier: "NFE",
 	},
 	tauros: {
 		tier: "UUBL",
@@ -682,6 +682,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	farfetchd: {
 		tier: "LC",
 	},
+	magnetite: {
+		tier: "NFE",
+	},
 	magneton: {
 		tier: "NFE",
 	},
@@ -756,6 +759,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 
 	// JEP ADDITIONS
+	farigiraf: {
+		tier: "OU",
+	},
+	magmortar: {
+		tier: "OU",
+	},	
 	totartle: {
 		tier: "OU",
 	},
@@ -970,7 +979,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	mukalola: {
-		tier: "LC",
+		tier: "OU",
 	},
 	weezinggalar: {
 		tier: "OU",
@@ -1197,7 +1206,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	stricheel: {
 		tier: "LC",
 	},
-	lureel: {
+	lurreel: {
 		tier: "OU",
 	},
 	qwilfishhisui: {

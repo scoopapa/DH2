@@ -717,7 +717,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		
 	},
 	"balumba": {
-		num: -1,
+		num: -2,
 		eggGroups: ["Amorphous"],
 		genderRatio: {M: 0.25, F: 0.75},
 		abilities: [""],
@@ -741,7 +741,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"barreau": {
-		num: -1,
+		num: -3,
 		eggGroups: ["Bug"],
 		gender: "M",
 		abilities: [""],
@@ -765,7 +765,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"belledam": {
-		num: -1,
+		num: -4,
 		eggGroups: ["Fairy"],
 		gender: "F",
 		abilities: [""],
@@ -788,7 +788,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"bellignan": {
-		num: -1,
+		num: -5,
 		eggGroups: ["Grass"],
 		abilities: [""],
 		weightkg: 1,
@@ -814,7 +814,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"bipulla": {
-		num: -1,
+		num: -6,
 		eggGroups: ["Amorphous"],
 		abilities: [""],
 		weightkg: 1,
@@ -836,7 +836,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"bittybat": {
-		num: -1,
+		num: -7,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -859,7 +859,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"blastyke": {
-		num: -1,
+		num: -8,
 		eggGroups: ["Monster", "Water 1"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -882,7 +882,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"blottle": {
-		num: -1,
+		num: -9,
 		eggGroups: ["Water 3"],
 		abilities: [""],
 		weightkg: 1,
@@ -903,7 +903,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"bruinous": {
-		num: -1,
+		num: -10,
 		eggGroups: ["Field"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -926,7 +926,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"burgela": {
-		num: -1,
+		num: -11,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -948,7 +948,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"buu": {
-		num: -1,
+		num: -12,
 		eggGroups: ["Human-Like"],
 		gender: "F",
 		abilities: [""],
@@ -971,7 +971,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"cactormus": {
-		num: -1,
+		num: -13,
 		eggGroups: ["Grass"],
 		abilities: [""],
 		weightkg: 1,
@@ -994,7 +994,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"calflac": {
-		num: -1,
+		num: -14,
 		eggGroups: ["Field", "Amorphous"],
 		abilities: [""],
 		weightkg: 1,
@@ -1017,7 +1017,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"carapthor": {
-		num: -1,
+		num: -15,
 		eggGroups: ["Bug"],
 		abilities: [""],
 		weightkg: 1,
@@ -1042,7 +1042,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"cheep": {
-		num: -1,
+		num: -16,
 		eggGroups: ["Water 2"],
 		abilities: [""],
 		weightkg: 1,
@@ -1066,7 +1066,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Bayleef, Blossomole"]
 	},
 	"coinpur": {
-		num: -1,
+		num: -17,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -1088,7 +1088,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"croakozuna": {
-		num: -1,
+		num: -18,
 		eggGroups: ["Water 1"],
 		abilities: [""],
 		weightkg: 1,
@@ -1111,7 +1111,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"cubburn": {
-		num: -1,
+		num: -19,
 		eggGroups: ["Field"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -1134,7 +1134,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"decilla": {
-		num: -1,
+		num: -20,
 		eggGroups: ["Monster"],		
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -1155,7 +1155,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"disturban": {
-		num: -1,
+		num: -21,
 		eggGroups: ["Water 3"],
 		abilities: [""],
 		weightkg: 1,
@@ -1184,7 +1184,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Mimmeo"]
 	},
 	"dodaerie": {
-		num: -1,
+		num: -22,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -1207,7 +1207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"donmarin": {
-		num: -1,
+		num: -103,
 		eggGroups: ["Monster", "Water 1"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -1230,7 +1230,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"elebebi": {
-		num: -1,
+		num: -23,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -1252,7 +1252,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"ferodactyl": {
-		num: -1,
+		num: -24,
 		eggGroups: ["Undiscovered"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -1275,7 +1275,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"flambear": {
-		num: -1,
+		num: -104,
 		eggGroups: ["Field"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -1298,7 +1298,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"folage": {
-		num: -1,
+		num: -105,
 		eggGroups: ["Bug"],
 		genderRatio: {M: 0.125, F: 0.875},
 		abilities: [""],
@@ -1321,7 +1321,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"gaotora": {
-		num: -1,
+		num: -25,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -1343,7 +1343,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"gavillain": {
-		num: -1,
+		num: -106,
 		eggGroups: ["Dragon", "Monster"],
 		abilities: [""],
 		weightkg: 1,
@@ -1366,7 +1366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"gawarhed": {
-		num: -1,
+		num: -26,
 		eggGroups: ["Monster"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -1391,7 +1391,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"gentlarva": {
-		num: -1,
+		num: -107,
 		eggGroups: ["Bg"],
 		abilities: [""],
 		weightkg: 1,
@@ -1411,7 +1411,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"gorochu": {
-		num: -1,
+		num: -27,
 		eggGroups: ["Field", "Fairy"],
 		abilities: [""],
 		weightkg: 1,
@@ -1435,7 +1435,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"gorotora": {
-		num: -1,
+		num: -108,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -1459,7 +1459,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"guardia": {
-		num: -1,
+		num: -28,
 		eggGroups: ["Monster"],
 		abilities: [""],
 		weightkg: 1,
@@ -1481,7 +1481,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"iguanarch": {
-		num: -1,
+		num: -29,
 		eggGroups: ["Dragon"],
 		abilities: [""],
 		weightkg: 1,
@@ -1505,7 +1505,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"jabetta": {
-		num: -1,
+		num: -30,
 		eggGroups: ["Water 2"],
 		abilities: [""],
 		weightkg: 1,
@@ -1530,7 +1530,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"jungela": {
-		num: -1,
+		num: -31,
 		eggGroups: ["Grass"],
 		abilities: [""],
 		weightkg: 1,
@@ -1554,7 +1554,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"kolta": {
-		num: -1,
+		num: -32,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -1576,7 +1576,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"kotora": {
-		num: -1,
+		num: -33,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -1596,7 +1596,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"lickilord": {
-		num: -1,
+		num: -34,
 		eggGroups: ["Monster"],
 		abilities: [""],
 		weightkg: 1,
@@ -1623,7 +1623,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Lickilicky, Lickilord"]
 	},
 	"luxwan": {
-		num: -1,
+		num: -35,
 		eggGroups: ["Flying", "Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -1652,7 +1652,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		otherFormes: [""]
 	},
 	"magnetite": {
-		num: -1,
+		num: -36,
 		eggGroups: ["Undiscovered"],
 		gender: "N",
 		abilities: [""],
@@ -1677,7 +1677,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"mimmeo": {
-		num: -1,
+		num: -37,
 		eggGroups: ["Ditto"],
 		gender: "N",
 		abilities: [""],
@@ -1700,7 +1700,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"ministare": {
-		num: -1,
+		num: -38,
 		eggGroups: ["Dragon"],
 		abilities: [""],
 		weightkg: 1,
@@ -1724,7 +1724,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"moibelle": {
-		num: -1,
+		num: -39,
 		eggGroups: ["Field", "Fairy"],
 		gender: "F",
 		abilities: [""],
@@ -1747,7 +1747,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"nidoreign": {
-		num: -1,
+		num: -40,
 		eggGroups: ["Undiscovered"],
 		gender: "N",
 		abilities: [""],
@@ -1774,7 +1774,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"omegadge": {
-		num: -1,
+		num: -109,
 		eggGroups: ["Undiscovered"],
 		gender: "N",
 		abilities: [""],
@@ -1797,7 +1797,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"orfry": {
-		num: -1,
+		num: -41,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -1819,7 +1819,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"palssio": {
-		num: -1,
+		num: -42,
 		eggGroups: ["Monster"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -1842,7 +1842,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"paraspor": {
-		num: -1,
+		num: -43,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -1865,7 +1865,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"pendraken": {
-		num: -1,
+		num: -44,
 		eggGroups: ["Water 3"],
 		abilities: [""],
 		weightkg: 1,
@@ -1890,7 +1890,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"phandarin": {
-		num: -1,
+		num: -45,
 		eggGroups: ["Amorphous"],
 		abilities: [""],
 		weightkg: 1,
@@ -1917,7 +1917,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["tricules"]
 	},
 	"pressio": {
-		num: -1,
+		num: -46,
 		eggGroups: ["Monster"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -1944,7 +1944,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Weirduck"]
 	},
 	"pupal": {
-		num: -1,
+		num: -110,
 		eggGroups: ["Bug"],
 		abilities: [""],
 		weightkg: 1,
@@ -1966,7 +1966,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"pupperon": {
-		num: -1,
+		num: -47,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -1988,7 +1988,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"raitora": {
-		num: -1,
+		num: -48,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2010,7 +2010,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"ramoose": {
-		num: -1,
+		num: -49,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2033,7 +2033,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"ribbito": {
-		num: -1,
+		num: -111,
 		eggGroups: ["Water 1"],
 		abilities: [""],
 		weightkg: 1,
@@ -2055,7 +2055,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"sharpoon": {
-		num: -1,
+		num: -50,
 		eggGroups: ["Water 2"],
 		abilities: [""],
 		weightkg: 1,
@@ -2082,7 +2082,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Cloyster", "Disturban"]
 	},
 	"shishi": {
-		num: -1,
+		num: -51,
 		eggGroups: ["Undiscovered"],
 		gender: "N",
 		abilities: [""],
@@ -2110,7 +2110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Pockle"]
 	},
 	"smujj": {
-		num: -1,
+		num: -52,
 		eggGroups: ["Undiscovered"],
 		abilities: [""],
 		weightkg: 1,
@@ -2132,7 +2132,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"squeamata": {
-		num: -1,
+		num: -53,
 		eggGroups: ["Dragon"],
 		abilities: [""],
 		weightkg: 1,
@@ -2154,7 +2154,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"stromen": {
-		num: -1,
+		num: -54,
 		eggGroups: ["Amorphous"],
 		abilities: [""],
 		weightkg: 1,
@@ -2185,7 +2185,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Tangrowth", "Jungela"]
 	},
 	"totartle": {
-		num: -1,
+		num: -55,
 		eggGroups: ["Monster", "Water 1"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -2212,7 +2212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"trampel": {
-		num: -1,
+		num: -56,
 		eggGroups: ["Monster", "Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2235,7 +2235,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"tricules": {
-		num: -1,
+		num: -57,
 		eggGroups: ["Bug"],
 		abilities: [""],
 		weightkg: 1,
@@ -2260,7 +2260,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	"vulpiii": {
-		num: -1,
+		num: -58,
 		eggGroups: ["Undiscovered"],
 		genderRatio: {M: 0.25, F: 0.75},
 		abilities: [""],
@@ -2291,7 +2291,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evos: ["Victreebel", "Bellignan"]
 	},
 	"weirduck": {
-		num: -1,
+		num: -59,
 		eggGroups: ["Water 1"],
 		abilities: [""],
 		weightkg: 1,
@@ -2314,7 +2314,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	// MANUAL INPUTS START HERE
 	foxfire: {
-		num: -1,
+		num: -60,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2336,7 +2336,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	reroad: {
-		num: -1,
+		num: -61,
 		eggGroups: ["Water 1"],
 		abilities: [""],
 		weightkg: 1,
@@ -2359,7 +2359,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	sunbud: {
-		num: -1,
+		num: -62,
 		eggGroups: ["Grass"],
 		abilities: [""],
 		weightkg: 1,
@@ -2382,7 +2382,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	hippunk: {
-		num: -1,
+		num: -63,
 		eggGroups: ["Monster", "Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2405,7 +2405,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	pockle: {
-		num: -1,
+		num: -64,
 		eggGroups: ["Bug"],
 		abilities: [""],
 		weightkg: 1,
@@ -2428,7 +2428,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	caretorker: {
-		num: -1,
+		num: -65,
 		eggGroups: ["Flying"],
 		gender: "F",
 		abilities: [""],
@@ -2452,7 +2452,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	stricheel: {
-		num: -1,
+		num: -66,
 		eggGroups: ["Water 2", "Water 3"],
 		abilities: [""],
 		weightkg: 1,
@@ -2474,7 +2474,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	lurreel: {
-		num: -1,
+		num: -67,
 		eggGroups: ["Water 2", "Water 3"],
 		abilities: [""],
 		weightkg: 1,
@@ -2497,7 +2497,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	kazeppelin: {
-		num: -1,
+		num: -68,
 		eggGroups: ["Water 2"],
 		abilities: [""],
 		weightkg: 1,
@@ -2520,7 +2520,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	qwilfather: {
-		num: -1,
+		num: -69,
 		eggGroups: ["Water 2"],
 		abilities: [""],
 		weightkg: 1,
@@ -2543,7 +2543,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	sailwing: {
-		num: -1,
+		num: -70,
 		eggGroups: ["Water 2", "Flying"],
 		abilities: [""],
 		weightkg: 1,
@@ -2566,7 +2566,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	grenmar: {
-		num: -1,
+		num: -71,
 		eggGroups: ["Water 1", "Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2589,7 +2589,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	bunice: {
-		num: -1,
+		num: -72,
 		eggGroups: ["Fairy", "Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2611,7 +2611,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	bundra: {
-		num: -1,
+		num: -73,
 		eggGroups: ["Fairy", "Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2635,7 +2635,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	bunberg: {
-		num: -1,
+		num: -74,
 		eggGroups: ["Fairy", "Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2658,7 +2658,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	bundrake: {
-		num: -1,
+		num: -75,
 		eggGroups: ["Fairy", "Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2681,7 +2681,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	warfurs: {
-		num: -1,
+		num: -76,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2704,7 +2704,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},	
 	wearlycan: {
-		num: -1,
+		num: -77,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2727,7 +2727,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	waruchu: {
-		num: -1,
+		num: -78,
 		eggGroups: ["Fairy", "Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2750,7 +2750,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	sonegg: {
-		num: -1,
+		num: -79,
 		eggGroups: ["Flying"],
 		abilities: [""],
 		weightkg: 1,
@@ -2773,7 +2773,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	cacawphony: {
-		num: -1,
+		num: -80,
 		eggGroups: ["Flying"],
 		abilities: [""],
 		weightkg: 1,
@@ -2796,7 +2796,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	trebir: {
-		num: -1,
+		num: -81,
 		eggGroups: ["Flying"],
 		abilities: [""],
 		weightkg: 1,
@@ -2819,7 +2819,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	sakuraze: {
-		num: -1,
+		num: -82,
 		eggGroups: ["Grass"],
 		genderRatio: {M: 0.25, F: 0.75},
 		abilities: [""],
@@ -2843,7 +2843,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	amanobi: {
-		num: -1,
+		num: -83,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -2866,7 +2866,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	trustan: {
-		num: -1,
+		num: -84,
 		eggGroups: ["Field"],
 		gender: "M",
 		abilities: [""],
@@ -2890,7 +2890,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	kuwaguard: {
-		num: -1,
+		num: -85,
 		eggGroups: ["Bug"],
 		abilities: [""],
 		weightkg: 1,
@@ -2913,7 +2913,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	tonquito: {
-		num: -1,
+		num: -86,
 		eggGroups: ["Bug"],
 		abilities: [""],
 		weightkg: 1,
@@ -2936,7 +2936,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	molambino: {
-		num: -1,
+		num: -87,
 		eggGroups: ["Water 2"],
 		abilities: [""],
 		weightkg: 1,
@@ -2959,7 +2959,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	lunabo: {
-		num: -1,
+		num: -88,
 		eggGroups: ["Water 2"],
 		abilities: [""],
 		weightkg: 1,
@@ -2982,7 +2982,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	granbo: {
-		num: -1,
+		num: -89,
 		eggGroups: ["Water 2"],
 		abilities: [""],
 		weightkg: 1,
@@ -3005,7 +3005,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	angore: {
-		num: -1,
+		num: -90,
 		eggGroups: ["Water 2"],
 		abilities: [""],
 		weightkg: 1,
@@ -3028,7 +3028,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	eucla: {
-		num: -1,
+		num: -91,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -3051,7 +3051,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	kiwooked: {
-		num: -1,
+		num: -92,
 		eggGroups: ["Flying"],
 		abilities: [""],
 		weightkg: 1,
@@ -3074,7 +3074,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	cyclorp: {
-		num: -1,
+		num: -93,
 		eggGroups: ["Bug"],
 		abilities: [""],
 		weightkg: 1,
@@ -3097,7 +3097,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	kitsen: {
-		num: -1,
+		num: -94,
 		eggGroups: ["Amorphous"],
 		abilities: [""],
 		weightkg: 1,
@@ -3120,7 +3120,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	wispirit: {
-		num: -1,
+		num: -95,
 		eggGroups: ["Amorphous"],
 		abilities: [""],
 		weightkg: 1,
@@ -3143,7 +3143,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	coatl: {
-		num: -1,
+		num: -96,
 		eggGroups: ["Dragon"],
 		abilities: [""],
 		weightkg: 1,
@@ -3165,7 +3165,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	mimear: {
-		num: -1,
+		num: -97,
 		eggGroups: ["Fairy"],
 		genderRatio: {M: 0.25, F: 0.75},
 		abilities: [""],
@@ -3188,7 +3188,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	inoshika: {
-		num: -1,
+		num: -98,
 		eggGroups: ["Field"],
 		abilities: [""],
 		weightkg: 1,
@@ -3211,7 +3211,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	ruddernaut: {
-		num: -1,
+		num: -99,
 		eggGroups: ["Water 1", "Monster"],
 		abilities: [""],
 		weightkg: 1,
@@ -3234,7 +3234,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	xylodon: {
-		num: -1,
+		num: -100,
 		eggGroups: ["Monster"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -3257,7 +3257,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	xylofin: {
-		num: -1,
+		num: -101,
 		eggGroups: ["Monster"],
 		genderRatio: {M: 0.875, F: 0.125},
 		abilities: [""],
@@ -3281,7 +3281,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		]
 	},
 	dokuroar: {
-		num: -1,
+		num: -112,
 		eggGroups: ["Mineral"],
 		abilities: [""],
 		weightkg: 1,
