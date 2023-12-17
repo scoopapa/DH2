@@ -12,10 +12,6 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.modData('Moves', i).category = newCategory;
 			}
 		}
-		for (const i in this.data.Pokedex) {
-			(this.data.Pokedex[i] as any).gender = 'N';
-			(this.data.Pokedex[i] as any).eggGroups = null;
-		}
 	},
 	teambuilderConfig: {
 		specialTypes: ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Psychic', 'Dark', 'Dragon', 'Fairy'],
