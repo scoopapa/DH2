@@ -459,8 +459,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1111,
 		gen: 8,
+<<<<<<< HEAD
 		rating: 0,
-		isNonstandard: "Past",
+=======
+>>>>>>> ps/master
 	},
 	bignugget: {
 		name: "Big Nugget",
@@ -1069,8 +1071,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1112,
 		gen: 8,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	cobaberry: {
 		name: "Coba Berry",
@@ -1507,8 +1511,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 324,
 		gen: 4,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	durinberry: {
 		name: "Durin Berry",
@@ -1634,8 +1640,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 322,
 		gen: 4,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	electricgem: {
 		name: "Electric Gem",
@@ -1732,13 +1740,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyDefPriority: 2,
 		onModifyDef(def, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.id === 'dipplin') {
+			if (pokemon.baseSpecies.nfe) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 2,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.nfe || pokemon.baseSpecies.id === 'dipplin') {
+			if (pokemon.baseSpecies.nfe) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -2022,8 +2030,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1113,
 		gen: 8,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	flyinggem: {
 		name: "Flying Gem",
@@ -3261,8 +3271,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1110,
 		gen: 8,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	lucarionite: {
 		name: "Lucarionite",
@@ -3430,8 +3442,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 323,
 		gen: 4,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	magnet: {
 		name: "Magnet",
@@ -3671,6 +3685,16 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 758,
 		gen: 6,
 		isNonstandard: "Past",
+	},
+	// TODO - Sprite & Fling Base Power
+	metalalloy: {
+		name: "Metal Alloy",
+		spritenum: 0,
+		fling: {
+			basePower: 30,
+		},
+		num: 2482,
+		gen: 9,
 	},
 	metalcoat: {
 		name: "Metal Coat",
@@ -4575,8 +4599,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 321,
 		gen: 4,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	psychicgem: {
 		name: "Psychic Gem",
@@ -4877,8 +4903,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1115,
 		gen: 8,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	rindoberry: {
 		name: "Rindo Berry",
@@ -5665,8 +5693,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1114,
 		gen: 8,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	steelixite: {
 		name: "Steelixite",
@@ -5798,8 +5828,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1109,
 		gen: 8,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	sunstone: {
 		name: "Sun Stone",
@@ -7063,8 +7095,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 252,
 		gen: 2,
-		isNonstandard: "Past",
+<<<<<<< HEAD
 		rating: 0,
+=======
+>>>>>>> ps/master
 	},
 	utilityumbrella: {
 		name: "Utility Umbrella",
