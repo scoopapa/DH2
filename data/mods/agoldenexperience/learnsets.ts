@@ -674,11 +674,11 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			uturn: ["9M"],
 			weatherball: ["9M"],
 		},
-		eventOnly: true,
+		// eventOnly: true,
 	},
-	tornadustherian: {
-		eventOnly: true,
-	},
+	// tornadustherian: {
+	// 	eventOnly: true,
+	// },
 	thundurus: {
 		learnset: {
 			acrobatics: ["9M"],
@@ -756,11 +756,11 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			wildcharge: ["9M"],
 			zenheadbutt: ["9M"],
 		},
-		eventOnly: true,
+		// eventOnly: true,
 	},
-	thundurustherian: {
-		eventOnly: true,
-	},
+	// thundurustherian: {
+	// 	eventOnly: true,
+	// },
 	landorus: {
 		learnset: {
 			acrobatics: ["9M"],
@@ -827,11 +827,11 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			uturn: ["9M"],
 			weatherball: ["9M"],
 		},
-		eventOnly: true,
+		// eventOnly: true,
 	},
-	landorustherian: {
-		eventOnly: true,
-	},
+	// landorustherian: {
+	// 	eventOnly: true,
+	// },
 	enamorus: {
 		learnset: {
 			acrobatics: ["9M"],
@@ -2722,7 +2722,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			hyperbeam: ["9L1"],
 			trickroom: ["9L1"],
 			wonderroom: ["9L1"],
-			inverseroom: ["9L1"],
+			magicroom: ["9L1"],
 			hex: ["9L1"],
 			psychicterrain: ["9L1"],
 			outrage: ["9L1"],
