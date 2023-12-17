@@ -2212,6 +2212,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		],
 		"eventData": [],
 		"learnset": {
+			amnesia: ["2E"],
 			"attract": [
 				"2M"
 			],
@@ -2300,6 +2301,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"raindance": [
 				"2M"
 			],
+			rapidspin: ["2E"],
 			"reflect": [
 				"1M"
 			],
@@ -16785,6 +16787,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		"encounters": [],
 		"eventData": [],
 		"learnset": {
+			amnesia: ["2E"],
 			"attract": [
 				"2M"
 			],
@@ -16896,6 +16899,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"raindance": [
 				"2M"
 			],
+			rapidspin: ["2E"],
 			"reflect": [
 				"1M"
 			],
@@ -26977,6 +26981,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			return: ["2M"],
 			rocksmash: ["2M"],
 			sleeptalk: ["2M"],
+			sludge: ["2E"],
 			snore: ["2M"],
 			surf: ["2M"],
 			swagger: ["2M"],
