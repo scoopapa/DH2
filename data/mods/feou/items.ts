@@ -31,8 +31,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			this.effectState.started = true;
 		},
 		onUpdate(pokemon) {
-			if (!this.effectState.started || pokemon.transformed) return;
-			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+			if (!this.effectState.started || pokemon.transformed/*) return;
+			if (*/|| this.queue.peek(true)?.choice === 'runSwitch') return;
 
 			if (!this.field.isWeather('sunnyday')) {
 				for (const proto of ['protosynthesis', 'onceuponatime', 'primitive', 'openingact', 'weightoflife',
@@ -46,7 +46,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				}
 			}
 			if (!this.field.isTerrain('electricterrain')) {
-				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'dyschronometria',
+				for (const quark of ['quarkdrive', 'lightdrive', 'quarksurge', 'nanorepairs', 'circuitbreaker', 'heatproofdrive',
 											'faultyphoton', 'firewall']) { 
 					if (pokemon.hasAbility(quark)) {
 						if (!pokemon.volatiles[quark] && pokemon.useItem()) {
@@ -85,11 +85,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		megaEvolves: "Garpyuku",
 		itemUser: ["Garpyuku"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if ([item.megaEvolves,"Chomptry"].includes(source.baseSpecies.baseSpecies)) return false;
 			return true;
 		},
 		num: 683,
-		desc: "If held by a Garpyuku, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Garpyuku or Chomptry, this item allows it to Mega Evolve in battle.",
 	},
 	gengarite: {
 		name: "Gengarite",
@@ -217,20 +217,82 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Druddizor, this item allows it to Mega Evolve in battle.",
 	},
 	
-	lifeorb: {
-		name: "Life Orb",
-		spritenum: 249,
-		fling: {
-			basePower: 30,
+	jabocaberry: {
+		name: "Jaboca Berry",
+		spritenum: 230,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Dragon",
 		},
-		onModifyDamage(damage, source, target, move) {
-			return this.chainModify([5324, 4096]);
-		},
-		onAfterMoveSecondarySelf(source, target, move) {
-			if (source && source !== target && move && move.category !== 'Status' && !source.forceSwitchFlag && !source.hasAbility('forceofnature')) {
-				this.damage(source.baseMaxhp / 10, source, source, this.dex.items.get('lifeorb'));
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical' && source.hp && source.isActive && !source.hasAbility(['magicguard','overwhelming']) && target.eatItem()) {
+				this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 4 : 8), source, target);
 			}
 		},
-		num: 270,
+		onEat() { },
+		num: 211,
+		gen: 4,
+	},
+	quickclaw: {
+		onFractionalPriorityPriority: -2,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category === "Status" && pokemon.hasAbility(["myceliummight","galvanicrelay"])) return;
+			if (priority <= 0 && this.randomChance(1, 5)) {
+				this.add('-activate', pokemon, 'item: Quick Claw');
+				return 0.1;
+			}
+		},
+		name: "Quick Claw",
+		spritenum: 373,
+		fling: {
+			basePower: 80,
+		},
+		num: 217,
+		gen: 2,
+	},
+	rowapberry: {
+		name: "Rowap Berry",
+		spritenum: 420,
+		isBerry: true,
+		naturalGift: {
+			basePower: 100,
+			type: "Dark",
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Special' && source.hp && source.isActive && !source.hasAbility(['magicguard','overwhelming']) && target.eatItem()) {
+				this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 4 : 8), source, target);
+			}
+		},
+		onEat() { },
+		num: 212,
+		gen: 4,
+		rating: 1,
+	},
+	gyaradosite: {
+		name: "Gyaradosite",
+		spritenum: 589,
+		megaStone: "Overgyara-Mega",
+		megaEvolves: "Overgyara",
+		itemUser: ["Overgyara"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 670,
+		desc: "If held by an Overgyara, this item allows it to Mega Evolve in battle.",
+	},
+	aerodactylite: {
+		name: "Aerodactylite",
+		spritenum: 577,
+		megaStone: "Aero Wake-Mega",
+		megaEvolves: "Aero Wake",
+		itemUser: ["Aero Wake"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 670,
+		desc: "If held by an Aero Wake, this item allows it to Mega Evolve in battle.",
 	},
 };

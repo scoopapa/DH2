@@ -39,9 +39,9 @@ import {
 import {RoomGame, SimpleRoomGame, RoomGamePlayer} from './room-game';
 import {MinorActivity, MinorActivityData} from './room-minor-activity';
 import {Roomlogs} from './roomlogs';
-import * as crypto from 'crypto';
 import {RoomAuth} from './user-groups';
 import {PartialModlogEntry, mainModlog} from './modlog';
+import {Replays} from './replays';
 
 /*********************************************************
  * the Room object.
@@ -1490,6 +1490,8 @@ export class GlobalRoomState {
 			const ruleTable = Dex.formats.getRuleTable(format);
 			const level = ruleTable.adjustLevel || ruleTable.adjustLevelDown || ruleTable.maxLevel;
 			if (level === 50) displayCode |= 16;
+			 // 32 was previously used for Multi Battles
+			if (format.bestOfDefault) displayCode |= 64;
 			this.formatList += ',' + displayCode.toString(16);
 		}
 		return this.formatList;
@@ -2035,7 +2037,7 @@ export class GameRoom extends BasicRoom {
 	 * That's why this function requires a connection. For details, see the top
 	 * comment inside this function.
 	 */
-	async uploadReplay(user: User, connection: Connection, options?: 'forpunishment' | 'silent') {
+	async uploadReplay(user?: User, connection?: Connection, options?: 'forpunishment' | 'silent' | 'auto') {
 		// The reason we don't upload directly to the loginserver, unlike every
 		// other interaction with the loginserver, is because it takes so much
 		// bandwidth that it can get identified as a DoS attack by PHP, Apache, or
@@ -2063,41 +2065,81 @@ export class GameRoom extends BasicRoom {
 		let hideDetails = !format.id.includes('customgame');
 		if (format.team && battle.ended) hideDetails = false;
 
-		const data = this.getLog(hideDetails ? 0 : -1);
-		const datahash = crypto.createHash('md5').update(data.replace(/[^(\x20-\x7F)]+/g, '')).digest('hex');
-		let rating = 0;
+		const log = this.getLog(hideDetails ? 0 : -1);
+		let rating: number | undefined;
 		if (battle.ended && this.rated) rating = this.rated;
-		const {id, password} = this.getReplayData();
+		let {id, password} = this.getReplayData();
+		const silent = options === 'forpunishment' || options === 'silent' || options === 'auto';
+		if (silent) connection = undefined;
+		const isPrivate = this.settings.isPrivate || this.hideReplay;
+		const hidden = options === 'forpunishment' || options === 'auto' ? 10 :
+			(this as any).unlistReplay ? 2 :
+			isPrivate ? 1 :
+			0;
 
-		// STEP 1: Directly tell the login server that a replay is coming
-		// (also include all the data, including a hash of the replay itself,
-		// so it can't be spoofed.)
+		if (isPrivate && hidden === 10) {
+			password = Replays.generatePassword();
+		}
+		if (battle.replaySaved !== true && hidden === 10) {
+			battle.replaySaved = 'auto';
+		} else {
+			battle.replaySaved = true;
+		}
 
-		battle.replaySaved = true;
-		const [success] = await LoginServer.request('prepreplay', {
-			id: id,
-			loghash: datahash,
-			p1: battle.p1.name,
-			p2: battle.p2.name,
-			format: format.id,
-			rating,
-			hidden: options === 'forpunishment' || (this as any).unlistReplay ?
-				'2' : this.settings.isPrivate || this.hideReplay ? '1' : '',
-			inputlog: battle.inputLog?.join('\n') || null,
-		});
-		if (success?.errorip) {
-			connection.popup(`This server's request IP ${success.errorip} is not a registered server.`);
+		// If we have a direct connetion to a Replays database, just upload the replay
+		// directly.
+
+		if (Replays.db) {
+			const idWithServer = Config.serverid === 'showdown' ? id : `${Config.serverid}-${id}`;
+			try {
+				const fullid = await Replays.add({
+					id: idWithServer,
+					log,
+					players: battle.players.map(p => p.name),
+					format: format.name,
+					rating: rating || null,
+					private: hidden,
+					password,
+					inputlog: battle.inputLog?.join('\n') || null,
+					uploadtime: Math.trunc(Date.now() / 1000),
+				});
+				const url = `https://${Config.routes.replays}/${fullid}`;
+				connection?.popup(
+					`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
+					`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +
+					`<copytext value="${url}">Copy</copytext>`
+				);
+			} catch (e) {
+				connection?.popup(`Your replay could not be saved: ${e}`);
+				throw e;
+			}
 			return;
 		}
 
-		// STEP 2: Tell the user to upload the replay to the login server
+		// Otherwise, (we're probably a side server), upload the replay through LoginServer
 
-		connection.send('|queryresponse|savereplay|' + JSON.stringify({
-			log: data,
-			id: id,
-			password: password,
-			silent: options === 'forpunishment' || options === 'silent',
-		}));
+		const [result] = await LoginServer.request('addreplay', {
+			id,
+			log,
+			players: battle.players.map(p => p.name).join(','),
+			format: format.name,
+			rating, // will probably do nothing
+			hidden,
+			inputlog: battle.inputLog?.join('\n') || undefined,
+			password,
+		});
+		if (result?.errorip) {
+			connection?.popup(`This server's request IP ${result.errorip} is not a registered server.`);
+			return;
+		}
+
+		const fullid = result?.replayid;
+		const url = `https://${Config.routes.replays}/${fullid}`;
+		connection?.popup(
+			`|html|<p>Your replay has been uploaded! It's available at:</p><p> ` +
+			`<a class="no-panel-intercept" href="${url}" target="_blank">${url}</a> ` +
+			`<copytext value="${url}">Copy</copytext>`
+		);
 	}
 
 	getReplayData() {
@@ -2261,4 +2303,6 @@ export const Rooms = {
 	RoomBattlePlayer,
 	RoomBattleTimer,
 	PM: RoomBattlePM,
+
+	Replays,
 };

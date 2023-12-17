@@ -19,6 +19,95 @@ export const Scripts: ModdedBattleScriptsData = {
 		excludeStandardTiers: true,
 		// only to specify the order of custom tiers
 		customTiers: ['TPDP OU', 'TPDP LC'],
+		
+		//viability
+		moveIsNotUseless(id: ID, species: Species, moves: string[], set: PokemonSet, dex: ModdedDex): boolean {
+			//const dex = this.dex;
+
+			let abilityid: ID = set ? toID(set.ability) : '' as ID;
+			const itemid: ID = set ? toID(set.item) : '' as ID;
+			
+			const GOOD_WEAK_MOVES = [
+			'plasmaball', 'smashspin', 'infinitescales', 'raid', 'tigerrush', 'icegatling', 'aquacutter', 'aquasonic', 'overtakestrike', 'springfirst', 'overray', 'shadowbomb', 'toxicspiral', 'strikeshot', 'trickster', 'cruciform', 'heavenlyinfluence', 'heavenlyblessing', 'earthlyinfluence', 'earthlyblessing', 'stonethrow', 'airstamp', 'twingears', 'darkarrow', 'twinthrust', 'pursuit', 'unfetteredsoul', 'geyser', 'firesign', 'watersign', 'naturesign', 'electricsign', 'earthsign', 'steelsign', 'soundsign', 'depressingrain', 'negativemist', 'mirrorworld', 'firewall', 'paniccall', 'stelmosfire', 'loveorpain', 'blowfromcalamity', 'killingbite', 'lightningspeed', 'changeling',
+			] as ID[] as readonly ID[];
+			const BAD_STRONG_MOVES = [
+			'deflagration', 'aquarake', 'pulselaser', 'vacuumrupture', 'meteorimpact', 'gensokyotyphoon', 'firmspirit', 'gravityblast', 'blazeoftenmei', 'divinethunder', 'explodingfist', 'glamorpandemic', 'conflagration',
+			] as ID[] as readonly ID[];
+			const GOOD_STATUS_MOVES = [
+			'supernaturalborder', 'magicbarrier', 'firstaid', 'powerspot', 'unconsciousmind', 'innerpower', 'camouflage', 'imposingair', 'battlepreparation', 'offensivetrance', 'backupplan', 'focusedmovement', 'eternalrecord', 'willowisp', 'thermit', 'cloudburst', 'drought', 'foresttherapy', 'thornedivy', 'drainseed', 'graceofmana', 'whitelilydance', 'fairydance', 'whitemist', 'bewitchingpollen', 'minetrap', 'racingearth', 'focusedstance', 'strenuousstance', 'madrushstance', 'stealthtrap', 'windgodsgrace', 'squall', 'perch', 'skanda', 'sharpwind', 'thunderveil', 'fieldbarrier', 'fieldprotect', 'moonsprotection', 'solareclipse', 'sharktrade', 'puppetsgrudge', 'darkpower', 'creepingdarkness', 'callofthedead', 'cursereversal', 'eyeofcalamity', 'poisontrap', 'miasma', 'acidtears', 'continue', 'amnesia', 'honestmanslie', 'projection', 'gorgonseye', 'boutdrunkard', 'wordbreak', 'encourage', 'upbeat', 'atempo', 'booing', 'ruinousvoice', 'bravesong', 'decrescendo', 'phaseinversion', 'forceshield', 'soulcorruption',
+			] as ID[] as readonly ID[];
+			
+			switch (id) {
+				//1 ability
+				case 'falsecourage':
+					return abilityid === 'ontheedge';
+				case 'venomstrike':
+					return abilityid === 'nimble';
+				//speed
+				case 'jinx':
+					return species.baseStats.spe >= 70;
+				case 'impactrebellion':
+					return species.baseStats.spe <= 60;
+				//multiple abilities
+				case 'terrainsuzaku':
+					return ['suteisfire', 'southernexpanse'].includes(abilityid);
+				case 'terraingenbu':
+					return species.baseStats.spe <= 60 || ['genteiswater', 'northernexpanse'].includes(abilityid);
+				case 'terrainseiryu':
+					return ['seiteiswood', 'easternexpanse'].includes(abilityid);
+				case 'terrainbyakko':
+					return ['byakuteismetal', 'westernexpanse'].includes(abilityid);
+				case 'terrainkohyru':
+					return ['kouteisearth', 'centralexpanse'].includes(abilityid);
+				case 'crosschange':
+					return ['wasteful', 'drunkard'].includes(abilityid);
+				case 'mindcontrol':
+					return ['wasteful', 'drunkard'].includes(abilityid);
+				case 'randomshots':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'hornetsflit':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'godstonefrenzy':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'twister':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'darkinnocence':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'shootingarts':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'rushattack':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'rapidthrow':
+					return ['salvo', 'strategist'].includes(abilityid);
+				case 'rainbowflowers':
+					return ['sanguine', 'flash'].includes(abilityid);
+				case 'densefogbloom':
+					return ['melancholic', 'fogtraveler'].includes(abilityid);
+				case 'deathmatch':
+					return ['indomitable', 'stubborn', 'ontheedge'].includes(abilityid);
+				case 'direstate':
+					return ['indomitable', 'stubborn', 'ontheedge'].includes(abilityid);
+				case 'passingbreeze':
+					return ['sanguine', 'melancholic', 'choleric', 'phlegmatic', 'supine'].includes(abilityid);
+				//not ability
+				case 'raid':
+					return abilityid !== 'charge';
+				case 'risingsun':
+					return abilityid !== 'charge';
+				case 'plasmaball':
+					return abilityid !== 'charge';
+			}
+			
+			let moveData = dex.moves.get(id);
+			if (moveData.flags.charge) return abilityid === 'fasttalker';
+			if (moveData.category === 'Status') {
+				return GOOD_STATUS_MOVES.includes(id);
+			}
+			if (moveData.basePower < 75 && !(abilityid === 'technician' && moveData.basePower <= 60 && moveData.basePower >= 50)) {
+				return GOOD_WEAK_MOVES.includes(id);
+			}
+			return !BAD_STRONG_MOVES.includes(id);
+		}
 	},
 	
 	battle: {

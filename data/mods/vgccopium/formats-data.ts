@@ -279,6 +279,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FE",
 		doublesTier: "FE",
 	},
+	typhlosionhisui: {
+		tier: "FE",
+		doublesTier: "FE",
+	},
 	mareep: {
 		tier: "LC",
 		doublesTier: "LC",
@@ -796,6 +800,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "NFE",
 	},
 	samurott: {
+		tier: "FE",
+		doublesTier: "FE",
+	},
+	samurotthisui: {
 		tier: "FE",
 		doublesTier: "FE",
 	},

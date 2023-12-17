@@ -17,7 +17,6 @@
 import {Utils} from '../../lib';
 import type {UserSettings} from '../users';
 import type {GlobalPermission} from '../user-groups';
-import {BestOfGame} from '../room-battle';
 
 export const crqHandlers: {[k: string]: Chat.CRQHandler} = {
 	userdetails(target, user, trustable) {
@@ -273,6 +272,16 @@ export const commands: Chat.ChatCommands = {
 			this.pmTarget = null;
 			this.room = null;
 		} else if (!targetUser) {
+			if (Chat.PrivateMessages.offlineIsEnabled) {
+				if (user.lastCommand === 'pm') {
+					// don't delete lastCommand so they can just keep sending pms
+					return this.parse(`/offlinemsg ${targetUsername},${message}`);
+				}
+				user.lastCommand = 'pm';
+				return this.errorReply(
+					this.tr`User ${targetUsername} is offline. If you still want to PM them, send the message again, or use /offlinemsg.`
+				);
+			}
 			let error = this.tr`User ${targetUsername} not found. Did you misspell their name?`;
 			error = `|pm|${this.user.getIdentity()}| ${targetUsername}|/error ${error}`;
 			connection.send(error);
@@ -283,12 +292,69 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		if (targetUser && !targetUser.connected) {
-			return this.errorReply(this.tr`User ${targetUsername} is offline.`);
+			if (Chat.PrivateMessages.offlineIsEnabled) {
+				if (user.lastCommand === 'pm') {
+					// don't delete lastCommand so they can just keep sending pms
+					return this.parse(`/offlinemsg ${targetUser.getLastId()},${message}`);
+				}
+				user.lastCommand = 'pm';
+				return this.errorReply(
+					this.tr`User ${targetUsername} is offline. If you still want to PM them, send the message again, or use /offlinemsg.`
+				);
+			}
+			return this.errorReply(`${targetUsername} is offline.`);
 		}
 
 		return this.parse(message);
 	},
 	msghelp: [`/msg OR /whisper OR /w [username], [message] - Send a private message.`],
+
+	offlinepm: 'offlinemsg',
+	opm: 'offlinemsg',
+	offlinewhisper: 'offlinemsg',
+	ofw: 'offlinemsg',
+	async offlinemsg(target, room, user) {
+		target = target.trim();
+		if (!target) return this.parse('/help offlinemsg');
+		if (!Chat.PrivateMessages.offlineIsEnabled) {
+			return this.errorReply(`Offline private messages have been disabled.`);
+		}
+		let [username, message] = Utils.splitFirst(target, ',').map(i => i.trim());
+		const userid = toID(username);
+		Chat.PrivateMessages.checkCanPM(user, userid);
+		if (!userid || !message) {
+			return this.parse('/help offlinemsg');
+		}
+		if (Chat.parseCommand(message)) {
+			return this.errorReply(`You cannot send commands in offline PMs.`);
+		}
+		if (userid === user.id) {
+			return this.errorReply(`You cannot send offline PMs to yourself.`);
+		} else if (userid.startsWith('guest')) {
+			return this.errorReply('You cannot send offline PMs to guests.');
+		}
+		if (Users.get(userid)?.connected) {
+			this.sendReply(`That user is online, so a normal PM is being sent.`);
+			return this.parse(`/pm ${userid}, ${message}`);
+		}
+		if (userid.length > 18) {
+			throw new Chat.ErrorMessage(`Invalid userid. Must be <=18 characters in length.`);
+		}
+		message = this.checkChat(message);
+		if (!message) return;
+		await Chat.PrivateMessages.sendOffline(userid, user, message, this);
+	},
+	offlinemsghelp: [
+		`/offlinemsg [username], [message] - Sends a message to the offline [username], to be received when they log in.`,
+	],
+
+	receivedpms: 'offlinepms',
+	offlinepms() {
+		return this.parse(`/j view-receivedpms`);
+	},
+	offlinepmshelp: [
+		`/offlinepms - View your recently received offline PMs.`,
+	],
 
 	inv: 'invite',
 	invite(target, room, user) {
@@ -333,26 +399,38 @@ export const commands: Chat.ChatCommands = {
 	blockpm: 'blockpms',
 	ignorepms: 'blockpms',
 	ignorepm: 'blockpms',
-	blockpms(target, room, user) {
+	blockofflinepms: 'blockpms',
+	async blockpms(target, room, user, connection, cmd) {
 		target = target.toLowerCase().trim();
 		if (target === 'ac') target = 'autoconfirmed';
 
-		if (user.settings.blockPMs === (target || true)) {
-			return this.errorReply(this.tr`You are already blocking private messages! To unblock, use /unblockpms`);
+		const isOffline = cmd.includes('offline');
+		const msg = isOffline ? `offline ` : ``;
+		if (!isOffline && user.settings.blockPMs === (target || true)) {
+			return this.errorReply(this.tr`You are already blocking ${msg}private messages! To unblock, use /unblockpms`);
 		}
 		if (Users.Auth.isAuthLevel(target)) {
-			user.settings.blockPMs = target;
-			this.sendReply(this.tr`You are now blocking private messages, except from staff and ${target}.`);
+			if (!isOffline) user.settings.blockPMs = target;
+			this.sendReply(this.tr`You are now blocking ${msg}private messages, except from staff and ${target}.`);
 		} else if (target === 'autoconfirmed' || target === 'trusted' || target === 'unlocked') {
-			user.settings.blockPMs = target;
+			if (!isOffline) user.settings.blockPMs = target;
 			target = this.tr(target);
-			this.sendReply(this.tr `You are now blocking private messages, except from staff and ${target} users.`);
+			this.sendReply(this.tr `You are now blocking ${msg}private messages, except from staff and ${target} users.`);
 		} else if (target === 'friends') {
-			user.settings.blockPMs = target;
-			this.sendReply(this.tr`You are now blocking private messages, except from staff and friends.`);
+			if (!isOffline) user.settings.blockPMs = target;
+			this.sendReply(this.tr`You are now blocking ${msg}private messages, except from staff and friends.`);
 		} else {
-			user.settings.blockPMs = true;
-			this.sendReply(this.tr`You are now blocking private messages, except from staff.`);
+			if (!isOffline) user.settings.blockPMs = true;
+			this.sendReply(this.tr`You are now blocking ${msg}private messages, except from staff.`);
+		}
+		if (isOffline) {
+			let saveValue: string | null = target;
+			if (!saveValue) saveValue = 'none';
+			// todo: can we do this? atm. no.
+			if (['unlocked', 'autoconfirmed'].includes(saveValue)) {
+				saveValue = null;
+			}
+			await Chat.PrivateMessages.setViewOnly(user, saveValue);
 		}
 		user.update();
 		return true;
@@ -365,15 +443,25 @@ export const commands: Chat.ChatCommands = {
 	unblockpm: 'unblockpms',
 	unignorepms: 'unblockpms',
 	unignorepm: 'unblockpms',
-	unblockpms(target, room, user) {
-		if (!user.settings.blockPMs) {
-			return this.errorReply(this.tr`You are not blocking private messages! To block, use /blockpms`);
+	unblockofflinepms: 'unblockpms',
+	async unblockpms(target, room, user, connection, cmd) {
+		const isOffline = cmd.includes('offline');
+		const msg = isOffline ? 'offline ' : '';
+		if (isOffline ? !(await Chat.PrivateMessages.getSettings(user.id)) : !user.settings.blockPMs) {
+			return this.errorReply(this.tr`You are not blocking ${msg}private messages! To block, use /blockpms`);
 		}
-		user.settings.blockPMs = false;
+		if (isOffline) {
+			await Chat.PrivateMessages.deleteSettings(user.id);
+		} else {
+			user.settings.blockPMs = false;
+		}
 		user.update();
-		return this.sendReply(this.tr`You are no longer blocking private messages.`);
+		return this.sendReply(this.tr`You are no longer blocking ${msg}private messages.`);
 	},
-	unblockpmshelp: [`/unblockpms - Unblocks private messages. Block them with /blockpms.`],
+	unblockpmshelp: [
+		`/unblockpms - Unblocks private messages. Block them with /blockpms.`,
+		`/unblockofflinepms - Unblocks offline private messages. Block them with /blockofflinepms.`,
+	],
 
 	unblockinvites: 'blockinvites',
 	blockinvites(target, room, user, connection, cmd) {
@@ -780,7 +868,7 @@ export const commands: Chat.ChatCommands = {
 	],
 
 	confirmready(target, room, user) {
-		const game = this.requireGame(BestOfGame);
+		const game = this.requireGame(Rooms.BestOfGame);
 		game.confirmReady(user.id);
 	},
 
@@ -1636,6 +1724,16 @@ export const commands: Chat.ChatCommands = {
 	],
 };
 
+export const pages: Chat.PageTable = {
+	receivedpms(query, user) {
+		this.title = '[Received PMs]';
+		if (!Chat.PrivateMessages.offlineIsEnabled) {
+			return this.errorReply(`Offline PMs are presently disabled.`);
+		}
+		return Chat.PrivateMessages.renderReceived(user);
+	},
+};
+
 process.nextTick(() => {
 	// We might want to migrate most of this to a JSON schema of command attributes.
 	Chat.multiLinePattern.register(
@@ -1644,3 +1742,8 @@ process.nextTick(() => {
 		'/importinputlog '
 	);
 });
+
+export const loginfilter: Chat.LoginFilter = user => {
+	if (!Chat.PrivateMessages.checkCanUse(user, {isLogin: true, forceBool: true})) return;
+	void Chat.PrivateMessages.sendReceived(user);
+};

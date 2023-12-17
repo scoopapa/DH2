@@ -3,6 +3,12 @@ import {Utils} from '../../../lib';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
 import type {MoveCounter, OldRandomBattleSpecies} from '../gen8/random-teams';
 
+// Moves that shouldn't be the only STAB moves:
+const NO_STAB = [
+	'bounce', 'eruption', 'explosion', 'fakeout', 'icywind', 'machpunch',
+	'pursuit', 'quickattack', 'reversal', 'selfdestruct', 'waterspout',
+];
+
 export class RandomGen3Teams extends RandomGen4Teams {
 	battleHasDitto: boolean;
 	battleHasWobbuffet: boolean;
@@ -11,6 +17,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 
 	constructor(format: string | Format, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
+		this.noStab = NO_STAB;
 		this.battleHasDitto = false;
 		this.battleHasWobbuffet = false;
 		this.moveEnforcementCheckers = {
@@ -390,7 +397,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 
 		if (typeof species.battleOnly === 'string') forme = species.battleOnly;
 
-		const movePool = (data.moves || Object.keys(this.dex.species.getLearnset(species.id)!)).slice();
+		const movePool: string[] = [...(data.moves || this.dex.species.getMovePool(species.id))];
 		const rejectedPool = [];
 		const moves = new Set<string>();
 		let ability = '';

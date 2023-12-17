@@ -87,14 +87,54 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 	   		this.battle.add('-hint', `Some effects can force a Pokemon to use ${move.name} again in a row.`);
 	   	}
 
+			/*
+			// Dancer's activation order is completely different from any other event, so it's handled separately
+			if (moveDidSomething && !move.isExternal) {
+				const dancers = [];
+				const confusemoves = ['axekick', 'chatter', 'confuseray', 'confusion', 'dizzypunch', 'dynamicpunch', 'flatter', 'hurricane', 'magicaltorque',
+											 'psybeam', 'rockclimb', 'secretpower', 'shadowpanic', 'signalbeam', 'strangesteam', 'supersonic', 'swagger', 'sweetkiss', 'teeterdance', 'waterpulse'];
+				for (const currentPoke of this.battle.getAllActive()) {
+					if (pokemon === currentPoke || currentPoke.isSemiInvulnerable()) continue;
+					if (currentPoke.hasAbility('twoleftfeet')) {
+						if (!confusemoves.includes(move.id) && !confusemoves.includes(move.name)) continue;
+						dancers.push(currentPoke);
+					} else if (currentPoke.hasAbility('beantheredonethat') && move.category === 'Status') {
+						if (['rototiller','flowershield','magneticflux','gearup'].includes(move.id)) {
+							dancers.push(currentPoke);
+						} else if (move.boosts) {
+							let i: BoostID;
+							for (i in move.boosts) {
+								if (boost[i]! > 0) {
+									dancers.push(currentPoke);
+									break;
+								}
+							}
+						}
+					}
+				}
+				// Dancer activates in order of lowest speed stat to highest
+				// Note that the speed stat used is after any volatile replacements like Speed Swap,
+				// but before any multipliers like Agility or Choice Scarf
+				// Ties go to whichever Pokemon has had the ability for the least amount of time
+				dancers.sort(
+					(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+				);
+				const targetOf1stDance = this.battle.activeTarget!;
+				for (const dancer of dancers) {
+					if (this.battle.faintMessages()) break;
+					if (dancer.fainted) continue;
+					this.battle.add('-activate', dancer, 'ability: ' + dancer.getAbility().name);
+					const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
+						targetOf1stDance :
+						pokemon;
+					const dancersTargetLoc = dancer.getLocOf(dancersTarget);
+					this.runMove(move.id, dancer, dancersTargetLoc, this.dex.abilities.get(dancer.ability), undefined, true);
+				}
+			}*/
+
 	   	if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 	   	this.battle.faintMessages();
 	   	this.battle.checkWin();
-
-		   if (this.battle.gen <= 4) {
-		   	// In gen 4, the outermost move is considered the last move for Copycat
-		   	this.battle.activeMove = oldActiveMove;
-	   	}
    	}
    },
 	teambuilderConfig: {
