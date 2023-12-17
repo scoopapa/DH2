@@ -1136,7 +1136,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	milotic: {
 		inherit: true,
-		types: ["Water", "Dragon"],
+		types: ["Water", "Fairy"],
 	},
 	castform: {
 		inherit: true,
