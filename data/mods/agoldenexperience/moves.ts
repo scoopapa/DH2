@@ -3273,6 +3273,60 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		contestType: "Clever",
 	},
+	shattering: {
+		num: -60,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		name: "Shattering",
+		shortDesc: "The user throws its held item. Fails if the user has no item.",
+		desc: "The user throws its held item. Fails if the user has no item.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, allyanim: 1, noparentalbond: 1},
+		onPrepareHit(target, source, move) {
+			if (source.ignoringItem()) return false;
+			const item = source.getItem();
+			if (!this.singleEvent('TakeItem', item, source.itemState, source, source, move, item)) return false;
+			if (!item.fling) return false;
+			if (item.isBerry) {
+				move.onHit = function (foe) {
+					if (this.singleEvent('Eat', item, null, foe, null, null)) {
+						this.runEvent('EatItem', foe, null, null, item);
+						if (item.id === 'leppaberry') foe.staleness = 'external';
+					}
+					if (item.onEat) foe.ateBerry = true;
+				};
+			} else if (item.fling.effect) {
+				move.onHit = item.fling.effect;
+			} else {
+				if (!move.secondaries) move.secondaries = [];
+				if (item.fling.status) {
+					move.secondaries.push({status: item.fling.status});
+				} else if (item.fling.volatileStatus) {
+					move.secondaries.push({volatileStatus: item.fling.volatileStatus});
+				}
+			}
+			source.addVolatile('fling');
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fling", target);
+		},
+		condition: {
+			onUpdate(pokemon) {
+				const item = pokemon.getItem();
+				pokemon.setItem('');
+				pokemon.lastItem = item.id;
+				pokemon.usedItemThisTurn = true;
+				this.add('-enditem', pokemon, item.name, '[from] move: Shattering');
+				this.runEvent('AfterUseItem', pokemon, null, null, item);
+				pokemon.removeVolatile('fling');
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		contestType: "Tough",
+	},
 	defog: {
 		inherit: true,
 		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1, wind: 1},

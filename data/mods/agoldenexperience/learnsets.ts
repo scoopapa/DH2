@@ -4983,6 +4983,27 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			nightslash: ["9L1"],
 		},
 	},
+	piratcy: {
+		learnset: {
+			liquidation: ["9L1"],
+			aquajet: ["9L1"],
+			waterfall: ["9L1"],
+			dive: ["9L1"],
+			bubble: ["9L1"],
+			brine: ["9L1"],
+			hydropump: ["9L1"],
+			surf: ["9L1"],
+			soak: ["9L1"],
+			shattering: ["9L1"],
+		},
+	},
+	parrotnair: {
+		learnset: {
+			wideguard: ["9L1"],
+			quickguard: ["9L1"],
+			pluck: ["9L1"],
+		},
+	},
 	golrobot: {
 		learnset: {
 			heatcrash: ["9L1"],

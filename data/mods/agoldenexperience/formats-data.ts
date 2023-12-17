@@ -5179,6 +5179,26 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "UU",
 		doublesTier: "DOU",
 	},
+	piratcy: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	parrotnairblue: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	parrotnair: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	parrotnairyellow: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	parrotnairwhite: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	golrobot: {
 		tier: "OU",
 		doublesTier: "DOU",
