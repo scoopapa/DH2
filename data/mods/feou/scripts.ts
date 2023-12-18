@@ -44,6 +44,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (item.name === "Garchompite") {
 						return "Chomptry-Mega";
 					}
+					break;
 			}
 			
 			return item.megaStone;
