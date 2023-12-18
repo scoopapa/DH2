@@ -477,6 +477,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 	},
+	gorillaimo: {
+		num: 1190,
+		gen: 1,
+		name: "Gorillaimo",
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 130, atk: 100, def: 75, spa: 40, spd: 40, spe: 65}, 
+		abilities: {},
+	},
 	/// 
 	/// .o88b. d8888b.  .d88b.  .d8888. .d8888.         d888b  d88888b d8b   db   d88888b db    db  .d88b.  .d8888. 
 	///d8P  Y8 88  `8D .8P  Y8. 88'  YP 88'  YP        88' Y8b 88'     888o  88   88'     88    88 .8P  Y8. 88'  YP 
