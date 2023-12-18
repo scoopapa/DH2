@@ -98,7 +98,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'maushold').learnset.armthrust = ['9L1'];
     this.modData('Learnsets', 'houndstone').learnset.strengthsap = ['9L1'];
     this.modData('Learnsets', 'houndstone').learnset.stealthrock = ['9L1'];
-    this.modData('Learnsets', 'ironmoth').learnset.scorchingsands = ['9L1'];
     this.modData('Learnsets', 'ceruledge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'armarouge').learnset.agility = ['9L1'];
     this.modData('Learnsets', 'tinkaton').learnset.icepunch = ['9L1'];
