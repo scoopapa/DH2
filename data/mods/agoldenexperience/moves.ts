@@ -3545,6 +3545,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		shortDesc: "Damages the target by 1/8 max HP per turn if target is Water or Steel type.",
 	},
+	malignantchain: {
+		inherit: true,
+		isNonstandard: null,
+	},
 
 	// Endless Dream field
 	wakeupslap: {
