@@ -14,7 +14,7 @@ As the open source nature of this project implies, people are free to reuse what
 * [Farore.gba] (https://twitter.com/KmiE_821/status/1715434081234698367) - Original Calflac design interpretation
 * [nuukiie] (https://www.deviantart.com/nuukiie , https://twitter.com/nuukiie) - Sprites
 
-Zeta_Null's sprites: Typhlosion-H, Gouging Fire
+Zeta_Null's sprites: Typhlosion-H, Gouging Fire, Porygon-Z
 
 Nuukiee's sprites: Marowak-A, Azurill, Clodsire, Cursola, Farigiraf, Glaceon, Gliscor, Corsola-G, Grimer-A, Honchkrow, Leafeon, Muk-A, Mamoswine, Wooper-P, Sylveon, Togekiss, Weavile, Wyrdeer
 
