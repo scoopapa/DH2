@@ -508,27 +508,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	sunsteelstrike: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	moongeistbeam: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	blueflare: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	photongeyser: {
+	headcharge: {
 		inherit: true,
 		isNonstandard: null,
 	},
 	trickortreat: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	rockwrecker: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -553,18 +537,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	fishiousrend: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	fusionflare: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	prismaticlaser: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	psychoboost: {
 		inherit: true,
 		isNonstandard: null,
 	},
