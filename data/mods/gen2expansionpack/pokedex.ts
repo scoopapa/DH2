@@ -60,7 +60,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	meowth: {
 		inherit: true,
-		otherFormes: ["Meowth-Alola", "Meowth-Galar"]
+		otherFormes: ["Meowth-Alola", "Meowth-Galar"],
+		prevo: "Coinpur",
 	},
 	meowthalola: {
 		inherit: true,
@@ -409,6 +410,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		gen: 1
 	},
+	aerodactyl: {
+		inherit: true,
+		prevo: "Ferodactyl",
+	},
 	munchlax: {
 		inherit: true,
 		gen: 1
@@ -706,7 +711,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spe": 30
 		},
 		"evos": [
-			"Aerodactyl"
+			""
 		],
 		"gen": 2,
 		"name": "Aercrow",
@@ -757,6 +762,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Folage",
 		"gen": 2,
 		"name": "Barreau",
 		"types": [
@@ -781,6 +787,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Moibelle",
 		"gen": 2,
 		"name": "Belledam",
 		"types": [
@@ -919,6 +926,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Flambear",
 		"gen": 2,
 		"name": "Bruinous",
 		"types": [
@@ -1009,6 +1017,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Girafarig"
 		],
+		prevo: "Bipulla",
 		"gen": 2,
 		"name": "Calflac",
 		"types": [
@@ -1103,6 +1112,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Ribbito",
 		"gen": 1,
 		"name": "Croakozuna",
 		"types": [
@@ -1223,6 +1233,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Pressio",
 		"gen": 2,
 		"name": "Donmarin",
 		"types": [
@@ -1291,6 +1302,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Bruinous"
 		],
+		prevo: "Cubburn",
 		"gen": 2,
 		"name": "Flambear",
 		"types": [
@@ -1335,7 +1347,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		},
 		prevo: "Kotora",
 		evoLevel: 16,
-		evos: ["Gorotora"],
+		evos: ["Gorotora", "Raitora"],
 		"gen": 1,
 		"name": "Gaotora",
 		"types": [
@@ -1611,6 +1623,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Lickitung",
 		"gen": 2,
 		"name": "Lickilord",
 		"types": [
@@ -1693,6 +1706,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Ditto",
 		"gen": 2,
 		"name": "Mimmeo",
 		"types": [
@@ -1738,7 +1752,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"spe": 70
 		},
 		"evos": [
-			""
+			"Belledam"
 		],
 		"gen": 2,
 		"name": "Moibelle",
@@ -1905,6 +1919,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Stromin",
 		"gen": 2,
 		"name": "Phandarin",
 		"types": [
@@ -1914,7 +1929,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	"pinsir": {
 		inherit: true,
-		evos: ["tricules"]
+		evos: ["Tricules"]
 	},
 	"pressio": {
 		num: -46,
@@ -1933,6 +1948,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Donmarin"
 		],
+		prevo: "Palssio",
 		"gen": 2,
 		"name": "Pressio",
 		"types": [
@@ -2003,6 +2019,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Gaotora",
 		"gen": 2,
 		"name": "Raitora",
 		"types": [
@@ -2306,6 +2323,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Golduck"
 		],
+		prevo: "Psyduck",
 		"gen": 1,
 		"name": "Weirduck",
 		"types": [
@@ -2374,6 +2392,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Sunflora"
 		],
+		prevo: "Sunkern",
 		"gen": 2,
 		"name": "Sunbud",
 		"types": [
@@ -2420,6 +2439,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Shuckle",
 		"gen": 2,
 		"name": "Pockle",
 		"types": [
@@ -2489,6 +2509,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Stricheel",
 		"gen": 2,
 		"name": "Lurreel",
 		"types": [
@@ -2512,6 +2533,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Qwilfish",
 		"gen": 2,
 		"name": "Kazeppelin",
 		"types": [
@@ -2535,6 +2557,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Qwilfish",
 		"gen": 2,
 		"name": "Qwilfather",
 		"types": [
@@ -2627,6 +2650,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"Bunberg",
 			"Bundrake"
 		],
+		prevo: "Bunice",
 		"gen": 2,
 		"name": "Bundra",
 		"types": [
@@ -2650,6 +2674,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Bundra",
 		"gen": 2,
 		"name": "Bunberg",
 		"types": [
@@ -2673,6 +2698,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Bundra",
 		"gen": 2,
 		"name": "Bundrake",
 		"types": [
@@ -2719,6 +2745,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Warfurs",
 		"gen": 2,
 		"name": "Wearlycan",
 		"types": [
@@ -2788,6 +2815,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Sonegg",
 		"gen": 2,
 		"name": "Cacawphony",
 		"types": [
@@ -2811,6 +2839,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Sonegg",
 		"gen": 2,
 		"name": "Trebir",
 		"types": [
@@ -2974,6 +3003,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			"Granbo"
 		],
+		prevo: "Molambino",
 		"gen": 2,
 		"name": "Luanbo",
 		"types": [
@@ -2997,6 +3027,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Luanbo",
 		"gen": 2,
 		"name": "Granbo",
 		"types": [
@@ -3273,6 +3304,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
+		prevo: "Xylodon",
 		"gen": 2,
 		"name": "Xylofin",
 		"types": [

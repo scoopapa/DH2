@@ -2692,8 +2692,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["2M"],
 			flamethrower: ["2T"],
 			lick: ["2E"],
-			lovelykiss: ["2S0"],
-			splash: ["2S0"],
 		},
 	},
 	pichu: {
