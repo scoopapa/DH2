@@ -1117,7 +1117,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	ursaluna: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	ursalunabloodmoon: {
 		tier: "OU",
@@ -1366,13 +1366,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	fluttermane: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	irontreads: {
 		tier: "OU",
 	},
 	ironbundle: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	ironthorns: {
 		tier: "OU",
