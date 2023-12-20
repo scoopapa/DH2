@@ -341,20 +341,24 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			duration: 1,
-			onResidualOrder: 25,
-			onStart(target) {
-				let moveType = target.types[1]
-				if (!target.terastallized) {
-					this.add('-singleturn', target, 'move: Secure Landing');
-				} else if (target.terastallized === "moveType") {
-					this.add('-hint', "If a Flying Terastallized Pokemon uses Roost, it remains Flying-type. Same effect applies to Secure Landing.");
+			onStart(pokemon) {
+				let targetType = pokemon.types[1]
+				if (!pokemon.terastallized) {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === targetType ? "???" : type));
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 				}
 			},
-			onTypePriority: -1,
-			onType(types, pokemon) {
-				let moveType = pokemon.types[1]
-				this.effectState.typeWas = types;
-				return types.filter(type => type !== 'moveType');
+			onSwitchOut(pokemon) {
+				pokemon.removeVolatile('securelanding');
+			},
+			onFaint(pokemon) {
+				pokemon.removeVolatile('securelanding');
+			},
+			onEnd(pokemon) {
+				let types = pokemon.baseSpecies.types;
+				types = pokemon.baseSpecies.types;
+				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
 			},
 		},
 		secondary: null,
