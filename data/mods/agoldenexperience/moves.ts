@@ -3478,10 +3478,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 	},
-	glaiverush: {
-		inherit: true,
-		basePower: 110,
-	},
 	gigatonhammer: {
 		inherit: true,
 		shortDesc: "Cannot be used twice in a row. Super effective on Steel targets.",
