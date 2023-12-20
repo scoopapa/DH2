@@ -13,6 +13,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Bug",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "X-Scissor", target);
+		},
 	},
 	windride: {
 		num: -2,
@@ -30,6 +34,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "30% chance to freeze.",
 		target: "normal",
 		type: "Flying",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sheer Cold", target);
+		},
 	},
 	brightmoss: {
 		num: -3,
@@ -49,6 +57,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Raises accuracy by 1 stage.",
 		target: "self",
 		type: "Grass",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flash", target);
+		},
 	},
 	coinhurl: {
 		num: -4,
@@ -63,6 +75,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Power varies depending on money.",
 		target: "normal",
 		type: "Normal",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pay Day", target);
+		},
 	},
 	megaphone: {
 		num: -5,
@@ -80,6 +96,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Lowers the target's Special Attack by 1 stage.",
 		target: "normal",
 		type: "Normal",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Chatter", target);
+		},
 	},
 	// Unfinished
 	// uproot: {
@@ -107,6 +127,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Deals equal damage to the opponent what was taken. -1 priority.",
 		type: "Psychic",
 		target: "normal",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Skill Swap", target);
+		},
 	},
 	rockhead: {
 		num: -8,
@@ -124,6 +148,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "30% chance to make the target flinch.",
 		target: "normal",
 		type: "Rock",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Head", target);
+		},
 	},
 	rockslash: {
 		num: -9,
@@ -138,6 +166,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Rock",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Slash", target);
+		},
 	},
 	uppercut: {
 		num: -14,
@@ -155,6 +187,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Fighting",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sky Uppercut", target);
+		},
 	},
 	// Unfinished
 	// strongarm: {
