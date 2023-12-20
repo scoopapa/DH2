@@ -319,6 +319,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		heal: [1, 2],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fly", target);
+		},
 		self: {
 			volatileStatus: 'securelanding',
 		},
@@ -348,7 +352,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			},
 			onTypePriority: -1,
 			onType(types, pokemon) {
-				let moveType = target.types[1]
+				let moveType = pokemon.types[1]
 				this.effectState.typeWas = types;
 				return types.filter(type => type !== 'moveType');
 			},
