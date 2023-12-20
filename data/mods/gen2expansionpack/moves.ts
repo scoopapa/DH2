@@ -59,7 +59,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Grass",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Flash", target);
+			this.add('-anim', source, "Tail Glow", source);
 		},
 	},
 	coinhurl: {
