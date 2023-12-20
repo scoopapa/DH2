@@ -321,7 +321,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		heal: [1, 2],
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Fly", target);
+			this.add('-anim', source, "Bounce", target);
 		},
 		self: {
 			volatileStatus: 'securelanding',
