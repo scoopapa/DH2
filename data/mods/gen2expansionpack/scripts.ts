@@ -77,4 +77,5 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			return stat;
 		},
+	}
 };
