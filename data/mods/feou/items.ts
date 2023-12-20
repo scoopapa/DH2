@@ -64,6 +64,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (source.baseSpecies.tags.includes("Paradox")) return false;
 			return true;
 		},
+		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
 	},
 	absolite: {
 		name: "Absolite",
@@ -141,7 +142,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			return true;
 		},
 		num: 752,
-		desc: "If held by a Goopert, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Hisuian Goopert, this item allows it to Mega Evolve in battle.",
 	},
 	tyranitarite: {
 		name: "Tyranitarite",
@@ -279,7 +280,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 670,
+		num: 676,
 		desc: "If held by an Overgyara, this item allows it to Mega Evolve in battle.",
 	},
 	aerodactylite: {
@@ -292,7 +293,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: 670,
+		num: 672,
 		desc: "If held by an Aero Wake, this item allows it to Mega Evolve in battle.",
 	},
 };

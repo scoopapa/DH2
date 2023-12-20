@@ -1919,7 +1919,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"evos": [
 			""
 		],
-		prevo: "Stromin",
+		prevo: "Stromen",
 		"gen": 2,
 		"name": "Phandarin",
 		"types": [
