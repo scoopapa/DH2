@@ -2922,12 +2922,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	flapple: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 120, def: 80, spa: 95, spd: 60, spe: 75},
 		abilities: {0: "Ripen", 1: "Newton's Law", H: "Hustle"},
 	},
 	appletun: {
 		inherit: true,
-		baseStats: {hp: 110, atk: 80, def: 90, spa: 100, spd: 90, spe: 30},
 		abilities: {0: "Ripen", 1: "Corrosion", H: "Thick Fat"},
 	},
 	sandaconda: {
@@ -3057,7 +3055,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	duraludon: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 45, def: 125, spa: 130, spd: 60, spe: 95},
 		abilities: {0: "Light Metal", 1: "Clear Body", H: "Stalwart"},
 	},
 	zacian: {
@@ -3314,6 +3311,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 88, atk: 70, def: 82, spa: 91, spd: 125, spe: 99},
 		abilities: {0: "Toxic Chain", H: "Magic Guard"},
+	},
+	gougingfire: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Pressure"},
+	},
+	ragingbolt: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Pressure"},
+	},
+	ironboulder: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Justified"},
+	},
+	ironcrown: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Justified"},
 	},
 
 	// Fakemons:

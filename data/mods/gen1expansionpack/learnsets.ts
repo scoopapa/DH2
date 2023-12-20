@@ -1935,6 +1935,56 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 1, level: 30},
 		],
 	},
+	gorillaimo: {
+		learnset: {
+			cometpunch: ["1L1"],
+			growl: ["1L1"],
+			uppercut: ["1L1"],
+			roar: ["1L7"],
+			bite: ["1L15"],
+			thunderpunch: ["1L22"],
+			seismictoss: ["1L29", "1M"],
+			bodyslam: ["1L35", "1M"],
+			amnesia: ["1L42"],
+			submission: ["1L49", "1M"],
+			
+			toxic: ["1M"],
+			rage: ["1M"],
+			mimic: ["1M"],
+			doubleteam: ["1M"],
+			bide: ["1M"],
+			rest: ["1M"],
+			substitute: ["1M"],
+			megapunch: ["1M"],
+			megakick: ["1M"],
+			takedown: ["1M"],
+			doubleedge: ["1M"],
+			bubblebeam: ["1M"],
+			watergun: ["1M"],
+			hyperbeam: ["1M"],
+			counter: ["1M"],
+			thunderbolt: ["1M"],
+			thunder: ["1M"],
+			earthquake: ["1M"],
+			fissure: ["1M"],
+			dig: ["1M"],
+			metronome: ["1M"],
+			swift: ["1M"],
+			skullbash: ["1M"],
+			thunderwave: ["1M"],
+			rockslide: ["1M"],
+			surf: ["1M"],
+			strength: ["1M"],
+			
+			headbutt: ["2M"],
+			defensecurl: ["2M"],
+			karatechop: ["2E"], // Machop
+			focusenergy: ["2E"], // Machop
+		},
+		encounters: [
+			{generation: 1, level: 5},
+		],
+	},
 	/// .o88b. d8888b.  .d88b.  .d8888. .d8888.         d888b  d88888b d8b   db   d88888b db    db  .d88b.  .d8888. 
 	///d8P  Y8 88  `8D .8P  Y8. 88'  YP 88'  YP        88' Y8b 88'     888o  88   88'     88    88 .8P  Y8. 88'  YP 
 	///8P      88oobY' 88    88 `8bo.   `8bo.          88      88ooooo 88V8o 88   88ooooo Y8    8P 88    88 `8bo.   
@@ -2642,8 +2692,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["2M"],
 			flamethrower: ["2T"],
 			lick: ["2E"],
-			lovelykiss: ["2S0"],
-			splash: ["2S0"],
 		},
 	},
 	pichu: {

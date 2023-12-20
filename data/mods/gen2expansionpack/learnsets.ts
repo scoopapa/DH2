@@ -6280,6 +6280,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"fissure": [
 				"1M"
 			],
+			flamethrower: ["2T"],
 			"flash": [
 				"2M"
 			],
@@ -14188,9 +14189,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"endure": [
 				"2M"
 			],
-			"firepunch": [
-				"2M"
-			],
 			"flash": [
 				"1M",
 				"2M"
@@ -14206,9 +14204,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			hypnosis: ["2E"],
-			"icepunch": [
-				"2M"
-			],
 			"lightscreen": [
 				"2L1", 
 				"1L13"
@@ -14314,9 +14309,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			],
 			"thunderbolt": [
 				"1M",
-				"2M"
-			],
-			"thunderpunch": [
 				"2M"
 			],
 			"thunderwave": [
@@ -24526,6 +24518,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"attract": [
 				"2M"
 			],
+			bellydrum: ["2L37"],
 			"bide": [
 				"1M"
 			],
@@ -28885,6 +28878,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			strength: ["2M"],
 			surf: ["2M"],
 			swagger: ["2M"],
+			swordsdance: ["2E"],
 			thrash: ["2L42"],
 			toxic: ["2M"],
 			waterfall: ["2M"],
@@ -29060,7 +29054,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			shadowball: ["2M"],
 			sleeptalk: ["2M"],
 			snore: ["2M"],
-			spite: ["2E"],
+			spite: ["2E", "2L1"],
 			sunnyday: ["2M"],
 			thief: ["2M"],
 			swagger: ["2M"],
