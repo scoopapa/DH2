@@ -18,6 +18,8 @@ Zeta_Null's sprites: Typhlosion-H, Gouging Fire, Porygon-Z
 
 Nuukiee's sprites: Marowak-A, Azurill, Clodsire, Cursola, Farigiraf, Glaceon, Gliscor, Corsola-G, Grimer-A, Honchkrow, Leafeon, Muk-A, Mamoswine, Wooper-P, Sylveon, Togekiss, Weavile, Wyrdeer
 
+Sprites by JosJet: Kazeppelin, Tricules
+
 Legacy Credits
 ====
 JEP spriters hold the policy of requiring sprites to be used with direct credit for non-commerical purposes. Credit Albatross and Martha's Against Humanity in any case of using them. Helix Chamber spriters have a "must credit" policy as well, and precise credits for them are available [here](https://cdn.discordapp.com/attachments/1014321591657709569/1015347305483878521/unknown.png).
