@@ -129,7 +129,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Skill Swap", target);
+			this.add('-anim', source, "Night Shade", target);
 		},
 	},
 	rockhead: {
