@@ -239,6 +239,174 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Electric",
 		contestType: "Tough",
 	},
+	doubledose: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		shortDesc: "Hits twice. 20% chance to poison. Doubles: Tries to hit each foe once.",
+		name: "Double Dose",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, noparentalbond: 1},
+		multihit: 2,
+		smartTarget: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Darts", target);
+			this.add('-anim', source, "Corrosive Gas", target);
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Drapion-Dragonblade': case 'Drapion-Dragonblade-Tera':
+				move.type = 'Dragon';
+				break;
+			case 'Drapion-Hydroscythe': case 'Drapion-Hydroscythe-Tera':
+				move.type = 'Water';
+				break;
+			case 'Drapion-Wispaxe': case 'Drapion-Wispaxe-Tera':
+				move.type = 'Ghost';
+				break;
+			}
+		},
+		secondary: {
+			chance: 20,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+		maxMove: {basePower: 130},
+	},
+	bulldoze: {
+		num: 523,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Bulldoze",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Flygon-Lionheart': case 'Flygon-Lionheart-Tera':
+				move.type = 'Bug';
+				break;
+			case 'Flygon-Cicadasong': case 'Flygon-Cicadasong-Tera':
+				move.type = 'Ghost';
+				break;
+			case 'Flygon-Beetlestone': case 'Flygon-Beetlestone-Tera':
+				move.type = 'Rock';
+				break;
+			}
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "allAdjacent",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	securelanding: {
+		num: 355,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals 50% HP. Secondary type removed 'til turn ends.",
+		name: "Secure Landing",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		heal: [1, 2],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bounce", target);
+		},
+		self: {
+			volatileStatus: 'securelanding',
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Drifblim-Hot-Headed': case 'Drifblim-Hot-Headed-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Drifblim-Calmed': case 'Drifblim-Calmed-Tera':
+				move.type = 'Water';
+				break;
+			case 'Drifblim-Noxious': case 'Drifblim-Noxious-Tera':
+				move.type = 'Poison';
+				break;
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				let targetType = pokemon.types[1]
+				if (!pokemon.terastallized) {
+					pokemon.setType(pokemon.getTypes(true).map(type => type === targetType ? "???" : type));
+					this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+				}
+			},
+			onSwitchOut(pokemon) {
+				pokemon.removeVolatile('securelanding');
+			},
+			onFaint(pokemon) {
+				pokemon.removeVolatile('securelanding');
+			},
+			onEnd(pokemon) {
+				let types = pokemon.baseSpecies.types;
+				types = pokemon.baseSpecies.types;
+				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				this.add('-start', pokemon, 'typechange', pokemon.types.join('/'));
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Flying",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
+	stoneaxe: {
+		num: 830,
+		accuracy: 90,
+		basePower: 65,
+		category: "Physical",
+		name: "Stone Axe",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		onAfterHit(target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			if (!move.hasSheerForce && source.hp) {
+				for (const side of source.side.foeSidesWithConditions()) {
+					side.addSideCondition('stealthrock');
+				}
+			}
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Kleavor-Arrowedge': case 'Kleavor-Arrowedge-Tera':
+				move.type = 'Flying';
+				break;
+			case 'Kleavor-Galenahead': case 'Kleavor-Galenahead-Tera':
+				move.type = 'Poison';
+				break;
+			case 'Kleavor-Expertblade': case 'Kleavor-Expertblade-Tera':
+				move.type = 'Normal';
+				break;
+			}
+		},
+		secondary: {}, // Sheer Force-boosted
+		target: "normal",
+		type: "Rock",
+	},
 
 // unchanged moves
 	defog: {

@@ -732,7 +732,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			snarl: ["9M"],
 			substitute: ["9M"],
 			sunnyday: ["9M"],
-			// supercellslam: ["9M"],
+			supercellslam: ["9M"],
 			superpower: ["9L70"],
 			swagger: ["9L10"],
 			takedown: ["9M"],
@@ -820,11 +820,14 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			weatherball: ["9M"],
 		},
 	},
+	// Gen 6
+	// Gen 7
+	// Gen 8
 	enamorus: {
 		learnset: {
 			acrobatics: ["9M"],
 			agility: ["9M"],
-			// alluringvoice: ["9M"],
+			alluringvoice: ["9M"],
 			astonish: ["9L1"],
 			bodyslam: ["9M"],
 			calmmind: ["9M"],
@@ -886,7 +889,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 		learnset: {
 			acrobatics: ["9M"],
 			agility: ["9M"],
-			// alluringvoice: ["9M"],
+			alluringvoice: ["9M"],
 			astonish: ["9L1"],
 			bodyslam: ["9M"],
 			calmmind: ["9M"],
@@ -944,9 +947,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			zenheadbutt: ["9M"],
 		},
 	},
-	// Gen 6
-	// Gen 7
-	// Gen 8
 	// Gen 9
 	sprigatito: {
 		learnset: {

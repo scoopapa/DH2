@@ -395,7 +395,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
     flareon: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Ignite", H: "Guts"},
+		abilities: {0: "Flash Fire", 1: "Ignite", H: "Toxic Boost"},
 	},
 	omanyte: {
 		inherit: true,
@@ -431,7 +431,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	moltresgalar: {
 		inherit : true,
-		abilities: {0: "Berserk", H: "Early Bird"},
+		abilities: {0: "Berserk", H: "Flare Boost"},
 	},
 	mewtwo: {
 		inherit : true,
@@ -1715,6 +1715,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		evoLevel: 32,
 		eggGroups: ["Flying"],
 	},
+	zebstrika: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 110, def: 60, spa: 70, spd: 60, spe: 122},
+		abilities: {0: "Illuminate", 1: "Dodge", H: "Sap Sipper"},
+	},
 	roggenrola: {
 		inherit: true,
 		baseStats: {hp: 55, atk: 25, def: 85, spa: 75, spd: 25, spe: 15},
@@ -2922,12 +2927,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	flapple: {
 		inherit: true,
-		baseStats: {hp: 70, atk: 120, def: 80, spa: 95, spd: 60, spe: 75},
 		abilities: {0: "Ripen", 1: "Newton's Law", H: "Hustle"},
 	},
 	appletun: {
 		inherit: true,
-		baseStats: {hp: 110, atk: 80, def: 90, spa: 100, spd: 90, spe: 30},
 		abilities: {0: "Ripen", 1: "Corrosion", H: "Thick Fat"},
 	},
 	sandaconda: {
@@ -3057,7 +3060,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	duraludon: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 45, def: 125, spa: 130, spd: 60, spe: 95},
 		abilities: {0: "Light Metal", 1: "Clear Body", H: "Stalwart"},
 	},
 	zacian: {
@@ -3184,6 +3186,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	flamigo: {
 		inherit: true,
 		baseStats: {hp: 82, atk: 125, def: 74, spa: 55, spd: 64, spe: 100},
+	},
+	veluza: {
+		inherit: true,
+		abilities: {0: "Mold Breaker", 1: "Unburden", H: "Sharpness"},
 	},
 	greattusk: {
 		inherit: true,
@@ -3314,6 +3320,22 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 88, atk: 70, def: 82, spa: 91, spd: 125, spe: 99},
 		abilities: {0: "Toxic Chain", H: "Magic Guard"},
+	},
+	gougingfire: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Pressure"},
+	},
+	ragingbolt: {
+		inherit: true,
+		abilities: {0: "Protosynthesis", H: "Pressure"},
+	},
+	ironboulder: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Justified"},
+	},
+	ironcrown: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Justified"},
 	},
 
 	// Fakemons:
