@@ -395,7 +395,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
     flareon: {
 		inherit: true,
-		abilities: {0: "Flash Fire", 1: "Ignite", H: "Guts"},
+		abilities: {0: "Flash Fire", 1: "Ignite", H: "Toxic Boost"},
 	},
 	omanyte: {
 		inherit: true,
@@ -431,7 +431,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	moltresgalar: {
 		inherit : true,
-		abilities: {0: "Berserk", H: "Early Bird"},
+		abilities: {0: "Berserk", H: "Flare Boost"},
 	},
 	mewtwo: {
 		inherit : true,
@@ -1714,6 +1714,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		prevo: "Tranquill",
 		evoLevel: 32,
 		eggGroups: ["Flying"],
+	},
+	zebstrika: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 110, def: 60, spa: 70, spd: 60, spe: 122},
+		abilities: {0: "Illuminate", 1: "Dodge", H: "Sap Sipper"},
 	},
 	roggenrola: {
 		inherit: true,
@@ -3181,6 +3186,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	flamigo: {
 		inherit: true,
 		baseStats: {hp: 82, atk: 125, def: 74, spa: 55, spd: 64, spe: 100},
+	},
+	veluza: {
+		inherit: true,
+		abilities: {0: "Mold Breaker", 1: "Unburden", H: "Sharpness"},
 	},
 	greattusk: {
 		inherit: true,
