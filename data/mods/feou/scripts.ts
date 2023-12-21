@@ -209,21 +209,21 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 				let move = this.dex.getActiveMove(moveOrMoveName);
 				pokemon.lastMoveUsed = move;
-				if (move.id === 'weatherball' && zMove) {
-					// Z-Weather Ball only changes types if it's used directly,
-					// not if it's called by Z-Sleep Talk or something.
-					this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
-					if (move.type !== 'Normal') sourceEffect = move;
-				}
 				if (zMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isZ)) {
+					if (move.id === 'weatherball' && zMove) {
+						// Z-Weather Ball only changes types if it's used directly,
+						// not if it's called by Z-Sleep Talk or something.
+						this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+						if (move.type !== 'Normal') sourceEffect = move;
+					}
 					move = this.getActiveZMove(move, pokemon);
 				}
-				if (maxMove && move.category !== 'Status') {
-					// Max move outcome is dependent on the move type after type modifications from ability and the move itself
-					this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
-					this.battle.runEvent('ModifyType', pokemon, target, move, move);
-				}
 				if (maxMove || (move.category !== 'Status' && sourceEffect && (sourceEffect as ActiveMove).isMax)) {
+					if (maxMove && move.category !== 'Status') {
+						// Max move outcome is dependent on the move type after type modifications from ability and the move itself
+						this.battle.singleEvent('ModifyType', move, null, pokemon, target, move, move);
+						this.battle.runEvent('ModifyType', pokemon, target, move, move);
+					}
 					move = this.getActiveMaxMove(move, pokemon);
 				}
 		
@@ -235,7 +235,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				let targetRelayVar = {target};
 				targetRelayVar = this.battle.runEvent('ModifyTarget', pokemon, target, move, targetRelayVar, true);
 				if (targetRelayVar.target !== undefined) target = targetRelayVar.target;
-				if (target === undefined) target = this.battle.getRandomTarget(pokemon, move);
+				else if (target === undefined) target = this.battle.getRandomTarget(pokemon, move);
 				if (move.target === 'self' || move.target === 'allies') {
 					target = pokemon;
 				}
@@ -400,10 +400,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				baseDamage = this.battle.randomizer(baseDamage);
 
 				// STAB
-				const isTeraStellar = pokemon.terastallized === 'Stellar';
+				const isTeraStellarBoosted = (pokemon.terastallized || pokemon.m.thirdType) === 'Stellar' &&
+					!pokemon.stellarBoostedTypes.includes(type);
 				if (move.forceSTAB || (type !== '???' &&
 					(pokemon.hasType(type) || (pokemon.terastallized && pokemon.getTypes(false, true).includes(type)) ||
-						(isTeraStellar && !pokemon.stellarBoostedTypes.includes(type))))) {
+						isTeraStellarBoosted))) {
 					// The "???" type never gets STAB
 					// Not even if you Roost in Gen 4 and somehow manage to use
 					// Struggle in the same turn.
@@ -416,22 +417,24 @@ export const Scripts: ModdedBattleScriptsData = {
 					// If the move's type does match one of the user's base types,
 					// then the Stellar tera type applies a one-time 2x STAB boost for that type,
 					// and then goes back to using the regular 1.5x STAB boost for those types.
-		
-		
-					let stab = (isTeraStellar && !pokemon.getTypes(false, true).includes(type)) ? [4915, 4096] : move.stab || 1.5;
-					if ((type === pokemon.terastallized || (isTeraStellar && !pokemon.stellarBoostedTypes.includes(type))) &&
-						pokemon.getTypes(false, true).includes(type)) {
-						// In my defense, the game hardcodes the Adaptability check like this, too.
-						stab = (stab === 2 && !isTeraStellar) ? 2.25 : 2;
-					} else if (pokemon.terastallized && type !== pokemon.terastallized && stab === 2) {
-						stab = 1.5;
+					let stab: number | [number, number];
+					if (isTeraStellarBoosted) {
+						stab = pokemon.getTypes(false, true).includes(type) ? 2 : [4915, 4096];
+						if (pokemon.species.name !== 'Terapagos-Stellar') {
+							pokemon.stellarBoostedTypes.push(type);
+						}
+					} else {
+						stab = move.stab || 1.5;
+						if (type === pokemon.terastallized) {
+							if (pokemon.getTypes(false, true).includes(type)) {
+								// In my defense, the game hardcodes the Adaptability check like this, too.
+								stab = stab === 2 ? 2.25 : 2;
+							}
+						} else if (pokemon.terastallized) {
+							stab = 1.5;
+						}
 					}
 					baseDamage = this.battle.modify(baseDamage, stab);
-		
-					if (isTeraStellar && //pokemon.species.name !== 'Terapagos-Stellar' &&
-						!pokemon.stellarBoostedTypes.includes(type)) {
-						pokemon.stellarBoostedTypes.push(type);
-					}
 				}
 
 
@@ -463,7 +466,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 
 				// Generation 5, but nothing later, sets damage to 1 before the final damage modifiers
-				//if (this.battle.gen === 5 && !baseDamage) baseDamage = 1;
+				//if (this.battle.gen === 5) baseDamage ||= 1;
 
 				// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
 				baseDamage = this.battle.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
