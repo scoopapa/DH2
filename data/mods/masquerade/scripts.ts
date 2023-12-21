@@ -56,6 +56,22 @@ export const Scripts: ModdedBattleScriptsData = {
 				const tera = pokemon.species.id === 'corviknight' ? 'basetera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
+			if (pokemon.species.baseSpecies === 'Drapion') {
+				const tera = pokemon.species.id === 'drapion' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Flygon') {
+				const tera = pokemon.species.id === 'flygon' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Drifblim') {
+				const tera = pokemon.species.id === 'drifblim' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Kleavor') {
+				const tera = pokemon.species.id === 'kleavor' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
 		},
 	},

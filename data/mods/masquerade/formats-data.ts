@@ -95,4 +95,68 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	drapion: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drapiondragonblade: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drapionhydroscythe: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drapionwispaxe: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	flygon: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	flygonlionheart: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	flygoncicadasong: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	flygonbeetlestone: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drifblim: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drifblimhotheaded: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drifblimcalmed: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drifblimnoxious: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kleavor: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kleavorarrowedge: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kleavorgalenahead: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kleavorexpertblade: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };
