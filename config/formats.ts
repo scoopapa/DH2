@@ -2354,6 +2354,18 @@ export const Formats: FormatList = [
         mod: 'spookymod',
     },
 	{
+		name: "[Gen 9] Stadium YB",
+		desc: `A random battle metagame where each player gets 6 Pokemon from a large pool of rentals and bring 4 to battle with.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3694234/">placeholder for forum post</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/149ZlQY0bJIAqfWB_233Dvbpqs3pVSHYpIoAQQkwquls/edit?usp=sharing">placeholder for pokemon spreadsheet</a>`,
+		],
+		bestOfDefault: true,
+		mod: 'ybstadium',
+		team: 'random',
+		ruleset: ['Team Preview', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Picked Team Size = 4', 'Force Open Team Sheets'],
+	},
+	{
 		name: "[Gen 9] Super Types OU",
 		desc: "The Super Type mechanic from Scootopia, only it's applied to current gen 9 OU.",
 		threads: [
@@ -2419,18 +2431,6 @@ export const Formats: FormatList = [
 		'Mightyena', 'Miltank', 'Monferno', 'Oddish', 'Pansear', 'Pignite', 'Poipole', 'Psyduck', 'Quilava', 'Raboot', 'Sawsbuck', 'Scorbunny', 'Shelgon', 'Simisear', 'Sizzlipede', 'Skeledirge', 
 		'Skiddo', 'Sliggoo', 'Sliggoo-Hisui', 'Stantler', 'Swablu', 'Tepig', 'Thwackey', 'Torchic', 'Torkoal', 'Torracat', 'Typhlosion', 'Typhlosion-Hisui', 'Watchog', 'Wyrdeer', 'Zebstrika', 'Zweilous',
 		],
-	},
-	{
-		name: "[Gen 9] Stadium YB",
-		desc: `A random battle metagame where each player gets 12 Pokemon from a large pool of rentals and bring 6 to battle with.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3694234/">placeholder for forum post</a>`,
-			`&bullet; <a href="https://docs.google.com/spreadsheets/d/149ZlQY0bJIAqfWB_233Dvbpqs3pVSHYpIoAQQkwquls/edit?usp=sharing">placeholder for pokemon spreadsheet</a>`,
-		],
-		bestOfDefault: true,
-		mod: 'ybstadium',
-		team: 'random',
-		ruleset: ['Team Preview', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Picked Team Size = 3', 'Force Open Team Sheets'],
 	},
 	///////////////////////////////////////////////////////////////
 	///////////////////// Non-Smogon Mods /////////////////////////
