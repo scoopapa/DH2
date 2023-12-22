@@ -171,6 +171,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 				// Dancer's activation order is completely different from any other event, so it's handled separately
 				if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
+					/*const dancers = this.battle.getAllActive().filter(
+						(currentPoke) => (currentPoke.hasAbility('choreography') && pokemon !== currentPoke
+						&& !currentPoke.abilityState.choreography && !currentPoke.fainted && !currentPoke.isSemiInvulnerable())
+					);*/
 					const dancers = [];
 					for (const currentPoke of this.battle.getAllActive()) {
 						if (currentPoke.hasAbility('choreography') && pokemon !== currentPoke && !currentPoke.abilityState.choreography
