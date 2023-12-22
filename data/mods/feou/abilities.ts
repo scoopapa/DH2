@@ -716,8 +716,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
@@ -1649,8 +1649,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onModifySpe(spe, pokemon) {
 				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				for (const target of this.getAllActive()) {
-					if (target.hasAbility('dyschronometria') && !target.isAlly(pokemon)) {
+				for (const target of pokemon.foes()) {
+					if (target.hasAbility('dyschronometria')) {
 						this.debug('Dyschronometria negating spe boost');
 						return;
 					}
