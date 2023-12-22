@@ -96,11 +96,13 @@ export const Scripts: ModdedBattleScriptsData = {
 						target = this.battle.getRandomTarget(pokemon, baseMove);
 					}
 				}
-				let move = baseMove;
+				let move;
 				if (zMove) {
 					move = this.getActiveZMove(baseMove, pokemon);
 				} else if (maxMove) {
 					move = this.getActiveMaxMove(baseMove, pokemon);
+				} else {
+					move = baseMove;
 				}
 		
 				move.isExternal = externalMove;
