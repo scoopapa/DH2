@@ -1552,20 +1552,18 @@ export class RandomTeams {
 
 		if (!isDoubles) {
 			const levelScale: {[tier: string]: number} = {
-				uber: 78, ou: 80, uu: 82, ru: 84, nu: 86, pu: 88,
+				uber: 50, ou: 50, uu: 50, ru: 50, nu: 50, pu: 50, ybs: 50,
 			};
 			const customScale: {[forme: string]: number} = {
-				// Banned Ability
-				Dugtrio: 82, Gothitelle: 82, Pelipper: 84, Politoed: 84, Wobbuffet: 82,
-				// Holistic judgement
-				Castform: 100, Delibird: 100, Spinda: 100, Unown: 100,
+				// funny
+				Elgyem: 51,
 			};
 			const tier = toID(species.tier).replace('bl', '');
-			level = levelScale[tier] || (species.nfe ? 90 : 80);
+			level = levelScale[tier] || (species.nfe ? 50 : 50);
 			if (customScale[forme]) level = customScale[forme];
 
 			// Custom level based on moveset
-			if (species.name === 'Zygarde-10%' && ability === 'Power Construct') level = 80;
+			if (species.name === 'Zygarde-10%' && ability === 'Power Construct') level = 50;
 		} else {
 			// We choose level based on BST. Min level is 70, max level is 99. 600+ BST is 70, less than 300 is 99. Calculate with those values.
 			// Every 10.34 BST adds a level from 70 up to 99. Results are floored. Uses the Mega's stats if holding a Mega Stone
