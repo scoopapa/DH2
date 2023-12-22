@@ -1,8 +1,3 @@
-import {Utils} from '../lib';
-import {PRNG, PRNGSeed} from '../sim/prng';
-import {RuleTable} from '../sim/dex-formats';
-import {Tags} from './tags';
-
 export interface TeamData {
 	typeCount: {[k: string]: number};
 	typeComboCount: {[k: string]: number};
