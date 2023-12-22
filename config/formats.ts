@@ -2430,7 +2430,7 @@ export const Formats: FormatList = [
 		bestOfDefault: true,
 		mod: 'ybstadium',
 		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Picked Team Size = 6', 'Max Team Size = 12'],
+		ruleset: ['Team Preview', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Picked Team Size = 6', 'Max Team Size = 12'],
 	},
 	///////////////////////////////////////////////////////////////
 	///////////////////// Non-Smogon Mods /////////////////////////
