@@ -2254,7 +2254,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const additionalBannedAbilities = [
 				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'wanderingspirit',
 				'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'pillage', 
-				'faultyphoton', 'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
+				'systempurge', 'onceuponatime', 'primitive', 'quarksurge',
 											'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
 											'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive'
 			];
