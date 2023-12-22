@@ -123,7 +123,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						(ally.volatiles['substitute'] && !move.infiltrates))) {
 					continue;
 				}
-				if (ally.cureStatus()) success ||= true;
+				success = ally.cureStatus() || success;
 			}
 			return !!success;
 		},
