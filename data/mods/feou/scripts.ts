@@ -374,8 +374,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 			) {
 				const tr = this.battle.trunc;
-				move.type ||= '???';
-				const type = move.type;
+				const type = (move.type ||= '???');
 
 				baseDamage += 2;
 
@@ -448,9 +447,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (typeMod > 0) {
 					if (!suppressMessages) this.battle.add('-supereffective', target);
 
-					for (let i = 0; i < typeMod; i++) {
-						baseDamage *= 2;
-					}
+					baseDamage *= 2**typeMod;
 				}
 				else if (typeMod < 0) {
 					if (!suppressMessages) this.battle.add('-resisted', target);
