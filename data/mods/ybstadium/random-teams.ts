@@ -1759,6 +1759,9 @@ export class RandomTeams {
 			// Limit to one of each species (Species Clause)
 			if (baseFormes[species.baseSpecies]) continue;
 
+			// Limit to just Pokemon in the meta
+			if (species.tier !== "YBS") continue;
+
 			// Treat Ogerpon formes and Terapagos like the Tera Blast user role; reject if team has one already
 			if ((species.baseSpecies === 'Ogerpon' || species.baseSpecies === 'Terapagos') && teamDetails.teraBlast) continue;
 
@@ -1772,10 +1775,10 @@ export class RandomTeams {
 
 			if (!isMonotype && !this.forceMonotype) {
 				let skip = false;
-
+				// reminder to revert this once the meta is fully coded
 				// Limit two of any type
 				for (const typeName of types) {
-					if (typeCount[typeName] >= 2 * limitFactor) {
+					if (typeCount[typeName] >= 6 * limitFactor) {
 						skip = true;
 						break;
 					}
@@ -1787,7 +1790,7 @@ export class RandomTeams {
 					// it's weak to the type
 					if (this.dex.getEffectiveness(typeName, species) > 0) {
 						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
-						if (typeWeaknesses[typeName] >= 3 * limitFactor) {
+						if (typeWeaknesses[typeName] >= 12 * limitFactor) {
 							skip = true;
 							break;
 						}
