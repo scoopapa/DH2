@@ -1775,10 +1775,10 @@ export class RandomTeams {
 
 			if (!isMonotype && !this.forceMonotype) {
 				let skip = false;
-				// reminder to revert this once the meta is fully coded
+
 				// Limit two of any type
 				for (const typeName of types) {
-					if (typeCount[typeName] >= 6 * limitFactor) {
+					if (typeCount[typeName] >= 2 * limitFactor) {
 						skip = true;
 						break;
 					}
@@ -1790,7 +1790,7 @@ export class RandomTeams {
 					// it's weak to the type
 					if (this.dex.getEffectiveness(typeName, species) > 0) {
 						if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
-						if (typeWeaknesses[typeName] >= 12 * limitFactor) {
+						if (typeWeaknesses[typeName] >= 3 * limitFactor) {
 							skip = true;
 							break;
 						}
