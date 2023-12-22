@@ -334,17 +334,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1},
 		onTryHit(target, source) {
-			if (target === source || target.volatiles['dynamax']) return false;
+			if (target === source || target.volatiles['dynamax'] || target.ability === source.ability || target.ability === 'truant'
+				|| target.getAbility().isPermanent || source.getAbility().isPermanent) return false;
 
 			const additionalBannedSourceAbilities = [
 				// Zen Mode removed because this is gen 9
 				'commander', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'pillage',
+				'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
+				'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive'
 			];
-			if (
-				target.ability === source.ability ||
-				target.getAbility().isPermanent || target.ability === 'truant' ||
-				source.getAbility().isPermanent || additionalBannedSourceAbilities.includes(source.ability)
-			) {
+			if (additionalBannedSourceAbilities.includes(source.ability)) {
 				return false;
 			}
 		},
@@ -377,6 +376,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 
 			const additionalBannedTargetAbilities = [
 				'commander', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard', 'pillage',
+				'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
+				'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive'
 			];
 
 			if (target.getAbility().isPermanent || additionalBannedTargetAbilities.includes(target.ability) ||
@@ -499,6 +500,62 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
+	},
+	skillswap: {
+		num: 285,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Skill Swap",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bypasssub: 1, allyanim: 1},
+		onTryHit(target, source) {
+			const targetAbility = target.getAbility();
+			if (targetAbility.isPermanent) return false;
+			const sourceAbility = source.getAbility();
+			if (sourceAbility.isPermanent) return false;
+
+			
+			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard', 'terashell',
+				'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 'lightdrive', 'openingact', 'protosynthesis',
+				'quarkdrive', 'nanorepairs', 'firewall', 'weightoflife', 'circuitbreaker', 'ancientmarble',
+					'prehistorichunter', 'heatproofdrive', 'pillage'];
+			// TODO: research in what order these should be checked
+			if (
+				additionalBannedAbilities.includes(target.ability) || additionalBannedAbilities.includes(source.ability)
+				|| target.volatiles['dynamax']
+			) {
+				return false;
+			}
+			const sourceCanBeSet = this.runEvent('SetAbility', source, source, this.effect, targetAbility);
+			if (!sourceCanBeSet) return sourceCanBeSet;
+			const targetCanBeSet = this.runEvent('SetAbility', target, source, this.effect, sourceAbility);
+			if (!targetCanBeSet) return targetCanBeSet;
+		},
+		onHit(target, source, move) {
+			const targetAbility = target.getAbility();
+			const sourceAbility = source.getAbility();
+			if (target.isAlly(source)) {
+				this.add('-activate', source, 'move: Skill Swap', '', '', '[of] ' + target);
+			} else {
+				this.add('-activate', source, 'move: Skill Swap', targetAbility, sourceAbility, '[of] ' + target);
+			}
+			this.singleEvent('End', sourceAbility, source.abilityState, source);
+			this.singleEvent('End', targetAbility, target.abilityState, target);
+			source.ability = targetAbility.id;
+			target.ability = sourceAbility.id;
+			source.abilityState = {id: this.toID(source.ability), target: source};
+			target.abilityState = {id: this.toID(target.ability), target: target};
+			if (!target.isAlly(source)) target.volatileStaleness = 'external';
+			this.singleEvent('Start', targetAbility, source.abilityState, source);
+			this.singleEvent('Start', sourceAbility, target.abilityState, target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {spe: 1}},
+		contestType: "Clever",
 	},
 	boltbeak: {
 		inherit: true,
