@@ -4,6 +4,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleMoves: ["psychicfangs", "dragondance", "poltergeist", "closecombat"],
 		randomBattleLevel: 50,
 		requiredItem: "Life Orb",
+		forceTeraType: "Fairy",
   },
 	shaymin: {
 		tier: "YBS",
