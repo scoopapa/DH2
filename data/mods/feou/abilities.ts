@@ -278,8 +278,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
-			move.ignoreImmunity ||= {};
-			if (move.ignoreImmunity !== true) {
+			//if ignoreImmunity does not exist replace with blank object
+			//If it's not unconditional then populate Fighting and Normal fields
+			if ((move.ignoreImmunity ||= {}) !== true) {
 				move.ignoreImmunity['Fighting'] = true;
 				move.ignoreImmunity['Normal'] = true;
 			}
@@ -2777,8 +2778,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyMovePriority: -5,
 		onModifyMove(move, attacker, defender) {
 			if (!defender.hasType('Flying')) return; //Type-based immunities were specified, not ability-based. 
-			move.ignoreImmunity ||= {};
-			if (move.ignoreImmunity !== true) {
+			if ((move.ignoreImmunity ||= {}) !== true) {
 				move.ignoreImmunity['Ground'] = true;
 			}
 		},
