@@ -119,7 +119,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			let success = false;
 			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
 			for (const ally of allies) {
-				if (ally !== source && ((ally.hasAbility(['sapsipper','lawnmowerofruin','firedrinker'])) ||
+				if (ally !== source && ((ally.hasAbility(['sapsipper','pondweed','lawnmowerofruin','firedrinker'])) ||
 						(ally.volatiles['substitute'] && !move.infiltrates))) {
 					continue;
 				}
