@@ -10,7 +10,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
 			}
 	
-			const type = pokemon.forceTeraType;
+			const type = pokemon.species.forceTeraType;
 			this.battle.add('-terastallize', pokemon, type);
 			pokemon.terastallized = type;
 			for (const ally of pokemon.side.pokemon) {
