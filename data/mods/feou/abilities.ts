@@ -1575,8 +1575,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMove(move) {
 			if (!move || !(move.recoil || move.hasCrashDamage) || move.target === 'self') return;
-			move.secondaries ||= [];
-			move.secondaries.push({
+			(move.secondaries ||= []).push({
 				chance: 30,
 				status: 'par',
 				ability: this.dex.abilities.get('shellshock'),
@@ -1781,8 +1780,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onModifyMove(move) {
 			if (!move || !move.flags['slicing'] || move.target === 'self') return;
-			move.secondaries ||= [];
-			move.secondaries.push({
+			(move.secondaries ||= []).push({
 				chance: 30,
 				status: 'psn',
 				ability: this.dex.abilities.get('rebelsblade'),
