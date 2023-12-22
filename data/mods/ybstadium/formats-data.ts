@@ -143,4 +143,4 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		randomBattleLevel: 50,
 		requiredItem: "Light Ball",
 	},
-}:
+};
