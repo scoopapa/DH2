@@ -100,19 +100,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-clearboost', target, '[from] move: Titan\'s Judgment');
 			if (target.volatiles['protosynthesis']) {
 				delete target.volatiles['protosynthesis'];
-				this.add('-end', target, 'Protosynthesis', '[silent]');
+				this.add('-end', target, 'Protosynthesis');
+				this.hint("Protosynthesis was removed by Titan's Judgment.");
 			}
 			if (target.volatiles['quarkdrive']) {
 				delete target.volatiles['quarkdrive'];
-				this.add('-end', target, 'Quark Drive', '[silent]');
+				this.add('-end', target, 'Quark Drive');
+				this.hint("Quark Drive was removed by Titan's Judgment.");
 			}
 		},
 		onPrepareHit: function(target, source) {	
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Core Enforcer", target);
 		},
-		shortDesc: "Resets target's positive stat stages.",
-		desc: "Resets target's positive stat stages.",
+		shortDesc: "Resets target's stat stages, including from Protosynthesis and Quark Drive.",
+		desc: "Resets target's stat stages, as well as boosts from Protosynthesis and Quark Drive.",
 		secondary: null,
 		target: "normal",
 		type: "Steel",
