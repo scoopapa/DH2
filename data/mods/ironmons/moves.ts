@@ -101,12 +101,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (target.volatiles['protosynthesis']) {
 				delete target.volatiles['protosynthesis'];
 				this.add('-end', target, 'Protosynthesis');
-				this.hint("Protosynthesis was removed by Titan's Judgment.");
 			}
 			if (target.volatiles['quarkdrive']) {
 				delete target.volatiles['quarkdrive'];
 				this.add('-end', target, 'Quark Drive');
-				this.hint("Quark Drive was removed by Titan's Judgment.");
 			}
 		},
 		onPrepareHit: function(target, source) {	
