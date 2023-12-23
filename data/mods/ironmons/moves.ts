@@ -96,25 +96,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onHit(target) {
-			console.log(target);
-			let success = false;
-			let i: BoostID;
-			for (i in target.boosts) {
-				console.log(i, " est à ", target.boosts[i]);
-				if (target.boosts[i] > 0) target.boosts[i] = 0;
-				success = true;
-			}
-			if (!success) return false;
+			target.clearBoosts();
 			this.add('-clearboost', target, '[from] move: Titan\'s Judgment');
-			console.log(target.volatiles['protosynthesis']);
 			if (target.volatiles['protosynthesis']) {
 				delete target.volatiles['protosynthesis'];
-				this.add('-end', target, 'move: Titan\'s Judgment', '[silent]');
+				this.add('-end', target, 'Protosynthesis', '[silent]');
 			}
-			console.log(target.volatiles['quarkdrive']);
 			if (target.volatiles['quarkdrive']) {
 				delete target.volatiles['quarkdrive'];
-				this.add('-end', target, 'move: Titan\'s Judgment', '[silent]');
+				this.add('-end', target, 'Quark Drive', '[silent]');
 			}
 		},
 		onPrepareHit: function(target, source) {	
