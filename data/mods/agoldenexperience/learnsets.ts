@@ -3337,7 +3337,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			psychicfangs: ["9M"],
 			punishment: ["9E"],
 			punishingblow: ["9M"],
-			pursuit: ["9E"],
 			rage: ["9E"],
 			ragingfury: ["9E", "9L39"],
 			rest: ["9M"],
