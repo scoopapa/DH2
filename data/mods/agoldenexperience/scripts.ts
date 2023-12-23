@@ -132,14 +132,12 @@ export const Scripts: ModdedBattleScriptsData = {
 
     // headlongrush 
     this.modData('Learnsets', 'copperajah').learnset.headlongrush = ['9L1'];
-    this.modData('Learnsets', 'donphan').learnset.headlongrush = ['9L1'];
     this.modData('Learnsets', 'bouffalant').learnset.headlongrush = ['9L1'];
     this.modData('Learnsets', 'mamoswine').learnset.headlongrush = ['9L1'];
 
     // ragingfury 
     this.modData('Learnsets', 'emboar').learnset.ragingfury = ['9L1'];
     this.modData('Learnsets', 'darmanitan').learnset.ragingfury = ['9L1'];
-    this.modData('Learnsets', 'baskiron').learnset.ragingfury = ['9L1'];
 
     // wavecrash 
     this.modData('Learnsets', 'kabutops').learnset.wavecrash = ['9L1'];
@@ -150,7 +148,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'carracosta').learnset.wavecrash = ['9L1'];
 
     // mountaingale 
-    this.modData('Learnsets', 'avalugg').learnset.mountaingale = ['9L1'];
     this.modData('Learnsets', 'abomasnow').learnset.mountaingale = ['9L1'];
     this.modData('Learnsets', 'crabominable').learnset.mountaingale = ['9L1'];
     this.modData('Learnsets', 'beartic').learnset.mountaingale = ['9L1'];
@@ -205,9 +202,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'growlithehisui').learnset.underdog = ['9L1'];
     this.modData('Learnsets', 'arcanine').learnset.underdog = ['9L1'];
     this.modData('Learnsets', 'arcaninehisui').learnset.underdog = ['9L1'];
-    this.modData('Learnsets', 'houndour').learnset.underdog = ['9L1'];
-    this.modData('Learnsets', 'houndourgalar').learnset.underdog = ['9L1'];
-    this.modData('Learnsets', 'houndoom').learnset.underdog = ['9L1'];
     this.modData('Learnsets', 'yamper').learnset.underdog = ['9L1'];
     this.modData('Learnsets', 'boltund').learnset.underdog = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.underdog = ['9L1'];
@@ -220,7 +214,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'charizard').learnset.flamingsphere = ['9T'];
     this.modData('Learnsets', 'magmar').learnset.flamingsphere = ['9T'];
     this.modData('Learnsets', 'moltres').learnset.flamingsphere = ['9T'];
-    this.modData('Learnsets', 'houndoom').learnset.flamingsphere = ['9T'];
     this.modData('Learnsets', 'entei').learnset.flamingsphere = ['9T'];
     this.modData('Learnsets', 'hooh').learnset.flamingsphere = ['9T'];
     this.modData('Learnsets', 'magmortar').learnset.flamingsphere = ['9T'];
@@ -236,7 +229,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'reshiram').learnset.fireball = ['9T'];
     this.modData('Learnsets', 'mismagius').learnset.fireball = ['9T'];
     this.modData('Learnsets', 'delphox').learnset.fireball = ['9T'];
-    this.modData('Learnsets', 'houndoom').learnset.fireball = ['9T'];
     this.modData('Learnsets', 'ninetales').learnset.fireball = ['9T'];
     this.modData('Learnsets', 'chandelure').learnset.fireball = ['9T'];
     this.modData('Learnsets', 'magmortar').learnset.fireball = ['9T'];
@@ -259,8 +251,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'litwick').learnset.backfire = ['9L1'];
     this.modData('Learnsets', 'lampent').learnset.backfire = ['9L1'];
     this.modData('Learnsets', 'chandelure').learnset.backfire = ['9L1'];
-    this.modData('Learnsets', 'houndour').learnset.backfire = ['9L1'];
-    this.modData('Learnsets', 'houndoom').learnset.backfire = ['9L1'];
     this.modData('Learnsets', 'marowakalola').learnset.backfire = ['9L1'];
     this.modData('Learnsets', 'vulpix').learnset.backfire = ['9L1'];
     this.modData('Learnsets', 'ninetales').learnset.backfire = ['9L1'];
@@ -567,7 +557,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'annihilape').learnset.punishingblow = ['9L1'];
     this.modData('Learnsets', 'slendawful').learnset.punishingblow = ['9L1'];
     this.modData('Learnsets', 'paranormear').learnset.punishingblow = ['9L1'];
-    this.modData('Learnsets', 'baskiron').learnset.punishingblow = ['9L1'];
 
     // condensate 
     this.modData('Learnsets', 'ninetalesalola').learnset.condensate = ['9L1'];
@@ -690,7 +679,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'regidrago').learnset.draconicfury = ['9L1'];
 
     // contrariety 
-    this.modData('Learnsets', 'houndour').learnset.contrariety = ['9T'];
     this.modData('Learnsets', 'larvitar').learnset.contrariety = ['9T'];
     this.modData('Learnsets', 'carvanha').learnset.contrariety = ['9T'];
     this.modData('Learnsets', 'pawniard').learnset.contrariety = ['9T'];
@@ -974,8 +962,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'octillery').learnset.aurasphere = ['9L1'];
     this.modData('Learnsets', 'octillery').learnset.terrainpulse = ['9L1'];
     this.modData('Learnsets', 'mantine').learnset.flipturn = ['9L1'];
-    this.modData('Learnsets', 'houndour').learnset.dantesinferno = ['9L1'];
-    this.modData('Learnsets', 'houndoom').learnset.dantesinferno = ['9L1'];
     this.modData('Learnsets', 'tyranitar').learnset.rockwrecker = ['9T'];
 
     // Gen 3:
@@ -1758,11 +1744,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'pinsir').learnset.hiddenpower;
     delete this.modData('Learnsets', 'gyarados').learnset.hiddenpower;
     delete this.modData('Learnsets', 'lapras').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'eevee').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'vaporeon').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'jolteon').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'flareon').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'porygon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'kabuto').learnset.hiddenpower;
     delete this.modData('Learnsets', 'kabutops').learnset.hiddenpower;
     delete this.modData('Learnsets', 'aerodactyl').learnset.hiddenpower;
@@ -1818,8 +1799,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'yanma').learnset.hiddenpower;
     delete this.modData('Learnsets', 'wooper').learnset.hiddenpower;
     delete this.modData('Learnsets', 'quagsire').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'espeon').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'umbreon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'murkrow').learnset.hiddenpower;
     delete this.modData('Learnsets', 'slowking').learnset.hiddenpower;
     delete this.modData('Learnsets', 'misdreavus').learnset.hiddenpower;
@@ -1849,12 +1828,9 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'delibird').learnset.hiddenpower;
     delete this.modData('Learnsets', 'mantine').learnset.hiddenpower;
     delete this.modData('Learnsets', 'skarmory').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'houndour').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'houndoom').learnset.hiddenpower;
     delete this.modData('Learnsets', 'kingdra').learnset.hiddenpower;
     delete this.modData('Learnsets', 'phanpy').learnset.hiddenpower;
     delete this.modData('Learnsets', 'donphan').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'porygon2').learnset.hiddenpower;
     delete this.modData('Learnsets', 'stantler').learnset.hiddenpower;
     delete this.modData('Learnsets', 'tyrogue').learnset.hiddenpower;
     delete this.modData('Learnsets', 'hitmontop').learnset.hiddenpower;
@@ -1972,7 +1948,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'feebas').learnset.hiddenpower;
     delete this.modData('Learnsets', 'milotic').learnset.hiddenpower;
     delete this.modData('Learnsets', 'castform').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'kecleon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'shuppet').learnset.hiddenpower;
     delete this.modData('Learnsets', 'banette').learnset.hiddenpower;
     delete this.modData('Learnsets', 'duskull').learnset.hiddenpower;
@@ -2091,11 +2066,8 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'magmortar').learnset.hiddenpower;
     delete this.modData('Learnsets', 'togekiss').learnset.hiddenpower;
     delete this.modData('Learnsets', 'yanmega').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'leafeon').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'glaceon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'gliscor').learnset.hiddenpower;
     delete this.modData('Learnsets', 'mamoswine').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'porygonz').learnset.hiddenpower;
     delete this.modData('Learnsets', 'gallade').learnset.hiddenpower;
     delete this.modData('Learnsets', 'probopass').learnset.hiddenpower;
     delete this.modData('Learnsets', 'dusknoir').learnset.hiddenpower;
@@ -2277,13 +2249,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'chespin').learnset.hiddenpower;
     delete this.modData('Learnsets', 'quilladin').learnset.hiddenpower;
     delete this.modData('Learnsets', 'chesnaught').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'fennekin').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'braixen').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'delphox').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'froakie').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'frogadier').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'greninja').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'greninjaash').learnset.hiddenpower; 
     delete this.modData('Learnsets', 'bunnelby').learnset.hiddenpower;
     delete this.modData('Learnsets', 'diggersby').learnset.hiddenpower;
     delete this.modData('Learnsets', 'fletchling').learnset.hiddenpower;
@@ -2324,7 +2289,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'tyrantrum').learnset.hiddenpower;
     delete this.modData('Learnsets', 'amaura').learnset.hiddenpower;
     delete this.modData('Learnsets', 'aurorus').learnset.hiddenpower;
-    // delete this.modData('Learnsets', 'sylveon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'hawlucha').learnset.hiddenpower;
     delete this.modData('Learnsets', 'dedenne').learnset.hiddenpower;
     delete this.modData('Learnsets', 'carbink').learnset.hiddenpower;

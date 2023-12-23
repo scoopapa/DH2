@@ -772,7 +772,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		forme: "Galar",
 		types: ["Ghost", "Fire"],
 		baseStats: {hp: 45, atk: 80, def: 45, spa: 50, spd: 50, spe: 60},
-		abilities: {0: "Tough Claws", 1: "Intimidate", H: "Flash Fire"},
+		abilities: {0: "Flash Fire", 1: "Intimidate", H: "Magic Guard"},
 		heightm: 0.6,
 		weightkg: 10.8,
 		color: "Purple",
@@ -3205,7 +3205,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	fluttermane: {
 		inherit: true,
-		types: ["Ghost", "Flying"],
+		baseStats: {hp: 65, atk: 65, def: 65, spa: 125, spd: 135, spe: 115},
 		abilities: {0: "Protosynthesis", H: "Levitate"},
 	},
 	slitherwing: {
@@ -3896,7 +3896,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		name: "Baskiron",
 		types: ["Ghost", "Fire"],
 		baseStats: {hp: 75, atk: 115, def: 70, spa: 85, spd: 65, spe: 90},
-		abilities: {0: "Tough Claws", 1: "Intimidate", H: "Magic Guard"},
+		abilities: {0: "Flash Fire", 1: "Intimidate", H: "Magic Guard"},
 		heightm: 1.4,
 		weightkg: 42,
 		prevo: "Houndour-Galar",
