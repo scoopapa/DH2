@@ -554,7 +554,6 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			bodyslam: ["9M"],
 			breakingswipe: ["9M"],
 			brickbreak: ["9M", "7M", "6M"],
-			coreenforcer: ["9L1", "7T"],
 			dig: ["9M", "8L16", "7L10", "7S2", "6M", "6L10"],
 			dracometeor: ["9T", "7T", "6T"],
 			dragonbreath: ["9L1", "7L1", "7S5", "7S6", "6L1"],
@@ -602,7 +601,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			aurasphere: ["9L1"],
 			terablast: ["9L1"],
 			voltswitch: ["9L1"],
-			titansjudgement: ["9L1"],
+			titansjudgment: ["9L1"],
 		},
 	},
 	ironiron: {
