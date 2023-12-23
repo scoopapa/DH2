@@ -4235,7 +4235,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	badapple: {
 		num: -66,
-		name: "Appletun",
+		name: "Badapple",
 		types: ["Grass", "Dragon"],
 		baseStats: {hp: 130, atk: 85, def: 90, spa: 115, spd: 90, spe: 30},
 		abilities: {0: "Ripen", 1: "Corrosion", H: "Thick Fat"},

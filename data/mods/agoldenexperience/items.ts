@@ -167,7 +167,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		spritenum: 578,
 		megaStone: "Typhlosion-Mega",
 		megaEvolves: "Typhlosion",
-		itemUser: ["Typhlosion"],
+		itemUser: ["Typhlosion", "Typhlosion-Hisui"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
@@ -553,6 +553,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: -39,
 		gen: 9,
 		desc: "If held by a Infarmatem, this item allows it to Mega Evolve in battle.",
+	},
+	slowbronite: {
+		inherit: true,
+		itemUser: ["Slowbro", "Slowbro-Galar"],
+	},
+	scizorite: {
+		inherit: true,
+		itemUser: ["Scizor", "Scizor-Galar"],
 	},
 
 	chakraseed: {
