@@ -605,7 +605,7 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			titansjudgement: ["8L1"],
 		},
 	},
-	registeel: {
+	ironiron: {
 		learnset: {
 			amnesia: ["9M", "9L36", "8M", "8L36", "7L37", "6L37", "6S4", "5L41", "5S3", "4L41", "3L41"],
 			ancientpower: ["9L12", "8L12", "7L31", "6L31", "6S4", "5L33", "4T", "4L33", "3L33", "3S0", "3S1"],
