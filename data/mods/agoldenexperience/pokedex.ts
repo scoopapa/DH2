@@ -1356,6 +1356,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	vespiquen: {
 		inherit: true,
+		baseStats: {hp: 90, atk: 100, def: 112, spa: 50, spd: 112, spe: 40},
 		abilities: {0: "Pressure", 1: "Magic Guard", H: "Unnerve"},
 	},
 	buizel: {
