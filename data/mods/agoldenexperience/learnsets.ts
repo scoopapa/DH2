@@ -5285,4 +5285,16 @@ export const Learnsets: { [speciesid: string]: LearnsetData; } = {
 			powerwhip: ["9L1"],
 		},
 	},
+	isaapple: {
+		learnset: {
+			earthquake: ["9L1"],
+			closecombat: ["9L1"],
+			skydrop: ["9L1"],
+		},
+	},
+	badapple: {
+		learnset: {
+			toxic: ["9L1"],
+		},
+	},
 };

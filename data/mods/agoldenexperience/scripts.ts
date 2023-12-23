@@ -10,8 +10,11 @@ export const Scripts: ModdedBattleScriptsData = {
       ) {
         return altForme.name;
       }
-      if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
-        return null;
+      if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro") {
+        return "Slowbro-Mega";
+      }
+      else if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
+        return "Slowbro-Galar-Mega";
       }
       else if (item.name === "Zoroarkite" && pokemon.baseSpecies.name === "Zoroark-Hisui") {
         return null;
@@ -22,8 +25,11 @@ export const Scripts: ModdedBattleScriptsData = {
       else if (item.name === "Scizorite" && pokemon.baseSpecies.name === "Scizor-Galar") {
         return "Scizor-Galar-Mega";
       }
+      else if (item.name === "Typhlosionite" && pokemon.baseSpecies.name === "Typhlosion") {
+        return "Typhlosion-Mega";
+      }
       else if (item.name === "Typhlosionite" && pokemon.baseSpecies.name === "Typhlosion-Hisui") {
-        return null;
+        return "Typhlosion-Hisui-Mega";
       }
       else if (item.name === "Magcargonite" && pokemon.baseSpecies.name === "Magcargo-Sinnoh") {
         return null;
@@ -83,6 +89,7 @@ export const Scripts: ModdedBattleScriptsData = {
   init() {
 
     // Gen 9 tmp
+    this.modData('Learnsets', 'typhlosionhisui').learnset.moonlight = ['9L1'];
     this.modData('Learnsets', 'samurotthisui').learnset.assurance = ['9L1'];
     this.modData('Learnsets', 'decidueyehisui').learnset.spikes = ['9L1'];
     this.modData('Learnsets', 'basculegion').learnset.shadowsneak = ['9L1'];
@@ -1323,7 +1330,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'boltund').learnset.doubleshock = ['9L1'];
     this.modData('Learnsets', 'boltund').learnset.extremespeed = ['9L1'];
     this.modData('Learnsets', 'boltund').learnset.icefang = ['9L1'];
-    this.modData('Learnsets', 'appletun').learnset.toxic = ['9L1'];
     this.modData('Learnsets', 'sandaconda').learnset.shoreup = ['9L1'];
     this.modData('Learnsets', 'cramorant').learnset.toxic = ['9L1'];
     this.modData('Learnsets', 'toxtricity').learnset.sonicboom = ['9L1'];
