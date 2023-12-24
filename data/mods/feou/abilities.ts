@@ -102,7 +102,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	  name: "Galvanic Relay",
     },
 	forestfury: {
-	  shortDesc: "Intimidate + Hyper Cutter + This Pokemon can't be statused by opponents.",
+	  shortDesc: "Intimidate + Hyper Cutter + Cannot be statused by opponents.",
 		onStart(pokemon) {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
@@ -1380,7 +1380,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 	},
 	ironsights: {
-	  shortDesc: "This Pokemon's Attack, Special Attack, and accuracy are x1.33.",
+		shortDesc: "x1.33 Atk/SpA/Acc.",
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk) {
 			return this.chainModify([5461, 4096]);
@@ -1953,7 +1953,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onAllySetStatus(status, target, source, effect) {
-			if (target.hasType('Fire') && source && target !== source && effect && effect.id !== 'yawn') {
+			if (source && target !== source && effect && effect.id !== 'yawn' && target.hasType('Fire')) {
 				this.debug('interrupting setStatus with Burning Petals');
 				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
 					const effectHolder = this.effectState.target;
@@ -2638,7 +2638,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name}'s Lawnmower of Ruin weakened the Sp. Atk of all surrounding Pokémon!`);
 		},
 		onAnyModifySpA(spa, source, target, move) {
-			if (source.hasAbility(['Vessel of Ruin', 'Lawnmower of Ruin'])) return;
+			if (source.hasAbility(['Lawnmower of Ruin', 'Vessel of Ruin'])) return;
 			const abilityHolder = this.effectState.target;
 			if (!move.ruinedSpA) move.ruinedSpA = abilityHolder;
 			else if (move.ruinedSpA !== abilityHolder) return;
@@ -2795,7 +2795,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			
 			//let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
-				if (!target.boosts['spe']) continue;
+				if (!target.boosts.spe) continue;
 			//	if (!activated) {
 			//		this.add('-ability', pokemon, 'Lively Locks', 'boost');
 			//		activated = true;
@@ -2803,7 +2803,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			//	if (target.volatiles['substitute']) {
 			//		this.add('-immune', target);
 			//	} else {
-					this.boost({spe: target.boosts['spe']}, pokemon);
+					this.boost({spe: target.boosts.spe}, pokemon);
 					return;
 			//	}
 			}
@@ -2893,14 +2893,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceModifyAtkPriority: 6,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof Atk weaken');
+				this.debug('Heatproof Drive Atk weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onSourceModifySpAPriority: 5,
 		onSourceModifySpA(atk, attacker, defender, move) {
 			if (move.type === 'Fire') {
-				this.debug('Heatproof SpA weaken');
+				this.debug('Heatproof Drive SpA weaken');
 				return this.chainModify(0.5);
 			}
 		},
