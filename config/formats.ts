@@ -1899,21 +1899,6 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Black & White 3",
-
-		mod: 'blackandwhite3',
-		teambuilderFormat: 'National Dex',
-		ruleset: ['Standard NatDex', 'Data Mod'],
-		banlist: ['Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass',
-		'Last Respects', 'Shed Tail', 
-		'Sceptilite', 'Blazikenite', 'Swampertite', 'Gardevoirite', 'Galladite', 'Alakazite', 'Gyaradosite',
-		'Sablenite', 'Mawilite', 'Aggronite', 'Medichamite', 'Manectite', 'Sharpedonite', 'Cameruptite', 
-		'Altarianite', 'Absolite', 'Glalitite', 'Salamencite', 'Metagrossite', 'Latiasite', 'Latiosite', 
-		'Garchompite', 'Steelixite', 'Beedrillite', 'Pidgeotite', 
-		'Blue Orb', 'Red Orb', //this is just copied from ANL's lol
-	],
-	},
-	{
 		name: "[Gen 9] Conquest Dex",
 		mod: 'conquestdex',
 		desc: `A metagame based on the pokemon side game pokemon conquest`,
