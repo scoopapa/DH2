@@ -119,11 +119,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			let success = false;
 			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
 			for (const ally of allies) {
-				if (ally !== source && ((ally.hasAbility(['sapsipper','pondweed','lawnmowerofruin','firedrinker'])) ||
-						(ally.volatiles['substitute'] && !move.infiltrates))) {
-					continue;
+				if ((ally === source || !(ally.hasAbility(['sapsipper','pondweed','lawnmowerofruin','firedrinker']) ||
+						(ally.volatiles['substitute'] && !move.infiltrates))) && ally.cureStatus() ) {
+					success = true;
 				}
-				if (ally.cureStatus()) success = true;
 			}
 			return !!success;
 		},
@@ -197,8 +196,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				let applies = !!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','airbornearmor','aircontrol','holygrail','risingtension','freeflight','hellkite']));
-				applies &&= !(pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity'));
+				let applies = !(!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','airbornearmor','aircontrol','holygrail','risingtension','freeflight','hellkite']))
+										|| pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity'));
 				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
 					applies = true;
 					this.queue.cancelMove(pokemon);
