@@ -123,7 +123,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		forme: "Mega",
 		types: ["Normal", "Fairy"],
 		baseStats: {hp: 140, atk: 93, def: 50, spa: 120, spd: 90, spe: 90},
-		abilities: {0: "Fluffy"},
+		abilities: {0: "Fur Coat"},
 		heightm: 1,
 		weightkg: 24,
 		color: "Pink",
