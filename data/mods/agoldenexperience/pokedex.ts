@@ -2431,7 +2431,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	lycanroc: {
 		inherit: true,
-		types: ["Rock", "Normal"],
+		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Sturdy"},
 	},
 	lycanrocmidnight: {
 		inherit: true,
