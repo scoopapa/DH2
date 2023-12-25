@@ -367,7 +367,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	meowscarada: {
 		tier: "YBS",
 		requiredItem: "Eject Pack",
-		randomBattleMoves: ["leafstorm", "powergem", "aurasphere", "spikes"],
+		randomBattleMoves: ["leafstorm", "powergem", "aurasphere", "nightslash"],
 	},
 	mienshao: {
 		tier: "YBS",
@@ -392,209 +392,261 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	murkrow: {
 		tier: "YBS",
 		requiredItem: "Eviolite",
+		randomBattleMoves: ["drillpeck", "lashout", "uturn", "haze"],
 	},
 	ninjask: {
 		tier: "YBS",
 		requiredItem: "Heavy-Duty Boots",
+		randomBattleMoves: ["uturn", "dualwingbeat", "defog", "nightslash"],
 	},
 	oricoriosensu: {
 		tier: "YBS",
 		requiredItem: "Flying Gem",
+		randomBattleMoves: ["revelationdance", "acrobatics", "steelwing", "swordsdance"],
 	},
 	pelipper: {
 		tier: "YBS",
 		requiredItem: "Heavy-Duty Boots",
+		randomBattleMoves: ["hydropump", "shockwave", "roost", "defog"],
 	},
 	pikachu: {
 		tier: "YBS",
 		requiredItem: "Light Ball",
+		randomBattleMoves: ["volttackle", "extremespeed", "fly", "surf"],
 	},
 	pincurchin: {
 		tier: "YBS",
 		requiredItem: "Life Orb",
+		randomBattleMoves: ["zingzap", "suckerpunch", "spikes", "liquidation"],
 	},
 	politoed: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["liquidation", "earthquake", "haze", "hypnosis"],
 	},
 	primeape: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["drainpunch", "ragefist", "thunder", "workup"],
 	},
 	qwilfishhisui: {
 		tier: "YBS",
 		requiredItem: "Eviolite",
+		randomBattleMoves: ["toxicspikes", "explosion", "gunkshot", "lashout"],
 	},
 	raticate: {
 		tier: "YBS",
 		requiredItem: "Flame Orb",
+		randomBattleMoves: ["facade", "flamewheel", "quickattack", "protect"],
 	},
 	revavroom: {
 		tier: "YBS",
 		requiredItem: "Lum Berry",
+		randomBattleMoves: ["shiftgear", "noxioustorque", "assurance", "temperflare"],
 	},
 	runerigus: {
 		tier: "YBS",
 		requiredItem: "Kasib Berry",
+		randomBattleMoves: ["zenheadbutt", "shadowclaw", "earthquake", "toxicspikes"],
 	},
 	sableye: {
 		tier: "YBS",
 		requiredItem: "Kee Berry",
+		randomBattleMoves: ["calmmind", "darkpulse", "dazzlinggleam", "recover"],
 	},
 	sandslashalola: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["icespinner", "irontail", "rapidspin", "stealthrock"],
 	},
 	sawk: {
 		tier: "YBS",
 		requiredItem: "Salac Berry",
+		randomBattleMoves: ["lowkick", "grassknot", "thunderpunch", "counter"],
 	},
 	screamtail: {
 		tier: "YBS",
 		requiredItem: "Booster Energy",
+		randomBattleMoves: ["psychicnoise", "playrough", "metronome", "stealthrock"],
 	},
 	shiftry: {
 		tier: "YBS",
 		requiredItem: "Chesto Berry",
+		randomBattleMoves: ["bulletseed", "foulplay", "naturalgift", "tailwind"],
 	},
 	sigilyph: {
 		tier: "YBS",
 		requiredItem: "Wise Glasses",
+		randomBattleMoves: ["defog", "expandingforce", "signalbeam", "airslash"],
 	},
 	silvally: {
 		tier: "YBS",
 		requiredItem: "Fairy Memory",
+		randomBattleMoves: ["multiattack", "firepledge", "waterpledge", "grasspledge"],
 	},
 	simisear: {
 		tier: "YBS",
 		requiredItem: "Petaya Berry",
+		randomBattleMoves: ["heatwave", "terablast", "substitute", "flamecharge"],
 	},
 	sirfetchd: {
 		tier: "YBS",
 		requiredItem: "Leek",
+		randomBattleMoves: ["meteorassault", "firstimpression", "revenge", "knockoff"],
 	},
 	skarmory: {
 		tier: "YBS",
 		requiredItem: "Rocky Helmet",
+		randomBattleMoves: ["defog", "roost", "steelwing", "drillpeck"],
 	},
 	skuntank: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["temperflare", "venoshock", "crunch", "toxicspikes"],
 	},
 	slowbro: {
 		tier: "YBS",
 		requiredItem: "Berserk Gene",
+		randomBattleMoves: ["liquidation", "zenheadbutt", "earthquake", "slackoff"],
 	},
 	sneaselhisui: {
 		tier: "YBS",
 		requiredItem: "Big Nugget",
+		randomBattleMoves: ["honeclaws", "gunkshot", "lowkick", "fling"],
 	},
 	spectrier: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["hiddenpowerghost", "mudshot", "swift", "taunt"],
 	},
 	stoutland: {
 		tier: "YBS",
 		requiredItem: "Silk Scarf",
+		randomBattleMoves: ["workup", "strength", "icefang", "stompingtantrum"],
 	},
 	swellow: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["boomburst", "airslash", "workup", "refresh"],
 	},
 	sylveon: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["trumpcard", "mysticalfire", "detect", "calmmind"],
 	},
 	tapubulu: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["seedbomb", "brickbreak", "whirlwind", "naturesmadness"],
 	},
 	tapufini: {
 		tier: "YBS",
 		requiredItem: "Sitrus Berry",
+		randomBattleMoves: ["liquidation", "alluringvoice", "defog", "naturesmadness"],
 	},
 	tapukoko: {
 		tier: "YBS",
 		requiredItem: "Electric Seed",
+		randomBattleMoves: ["spark", "acrobatics", "assurance", "naturesmadness"],
 	},
 	tapulele: {
 		tier: "YBS",
 		requiredItem: "Life Orb",
+		randomBattleMoves: ["psychocut", "playrough", "taunt", "naturesmadness"],
 	},
 	thwackey: {
 		tier: "YBS",
 		requiredItem: "Eviolite",
+		randomBattleMoves: ["grassyglide", "drainpunch", "uturn", "swordsdance"],
 	},
 	torkoal: {
 		tier: "YBS",
 		requiredItem: "Eject Pack",
+		randomBattleMoves: ["burningjealousy", "earthpower", "rapidspin", "shellsmash"],
 	},
 	toucannon: {
 		tier: "YBS",
 		requiredItem: "Heavy-Duty Boots",
+		randomBattleMoves: ["spikecannon", "beakblast", "defog", "roost"],
 	},
 	trevenant: {
 		tier: "YBS",
 		requiredItem: "Custap Berry",
+		randomBattleMoves: ["shadowclaw", "seedbomb", "endure", "poweruppunch"],
 	},
 	tyrantrum: {
 		tier: "YBS",
 		requiredItem: "Life Orb",
+		randomBattleMoves: ["icefang", "thunderfang", "rockslide", "rockpolish"],
 	},
 	umbreon: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["darkpulse", "toxic", "moonlight", "batonpass"],
 	},
 	urshifu: {
 		tier: "YBS",
 		requiredItem: "Roseli Berry",
+		randomBattleMoves: ["bodypress", "assurance", "aerialace", "irondefense"],
 	},
 	vanilluxe: {
 		tier: "YBS",
 		requiredItem: "Silk Scarf",
+		randomBattleMoves: ["frostbreath", "explosion", "flashcannon", "terablast"],
 	},
 	vaporeon: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
+		randomBattleMoves: ["snipeshot", "alluringvoice", "aquaring", "batonpass"],
 	},
 	veluza: {
 		tier: "YBS",
 		requiredItem: "Scope Lens",
+		randomBattleMoves: ["aquacutter", "storedpower", "recover", "filletaway"],
 	},
 	vigoroth: {
 		tier: "YBS",
 		requiredItem: "Eviolite",
+		randomBattleMoves: ["bulkup", "doubleedge", "knockoff", "slackoff"],
 	},
 	vikavolt: {
 		tier: "YBS",
 		requiredItem: "Sitrus Berry",
+		randomBattleMoves: ["supercellslam", "signalbeam", "flashcannon", "roost"],
 	},
 	volcarona: {
 		tier: "YBS",
 		requiredItem: "Heavy-Duty Boots",
+		randomBattleMoves: ["mysticalfire", "uturn", "morningsun", "defog"],
 	},
 	vulpix: {
 		tier: "YBS",
 		requiredItem: "Life Orb",
+		randomBattleMoves: ["nastyplot", "fireblast", "energyball", "darkpulse"],
 	},
 	wartortle: {
 		tier: "YBS",
 		requiredItem: "Eviolite",
+		randomBattleMoves: ["shellsmash", "wavecrash", "icespinner", "earthquake"],
 	},
 	weavile: {
 		tier: "YBS",
 		requiredItem: "Focus Sash",
+		randomBattleMoves: ["iceshard", "beatup", "brickbreak", "taunt"],
 	},
 	weezing: {
 		tier: "YBS",
 		requiredItem: "Figy Berry",
+		randomBattleMoves: ["sludgewave", "flamethrower", "corrosivegas", "torment"],
 	},
 	weezinggalar: {
 		tier: "YBS",
 		requiredItem: "Fairy Gem",
+		randomBattleMoves: ["mistyexplosion", "playrough", "sludgebomb", "gyroball"],
 	},
 	whimsicott: {
 		tier: "YBS",
 		requiredItem: "Choice Specs",
+		randomBattleMoves: ["grassknot", "dazzlinggleam", "naturepower", "switcheroo"],
 	},
 };
