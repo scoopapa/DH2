@@ -455,6 +455,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Disguise"},
 		forceTeraType: "Steel",
 	},
+	mimikyubusted: {
+		inherit: true,
+		requiredItem: "Red Card",
+		abilities: {0: "Disguise"},
+		forceTeraType: "Steel",
+	},
 	mismagius: {
 		inherit: true,
 		requiredItem: "Magnet",
