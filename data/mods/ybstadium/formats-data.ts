@@ -221,8 +221,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	grafaiai: {
 		tier: "YBS",
-		requiredItem: "Focus Sash",
-		randomBattleMoves: ["swordsdance", "crosspoison", "slash", "uturn"],
+		requiredItem: "Loaded Dice",
+		randomBattleMoves: ["encore", "venoshock", "tailslap", "uturn"],
 	},
 	guzzlord: {
 		tier: "YBS",
