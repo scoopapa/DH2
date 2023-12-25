@@ -265,7 +265,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	grafaiai: {
 		inherit: true,
-		requiredItem: "Focus Sash",
+		requiredItem: "Loaded Dice",
 		abilities: {0: "Poison Touch"},
 		forceTeraType: "Poison",
 	},
@@ -440,7 +440,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	meowscarada: {
 		inherit: true,
 		requiredItem: "Eject Pack",
-		abilities: {0: "Overgrow"},
+		abilities: {0: "Protean"},
 		forceTeraType: "Grass",
 	},
 	mienshao: {
