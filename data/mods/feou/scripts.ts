@@ -173,17 +173,10 @@ export const Scripts: ModdedBattleScriptsData = {
 		
 				// Dancer's activation order is completely different from any other event, so it's handled separately
 				if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
-					/*const dancers = this.battle.getAllActive().filter(
+					const dancers = this.battle.getAllActive().filter(
 						(currentPoke) => (currentPoke.hasAbility('choreography') && pokemon !== currentPoke
 						&& !currentPoke.abilityState.choreography && !currentPoke.fainted && !currentPoke.isSemiInvulnerable())
-					);*/
-					const dancers = [];
-					for (const currentPoke of this.battle.getAllActive()) {
-						if (currentPoke.hasAbility('choreography') && pokemon !== currentPoke && !currentPoke.abilityState.choreography
-							 && !currentPoke.isSemiInvulnerable() && !currentPoke.fainted) {
-							dancers.push(currentPoke);
-						}
-					}
+					);
 					// Dancer activates in order of lowest speed stat to highest
 					// Note that the speed stat used is after any volatile replacements like Speed Swap,
 					// but before any multipliers like Agility or Choice Scarf
@@ -461,7 +454,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 				if (isCrit && !suppressMessages) this.battle.add('-crit', target);
 
-				if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility(['guts','feistytempo','wellbakedflameorb'])
+				if (pokemon.status === 'brn' && move.category === 'Physical' && !pokemon.hasAbility(['wellbakedflameorb','feistytempo','guts'])
 					 && move.id !== 'facade') {
 					//if (this.battle.gen < 6 || move.id !== 'facade') {
 						baseDamage = this.battle.modify(baseDamage, 0.5);
