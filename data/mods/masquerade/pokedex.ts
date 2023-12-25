@@ -1225,7 +1225,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Galvantula-Webcrawler",
 		forceTeraType: "Steel",
 	},
-	galvantulawebcrawler: {
+	galvantulapyrefang: {
 		num: 596,
 		name: "Galvantula-Pyrefang",
 		baseSpecies: "Galvantula",
@@ -1240,7 +1240,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Galvantula",
 		forceTeraType: "Fire",
 	},
-  galvantulawebcrawlertera: {
+  galvantulapyrefangtera: {
 		num: 596,
 		name: "Galvantula-Pyrefang-Tera",
 		baseSpecies: "Galvantula",
@@ -1255,7 +1255,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Galvantula-Pyrefang",
 		forceTeraType: "Fire",
 	},
-	galvantulawebcrawler: {
+	galvantulawidowmaker: {
 		num: 596,
 		name: "Galvantula-Widowmaker",
 		baseSpecies: "Galvantula",
@@ -1270,7 +1270,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Galvantula",
 		forceTeraType: "Ghost",
 	},
-  galvantulawebcrawlertera: {
+  galvantulawidowmakertera: {
 		num: 596,
 		name: "Galvantula-Widowmaker-Tera",
 		baseSpecies: "Galvantula",
