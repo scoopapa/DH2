@@ -2384,6 +2384,9 @@ export const Formats: FormatList = [
 		mod: 'ybstadium',
 		team: 'random',
 		ruleset: ['Team Preview', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Picked Team Size = 4', 'Force Open Team Sheets'],
+		onSwitchIn(pokemon) {
+			this.add('-message', `${pokemon.name}'s actual Tera Type is ${pokemon.species.forceTeraType}!`);
+		},
 	},
 	{
 		name: "[Gen 9] Super Types OU",
