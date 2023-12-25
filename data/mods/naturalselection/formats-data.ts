@@ -1,122 +1,122 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	uxie: {
-		tier: "MS",
+		tier: "NS",
 	},
 	barraskewda: {
-		tier: "MS",
+		tier: "NS",
 	},
 	minior: {
-		tier: "MS",
+		tier: "NS",
 	},
 	kingambit: {
-		tier: "MS",
+		tier: "NS",
 	},
 	slowbro: {
-		tier: "MS",
+		tier: "NS",
 	},
 	orthworm: {
-		tier: "MS",
+		tier: "NS",
 	},
 	emolga: {
-		tier: "MS",
+		tier: "NS",
 	},
 	crabominable: {
-		tier: "MS",
+		tier: "NS",
 	},
 	eelektross: {
-		tier: "MS",
+		tier: "NS",
 	},
 	ironhands: {
-		tier: "MS",
+		tier: "NS",
 	},
 	ariados: {
-		tier: "MS",
+		tier: "NS",
 	},
 	klawf: {
-		tier: "MS",
+		tier: "NS",
 	},
 	latios: {
-		tier: "MS",
+		tier: "NS",
 	},
 	hawlucha: {
-		tier: "MS",
+		tier: "NS",
 	},
 	jumpluff: {
-		tier: "MS",
+		tier: "NS",
 	},
 	volcanion: {
-		tier: "MS",
+		tier: "NS",
 	},
 	muk: {
-		tier: "MS",
+		tier: "NS",
 	},
 	skuntank: {
-		tier: "MS",
+		tier: "NS",
 	},
 	munkidori: {
-		tier: "MS",
+		tier: "NS",
 	},
 	crustle: {
-		tier: "MS",
+		tier: "NS",
 	},
 	bouffalant: {
-		tier: "MS",
+		tier: "NS",
 	},
 	jellicent: {
-		tier: "MS",
+		tier: "NS",
 	},
 	delibird: {
-		tier: "MS",
+		tier: "NS",
 	},
 	mightyena: {
-		tier: "MS",
+		tier: "NS",
 	},
 	orbeetle: {
-		tier: "MS",
+		tier: "NS",
 	},
 	mandibuzz: {
-		tier: "MS",
+		tier: "NS",
 	},
 	dugtrio: {
-		tier: "MS",
+		tier: "NS",
 	},
 	aggron: {
-		tier: "MS",
+		tier: "NS",
 	},
 	barbaracle: {
-		tier: "MS",
+		tier: "NS",
 	},
 	pangoro: {
-		tier: "MS",
+		tier: "NS",
 	},
 	victreebel: {
-		tier: "MS",
+		tier: "NS",
 	},
 	eiscue: {
-		tier: "MS",
+		tier: "NS",
 	},
 	haxorus: {
-		tier: "MS",
+		tier: "NS",
 	},
 	centiskorch: {
-		tier: "MS",
+		tier: "NS",
 	},
 	typhlosion: {
-		tier: "MS",
+		tier: "NS",
 	},
 	slurpuff: {
-		tier: "MS",
+		tier: "NS",
 	},
 	pyroar: {
-		tier: "MS",
+		tier: "NS",
 	},
 	eldegoss: {
-		tier: "MS",
+		tier: "NS",
 	},
 	ceruledge: {
-		tier: "MS",
+		tier: "NS",
 	},
 	dragapult: {
-		tier: "MS",
+		tier: "NS",
 	},
 };
