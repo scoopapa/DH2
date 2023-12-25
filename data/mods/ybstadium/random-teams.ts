@@ -111,10 +111,10 @@ export class RandomTeams {
 		const natures = Object.keys(this.dex.data.Natures);
 		const items = Object.keys(this.dex.data.Items);
 
-		const random6 = this.random6Pokemon();
+		const random12 = this.random12Pokemon();
 
-		for (let i = 0; i < 6; i++) {
-			let forme = random6[i];
+		for (let i = 0; i < 12; i++) {
+			let forme = random12[i];
 			let species = dex.species.get(forme);
 			if (species.isNonstandard) species = dex.species.get(species.baseSpecies);
 
@@ -255,8 +255,8 @@ export class RandomTeams {
 		return team;
 	}
 
-	random6Pokemon() {
-		// Pick six random pokemon--no repeats, even among formes
+	random12Pokemon() {
+		// Pick 12 random pokemon--no repeats, even among formes
 		// Also need to either normalize for formes or select formes at random
 		// Unreleased are okay but no CAP
 		const last = [0, 151, 251, 386, 493, 649, 721, 807, 890][this.gen];
@@ -271,7 +271,7 @@ export class RandomTeams {
 		}
 
 		const hasDexNumber: {[k: string]: number} = {};
-		for (let i = 0; i < 6; i++) {
+		for (let i = 0; i < 12; i++) {
 			const num = this.sampleNoReplace(pool);
 			hasDexNumber[num] = i;
 		}
@@ -285,14 +285,14 @@ export class RandomTeams {
 			}
 		}
 
-		const sixPokemon = [];
-		for (let i = 0; i < 6; i++) {
+		const twelvePokemon = [];
+		for (let i = 0; i < 12; i++) {
 			if (!formes[i].length) {
 				throw new Error("Invalid pokemon gen " + this.gen + ": " + JSON.stringify(formes) + " numbers " + JSON.stringify(hasDexNumber));
 			}
-			sixPokemon.push(this.sample(formes[i]));
+			twelvePokemon.push(this.sample(formes[i]));
 		}
-		return sixPokemon;
+		return twelvePokemon;
 	}
 
 	randomHCTeam(): PokemonSet[] {
@@ -303,11 +303,11 @@ export class RandomTeams {
 		const movePool = Object.keys(this.dex.data.Moves);
 		const naturePool = Object.keys(this.dex.data.Natures);
 
-		const random6 = this.random6Pokemon();
+		const random12 = this.random12Pokemon();
 
-		for (let i = 0; i < 6; i++) {
+		for (let i = 0; i < 12; i++) {
 			// Choose forme
-			const species = this.dex.species.get(random6[i]);
+			const species = this.dex.species.get(random12[i]);
 
 			// Random unique item
 			let item = '';
@@ -1693,9 +1693,9 @@ export class RandomTeams {
 		// We make at most two passes through the potential Pokemon pool when creating a team - if the first pass doesn't
 		// result in a team of six Pokemon we perform a second iteration relaxing as many restrictions as possible.
 		for (const restrict of [true, false]) {
-			if (pokemon.length >= 6) break;
+			if (pokemon.length >= 12) break;
 			const pokemonPool = this.getPokemonPool(type, pokemon, isMonotype);
-			while (pokemonPool.length && pokemon.length < 6) {
+			while (pokemonPool.length && pokemon.length < 12) {
 				let species = this.dex.species.get(this.sampleNoReplace(pokemonPool));
 
 				if (!species.exists) continue;
@@ -1830,7 +1830,7 @@ export class RandomTeams {
 				if (set.ability === 'Illusion') teamDetails['illusion'] = pokemon.length;
 			}
 		}
-		if (pokemon.length < 6) throw new Error(`Could not build a random team for ${this.format} (seed=${seed})`);
+		if (pokemon.length < 12) throw new Error(`Could not build a random team for ${this.format} (seed=${seed})`);
 
 		return pokemon;
 	}
