@@ -643,4 +643,257 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "Kleavor-Expertblade: Terastallize to gain Normalize.",
 	},
+	volcanicmask: {
+		name: "Volcanic Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Feraligatr') return false;
+			return true;
+		},
+		forcedForme: "Feraligatr-Volcanic",
+		itemUser: ["Feraligatr-Volcanic"],
+		num: -1027,
+		gen: 9,
+		desc: "Feraligatr-Volcanic: Terastallize to gain Grassy Surge.",
+	},
+	irradiatingmask: {
+		name: "Irradiating Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Feraligatr') return false;
+			return true;
+		},
+		forcedForme: "Feraligatr-Irradiating",
+		itemUser: ["Feraligatr-Irradiating"],
+		num: -1028,
+		gen: 9,
+		desc: "Feraligatr-Irradiating: Terastallize to gain Water Veil.",
+	},
+	zenithbugmask: {
+		name: "Zenithbug Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Porygon2') return false;
+			return true;
+		},
+		forcedForme: "Porygon2-Zenithbug",
+		itemUser: ["Porygon2-Zenithbug"],
+		num: -1029,
+		gen: 9,
+		desc: "Porygon2-Zenithbug: Terastallize to gain System Override.",
+	},
+	retrowavemask: {
+		name: "Retrowave Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Porygon2') return false;
+			return true;
+		},
+		forcedForme: "Porygon2-Retrowave",
+		itemUser: ["Porygon2-Retrowave"],
+		num: -1030,
+		gen: 9,
+		desc: "Porygon2-Retrowave: Terastallize to gain Surge Surfer.",
+	},
+	dreamnetmask: {
+		name: "Dreamnet Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Porygon2') return false;
+			return true;
+		},
+		forcedForme: "Porygon2-Dreamnet",
+		itemUser: ["Porygon2-Dreamnet"],
+		num: -1031,
+		gen: 9,
+		desc: "Porygon2-Dreamnet: Terastallize to gain Serene Grace.",
+	},
+	foamflowmask: {
+		name: "Foamflow Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kingdra') return false;
+			return true;
+		},
+		forcedForme: "Kingdra-Foamflow",
+		itemUser: ["Kingdra-Foamflow"],
+		num: -1032,
+		gen: 9,
+		desc: "Kingdra-Foamflow: Terastallize to gain Competitive.",
+	},
+	rushwashmask: {
+		name: "Rushwash Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kingdra') return false;
+			return true;
+		},
+		forcedForme: "Kingdra-Rushwash",
+		itemUser: ["Kingdra-Rushwash"],
+		num: -1033,
+		gen: 9,
+		desc: "Kingdra-Rushwash: Terastallize to gain Scrappy.",
+	},
+	frostshotmask: {
+		name: "Frostshot Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Kingdra') return false;
+			return true;
+		},
+		forcedForme: "Kingdra-Frostshot",
+		itemUser: ["Kingdra-Frostshot"],
+		num: -1034,
+		gen: 9,
+		desc: "Kingdra-Frostshot: Terastallize to gain Super Luck.",
+	},
+	webcrawlermask: {
+		name: "Webcrawler Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Galvantula') return false;
+			return true;
+		},
+		forcedForme: "Galvantula-Webcrawler",
+		itemUser: ["Galvantula-Webcrawler"],
+		num: -1035,
+		gen: 9,
+		desc: "Galvantula-Webcrawler: Terastallize to gain Oblivious.",
+	},
+	pyrefangmask: {
+		name: "Pyrefang Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Galvantula') return false;
+			return true;
+		},
+		forcedForme: "Galvantula-Pyrefang",
+		itemUser: ["Galvantula-Pyrefang"],
+		num: -1036,
+		gen: 9,
+		desc: "Galvantula-Pyrefang: Terastallize to gain Infiltrator.",
+	},
+	widowmakermask: {
+		name: "Widowmaker Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Galvantula') return false;
+			return true;
+		},
+		forcedForme: "Galvantula-Widowmaker",
+		itemUser: ["Galvantula-Widowmaker"],
+		num: -1037,
+		gen: 9,
+		desc: "Galvantula-Widowmaker: Terastallize to gain Purifying Salt.",
+	},
 };
