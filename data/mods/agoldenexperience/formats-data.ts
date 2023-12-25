@@ -515,6 +515,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "RU",
 		doublesTier: "(DUU)",
 	},
+	slowbrogalarmega: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	slowking: {
 		tier: "UU",
 		doublesTier: "(DUU)",
@@ -1035,6 +1039,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	typhlosionhisui: {
 		tier: "RU",
 		doublesTier: "DUU",
+	},
+	typhlosionhisuimega: {
+		tier: "UU",
+		doublesTier: "DOU",
 	},
 	totodile: {
 		tier: "LC",
@@ -4104,24 +4112,29 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	flapple: {
 		tier: "(PU)",
-		doublesTier: "(DUU)",
 	},
 	flapplegmax: {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
+	isaapple: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	appletun: {
-		tier: "(PU)",
-		doublesTier: "(DUU)",
+		tier: "NU",
 	},
 	appletungmax: {
 		isNonstandard: "Past",
 		tier: "Illegal",
 	},
+	badapple: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 	dipplin: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
-		natDexTier: "UU",
 	},
 	silicobra: {
 		tier: "LC",
@@ -4402,6 +4415,10 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	kleavor: {
 		tier: "UU",
 		doublesTier: "DUU",
+	},
+	kleavormega: {
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	ursaluna: {
 		tier: "UU",
@@ -5227,26 +5244,26 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 	},
 	raticket: {
 		tier: "UU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 	},
 	piratcy: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	parrotnairblue: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	parrotnair: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	parrotnairyellow: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	parrotnairwhite: {
-		tier: "OU",
+		tier: "UU",
 		doublesTier: "DOU",
 	},
 	golrobot: {
