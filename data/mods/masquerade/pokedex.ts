@@ -1100,7 +1100,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Water",
 	},
 	kingdrafoamflow: {
-		num: 233,
+		num: 230,
 		name: "Kingdra-Foamflow",
 		baseSpecies: "Kingdra",
 		forme: "Foamflow",
@@ -1115,7 +1115,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Fairy",
 	},
   kingdrafoamflowtera: {
-		num: 233,
+		num: 230,
 		name: "Kingdra-Foamflow-Tera",
 		baseSpecies: "Kingdra",
 		forme: "Foamflow-Tera",
@@ -1130,7 +1130,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Fairy",
 	},
 	kingdrarushwash: {
-		num: 233,
+		num: 230,
 		name: "Kingdra-Rushwash",
 		baseSpecies: "Kingdra",
 		forme: "Rushwash",
@@ -1145,7 +1145,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Normal",
 	},
   kingdrarushwashtera: {
-		num: 233,
+		num: 230,
 		name: "Kingdra-Rushwash-Tera",
 		baseSpecies: "Kingdra",
 		forme: "Rushwash-Tera",
@@ -1160,7 +1160,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Normal",
 	},
 	kingdrafrostshot: {
-		num: 233,
+		num: 230,
 		name: "Kingdra-Frostshot",
 		baseSpecies: "Kingdra",
 		forme: "Frostshot",
@@ -1175,7 +1175,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		forceTeraType: "Ice",
 	},
   kingdrafrostshottera: {
-		num: 233,
+		num: 230,
 		name: "Kingdra-Frostshot-Tera",
 		baseSpecies: "Kingdra",
 		forme: "Frostshot-Tera",
