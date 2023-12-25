@@ -157,4 +157,10 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			securelanding: ["9L1"],
 		},
 	},
+	feraligatr: {
+		learnset: {
+			inherit: true,
+			splashbite: ["9L1"],
+		},
+	},
 };
