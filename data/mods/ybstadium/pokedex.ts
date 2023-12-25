@@ -625,7 +625,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	spectrier: {
 		inherit: true,
-		requiredItem: "Leftovers",
+		requiredItem: "Shell Bell",
 		abilities: {0: "Grim Neigh"},
 		forceTeraType: "Normal",
 	},
