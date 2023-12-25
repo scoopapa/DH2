@@ -394,9 +394,11 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		onStart(pokemon) {
-			if (pokemon.hasType('Ice')) return false;
-			if (!pokemon.addType('Ice')) return false;
-			this.add('-start', pokemon, 'typeadd', 'Ice', '[from] item: Kyurem Plushie');
+		if (pokemon.hasType('Fire') || pokemon.hasType('Electric')) { 
+				if (pokemon.hasType('Ice')) return false;
+				if (!pokemon.addType('Ice')) return false;
+				this.add('-start', pokemon, 'typeadd', 'Ice', '[from] item: Kyurem Plushie');
+			}
 		},
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
