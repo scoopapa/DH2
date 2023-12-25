@@ -2363,7 +2363,7 @@ export const Formats: FormatList = [
 		bestOfDefault: true,
 		mod: 'ybstadium',
 		team: 'random',
-		ruleset: ['Team Preview', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Picked Team Size = 4', 'Force Open Team Sheets'],
+		ruleset: ['Team Preview', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod', 'Picked Team Size = 6', 'Force Open Team Sheets', 'Max Team Size = 12'],
 	},
 	{
 		name: "[Gen 9] Super Types OU",
