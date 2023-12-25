@@ -431,7 +431,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		self: {
-			sideCondition: 'aquaring',
+			volatileStatus: 'aquaring',
 		},
 		secondary: null,
 		target: "normal",
