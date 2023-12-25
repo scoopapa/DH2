@@ -516,7 +516,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	spectrier: {
 		tier: "YBS",
-		requiredItem: "Leftovers",
+		requiredItem: "Shell Bell",
 		randomBattleMoves: ["hiddenpowerghost", "mudshot", "swift", "taunt"],
 	},
 	stoutland: {
