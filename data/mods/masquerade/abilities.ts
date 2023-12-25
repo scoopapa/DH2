@@ -19,7 +19,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Hot-Headed",
 		rating: 4,
-		num: 246,
 	},
 	calmdemeanor: {
 		onSourceModifyDamage(damage, source, target, move) {
@@ -32,6 +31,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Calm Demeanor",
 		rating: 4,
-		num: 246,
+	},
+	systemoverride: {
+		onPrepareHit(source, target, move) {
+			if (this.effectState.systemOverride) return;
+			if (move.id === 'conversion') {
+				this.boost({atk: 1, def: 1, spa: 1, spd: 1, spe: 1}, source, source);
+				this.effectState.systemOverride = true;
+			}
+		},
+		shortDesc: "Before using Conversion, boosts all stats by 1 stage.",
+		name: "System Override",
+		rating: 2,
+	},
+	snowcap: {
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Ice') && !this.field.isWeather(['hail', 'snow'])) {
+				return this.chainModify(1.5);
+			}
+		},
+		// other effects coded into moves
+		shortDesc: "This Pokemon acts as if Snow is active.",
+		name: "Snowcap",
+		rating: 3,
 	},
 };
