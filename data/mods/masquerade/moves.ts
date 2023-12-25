@@ -407,6 +407,142 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	splashbite: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Gives the user the Aqua Ring effect.",
+		name: "Splash Bite",
+		pp: 10,
+		priority: 0,
+		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Crunch", target);
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Feraligatr-Volcanic': case 'Feraligatr-Volcanic-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Feraligatr-Irradiating': case 'Feraligatr-Irradiating-Tera':
+				move.type = 'Poison';
+				break;
+			}
+		},
+		self: {
+			sideCondition: 'aquaring',
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		contestType: "Clever",
+	},
+	terablast: {
+		num: 851,
+		accuracy: 100,
+		basePower: 80,
+		basePowerCallback(pokemon, target, move) {
+			if (pokemon.terastallized === 'Stellar') {
+				return 100;
+			}
+			return 80;
+		},
+		category: "Special",
+		name: "Tera Blast",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, mustpressure: 1},
+		onPrepareHit(target, source, move) {
+			if (source.terastallized) {
+				this.attrLastMove('[anim] Tera Blast ' + source.teraType);
+			}
+		},
+		onModifyType(move, pokemon, target) {
+			if (pokemon.terastallized) {
+				move.type = pokemon.teraType;
+			}
+			switch (pokemon.species.name) {
+			case 'Porygon2-Zenithbug': case 'Porygon2-Zenithbug-Tera':
+				move.type = 'Dark';
+				break;
+			case 'Porygon2-Retrowave': case 'Porygon2-Retrowave-Tera':
+				move.type = 'Electric';
+				break;
+			case 'Porygon2-Dreamnet': case 'Porygon2-Dreamnet-Tera':
+				move.type = 'Fairy';
+				break;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.terastallized && pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) {
+				move.category = 'Physical';
+			}
+			if (pokemon.terastallized === 'Stellar') {
+				move.self = {boosts: {atk: -1, spa: -1}};
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+	dragonpulse: {
+		num: 406,
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+		name: "Dragon Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, pulse: 1, mirror: 1, distance: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Kingdra-Foamflow': case 'Kingdra-Foamflow-Tera':
+				move.type = 'Fairy';
+				break;
+			case 'Kingdra-Rushwash': case 'Kingdra-Rushwash-Tera':
+				move.type = 'Normal';
+				break;
+			case 'Kingdra-Frostshot': case 'Kingdra-Frostshot-Tera':
+				move.type = 'Ice';
+				break;
+			}
+		},
+		secondary: null,
+		target: "any",
+		type: "Dragon",
+		contestType: "Beautiful",
+	},
+	thunderbolt: {
+		num: 85,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Thunderbolt",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Galvantula-Webcrawler': case 'Galvantula-Webcrawler-Tera':
+				move.type = 'Steel';
+				break;
+			case 'Galvantula-Pyrefang': case 'Galvantula-Pyrefang-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Galvantula-Widowmaker': case 'Galvantula-Widowmaker-Tera':
+				move.type = 'Ghost';
+				break;
+			}
+		},
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
+		target: "normal",
+		type: "Electric",
+		contestType: "Cool",
+	},
 
 // unchanged moves
 	defog: {
