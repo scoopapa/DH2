@@ -643,7 +643,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	sylveon: {
 		inherit: true,
-		requiredItem: "Leftovers",
+		requiredItem: "Metronome",
 		abilities: {0: "Pixilate"},
 		forceTeraType: "Fire",
 	},
