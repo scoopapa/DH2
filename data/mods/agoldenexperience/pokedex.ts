@@ -231,7 +231,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	slowbro: {
 		inherit: true,
-		abilities: {0: "Quick Draw", 1: "Deadly Blasts", H: "Regenerator"},
 		otherFormes: ["Slowbro-Mega", "Slowbro-Galar", "Slowbro-Galar-Mega"],
 		formeOrder: ["Slowbro", "Slowbro-Mega", "Slowbro-Galar", "Slowbro-Galar-Mega"],
 	},
@@ -1651,7 +1650,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	samurott: {
 		inherit: true,
 		types: ["Water", "Fighting"],
-		baseStats: {hp: 85, atk: 120, def: 85, spa: 78, spd: 60, spe: 100},
+		baseStats: {hp: 75, atk: 110, def: 75, spa: 118, spd: 60, spe: 90},
 		abilities: {0: "Torrent", H: "Supreme Overlord"},
 		otherFormes: ["Samurott-Hisui", "Samurott-Galar"],
 		formeOrder: ["Samurott", "Samurott-Hisui", "Samurott-Galar"],
