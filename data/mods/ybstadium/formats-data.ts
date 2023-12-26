@@ -17,7 +17,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	anorith: {
 		tier: "YBS",
 		requiredItem: "Life Orb",
-		randomBattleMoves: ["stoneedge", "xscissor", "wavecrash", "swordsdance"],
+		randomBattleMoves: ["diamondstorm", "raindance", "wavecrash", "swordsdance"],
 	},
 	araquanid: {
 		tier: "YBS",
@@ -32,7 +32,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	arcanine: {
 		tier: "YBS",
 		requiredItem: "Leftovers",
-		randomBattleMoves: ["temperflare", "terablast", "willowisp", "teleport"],
+		randomBattleMoves: ["temperflare", "crunch", "willowisp", "teleport"],
 	},
 	arctozolt: {
 		tier: "YBS",
@@ -76,7 +76,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	charizard: {
 		tier: "YBS",
-		requiredItem: "Heavy-Duty Boots",
+		requiredItem: "Power Herb",
 		randomBattleMoves: ["firepledge", "airslash", "solarbeam", "willowisp"],
 	},
 	cinccino: {
@@ -204,10 +204,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		requiredItem: "Eviolite",
 		randomBattleMoves: ["highhorsepower", "spikes", "uturn", "roost"],
 	},
-	glimmora: {
+	glimmet: {
 		tier: "YBS",
 		requiredItem: "Focus Sash",
-		randomBattleMoves: ["mortalspin", "ancientpower", "sludgebomb", "flashcannon"],
+		randomBattleMoves: ["mudshot", "powergem", "sludgewave", "sunnyday"],
 	},
 	golisopod: {
 		tier: "YBS",
@@ -297,12 +297,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	klinklang: {
 		tier: "YBS",
 		requiredItem: "Shuca Berry",
-		randomBattleMoves: ["geargrind", "magneticflux", "rest", "sleeptalk"],
+		randomBattleMoves: ["geargrind", "magneticflux", "protect", "assurance"],
 	},
 	kyuremblack: {
 		tier: "YBS",
-		requiredItem: "Rawst Berry",
-		randomBattleMoves: ["freezeshock", "breakingswipe", "dualwingbeat", "nobleroar"],
+		requiredItem: "Clear Amulet",
+		randomBattleMoves: ["freezeshock", "brutalswing", "dualwingbeat", "nobleroar"],
 	},
 	leafeon: {
 		tier: "YBS",
@@ -332,7 +332,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	lokix: {
 		tier: "YBS",
 		requiredItem: "Dark Gem",
-		randomBattleMoves: ["skittersmack", "thief", "axekick", "swordsdance"],
+		randomBattleMoves: ["xscissor", "lashout", "axekick", "swordsdance"],
 	},
 	lucario: {
 		tier: "YBS",
@@ -487,12 +487,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	simisear: {
 		tier: "YBS",
 		requiredItem: "Petaya Berry",
-		randomBattleMoves: ["heatwave", "terablast", "substitute", "flamecharge"],
+		randomBattleMoves: ["heatwave", "scorchingsands", "substitute", "flamecharge"],
 	},
-	sirfetchd: {
+	falinks: {
 		tier: "YBS",
-		requiredItem: "Leek",
-		randomBattleMoves: ["meteorassault", "firstimpression", "revenge", "knockoff"],
+		requiredItem: "Scope Lens",
+		randomBattleMoves: ["closecombat", "focusenergy", "megahorn", "knockoff"],
 	},
 	skarmory: {
 		tier: "YBS",
@@ -541,12 +541,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	tapufini: {
 		tier: "YBS",
-		requiredItem: "Sitrus Berry",
+		requiredItem: "Mental Herb",
 		randomBattleMoves: ["liquidation", "alluringvoice", "defog", "naturesmadness"],
 	},
 	tapukoko: {
 		tier: "YBS",
-		requiredItem: "Electric Seed",
+		requiredItem: "Air Balloon",
 		randomBattleMoves: ["spark", "acrobatics", "assurance", "naturesmadness"],
 	},
 	tapulele: {
@@ -601,8 +601,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	veluza: {
 		tier: "YBS",
-		requiredItem: "Scope Lens",
-		randomBattleMoves: ["aquacutter", "storedpower", "recover", "filletaway"],
+		requiredItem: "Sitrus Berry",
+		randomBattleMoves: ["aquatail", "storedpower", "recover", "filletaway"],
 	},
 	vigoroth: {
 		tier: "YBS",
@@ -622,7 +622,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	vulpix: {
 		tier: "YBS",
 		requiredItem: "Life Orb",
-		randomBattleMoves: ["nastyplot", "fireblast", "energyball", "darkpulse"],
+		randomBattleMoves: ["nastyplot", "blueflare", "solarbeam", "flamecharge"],
 	},
 	wartortle: {
 		tier: "YBS",
