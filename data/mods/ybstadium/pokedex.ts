@@ -703,7 +703,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	umbreon: {
 		inherit: true,
-		requiredItem: "Leftovers",
+		requiredItem: "Utility Umbrella",
 		abilities: {0: "Inner Focus"},
 		forceTeraType: "Poison",
 	},
