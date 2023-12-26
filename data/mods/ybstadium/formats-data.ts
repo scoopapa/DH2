@@ -581,7 +581,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	umbreon: {
 		tier: "YBS",
-		requiredItem: "Leftovers",
+		requiredItem: "Utility Umbrella",
 		randomBattleMoves: ["darkpulse", "toxic", "moonlight", "batonpass"],
 	},
 	urshifu: {
