@@ -531,8 +531,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	sylveon: {
 		tier: "YBS",
-		requiredItem: "Leftovers",
-		randomBattleMoves: ["trumpcard", "mysticalfire", "detect", "calmmind"],
+		requiredItem: "Metronome",
+		randomBattleMoves: ["echoedvoice", "mysticalfire", "trailblaze", "calmmind"],
 	},
 	tapubulu: {
 		tier: "YBS",
