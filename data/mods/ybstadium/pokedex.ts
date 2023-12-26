@@ -91,7 +91,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	charizard: {
 		inherit: true,
-		requiredItem: "Heavy-Duty Boots",
+		requiredItem: "Power Herb",
 		abilities: {0: "Solar Power"},
 		forceTeraType: "Fire",
 	},
@@ -111,7 +111,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		requiredItem: "Zoom Lens",
 		abilities: {0: "Water Absorb"},
-		forceTeraType: "Fire",
+		forceTeraType: "Flying",
 	},
 	combusken: {
 		inherit: true,
@@ -245,7 +245,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Hyper Cutter"},
 		forceTeraType: "Water",
 	},
-	glimmora: {
+	glimmet: {
 		inherit: true,
 		requiredItem: "Focus Sash",
 		abilities: {0: "Toxic Debris"},
@@ -361,7 +361,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	kyuremblack: {
 		inherit: true,
-		requiredItem: "Rawst Berry",
+		requiredItem: "Clear Amulet",
 		abilities: {0: "Teravolt"},
 		forceTeraType: "Ice",
 	},
@@ -590,13 +590,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	simisear: {
 		inherit: true,
 		requiredItem: "Petaya Berry",
-		abilities: {0: "Gluttony"},
+		abilities: {0: "Blaze"},
 		forceTeraType: "Ground",
 	},
-	sirfetchd: {
+	falinks: {
 		inherit: true,
-		requiredItem: "Leek",
-		abilities: {0: "Scrappy"},
+		requiredItem: "Scope Lens",
+		abilities: {0: "Defiant"},
 		forceTeraType: "Bug",
 	},
 	skarmory: {
@@ -655,13 +655,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	tapufini: {
 		inherit: true,
-		requiredItem: "Sitrus Berry",
+		requiredItem: "Mental Herb",
 		abilities: {0: "Misty Surge"},
 		forceTeraType: "Steel",
 	},
 	tapukoko: {
 		inherit: true,
-		requiredItem: "Electric Seed",
+		requiredItem: "Air Balloon",
 		abilities: {0: "Electric Surge"},
 		forceTeraType: "Bug",
 	},
@@ -727,7 +727,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	veluza: {
 		inherit: true,
-		requiredItem: "Scope Lens",
+		requiredItem: "Sitrus Berry",
 		abilities: {0: "Mold Breaker"},
 		forceTeraType: "Dragon",
 	},
