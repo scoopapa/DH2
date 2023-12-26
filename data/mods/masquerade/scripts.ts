@@ -3,6 +3,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		excludeStandardTiers: true,
 		customTiers: ["MSQ"],
 	},
+	init() {
+		this.modData("Learnsets", "emboar").learnset.drainingtusk = ["9L1"];
+		this.modData("Learnsets", "drifblim").learnset.securelanding = ["9L1"];
+		this.modData("Learnsets", "feraligatr").learnset.splashbite = ["9L1"];
+	},
 	actions: {
 		inherit: true,
 		terastallize(pokemon: Pokemon) {
