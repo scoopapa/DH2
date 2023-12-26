@@ -186,7 +186,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	garbodor: {
 		tier: "YBS",
-		requiredItem: "Leftovers",
+		requiredItem: "Rocky Helmet",
 		randomBattleMoves: ["gunkshot", "stompingtantrum", "toxicspikes", "thunderbolt"],
 	},
 	gigalith: {
@@ -501,7 +501,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	skuntank: {
 		tier: "YBS",
-		requiredItem: "Leftovers",
+		requiredItem: "Covert Cloak",
 		randomBattleMoves: ["temperflare", "venoshock", "crunch", "toxicspikes"],
 	},
 	slowbro: {
