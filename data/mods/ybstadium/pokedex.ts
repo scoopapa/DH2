@@ -223,7 +223,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	garbodor: {
 		inherit: true,
-		requiredItem: "Leftovers",
+		requiredItem: "Rocky Helmet",
 		abilities: {0: "Aftermath"},
 		forceTeraType: "Grass",
 	},
@@ -607,7 +607,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	skuntank: {
 		inherit: true,
-		requiredItem: "Leftovers",
+		requiredItem: "Covert Cloak",
 		abilities: {0: "Aftermath"},
 		forceTeraType: "Flying",
 	},
