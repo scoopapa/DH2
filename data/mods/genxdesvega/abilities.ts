@@ -753,7 +753,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			attacker.formeChange('Tsunamey-Surfing');
 		},
 		onWeatherChange(pokemon) {
-			const pokemon = this.effectData.target;
 			if (this.field.isWeather(['raindance','primordialsea']) && pokemon.species.id === 'tsunamey' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Surf\'s Up');
 				pokemon.formeChange('Tsunamey-Surfing');
