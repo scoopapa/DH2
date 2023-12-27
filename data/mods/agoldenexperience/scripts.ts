@@ -90,7 +90,6 @@ export const Scripts: ModdedBattleScriptsData = {
 
     // Gen 9 tmp
     this.modData('Learnsets', 'typhlosionhisui').learnset.moonlight = ['9L1'];
-    this.modData('Learnsets', 'samurotthisui').learnset.assurance = ['9L1'];
     this.modData('Learnsets', 'decidueyehisui').learnset.spikes = ['9L1'];
     this.modData('Learnsets', 'basculegion').learnset.shadowsneak = ['9L1'];
     this.modData('Learnsets', 'basculegionf').learnset.shadowsneak = ['9L1'];
@@ -303,7 +302,6 @@ export const Scripts: ModdedBattleScriptsData = {
     // seajaws 
     this.modData('Learnsets', 'dracovish').learnset.seajaws = ['9L1'];
     this.modData('Learnsets', 'gyarados').learnset.seajaws = ['9L1'];
-    this.modData('Learnsets', 'samurott').learnset.seajaws = ['9L1'];
     this.modData('Learnsets', 'barraskewda').learnset.seajaws = ['9L1'];
     this.modData('Learnsets', 'sharpedo').learnset.seajaws = ['9L1'];
     this.modData('Learnsets', 'bruxish').learnset.seajaws = ['9L1'];
@@ -1091,8 +1089,6 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'croagunk').learnset.hydropump = ['9L1'];
     this.modData('Learnsets', 'croagunk').learnset.liquidation = ['9L1'];
     this.modData('Learnsets', 'croagunk').learnset.waterfall = ['9L1'];
-    this.modData('Learnsets', 'carnivine').learnset.junglehealing = ['9L1'];
-    this.modData('Learnsets', 'carnivine').learnset.snaptrap = ['9L1'];
     this.modData('Learnsets', 'lumineon').learnset.quiverdance = ['9L1'];
     this.modData('Learnsets', 'lumineon').learnset.tailglow = ['9L1'];
     this.modData('Learnsets', 'lumineon').learnset.airslash = ['9L1'];
@@ -1144,7 +1140,6 @@ export const Scripts: ModdedBattleScriptsData = {
     // Gen 5:
     this.modData('Learnsets', 'serperior').learnset.mudshot = ['9L1'];
     this.modData('Learnsets', 'serperior').learnset.hurricane = ['9L1'];
-    this.modData('Learnsets', 'samurott').learnset.closecombat = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.megakick = ['9L1'];
     this.modData('Learnsets', 'watchog').learnset.glare = ['9L1'];
     this.modData('Learnsets', 'stoutland').learnset.doubleedge = ['9L1'];
@@ -2043,7 +2038,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'drapion').learnset.hiddenpower;
     delete this.modData('Learnsets', 'croagunk').learnset.hiddenpower;
     delete this.modData('Learnsets', 'toxicroak').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'carnivine').learnset.hiddenpower;
     delete this.modData('Learnsets', 'finneon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'lumineon').learnset.hiddenpower;
     delete this.modData('Learnsets', 'mantyke').learnset.hiddenpower;
@@ -2090,10 +2084,6 @@ export const Scripts: ModdedBattleScriptsData = {
     delete this.modData('Learnsets', 'tepig').learnset.hiddenpower;
     delete this.modData('Learnsets', 'pignite').learnset.hiddenpower;
     delete this.modData('Learnsets', 'emboar').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'oshawott').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'dewott').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'samurott').learnset.hiddenpower;
-    delete this.modData('Learnsets', 'samurotthisui').learnset.hiddenpower;
     delete this.modData('Learnsets', 'patrat').learnset.hiddenpower;
     delete this.modData('Learnsets', 'watchog').learnset.hiddenpower;
     delete this.modData('Learnsets', 'lillipup').learnset.hiddenpower;
