@@ -115,7 +115,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FENFE",
 		doublesTier: "NFE",
 	},
-	smoliqwil: {
+	smoliquil: {
 		tier: "FELC",
 		doublesTier: "LC",
 	},
