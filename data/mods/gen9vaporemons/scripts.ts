@@ -2350,5 +2350,19 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "pyroar").learnset.nastyplot = ["9L1"];
 		this.modData("Learnsets", "screamtail").learnset.tailglow = ["9L1"];
 		this.modData("Learnsets", "screamtail").learnset.moonblast = ["9L1"];
+		delete this.modData('Learnsets', 'ragingbolt').learnset.electroweb;
+		delete this.modData('Learnsets', 'raikou').learnset.electroweb;
+		delete this.modData('Learnsets', 'magearna').learnset.electroweb;
+		delete this.modData('Learnsets', 'rotom').learnset.electroweb;
+		delete this.modData('Learnsets', 'sandyshocks').learnset.electroweb;
+		delete this.modData('Learnsets', 'thundurus').learnset.electroweb;
+		delete this.modData('Learnsets', 'mew').learnset.electroweb;
+		delete this.modData('Learnsets', 'bellibolt').learnset.electroweb;
+		delete this.modData('Learnsets', 'tadbulb').learnset.electroweb;
+		delete this.modData('Learnsets', 'voltorb').learnset.electroweb;
+		delete this.modData('Learnsets', 'voltorbhisui').learnset.electroweb;
+		delete this.modData('Learnsets', 'electrode').learnset.electroweb;
+		delete this.modData('Learnsets', 'electrodehisui').learnset.electroweb;
+		delete this.modData('Learnsets', 'jolteon').learnset.electroweb;
   },
 };
