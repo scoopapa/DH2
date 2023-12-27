@@ -1178,11 +1178,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "snorlax").learnset.rollout = ["9L1"];
 		this.modData("Learnsets", "snorlax").learnset.slackoff = ["9L1"];
     	delete this.modData('Learnsets', 'sneasler').learnset.acrobatics;
-    	delete this.modData('Learnsets', 'darkrai').learnset.trick;
     	delete this.modData('Learnsets', 'darkrai').learnset.hypnosis;
     	delete this.modData('Learnsets', 'darkrai').learnset.psychic;
     	delete this.modData('Learnsets', 'darkrai').learnset.nastyplot;
-    	delete this.modData('Learnsets', 'darkrai').learnset.calmmind;
     	delete this.modData('Learnsets', 'mew').learnset.steelbeam;
 		this.modData("Learnsets", "brambleghast").learnset.pinmissile = ["9L1"];
 		this.modData("Learnsets", "brambleghast").learnset.poisonjab = ["9L1"];
