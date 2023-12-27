@@ -602,4 +602,189 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega Uber",
 		doublesTier: "DGX",
 	},
+	
+	cirno: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoninjaskmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoicestymask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoironmormask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnojanutchermask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnosamurotthisuimask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnobaxcaliburmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnovulguilemask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoarcognitionmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoampalangomask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnogarganaclmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnotinkatonmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnocarbinkmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnopumentummask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnobewearmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnojestiremask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnobombastormask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnomacawphonymask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnogyaradosmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnowildpyremask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoswauntedmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnonorvidmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoogerponmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoquagsiremask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnosandacondamask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnokeisbergmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoeeveemask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnokecleonmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoalakazammask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnomamoswinedesvegamask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnovirulopemask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoparascendmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnokelplossusmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoorthwormmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoauruminemask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoshorrormask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnopelippermask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
 };
