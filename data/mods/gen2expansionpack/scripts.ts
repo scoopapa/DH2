@@ -67,7 +67,7 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// Handle boosting items
 			if (
-				(['Cubone', 'Marowak', 'Marowak-Alola', ' Guardia'].includes(this.baseSpecies.name) && this.item === 'thickclub' && statName === 'atk') ||
+				(['Cubone', 'Marowak', 'Marowak-Alola', 'Guardia'].includes(this.baseSpecies.name) && this.item === 'thickclub' && statName === 'atk') ||
 				(this.baseSpecies.name === 'Pikachu' && this.item === 'lightball' && statName === 'spa')
 			) {
 				stat *= 2;
