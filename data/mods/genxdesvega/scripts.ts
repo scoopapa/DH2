@@ -64,23 +64,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			const subFormat = this.dex.formats.get(rule);
 			if (subFormat.onBegin) subFormat.onBegin.call(this);
 		}
-		for (const pokemon of this.getAllPokemon()) {
-			const item = pokemon.getItem();
-			if ([
-				'adamantcrystal', 'griseouscore', 'lustrousglobe', 'wellspringmask',
-				'cornerstonemask', 'hearthflamemask', 'vilevial',
-			].includes(item.id) && item.forcedForme !== pokemon.species.name) {
-				// @ts-ignore
-				const rawSpecies = this.actions.getMixedSpecies(pokemon.m.originalSpecies, item.forcedForme!, pokemon);
-				const species = pokemon.setSpecies(rawSpecies);
-				if (!species) continue;
-				pokemon.baseSpecies = rawSpecies;
-				pokemon.details = species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
-					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
-				pokemon.ability = this.toID(species.abilities['0']);
-				pokemon.baseAbility = pokemon.ability;
-			}
-		}
 
 		if (this.sides.some(side => !side.pokemon[0])) {
 			throw new Error('Battle not started: A player has an empty team.');
@@ -112,46 +95,6 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 
 			this.add('start');
-
-			// Change Pokemon holding Rusted items into their Crowned formes
-			for (const pokemon of this.getAllPokemon()) {
-				let rawSpecies: Species | null = null;
-				const item = pokemon.getItem();
-				if (item.id === 'rustedsword') {
-					// @ts-ignore
-					rawSpecies = this.actions.getMixedSpecies(pokemon.m.originalSpecies, 'Zacian-Crowned', pokemon);
-				} else if (item.id === 'rustedshield') {
-					// @ts-ignore
-					rawSpecies = this.actions.getMixedSpecies(pokemon.m.originalSpecies, 'Zamazenta-Crowned', pokemon);
-				}
-				if (!rawSpecies) continue;
-				const species = pokemon.setSpecies(rawSpecies);
-				if (!species) continue;
-				pokemon.baseSpecies = rawSpecies;
-				pokemon.details = species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
-					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
-				pokemon.ability = this.toID(species.abilities['0']);
-				pokemon.baseAbility = pokemon.ability;
-
-				const behemothMove: {[k: string]: string} = {
-					'Rusted Sword': 'behemothblade', 'Rusted Shield': 'behemothbash',
-				};
-				const ironHead = pokemon.baseMoves.indexOf('ironhead');
-				if (ironHead >= 0) {
-					const move = this.dex.moves.get(behemothMove[pokemon.getItem().name]);
-					pokemon.baseMoveSlots[ironHead] = {
-						move: move.name,
-						id: move.id,
-						pp: (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5,
-						maxpp: (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5,
-						target: move.target,
-						disabled: false,
-						disabledSource: '',
-						used: false,
-					};
-					pokemon.moveSlots = pokemon.baseMoveSlots.slice();
-				}
-			}
 
 			if (this.format.onBattleStart) this.format.onBattleStart.call(this);
 			for (const rule of this.ruleTable.keys()) {
