@@ -764,7 +764,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	weavile: {
 		inherit: true,
 		requiredItem: "Focus Sash",
-		abilities: {0: "Pressure"},
+		abilities: {0: "Pickpocket"},
 		forceTeraType: "Fighting",
 	},
 	weezing: {
@@ -785,6 +785,31 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Prankster"},
 		forceTeraType: "Normal",
 	},
+	infernape: {
+		inherit: true,
+		requiredItem: "Lansat Berry",
+		abilities: {0: "Blaze"},
+		forceTeraType: "Flying",
+	},
+	tinkaton: {
+		inherit: true,
+		requiredItem: "Air Balloon",
+		abilities: {0: "Pickpocket"},
+		forceTeraType: "Bug",
+	},
+	latias: {
+		inherit: true,
+		requiredItem: "Soul Dew",
+		abilities: {0: "Levitate"},
+		forceTeraType: "Water",
+	},
+	nidoqueen: {
+		inherit: true,
+		requiredItem: "Expert Belt",
+		abilities: {0: "Sheer Force"},
+		forceTeraType: "Rock",
+	},
+
 // Test Run
 /*
 	mew: {
