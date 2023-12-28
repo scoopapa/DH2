@@ -62,7 +62,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	breloom: {
 		tier: "YBS",
 		requiredItem: "Toxic Orb",
-		randomBattleMoves: ["spore", "drainpunch", "bulletseed", "laserfocus"],
+		randomBattleMoves: ["spore", "focuspunch", "bulletseed", "substitute"],
 	},
 	centiskorch: {
 		tier: "YBS",
