@@ -48,14 +48,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onSwap(target) {
 				 if (!target.fainted) {
 					  const source = this.effectState.source;
-					  const damage = this.heal(target.baseMaxhp / 3, target, target);
+					  const damage = this.heal(target.baseMaxhp / 2, target, target);
 					  if (damage) this.add('-heal', target, target.getHealth, '[from] ability: Healer', '[of] ' + this.effectState.source);
 					  target.side.removeSlotCondition(target, 'healer');
 				 }
 			},
 	   },
 		rating: 3,
-		shortDesc: "On faint, the next Pokemon sent out heals 33% of its max HP.",
+		shortDesc: "On faint, the next Pokemon sent out heals 50% of its max HP.",
 		num: 131,
 	},
 	galewings: {
@@ -953,14 +953,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.actions.useMove("Water Sport", source);
 			this.add('-message', `${source.name}'s splashed around in the mud!`);
 		},
+		onModifyMove(move, pokemon) {
+			if (['Muddy Water', 'Mud Shot', 'Mud Bomb', 'Mud-Slap'].includes(move.name) && move.secondaries) {
+				delete move.secondaries;
+				delete move.self;
+			}
+		},
 		onBasePower(basePower, attacker, defender, move) {
-			if (['Muddy Water','Mud Shot','Mud Bomb','Mud-Slap'].includes(move.name)) {
+			if (['Muddy Water', 'Mud Shot', 'Mud Bomb', 'Mud-Slap'].includes(move.name)) {
 				return this.chainModify(2);
 			}
 		},
-		shortDesc: "On switch-in, sets Mud Sport and Water Sport. This Pokemon's mud moves deal double damage.",
+		shortDesc: "On switch-in, sets Mud Sport and Water Sport. This Pokemon's mud moves deal double damage but lose their secondary effects.",
 		rating: 5,
-	}, 
+	},
 	exoskeleton: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Exoskeleton');
@@ -1241,7 +1247,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	fairyringer: {
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Fairy') {
-				if (!this.boost({spa: 1})) {
+				if (!this.boost({atk: 1})) {
 					this.add('-immune', target, '[from] ability: Fairy Ringer');
 				}
 				return null;
@@ -1261,7 +1267,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Fairy Ringer",
 		rating: 3,
-		shortDesc: "This Pokemon draws Fairy moves to itself to raise Sp. Atk by 1; Fairy immunity.",
+		shortDesc: "This Pokemon draws Fairy moves to itself to raise Atk by 1; Fairy immunity.",
 	},
 	justified: {
 		onDamagingHit(damage, target, source, move) {

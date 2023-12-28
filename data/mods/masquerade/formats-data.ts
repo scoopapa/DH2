@@ -95,4 +95,128 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	drapion: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drapiondragonblade: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drapionhydroscythe: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drapionwispaxe: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	flygon: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	flygonlionheart: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	flygoncicadasong: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	flygonbeetlestone: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drifblim: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drifblimhotheaded: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drifblimcalmed: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	drifblimnoxious: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kleavor: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kleavorarrowedge: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kleavorgalenahead: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kleavorexpertblade: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	feraligatr: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	feraligatrvolcanic: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	feraligatrirradiating: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	porygon2: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	porygon2zenithbug: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	porygon2retrowave: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	porygon2dreamnet: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingdra: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingdrafoamflow: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingdrarushwash: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	kingdrafrostshot: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	galvantula: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	galvantulawebcrawler: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	galvantulapyrefang: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	galvantulawidowmaker: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };

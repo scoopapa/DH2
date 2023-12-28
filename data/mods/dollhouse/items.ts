@@ -339,4 +339,189 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		rating: 3,
 	},
+	chiyuplushie: {
+		name: "Chi-Yu Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onAnyModifySpD(spd, target, source, move) {
+			const itemHolder = this.effectState.target;
+			if (target.hasItem('Chi-Yu Plushie')) return;
+			if (this.queue.willMove(target)) return;
+			if (!move.ruinedSpD?.hasItem('Chi-Yu Plushie')) move.ruinedSpD = itemHolder;
+			if (move.ruinedSpD !== itemHolder) return;
+			this.debug('Chi-Yu Plushie SpD drop');
+			return this.chainModify(0.75);
+		},
+		num: -1014,
+		desc: "If the holder is slower, the foe's SpD is multiplied by 0.75.",
+		gen: 9,
+		rating: 3,
+	},
+	baxcaliburplushie: {
+		name: "Baxcalibur Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Fire') {
+				this.boost({atk: 1});
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] item: Baxcalibur Plushie');
+			}
+			return false;
+		},
+		num: -1015,
+		desc: "Holder's Attack is raised by 1 when damaged by Fire moves; can't be burned.",
+		gen: 9,
+		rating: 3,
+	},
+	kyuremplushie: {
+		name: "Kyurem Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			if (pokemon.hasType('Ice')) return false;
+			if (!pokemon.addType('Ice')) return false;
+			this.add('-start', pokemon, 'typeadd', 'Ice', '[from] item: Kyurem Plushie');
+		},
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const bp = move.basePower;
+			if (bp >= 130) {
+				move.type = 'Ice';
+			}
+		},
+		num: -1016,
+		desc: "Adds the Ice-type to the holder. Moves of 130+ BP become Ice-type.",
+		gen: 9,
+		rating: 3,
+	},
+	kingambitplushie: {
+		name: "Kingambit Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (source.side.faintedLastTurn) {
+				return this.chainModify(1.5);
+			}
+		},
+		num: -1017,
+		desc: "1.5x Atk & SpA if an ally fainted last turn.",
+		gen: 9,
+		rating: 3,
+	},
+	darkraiplushie: {
+		name: "Darkrai Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.status && move.status === 'slp') {
+				return true;
+			}
+		},
+		onAfterMoveSecondarySelf(target, source, move) {
+			if (move.status && move.status === 'slp') {
+				target.useItem();
+			}
+		},
+		num: -1018,
+		desc: "Holder's sleep moves are guaranteed to hit. Single use.",
+		gen: 9,
+		rating: 3,
+	},
+	zamazentacrownedplushie: {
+		name: "Zamazenta-Crowned Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			this.boost({def: 1}, pokemon);
+			pokemon.addVolatile('zamazentacrownedplushie');
+			this.add('-message', `${pokemon.name} has its shield up!`);
+		},
+		condition: {
+			duration: 2,
+			onEnd(pokemon) {
+				this.add('-item', pokemon, 'Zamazenta-Crowned Plushie');
+				this.add('-message', `${pokemon.name} lowered its shield!`);
+				this.boost({def: -1}, pokemon);
+			},
+		},
+		num: -1019,
+		desc: "+1 Defense on switch-in. Boost goes away at the end of the next turn.",
+		gen: 9,
+		rating: 3,
+	},
+	sneaslerplushie: {
+		name: "Sneasler Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (move.type === 'Poison') {
+				if (this.randomChance(2, 10)) {
+					target.trySetStatus('psn', source);
+				}
+			}
+		},
+		num: -1020,
+		desc: "Holder's Poison moves have an additional 20% chance to poison.",
+		gen: 9,
+		rating: 3,
+	},
+	urshifurapidstrikeplushie: {
+		name: "Urshifu-Rapid-Strike Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onModifyMove(move) {
+			if (move.multihit) {
+				move.willCrit = true;
+			}
+		},
+		num: -1021,
+		desc: "Holder's multi-hit moves always critically hit.",
+		gen: 9,
+		rating: 3,
+	},
+	gougingfireplushie: {
+		name: "Gouging Fire Plushie",
+		spritenum: 2,
+		fling: {
+			basePower: 30,
+		},
+		onStart(pokemon) {
+			if (pokemon.hasAbility('chlorophyll')) {
+				this.boost({atk: 1});
+				pokemon.useItem();
+			}
+		},
+		num: -1021,
+		desc: "Chlorophyll Pokemon: +1 Attack on switch-in. Single use.",
+		gen: 9,
+		rating: 3,
+	},
 };

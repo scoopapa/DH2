@@ -3,6 +3,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		excludeStandardTiers: true,
 		customTiers: ["MSQ"],
 	},
+	init() {
+		this.modData("Learnsets", "emboar").learnset.drainingtusk = ["9L1"];
+		this.modData("Learnsets", "drifblim").learnset.securelanding = ["9L1"];
+		this.modData("Learnsets", "feraligatr").learnset.splashbite = ["9L1"];
+	},
 	actions: {
 		inherit: true,
 		terastallize(pokemon: Pokemon) {
@@ -54,6 +59,38 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (pokemon.species.baseSpecies === 'Corviknight') {
 				const tera = pokemon.species.id === 'corviknight' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Drapion') {
+				const tera = pokemon.species.id === 'drapion' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Flygon') {
+				const tera = pokemon.species.id === 'flygon' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Drifblim') {
+				const tera = pokemon.species.id === 'drifblim' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Kleavor') {
+				const tera = pokemon.species.id === 'kleavor' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Feraligatr') {
+				const tera = pokemon.species.id === 'feraligatr' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Porygon2') {
+				const tera = pokemon.species.id === 'porygon2' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Kingdra') {
+				const tera = pokemon.species.id === 'kingdra' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Galvantula') {
+				const tera = pokemon.species.id === 'galvantula' ? 'basetera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
