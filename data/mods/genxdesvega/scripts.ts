@@ -452,7 +452,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 				//limit one wonder mask
 				for (const ally of pokemon.side.pokemon) {
-					if (ally.item.endsWith('mask')) {
+					if (ally.item && ally.item.endsWith('mask')) {
 						ally.canMegaEvo = null;
 					}
 				}
