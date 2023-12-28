@@ -437,7 +437,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.formeChange(species, pokemon.getItem(), true);
 				// Limit one mega evolution
 				for (const ally of pokemon.side.pokemon) {
-					if (ally.item.endsWith('ite')) {
+					if (!ally.item || ally.item.endsWith('mask')) {
 						ally.canMegaEvo = null;
 					}
 				}
