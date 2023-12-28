@@ -1,10 +1,4 @@
 export const Learnsets: {[k: string]: LearnsetData} = {
-	emboar: {
-		learnset: {
-			inherit: true,
-			drainingtusk: ["9L1"],
-		},
-	},
 	boltund: {
 		learnset: {
 			inherit: true,
@@ -149,18 +143,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			whirlwind: ["9L1"],
 			xscissor: ["9L1"],
 			doubledose: ["9L1"],
-		},
-	},
-	drifblim: {
-		learnset: {
-			inherit: true,
-			securelanding: ["9L1"],
-		},
-	},
-	feraligatr: {
-		learnset: {
-			inherit: true,
-			splashbite: ["9L1"],
 		},
 	},
 };

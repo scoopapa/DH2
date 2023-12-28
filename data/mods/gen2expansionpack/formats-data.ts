@@ -1317,7 +1317,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	luanbo: {
 		tier: "NFE",
 	},
-	grnabo: {
+	granbo: {
 		tier: "OU",
 	},
 	angore: {
