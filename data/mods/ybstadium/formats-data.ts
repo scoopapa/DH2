@@ -296,8 +296,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	klinklang: {
 		tier: "YBS",
-		requiredItem: "Shuca Berry",
-		randomBattleMoves: ["geargrind", "magneticflux", "protect", "assurance"],
+		requiredItem: "Rocky Helmet",
+		randomBattleMoves: ["geargrind", "magneticflux", "signalbeam", "assurance"],
 	},
 	kyuremblack: {
 		tier: "YBS",
@@ -632,7 +632,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	weavile: {
 		tier: "YBS",
 		requiredItem: "Focus Sash",
-		randomBattleMoves: ["iceshard", "beatup", "brickbreak", "taunt"],
+		randomBattleMoves: ["iceshard", "punishment", "brickbreak", "taunt"],
 	},
 	weezing: {
 		tier: "YBS",
