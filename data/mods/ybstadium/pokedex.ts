@@ -355,7 +355,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	klinklang: {
 		inherit: true,
-		requiredItem: "Shuca Berry",
+		requiredItem: "Rocky Helmet",
 		abilities: {0: "Plus"},
 		forceTeraType: "Flying",
 	},
