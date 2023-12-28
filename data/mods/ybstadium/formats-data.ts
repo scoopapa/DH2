@@ -649,4 +649,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		requiredItem: "Choice Specs",
 		randomBattleMoves: ["grassknot", "dazzlinggleam", "naturepower", "switcheroo"],
 	},
+	infernape: {
+		tier: "YBS",
+		requiredItem: "Lansat Berry",
+		randomBattleMoves: ["firepledge", "focuspunch", "substitute", "acrobatics"],
+	},
+	tinkaton: {
+		tier: "YBS",
+		requiredItem: "Air Balloon",
+		randomBattleMoves: ["gigatonhammer", "playrough", "skillswap", "foulplay"],
+	},
+	latias: {
+		tier: "YBS",
+		requiredItem: "Soul Dew",
+		randomBattleMoves: ["dragondance", "scaleshot", "psychocut", "liquidation"],
+	},
+	nidoqueen: {
+		tier: "YBS",
+		requiredItem: "Expert Belt",
+		randomBattleMoves: ["poisonjab", "earthpower", "rockslide", "dragontail"],
+	},
 };
