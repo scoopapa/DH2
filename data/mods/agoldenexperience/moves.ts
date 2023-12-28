@@ -3478,10 +3478,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 	},
-	glaiverush: {
-		inherit: true,
-		basePower: 110,
-	},
 	gigatonhammer: {
 		inherit: true,
 		shortDesc: "Cannot be used twice in a row. Super effective on Steel targets.",
@@ -3544,6 +3540,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return (target.hasType('Water') || target.hasType('Steel'));
 		},
 		shortDesc: "Damages the target by 1/8 max HP per turn if target is Water or Steel type.",
+	},
+	malignantchain: {
+		inherit: true,
+		isNonstandard: null,
 	},
 
 	// Endless Dream field
