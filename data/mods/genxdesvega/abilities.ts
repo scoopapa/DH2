@@ -98,7 +98,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
 		onSourceTryPrimaryHit(target, source, effect) {
 			if (
-				effect && effect.id === 'surf' && source.hasAbility('gulpmissile') &&
+				effect && effect.id === 'surf' && source.hasAbility('gulpcannon') &&
 				['Cramorant-Desvega','Toxirant'].includes(source.species.name) && !source.transformed
 			) {
 				const forme = source.species.id + (source.hp <= source.maxhp / 2 ? 'gorging' : 'gulping')
@@ -107,7 +107,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		isPermanent: true,
 		name: "Gulp Cannon",
-		shortDesc: "When hit after Surf/Dive, attacker takes 1/4 max HP and -1 Sp. Defense or poison.",
+		shortDesc: "Cramorant-Desvega/Toxirant: When hit after Surf/Dive, attacker takes 1/4 max HP and -1 Sp. Defense or poison.",
 	},
 	tacticalmonarch: {
 		onStart(pokemon) {
