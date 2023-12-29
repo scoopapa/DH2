@@ -159,7 +159,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 									'byeah',
 									'dondophobic'])) move.ignoreAbility = true;
 		},
-		// effects in various other abilities
+		// other effects in various other abilities
 		name: "not paying attention to dondozo at all, sorry",
 		shortDesc: "This Pokemon ignores the abilities with Dondozo in it.",
 	},
