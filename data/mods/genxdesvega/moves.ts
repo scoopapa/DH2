@@ -959,6 +959,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 	},
 	
+	dive: {
+		inherit: true,
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			if (attacker.hasAbility(['gulpmissile','gulpcannon']) && ['Cramorant','Cramorant-Desvega','Toxirant'].includes(attacker.species.name)
+				&& !attacker.transformed) {
+				const forme = attacker.hp <= attacker.maxhp / 2 ? 'gorging' : 'gulping';
+				attacker.formeChange(attacker.species.id + forme, move);
+			}
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+	},
+	
 	//loria moves just in case
 	citrusysting: {
 		accuracy: 90,
