@@ -522,7 +522,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onBasePower(basePower, pokemon) {
 			if (pokemon.status && pokemon.status === 'brn') {
-				return this.chainModify(pokemon.hasAbility('guts') ? 1.5 : 3);
+				return this.chainModify(1.5);
 			}
 		},
 		onAfterHit(target, source) {
