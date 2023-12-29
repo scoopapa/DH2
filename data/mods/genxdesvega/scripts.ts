@@ -137,13 +137,13 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (this.actions.switchIn(action.target, action.pokemon.position,
 				action.sourceEffect) !== 'pursuitfaint') break;
 			// a pokemon fainted from Pursuit before it could switch
-			if (this.gen <= 4) {
+			/*if (this.gen <= 4) {
 				// in gen 2-4, the switch still happens
 				this.hint("Previously chosen switches continue in Gen 2-4 after a Pursuit target faints.");
 				action.priority = -101;
 				this.queue.unshift(action);
 				break;
-			}
+			}*/
 			// in gen 5+, the switch is cancelled
 			this.hint("A Pokemon can't switch between when it runs out of HP and when it faints");
 			break;
@@ -233,8 +233,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//if (this.gen >= 5) {
 			this.eachEvent('Update');
 			for (const [pokemon, originalHP] of residualPokemon) {
-				const maxhp = pokemon.getUndynamaxedHP(pokemon.maxhp);
-				if (pokemon.hp && pokemon.getUndynamaxedHP() <= maxhp / 2 && originalHP > maxhp / 2) {
+				const halfOfMaxHP = pokemon.getUndynamaxedHP(pokemon.maxhp) / 2;
+				if (pokemon.hp && pokemon.getUndynamaxedHP() <= halfOfMaxHP && originalHP > halfOfMaxHP) {
 					this.runEvent('EmergencyExit', pokemon);
 				}
 			}
@@ -437,7 +437,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.formeChange(species, pokemon.getItem(), true);
 				// Limit one mega evolution
 				for (const ally of pokemon.side.pokemon) {
-					if (!ally.item || ally.item.endsWith('mask')) {
+					if (!ally.item?.endsWith('mask')) {
 						ally.canMegaEvo = null;
 					}
 				}
@@ -452,7 +452,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 				//limit one wonder mask
 				for (const ally of pokemon.side.pokemon) {
-					if (ally.item && ally.item.endsWith('mask')) {
+					if (ally.item?.endsWith('mask')) {
 						ally.canMegaEvo = null;
 					}
 				}
