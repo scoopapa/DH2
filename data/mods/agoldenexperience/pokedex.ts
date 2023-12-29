@@ -351,6 +351,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 70, def: 120, spa: 95, spd: 80, spe: 35},
 	},
+	kangaskhanmega: {
+		inherit: true,
+		baseStats: {hp: 105, atk: 135, def: 105, spa: 40, spd: 105, spe: 100},
+	},
 	seaking: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 117, def: 80, spa: 40, spd: 80, spe: 93},
@@ -1246,7 +1250,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	salamencemega: {
 		inherit: true,
-		abilities: {0: "Anger Point"},
+		abilities: {0: "Blind Rage"},
 	},
 	beldum: {
 		inherit: true,
@@ -2471,7 +2475,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		forme: "Mega",
 		types: ["Poison", "Fire"],
 		gender: "F",
-		baseStats: {hp: 68, atk: 94, def: 85, spa: 131, spd: 85, spe: 117},
+		baseStats: {hp: 68, atk: 84, def: 85, spa: 131, spd: 85, spe: 127},
 		abilities: {0: "Merciless"},
 		heightm: 1.5,
 		weightkg: 25.5,
@@ -3314,7 +3318,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "Anger Point"},
+		abilities: {0: "Protosynthesis", H: "Blind Rage"},
 	},
 	ironvaliant: {
 		inherit: true,
