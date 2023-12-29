@@ -281,6 +281,48 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Mimicry",
 	},
+	schooling: {
+		onStart(pokemon) {
+			if (!['Slushisloshi,Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
+				|| pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				} else if (pokemon.species.id === 'slushisloshi') {
+					pokemon.formeChange('Slushisloshi-School');
+				}
+			} else if (pokemon.species.id === 'wishiwashischool') {
+				pokemon.formeChange('Wishiwashi');
+			} else if (pokemon.species.id === 'slushisloshischool') {
+				pokemon.formeChange('Slushisloshi');
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			//The commented-out stuff might need testing
+			/*if (pokemon.hp) 
+				this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);*/
+			if (
+				!['Slushisloshi,Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
+				|| pokemon.level < 20 || pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				} else if (pokemon.species.id === 'slushisloshi') {
+					pokemon.formeChange('Slushisloshi-School');
+				}
+			} else if (pokemon.species.id === 'wishiwashischool') {
+				pokemon.formeChange('Wishiwashi');
+			} else if (pokemon.species.id === 'slushisloshischool') {
+				pokemon.formeChange('Slushisloshi');
+			}
+		},
+		isPermanent: true,
+		name: "Schooling",
+		rating: 3,
+		num: 208,
+	},
 	//loria abilities just in case
 	// Wind Blaster could need testing.
 	windblaster: {
