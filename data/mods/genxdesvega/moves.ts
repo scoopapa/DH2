@@ -738,7 +738,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hyper Fang", target);
 		},
-		onModifyMove(move, pokemon) {
+		onModifyMove(move, source, target) {
 			if (!['tox','psn'].includes(target.status)) return;
 			for (const secondary of move.secondaries) {
 				if (secondary?.volatileStatus === 'flinch') secondary.chance = 100;
