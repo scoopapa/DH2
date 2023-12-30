@@ -103,11 +103,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	elgyem: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	elgyemloria: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
 	elgyemdesvega: {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
+	beheeyem: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	beheeyemloria: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
 	yuaftoh: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	sableye: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -135,8 +155,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	varoom: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
 	varoomdesvega: {
 		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	revavroom: {
+		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
 	revavroomdesvega: {
@@ -223,8 +251,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	teddiursa: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	ursaring: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	ursaringdesvega: {
 		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	ursaluna: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	ursalunabloodmoon: {
+		tier: "Desvega Uber",
 		doublesTier: "DGX",
 	},
 	ursabluna: {
@@ -251,24 +295,48 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	spearow: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
 	spearowdesvega: {
 		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	fearow: {
+		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	fearowdesvega: {
 		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
+	hearow: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
 	nixrow: {
 		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	swinub: {
+		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
 	swinubdesvega: {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
+	piloswine: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	piloswinedesvega: {
 		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	mamoswine: {
+		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
 	mamoswinedesvega: {
@@ -315,6 +383,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	capsakid: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	scovillain: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	capsagon: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
@@ -327,8 +403,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	plusle: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
 	multipluse: {
 		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	minun: {
+		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
 	divusion: {
@@ -399,6 +483,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	bidoof: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	bibarel: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	bibarricade: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
@@ -435,6 +527,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	cramorant: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
 	cramorantdesvega: {
 		tier: "Desvega NFE",
 		doublesTier: "DGX",
@@ -455,12 +551,24 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	venipede: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
 	venipededesvega: {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
+	whirlipede: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	whirlipededesvega: {
 		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	scolipede: {
+		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
 	tractipede: {
@@ -491,6 +599,18 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	pawniard: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	bisharp: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	kingambit: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
 	knightmare: {
 		tier: "Desvega NFE",
 		doublesTier: "DGX",
@@ -515,7 +635,35 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	rotom: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	rotomheat: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	rotomwash: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	rotomfreeze: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	rotomfan: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	rotommow: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
 	rotompoker: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	mawile: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -587,7 +735,21 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DOU",
 	},
+
 	
+	
+	arcognition: {
+		tier: "Desvega Uber",
+		doublesTier: "DGX",
+	},
+	janutcher: {
+		tier: "Desvega Uber",
+		doublesTier: "DGX",
+	},
+	virulope: {
+		tier: "Desvega Uber",
+		doublesTier: "DGX",
+	},
 	indeedee: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
@@ -665,6 +827,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	stunfisk: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	stunfiskgalar: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -812,6 +978,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	braviaryhisui: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
 	hippopotas: {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
@@ -896,11 +1066,23 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
+	slowpokegalar: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
 	slowbro: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	slowbrogalar: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
 	slowking: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	slowkinggalar: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -928,18 +1110,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
-	swinub: {
-		tier: "Desvega LC",
-		doublesTier: "DGX",
-	},
-	piloswine: {
-		tier: "Desvega NFE",
-		doublesTier: "DGX",
-	},
-	mamoswine: {
-		tier: "Desvega OU",
-		doublesTier: "DGX",
-	},
 	tandemaus: {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
@@ -949,7 +1119,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	eiscue: {
-		tier: "Desvega OU",
+		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	keisberg: {
@@ -1161,7 +1331,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	sinistect: {
-		tier: "Desvega OU",
+		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
 	grimoth: {
@@ -1177,7 +1347,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	belubble: {
-		tier: "Desvega OU",
+		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
 	drakumuy: {
@@ -1376,15 +1546,31 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
+  hydrapple: {
+    tier: "Desvega OU",
+    doublesTier: "DGX",
+  },
 	bagon: {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
-	shellgon: {
+	bagonloria: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	shelgon: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
+	shelgonloria: {
 		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	salamence: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	salamenceloria: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -1452,18 +1638,189 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
-	
-	
-	arcognition: {
-		tier: "Desvega Uber",
-		doublesTier: "DGX",
+  
+	cirno: {
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
-	janutcher: {
-		tier: "Desvega Uber",
-		doublesTier: "DGX",
+	cirnoninjaskmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
-	virulope: {
-		tier: "Desvega Uber",
-		doublesTier: "DGX",
+	cirnoicestymask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoironmormask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnojanutchermask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnosamurotthisuimask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnobaxcaliburmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnovulguilemask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoarcognitionmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoampalangomask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnogarganaclmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnotinkatonmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnocarbinkmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnopumentummask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnobewearmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnojestiremask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnobombastormask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnomacawphonymask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnogyaradosmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnowildpyremask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoswauntedmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnonorvidmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoogerponmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoquagsiremask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnosandacondamask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnokeisbergmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoeeveemask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnokecleonmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoalakazammask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnomamoswinedesvegamask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnovirulopemask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoparascendmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnokelplossusmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoorthwormmask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoauruminemask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnoshorrormask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
+	},
+	cirnopelippermask: {
+		isNonstandard: "Custom",
+		tier: "Illegal",
+		doublesTier: "Illegal",
 	},
 };
