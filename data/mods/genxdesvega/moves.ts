@@ -614,7 +614,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Ink Burst",
-		shortDesc: "30% chance to lower the target's Speed by 1 stage. Type depends on Crayoct's forme.",
+		shortDesc: "30% chance to lower the target's Speed by 1 stage. If Crayoct, type depends on forme.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -624,7 +624,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onModifyType(move, pokemon) {
 			switch (pokemon.species.name) {
-			case 'Crayoct-Red':
+			case 'Crayoct':
 				move.type = 'Fire';
 				break;
 			case 'Crayoct-Blue':
@@ -707,14 +707,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {snatch: 1},
 		onTry(source) {
-			if (source.hp <= (source.maxhp * 1/8) || source.maxhp === 1) return false;
+			if (source.hp <= (source.maxhp / 8) || source.maxhp === 1) return false;
 		},
 		onTryHit(pokemon, target, move) {
 			if (!this.boost(move.boosts as SparseBoostsTable)) return null;
 			delete move.boosts;
 		},
 		onHit(pokemon) {
-			this.directDamage(pokemon.maxhp * 1/8);
+			this.directDamage(pokemon.maxhp / 8);
 		},
 		boosts: {
 			def: 1,
