@@ -1113,7 +1113,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	goodmanagement: {
 		name: "Good Management",
 		shortDesc: "Stat changes from skills and hold items are doubled.",
-		onBoost(boost, target, source, effect) {
+		onChangeBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
 			let i: BoostID;
 			for (i in boost) {
 				boost[i]! *= 2;

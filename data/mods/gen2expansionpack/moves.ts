@@ -155,8 +155,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	rockslash: {
 		num: -9,
-		accuracy: 70,
-		basePower: 140,
+		accuracy: 80,
+		basePower: 100,
 		category: "Physical",
 		name: "Rock Slash",
 		pp: 5,

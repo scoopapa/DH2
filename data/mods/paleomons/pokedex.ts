@@ -397,7 +397,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	pesbasil: {
 		num: 45,
-		species: "Pesbasil",
+		name: "Pesbasil",
 		types: ["Steel", "Ghost"],
 		baseStats: {hp: 95, atk: 125, def: 90, spa: 62, spd: 86, spe: 86},
 		abilities: {0: "Heavy Metal", 1: "Own Tempo", H: "Justified"},
@@ -405,7 +405,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	moscourge: {
 		num: 46,
-		species: "Moscourge",
+		name: "Moscourge",
 		types: ["Poison", "Ghost"],
 		baseStats: {hp: 66, atk: 96, def: 76, spa: 116, spd: 86, spe: 106},
 		abilities: {0: "Corrosion", 1: "Poison Touch", H: "Merciless"},
@@ -413,7 +413,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	shivertherium: {
 		num: 47,
-		species: "Shivertherium",
+		name: "Shivertherium",
 		types: ["Ice", "Steel"],
 		baseStats: {hp: 105, atk: 115, def: 105, spa: 65, spd: 60, spe: 70},
 		abilities: {0: "Stamina", H: "Thick Fat"},
