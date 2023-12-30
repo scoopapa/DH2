@@ -823,7 +823,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Swinub-Desvega",
 		evos: ["Mamoswine-Desvega"],
 	},
-	piloswine: {
+	mamoswine: {
 		inherit: true,
 		otherFormes: ["Mamoswine-Desvega"],
 		formeOrder: ["Mamoswine", "Mamoswine-Desvega"],
@@ -1809,41 +1809,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	
-	//box legends
-	arcognition: {
-		num: 1455,
-		name: "Arcognition",
-		types: ["Electric", "Psychic"],
-		baseStats: {hp: 100, atk: 100, def: 125, spa: 135, spd: 115, spe: 95},
-		abilities: {0: "Download"},
-		heightm: 1.8,
-		weightkg: 75,
-		tags: ["Restricted Legendary"],
-		eggGroups: ["Undiscovered"],
-	},
-	janutcher: {
-		num: 1456,
-		name: "Janutcher",
-		types: ["Dark", "Fairy"],
-		baseStats: {hp: 115, atk: 95, def: 100, spa: 135, spd: 125, spe: 100},
-		abilities: {0: "Intimidate"},
-		heightm: 1.9,
-		weightkg: 25,
-		tags: ["Restricted Legendary"],
-		eggGroups: ["Undiscovered"],
-	},
-	virulope: {
-		num: 1457,
-		name: "Virulope",
-		types: ["Normal", "Poison"],
-		baseStats: {hp: 100, atk: 125, def: 95, spa: 100, spd: 115, spe: 135},
-		abilities: {0: "Toxic Debris"},
-		heightm: 0.4,
-		weightkg: 5.8,
-		tags: ["Restricted Legendary"],
-		eggGroups: ["Undiscovered"],
-	},
-	
 	//brazdo
 	pequetal: {
 		num: 1022,
@@ -2468,36 +2433,40 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Shelgon-Loria",
 		evoLevel: 50,
 	},
-  
-	
 	
 	//box legends
 	arcognition: {
-		num: 1416,
+		num: 1455,
 		name: "Arcognition",
 		types: ["Electric", "Psychic"],
 		baseStats: {hp: 100, atk: 100, def: 125, spa: 135, spd: 115, spe: 95},
 		abilities: {0: "Download"},
 		heightm: 1.8,
 		weightkg: 75,
+		tags: ["Restricted Legendary"],
+		eggGroups: ["Undiscovered"],
 	},
 	janutcher: {
-		num: 1417,
+		num: 1456,
 		name: "Janutcher",
 		types: ["Dark", "Fairy"],
 		baseStats: {hp: 115, atk: 95, def: 100, spa: 135, spd: 125, spe: 100},
 		abilities: {0: "Intimidate"},
 		heightm: 1.9,
 		weightkg: 25,
+		tags: ["Restricted Legendary"],
+		eggGroups: ["Undiscovered"],
 	},
 	virulope: {
-		num: 1418,
+		num: 1457,
 		name: "Virulope",
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 100, atk: 125, def: 95, spa: 100, spd: 115, spe: 135},
 		abilities: {0: "Toxic Debris"},
 		heightm: 0.4,
 		weightkg: 5.8,
+		tags: ["Restricted Legendary"],
+		eggGroups: ["Undiscovered"],
 	},
   
 	cirno: {
