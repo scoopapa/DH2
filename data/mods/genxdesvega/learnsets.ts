@@ -4198,7 +4198,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			flipturn: ["9L1"],
 			toxicspikes: ["9L1"],
 			poisonterrain: ["9L1"],
-			gastroacid: ["9L1"],{
+			gastroacid: ["9L1"],
 			toxic: ["9L1"],
 			hail: ["9L1"],
 			venoshock: ["9L1"],
