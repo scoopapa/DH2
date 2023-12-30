@@ -663,10 +663,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
-	rotompoker: {
-		tier: "Desvega OU",
-		doublesTier: "DGX",
-	},
 	mawile: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
