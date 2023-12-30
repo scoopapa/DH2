@@ -274,8 +274,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		otherFormes: ["Elgyem-Desvega"],
 		formeOrder: ["Elgyem", "Elgyem-Desvega"],
-		
-	}
+	},
 	elgyemdesvega: {
 		num: 605,
 		name: "Elgyem-Desvega",
@@ -371,7 +370,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		otherFormes: ["Varoom-Desvega"],
 		formeOrder: ["Varoom", "Varoom-Desvega"],
-	}
+	},
 	varoomdesvega: {
 		num: 965,
 		name: "Varoom-Desvega",
@@ -388,7 +387,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		otherFormes: ["Revavroom-Desvega"],
 		formeOrder: ["Revavroom", "Revavroom-Desvega"],
-	}
+	},
 	revavroomdesvega: {
 		num: 966,
 		name: "Revavroom-Desvega",
@@ -424,7 +423,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	ledian: {
 		inherit: true,
 		evos: ["Lediund"],
-	}
+	},
 	lediund: {
 		num: 1362,
 		name: "Lediund",
