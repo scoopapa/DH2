@@ -1,5 +1,5 @@
 export const Learnsets: {[speciesid: string]: LearnsetData} = {
-		a16b3c12d19f16g8h2i17j12k5m2n5p19q4v: {
+		a16redacted: {
 		learnset: {
 			acid: ["9L1"],
 			appleacid: ["9L1"],

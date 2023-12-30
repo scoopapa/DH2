@@ -1,5 +1,5 @@
 export const FormatsData: {[k: string]: SpeciesFormatsData} = {
-	a16b3c12d19f16g8h2i17j12k5m2n5p19q4v: {
+	a16redacted: {
 		tier: "santa",
 		doublesTier: "Dsanta",
 	},

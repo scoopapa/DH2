@@ -2,6 +2,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	aquaticlight: {
 		num: 100001,
 		accuracy: 100,
+		shortDesc: "20% chance to paralyze",
 		basePower: 100,
 		category: "Special",
 		name: "Aquatic Light",
@@ -17,12 +18,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	stonedance: {
-		num: 100001,
+		num: 100002,
 		accuracy: 100,
+		shortDesc: "30% chance to paralyze",
 		basePower: 85,
 		category: "Special",
 		name: "Stone Dance",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
@@ -34,12 +36,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Beautiful",
 	},
 	xyzalphabeam: {
-		num: 679,
+		num: 100003,
 		accuracy: 100,
-		basePower: 80,
+		shortDesc: "Lowers the foe's highest stat.",
+		basePower: 90,
 		category: "Special",
 		name: "XYZ-Alpha Beam",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		secondary: {
@@ -54,7 +57,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 						bestStat = target.storedStats[s];
 					}
 				}
-				this.boost({[statName]: 1}, target);
+				this.boost({[statName]: -1}, target);
 			},
 		},
 		target: "normal",
@@ -62,8 +65,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cute",
 	},
 	hydroustoxin: {
-		num: 503,
+		num: 100004,
 		accuracy: 100,
+		shortDesc: "Automatically crits against poisoned foes.",
 		basePower: 80,
 		category: "Special",
 		name: "Hydrous Toxin",
@@ -73,12 +77,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		onModifyCritRatio(critRatio, source, target) {
-			if (target && ['psn', 'tox'].includes(target.status)) return 5;
+		onModifyMove(move, source, target) {
+			if (target && ['psn', 'tox'].includes(target.status)) move.critRatio = 5;
 		},
 	},
 	tranbeam: {
-		num: 304,
+		num: 100005,
+		shortDesc: "Does nothing (placeholder)",
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -92,11 +97,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		contestType: "Cool",
 	},
 	musicalrenaissance: {
-		num: 304,
+		num: 100006,
 		accuracy: 100,
 		basePower: 110,
 		category: "Special",
 		name: "Musical Renaissance",
+		shortDesc: "Changes the user's ability from Orichalcum Pulse to Hadron Engine and vice versa.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
@@ -118,7 +124,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (pokemon.ability === 'orichalcumpulse') move.category = "Physical";
 		},
 		onHit(target, source, move) {
-			switch (pokemon.ability) {
+			switch (source.ability) {
 			case 'orichalcumpulse':
 				source.setAbility('hadronengine');
 				break;
