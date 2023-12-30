@@ -632,7 +632,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	weavile: {
 		tier: "YBS",
 		requiredItem: "Focus Sash",
-		randomBattleMoves: ["iceshard", "punishment", "brickbreak", "taunt"],
+		randomBattleMoves: ["icespinner", "punishment", "brickbreak", "counter"],
 	},
 	weezing: {
 		tier: "YBS",
