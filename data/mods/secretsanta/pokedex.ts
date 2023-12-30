@@ -1,7 +1,7 @@
 export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	a16b3c12d19f16g8h2i17j12k5m2n5p19q4v: {
 		num: 1001,
-		species: "a16b3c12d19f16g8h2i17j12k5m2n5p19q4v",
+		species: "a16[redacted]",
 		types: ["???"],
 		baseStats: {hp: 100, atk: 95, def: 90, spa: 95, spd: 90, spe: 100},
 		abilities: {0: "Camoform"},
