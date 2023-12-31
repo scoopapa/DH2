@@ -6,12 +6,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	fluttermane: {
 		inherit: true,
 		types: ["Ghost", "Bug"],
-		baseStats: {hp: 65, atk: 95, def: 55, spa: 115, spd: 135, spe: 105},
+		baseStats: {hp: 65, atk: 75, def: 75, spa: 115, spd: 135, spe: 105},
 	},
 	palafinhero: {
 		inherit: true,
 		types: ["Water", "Fighting"],
-		baseStats: {hp: 100, atk: 100, def: 135, spa: 83, spd: 92, spe: 60},
+		baseStats: {hp: 100, atk: 120, def: 135, spa: 83, spd: 92, spe: 60},
 	},
 	ironbundle: {
 		inherit: true,
@@ -97,12 +97,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	butterfree: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
+		baseStats: {hp: 85, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
 		abilities: {0: "Compound Eyes", H: "Magic Guard"},
 	},
 	butterfreegmax: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
+		baseStats: {hp: 85, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
 		abilities: {0: "Magic Bounce"},
 	},
 	meowthgmax: {
@@ -225,12 +225,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	alcremie: {
 		inherit: true,
-		baseStats: {hp: 65, atk: 60, def: 90, spa: 120, spd: 125, spe: 70},
+		baseStats: {hp: 85, atk: 60, def: 90, spa: 120, spd: 125, spe: 70},
 		abilities: {0: "Gooey", H: "Aroma Veil"},
 	},
 	alcremiegmax: {
 		inherit: true,
-		baseStats: {hp: 65, atk: 60, def: 90, spa: 120, spd: 125, spe: 70},
+		baseStats: {hp: 85, atk: 60, def: 90, spa: 120, spd: 125, spe: 70},
 		abilities: {0: "Well-Baked Body"},
 	},
 	copperajahgmax: {
