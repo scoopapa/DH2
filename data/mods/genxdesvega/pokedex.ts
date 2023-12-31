@@ -1385,7 +1385,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Water Absorb", 1: "Rocky Payload", H: "Grassy Surge"},
 		heightm: 0.3,
 		weightkg: 4,
-		evo: ["Kelpsul"],
+		evos: ["Kelpsul"],
 	},
 	kelpsul: {
 		num: 1429,
