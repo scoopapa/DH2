@@ -14,8 +14,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		//TODO: put parahax prevention in conditions.ts
 	},
-//TODO: Slushisloshi Scale, Hindrance Policy, Refraction Pad, Noxious Gauntlet, Heated Cuirass, Shocking Pauldron
-	//TODO: Rulebook, Ashball, Spinning Top, Interactive Lens
+   //TODO: Slushisloshi Scale, Hindrance Policy, Rulebook, Ashball, Spinning Top, Interactive Lens
 	sinnohstone: {
 		name: "Sinnoh Stone",
 		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
@@ -95,13 +94,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 && this.heal(pokemon.baseMaxhp / 2)) {
-				pokemon.setStatus('brn');
+				pokemon.setStatus('brn', pokemon);
 				pokemon.useItem();
 			}
 		},
 	},
 	crimsondagger: {
 		name: "Crimson Dagger",
+		shortDesc: "Restore 12.5% of Max HP after landing a damaging move.",
 		fling: {
 			basePower: 100,
 		},
@@ -109,6 +109,62 @@ export const Items: {[itemid: string]: ItemData} = {
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.totalDamage && !pokemon.forceSwitchFlag) {
 				this.heal(pokemon.maxhp / 8, pokemon);
+			}
+		},
+	},
+	shockingpauldron: {
+		name: "Shocking Pauldron",
+		shortDesc: "When hit by contact, 25% chance to paralyze the attacker.",
+		fling: {
+			basePower: 60,
+			status: 'par',
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(1, 4)) {
+				source.trySetStatus('par', target);
+			}
+		},
+	},
+	heatedcuirass: {
+		name: "Heated Cuirass",
+		shortDesc: "When hit by contact, 25% chance to burn the attacker.",
+		fling: {
+			basePower: 60,
+			status: 'brn',
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(1, 4)) {
+				source.trySetStatus('brn', target);
+			}
+		},
+	},
+	noxiousgauntlet: {
+		name: "Noxious Gauntlet",
+		shortDesc: "When hit by contact, 25% chance to poison the attacker; If already poisoned upgrades it to Toxic poisoning.",
+		fling: {
+			basePower: 60,
+			status: 'psn',
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(1, 4)) {
+				if (source.status === 'psn') {
+					source.setStatus('tox', target);
+				} else {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+	},
+	refractionpad: {
+		name: "Refraction Pad",
+		shortDesc: "Attackers lose 1/6 of max HP after using non-contact damaging moves.",
+		fling: {
+			basePower: 30,
+		},
+		onDamagingHitOrder: 2,
+		onDamagingHit(damage, target, source, move) {
+			if (!this.checkMoveMakesContact(move, source, target)) {
+				this.damage(source.baseMaxhp / 6, source, target);
 			}
 		},
 	},
