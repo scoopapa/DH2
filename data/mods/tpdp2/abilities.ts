@@ -314,17 +314,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	brightform: {
 		name: "Bright Form",
 		shortDesc: "Void-type skills are treated as Light-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Light';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Light";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	brutality: {
@@ -1042,33 +1041,31 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	galeform: {
 		name: "Gale Form",
 		shortDesc: "Void-type skills are treated as Wind-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Wind';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Wind";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	generalsform: {
 		name: "General's Form",
 		shortDesc: "Void-type skills are treated as Fighting-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Fighting';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Fighting";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	genteiswater: {
@@ -1089,17 +1086,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	ghostform: {
 		name: "Ghost Form",
 		shortDesc: "Void-type skills are treated as Nether-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Nether';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Nether";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	glamorous: {
@@ -1507,17 +1503,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	midnightform: {
 		name: "Midnight Form",
 		shortDesc: "Void-type skills are treated as Dark-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Dark';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Dark";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	mindlessdance: {
@@ -1605,17 +1600,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	naturalform: {
 		name: "Natural Form",
 		shortDesc: "Void-type skills are treated as Nature-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Nature';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Nature";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	negativeaura: {
@@ -2359,17 +2353,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	streamform: {
 		name: "Stream Form",
 		shortDesc: "Void-type skills are treated as Water-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Water';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Water";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	strictdosage: {
@@ -2586,17 +2579,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	unyieldingform: {
 		name: "Unyielding Form",
 		shortDesc: "Void-type skills are treated as Steel-type skills.",
-		onBasePowerPriority: 10,
-		onBasePower(relayVar, source, target, move) {
-			if (move.type === "Void") {
-				this.chainModify(1.3);
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.type === 'Void')  {
+				move.type = 'Steel';
+				move.typeChangerBoosted = this.effect;
 			}
 		},
-		onModifyTypePriority: -1,
-		onModifyType(move, pokemon, target) {
-			if (move.type === "Void") {
-				move.type = "Steel";
-			}
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.3);
 		},
 	},
 	uptempo: {
