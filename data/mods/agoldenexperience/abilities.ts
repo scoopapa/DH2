@@ -2158,7 +2158,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 		},
 		onBasePowerPriority: 7,
 		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.25);
+			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.5);
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
 			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
@@ -2167,7 +2167,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			}
 		},
 		name: "Parental Bond",
-		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage quartered. Doesn't affect fixed damages moves.",
+		shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage halved. Doesn't affect fixed damages moves.",
 		rating: 4.5,
 		num: 184,
 	},
