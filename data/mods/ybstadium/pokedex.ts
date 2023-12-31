@@ -586,7 +586,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		requiredItem: "Fairy Memory",
 		abilities: {0: "RKS System"},
 		forceTeraType: "Stellar",
-	},
+	}, 
 	simisear: {
 		inherit: true,
 		requiredItem: "Petaya Berry",
