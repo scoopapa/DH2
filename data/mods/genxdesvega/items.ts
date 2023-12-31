@@ -14,7 +14,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		//TODO: put parahax prevention in conditions.ts
 	},
-   //TODO: Slushisloshi Scale, Hindrance Policy, Rulebook, Ashball, Spinning Top, Interactive Lens
+   //TODO: Slushisloshi Scale, Hindrance Policy, Rulebook, Ashball
 	sinnohstone: {
 		name: "Sinnoh Stone",
 		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
@@ -166,6 +166,42 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (!this.checkMoveMakesContact(move, source, target)) {
 				this.damage(source.baseMaxhp / 6, source, target);
 			}
+		},
+	},
+	spinningtop: {
+		name: "Spinning Top",
+		shortDesc: "If the holder used a damaging move, other damaging moves have x1.5 power if used next.",
+		fling: {
+			basePower: 60,
+			volatileStatus: 'torment',
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (pokemon.lastMove && pokemon.lastMove.id !== move.id) {
+				this.debug('Spinning Top boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
+	interactivelens: {
+		name: "Interactive Lens",
+		shortDesc: "Holder's damaging moves (excl. OHKO) have perfect accuracy and bypass semi-invulnerability but use 1 extra PP.",
+		fling: {
+			basePower: 20,
+			critRatio: 5,
+		},
+		onSourceInvulnerabilityPriority: 1,
+		onSourceInvulnerability(target, source, move) {
+			if (move && move.category !== 'Status' && !move.ohko) return 0;
+		},
+		onSourceAccuracy(accuracy, target, source, move) {
+			if (move && move.category !== 'Status' && !move.ohko) {
+				return true;
+			}
+			return accuracy;
+		},
+		onSourceDeductPP(target, source, move) {
+			if (move && move.category !== 'Status' && !move.ohko) return 1;
 		},
 	},
 	
