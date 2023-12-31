@@ -883,7 +883,7 @@ export const Formats: FormatList = [
 			'https://docs.google.com/spreadsheets/d/1IPFlVP4osQhGtjNRheycCX0AnZiUVipumGwqKdhOS2s/edit#gid=1272593335">Spreadsheet</a>',
 		],
 		mod: 'secretsanta', 
-	  ruleset: ['Standard NatDex', 'Terastal Clause', 'Data Mod'],
+	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod', '+Past'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
 		],
