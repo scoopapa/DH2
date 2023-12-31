@@ -34,14 +34,55 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	chienpao: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 110, def: 80, spa: 100, spd: 90, spe: 120},
+		baseStats: {hp: 80, atk: 110, def: 80, spa: 100, spd: 80, spe: 120},
 	},
 	chiyu: {
 		inherit: true,
 		baseStats: {hp: 55, atk: 70, def: 80, spa: 135, spd: 125, spe: 105},
 	},
+	stonjourner: {
+		inherit: true,
+		types: ["Rock", "Ground"],
+		baseStats: {hp: 100, atk: 125, def: 135, spa: 20, spd: 60, spe: 80},
+	},
+	falinks: {
+		inherit: true,
+		types: ["Fighting", "Rock"],
+		baseStats: {hp: 65, atk: 115, def: 100, spa: 70, spd: 60, spe: 110},
+		abilities: {0: "Battle Armor", 1: "Technician", H: "Defiant"},
+	},
+	scovillain: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 123, def: 65, spa: 93, spd: 65, spe: 95},
+		abilities: {0: "Chlorophyll", 1: "Intimidate", H: "Moody"},
+	},
+	dudunsparce: {
+		inherit: true,
+		baseStats: {hp: 130, atk: 100, def: 80, spa: 90, spd: 80, spe: 55},
+		abilities: {0: "Serene Grace", 1: "Stamina", H: "Rattled"},
+	},
+	dudunsparcethreesegment: {
+		inherit: true,
+		baseStats: {hp: 130, atk: 100, def: 80, spa: 90, spd: 80, spe: 55},
+		abilities: {0: "Serene Grace", 1: "Stamina", H: "Rattled"},
+	},
+	eiscue: {
+		inherit: true,
+		types: ["Ice", "Ground"],
+		baseStats: {hp: 75, atk: 110, def: 130, spa: 65, spd: 130, spe: 50},
+	},
+	eiscuenoice: {
+		inherit: true,
+		types: ["Ice", "Ground"],
+		baseStats: {hp: 75, atk: 110, def: 90, spa: 65, spd: 70, spe: 130},
+	},
+	tatsugiri: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 50, def: 70, spa: 120, spd: 95, spe: 92},
+		abilities: {0: "Commander", 1: "Natural Cure", H: "Storm Drain"},
+	},
 
-// GMaxes
+// GMaxes and Buffs to GMax base forms
 	venusaurgmax: {
 		inherit: true,
 		abilities: {0: "Flower Veil"},
@@ -54,8 +95,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Bulletproof"},
 	},
+	butterfree: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
+		abilities: {0: "Compound Eyes", H: "Magic Guard"},
+	},
 	butterfreegmax: {
 		inherit: true,
+		baseStats: {hp: 60, atk: 45, def: 75, spa: 115, spd: 100, spe: 70},
 		abilities: {0: "Magic Bounce"},
 	},
 	meowthgmax: {
@@ -126,13 +173,25 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Earth Eater"},
 	},
+	flapple: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 120, def: 95, spa: 80, spd: 67, spe: 88},
+		abilities: {0: "Ripen", 1: "Gluttony", H: "Hustle"},
+	},
 	flapplegmax: {
 		inherit: true,
-		abilities: {0: "Supersweet Syrup"},
+		baseStats: {hp: 70, atk: 120, def: 95, spa: 80, spd: 67, spe: 88},
+		abilities: {0: "Tinted Lens"},
+	},
+	appletun: {
+		inherit: true,
+		baseStats: {hp: 110, atk: 75, def: 90, spa: 120, spd: 100, spe: 25},
+		abilities: {0: "Ripen", 1: "Harvest", H: "Thick Fat"},
 	},
 	appletungmax: {
 		inherit: true,
-		abilities: {0: "Supersweet Syrup"},
+		baseStats: {hp: 110, atk: 75, def: 90, spa: 120, spd: 100, spe: 25},
+		abilities: {0: "Grassy Surge"},
 	},
 	sandacondagmax: {
 		inherit: true,
@@ -146,9 +205,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Electromorphosis"},
 	},
+	centiskorch: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 135, def: 85, spa: 75, spd: 100, spe: 65},
+		abilities: {0: "Flash Fire", 1: "Magic Bounce", H: "Flame Body"},
+	},
 	centiskorchgmax: {
 		inherit: true,
-		abilities: {0: "Unnerve"},
+		baseStats: {hp: 100, atk: 135, def: 85, spa: 75, spd: 100, spe: 65},
+		abilities: {0: "Dry Skin"},
 	},
 	hatterenegmax: {
 		inherit: true,
@@ -158,8 +223,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Tangling Hair"},
 	},
+	alcremie: {
+		inherit: true,
+		baseStats: {hp: 65, atk: 60, def: 90, spa: 120, spd: 125, spe: 70},
+		abilities: {0: "Gooey", H: "Aroma Veil"},
+	},
 	alcremiegmax: {
 		inherit: true,
+		baseStats: {hp: 65, atk: 60, def: 90, spa: 120, spd: 125, spe: 70},
 		abilities: {0: "Well-Baked Body"},
 	},
 	copperajahgmax: {

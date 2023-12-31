@@ -4,10 +4,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fairy", "Dragon"],
 		abilities: {0: "Protosmosis", H: "Cute Charm"},
 	},
+	crabrawler: {
+		inherit: true,
+		abilities: {0: "Hyper Cutter", 1: "Iron Fist", H: "Fair Fight"},
+	},
 	crabominable: {
 		inherit: true,
 		types: ["Fighting", "Water"],
-		abilities: {0: "Fur Coat", 1: "Iron Fist", H: "Snow Cloak"},
+		abilities: {0: "Fur Coat", 1: "Iron Fist", H: "Fair Fight"},
 	},
 	mareanie: {
 		inherit: true,
@@ -225,7 +229,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	greattusk: {
 		inherit: true,
-		abilities: {0: "Protocrysalis"},
+		abilities: {0: "Protocrysalis", H: "Muscle Memory"},
 	},
 	sandyshocks: {
 		inherit: true,
@@ -233,7 +237,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	fluttermane: {
 		inherit: true,
-		abilities: {0: "Protostasis"},
+		abilities: {0: "Protostasis", H: "Illusion"},
 	},
 	brutebonnet: {
 		inherit: true,
@@ -249,11 +253,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	ironbundle: {
 		inherit: true,
-		abilities: {0: "Neuron Drive"},
+		abilities: {0: "Neuron Drive", H: "Water Veil"},
 	},
 	ironhands: {
 		inherit: true,
-		abilities: {0: "Photon Drive"},
+		abilities: {0: "Photon Drive", H: "Fair Fight"},
 	},
 	ironjugulis: {
 		inherit: true,
@@ -269,7 +273,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	roaringmoon: {
 		inherit: true,
-		abilities: {0: "Protostasis"},
+		abilities: {0: "Protostasis", H: "Gale Wings"},
 	},
 	ironvaliant: {
 		inherit: true,
@@ -322,6 +326,18 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	rotomfrost: {
 		inherit: true,
 		abilities: {0: "Levitate", H: "Permafrost"},
+	},
+	rotom: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Adaptability"},
+	},
+	rotomwash: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Water Veil"},
+	},
+	rotommow: {
+		inherit: true,
+		abilities: {0: "Levitate", H: "Natural Cure"},
 	},
 	bombirdier: {
 		inherit: true,
@@ -380,7 +396,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	lycanroc: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Sand Rush", H: "Cloud Nine"},
+		abilities: {0: "Steadfast", 1: "Sand Rush", H: "Cloud Nine"},
 	},
 	igglybuff: {
 		inherit: true,
@@ -525,7 +541,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	krookodile: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Moxie", H: "Sand Spit"},
+		abilities: {0: "Intimidate", 1: "Moxie", H: "Prehistoric Might"},
 	},
 	sandygast: {
 		inherit: true,
@@ -694,7 +710,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	hariyama: {
 		inherit: true,
-		abilities: {0: "Thick Fat", 1: "Guts", H: "Purifying Salt"},
+		abilities: {0: "Fair Fight", 1: "Guts", H: "Purifying Salt"},
 	},
 	mukalola: {
 		inherit: true,
@@ -775,7 +791,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	lucario: {
 		inherit: true,
-		abilities: {0: "Sheer Heart", 1: "Inner Focus", H: "Justified"},
+		abilities: {0: "Sheer Heart", 1: "Steadfast", H: "Justified"},
 	},
 	gothita: {
 		inherit: true,
@@ -1285,11 +1301,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	rufflet: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Blunt Force", H: "Hustle"},
+		abilities: {0: "Fair Fight", 1: "Blunt Force", H: "Hustle"},
 	},
 	braviary: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Blunt Force", H: "Defiant"},
+		abilities: {0: "Fair Fight", 1: "Blunt Force", H: "Defiant"},
+	},
+	braviaryhisui: {
+		inherit: true,
+		abilities: {0: "Fair Fight", 1: "Sheer Force", H: "Tinted Lens"},
 	},
 	volcanion: {
 		inherit: true,
@@ -1325,11 +1345,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	tarountula: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Swarm", H: "Stakeout"},
+		abilities: {0: "Insomnia", 1: "Steadfast", H: "Stakeout"},
 	},
 	spidops: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Swarm", H: "Stakeout"},
+		abilities: {0: "Insomnia", 1: "Steadfast", H: "Stakeout"},
 	},
 	cleffa: {
 		inherit: true,
@@ -1475,6 +1495,14 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Prehistoric Might", H: "Rock Head"},
 	},
+	growlithe: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Fair Fight", H: "Justified"},
+	},
+	arcanine: {
+		inherit: true,
+		abilities: {0: "Intimidate", 1: "Fair Fight", H: "Justified"},
+	},
 	kleavor: {
 		inherit: true,
 		abilities: {0: "Swarm", 1: "Prehistoric Might", H: "Sharpness"},
@@ -1505,7 +1533,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	gallade: {
 		inherit: true,
-		abilities: {0: "Synchronize", 1: "Sharpness", H: "Justified"},
+		abilities: {0: "Steadfast", 1: "Sharpness", H: "Justified"},
 	},
 	diancie: {
 		inherit: true,
@@ -1522,5 +1550,49 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	bruxish: {
 		inherit: true,
 		abilities: {0: "Dazzling", 1: "Strong Jaw", H: "Synchronize"},
+	},
+	ditto: {
+		inherit: true,
+		abilities: {0: "Limber", 1: "Illusion", H: "Imposter"},
+	},
+	perrserker: {
+		inherit: true,
+		abilities: {0: "Steadfast", 1: "Tough Claws", H: "Steely Spirit"},
+	},
+	sunkern: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Steadfast"},
+	},
+	sunflora: {
+		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Early Bird", H: "Steadfast"},
+	},
+	jangmoo: {
+		inherit: true,
+		abilities: {0: "Bulletproof", 1: "Fair Fight", H: "Overcoat"},
+	},
+	hakamoo: {
+		inherit: true,
+		abilities: {0: "Bulletproof", 1: "Fair Fight", H: "Overcoat"},
+	},
+	kommoo: {
+		inherit: true,
+		abilities: {0: "Bulletproof", 1: "Fair Fight", H: "Overcoat"},
+	},
+	oshawott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Fair Fight"},
+	},
+	dewott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Fair Fight"},
+	},
+	samurott: {
+		inherit: true,
+		abilities: {0: "Torrent", H: "Fair Fight"},
+	},
+	delphox: {
+		inherit: true,
+		types: ["Fire", "Fairy"],
 	},
 };

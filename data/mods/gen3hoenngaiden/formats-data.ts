@@ -605,7 +605,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	scizor: {
 		randomBattleMoves: ["agility", "batonpass", "hiddenpowerground", "hiddenpowerrock", "morningsun", "silverwind", "steelwing", "swordsdance"],
-		tier: "UUBL",
+		tier: "UU",
 		rank: "Unranked",
 	},
 	smoochum: {
@@ -1980,7 +1980,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	skuntank: {
 		rank: "C1",
 		
-		tier: "OU",
+		tier: "UUBL",
 	},
 	fletchling: {
 		rank: "Unranked",

@@ -5,6 +5,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		customTiers: ["TMFE", "TMNFE", "TMLC"],
 	},
 	init() {
+		for (const i in this.data.FormatsData) {
+			if (i.endsWith('gmax')) this.modData('FormatsData', i).tier = "TMFE";
+		}
 		this.modData("Learnsets", "darmanitangalar").learnset.terablast = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.icespinner = ["9L1"];
 		this.modData("Learnsets", "darmanitangalar").learnset.iceshard = ["9L1"];
@@ -52,6 +55,36 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "tinglu").learnset.curse = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "flapple").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "flapple").learnset.scaleshot = ["9L1"];
+		this.modData("Learnsets", "alcremie").learnset.moonblast = ["9L1"];
+		this.modData("Learnsets", "alcremie").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "appletun").learnset.flamethrower = ["9L1"];
+		this.modData("Learnsets", "appletun").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "appletun").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "butterfree").learnset.mysticalfire = ["9L1"];
+		this.modData("Learnsets", "butterfree").learnset.spore = ["9L1"];
+		this.modData("Learnsets", "butterfree").learnset.earthpower = ["9L1"];
+		this.modData("Learnsets", "butterfree").learnset.sludgebomb = ["9L1"];
+		this.modData("Learnsets", "centiskorch").learnset.firstimpression = ["9L1"];
+		this.modData("Learnsets", "centiskorch").learnset.superpower = ["9L1"];
+		this.modData("Learnsets", "centiskorch").learnset.wildcharge = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.headlongrush = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.bounce = ["9L1"];
+		this.modData("Learnsets", "falinks").learnset.rockblast = ["9L1"];
+		this.modData("Learnsets", "falinks").learnset.bulletseed = ["9L1"];
+		this.modData("Learnsets", "falinks").learnset.gunkshot = ["9L1"];
+		this.modData("Learnsets", "scovillain").learnset.flareblitz = ["9L1"];
+		this.modData("Learnsets", "scovillain").learnset.closecombat = ["9L1"];
+		this.modData("Learnsets", "dudunsparce").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "dudunsparce").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.spikes = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.shoreup = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.earthquake = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.recover = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.icebeam = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.uturn = ["9L1"];
 	},
 	actions: {
 		inherit: true,

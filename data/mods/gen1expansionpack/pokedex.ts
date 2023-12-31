@@ -367,7 +367,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Flying"],
 		baseStats: {hp: 72, atk: 105, def: 75, spa: 63, spd: 63, spe: 70},
 		abilities: {},
-		prevo: "Farfetch'd",
+		prevo: "Farfetch\u2019d",
 		evoLevel: 24,
 	},
 	bellignan: {
@@ -476,6 +476,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Shellder",
 		evoType: "useItem",
 		evoItem: "Water Stone",
+	},
+	gorillaimo: {
+		num: 1190,
+		gen: 1,
+		name: "Gorillaimo",
+		types: ["Normal", "Fighting"],
+		baseStats: {hp: 130, atk: 100, def: 75, spa: 40, spd: 40, spe: 65}, 
+		abilities: {},
 	},
 	/// 
 	/// .o88b. d8888b.  .d88b.  .d8888. .d8888.         d888b  d88888b d8b   db   d88888b db    db  .d88b.  .d8888. 
