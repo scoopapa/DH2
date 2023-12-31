@@ -936,7 +936,7 @@ export const Formats: FormatList = [
 				}
 			}
 		},
-		onSwitchOut(pokemon) {
+		onSwitchIn(pokemon) {
 			const isTeraStellar = pokemon.terastallized === 'Stellar';
 			if (isTeraStellar) {
 			   pokemon.stellarBoostedTypes = [];
