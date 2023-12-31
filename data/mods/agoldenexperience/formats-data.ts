@@ -2380,7 +2380,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		doublesTier: "DOU",
 	},
 	darkrai: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DUber",
 	},
 	shaymin: {
@@ -2781,7 +2781,7 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "LC",
 	},
 	archeops: {
-		tier: "NU",
+		tier: "UU",
 		doublesTier: "(DUU)",
 	},
 	trubbish: {

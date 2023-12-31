@@ -2198,6 +2198,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		inherit: true,
 		abilities: {0: "Flower Veil", 1: "Natural Cure", H: "Symbiosis"},
 	},
+	skiddo: {
+		inherit: true,
+		baseStats: {hp: 66, atk: 65, def: 57, spa: 48, spd: 62, spe: 52},
+	},
+	gogoat: {
+		inherit: true,
+		types: ["Grass", "Rock"],
+		baseStats: {hp: 123, atk: 100, def: 81, spa: 62, spd: 97, spe: 68},
+	},
 	pangoro: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 124, def: 78, spa: 48, spd: 71, spe: 79},
@@ -3098,10 +3107,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	dracovish: {
 		inherit: true,
 		abilities: {0: "Water Absorb", 1: "Water Veil", H: "Sand Rush"},
-	},
-	duraludon: {
-		inherit: true,
-		abilities: {0: "Light Metal", 1: "Clear Body", H: "Stalwart"},
 	},
 	zacian: {
 		inherit: true,
