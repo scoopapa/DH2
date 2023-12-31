@@ -5,9 +5,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Ninjask-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Ninjask Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Ninjask Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	ironmormask: {
 		name: "Ironmor Mask",
@@ -15,9 +20,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Ironmor-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Ironmor Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Ironmor Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	janutchermask: {
 		name: "Janutcher Mask",
@@ -25,9 +35,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Janutcher-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Janutcher Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Janutcher Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	hisuiansamurottmask: {
 		name: "Hisuian Samurott Mask",
@@ -35,9 +50,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Samurott-Hisui-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Hisuian Samurott Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Hisuian Samurott Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	baxcaliburmask: {
 		name: "Baxcalibur Mask",
@@ -45,9 +65,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Baxcalibur-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Baxcalibur Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Baxcalibur Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	vulguilemask: {
 		name: "Vulguile Mask",
@@ -55,9 +80,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Vulguile-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Vulguile Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Vulguile Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	arcognitionmask: {
 		name: "Arcognition Mask",
@@ -65,9 +95,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Arcognition-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Arcognition Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Arcognition Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	ampalangomask: {
 		name: "Ampalango Mask",
@@ -75,9 +110,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Ampalango-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Ampalango Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Ampalango Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	tinkatonmask: {
 		name: "Tinkaton Mask",
@@ -85,9 +125,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Tinkaton-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Tinkaton Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Tinkaton Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	carbinkmask: {
 		name: "Carbink Mask",
@@ -95,9 +140,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Carbink-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Carbink Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Carbink Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	pumentummask: {
 		name: "Pumentum Mask",
@@ -105,9 +155,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Pumentum-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Pumentum Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Pumentum Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	bewearmask: {
 		name: "Bewear Mask",
@@ -115,9 +170,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Bewear-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Bewear Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Bewear Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	jestiremask: {
 		name: "Jestire Mask",
@@ -125,9 +185,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Jestire-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Jestire Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Jestire Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	bombastormask: {
 		name: "Bombastor Mask",
@@ -135,9 +200,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Bombastor-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Bombastor Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Bombastor Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	macawphonymask: {
 		name: "Macawphony Mask",
@@ -145,19 +215,29 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Macawphony-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Macawphony Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Macawphony Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	gyaradosmask: {
 		name: "Gyarados Mask",
 		shortDesc: "Wonder Mask of Gyarados. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Gyarados-Mask",
 		megaEvolves: "Cirno",
-		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		itemUser: ["Cirno"],	
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Gyarados Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Gyarados Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	wildpyremask: {
 		name: "Wildpyre Mask",
@@ -165,9 +245,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Wildpyre-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Wildpyre Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Wildpyre Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	swauntedmask: {
 		name: "Swaunted Mask",
@@ -175,9 +260,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Swaunted-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Swaunted Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Swaunted Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	norvidmask: {
 		name: "Norvid Mask",
@@ -185,9 +275,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Norvid-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Norvid Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Norvid Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	ogerponmask: {
 		name: "Ogerpon Mask",
@@ -195,9 +290,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Ogerpon-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Ogerpon Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Ogerpon Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	quagsiremask: {
 		name: "Quagsire Mask",
@@ -205,9 +305,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Quagsire-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Quagsire Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Quagsire Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,,
 	},
 	sandacondamask: {
 		name: "Sandaconda Mask",
@@ -215,9 +320,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Sandaconda-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Sandaconda Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Sandaconda Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	keisbergmask: {
 		name: "Keisberg Mask",
@@ -225,9 +335,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Keisberg-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Keisberg Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Keisberg Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	icestymask: {
 		name: "Icesty Mask",
@@ -235,9 +350,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Icesty-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Icesty Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Icesty Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	eeveemask: {
 		name: "Eevee Mask",
@@ -245,9 +365,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Eevee-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Eevee Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Eevee Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	kecleonmask: {
 		name: "Kecleon Mask",
@@ -255,9 +380,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Kecleon-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Kecleon Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Kecleon Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	desveganmamoswinemask: {
 		name: "Desvegan Mamoswine Mask",
@@ -265,9 +395,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Mamoswine-Desvega-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Desvegan Mamoswine Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Desvegan Mamoswine Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	virulopemask: {
 		name: "Virulope Mask",
@@ -275,9 +410,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Virulope-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Virulope Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Virulope Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	parascendmask: {
 		name: "Parascend Mask",
@@ -285,19 +425,28 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Parascend-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Parascend Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Parascend Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	alakazammask: {
 		name: "Alakazam Mask",
 		shortDesc: "Wonder Mask of Alakazam. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Alakazam-Mask",
 		megaEvolves: "Cirno",
-		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		itemUser: ["Cirno"],		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Alakazam Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Alakazam Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	kelplossusmask: {
 		name: "Kelplossus Mask",
@@ -305,9 +454,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Kelplossus-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Kelplossus Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Kelplossus Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	garganaclmask: {
 		name: "Garganacl Mask",
@@ -315,9 +469,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Garganacl-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Garganacl Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Garganacl Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	orthwormmask: {
 		name: "Orthworm Mask",
@@ -325,9 +484,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Orthworm-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Orthworm Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Orthworm Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	auruminemask: {
 		name: "Aurumine Mask",
@@ -335,9 +499,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Aurumine-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Aurumine Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Aurumine Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	shorrormask: {
 		name: "Shorror Mask",
@@ -345,9 +514,14 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Shorror-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Shorror Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Shorror Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 	pelippermask: {
 		name: "Pelipper Mask",
@@ -355,8 +529,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		megaStone: "Cirno-Pelipper-Mask",
 		megaEvolves: "Cirno",
 		itemUser: ["Cirno"],
-		onTakeItem (item, source) {
-			return false;
+		onStart(pokemon) {
+			if (this.effectState.revealed) return;
+			this.add('-item', pokemon, 'Pelipper Mask', '[silent]');
+			this.add('-message', `${pokemon.name}\'s Pelipper Mask emanates a strange power...`);
+			this.effectState.revealed = true;
+silent]');
 		},
+		onTakeItem: false,
 	},
 };
