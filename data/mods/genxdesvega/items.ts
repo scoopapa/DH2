@@ -14,8 +14,61 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		//TODO: put parahax prevention in conditions.ts
 	},
-//TODO: Slushisloshi Scale, Hindrance Policy, Element Orb, Refraction Pad, Noxious Gauntlet, Heated Cuirass, Shocking Pauldron
-	//TODO: Rulebook, Ashball, Spinning Top, Crimson Dagger, Interactive Lens, Flaming Pepper, Sinnoh Stone, Poison Seed, Training Belt
+//TODO: Slushisloshi Scale, Hindrance Policy, Refraction Pad, Noxious Gauntlet, Heated Cuirass, Shocking Pauldron
+	//TODO: Rulebook, Ashball, Spinning Top, Crimson Dagger, Interactive Lens, Flaming Pepper, Training Belt
+	sinnohstone: {
+		name: "Sinnoh Stone",
+		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
+		fling: {
+			basePower: 140,
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			const dexnum = pokemon.baseSpecies.num;
+			if (dexnum <= 411 && dexnum >= 408) return this.chainModify(2);
+		},
+		onTakeItem(item, pokemon, source) {
+			if (!source) return true;
+			const nums = [408,409,410,411];
+			return !nums.includes(source.baseSpecies.num) && !nums.includes(pokemon.baseSpecies.num);
+		},
+		itemUser: ["Cranidos", "Rampardos", "Shieldon", "Bastiodon"],
+	},
+	elementorb: {
+		name: "Element Orb",
+		shortDesc: "Holder's resisted moves deal x1.3 damage.",
+		fling: {
+			basePower: 30,
+		},
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod < 0) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+	},
+	poisonseed: {
+		name: "Poison Seed",
+		shortDesc: "On Poison Terrain, consume this item to boost Defense or Sp. Def by 1, whichever is lower. (Ties are currently broken randomly)",
+		fling: {
+			basePower: 10,
+		},
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) {
+				this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
+			}
+		},
+		onTerrainChange(pokemon) {
+			if (this.field.isTerrain('poisonterrain') && pokemon.useItem()) {
+				const def = pokemon.getStat('def', false, true);
+				const spd = pokemon.getStat('spd', false, true);
+				if (def < spd || (def === spd && this.randomChance(1,2)) {
+					this.boost({def: 1}, pokemon);
+				} else {
+					this.boost({spd: 1}, pokemon);
+				}
+			}
+		},
+	},
 	
 	//Wonder Masks
 	ninjaskmask: {
