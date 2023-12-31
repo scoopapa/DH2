@@ -1,4 +1,23 @@
 export const Items: {[itemid: string]: ItemData} = {
+	//Standard Items
+	thunderorb: {
+		name: "Thunder Orb",
+		shortDesc: "Paralyzes the holder. If Quick Feet is its ability, prevents immobilization from paralysis.",
+		fling: {
+			basePower: 30,
+			status: 'par',
+		},
+		onResidualOrder: 28,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			pokemon.trySetStatus('par', pokemon);
+		},
+		//TODO: put parahax prevention in conditions.ts
+	},
+//TODO: Slushisloshi Scale, Hindrance Policy, Element Orb, Refraction Pad, Noxious Gauntlet, Heated Cuirass, Shocking Pauldron
+	//TODO: Rulebook, Ashball, Spinning Top, Crimson Dagger, Interactive Lens, Flaming Pepper, Sinnoh Stone, Poison Seed, Training Belt
+	
+	//Wonder Masks
 	ninjaskmask: {
 		name: "Ninjask Mask",
 		shortDesc: "Wonder Mask of Ninjask. Use on any Pokemon to Wonder Evolve.",
