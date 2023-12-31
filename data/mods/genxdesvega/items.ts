@@ -15,7 +15,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		//TODO: put parahax prevention in conditions.ts
 	},
 //TODO: Slushisloshi Scale, Hindrance Policy, Refraction Pad, Noxious Gauntlet, Heated Cuirass, Shocking Pauldron
-	//TODO: Rulebook, Ashball, Spinning Top, Crimson Dagger, Interactive Lens
+	//TODO: Rulebook, Ashball, Spinning Top, Interactive Lens
 	sinnohstone: {
 		name: "Sinnoh Stone",
 		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
@@ -97,6 +97,18 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (pokemon.hp <= pokemon.maxhp / 4 && this.heal(pokemon.baseMaxhp / 2)) {
 				pokemon.setStatus('brn');
 				pokemon.useItem();
+			}
+		},
+	},
+	crimsondagger: {
+		name: "Crimson Dagger",
+		fling: {
+			basePower: 100,
+		},
+		onAfterMoveSecondarySelfPriority: -1,
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.totalDamage && !pokemon.forceSwitchFlag) {
+				this.heal(pokemon.maxhp / 8, pokemon);
 			}
 		},
 	},
