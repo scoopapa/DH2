@@ -29,7 +29,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			this.add('-item', pokemon, 'Ninjask Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Ninjask Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -44,7 +43,6 @@ silent]');
 			this.add('-item', pokemon, 'Ironmor Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Ironmor Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -59,7 +57,6 @@ silent]');
 			this.add('-item', pokemon, 'Janutcher Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Janutcher Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -74,7 +71,6 @@ silent]');
 			this.add('-item', pokemon, 'Hisuian Samurott Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Hisuian Samurott Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -89,7 +85,6 @@ silent]');
 			this.add('-item', pokemon, 'Baxcalibur Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Baxcalibur Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -104,7 +99,6 @@ silent]');
 			this.add('-item', pokemon, 'Vulguile Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Vulguile Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -119,7 +113,6 @@ silent]');
 			this.add('-item', pokemon, 'Arcognition Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Arcognition Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -134,7 +127,6 @@ silent]');
 			this.add('-item', pokemon, 'Ampalango Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Ampalango Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -148,8 +140,7 @@ silent]');
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Tinkaton Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Tinkaton Mask emanates a strange power...`);
-			this.effectState.revealed = true;
-silent]');
+			this.effectState.revealed = true
 		},
 		onTakeItem: false,
 	},
@@ -164,7 +155,6 @@ silent]');
 			this.add('-item', pokemon, 'Carbink Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Carbink Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -179,7 +169,6 @@ silent]');
 			this.add('-item', pokemon, 'Pumentum Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Pumentum Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -194,7 +183,6 @@ silent]');
 			this.add('-item', pokemon, 'Bewear Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Bewear Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -209,7 +197,6 @@ silent]');
 			this.add('-item', pokemon, 'Jestire Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Jestire Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -224,7 +211,6 @@ silent]');
 			this.add('-item', pokemon, 'Bombastor Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Bombastor Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -239,7 +225,6 @@ silent]');
 			this.add('-item', pokemon, 'Macawphony Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Macawphony Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -254,7 +239,6 @@ silent]');
 			this.add('-item', pokemon, 'Gyarados Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Gyarados Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -269,7 +253,6 @@ silent]');
 			this.add('-item', pokemon, 'Wildpyre Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Wildpyre Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -284,7 +267,6 @@ silent]');
 			this.add('-item', pokemon, 'Swaunted Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Swaunted Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -299,7 +281,6 @@ silent]');
 			this.add('-item', pokemon, 'Norvid Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Norvid Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -314,7 +295,6 @@ silent]');
 			this.add('-item', pokemon, 'Ogerpon Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Ogerpon Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -329,9 +309,8 @@ silent]');
 			this.add('-item', pokemon, 'Quagsire Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Quagsire Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
-		onTakeItem: false,,
+		onTakeItem: false,
 	},
 	sandacondamask: {
 		name: "Sandaconda Mask",
@@ -344,7 +323,6 @@ silent]');
 			this.add('-item', pokemon, 'Sandaconda Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Sandaconda Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -359,7 +337,6 @@ silent]');
 			this.add('-item', pokemon, 'Keisberg Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Keisberg Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -374,7 +351,6 @@ silent]');
 			this.add('-item', pokemon, 'Icesty Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Icesty Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -389,7 +365,6 @@ silent]');
 			this.add('-item', pokemon, 'Eevee Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Eevee Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -404,7 +379,6 @@ silent]');
 			this.add('-item', pokemon, 'Kecleon Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Kecleon Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -419,7 +393,6 @@ silent]');
 			this.add('-item', pokemon, 'Desvegan Mamoswine Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Desvegan Mamoswine Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -434,7 +407,6 @@ silent]');
 			this.add('-item', pokemon, 'Virulope Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Virulope Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -449,7 +421,6 @@ silent]');
 			this.add('-item', pokemon, 'Parascend Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Parascend Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -463,7 +434,6 @@ silent]');
 			this.add('-item', pokemon, 'Alakazam Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Alakazam Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -478,7 +448,6 @@ silent]');
 			this.add('-item', pokemon, 'Kelplossus Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Kelplossus Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -493,7 +462,6 @@ silent]');
 			this.add('-item', pokemon, 'Garganacl Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Garganacl Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -508,7 +476,6 @@ silent]');
 			this.add('-item', pokemon, 'Orthworm Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Orthworm Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -523,7 +490,6 @@ silent]');
 			this.add('-item', pokemon, 'Aurumine Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Aurumine Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -538,7 +504,6 @@ silent]');
 			this.add('-item', pokemon, 'Shorror Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Shorror Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
@@ -553,7 +518,6 @@ silent]');
 			this.add('-item', pokemon, 'Pelipper Mask', '[silent]');
 			this.add('-message', `${pokemon.name}\'s Pelipper Mask emanates a strange power...`);
 			this.effectState.revealed = true;
-silent]');
 		},
 		onTakeItem: false,
 	},
