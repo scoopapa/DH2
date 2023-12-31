@@ -15,7 +15,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		//TODO: put parahax prevention in conditions.ts
 	},
 //TODO: Slushisloshi Scale, Hindrance Policy, Refraction Pad, Noxious Gauntlet, Heated Cuirass, Shocking Pauldron
-	//TODO: Rulebook, Ashball, Spinning Top, Crimson Dagger, Interactive Lens, Flaming Pepper, Training Belt
+	//TODO: Rulebook, Ashball, Spinning Top, Crimson Dagger, Interactive Lens
 	sinnohstone: {
 		name: "Sinnoh Stone",
 		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
@@ -66,6 +66,37 @@ export const Items: {[itemid: string]: ItemData} = {
 				} else {
 					this.boost({spd: 1}, pokemon);
 				}
+				
+			}
+		},
+	},
+	trainingbelt: {
+		name: "Training Belt",
+		shortDesc: "x1.3 power to moves if holder is last to move",
+		fling: {
+			basePower: 10,
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			if (this.getAllActive().every(
+				target => (target === pokemon || !this.queue.willMove(target))
+			)) {
+				this.debug('Training Belt boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+	},
+	flamingpepper: {
+		name: "Flaming Pepper",
+		shortDesc: "At 25% of Max HP or less, consumed to restore 50% of Max HP but burns holder regardless of status.",
+		fling: {
+			basePower: 50,
+			volatileStatus: 'taunt',
+		},
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4 && this.heal(pokemon.baseMaxhp / 2)) {
+				pokemon.setStatus('brn');
+				pokemon.useItem();
 			}
 		},
 	},
