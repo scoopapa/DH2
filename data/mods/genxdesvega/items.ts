@@ -61,7 +61,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (this.field.isTerrain('poisonterrain') && pokemon.useItem()) {
 				const def = pokemon.getStat('def', false, true);
 				const spd = pokemon.getStat('spd', false, true);
-				if (def < spd || (def === spd && this.randomChance(1,2)) {
+				if (def < spd || (def === spd && this.randomChance(1,2))) {
 					this.boost({def: 1}, pokemon);
 				} else {
 					this.boost({spd: 1}, pokemon);
