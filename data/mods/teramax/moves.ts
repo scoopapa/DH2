@@ -169,6 +169,46 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Clever",
 	},
+	destinybond: {
+		num: 194,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Destiny Bond",
+		pp: 5,
+		priority: 0,
+		flags: {bypasssub: 1, noassist: 1, failcopycat: 1},
+		volatileStatus: 'destinybond',
+		onPrepareHit(pokemon) {
+			return !pokemon.removeVolatile('destinybond');
+		},
+		condition: {
+			onStart(pokemon) {
+				this.add('-singlemove', pokemon, 'Destiny Bond');
+			},
+			onFaint(target, source, effect) {
+				if (!source || !effect || target.isAlly(source)) return;
+				if (effect.effectType === 'Move' && !effect.flags['futuremove']) {
+					this.add('-activate', target, 'move: Destiny Bond');
+					source.faint();
+				}
+			},
+			onBeforeMovePriority: -1,
+			onBeforeMove(pokemon, target, move) {
+				if (move.id === 'destinybond') return;
+				this.debug('removing Destiny Bond before attack');
+				pokemon.removeVolatile('destinybond');
+			},
+			onMoveAborted(pokemon, target, move) {
+				pokemon.removeVolatile('destinybond');
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Ghost",
+		zMove: {effect: 'redirect'},
+		contestType: "Clever",
+	},
 
 // Max and GMax Moves
 	gmaxbefuddle: {
