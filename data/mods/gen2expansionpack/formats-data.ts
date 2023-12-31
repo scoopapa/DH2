@@ -891,7 +891,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	farfetchdgalar: {
 		tier: "LC",
 	},
-	luxswan: {
+	luxwan: {
 		tier: "OU",
 	},
 	sirfetchd: {

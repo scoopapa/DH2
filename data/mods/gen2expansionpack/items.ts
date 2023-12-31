@@ -8,4 +8,13 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		itemUser: ["Ditto", "Mimmeo"],
 	},
+	stick: {
+		inherit: true,
+		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar", "Sirfetch\u2019d", "Luxwan"],
+		onModifyCritRatio(critRatio, user) {
+			if (['farfetchd', 'farfetchdgalar', 'sirfetchd', 'luxwan'].includes(user.species.id)) {
+				return 3;
+			}
+		},
+	}
 };
