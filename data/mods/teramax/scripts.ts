@@ -31,15 +31,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'fluttermane').learnset.charm;
 		delete this.modData('Learnsets', 'fluttermane').learnset.mistyterrain;
 		this.modData("Learnsets", "palafin").learnset.superpower = ["9L1"];
-		delete this.modData('Learnsets', 'palafin').learnset.bulkup;
 		delete this.modData('Learnsets', 'palafin').learnset.closecombat;
 		this.modData("Learnsets", "ironbundle").learnset.surf = ["9L1"];
 		this.modData("Learnsets", "ironbundle").learnset.defog = ["9L1"];
 		this.modData("Learnsets", "ironbundle").learnset.haze = ["9L1"];
 		this.modData("Learnsets", "ironbundle").learnset.destinybond = ["9L1"];
 		this.modData("Learnsets", "ironbundle").learnset.fakeout = ["9L1"];
+		this.modData("Learnsets", "ironbundle").learnset.discharge = ["9L1"];
 		delete this.modData('Learnsets', 'ironbundle').learnset.freezedry;
-		delete this.modData('Learnsets', 'ironbundle').learnset.hydropump;
 		this.modData("Learnsets", "dracovish").learnset.icespinner = ["9L1"];
 		this.modData("Learnsets", "dracovish").learnset.terablast = ["9L1"];
 		this.modData("Learnsets", "annihilape").learnset.knockoff = ["9L1"];
@@ -52,6 +51,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "chienpao").learnset.icebeam = ["9L1"];
 		this.modData("Learnsets", "chienpao").learnset.nastyplot = ["9L1"];
 		this.modData("Learnsets", "chiyu").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "chiyu").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "chiyu").learnset.scald = ["9L1"];
 		this.modData("Learnsets", "tinglu").learnset.curse = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.toxic = ["9L1"];
 		this.modData("Learnsets", "wochien").learnset.sludgebomb = ["9L1"];
@@ -85,6 +86,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "tatsugiri").learnset.recover = ["9L1"];
 		this.modData("Learnsets", "tatsugiri").learnset.icebeam = ["9L1"];
 		this.modData("Learnsets", "tatsugiri").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.focusblast = ["9L1"];
+		this.modData("Learnsets", "tatsugiri").learnset.aurasphere = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -120,21 +123,24 @@ export const Scripts: ModdedBattleScriptsData = {
 	  		// random factor - also not a modifier
 	  		baseDamage = this.battle.randomizer(baseDamage);
 	  		// STAB
-	  		if (move.forceSTAB || (type !== '???' &&
-	  			(pokemon.hasType(type)))) {
-	  			// The "???" type never gets STAB
-	  			// Not even if you Roost in Gen 4 and somehow manage to use
-	  			// Struggle in the same turn.
-	  			// (On second thought, it might be easier to get a MissingNo.)
-	  			let stab = move.stab || 1.5;
-	  			if (type === pokemon.terastallized && pokemon.getTypes(false, true).includes(type)) {
-	  				// In my defense, the game hardcodes the Adaptability check like this, too.
-	  				stab = stab === 1.75 ? 2.25 : 1.75;
-	  			} else if (pokemon.terastallized && type !== pokemon.terastallized) {
-	  				stab = 1.25;
-	  			}
-	  			baseDamage = this.battle.modify(baseDamage, stab);
-	  		}
+			const isTeraStellar = pokemon.terastallized === 'Stellar';
+			if (move.forceSTAB || (type !== '???' &&
+				(pokemon.hasType(type) || (pokemon.terastallized && pokemon.getTypes(false, true).includes(type)) ||
+					(isTeraStellar && !pokemon.stellarBoostedTypes.includes(type))))) {
+				let stab = (isTeraStellar && !pokemon.getTypes(false, true).includes(type)) ? [4915, 4096] : move.stab || 1.5;
+				if ((type === pokemon.terastallized || (isTeraStellar && !pokemon.stellarBoostedTypes.includes(type))) &&
+					pokemon.getTypes(false, true).includes(type)) {
+					// In my defense, the game hardcodes the Adaptability check like this, too.
+					stab = (stab === 1.75 && !isTeraStellar) ? 2.25 : 1.75;
+				} else if (pokemon.terastallized && type !== pokemon.terastallized && stab === 2) {
+					stab = 1.25;
+				}
+				baseDamage = this.battle.modify(baseDamage, stab);
+				if (isTeraStellar && pokemon.species.name !== 'Terapagos-Stellar' &&
+					!pokemon.stellarBoostedTypes.includes(type)) {
+					pokemon.stellarBoostedTypes.push(type);
+				}
+			}
 	  		// types
 	  		let typeMod = target.runEffectiveness(move);
 	  		typeMod = this.battle.clampIntRange(typeMod, -6, 6);
