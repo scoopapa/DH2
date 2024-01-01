@@ -1818,7 +1818,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		num: 1122,
 		name: "Pequetal",
 		types: ["Grass", "Electric"],
-		baseStats: {hp: 55, atk: 50, def: 85, spa: 90, spd: 90, spe: 40},
+		baseStats: {hp: 35, atk: 40, def: 80, spa: 55, spd: 70, spe: 30},
 		abilities: {0: "Static", H: "Solar Power"},
 		heightm: 0.2,
 		weightkg: 3,
