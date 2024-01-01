@@ -492,6 +492,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 	},
 	pokemon: { 
+		ignoringItem() {
+			return !!(
+				this.itemState.knockedOff || // Gen 3-4
+				(/*this.battle.gen >= 5 &&*/ !this.isActive) ||
+				(!this.getItem().ignoreKlutz && this.hasAbility('klutz')) ||
+				this.volatiles['rulebook'] || this.volatiles['embargo'] ||
+				this.battle.field.pseudoWeather['magicroom']
+			);
+		}
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!this.battle.dex.types.isName(type)) {
