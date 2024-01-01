@@ -12,7 +12,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onResidual(pokemon) {
 			pokemon.trySetStatus('par', pokemon);
 		},
-		//TODO: put parahax prevention in conditions.ts
+		//TODO: Parahax prevention with Quick Feet is in conditions.ts
 	},
 	sinnohstone: {
 		name: "Sinnoh Stone",
