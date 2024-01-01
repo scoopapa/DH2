@@ -14,7 +14,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		//TODO: put parahax prevention in conditions.ts
 	},
-   //TODO: Rulebook
 	sinnohstone: {
 		name: "Sinnoh Stone",
 		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
@@ -248,6 +247,9 @@ export const Items: {[itemid: string]: ItemData} = {
 	hindrancepolicy: {
 		name: "Hindrance Policy",
 		shortDesc: "+2 Def/SpD when statused, consumed after use.",
+		fling: {
+			basePower: 80,
+		},
 		onAfterSetStatusPriority: -1,
 		onAfterSetStatus(status, pokemon) {
 			pokemon.useItem();
@@ -260,6 +262,31 @@ export const Items: {[itemid: string]: ItemData} = {
 		boosts: {
 			def: 2,
 			spd: 2,
+		},
+	},
+	rulebook: {
+		name: "Rulebook",
+		shortDesc: "Identifies and suppresses opponents' items until the next turn.",
+		fling: {
+			basePower: 50,
+			volatileStatus: 'embargo',
+		},
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					const itemName = target.getItem().name
+					this.add('-item', target, itemName, '[from] item: Rulebook', '[of] ' + pokemon, '[silent]');
+					this.add('-message', `${pokemon.name} is inspecting ${target.name}\'s ${itemName} by its Rulebook!`);
+					target.addVolatile('rulebook');
+				}
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.singleEvent('End', pokemon.getItem(), pokemon.itemState, pokemon);
+			},
+			// TODO: Implement item suppression in Pokemon.ignoringItem() within scripts.ts/pokemon
 		},
 	},
 	
