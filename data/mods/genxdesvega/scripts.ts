@@ -281,7 +281,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 
-		if (switches.some((playerSwitch) => !!playerSwitch)) {
+		if (switches.some(Boolean)) {
 			this.makeRequest('switch');
 			return true;
 		}
@@ -492,6 +492,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		},
 	},
 	pokemon: { 
+		ignoringItem() {
+			return !!(
+				this.itemState.knockedOff || // Gen 3-4
+				(/*this.battle.gen >= 5 &&*/ !this.isActive) ||
+				(!this.getItem().ignoreKlutz && this.hasAbility('klutz')) ||
+				this.volatiles['rulebook'] || this.volatiles['embargo'] ||
+				this.battle.field.pseudoWeather['magicroom']
+			);
+		},
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!this.battle.dex.types.isName(type)) {
@@ -524,6 +533,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (this.hasAbility(['levitate', 'soaringspirit']) && !this.battle.suppressingAbility(this)) return null;
 			if ('magnetrise' in this.volatiles/*) return false;
 			if (*/|| 'telekinesis' in this.volatiles) return false;
+			//These species are excluded from the Tree-Topper check due to Telekinesis failing against them
+			if (this.battle.getAllActive().some(target => target.hasAbility('treetopper')) && 
+					!['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies) &&
+						this.baseSpecies.name !== 'Gengar-Mega') return false;
 			return item !== 'airballoon';
 		 },
      },

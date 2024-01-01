@@ -1086,7 +1086,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
-	galiwatt: {
+	galliwatt: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -1222,8 +1222,12 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
-	pequetal: {
+	souarente: {
 		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	pequetal: {
+		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	florapago: {
