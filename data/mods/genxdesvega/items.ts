@@ -14,7 +14,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		//TODO: put parahax prevention in conditions.ts
 	},
-   //TODO: Slushisloshi Scale, Hindrance Policy, Rulebook
+   //TODO: Hindrance Policy, Rulebook
 	sinnohstone: {
 		name: "Sinnoh Stone",
 		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
@@ -240,12 +240,9 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		ignoreKlutz: true,
 		onTakeItem(item, pokemon, source) {
-			if (!source) return true;
-			const nums = [408,409,410,411];
-			return (source.baseSpecies.baseSpecies !== "Slushisloshi") && (pokemon.baseSpecies.baseSpecies !== "Slushisloshi");
+			return (source && source.baseSpecies.baseSpecies !== "Slushisloshi" && pokemon.baseSpecies.baseSpecies !== "Slushisloshi");
 		},
 		itemUser: ["Slushisloshi", "Slushisloshi-School"],
-		//TODO: Code its effects under schooling
 	},
 	
 	//Wonder Masks
