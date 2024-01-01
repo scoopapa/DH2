@@ -129,8 +129,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onFoeSwitchIn(target) {
-			if (pokemon.monarch) return;
 			const pokemon = this.effectState.target;
+			if (pokemon.monarch) return;
 			for (const moveSlot of target.moveSlots) {
 				const move = this.dex.moves.get(moveSlot.move);
 				if (move.category === 'Status') continue;
@@ -670,15 +670,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	//Loria Region
 	//Items eaten by Ravenous after they activate: Focus Sash, Adrenaline Orb, Air Balloon, Blunder Policy, Eject Button, Eject Pack, Luminous Moss, Normal Gem, Red Card, Room Service, Snowball, Weakness Policy
 	ravenous: {
-		shortDesc: "Restores a sixth of this Pokemon's Max HP when any item (excl. berries) is used up or otherwise removed.",
+		shortDesc: "(Mostly coded) Restores 1/6 of this Pokemon's max HP when any item is lost (excl. eating berries and Incinerate).",
 		onAnyAfterUseItem(item, pokemon) {
 			if (item.isBerry) return;
 			const ravenousMon = this.effectState.target;
 			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon);
 		},
 		onAnyTakeItem(item, pokemon) {
-			//second check should eliminate cases like Trick
-			if (item.isBerry || pokemon.item) return;
+			//TODO: Deal with cases where you take the item and it's not replaced (eg. Thief, Trick)
+			//TODO: Also deal with Incinerate (Knock against berries should proc this abil)
+			if (pokemon.item) return;
 			const ravenousMon = this.effectState.target;
 			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon);
 		},
@@ -689,7 +690,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSourceModifyAccuracyPriority: 9,
 		onSourceModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			this.debug('compoundeyes - enhancing accuracy');
+			this.debug('precision - enhancing accuracy');
 			return accuracy * 1.3;
 		},
 		name: "Precision",
@@ -770,7 +771,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Bewitch",
 	},
 	ambitious: {
-		shortDesc: "This Pokemon's Speed is raised by 2 for each of its stats that is lowered by a foe.",
+		shortDesc: "This Pokemon's Speed is raised by 2 when its stats are lowered by a foe.",
 		onAfterEachBoost(boost, target, source, effect) {
 			if (!source || target.side === source.side) {
 				if (effect.id === 'stickyweb') {
@@ -834,12 +835,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.type !== 'Water' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
-			if (this.validTarget(this.effectData.target, source, redirectTarget)) {
+			const abilHolder = this.effectData.target;
+			if (this.validTarget(abilHolder, source, redirectTarget)) {
 				move.smartTarget &&= false;
-				if (this.effectData.target !== target) {
-					this.add('-activate', this.effectData.target, 'ability: Battle Tide');
+				if (abilHolder !== target) {
+					this.add('-activate', abilHolder, 'ability: Battle Tide');
 				}
-				return this.effectData.target;
+				return abilHolder;
 			}
 		},
 		name: "Battle Tide",
@@ -881,7 +883,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
 			for (const condition of sideConditions) {
 				if (pokemon.side.removeSideCondition(condition)) {
-					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] ability: Gunk Consumer', '[of] ' + pokemon);
+					this.add('-sideend', pokemon.side, this.dex.getEffect(condition).name, '[from] ability: Traveler', '[of] ' + pokemon);
 				}
 			}
 		},
@@ -920,7 +922,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	potionbrewer: {
 		shortDesc: "(Bugged) Upon using a Psychic-type move, this Pokémon consumes its berry.",
 	  	onSourceAfterMoveSecondary(target, source, move) {
-		   if (move.type === 'Psychic' && source.getItem().isBerry) source.eatItem(true);
+		   if (move.type === 'Psychic' && source.getItem()?.isBerry) source.eatItem(true);
 		},
 		name: "Potion Brewer",
 	},
