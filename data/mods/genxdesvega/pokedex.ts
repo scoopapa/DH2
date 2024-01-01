@@ -1687,6 +1687,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Steel"],
 		baseStats: {hp: 45, atk: 55, def: 45, spa: 55, spd: 45, spe: 55},
 		abilities: {0: "Trace", H: "Clear Body"},
+		evos: ["Silipro"],
 	},
 	silipro: {
 		num: 1442,
