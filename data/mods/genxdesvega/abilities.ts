@@ -318,7 +318,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					pokemon.formeChange('Wishiwashi-School');
 				} else if (pokemon.species.id === 'slushisloshi') {
 					pokemon.formeChange('Slushisloshi-School');
-					if (pokemon.hasItem('slushisloshiscale') {
+					if (pokemon.hasItem('slushisloshiscale')) {
 						pokemon.addVolatile('ability:waterabsorb');
 						this.add('-ability', pokemon, 'Water Absorb');
 					}
