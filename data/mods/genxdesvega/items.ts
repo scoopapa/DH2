@@ -266,14 +266,14 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	rulebook: {
 		name: "Rulebook",
-		shortDesc: "Identifies and suppresses opponents' items until the next turn.",
+		shortDesc: "On switch-in or acquisition of this item, identifies and suppresses opponents' items until the next turn.",
 		fling: {
 			basePower: 50,
 			volatileStatus: 'embargo',
 		},
 		onStart(pokemon) {
 			for (const target of pokemon.foes()) {
-				if (target.item) {
+				if (target.item && !target.volatiles['rulebook']) {
 					const itemName = target.getItem().name
 					this.add('-item', target, itemName, '[from] item: Rulebook', '[of] ' + pokemon, '[silent]');
 					this.add('-message', `${pokemon.name} is inspecting ${target.name}\'s ${itemName} by its Rulebook!`);
@@ -286,7 +286,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			onStart(pokemon) {
 				this.singleEvent('End', pokemon.getItem(), pokemon.itemState, pokemon);
 			},
-			// TODO: Implement item suppression in Pokemon.ignoringItem() within scripts.ts/pokemon
+			// Item suppression implemented in Pokemon.ignoringItem() within scripts.ts/pokemon
 		},
 	},
 	
