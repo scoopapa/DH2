@@ -14,7 +14,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		//TODO: put parahax prevention in conditions.ts
 	},
-   //TODO: Hindrance Policy, Rulebook
+   //TODO: Rulebook
 	sinnohstone: {
 		name: "Sinnoh Stone",
 		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
@@ -234,7 +234,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	slushisloshiscale: {
 		name: "Slushisloshi Scale",
-		shortDesc: "Slushisloshi: Does not revert to Solo Forme, ability changed to Water Absorb",
+		shortDesc: "Slushisloshi: Does not revert to Solo Forme, ability changed to Water Absorb in School Forme",
 		fling: {
 			basePower: 20,
 		},
@@ -243,6 +243,24 @@ export const Items: {[itemid: string]: ItemData} = {
 			return (source && source.baseSpecies.baseSpecies !== "Slushisloshi" && pokemon.baseSpecies.baseSpecies !== "Slushisloshi");
 		},
 		itemUser: ["Slushisloshi", "Slushisloshi-School"],
+		//Effects coded under Schooling in abilities.ts
+	},
+	hindrancepolicy: {
+		name: "Hindrance Policy",
+		shortDesc: "+2 Def/SpD when statused, consumed after use.",
+		onAfterSetStatusPriority: -1,
+		onAfterSetStatus(status, pokemon) {
+			pokemon.useItem();
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status) {
+				pokemon.useItem();
+			}
+		},
+		boosts: {
+			def: 2,
+			spd: 2,
+		},
 	},
 	
 	//Wonder Masks
