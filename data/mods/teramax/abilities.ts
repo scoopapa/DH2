@@ -70,7 +70,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	gorillatactics: {
 		onStart(pokemon) {
 			pokemon.abilityState.choiceLock = "";
-			pokemon.addVolatile('embargo');
+			if (pokemon.hasItem('choiceband') || pokemon.hasItem('choicescarf') || pokemon.hasItem('choicespecs')) {
+				pokemon.addVolatile('embargo');
+			}
 		},
 		onBeforeMove(pokemon, target, move) {
 			if (move.isZOrMaxPowered || move.id === 'struggle') return;
@@ -109,7 +111,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Gorilla Tactics",
 		rating: 4,
 		num: 255,
-		shortDesc: "Attack is 1.5x, but can only select the first move it executes & item is disabled.",
+		shortDesc: "Attack is 1.5x, but can only select the first move it executes. Holder's Choice items are disabled.",
 	},
 	beadsofruin: {
 		onStart(pokemon) {
@@ -169,9 +171,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (!isFinite(ratio)) ratio = 0;
 			if (ratio > 0) {
 				if (target.hasType('Water') || target.hasType('Dragon')) {
-					return this.chainModify([4915, 4096]);
+					return this.chainModify([5324, 4096]);
 				} else {
-					return this.chainModify([4506, 4096]);
+					return this.chainModify([4915, 4096]);
 				}
 			}
 		},
@@ -203,6 +205,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Commander",
 		rating: 3,
 		num: 279,
-		shortDesc: "This Pokemon deals 10% more damage to slower foes, 20% more if the foe is Water or Dragon-type.",
+		shortDesc: "This Pokemon deals 20% more damage to slower foes, 30% more if the foe is Water or Dragon-type.",
 	},
 };
