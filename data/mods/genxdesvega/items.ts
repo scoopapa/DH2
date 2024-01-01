@@ -196,10 +196,10 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (move && move.category !== 'Status' && !move.ohko) return 0;
 		},
 		onSourceAccuracy(accuracy, target, source, move) {
-			if (move && move.category !== 'Status' && !move.ohko) {
-				return true;
-			}
-			return accuracy;
+			return (
+				move && move.category !== 'Status' && !move.ohko
+			) || accuracy;
+			//If the move fulfills the conditions then it returns true
 		},
 		onSourceDeductPP(target, source, move) {
 			if (move && move.category !== 'Status' && !move.ohko) return 1;
