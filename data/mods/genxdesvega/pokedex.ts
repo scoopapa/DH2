@@ -1814,30 +1814,42 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	
 	//brazdo
+	souarente: {
+		num: 1122,
+		name: "Pequetal",
+		types: ["Grass", "Electric"],
+		baseStats: {hp: 55, atk: 50, def: 85, spa: 90, spd: 90, spe: 40},
+		abilities: {0: "Static", H: "Solar Power"},
+		heightm: 0.2,
+		weightkg: 3,
+		evos: ["Pequetal"],
+	},
 	pequetal: {
-		num: 1022,
+		num: 1122,
 		name: "Pequetal",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 55, atk: 50, def: 85, spa: 90, spd: 90, spe: 40},
 		abilities: {0: "Volt Absorb", H: "Solar Power"},
+		heightm: 0.7,
 		weightkg: 7,
 		prevo: "Souarente",
 		evoLevel: 16,
 		evos: ["Florapago"],
 	},
 	florapago: {
-		num: 1023,
+		num: 1123,
 		name: "Florapago",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 85, atk: 60, def: 100, spa: 110, spd: 105, spe: 50},
 		abilities: {0: "Volt Absorb", H: "Solar Power"},
+		heightm: 1.7,
 		weightkg: 30,
 		prevo: "Pequetal",
 		evoType: "useItem",
 		evoItem: "Thunder Stone",
 	},
 	alumane: {
-		num: 1024,
+		num: 1124,
 		name: "Alumane",
 		types: ["Steel"],
 		baseStats: {hp: 35, atk: 55, def: 65, spa: 30, spd: 35, spe: 75},
@@ -1846,7 +1858,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evos: ["Silicyon"],
 	},
 	silicyon: {
-		num: 1025,
+		num: 1125,
 		name: "Silicyon",
 		types: ["Steel"],
 		baseStats: {hp: 55, atk: 100, def: 115, spa: 50, spd: 60, spe: 130},
@@ -1856,7 +1868,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 25,
 	},
 	levipilosa: {
-		num: 1055,
+		num: 1155,
 		name: "Levipilosa",
 		types: ["Psychic"],
 		baseStats: {hp: 120, atk: 55, def: 80, spa: 90, spd: 80, spe: 20},
@@ -1890,7 +1902,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evos: ["Parascend"],
 	},
 	parascend: {
-		num: 1029,
+		num: 1129,
 		name: "Parascend",
 		types: ["Psychic", "Poison"],
 		baseStats: {hp: 80, atk: 70, def: 80, spa: 140, spd: 110, spe: 40},
@@ -1944,7 +1956,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: ["Hippowdon", "Hippowdon-Brazdo"],
 	},
 	stickler: {
-		num: 1053,
+		num: 1153,
 		name: "Stickler",
 		types: ["Grass", "Bug"],
 		baseStats: {hp: 35, atk: 50, def: 70, spa: 30, spd: 30, spe: 60},
@@ -1955,7 +1967,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Grass", "Bug"],
 	},
 	woodensect: {
-		num: 1054,
+		num: 1154,
 		name: "Woodensect",
 		types: ["Grass", "Bug"],
 		baseStats: {hp: 75, atk: 90, def: 110, spa: 65, spd: 65, spe: 100},
@@ -1969,7 +1981,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		//formeOrder: ["Woodensect", "Woodensect-Mega"],
 	},
 	galliwatt: {
-		num: 1075,
+		num: 1175,
 		name: "Galliwatt",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 50, atk: 40, def: 40, spa: 60, spd: 70, spe: 40},
@@ -1979,7 +1991,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Dragon", "Field"],
 	},
 	coirele: {
-		num: 1076,
+		num: 1176,
 		name: "Coirele",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 80, atk: 60, def: 60, spa: 70, spd: 90, spe: 60},
@@ -1991,7 +2003,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Dragon", "Field"],
 	},
 	ampalango: {
-		num: 1077,
+		num: 1177,
 		name: "Ampalango",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 100, atk: 90, def: 95, spa: 100, spd: 125, spe: 90},
