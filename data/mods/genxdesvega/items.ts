@@ -14,7 +14,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		//TODO: put parahax prevention in conditions.ts
 	},
-   //TODO: Slushisloshi Scale, Hindrance Policy, Rulebook, Ashball
+   //TODO: Slushisloshi Scale, Hindrance Policy, Rulebook
 	sinnohstone: {
 		name: "Sinnoh Stone",
 		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
@@ -200,10 +200,37 @@ export const Items: {[itemid: string]: ItemData} = {
 				move && move.category !== 'Status' && !move.ohko
 			) || accuracy;
 			//If the move fulfills the conditions then it returns true
+			//Otherwise it returns the unchanged accuracy
 		},
 		onSourceDeductPP(target, source, move) {
 			if (move && move.category !== 'Status' && !move.ohko) return 1;
 		},
+	},
+	ashball: {
+		name: "Ashball",
+		fling: {
+			basePower: 30,
+			status: 'brn'
+		},	
+		shortDesc: "When held by a member of Pichat's evolutionary line, double Attack/Sp. Atk and gain +2 to critrate.",
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (["Pichat", "Pikachat", "Raichat"].includes(user.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},	
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (["Pichat", "Pikachat", "Raichat"].includes(user.baseSpecies.baseSpecies)) {
+				return this.chainModify(2);
+			}
+		},
+		onModifyCritRatio(critRatio, user) {
+			if (["Pichat", "Pikachat", "Raichat"].includes(user.baseSpecies.baseSpecies)) {
+				return critRatio + 2;
+			}
+		},
+		itemUser: ["Pichat", "Pikachat", "Raichat"],
 	},
 	
 	//Wonder Masks
