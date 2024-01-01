@@ -931,8 +931,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				let applies = !(!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','soaringspirit']))
-								|| pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity'));
+				let applies = !(
+					!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','soaringspirit'])
+									  || this.getAllActive().some(target => target.hasAbility('treetopper')))
+						|| pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity')
+				);
+				//TODO: Exclude Diglett/Sandygast lines/MGengar from Tree-Topper check
 				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
 					applies = true;
 					this.queue.cancelMove(pokemon);
