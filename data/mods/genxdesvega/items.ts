@@ -177,7 +177,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, pokemon, target, move) {
-			if (pokemon.lastMove && pokemon.lastMove.id !== move.id) {
+			const lastMove = pokemon.lastMove;
+			if (lastMove && lastMove.category !== 'Status' && lastMove.id !== move.id) {
 				this.debug('Spinning Top boost');
 				return this.chainModify(1.5);
 			}
