@@ -232,6 +232,21 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		itemUser: ["Pichat", "Pikachat", "Raichat"],
 	},
+	slushisloshiscale: {
+		name: "Slushisloshi Scale",
+		shortDesc: "Slushisloshi: Does not revert to Solo Forme, ability changed to Water Absorb",
+		fling: {
+			basePower: 20,
+		},
+		ignoreKlutz: true,
+		onTakeItem(item, pokemon, source) {
+			if (!source) return true;
+			const nums = [408,409,410,411];
+			return (source.baseSpecies.baseSpecies !== "Slushisloshi") && (pokemon.baseSpecies.baseSpecies !== "Slushisloshi");
+		},
+		itemUser: ["Slushisloshi", "Slushisloshi-School"],
+		//TODO: Code its effects under schooling
+	},
 	
 	//Wonder Masks
 	ninjaskmask: {
