@@ -1,5 +1,9 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
+	teambuilderConfig: {
+		excludeStandardTiers: true,
+		customTiers: ["OUAoK", "UUAoK", "RUAoK", "NFEAoK", "LCAoK", "UberAoK"],
+	},
 	init() {
 		// Quilladin-Eternal
 		this.modData("Learnsets", "quilladineternal").learnset.aerialace = ["9L1"];
