@@ -1793,10 +1793,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Dragon",
 		contestType: "Beautiful",
 	},
-	darkvoid: {
-		inherit: true,
-		accuracy: 80,
-	},
 	freezeshock: {
 		num: 553,
 		accuracy: 90,
