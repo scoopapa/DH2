@@ -281,7 +281,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 		}
 
-		if (switches.some((playerSwitch) => !!playerSwitch)) {
+		if (switches.some(Boolean)) {
 			this.makeRequest('switch');
 			return true;
 		}
@@ -533,6 +533,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if (this.hasAbility(['levitate', 'soaringspirit']) && !this.battle.suppressingAbility(this)) return null;
 			if ('magnetrise' in this.volatiles/*) return false;
 			if (*/|| 'telekinesis' in this.volatiles) return false;
+			//These species are excluded from the Tree-Topper check due to Telekinesis failing against them
+			if (this.battle.getAllActive().some(target => target.hasAbility('treetopper')) && 
+					!['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies) &&
+						this.baseSpecies.name !== 'Gengar-Mega') return false;
 			return item !== 'airballoon';
 		 },
      },
