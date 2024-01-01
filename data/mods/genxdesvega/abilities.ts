@@ -285,15 +285,21 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			if (!['Slushisloshi,Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
 				|| pokemon.level < 20 || pokemon.transformed) return;
-			if (pokemon.hp > pokemon.maxhp / 4) {
+			if (pokemon.species.id === 'slushisloshischool' && pokemon.hasItem('slushisloshiscale')) {
+				pokemon.addVolatile('ability:waterabsorb');
+			} else if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
 				} else if (pokemon.species.id === 'slushisloshi') {
 					pokemon.formeChange('Slushisloshi-School');
+					if (pokemon.hasItem('slushisloshiscale')) {
+						pokemon.addVolatile('ability:waterabsorb');
+						this.add('-ability', pokemon, 'Water Absorb');
+					}
 				}
 			} else if (pokemon.species.id === 'wishiwashischool') {
 				pokemon.formeChange('Wishiwashi');
-			} else if (pokemon.species.id === 'slushisloshischool') {
+			} else if (pokemon.species.id === 'slushisloshischool' && !pokemon.hasItem('slushisloshiscale')) {
 				pokemon.formeChange('Slushisloshi');
 			}
 		},
@@ -311,10 +317,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					pokemon.formeChange('Wishiwashi-School');
 				} else if (pokemon.species.id === 'slushisloshi') {
 					pokemon.formeChange('Slushisloshi-School');
+					if (pokemon.hasItem('slushisloshiscale') {
+						pokemon.addVolatile('ability:waterabsorb');
+						this.add('-ability', pokemon, 'Water Absorb');
+					}
 				}
 			} else if (pokemon.species.id === 'wishiwashischool') {
 				pokemon.formeChange('Wishiwashi');
-			} else if (pokemon.species.id === 'slushisloshischool') {
+			} else if (pokemon.species.id === 'slushisloshischool' && !pokemon.hasItem('slushisloshiscale')) {
 				pokemon.formeChange('Slushisloshi');
 			}
 		},
