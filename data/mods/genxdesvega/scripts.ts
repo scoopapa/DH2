@@ -500,7 +500,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.volatiles['rulebook'] || this.volatiles['embargo'] ||
 				this.battle.field.pseudoWeather['magicroom']
 			);
-		}
+		},
 		runImmunity(type: string, message?: string | boolean) {
 			if (!type || type === '???') return true;
 			if (!this.battle.dex.types.isName(type)) {
