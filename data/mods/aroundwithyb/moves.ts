@@ -1,6 +1,38 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
-
-
+// New Moves
+	chemicalplant: {
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		shortDesc: "Removes the foe's item. Poisons the foe if they had a plant-based item.",
+		name: "Chemical Plant",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onHit(target, source) {
+			const item = target.getItem();
+			if (target.hp && target.takeItem(source)) {
+				if (item.isBerry || ['absorbbulb', 'berryjuice', 'bigroot', 'electricseed', 'galaricacuff', 'galaricawreath',
+				  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
+				  'sweetapple', 'tartapple', 'whiteherb', 'syrupyapple', 'cloversweet', 'leek', 'lovesweet',
+				  'ribbonsweet', 'starsweet', 'strawberrysweet', 'whippeddream'].includes(item.id)) {
+						target.trySetStatus('psn', source);
+				}
+			}
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Chemical Plant', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Grass",
+		contestType: "Clever",
+	},
 
  // Old Moves
 	direclaw: {
