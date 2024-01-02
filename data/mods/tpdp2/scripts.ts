@@ -210,7 +210,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!source) source = this;
 
 			if (currentStatus === newStatus.id) {
-				console.log("this");
 				if (newStatus.stackCondition && this.status.length < 6) {
 					delete this.status[newStatus.id];
 					newStatus = this.battle.dex.conditions.get(newStatus.stackCondition);
@@ -220,14 +219,16 @@ export const Scripts: ModdedBattleScriptsData = {
 					return false;
 				}
 			} else if (this.status) {
-				if(this.status.length < 6 && !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(this.status)) {
+				if(this.status.length < 6 && 
+				   !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(this.status) &&
+				   !['stp', 'hvybrn', 'tox', 'shk', 'weakheavy'].includes(newStatus.id)) {
 					newStatus.id = this.status + newStatus.id;
 					delete this.status;
-				} else {
+				} else if ((sourceEffect as Move)?.status) {
 					this.battle.add('-fail', source);
 					this.battle.attrLastMove('[still]');
-					return false;
 				}
+				return false;
 			}
 
 			if (!ignoreImmunities && newStatus.id &&
