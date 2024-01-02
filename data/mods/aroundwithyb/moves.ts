@@ -296,6 +296,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, dance: 1},
+		noSketch: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Quiver Dance", source);
@@ -523,6 +524,287 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
+	},
+	warmup: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User: +1 Speed, +2 critrate, then becomes the move Workout.",
+		name: "Warm Up",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1},
+		volatileStatus: 'focusenergy',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bulk Up", target);
+		},
+		onHit(target, source) {
+			pokemon.addVolatile('warmup');
+		},
+		onTryMove(source, target, move) {
+			if (source.volatiles['warmup']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Warm Up', move);
+				return false;
+				this.add('-message', `${source.name} is already warmed up, they will now Workout!`);
+				this.actions.useMove("Workout", source);
+				source.removeVolatile('warmup');
+				source.addVolatile('workout');
+			}
+			if (source.volatiles['workout']) {
+				this.attrLastMove('[still]');
+				this.add('cant', source, 'move: Workout', move);
+				return false;
+				this.add('-message', `${source.name} has already worked out, they will now Cool Down!`);
+				this.actions.useMove("Cool Down", source);
+				source.removeVolatile('workout');
+			}
+		},
+		boosts: {
+			spe: 1,
+		},
+		condition: {},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cool",
+	},
+	workout: {
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		shortDesc: "Becomes the move Cool Down after use.",
+		name: "Workout",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Burn Up", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	cooldown: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User: Heals 50% HP, clears stat boosts & crit stages, then becomes Warm Up.",
+		name: "Cool Down",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		heal: [1, 2],
+		noSketch: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rest", target);
+		},
+		onHit(target, source) {
+			target.clearBoosts();
+			target.removeVolatile('focusenergy');
+			this.add('-message', `${target.name} has now cooled down, they can now Warm Up again!`);
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		zMove: {effect: 'heal'},
+		contestType: "Beautiful",
+	},
+
+// Signature Moves
+	antivenom: {
+		accuracy: 100,
+		basePower: 70,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status === 'psn' || target.status === 'tox' || target.hasType('Poison')) {
+				this.debug('BP doubled on Poison or poisoned target');
+				return move.basePower * 2;
+			}
+			return move.basePower;
+		},
+		category: "Special",
+		shortDesc: "Deals 2x damage to Poison-types and poisoned Pokeon. Removes Poison-typing and poison status.",
+		name: "Antivenom",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gunk Shot", target);
+		},
+		onHit(target) {
+			if (target.status === 'psn' || target.status === 'tox') target.cureStatus();
+			if (target.hasType('Poison')) {
+				pokemon.setType(pokemon.getTypes(true).map(type => type === "Poison" ? "???" : type));
+				this.add('-start', target, 'typechange', target.types.join('/'), '[from] move: Antivenom');
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Tough",
+	},
+	bombshell: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Charges at start of turn, hits at end. Reflects bullet moves.",
+		name: "Bombshell",
+		pp: 10,
+		priority: -3,
+		flags: {protect: 1, noassist: 1, failmefirst: 1, nosleeptalk: 1, failcopycat: 1, failinstruct: 1},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('bombshell');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Bombshell');
+			},
+			onTryHitPriority: 2,
+			onTryHit(target, source, move) {
+				if (target === source || move.hasBounced || !move.flags['bullet']) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = this.effectState.pranksterBoosted;
+				this.actions.useMove(newMove, target, source);
+				return null;
+			},
+			onAllyTryHitSide(target, source, move) {
+				if (target.isAlly(source) || move.hasBounced || !move.flags['bullet']) {
+					return;
+				}
+				const newMove = this.dex.getActiveMove(move.id);
+				newMove.hasBounced = true;
+				newMove.pranksterBoosted = false;
+				this.actions.useMove(newMove, this.effectState.target, source);
+				return null;
+			},
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('bombshell');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	burstingspirit: {
+		accuracy: 100,
+		basePower: 150,
+		category: "Physical",
+		shortDesc: "User faints even if the move fails. Blocked by Damp.",
+		name: "Bursting Spirit",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, noparentalbond: 1},
+		selfdestruct: "always",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Explosion", source);
+			this.add('-anim', source, "Hex", source);
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Ghost",
+		contestType: "Beautiful",
+	},
+	cleansingfire: {
+		accuracy: true,
+		basePower: 40,
+		category: "Special",
+		shortDesc: "Clears hazards and stat boosts from both sides of the field.",
+		name: "Cleansing Fire",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Incinerate", target);
+		},
+		onHitField() {
+			this.add('-clearallboost');
+			for (const pokemon of this.getAllActive()) {
+				pokemon.clearBoosts();
+			}
+		},
+		onHit(target, source, move) {
+			const removeTarget = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			const removeAll = [
+				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
+			];
+			for (const targetCondition of removeTarget) {
+				if (target.side.removeSideCondition(targetCondition)) {
+					if (!removeAll.includes(targetCondition)) continue;
+					this.add('-sideend', target.side, this.dex.conditions.get(targetCondition).name, '[from] move: Cleansing Fire', '[of] ' + source);
+				}
+			}
+			for (const sideCondition of removeAll) {
+				if (source.side.removeSideCondition(sideCondition)) {
+					this.add('-sideend', source.side, this.dex.conditions.get(sideCondition).name, '[from] move: Cleansing Fire', '[of] ' + source);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		zMove: {effect: 'heal'},
+		contestType: "Beautiful",
+	},
+	coldcross: {
+		accuracy: 85,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "10% chance to freeze foe. Can't miss in Snow.",
+		name: "Cold Cross",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sheer Cold", target);
+			this.add('-anim', source, "Smart Strike", target);
+		},
+		onModifyMove(move) {
+			if (this.field.isWeather(['hail', 'snow'])) move.accuracy = true;
+		},
+		secondary: {
+			chance: 10,
+			status: 'frz',
+		},
+		target: "normal",
+		type: "Ice",
+		contestType: "Beautiful",
+	},
+	electrolights: {
+		accuracy: 90,
+		basePower: 80,
+		category: "Special",
+		name: "Electro-Lights",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Luster Purge", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Dark') return 1;
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Electric",
 	},
 	
  // Old Moves
