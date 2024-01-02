@@ -189,6 +189,341 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Cool",
 	},
+	nightmarch: {
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target, move) {
+			const currentSpecies = move.allies!.shift()!.species;
+			const bp = 10 + Math.floor(currentSpecies.baseStats.atk / 10);
+			this.debug('BP for ' + currentSpecies.name + ' hit: ' + bp);
+			return bp;
+		},
+	   shortDesc: "All healthy allies aid in damaging the target.",
+		category: "Physical",
+		name: "Night March",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, allyanim: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rollout", target);
+		},
+		onModifyMove(move, pokemon) {
+			move.allies = pokemon.side.pokemon.filter(ally => ally === pokemon || !ally.fainted && !ally.status);
+			move.multihit = move.allies.length;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		contestType: "Clever",
+	},
+	premonition: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Copies the foe's attacking move at 1.5x power. The foe is then confused. User must be faster.",
+		name: "Premonition",
+		pp: 10,
+		priority: 0,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Glare", source);
+		},
+		flags: {
+			protect: 1, bypasssub: 1,
+			failencore: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
+		},
+		onTryHit(target, pokemon) {
+			const action = this.queue.willMove(target);
+			if (!action) return false;
+			const move = this.dex.getActiveMove(action.move.id);
+			if (action.zmove || move.isZ || move.isMax) return false;
+			if (target.volatiles['mustrecharge']) return false;
+			if (move.category === 'Status' || move.flags['failmefirst']) return false;
+
+			pokemon.addVolatile('premonition');
+			this.actions.useMove(move, pokemon, target);
+			target.addVolatile('confusion');
+			return null;
+		},
+		condition: {
+			duration: 1,
+			onBasePowerPriority: 12,
+			onBasePower(basePower) {
+				return this.chainModify(1.5);
+			},
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Psychic",
+		zMove: {boost: {spe: 2}},
+		contestType: "Clever",
+	},
+	pullingstrings: {
+		accuracy: 100,
+		basePower: 0,
+	   shortDesc: "Causes the user or ally to use Puppet Dance.",
+		category: "Status",
+		name: "Pulling Strings",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, allyanim: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Instruct", target);
+		},
+		onHit(target, source, move) {
+			target.addVolatile('pullingstrings');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-message', `${pokemon.name} is being forced to dance!`);
+				this.actions.useMove("Puppet Dance", pokemon);
+			},
+		},
+		secondary: null,
+		target: "adjacentAllyOrSelf",
+		type: "Dark",
+		contestType: "Clever",
+	},
+	puppetdance: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+	   shortDesc: "Boosts the user's SpA by 1 stage.",
+		name: "Puppet Dance",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, dance: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Quiver Dance", source);
+			this.add('-anim', source, "Fiery Wrath", target);
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Dark",
+		contestType: "Beautiful",
+	},
+	rockwall: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Protects the user. Disables a foe that makes contact.",
+		name: "Rock Wall",
+		pp: 10,
+		priority: 4,
+		flags: {noassist: 1, failcopycat: 1},
+		stallingMove: true,
+		volatileStatus: 'rockwall',
+		onPrepareHit(pokemon) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect']) {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (this.checkMoveMakesContact(move, source, target)) {
+					target.addVolatile('disable');
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					target.addVolatile('disable');
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Rock",
+		zMove: {boost: {def: 1}},
+		contestType: "Tough",
+	},
+	soulsink: {
+		accuracy: 100,
+		basePower: 55,
+		category: "Physical",
+	   shortDesc: "Lowers the foe's Speed at the end of the turn for 3 turns.",
+		name: "Soul Sink",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Poison Jab", target);
+		},
+		condition: {
+			noCopy: true,
+			duration: 4,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Soul Sink');
+			},
+			onResidualOrder: 14,
+			onResidual() {
+				this.boost({spe: -1});
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Soul Sink', '[silent]');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'soulsink',
+		},
+		target: "normal",
+		type: "Ghost",
+	},
+	sparklingspike: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+	   shortDesc: "After dealing damage, this move deals an additional 6.25% of the all foes' max HP.",
+		name: "Sparkling Spike",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Torch Song", target);
+		},
+		onHit(target, source, move) {
+			for (const ally of target.adjacentAllies()) {
+				this.damage(target.baseMaxhp / 16, target, source, this.dex.conditions.get('Sparkling Spike'));
+				this.damage(ally.baseMaxhp / 16, ally, source, this.dex.conditions.get('Sparkling Spike'));
+			}
+		},
+		onAfterSubDamage(damage, target, source, move) {
+			for (const ally of target.adjacentAllies()) {
+				this.damage(target.baseMaxhp / 16, target, source, this.dex.conditions.get('Sparkling Spike'));
+				this.damage(ally.baseMaxhp / 16, ally, source, this.dex.conditions.get('Sparkling Spike'));
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
+	toxicshock: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+	   shortDesc: "Fails if the foe wasn't using an offensive move. +1 Priority.",
+		name: "Toxic Shock",
+		pp: 5,
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Acid Spray", target);
+		},
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Poison",
+		contestType: "Clever",
+	},
+	updraft: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Special",
+	   shortDesc: "Uses target's Speed stat in damage calculation.",
+		name: "Updraft",
+		pp: 10,
+		priority: 0,
+		flags: {wind: 1, protect: 1, mirror: 1},
+		overrideOffensiveStat: 'spe',
+		overrideOffensivePokemon: 'target',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Gust", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Flying",
+		contestType: "Clever",
+	},
+	wideslash: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "High critical hit ratio. Hits all adjacent foes.",
+		name: "Wide Slash",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, slicing: 1},
+		critRatio: 2,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sacred Sword", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Steel",
+		contestType: "Cool",
+	},
+	worktogether: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Has a 30% chance to deal doubled damage.",
+		name: "Work Together",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Double-Edge", target);
+		},
+		onBasePower(basePower, pokemon) {
+			if (this.randomChance(3, 10)) {
+				this.add('-activate', pokemon, 'move: Work Together');
+				return this.chainModify(2);
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
 	
  // Old Moves
 	direclaw: {
@@ -653,5 +988,81 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		target: "normal",
 		type: "Fighting",
+	},
+	disable: {
+		num: 50,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Disable",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1},
+		volatileStatus: 'disable',
+		onTryHit(target) {
+			if (!target.lastMove || target.lastMove.isZ || target.lastMove.isMax || target.lastMove.id === 'struggle') {
+				return false;
+			}
+		},
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (effect && effect.id === 'rockwall') {
+					return 3;
+				}
+				return 5;
+			},
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(pokemon, source, effect) {
+				// The target hasn't taken its turn, or Cursed Body activated and the move was not used through Dancer or Instruct
+				if (
+					this.queue.willMove(pokemon) ||
+					(pokemon === this.activePokemon && this.activeMove && !this.activeMove.isExternal)
+				) {
+					this.effectState.duration--;
+				}
+				if (!pokemon.lastMove) {
+					this.debug(`Pokemon hasn't moved yet`);
+					return false;
+				}
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id === pokemon.lastMove.id) {
+						if (!moveSlot.pp) {
+							this.debug('Move out of PP');
+							return false;
+						}
+					}
+				}
+				if (effect.effectType === 'Ability') {
+					this.add('-start', pokemon, 'Disable', pokemon.lastMove.name, '[from] ability: Cursed Body', '[of] ' + source);
+				} else {
+					this.add('-start', pokemon, 'Disable', pokemon.lastMove.name);
+				}
+				this.effectState.move = pokemon.lastMove.id;
+			},
+			onResidualOrder: 17,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Disable');
+			},
+			onBeforeMovePriority: 7,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && move.id === this.effectState.move) {
+					this.add('cant', attacker, 'Disable', move);
+					return false;
+				}
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id === this.effectState.move) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
 	},
 };
