@@ -423,4 +423,23 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 68, atk: 109, def: 112, spa: 48, spd: 48, spe: 109},
   },
+	smeargle: {
+		inherit: true,
+		otherFormes: ["Pokestar Smeargle"],
+		formeOrder: ["Smeargle", "Pokestar Smeargle"],
+	},
+	pokestarsmeargle: {
+		num: 235,
+		name: "Pokestar Smeargle",
+		baseSpecies: "Smeargle",
+		forme: "Pokestar",
+		types: ["Normal"],
+		baseStats: {hp: 55, atk: 20, def: 35, spa: 20, spd: 45, spe: 75},
+		abilities: {0: "Costar", 1: "Technician", H: "Moody"},
+		heightm: 1.5,
+		weightkg: 61,
+		color: "White",
+		eggGroups: ["Undiscovered"],
+		gen: 9,
+	},
 };
