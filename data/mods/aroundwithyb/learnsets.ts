@@ -902,6 +902,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		learnset: {
 			aerialace: ["9L1"],
 			avalanche: ["9L1"],
+			banefulbunker: ["9L1"],
 			blizzard: ["9L1"],
 			bodypress: ["9L1"],
 			bodyslam: ["9L1"],
