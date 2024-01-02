@@ -9,6 +9,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Magical Leaf", target);
+		},
 		onHit(target, source) {
 			const item = target.getItem();
 			if (target.hp && target.takeItem(source)) {
@@ -33,7 +37,159 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Grass",
 		contestType: "Clever",
 	},
-
+	coldshoulder: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "100% chance to freeze target that had a stat rise this turn.",
+		name: "Cold Shoulder",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Ice Spinner", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (target?.statsRaisedThisTurn) {
+					target.trySetStatus('frz', source, move);
+				}
+			},
+		},
+		target: "normal",
+		type: "Ice",
+	},
+	defibrillate: {
+		accuracy: 90,
+		basePower: 90,
+		category: "Physical",
+		shortDesc: "Heals an ally's status if that ally is the target.",
+		name: "Defibrillate",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, allyanim: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Double Shock", target);
+		},
+		onTryHit(target, source, move) {
+			if (source.isAlly(target)) {
+				move.basePower = 0;
+				move.accuracy = true;
+				move.infiltrates = true;
+			}
+		},
+		onHit(target, source, move) {
+			if (source.isAlly(target)) {
+				if (!target.cureStatus()) {
+					this.add('-immune', target);
+					return this.NOT_FAIL;
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		contestType: "Cute",
+	},
+	dragonsroar: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+	   shortDesc: "If the user is hit this turn, +1 SpA.",
+		name: "Dragon's Roar",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Clanging Scales", target);
+		},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('dragonsroar');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Dragon\'s Roar');
+			},
+			onHit(target, source, move) {
+				if (target !== source && move.category !== 'Status') {
+					this.boost({spa: 1});
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		contestType: "Cool",
+	},
+	dustdevil: {
+		accuracy: 90,
+		basePower: 60,
+		category: "Special",
+	   shortDesc: "Switches the foe out. Sets Sand if it fails.",
+		name: "Dust Devil",
+		pp: 10,
+		priority: -6,
+		flags: {protect: 1, mirror: 1, noassist: 1, failcopycat: 1},
+		onMoveFail(target, source, move) {
+			this.field.setWeather('sandstorm');
+		},
+		forceSwitch: true,
+		target: "normal",
+		type: "Ground",
+		contestType: "Tough",
+	},
+	exfoliate: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Heals the user's status. Boosts Def & SpD by 1 if it does.",
+		name: "Exfoliate",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", target);
+		},
+		onHit(pokemon) {
+			if (pokemon.status) {
+				this.boost({def: 1, spd: 1});
+				pokemon.cureStatus();
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Water",
+		zMove: {effect: 'heal'},
+		contestType: "Cute",
+	},
+	heartbeat: {
+		accuracy: 100,
+		basePower: 25,
+		category: "Physical",
+	   shortDesc: "Hits 2-5 times.",
+		name: "Heartbeat",
+		pp: 30,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1},
+		multihit: [2, 5],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Heart Stamp", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
+	
  // Old Moves
 	direclaw: {
 		num: 827,
