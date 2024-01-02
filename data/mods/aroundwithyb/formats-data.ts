@@ -2699,4 +2699,4 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUAoK",
 		doublesTier: "UUAoK",
 	},
-},
+};
