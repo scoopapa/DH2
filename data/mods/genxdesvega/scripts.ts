@@ -8,7 +8,74 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customDoublesTiers: ['DGX'],
 	},	
 	init() {
+		//oddish line
+		this.modData("Learnsets", "oddish").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "oddish").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "gloom").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "gloom").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "vileplume").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "vileplume").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "bellossom").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "bellossom").learnset.toxicshock = ["9L1"];
 		
+		//machop line
+		this.modData("Learnsets", "machop").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "machoke").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "machamp").learnset.taunt = ["9L1"];
+		
+		//geodude line
+		this.modData("Learnsets", "geodude").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "graveler").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.taunt = ["9L1"];
+		
+		//mandibuzz
+		this.modData("Learnsets", "mandibuzz").learnset.airdive = ["9L1"];
+		
+		//trubbish line
+		this.modData("Learnsets", "trubbish").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "trubbish").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.toxicshock = ["9L1"];
+		
+		//pachirisu
+		this.modData("Learnsets", "pachirisu").learnset.shocktail = ["9L1"];
+		
+		//braviary
+		this.modData("Learnsets", "braviary").learnset.airdive = ["9L1"];
+		
+		//hawlucha
+		this.modData("Learnsets", "hawlucha").learnset.airdive = ["9L1"];
+		
+		//gligar line
+		this.modData("Learnsets", "gligar").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "gliscor").learnset.poisonterrain = ["9L1"];
+		
+		//wooper lines
+		this.modData("Learnsets", "wooper").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "quagsire").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "wooperpaldea").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "wooperpaldea").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.toxicshock = ["9L1"];
+		
+		//hydreigon
+		this.modData("Learnsets", "hydreigon").learnset.roost = ["9L1"];
+		
+		//swinub line
+		this.modData("Learnsets", "piloswine").learnset.tripleaxel = ["9L1"];
+		this.modData("Learnsets", "mamoswine").learnset.tripleaxel = ["9L1"];
+		
+		//tandemaus line
+		this.modData("Learnsets", "tandemaus").learnset.nuzzle = ["9L1"];
+		this.modData("Learnsets", "tandemaus").learnset.tripleaxel = ["9L1"];
+		this.modData("Learnsets", "maushold").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "maushold").learnset.nuzzle = ["9L1"];
+		this.modData("Learnsets", "maushold").learnset.tripleaxel = ["9L1"];
+		
+		//poipole line
+		this.modData("Learnsets", "poipole").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "naganadel").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "naganadel").learnset.toxicshock = ["9L1"];
 	},
 	runAction(action) {
 		const pokemonOriginalHP = action.pokemon?.hp;

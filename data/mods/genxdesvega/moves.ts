@@ -776,6 +776,24 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		contestType: "Cool",
 	},
+	highroller: {
+		accuracy: 100,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			const bp = move.basePower + 20 * pokemon.positiveBoosts();
+			this.debug('BP: ' + bp);
+			return bp;
+		},
+		category: "Physical",
+		name: "High Roller",
+		shortDesc: "+ 20 power for each of the user's stat boosts.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+	},
 
 	//vanilla moves
 	octazooka: {
@@ -958,7 +976,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			},
 		},
 	},
-	
 	dive: {
 		inherit: true,
 		onTryMove(attacker, defender, move) {

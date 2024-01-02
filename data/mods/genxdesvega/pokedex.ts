@@ -2383,17 +2383,17 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		otherFormes: ["Krokorok-Loria"],
 		formeOrder: ["Krokorok", "Krokorok-Loria"],
 	},
-  bagon: {
+	bagon: {
     inherit: true,
     otherFormes: ["Bagon-Loria"],
     formeOrder: ["Bagon", "Bagon-Loria"],
   },
-  bagonloria: {
+	bagonloria: {
 		num: 371,
 		name: "Bagon-Loria",
 		baseSpecies: "Bagon",
 		forme: "Loria",
-		type: ["Ghost", "Rock"],
+		types: ["Ghost", "Rock"],
 		baseStats: {hp: 45, atk: 75, def: 60, spa: 40, spd: 30, spe: 50},
 		abilities: {0: "Rock Head", H: "Clear Body"},
 		heightm: 0.3,
@@ -2410,7 +2410,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Shelgon-Loria",
 		baseSpecies: "Shelgon",
 		forme: "Loria",
-		type: ["Ghost", "Rock"],
+		types: ["Ghost", "Rock"],
 		baseStats: {hp: 65, atk: 95, def: 100, spa: 60, spd: 50, spe: 50},
 		abilities: {0: "Rock Head", H: "Clear Body"},
 		heightm: 1.1,
@@ -2429,7 +2429,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Salamence-Loria",
 		baseSpecies: "Salamence",
 		forme: "Loria",
-		type: ["Ghost", "Rock"],
+		types: ["Ghost", "Rock"],
 		baseStats: {hp: 95, atk: 135, def: 110, spa: 90, spd: 95, spe: 75},
 		abilities: {0: "Soaring Spirit"},
 		heightm: 1.5,
