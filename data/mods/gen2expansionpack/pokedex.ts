@@ -2396,8 +2396,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		"gen": 2,
 		"name": "Sunbud",
 		"types": [
-			"Water",
-			"Normal"
+			"Grass"
 		]
 	},
 	hippunk: {
