@@ -604,6 +604,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "UUAoK",
 	},
 	pokestarsmeargle: {
+		isNonstandard: null,
 		tier: "UUAoK",
 		doublesTier: "UUAoK",
 	},
