@@ -203,7 +203,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	interactivelens: {
 		name: "Interactive Lens",
-		shortDesc: "Holder's damaging moves (excl. OHKO) have perfect accuracy and bypass semi-invulnerability but use 1 extra PP.",
+		shortDesc: "Holder's damaging moves (excl. OHKO) bypass accuracy checks and semi-invulnerability but use 1 extra PP.",
 		fling: {
 			basePower: 20,
 			critRatio: 5,
