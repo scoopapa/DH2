@@ -1126,6 +1126,182 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Ice",
 		contestType: "Cool",
 	},
+	shearpower: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		shortDesc: "Has a different effect based on trim.",
+		name: "Shear Power",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, slicing: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Guillotine", target);
+		},
+		onHit(target, source) {
+			if (source.baseSpecies.forme === 'Heart') {
+				this.heal(source.maxhp / 6, source, source, move);
+			} else if (source.baseSpecies.forme === 'Star') {
+				this.field.addPseudoWeather('gravity', source, source.move);
+			} else if (source.baseSpecies.forme === 'Diamond') {
+				source.addVolatile('focusenergy');
+			} else if (source.baseSpecies.forme === 'Debutante') {
+				source.addVolatile('powertrick');
+			} else if (source.baseSpecies.forme === 'Matron') {
+				target.addVolatile('smackdown');
+			} else if (source.baseSpecies.forme === 'Dandy') {
+				source.addVolatile('torment');
+			} else if (source.baseSpecies.forme === 'La Reine') {
+				target.addVolatile('powder');
+			} else if (source.baseSpecies.forme === 'Kabuki') {
+				source.addVolatile('rage');
+			} else if (source.baseSpecies.forme === 'Pharaoh' && target.status === 'slp') {
+				target.addVolatile('nightmare');
+			} else {
+				this.boost({atk: -1}, target, source);
+			}
+		},
+		secondary: {},
+		target: "allAdjacentFoes",
+		type: "Normal",
+	},
+	silversaliva: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Makes the foe weaker to Steel. 30% chance to poison foe.",
+		name: "Silver Saliva",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, contact: 1, mirror: 1},
+		volatileStatus: 'silversaliva',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Lick", target);
+		},
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Silver Saliva');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Steel') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
+		secondary: {
+			chance: 30,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Steel",
+	},
+	triplepeck: {
+		accuracy: 90,
+		basePower: 25,
+		category: "Physical",
+		shortDesc: "Hits 3 times. First hit lowers the foe's Defense by 1 stage.",
+		name: "Triple Peck",
+		viable: true,
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		multihit: 3,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Drill Peck", target);
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (move.hit < 2) {
+					this.boost({def: -1}, target);
+				}
+				return false;
+			},
+		},
+		target: "normal",
+		type: "Flying",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
+		contestType: "Cool",
+	},
+	violentvirus: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Raises the target's Atk & SpA by 1, confuses it, and toxics it.",
+		name: "Violent Virus",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		volatileStatus: 'confusion',
+		status: 'psn',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Swagger", target);
+		},
+		boosts: {
+			atk: 1,
+			spa: 1,
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		zMove: {boost: {atk: 1}},
+		contestType: "Clever",
+	},
+	voidofruin: {
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		shortDesc: "+1 Attack for every Pokemon this move KOes.",
+		name: "Void of Ruin",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fiery Wrath", target);
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.fainted || target.hp <= 0) this.boost({atk: 1}, pokemon, pokemon, move);
+		},
+		secondary: null,
+		target: "allAdjacent",
+		type: "Dark",
+		contestType: "Cool",
+	},
+	wickedworks: {
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		shortDesc: "50% chance to burn, freeze, or poison foe.",
+		name: "Wicked Works",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 50,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else if (result === 1) {
+					target.trySetStatus('psn', source);
+				} else {
+					target.trySetStatus('frz', source);
+				}
+			},
+		},
+		target: "normal",
+		type: "Fairy",
+		contestType: "Beautiful",
+	},
 	
  // Old Moves
 	direclaw: {
