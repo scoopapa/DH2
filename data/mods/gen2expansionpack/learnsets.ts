@@ -13561,13 +13561,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M",
 				"2M"
 			],
-			"ironhead": [
-				"1L72"
-			],
-			"irontail": [
-				"2L1",
-				"2M"
-			],
 			"magnetbomb": [
 				"1L45"
 			],
@@ -13624,6 +13617,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"strength": [
 				"2M"
 			],
+			strongarm: ["2L1"],
 			"submission": [
 				"1L81",
 				"1M"
@@ -16272,6 +16266,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"1M",
 				"2M"
 			],
+			strongarm: ["2L1"],
 			"submission": [
 				"1M"
 			],

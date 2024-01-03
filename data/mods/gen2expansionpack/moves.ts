@@ -192,10 +192,29 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Sky Uppercut", target);
 		},
 	},
-	// Unfinished
-	// strongarm: {
-	// 	num: -10,
-	// }
+	strongarm: {
+		num: -16,
+		accuracy: 90,
+		basePower: 75,
+		category: "Physical",
+		name: "Strong Arm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		shortDesc: "30% chance to raise attack by 1 stage.",
+		secondary: {
+			chance: 10,
+			boosts: {
+				atk: 1
+			}
+		},
+		target: "normal",
+		type: "Steel",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hammer Arm", target);
+		},
+	},
 	// bounce: {
 	// 	num: -11,
 	// 	shortDesc: "",
