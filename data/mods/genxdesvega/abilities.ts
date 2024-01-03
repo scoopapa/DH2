@@ -41,7 +41,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	railgunner: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['beam']) {
+			if (move.id.endsWith('beam')) {
 				return this.chainModify([5325, 4096]);
 			}
 		},
@@ -283,6 +283,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	schooling: {
 		inherit: true,
+		shortDesc: "Wishiwashi/Slushisloshi: Changes to School Form if it has > 1/4 max HP, else Solo Form.",
 		onStart(pokemon) {
 			if (!['Slushisloshi,Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
 				|| pokemon.level < 20 || pokemon.transformed) return;
@@ -359,6 +360,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		condition: {
 			duration: 1,
 		},
+		isBreakable: true,
 	},
 
 	piercingvision: {
@@ -379,12 +381,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
-			if (target === source || move.category === 'Status' || move.type !== 'Grass') return;
+			if (move.category === 'Status' || move.type !== 'Grass') return;
 			if (!move.auraBooster) move.auraBooster = this.effectData.target;
 			else if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
-		isUnbreakable: true,
 		name: "Deep Forest",
 		rating: 3,
 	},
@@ -395,12 +396,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
-			if (target === source || move.category === 'Status' || move.type !== 'Water') return;
+			if (move.category === 'Status' || move.type !== 'Water') return;
 			if (!move.auraBooster) move.auraBooster = this.effectData.target;
 			else if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
-		isUnbreakable: true,
 		name: "Deep Sea",
 		rating: 3,
 	},
@@ -415,6 +415,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Patience",
 		rating: 3.5,
+		isBreakable: true,
 	},
 	
 	prowess: {
@@ -430,19 +431,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	solarflare: {
 		shortDesc: "Hyakada: Flare forme in sunlight, else base forme.",
 		onStart(pokemon) {
-			delete this.effectData.forme;
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
-		onUpdate(pokemon) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Hyakada' || pokemon.transformed) return;
+		onWeatherChange(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Hyakada'
+				 || pokemon.transformed || !pokemon.hp) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				if (pokemon.species.id !== 'hyakadaflare') {
 					pokemon.formeChange('Hyakada-Flare', this.effect, false, '[msg]');
 				}
-			} else //{
-				if (pokemon.species.id === 'hyakadaflare') {
-					pokemon.formeChange('Hyakada', this.effect, false, '[msg]');
-				}
-			//}
+			} else if (pokemon.species.id === 'hyakadaflare') {
+				pokemon.formeChange('Hyakada', this.effect, false, '[msg]');
+			}
 		},
 		name: "Solar Flare",
 		rating: 1,
@@ -470,14 +470,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon has 1.25x evasiness in Grassy Terrain.",
 		onModifyAccuracyPriority: 8,
 		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			if (this.field.isTerrain('grassyterrain')) {
-				this.debug('Grassy Cloak - decreasing accuracy');
-				return accuracy * 0.8;
-			}
+			if (typeof accuracy !== 'number' || !this.field.isTerrain('grassyterrain')) return;
+			this.debug('Grassy Cloak - decreasing accuracy');
+			return accuracy * 0.8;
 		},
 		name: "Grassy Cloak",
 		rating: 1.5,
+		isBreakable: true,
 	},
 	soulstrider: {
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by a Ghost move; Ghost immunity.",
@@ -491,6 +490,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Soul Strider",
 		rating: 3,
+		isBreakable: true,
 	},
 	venomvision: {
 		shortDesc: "The opponent's Evasiness is lowered by 1 after making contact with this Pokemon.",
@@ -738,6 +738,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Soaring Spirit",
+		isBreakable: true,
 	},
 	suddenguard: {
 		shortDesc: "While switching-in, this Pokemon takes 0.5x damage from non-Super Effective moves.",
@@ -750,7 +751,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Sudden Guard",
 	},
 	bewitch: {
-		shortDesc: "(Bugged?) Moves that can inflict a status condition have their secondary chance doubled.",
+		shortDesc: "(Needs testing) Moves that can inflict a status condition have their secondary chance doubled.",
 		onModifyMovePriority: -2,
 		onModifyMove(move) {
 			if (move.secondaries) {
@@ -839,6 +840,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Battle Tide",
+		isBreakable: true,
 	},
 	solarcharge: {
 		shortDesc: "If Sunny Day is active, this Pokemon's Atk is 1.5x; loses 1/8 max HP per turn.",
@@ -868,6 +870,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return priority - 1;
 		},
 		name: "Eternal Ice",
+		isBreakable: true,
 	},
 	traveler: {
 		shortDesc: "Removes hazards upon switch-in.",
@@ -881,7 +884,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
-		id: "traveler",
 		name: "Traveler",
 	},
 	magmaabsorb: {
@@ -895,13 +897,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Magma Absorb",
+		isBreakable: true,
 	},
 	disastrous: {
 		shortDesc: "If hit by a Dark-type move, the foe loses 1/8 of their max HP; Dark and Intimidate immunity.",
 		onTryHit(target, source, move) {
-			if (move.target !== 'self' && ['Dark'].includes(move.type)) {
-				this.add('-immune', target, '[from] ability: Disastrous');
-				this.damage(source.baseMaxhp / 8, source, target);
+			if (move.target !== 'self' && move.type === 'Dark') {
+				if (source.hasAbility('magicguard')) this.add('-immune', target, '[from] ability: Disastrous');
+				else this.damage(source.baseMaxhp / 8, source, target);
 				return null;
 			}
 		},
@@ -912,6 +915,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Disastrous",
+		isBreakable: true,
 	},
 	potionbrewer: {
 		shortDesc: "(Bugged) Upon using a Psychic-type move, this Pokémon consumes its berry.",
