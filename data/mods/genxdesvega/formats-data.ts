@@ -179,6 +179,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	ledyba: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	ledian: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	lediund: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
@@ -187,7 +195,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
-	triassange: {
+	triassinge: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -343,6 +351,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	slugma: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	magcargo: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	saunusca: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
@@ -355,11 +371,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
-	slushisloshisolo: {
-		tier: "Desvega OU",
-		doublesTier: "DGX",
-	},
-	slushisloshischool: {
+	slushisloshi: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -677,11 +689,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	casinova: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	silicuit: {
 		tier: "Desvega LC",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	silipro: {
 		tier: "Desvega NFE",
@@ -733,7 +745,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	tapuzaza: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 
 	
