@@ -111,7 +111,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	tacticalmonarch: {
 		onStart(pokemon) {
-			if (pokemon.monarch) return;
+			if (pokemon.m.monarch) return;
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -122,15 +122,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						move.ohko
 					) {
 						this.add('-ability', pokemon, 'Tactical Monarch');
-						pokemon.monarch = true;
-						pokemon.switchFlag = true;
+						pokemon.m.monarch = pokemon.switchFlag = true;
+						return;
 					}
 				}
 			}
 		},
 		onFoeSwitchIn(target) {
 			const pokemon = this.effectState.target;
-			if (pokemon.monarch) return;
+			if (pokemon.m.monarch) return;
 			for (const moveSlot of target.moveSlots) {
 				const move = this.dex.moves.get(moveSlot.move);
 				if (move.category === 'Status') continue;
@@ -140,8 +140,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						move.ohko
 					) {
 						this.add('-ability', pokemon, 'Tactical Monarch');
-						pokemon.monarch = true;
-						pokemon.switchFlag = true;
+						pokemon.m.monarch = pokemon.switchFlag = true;
+					return;
 					}
 			}
 		},
