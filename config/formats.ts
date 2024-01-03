@@ -876,6 +876,29 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Secret Santa",
+	   desc: '<b>[Gen 9] Secret Santa</b>: One person sets restrictions for another to follow in the creation of a fakemon".',
+		threads: [
+			'&bullet; <a href="https://www.smogon.com/forums/threads/secret-santa-the-pet-mod.3727745/">Secret Santa</a>',
+			'https://docs.google.com/spreadsheets/d/1IPFlVP4osQhGtjNRheycCX0AnZiUVipumGwqKdhOS2s/edit#gid=1272593335">Spreadsheet</a>',
+		],
+		mod: 'secretsanta', 
+	  ruleset: ['Standard', 'Terastal Clause', 'Data Mod', '+Past'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Shadow Tag', 'Baton Pass',
+		],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}} */
+			let speciesTable = {};
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (template.tier !== 'santa') {
+					return [set.species + ' is not usable in Secret Santa.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Super Smash Stereotypes",
 		desc: [
 			"<b>Super Smash Stereotypes</b>: A project that aims to create a micrometa containing a Pokemon from other mods for all 171 possible types.",
@@ -911,6 +934,12 @@ export const Formats: FormatList = [
 				if (!allowedTiers.includes(template.tier)) {
 					return [set.species + ' is not legal in TeraMax.'];
 				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			const isTeraStellar = pokemon.terastallized === 'Stellar';
+			if (isTeraStellar) {
+			   pokemon.stellarBoostedTypes = [];
 			}
 		},
 	},
@@ -1780,9 +1809,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause','OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Uber', 'OU', 'UUBL', 'Battle Bond', 'Power Construct', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z', 
-					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang',
-					'Aerodactylite', 'Alakazite', 'Baskironite', 'Blazikenite', 'Charizardite X', 'Charizardite Y', 'Diancite', 'Flygonite', 'Froslassite', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Gyaradosite', 'Houndoominite', 'Krookodite', 'Latiasite', 'Lopunnite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Ribombinite', 'Salamencite', 'Sceptilite', 'Scizorite', 'Swampertite', 'Terreptilite', 
-				'Latiosite', 'Sablenite', 'Kleavorite', 'Light Clay', 'Revival Blessing'],
+					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Light Clay', 'Revival Blessing'],
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 		teambuilderFormat: 'National Dex UU',
 		onChangeSet(set) {
@@ -1832,13 +1859,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard NatDex', 'Terastal Clause','OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod'],
 		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'RUBL','Battle Bond', 'Power Construct', 'Berserk Gene', 'Eevee-Starter', 'Pikachu-Starter', 'Moody',
 					'Normalium Z', 'Fairium Z', 'Fightinium Z', 'Firium Z', 'Flyinium Z', 'Darkinium Z', 'Dragonium Z', 'Buginium Z', 'Waterium Z', 'Electrium Z', 'Ghostium Z', 'Grassium Z', 'Groundium Z', 'Icium Z', 'Poisonium Z', 'Psychium Z', 'Rockium Z', 'Steelium Z', 'Pikanium Z', 'Aloraichium Z', 'Eevium Z', 'Snorlium Z', 'Mewnium Z', 'Ultranecrozium Z', 'Pikashunium Z', 'Decidium Z', 'Incinium Z', 'Primarium Z', 'Lycanium Z', 'Mimikium Z', 'Kommonium Z', 'Tapunium Z', 'Solganium Z', 'Lunalium Z', 'Marshadium Z', 
-					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang',
-					'Aerodactylite', 'Alakazite', 'Ampharosite', 'Baskironite', 'Blazikenite', 'Butterfrite', 'Cacturnite X', 'Centiskorchite X', 'Centiskorchite Y', 'Charizardite X', 'Charizardite Y', 'Dhelmite', 'Diancite', 'Flygonite', 'Froslassite', 'Galladite', 'Gardevoirite', 'Gengarite', 'Glalitite', 'Gyaradosite', 'Houndoominite', 'Infarmatemite', 'Krookodite', 'Latiasite', 'Lopunnite', 'Lucarionite', 'Mawilite', 'Medichamite', 'Metagrossite', 'Ribombinite', 'Salamencite', 'Sceptilite', 'Scizorite', 'Swampertite', 'Terreptilite', 
-				'Latiosite', 'Pidgeotite', 'Pinsirite', 'Sablenite', 'Kleavorite', 'Zen Mode', 'Light Clay', 'Revival Blessing',
-			'Absolite', 'Aggronite', 'Altarianite', 'Audinite', 'Banettite', 'Cacturnite Y', 'Chesnaughtite', 'Crobatite', 'Crustlite', 
-			'Delphite', 'Feraligatrite', 'Golisopodite', 'Heracronite', 'Kangaskhanite', 
-			'Manectite', 'Noctowlite', 'Rocksterite', 'Sharpedonite', 'Steelixite', 'Typhlosionite', 
-			'Venusaurite', 'Zoroarkite'],
+					'Bright Powder', 'Lax Incense', 'King\'s Rock', 'Razor Fang', 'Zen Mode', 'Light Clay', 'Revival Blessing'],
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 		teambuilderFormat: 'National Dex RU',
 		onChangeSet(set) {

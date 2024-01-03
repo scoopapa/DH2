@@ -548,6 +548,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'ledian').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'ledixy').learnset.golemstrike = ['9T'];
     this.modData('Learnsets', 'mosquitox').learnset.golemstrike = ['9T'];
+    this.modData('Learnsets', 'gogoat').learnset.golemstrike = ['9L1'];
 
     // punishingblow 
     this.modData('Learnsets', 'froslass').learnset.punishingblow = ['9L1'];
@@ -1238,8 +1239,9 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'delphox').learnset.magicpowder = ['9L1'];
     this.modData('Learnsets', 'pyroar').learnset.nastyplot = ['9L1'];
     this.modData('Learnsets', 'pyroar').learnset.scorchingsands = ['9L1'];
-    this.modData('Learnsets', 'gogoat').learnset.grassyglide = ['9L1'];
+    this.modData('Learnsets', 'gogoat').learnset.stealthrock = ['9L1'];
     this.modData('Learnsets', 'gogoat').learnset.swordsdance = ['9L1'];
+    this.modData('Learnsets', 'gogoat').learnset.stoneedge = ['9L1'];
     this.modData('Learnsets', 'furfrou').learnset.bodyslam = ['9L1'];
     this.modData('Learnsets', 'furfrou').learnset.knockoff = ['9L1'];
     this.modData('Learnsets', 'furfrou').learnset.taunt = ['9L1'];

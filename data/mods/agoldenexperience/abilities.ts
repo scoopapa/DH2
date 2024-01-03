@@ -2101,17 +2101,19 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 	defeatist: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4) {
+			if (pokemon.side.totalFainted === 5) {
 				return this.chainModify(0.5);
 			}
 		},
 		onModifySpAPriority: 5,
-		onModifySpA(atk, pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4) {
+		onModifySpA(spa, pokemon) {
+			if (pokemon.side.totalFainted === 5) {
 				return this.chainModify(0.5);
 			}
 		},
 		name: "Defeatist",
+		desc: "If this Pokemon is the last Pokemon of the team, its Attack and Special Attack are halved.",
+		shortDesc: "If this Pokemon is the last Pokemon of the team, its Attack and Sp. Atk are halved.",
 		rating: -1,
 		num: 129,
 	},
