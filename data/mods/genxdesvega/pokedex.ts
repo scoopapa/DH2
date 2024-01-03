@@ -1320,7 +1320,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	cramorantdesvegagulping: {
 		num: 845,
 		name: "Cramorant-Desvega-Gulping",
-		baseSpecies: "Cramorant-Desvega",
+		baseSpecies: "Cramorant",
 		forme: "Gulping",
 		types: ["Poison", "Water"],
 		baseStats: {hp: 80, atk: 75, def: 75, spa: 75, spd: 95, spe: 75},
@@ -1333,7 +1333,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	cramorantdesvegagorging: {
 		num: 845,
 		name: "Cramorant-Desvega-Gorging",
-		baseSpecies: "Cramorant-Desvega",
+		baseSpecies: "Cramorant",
 		forme: "Gorging",
 		types: ["Poison", "Water"],
 		baseStats: {hp: 80, atk: 75, def: 75, spa: 75, spd: 95, spe: 75},
