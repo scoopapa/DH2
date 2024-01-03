@@ -122,6 +122,54 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	deepseascale: {
+		name: "Deep Sea Scale",
+		spritenum: 93,
+		fling: {
+			basePower: 30,
+		},
+		onModifyDefPriority: 2,
+		onModifyDef(def, pokemon) {
+			if (pokemon.baseSpecies.name === 'Clamperl') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpDPriority: 2,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.baseSpecies.name === 'Clamperl') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Clamperl"],
+		num: 227,
+		gen: 3,
+		isNonstandard: null,
+		desc: "If held by a Clamperl, its Def & SpD are doubled.",
+	},
+	deepseatooth: {
+		name: "Deep Sea Tooth",
+		spritenum: 94,
+		fling: {
+			basePower: 90,
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.baseSpecies.name === 'Clamperl') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.name === 'Clamperl') {
+				return this.chainModify(2);
+			}
+		},
+		itemUser: ["Clamperl"],
+		num: 226,
+		gen: 3,
+		isNonstandard: null,
+		desc: "If held by a Clamperl, its Atk & SpA are doubled.",
+	},
 
 // TMs
 	tm152: {
