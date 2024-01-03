@@ -961,7 +961,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	rapidashgalar: {
-		tier: "LC",
+		tier: "OU",
 	},
 	balumba: {
 		tier: "OU",

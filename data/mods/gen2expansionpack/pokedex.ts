@@ -2986,7 +2986,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"Fairy"
 		]
 	},
-	lunabo: {
+	luanbo: {
 		num: -88,
 		eggGroups: ["Water 2"],
 		abilities: [""],
