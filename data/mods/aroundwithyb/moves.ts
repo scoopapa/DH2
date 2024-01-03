@@ -534,7 +534,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1},
-		volatileStatus: 'focusenergy',
+		self: {
+			volatileStatus: 'focusenergy',
+		},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bulk Up", target);
@@ -790,6 +792,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		accuracy: 90,
 		basePower: 80,
 		category: "Special",
+		shortDesc: "SE on Dark. Recovers 50% dmg dealt.",
 		name: "Electro-Lights",
 		pp: 10,
 		priority: 0,
@@ -805,6 +808,323 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Electric",
+	},
+	evoboost: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Boosts the user's highest stat by 2 stages. Eevee: Boosts all stats by 2 stages once.",
+		name: "Evoboost",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Extreme Evoboost", target);
+		},
+		onHit(pokemon) {
+			if (pokemon.species.baseSpecies === 'Eevee') {
+				this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe: 2}, pokemon, pokemon);
+				pokemon.addVolatile('evoboost');
+			} else {
+				const bestStat = pokemon.getBestStat(true, true);
+				this.boost({bestStat: 2}, pokemon, pokemon);
+			}
+		},
+		condition: {
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.id);
+					if (move.id === 'evoboost') {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Normal",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
+	fightlight: {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Gives the user the Laser Focus effect after dealing damage.",
+		name: "Fight Light",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Luster Purge", target);
+			this.add('-anim', source, "Bulk Up", source);
+		},
+		self: {
+			volatileStatus: 'laserfocus',
+		},
+		secondary: null,
+		target: "any",
+		type: "Fighting",
+		contestType: "Beautiful",
+	},
+	fivestarfist: {
+		accuracy: 90,
+		basePower: 40,
+		basePowerCallback(pokemon, target, move) {
+			return 40 * move.hit;
+		},
+		category: "Physical",
+		shortDesc: "Hits 5 times, but each hit can miss.",
+		name: "Five-Star Fist",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		multihit: 5,
+		multiaccuracy: true,
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Conversion", source);
+			this.add('-anim', source, "Meteor Mash", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		zMove: {basePower: 120},
+		maxMove: {basePower: 140},
+	},
+	mimetime: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "+2 SpA and +1 Spe to the user, then copies the foe's last move.",
+		name: "Mime Time",
+		pp: 10,
+		priority: 0,
+		flags: {
+			protect: 1, bypasssub: 1, allyanim: 1,
+			failencore: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1, failmimic: 1,
+		},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Light Screen", target);
+		},
+		onHit(target, source) {
+			const move = target.lastMove;
+			if (source.transformed || !move || move.flags['failmimic'] || source.moves.includes(move.id)) {
+				return false;
+			}
+			if (move.isZ || move.isMax) return false;
+			const mimicIndex = source.moves.indexOf('mimic');
+			if (mimicIndex < 0) return false;
+
+			source.moveSlots[mimicIndex] = {
+				move: move.name,
+				id: move.id,
+				pp: move.pp,
+				maxpp: move.pp,
+				target: move.target,
+				disabled: false,
+				used: false,
+				virtual: true,
+			};
+			this.boost({spa: 2, spe: 1}, source, source);
+			this.add('-start', source, 'Mimic', move.name);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {boost: {accuracy: 1}},
+		contestType: "Cute",
+	},
+	oasis: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Heals the user's side of the field for 5 turns.",
+		name: "Oasis",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		sideCondition: 'oasis',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Life Dew", target);
+		},
+		condition: {
+			duration: 5,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Oasis');
+				this.add('-message', `${pokemon.name} set up an oasis for its team!`);
+			},
+			onResidualOrder: 6,
+			onResidual(pokemon) {
+				this.heal(pokemon.baseMaxhp / 8);
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Water",
+		zMove: {boost: {def: 1}},
+		contestType: "Beautiful",
+	},
+	parasitesscales: {
+		accuracy: 90,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Adds Dragon-type to the foe and leeches them.",
+		name: "Parasite's Scales",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1},
+		volatileStatus: 'parasitesscales',
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Scale Shot", target);
+		},
+		onHit(target) {
+			if (target.hasType('Dragon')) return false;
+			if (!target.addType('Dragon')) return false;
+			this.add('-start', target, 'typeadd', 'Dragon', '[from] move: Parasite\'s Scales');
+		},
+		condition: {
+			onStart(target) {
+				this.add('-start', target, 'move: Parasite\'s Scales');
+			},
+			onResidualOrder: 8,
+			onResidual(pokemon) {
+				const target = this.getAtSlot(pokemon.volatiles['parasitesscales'].sourceSlot);
+				if (!target || target.fainted || target.hp <= 0) {
+					this.debug('Nothing to leech into');
+					return;
+				}
+				const damage = this.damage(pokemon.baseMaxhp / 8, pokemon, target);
+				if (damage) {
+					this.heal(damage, target, pokemon);
+				}
+			},
+		},
+		onTryImmunity(target) {
+			return !target.hasType('Dragon');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Clever",
+	},
+	poprocks: {
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		shortDesc: "Fails and sets Stealth Rock if the user takes damage before it hits.",
+		name: "Pop Rocks",
+		pp: 20,
+		priority: -3,
+		flags: {protect: 1, bullet: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Stealth Rock", target);
+		},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('poprocks');
+		},
+		beforeMoveCallback(pokemon) {
+			if (pokemon.volatiles['poprocks']?.lostFocus) {
+				this.add('cant', pokemon, 'Pop Rocks', 'Pop Rocks');
+				return true;
+			}
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Pop Rocks');
+			},
+			onHit(pokemon, source, move) {
+				if (move.category !== 'Status') {
+					this.effectState.lostFocus = true;
+					for (const side of pokemon.side.foeSidesWithConditions()) {
+						side.addSideCondition('stealthrock');
+						this.add('-message', `${pokemon.name} pop rocks went everywhere!`);
+					}
+				}
+			},
+			onTryAddVolatile(status, pokemon) {
+				if (status.id === 'flinch') return null;
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Rock",
+		contestType: "Tough",
+	},
+	pitcherperfect: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		shortDesc: "Traps the foe. Super effective on Bug-types.",
+		name: "Pitcher Perfect",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Fell Stinger", target);
+		},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Bug') return 1;
+		},
+		secondary: {
+			chance: 100,
+			onHit(target, source, move) {
+				if (source.isActive) target.addVolatile('trapped', source, move, 'trapper');
+			},
+		},
+		target: "normal",
+		type: "Grass",
+		contestType: "Tough",
+	},
+	relicrejuvenation: {
+		accuracy: 100,
+		basePower: 0,
+		damage: 'level',
+		category: "Special",
+		shortDesc: "Deals damage equal to user's level and heals the user by 75% of the damage dealt.",
+		name: "Relic Rejuvenation",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1},
+		drain: [3, 4],
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Night Shade", target);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		contestType: "Clever",
+	},
+	resonance: {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		shortDesc: "Sets Aurora Veil, regardless of weather.",
+		name: "Resonance",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Icy Wind", target);
+		},
+		self: {
+			sideCondition: 'auroraveil',
+		},
+		secondary: null,
+		target: "adjacentFoe",
+		type: "Ice",
+		contestType: "Cool",
 	},
 	
  // Old Moves
