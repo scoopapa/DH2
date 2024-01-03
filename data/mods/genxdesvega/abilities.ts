@@ -670,13 +670,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	//Loria Region
 	//Items eaten by Ravenous after they activate: Focus Sash, Adrenaline Orb, Air Balloon, Blunder Policy, Eject Button, Eject Pack, Luminous Moss, Normal Gem, Red Card, Room Service, Snowball, Weakness Policy
 	ravenous: {
-		shortDesc: "(Mostly coded) Restores 1/6 of this Pokemon's max HP when any item is lost (excl. eating berries and Incinerate).",
+		shortDesc: "(Needs testing) Restores 1/6 of this Pokemon's max HP when any item is lost (excl. eating berries and Incinerate).",
 		onAnyAfterUseItem(item, pokemon) {
 			if (item.isBerry) return;
 			const ravenousMon = this.effectState.target;
 			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon);
 		},
-		//TODO: Have KOff activate this ability when it gets rid of an item
+		//Activating from Knock Off implemented in moves.ts
 		name: "Ravenous",
 	},
 	precision: {
