@@ -676,13 +676,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const ravenousMon = this.effectState.target;
 			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon);
 		},
-		onAnyTakeItem(item, pokemon) {
-			//TODO: Deal with cases where you take the item and it's not replaced (eg. Thief, Trick)
-			//TODO: Also deal with Incinerate (Knock against berries should proc this abil)
-			if (pokemon.item) return;
-			const ravenousMon = this.effectState.target;
-			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon);
-		},
+		//TODO: Have KOff activate this ability when it gets rid of an item
 		name: "Ravenous",
 	},
 	precision: {
