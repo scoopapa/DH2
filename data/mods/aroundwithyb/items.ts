@@ -170,6 +170,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		isNonstandard: null,
 		desc: "If held by a Clamperl, its Atk & SpA are doubled.",
 	},
+	leek: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thickclub: {
+		inherit: true,
+		isNonstandard: null,
+	},
 
 // TMs
 	tm152: {
