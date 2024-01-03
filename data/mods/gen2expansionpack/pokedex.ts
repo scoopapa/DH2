@@ -694,6 +694,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		gen: 1
 	},
+	natu: {
+		inherit: true,
+		evos: ["Qatu"]
+	},
+	xatu: {
+		inherit: true,
+		prevo: "Qatu"
+	},
 
 	// BETAMONS + EVO LINES UPDATES
 	// Procedurally generated using https://github.com/Rezzo64/JepJsonTransformer
@@ -3334,4 +3342,28 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			"Rock"
 		]
 	},
+	qatu: {
+		num: -113,
+		eggGroups: ["Flying"],
+		abilities: [""],
+		weightkg: 1,
+		"baseStats": {
+			"atk": 60,
+			"def": 55,
+			"hp": 50,
+			"spa": 80,
+			"spd": 55,
+			"spe": 80
+		},
+		"evos": [
+			"Xatu"
+		],
+		prevo: "Natu",
+		"gen": 2,
+		"name": "Qatu",
+		"types": [
+			"Psychic",
+			"Flying"
+		]
+	}
 };
