@@ -1933,7 +1933,8 @@ export const Formats: FormatList = [
 		],
 		mod: 'aroundwithyb',
 		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
-		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail',
+					 'Gengarite', 'Alakazite', 'Lucarionite', 'Metagrossite', 'Salamencite', 'Blazikenite'],
 		onValidateTeam(team, format) {
 			/**@type {{[k: string]: true}}*/
 			let speciesTable = {};
