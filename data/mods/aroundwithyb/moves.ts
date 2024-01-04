@@ -1727,6 +1727,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 2,
 		flags: {contact: 1, protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Volt Tackle", target);
+		},
 		willCrit: true,
 		secondary: null,
 		target: "normal",
