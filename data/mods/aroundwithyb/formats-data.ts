@@ -1408,7 +1408,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "UUAoK",
 		doublesTier: "UUAoK",
 	},
-	exegggutorundefined: {
+	exeggutoralola: {
 		tier: "RUAoK",
 		doublesTier: "RUAoK",
 	},
