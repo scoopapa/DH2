@@ -20,6 +20,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		fling: {
 			basePower: 100,
 		},
+		ignoreKlutz: true,
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
 			const dexnum = pokemon.baseSpecies.num;
