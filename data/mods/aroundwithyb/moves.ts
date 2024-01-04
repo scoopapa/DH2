@@ -1153,16 +1153,16 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
-	resonance: {
+	resonanttone: {
 		accuracy: 100,
 		basePower: 60,
 		category: "Physical",
 		shortDesc: "Sets Aurora Veil, regardless of weather.",
 		viable: true,
-		name: "Resonance",
+		name: "Resonant Tone",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, sound: 1},
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Icy Wind", target);
@@ -1719,6 +1719,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Nearly always goes first. Always crits.",
 		isNonstandard: null,
 		name: "Zippy Zap",
+		viable: true,
 		pp: 10,
 		priority: 2,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -1751,6 +1752,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Special",
 		shortDesc: "Clears weather if it hits.",
 		name: "Night Daze",
+		viable: true,
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
