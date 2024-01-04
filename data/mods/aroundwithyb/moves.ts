@@ -850,8 +850,22 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.boost({atk: 2, def: 2, spa: 2, spd: 2, spe: 2}, pokemon, pokemon);
 				pokemon.addVolatile('evoboost');
 			} else {
-				const bestStat = pokemon.getBestStat(true, true);
-				this.boost({bestStat: 2}, pokemon, pokemon);
+				let bestStat = pokemon.getBestStat(false, true);
+				if {bestStat === 'atk'} {
+					this.boost({atk: 2}, pokemon, pokemon);
+				}
+				else if {bestStat === 'def'} {
+					this.boost({def: 2}, pokemon, pokemon);
+				}
+				else if {bestStat === 'spa'} {
+					this.boost({spa: 2}, pokemon, pokemon);
+				}
+				else if {bestStat === 'spd'} {
+					this.boost({spd: 2}, pokemon, pokemon);
+				}
+				else if {bestStat === 'spe'} {
+					this.boost({spe: 2}, pokemon, pokemon);
+				}
 			}
 		},
 		condition: {
