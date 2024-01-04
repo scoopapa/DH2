@@ -744,7 +744,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "LCAoK",
 		doublesTier: "LCAoK",
 	},
-	driflblim: {
+	drifblim: {
 		tier: "RUAoK",
 		doublesTier: "RUAoK",
 	},
