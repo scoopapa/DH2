@@ -958,10 +958,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return false;
 			}
 			if (move.isZ || move.isMax) return false;
-			const mimicIndex = source.moves.indexOf('mimic');
-			if (mimicIndex < 0) return false;
+			const mimetimeIndex = source.moves.indexOf('mimetime');
+			if (mimetimeIndex < 0) return false;
 
-			source.moveSlots[mimicIndex] = {
+			source.moveSlots[mimetimeIndex] = {
 				move: move.name,
 				id: move.id,
 				pp: move.pp,
@@ -972,7 +972,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				virtual: true,
 			};
 			this.boost({spa: 2, spe: 1}, source, source);
-			this.add('-start', source, 'Mimic', move.name);
+			this.add('-start', source, 'Mime Time', move.name);
 		},
 		secondary: null,
 		target: "normal",
