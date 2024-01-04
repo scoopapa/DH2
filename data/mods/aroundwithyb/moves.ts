@@ -16,6 +16,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target, source) {
 			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
 			if (target.hp && target.takeItem(source)) {
 				if (item.isBerry || ['absorbbulb', 'berryjuice', 'bigroot', 'electricseed', 'galaricacuff', 'galaricawreath',
 				  'grassyseed', 'leftovers', 'mentalherb', 'miracleseed', 'mirrorherb', 'mistyseed', 'powerherb', 'psychicseed',
@@ -911,9 +912,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	fivestarfist: {
 		accuracy: 90,
-		basePower: 40,
+		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
-			return 40 * move.hit;
+			return 20 * move.hit;
 		},
 		category: "Physical",
 		shortDesc: "Hits 5 times, but each hit can miss.",
@@ -926,8 +927,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		multiaccuracy: true,
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Conversion", source);
-			this.add('-anim', source, "Meteor Mash", target);
+			this.add('-anim', source, "Cosmic Power", source);
+			this.add('-anim', source, "Wicked Blow", target);
 		},
 		secondary: null,
 		target: "normal",
