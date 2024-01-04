@@ -625,4 +625,41 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		num: 913,
 		gen: 7,
 	},
+	boosterenergy: {
+		name: "Booster Energy",
+		spritenum: 745,
+		fling: {
+			basePower: 30,
+		},
+		onStart() {
+			this.effectState.started = true;
+		},
+		onUpdate(pokemon) {
+			if (!this.effectState.started || pokemon.transformed) return;
+			if (this.queue.peek(true)?.choice === 'runSwitch') return;
+
+			if (pokemon.hasAbility('protosynthesis') && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
+				pokemon.addVolatile('protosynthesis');
+			}
+			if (pokemon.hasAbility('quarkdrive') && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {
+				pokemon.addVolatile('quarkdrive');
+			}
+			for (const target of this.getAllActive()) {
+				if (pokemon.hasAbility('auraboosterx') && !target.hasAbility('fairyaura') && pokemon.useItem()) {
+					pokemon.addVolatile('auraboosterx');
+					this.effectState.boosterNotFromAura = true;
+				}
+				if (pokemon.hasAbility('auraboostery') && !target.hasAbility('darkaura') && pokemon.useItem()) {
+					pokemon.addVolatile('auraboostery');
+					this.effectState.boosterNotFromAura = true;
+				}
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.tags.includes("Paradox") || source.baseSpecies.tags.includes("Eternal")) return false;
+			return true;
+		},
+		num: 1880,
+		gen: 9,
+	},
 };
