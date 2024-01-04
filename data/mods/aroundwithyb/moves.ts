@@ -433,14 +433,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Torch Song", target);
 		},
 		onHit(target, source, move) {
+			this.damage(target.baseMaxhp / 16, target, source, this.dex.conditions.get('Sparkling Spike'));
 			for (const ally of target.adjacentAllies()) {
-				this.damage(target.baseMaxhp / 16, target, source, this.dex.conditions.get('Sparkling Spike'));
 				this.damage(ally.baseMaxhp / 16, ally, source, this.dex.conditions.get('Sparkling Spike'));
 			}
 		},
 		onAfterSubDamage(damage, target, source, move) {
+			this.damage(target.baseMaxhp / 16, target, source, this.dex.conditions.get('Sparkling Spike'));
 			for (const ally of target.adjacentAllies()) {
-				this.damage(target.baseMaxhp / 16, target, source, this.dex.conditions.get('Sparkling Spike'));
 				this.damage(ally.baseMaxhp / 16, ally, source, this.dex.conditions.get('Sparkling Spike'));
 			}
 		},
