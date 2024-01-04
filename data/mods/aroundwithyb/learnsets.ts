@@ -1046,4 +1046,9 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			updraft: ["9L1"],
 		},
 	},
+	pokestarsmeargle: {
+		learnset: {
+			sketch: ["9L1"],
+		},
+	},
 };
