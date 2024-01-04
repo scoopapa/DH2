@@ -22,14 +22,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bittercold: {
 		onSwitchIn(pokemon) {
-			if (pokemon.side.faintedLastTurn && !pokemon.volatiles['lastingresentment']) {
+			if (pokemon.side.faintedLastTurn && !pokemon.volatiles['bittercold']) {
 				this.add('-ability', pokemon, 'Bitter Cold');
 				this.add('-message', `A bitter cold has enveloped the battlefield!`);
 				pokemon.addVolatile('bittercold');
       	}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.side.faintedLastTurn && !pokemon.volatiles['lastingresentment']) {
+			if (pokemon.side.faintedLastTurn && !pokemon.volatiles['bittercold']) {
 				this.add('-ability', pokemon, 'Bitter Cold');
 				this.add('-message', `A bitter cold has enveloped the battlefield!`);
 				pokemon.addVolatile('bittercold');
@@ -95,7 +95,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 	      onBeforeSwitchOut(pokemon) {
-	        pokemon.damage(target.baseMaxhp / 8);
+	        pokemon.damage(pokemon.baseMaxhp / 8);
 			}
 		},
 		name: "Lasting Resentment",
