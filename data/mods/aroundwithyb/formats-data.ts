@@ -516,7 +516,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "OUAoK",
 	},
 	alakazammega: {
-		tier: "OUAoK",
+		tier: "UberAoK",
 		doublesTier: "OUAoK",
 	},
 	oddish: {
@@ -2703,5 +2703,39 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	quaquaval: {
 		tier: "UUAoK",
 		doublesTier: "UUAoK",
+	},
+
+// lol zubl
+	crabominable: {
+		tier: "PU",
+		doublesTier: "Illegal",
+	},
+	duraludon: {
+		tier: "PU",
+		doublesTier: "Illegal",
+	},
+	falinks: {
+		tier: "PU",
+		doublesTier: "Illegal",
+	},
+	lycanrocmidnight: {
+		tier: "PU",
+		doublesTier: "Illegal",
+	},
+	mabosstiff: {
+		tier: "PU",
+		doublesTier: "Illegal",
+	},
+	perrserker: {
+		tier: "PU",
+		doublesTier: "Illegal",
+	},
+	porygon2: {
+		tier: "PU",
+		doublesTier: "Illegal",
+	},
+	wyrdeer: {
+		tier: "PU",
+		doublesTier: "Illegal",
 	},
 };
