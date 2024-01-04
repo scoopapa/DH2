@@ -143,6 +143,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: -6,
 		flags: {protect: 1, mirror: 1, noassist: 1, failcopycat: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Sandsear Storm", target);
+		},
 		onMoveFail(target, source, move) {
 			this.field.setWeather('sandstorm');
 		},
