@@ -4,6 +4,25 @@ export const Scripts: ModdedBattleScriptsData = {
 		excludeStandardTiers: true,
 		customTiers: ["OUAoK", "UUAoK", "RUAoK", "NFEAoK", "LCAoK", "UberAoK"],
 	},
+	actions: {
+		canMegaEvo(pokemon) {
+			const species = pokemon.baseSpecies;
+			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
+			const item = pokemon.getItem();
+			if ((this.battle.gen <= 7 || this.battle.ruleTable.has('+pokemontag:past')) &&
+				altForme?.isMega && altForme?.requiredMove &&
+				pokemon.baseMoves.includes(toID(altForme.requiredMove)) && !item.zMove) {
+				return altForme.name;
+			}
+			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
+				return item.megaStone;
+			}
+			if (item.name === "Slowbronite" && species.baseSpecies.name === "Slowbro-Galar") {
+				return null;
+			}
+			return item.megaStone;
+		},
+	},
 	init() {
 		// Chesnaught
 		this.modData("Learnsets", "chesnaught").learnset.upperhand = ["9L1"];
