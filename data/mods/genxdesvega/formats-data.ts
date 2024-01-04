@@ -1664,6 +1664,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
   
 	cirno: {
+		isNonstandard: "Custom",
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},
