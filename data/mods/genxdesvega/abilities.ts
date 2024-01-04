@@ -762,7 +762,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					if (['direclaw','spellcast','triattack'].includes(move.id) || secondary.status && secondary.chance) secondary.chance *= 2;
 				}
 			}
-			if (move.self?.status && move.self?.chance) move.self.chance *= 2;
+			if (move.self?.status && move.self.chance) move.self.chance *= 2;
 		},
 		name: "Bewitch",
 	},
