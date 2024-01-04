@@ -12,7 +12,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	nosepasseternal: {
 		num: 299,
-		species: "Nosepass-Eternal",
+		name: "Nosepass-Eternal",
 		baseSpecies: "Nosepass",
 		forme: "Eternal",
 		types: ["Rock", "Psychic"],
@@ -29,7 +29,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	krokoroketernal: {
 		num: 552,
-		species: "Krokorok-Eternal",
+		name: "Krokorok-Eternal",
 		baseSpecies: "Krokorok",
 		forme: "Eternal",
 		types: ["Ground", "Water"],
@@ -46,7 +46,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	quilladineternal: {
 		num: 651,
-		species: "Quilladin-Eternal",
+		name: "Quilladin-Eternal",
 		baseSpecies: "Quilladin",
 		forme: "Eternal",
 		types: ["Grass", "Rock"],
@@ -63,7 +63,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	lampenteternal: {
 		num: 608,
-		species: "Lampent-Eternal",
+		name: "Lampent-Eternal",
 		baseSpecies: "Lampent",
 		forme: "Eternal",
 		types: ["Ghost", "Electric"],
@@ -80,7 +80,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	mienfooeternal: {
 		num: 619,
-		species: "Mienfoo-Eternal",
+		name: "Mienfoo-Eternal",
 		baseSpecies: "Mienfoo",
 		forme: "Eternal",
 		types: ["Fighting", "Poison"],
@@ -97,7 +97,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	dragonaireternal: {
 		num: 148,
-		species: "Dragonair-Eternal",
+		name: "Dragonair-Eternal",
 		baseSpecies: "Dragonair",
 		forme: "Eternal",
 		types: ["Dragon", "Fire"],
@@ -114,7 +114,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	braixenender: {
 		num: 654,
-		species: "Braixen-Ender",
+		name: "Braixen-Ender",
 		baseSpecies: "Braixen",
 		forme: "Ender",
 		types: ["Fire", "Fairy"],
@@ -131,7 +131,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	nidorinoender: {
 		num: 33,
-		species: "Nidorino-Ender",
+		name: "Nidorino-Ender",
 		baseSpecies: "Nidorino",
 		forme: "Ender",
 		types: ["Poison", "Ice"],
@@ -148,7 +148,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	yanmaender: {
 		num: 193,
-		species: "Yanma-Ender",
+		name: "Yanma-Ender",
 		baseSpecies: "Yanma",
 		forme: "Ender",
 		types: ["Bug", "Dragon"],
@@ -165,7 +165,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	lickitungender: {
 		num: 108,
-		species: "Lickitung-Ender",
+		name: "Lickitung-Ender",
 		baseSpecies: "Lickitung",
 		forme: "Ender",
 		types: ["Normal", "Steel"],
@@ -182,7 +182,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	wailmerender: {
 		num: 320,
-		species: "Wailmer-Ender",
+		name: "Wailmer-Ender",
 		baseSpecies: "Wailmer",
 		forme: "Ender",
 		types: ["Water", "Ghost"],
@@ -199,7 +199,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	cubchooender: {
 		num: 613,
-		species: "Cubchoo-Ender",
+		name: "Cubchoo-Ender",
 		baseSpecies: "Cubchoo",
 		forme: "Ender",
 		types: ["Ice", "Fighting"],
@@ -216,7 +216,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	noibatender: {
 		num: 714,
-		species: "Noibat-Ender",
+		name: "Noibat-Ender",
 		baseSpecies: "Noibat",
 		forme: "Ender",
 		types: ["Flying", "Dark"],
