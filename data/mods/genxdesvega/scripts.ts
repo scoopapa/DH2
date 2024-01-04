@@ -437,7 +437,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.formeChange(species, pokemon.getItem(), true);
 				// Limit one mega evolution
 				for (const ally of pokemon.side.pokemon) {
-					if (!ally.item?.endsWith('mask')) {
+					if (!ally.item.endsWith('mask') || !ally.getItem().megaStone) {
 						ally.canMegaEvo = null;
 					}
 				}
@@ -452,7 +452,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 				//limit one wonder mask
 				for (const ally of pokemon.side.pokemon) {
-					if (ally.item?.endsWith('mask')) {
+					if (ally.item.endsWith('mask') && ally.getItem().megaStone) {
 						ally.canMegaEvo = null;
 					}
 				}
