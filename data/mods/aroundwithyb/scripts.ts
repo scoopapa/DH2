@@ -19,7 +19,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "delphox").learnset.premonition = ["9L1"];
 		// Greninja
 		this.modData("Learnsets", "greninja").learnset.matblock = ["9L1"];
-		// Greninja
+		// Greninja-Bond
 		this.modData("Learnsets", "greninjabond").learnset.matblock = ["9L1"];
 		// Bunnelby
 		this.modData("Learnsets", "bunnelby").learnset.mudslap = ["9L1"];
@@ -13666,6 +13666,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "torchic").learnset.sparklingspike = ["9L1"];
 		this.modData("Learnsets", "torchic").learnset.scorchingsands = ["9L1"];
 		this.modData("Learnsets", "torchic").learnset.solarbeam = ["9L1"];
+		this.modData("Learnsets", "torchic").learnset.wish = ["9L1"];
 		// Combusken
 		this.modData("Learnsets", "combusken").learnset.wideslash = ["9L1"];
 		this.modData("Learnsets", "combusken").learnset.drainpunch = ["9L1"];
@@ -13676,11 +13677,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "combusken").learnset.upperhand = ["9L1"];
 		this.modData("Learnsets", "combusken").learnset.scorchingsands = ["9L1"];
 		this.modData("Learnsets", "combusken").learnset.solarbeam = ["9L1"];
+		this.modData("Learnsets", "combusken").learnset.wish = ["9L1"];
 		// Blaziken
 		this.modData("Learnsets", "blaziken").learnset.wideslash = ["9L1"];
 		this.modData("Learnsets", "blaziken").learnset.solarblade = ["9L1"];
 		this.modData("Learnsets", "blaziken").learnset.drainpunch = ["9L1"];
 		this.modData("Learnsets", "blaziken").learnset.sparklingspike = ["9L1"];
+		this.modData("Learnsets", "blaziken").learnset.wish = ["9L1"];
 		// Mudkip
 		this.modData("Learnsets", "mudkip").learnset.exfoliate = ["9L1"];
 		// Marshtomp
