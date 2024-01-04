@@ -59,7 +59,16 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		fling: {
 			basePower: 80,
 		},
-    // implemented in abilities.ts
+		onStart(pokemon) {
+			if (pokemon.hasAbility('plus')) {
+				this.add('-ability', pokemon, 'Plus');
+				this.add('-message', `${pokemon.name}'s is charged up!`);
+			} else if (pokemon.hasAbility('minus')) {
+				this.add('-ability', pokemon, 'Minus');
+				this.add('-message', `${pokemon.name}'s is charged up!`);
+			}
+		},
+   	// implemented in abilities.ts
 		num: -1002,
 		gen: 9,
 		rating: 3,
