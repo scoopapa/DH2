@@ -14,10 +14,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			for (const ally of pokemon.adjacentAllies()) {
 				if (!ally.hasAbility('soundproof') && !ally.hasItem('earbuds')) {
 				  this.heal(ally.baseMaxhp / 4, ally, pokemon);
-        }
+   			}
 				if (!pokemon.hasItem('earbuds')) {
 				  this.heal(pokemon.baseMaxhp / 4, pokemon, pokemon);
-        }
+				}
 			}
 		},
 		name: "Radio Therapy",
@@ -28,16 +28,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchIn(pokemon) {
 			if (pokemon.side.faintedLastTurn) {
 				this.add('-ability', pokemon, 'Bitter Cold');
-			  this.add('-message', `The field is enveloped in a bitter cold!`);
+				this.add('-message', `The field is enveloped in a bitter cold!`);
 				pokemon.addVolatile('bittercold');
-      }
+      	}
 		},
 		onUpdate(pokemon) {
 			if (pokemon.side.faintedLastTurn) {
 				this.add('-ability', pokemon, 'Bitter Cold');
 			  this.add('-message', `The field is enveloped in a bitter cold!`);
 				pokemon.addVolatile('bittercold');
-      }
+      	}
 		},
 		condition: {
 			duration: 2,
@@ -59,9 +59,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					return this.chainModify(1.5);
 				}
 			},
-  		onHit(target, source, move) {
-  			source.removeVolatile('bittercold');
-  		},
+	  		onAfterMoveSecondarySelf(target, source, move) {
+	  			source.removeVolatile('bittercold');
+	  		},
 			onEnd(target) {
 				this.add('-end', target, 'ability: Bitter Cold', '[silent]');
 			},
@@ -130,6 +130,97 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Tipped Scales",
 		rating: 5,
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use. Works multiple times per switch-in.",
+	},
+	auraboosterx: {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
+			if (move.type = 'Fairy' && !source.volatiles['auraboosterx']) {
+				this.add('-activate', pokemon, 'ability: Aura Booster X');
+				pokemon.addVolatile('auraboosterx');
+				this.effectState.boosterNotFromAura = true;
+			}
+		},
+		onUpdate(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('fairyaura') && !pokemon.volatiles['auraboosterx']) {
+					this.add('-activate', pokemon, 'ability: Aura Booster X');
+					pokemon.addVolatile('auraboosterx');
+				} else if (!target.hasAbility('fairyaura')) {
+					if (this.effectState.boosterNotFromAura) return;
+					pokemon.removeVolatile('auraboosterx');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['auraboosterx'];
+			this.add('-end', pokemon, 'Aura Booster X', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Aura Booster X');
+				this.add('-message', `${pokemon.name}'s lively aura started healing its allies!`);
+			},
+			onResidualOrder: 6,
+			onResidual(pokemon) {
+				for (const source of pokemon.alliesAndSelf()) {
+					this.add('-activate', pokemon, 'ability: Aura Booster X');
+					this.heal(source.baseMaxhp / 16);
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Aura Booster X');
+			},
+		},
+		name: "Aura Booster X",
+		rating: 3,
+		shortDesc: "Booster Energy or Fairy move used, or Fairy Aura active: Side heals 1/16 max HP per turn.",
+	},
+	auraboostery: {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target || source.switchFlag === true) return;
+			if (move.type = 'Dark' && !source.volatiles['auraboostery']) {
+				this.add('-activate', pokemon, 'ability: Aura Booster Y');
+				pokemon.addVolatile('auraboostery');
+				this.effectState.boosterNotFromAura = true;
+			}
+		},
+		onUpdate(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('darkaura') && !pokemon.volatiles['auraboostery']) {
+					this.add('-activate', pokemon, 'ability: Aura Booster Y');
+					pokemon.addVolatile('auraboostery');
+				} else if (!target.hasAbility('darkaura')) {
+					if (this.effectState.boosterNotFromAura) return;
+					pokemon.removeVolatile('auraboostery');
+				}
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['auraboostery'];
+			this.add('-end', pokemon, 'Aura Booster Y', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Aura Booster Y');
+				this.add('-message', `${pokemon.name}'s destructive aura hurts the foe!`);
+			},
+			onResidualOrder: 6,
+			onResidual(pokemon) {
+				if (!pokemon.hp) return;
+				for (const source of pokemon.foes()) {
+					this.add('-activate', pokemon, 'ability: Aura Booster Y');
+					this.damage(target.baseMaxhp / 16, source, pokemon);
+				}
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Aura Booster Y');
+			},
+		},
+		name: "Aura Booster Y",
+		rating: 3,
+		shortDesc: "Booster Energy or Dark  move used, or Dark Aura active: Foe's side loses 1/16 max HP per turn.",
 	},
 
 // Old abilities
