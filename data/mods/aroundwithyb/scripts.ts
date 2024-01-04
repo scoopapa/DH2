@@ -4100,8 +4100,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "audino").learnset.coldshoulder = ["9L1"];
 		this.modData("Learnsets", "audino").learnset.exfoliate = ["9L1"];
 		this.modData("Learnsets", "audino").learnset.defibrillate = ["9L1"];
-		// Pokestar Smeargle
-		this.modData("Learnsets", "pokestarsmeargle").learnset.sketch = ["9L1"];
 		// Croagunk
 		this.modData("Learnsets", "croagunk").learnset.warmup = ["9L1"];
 		this.modData("Learnsets", "croagunk").learnset.pullingstrings = ["9L1"];
