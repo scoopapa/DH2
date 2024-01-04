@@ -9681,11 +9681,11 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "exeggutor").learnset.terrainpulse = ["9L1"];
 		this.modData("Learnsets", "exeggutor").learnset.triattack = ["9L1"];
 		this.modData("Learnsets", "exeggutor").learnset.chemicalplant = ["9L1"];
-		// Exegggutor-undefined
-		this.modData("Learnsets", "exegggutorundefined").learnset.lunge = ["9L1"];
-		this.modData("Learnsets", "exegggutorundefined").learnset.terrainpulse = ["9L1"];
-		this.modData("Learnsets", "exegggutorundefined").learnset.triattack = ["9L1"];
-		this.modData("Learnsets", "exegggutorundefined").learnset.chemicalplant = ["9L1"];
+		// Exeggutor-Alola
+		this.modData("Learnsets", "exeggutoralola").learnset.lunge = ["9L1"];
+		this.modData("Learnsets", "exeggutoralola").learnset.terrainpulse = ["9L1"];
+		this.modData("Learnsets", "exeggutoralola").learnset.triattack = ["9L1"];
+		this.modData("Learnsets", "exeggutoralola").learnset.chemicalplant = ["9L1"];
 		// Chatot
 		this.modData("Learnsets", "chatot").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "chatot").learnset.endure = ["9L1"];
