@@ -1923,6 +1923,56 @@ export const Formats: FormatList = [
 		unbanlist: ['Battle Bond', 'Greninja-Bond', 'Greninja-Ash'],
 	},
 	{
+		name: "[Gen 9] Auras of Kalos OU",
+		desc: [
+			"<b>The Auras of Kalos</b>: The first solomod in the 'Around the World With YB' series, being a Gen 9 mod where only the Kalos PokeDex and some guests are legal, Megas return, and new Eternal and Ender Pokemon are added.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1rfZcE9LWoyJuKA1ok16mkLZ20L_4Q9Snnv4SZvOcm3M/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'aroundwithyb',
+		ruleset: ['Standard', 'Data Mod', 'Mega Data Mod', 'Terastal Clause'],
+		banlist: ['Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OUAoK', 'UUAoK', 'RUAoK', 'NFEAoK', 'LCAoK'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Auras of Kalos.'];
+				}
+			}
+		},
+	},
+	{
+		name: "[Gen 9] Auras of Kalos VGC",
+		desc: [
+			"<b>The Auras of Kalos</b>: The first solomod in the 'Around the World With YB' series, being a Gen 9 mod where only the Kalos PokeDex and some guests are legal, Megas return, and new Eternal and Ender Pokemon are added.",
+		],
+		threads: [
+			`&bullet; <a href="placeholder">Post in the Solomods Megathread</a>`,
+			`&bullet; <a href="https://docs.google.com/spreadsheets/d/1rfZcE9LWoyJuKA1ok16mkLZ20L_4Q9Snnv4SZvOcm3M/edit?usp=sharing">Spreadsheet</a>`,
+		],
+		mod: 'aroundwithyb',
+		gameType: 'doubles',
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer',
+					 'Open Team Sheets', 'Data Mod', 'Mega Data Mod', 'Terastal Clause', 'Limit Two Restricted'],
+		restricted: ['Restricted Legendary'],
+		onValidateTeam(team, format) {
+			/**@type {{[k: string]: true}}*/
+			let speciesTable = {};
+			let allowedTiers = ['OUAoK', 'UUAoK', 'RUAoK', 'NFEAoK', 'LCAoK', 'UberAoK'];
+			for (const set of team) {
+				let template = this.dex.species.get(set.species);
+				if (!allowedTiers.includes(template.tier)) {
+					return [set.species + ' is not legal in Auras of Kalos.'];
+				}
+			}
+		},
+	},
+	{
 		name: "[Gen 9] Balls",
 		mod: 'balls',
 		desc: `A hilarious metagame filled with nothing but balls.`,
