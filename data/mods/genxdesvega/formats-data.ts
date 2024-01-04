@@ -631,8 +631,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	scraggy: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
 	scraggydesvega: {
 		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	scrafty: {
+		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
 	scraftydesvegaarbok: {
@@ -1099,11 +1107,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	galliwatt: {
-		tier: "Desvega OU",
+		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
 	coirele: {
-		tier: "Desvega OU",
+		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	ampalango: {
