@@ -22,21 +22,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bittercold: {
 		onSwitchIn(pokemon) {
-			if (pokemon.side.faintedLastTurn) {
+			if (pokemon.side.faintedLastTurn && !pokemon.volatiles['lastingresentment']) {
 				this.add('-ability', pokemon, 'Bitter Cold');
-				this.add('-message', `The field is enveloped in a bitter cold!`);
+				this.add('-message', `A bitter cold has enveloped the battlefield!`);
 				pokemon.addVolatile('bittercold');
       	}
 		},
 		onUpdate(pokemon) {
-			if (pokemon.side.faintedLastTurn) {
+			if (pokemon.side.faintedLastTurn && !pokemon.volatiles['lastingresentment']) {
 				this.add('-ability', pokemon, 'Bitter Cold');
-			  this.add('-message', `The field is enveloped in a bitter cold!`);
+				this.add('-message', `A bitter cold has enveloped the battlefield!`);
 				pokemon.addVolatile('bittercold');
       	}
 		},
 		condition: {
-			duration: 2,
+			duration: 1,
 			noCopy: true,
 			onStart(target) {
 				this.add('-start', target, 'ability: Bitter Cold');
