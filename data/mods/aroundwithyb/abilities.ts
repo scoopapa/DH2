@@ -12,12 +12,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	radiotherapy: {
 		onStart(pokemon) {
 			for (const ally of pokemon.adjacentAllies()) {
-				if (!ally.hasAbility('soundproof') && !ally.hasItem('earbuds')) {
-				  this.heal(ally.baseMaxhp / 4, ally, pokemon);
-   			}
-				if (!pokemon.hasItem('earbuds')) {
-				  this.heal(pokemon.baseMaxhp / 4, pokemon, pokemon);
-				}
+			  this.heal(ally.baseMaxhp / 4, ally, pokemon);
+			  this.heal(pokemon.baseMaxhp / 4, pokemon, pokemon);
 			}
 		},
 		name: "Radio Therapy",
