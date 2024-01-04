@@ -5922,6 +5922,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "starmie").learnset.expandingforce = ["9L1"];
 		this.modData("Learnsets", "starmie").learnset.meteorbeam = ["9L1"];
 		this.modData("Learnsets", "starmie").learnset.worktogether = ["9L1"];
+		this.modData("Learnsets", "starmie").learnset.luminacrash = ["9L1"];
 		// Cloyster
 		this.modData("Learnsets", "cloyster").learnset.rockwall = ["9L1"];
 		// Qwilfish
