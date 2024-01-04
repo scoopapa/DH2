@@ -749,6 +749,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Sudden Guard",
+		isBreakable: true,
 	},
 	bewitch: {
 		shortDesc: "(Needs testing) Moves that can inflict a status condition have their secondary chance doubled.",
