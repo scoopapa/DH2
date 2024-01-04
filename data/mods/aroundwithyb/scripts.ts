@@ -4907,9 +4907,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Drifloon
 		this.modData("Learnsets", "drifloon").learnset.updraft = ["9L1"];
 		this.modData("Learnsets", "drifloon").learnset.soulsink = ["9L1"];
-		// Driflblim
-		this.modData("Learnsets", "driflblim").learnset.updraft = ["9L1"];
-		this.modData("Learnsets", "driflblim").learnset.soulsink = ["9L1"];
+		// Drifblim
+		this.modData("Learnsets", "drifblim").learnset.updraft = ["9L1"];
+		this.modData("Learnsets", "drifblim").learnset.soulsink = ["9L1"];
 		// Mienshao
 		this.modData("Learnsets", "mienshao").learnset.pullingstrings = ["9L1"];
 		// Zangoose
