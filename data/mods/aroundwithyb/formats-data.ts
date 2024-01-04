@@ -517,7 +517,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	alakazammega: {
 		tier: "UberAoK",
-		doublesTier: "OUAoK",
+		doublesTier: "UberAoK",
 	},
 	oddish: {
 		tier: "LCAoK",
@@ -610,7 +610,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	pokestarsmeargle: {
 		isNonstandard: null,
 		tier: "UUAoK",
-		doublesTier: "OUAoK",
+		doublesTier: "UUAoK",
 	},
 	croagunk: {
 		tier: "LCAoK",
