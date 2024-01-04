@@ -10466,7 +10466,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Alomomola
 		this.modData("Learnsets", "alomomola").learnset.heartbeat = ["9L1"];
 		// Lapras
-		this.modData("Learnsets", "lapras").learnset.resonance = ["9L1"];
+		this.modData("Learnsets", "lapras").learnset.resonanttone = ["9L1"];
 		this.modData("Learnsets", "lapras").learnset.psychicnoise = ["9L1"];
 		this.modData("Learnsets", "lapras").learnset.icespinner = ["9L1"];
 		// Articuno
