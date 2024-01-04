@@ -213,6 +213,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			nightmarch: ["9L1"],
 			dustdevil: ["9L1"],
 			exfoliate: ["9L1"],
+			playrough: ["9L1"],
 		},
 	},
 	quilladineternal: {
@@ -294,6 +295,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			earthquake: ["9L1"],
 			bombshell: ["9L1"],
 			rockwall: ["9L1"],
+			playrough: ["9L1"],
 		},
 	},
 	lampenteternal: {
@@ -360,6 +362,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			soulsink: ["9L1"],
 			defibrillate: ["9L1"],
 			sparklingspike: ["9L1"],
+			dazzlinggleam: ["9L1"],
+			voltswitch: ["9L1"],
 		},
 	},
 	mienfooeternal: {
@@ -426,6 +430,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			mistyterrain: ["9L1"],
 			healpulse: ["9L1"],
 			antivenom: ["9L1"],
+			playrough: ["9L1"],
 			sludgewave: ["9L1"],
 			chemicalplant: ["9L1"],
 			toxicshock: ["9L1"],
@@ -497,6 +502,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			mistyterrain: ["9L1"],
 			healpulse: ["9L1"],
 			dragonsroar: ["9L1"],
+			dazzlinggleam: ["9L1"],
 		},
 	},
 	braixenender: {
@@ -572,6 +578,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	},
 	nidorinoender: {
 		learnset: {
+			coldcross: ["9L1"],
 			protect: ["9L1"],
 			endure: ["9L1"],
 			sleeptalk: ["9L1"],
@@ -814,6 +821,8 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			metalsound: ["9L1"],
 			hardpress: ["9L1"],
 			silversaliva: ["9L1"],
+			wish: ["9L1"],
+			toxic: ["9L1"],
 		},
 	},
 	wailmerender: {
