@@ -18,7 +18,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Sinnoh Stone",
 		shortDesc: "If held by a member of the Cranidos or Shieldon evolutionary lines, doubles Sp. Atk.",
 		fling: {
-			basePower: 140,
+			basePower: 100,
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
@@ -26,7 +26,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (dexnum <= 411 && dexnum >= 408) return this.chainModify(2);
 		},
 		onTakeItem(item, pokemon, source) {
-			if (!source) return true;
+			if (!source) return false;
 			const nums = [408,409,410,411];
 			return !nums.includes(source.baseSpecies.num) && !nums.includes(pokemon.baseSpecies.num);
 		},
@@ -142,7 +142,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "When hit by contact, 25% chance to poison the attacker; If already poisoned upgrades it to Toxic poisoning.",
 		fling: {
 			basePower: 60,
-			status: 'psn',
+			status: 'tox',
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target) && this.randomChance(1, 4)) {
@@ -157,6 +157,9 @@ export const Items: {[itemid: string]: ItemData} = {
 	crackedcrown: {
 		name: "Cracked Crown",
 		shortDesc: "Knightmare/Queenmate: x1.3 Attack and Sp. Atk",
+		fling: {
+			basePower: 30,
+		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
 			if (["Knightmare","Queenmate"].includes(pokemon.baseSpecies.baseSpecies)) {
@@ -227,7 +230,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Ashball",
 		fling: {
 			basePower: 30,
-			status: 'brn'
 		},	
 		shortDesc: "Pichat line: doubled Attack/Sp. Atk, +1 critrate.",
 		onModifyAtkPriority: 1,
@@ -246,6 +248,12 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (["Pichat", "Pikachat", "Raichat"].includes(user.baseSpecies.baseSpecies)) {
 				return critRatio + 1;
 			}
+		},
+		//gotta put in fling effects manually
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (move.id !== 'fling') return;
+			(move.secondaries ||= []).push({chance: 100, boosts: {accuracy: -1}});
 		},
 		itemUser: ["Pichat", "Pikachat", "Raichat"],
 	},
