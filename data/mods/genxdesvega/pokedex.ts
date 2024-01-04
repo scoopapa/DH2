@@ -1673,6 +1673,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1,
 		weightkg: 22,
 		prevo: "Mawile-Desvega",
+		evoType: "useItem",
+		evoItem: "Dragon Fang",
 	},
 	casinova: {
 		num: 1440,
