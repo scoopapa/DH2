@@ -19,6 +19,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "delphox").learnset.premonition = ["9L1"];
 		// Greninja
 		this.modData("Learnsets", "greninja").learnset.matblock = ["9L1"];
+		// Greninja
+		this.modData("Learnsets", "greninjabond").learnset.matblock = ["9L1"];
 		// Bunnelby
 		this.modData("Learnsets", "bunnelby").learnset.mudslap = ["9L1"];
 		this.modData("Learnsets", "bunnelby").learnset.leer = ["9L1"];
