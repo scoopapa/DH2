@@ -74,11 +74,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(source) {
 			let activated = false;
 			for (const pokemon of source.foes()) {
-				if (!activated) {
-          this.add('-ability', source, 'Lasting Resentment');
-					activated = true;
-				}
-				if (!pokemon.volatiles['lastingresentment']) {
+			if (!activated) {
+         this.add('-ability', source, 'Lasting Resentment');
+				activated = true;
+			}
+			if (!pokemon.volatiles['lastingresentment']) {
 					pokemon.addVolatile('lastingresentment');
 				}
 			}
@@ -98,8 +98,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		condition: {
-      onBeforeSwitchOut(pokemon) {
-        pokemon.damage(target.baseMaxhp / 8);
+	      onBeforeSwitchOut(pokemon) {
+	        pokemon.damage(target.baseMaxhp / 8);
+			}
 		},
 		name: "Lasting Resentment",
 		rating: 4.5,
@@ -107,10 +108,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	graviseeds: {
 		onDamagingHit(damage, target, source, move) {
-				this.add('-activate', target, 'ability: Graviseeds');
-  			this.field.addPseudoWeather('gravity', target, target.ability);
-			  if (!source.hasType('Grass')) {
-				  source.addVolatile('leechseed', this.effectState.target);
+			this.add('-activate', target, 'ability: Graviseeds');
+			this.field.addPseudoWeather('gravity', target, target.ability);
+			if (!source.hasType('Grass')) {
+				source.addVolatile('leechseed', this.effectState.target);
 			}
 		},
 		name: "Graviseeds",
