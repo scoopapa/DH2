@@ -217,8 +217,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	plus: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
+			if (pokemon.hasItem('collider')) {
+				return this.chainModify(1.5);
+			}
 			for (const allyActive of pokemon.allies()) {
-				if (allyActive.hasAbility(['minus', 'plus']) || pokemon.hasItem('collider')) {
+				if (allyActive.hasAbility(['minus', 'plus'])) {
 					return this.chainModify(1.5);
 				}
 			}
@@ -230,8 +233,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	minus: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
+			if (pokemon.hasItem('collider')) {
+				return this.chainModify(1.5);
+			}
 			for (const allyActive of pokemon.allies()) {
-				if (allyActive.hasAbility(['minus', 'plus']) || pokemon.hasItem('collider')) {
+				if (allyActive.hasAbility(['minus', 'plus'])) {
 					return this.chainModify(1.5);
 				}
 			}
