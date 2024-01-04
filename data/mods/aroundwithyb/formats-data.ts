@@ -43,6 +43,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "OUAoK",
 		doublesTier: "OUAoK",
 	},
+	greninjabond: {
+		tier: "OUAoK",
+		doublesTier: "OUAoK",
+	},
 	bunnelby: {
 		tier: "LCAoK",
 		doublesTier: "LCAoK",
