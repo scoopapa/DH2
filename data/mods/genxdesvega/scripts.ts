@@ -373,8 +373,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		return false;
 	},
-	actions: {
-		
+	actions: {	
 		modifyDamage(
 			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 		) {
