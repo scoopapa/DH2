@@ -3,6 +3,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	floetteeternal: {
 		inherit: true,
 		abilities: {0: "Aura Booster X", H: "Flower Veil"},
+		tags: ["Eternal"],
 	},
 	nosepass: {
 		inherit: true,
@@ -19,6 +20,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster X", H: "Sturdy"},
 		weightkg: 97,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	krokorok: {
 		inherit: true,
@@ -35,6 +37,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster X", H: "Moxie"},
 		weightkg: 33.4,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	quilladin: {
 		inherit: true,
@@ -51,6 +54,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster X", H: "Bulletproof"},
 		weightkg: 29,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	lampent: {
 		inherit: true,
@@ -67,6 +71,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster X", H: "Flash Fire"},
 		weightkg: 13,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	mienfoo: {
 		inherit: true,
@@ -83,6 +88,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster X", H: "Regenerator"},
 		weightkg: 20,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	dragonair: {
 		inherit: true,
@@ -99,6 +105,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster X", H: "Marvel Scale"},
 		weightkg: 16.5,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	braixen: {
 		inherit: true,
@@ -115,6 +122,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster Y", H: "Magician"},
 		weightkg: 14.5,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	nidorino: {
 		inherit: true,
@@ -131,6 +139,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster Y", H: "Hustle"},
 		weightkg: 19.5,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	yanma: {
 		inherit: true,
@@ -147,6 +156,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster Y", H: "Tinted Lens"},
 		weightkg: 38,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	lickitung: {
 		inherit: true,
@@ -163,6 +173,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster Y", H: "Oblivious"},
 		weightkg: 65.5,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	wailmer: {
 		inherit: true,
@@ -179,6 +190,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster Y", H: "Pressure"},
 		weightkg: 130,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	cubchoo: {
 		inherit: true,
@@ -195,6 +207,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster Y", H: "Slush Rush"},
 		weightkg: 8.5,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 	noibat: {
 		inherit: true,
@@ -211,6 +224,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Aura Booster Y", H: "Infiltrator"},
 		weightkg: 8,
 		eggGroups: ["Undiscovered"],
+		tags: ["Eternal"],
 	},
 
 // Megas
