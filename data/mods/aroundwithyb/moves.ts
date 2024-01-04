@@ -1075,7 +1075,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					this.effectState.lostFocus = true;
 					for (const side of pokemon.side.foeSidesWithConditions()) {
 						side.addSideCondition('stealthrock');
-						this.add('-message', `${pokemon.name} pop rocks went everywhere!`);
+						this.add('-message', `${pokemon.name}'s pop rocks went everywhere!`);
 					}
 				}
 			},
