@@ -303,9 +303,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (['confuseray','dazzlinggleam','flash','lightscreen','lusterpurge','moonlight', 'morningsun','shockwave',
           'solarbeam','spark','tailglow','volttackle','photongeyser','sunsteelstrike','moongeistbeam','electrolights',
            'fightlight','luminacrash','lightofruin','solarblade','synthesis', 'sparklingspike'].includes(move.id)) {
-			  this.add('-ability', pokemon, 'Illuminate');
-			  this.add('-message', `The lights shine on ${pokemon.name}!`);
-				pokemon.addVolatile('followme');
+			  	this.add('-ability', source, 'Illuminate');
+			  	this.add('-message', `The lights shine on ${source.name}!`);
+				source.addVolatile('followme');
 			}
 		},
 		name: "Illuminate",
