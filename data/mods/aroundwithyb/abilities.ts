@@ -135,8 +135,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
 			if (move.type = 'Fairy' && !source.volatiles['auraboosterx']) {
-				this.add('-activate', pokemon, 'ability: Aura Booster X');
-				pokemon.addVolatile('auraboosterx');
+				this.add('-activate', source, 'ability: Aura Booster X');
+				source.addVolatile('auraboosterx');
 				this.effectState.boosterNotFromAura = true;
 			}
 		},
@@ -145,9 +145,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.hasAbility('fairyaura') && !pokemon.volatiles['auraboosterx']) {
 					this.add('-activate', pokemon, 'ability: Aura Booster X');
 					pokemon.addVolatile('auraboosterx');
-				} else if (!target.hasAbility('fairyaura')) {
-					if (this.effectState.boosterNotFromAura) return;
-					pokemon.removeVolatile('auraboosterx');
 				}
 			}
 		},
@@ -180,8 +177,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAfterMoveSecondarySelf(source, target, move) {
 			if (!move || !target || source.switchFlag === true) return;
 			if (move.type = 'Dark' && !source.volatiles['auraboostery']) {
-				this.add('-activate', pokemon, 'ability: Aura Booster Y');
-				pokemon.addVolatile('auraboostery');
+				this.add('-activate', source, 'ability: Aura Booster Y');
+				source.addVolatile('auraboostery');
 				this.effectState.boosterNotFromAura = true;
 			}
 		},
@@ -190,9 +187,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (target.hasAbility('darkaura') && !pokemon.volatiles['auraboostery']) {
 					this.add('-activate', pokemon, 'ability: Aura Booster Y');
 					pokemon.addVolatile('auraboostery');
-				} else if (!target.hasAbility('darkaura')) {
-					if (this.effectState.boosterNotFromAura) return;
-					pokemon.removeVolatile('auraboostery');
 				}
 			}
 		},
