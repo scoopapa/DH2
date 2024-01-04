@@ -527,8 +527,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					let bp = move.basePower;
 					if (move.ohko) bp = 150;
 					else if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
-					else if (bp === 1) bp = 80;
-					if (!bp && move.category !== 'Status') bp = 80;
+					else if (bp === 1 || (!bp && move.category !== 'Status')) bp = 80;
 					if (bp > warnBp) {
 						warnMoves = [[move, target]];
 						warnBp = bp;
@@ -674,7 +673,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAnyAfterUseItem(item, pokemon) {
 			if (item.isBerry) return;
 			const ravenousMon = this.effectState.target;
-			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon);
+			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon, ravenousMon);
 		},
 		//Activating from Knock Off implemented in moves.ts
 		name: "Ravenous",
@@ -832,13 +831,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.type !== 'Water' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
 			const abilHolder = this.effectData.target;
-			if (this.validTarget(abilHolder, source, redirectTarget)) {
-				move.smartTarget &&= false;
-				if (abilHolder !== target) {
-					this.add('-activate', abilHolder, 'ability: Battle Tide');
-				}
-				return abilHolder;
+			if (!this.validTarget(abilHolder, source, redirectTarget)) return;
+			move.smartTarget &&= false;
+			if (abilHolder !== target) {
+				this.add('-activate', abilHolder, 'ability: Battle Tide');
 			}
+			return abilHolder;
 		},
 		name: "Battle Tide",
 		isBreakable: true,
@@ -932,9 +930,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
 			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || (move.isZ && move.category !== 'Status') || (move.name === 'Tera Blast' && pokemon.terastallized))) {
 				move.type = 'Ghost';
 				move.ancestorcallBoosted = true;
 			}
