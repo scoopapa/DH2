@@ -22,6 +22,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				  'sweetapple', 'tartapple', 'whiteherb', 'syrupyapple', 'cloversweet', 'leek', 'lovesweet',
 				  'ribbonsweet', 'starsweet', 'strawberrysweet', 'whippeddream'].includes(item.id)) {
 						target.trySetStatus('psn', source);
+						this.add('-message', `${target.name}'s item rotted and poisoned it!`);
 				}
 			}
 		},
@@ -30,6 +31,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				const item = target.takeItem();
 				if (item) {
 					this.add('-enditem', target, item.name, '[from] move: Chemical Plant', '[of] ' + source);
+					this.add('-message', `${target.name}'s item rotted!`);
 				}
 			}
 		},
@@ -851,19 +853,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.addVolatile('evoboost');
 			} else {
 				let bestStat = pokemon.getBestStat(false, true);
-				if {bestStat === 'atk'} {
+				if (bestStat === 'atk') {
 					this.boost({atk: 2}, pokemon, pokemon);
 				}
-				else if {bestStat === 'def'} {
+				else if (bestStat === 'def') {
 					this.boost({def: 2}, pokemon, pokemon);
 				}
-				else if {bestStat === 'spa'} {
+				else if (bestStat === 'spa') {
 					this.boost({spa: 2}, pokemon, pokemon);
 				}
-				else if {bestStat === 'spd'} {
+				else if (bestStat === 'spd') {
 					this.boost({spd: 2}, pokemon, pokemon);
 				}
-				else if {bestStat === 'spe'} {
+				else if (bestStat === 'spe') {
 					this.boost({spe: 2}, pokemon, pokemon);
 				}
 			}
