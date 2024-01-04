@@ -327,6 +327,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Ninjask. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Ninjask-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Ninjask Mask', '[silent]');
@@ -340,6 +341,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Ironmor. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Ironmor-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Ironmor Mask', '[silent]');
@@ -353,6 +355,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Janutcher. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Janutcher-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Janutcher Mask', '[silent]');
@@ -366,6 +369,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Samurott-Hisui. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Samurott-Hisui-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Hisuian Samurott Mask', '[silent]');
@@ -379,6 +383,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Baxcalibur. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Baxcalibur-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Baxcalibur Mask', '[silent]');
@@ -392,6 +397,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Vulguile. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Vulguile-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Vulguile Mask', '[silent]');
@@ -405,6 +411,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Arcognition. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Arcognition-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Arcognition Mask', '[silent]');
@@ -418,6 +425,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Ampalango. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Ampalango-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Ampalango Mask', '[silent]');
@@ -431,6 +439,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Tinkaton. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Tinkaton-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Tinkaton Mask', '[silent]');
@@ -444,6 +453,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Carbink. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Carbink-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Carbink Mask', '[silent]');
@@ -457,6 +467,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Pumentum. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Pumentum-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Pumentum Mask', '[silent]');
@@ -470,6 +481,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Bewear. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Bewear-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Bewear Mask', '[silent]');
@@ -483,6 +495,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Jestire. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Jestire-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Jestire Mask', '[silent]');
@@ -496,6 +509,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Bombastor. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Bombastor-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Bombastor Mask', '[silent]');
@@ -509,6 +523,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Macawphony. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Macawphony-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Macawphony Mask', '[silent]');
@@ -522,6 +537,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Gyarados. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Gyarados-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Gyarados Mask', '[silent]');
@@ -535,6 +551,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Wildpyre. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Wildpyre-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Wildpyre Mask', '[silent]');
@@ -548,6 +565,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Swaunted. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Swaunted-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Swaunted Mask', '[silent]');
@@ -561,6 +579,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Norvid. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Norvid-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Norvid Mask', '[silent]');
@@ -574,6 +593,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Ogerpon. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Ogerpon-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Ogerpon Mask', '[silent]');
@@ -587,6 +607,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Quagsire. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Quagsire-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Quagsire Mask', '[silent]');
@@ -600,6 +621,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Sandaconda. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Sandaconda-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Sandaconda Mask', '[silent]');
@@ -613,6 +635,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Keisberg. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Keisberg-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Keisberg Mask', '[silent]');
@@ -626,6 +649,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Icesty. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Icesty-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Icesty Mask', '[silent]');
@@ -639,6 +663,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Eevee. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Eevee-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Eevee Mask', '[silent]');
@@ -652,6 +677,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Kecleon. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Kecleon-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Kecleon Mask', '[silent]');
@@ -665,6 +691,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Mamoswine-Desvega. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Mamoswine-Desvega-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Desvegan Mamoswine Mask', '[silent]');
@@ -678,6 +705,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Virulope. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Virulope-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Virulope Mask', '[silent]');
@@ -691,6 +719,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Parascend. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Parascend-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Parascend Mask', '[silent]');
@@ -704,6 +733,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Alakazam. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Alakazam-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Alakazam Mask', '[silent]');
@@ -717,6 +747,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Kelplossus. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Kelplossus-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Kelplossus Mask', '[silent]');
@@ -730,6 +761,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Garganacl. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Garganacl-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Garganacl Mask', '[silent]');
@@ -743,6 +775,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Orthworm. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Orthworm-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Orthworm Mask', '[silent]');
@@ -756,6 +789,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Aurumine. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Aurumine-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Aurumine Mask', '[silent]');
@@ -769,6 +803,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Shorror. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Shorror-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Shorror Mask', '[silent]');
@@ -782,6 +817,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Wonder Mask of Pelipper. Use on any Pokemon to Wonder Evolve.",
 		megaStone: "Cirno-Pelipper-Mask",
 		megaEvolves: "Cirno",
+		ignoreKlutz: true,
 		onStart(pokemon) {
 			if (this.effectState.revealed) return;
 			this.add('-item', pokemon, 'Pelipper Mask', '[silent]');
