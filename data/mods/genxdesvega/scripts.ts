@@ -534,9 +534,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('magnetrise' in this.volatiles/*) return false;
 			if (*/|| 'telekinesis' in this.volatiles) return false;
 			//These species are excluded from the Tree-Topper check due to Telekinesis failing against them
-			if (this.battle.getAllActive().some(target => target.hasAbility('treetopper')) && 
-					!['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies) &&
-						this.baseSpecies.name !== 'Gengar-Mega') return false;
+			if (!['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies) &&
+						this.baseSpecies.name !== 'Gengar-Mega' && this.battle.getAllActive().some(target => target.hasAbility('treetopper'))) return false;
 			return item !== 'airballoon';
 		 },
 		
