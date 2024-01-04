@@ -704,7 +704,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (source.getTypes().join() === 'Water' || !source.setType('Water')) return;
 				this.add('-start', source, 'typechange', 'Water', '[from] ability: Phase Shift');
 			}
-			else if (move.type === 'Ice' && source.status !== 'brn'
+			//status check redundant here, if burned it would have gone into the previous branch
+			else if (move.type === 'Ice' //&& source.status !== 'brn'
 				&& source.getTypes().join() !== 'Ice' && source.setType('Ice')) {
 				this.add('-start', source, 'typechange', 'Ice', '[from] ability: Phase Shift');
 			}
@@ -792,14 +793,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
-			if (attacker.species.name !== 'Tsunamey' || attacker.transformed) return;
+			if (attacker.species.name !== 'Tsunamey' || move.type !== 'Water' || attacker.transformed) return;
 			attacker.formeChange('Tsunamey-Surfing');
 		},
 		onWeatherChange(pokemon) {
-			if (this.field.isWeather(['raindance','primordialsea']) && pokemon.species.id === 'tsunamey' && !pokemon.transformed) {
-				this.add('-activate', pokemon, 'ability: Surf\'s Up');
+			if (pokemon.isActive && pokemon.species.id === 'tsunamey' && !pokemon.transformed
+				&& pokemon.hp && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather()))
 				pokemon.formeChange('Tsunamey-Surfing');
-			}
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
@@ -903,14 +903,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	disastrous: {
 		shortDesc: "If hit by a Dark-type move, the foe loses 1/8 of their max HP; Dark and Intimidate immunity.",
 		onTryHit(target, source, move) {
-			if (move.target !== 'self' && move.type === 'Dark') {
-				if (source.hasAbility('magicguard')) this.add('-immune', target, '[from] ability: Disastrous');
-				else this.damage(source.baseMaxhp / 8, source, target);
+			if (target !== source && move.type === 'Dark') {
+				if (!this.damage(source.baseMaxhp / 8, source, target)) {
+					//This will activate if the attacker had Magic Guard or something
+					this.add('-immune', target, '[from] ability: Disastrous');
+				}
 				return null;
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate') {
+			if (effect.name === 'Intimidate' && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Disastrous', '[of] ' + target);
 			}
