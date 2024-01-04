@@ -33,7 +33,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseSpecies: "Krokorok",
 		forme: "Eternal",
 		types: ["Ground", "Water"],
-		baseStats: {hp: 84, atk: 113, def: 65, spa: 59, spd: 93, spe: 103},
+		baseStats: {hp: 84, atk: 113, def: 66, spa: 59, spd: 93, spe: 103},
 		abilities: {0: "Aura Booster X", H: "Moxie"},
 		weightkg: 33.4,
 		eggGroups: ["Undiscovered"],
