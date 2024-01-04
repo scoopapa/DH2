@@ -209,7 +209,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Holder's damaging moves (excl. OHKO) bypass accuracy checks and semi-invulnerability but use 1 extra PP.",
 		fling: {
 			basePower: 20,
-			critRatio: 5,
 		},
 		onSourceInvulnerabilityPriority: 1,
 		onSourceInvulnerability(target, source, move) {
@@ -224,6 +223,12 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onSourceDeductPP(target, source, move) {
 			if (move && move.category !== 'Status' && !move.ohko) return 1;
+		},
+		//This also marks the first instance of an item altering Fling's critrate
+		onPrepareHitPriority: 1,
+		onPrepareHit(target, source, move) {
+			if (!move || move.id !== 'fling') return;
+			move.willCrit = true;
 		},
 	},
 	ashball: {
@@ -252,7 +257,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		//gotta put in fling effects manually
 		onPrepareHitPriority: 1,
 		onPrepareHit(target, source, move) {
-			if (move.id !== 'fling') return;
+			if (!move || move.id !== 'fling') return;
 			(move.secondaries ||= []).push({chance: 100, boosts: {accuracy: -1}});
 		},
 		itemUser: ["Pichat", "Pikachat", "Raichat"],
