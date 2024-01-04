@@ -4916,6 +4916,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "zangoose").learnset.cut = ["9L1"];
 		this.modData("Learnsets", "zangoose").learnset.wideslash = ["9L1"];
 		this.modData("Learnsets", "zangoose").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "zangoose").learnset.fakeout = ["9L1"];
 		// Seviper
 		this.modData("Learnsets", "seviper").learnset.wideslash = ["9L1"];
 		this.modData("Learnsets", "seviper").learnset.nightmarch = ["9L1"];
@@ -11702,10 +11703,13 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "watchog").learnset.sparklingspike = ["9L1"];
 		// Pawniard
 		this.modData("Learnsets", "pawniard").learnset.wideslash = ["9L1"];
+		this.modData("Learnsets", "pawniard").learnset.pullingstrings = ["9L1"];
 		// Bisharp
 		this.modData("Learnsets", "bisharp").learnset.wideslash = ["9L1"];
+		this.modData("Learnsets", "pawniard").learnset.pullingstrings = ["9L1"];
 		// Kingambit
 		this.modData("Learnsets", "kingambit").learnset.wideslash = ["9L1"];
+		this.modData("Learnsets", "pawniard").learnset.pullingstrings = ["9L1"];
 		// Murkrow
 		this.modData("Learnsets", "murkrow").learnset.updraft = ["9L1"];
 		// Honchkrow
@@ -13949,6 +13953,16 @@ export const Scripts: ModdedBattleScriptsData = {
 		delete this.modData('Learnsets', 'kyurem').learnset.dragondance;
 		delete this.modData('Learnsets', 'kyurem').learnset.iciclespear;
 		delete this.modData('Learnsets', 'kyurem').learnset.icefang;
+		// Kyurem-Black
+		delete this.modData('Learnsets', 'kyuremblack').learnset.scaleshot;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.dragondance;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.iciclespear;
+		delete this.modData('Learnsets', 'kyuremblack').learnset.icefang;
+		// Kyurem-White
+		delete this.modData('Learnsets', 'kyuremwhite').learnset.scaleshot;
+		delete this.modData('Learnsets', 'kyuremwhite').learnset.dragondance;
+		delete this.modData('Learnsets', 'kyuremwhite').learnset.iciclespear;
+		delete this.modData('Learnsets', 'kyuremwhite').learnset.icefang;
 		// Type: Null
 		this.modData("Learnsets", "typenull").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "typenull").learnset.endure = ["9L1"];
