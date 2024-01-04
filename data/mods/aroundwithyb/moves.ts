@@ -327,7 +327,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				},
 			},
 		},
-		target: "allAdjacentFoes",
+		target: "randomNormal",
 		type: "Dark",
 		contestType: "Beautiful",
 	},
