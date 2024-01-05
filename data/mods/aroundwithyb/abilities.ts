@@ -201,7 +201,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (!pokemon.hp) return;
 				for (const source of pokemon.foes()) {
 					this.add('-activate', pokemon, 'ability: Aura Booster Y');
-					this.damage(target.baseMaxhp / 16, source, pokemon);
+					this.damage(source.baseMaxhp / 16, source, pokemon);
 				}
 			},
 			onEnd(pokemon) {
