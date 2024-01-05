@@ -1388,6 +1388,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "bidoof").learnset.whirlpool = ["9L1"];
 		this.modData("Learnsets", "bidoof").learnset.muddywater = ["9L1"];
 		this.modData("Learnsets", "bidoof").learnset.exfoliate = ["9L1"];
+		this.modData("Learnsets", "bidoof").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "bidoof").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "bidoof").learnset.cooldown = ["9L1"];
 		// Bibarel
 		this.modData("Learnsets", "bibarel").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "bibarel").learnset.endure = ["9L1"];
@@ -1460,6 +1463,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "bibarel").learnset.whirlpool = ["9L1"];
 		this.modData("Learnsets", "bibarel").learnset.muddywater = ["9L1"];
 		this.modData("Learnsets", "bibarel").learnset.exfoliate = ["9L1"];
+		this.modData("Learnsets", "bibarel").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "bibarel").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "bibarel").learnset.cooldown = ["9L1"];
 		// Dunsparce
 		this.modData("Learnsets", "dunsparce").learnset.heartbeat = ["9L1"];
 		this.modData("Learnsets", "dunsparce").learnset.dragonsroar = ["9L1"];
@@ -1986,6 +1992,14 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "sharpedo").learnset.whirlpool = ["9L1"];
 		this.modData("Learnsets", "sharpedo").learnset.muddywater = ["9L1"];
 		this.modData("Learnsets", "sharpedo").learnset.breakingswipe = ["9L1"];
+		// Litleo
+		this.modData("Learnsets", "litleo").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "litleo").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "litleo").learnset.cooldown = ["9L1"];
+		// Pyroar
+		this.modData("Learnsets", "pyroar").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "pyroar").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "pyroar").learnset.cooldown = ["9L1"];
 		// Farfetchd
 		this.modData("Learnsets", "farfetchd").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "farfetchd").learnset.endure = ["9L1"];
@@ -2568,6 +2582,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "ledian").learnset.skittersmack = ["9L1"];
 		this.modData("Learnsets", "ledian").learnset.upperhand = ["9L1"];
 		this.modData("Learnsets", "ledian").learnset.fivestarfist = ["9L1"];
+		this.modData("Learnsets", "ledian").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "ledian").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "ledian").learnset.cooldown = ["9L1"];
 		// Combee
 		this.modData("Learnsets", "combee").learnset.worktogether = ["9L1"];
 		// Vespiquen
@@ -13772,12 +13789,18 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "combusken").learnset.scorchingsands = ["9L1"];
 		this.modData("Learnsets", "combusken").learnset.solarbeam = ["9L1"];
 		this.modData("Learnsets", "combusken").learnset.wish = ["9L1"];
+		this.modData("Learnsets", "combusken").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "combusken").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "combusken").learnset.cooldown = ["9L1"];
 		// Blaziken
 		this.modData("Learnsets", "blaziken").learnset.wideslash = ["9L1"];
 		this.modData("Learnsets", "blaziken").learnset.solarblade = ["9L1"];
 		this.modData("Learnsets", "blaziken").learnset.drainpunch = ["9L1"];
 		this.modData("Learnsets", "blaziken").learnset.sparklingspike = ["9L1"];
 		this.modData("Learnsets", "blaziken").learnset.wish = ["9L1"];
+		this.modData("Learnsets", "blaziken").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "blaziken").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "blaziken").learnset.cooldown = ["9L1"];
 		// Mudkip
 		this.modData("Learnsets", "mudkip").learnset.exfoliate = ["9L1"];
 		// Marshtomp
@@ -13975,6 +13998,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "lopunny").learnset.coaching = ["9L1"];
 		this.modData("Learnsets", "lopunny").learnset.upperhand = ["9L1"];
 		this.modData("Learnsets", "lopunny").learnset.psychup = ["9L1"];
+		this.modData("Learnsets", "lopunny").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "lopunny").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "lopunny").learnset.cooldown = ["9L1"];
 		// Mew
 		this.modData("Learnsets", "mew").learnset.heartbeat = ["9L1"];
 		this.modData("Learnsets", "mew").learnset.premonition = ["9L1"];
@@ -14011,6 +14037,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		// Mesprit
 		this.modData("Learnsets", "mesprit").learnset.heartbeat = ["9L1"];
 		this.modData("Learnsets", "mesprit").learnset.premonition = ["9L1"];
+		this.modData("Learnsets", "mesprit").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "mesprit").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "mesprit").learnset.cooldown = ["9L1"];
 		// Azelf
 		this.modData("Learnsets", "azelf").learnset.heartbeat = ["9L1"];
 		this.modData("Learnsets", "azelf").learnset.premonition = ["9L1"];
