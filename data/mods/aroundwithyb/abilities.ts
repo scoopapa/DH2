@@ -74,7 +74,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		condition: {
 	      onBeforeSwitchOut(pokemon) {
-	        pokemon.damage(pokemon.baseMaxhp / 8);
+				this.add('-ability', pokemon, 'Lasting Resentment');
+				this.add('-message', `Gengar's Lasting Resentment damages the foe!`);
+				pokemon.damage(pokemon.baseMaxhp / 8);
 			}
 		},
 		name: "Lasting Resentment",
