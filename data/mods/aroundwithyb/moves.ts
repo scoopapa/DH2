@@ -572,12 +572,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(pokemon) {
 				const move = 'workout';
-				if (source.transformed || !move || source.moves.includes(move.id)) {
+				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
 					return false;
 				}
-				const warmupIndex = source.moves.indexOf('warmup');
+				const warmupIndex = pokemon.moves.indexOf('warmup');
 				if (warmupIndex < 0) return false;
-				source.moveSlots[warmupIndex] = {
+				pokemon.moveSlots[warmupIndex] = {
 					move: move.name,
 					id: move.id,
 					pp: move.pp,
@@ -587,7 +587,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					used: false,
 					virtual: true,
 				};
-				this.add('-start', source, 'Warm Up', move.name);
+				this.add('-start', pokemon, 'Warm Up', move.name);
 			},
 		},
 		secondary: null,
@@ -617,12 +617,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(pokemon) {
 				const move = 'cooldown';
-				if (source.transformed || !move || source.moves.includes(move.id)) {
+				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
 					return false;
 				}
-				const workoutIndex = source.moves.indexOf('workout');
+				const workoutIndex = pokemon.moves.indexOf('workout');
 				if (workoutIndex < 0) return false;
-				source.moveSlots[workoutIndex] = {
+				pokemon.moveSlots[workoutIndex] = {
 					move: move.name,
 					id: move.id,
 					pp: move.pp,
@@ -632,7 +632,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					used: false,
 					virtual: true,
 				};
-				this.add('-start', source, 'Workout', move.name);
+				this.add('-start', pokemon, 'Workout', move.name);
 			},
 		},
 		secondary: null,
@@ -664,12 +664,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			onStart(pokemon) {
 				const move = 'warmup';
-				if (source.transformed || !move || source.moves.includes(move.id)) {
+				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
 					return false;
 				}
-				const cooldownIndex = source.moves.indexOf('cooldown');
+				const cooldownIndex = pokemon.moves.indexOf('cooldown');
 				if (cooldownIndex < 0) return false;
-				source.moveSlots[cooldownIndex] = {
+				pokemon.moveSlots[cooldownIndex] = {
 					move: move.name,
 					id: move.id,
 					pp: move.pp,
@@ -679,7 +679,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					used: false,
 					virtual: true,
 				};
-				this.add('-start', source, 'Cool Down', move.name);
+				this.add('-start', pokemon, 'Cool Down', move.name);
 			},
 		},
 		secondary: null,
