@@ -737,11 +737,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	workout: {
 		accuracy: 100,
-		basePower: 70,
+		basePower: 70, /*
 		basePowerCallback(pokemon) {
 			if (!pokemon.volatiles['warmup']?.layers) return 70;
 			return (pokemon.volatiles['warmup'].layers + 1) * 70;
-		},
+		}, */
 		category: "Physical",
 		shortDesc: "Hits 1-3 times based on Warm Up levels.",
 		viable: true,
@@ -754,6 +754,12 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Burn Up", target);
 		},
 		onModifyMove(move, pokemon) {
+			if (!pokemon.volatiles['warmup']?.layers) {
+				move.levels = pokemon.volatiles['warmup'].layers;
+			} else {
+				move.levels = 0;
+			}
+			move.multihit = move.levels.length + 1;
 			if (!pokemon.volatiles['warmup']?.layers) {
 				move.recoil = [1, 4];
 			}
