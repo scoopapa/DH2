@@ -1320,9 +1320,15 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fiery Wrath", target);
+			source.addVolatile('voidofruin');			
 		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (!target || target.fainted || target.hp <= 0) this.boost({atk: 1}, pokemon, pokemon, move);
+		condition: {
+			duration: 1,
+			onSourceAfterFaint(length, target, source, effect) {
+				if (effect && effect.effectType === 'Move') {
+					this.boost({atk: length}, source);
+				}
+			},
 		},
 		secondary: null,
 		target: "allAdjacent",
