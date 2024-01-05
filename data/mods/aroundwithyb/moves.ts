@@ -14,7 +14,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Magical Leaf", target);
 		},
-		onHit(target, source) {
+		onHit(source, target, move) {
 			const item = target.getItem();
 			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
 			if (target.hp && target.takeItem(source)) {
