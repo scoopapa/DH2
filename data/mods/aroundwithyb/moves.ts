@@ -757,13 +757,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Incinerate", target);
 		},
-		onHitField() {
-			this.add('-clearallboost');
-			for (const pokemon of this.getAllActive()) {
-				pokemon.clearBoosts();
-			}
-		},
 		onHit(target, source, move) {
+			target.clearBoosts();
+			this.add('-clearboost', target);
+			source.clearBoosts();
+			this.add('-clearboost', source);
 			const removeTarget = [
 				'spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge',
 			];
