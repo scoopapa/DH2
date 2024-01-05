@@ -13555,6 +13555,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "dragonair").learnset.dragonsroar = ["9L1"];
 		// Dragonite
 		this.modData("Learnsets", "dragonite").learnset.dragonsroar = ["9L1"];
+		this.modData("Learnsets", "dragonite").learnset.dualwingbeat = ["9L1"];
 		// Xerneas
 		this.modData("Learnsets", "xerneas").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "xerneas").learnset.endure = ["9L1"];
