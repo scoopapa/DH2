@@ -576,8 +576,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.moveSlots[warmupIndex] = {
 					move: "Workout",
 					id: 'workout',
-					pp: 16,
-					maxpp: 16,
+					pp: 8,
+					maxpp: 8,
 					target: "normal",
 					disabled: false,
 					used: false,
@@ -617,8 +617,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.moveSlots[workoutIndex] = {
 					move: "Cool Down",
 					id: 'cooldown',
-					pp: 16,
-					maxpp: 16,
+					pp: 8,
+					maxpp: 8,
 					target: "normal",
 					disabled: false,
 					used: false,
@@ -660,8 +660,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				pokemon.moveSlots[cooldownIndex] = {
 					move: "Warm Up",
 					id: 'warmup',
-					pp: 16,
-					maxpp: 16,
+					pp: 8,
+					maxpp: 8,
 					target: "normal",
 					disabled: false,
 					used: false,
