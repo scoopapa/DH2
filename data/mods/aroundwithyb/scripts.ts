@@ -1861,6 +1861,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "seaking").learnset.whirlpool = ["9L1"];
 		this.modData("Learnsets", "seaking").learnset.muddywater = ["9L1"];
 		this.modData("Learnsets", "seaking").learnset.supercellslam = ["9L1"];
+		this.modData("Learnsets", "seaking").learnset.wavecrash = ["9L1"];
 		// Carvanha
 		this.modData("Learnsets", "carvanha").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "carvanha").learnset.endure = ["9L1"];
