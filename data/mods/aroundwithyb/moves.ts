@@ -1205,7 +1205,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	resonanttone: {
 		accuracy: 100,
 		basePower: 60,
-		category: "Physical",
+		category: "Special",
 		shortDesc: "Sets Aurora Veil, regardless of weather.",
 		viable: true,
 		name: "Resonant Tone",
