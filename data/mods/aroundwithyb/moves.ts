@@ -650,7 +650,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target, source) {
 			source.clearBoosts();
 			source.removeVolatile('focusenergy');
-			source.addVolatile('workout');
+			source.addVolatile('cooldown');
 			this.add('-message', `${source.name} has now cooled down, they can now Warm Up again!`);
 		},
 		condition: {
