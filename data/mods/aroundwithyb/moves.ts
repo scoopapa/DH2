@@ -554,7 +554,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "User: +1 Speed, +2 critrate, then becomes the move Workout.",
 		viable: true,
 		name: "Warm Up",
-		pp: 15,
+		pp: 5,
 		priority: 0,
 		flags: {snatch: 1},
 		volatileStatus: 'focusenergy',
@@ -571,18 +571,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				const move = Workout;
-				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
-					return false;
-				}
 				const warmupIndex = pokemon.moves.indexOf('warmup');
 				if (warmupIndex < 0) return false;
 				pokemon.moveSlots[warmupIndex] = {
-					move: move.name,
-					id: move.id,
-					pp: move.pp,
-					maxpp: move.pp,
-					target: move.target,
+					move: "Workout",
+					id: 'workout',
+					pp: 16,
+					maxpp: 16,
+					target: "normal",
 					disabled: false,
 					used: false,
 					virtual: true,
@@ -602,7 +598,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Physical",
 		shortDesc: "Becomes the move Cool Down after use.",
 		name: "Workout",
-		pp: 15,
+		pp: 5,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		noSketch: true,
@@ -616,18 +612,14 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				const move = Cooldown;
-				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
-					return false;
-				}
 				const workoutIndex = pokemon.moves.indexOf('workout');
 				if (workoutIndex < 0) return false;
 				pokemon.moveSlots[workoutIndex] = {
-					move: move.name,
-					id: move.id,
-					pp: move.pp,
-					maxpp: move.pp,
-					target: move.target,
+					move: "Cool Down",
+					id: 'cooldown',
+					pp: 16,
+					maxpp: 16,
+					target: "normal",
 					disabled: false,
 					used: false,
 					virtual: true,
@@ -646,7 +638,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		category: "Status",
 		shortDesc: "User: Heals 50% HP, clears stat boosts & crit stages, then becomes Warm Up.",
 		name: "Cool Down",
-		pp: 15,
+		pp: 5,
 		priority: 0,
 		flags: {snatch: 1, heal: 1},
 		heal: [1, 2],
@@ -670,11 +662,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				const cooldownIndex = pokemon.moves.indexOf('cooldown');
 				if (cooldownIndex < 0) return false;
 				pokemon.moveSlots[cooldownIndex] = {
-					move: move.name,
-					id: move.id,
-					pp: move.pp,
-					maxpp: move.pp,
-					target: move.target,
+					move: "Warm Up",
+					id: 'warmup',
+					pp: 16,
+					maxpp: 16,
+					target: "normal",
 					disabled: false,
 					used: false,
 					virtual: true,
