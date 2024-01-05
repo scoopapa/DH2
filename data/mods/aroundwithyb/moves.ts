@@ -714,7 +714,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(target) {
 			if (target.status === 'psn' || target.status === 'tox') target.cureStatus();
 			if (target.hasType('Poison')) {
-				pokemon.setType(pokemon.getTypes(true).map(type => type === "Poison" ? "???" : type));
+				target.setType(target.getTypes(true).map(type => type === "Poison" ? "???" : type));
 				this.add('-start', target, 'typechange', target.types.join('/'), '[from] move: Antivenom');
 			}
 		},
