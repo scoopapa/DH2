@@ -1453,7 +1453,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			protect: ["9L1"],
 			rest: ["9L1"],
 			sleeptalk: ["9L1"],
-			endure: ["9L1"],
 			facade: ["9L1"],
 			gigadrain: ["9L1"],
 			grassknot: ["9L1"],
