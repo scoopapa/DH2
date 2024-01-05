@@ -571,7 +571,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				const move = 'workout';
+				const move = 'Workout';
 				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
 					return false;
 				}
@@ -616,7 +616,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				const move = 'cooldown';
+				const move = 'Cool Down';
 				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
 					return false;
 				}
@@ -663,7 +663,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				const move = 'warmup';
+				const move = 'Warm Up';
 				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
 					return false;
 				}
