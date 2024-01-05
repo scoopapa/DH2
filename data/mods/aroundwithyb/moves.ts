@@ -616,7 +616,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		condition: {
 			onStart(pokemon) {
-				const move = Cool Down;
+				const move = Cooldown;
 				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
 					return false;
 				}
