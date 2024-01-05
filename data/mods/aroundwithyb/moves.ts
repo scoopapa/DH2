@@ -755,9 +755,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, pokemon) {
 			if (!pokemon.volatiles['warmup']?.layers) {
-				move.levels = pokemon.volatiles['warmup'].layers;
-			} else {
 				move.levels = 0;
+			} else {
+				move.levels = pokemon.volatiles['warmup'].layers;
 			}
 			move.multihit = move.levels.length + 1;
 			if (!pokemon.volatiles['warmup']?.layers) {
