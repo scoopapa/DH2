@@ -139,7 +139,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-activate', pokemon, 'ability: Aura Booster X');
 				this.heal(pokemon.baseMaxhp / 16);
 				for (const source of pokemon.adjacentAllies()) {
-					this.add('-activate', pokemon, 'ability: Aura Booster X');
+					this.add('-ability', pokemon, 'Aura Booster X');
 					this.heal(source.baseMaxhp / 16);
 				}
 			},
