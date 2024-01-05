@@ -1567,6 +1567,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Normal",
 		contestType: "Cute",
 	},
+	obstruct: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	boltbeak: {
 		inherit: true,
 		isNonstandard: null,
