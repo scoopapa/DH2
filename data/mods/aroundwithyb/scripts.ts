@@ -13014,6 +13014,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "spearow").learnset.dualwingbeat = ["9L1"];
 		this.modData("Learnsets", "spearow").learnset.lashout = ["9L1"];
 		this.modData("Learnsets", "spearow").learnset.updraft = ["9L1"];
+		this.modData("Learnsets", "spearow").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "spearow").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "spearow").learnset.cooldown = ["9L1"];
 		// Fearow
 		this.modData("Learnsets", "fearow").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "fearow").learnset.endure = ["9L1"];
@@ -13069,6 +13072,9 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "fearow").learnset.hyperbeam = ["9L1"];
 		this.modData("Learnsets", "fearow").learnset.smartstrike = ["9L1"];
 		this.modData("Learnsets", "fearow").learnset.updraft = ["9L1"];
+		this.modData("Learnsets", "fearow").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "fearow").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "fearow").learnset.cooldown = ["9L1"];
 		// Cryogonal
 		this.modData("Learnsets", "cryogonal").learnset.darkpulse = ["9L1"];
 		this.modData("Learnsets", "cryogonal").learnset.foulplay = ["9L1"];
@@ -14562,5 +14568,8 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "quaxwell").learnset.exfoliate = ["9L1"];
 		// Quaquaval
 		this.modData("Learnsets", "quaquaval").learnset.exfoliate = ["9L1"];
+		this.modData("Learnsets", "quaquaval").learnset.warmup = ["9L1"];
+		this.modData("Learnsets", "quaquaval").learnset.workout = ["9L1"];
+		this.modData("Learnsets", "quaquaval").learnset.cooldown = ["9L1"];
   },
 };
