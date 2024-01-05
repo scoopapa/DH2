@@ -1115,7 +1115,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		shortDesc: "Fails and sets Stealth Rock if the user takes damage before it hits.",
 		viable: true,
 		name: "Pop Rocks",
-		pp: 20,
+		pp: 10,
 		priority: -3,
 		flags: {protect: 1, bullet: 1},
 		onPrepareHit(target, source, move) {
