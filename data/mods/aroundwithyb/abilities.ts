@@ -11,9 +11,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	radiotherapy: {
 		onStart(pokemon) {
+			this.heal(pokemon.baseMaxhp / 4, pokemon, pokemon);
 			for (const ally of pokemon.adjacentAllies()) {
 			  this.heal(ally.baseMaxhp / 4, ally, pokemon);
-			  this.heal(pokemon.baseMaxhp / 4, pokemon, pokemon);
 			}
 		},
 		name: "Radio Therapy",
@@ -21,50 +21,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "On switch-in, this Pokemon restores 1/4 of its ally's and its own maximum HP, rounded down.",
 	},
 	bittercold: {
-		onSwitchIn(pokemon) {
-			if (pokemon.side.faintedLastTurn && !pokemon.volatiles['bittercold']) {
-				this.add('-ability', pokemon, 'Bitter Cold');
+		onStart(pokemon) {
+			if (pokemon.side.totalFainted) {
+				this.add('-activate', pokemon, 'ability: Bitter Cold');
 				this.add('-message', `A bitter cold has enveloped the battlefield!`);
-				pokemon.addVolatile('bittercold');
-      	}
+				const fallen = Math.min(pokemon.side.totalFainted, 3);
+				this.add('-start', pokemon, `fallen${fallen}`, '[silent]');
+				this.effectState.fallen = fallen;
+			}
 		},
-		onUpdate(pokemon) {
-			if (pokemon.side.faintedLastTurn && !pokemon.volatiles['bittercold']) {
-				this.add('-ability', pokemon, 'Bitter Cold');
-				this.add('-message', `A bitter cold has enveloped the battlefield!`);
-				pokemon.addVolatile('bittercold');
-      	}
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `fallen${this.effectState.fallen}`, '[silent]');
 		},
-		condition: {
-			duration: 1,
-			noCopy: true,
-			onStart(target) {
-				this.add('-start', target, 'ability: Bitter Cold');
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, attacker, defender, move) {
-				if (move.type === 'Ice' && attacker.hasAbility('bittercold')) {
-					this.debug('Bitter Cold boost');
-					return this.chainModify(1.5);
-				}
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(atk, attacker, defender, move) {
-				if (move.type === 'Ice' && attacker.hasAbility('bittercold')) {
-					this.debug('Bitter Cold boost');
-					return this.chainModify(1.5);
-				}
-			},
-	  		onAfterMoveSecondarySelf(target, source, move) {
-	  			source.removeVolatile('bittercold');
-	  		},
-			onEnd(target) {
-				this.add('-end', target, 'ability: Bitter Cold', '[silent]');
-			},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.fallen && move.type === 'Ice') {
+				const powMod = [4096, 4506, 4915, 5325];
+				this.debug(`Bitter Cold boost: ${powMod[this.effectState.fallen]}/4096`);
+				return this.chainModify([powMod[this.effectState.fallen], 4096]);
+			}
 		},
 		name: "Bitter Cold",
 		rating: 3,
-		shortDesc: "If an ally fainted last turn, this Pokemon is immune to hazards and its Ice moves deal 1.5x damage.",
+		shortDesc: "This Pokemon's Ice moves have 10% more power for each fainted ally, up to 3 allies.",
 	},
 	lastingresentment: {
 		onStart(source) {
@@ -157,7 +136,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			onResidual(pokemon) {
 				this.add('-activate', pokemon, 'ability: Aura Booster X');
 				this.heal(pokemon.baseMaxhp / 16);
-				for (const source of pokemon.allies()) {
+				for (const source of pokemon.adjacentAllies()) {
 					this.add('-activate', pokemon, 'ability: Aura Booster X');
 					this.heal(source.baseMaxhp / 16);
 				}
