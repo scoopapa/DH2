@@ -815,6 +815,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "beedrill").learnset.sludgewave = ["9L1"];
 		this.modData("Learnsets", "beedrill").learnset.skittersmack = ["9L1"];
 		this.modData("Learnsets", "beedrill").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "beedrill").learnset.drillrun = ["9L1"];
 		// Pansage
 		this.modData("Learnsets", "pansage").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "pansage").learnset.endure = ["9L1"];
