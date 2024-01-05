@@ -570,7 +570,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			spe: 1,
 		},
 		condition: {
-			onStart(pokemon) {
+			onStart(target, pokemon, move) {
 				const warmupIndex = pokemon.moves.indexOf('warmup');
 				if (warmupIndex < 0) return false;
 				pokemon.moveSlots[warmupIndex] = {
@@ -611,7 +611,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-message', `${source.name} is all worked out!`);
 		},
 		condition: {
-			onStart(pokemon) {
+			onStart(target, pokemon, move) {
 				const workoutIndex = pokemon.moves.indexOf('workout');
 				if (workoutIndex < 0) return false;
 				pokemon.moveSlots[workoutIndex] = {
@@ -654,11 +654,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-message', `${source.name} has now cooled down, they can now Warm Up again!`);
 		},
 		condition: {
-			onStart(pokemon) {
-				const move = Warmup;
-				if (pokemon.transformed || !move || pokemon.moves.includes(move.id)) {
-					return false;
-				}
+			onStart(target, pokemon, move) {
 				const cooldownIndex = pokemon.moves.indexOf('cooldown');
 				if (cooldownIndex < 0) return false;
 				pokemon.moveSlots[cooldownIndex] = {
