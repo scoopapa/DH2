@@ -564,30 +564,32 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		onHit(target, source) {
 			source.addVolatile('warmup');
-		},
-		onTryMove(source, target, move) {
-			if (source.volatiles['warmup']) {
-				this.attrLastMove('[still]');
-				this.add('cant', source, 'move: Warm Up', move);
-				return false;
-				this.add('-message', `${source.name} is already warmed up, they will now Workout!`);
-				this.actions.useMove("Workout", source);
-				source.removeVolatile('warmup');
-				source.addVolatile('workout');
-			}
-			if (source.volatiles['workout']) {
-				this.attrLastMove('[still]');
-				this.add('cant', source, 'move: Workout', move);
-				return false;
-				this.add('-message', `${source.name} has already worked out, they will now Cool Down!`);
-				this.actions.useMove("Cool Down", source);
-				source.removeVolatile('workout');
-			}
+			this.add('-message', `${source.name} is all warmed up!`);
 		},
 		boosts: {
 			spe: 1,
 		},
-		condition: {},
+		condition: {
+			onStart(pokemon) {
+				const move = 'workout';
+				if (source.transformed || !move || source.moves.includes(move.id)) {
+					return false;
+				}
+				const warmupIndex = source.moves.indexOf('warmup');
+				if (warmupIndex < 0) return false;
+				source.moveSlots[warmupIndex] = {
+					move: move.name,
+					id: move.id,
+					pp: move.pp,
+					maxpp: move.pp,
+					target: move.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};
+				this.add('-start', source, 'Warm Up', move.name);
+			},
+		},
 		secondary: null,
 		target: "self",
 		type: "Fighting",
@@ -607,6 +609,31 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Burn Up", target);
+		},
+		onHit(target, source) {
+			source.addVolatile('workout');
+			this.add('-message', `${source.name} is all worked out!`);
+		},
+		condition: {
+			onStart(pokemon) {
+				const move = 'cooldown';
+				if (source.transformed || !move || source.moves.includes(move.id)) {
+					return false;
+				}
+				const workoutIndex = source.moves.indexOf('workout');
+				if (workoutIndex < 0) return false;
+				source.moveSlots[workoutIndex] = {
+					move: move.name,
+					id: move.id,
+					pp: move.pp,
+					maxpp: move.pp,
+					target: move.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};
+				this.add('-start', source, 'Workout', move.name);
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -629,9 +656,31 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Rest", target);
 		},
 		onHit(target, source) {
-			target.clearBoosts();
-			target.removeVolatile('focusenergy');
-			this.add('-message', `${target.name} has now cooled down, they can now Warm Up again!`);
+			source.clearBoosts();
+			source.removeVolatile('focusenergy');
+			source.addVolatile('workout');
+			this.add('-message', `${source.name} has now cooled down, they can now Warm Up again!`);
+		},
+		condition: {
+			onStart(pokemon) {
+				const move = 'warmup';
+				if (source.transformed || !move || source.moves.includes(move.id)) {
+					return false;
+				}
+				const cooldownIndex = source.moves.indexOf('cooldown');
+				if (cooldownIndex < 0) return false;
+				source.moveSlots[cooldownIndex] = {
+					move: move.name,
+					id: move.id,
+					pp: move.pp,
+					maxpp: move.pp,
+					target: move.target,
+					disabled: false,
+					used: false,
+					virtual: true,
+				};
+				this.add('-start', source, 'Cool Down', move.name);
+			},
 		},
 		secondary: null,
 		target: "self",
