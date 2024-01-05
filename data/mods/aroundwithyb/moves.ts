@@ -750,7 +750,11 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Burn Up", target);
 		},
 		onModifyMove(move, pokemon) {
-			move.levels = pokemon.volatiles['warmup'].layers;
+			if (!pokemon.volatiles['stockpile']?.layers) {
+				move.levels = pokemon.volatiles['warmup'].layers;
+			} else {
+				move.levels = 0;
+			}
 			move.multihit = move.levels.length + 1;
 			if (!pokemon.volatiles['warmup']?.layers) {
 				move.recoil = [1, 4];
