@@ -557,15 +557,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {snatch: 1},
-		self: {
-			volatileStatus: 'focusenergy',
-		},
+		volatileStatus: 'focusenergy',
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bulk Up", target);
 		},
 		onHit(target, source) {
-			pokemon.addVolatile('warmup');
+			source.addVolatile('warmup');
 		},
 		onTryMove(source, target, move) {
 			if (source.volatiles['warmup']) {
