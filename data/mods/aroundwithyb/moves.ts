@@ -374,13 +374,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 					}
 				}
 				if (this.checkMoveMakesContact(move, source, target)) {
-					target.addVolatile('disable');
+					source.addVolatile('disable');
 				}
 				return this.NOT_FAIL;
 			},
 			onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
-					target.addVolatile('disable');
+					source.addVolatile('disable');
 				}
 			},
 		},
