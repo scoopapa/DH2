@@ -155,7 +155,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			},
 			onResidualOrder: 6,
 			onResidual(pokemon) {
-				for (const source of pokemon.alliesAndSelf()) {
+				this.add('-activate', pokemon, 'ability: Aura Booster X');
+				this.heal(pokemon.baseMaxhp / 16);
+				for (const source of pokemon.allies()) {
 					this.add('-activate', pokemon, 'ability: Aura Booster X');
 					this.heal(source.baseMaxhp / 16);
 				}
