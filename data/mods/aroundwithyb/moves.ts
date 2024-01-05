@@ -547,6 +547,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
+/* old Warm Up/Workout/Cooldown concept - did eventually get it coded but never got to the point where it'd account for pp usage
 	warmup: {
 		accuracy: true,
 		basePower: 0,
@@ -675,6 +676,123 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Fighting",
 		zMove: {effect: 'heal'},
 		contestType: "Beautiful",
+	},
+*/
+	warmup: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "User: +1 Speed, +2 critrate. Max 2 uses.",
+		viable: true,
+		name: "Warm Up",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bulk Up", target);
+		},
+		onTry(source) {
+			if (source.volatiles['warmup'] && source.volatiles['warmup'].layers >= 2) return false;
+		},
+		volatileStatus: 'warmup',
+		condition: {
+			noCopy: true,
+			onStart(target) {
+				this.effectState.layers = 1;
+				this.effectState.spe = 0;
+				this.add('-start', target, 'warmup' + this.effectState.layers);
+				const [curSpe] = [target.boosts.spe];
+				this.boost({spe: 1}, target, target);
+				if (curSpe !== target.boosts.spe) this.effectState.spe--;
+			},
+			onRestart(target) {
+				if (this.effectState.layers >= 2) return false;
+				this.effectState.layers++;
+				this.add('-start', target, 'warmup' + this.effectState.layers);
+				const [curSpe] = [target.boosts.spe];
+				this.boost({spe: 1}, target, target);
+				if (curSpe !== target.boosts.spe) this.effectState.spe--;
+			},
+			onModifyCritRatio(critRatio) {
+				return critRatio + 2;
+			},
+			onEnd(target) {
+				if (this.effectState.spe) {
+					const boosts: SparseBoostsTable = {};
+					if (this.effectState.spe) boosts.spe = this.effectState.spe;
+					this.boost(boosts, target, target);
+				}
+				this.add('-end', target, 'Warm Up');
+				if (this.effectState.spe !== this.effectState.layers * -1) {
+					this.hint("In Gen 7, Stockpile keeps track of how many times it successfully altered each stat individually.");
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		zMove: {effect: 'heal'},
+		contestType: "Tough",
+	},
+	workout: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		shortDesc: "Hits 1-3 times based on Warm Up levels.",
+		viable: true,
+		name: "Workout",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, contact: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Burn Up", target);
+		},
+		onModifyMove(move, pokemon) {
+			move.levels = pokemon.volatiles['warmup'].layers;
+			move.multihit = move.levels.length + 1;
+			if (!pokemon.volatiles['warmup']?.layers) {
+				move.recoil = [1, 4];
+			}
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('warmup');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+		contestType: "Tough",
+	},
+	cooldown: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Cures status and heals based on Warm Up levels.",
+		viable: true,
+		name: "Cool Down",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Rest", target);
+		},
+		onTry(source) {
+			return !!source.volatiles['warmup'];
+		},
+		onHit(pokemon) {
+			const healAmount = [0.5, 1];
+			const success = !!this.heal(this.modify(pokemon.maxhp, healAmount[(pokemon.volatiles['warmup'].layers - 1)]));
+			if (!success) this.add('-fail', pokemon, 'heal');
+			pokemon.removeVolatile('warmup');
+			return pokemon.cureStatus() || success;
+		},
+		secondary: null,
+		target: "self",
+		type: "Fighting",
+		zMove: {effect: 'clearnegativeboost'},
+		contestType: "Tough",
 	},
 
 // Signature Moves
