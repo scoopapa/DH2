@@ -1079,7 +1079,11 @@ export const Formats: FormatList = [
 		desc: `<b>ccapm</b>: ccapm `,
 		mod: "ccapm2022",
 		ruleset: ['Standard', 'Data Mod', 'Godly Gift Mod'],
-		banlist: ['AG', 'Uber', 'Focus Band', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Baton Pass'],
+		banlist: ['AG', 'Uber',
+				  'Blissey', 'Chansey', 'Dragapult', 'Hawlucha', 'Marowak-Alola', 'Melmetal', 'Nidoking', 'Nidoqueen', 'Pikachu', 'Toxapex',
+				  'Focus Band', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 
+				  'Huge Power', 'Moody', 'Arena Trap', 'Pure Power', 'Shadow Tag',
+				  'Baton Pass'],
 		restricted: ['Unicorn', 'Platypus', 'Power Plant', 'Druddigod', 'Snek', 'Ghost Car', 'Trapjaw Fireant', 'Duck', 'groundpoison', 'groundpoison-Crystallized', 'Metal Snek', 'Roc With Ram Horns', 'ghostnormal', 'Cartesian Plane Dragon', 'better than cinderace as soccer', 'Statue'],
 	},
 	{
@@ -3015,7 +3019,7 @@ export const Formats: FormatList = [
   },
 	{
 		name: "[Gen 6] TPDP Open",
-		mod: 'tpdp2',
+		mod: 'tpdp',
 		debug: true,
 		desc: `a close approximation of Touhou Puppet Dance Performance`,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
@@ -3043,7 +3047,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 6] TPDP Stylemons",
-		mod: 'tpdp2',
+		mod: 'tpdp',
 		debug: true,
 		desc: `TPDP Stylemons`,
 		ruleset: ['Standard NatDex', 'Stylemons Move Legality', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
@@ -3071,7 +3075,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 6] TPDP Shared Power",
-		mod: 'tpdp2',
+		mod: 'tpdp',
 		debug: true,
 		desc: `TPDP Shared Power`,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
@@ -3137,7 +3141,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 6] TPDP Netplay",
-		mod: 'tpdp2',
+		mod: 'tpdp',
 		debug: true,
 		desc: `a close approximation of Touhou Puppet Dance Performance`,
 		ruleset: ['Obtainable', 'Team Preview', 'Cancel Mod', 'Species Clause', 'Item Clause', 'Adjust Level Down = 50', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
