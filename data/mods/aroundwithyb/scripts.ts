@@ -971,7 +971,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "simisage").learnset.petalblizzard = ["9L1"];
 		this.modData("Learnsets", "simisage").learnset.coaching = ["9L1"];
 		this.modData("Learnsets", "simisage").learnset.chemicalplant = ["9L1"];
-		this.modData("Learnsets", "simisage").learnset.focusblast = ["9L1"];
 		// Pansear
 		this.modData("Learnsets", "pansear").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "pansear").learnset.endure = ["9L1"];
@@ -1131,7 +1130,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "simisear").learnset.scorchingsands = ["9L1"];
 		this.modData("Learnsets", "simisear").learnset.throatchop = ["9L1"];
 		this.modData("Learnsets", "simisear").learnset.sparklingspike = ["9L1"];
-		this.modData("Learnsets", "simisear").learnset.focusblast = ["9L1"];
 		// Panpour
 		this.modData("Learnsets", "panpour").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "panpour").learnset.endure = ["9L1"];
