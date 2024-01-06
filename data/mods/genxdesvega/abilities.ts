@@ -285,7 +285,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		shortDesc: "Wishiwashi/Slushisloshi: Changes to School Form if it has > 1/4 max HP, else Solo Form.",
 		onStart(pokemon) {
-			if (!['Slushisloshi,Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
+			if (!['Slushisloshi','Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
 				|| pokemon.level < 20 || pokemon.transformed) return;
 			if (pokemon.species.id === 'slushisloshischool' && pokemon.hasItem('slushisloshiscale')) {
 				pokemon.addVolatile('ability:waterabsorb');
