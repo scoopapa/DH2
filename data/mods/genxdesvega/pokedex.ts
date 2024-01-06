@@ -2697,7 +2697,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		forme: "Bombastor-Mask",
 		types: ["Fire"],
 		baseStats: {hp: 100, atk: 125, def: 115, spa: 100, spd: 100, spe: 110},
-		abilities: {0: "Refrigerate"},
+		abilities: {0: "Magic Bounce"},
 		heightm: 1.5,
 		weightkg: 50,
 		requiredItem: "Bombastor Mask",
