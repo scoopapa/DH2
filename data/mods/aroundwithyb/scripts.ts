@@ -12885,6 +12885,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "heatmor").learnset.warmup = ["9L1"];
 		this.modData("Learnsets", "heatmor").learnset.workout = ["9L1"];
 		this.modData("Learnsets", "heatmor").learnset.cooldown = ["9L1"];
+		this.modData("Learnsets", "heatmor").learnset.overheat = ["9L1"];
 		// Durant
 		this.modData("Learnsets", "durant").learnset.protect = ["9L1"];
 		this.modData("Learnsets", "durant").learnset.endure = ["9L1"];
