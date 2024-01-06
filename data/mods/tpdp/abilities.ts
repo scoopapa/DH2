@@ -1596,6 +1596,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onFoeFaint(target, source, effect) {
 			this.boost({atk: 1});
 		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		}
 	},
 	naturalform: {
 		name: "Natural Form",
