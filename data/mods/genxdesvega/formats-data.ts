@@ -1662,6 +1662,30 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	mareanie: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	toxapex: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	ekans: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	arbok: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	silicobra: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	sandaconda: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
   
 	cirno: {
 		isNonstandard: "Custom",
