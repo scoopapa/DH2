@@ -2611,7 +2611,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			poisonjab: ["9L1"],
 			quickattack: ["9L1"],
 			rapidspin: ["9L1"],
-
+			uturn: ["9L1"],
 			aurasphere: ["9L1"],
 			focusblast: ["9L1"],
 			hydropump: ["9L1"],
