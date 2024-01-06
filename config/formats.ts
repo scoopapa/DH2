@@ -3021,7 +3021,7 @@ export const Formats: FormatList = [
   },
 	{
 		name: "[Gen 6] TPDP Open",
-		mod: 'tpdp2',
+		mod: 'tpdp',
 		debug: true,
 		desc: `a close approximation of Touhou Puppet Dance Performance`,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
@@ -3049,7 +3049,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 6] TPDP Stylemons",
-		mod: 'tpdp2',
+		mod: 'tpdp',
 		debug: true,
 		desc: `TPDP Stylemons`,
 		ruleset: ['Standard NatDex', 'Stylemons Move Legality', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
@@ -3077,7 +3077,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 6] TPDP Shared Power",
-		mod: 'tpdp2',
+		mod: 'tpdp',
 		debug: true,
 		desc: `TPDP Shared Power`,
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
@@ -3143,7 +3143,7 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 6] TPDP Netplay",
-		mod: 'tpdp2',
+		mod: 'tpdp',
 		debug: true,
 		desc: `a close approximation of Touhou Puppet Dance Performance`,
 		ruleset: ['Obtainable', 'Team Preview', 'Cancel Mod', 'Species Clause', 'Item Clause', 'Adjust Level Down = 50', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'Data Mod', 'Sleep Clause Mod'],
