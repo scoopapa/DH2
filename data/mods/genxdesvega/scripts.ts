@@ -605,14 +605,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return item !== 'airballoon';
 		 },
 		
-	/** Specifically: is protected against a single-target damaging move */
-	isProtected() {
-		return !!(
-			this.volatiles['protect'] || this.volatiles['detect'] || this.volatiles['maxguard'] ||
-			this.volatiles['kingsshield'] || this.volatiles['spikyshield'] || this.volatiles['banefulbunker'] ||
-			this.volatiles['obstruct'] || this.volatiles['silktrap'] || this.volatiles['burningbulwark'] ||
-			this.volatiles['fieldofvision']
-		);
-	}
+		/** Specifically: is protected against a single-target damaging move */
+		isProtected() {
+			return !!(
+				this.volatiles['protect'] || this.volatiles['detect'] || this.volatiles['maxguard'] ||
+				this.volatiles['kingsshield'] || this.volatiles['spikyshield'] || this.volatiles['banefulbunker'] ||
+				this.volatiles['obstruct'] || this.volatiles['silktrap'] || this.volatiles['burningbulwark'] ||
+				this.volatiles['fieldofvision']
+			);
+		}
      },
 };
