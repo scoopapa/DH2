@@ -735,8 +735,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DOU",
 	},
-
-	
 	
 	arcognition: {
 		tier: "Desvega Uber",
@@ -750,6 +748,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega Uber",
 		doublesTier: "DGX",
 	},
+	
 	indeedee: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
@@ -1263,7 +1262,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	parasectbrazdo: {
-		tier: "Desvega OU",
+		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	parascend: {
@@ -1299,7 +1298,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	pyroarloria: {
-		tier: "Desvega OU",
+		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	jungelion: {
@@ -1419,7 +1418,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	zigzagoongalar: {
-		tier: "Desvega OU",
+		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
 	linoone: {
@@ -1550,7 +1549,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
-  hydrapple: {
+	hydrapple: {
     tier: "Desvega OU",
     doublesTier: "DGX",
   },
