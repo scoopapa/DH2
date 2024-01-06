@@ -5845,6 +5845,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "wailord").learnset.roar = ["9L1"];
 		this.modData("Learnsets", "wailord").learnset.muddywater = ["9L1"];
 		this.modData("Learnsets", "wailord").learnset.exfoliate = ["9L1"];
+		this.modData("Learnsets", "wailord").learnset.wavecrash = ["9L1"];
 		// Luvdisc
 		this.modData("Learnsets", "luvdisc").learnset.heartbeat = ["9L1"];
 		// Skrelp
