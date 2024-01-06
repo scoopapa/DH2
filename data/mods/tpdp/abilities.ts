@@ -1593,10 +1593,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	moraleboost: {
 		name: "Morale Boost",
 		shortDesc: "When an opponent is KO'd, FoAtk is raised.",
-		onSourceAfterFaint(length, target, source, effect) {
-			if (effect && effect.effectType === 'Move') {
-				this.boost({atk: length}, source);
-			}
+		onFoeFaint(target, source, effect) {
+			this.boost({atk: 1});
 		},
 	},
 	naturalform: {
