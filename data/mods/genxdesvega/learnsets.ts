@@ -5170,7 +5170,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			knockoff: ["9L1"],
 			crunch: ["9L1"],
 			firepunch: ["9L1"],
-		}
+		},
 	},
 	scraftydesvegaarbok: {
 		learnset: {
