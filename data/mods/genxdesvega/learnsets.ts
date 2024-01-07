@@ -9346,6 +9346,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			gigaimpact: ["9L1", "8L1"],
 			grasspledge: ["9L1", "8L1"],
 			frenzyplant: ["9L1", "8L1"],
+			accelerock: ["9L1"],
 		},
 	},
 	embaa: {
@@ -9528,6 +9529,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			snore: ["9L1", "8L1"],
 			waterpledge: ["9L1", "8L1"],
 			hydrocannon: ["9L1", "8L1"],
+			rapidspin: ["9L1"],
 		},
 	},
 	//legends
