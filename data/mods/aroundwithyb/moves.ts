@@ -237,7 +237,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		basePower: 0,
 		category: "Status",
 		viable: true,
-	   shortDesc: "Copies the foe's attacking move at 1.5x power. The foe is then confused. User must be faster.",
+	   shortDesc: "Copies the foe's attacking move at 1.5x power. Move is then disabled for 3 turns. User must be faster.",
 		name: "Premonition",
 		pp: 10,
 		priority: 0,
@@ -259,7 +259,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 
 			pokemon.addVolatile('premonition');
 			this.actions.useMove(move, pokemon, target);
-			target.addVolatile('confusion');
+			target.addVolatile('premonitionblock');
 			return null;
 		},
 		condition: {
@@ -273,6 +273,80 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "adjacentFoe",
 		type: "Psychic",
 		zMove: {boost: {spe: 2}},
+		contestType: "Clever",
+	},
+	premonitionblock: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+	   shortDesc: "Disables the move the foe is about to use.",
+		name: "Premonition Block",
+		noSketch: true,
+		pp: 20,
+		priority: 0,
+		flags: {},
+		volatileStatus: 'premonitionblock',
+		onTry(source, target) {
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || target.volatiles['mustrecharge']) {
+				return false;
+			}
+		},
+		condition: {
+			duration: 3,
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				const action = this.queue.willMove(pokemon);
+				const move = action?.choice === 'move' ? action.move : null;
+				if (
+					this.queue.willMove(pokemon) ||
+					(pokemon === this.activePokemon && this.activeMove && !this.activeMove.isExternal)
+				) {
+					this.effectState.duration--;
+				}
+				if (!pokemon.move) {
+					this.debug(`Pokemon wasn't using an attack this turn`);
+					return false;
+				}
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id === pokemon.move.id) {
+						if (!moveSlot.pp) {
+							this.debug('Move out of PP');
+							return false;
+						}
+					}
+				}
+				if (effect.effectType === 'Ability') {
+					this.add('-start', pokemon, 'Premonition', pokemon.move.name, '[from] ability: Cursed Body', '[of] ' + source);
+				} else {
+					this.add('-start', pokemon, 'Premonition', pokemon.move.name);
+				}
+				this.effectState.move = pokemon.move.id;
+			},
+			onResidualOrder: 17,
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Disable');
+			},
+			onBeforeMovePriority: 7,
+			onBeforeMove(attacker, defender, move) {
+				if (!move.isZ && move.id === this.effectState.move) {
+					this.add('cant', attacker, 'Premonition', move);
+					return false;
+				}
+			},
+			onDisableMove(pokemon) {
+				for (const moveSlot of pokemon.moveSlots) {
+					if (moveSlot.id === this.effectState.move) {
+						pokemon.disableMove(moveSlot.id);
+					}
+				}
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Psychic",
+		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
 	pullingstrings: {
