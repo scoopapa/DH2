@@ -925,7 +925,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
-	lycanrocmidday: {
+	lycanroc: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
