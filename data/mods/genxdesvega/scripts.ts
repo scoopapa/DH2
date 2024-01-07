@@ -503,7 +503,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.formeChange(species, pokemon.getItem(), true);
 				// Limit one mega evolution
 				for (const ally of pokemon.side.pokemon) {
-					if (!ally.item?.endsWith('mask')) {
+					if (!ally.item.endsWith('mask') || !ally.getItem().megaStone) {
 						ally.canMegaEvo = null;
 					}
 				}
@@ -518,7 +518,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 				//limit one wonder mask
 				for (const ally of pokemon.side.pokemon) {
-					if (ally.item?.endsWith('mask')) {
+					if (ally.item.endsWith('mask') && ally.getItem().megaStone) {
 						ally.canMegaEvo = null;
 					}
 				}
@@ -600,10 +600,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('magnetrise' in this.volatiles/*) return false;
 			if (*/|| 'telekinesis' in this.volatiles) return false;
 			//These species are excluded from the Tree-Topper check due to Telekinesis failing against them
-			if (this.battle.getAllActive().some(target => target.hasAbility('treetopper')) && 
-					!['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies) &&
-						this.baseSpecies.name !== 'Gengar-Mega') return false;
+			if (!['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies) &&
+						this.baseSpecies.name !== 'Gengar-Mega' && this.battle.getAllActive().some(target => target.hasAbility('treetopper'))) return false;
 			return item !== 'airballoon';
 		 },
+		
+	/** Specifically: is protected against a single-target damaging move */
+	isProtected() {
+		return !!(
+			this.volatiles['protect'] || this.volatiles['detect'] || this.volatiles['maxguard'] ||
+			this.volatiles['kingsshield'] || this.volatiles['spikyshield'] || this.volatiles['banefulbunker'] ||
+			this.volatiles['obstruct'] || this.volatiles['silktrap'] || this.volatiles['burningbulwark'] ||
+			this.volatiles['fieldofvision']
+		);
+	}
      },
 };

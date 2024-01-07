@@ -179,6 +179,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	ledyba: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	ledian: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	lediund: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
@@ -187,7 +195,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
-	triassange: {
+	triassinge: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -343,6 +351,14 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	slugma: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	magcargo: {
+		tier: "Desvega NFE",
+		doublesTier: "DGX",
+	},
 	saunusca: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
@@ -355,11 +371,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
-	slushisloshisolo: {
-		tier: "Desvega OU",
-		doublesTier: "DGX",
-	},
-	slushisloshischool: {
+	slushisloshi: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -619,8 +631,16 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	scraggy: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
 	scraggydesvega: {
 		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	scrafty: {
+		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
 	scraftydesvegaarbok: {
@@ -677,11 +697,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	casinova: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	silicuit: {
 		tier: "Desvega LC",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	silipro: {
 		tier: "Desvega NFE",
@@ -733,7 +753,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	tapuzaza: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	
 	arcognition: {
@@ -1086,11 +1106,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	galliwatt: {
-		tier: "Desvega OU",
+		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
 	coirele: {
-		tier: "Desvega OU",
+		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	ampalango: {
@@ -1641,8 +1661,33 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
+	mareanie: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	toxapex: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	ekans: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	arbok: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
+	silicobra: {
+		tier: "Desvega LC",
+		doublesTier: "DGX",
+	},
+	sandaconda: {
+		tier: "Desvega OU",
+		doublesTier: "DGX",
+	},
   
 	cirno: {
+		isNonstandard: "Custom",
 		tier: "Illegal",
 		doublesTier: "Illegal",
 	},

@@ -328,7 +328,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 51,
 		prevo: "Elgyem-Desvega",
 		evoType: "levelExtra",
-		evoCondition: "with low friendship",
+		evoCondition: "with low Friendship",
 	},
 	sableye: {
 		inherit: true,
@@ -1251,7 +1251,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 15,
 		prevo: "Fishtol",
 		evoLevel: 30,
-		evoMove: "Octazooka",
+		evoCondition: "knowing Octazooka",
 	},
 	neutrass: {
 		num: 1423,
@@ -1284,7 +1284,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 1,
 		prevo: "Neutrass",
 		evoType: "levelExtra",
-		evoCondition: "with low friendship",
+		evoCondition: "with low Friendship",
 	},
 	crayoct: {
 		num: 1426,
@@ -1320,7 +1320,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	cramorantdesvegagulping: {
 		num: 845,
 		name: "Cramorant-Desvega-Gulping",
-		baseSpecies: "Cramorant-Desvega",
+		baseSpecies: "Cramorant",
 		forme: "Gulping",
 		types: ["Poison", "Water"],
 		baseStats: {hp: 80, atk: 75, def: 75, spa: 75, spd: 95, spe: 75},
@@ -1333,7 +1333,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	cramorantdesvegagorging: {
 		num: 845,
 		name: "Cramorant-Desvega-Gorging",
-		baseSpecies: "Cramorant-Desvega",
+		baseSpecies: "Cramorant",
 		forme: "Gorging",
 		types: ["Poison", "Water"],
 		baseStats: {hp: 80, atk: 75, def: 75, spa: 75, spd: 95, spe: 75},
@@ -1524,7 +1524,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoLevel: 40,
 		evoCondition: "with a Jesizard and no Ficovore in party",
 	},
-	pawniward: {
+	pawniard: {
 		inherit: true,
 		evos: ["Bisharp", "Knightmare"],
 	},
@@ -1673,6 +1673,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1,
 		weightkg: 22,
 		prevo: "Mawile-Desvega",
+		evoType: "useItem",
+		evoItem: "Dragon Fang",
 	},
 	casinova: {
 		num: 1440,
@@ -1816,7 +1818,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	//brazdo
 	souarente: {
 		num: 1122,
-		name: "Pequetal",
+		name: "Souarente",
 		types: ["Grass", "Electric"],
 		baseStats: {hp: 35, atk: 40, def: 80, spa: 55, spd: 70, spe: 30},
 		abilities: {0: "Static", H: "Solar Power"},
@@ -2267,7 +2269,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 440.4,
 		prevo: "Beetleton",
 		evoLevel: 45,
-		evoMove: "Iron Blaster",
+		evoCondition: "knowing Iron Blaster",
 	},
 	skitty: {
 		inherit: true,
