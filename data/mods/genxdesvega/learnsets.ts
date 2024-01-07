@@ -3046,7 +3046,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			overheat: ["9L1"],
 			powergem: ["9L1"],
 			recover: ["9L1"],
-			scaldlearneduponevo: ["9L1"],
+			scald: ["9L0"],
 			shellsmash: ["9L1"],
 			stealthrock: ["9L1"],
 			steameruption: ["9L1"],
