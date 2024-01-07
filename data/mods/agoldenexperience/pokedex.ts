@@ -1062,7 +1062,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 		baseSpecies: "Flygon",
 		forme: "Mega",
 		types: ["Ground", "Dragon"],
-		baseStats: {hp: 80, atk: 100, def: 100, spa: 110, spd: 100, spe: 130},
+		baseStats: {hp: 80, atk: 110, def: 100, spa: 100, spd: 110, spe: 120},
 		abilities: {0: "Desert Song"},
 		heightm: 2.8,
 		weightkg: 82,
@@ -2364,7 +2364,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
         forme: "Sinnoh",
         types: ["Ice", "Dragon"],
 		baseStats: {hp: 85, atk: 70, def: 80, spa: 97, spd: 80, spe: 123},
-        abilities: {0: "Levitate", H: "Aerilate"},
+        abilities: {0: "Levitate", H: "Sonar"},
         heightm: 1.4,
         weightkg: 89,
 		prevo: "Noibat-Sinnoh",
@@ -2404,7 +2404,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData;} = {
 	},
 	crabominable: {
 		inherit: true,
-		baseStats: {hp: 97, atk: 132, def: 90, spa: 50, spd: 89, spe: 30},
+		baseStats: {hp: 97, atk: 132, def: 77, spa: 50, spd: 79, spe: 43},
+		abilities: {0: "Hyper Cutter", 1: "Iron Fist", H: "Fur Coat"},
 	},
 	oricorio: {
 		inherit: true,
