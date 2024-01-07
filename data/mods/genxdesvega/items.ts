@@ -240,13 +240,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Pichat line: doubled Attack/Sp. Atk, +1 critrate.",
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (["Pichat", "Pikachat", "Raichat"].includes(user.baseSpecies.baseSpecies)) {
+			if (["Pichat", "Pikachat", "Raichat"].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},	
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
-			if (["Pichat", "Pikachat", "Raichat"].includes(user.baseSpecies.baseSpecies)) {
+			if (["Pichat", "Pikachat", "Raichat"].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
