@@ -298,7 +298,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Beheeyem",
 		forme: "Loria",
 		types: ["Psychic", "Ice"],
-		baseStats: {hp: 55, atk: 95, def: 75, spa: 95, spd: 75, spe: 80},
+		baseStats: {hp: 65, atk: 95, def: 75, spa: 95, spd: 75, spe: 80},
 		abilities: {0: "Technician", 1: "Synchronize", H: "Compound Eyes"},
 		heightm: 1.4,
 		weightkg: 55.5,
