@@ -1420,7 +1420,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Guillotine", target);
 		},
-		onHit(target, source) {
+		onHit(target, source, move) {
 			if (source.baseSpecies.forme === 'Heart') {
 				this.heal(source.maxhp / 6, source, source, move);
 			} else if (source.baseSpecies.forme === 'Star') {
