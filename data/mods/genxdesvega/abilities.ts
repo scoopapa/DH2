@@ -301,6 +301,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
 		},
 	},
+	
+	damp: {
+		inherit: true,
+		onAnyTryMove(target, source, effect) {
+			if (['explosion', 'mindblown', 'mistyexplosion', 'selfdestruct', 'steamingblast'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: Damp', effect, '[of] ' + target);
+				return false;
+			}
+		},
+	},
 	//loria abilities just in case
 	// Wind Blaster could need testing.
 	windblaster: {
