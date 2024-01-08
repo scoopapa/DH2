@@ -705,51 +705,51 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	silipro: {
 		tier: "Desvega NFE",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	silicom: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	pantalien: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	rootle: {
 		tier: "Desvega LC",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	vipalm: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	embird: {
 		tier: "Desvega LC",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	majesoar: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	misseal: {
 		tier: "Desvega LC",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	pinnipoint: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	snolobe: {
 		tier: "Desvega LC",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	freezerit: {
 		tier: "Desvega NFE",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	icesty: {
 		tier: "Desvega OU",
-		doublesTier: "DOU",
+		doublesTier: "DGX",
 	},
 	tapuzaza: {
 		tier: "Desvega OU",
