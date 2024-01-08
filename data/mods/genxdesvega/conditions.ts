@@ -3,10 +3,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 		name: 'par',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
-			if (sourceEffect && sourceEffect.id === 'thunderorb') {
+			if (!sourceEffect) {
+				this.add('-status', target, 'par');
+			} else if (sourceEffect.id === 'thunderorb') {
+				//TODO: Actually play the anim but use a different message
 				this.add('-status', target, 'par', '[from] item: Thunder Orb', '[silent]');
-        this.add('-message', `${target.name} was paralyzed by the Thunder Orb!`);
-			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				this.add('-message', `${target.name} was paralyzed by the Thunder Orb!`);
+			} else if (sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'par', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
 				this.add('-status', target, 'par');

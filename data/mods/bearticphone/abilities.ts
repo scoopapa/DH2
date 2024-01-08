@@ -316,18 +316,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.add('-ability', source, 'Bullseye');
-				const newboosts = this.effectState.boosts+1;
-				this.add('-end', pokemon, `bullseye${newboosts-1}`, '[silent]');
-				this.add('-start', pokemon, `bullseye${newboosts}`, '[silent]');
-				this.effectState.boosts = newboosts;
+				source.addVolatile('gmaxchistrike');
 			}
-		},
-		onModifyCritRatio(critRatio) {
-			if (!this.effectState.boosts) return;
-			return critRatio + this.effectState.boosts;
-		},
-		onEnd(pokemon) {
-			this.add('-end', pokemon, `bullseye${this.effectState.boosts}`, '[silent]');
 		},
 		name: "Bullseye",
 		shortDesc: "KOing an opponent raises crit ratio by 1",

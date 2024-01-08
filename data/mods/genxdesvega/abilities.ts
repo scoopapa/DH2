@@ -122,6 +122,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						move.ohko
 					) {
 						this.add('-ability', pokemon, 'Tactical Monarch');
+						//TODO: Handle cases where two mons with this ability switch in at the same time and both set off this abil
+						//(Or at least find out what's meant to happen when this happens)
 						pokemon.m.monarch = pokemon.switchFlag = true;
 						return;
 					}
@@ -163,16 +165,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			let activated = false;
 			for (const target of pokemon.adjacentFoes()) {
 				//Second effect is negation from Wonder Evolution
-				if (target.hasType('Ice') || (target.species.isMega && target.item?.endsWith('mask'))) continue;
-				if (!activated) {
-					this.add('-ability', pokemon, 'Ice Curse');
-					activated = true;
-				}
-				if (target.volatiles['substitute']) {
-					this.add('-immune', target);
-				} else if (target.addType('Ice')){
-					this.add('-start', target, 'typeadd', 'Ice', '[from] ability: Ice Curse');
-				}
+				if (target.hasType('Ice') || (target.species.isMega && target.item?.endsWith('mask')) || target.volatiles['substitute'] || !target.addType('Ice')) continue;
+				this.add('-start', target, 'typeadd', 'Ice', '[from] ability: Ice Curse', '[of] ' + pokemon);
 			}
 		},
 		name: "Ice Curse",
@@ -285,49 +279,36 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		inherit: true,
 		shortDesc: "Wishiwashi/Slushisloshi: Changes to School Form if it has > 1/4 max HP, else Solo Form.",
 		onStart(pokemon) {
-			if (!['Slushisloshi,Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
+			if (!['Slushisloshi','Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
 				|| pokemon.level < 20 || pokemon.transformed) return;
-			if (pokemon.species.id === 'slushisloshischool' && pokemon.hasItem('slushisloshiscale')) {
-				pokemon.addVolatile('ability:waterabsorb');
-			} else if (pokemon.hp > pokemon.maxhp / 4) {
-				if (pokemon.species.id === 'wishiwashi') {
-					pokemon.formeChange('Wishiwashi-School');
-				} else if (pokemon.species.id === 'slushisloshi') {
-					pokemon.formeChange('Slushisloshi-School');
-					if (pokemon.hasItem('slushisloshiscale')) {
-						pokemon.addVolatile('ability:waterabsorb');
-						this.add('-ability', pokemon, 'Water Absorb');
-					}
-				}
-			} else if (pokemon.species.id === 'wishiwashischool') {
-				pokemon.formeChange('Wishiwashi');
-			} else if (pokemon.species.id === 'slushisloshischool' && !pokemon.hasItem('slushisloshiscale')) {
-				pokemon.formeChange('Slushisloshi');
-			}
-		},
-		onResidualOrder: 29,
-		onResidual(pokemon) {
-			//The commented-out stuff might need testing
-			/*if (pokemon.hp) 
-				this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);*/
-			if (
-				!['Slushisloshi,Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
-				|| pokemon.level < 20 || pokemon.transformed || !pokemon.hp
-			) return;
+			if (pokemon.baseSpecies.baseSpecies === 'Slushisloshi' && pokemon.hasItem('slushisloshiscale')) return;
+			//Effects of Slushisloshi Scale are coded in that item
 			if (pokemon.hp > pokemon.maxhp / 4) {
 				if (pokemon.species.id === 'wishiwashi') {
 					pokemon.formeChange('Wishiwashi-School');
 				} else if (pokemon.species.id === 'slushisloshi') {
 					pokemon.formeChange('Slushisloshi-School');
-					if (pokemon.hasItem('slushisloshiscale')) {
-						pokemon.addVolatile('ability:waterabsorb');
-						this.add('-ability', pokemon, 'Water Absorb');
-					}
 				}
 			} else if (pokemon.species.id === 'wishiwashischool') {
 				pokemon.formeChange('Wishiwashi');
-			} else if (pokemon.species.id === 'slushisloshischool' && !pokemon.hasItem('slushisloshiscale')) {
+			} else if (pokemon.species.id === 'slushisloshischool') {
 				pokemon.formeChange('Slushisloshi');
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.hp) 
+				this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+		},
+	},
+	
+	damp: {
+		inherit: true,
+		onAnyTryMove(target, source, effect) {
+			if (['explosion', 'mindblown', 'mistyexplosion', 'selfdestruct', 'steamingblast'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: Damp', effect, '[of] ' + target);
+				return false;
 			}
 		},
 	},
