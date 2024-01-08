@@ -1740,6 +1740,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 105, atk: 78, def: 85, spa: 88, spd: 85, spe: 77},
 		abilities: {0: "Sap Sipper", H: "Intimidate"},
 		prevo: "Rootle",
+		evoLevel: 35,
 	},
 	embird: {
 		num: 1447,
@@ -1756,6 +1757,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 76, atk: 101, def: 80, spa: 91, spd: 68, spe: 102},
 		abilities: {0: "Flash Fire", H: "Speed Boost"},
 		prevo: "Embird",
+		evoLevel: 35,
 	},
 	misseal: {
 		num: 1449,
@@ -1772,6 +1774,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 75, atk: 70, def: 80, spa: 108, spd: 90, spe: 95},
 		abilities: {0: "Storm Drain", H: "Galvanize"},
 		prevo: "Misseal",
+		evoLevel: 35,
 	},
 	snolobe: {
 		num: 1451,
