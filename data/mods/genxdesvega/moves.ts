@@ -432,7 +432,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onModifyCritRatio(critRatio, source, target) {
 			if (this.field.isTerrain('poisonterrain') && target?.isGrounded()) {
-				this.hint(`${move.name} always crits on grounded targets in Poison Terrain.`);
+				this.hint(`Toxic Shock always crits on grounded targets in Poison Terrain.`);
 				return 5;
 			}
 		},
