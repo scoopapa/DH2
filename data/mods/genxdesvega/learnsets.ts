@@ -5777,6 +5777,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			thunderpunch: ["9L1"],
 			trick: ["9L1"],
 			waterpulse: ["9L1"],
+			firewall: ["9L1"],
 		},
 	},
 	pantalien: {
@@ -8163,6 +8164,8 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			spikyshield: ["9L1", "8L1"],
 			razorleaf: ["9L1", "8L1"],
 			grassknot: ["9L1", "8L1"],
+			//stonjourner gets these two moves too
+			crippleclobber: ["9L1", "8L1"],
 			accelerock: ["9L1"],
 		},
 	},
