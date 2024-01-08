@@ -68,7 +68,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	},
 	defibrillate: {
 		accuracy: 90,
-		basePower: 90,
+		basePower: 100,
 		category: "Physical",
 		shortDesc: "Heals an ally's status if that ally is the target.",
 		viable: true,
