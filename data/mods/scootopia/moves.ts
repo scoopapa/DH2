@@ -368,6 +368,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		type: "Ice",
 		zMove: {boost: {atk: 1}},
 		contestType: "Beautiful",
+		viable: true,
 	},
 	// reindeerdash: {
 	// name: "Reindeer Dash",
