@@ -41,7 +41,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	railgunner: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['beam']) {
+			if (move.id.endsWith('beam')) {
 				return this.chainModify([5325, 4096]);
 			}
 		},
@@ -111,7 +111,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	tacticalmonarch: {
 		onStart(pokemon) {
-			if (pokemon.monarch) return;
+			if (pokemon.m.monarch) return;
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -122,15 +122,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						move.ohko
 					) {
 						this.add('-ability', pokemon, 'Tactical Monarch');
-						pokemon.monarch = true;
-						pokemon.switchFlag = true;
+						pokemon.m.monarch = pokemon.switchFlag = true;
+						return;
 					}
 				}
 			}
 		},
 		onFoeSwitchIn(target) {
 			const pokemon = this.effectState.target;
-			if (pokemon.monarch) return;
+			if (pokemon.m.monarch) return;
 			for (const moveSlot of target.moveSlots) {
 				const move = this.dex.moves.get(moveSlot.move);
 				if (move.category === 'Status') continue;
@@ -140,8 +140,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						move.ohko
 					) {
 						this.add('-ability', pokemon, 'Tactical Monarch');
-						pokemon.monarch = true;
-						pokemon.switchFlag = true;
+						pokemon.m.monarch = pokemon.switchFlag = true;
+					return;
 					}
 			}
 		},
@@ -283,6 +283,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	schooling: {
 		inherit: true,
+		shortDesc: "Wishiwashi/Slushisloshi: Changes to School Form if it has > 1/4 max HP, else Solo Form.",
 		onStart(pokemon) {
 			if (!['Slushisloshi,Wishiwashi'].includes(pokemon.baseSpecies.baseSpecies)
 				|| pokemon.level < 20 || pokemon.transformed) return;
@@ -359,6 +360,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		condition: {
 			duration: 1,
 		},
+		isBreakable: true,
 	},
 
 	piercingvision: {
@@ -379,12 +381,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
-			if (target === source || move.category === 'Status' || move.type !== 'Grass') return;
+			if (move.category === 'Status' || move.type !== 'Grass') return;
 			if (!move.auraBooster) move.auraBooster = this.effectData.target;
 			else if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
-		isUnbreakable: true,
 		name: "Deep Forest",
 		rating: 3,
 	},
@@ -395,12 +396,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
-			if (target === source || move.category === 'Status' || move.type !== 'Water') return;
+			if (move.category === 'Status' || move.type !== 'Water') return;
 			if (!move.auraBooster) move.auraBooster = this.effectData.target;
 			else if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
-		isUnbreakable: true,
 		name: "Deep Sea",
 		rating: 3,
 	},
@@ -415,6 +415,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Patience",
 		rating: 3.5,
+		isBreakable: true,
 	},
 	
 	prowess: {
@@ -430,19 +431,18 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	solarflare: {
 		shortDesc: "Hyakada: Flare forme in sunlight, else base forme.",
 		onStart(pokemon) {
-			delete this.effectData.forme;
+			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
-		onUpdate(pokemon) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Hyakada' || pokemon.transformed) return;
+		onWeatherChange(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Hyakada'
+				 || pokemon.transformed || !pokemon.hp) return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				if (pokemon.species.id !== 'hyakadaflare') {
 					pokemon.formeChange('Hyakada-Flare', this.effect, false, '[msg]');
 				}
-			} else //{
-				if (pokemon.species.id === 'hyakadaflare') {
-					pokemon.formeChange('Hyakada', this.effect, false, '[msg]');
-				}
-			//}
+			} else if (pokemon.species.id === 'hyakadaflare') {
+				pokemon.formeChange('Hyakada', this.effect, false, '[msg]');
+			}
 		},
 		name: "Solar Flare",
 		rating: 1,
@@ -470,14 +470,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		shortDesc: "This Pokemon has 1.25x evasiness in Grassy Terrain.",
 		onModifyAccuracyPriority: 8,
 		onModifyAccuracy(accuracy) {
-			if (typeof accuracy !== 'number') return;
-			if (this.field.isTerrain('grassyterrain')) {
-				this.debug('Grassy Cloak - decreasing accuracy');
-				return accuracy * 0.8;
-			}
+			if (typeof accuracy !== 'number' || !this.field.isTerrain('grassyterrain')) return;
+			this.debug('Grassy Cloak - decreasing accuracy');
+			return accuracy * 0.8;
 		},
 		name: "Grassy Cloak",
 		rating: 1.5,
+		isBreakable: true,
 	},
 	soulstrider: {
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by a Ghost move; Ghost immunity.",
@@ -491,6 +490,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Soul Strider",
 		rating: 3,
+		isBreakable: true,
 	},
 	venomvision: {
 		shortDesc: "The opponent's Evasiness is lowered by 1 after making contact with this Pokemon.",
@@ -527,8 +527,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					let bp = move.basePower;
 					if (move.ohko) bp = 150;
 					else if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
-					else if (bp === 1) bp = 80;
-					if (!bp && move.category !== 'Status') bp = 80;
+					else if (bp === 1 || (!bp && move.category !== 'Status')) bp = 80;
 					if (bp > warnBp) {
 						warnMoves = [[move, target]];
 						warnBp = bp;
@@ -670,19 +669,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	//Loria Region
 	//Items eaten by Ravenous after they activate: Focus Sash, Adrenaline Orb, Air Balloon, Blunder Policy, Eject Button, Eject Pack, Luminous Moss, Normal Gem, Red Card, Room Service, Snowball, Weakness Policy
 	ravenous: {
-		shortDesc: "(Mostly coded) Restores 1/6 of this Pokemon's max HP when any item is lost (excl. eating berries and Incinerate).",
+		shortDesc: "(Needs testing) Restores 1/6 of this Pokemon's max HP when any item is lost (excl. eating berries and Incinerate).",
 		onAnyAfterUseItem(item, pokemon) {
 			if (item.isBerry) return;
 			const ravenousMon = this.effectState.target;
-			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon);
+			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon, ravenousMon);
 		},
-		onAnyTakeItem(item, pokemon) {
-			//TODO: Deal with cases where you take the item and it's not replaced (eg. Thief, Trick)
-			//TODO: Also deal with Incinerate (Knock against berries should proc this abil)
-			if (pokemon.item) return;
-			const ravenousMon = this.effectState.target;
-			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon);
-		},
+		//Activating from Knock Off implemented in moves.ts
 		name: "Ravenous",
 	},
 	precision: {
@@ -710,7 +703,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (source.getTypes().join() === 'Water' || !source.setType('Water')) return;
 				this.add('-start', source, 'typechange', 'Water', '[from] ability: Phase Shift');
 			}
-			else if (move.type === 'Ice' && source.status !== 'brn'
+			//status check redundant here, if burned it would have gone into the previous branch
+			else if (move.type === 'Ice' //&& source.status !== 'brn'
 				&& source.getTypes().join() !== 'Ice' && source.setType('Ice')) {
 				this.add('-start', source, 'typechange', 'Ice', '[from] ability: Phase Shift');
 			}
@@ -744,6 +738,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Soaring Spirit",
+		isBreakable: true,
 	},
 	suddenguard: {
 		shortDesc: "While switching-in, this Pokemon takes 0.5x damage from non-Super Effective moves.",
@@ -754,9 +749,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Sudden Guard",
+		isBreakable: true,
 	},
 	bewitch: {
-		shortDesc: "(Bugged?) Moves that can inflict a status condition have their secondary chance doubled.",
+		shortDesc: "(Needs testing) Moves that can inflict a status condition have their secondary chance doubled.",
 		onModifyMovePriority: -2,
 		onModifyMove(move) {
 			if (move.secondaries) {
@@ -766,7 +762,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					if (['direclaw','spellcast','triattack'].includes(move.id) || secondary.status && secondary.chance) secondary.chance *= 2;
 				}
 			}
-			if (move.self?.status && move.self?.chance) move.self.chance *= 2;
+			if (move.self?.status && move.self.chance) move.self.chance *= 2;
 		},
 		name: "Bewitch",
 	},
@@ -796,14 +792,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(attacker, defender, move) {
-			if (attacker.species.name !== 'Tsunamey' || attacker.transformed) return;
+			if (attacker.species.name !== 'Tsunamey' || move.type !== 'Water' || attacker.transformed) return;
 			attacker.formeChange('Tsunamey-Surfing');
 		},
 		onWeatherChange(pokemon) {
-			if (this.field.isWeather(['raindance','primordialsea']) && pokemon.species.id === 'tsunamey' && !pokemon.transformed) {
-				this.add('-activate', pokemon, 'ability: Surf\'s Up');
+			if (pokemon.isActive && pokemon.species.id === 'tsunamey' && !pokemon.transformed
+				&& pokemon.hp && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather()))
 				pokemon.formeChange('Tsunamey-Surfing');
-			}
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
@@ -836,15 +831,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (move.type !== 'Water' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
 			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
 			const abilHolder = this.effectData.target;
-			if (this.validTarget(abilHolder, source, redirectTarget)) {
-				move.smartTarget &&= false;
-				if (abilHolder !== target) {
-					this.add('-activate', abilHolder, 'ability: Battle Tide');
-				}
-				return abilHolder;
+			if (!this.validTarget(abilHolder, source, redirectTarget)) return;
+			move.smartTarget &&= false;
+			if (abilHolder !== target) {
+				this.add('-activate', abilHolder, 'ability: Battle Tide');
 			}
+			return abilHolder;
 		},
 		name: "Battle Tide",
+		isBreakable: true,
 	},
 	solarcharge: {
 		shortDesc: "If Sunny Day is active, this Pokemon's Atk is 1.5x; loses 1/8 max HP per turn.",
@@ -874,6 +869,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return priority - 1;
 		},
 		name: "Eternal Ice",
+		isBreakable: true,
 	},
 	traveler: {
 		shortDesc: "Removes hazards upon switch-in.",
@@ -887,7 +883,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
-		id: "traveler",
 		name: "Traveler",
 	},
 	magmaabsorb: {
@@ -901,23 +896,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Magma Absorb",
+		isBreakable: true,
 	},
 	disastrous: {
 		shortDesc: "If hit by a Dark-type move, the foe loses 1/8 of their max HP; Dark and Intimidate immunity.",
 		onTryHit(target, source, move) {
-			if (move.target !== 'self' && ['Dark'].includes(move.type)) {
-				this.add('-immune', target, '[from] ability: Disastrous');
-				this.damage(source.baseMaxhp / 8, source, target);
+			if (target !== source && move.type === 'Dark') {
+				if (!this.damage(source.baseMaxhp / 8, source, target)) {
+					//This will activate if the attacker had Magic Guard or something
+					this.add('-immune', target, '[from] ability: Disastrous');
+				}
 				return null;
 			}
 		},
 		onBoost(boost, target, source, effect) {
-			if (effect.name === 'Intimidate') {
+			if (effect.name === 'Intimidate' && boost.atk) {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Disastrous', '[of] ' + target);
 			}
 		},
 		name: "Disastrous",
+		isBreakable: true,
 	},
 	potionbrewer: {
 		shortDesc: "(Bugged) Upon using a Psychic-type move, this Pokémon consumes its berry.",
@@ -931,9 +930,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
-				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
 			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || (move.isZ && move.category !== 'Status') || (move.name === 'Tera Blast' && pokemon.terastallized))) {
 				move.type = 'Ghost';
 				move.ancestorcallBoosted = true;
 			}
