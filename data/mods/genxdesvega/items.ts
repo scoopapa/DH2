@@ -240,13 +240,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		shortDesc: "Pichat line: doubled Attack/Sp. Atk, +1 critrate.",
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (["Pichat", "Pikachat", "Raichat"].includes(user.baseSpecies.baseSpecies)) {
+			if (["Pichat", "Pikachat", "Raichat"].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},	
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
-			if (["Pichat", "Pikachat", "Raichat"].includes(user.baseSpecies.baseSpecies)) {
+			if (["Pichat", "Pikachat", "Raichat"].includes(pokemon.baseSpecies.baseSpecies)) {
 				return this.chainModify(2);
 			}
 		},
@@ -270,6 +270,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 20,
 		},
 		ignoreKlutz: true,
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Slushisloshi' || pokemon.transformed || pokemon.level < 20) return;
+			if (pokemon.species.id === 'slushisloshi') {
+				this.add('-item', pokemon, 'Slushisloshi Scale');
+				pokemon.formeChange('Slushisloshi-School', this.dex.abilities.get('schooling'), true);
+				this.add('-ability', pokemon, 'Water Absorb');
+			}
+			pokemon.setAbility('waterabsorb', pokemon, true);
+		},
 		onTakeItem(item, pokemon, source) {
 			return (source && source.baseSpecies.baseSpecies !== "Slushisloshi" && pokemon.baseSpecies.baseSpecies !== "Slushisloshi");
 		},
