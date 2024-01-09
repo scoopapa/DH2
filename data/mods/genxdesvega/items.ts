@@ -47,7 +47,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	poisonseed: {
 		name: "Poison Seed",
-		shortDesc: "On Poison Terrain, +1 to the lower of holder's Defense or Sp. Def by 1. (Ties are currently broken randomly) Single use.",
+		shortDesc: "On Poison Terrain, +1 to the lower of holder's Defense or Sp. Def by 1. (If tied boosts Defense) Single use.",
 		fling: {
 			basePower: 10,
 		},
@@ -58,12 +58,10 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onTerrainChange(pokemon) {
 			if (this.field.isTerrain('poisonterrain') && pokemon.useItem()) {
-				const def = pokemon.getStat('def', false, true);
-				const spd = pokemon.getStat('spd', false, true);
-				if (def < spd || (def === spd && this.randomChance(1,2))) {
-					this.boost({def: 1}, pokemon);
-				} else {
+				if (pokemon.getStat('def', false, true) > pokemon.getStat('spd', false, true)) {
 					this.boost({spd: 1}, pokemon);
+				} else {
+					this.boost({def: 1}, pokemon);
 				}
 				
 			}
@@ -94,8 +92,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 && this.heal(pokemon.baseMaxhp / 2)) {
-				pokemon.setStatus('brn', pokemon);
 				pokemon.useItem();
+				pokemon.setStatus('brn', pokemon);
 			}
 		},
 	},
