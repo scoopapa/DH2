@@ -330,11 +330,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
   },
 	psyduck: {
 		inherit: true,
-		abilities: {0: "Good As Gold", 1: "Cloud Nine", H: "Swift Swim"},
+		abilities: {0: "Good as Gold", 1: "Cloud Nine", H: "Swift Swim"},
   },
 	golduck: {
 		inherit: true,
-		abilities: {0: "Good As Gold", 1: "Cloud Nine", H: "Swift Swim"},
+		abilities: {0: "Good as Gold", 1: "Cloud Nine", H: "Swift Swim"},
   },
 	ledian: {
 		inherit: true,
