@@ -559,7 +559,6 @@ export class ModdedDex {
 					}
 				}
 			}
-			//dataCache['Aliases'] = parentDex.data['Aliases'];
 		}
 
 		// Flag the generation. Required for team validator.
