@@ -545,11 +545,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			for (const statName in baseStats) {
 				baseStats[statName] = this.battle.clampIntRange(baseStats[statName] + statDeltas[statName], 1, 255);
 			}
-			this.battle.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
-			species.abilities = {'0': formeChangeSpecies.abilities['0']};
+			
+			const abil = formeChangeSpecies.abilities['0'];
+			species.abilities = {'0': abil};
 			const newType = formeChangeSpecies.types[0];
 			species.types = (species.types[0] === newType) ?
 				[newType] : [species.types[0], newType];
+			if (species.types[1]) {
+				const firsttype = species.types[0];
+				this.battle.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + ` (` + formeChangeSpecies.requiredItem + `)</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${firsttype}.png" alt="${firsttype}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${newType}.png" alt="${newType}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abil + `</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>`);
+			} else {
+				this.battle.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + ` (` + formeChangeSpecies.requiredItem + `)</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${newType}.png" alt="${newType}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abil + `</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>`);
+			}
+			this.battle.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+
 			//species.weighthg = Math.max(1, species.weighthg + formeChangeSpecies.weighthg - baseSpecies.weighthg);
 			species.originalSpecies = formeChangeSpecies.name;
 			species.requiredItem = formeChangeSpecies.requiredItem;
@@ -605,14 +614,14 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			return item !== 'airballoon';
 		 },
 		
-	/** Specifically: is protected against a single-target damaging move */
-	isProtected() {
-		return !!(
-			this.volatiles['protect'] || this.volatiles['detect'] || this.volatiles['maxguard'] ||
-			this.volatiles['kingsshield'] || this.volatiles['spikyshield'] || this.volatiles['banefulbunker'] ||
-			this.volatiles['obstruct'] || this.volatiles['silktrap'] || this.volatiles['burningbulwark'] ||
-			this.volatiles['fieldofvision']
-		);
-	}
+		/** Specifically: is protected against a single-target damaging move */
+		isProtected() {
+			return !!(
+				this.volatiles['protect'] || this.volatiles['detect'] || this.volatiles['maxguard'] ||
+				this.volatiles['kingsshield'] || this.volatiles['spikyshield'] || this.volatiles['banefulbunker'] ||
+				this.volatiles['obstruct'] || this.volatiles['silktrap'] || this.volatiles['burningbulwark'] ||
+				this.volatiles['fieldofvision']
+			);
+		}
      },
 };
