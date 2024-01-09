@@ -100,6 +100,7 @@ export const Scripts: ModdedBattleScriptsData = {
     this.modData('Learnsets', 'pawmot').learnset.stompingtantrum = ['9L1'];
     this.modData('Learnsets', 'pawmot').learnset.uturn = ['9L1'];
     this.modData('Learnsets', 'ironjugulis').learnset.nastyplot = ['9L1'];
+    this.modData('Learnsets', 'ironjugulis').learnset.roost = ['9L1'];
     this.modData('Learnsets', 'bellibolt').learnset.surf = ['9L1'];
     this.modData('Learnsets', 'maushold').learnset.armthrust = ['9L1'];
     this.modData('Learnsets', 'houndstone').learnset.strengthsap = ['9L1'];
