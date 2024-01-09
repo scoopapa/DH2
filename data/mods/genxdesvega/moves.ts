@@ -1186,6 +1186,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 	},
+	//There are mons that got dexited in SV but not Desvega and thus their signatures can't be used, so freeing their signatures here
+	naturesmadness: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	obstruct: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	shelltrap: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
 	//brazdo and loria moves just in case
 	citrusysting: {
