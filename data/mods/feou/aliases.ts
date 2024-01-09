@@ -1,5 +1,6 @@
 export const Aliases: {[alias: string]: string} = {
 	weezer: "Weezaluna-Bloodmoon",
+	wereallyletamonnamed: "Anoraidon",
 	
 	//Charbebe and evos have varying colors
 	charbebered: "Charbebe",
