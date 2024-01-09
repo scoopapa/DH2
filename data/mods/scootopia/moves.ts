@@ -416,6 +416,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	},
 	grasswhistle: {
 		inherit: true,
+		isNonstandard: null,
 		pp: 25,
 		accuracy: 80,
 		desc: "Puts the opponent to sleep for 1 turn",
@@ -1209,10 +1210,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		isNonstandard: null,
 	},
 	silverwind: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	grasswhistle: {
 		inherit: true,
 		isNonstandard: null,
 	},
