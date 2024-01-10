@@ -1537,13 +1537,13 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Rest", target);
 		},
 		onTryMove(pokemon) {
-			if (source.status === 'stp' || source.hasAbility('comatose')) return false;
+			if (pokemon.status === 'stp' || pokemon.hasAbility('comatose')) return false;
 			if (pokemon.hp === pokemon.maxhp) {
 				this.add('-fail', pokemon, 'heal');
 				return null;
 			}
-			if (source.hasAbility('active')) {
-				this.add('-fail', source, '[from] ability: ' + source.getAbility().name, '[of] ' + source);
+			if (pokemon.hasAbility('active')) {
+				this.add('-fail', pokemon, '[from] ability: ' + pokemon.getAbility().name, '[of] ' + pokemon);
 				return null;
 			}
 		},

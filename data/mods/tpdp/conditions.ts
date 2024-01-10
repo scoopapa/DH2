@@ -1299,11 +1299,10 @@ export const Conditions: {[k: string]: ModdedConditionData & {statusSlots: 1 | 2
 		onFieldResidual() {
 			this.add('-weather', 'Dust Storm', '[upkeep]');
 			this.add('-message', `The dust storm continues.`);
-			this.eachEvent('Weather');
+			if (this.field.isWeather('duststorm')) this.eachEvent('Weather');
 		},
-		onFieldWeather(target) {
-			if (!target.hasType(['Steel', 'Earth']))
-				this.damage(target.baseMaxhp / 16);
+		onWeather(target) {
+			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none', '[silent]');

@@ -118,4 +118,28 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		type: "Steel",
 		contestType: "Beautiful",
 	},
+	mk42charge: {
+		num: -5,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "MK-42 Charge",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		onModifyMove(move, pokemon) {
+			if (this.field.isTerrain('electricterrain')) move.boosts = {spa: 1, spe: 1, accuracy: 1};
+		},
+		boosts: {
+			spa: 1,
+			accuracy: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		shortDesc: "Raises SpA and Accuracy by 1 , also Speed by 1 in Electric Terrain.",
+		desc: "Raises the user's Special Attack and Accuracy by 1 stage, and also Speed by 1 stage in Electric Terrain.",
+		zMove: {boost: {atk: 1}},
+		contestType: "Cute",
+	},
 }

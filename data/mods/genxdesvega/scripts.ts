@@ -8,7 +8,74 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customDoublesTiers: ['DGX'],
 	},	
 	init() {
+		//oddish line
+		this.modData("Learnsets", "oddish").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "oddish").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "gloom").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "gloom").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "vileplume").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "vileplume").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "bellossom").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "bellossom").learnset.toxicshock = ["9L1"];
 		
+		//machop line
+		this.modData("Learnsets", "machop").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "machoke").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "machamp").learnset.taunt = ["9L1"];
+		
+		//geodude line
+		this.modData("Learnsets", "geodude").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "graveler").learnset.taunt = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.taunt = ["9L1"];
+		
+		//mandibuzz
+		this.modData("Learnsets", "mandibuzz").learnset.airdive = ["9L1"];
+		
+		//trubbish line
+		this.modData("Learnsets", "trubbish").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "trubbish").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "garbodor").learnset.toxicshock = ["9L1"];
+		
+		//pachirisu
+		this.modData("Learnsets", "pachirisu").learnset.shocktail = ["9L1"];
+		
+		//braviary
+		this.modData("Learnsets", "braviary").learnset.airdive = ["9L1"];
+		
+		//hawlucha
+		this.modData("Learnsets", "hawlucha").learnset.airdive = ["9L1"];
+		
+		//gligar line
+		this.modData("Learnsets", "gligar").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "gliscor").learnset.poisonterrain = ["9L1"];
+		
+		//wooper lines
+		this.modData("Learnsets", "wooper").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "quagsire").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "wooperpaldea").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "wooperpaldea").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "clodsire").learnset.toxicshock = ["9L1"];
+		
+		//hydreigon
+		this.modData("Learnsets", "hydreigon").learnset.roost = ["9L1"];
+		
+		//swinub line
+		this.modData("Learnsets", "piloswine").learnset.tripleaxel = ["9L1"];
+		this.modData("Learnsets", "mamoswine").learnset.tripleaxel = ["9L1"];
+		
+		//tandemaus line
+		this.modData("Learnsets", "tandemaus").learnset.nuzzle = ["9L1"];
+		this.modData("Learnsets", "tandemaus").learnset.tripleaxel = ["9L1"];
+		this.modData("Learnsets", "maushold").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "maushold").learnset.nuzzle = ["9L1"];
+		this.modData("Learnsets", "maushold").learnset.tripleaxel = ["9L1"];
+		
+		//poipole line
+		this.modData("Learnsets", "poipole").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "naganadel").learnset.poisonterrain = ["9L1"];
+		this.modData("Learnsets", "naganadel").learnset.toxicshock = ["9L1"];
 	},
 	runAction(action) {
 		const pokemonOriginalHP = action.pokemon?.hp;
@@ -306,8 +373,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		return false;
 	},
-	actions: {
-		
+	actions: {	
 		modifyDamage(
 			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
 		) {
@@ -437,7 +503,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				pokemon.formeChange(species, pokemon.getItem(), true);
 				// Limit one mega evolution
 				for (const ally of pokemon.side.pokemon) {
-					if (!ally.item?.endsWith('mask')) {
+					if (!ally.item.endsWith('mask') || !ally.getItem().megaStone) {
 						ally.canMegaEvo = null;
 					}
 				}
@@ -452,7 +518,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				}
 				//limit one wonder mask
 				for (const ally of pokemon.side.pokemon) {
-					if (ally.item?.endsWith('mask')) {
+					if (ally.item.endsWith('mask') && ally.getItem().megaStone) {
 						ally.canMegaEvo = null;
 					}
 				}
@@ -479,11 +545,20 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			for (const statName in baseStats) {
 				baseStats[statName] = this.battle.clampIntRange(baseStats[statName] + statDeltas[statName], 1, 255);
 			}
-			this.battle.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
-			species.abilities = {'0': formeChangeSpecies.abilities['0']};
+			
+			const abil = formeChangeSpecies.abilities['0'];
+			species.abilities = {'0': abil};
 			const newType = formeChangeSpecies.types[0];
 			species.types = (species.types[0] === newType) ?
 				[newType] : [species.types[0], newType];
+			if (species.types[1]) {
+				const firsttype = species.types[0];
+				this.battle.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + ` (` + formeChangeSpecies.requiredItem + `)</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${firsttype}.png" alt="${firsttype}" height="14" width="32"><img src="https://${Config.routes.client}/sprites/types/${newType}.png" alt="${newType}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abil + `</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>`);
+			} else {
+				this.battle.add(`raw|<ul class="utilichart"><li class="result"><span class="col pokemonnamecol" style="white-space: nowrap">` + species.name + ` (` + formeChangeSpecies.requiredItem + `)</span> <span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${newType}.png" alt="${newType}" height="14" width="32"></span> <span style="float: left ; min-height: 26px"><span class="col abilitycol">` + abil + `</span><span class="col abilitycol"></span></span></li><li style="clear: both"></li></ul>`);
+			}
+			this.battle.add(`raw|<ul class="utilichart"><li class="result"><span style="float: left ; min-height: 26px"><span class="col statcol"><em>HP</em><br>` + baseStats.hp + `</span> <span class="col statcol"><em>Atk</em><br>` + baseStats.atk + `</span> <span class="col statcol"><em>Def</em><br>` + baseStats.def + `</span> <span class="col statcol"><em>SpA</em><br>` + baseStats.spa + `</span> <span class="col statcol"><em>SpD</em><br>` + baseStats.spd + `</span> <span class="col statcol"><em>Spe</em><br>` + baseStats.spe + `</span> </span></li><li style="clear: both"></li></ul>`);
+
 			//species.weighthg = Math.max(1, species.weighthg + formeChangeSpecies.weighthg - baseSpecies.weighthg);
 			species.originalSpecies = formeChangeSpecies.name;
 			species.requiredItem = formeChangeSpecies.requiredItem;
@@ -534,10 +609,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			if ('magnetrise' in this.volatiles/*) return false;
 			if (*/|| 'telekinesis' in this.volatiles) return false;
 			//These species are excluded from the Tree-Topper check due to Telekinesis failing against them
-			if (this.battle.getAllActive().some(target => target.hasAbility('treetopper')) && 
-					!['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies) &&
-						this.baseSpecies.name !== 'Gengar-Mega') return false;
+			if (!['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(this.baseSpecies.baseSpecies) &&
+						this.baseSpecies.name !== 'Gengar-Mega' && this.battle.getAllActive().some(target => target.hasAbility('treetopper'))) return false;
 			return item !== 'airballoon';
 		 },
+		
+		/** Specifically: is protected against a single-target damaging move */
+		isProtected() {
+			return !!(
+				this.volatiles['protect'] || this.volatiles['detect'] || this.volatiles['maxguard'] ||
+				this.volatiles['kingsshield'] || this.volatiles['spikyshield'] || this.volatiles['banefulbunker'] ||
+				this.volatiles['obstruct'] || this.volatiles['silktrap'] || this.volatiles['burningbulwark'] ||
+				this.volatiles['fieldofvision']
+			);
+		}
      },
 };

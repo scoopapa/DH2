@@ -7,7 +7,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 40, def: 35, spa: 40, spd: 35, spe: 50},
 		abilities: {0: "Curiosity", 1: "Slow Tempo"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "akyuu",
 	},
 	defenseakyuu: {
@@ -18,7 +18,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 60, def: 80, spa: 55, spd: 65, spe: 50},
 		abilities: {0: "Curiosity", 1: "Slow Tempo"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "akyuu",
 	},
 	assistakyuu: {
@@ -30,7 +30,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		maxHP: 1,
 		abilities: {0: "Frail Health", 1: "Curse Return"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "akyuu",
 	},
 	extraakyuu: {
@@ -41,7 +41,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 50, def: 70, spa: 50, spd: 70, spe: 80},
 		abilities: {0: "Curiosity", 1: "Wariness"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "akyuu",
 	},
 	normalalice: {
@@ -52,7 +52,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 35, def: 45, spa: 65, spd: 40, spe: 40},
 		abilities: {0: "Suppression", 1: "Composed"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "alice",
 	},
 	poweralice: {
@@ -63,7 +63,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 60, def: 95, spa: 120, spd: 80, spe: 55},
 		abilities: {0: "After Move", 1: "Stubborn"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "alice",
 	},
 	defensealice: {
@@ -74,7 +74,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 50, def: 120, spa: 80, spd: 90, spe: 55},
 		abilities: {0: "Suppression", 1: "Composed"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "alice",
 	},
 	extraalice: {
@@ -85,7 +85,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 120, def: 60, spa: 50, spd: 75, spe: 100},
 		abilities: {0: "Jamming", 1: "Northern Expanse"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "alice",
 	},
 	normalaunn: {
@@ -96,7 +96,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 55, def: 50, spa: 40, spd: 50, spe: 30},
 		abilities: {0: "Indomitable", 1: "Wariness"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "aunn",
 	},
 	defenseaunn: {
@@ -107,7 +107,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 85, def: 125, spa: 40, spd: 90, spe: 55},
 		abilities: {0: "Indomitable", 1: "Wariness"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "aunn",
 	},
 	poweraunn: {
@@ -118,7 +118,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 110, def: 80, spa: 65, spd: 80, spe: 60},
 		abilities: {0: "Indomitable", 1: "Economist"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "aunn",
 	},
 	extraaunn: {
@@ -129,7 +129,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 105, def: 75, spa: 70, spd: 80, spe: 80},
 		abilities: {0: "Two of a Kind", 1: "Divine Protection"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "aunn",
 	},
 	normalaya: {
@@ -140,7 +140,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 60, def: 50, spa: 30, spd: 30, spe: 75},
 		abilities: {0: "Gale", 1: "Free Will"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "aya",
 	},
 	speedaya: {
@@ -151,7 +151,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 80, def: 100, spa: 45, spd: 60, spe: 150},
 		abilities: {0: "Gale", 1: "Free Will"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "aya",
 	},
 	poweraya: {
@@ -162,7 +162,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 105, def: 70, spa: 90, spd: 50, spe: 130},
 		abilities: {0: "Gale", 1: "Salvo"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "aya",
 	},
 	extraaya: {
@@ -173,7 +173,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 45, def: 90, spa: 90, spd: 100, spe: 100},
 		abilities: {0: "Intuition", 1: "Unjustness"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "aya",
 	},
 	normalbenben: {
@@ -184,7 +184,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 50, def: 65, spa: 30, spd: 65, spe: 40},
 		abilities: {0: "Emergency Cure", 1: "Resonance"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "benben",
 	},
 	powerbenben: {
@@ -195,7 +195,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 120, def: 75, spa: 40, spd: 100, spe: 80},
 		abilities: {0: "Mind's Eye", 1: "Resonance"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "benben",
 	},
 	defensebenben: {
@@ -206,7 +206,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 105, def: 85, spa: 40, spd: 110, spe: 55},
 		abilities: {0: "Warning Shot", 1: "Economist"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "benben",
 	},
 	extrabenben: {
@@ -217,7 +217,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 165, atk: 40, def: 90, spa: 90, spd: 45, spe: 65},
 		abilities: {0: "Light Curtain", 1: "Stimulative"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "benben",
 	},
 	normalchen: {
@@ -228,7 +228,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 30, def: 35, spa: 60, spd: 35, spe: 60},
 		abilities: {0: "Flexible", 1: "Free Will"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chen",
 	},
 	speedchen: {
@@ -239,7 +239,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 30, def: 75, spa: 95, spd: 70, spe: 140},
 		abilities: {0: "Flexible", 1: "Free Will"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chen",
 	},
 	assistchen: {
@@ -250,7 +250,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 50, def: 85, spa: 80, spd: 85, spe: 120},
 		abilities: {0: "Niche", 1: "Adverse Wind"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chen",
 	},
 	extrachen: {
@@ -261,7 +261,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 105, def: 70, spa: 40, spd: 70, spe: 110},
 		abilities: {0: "Known Limits", 1: "Eastern Expanse"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chen",
 	},
 	normalchimata: {
@@ -272,7 +272,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 60, def: 60, spa: 40, spd: 60, spe: 40},
 		abilities: {0: "Glamorous", 1: "Empowered"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chimata",
 	},
 	defensechimata: {
@@ -283,7 +283,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 110, def: 110, spa: 60, spd: 85, spe: 75},
 		abilities: {0: "Glamorous", 1: "Empowered"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chimata",
 	},
 	powerchimata: {
@@ -294,7 +294,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 120, def: 80, spa: 70, spd: 80, spe: 100},
 		abilities: {0: "Disjointed Blow", 1: "Sore Loser"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chimata",
 	},
 	extrachimata: {
@@ -305,7 +305,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 85, def: 80, spa: 110, spd: 75, spe: 120},
 		abilities: {0: "Grand Opening", 1: "Strange Rainbow"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chimata",
 	},
 	normalchiyuri: {
@@ -316,7 +316,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 65, def: 65, spa: 30, spd: 45, spe: 30},
 		abilities: {0: "Disturber", 1: "Collectomaniac"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chiyuri",
 	},
 	defensechiyuri: {
@@ -327,7 +327,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 100, def: 120, spa: 45, spd: 80, spe: 45},
 		abilities: {0: "Disturber", 1: "Metallurgy"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chiyuri",
 	},
 	speedchiyuri: {
@@ -338,7 +338,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 125, def: 60, spa: 40, spd: 50, spe: 105},
 		abilities: {0: "Common Senseless", 1: "Reckless"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chiyuri",
 	},
 	extrachiyuri: {
@@ -349,7 +349,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 45, def: 80, spa: 100, spd: 130, spe: 50},
 		abilities: {0: "Glamorous", 1: "Stubborn"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "chiyuri",
 	},
 	normalcirno: {
@@ -360,7 +360,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 50, def: 30, spa: 50, spd: 30, spe: 60},
 		abilities: {0: "Curiosity", 1: "Active"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "cirno",
 	},
 	assistcirno: {
@@ -371,7 +371,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 40, def: 95, spa: 90, spd: 65, spe: 85},
 		abilities: {0: "Curiosity", 1: "Active"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "cirno",
 	},
 	powercirno: {
@@ -382,7 +382,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 120, def: 40, spa: 100, spd: 40, spe: 105},
 		abilities: {0: "Daredevil", 1: "Up Tempo"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "cirno",
 	},
 	extracirno: {
@@ -393,7 +393,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 40, def: 130, spa: 80, spd: 75, spe: 40},
 		abilities: {0: "Wariness", 1: "Known Limits"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "cirno",
 	},
 	normalclownpiece: {
@@ -404,7 +404,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 40, def: 55, spa: 50, spd: 55, spe: 60},
 		abilities: {0: "Glamorous", 1: "Chaos Induction"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "clownpiece",
 	},
 	defenseclownpiece: {
@@ -415,7 +415,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 70, def: 105, spa: 50, spd: 95, spe: 80},
 		abilities: {0: "Recoil Offset", 1: "Chaos Induction"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "clownpiece",
 	},
 	speedclownpiece: {
@@ -426,7 +426,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 80, spa: 80, spd: 80, spe: 130},
 		abilities: {0: "Wasteful", 1: "Telescopic"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "clownpiece",
 	},
 	extraclownpiece: {
@@ -437,7 +437,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 115, def: 35, spa: 80, spd: 120, spe: 40},
 		abilities: {0: "Glamorous", 1: "Up Tempo"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "clownpiece",
 	},
 	normaldaiyousei: {
@@ -448,7 +448,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 30, def: 40, spa: 45, spd: 55, spe: 40},
 		abilities: {0: "Telescopic", 1: "Glamorous"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "daiyousei",
 	},
 	defensedaiyousei: {
@@ -459,7 +459,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 30, def: 80, spa: 80, spd: 130, spe: 70},
 		abilities: {0: "Telescopic", 1: "Glamorous"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "daiyousei",
 	},
 	speeddaiyousei: {
@@ -470,7 +470,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 30, def: 70, spa: 95, spd: 105, spe: 85},
 		abilities: {0: "Telescopic", 1: "Skilled Hand"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "daiyousei",
 	},
 	extradaiyousei: {
@@ -481,7 +481,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 90, def: 120, spa: 45, spd: 75, spe: 45},
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "daiyousei",
 	},
 	normaldoremy: {
@@ -492,7 +492,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 60, def: 40, spa: 60, spd: 40, spe: 70},
 		abilities: {0: "Spirit of Yang", 1: "Spirit of Yin"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "doremy",
 	},
 	powerdoremy: {
@@ -503,7 +503,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 125, def: 45, spa: 125, spd: 45, spe: 125},
 		abilities: {0: "Invigorative", 1: "Appeased Spirit"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "doremy",
 	},
 	defensedoremy: {
@@ -514,7 +514,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 140, atk: 60, def: 125, spa: 70, spd: 85, spe: 35},
 		abilities: {0: "Cloak of Darkness", 1: "Reflect Guard"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "doremy",
 	},
 	extradoremy: {
@@ -525,7 +525,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 110, def: 75, spa: 65, spd: 75, spe: 115},
 		abilities: {0: "Dream World", 1: "Vision Bonus"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "doremy",
 	},
 	normaleika: {
@@ -536,7 +536,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 20, def: 60, spa: 55, spd: 50, spe: 40},
 		abilities: {0: "Appeased Spirit", 1: "Karmic Retribution"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eika",
 	},
 	defenseeika: {
@@ -547,7 +547,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 35, def: 125, spa: 90, spd: 115, spe: 40},
 		abilities: {0: "Appeased Spirit", 1: "Karmic Retribution"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eika",
 	},
 	assisteika: {
@@ -558,7 +558,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 95, def: 130, spa: 45, spd: 60, spe: 70},
 		abilities: {0: "Appeased Spirit", 1: "Curse Return"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eika",
 	},
 	extraeika: {
@@ -569,7 +569,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 35, def: 105, spa: 80, spd: 105, spe: 65},
 		abilities: {0: "Stone Stacker", 1: "Known Limits"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eika",
 	},
 	normaleiki: {
@@ -580,7 +580,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 75, def: 40, spa: 45, spd: 40, spe: 40},
 		abilities: {0: "Sermon", 1: "Sixth Sense"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eiki",
 	},
 	powereiki: {
@@ -591,7 +591,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 140, def: 70, spa: 90, spd: 70, spe: 60},
 		abilities: {0: "Sermon", 1: "Flawless"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eiki",
 	},
 	defenseeiki: {
@@ -602,7 +602,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 75, def: 110, spa: 75, spd: 110, spe: 80},
 		abilities: {0: "Sermon", 1: "Unjustness"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eiki",
 	},
 	extraeiki: {
@@ -613,7 +613,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 140, atk: 60, def: 100, spa: 90, spd: 100, spe: 60},
 		abilities: {0: "Invalidate", 1: "Known Limits"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eiki",
 	},
 	normaleirin: {
@@ -624,7 +624,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 45, def: 40, spa: 70, spd: 40, spe: 45},
 		abilities: {0: "Bad Medicine", 1: "Emergency Cure"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eirin",
 	},
 	assisteirin: {
@@ -635,7 +635,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 145, atk: 80, def: 65, spa: 120, spd: 75, spe: 75},
 		abilities: {0: "Bad Medicine", 1: "Emergency Cure"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eirin",
 	},
 	powereirin: {
@@ -646,7 +646,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 125, atk: 85, def: 80, spa: 130, spd: 80, spe: 60},
 		abilities: {0: "Bad Medicine", 1: "Emergency Cure"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eirin",
 	},
 	extraeirin: {
@@ -657,7 +657,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 60, def: 100, spa: 95, spd: 100, spe: 105},
 		abilities: {0: "Composed", 1: "Emergency Cure"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eirin",
 	},
 	normalelis: {
@@ -668,7 +668,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 65, def: 40, spa: 30, spd: 55, spe: 70},
 		abilities: {0: "Infiltration", 1: "Negative Aura"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "elis",
 	},
 	speedelis: {
@@ -679,7 +679,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 110, def: 60, spa: 60, spd: 90, spe: 130},
 		abilities: {0: "Infiltration", 1: "Negative Aura"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "elis",
 	},
 	powerelis: {
@@ -690,7 +690,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 125, def: 75, spa: 50, spd: 95, spe: 90},
 		abilities: {0: "Infiltration", 1: "Telescopic"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "elis",
 	},
 	extraelis: {
@@ -701,7 +701,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 60, def: 90, spa: 60, spd: 95, spe: 100},
 		abilities: {0: "Infiltration", 1: "Unjustness"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "elis",
 	},
 	normalellen: {
@@ -712,7 +712,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 40, def: 50, spa: 70, spd: 40, spe: 50},
 		abilities: {0: "Spirit of Yang", 1: "Peaceful"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ellen",
 	},
 	powerellen: {
@@ -723,7 +723,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 60, def: 80, spa: 130, spd: 80, spe: 70},
 		abilities: {0: "Spirit of Yang", 1: "Projection"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ellen",
 	},
 	speedellen: {
@@ -734,7 +734,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 50, def: 50, spa: 115, spd: 95, spe: 120},
 		abilities: {0: "Spirit of Yang", 1: "Air Cushion"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ellen",
 	},
 	extraellen: {
@@ -745,7 +745,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 80, def: 110, spa: 80, spd: 80, spe: 50},
 		abilities: {0: "Electromagnetic", 1: "Slow Tempo"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ellen",
 	},
 	normalelly: {
@@ -756,7 +756,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 70, def: 60, spa: 30, spd: 35, spe: 30},
 		abilities: {0: "Iron Resolve", 1: "Imposing Stance"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "elly",
 	},
 	powerelly: {
@@ -767,7 +767,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 120, def: 90, spa: 60, spd: 75, spe: 65},
 		abilities: {0: "Iron Resolve", 1: "Recoil Offset"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "elly",
 	},
 	defenseelly: {
@@ -778,7 +778,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 95, def: 95, spa: 50, spd: 80, spe: 60},
 		abilities: {0: "Iron Resolve", 1: "Imposing Stance"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "elly",
 	},
 	extraelly: {
@@ -789,7 +789,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 60, def: 75, spa: 100, spd: 60, spe: 120},
 		abilities: {0: "Nimble", 1: "Ascertainment"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "elly",
 	},
 	normaleternity: {
@@ -800,7 +800,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 55, def: 35, spa: 35, spd: 55, spe: 55},
 		abilities: {0: "Peaceful"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eternity",
 	},
 	speedeternity: {
@@ -811,7 +811,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 100, def: 50, spa: 30, spd: 90, spe: 110},
 		abilities: {0: "Warning Shot", 1: "Sanguine"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eternity",
 	},
 	assisteternity: {
@@ -822,7 +822,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 35, def: 90, spa: 85, spd: 95, spe: 80},
 		abilities: {0: "Deploy Smoke", 1: "Phlegmatic"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eternity",
 	},
 	extraeternity: {
@@ -833,7 +833,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 55, def: 70, spa: 105, spd: 60, spe: 120},
 		abilities: {0: "Flash", 1: "Surprise Tactics"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "eternity",
 	},
 	normalflandre: {
@@ -844,7 +844,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 70, def: 35, spa: 70, spd: 35, spe: 70},
 		abilities: {0: "Hot Head", 1: "Overwhelm"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "flandre",
 	},
 	speedflandre: {
@@ -855,7 +855,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 120, def: 60, spa: 120, spd: 60, spe: 110},
 		abilities: {0: "Hot Head", 1: "Unbound"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "flandre",
 	},
 	powerflandre: {
@@ -866,7 +866,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 115, def: 90, spa: 145, spd: 60, spe: 80},
 		abilities: {0: "Sutei's Fire", 1: "Overwhelm"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "flandre",
 	},
 	extraflandre: {
@@ -877,7 +877,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 120, def: 120, spa: 50, spd: 85, spe: 70},
 		abilities: {0: "Full Power", 1: "Unbound"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "flandre",
 	},
 	normalfuto: {
@@ -888,7 +888,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 40, def: 55, spa: 60, spd: 35, spe: 70},
 		abilities: {0: "Deploy Smoke", 1: "Weather Resist"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "futo",
 	},
 	speedfuto: {
@@ -899,7 +899,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 70, def: 90, spa: 105, spd: 55, spe: 135},
 		abilities: {0: "Deploy Smoke", 1: "Strategist"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "futo",
 	},
 	powerfuto: {
@@ -910,7 +910,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 60, def: 55, spa: 120, spd: 95, spe: 110},
 		abilities: {0: "Deploy Smoke", 1: "Unbound"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "futo",
 	},
 	extrafuto: {
@@ -921,7 +921,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 110, def: 60, spa: 60, spd: 80, spe: 130},
 		abilities: {0: "Sore Loser", 1: "Active"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "futo",
 	},
 	normalgengetsu: {
@@ -932,7 +932,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 75, def: 40, spa: 55, spd: 45, spe: 55},
 		abilities: {0: "Insight", 1: "Sixth Sense"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "gengetsu",
 	},
 	powergengetsu: {
@@ -943,7 +943,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 135, def: 70, spa: 70, spd: 85, spe: 75},
 		abilities: {0: "Insight", 1: "Sixth Sense"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "gengetsu",
 	},
 	speedgengetsu: {
@@ -954,7 +954,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 120, def: 45, spa: 120, spd: 45, spe: 130},
 		abilities: {0: "Eastern Expanse", 1: "Quick Eye"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "gengetsu",
 	},
 	extragengetsu: {
@@ -965,7 +965,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 60, def: 125, spa: 90, spd: 100, spe: 70},
 		abilities: {0: "Unwavering Heart", 1: "Brutality"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "gengetsu",
 	},
 	normalhatate: {
@@ -976,7 +976,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 40, def: 40, spa: 55, spd: 40, spe: 65},
 		abilities: {0: "Warning Shot", 1: "Telescopic"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hatate",
 	},
 	powerhatate: {
@@ -987,7 +987,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 95, def: 80, spa: 95, spd: 80, spe: 70},
 		abilities: {0: "Salvo", 1: "Telescopic"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hatate",
 	},
 	assisthatate: {
@@ -998,7 +998,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 50, def: 80, spa: 80, spd: 100, spe: 115},
 		abilities: {0: "Warning Shot", 1: "Quick Eye"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hatate",
 	},
 	extrahatate: {
@@ -1009,7 +1009,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 60, def: 90, spa: 115, spd: 90, spe: 80},
 		abilities: {0: "Nimble", 1: "Stimulative"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hatate",
 	},
 	normalhecatia: {
@@ -1020,7 +1020,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 70, def: 60, spa: 55, spd: 60, spe: 50},
 		abilities: {0: "Stimulative", 1: "Sixth Sense"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hecatia",
 	},
 	powerhecatia: {
@@ -1031,7 +1031,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 100, def: 85, spa: 135, spd: 85, spe: 95},
 		abilities: {0: "Niche", 1: "Central Expanse"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hecatia",
 	},
 	defensehecatia: {
@@ -1042,7 +1042,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 120, def: 70, spa: 70, spd: 200, spe: 50},
 		abilities: {0: "Restraint", 1: "Recalibration"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hecatia",
 	},
 	extrahecatia: {
@@ -1053,7 +1053,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 85, def: 150, spa: 85, spd: 150, spe: 60},
 		abilities: {0: "Three Bodies"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hecatia",
 		otherFormes: ["Extra Hecatia-Earth", "Extra Hecatia-Moon"]
 	},
@@ -1065,7 +1065,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 140, def: 140, spa: 60, spd: 10, spe: 90},
 		abilities: {0: "Three Bodies"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hecatia-earth",
 		changesFrom: "extrahecatia",
 		forme: "Earth"
@@ -1078,7 +1078,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 60, def: 10, spa: 140, spd: 140, spe: 90},
 		abilities: {0: "Three Bodies"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hecatia-moon",
 		changesFrom: "extrahecatia",
 		forme: "Moon"
@@ -1091,7 +1091,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 40, def: 55, spa: 70, spd: 60, spe: 30},
 		abilities: {0: "Unbound", 1: "Light Curtain"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hijiri",
 	},
 	defensehijiri: {
@@ -1102,7 +1102,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 60, def: 105, spa: 120, spd: 100, spe: 55},
 		abilities: {0: "Unbound", 1: "Aurora Grace"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hijiri",
 	},
 	speedhijiri: {
@@ -1113,7 +1113,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 120, def: 80, spa: 60, spd: 80, spe: 110},
 		abilities: {0: "Unbound", 1: "Reckless"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hijiri",
 	},
 	extrahijiri: {
@@ -1124,7 +1124,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 100, def: 65, spa: 110, spd: 65, spe: 120},
 		abilities: {0: "First Hit", 1: "Recoil Offset"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hijiri",
 	},
 	normalhina: {
@@ -1135,7 +1135,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 60, def: 70, spa: 40, spd: 45, spe: 45},
 		abilities: {0: "Air Cushion", 1: "Karmic Retribution"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hina",
 	},
 	defensehina: {
@@ -1146,7 +1146,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 40, def: 140, spa: 80, spd: 70, spe: 75},
 		abilities: {0: "Air Cushion", 1: "Karmic Retribution"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hina",
 	},
 	assisthina: {
@@ -1157,7 +1157,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 100, def: 60, spa: 40, spd: 110, spe: 105},
 		abilities: {0: "Air Cushion", 1: "Karmic Retribution"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hina",
 	},
 	extrahina: {
@@ -1168,7 +1168,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 130, def: 65, spa: 40, spd: 120, spe: 30},
 		abilities: {0: "Air Cushion", 1: "Reflect Guard"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "hina",
 	},
 	normalichirin: {
@@ -1179,7 +1179,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 75, def: 40, spa: 30, spd: 50, spe: 40},
 		abilities: {0: "Duel", 1: "Overwhelm"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ichirin",
 	},
 	powerichirin: {
@@ -1190,7 +1190,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 130, def: 65, spa: 55, spd: 100, spe: 75},
 		abilities: {0: "Duel", 1: "Overwhelm"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ichirin",
 	},
 	defenseichirin: {
@@ -1201,7 +1201,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 120, def: 80, spa: 80, spd: 80, spe: 30},
 		abilities: {0: "Duel", 1: "Overwhelm"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ichirin",
 	},
 	extraichirin: {
@@ -1212,7 +1212,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 60, def: 80, spa: 55, spd: 80, spe: 45},
 		abilities: {0: "Air Cushion", 1: "Forward Dash"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ichirin",
 	},
 	normaliku: {
@@ -1223,7 +1223,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 40, def: 60, spa: 70, spd: 50, spe: 25},
 		abilities: {0: "Electromagnetic", 1: "Air Cushion"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "iku",
 	},
 	poweriku: {
@@ -1234,7 +1234,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 75, def: 100, spa: 130, spd: 80, spe: 45},
 		abilities: {0: "Electromagnetic", 1: "Air Cushion"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "iku",
 	},
 	speediku: {
@@ -1245,7 +1245,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 115, def: 85, spa: 75, spd: 80, spe: 85},
 		abilities: {0: "Gale Form", 1: "Electrification"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "iku",
 	},
 	extraiku: {
@@ -1256,7 +1256,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 110, spa: 45, spd: 60, spe: 115},
 		abilities: {0: "Electromagnetic", 1: "Reckless"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "iku",
 	},
 	normaljunko: {
@@ -1267,7 +1267,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 75, def: 60, spa: 50, spd: 65, spe: 35},
 		abilities: {0: "Hate Incarnate", 1: "Unjustness"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "junko",
 	},
 	powerjunko: {
@@ -1278,7 +1278,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 125, def: 100, spa: 90, spd: 110, spe: 65},
 		abilities: {0: "Hate Incarnate", 1: "Unjustness"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "junko",
 	},
 	speedjunko: {
@@ -1289,7 +1289,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 80, def: 90, spa: 125, spd: 80, spe: 125},
 		abilities: {0: "Hate Incarnate", 1: "Unjustness"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "junko",
 	},
 	extrajunko: {
@@ -1300,7 +1300,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 80, def: 120, spa: 75, spd: 120, spe: 75},
 		abilities: {0: "Hate Incarnate", 1: "Absorbent"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "junko",
 	},
 	normalkagerou: {
@@ -1311,7 +1311,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 70, def: 40, spa: 35, spd: 40, spe: 70},
 		abilities: {0: "Final Form", 1: "Gale"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kagerou",
 	},
 	speedkagerou: {
@@ -1322,7 +1322,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 50, def: 60, spa: 120, spd: 85, spe: 120},
 		abilities: {0: "Final Form", 1: "Gale"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kagerou",
 	},
 	powerkagerou: {
@@ -1333,7 +1333,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 125, def: 80, spa: 50, spd: 95, spe: 80},
 		abilities: {0: "Final Form", 1: "Invigorative"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kagerou",
 	},
 	extrakagerou: {
@@ -1344,7 +1344,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 60, def: 115, spa: 95, spd: 130, spe: 30},
 		abilities: {0: "Vigorous", 1: "Cloak of Darkness"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kagerou",
 	},
 	normalkaguya: {
@@ -1355,7 +1355,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 30, def: 30, spa: 70, spd: 75, spe: 30},
 		abilities: {0: "Flaming Garment", 1: "Emergency Cure"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kaguya",
 	},
 	defensekaguya: {
@@ -1366,7 +1366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 220, atk: 35, def: 10, spa: 80, spd: 130, spe: 55},
 		abilities: {0: "Flaming Garment", 1: "Emergency Cure"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kaguya",
 	},
 	powerkaguya: {
@@ -1377,7 +1377,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 65, def: 80, spa: 130, spd: 80, spe: 55},
 		abilities: {0: "Healing Power", 1: "Pride"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kaguya",
 	},
 	extrakaguya: {
@@ -1388,7 +1388,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 130, def: 85, spa: 60, spd: 80, spe: 65},
 		abilities: {0: "Sore Loser", 1: "Strange Rainbow"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kaguya",
 	},
 	normalkana: {
@@ -1399,7 +1399,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 55, def: 40, spa: 35, spd: 60, spe: 65},
 		abilities: {0: "Skilled Hand", 1: "Quick Eye"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kana",
 	},
 	assistkana: {
@@ -1410,7 +1410,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 95, def: 60, spa: 40, spd: 100, spe: 115},
 		abilities: {0: "Curiosity", 1: "Quick Eye"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kana",
 	},
 	powerkana: {
@@ -1421,7 +1421,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 120, def: 65, spa: 45, spd: 85, spe: 95},
 		abilities: {0: "Skilled Hand", 1: "Up Tempo"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kana",
 	},
 	extrakana: {
@@ -1432,7 +1432,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 75, def: 60, spa: 120, spd: 60, spe: 125},
 		abilities: {0: "Wariness", 1: "Negative Aura"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kana",
 	},
 	normalkanako: {
@@ -1443,7 +1443,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 65, def: 75, spa: 55, spd: 40, spe: 30},
 		abilities: {0: "Unjustness", 1: "Strong Smile"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kanako",
 	},
 	defensekanako: {
@@ -1454,7 +1454,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 110, def: 140, spa: 95, spd: 70, spe: 70},
 		abilities: {0: "Unjustness", 1: "Strong Smile"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kanako",
 	},
 	powerkanako: {
@@ -1465,7 +1465,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 130, atk: 120, def: 75, spa: 80, spd: 85, spe: 90},
 		abilities: {0: "Unjustness", 1: "Zen"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kanako",
 	},
 	extrakanako: {
@@ -1476,7 +1476,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 100, def: 80, spa: 75, spd: 130, spe: 95},
 		abilities: {0: "Metallurgy", 1: "Western Expanse"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kanako",
 	},
 	normalkasen: {
@@ -1487,7 +1487,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 75, def: 60, spa: 50, spd: 45, spe: 30},
 		abilities: {0: "Sermon"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kasen",
 	},
 	powerkasen: {
@@ -1498,7 +1498,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 140, def: 95, spa: 90, spd: 65, spe: 45},
 		abilities: {0: "Mind's Eye", 1: "Charge!"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kasen",
 	},
 	assistkasen: {
@@ -1509,7 +1509,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 60, def: 95, spa: 80, spd: 110, spe: 95},
 		abilities: {0: "Absorbent", 1: "Battle Mania"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kasen",
 	},
 	extrakasen: {
@@ -1520,7 +1520,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 130, atk: 65, def: 130, spa: 110, spd: 60, spe: 45},
 		abilities: {0: "Restraint", 1: "Stubborn"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kasen",
 	},
 	normalkeiki: {
@@ -1531,7 +1531,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 70, def: 55, spa: 40, spd: 65, spe: 45},
 		abilities: {0: "Unjustness", 1: "Flawless"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "keiki",
 	},
 	powerkeiki: {
@@ -1542,7 +1542,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 125, def: 100, spa: 80, spd: 80, spe: 75},
 		abilities: {0: "Unjustness", 1: "Recoil Offset"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "keiki",
 	},
 	assistkeiki: {
@@ -1553,7 +1553,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 60, def: 65, spa: 110, spd: 120, spe: 115},
 		abilities: {0: "Known Limits", 1: "Flawless"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "keiki",
 	},
 	extrakeiki: {
@@ -1564,7 +1564,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 125, def: 75, spa: 105, spd: 75, spe: 90},
 		abilities: {0: "Phalanx", 1: "Sand Force"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "keiki",
 	},
 	normalkeine: {
@@ -1575,7 +1575,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 55, def: 50, spa: 30, spd: 40, spe: 40},
 		abilities: {0: "Overwhelm", 1: "Sermon"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "keine",
 	},
 	defensekeine: {
@@ -1586,7 +1586,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 95, def: 125, spa: 45, spd: 80, spe: 45},
 		abilities: {0: "Were-Hakutaku", 1: "Wisdom Eye"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "keine",
 		otherFormes: ["Defense Keine-Hakutaku"],
 	},
@@ -1598,7 +1598,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 140, def: 50, spa: 55, spd: 50, spe: 120},
 		abilities: {0: "Were-Hakutaku"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "keine-hakutaku",
 		forme: "Hakutaku",
 		changesFrom: "Defense Keine"
@@ -1611,7 +1611,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 40, def: 60, spa: 125, spd: 90, spe: 90},
 		abilities: {0: "Overwhelm", 1: "Byakutei's Metal"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "keine",
 	},
 	extrakeine: {
@@ -1622,7 +1622,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 110, def: 70, spa: 55, spd: 70, spe: 105},
 		abilities: {0: "Yata no Kagami", 1: "Sermon"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "keine",
 	},
 	normalkikuri: {
@@ -1633,7 +1633,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 30, def: 45, spa: 50, spd: 70, spe: 30},
 		abilities: {0: "Chaos Induction", 1: "Resonance"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kikuri",
 	},
 	defensekikuri: {
@@ -1644,7 +1644,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 130, atk: 50, def: 80, spa: 50, spd: 120, spe: 65},
 		abilities: {0: "Southern Expanse", 1: "Resonance"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kikuri",
 	},
 	powerkikuri: {
@@ -1655,7 +1655,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 85, spa: 120, spd: 100, spe: 50},
 		abilities: {0: "Chaos Induction", 1: "Healing Power"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kikuri",
 	},
 	extrakikuri: {
@@ -1666,7 +1666,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 170, atk: 85, def: 80, spa: 50, spd: 50, spe: 60},
 		abilities: {0: "In Sync", 1: "Niche"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kikuri",
 	},
 	normalkisume: {
@@ -1677,7 +1677,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 25, def: 70, spa: 50, spd: 70, spe: 20},
 		abilities: {0: "Indomitable", 1: "Some Guts"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kisume",
 	},
 	assistkisume: {
@@ -1688,7 +1688,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 65, def: 180, spa: 90, spd: 30, spe: 20},
 		abilities: {0: "Indomitable", 1: "Some Guts"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kisume",
 	},
 	defensekisume: {
@@ -1699,7 +1699,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 65, def: 30, spa: 90, spd: 180, spe: 20},
 		abilities: {0: "Indomitable", 1: "Some Guts"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kisume",
 	},
 	extrakisume: {
@@ -1710,7 +1710,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 90, def: 110, spa: 40, spd: 100, spe: 45},
 		abilities: {0: "Indomitable", 1: "Restraint"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kisume",
 	},
 	normalkoakuma: {
@@ -1721,7 +1721,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 30, def: 45, spa: 55, spd: 65, spe: 45},
 		abilities: {0: "Healing Power", 1: "Infiltration"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "koakuma",
 	},
 	defensekoakuma: {
@@ -1732,7 +1732,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 30, def: 80, spa: 75, spd: 120, spe: 50},
 		abilities: {0: "Healing Power", 1: "Inverse Reaction"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "koakuma",
 	},
 	assistkoakuma: {
@@ -1743,7 +1743,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 40, def: 70, spa: 70, spd: 100, spe: 110},
 		abilities: {0: "Curse Return", 1: "Infiltration"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "koakuma",
 	},
 	extrakoakuma: {
@@ -1754,7 +1754,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 40, def: 105, spa: 40, spd: 90, spe: 105},
 		abilities: {0: "Wariness", 1: "Harassment"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "koakuma",
 	},
 	normalkogasa: {
@@ -1765,7 +1765,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 30, def: 40, spa: 50, spd: 55, spe: 55},
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kogasa",
 	},
 	assistkogasa: {
@@ -1776,7 +1776,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 40, def: 80, spa: 100, spd: 95, spe: 70},
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kogasa",
 	},
 	speedkogasa: {
@@ -1787,7 +1787,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 40, def: 70, spa: 110, spd: 70, spe: 110},
 		abilities: {0: "Warning Shot", 1: "Deploy Smoke"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kogasa",
 	},
 	extrakogasa: {
@@ -1798,7 +1798,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 130, def: 70, spa: 30, spd: 100, spe: 55},
 		abilities: {0: "Metallurgy", 1: "Gentei's Water"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kogasa",
 	},
 	normalkoishi: {
@@ -1809,7 +1809,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 30, def: 65, spa: 65, spd: 65, spe: 30},
 		abilities: {0: "Wasteful", 1: "Peaceful"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "koishi",
 	},
 	powerkoishi: {
@@ -1820,7 +1820,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 60, def: 100, spa: 100, spd: 100, spe: 60},
 		abilities: {0: "Charge!", 1: "Recalibration"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "koishi",
 	},
 	assistkoishi: {
@@ -1831,7 +1831,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 40, def: 85, spa: 80, spd: 85, spe: 125},
 		abilities: {0: "Wasteful", 1: "Curiosity"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "koishi",
 	},
 	extrakoishi: {
@@ -1842,7 +1842,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 130, atk: 130, def: 70, spa: 60, spd: 70, spe: 60},
 		abilities: {0: "Infiltration", 1: "Active"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "koishi",
 	},
 	normalkokoro: {
@@ -1853,7 +1853,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 35, def: 40, spa: 60, spd: 55, spe: 30},
 		abilities: {0: "Poker Face", 1: "Moody"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kokoro",
 	},
 	defensekokoro: {
@@ -1864,7 +1864,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 80, def: 80, spa: 85, spd: 125, spe: 50},
 		abilities: {0: "Poker Face", 1: "Moody"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kokoro",
 	},
 	powerkokoro: {
@@ -1875,7 +1875,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 110, def: 80, spa: 110, spd: 80, spe: 45},
 		abilities: {0: "Poker Face", 1: "Infinite Changes"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kokoro",
 	},
 	extrakokoro: {
@@ -1886,7 +1886,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 50, def: 90, spa: 125, spd: 70, spe: 100},
 		abilities: {0: "Master's Defense", 1: "Mindless Dance"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kokoro",
 	},
 	normalkomachi: {
@@ -1897,7 +1897,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 65, def: 40, spa: 40, spd: 60, spe: 40},
 		abilities: {0: "Grace of Water", 1: "Suppression"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "komachi",
 	},
 	assistkomachi: {
@@ -1908,7 +1908,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 100, def: 70, spa: 60, spd: 130, spe: 75},
 		abilities: {0: "Grace of Water", 1: "Suppression"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "komachi",
 	},
 	powerkomachi: {
@@ -1919,7 +1919,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 130, def: 75, spa: 60, spd: 100, spe: 50},
 		abilities: {0: "Strategist", 1: "Moody"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "komachi",
 	},
 	extrakomachi: {
@@ -1930,7 +1930,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 50, def: 90, spa: 110, spd: 70, spe: 95},
 		abilities: {0: "Flat Speed", 1: "Drunkard"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "komachi",
 	},
 	normalkonngara: {
@@ -1941,7 +1941,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 70, def: 60, spa: 50, spd: 50, spe: 50},
 		abilities: {0: "Final Form", 1: "Benefit of Fire"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "konngara",
 	},
 	powerkonngara: {
@@ -1952,7 +1952,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 130, def: 100, spa: 110, spd: 80, spe: 70},
 		abilities: {0: "Final Form", 1: "Benefit of Fire"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "konngara",
 	},
 	speedkonngara: {
@@ -1963,7 +1963,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 125, def: 90, spa: 90, spd: 70, spe: 115},
 		abilities: {0: "Final Form", 1: "Sand Devil"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "konngara",
 	},
 	extrakonngara: {
@@ -1974,7 +1974,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 90, def: 100, spa: 90, spd: 100, spe: 60},
 		abilities: {0: "Inverse Reaction", 1: "Air Cushion"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "konngara",
 	},
 	normalkosuzu: {
@@ -1985,7 +1985,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 40, def: 35, spa: 45, spd: 30, spe: 40},
 		abilities: {0: "Free Will", 1: "Moody"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kosuzu",
 	},
 	defensekosuzu: {
@@ -1996,7 +1996,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 50, def: 75, spa: 50, spd: 75, spe: 50},
 		abilities: {0: "Free Will", 1: "Curiosity"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kosuzu",
 	},
 	assistkosuzu: {
@@ -2007,7 +2007,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 30, def: 50, spa: 30, spd: 50, spe: 70},
 		abilities: {0: "Free Will", 1: "Moody"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kosuzu",
 	},
 	extrakosuzu: {
@@ -2018,7 +2018,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Bibliophilia"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kosuzu",
 		otherFormes: ["Extra Kosuzu-Red","Extra Kosuzu-Blue","Extra Kosuzu-Black","Extra Kosuzu-White"]
 	},
@@ -2030,7 +2030,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Imposing Stance"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: Red",
 		changesFrom: "Extra Kosuzu",
@@ -2044,7 +2044,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Known Limits"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: Blue",
 		changesFrom: "Extra Kosuzu",
@@ -2058,7 +2058,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Unbound"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: Black",
 		changesFrom: "Extra Kosuzu",
@@ -2072,7 +2072,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 50, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Wariness"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kosuzu",
 		requiredItem: "Youma Scroll: White",
 		changesFrom: "Extra Kosuzu",
@@ -2086,7 +2086,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 30, def: 50, spa: 50, spd: 60, spe: 55},
 		abilities: {0: "Collectomaniac", 1: "Free Will"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kotohime",
 	},
 	assistkotohime: {
@@ -2097,7 +2097,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 30, def: 80, spa: 70, spd: 95, spe: 105},
 		abilities: {0: "Karmic Retribution", 1: "Free Will"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kotohime",
 	},
 	defensekotohime: {
@@ -2108,7 +2108,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 30, def: 135, spa: 70, spd: 135, spe: 45},
 		abilities: {0: "Karmic Retribution", 1: "Moody"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kotohime",
 	},
 	extrakotohime: {
@@ -2119,7 +2119,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 30, def: 90, spa: 100, spd: 90, spe: 60},
 		abilities: {0: "Niche", 1: "Common Senseless"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kotohime",
 	},
 	normalkurumi: {
@@ -2130,7 +2130,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 35, def: 30, spa: 70, spd: 40, spe: 65},
 		abilities: {0: "Iron Resolve", 1: "Surprise Tactics"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kurumi",
 	},
 	powerkurumi: {
@@ -2141,7 +2141,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 45, def: 60, spa: 125, spd: 70, spe: 95},
 		abilities: {0: "Wariness", 1: "Surprise Tactics"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kurumi",
 	},
 	assistkurumi: {
@@ -2152,7 +2152,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 55, def: 60, spa: 75, spd: 90, spe: 120},
 		abilities: {0: "Iron Resolve", 1: "Melancholic"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kurumi",
 	},
 	extrakurumi: {
@@ -2163,7 +2163,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 50, def: 90, spa: 120, spd: 40, spe: 100},
 		abilities: {0: "Deploy Smoke", 1: "First Hit"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kurumi",
 	},
 	normalkutaka: {
@@ -2174,7 +2174,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 40, def: 60, spa: 60, spd: 50, spe: 45},
 		abilities: {0: "Emergency Cure", 1: "Auto Heal"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kutaka",
 	},
 	assistkutaka: {
@@ -2185,7 +2185,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 50, def: 120, spa: 80, spd: 80, spe: 75},
 		abilities: {0: "Emergency Cure", 1: "Auto Heal"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kutaka",
 	},
 	speedkutaka: {
@@ -2196,7 +2196,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 45, def: 65, spa: 100, spd: 105, spe: 110},
 		abilities: {0: "Positive", 1: "Strict Dosage"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kutaka",
 	},
 	extrakutaka: {
@@ -2207,7 +2207,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 95, def: 75, spa: 45, spd: 110, spe: 65},
 		abilities: {0: "Sound Absorb", 1: "Auto Heal"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kutaka",
 	},
 	normalkyouko: {
@@ -2218,7 +2218,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 40, def: 30, spa: 60, spd: 50, spe: 50},
 		abilities: {0: "Optimist", 1: "Last Defense"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kyouko",
 	},
 	powerkyouko: {
@@ -2229,7 +2229,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 55, def: 50, spa: 130, spd: 55, spe: 70},
 		abilities: {0: "Deploy Smoke", 1: "Niche"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kyouko",
 	},
 	assistkyouko: {
@@ -2240,7 +2240,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 30, def: 70, spa: 80, spd: 110, spe: 95},
 		abilities: {0: "Resonance", 1: "In Sync"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kyouko",
 	},
 	extrakyouko: {
@@ -2251,7 +2251,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 115, def: 70, spa: 40, spd: 85, spe: 75},
 		abilities: {0: "Impulsive", 1: "Full Power"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "kyouko",
 	},
 	normalletty: {
@@ -2262,7 +2262,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 35, def: 50, spa: 55, spd: 65, spe: 30},
 		abilities: {0: "Last Defense", 1: "Grace of Water"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "letty",
 	},
 	powerletty: {
@@ -2273,7 +2273,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 30, def: 75, spa: 120, spd: 110, spe: 50},
 		abilities: {0: "Last Defense", 1: "Force of Nature"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "letty",
 	},
 	defenseletty: {
@@ -2284,7 +2284,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 30, def: 120, spa: 80, spd: 75, spe: 60},
 		abilities: {0: "Some Guts", 1: "Supine"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "letty",
 	},
 	extraletty: {
@@ -2295,7 +2295,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 110, def: 125, spa: 30, spd: 80, spe: 60},
 		abilities: {0: "Wariness", 1: "Skilled Hand"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "letty",
 	},
 	normallily: {
@@ -2306,7 +2306,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 25, def: 40, spa: 45, spd: 50, spe: 40},
 		abilities: {0: "Wasteful", 1: "Antibody"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lily",
 	},
 	assistlily: {
@@ -2317,7 +2317,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 35, def: 70, spa: 70, spd: 120, spe: 100},
 		abilities: {0: "Phlegmatic", 1: "Auto Heal"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lily",
 	},
 	powerlily: {
@@ -2328,7 +2328,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 35, def: 55, spa: 120, spd: 85, spe: 90},
 		abilities: {0: "Deploy Smoke", 1: "Auto Heal"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lily",
 	},
 	extralily: {
@@ -2339,7 +2339,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 145, def: 80, spa: 35, spd: 105, spe: 10},
 		abilities: {0: "Smooth Sailing", 1: "Glamorous"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lily",
 	},
 	normallouise: {
@@ -2350,7 +2350,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 30, def: 30, spa: 55, spd: 55, spe: 55},
 		abilities: {0: "Optimist", 1: "Peaceful"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "louise",
 	},
 	defenselouise: {
@@ -2361,7 +2361,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 70, def: 60, spa: 100, spd: 90, spe: 85},
 		abilities: {0: "Unique Shield", 1: "Lucky"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "louise",
 	},
 	assistlouise: {
@@ -2372,7 +2372,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 30, def: 105, spa: 100, spd: 60, spe: 110},
 		abilities: {0: "Optimist", 1: "Phlegmatic"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "louise",
 	},
 	extralouise: {
@@ -2383,7 +2383,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 40, def: 80, spa: 130, spd: 40, spe: 85},
 		abilities: {0: "Natural Form", 1: "Instant Win"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "louise",
 	},
 	normalluna: {
@@ -2394,7 +2394,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 30, def: 35, spa: 60, spd: 40, spe: 70},
 		abilities: {0: "Flash", 1: "Sound Absorb"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "luna",
 	},
 	powerluna: {
@@ -2405,7 +2405,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 30, def: 65, spa: 120, spd: 75, spe: 80},
 		abilities: {0: "Flash", 1: "Sound Absorb"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "luna",
 	},
 	speedluna: {
@@ -2416,7 +2416,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 40, def: 65, spa: 90, spd: 70, spe: 125},
 		abilities: {0: "Sanguine", 1: "Sound Absorb"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "luna",
 	},
 	extraluna: {
@@ -2427,7 +2427,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 95, def: 120, spa: 40, spd: 100, spe: 40},
 		abilities: {0: "Skilled Hand", 1: "Healing Power"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "luna",
 	},
 	normallunasa: {
@@ -2438,7 +2438,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 55, def: 55, spa: 40, spd: 75, spe: 30},
 		abilities: {0: "Sound Absorb", 1: "Suppression"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lunasa",
 	},
 	assistlunasa: {
@@ -2449,7 +2449,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 110, def: 55, spa: 45, spd: 140, spe: 60},
 		abilities: {0: "Sound Absorb", 1: "Suppression"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lunasa",
 	},
 	defenselunasa: {
@@ -2460,7 +2460,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 50, def: 155, spa: 50, spd: 145, spe: 30},
 		abilities: {0: "Sound Absorb", 1: "Slow Tempo"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lunasa",
 	},
 	extralunasa: {
@@ -2471,7 +2471,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 40, def: 80, spa: 105, spd: 80, spe: 80},
 		abilities: {0: "Projection", 1: "Poker Face"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lunasa",
 	},
 	normallyrica: {
@@ -2482,7 +2482,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 60, def: 60, spa: 30, spd: 40, spe: 70},
 		abilities: {0: "Sound Absorb", 1: "Resonance"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lyrica",
 	},
 	speedlyrica: {
@@ -2493,7 +2493,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 100, def: 105, spa: 45, spd: 65, spe: 115},
 		abilities: {0: "Sound Absorb", 1: "Resonance"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lyrica",
 	},
 	powerlyrica: {
@@ -2504,7 +2504,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 45, def: 65, spa: 120, spd: 85, spe: 95},
 		abilities: {0: "Sound Absorb", 1: "Charge!"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lyrica",
 	},
 	extralyrica: {
@@ -2515,7 +2515,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 50, def: 70, spa: 85, spd: 100, spe: 65},
 		abilities: {0: "Warning Shot", 1: "Instant Win"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "lyrica",
 	},
 	normalmagan: {
@@ -2526,7 +2526,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 30, def: 60, spa: 60, spd: 65, spe: 30},
 		abilities: {0: "Quick Eye", 1: "Cloak of Darkness"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "magan",
 	},
 	assistmagan: {
@@ -2537,7 +2537,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 50, def: 80, spa: 90, spd: 85, spe: 105},
 		abilities: {0: "Quick Eye", 1: "Curiosity"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "magan",
 	},
 	powermagan: {
@@ -2548,7 +2548,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 105, spa: 125, spd: 105, spe: 20},
 		abilities: {0: "After Move", 1: "Cloak of Darkness"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "magan",
 	},
 	extramagan: {
@@ -2559,7 +2559,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 100, def: 80, spa: 45, spd: 125, spe: 30},
 		abilities: {0: "Healing Power", 1: "Inverse Toxin"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "magan",
 	},
 	normalmai: {
@@ -2570,7 +2570,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 65, def: 65, spa: 30, spd: 40, spe: 35},
 		abilities: {0: "Poker Face", 1: "Dark Force"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mai",
 	},
 	powermai: {
@@ -2581,7 +2581,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 110, def: 80, spa: 40, spd: 80, spe: 60},
 		abilities: {0: "Poker Face", 1: "Strict Dosage"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mai",
 	},
 	defensemai: {
@@ -2592,7 +2592,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 80, def: 130, spa: 40, spd: 90, spe: 60},
 		abilities: {0: "Poker Face", 1: "Deploy Smoke"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mai",
 	},
 	extramai: {
@@ -2603,7 +2603,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 40, def: 120, spa: 110, spd: 60, spe: 40},
 		abilities: {0: "Grace of Water", 1: "Fast Talker"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mai",
 	},
 	normalmamizou: {
@@ -2614,7 +2614,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 60, spa: 50, spd: 35, spe: 30},
 		abilities: {0: "Wisdom Eye", 1: "Slow Tempo"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mamizou",
 	},
 	defensemamizou: {
@@ -2625,7 +2625,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 110, def: 110, spa: 100, spd: 70, spe: 60},
 		abilities: {0: "Wisdom Eye", 1: "Slow Tempo"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mamizou",
 	},
 	powermamizou: {
@@ -2636,7 +2636,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 130, def: 95, spa: 75, spd: 80, spe: 100},
 		abilities: {0: "Hobgoblin"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mamizou",
 	},
 	extramamizou: {
@@ -2647,7 +2647,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 120, def: 80, spa: 85, spd: 110, spe: 50},
 		abilities: {0: "Deflective", 1: "Fast Talker"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mamizou",
 	},
 	normalmarisa: {
@@ -2658,7 +2658,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 60, def: 30, spa: 60, spd: 30, spe: 70},
 		abilities: {0: "Positive", 1: "Collectomaniac"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "marisa",
 	},
 	speedmarisa: {
@@ -2669,7 +2669,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 70, def: 70, spa: 115, spd: 70, spe: 135},
 		abilities: {0: "Positive", 1: "Collectomaniac"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "marisa",
 	},
 	powermarisa: {
@@ -2680,7 +2680,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 140, def: 60, spa: 70, spd: 60, spe: 115},
 		abilities: {0: "Sand Devil", 1: "Collectomaniac"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "marisa",
 	},
 	extramarisa: {
@@ -2691,7 +2691,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 50, def: 90, spa: 140, spd: 90, spe: 55},
 		abilities: {0: "Fast Talker", 1: "Full Power"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "marisa",
 	},
 	normalmayumi: {
@@ -2702,7 +2702,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 65, def: 65, spa: 40, spd: 50, spe: 30},
 		abilities: {0: "Indomitable", 1: "Sore Loser"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mayumi",
 	},
 	defensemayumi: {
@@ -2713,7 +2713,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 110, def: 95, spa: 55, spd: 90, spe: 75},
 		abilities: {0: "Indomitable", 1: "Sore Loser"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mayumi",
 	},
 	speedmayumi: {
@@ -2724,7 +2724,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 120, def: 65, spa: 70, spd: 65, spe: 130},
 		abilities: {0: "Desolation Form", 1: "General's Form"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mayumi",
 	},
 	extramayumi: {
@@ -2735,7 +2735,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 80, def: 95, spa: 120, spd: 70, spe: 80},
 		abilities: {0: "Master's Defense", 1: "Counter Stance"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mayumi",
 	},
 	normalmedicine: {
@@ -2746,7 +2746,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 55, def: 60, spa: 20, spd: 75, spe: 40},
 		abilities: {0: "Poison Body", 1: "Poison Thorns"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "medicine",
 	},
 	defensemedicine: {
@@ -2757,7 +2757,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 80, def: 90, spa: 40, spd: 140, spe: 70},
 		abilities: {0: "Poison Body", 1: "Karmic Retribution"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "medicine",
 	},
 	powermedicine: {
@@ -2768,7 +2768,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 110, def: 80, spa: 30, spd: 100, spe: 85},
 		abilities: {0: "Poison Body", 1: "Poison Thorns"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "medicine",
 	},
 	extramedicine: {
@@ -2779,7 +2779,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 50, def: 80, spa: 100, spd: 70, spe: 115},
 		abilities: {0: "Flat Speed", 1: "Poison Labyrinth"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "medicine",
 	},
 	normalmegumu: {
@@ -2790,7 +2790,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 65, def: 40, spa: 35, spd: 50, spe: 70},
 		abilities: {0: "Up Tempo", 1: "Gale"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "megumu",
 	},
 	speedmegumu: {
@@ -2801,7 +2801,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 95, def: 75, spa: 60, spd: 100, spe: 140},
 		abilities: {0: "Up Tempo", 1: "Smooth Sailing"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "megumu",
 	},
 	powermegumu: {
@@ -2812,7 +2812,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 90, def: 80, spa: 125, spd: 80, spe: 85},
 		abilities: {0: "Up Tempo", 1: "Absorbent"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "megumu",
 	},
 	extramegumu: {
@@ -2823,7 +2823,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 100, def: 70, spa: 100, spd: 70, spe: 120},
 		abilities: {0: "Flat Speed", 1: "Astronomy"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "megumu",
 	},
 	normalmeiling: {
@@ -2834,7 +2834,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 70, def: 40, spa: 40, spd: 40, spe: 50},
 		abilities: {0: "Flexible", 1: "Final Form"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "meiling",
 	},
 	speedmeiling: {
@@ -2845,7 +2845,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 130, def: 50, spa: 55, spd: 80, spe: 105},
 		abilities: {0: "Healing Power", 1: "Iron Resolve"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "meiling",
 	},
 	defensemeiling: {
@@ -2856,7 +2856,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 100, def: 125, spa: 30, spd: 70, spe: 85},
 		abilities: {0: "Choleric", 1: "Counter Stance"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "meiling",
 	},
 	extrameiling: {
@@ -2867,7 +2867,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 50, def: 85, spa: 130, spd: 85, spe: 70},
 		abilities: {0: "Strategist", 1: "Imposing Stance"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "meiling",
 	},
 	normalmeira: {
@@ -2878,7 +2878,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 65, def: 45, spa: 25, spd: 50, spe: 65},
 		abilities: {0: "Assault", 1: "Armor Purge"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "meira",
 	},
 	powermeira: {
@@ -2889,7 +2889,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 120, def: 80, spa: 50, spd: 60, spe: 100},
 		abilities: {0: "Immovable", 1: "Final Form"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "meira",
 	},
 	speedmeira: {
@@ -2900,7 +2900,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 110, def: 60, spa: 40, spd: 75, spe: 125},
 		abilities: {0: "Sore Loser", 1: "Armor Purge"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "meira",
 	},
 	extrameira: {
@@ -2911,7 +2911,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 90, def: 60, spa: 125, spd: 60, spe: 85},
 		abilities: {0: "Master's Defense", 1: "Indomitable"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "meira",
 	},
 	normalmerlin: {
@@ -2922,7 +2922,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 55, def: 40, spa: 65, spd: 40, spe: 40},
 		abilities: {0: "Sound Absorb", 1: "Optimist"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "merlin",
 	},
 	assistmerlin: {
@@ -2933,7 +2933,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 70, def: 90, spa: 95, spd: 75, spe: 60},
 		abilities: {0: "Sound Absorb", 1: "Up Tempo"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "merlin",
 	},
 	powermerlin: {
@@ -2944,7 +2944,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 130, def: 90, spa: 40, spd: 90, spe: 50},
 		abilities: {0: "Sound Absorb", 1: "Mind's Eye"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "merlin",
 	},
 	extramerlin: {
@@ -2955,7 +2955,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 70, spa: 120, spd: 65, spe: 95},
 		abilities: {0: "Charge!", 1: "Impulsive"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "merlin",
 	},
 	normalmaribel: {
@@ -2966,7 +2966,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 25, def: 50, spa: 40, spd: 40, spe: 30},
 		abilities: {0: "Peaceful"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "maribel",
 	},
 	defensemaribel: {
@@ -2977,7 +2977,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 30, def: 65, spa: 85, spd: 65, spe: 40},
 		abilities: {0: "Boundary Savior"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "maribel",
 	},
 	powermaribel: {
@@ -2988,7 +2988,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 30, def: 40, spa: 100, spd: 40, spe: 75},
 		abilities: {0: "Boundary Blurrer"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "maribel",
 	},
 	extramaribel: {
@@ -2999,7 +2999,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 120, def: 70, spa: 30, spd: 80, spe: 90},
 		abilities: {0: "Known Limits", 1: "Skilled Hand"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "maribel",
 	},
 	normalmike: {
@@ -3010,7 +3010,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 50, def: 40, spa: 40, spd: 40, spe: 65},
 		abilities: {0: "Lucky", 1: "Free Will"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mike",
 	},
 	speedmike: {
@@ -3021,7 +3021,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 115, def: 65, spa: 45, spd: 60, spe: 125},
 		abilities: {0: "Lucky", 1: "Morale Boost"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mike",
 	},
 	assistmike: {
@@ -3032,7 +3032,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 30, def: 115, spa: 70, spd: 85, spe: 95},
 		abilities: {0: "Economist", 1: "Free Will"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mike",
 	},
 	extramike: {
@@ -3043,7 +3043,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 115, def: 90, spa: 50, spd: 55, spe: 100},
 		abilities: {0: "Niche", 1: "Sore Loser"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mike",
 	},
 	normalmiko: {
@@ -3054,7 +3054,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 50, spa: 40, spd: 35, spe: 50},
 		abilities: {0: "Warning Shot", 1: "Up Tempo"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "miko",
 	},
 	speedmiko: {
@@ -3065,7 +3065,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 125, def: 80, spa: 70, spd: 65, spe: 90},
 		abilities: {0: "Warning Shot", 1: "Up Tempo"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "miko",
 	},
 	powermiko: {
@@ -3076,7 +3076,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 150, def: 60, spa: 125, spd: 70, spe: 115},
 		abilities: {0: "True Admin"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "miko",
 	},
 	extramiko: {
@@ -3087,7 +3087,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 100, def: 60, spa: 120, spd: 60, spe: 120},
 		abilities: {0: "First Hit", 1: "Intuition"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "miko",
 	},
 	normalmima: {
@@ -3098,7 +3098,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 40, def: 40, spa: 70, spd: 75, spe: 50},
 		abilities: {0: "Curse Return", 1: "Unjustness"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mima",
 	},
 	defensemima: {
@@ -3109,7 +3109,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 70, def: 70, spa: 110, spd: 130, spe: 80},
 		abilities: {0: "Curse Return", 1: "Unjustness"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mima",
 	},
 	powermima: {
@@ -3120,7 +3120,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 135, def: 70, spa: 85, spd: 105, spe: 70},
 		abilities: {0: "Curse Return", 1: "Hot Head"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mima",
 	},
 	extramima: {
@@ -3131,7 +3131,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 60, def: 80, spa: 100, spd: 80, spe: 130},
 		abilities: {0: "Unjustness", 1: "Pride"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mima",
 	},
 	normalminoriko: {
@@ -3142,7 +3142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 30, def: 45, spa: 60, spd: 55, spe: 40},
 		abilities: {0: "Spirit of Yang", 1: "Breather"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "minoriko",
 	},
 	powerminoriko: {
@@ -3153,7 +3153,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 30, def: 65, spa: 120, spd: 75, spe: 90},
 		abilities: {0: "Spirit of Yang", 1: "Skilled Hand"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "minoriko",
 	},
 	defenseminoriko: {
@@ -3164,7 +3164,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 130, atk: 30, def: 75, spa: 90, spd: 105, spe: 50},
 		abilities: {0: "Spirit of Yang", 1: "Breather"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "minoriko",
 	},
 	extraminoriko: {
@@ -3175,7 +3175,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 30, def: 90, spa: 55, spd: 90, spe: 120},
 		abilities: {0: "Auto Heal", 1: "Antibody"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "minoriko",
 	},
 	normalmisumaru: {
@@ -3186,7 +3186,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 40, def: 55, spa: 50, spd: 70, spe: 55},
 		abilities: {0: "Projection", 1: "Divine Protection"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "misumaru",
 	},
 	defensemisumaru: {
@@ -3197,7 +3197,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 60, def: 105, spa: 95, spd: 120, spe: 75},
 		abilities: {0: "Projection", 1: "Self Exorcism"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "misumaru",
 	},
 	powermisumaru: {
@@ -3208,7 +3208,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 65, def: 65, spa: 125, spd: 115, spe: 90},
 		abilities: {0: "Projection", 1: "Divine Protection"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "misumaru",
 	},
 	extramisumaru: {
@@ -3219,7 +3219,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 70, def: 110, spa: 105, spd: 110, spe: 75},
 		abilities: {0: "Spirit of Yang", 1: "Spirit of Yin"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "misumaru",
 	},
 	normalmiyoi: {
@@ -3230,7 +3230,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 30, def: 50, spa: 60, spd: 50, spe: 30},
 		abilities: {0: "Active", 1: "Disturber"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "miyoi",
 	},
 	assistmiyoi: {
@@ -3241,7 +3241,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 115, def: 70, spa: 75, spd: 110, spe: 50},
 		abilities: {0: "Active", 1: "Good Management"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "miyoi",
 	},
 	powermiyoi: {
@@ -3252,7 +3252,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 40, def: 130, spa: 120, spd: 65, spe: 55},
 		abilities: {0: "Wariness", 1: "Disturber"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "miyoi",
 	},
 	extramiyoi: {
@@ -3263,7 +3263,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 130, atk: 30, def: 75, spa: 100, spd: 75, spe: 70},
 		abilities: {0: "Strict Dosage", 1: "Worrywart"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "miyoi",
 	},
 	normalmokou: {
@@ -3274,7 +3274,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 50, def: 40, spa: 75, spd: 30, spe: 45},
 		abilities: {0: "Hate Incarnate", 1: "Emergency Cure"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mokou",
 	},
 	speedmokou: {
@@ -3285,7 +3285,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 60, def: 60, spa: 130, spd: 60, spe: 100},
 		abilities: {0: "Hate Incarnate", 1: "Instant Win"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mokou",
 	},
 	powermokou: {
@@ -3296,7 +3296,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 120, def: 70, spa: 100, spd: 70, spe: 55},
 		abilities: {0: "Fox's Wedding", 1: "Reckless"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mokou",
 	},
 	extramokou: {
@@ -3307,7 +3307,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 130, atk: 50, def: 85, spa: 110, spd: 85, spe: 70},
 		abilities: {0: "Southern Expanse", 1: "Full Power"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mokou",
 	},
 	normalmomiji: {
@@ -3318,7 +3318,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 60, def: 60, spa: 30, spd: 30, spe: 65},
 		abilities: {0: "Final Form", 1: "Telescopic"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "momiji",
 	},
 	speedmomiji: {
@@ -3329,7 +3329,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 110, def: 80, spa: 50, spd: 70, spe: 115},
 		abilities: {0: "Stubborn", 1: "Gale Form"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "momiji",
 	},
 	defensemomiji: {
@@ -3340,7 +3340,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 95, def: 140, spa: 40, spd: 45, spe: 75},
 		abilities: {0: "Indomitable", 1: "Telescopic"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "momiji",
 	},
 	extramomiji: {
@@ -3351,7 +3351,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 95, def: 130, spa: 55, spd: 115, spe: 20},
 		abilities: {0: "Counter Stance", 1: "Sixth Sense"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "momiji",
 	},
 	normalmomoyo: {
@@ -3362,7 +3362,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 80, def: 65, spa: 45, spd: 40, spe: 50},
 		abilities: {0: "Poison Body", 1: "Negative Aura"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "momoyo",
 	},
 	powermomoyo: {
@@ -3373,7 +3373,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 165, def: 90, spa: 105, spd: 80, spe: 60},
 		abilities: {0: "Poison Thorns", 1: "Sand Mask"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "momoyo",
 	},
 	speedmomoyo: {
@@ -3384,7 +3384,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 105, def: 105, spa: 125, spd: 50, spe: 90},
 		abilities: {0: "Poison Body", 1: "Koutei's Earth"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "momoyo",
 	},
 	extramomoyo: {
@@ -3395,7 +3395,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 110, def: 125, spa: 90, spd: 75, spe: 95},
 		abilities: {0: "Inverse Toxin", 1: "Negative Aura"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "momoyo",
 	},
 	normalmugetsu: {
@@ -3406,7 +3406,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 40, def: 35, spa: 75, spd: 65, spe: 50},
 		abilities: {0: "Dark Force", 1: "Brutality"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mugetsu",
 	},
 	powermugetsu: {
@@ -3417,7 +3417,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 60, def: 75, spa: 125, spd: 105, spe: 70},
 		abilities: {0: "Unwavering Heart", 1: "Brutality"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mugetsu",
 	},
 	assistmugetsu: {
@@ -3428,7 +3428,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 50, def: 90, spa: 75, spd: 115, spe: 75},
 		abilities: {0: "Dark Force", 1: "Weather Resist"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mugetsu",
 	},
 	extramugetsu: {
@@ -3439,7 +3439,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 85, def: 125, spa: 60, spd: 70, spe: 100},
 		abilities: {0: "Divine Festival", 1: "Spirit of Yin"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mugetsu",
 	},
 	normalmurasa: {
@@ -3450,7 +3450,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 65, def: 40, spa: 40, spd: 60, spe: 50},
 		abilities: {0: "Negative Aura", 1: "Stream Form"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "murasa",
 	},
 	powermurasa: {
@@ -3461,7 +3461,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 120, def: 65, spa: 60, spd: 100, spe: 80},
 		abilities: {0: "Negative Aura", 1: "Stream Form"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "murasa",
 	},
 	defensemurasa: {
@@ -3472,7 +3472,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 100, def: 110, spa: 65, spd: 85, spe: 65},
 		abilities: {0: "Negative Aura", 1: "Inverse Toxin"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "murasa",
 	},
 	extramurasa: {
@@ -3483,7 +3483,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 100, def: 80, spa: 100, spd: 80, spe: 45},
 		abilities: {0: "Fast Talker", 1: "Metallurgy"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "murasa",
 	},
 	normalmystia: {
@@ -3494,7 +3494,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 30, def: 30, spa: 50, spd: 65, spe: 40},
 		abilities: {0: "Smooth Sailing", 1: "Good Management"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mystia",
 	},
 	defensemystia: {
@@ -3505,7 +3505,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 70, def: 75, spa: 80, spd: 120, spe: 50},
 		abilities: {0: "Smooth Sailing", 1: "Good Management"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mystia",
 	},
 	powermystia: {
@@ -3516,7 +3516,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 55, def: 80, spa: 110, spd: 80, spe: 75},
 		abilities: {0: "Smooth Sailing", 1: "Up Tempo"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mystia",
 	},
 	extramystia: {
@@ -3527,7 +3527,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 30, def: 55, spa: 90, spd: 55, spe: 130},
 		abilities: {0: "Quick Eye", 1: "Stimulative"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "mystia",
 	},
 	normalnarumi: {
@@ -3538,7 +3538,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 35, def: 45, spa: 55, spd: 65, spe: 45},
 		abilities: {0: "Invalidate", 1: "Composed"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "narumi",
 	},
 	defensenarumi: {
@@ -3549,7 +3549,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 50, def: 60, spa: 95, spd: 150, spe: 60},
 		abilities: {0: "Invalidate", 1: "Composed"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "narumi",
 	},
 	powernarumi: {
@@ -3560,7 +3560,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 45, def: 110, spa: 115, spd: 110, spe: 55},
 		abilities: {0: "Invalidate", 1: "Healing Power"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "narumi",
 	},
 	extranarumi: {
@@ -3571,7 +3571,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 125, def: 80, spa: 55, spd: 75, spe: 90},
 		abilities: {0: "Empowered", 1: "Unbound"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "narumi",
 	},
 	normalnazrin: {
@@ -3582,7 +3582,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 55, def: 40, spa: 30, spd: 35, spe: 60},
 		abilities: {0: "Active", 1: "Collectomaniac"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nazrin",
 	},
 	speednazrin: {
@@ -3593,7 +3593,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 110, def: 70, spa: 40, spd: 85, spe: 120},
 		abilities: {0: "Infiltration", 1: "Sand Force"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nazrin",
 	},
 	defensenazrin: {
@@ -3604,7 +3604,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 90, def: 120, spa: 35, spd: 85, spe: 60},
 		abilities: {0: "Active", 1: "Sand Mask"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nazrin",
 	},
 	extranazrin: {
@@ -3615,7 +3615,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 40, def: 80, spa: 90, spd: 80, spe: 110},
 		abilities: {0: "Infiltration", 1: "Unbound"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nazrin",
 	},
 	normalnemuno: {
@@ -3626,7 +3626,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 45, spd: 40, spe: 65},
 		abilities: {0: "Good Management", 1: "Deploy Smoke"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nemuno",
 	},
 	powernemuno: {
@@ -3637,7 +3637,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 115, def: 70, spa: 50, spd: 70, spe: 115},
 		abilities: {0: "Good Management", 1: "Deploy Smoke"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nemuno",
 	},
 	defensenemuno: {
@@ -3648,7 +3648,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 95, def: 130, spa: 50, spd: 75, spe: 60},
 		abilities: {0: "Unbound", 1: "Force of Nature"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nemuno",
 	},
 	extranemuno: {
@@ -3659,7 +3659,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 55, def: 65, spa: 125, spd: 70, spe: 115},
 		abilities: {0: "Imposing Stance", 1: "Choleric"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nemuno",
 	},
 	normalnitori: {
@@ -3670,7 +3670,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 65, def: 55, spa: 40, spd: 35, spe: 40},
 		abilities: {0: "Maintenance", 1: "Collectomaniac"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nitori",
 	},
 	powernitori: {
@@ -3681,7 +3681,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 130, def: 95, spa: 50, spd: 45, spe: 55},
 		abilities: {0: "Byakutei's Metal", 1: "Recoil Offset"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nitori",
 	},
 	speednitori: {
@@ -3692,7 +3692,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 55, def: 80, spa: 105, spd: 65, spe: 100},
 		abilities: {0: "Maintenance", 1: "Electromagnetic"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nitori",
 	},
 	extranitori: {
@@ -3703,7 +3703,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 120, def: 10, spa: 95, spd: 75, spe: 130},
 		abilities: {0: "Maintenance", 1: "Metallurgy"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nitori",
 	},
 	normalnue: {
@@ -3714,7 +3714,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 35, def: 40, spa: 65, spd: 60, spe: 40},
 		abilities: {0: "Chaos Induction", 1: "Telescopic"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nue",
 	},
 	powernue: {
@@ -3725,7 +3725,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 65, def: 70, spa: 135, spd: 110, spe: 50},
 		abilities: {0: "Hobgoblin", 1: "Telescopic"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nue",
 	},
 	defensenue: {
@@ -3736,7 +3736,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 55, def: 110, spa: 50, spd: 100, spe: 90},
 		abilities: {0: "Chaos Induction", 1: "Disturber"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nue",
 	},
 	extranue: {
@@ -3747,7 +3747,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 115, def: 100, spa: 50, spd: 95, spe: 70},
 		abilities: {0: "Intuition", 1: "Charge!"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "nue",
 	},
 	normalokina: {
@@ -3758,7 +3758,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 70, def: 50, spa: 70, spd: 50, spe: 45},
 		abilities: {0: "Weather Resist"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "okina",
 	},
 	powerokina: {
@@ -3769,7 +3769,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 90, def: 75, spa: 130, spd: 115, spe: 80},
 		abilities: {0: "Benefit of Fire", 1: "Pride"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "okina",
 	},
 	defenseokina: {
@@ -3780,7 +3780,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 105, def: 105, spa: 80, spd: 105, spe: 75},
 		abilities: {0: "Divine Festival", 1: "Infiltration"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "okina",
 	},
 	extraokina: {
@@ -3791,7 +3791,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 70, def: 90, spa: 130, spd: 95, spe: 90},
 		abilities: {0: "Secret Ceremony"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "okina",
 	},
 	normalorange: {
@@ -3802,7 +3802,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 5, def: 5, spa: 55, spd: 80, spe: 10},
 		abilities: {0: "Emergency Cure", 1: "Wasteful"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "orange",
 	},
 	defenseorange: {
@@ -3813,7 +3813,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 250, atk: 5, def: 5, spa: 75, spd: 130, spe: 10},
 		abilities: {0: "Emergency Cure", 1: "Lucky"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "orange",
 	},
 	powerorange: {
@@ -3824,7 +3824,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 95, def: 85, spa: 45, spd: 80, spe: 75},
 		abilities: {0: "Harassment", 1: "Usurpation"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "orange",
 	},
 	extraorange: {
@@ -3835,7 +3835,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 60, def: 85, spa: 120, spd: 60, spe: 70},
 		abilities: {0: "Niche", 1: "Deploy Smoke"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "orange",
 	},
 	normalparsee: {
@@ -3846,7 +3846,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 30, atk: 60, def: 75, spa: 30, spd: 70, spe: 35},
 		abilities: {0: "Karmic Retribution", 1: "Quick Eye"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "parsee",
 	},
 	defenseparsee: {
@@ -3857,7 +3857,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 100, def: 120, spa: 40, spd: 110, spe: 50},
 		abilities: {0: "Karmic Retribution", 1: "Metallurgy"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "parsee",
 	},
 	assistparsee: {
@@ -3868,7 +3868,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 110, def: 65, spa: 50, spd: 75, spe: 120},
 		abilities: {0: "Unwavering Heart", 1: "Hate Incarnate"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "parsee",
 	},
 	extraparsee: {
@@ -3879,7 +3879,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 60, def: 90, spa: 100, spd: 110, spe: 65},
 		abilities: {0: "Two of a Kind", 1: "Hate Incarnate"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "parsee",
 	},
 	normalpatchouli: {
@@ -3890,7 +3890,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 40, def: 30, spa: 85, spd: 85, spe: 30},
 		abilities: {0: "Resonance", 1: "Immovable"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "patchouli",
 	},
 	powerpatchouli: {
@@ -3901,7 +3901,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 55, def: 35, spa: 145, spd: 155, spe: 55},
 		abilities: {0: "Resonance", 1: "Immovable"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "patchouli",
 	},
 	defensepatchouli: {
@@ -3912,7 +3912,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 55, def: 80, spa: 130, spd: 80, spe: 70},
 		abilities: {0: "Resonance", 1: "Wisdom Eye"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "patchouli",
 	},
 	extrapatchouli: {
@@ -3923,7 +3923,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 55, def: 150, spa: 100, spd: 60, spe: 50},
 		abilities: {0: "Deflective", 1: "Counter Stance"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "patchouli",
 	},
 	normalraiko: {
@@ -3934,7 +3934,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 35, def: 60, spa: 75, spd: 50, spe: 40},
 		abilities: {0: "Active", 1: "Sixth Sense"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "raiko",
 	},
 	powerraiko: {
@@ -3945,7 +3945,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 65, def: 100, spa: 130, spd: 80, spe: 65},
 		abilities: {0: "Active", 1: "Sixth Sense"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "raiko",
 	},
 	assistraiko: {
@@ -3956,7 +3956,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 55, def: 105, spa: 105, spd: 105, spe: 85},
 		abilities: {0: "Active", 1: "Disturber"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "raiko",
 	},
 	extraraiko: {
@@ -3967,7 +3967,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 60, def: 100, spa: 60, spd: 100, spe: 100},
 		abilities: {0: "In Sync", 1: "Maintenance"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "raiko",
 	},
 	normalran: {
@@ -3978,7 +3978,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 70, def: 50, spa: 50, spd: 40, spe: 65},
 		abilities: {0: "Discourager", 1: "Disturber"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ran",
 	},
 	powerran: {
@@ -3989,7 +3989,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 125, def: 80, spa: 95, spd: 70, spe: 115},
 		abilities: {0: "Morale Boost", 1: "Jamming"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ran",
 	},
 	defenseran: {
@@ -4000,7 +4000,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 115, def: 90, spa: 65, spd: 90, spe: 100},
 		abilities: {0: "Known Limits", 1: "Disturber"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ran",
 	},
 	extraran: {
@@ -4011,7 +4011,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 70, def: 40, spa: 110, spd: 120, spe: 130},
 		abilities: {0: "Ascertainment", 1: "Supine"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ran",
 	},
 	normalreimu: {
@@ -4022,7 +4022,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 55, def: 55, spa: 50, spd: 55, spe: 50},
 		abilities: {0: "Economist", 1: "Composed"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "reimu"
 	},
 	defensereimu: {
@@ -4033,7 +4033,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 90, def: 90, spa: 65, spd: 90, spe: 90},
 		abilities: {0: "Economist", 1: "Composed"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "reimu",
 	},
 	powerreimu: {
@@ -4044,7 +4044,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 125, def: 85, spa: 65, spd: 85, spe: 75},
 		abilities: {0: "Economist", 1: "Self Exorcism"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "reimu",
 	},
 	extrareimu: {
@@ -4055,7 +4055,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 110, def: 70, spa: 80, spd: 65, spe: 125},
 		abilities: {0: "Mind's Eye", 1: "Strange Rainbow"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "reimu",
 	},
 	normalreisen: {
@@ -4066,7 +4066,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 30, def: 40, spa: 60, spd: 45, spe: 65},
 		abilities: {0: "Common Senseless", 1: "Worrywart"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "reisen",
 	},
 	speedreisen: {
@@ -4077,7 +4077,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 40, def: 70, spa: 95, spd: 70, spe: 125},
 		abilities: {0: "Lucky", 1: "Strategist"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "reisen",
 	},
 	powerreisen: {
@@ -4088,7 +4088,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 120, def: 70, spa: 90, spd: 70, spe: 60},
 		abilities: {0: "Common Senseless", 1: "Worrywart"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "reisen",
 	},
 	extrareisen: {
@@ -4099,7 +4099,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 120, def: 50, spa: 40, spd: 50, spe: 105},
 		abilities: {0: "Skilled Hand", 1: "Precise Aim"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "reisen",
 	},
 	normalremilia: {
@@ -4110,7 +4110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 60, def: 35, spa: 70, spd: 40, spe: 70},
 		abilities: {0: "Vanishing Act", 1: "Final Form"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "remilia",
 	},
 	powerremilia: {
@@ -4121,7 +4121,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 115, def: 60, spa: 120, spd: 60, spe: 110},
 		abilities: {0: "Vanishing Act", 1: "Charge!"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "remilia",
 	},
 	speedremilia: {
@@ -4132,7 +4132,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 80, spa: 110, spd: 80, spe: 130},
 		abilities: {0: "Vanishing Act", 1: "Final Form"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "remilia",
 	},
 	extraremilia: {
@@ -4143,7 +4143,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 60, def: 100, spa: 115, spd: 75, spe: 100},
 		abilities: {0: "Pride", 1: "Fog Traveler"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "remilia",
 	},
 	normalrenko: {
@@ -4154,7 +4154,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 25, def: 40, spa: 40, spd: 50, spe: 30},
 		abilities: {0: "Peaceful"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "renko",
 	},
 	assistrenko: {
@@ -4165,7 +4165,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 40, def: 75, spa: 60, spd: 75, spe: 40},
 		abilities: {0: "Timegazer"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "renko",
 	},
 	speedrenko: {
@@ -4176,7 +4176,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 40, def: 45, spa: 90, spd: 55, spe: 75},
 		abilities: {0: "Stargazer"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "renko",
 	},
 	extrarenko: {
@@ -4187,7 +4187,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 10, def: 205, spa: 10, spd: 205, spe: 10},
 		abilities: {0: "Invalidate", 1: "Sixth Sense"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "renko",
 	},
 	normalrika: {
@@ -4198,7 +4198,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 30, def: 55, spa: 75, spd: 45, spe: 30},
 		abilities: {0: "Immovable", 1: "Maintenance"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rika",
 	},
 	speedrika: {
@@ -4209,7 +4209,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 45, def: 115, spa: 105, spd: 85, spe: 70},
 		abilities: {0: "Deploy Smoke", 1: "Benefit of Fire"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rika",
 	},
 	powerrika: {
@@ -4220,7 +4220,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 95, def: 60, spa: 155, spd: 50, spe: 30},
 		abilities: {0: "Gentei's Water", 1: "Unyielding Form"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rika",
 	},
 	extrarika: {
@@ -4231,7 +4231,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 45, def: 140, spa: 45, spd: 140, spe: 60},
 		abilities: {0: "Mode Shift"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rika",
 		otherFormes: ['Extra Rika-Shift']
 	},
@@ -4243,7 +4243,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 140, def: 45, spa: 140, spd: 45, spe: 60},
 		abilities: {0: "Mode Shift"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rika-shift",
 		forme: "Shift",
 		changesFrom: "Extra Rika"
@@ -4256,7 +4256,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 40, def: 40, spa: 75, spd: 45, spe: 65},
 		abilities: {0: "Insight", 1: "Final Form"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rikako",
 	},
 	powerrikako: {
@@ -4267,7 +4267,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 55, def: 55, spa: 130, spd: 90, spe: 100},
 		abilities: {0: "In Sync", 1: "Final Form"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rikako",
 	},
 	speedrikako: {
@@ -4278,7 +4278,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 60, def: 60, spa: 110, spd: 100, spe: 130},
 		abilities: {0: "Insight", 1: "Final Form"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rikako",
 	},
 	extrarikako: {
@@ -4289,7 +4289,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 55, def: 120, spa: 120, spd: 65, spe: 60},
 		abilities: {0: "Unwavering Heart", 1: "Fog Traveler"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rikako",
 	},
 	normalrin: {
@@ -4300,7 +4300,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 40, spd: 40, spe: 70},
 		abilities: {0: "Flexible", 1: "Morale Boost"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rin",
 	},
 	speedrin: {
@@ -4311,7 +4311,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 110, def: 70, spa: 60, spd: 70, spe: 130},
 		abilities: {0: "Southern Expanse", 1: "Morale Boost"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rin",
 	},
 	powerrin: {
@@ -4322,7 +4322,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 120, def: 50, spa: 100, spd: 50, spe: 110},
 		abilities: {0: "Flexible", 1: "Up Tempo"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rin",
 	},
 	extrarin: {
@@ -4333,7 +4333,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 55, def: 50, spa: 105, spd: 110, spe: 105},
 		abilities: {0: "Benefit of Fire", 1: "Infiltration"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rin",
 	},
 	normalringo: {
@@ -4344,7 +4344,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 45, def: 50, spa: 40, spd: 55, spe: 40},
 		abilities: {0: "In Sync", 1: "Overcompensate"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ringo",
 	},
 	defenseringo: {
@@ -4355,7 +4355,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 95, def: 95, spa: 45, spd: 110, spe: 45},
 		abilities: {0: "In Sync", 1: "Overcompensate"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ringo",
 	},
 	powerringo: {
@@ -4366,7 +4366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 110, def: 75, spa: 40, spd: 70, spe: 110},
 		abilities: {0: "Deploy Smoke", 1: "Overcompensate"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ringo",
 	},
 	extraringo: {
@@ -4377,7 +4377,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 85, def: 80, spa: 85, spd: 80, spe: 80},
 		abilities: {0: "Moody", 1: "Overcompensate"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ringo",
 	},
 	normalrinnosuke: {
@@ -4388,7 +4388,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 50, def: 50, spa: 30, spd: 50, spe: 30},
 		abilities: {0: "Collectomaniac"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rinnosuke",
 	},
 	defenserinnosuke: {
@@ -4399,7 +4399,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 70, def: 90, spa: 50, spd: 90, spe: 60},
 		abilities: {0: "Yata no Kagami"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rinnosuke",
 	},
 	powerrinnosuke: {
@@ -4410,7 +4410,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 85, def: 65, spa: 85, spd: 65, spe: 60},
 		abilities: {0: "Yata no Kagami"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rinnosuke",
 	},
 	extrarinnosuke: {
@@ -4421,7 +4421,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 120, def: 90, spa: 40, spd: 90, spe: 40},
 		abilities: {0: "Yata no Kagami"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rinnosuke",
 	},
 	normalrumia: {
@@ -4432,7 +4432,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 60, def: 55, spa: 35, spd: 30, spe: 50},
 		abilities: {0: "Final Form", 1: "Spirit of Yin"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rumia",
 	},
 	defenserumia: {
@@ -4443,7 +4443,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 100, def: 120, spa: 40, spd: 120, spe: 30},
 		abilities: {0: "Cloak of Darkness", 1: "Healing Power"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rumia",
 	},
 	powerrumia: {
@@ -4454,7 +4454,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 50, def: 60, spa: 145, spd: 60, spe: 105},
 		abilities: {0: "Brutality", 1: "Spirit of Yin"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rumia",
 	},
 	extrarumia: {
@@ -4465,7 +4465,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 130, def: 30, spa: 40, spd: 100, spe: 80},
 		abilities: {0: "Fog Traveler", 1: "Unbound"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "rumia",
 	},
 	normalruukoto: {
@@ -4476,7 +4476,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 50, def: 50, spa: 10, spd: 50, spe: 20},
 		abilities: {0: "Recoil Offset", 1: "Indomitable"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ruukoto",
 	},
 	assistruukoto: {
@@ -4487,7 +4487,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 80, def: 100, spa: 30, spd: 100, spe: 20},
 		abilities: {0: "Recoil Offset", 1: "Indomitable"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ruukoto",
 	},
 	powerruukoto: {
@@ -4498,7 +4498,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 140, def: 65, spa: 30, spd: 65, spe: 95},
 		abilities: {0: "Recoil Offset", 1: "Indomitable"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ruukoto",
 	},
 	extraruukoto: {
@@ -4509,7 +4509,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 30, def: 115, spa: 85, spd: 115, spe: 20},
 		abilities: {0: "In Sync", 1: "Restraint"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "ruukoto",
 	},
 	normalsagume: {
@@ -4520,7 +4520,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 45, def: 60, spa: 60, spd: 80, spe: 40},
 		abilities: {0: "Reverse Function", 1: "Ascertainment"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sagume",
 	},
 	powersagume: {
@@ -4531,7 +4531,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 80, def: 85, spa: 130, spd: 95, spe: 110},
 		abilities: {0: "Reverse Function", 1: "Reflect Guard"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sagume",
 	},
 	defensesagume: {
@@ -4542,7 +4542,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 70, def: 135, spa: 100, spd: 135, spe: 45},
 		abilities: {0: "Wisdom Eye", 1: "Ascertainment"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sagume",
 	},
 	extrasagume: {
@@ -4553,7 +4553,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 130, def: 95, spa: 70, spd: 105, spe: 70},
 		abilities: {0: "Reverse Function", 1: "Divine Festival"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sagume",
 	},
 	normalsaki: {
@@ -4564,7 +4564,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 70, def: 50, spa: 60, spd: 30, spe: 60},
 		abilities: {0: "Aggressive", 1: "Recoil Offset"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "saki",
 	},
 	speedsaki: {
@@ -4575,7 +4575,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 105, def: 65, spa: 105, spd: 65, spe: 110},
 		abilities: {0: "Aggressive", 1: "Battle Mania"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "saki",
 	},
 	powersaki: {
@@ -4586,7 +4586,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 145, def: 75, spa: 85, spd: 50, spe: 70},
 		abilities: {0: "Aggressive", 1: "Recoil Offset"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "saki",
 	},
 	extrasaki: {
@@ -4597,7 +4597,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 75, def: 80, spa: 120, spd: 75, spe: 105},
 		abilities: {0: "Vigorous", 1: "Common Senseless"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "saki",
 	},
 	normalsakuya: {
@@ -4608,7 +4608,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 50, spd: 40, spe: 65},
 		abilities: {0: "Poker Face", 1: "Nimble"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sakuya",
 	},
 	speedsakuya: {
@@ -4619,7 +4619,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 125, def: 70, spa: 70, spd: 70, spe: 120},
 		abilities: {0: "Sand Force", 1: "Nimble"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sakuya",
 	},
 	powersakuya: {
@@ -4630,7 +4630,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 135, def: 100, spa: 70, spd: 80, spe: 60},
 		abilities: {0: "Strategist", 1: "Nimble"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sakuya",
 	},
 	extrasakuya: {
@@ -4641,7 +4641,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 80, def: 70, spa: 130, spd: 100, spe: 70},
 		abilities: {0: "Unbound", 1: "Gale"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sakuya",
 	},
 	normalsanae: {
@@ -4652,7 +4652,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 40, def: 50, spa: 60, spd: 50, spe: 50},
 		abilities: {0: "Divine Protection", 1: "Common Senseless"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sanae",
 	},
 	powersanae: {
@@ -4663,7 +4663,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 55, def: 90, spa: 120, spd: 90, spe: 75},
 		abilities: {0: "Lucky", 1: "Phlegmatic"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sanae",
 	},
 	speedsanae: {
@@ -4674,7 +4674,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 55, def: 80, spa: 115, spd: 70, spe: 100},
 		abilities: {0: "Divine Protection", 1: "Common Senseless"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sanae",
 	},
 	extrasanae: {
@@ -4685,7 +4685,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 135, def: 95, spa: 55, spd: 65, spe: 80},
 		abilities: {0: "Inverse Reaction", 1: "On the Edge"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sanae",
 	},
 	normalsannyo: {
@@ -4696,7 +4696,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 60, def: 60, spa: 45, spd: 30, spe: 55},
 		abilities: {0: "Deploy Smoke", 1: "Composed"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sannyo",
 	},
 	assistsannyo: {
@@ -4707,7 +4707,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 95, def: 135, spa: 50, spd: 50, spe: 65},
 		abilities: {0: "Deploy Smoke", 1: "Jamming"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sannyo",
 	},
 	powersannyo: {
@@ -4718,7 +4718,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 125, def: 70, spa: 40, spd: 100, spe: 80},
 		abilities: {0: "Deploy Smoke", 1: "Wisdom Eye"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sannyo",
 	},
 	extrasannyo: {
@@ -4729,7 +4729,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 70, spa: 110, spd: 80, spe: 100},
 		abilities: {0: "Fog Traveler", 1: "Weather Resist"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sannyo",
 	},
 	normalsara: {
@@ -4740,7 +4740,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 60, def: 65, spa: 20, spd: 30, spe: 50},
 		abilities: {0: "Iron Resolve", 1: "Healing Power"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sara",
 	},
 	defensesara: {
@@ -4751,7 +4751,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 125, atk: 95, def: 115, spa: 40, spd: 50, spe: 70},
 		abilities: {0: "Iron Resolve", 1: "Choleric"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sara",
 	},
 	speedsara: {
@@ -4762,7 +4762,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 70, def: 95, spa: 55, spd: 70, spe: 105},
 		abilities: {0: "Good Management", 1: "Sniper"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sara",
 	},
 	extrasara: {
@@ -4773,7 +4773,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 110, def: 80, spa: 40, spd: 70, spe: 95},
 		abilities: {0: "Warning Shot", 1: "Master's Defense"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sara",
 	},
 	normalsariel: {
@@ -4784,7 +4784,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 70, spd: 45, spe: 60},
 		abilities: {0: "Flawless", 1: "Dark Force"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sariel",
 	},
 	powersariel: {
@@ -4795,7 +4795,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 130, def: 70, spa: 125, spd: 75, spe: 110},
 		abilities: {0: "Flawless", 1: "Dark Force"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sariel",
 	},
 	defensesariel: {
@@ -4806,7 +4806,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 95, def: 95, spa: 75, spd: 130, spe: 85},
 		abilities: {0: "Flawless", 1: "Inverse Reaction"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sariel",
 	},
 	extrasariel: {
@@ -4817,7 +4817,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 70, def: 110, spa: 120, spd: 80, spe: 110},
 		abilities: {0: "Ascertainment", 1: "Final Form"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sariel",
 	},
 	normalsatono: {
@@ -4828,7 +4828,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 40, def: 40, spa: 65, spd: 40, spe: 50},
 		abilities: {0: "Chaos Induction", 1: "Reflect Guard"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "satono",
 	},
 	assistsatono: {
@@ -4839,7 +4839,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 65, def: 75, spa: 90, spd: 75, spe: 85},
 		abilities: {0: "Chaos Induction", 1: "Reflect Guard"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "satono",
 	},
 	speedsatono: {
@@ -4850,7 +4850,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 75, def: 75, spa: 110, spd: 75, spe: 105},
 		abilities: {0: "Chaos Induction", 1: "Optimist"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "satono",
 	},
 	extrasatono: {
@@ -4861,7 +4861,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 125, def: 80, spa: 70, spd: 80, spe: 75},
 		abilities: {0: "First Hit", 1: "After Move"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "satono",
 	},
 	normalsatori: {
@@ -4872,7 +4872,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 45, def: 60, spa: 45, spd: 60, spe: 30},
 		abilities: {0: "Curse Return", 1: "Projection"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "satori",
 	},
 	defensesatori: {
@@ -4883,7 +4883,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 70, def: 110, spa: 70, spd: 110, spe: 60},
 		abilities: {0: "Curse Return", 1: "Projection"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "satori",
 	},
 	assistsatori: {
@@ -4894,7 +4894,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 195, atk: 30, def: 70, spa: 30, spd: 70, spe: 50},
 		abilities: {0: "Shadow Stitch"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "satori",
 	},
 	extrasatori: {
@@ -4905,7 +4905,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 105, def: 60, spa: 95, spd: 65, spe: 120},
 		abilities: {0: "Infinite Changes", 1: "Projection"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "satori",
 	},
 	normalseiga: {
@@ -4916,7 +4916,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 35, def: 50, spa: 60, spd: 50, spe: 65},
 		abilities: {0: "Infiltration", 1: "Curse Return"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seiga",
 	},
 	speedseiga: {
@@ -4927,7 +4927,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 65, def: 90, spa: 100, spd: 90, spe: 110},
 		abilities: {0: "Infiltration", 1: "Curse Return"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seiga",
 	},
 	powerseiga: {
@@ -4938,7 +4938,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 65, def: 60, spa: 120, spd: 110, spe: 100},
 		abilities: {0: "Infiltration", 1: "Curse Return"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seiga",
 	},
 	extraseiga: {
@@ -4949,7 +4949,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 110, def: 95, spa: 65, spd: 70, spe: 120},
 		abilities: {0: "Flat Speed", 1: "Known Limits"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seiga",
 	},
 	normalseija: {
@@ -4960,7 +4960,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 50, def: 30, spa: 30, spd: 50, spe: 70},
 		abilities: {0: "Usurpation", 1: "Unjustness"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seija",
 	},
 	speedseija: {
@@ -4971,7 +4971,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 85, def: 55, spa: 55, spd: 85, spe: 110},
 		abilities: {0: "Usurpation", 1: "Unjustness"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seija",
 	},
 	defenseseija: {
@@ -4982,7 +4982,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 105, def: 70, spa: 45, spd: 130, spe: 70},
 		abilities: {0: "Usurpation", 1: "Unjustness"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seija",
 	},
 	extraseija: {
@@ -4993,7 +4993,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 75, def: 90, spa: 55, spd: 90, spe: 115},
 		abilities: {0: "Usurpation", 1: "Affinity Twist"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seija",
 	},
 	normalseiran: {
@@ -5004,7 +5004,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 40, def: 50, spa: 45, spd: 50, spe: 45},
 		abilities: {0: "Recalibration", 1: "Warning Shot"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seiran",
 	},
 	speedseiran: {
@@ -5015,7 +5015,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 40, def: 70, spa: 100, spd: 80, spe: 120},
 		abilities: {0: "Recalibration", 1: "Warning Shot"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seiran",
 	},
 	defenseseiran: {
@@ -5026,7 +5026,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 85, def: 95, spa: 45, spd: 100, spe: 45},
 		abilities: {0: "Deploy Smoke", 1: "Chaos Induction"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seiran",
 	},
 	extraseiran: {
@@ -5037,7 +5037,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 55, def: 105, spa: 115, spd: 75, spe: 55},
 		abilities: {0: "Telescopic", 1: "Unbound"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "seiran",
 	},
 	normalsekibanki: {
@@ -5048,7 +5048,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 50, def: 65, spa: 30, spd: 60, spe: 30},
 		abilities: {0: "Spirit of Yin"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sekibanki",
 	},
 	powersekibanki: {
@@ -5059,7 +5059,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 115, def: 100, spa: 30, spd: 75, spe: 70},
 		abilities: {0: "Bright Form", 1: "Spirit of Yin"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sekibanki",
 	},
 	assistsekibanki: {
@@ -5070,7 +5070,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 50, def: 100, spa: 75, spd: 120, spe: 80},
 		abilities: {0: "Melancholic", 1: "Appeased Spirit"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sekibanki",
 	},
 	extrasekibanki: {
@@ -5081,7 +5081,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 40, def: 85, spa: 125, spd: 70, spe: 85},
 		abilities: {0: "Warning Shot", 1: "Impulsive"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sekibanki",
 	},
 	normalshingyoku: {
@@ -5092,7 +5092,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 35, def: 65, spa: 50, spd: 65, spe: 30},
 		abilities: {0: "Antibody", 1: "Cleared Mind"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shingyoku",
 	},
 	assistshingyoku: {
@@ -5103,7 +5103,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 50, def: 75, spa: 90, spd: 170, spe: 45},
 		abilities: {0: "Antibody", 1: "Cleared Mind"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shingyoku",
 	},
 	defenseshingyoku: {
@@ -5114,7 +5114,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 90, def: 170, spa: 50, spd: 75, spe: 45},
 		abilities: {0: "Antibody", 1: "Cleared Mind"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shingyoku",
 	},
 	extrashingyoku: {
@@ -5125,7 +5125,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 125, atk: 45, def: 70, spa: 115, spd: 90, spe: 70},
 		abilities: {0: "Midnight Form", 1: "After Move"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shingyoku",
 	},
 	normalshinki: {
@@ -5136,7 +5136,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 60, def: 45, spa: 75, spd: 55, spe: 55},
 		abilities: {0: "Strong Smile", 1: "Weather Resist"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shinki",
 	},
 	powershinki: {
@@ -5147,7 +5147,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 115, def: 80, spa: 130, spd: 100, spe: 80},
 		abilities: {0: "Strong Smile", 1: "Weather Resist"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shinki",
 	},
 	speedshinki: {
@@ -5158,7 +5158,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 105, def: 90, spa: 125, spd: 90, spe: 95},
 		abilities: {0: "Strong Smile", 1: "Cloak of Darkness"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shinki",
 	},
 	extrashinki: {
@@ -5169,7 +5169,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 70, def: 120, spa: 110, spd: 75, spe: 120},
 		abilities: {0: "Surprise Tactics", 1: "Projection"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shinki",
 	},
 	normalshizuha: {
@@ -5180,7 +5180,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 60, def: 40, spa: 30, spd: 50, spe: 50},
 		abilities: {0: "Spirit of Yin", 1: "Antibody"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shizuha",
 	},
 	speedshizuha: {
@@ -5191,7 +5191,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 95, def: 70, spa: 30, spd: 80, spe: 115},
 		abilities: {0: "Spirit of Yin", 1: "Curiosity"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shizuha",
 	},
 	powershizuha: {
@@ -5202,7 +5202,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 125, atk: 100, def: 90, spa: 30, spd: 80, spe: 55},
 		abilities: {0: "Spirit of Yin", 1: "Strict Dosage"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shizuha",
 	},
 	extrashizuha: {
@@ -5213,7 +5213,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 140, def: 55, spa: 35, spd: 55, spe: 95},
 		abilities: {0: "Sutei's Fire", 1: "Charge!"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shizuha",
 	},
 	normalshou: {
@@ -5224,7 +5224,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 50, def: 40, spa: 75, spd: 40, spe: 60},
 		abilities: {0: "Absorbent", 1: "Flash"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shou",
 	},
 	powershou: {
@@ -5235,7 +5235,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 85, spa: 145, spd: 80, spe: 80},
 		abilities: {0: "Absorbent", 1: "Flash"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shou",
 	},
 	speedshou: {
@@ -5246,7 +5246,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 120, def: 75, spa: 60, spd: 75, spe: 110},
 		abilities: {0: "Imposing Stance", 1: "Sand Devil"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shou",
 	},
 	extrashou: {
@@ -5257,7 +5257,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 135, def: 75, spa: 70, spd: 80, spe: 90},
 		abilities: {0: "On the Edge", 1: "Flat Speed"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "shou",
 	},
 	normalstar: {
@@ -5268,7 +5268,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 45, def: 50, spa: 30, spd: 55, spe: 30},
 		abilities: {0: "Light Curtain", 1: "Aurora Grace"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "star",
 	},
 	powerstar: {
@@ -5279,7 +5279,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 120, def: 70, spa: 55, spd: 80, spe: 45},
 		abilities: {0: "Light Curtain", 1: "Niche"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "star",
 	},
 	defensestar: {
@@ -5290,7 +5290,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 40, def: 80, spa: 75, spd: 130, spe: 45},
 		abilities: {0: "Sanguine", 1: "Aurora Grace"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "star",
 	},
 	extrastar: {
@@ -5301,7 +5301,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 60, def: 60, spa: 80, spd: 80, spe: 120},
 		abilities: {0: "Surprise Tactics", 1: "Good Management"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "star",
 	},
 	normalsuika: {
@@ -5312,7 +5312,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 60, def: 55, spa: 50, spd: 40, spe: 50},
 		abilities: {0: "Charge!"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "suika",
 	},
 	powersuika: {
@@ -5323,7 +5323,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 140, atk: 165, def: 90, spa: 100, spd: 45, spe: 100},
 		abilities: {0: "Drunkard"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "suika",
 	},
 	defensesuika: {
@@ -5334,7 +5334,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 100, def: 100, spa: 70, spd: 100, spe: 60},
 		abilities: {0: "Charge!", 1: "Battle Mania"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "suika",
 	},
 	extrasuika: {
@@ -5345,7 +5345,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 65, def: 105, spa: 120, spd: 80, spe: 90},
 		abilities: {0: "Imposing Stance", 1: "Final Form"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "suika",
 	},
 	normalsukuna: {
@@ -5356,7 +5356,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 60, def: 55, spa: 35, spd: 30, spe: 40},
 		abilities: {0: "Sore Loser"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sukuna",
 	},
 	defensesukuna: {
@@ -5367,7 +5367,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 50, def: 50, spa: 60, spd: 60, spe: 75},
 		abilities: {0: "Miracle Mallet", 1: "Master's Defense"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sukuna",
 	},
 	powersukuna: {
@@ -5378,7 +5378,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 120, def: 100, spa: 85, spd: 70, spe: 85},
 		abilities: {0: "Indomitable", 1: "Sore Loser"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sukuna",
 	},
 	extrasukuna: {
@@ -5389,7 +5389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 120, def: 55, spa: 120, spd: 40, spe: 125},
 		abilities: {0: "Active", 1: "Sand Force"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sukuna",
 	},
 	normalsumireko: {
@@ -5400,7 +5400,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 50, def: 50, spa: 50, spd: 50, spe: 50},
 		abilities: {0: "Telescopic", 1: "Sixth Sense"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sumireko",
 	},
 	powersumireko: {
@@ -5411,7 +5411,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 120, def: 95, spa: 30, spd: 85, spe: 60},
 		abilities: {0: "Telescopic", 1: "Suppression"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sumireko",
 	},
 	speedsumireko: {
@@ -5422,7 +5422,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 40, def: 70, spa: 105, spd: 75, spe: 125},
 		abilities: {0: "Common Senseless", 1: "Invalidate"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sumireko",
 	},
 	extrasumireko: {
@@ -5433,7 +5433,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 60, def: 80, spa: 120, spd: 80, spe: 80},
 		abilities: {0: "Disjointed Blow", 1: "Sixth Sense"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sumireko",
 	},
 	normalsunny: {
@@ -5444,7 +5444,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 30, def: 40, spa: 65, spd: 50, spe: 40},
 		abilities: {0: "Flash", 1: "Active"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sunny",
 	},
 	assistsunny: {
@@ -5455,7 +5455,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 40, def: 85, spa: 100, spd: 90, spe: 50},
 		abilities: {0: "Sanguine", 1: "Active"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sunny",
 	},
 	powersunny: {
@@ -5466,7 +5466,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 30, def: 70, spa: 130, spd: 75, spe: 95},
 		abilities: {0: "Flash", 1: "Absorbent"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sunny",
 	},
 	extrasunny: {
@@ -5477,7 +5477,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 125, atk: 85, def: 90, spa: 40, spd: 90, spe: 40},
 		abilities: {0: "Light Curtain", 1: "Some Guts"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "sunny",
 	},
 	normalsuwako: {
@@ -5488,7 +5488,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 45, def: 50, spa: 70, spd: 45, spe: 65},
 		abilities: {0: "Optimist", 1: "Moody"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "suwako",
 	},
 	speedsuwako: {
@@ -5499,7 +5499,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 90, def: 80, spa: 120, spd: 80, spe: 115},
 		abilities: {0: "Optimist", 1: "Moody"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "suwako",
 	},
 	defensesuwako: {
@@ -5510,7 +5510,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 80, def: 115, spa: 110, spd: 80, spe: 85},
 		abilities: {0: "Stimulative", 1: "Breather"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "suwako",
 	},
 	extrasuwako: {
@@ -5521,7 +5521,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 115, def: 70, spa: 90, spd: 135, spe: 60},
 		abilities: {0: "Negative Aura", 1: "Hate Incarnate"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "suwako",
 	},
 	normaltakane: {
@@ -5532,7 +5532,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 40, def: 35, spa: 65, spd: 55, spe: 40},
 		abilities: {0: "Overcompensate", 1: "Quick Eye"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "takane",
 	},
 	powertakane: {
@@ -5543,7 +5543,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 45, def: 60, spa: 125, spd: 95, spe: 60},
 		abilities: {0: "Overcompensate", 1: "Silent Running"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "takane",
 	},
 	speedtakane: {
@@ -5554,7 +5554,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 115, def: 60, spa: 65, spd: 60, spe: 125},
 		abilities: {0: "Seitei's Wood", 1: "Metallurgy"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "takane",
 	},
 	extratakane: {
@@ -5565,7 +5565,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 40, def: 50, spa: 130, spd: 145, spe: 70},
 		abilities: {0: "Charge!", 1: "Gale"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "takane",
 	},
 	normalteireida: {
@@ -5576,7 +5576,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 65, def: 40, spa: 40, spd: 40, spe: 70},
 		abilities: {0: "Chaos Induction", 1: "Curiosity"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "teireida",
 	},
 	assistteireida: {
@@ -5587,7 +5587,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 90, def: 75, spa: 65, spd: 75, spe: 120},
 		abilities: {0: "Chaos Induction", 1: "Curiosity"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "teireida",
 	},
 	speedteireida: {
@@ -5598,7 +5598,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 45, def: 75, spa: 120, spd: 75, spe: 125},
 		abilities: {0: "Chaos Induction", 1: "Mindless Dance"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "teireida",
 	},
 	extrateireida: {
@@ -5609,7 +5609,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 130, def: 60, spa: 130, spd: 60, spe: 75},
 		abilities: {0: "Charge!", 1: "Fox's Wedding"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "teireida",
 	},
 	normaltenshi: {
@@ -5620,7 +5620,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 70, def: 70, spa: 35, spd: 40, spe: 30},
 		abilities: {0: "Indomitable", 1: "Flawless"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tenshi",
 	},
 	powertenshi: {
@@ -5631,7 +5631,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 130, def: 115, spa: 55, spd: 60, spe: 95},
 		abilities: {0: "Indomitable", 1: "Unbound"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tenshi",
 	},
 	defensetenshi: {
@@ -5642,7 +5642,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 110, def: 155, spa: 60, spd: 50, spe: 45},
 		abilities: {0: "Indomitable", 1: "Flawless"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tenshi",
 	},
 	extratenshi: {
@@ -5653,7 +5653,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 60, def: 60, spa: 120, spd: 130, spe: 50},
 		abilities: {0: "Healing Power", 1: "Koutei's Earth"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tenshi",
 	},
 	normaltewi: {
@@ -5664,7 +5664,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 30, def: 30, spa: 55, spd: 35, spe: 70},
 		abilities: {0: "Lucky", 1: "Quick Eye"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tewi",
 	},
 	assisttewi: {
@@ -5675,7 +5675,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 45, def: 60, spa: 85, spd: 60, spe: 115},
 		abilities: {0: "Lucky", 1: "Quick Eye"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tewi",
 	},
 	powertewi: {
@@ -5686,7 +5686,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 110, def: 65, spa: 45, spd: 80, spe: 115},
 		abilities: {0: "Lucky", 1: "Strategist"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tewi",
 	},
 	extratewi: {
@@ -5697,7 +5697,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 60, def: 110, spa: 35, spd: 80, spe: 100},
 		abilities: {0: "Counter Stance", 1: "Glamorous"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tewi",
 	},
 	normaltojiko: {
@@ -5708,7 +5708,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 35, atk: 70, def: 50, spa: 35, spd: 40, spe: 70},
 		abilities: {0: "Electrification", 1: "Desperation"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tojiko",
 	},
 	speedtojiko: {
@@ -5719,7 +5719,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 135, def: 90, spa: 40, spd: 60, spe: 130},
 		abilities: {0: "Morale Boost", 1: "Mind's Eye"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tojiko",
 	},
 	defensetojiko: {
@@ -5730,7 +5730,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 50, def: 30, spa: 110, spd: 130, spe: 105},
 		abilities: {0: "Electrification", 1: "Jamming"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tojiko",
 	},
 	extratojiko: {
@@ -5741,7 +5741,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 60, def: 80, spa: 110, spd: 65, spe: 125},
 		abilities: {0: "Pride", 1: "Healing Power"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tojiko",
 	},
 	normaltokiko: {
@@ -5752,7 +5752,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 50, def: 60, spa: 35, spd: 40, spe: 30},
 		abilities: {0: "Final Form", 1: "Healing Power"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tokiko",
 	},
 	powertokiko: {
@@ -5763,7 +5763,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 100, def: 95, spa: 50, spd: 95, spe: 35},
 		abilities: {0: "Warning Shot", 1: "Healing Power"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tokiko",
 	},
 	defensetokiko: {
@@ -5774,7 +5774,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 80, def: 120, spa: 35, spd: 65, spe: 80},
 		abilities: {0: "Deploy Smoke", 1: "In Sync"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tokiko",
 	},
 	extratokiko: {
@@ -5785,7 +5785,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 40, def: 60, spa: 120, spd: 105, spe: 70},
 		abilities: {0: "Invalidate", 1: "Wariness"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tokiko",
 	},
 	normaltoyohime: {
@@ -5796,7 +5796,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 55, def: 60, spa: 70, spd: 65, spe: 40},
 		abilities: {0: "Optimist", 1: "Flawless"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "toyohime",
 	},
 	defensetoyohime: {
@@ -5807,7 +5807,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 80, def: 100, spa: 120, spd: 110, spe: 70},
 		abilities: {0: "Optimist", 1: "Flawless"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "toyohime",
 	},
 	powertoyohime: {
@@ -5818,7 +5818,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 75, def: 90, spa: 130, spd: 100, spe: 65},
 		abilities: {0: "Optimist", 1: "Flawless"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "toyohime",
 	},
 	extratoyohime: {
@@ -5829,7 +5829,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 70, def: 130, spa: 115, spd: 65, spe: 85},
 		abilities: {0: "Healing Power", 1: "Flawless"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "toyohime",
 	},
 	normaltsukasa: {
@@ -5840,7 +5840,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 40, atk: 55, def: 40, spa: 50, spd: 40, spe: 60},
 		abilities: {0: "Sniper", 1: "Quick Eye"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tsukasa",
 	},
 	speedtsukasa: {
@@ -5851,7 +5851,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 115, def: 50, spa: 95, spd: 50, spe: 115},
 		abilities: {0: "Sniper", 1: "First Hit"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tsukasa",
 	},
 	assisttsukasa: {
@@ -5862,7 +5862,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 95, def: 90, spa: 45, spd: 80, spe: 90},
 		abilities: {0: "Curiosity", 1: "Quick Eye"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tsukasa",
 	},
 	extratsukasa: {
@@ -5873,7 +5873,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 95, def: 105, spa: 40, spd: 85, spe: 70},
 		abilities: {0: "Fox's Wedding", 1: "In Sync"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "tsukasa",
 	},
 	normaludonge: {
@@ -5884,7 +5884,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 60, def: 45, spa: 35, spd: 70, spe: 50},
 		abilities: {0: "Precise Aim", 1: "Chaos Induction"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "udonge",
 	},
 	assistudonge: {
@@ -5895,7 +5895,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 95, def: 70, spa: 85, spd: 135, spe: 65},
 		abilities: {0: "Inverse Toxin", 1: "Chaos Induction"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "udonge",
 	},
 	powerudonge: {
@@ -5906,7 +5906,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 130, def: 70, spa: 65, spd: 65, spe: 105},
 		abilities: {0: "Precise Aim", 1: "Worrywart"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "udonge",
 	},
 	extraudonge: {
@@ -5917,7 +5917,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 70, def: 70, spa: 110, spd: 50, spe: 120},
 		abilities: {0: "Strict Dosage", 1: "Final Form"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "udonge",
 	},
 	normalurumi: {
@@ -5928,7 +5928,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 40, def: 40, spa: 60, spd: 45, spe: 40},
 		abilities: {0: "Warning Shot", 1: "Charge!"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "urumi",
 	},
 	powerurumi: {
@@ -5939,7 +5939,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 60, def: 70, spa: 115, spd: 70, spe: 65},
 		abilities: {0: "Warning Shot", 1: "Charge!"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "urumi",
 	},
 	defenseurumi: {
@@ -5950,7 +5950,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 135, atk: 100, def: 55, spa: 50, spd: 90, spe: 60},
 		abilities: {0: "Warning Shot", 1: "Grace of Water"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "urumi",
 	},
 	extraurumi: {
@@ -5961,7 +5961,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 125, def: 80, spa: 60, spd: 70, spe: 60},
 		abilities: {0: "Warning Shot", 1: "Unbound"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "urumi",
 	},
 	normalutsuho: {
@@ -5972,7 +5972,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 50, atk: 80, def: 35, spa: 80, spd: 35, spe: 40},
 		abilities: {0: "Absorbent", 1: "Aggressive"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "utsuho",
 	},
 	powerutsuho: {
@@ -5983,7 +5983,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 150, def: 50, spa: 150, spd: 50, spe: 60},
 		abilities: {0: "Final Form", 1: "Aggressive"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "utsuho",
 	},
 	speedutsuho: {
@@ -5994,7 +5994,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 65, def: 80, spa: 135, spd: 70, spe: 90},
 		abilities: {0: "Positive", 1: "Duel"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "utsuho",
 	},
 	extrautsuho: {
@@ -6005,7 +6005,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 100, def: 70, spa: 60, spd: 110, spe: 80},
 		abilities: {0: "Sore Loser", 1: "Sutei's Fire"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "utsuho",
 	},
 	normalwakasagi: {
@@ -6016,7 +6016,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 35, def: 40, spa: 65, spd: 65, spe: 35},
 		abilities: {0: "Grace of Water", 1: "Final Form"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "wakasagi",
 	},
 	powerwakasagi: {
@@ -6027,7 +6027,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 30, def: 70, spa: 100, spd: 100, spe: 90},
 		abilities: {0: "Grace of Water", 1: "Sound Absorb"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "wakasagi",
 	},
 	speedwakasagi: {
@@ -6038,7 +6038,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 50, def: 60, spa: 120, spd: 60, spe: 115},
 		abilities: {0: "Fog Traveler", 1: "Force of Nature"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "wakasagi",
 	},
 	extrawakasagi: {
@@ -6049,7 +6049,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 40, def: 70, spa: 145, spd: 70, spe: 35},
 		abilities: {0: "Gentei's Water", 1: "Seitei's Wood"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "wakasagi",
 	},
 	normalwriggle: {
@@ -6060,7 +6060,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 60, def: 40, spa: 40, spd: 35, spe: 50},
 		abilities: {0: "Vanishing Act", 1: "Jamming"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "wriggle",
 	},
 	powerwriggle: {
@@ -6071,7 +6071,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 115, def: 70, spa: 40, spd: 70, spe: 85},
 		abilities: {0: "Telescopic", 1: "Quick Eye"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "wriggle",
 	},
 	assistwriggle: {
@@ -6082,7 +6082,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 70, def: 90, spa: 40, spd: 105, spe: 105},
 		abilities: {0: "Vanishing Act", 1: "Jamming"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "wriggle",
 	},
 	extrawriggle: {
@@ -6093,7 +6093,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 105, def: 40, spa: 105, spd: 40, spe: 130},
 		abilities: {0: "First Hit", 1: "Instant Win"},
 		weightkg: 0,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "wriggle",
 	},
 	normalyachie: {
@@ -6104,7 +6104,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 40, def: 50, spa: 60, spd: 65, spe: 30},
 		abilities: {0: "Ascertainment", 1: "Usurpation"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yachie",
 	},
 	poweryachie: {
@@ -6115,7 +6115,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 75, def: 85, spa: 100, spd: 110, spe: 65},
 		abilities: {0: "Ascertainment", 1: "Usurpation"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yachie",
 	},
 	defenseyachie: {
@@ -6126,7 +6126,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 60, def: 80, spa: 90, spd: 135, spe: 50},
 		abilities: {0: "Ascertainment", 1: "Restraint"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yachie",
 	},
 	extrayachie: {
@@ -6137,7 +6137,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 115, def: 115, spa: 60, spd: 65, spe: 95},
 		abilities: {0: "Precise Aim", 1: "Strategist"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yachie",
 	},
 	normalyamame: {
@@ -6148,7 +6148,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 40, def: 50, spa: 55, spd: 55, spe: 45},
 		abilities: {0: "Infectious", 1: "Nimble"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yamame",
 	},
 	poweryamame: {
@@ -6159,7 +6159,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 40, def: 85, spa: 120, spd: 80, spe: 70},
 		abilities: {0: "Infectious", 1: "Nimble"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yamame",
 	},
 	assistyamame: {
@@ -6170,7 +6170,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 125, def: 70, spa: 40, spd: 70, spe: 95},
 		abilities: {0: "Infectious", 1: "Nimble"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yamame",
 	},
 	extrayamame: {
@@ -6181,7 +6181,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 40, def: 105, spa: 90, spd: 145, spe: 35},
 		abilities: {0: "Infectious", 1: "Disturber"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yamame",
 	},
 	normalyatsuhashi: {
@@ -6192,7 +6192,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 30, def: 55, spa: 60, spd: 40, spe: 40},
 		abilities: {0: "Final Form", 1: "Sound Absorb"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yatsuhashi",
 	},
 	speedyatsuhashi: {
@@ -6203,7 +6203,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 40, def: 65, spa: 105, spd: 65, spe: 115},
 		abilities: {0: "Instant Win", 1: "Strategist"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yatsuhashi",
 	},
 	defenseyatsuhashi: {
@@ -6214,7 +6214,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 40, def: 125, spa: 100, spd: 80, spe: 50},
 		abilities: {0: "Quick Eye", 1: "Some Guts"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yatsuhashi",
 	},
 	extrayatsuhashi: {
@@ -6225,7 +6225,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 105, atk: 125, def: 95, spa: 40, spd: 80, spe: 50},
 		abilities: {0: "In Sync", 1: "Composed"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yatsuhashi",
 	},
 	normalyorigami: {
@@ -6236,7 +6236,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 70, def: 40, spa: 45, spd: 45, spe: 55},
 		abilities: {0: "Glamorous", 1: "Negative Aura"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yorigami",
 	},
 	poweryorigami: {
@@ -6247,7 +6247,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 120, def: 85, spa: 60, spd: 65, spe: 85},
 		abilities: {0: "Glamorous", 1: "Negative Aura"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yorigami",
 	},
 	defenseyorigami: {
@@ -6258,7 +6258,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 125, atk: 75, def: 80, spa: 105, spd: 75, spe: 75},
 		abilities: {0: "Southern Expanse", 1: "Negative Aura"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yorigami",
 	},
 	extrayorigami: {
@@ -6269,7 +6269,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 165, atk: 105, def: 60, spa: 55, spd: 55, spe: 95},
 		abilities: {0: "Reckless", 1: "Wasteful"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yorigami",
 	},
 	normalyorihime: {
@@ -6280,7 +6280,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 70, def: 50, spa: 55, spd: 45, spe: 65},
 		abilities: {0: "Insight", 1: "Sniper"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yorihime",
 	},
 	poweryorihime: {
@@ -6291,7 +6291,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 120, def: 85, spa: 100, spd: 70, spe: 105},
 		abilities: {0: "Insight", 1: "Sniper"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yorihime",
 	},
 	speedyorihime: {
@@ -6302,7 +6302,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 130, def: 90, spa: 90, spd: 70, spe: 120},
 		abilities: {0: "Insight", 1: "Immovable"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yorihime",
 	},
 	extrayorihime: {
@@ -6313,7 +6313,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 90, def: 90, spa: 80, spd: 130, spe: 110},
 		abilities: {0: "Flawless", 1: "Wisdom Eye"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yorihime",
 	},
 	normalyoshika: {
@@ -6324,7 +6324,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 60, def: 35, spa: 40, spd: 5, spe: 55},
 		abilities: {0: "Ghost Form", 1: "Spirit of Yin"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yoshika",
 	},
 	poweryoshika: {
@@ -6335,7 +6335,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 160, atk: 120, def: 70, spa: 40, spd: 20, spe: 90},
 		abilities: {0: "Ghost Form", 1: "Armor Purge"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yoshika",
 	},
 	defenseyoshika: {
@@ -6346,7 +6346,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 165, atk: 40, def: 80, spa: 105, spd: 45, spe: 65},
 		abilities: {0: "Full Power", 1: "Inverse Reaction"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yoshika",
 	},
 	extrayoshika: {
@@ -6357,7 +6357,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 160, atk: 100, def: 60, spa: 40, spd: 60, spe: 80},
 		abilities: {0: "Free Will", 1: "Common Senseless"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yoshika",
 	},
 	normalyoumu: {
@@ -6368,7 +6368,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 45, atk: 70, def: 40, spa: 50, spd: 30, spe: 70},
 		abilities: {0: "Mind's Eye", 1: "Gale"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "youmu",
 	},
 	speedyoumu: {
@@ -6379,7 +6379,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 110, def: 70, spa: 105, spd: 50, spe: 115},
 		abilities: {0: "Mind's Eye", 1: "Gale"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "youmu",
 	},
 	poweryoumu: {
@@ -6390,7 +6390,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 125, def: 100, spa: 55, spd: 70, spe: 90},
 		abilities: {0: "Mind's Eye", 1: "Gale"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "youmu",
 	},
 	extrayoumu: {
@@ -6401,7 +6401,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 50, def: 100, spa: 105, spd: 120, spe: 50},
 		abilities: {0: "Reflect Guard", 1: "Stubborn"},
 		weightkg: 2,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "youmu",
 	},
 	normalyukari: {
@@ -6412,7 +6412,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 40, def: 60, spa: 75, spd: 60, spe: 35},
 		abilities: {0: "Strong Smile", 1: "Unjustness"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yukari",
 	},
 	poweryukari: {
@@ -6423,7 +6423,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 55, def: 100, spa: 150, spd: 100, spe: 105},
 		abilities: {0: "Placid"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yukari",
 	},
 	defenseyukari: {
@@ -6434,7 +6434,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 65, def: 140, spa: 105, spd: 140, spe: 50},
 		abilities: {0: "Restraint", 1: "Unjustness"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yukari",
 	},
 	extrayukari: {
@@ -6445,7 +6445,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 125, def: 95, spa: 80, spd: 85, spe: 95},
 		abilities: {0: "Wisdom Eye", 1: "Strange Rainbow"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yukari",
 	},
 	normalyuki: {
@@ -6456,7 +6456,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 40, def: 40, spa: 60, spd: 40, spe: 60},
 		abilities: {0: "Flaming Garment", 1: "Positive"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuki",
 	},
 	speedyuki: {
@@ -6467,7 +6467,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 50, def: 70, spa: 100, spd: 60, spe: 115},
 		abilities: {0: "Strict Dosage", 1: "Charge!"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuki",
 	},
 	poweryuki: {
@@ -6478,7 +6478,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 45, def: 70, spa: 125, spd: 70, spe: 90},
 		abilities: {0: "Recalibration", 1: "Positive"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuki",
 	},
 	extrayuki: {
@@ -6489,7 +6489,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 110, def: 60, spa: 40, spd: 120, spe: 40},
 		abilities: {0: "Known Limits", 1: "Gentei's Water"},
 		weightkg: 1,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuki",
 	},
 	normalyumeko: {
@@ -6500,7 +6500,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 70, def: 40, spa: 50, spd: 50, spe: 55},
 		abilities: {0: "Overwhelm", 1: "Morale Boost"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yumeko",
 	},
 	poweryumeko: {
@@ -6511,7 +6511,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 130, def: 75, spa: 80, spd: 85, spe: 80},
 		abilities: {0: "Overwhelm", 1: "Morale Boost"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yumeko",
 	},
 	speedyumeko: {
@@ -6522,7 +6522,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 110, def: 65, spa: 100, spd: 80, spe: 115},
 		abilities: {0: "Salvo", 1: "Strategist"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yumeko",
 	},
 	extrayumeko: {
@@ -6533,7 +6533,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 60, def: 90, spa: 130, spd: 95, spe: 75},
 		abilities: {0: "Telescopic", 1: "Ascertainment"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yumeko",
 	},
 	normalyumemi: {
@@ -6544,7 +6544,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 55, atk: 40, def: 45, spa: 75, spd: 40, spe: 60},
 		abilities: {0: "Gale", 1: "Aggressive"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yumemi",
 	},
 	poweryumemi: {
@@ -6555,7 +6555,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 55, def: 80, spa: 130, spd: 75, spe: 90},
 		abilities: {0: "Unwavering Heart", 1: "Aggressive"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yumemi",
 	},
 	speedyumemi: {
@@ -6566,7 +6566,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 55, def: 70, spa: 125, spd: 80, spe: 110},
 		abilities: {0: "Gale", 1: "Positive"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yumemi",
 	},
 	extrayumemi: {
@@ -6577,7 +6577,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 120, def: 90, spa: 55, spd: 75, spe: 80},
 		abilities: {0: "Mind's Eye", 1: "Sore Loser"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yumemi",
 	},
 	normalyuugi: {
@@ -6588,7 +6588,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 65, atk: 80, def: 45, spa: 50, spd: 40, spe: 45},
 		abilities: {0: "Imposing Stance", 1: "Recoil Offset"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuugi",
 	},
 	poweryuugi: {
@@ -6599,7 +6599,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 165, def: 70, spa: 85, spd: 65, spe: 60},
 		abilities: {0: "Unbound", 1: "Imposing Stance"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuugi",
 	},
 	speedyuugi: {
@@ -6610,7 +6610,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 130, def: 75, spa: 80, spd: 95, spe: 80},
 		abilities: {0: "Imposing Stance", 1: "Battle Mania"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuugi",
 	},
 	extrayuugi: {
@@ -6621,7 +6621,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 105, def: 90, spa: 135, spd: 135, spe: 80},
 		abilities: {0: "Brute Force"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuugi",
 	},
 	normalyuuka: {
@@ -6632,7 +6632,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 80, def: 65, spa: 50, spd: 40, spe: 20},
 		abilities: {0: "Unjustness", 1: "Peaceful"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuuka",
 	},
 	poweryuuka: {
@@ -6643,7 +6643,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 100, atk: 140, def: 100, spa: 90, spd: 60, spe: 45},
 		abilities: {0: "Unjustness", 1: "Peaceful"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuuka",
 	},
 	defenseyuuka: {
@@ -6654,7 +6654,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 95, atk: 115, def: 185, spa: 55, spd: 45, spe: 40},
 		abilities: {0: "Unjustness", 1: "After Move"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuuka",
 	},
 	extrayuuka: {
@@ -6665,7 +6665,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 65, def: 70, spa: 145, spd: 80, spe: 95},
 		abilities: {0: "Overwhelm", 1: "Pride"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuuka",
 	},
 	normalyuuma: {
@@ -6676,7 +6676,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 85, atk: 45, def: 40, spa: 75, spd: 40, spe: 40},
 		abilities: {0: "Empowered", 1: "Overcompensate"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuuma",
 	},
 	poweryuuma: {
@@ -6687,7 +6687,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 60, def: 80, spa: 120, spd: 70, spe: 85},
 		abilities: {0: "Empowered", 1: "Projection"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuuma",
 	},
 	defenseyuuma: {
@@ -6698,7 +6698,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 135, atk: 110, def: 95, spa: 50, spd: 75, spe: 65},
 		abilities: {0: "Strong Smile", 1: "Projection"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuuma",
 	},
 	extrayuuma: {
@@ -6709,7 +6709,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 150, atk: 65, def: 65, spa: 105, spd: 65, spe: 80},
 		abilities: {0: "Avarice"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuuma",
 		otherFormes: ["Extra Yuuma-Avarice"]
 	},
@@ -6721,7 +6721,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 150, atk: 65, def: 65, spa: 145, spd: 85, spe: 100},
 		abilities: {0: "Avarice"},
 		weightkg: 3,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuuma-avarice",
 		forme: "Avarice",
 		changesFrom: "Extra Yuuma"
@@ -6734,7 +6734,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 45, def: 60, spa: 65, spd: 45, spe: 25},
 		abilities: {0: "Quick Eye", 1: "Final Form"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuyuko",
 	},
 	defenseyuyuko: {
@@ -6745,7 +6745,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 115, atk: 85, def: 110, spa: 110, spd: 75, spe: 45},
 		abilities: {0: "Quick Eye", 1: "Karmic Retribution"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuyuko",
 	},
 	poweryuyuko: {
@@ -6756,7 +6756,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 70, def: 90, spa: 125, spd: 90, spe: 75},
 		abilities: {0: "Quick Eye", 1: "Final Form"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuyuko",
 	},
 	extrayuyuko: {
@@ -6767,7 +6767,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 80, atk: 135, def: 85, spa: 60, spd: 75, spe: 105},
 		abilities: {0: "Inverse Reaction", 1: "Impulsive"},
 		weightkg: 4,
-		eggGroups: [],
+		eggGroups: ["Undiscovered"],
 		spriteid: "yuyuko",
 	},
 };
