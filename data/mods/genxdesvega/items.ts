@@ -47,7 +47,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	poisonseed: {
 		name: "Poison Seed",
-		shortDesc: "On Poison Terrain, +1 to the lower of holder's Defense or Sp. Def by 1. (If tied boosts Defense) Single use.",
+		shortDesc: "On Poison Terrain, +1 to holder's Def or Sp. Def by 1, whichever raw stat is lower. (If tied boosts Defense) Single use.",
 		fling: {
 			basePower: 10,
 		},
