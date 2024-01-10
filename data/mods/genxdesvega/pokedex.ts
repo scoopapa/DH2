@@ -824,6 +824,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.1,
 		weightkg: 55.8,
 		prevo: "Swinub-Desvega",
+		evoLevel: 33,
 		evos: ["Mamoswine-Desvega"],
 	},
 	mamoswine: {
@@ -842,6 +843,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2.5,
 		weightkg: 291,
 		prevo: "Piloswine-Desvega",
+		evoType: "levelMove",
+		evoMove: "Ancient Power",
 	},
 	magcargo: {
 		inherit: true,
@@ -959,7 +962,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		inherit: true,
 		abilities: {0: "Chlorophyll", 1: "Flash Fire", H: "Anger Point"},
 		baseStats: {hp: 85, atk: 98, def: 75, spa: 98, spd: 75, spe: 75},
-		evo: "Capsagon",
+		evos: ["Capsagon"],
 	},
 	capsagon: {
 		num: 1397,
@@ -969,6 +972,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Chlorophyll", 1: "Flare Boost", H: "Guts"},
 		heightm: 3.2,
 		weightkg: 680,
+		prevo: "Scovillain",
 		evoType: "useItem",
 		evoItem: "Flaming Pepper",
 	},
@@ -1357,6 +1361,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.5,
 		weightkg: 40,
 		prevo: "Cramorant-Desvega",
+		evoType: "levelExtra",
+		evoCondition: "after three successful activations of Gulp Cannon",
 	},
 	toxirantgulping: {
 		num: 1427,
@@ -1590,7 +1596,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 30.0,
 		prevo: "Scraggy-Desvega",
 		evoLevel: 39,
-		evoCondition: "after defeating an Arbok",
+		evoCondition: "while gaining a level from defeating an Arbok",
 	},
 	scraftydesvegatriassinge: {
 		num: 560,
@@ -1604,7 +1610,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 30.0,
 		prevo: "Scraggy-Desvega",
 		evoLevel: 39,
-		evoCondition: "after defeating a Triassinge",
+		evoCondition: "while gaining a level from defeating a Triassinge",
 	},
 	scraftydesvegasandaconda: {
 		num: 560,
@@ -1618,7 +1624,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 30.0,
 		prevo: "Scraggy-Desvega",
 		evoLevel: 39,
-		evoCondition: "after defeating a Sandaconda",
+		evoCondition: "while gaining a level from defeating a Sandaconda",
 	},
 	rotom: {
 		inherit: true,
