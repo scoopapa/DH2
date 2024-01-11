@@ -1334,7 +1334,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	alumane: {
-		tier: "Desvega OU",
+		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
 	silicyon: {
