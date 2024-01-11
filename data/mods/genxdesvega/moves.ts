@@ -554,7 +554,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon, target) {
-			if (target.positiveBoosts() > 0) {
+			if (target.positiveBoosts()) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -976,7 +976,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Zap Cannon", target);
+			this.add('-anim', source, "Discharge", target);
 		},
 		flags: {protect: 1, mirror: 1},
 		secondary: null,
