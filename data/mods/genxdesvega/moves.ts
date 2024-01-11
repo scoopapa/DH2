@@ -526,7 +526,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Flare Blitz", target);
 		},
 		onBasePower(basePower, pokemon) {
-			if (pokemon.status && pokemon.status === 'brn') {
+			if (pokemon.status === 'brn') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -578,7 +578,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon, target) {
-			for (i in target.boosts) {
+			for (const i in target.boosts) {
 				if (target.boosts[i] < 0) {
 					return this.chainModify(1.5);
 				}
@@ -625,7 +625,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Sludge Bomb", target);
+			switch (source.species.name) {
+				case 'Crayoct':
+					this.add('-anim', source, "Spicy Extract", target);
+					break;
+				case 'Crayoct-Blue':
+					this.add('-anim', source, "Mist Ball", target);
+					break;
+				case 'Crayoct-Yellow':
+					this.add('-anim', source, "Charge Beam", target);
+					break;
+				case 'Crayoct-Pink':
+					this.add('-anim', source, "Psywave", target);
+					break;
+				case 'Crayoct-Brown':
+					this.add('-anim', source, "Mud Bomb", target);
+					break;
+				default:
+					this.add('-anim', source, "Sludge Bomb", target);
+					break;
+			}
 		},
 		onModifyType(move, pokemon) {
 			switch (pokemon.species.name) {
@@ -1258,9 +1277,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Clever",
 	},
-	//Pre-Loria/Hisui distribution (all would be through Mirror Herb now):
-	//Absol, Meowth line (what about Alolan/Galarian?), Johtonian Sneasel line (Hisuian?),
-	//Skitty line (Lorian?), Glameow line, Purrloin line and Espurr line
 	bushclaws: {
 		accuracy: 100,
 		basePower: 85,
