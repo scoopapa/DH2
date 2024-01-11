@@ -1326,7 +1326,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DGX",
 	},
 	poipole: {
-		tier: "Desvega LC",
+		tier: "Desvega NFE",
 		doublesTier: "DGX",
 	},
 	naganadel: {
