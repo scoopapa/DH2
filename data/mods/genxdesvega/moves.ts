@@ -1258,6 +1258,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Clever",
 	},
+	//Pre-Loria/Hisui distribution (all would be through Mirror Herb now):
+	//Absol, Meowth line (what about Alolan/Galarian?), Johtonian Sneasel line (Hisuian?),
+	//Skitty line (Lorian?), Glameow line, Purrloin line and Espurr line
 	bushclaws: {
 		accuracy: 100,
 		basePower: 85,
