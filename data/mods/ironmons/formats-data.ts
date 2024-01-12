@@ -35,4 +35,20 @@ export const FormatsData: { [k: string]: SpeciesFormatsData; } = {
 		tier: "OU",
 		doublesTier: "DOU",
 	},
+	rigidbunker: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	bigshot: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	irontiara: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
+	ironman: {
+		tier: "OU",
+		doublesTier: "DOU",
+	},
 };
