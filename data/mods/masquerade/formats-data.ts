@@ -219,4 +219,28 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "MSQ",
 		doublesTier: "MSQ",
 	},
+	aurorus: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	aurorusfreezeflame: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	aurorusglacier: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	druddigon: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	druddigonrubyhead: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
+	druddigonsharpshot: {
+		tier: "MSQ",
+		doublesTier: "MSQ",
+	},
 };
