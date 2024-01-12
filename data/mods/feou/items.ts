@@ -27,9 +27,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	boosterenergy: {
 		inherit: true,
-		onStart() {
-			this.effectState.started = true;
-		},
 		onUpdate(pokemon) {
 			if (!this.effectState.started || pokemon.transformed/*) return;
 			if (*/|| this.queue.peek(true)?.choice === 'runSwitch') return;
@@ -59,10 +56,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.hasAbility('systempurge') && !pokemon.volatiles['systempurge'] && pokemon.useItem()) {
 				pokemon.addVolatile('systempurge');
 			}
-		},
-		onTakeItem(item, source) {
-			if (source.baseSpecies.tags.includes("Paradox")) return false;
-			return true;
 		},
 		desc: "Activates abilities with Protosynthesis or Quark Drive effects. Single use.",
 	},
@@ -219,24 +212,15 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 	},
 	
 	jabocaberry: {
-		name: "Jaboca Berry",
-		spritenum: 230,
-		isBerry: true,
-		naturalGift: {
-			basePower: 100,
-			type: "Dragon",
-		},
+		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Physical' && source.hp && source.isActive && !source.hasAbility(['magicguard','overwhelming']) && target.eatItem()) {
 				this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 4 : 8), source, target);
 			}
 		},
-		onEat() { },
-		num: 211,
-		gen: 4,
 	},
 	quickclaw: {
-		onFractionalPriorityPriority: -2,
+		inherit: true,
 		onFractionalPriority(priority, pokemon, target, move) {
 			if (move.category === "Status" && pokemon.hasAbility(["myceliummight","galvanicrelay"])) return;
 			if (priority <= 0 && this.randomChance(1, 5)) {
@@ -244,31 +228,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 				return 0.1;
 			}
 		},
-		name: "Quick Claw",
-		spritenum: 373,
-		fling: {
-			basePower: 80,
-		},
-		num: 217,
-		gen: 2,
 	},
 	rowapberry: {
-		name: "Rowap Berry",
-		spritenum: 420,
-		isBerry: true,
-		naturalGift: {
-			basePower: 100,
-			type: "Dark",
-		},
+		inherit: true,
 		onDamagingHit(damage, target, source, move) {
 			if (move.category === 'Special' && source.hp && source.isActive && !source.hasAbility(['magicguard','overwhelming']) && target.eatItem()) {
 				this.damage(source.baseMaxhp / (target.hasAbility('ripen') ? 4 : 8), source, target);
 			}
 		},
-		onEat() { },
-		num: 212,
-		gen: 4,
-		rating: 1,
 	},
 	gyaradosite: {
 		name: "Gyaradosite",

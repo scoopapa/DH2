@@ -8,6 +8,68 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		customDoublesTiers: ['DGX'],
 	},	
 	init() {
+		//Free dexited movesets
+		
+		const undexitedMons = [];
+		for (const pokemon in this.data.FormatsData) {
+			//We will skip mons absent from Desvega and custom formes that lack tiers
+			const tierData = this.modData("FormatsData",pokemon);
+			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Desvega')) {
+				//console.log(pokemon + " is not in the Desvegan Regional Pokedex. I think this is everything.");
+				continue;
+			}
+			const mon = this.modData("Pokedex",pokemon);
+			if (!mon) {
+				//console.log(pokemon + "'s entry could not be found. Skipping...");
+				continue;
+			}
+			//Folovo is at 1101 for the time being
+			if (mon.num > 1100) {
+				//console.log(pokemon + " is a custom Pokemon. Skipping...");
+				continue;
+			}
+			
+			//We will also skip mons present in SV
+			const learnsetData = this.modData("Learnsets", pokemon);
+			if (!learnsetData || !learnsetData.learnset) {
+				//console.log(pokemon + " has an invalid moveset. Skipping...");
+				continue;
+			}
+			const learnset = learnsetData.learnset;
+			//This will exclude inherited movesets and the mons that were in SV, as none of the mons specified to lack Tera Blast are in Desvega
+			if (learnset.terablast && mon !== 'charparoll'/* || ['magikarp','ditto','smeargle','cosmog','cosmoem'].includes(pokemon)*/) {
+				//console.log(pokemon + " was present in Scarlet and Violet. Skipping...");
+				continue;
+			}
+			
+			
+			if (mon.forme) {
+				if (['Brazdo','Loria'].includes(mon.forme)) {
+					mon.gen = 8;
+					//console.log(pokemon + " is a custom regional variant from an earlier Gen X generation. Skipping...");
+					continue;
+				}
+				if (mon.forme.startsWith('Desvega')) {
+					mon.gen = 9;
+					//console.log(pokemon + " is a Desvegan regional variant. Skipping...");
+					continue;
+				}
+				if (pokemon.startsWith('rotom')) {
+					//console.log(pokemon + " inherits Rotom's moveset. Skipping...");
+					continue;
+				}
+			}
+			undexitedMons.push(pokemon);
+			//console.log(pokemon + " was in Desvega but not Paldea.");
+			
+			//Toxic distribution is reduced among non-Poisons (the ones that returned for Desvega but not SV that kept it will have it returned)
+			if (!mon.types.includes('Poison') && learnset.toxic) delete learnset.toxic;
+			//Now we free all the moves
+			for (const move in learnset) {
+				learnset[move].push("9L1");
+			}
+		}
+		
 		//oddish line
 		this.modData("Learnsets", "oddish").learnset.poisonterrain = ["9L1"];
 		this.modData("Learnsets", "oddish").learnset.toxicshock = ["9L1"];
@@ -37,8 +99,19 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "garbodor").learnset.poisonterrain = ["9L1"];
 		this.modData("Learnsets", "garbodor").learnset.toxicshock = ["9L1"];
 		
+		//plusle and minun
+		this.modData("Learnsets", "plusle").learnset.pluspulse = ["9L1"];
+		this.modData("Learnsets", "plusle").learnset.sparkingleap = ["9L1","8L1"];
+		this.modData("Learnsets", "plusle").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "minun").learnset.minusion = ["9L1"];
+		this.modData("Learnsets", "minun").learnset.sparkingleap = ["9L1","8L1"];
+		this.modData("Learnsets", "minun").learnset.shocktail = ["9L1","8L1"];
+		
+		//stunfisk
+		this.modData("Learnsets", "stunfisk").learnset.sparkingleap = ["9L1","8L1"];
+		
 		//pachirisu
-		this.modData("Learnsets", "pachirisu").learnset.shocktail = ["9L1"];
+		this.modData("Learnsets", "pachirisu").learnset.shocktail = ["9L1","8L1"];
 		
 		//braviary
 		this.modData("Learnsets", "braviary").learnset.airdive = ["9L1"];
@@ -58,12 +131,18 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "clodsire").learnset.poisonterrain = ["9L1"];
 		this.modData("Learnsets", "clodsire").learnset.toxicshock = ["9L1"];
 		
-		//hydreigon
+		//deino line
+		this.modData("Learnsets", "deino").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "zweilous").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "hydreigon").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "hydreigon").learnset.roost = ["9L1"];
 		
 		//swinub line
+		this.modData("Learnsets", "swinub").learnset.terracharge = ["9L1", "8L1"];
 		this.modData("Learnsets", "piloswine").learnset.tripleaxel = ["9L1"];
+		this.modData("Learnsets", "piloswine").learnset.terracharge = ["9L1", "8L1"];
 		this.modData("Learnsets", "mamoswine").learnset.tripleaxel = ["9L1"];
+		this.modData("Learnsets", "mamoswine").learnset.terracharge = ["9L1", "8L1"];
 		
 		//tandemaus line
 		this.modData("Learnsets", "tandemaus").learnset.nuzzle = ["9L1"];
@@ -76,6 +155,122 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "poipole").learnset.poisonterrain = ["9L1"];
 		this.modData("Learnsets", "naganadel").learnset.poisonterrain = ["9L1"];
 		this.modData("Learnsets", "naganadel").learnset.toxicshock = ["9L1"];
+		
+		//rotom
+		this.modData("Learnsets", "rotom").learnset.dazzlinggleam = ["9L1"];
+		this.modData("Learnsets", "rotom").learnset.playrough = ["9L1"];
+		this.modData("Learnsets", "rotom").learnset.wildcharge = ["9L1"];
+		
+		//froakie line
+		this.modData("Learnsets", "frogadier").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "greninja").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "greninjabond").learnset.toxicshock = ["9L1"];
+		
+		//mareanie line
+		this.modData("Learnsets", "mareanie").learnset.toxicshock = ["9L1"];
+		this.modData("Learnsets", "toxapex").learnset.toxicshock = ["9L1"];
+		
+		//kalosian litleo line
+		this.modData("Learnsets", "litleo").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "litleo").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "pyroar").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "pyroar").learnset.quickshot = ["9L1","8L1"];
+		
+		//fennekin line
+		this.modData("Learnsets", "fennekin").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "fennekin").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "braixen").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "braixen").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "delphox").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "delphox").learnset.quickshot = ["9L1","8L1"];
+		
+		//rockruff line
+		this.modData("Learnsets", "rockruff").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "rockruffdusk").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "lycanroc").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.crippleclobber = ["9L1","8L1"];
+		this.modData("Learnsets", "lycanrocdusk").learnset.drainfang = ["9L1","8L1"];
+		
+		//cripple clobber
+		this.modData("Learnsets", "rampardos").learnset.crippleclobber = ["9L1","8L1"];
+		this.modData("Learnsets", "gigalith").learnset.crippleclobber = ["9L1","8L1"];
+		this.modData("Learnsets", "stonjourner").learnset.crippleclobber = ["9L1","8L1"];
+		
+		//misc shock tail distribution
+		this.modData("Learnsets", "electivire").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "pikachu").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "raichu").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "raichualola").learnset.shocktail = ["9L1","8L1"];
+		
+		//misc drain fang distribution
+		this.modData("Learnsets", "sableye").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "ekans").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "arbok").learnset.drainfang = ["9L1","8L1"];
+		
+		//misc drift distribution (wouldn't you know it they're all in desvega)
+		this.modData("Learnsets", "flareon").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "tepig").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "pignite").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "emboar").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "turtonator").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "rolycoly").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "carkol").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "coalossal").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "capsakid").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "scovillain").learnset.drift = ["9L1"];
+		
+		
+		//Distributions at https://www.smogon.com/forums/threads/generation-x-the-third-chapter-desvega-concluded-coders-wanted.3722319/page-8
+		//(Toxic excluded for mons present in SV because that post was made before the Teal Mask, which made Toxic a TM again and with limited distribution too)
+		//(Custom mons and mons dexited from Desvega are excluded, hence why Heal Order and Chilly Reception were skipped)
+		
+		this.modData("Learnsets", "applin").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "flapple").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "appletun").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "dipplin").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "hydrapple").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "carbink").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "eiscue").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "wooloo").learnset.rapidspin = ["9L1"];
+		this.modData("Learnsets", "dubwool").learnset.rapidspin = ["9L1"];
+		
+		this.modData("Learnsets", "oddish").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "gloom").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "vileplume").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "bellossom").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "venipede").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "whirlipede").learnset.mortalspin = ["9L1"];
+		this.modData("Learnsets", "scolipede").learnset.mortalspin = ["9L1"];
+		
+		//Returning Toxic to the select non-Poisons that returned for Desvega but not SV
+		this.modData("Learnsets", "paras").learnset.toxic = ["9L1"];
+		this.modData("Learnsets", "parasect").learnset.toxic = ["9L1"];
+		
+		this.modData("Learnsets", "aerodactyl").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "cranidos").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "rampardos").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "geodude").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "graveler").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "golem").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "stonjourner").learnset.accelerock = ["9L1"];
+		this.modData("Learnsets", "lycanrocmidnight").learnset.accelerock = ["9L1"];
+		
+		/*for (const pokemon in this.data.FormatsData) {
+			const tierData = this.modData("FormatsData",pokemon);
+			if (!tierData || !tierData.tier || !tierData.tier.startsWith('Desvega')) {
+				break;
+			}
+			const mon = this.modData("Pokedex",pokemon);
+			if (!mon) {
+				console.log(pokemon + "'s data is lost!");
+				continue;
+			}
+			if (mon.forme && !mon.baseSpecies) {
+				console.log(pokemon + " was not assigned to a base species!");
+			}
+		}*/
+		
 	},
 	runAction(action) {
 		const pokemonOriginalHP = action.pokemon?.hp;
@@ -90,8 +285,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			// Change Zacian/Zamazenta into their Crowned formes
 			for (const pokemon of this.getAllPokemon()) {
 				let rawSpecies: Species | null = null;
-				if (pokemon.species.id === 'zacian' && pokemon.item === 'rustedsword') {
-					rawSpecies = this.dex.species.get('Zacian-Crowned');
+				if (pokemon.species.id === 'zacian') {
+					if (pokemon.item === 'rustedsword') rawSpecies = this.dex.species.get('Zacian-Crowned');
 				} else if (pokemon.species.id === 'zamazenta' && pokemon.item === 'rustedshield') {
 					rawSpecies = this.dex.species.get('Zamazenta-Crowned');
 				}
@@ -620,7 +815,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.volatiles['protect'] || this.volatiles['detect'] || this.volatiles['maxguard'] ||
 				this.volatiles['kingsshield'] || this.volatiles['spikyshield'] || this.volatiles['banefulbunker'] ||
 				this.volatiles['obstruct'] || this.volatiles['silktrap'] || this.volatiles['burningbulwark'] ||
-				this.volatiles['fieldofvision']
+				this.volatiles['fieldofvision'] || this.volatiles['firewall']
 			);
 		}
      },

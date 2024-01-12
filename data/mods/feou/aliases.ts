@@ -1,6 +1,27 @@
 export const Aliases: {[alias: string]: string} = {
 	weezer: "Weezaluna-Bloodmoon",
+	toedi: "Toedieleki",
 	wereallyletamonnamed: "Anoraidon",
+	woppled: "Wopple",
+	isekai: "Icekrai",
+	lashi: "Lashiram",
+	carbug: "Revarantis",
+	garp: "Garpyuku",
+	relish: "Relishadow",
+	crygar: "Crygargonal",
+	supersaiyantweety: "Celedos",
+	guguzz: "Guguzzparce",
+	
+	//Paradox fusions
+	scorm: "Scream Cormorant",
+	kleav: "Great Kleav",
+	meta: "Iron Meta",
+	pins: "Iron Pins",
+	dirge: "Iron Dirge",
+	tornado: "Iron Tornado",
+	whimsy: "Whimsy Sands",
+	sands: "Whimsy Sands",
+	sal: "Roaring Sal",
 	
 	//Charbebe and evos have varying colors
 	charbebered: "Charbebe",
