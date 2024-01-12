@@ -3189,28 +3189,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			// (once you know a Pokemon has Natural Cure, its cures are always known)
 			pokemon.showCure ||= undefined;
 		},
-		name: "Natural Cure",
-		rating: 2.5,
-		num: 30,
+		inherit: true,
 	},
 	//Mainly did this so we could try to see if Quark Drive would work
 	protosynthesis: {
-		onStart(pokemon) {
-			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
-		},
-		onWeatherChange(pokemon) {
-			if (pokemon.transformed) return;
-			// Protosynthesis is not affected by Utility Umbrella
-			if (this.field.isWeather('sunnyday')) {
-				pokemon.addVolatile('protosynthesis');
-			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster) {
-				pokemon.removeVolatile('protosynthesis');
-			}
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['protosynthesis'];
-			this.add('-end', pokemon, 'Protosynthesis', '[silent]');
-		},
+		inherit: true,
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
@@ -3262,26 +3245,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		name: "Protosynthesis",
-		rating: 3,
-		num: 281,
 	},
 	quarkdrive: {
-		onStart(pokemon) {
-			this.singleEvent('TerrainChange', this.effect, this.effectState, pokemon);
-		},
-		onTerrainChange(pokemon) {
-			if (pokemon.transformed) return;
-			if (this.field.isTerrain('electricterrain')) {
-				pokemon.addVolatile('quarkdrive');
-			} else if (!pokemon.volatiles['quarkdrive']?.fromBooster) {
-				pokemon.removeVolatile('quarkdrive');
-			}
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['quarkdrive'];
-			this.add('-end', pokemon, 'Quark Drive', '[silent]');
-		},
+		inherit: true,
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
@@ -3333,8 +3299,5 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		name: "Quark Drive",
-		rating: 3,
-		num: 282,
 	},
 };
