@@ -1662,6 +1662,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Levitate", H: "Precision"},
 		heightm: 0.3,
 		weightkg: 0.3,
+		changesFrom: "Rotom",
+		gen: 9,
 	},
 	mawiledesvega: {
 		num: 303,
