@@ -8,6 +8,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.chainModify(1.5);
 			}
 		},
+		flags: {},
 	},
 	poisonsurge: {
 		name: "Poison Surge",
@@ -15,6 +16,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setTerrain('poisonterrain');
 		},
+		flags: {},
 	},
 	snowcoat: {
 		onTryHit(target, source, move) {
@@ -25,7 +27,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Snow Coat",
 		shortDesc: "The Pokemon heals 25% of its max HP when hit by an Ice-type move; Ice immunity.",
 	},
@@ -35,6 +37,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(2);
 			}
 		},
+		flags: {},
 		name: "Sludge Rush",
 		shortDesc: "The Pokémon's Speed is doubled if Poison Terrain is active.",
 	},
@@ -45,6 +48,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify([5325, 4096]);
 			}
 		},
+		flags: {},
 		name: "Railgunner",
 		shortDesc: "This Pokemon's beam moves have 1.3x power.",
 	},
@@ -72,12 +76,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (activated) this.damage(target.baseMaxhp / 4, target, source);
 		},
+		flags: {},
 	},
 	mastermind: {
 		onModifySpAPriority: 5,
 		onModifySpA(spa) {
 			return this.chainModify(2);
 		},
+		flags: {},
 		name: "Mastermind",
 		shortDesc: "This Pokemon's Special Attack is doubled.",
 	},
@@ -105,7 +111,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.formeChange(forme, effect);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Gulp Cannon",
 		shortDesc: "Cramorant-Desvega/Toxirant: When hit after Surf/Dive, attacker takes 1/4 max HP and -1 Sp. Defense or poison.",
 	},
@@ -147,6 +153,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					}
 			}
 		},
+		flags: {},
 		name: "Tactical Monarch",
 		shortDesc: "On switchin, or when the opponent switches in, switches out if the opponent has a supereffective move. Once per battle.",
 	},
@@ -158,6 +165,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		flags: {},
 		name: "Bombardier",
 	},
 	icecurse: {
@@ -169,6 +177,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-start', target, 'typeadd', 'Ice', '[from] ability: Ice Curse', '[of] ' + pokemon);
 			}
 		},
+		flags: {},
 		name: "Ice Curse",
 		shortDesc: "On switchin, this Pokemon adds Ice to adjacent Pokemon's typings.",
 	},
@@ -188,6 +197,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		//clear and invert boost immunity implemented in moves.ts
+		flags: {},
 		name: "Rock Bottom",
 		shortDesc: "This Pokemon's stats cannot be changed by the opponent.",
 	},
@@ -238,6 +248,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return false;
 			}
 		},
+		flags: {breakable: 1},
 	},
 	//keen eye buff implemented in moves.ts
 	
@@ -341,7 +352,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		condition: {
 			duration: 1,
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 
 	piercingvision: {
@@ -367,6 +378,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			else if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
+		flags: {},
 		name: "Deep Forest",
 		rating: 3,
 	},
@@ -382,6 +394,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			else if (move.auraBooster !== this.effectData.target) return;
 			return this.chainModify([move.hasAuraBreak ? 0x0C00 : 0x1547, 0x1000]);
 		},
+		flags: {},
 		name: "Deep Sea",
 		rating: 3,
 	},
@@ -396,16 +409,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Patience",
 		rating: 3.5,
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	
 	prowess: {
-		shortDesc: "This Pokemon's SpA goes up by 1 stage after a KO.",
+		shortDesc: "This Pokemon's Sp. Atk is raised by 1 stage if it attacks and KOes another Pokemon.",
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.boost({spa: length}, source);
 			}
 		},
+		flags: {},
 		name: "Prowess",
 		rating: 3,
 	},	
@@ -425,6 +439,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.formeChange('Hyakada', this.effect, false, '[msg]');
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Solar Flare",
 		rating: 1,
 	},
@@ -444,6 +459,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		flags: {},
 		name: "Vigilante",
 		rating: 3.5,
 	},
@@ -457,7 +473,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Grassy Cloak",
 		rating: 1.5,
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	soulstrider: {
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by a Ghost move; Ghost immunity.",
@@ -471,16 +487,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Soul Strider",
 		rating: 3,
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	venomvision: {
-		shortDesc: "The opponent's Evasiness is lowered by 1 after making contact with this Pokemon.",
+		shortDesc: "Pokemon making contact with this Pokemon have their evasiveness lowered by 1 stage.",
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['contact']) {
 				this.add('-ability', target, 'Venom Vision');
 				this.boost({evasion: -1}, source, target, null, true);
 			}
 		},
+		flags: {},
 		name: "Venom Vision",
 		rating: 2,
 	},
@@ -490,6 +507,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onSwitchIn(pokemon, target, source) {
 			this.field.clearTerrain();
 		},
+		flags: {},
 		name: "Terraformer",
 	},
 	mindprobe: {
@@ -521,10 +539,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const [warnMoveName, warnTarget] = this.sample(warnMoves);
 			this.add('-activate', pokemon, 'ability: Mind Probe', warnMoveName, '[of] ' + warnTarget);
 		},
+		flags: {},
 		name: "Mind Probe",
 	},
 	gunkconsumer: {
-		shortDesc: "Removes hazards upon switch-in and heals 1/16 of max HP if this happens.",
+		shortDesc: "Removes hazards upon switch-in and heals 1/16 of max HP for each hazard removed.",
 		onSwitchInPriority: 6,
 		onSwitchIn(pokemon, target, source) {
          const sideConditions = ['spikes', 'toxicspikes', 'stealthrock', 'stickyweb', 'gmaxsteelsurge'];
@@ -535,6 +554,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
             }
           }
 		},
+		flags: {},
 		name: "Gunk Consumer",
 	},
 	/*
@@ -571,6 +591,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Earth Shaker",
 		rating: 3.5,
 	}, 
@@ -584,10 +605,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	*/
 	hotheaded: {
-		shortDesc: "When hit, boosts critrate.",
+		shortDesc: "This Pokemon's critical hit rate is raised by 1 stage after it is damaged by a move.",
 		onDamagingHit(damage, target, source, effect) {
 			target.addVolatile('gmaxchistrike');
 		},
+		flags: {},
 		name: "Hot-Headed",
 		rating: 3.5,
 	},
@@ -626,24 +648,28 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.boost({def: 2});
 			}
 		},
+		flags: {},
 		name: "Stone House",
 		rating: 0.1,
 	},
 	treetopper: {
 		//shortDesc: "Placeholder, does nothing right now.",
 		shortDesc: "When this ability is active, all Pokemon are treated as if under Telekinesis unless forcibly grounded.",
-			onStart(pokemon) {
+		onStart(pokemon) {
+			if (!this.field.getPseudoWeather('gravity')) {
 				this.add('-ability', pokemon, 'Tree-Topper');
-			},
-			onAnyAccuracyPriority: -1,
-			onAnyAccuracy(accuracy, target, source, move) {
-				return (move && !move.ohko && !target.isGrounded()
-						  && !['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies)
-						  && target.baseSpecies.name !== 'Gengar-Mega'
-						 ) || accuracy;
-			},
-			// Airborneness implemented under scripts/pokemon.
-		//TODO: Have Smack Down activate when a mon with this abil is on the field
+				this.add('-message', `${pokemon.name} is negating the effects of gravity!`);
+			}
+		},
+		onAnyAccuracyPriority: -1,
+		onAnyAccuracy(accuracy, target, source, move) {
+			//If the first condition is met it returns true, otherwise the accuracy is untouched
+			return (move && !move.ohko && !target.isGrounded()
+					  && !['Diglett', 'Dugtrio', 'Palossand', 'Sandygast'].includes(target.baseSpecies.baseSpecies)
+					  && target.baseSpecies.name !== 'Gengar-Mega'
+					 ) || accuracy;
+		},
+		flags: {},
 		name: "Tree-Topper",
 		//rating: 0.1,
 	},
@@ -657,6 +683,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.heal(ravenousMon.baseMaxhp / 6, ravenousMon, ravenousMon);
 		},
 		//Activating from Knock Off implemented in moves.ts
+		flags: {},
 		name: "Ravenous",
 	},
 	precision: {
@@ -667,6 +694,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.debug('precision - enhancing accuracy');
 			return accuracy * 1.3;
 		},
+		flags: {},
 		name: "Precision",
 	},
 	energize: {
@@ -674,6 +702,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onChargeMove(pokemon, target, move) {
 			this.heal(pokemon.baseMaxhp / 6);
 		},
+		flags: {},
 		name: "Energize",
 	},
 	phaseshift: {
@@ -690,6 +719,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-start', source, 'typechange', 'Ice', '[from] ability: Phase Shift');
 			}
 		},
+		flags: {},
 		name: "Phase Shift",
 	},
 	bombadier: {
@@ -700,6 +730,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
+		flags: {},
 		name: "Bombadier",
 	},
 	soaringspirit: {
@@ -719,7 +750,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Soaring Spirit",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	suddenguard: {
 		shortDesc: "While switching-in, this Pokemon takes 0.5x damage from non-Super Effective moves.",
@@ -730,7 +761,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Sudden Guard",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	bewitch: {
 		shortDesc: "(Needs testing) Moves that can inflict a status condition have their secondary chance doubled.",
@@ -745,6 +776,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 			if (move.self?.status && move.self.chance) move.self.chance *= 2;
 		},
+		flags: {},
 		name: "Bewitch",
 	},
 	ambitious: {
@@ -764,6 +796,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Ambitious",
 	},
 	surfsup: {
@@ -795,7 +828,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify([5325, 4096]);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, notransform: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Surf's Up",
 	},
 	battletide: {
@@ -820,7 +853,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return abilHolder;
 		},
 		name: "Battle Tide",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	solarcharge: {
 		shortDesc: "If Sunny Day is active, this Pokemon's Atk is 1.5x; loses 1/8 max HP per turn.",
@@ -836,6 +869,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
+		flags: {},
 		name: "Solar Charge",
 	},
 	eternalice: {
@@ -850,7 +884,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return priority - 1;
 		},
 		name: "Eternal Ice",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	traveler: {
 		shortDesc: "Removes hazards upon switch-in.",
@@ -864,6 +898,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Traveler",
 	},
 	magmaabsorb: {
@@ -877,7 +912,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Magma Absorb",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	disastrous: {
 		shortDesc: "If hit by a Dark-type move, the foe loses 1/8 of their max HP; Dark and Intimidate immunity.",
@@ -897,13 +932,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Disastrous",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	potionbrewer: {
 		shortDesc: "(Bugged) Upon using a Psychic-type move, this Pokémon consumes its berry.",
 	  	onSourceAfterMoveSecondary(target, source, move) {
 		   if (move.type === 'Psychic' && source.getItem()?.isBerry) source.eatItem(true);
 		},
+		flags: {},
 		name: "Potion Brewer",
 	},
 	ancestorcall: {
@@ -922,6 +958,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.ancestorcallBoosted) return this.chainModify([0x1333, 0x1000]);
 		},
+		flags: {},
 		name: "Ancestor Call",
 	},
 
