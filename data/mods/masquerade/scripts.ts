@@ -7,6 +7,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		this.modData("Learnsets", "emboar").learnset.drainingtusk = ["9L1"];
 		this.modData("Learnsets", "drifblim").learnset.securelanding = ["9L1"];
 		this.modData("Learnsets", "feraligatr").learnset.splashbite = ["9L1"];
+		this.modData("Learnsets", "aurorus").learnset.diamondglow = ["9L1"];
 	},
 	actions: {
 		inherit: true,
@@ -91,6 +92,14 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			if (pokemon.species.baseSpecies === 'Galvantula') {
 				const tera = pokemon.species.id === 'galvantula' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Druddigon') {
+				const tera = pokemon.species.id === 'druddigon' ? 'basetera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.baseSpecies === 'Aurorus') {
+				const tera = pokemon.species.id === 'aurorus' ? 'basetera' : 'tera';
 				pokemon.formeChange(pokemon.species.id + tera, null, true);
 			}
 			this.battle.runEvent('AfterTerastallization', pokemon);
