@@ -122,40 +122,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			return !target.hasAbility(['stickyhold','armourlock']);
 		},
 	},
-	entrainment: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target === source || target.volatiles['dynamax'] || target.ability === source.ability || target.ability === 'truant'
-				|| target.getAbility().isPermanent || source.getAbility().isPermanent) return false;
-
-			const additionalBannedSourceAbilities = [
-				// Zen Mode removed because this is gen 9
-				'commander', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'pillage',
-				'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
-				'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive'
-			];
-			if (additionalBannedSourceAbilities.includes(source.ability)) {
-				return false;
-			}
-		},
-	},
-	roleplay: {
-		inherit: true,
-		onTryHit(target, source) {
-			if (target.ability === source.ability) return false;
-
-			const additionalBannedTargetAbilities = [
-				'commander', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard', 'pillage',
-				'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
-				'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive'
-			];
-
-			if (target.getAbility().isPermanent || additionalBannedTargetAbilities.includes(target.ability) ||
-				source.getAbility().isPermanent) {
-				return false;
-			}
-		},
-	},
 	disable: {
 		inherit: true,
 		condition: {
@@ -219,32 +185,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				this.add('-fail', source, '[from] ability: ' + source.getAbility().name, '[of] ' + source);
 				return null;
 			}
-		},
-	},
-	skillswap: {
-		inherit: true,
-		onTryHit(target, source) {
-			const targetAbility = target.getAbility();
-			if (targetAbility.isPermanent) return false;
-			const sourceAbility = source.getAbility();
-			if (sourceAbility.isPermanent) return false;
-
-			
-			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard', 'terashell',
-				'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 'lightdrive', 'openingact', 'protosynthesis',
-				'quarkdrive', 'nanorepairs', 'firewall', 'weightoflife', 'circuitbreaker', 'ancientmarble',
-					'prehistorichunter', 'heatproofdrive', 'pillage'];
-			// TODO: research in what order these should be checked
-			if (
-				additionalBannedAbilities.includes(target.ability) || additionalBannedAbilities.includes(source.ability)
-				|| target.volatiles['dynamax']
-			) {
-				return false;
-			}
-			const sourceCanBeSet = this.runEvent('SetAbility', source, source, this.effect, targetAbility);
-			if (!sourceCanBeSet) return sourceCanBeSet;
-			const targetCanBeSet = this.runEvent('SetAbility', target, source, this.effect, sourceAbility);
-			if (!targetCanBeSet) return targetCanBeSet;
 		},
 	},
 	boltbeak: {
