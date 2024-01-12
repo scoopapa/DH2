@@ -667,7 +667,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
-	rotomfreeze: {
+	rotomfrost: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -1257,7 +1257,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
-	flunkey: {
+	funkey: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
@@ -1365,7 +1365,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Desvega LC",
 		doublesTier: "DGX",
 	},
-	flamillion: {
+	flamilion: {
 		tier: "Desvega OU",
 		doublesTier: "DGX",
 	},
