@@ -1357,7 +1357,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		formeOrder: ["Aurorus", "Aurorus-Freezeflame", "Aurorus-Glacier", "Aurorus-Freezeflame-Tera", "Aurorus-Glacier-Tera"],
 		forceTeraType: "Rock",
 	},
-	aurorusrubyhead: {
+	aurorusfreezeflame: {
 		num: 699,
 		name: "Aurorus-Freezeflame",
 		baseSpecies: "Aurorus",
@@ -1372,7 +1372,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Aurorus",
 		forceTeraType: "Fire",
 	},
-  aurorusrubyheadtera: {
+  aurorusfreezeflametera: {
 		num: 699,
 		name: "Aurorus-Freezeflame-Tera",
 		baseSpecies: "Aurorus",
@@ -1387,7 +1387,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		battleOnly: "Aurorus-Freezeflame",
 		forceTeraType: "Fire",
 	},
-	aurorussharpshot: {
+	aurorusglacier: {
 		num: 699,
 		name: "Aurorus-Glacier",
 		baseSpecies: "Aurorus",
@@ -1402,7 +1402,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		changesFrom: "Aurorus",
 		forceTeraType: "Ground",
 	},
-  aurorussharpshottera: {
+  aurorusglaciertera: {
 		num: 699,
 		name: "Aurorus-Glacier-Tera",
 		baseSpecies: "Aurorus",
