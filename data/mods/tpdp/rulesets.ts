@@ -26,7 +26,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 	stylemonsmovelegality: {
 		effectType: 'ValidatorRule',
 		name: 'Stylemons Move Legality',
-		//teambuilderConfig: "stabmons",
+		teambuilderConfig: "stylemons",
 		desc: "Allows Puppets to use any move that they or another style learns",
 		checkCanLearn(move, species, setSources, set) {
 			const matchingSpecies = this.dex.species.all()
