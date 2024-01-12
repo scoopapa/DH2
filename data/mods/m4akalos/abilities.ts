@@ -110,7 +110,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Petrification",
 		rating: 3,
 		num: -1005,

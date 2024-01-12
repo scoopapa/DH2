@@ -51,7 +51,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Abyssal Light",
 		shortDesc: "This Pokemon takes halved damage from Dark and Ghost-type moves.",
 	},
@@ -64,7 +64,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Ahexual",
 		shortDesc: "This Pokemon heals 1/4 max HP when hit by a trick move; immune to tricks.",
 	},
@@ -101,7 +101,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Jankster",
 		shortDesc: "This Pokemon loses 100 HP when hit by a Fairy-type move; immune to Fairy.",
 	},
@@ -495,7 +495,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Wonder Guard",
 		shortDesc: "This Pokemon can only be hit by resisted attacks.",
 	},

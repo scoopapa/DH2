@@ -21,7 +21,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([5461, 4096]);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	  name: "Unfiltered",
     },
 	quickstart: {
@@ -59,7 +59,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	  name: "Holy Grail",
     },
 	alldevouring: {
@@ -138,7 +138,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	  name: "Forest Fury",
     },
 	growthspurt: {
@@ -294,7 +294,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Scrap Rock', '[of] ' + target);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Scrap Rock",
 		rating: 3,
 	},
@@ -450,7 +450,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Necromancer",
 		rating: 3,
 	},
@@ -905,7 +905,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({atk: 1}, pokemon, pokemon);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Squall",
 		rating: 4,
 	},
@@ -939,7 +939,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Stone Age",
 		rating: 3,
 	},
@@ -1010,7 +1010,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boosts['accuracy'] = 0;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Eczema",
 		rating: 3,
 	},
@@ -1131,8 +1131,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
-		isBreakable: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
+		flags: {breakable: 1},
 		name: "Faulty Photon",
 		rating: 3,
 	},
@@ -1215,7 +1215,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEnd() {
 			this.effectState.unnerved = false;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Dyschronometria",
 		rating: 3,
 	},
@@ -1502,7 +1502,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.cureStatus();
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Electromagnetic Veil",
 		rating: 3,
 	},
@@ -1516,7 +1516,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			//}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Rising Tension",
 		rating: 3,
 	},
@@ -1996,7 +1996,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', target, 'ability: Burning Petals', '[silent]');
 			},
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Burning Petals",
 		rating: 3,
 	},
@@ -2096,7 +2096,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Glacial Focus",
 		rating: 3,
 	},
@@ -2156,7 +2156,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.boost({atk: 1}, this.effectState.target);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Pondweed",
 		rating: 3,
 	},
@@ -2214,7 +2214,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Frisk Exchange",
 		rating: 3,
 	},
@@ -2232,7 +2232,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSwitchIn() {
 			delete this.effectState.libero;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Free Flight",
 		rating: 3,
 	},
@@ -2300,7 +2300,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Fat Fingers",
 		rating: 3,
 	},
@@ -2330,7 +2330,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Hourglass",
 		rating: 3,
 	},
@@ -2499,7 +2499,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Sponge of Ruin",
 		rating: 3,
 	},
@@ -2626,7 +2626,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Prehistoric Hunter",
 		rating: 3,
 	},
@@ -2658,7 +2658,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (source === this.effectState.target || !target.isAlly(source) || move.type !== 'Grass') return;
 			this.boost({atk: 1}, this.effectState.target);
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Lawnmower of Ruin",
 	},
 	barbedchain: {
@@ -2683,7 +2683,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Steamy Scales",
 	},
 	marvelsteam: {
@@ -2712,7 +2712,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Hellkite",
 	},
 	feistytempo: {
@@ -2747,7 +2747,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-fail', target, 'unboost', 'Speed', '[from] ability: Feisty Tempo', '[of] ' + target);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Feisty Tempo",
 	},
 	wellbakedflameorb: {
@@ -2767,13 +2767,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Well-Baked Flame Orb",
 	},
 	honeymoon: {
 		shortDesc: "Levitate + Honey Gather",
 		// airborneness implemented in scripts.ts
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Honey Moon",
 	},
 	aircontrol: {
@@ -2785,7 +2785,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Ground'] = true;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Air Control",
 	},
 	livelylocks: {
@@ -2976,7 +2976,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Heatproof Drive",
 		rating: 4,
 	},
@@ -3002,7 +3002,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([(move.priority > 0.1 && move.flags['punch']) ? 5898 : 4915, 4096]);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Armor Fist",
 	},
 	mercurypulse: {
@@ -3055,7 +3055,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Fire Drinker",
 	},
 	minddomain: {
@@ -3105,7 +3105,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Forced Fencer",
 		rating: 4,
 	},
@@ -3262,6 +3262,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Protosynthesis",
 		rating: 3,
 		num: 281,

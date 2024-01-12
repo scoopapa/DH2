@@ -205,7 +205,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.formeChange('Gyarados-Mega');
 			   }
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Violent Abandon",
 		shortDesc: "This Pokemon transforms into Mega Gyarados whenever its item is used or lost.",
 		rating: 3.5,

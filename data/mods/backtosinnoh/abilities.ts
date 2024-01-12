@@ -46,7 +46,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.infiltrates = true;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Cacophony",
 		shortDesc: "The user's sound-based moves have 1.2x power and ignore the effects of Substitute.",
 		rating: 3.5,
@@ -213,7 +213,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.effectState.target;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Lightning Rod",
 		rating: 0,
 		num: 32,
