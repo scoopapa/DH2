@@ -116,6 +116,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					});
 					break;
 				case 'Dipplin':
+				case 'Hydrapple':
 					move.secondaries.push({
 						chance: 100,
 						boosts: {spe: -1},
@@ -139,7 +140,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Grass",
 		contestType: "Tough",
-		desc: "If the user is holding a Tart Apple or is Flapple, has a 100% chance to lower the target's Defense by 1 stage. If the user is holding a Sweet Apple or is Appletun, has a 100% chance to lower the target's Special Defense by 1 stage. If the user is holding a Syrupy Apple or is Dipplin, has a 100% chance to lower the target's Speed by 1 stage. If the user is Fervintill, has a 100% chance to lower the target's Special Attack by 1 stage. If the user is Malaconda, has a 100% chance to lower the target's Attack by 1 stage. Holding an item overrides the species. If none of the above, has no secondary effect.",
+		desc: "If the user is holding a Tart Apple or is Flapple, has a 100% chance to lower the target's Defense by 1 stage. If the user is holding a Sweet Apple or is Appletun, has a 100% chance to lower the target's Special Defense by 1 stage. If the user is holding a Syrupy Apple or is Dipplin or Hydrapple, has a 100% chance to lower the target's Speed by 1 stage. If the user is Fervintill, has a 100% chance to lower the target's Special Attack by 1 stage. If the user is Malaconda, has a 100% chance to lower the target's Attack by 1 stage. Holding an item overrides the species. If none of the above, has no secondary effect.",
 		shortDesc: "Lowers a stat by 1 depending on held Apple/user.",
 		onPrepareHit(target, source, move) {
 			this.attrLastMove('[still]');
@@ -205,6 +206,24 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		desc: "If the current weather is strong or scorching sunlight or rain or heavy rain, this move's power is multiplied by 1.5.",
 		shortDesc: "Power multiplied by 1.5x in sun or rain.",
+	},
+	cuttinglaser: {
+		num: 1042,
+		accuracy: 100,
+		basePower: 95,
+		category: "Special",
+		name: "Cutting Laser",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		contestType: "Clever",
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', target, "Steel Beam");
+		},
 	},
 	daydream: {
 		num: 1002,
@@ -276,6 +295,27 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sand Attack", target);
 		},
+	},
+	eldritchmight: {
+		num: 1043,
+		accuracy: 90,
+		basePower: 95,
+		category: "Special",
+		name: "Eldritch Might",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+		type: "Ghost",
+		contestType: "Cool",
+		desc: "Has a 30% chance to lower the target's Speed by 1 stage.",
+		shortDesc: "30% chance to lower the foe(s) Speed by 1.",
 	},
 	eminence: {
 		num: 1004,
@@ -782,6 +822,117 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Focus Energy");
 		},
 	},
+	preservation: {
+		num: 1046,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Preservation",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1},
+		onHit(pokemon){
+			// status
+			const returnStatus = pokemon.previousTurnState.status.id;
+			const returnStatusState = pokemon.previousTurnState.status.statusState;
+			if (pokemon.status !== returnStatus) { //if status is different, change it
+				pokemon.status = returnStatus;
+				this.add('-status', pokemon, returnStatus, '[silent]');
+			} if (returnStatusState && (!pokemon.statusState || pokemon.statusState !== returnStatusState)) { //had data and current status doesn't match it
+				pokemon.statusState = returnStatusState;
+			} else if (pokemon.statusState) { //didn't have data but current status does
+				delete pokemon.statusState;
+				this.add('-curestatus', pokemon, `${pokemon.status}`, '[silent]');
+			}
+			// volatiles
+			const affectedStatuses = ['attract','charge','confusion','curse','disable','doubleteam','electrify','encore','flashfire','focusenergy','foresight','imprison','ingrain','laserfocus','leechseed','lockon','magnetrise','minimize','miracleeye','mindreader','nightmare','odorsleuth','partiallytrapped','perishsong','powder','powertrick','preheat','risingchorus','shelter','strongpartialtrap','spotlight','tangledfeet','tarshot','taunt','telekinesis','throatchop','torment','yawn'], //Volatiles that can be removed manually or with time
+			for (const volatile in affectedStatuses) {
+				const returnVolatile = pokemon.previousTurnState.volatiles.volatile;
+				if (returnVolatile) {
+					if (pokemon.volatiles[volatile]) { //overwrite volatile data
+						pokemon.volatiles[volatile] = returnVolatile;
+					} else { //add volatile, not using the function to avoid calling events and therefore adding the message manually
+						pokemon.volatiles.push({`${volatile}`: returnVolatile});
+						this.add('-start', pokemon, `${volatile}`, '[silent]');
+					}
+				} else if (pokemon.volatiles[volatile]) {
+					delete pokemon.volatiles[volatile];
+					this.add('-end', pokemon, `${volatile}`, '[silent]');
+				}
+			}
+			// boosts
+			const returnBoosts = pokemon.previousTurnState.boosts;
+			if(returnBoosts) {
+				if (!pokemon.boosts || pokemon.boosts !== returnBoosts) {
+					pokemon.boosts = returnBoosts;
+					for(const boost in returnBoosts){
+						this.add('-setboost', pokemon, `${boost}`, returnBoosts[boost], '[silent]');
+					}
+				}
+			} else if (pokemon.boosts) {
+				delete pokemon.boosts;
+				this.add('-clearboost', pokemon, '[silent]');
+			}
+			// Autotomize
+			if (pokemon.previousTurnState.weighthg !== pokemon.weighthg) {
+				pokemon.weighthg = pokemon.previousTurnState.weighthg;
+				if(pokemon.species.weightkg * 10 === pokemon.weighthg) { //Autotomize used only once, so we're reverting it being shown as applied
+					this.add('-end', pokemon, 'Autotomize', '[silent]');
+				}
+			}
+		},
+		target: "self",
+		type: "Psychic",
+		contestType: "Clever",
+		desc: "The user's set of stat changes, status condition, and volatile conditions is reset to the state it was in at the start of the user's previous turn. Weight reduction due to Autotomize usage is also reverted. Fails if the user has not taken any previous actions.",
+		shortDesc: "Restores boosts/status/volatiles to state at start of user's last turn.",
+	},
+	psybubble: {
+		//The only way to switch is to set up switchFlag in a move - so things have to be messed with as the move executes to allow it to have two actions doing different things
+		num: 1044,
+		basePower: 0,
+		accuracy: true,
+		category: "Status",
+		name: "Psy Bubble",
+		pp: 5,
+		priority: 0, //This is for the actual switch. Battle.getActionSpeed refers only to this number, so it has to be the one that gets inserted
+		flags: {nosleeptalk: 1, noassist: 1, failcopycat: 1, failinstruct: 1},
+		stallingMove: true,
+		onModifyPriority(priority, pokemon, target, move){ //Move protection up to proper priority
+			if(!pokemon.volatiles['slipaway']) return 4;
+		},
+		onPrepareHit(pokemon) { //Regular protection check
+			if(!pokemon.volatiles['slipaway']){
+				if(!!this.queue.willAct() && this.runEvent('StallMove', pokemon)){
+					this.attrLastMove('[still]');
+					this.add('-anim', pokemon, "Acid Armor");
+					return true;
+				}
+				return false;
+			}
+		},
+		onHit(pokemon, move) {
+			if(pokemon.volatiles['slipaway']){ //Second part - switch
+				pokemon.activeMoveActions--;
+				pokemon.switchFlag = true;
+				pokemon.removeVolatile('protect');
+			} else { //First part - protect
+				if(pokemon.addVolatile('slipaway')){
+					pokemon.addVolatile('protect'); //Protection is seperate so that it will still switch if broken
+					pokemon.addVolatile('stall');
+					this.queue.insertChoice({choice: 'move', pokemon: pokemon, move: this.dex.moves.get('psybubble')}, true); //Adds switch event
+				}
+			}
+		},
+		secondary: null,
+		shortDesc: "Protects from attacks, then switches out.",
+		desc: "Applies protection at +4 Priority. The Pokemon will switch out when it would take a regular turn at +0 Priority. The switch will still occur if the protection is broken, but if the switch fails, the Pokemon is no longer protected.",
+		target: "self",
+		type: "Psychic",
+		contestType: "Clever",
+		start: "  [POKEMON] wrapped itself in a bubble!",
+		end: "  [POKEMON] popped the bubble and escaped!",
+	},
 	rebound: {
 		num: 1018,
 		basePower: 0,
@@ -867,6 +1018,39 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Synthesis");
 			this.add('-anim', source, "Refresh");
 		},
+	},
+	restorelife: {
+		num: 1045,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Restore Life",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1, heal: 1},
+		slotCondition: 'restorelife',
+		condition: {
+			duration: 2,
+			onStart(pokemon, source) {
+				this.effectState.hp = source.maxhp / 2;
+			},
+			onResidualOrder: 4,
+			onEnd(target) {
+				if (target && !target.fainted) {
+					const damage = this.heal(this.effectState.hp, target, target);
+					if (damage) {
+						this.add('-heal', target, target.getHealth, '[from] move: Wish', '[wisher] ' + this.effectState.source.name);
+					}
+					target.cureStatus();
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
+		contestType: "Beautiful",
+		desc: "At the end of the next turn, the Pokemon at the user's position has 1/2 of the user's maximum HP restored to it, rounded down, and its non-volatile status condition will be cured. Fails if this move is already in effect for the user's position.",
+		shortDesc: "Next turn, 50% of the user's max HP is restored, cures status.",
 	},
 	risingchorus: {
 		num: 1020,
@@ -1026,7 +1210,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			duration: 3,
 			onStart(pokemon){
 				this.effectState.affectedStatuses = ['confusion','disable','electrify','encore','imprison','laserfocus','leechseed','magnetrise','minimize','nightmare','partiallytrapped','perishsong','powertrick','protosynthesis','quarkdrive','risingchorus','strongpartialtrap','taunt','telekinesis','throatchop','torment','yawn'], //Volatiles that can be removed manually or with time
-				this.effectState.noStart = ['aquaring','attract','bunkerdown','charge','curse','destinybond','doubleteam','endure','evade','flashfire','focusenergy','followme','foresight','grudge','ingrain','kingsshield','lockon','minimize','miracleeye','mindreader','obstruct','odorsleuth','playdead','powder','preheat','protect','ragepowder','rebound','shelter','slipaway','snatch','spikyshield','spotlight','substitute','tangledfeet','tarshot'], //Volatiles that can't be added, but either have no duration or have to be removable to prevent breaking things/being broken
+				this.effectState.noStart = ['aquaring','attract','bunkerdown','charge','curse','destinybond','doubleteam','endure','evade','flashfire','focusenergy','followme','foresight','grudge','ingrain','kingsshield','lockon','miracleeye','mindreader','obstruct','odorsleuth','playdead','powder','preheat','protect','ragepowder','rebound','saltcure','shelter','slipaway','snatch','spikyshield','spotlight','substitute','tangledfeet','tarshot','withering'], //Volatiles that can't be added, but either have no duration or have to be removable to prevent breaking things/being broken
 				this.add('-start', pokemon, 'move: Stasis');
 			},
 			onChangeBoost(boost, pokemon) {
@@ -1235,6 +1419,38 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', source, "Surf", target);
 		},
 	},
+	withering: {
+		num: 1047,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Withering",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		condition: {
+			noCopy: true,
+			onStart(pokemon) {
+				this.add('-start', pokemon, 'Withering');
+			},
+			onResidualOrder: 13,
+			onResidual(pokemon) {
+				this.damage(pokemon.baseMaxhp / (pokemon.hasType(['Ghost', 'Fairy']) ? 4 : 8));
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Withering');
+			},
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'withering',
+		},
+		target: "normal",
+		type: "Ghost",
+		contestType: "Tough",
+		desc: "Causes damage to the target equal to 1/8 of its maximum HP (1/4 if the target is Ghost or Fairy type), rounded down, at the end of each turn during effect. This effect ends when the target is no longer active.",
+		shortDesc: "Deals 1/8 max HP each turn; 1/4 on Ghost, Fairy.",
+	},
 	/* Edited Moved */
 	absorb: {
 		inherit: true,
@@ -1287,6 +1503,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	alluringvoice: {
 		inherit: true,
 		basePower: 70,
+		desc: "Has a 100% chance to confuse the target if it had a stat stage raised since the beginning of its last turn.",
+		shortDesc: "100% confuse target that had a stat rise since its last turn.",
 	},
 	allyswitch: {
 		inherit: true,
@@ -1816,9 +2034,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	crushgrip: {
 		inherit: true,
 		basePowerCallback(pokemon, target) {
-			return Math.floor(Math.floor((150 * (100 * Math.floor(target.hp * 4096 / target.maxhp)) + 2048 - 1) / 4096) / 100) + 50;
+			return Math.floor(Math.floor((160 * (100 * Math.floor(target.hp * 4096 / target.maxhp)) + 2048 - 1) / 4096) / 100) + 40;
 		},
-		desc: "Power is equal to 150 * (target's current HP / target's maximum HP), rounded half down, plus 50.",
+		desc: "Power is equal to 160 * (target's current HP / target's maximum HP) + 40, rounded half down, but not less than 1.",
 	},
 	curse: {
 		inherit: true,
@@ -2823,6 +3041,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, bludg: 1},
 	},
+	hardpress: {
+		inherit: true,
+		basePowerCallback(pokemon, target) {
+			return Math.floor(Math.floor((80 * (100 * Math.floor(target.hp * 4096 / target.maxhp)) + 2048 - 1) / 4096) / 100) + 40;
+		},
+		desc: "Power is equal to 80 * (target's current HP / target's maximum HP) + 40, rounded half down, but not less than 1.",
+	},
 	healblock: {
 		inherit: true,
 		flags: {mirror: 1},
@@ -3081,6 +3306,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 		contestType: "Tough",
+	},
+	jawlock: {
+		inherit: true,
+		accuracy: 85,
+		pp: 15,
+		onHit(target, source, move) {},
+		volatileStatus: 'partiallytrapped',
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Escape Tunnel, Parting Shot, Slip Away, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
 	},
 	jetpunch: {
 		inherit: true,
@@ -4908,10 +5142,9 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onModifyMove(move, source, target) {
 			if (source.volatiles['stockpile']?.layers === 3) {
-				move.target = move.nonGhostTarget as MoveTarget; //property stolen from Curse, just needs an alternate target
+				move.target = 'allAdjacentFoes';
 			}
 		},
-		nonGhostTarget: 'allAdjacentFoes',
 		desc: "Power is equal to 100 times the user's Stockpile count. If the user's Stockpile count is 3, the move will target all adjacent foes. Fails if the Stockpile count is 0. Whether or not this move is successful, the user's Defense and Special Defense decrease by as many stages as Stockpile had increased them, and the user's Stockpile count resets to 0.",
 		shortDesc: "Damage based on Stockpile charges; spread w/ max.",
 	},
@@ -5250,8 +5483,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Normal",
-		desc: "This move's type matches the Pokemon's held Tera Shard. If used by Stellar Form Terapagos, the move's type will be the one with the best effectiveness against the target."
-		shortDesc: "Type matches held Tera Shard."
+		desc: "This move's type matches the Pokemon's held Tera Shard. If used by Stellar Form Terapagos, the move's type will be the one with the best effectiveness against the target.",
+		shortDesc: "Type matches held Tera Shard.",
 	},
 	throatchop: {
 		inherit: true,
@@ -5609,6 +5842,10 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 	wringout: {
 		inherit: true,
 		category: "Physical",
+		basePowerCallback(pokemon, target) {
+			return Math.floor(Math.floor((80 * (100 * Math.floor(target.hp * 4096 / target.maxhp)) + 2048 - 1) / 4096) / 100) + 40;
+		},
+		desc: "Power is equal to 80 * (target's current HP / target's maximum HP) + 40, rounded half down, but not less than 1.",
 	},
 	xscissor: {
 		inherit: true,
@@ -6557,8 +6794,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Lash Out", target);
 		},
-		desc: "Power doubles if the user had a stat stage lowered this turn.",
-		shortDesc: "2x power if the user had a stat lowered this turn.",
+		desc: "Power doubles if the user had a stat stage lowered since it finished its last turn.",
+		shortDesc: "2x power if the user had a stat lowered since its last turn.",
 	},
 	doubleshock: null,
 	flowertrick: null,

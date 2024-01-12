@@ -311,6 +311,30 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "If held by a Druddigon, this item allows it to Mega Evolve in battle.",
 		num: 1015,
 	},
+	ralitite: {
+		name: "Ralitite",
+		megaStone: "Ralie-Mega",
+		megaEvolves: "Ralie",
+		itemUser: ["Ralie"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 1019,
+		desc: "If held by a Ralie, this item allows it to Mega Evolve in battle.",
+	},
+	pharoslassite: {
+		name: "Pharoslassite",
+		megaStone: "Pharoslass-Mega",
+		megaEvolves: "Pharoslass",
+		itemUser: ["Pharoslass"],
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+		num: 1020,
+		desc: "If held by a Pharoslass, this item allows it to Mega Evolve in battle.",
+	},
 	//Edited items
 	adrenalineorb: {
 		inherit: true,
@@ -318,7 +342,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target.boosts['spe'] === 6) {
 				return;
 			}
-			if (['Dark', 'Bug', 'Ghost'].includes(move.type)) {
+			if (['Dark', 'Bug', 'Ghost'].includes(move.type) || (move.twoType && ['Dark', 'Bug', 'Ghost'].includes(move.twoType))) {
 				target.useItem();
 			}
 		},
@@ -329,7 +353,6 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (effect?.name === 'Intimidate' && boost.atk) {
 				target.useItem();
 			}
-		},
 			if (effect?.name === 'Disturbance' && boost.spa) {
 				target.useItem();
 			}
@@ -414,7 +437,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		itemUser: ["Ogerpon-Cornerstone"],
 		onTakeItem(item, source) {
 			if (source.baseSpecies.baseSpecies === 'Ogerpon') return false;
-			re
+			return true;
+		},
 		num: 2406,
 		gen: 9,
 		desc: "Ogerpon holder gains Rock type, changes Hidden Move, Embody Aspect +1 Def.",
@@ -459,6 +483,26 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		desc: "Restores 12.5% max HP at 1/4 max HP or less. If the Pokemon dislikes Spicy food (-Attack Nature), it restores 50% instead, but confuses. Single use.",
 		shortDesc: "Heals 12.5% at 1/4 max HP; if -Atk Nature, it's 50%, but confuses. Single use.",
 		rating: 2,
+	},
+	focusband: {
+		inherit: true,
+		consumable: true,
+		onDamage(damage, target, source, effect) {
+			const monMove = this.queue.willMove(target).move;
+			if (monMove && (monMove.priority < 0 || monMove.fractionalPriority < 0) && monMove.category !== 'Status' && 
+			  damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add("-activate", target, "item: Focus Band");
+				target.itemState.activated = true;
+				return target.hp - 1;
+			}
+		},
+		onAfterMoveSecondary(target, source, move) {
+			if (target.itemState.activated) {
+				target.useItem();
+			},
+		}
+		shortDesc: "If holder uses damaging <0 priority move, survives KOes until move executes. Single use.",
+		desc: "If the holder is using a damaging move with negative priority (including fractional priority) this turn, it will survive all attack that would KO it with 1 HP until it uses the move; afterward, this item is consumed.",
 	},
 	fullincense: {
 		name: "Full Incense",

@@ -2154,6 +2154,25 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 			return accuracy;
 		},
 	},
+	normalize: {
+		onModifyTypePriority: 1,
+		onAnyModifyType(move, source, target) {
+			if (!(source === this.effectState.target || target === this.effectState.target)) return;
+			const noModifyType = [
+				'bullfight', 'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terablast', 'weatherball',
+			];
+			if (!noModifyType.includes(move.id)) {
+				move.type = 'Normal';
+				if (move.twoType) delete move.twoType;
+			}
+		},
+		flags: {},
+		name: "Normalize",
+		rating: 1,
+		num: 96,
+		desc: "This Pokemon's moves and moves used against this Pokemon are changed to be Normal type. This effect comes before other effects that change a move's type.",
+		shortDesc: "Moves used by or on this Pokemon are changed to Normal type.",
+	},
 	orichalcumpulse: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
@@ -3459,19 +3478,6 @@ export const Abilities: {[abilityid: string]: ModdedabilityState} = {
 					this.add('-immune', target, '[from] ability: Motor Drive');
 				}
 				return null;
-			}
-		},
-	},
-	normalize: {
-		inherit: true,
-		onModifyType(move, pokemon) {
-			const noModifyType = [
-				'hiddenpower', 'bullfight', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'weatherball',
-			];
-			if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id)) {
-				move.type = 'Normal';
-				if(move.twoType) delete move.twoType;
-				move.normalizeBoosted = true;
 			}
 		},
 	},

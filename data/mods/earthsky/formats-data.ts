@@ -423,10 +423,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	ironleaves: null,
-	/*ironcrown: null,
+	powerchassis: {
+		tier: "OU",
+	},
+	ironboulder: null,
 	lasercrown: {
 		tier: "OU",
-	},*/
+	},
+	ironcrown: null,
 	//The unwanteds
 	venusaurgmax: null,
 	charizardgmax: null,
