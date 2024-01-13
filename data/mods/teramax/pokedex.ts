@@ -81,6 +81,28 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 88, atk: 50, def: 70, spa: 120, spd: 95, spe: 92},
 		abilities: {0: "Commander", 1: "Natural Cure", H: "Storm Drain"},
 	},
+	screamtail: {
+		inherit: true,
+		types: ["Fairy", "Dark"],
+	},
+	brutebonnet: {
+		inherit: true,
+		types: ["Poison", "Ghost"],
+		baseStats: {hp: 111, atk: 127, def: 89, spa: 79, spd: 99, spe: 65},
+	},
+	slitherwing: {
+		inherit: true,
+		baseStats: {hp: 97, atk: 139, def: 121, spa: 69, spd: 81, spe: 63},
+	},
+	ironjugulis: {
+		inherit: true,
+		baseStats: {hp: 94, atk: 80, def: 82, spa: 122, spd: 80, spe: 112},
+	},
+	ironthorns: {
+		inherit: true,
+		baseStats: {hp: 100, atk: 80, def: 100, spa: 124, spd: 84, spe: 82},
+	},
+
 
 // GMaxes and Buffs to GMax base forms
 	venusaurgmax: {
