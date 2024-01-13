@@ -1835,7 +1835,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	souarente: {
 		num: 1122,
 		name: "Souarente",
-		types: ["Grass", "Electric"],
+		types: ["Grass"],
 		baseStats: {hp: 35, atk: 40, def: 80, spa: 55, spd: 70, spe: 30},
 		abilities: {0: "Static", H: "Solar Power"},
 		heightm: 0.2,
