@@ -817,7 +817,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 				this.volatiles['protect'] || this.volatiles['detect'] || this.volatiles['maxguard'] ||
 				this.volatiles['kingsshield'] || this.volatiles['spikyshield'] || this.volatiles['banefulbunker'] ||
 				this.volatiles['obstruct'] || this.volatiles['silktrap'] || this.volatiles['burningbulwark'] ||
-				this.volatiles['fieldofvision'] || this.volatiles['firewall']
+				this.volatiles['fieldofvision'] || this.volatiles['firewall'] || this.volatiles['toxicsnowball']
 			);
 		}
      },
