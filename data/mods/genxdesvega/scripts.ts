@@ -26,6 +26,8 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			//Folovo is at 1101 for the time being
 			if (mon.num > 1100) {
 				//console.log(pokemon + " is a custom Pokemon. Skipping...");
+				//Mysterelk is at 1328 so any custom mons before that must be from Brazdo or Loria
+				if (mon.num < 1328) mon.gen = 8;
 				continue;
 			}
 			
@@ -37,7 +39,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 			}
 			const learnset = learnsetData.learnset;
 			//This will exclude inherited movesets and the mons that were in SV, as none of the mons specified to lack Tera Blast are in Desvega
-			if (learnset.terablast && mon !== 'charparoll'/* || ['magikarp','ditto','smeargle','cosmog','cosmoem'].includes(pokemon)*/) {
+			if (learnset.terablast /* || ['magikarp','ditto','smeargle','cosmog','cosmoem','terapagos'].includes(pokemon)*/) {
 				//console.log(pokemon + " was present in Scarlet and Violet. Skipping...");
 				continue;
 			}
