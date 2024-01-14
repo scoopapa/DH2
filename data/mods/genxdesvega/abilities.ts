@@ -192,9 +192,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	icecurse: {
 		onStart(pokemon) {
 			let activated = false;
-			for (const target of pokemon.adjacentFoes()) {
-				//Second effect is negation from Wonder Evolution
-				if (target.hasType('Ice') || (target.species.isMega && target.item?.endsWith('mask')) || target.volatiles['substitute'] || !target.addType('Ice')) continue;
+			for (const target of this.getAllActive()) {
+				//Third effect is negation from Wonder Evolution
+				if (target.hasType('Ice') || !target.isAdjacent(pokemon) || (target.species.isMega && target.item?.endsWith('mask')) || target.volatiles['substitute']
+					 || !target.addType('Ice')) continue;
 				this.add('-start', target, 'typeadd', 'Ice', '[from] ability: Ice Curse', '[of] ' + pokemon);
 			}
 		},
