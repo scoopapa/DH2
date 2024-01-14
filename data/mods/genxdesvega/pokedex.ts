@@ -1833,7 +1833,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	
 	//brazdo
 	souarente: {
-		num: 1122,
+		num: 1121,
 		name: "Souarente",
 		types: ["Grass"],
 		baseStats: {hp: 35, atk: 40, def: 80, spa: 55, spd: 70, spe: 30},
