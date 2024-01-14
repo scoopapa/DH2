@@ -345,6 +345,56 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 	},
+	pixilate: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+			];
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
+				move.type = 'Fairy';
+				move.pixilateBoosted = true;
+			}
+		},
+	},
+	galvanize: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+			];
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
+				move.type = 'Electric';
+				move.galvanizeBoosted = true;
+			}
+		},
+	},
+	aerilate: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+			];
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
+				move.type = 'Flying';
+				move.aerilateBoosted = true;
+			}
+		},
+	},
+	refrigerate: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
+			];
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
+				move.type = 'Electric';
+				move.refrigerateBoosted = true;
+			}
+		},
+	},
+
+
 	//loria abilities just in case
 	// Wind Blaster could need testing.
 	windblaster: {
@@ -971,7 +1021,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball', 'berryblast'
 			];
-			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || (move.isZ && move.category !== 'Status') || (move.name === 'Tera Blast' && pokemon.terastallized))) {
+			if (move.type === 'Normal' && !(noModifyType.includes(move.id) || move.category !== 'Status' && (move.isZ || (pokemon.terastallized && move.name === 'Tera Blast')))) {
 				move.type = 'Ghost';
 				move.ancestorcallBoosted = true;
 			}
