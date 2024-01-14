@@ -117,7 +117,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	tacticalmonarch: {
 		onStart(pokemon) {
-			if (pokemon.m.monarch) return;
+			if (pokemon.m.monarch || pokemon.volatiles['tacticalmonarch']) return;
 			for (const target of pokemon.foes()) {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
@@ -128,8 +128,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						move.ohko
 					) {
 						this.add('-ability', pokemon, 'Tactical Monarch');
-						//TODO: Handle cases where two mons with this ability switch in at the same time and both set off this abil
-						//(Or at least find out what's meant to happen when this happens)
+						
+						//Postpone tactical monarch on others with this ability
+						for (const target2 of this.getAllActive()) {
+							if (target2 !== pokemon && target2.hasAbility('tacticalmonarch') && !target2.m.monarch) {
+								target2.addVolatile('tacticalmonarch');
+							}
+						}
 						pokemon.m.monarch = pokemon.switchFlag = true;
 						return;
 					}
@@ -148,9 +153,25 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						move.ohko
 					) {
 						this.add('-ability', pokemon, 'Tactical Monarch');
+						//Postpone tactical monarch on others with this ability
+						for (const target2 of this.getAllActive()) {
+							if (target2 !== pokemon && target2.hasAbility('tacticalmonarch') && !target2.m.monarch) {
+								target2.addVolatile('tacticalmonarch');
+							}
+						}
 						pokemon.m.monarch = pokemon.switchFlag = true;
-					return;
+						return;
 					}
+			}
+		},
+		condition: {
+			duration: 1,
+			onAnySwitchIn(target) {
+				//Resume activation of ability
+				const pokemon = this.effectState.target;
+				//The onFoeSwitchIn thing handles the case where it's an opponent switching in, not a teammate
+				if (target.isAlly(pokemon)) this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+				pokemon.removeVolatile('tacticalmonarch');
 			}
 		},
 		flags: {},
