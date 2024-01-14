@@ -5,7 +5,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (!sourceEffect) {
 				this.add('-status', target, 'par');
 			} else if (sourceEffect.id === 'thunderorb') {
-				//TODO: Actually play the anim but use a different message
+				//TODO: Make the anim and message play concurrently?
 				this.add('-status', target, 'par', '[from] item: Thunder Orb', '[silent]');
 				this.add('-message', `${target.name} was paralyzed by the Thunder Orb!`);
 			} else if (sourceEffect.effectType === 'Ability') {
@@ -16,7 +16,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon) {
-			if (this.randomChance(1, 4) && (!pokemon.hasAbility('quickfeet') || !pokemon.hasItem('thunderorb'))) {
+			if (this.randomChance(1, 4) && !(pokemon.hasAbility('quickfeet') && pokemon.hasItem('thunderorb'))) {
 				this.add('cant', pokemon, 'par');
 				return false;
 			}
