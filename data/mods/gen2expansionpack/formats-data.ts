@@ -644,14 +644,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	lugia: {
 		tier: "Uber",
 	},
-	hooh: {
-		tier: "Uber",
-	},
 	celebi: {
 		tier: "Uber",
 	},
 
 	// JEP CHANGES FROM BASE
+	hooh: {
+		tier: "OU",
+	},
 	raichu: {
 		tier: "NFE",
 	},

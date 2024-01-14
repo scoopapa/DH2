@@ -9819,9 +9819,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2L1",
 				"1L20"
 			],
-			"blizzard": [
-				"2M"
-			],
 			"bodyslam": [
 				"1M"
 			],
@@ -9880,9 +9877,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			hyperbeam: ["2M", "1M"],
-			"icebeam": [
-				"2M"
-			],
 			"icywind": [
 				"2M"
 			],
@@ -14350,9 +14344,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2L1",
 				"1L20"
 			],
-			"blizzard": [
-				"2M"
-			],
 			"bodyslam": [
 				"1M"
 			],
@@ -14408,9 +14399,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"hiddenpower": [
-				"2M"
-			],
-			"icebeam": [
 				"2M"
 			],
 			"icywind": [
@@ -22790,9 +22778,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2L1",
 				"1L20"
 			],
-			"blizzard": [
-				"2M"
-			],
 			"bodyslam": [
 				"1M"
 			],
@@ -22848,9 +22833,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"hiddenpower": [
-				"2M"
-			],
-			"icebeam": [
 				"2M"
 			],
 			"icywind": [

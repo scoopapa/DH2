@@ -2866,7 +2866,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["1M"],
 			
 			headbutt: ["2M"],
-			icepunch: ["2M"],
 			barrier: ["2E"],
 			dizzypunch: ["2E"],
 			karatechop: ["2E"],
@@ -2980,10 +2979,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			hypnosis: ["2E"],
 			psybeam: ["2E"],
 			dreameater: ["2M"],
-			firepunch: ["2M"],
 			headbutt: ["2M"],
-			icepunch: ["2M"],
-			thunderpunch: ["2M"],
 		},
 	},
 	porygon2: {
@@ -3304,7 +3300,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			dreameater: ["2M"],
 			thunderpunch: ["2M"],
 			icepunch: ["2M"],
-			firepunch: ["2M"],
 			hypnosis: ["2E"],
 		},
 		encounters: [
