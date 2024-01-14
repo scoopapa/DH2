@@ -246,6 +246,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Normal",
 	},
+	psyblade: {
+		num: 875,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		shortDesc: "Sets Electric Terrain if no terrains are active.",
+		name: "Psyblade",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		secondary: null,
+		self: {
+			onHit(source) {
+				if (this.field.terrain) return;
+				this.field.setTerrain('electricterrain');
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+	},
 
 // Max and GMax Moves
 	gmaxbefuddle: {
