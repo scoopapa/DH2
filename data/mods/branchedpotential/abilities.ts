@@ -46,8 +46,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			this.add('-immune', target, '[from] ability: Shields Down');
 			return null;
 		},
-		isPermanent: true,
-		isUnbreakable: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		desc: "Minior/Stacragus, upon switch-in/end of turn change to Core/Offense at 1/2 max HP or less, else Meteor/Chrysalis.",
 		name: "Shields Down",
 		rating: 3,
@@ -93,7 +92,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		desc: "(Phankyr only) The first hit it takes is blocked, and it takes 1/8 HP damage instead.",
 		name: "Esiugsid",
 		rating: 3.5,
@@ -113,7 +112,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		num: 210,
 	},
 	prism: {
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		onTryHit(target, source, move) {
 			let type: string | undefined = 'Normal';
 			type = target.getItem().onMemory;

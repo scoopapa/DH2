@@ -16,7 +16,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(mod);
 		},
 		shortDesc: "This Pokemon takes 1/2 damage from physical moves, 2x damage from Fire moves.",
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Hot-Headed",
 		rating: 4,
 	},
@@ -28,7 +28,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(mod);
 		},
 		shortDesc: "This Pokemon takes 1/2 damage from special moves, 2x damage from Ice moves.",
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Calm Demeanor",
 		rating: 4,
 	},

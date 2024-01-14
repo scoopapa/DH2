@@ -45,7 +45,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	specterate: {
 		name: "Specterate",

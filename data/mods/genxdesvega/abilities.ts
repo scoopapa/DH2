@@ -25,7 +25,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Snow Coat",
 		shortDesc: "The Pokemon heals 25% of its max HP when hit by an Ice-type move; Ice immunity.",
 	},
@@ -105,7 +105,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				source.formeChange(forme, effect);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Gulp Cannon",
 		shortDesc: "Cramorant-Desvega/Toxirant: When hit after Surf/Dive, attacker takes 1/4 max HP and -1 Sp. Defense or poison.",
 	},
@@ -341,7 +341,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		condition: {
 			duration: 1,
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 
 	piercingvision: {
@@ -396,7 +396,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Patience",
 		rating: 3.5,
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	
 	prowess: {
@@ -457,7 +457,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Grassy Cloak",
 		rating: 1.5,
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	soulstrider: {
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by a Ghost move; Ghost immunity.",
@@ -471,7 +471,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Soul Strider",
 		rating: 3,
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	venomvision: {
 		shortDesc: "The opponent's Evasiness is lowered by 1 after making contact with this Pokemon.",
@@ -719,7 +719,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Soaring Spirit",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	suddenguard: {
 		shortDesc: "While switching-in, this Pokemon takes 0.5x damage from non-Super Effective moves.",
@@ -730,7 +730,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Sudden Guard",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	bewitch: {
 		shortDesc: "(Needs testing) Moves that can inflict a status condition have their secondary chance doubled.",
@@ -795,7 +795,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify([5325, 4096]);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Surf's Up",
 	},
 	battletide: {
@@ -820,7 +820,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			return abilHolder;
 		},
 		name: "Battle Tide",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	solarcharge: {
 		shortDesc: "If Sunny Day is active, this Pokemon's Atk is 1.5x; loses 1/8 max HP per turn.",
@@ -850,7 +850,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return priority - 1;
 		},
 		name: "Eternal Ice",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	traveler: {
 		shortDesc: "Removes hazards upon switch-in.",
@@ -877,7 +877,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Magma Absorb",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	disastrous: {
 		shortDesc: "If hit by a Dark-type move, the foe loses 1/8 of their max HP; Dark and Intimidate immunity.",
@@ -897,7 +897,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Disastrous",
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	potionbrewer: {
 		shortDesc: "(Bugged) Upon using a Psychic-type move, this Pokémon consumes its berry.",
