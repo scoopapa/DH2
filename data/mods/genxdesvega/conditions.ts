@@ -1,7 +1,6 @@
 export const Conditions: {[k: string]: ConditionData} = {
 	par: {
-		name: 'par',
-		effectType: 'Status',
+		inherit: true,
 		onStart(target, source, sourceEffect) {
 			if (!sourceEffect) {
 				this.add('-status', target, 'par');
@@ -14,14 +13,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			} else {
 				this.add('-status', target, 'par');
 			}
-		},
-		onModifySpe(spe, pokemon) {
-			// Paralysis occurs after all other Speed modifiers, so evaluate all modifiers up to this point first
-			spe = this.finalModify(spe);
-			if (!pokemon.hasAbility('quickfeet')) {
-				spe = Math.floor(spe / 2);
-			}
-			return spe;
 		},
 		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon) {
