@@ -3300,7 +3300,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			dreameater: ["2M"],
 			thunderpunch: ["2M"],
 			icepunch: ["2M"],
-			firepunch: ["2M"],
 			hypnosis: ["2E"],
 		},
 		encounters: [
