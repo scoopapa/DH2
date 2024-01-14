@@ -189,7 +189,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			const targetForme = (move.category === 'Special' ? 'Girafatak' : 'Girafatak-Nocturnal');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Double Spirit",
 		rating: 4,
 		num: -9,
@@ -508,7 +508,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 			this.add('-start', attacker, 'typechange', attacker.getTypes(true).join('/'), '[silent]');
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 	},
 	coldvengeance: {
 		desc: "When replacing a fainted party member, its next move has x1.5 BP.",
@@ -593,7 +593,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				pokemon.item = 'zoroarkite' as ID;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Forgery",
 		rating: 3,
 		num: -29,
@@ -1580,7 +1580,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				pokemon.formeChange('Eiscue', this.effect, true);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Ice Face",
 		rating: 3,
 		num: 248,
@@ -1904,7 +1904,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				this.damage(pokemon.baseMaxhp / 16, pokemon, pokemon, this.dex.species.get(speciesid)); // 6.25% instead of 12.5% HP lost
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Disguise",
 		rating: 3.5,
 		num: 209,
@@ -1972,7 +1972,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				}
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
 		shortDesc: "If Darmanitan, changes Mode to Zen.",
 		rating: 0,
@@ -2137,6 +2137,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return this.chainModify(1.2);
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "RKS System",
 		rating: 4,
 		num: 225,
@@ -2196,7 +2197,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 			this.debug('schooling - enhancing accuracy');
 			return accuracy * 1.3;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Schooling",
 		rating: 3,
 		num: 208,
@@ -2389,7 +2390,7 @@ export const Abilities: { [abilityid: string]: ModdedAbilityData; } = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Wonder Skin",
 		shortDesc: "This Pokemon is immune to Status moves.",
 		rating: 5,

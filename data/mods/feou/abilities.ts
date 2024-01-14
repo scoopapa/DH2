@@ -1231,7 +1231,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onEnd() {
 			this.effectState.unnerved = false;
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Dyschronometria",
 		rating: 3,
 	},
@@ -2662,7 +2662,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		flags: {cantsuppress: 1, notransform: 1},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
 		name: "Prehistoric Hunter",
 		rating: 3,
 	},
@@ -3275,6 +3275,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Protosynthesis",
+		rating: 3,
+		num: 281,
 	},
 	quarkdrive: {
 		inherit: true,
