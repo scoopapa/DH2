@@ -78,15 +78,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onHit(target, pokemon) {
 			let warnMoves: (Move | Pokemon)[][] = [];
-			let warnBp = 1;
-			for (const target of pokemon.foes()) {
-				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
-					warnMoves.push(" " + move);
-				}
+			for (const moveSlot of target.moveSlots) {
+				warnMoves.push(" " + this.dex.moves.get(moveSlot.move));
 			}
 			if (!warnMoves.length) return;
-			this.add('-message', `${pokemon.name} revealed ${target.name}'s${warnMoves}!`);
+			this.add('-message', `${pokemon.name} revealed ${target.name}'s ${warnMoves}!`);
 		},
 		secondary: null,
 		target: "normal",
@@ -98,7 +94,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Last Laugh",
-		shortDesc: "Lower's the target's Attack, Sp. Atk, and Spe by 1. The user faints.",
+		shortDesc: "Lowers target's Attack, Sp. Atk, Spe by 1. User faints.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -122,7 +118,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Geist Bite",
-		shortDesc: "20% chance to lower the target's Def and SpD by 1 stage.",
+		shortDesc: "20% chance to lower the target's Def and SpD by 1.",
 		pp: 15,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
@@ -432,7 +428,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onModifyCritRatio(critRatio, source, target) {
 			if (this.field.isTerrain('poisonterrain') && target?.isGrounded()) {
-				this.hint(`Toxic Shock always crits on grounded targets in Poison Terrain.`);
+				this.hint(`Toxic Shock always crits on grounded targets in Poison Terrain.`,true);
 				return 5;
 			}
 		},
@@ -1509,7 +1505,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 	},
 	//Realmon distribution (pre-Loria): Carvanha Families, Snorunt line, Hydreigon line, Lycanroc line, Silvally, Guzzlord, Crobat line,
-	//Noivern line, Mimikyu, Grimmsnarl line, Arbok line, Girafarig, Houndoom line, Mightyena line, Seviper, Huntail, 
+	//Noivern line, Mimikyu, Grimmsnarl line, Arbok line, Girafarig (+Farigiraf), Houndoom line, Mightyena line, Seviper, Huntail, 
 	//Eelektross line, Gengar line, Banette line, Sableye (Desvegan status unknown), Giratina, Trevenant, Lunala, Dragapult line
 	drainfang: {
 		accuracy: 100,
@@ -1536,7 +1532,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "Deals 33% of the damage dealt in recoil. 10% chance to lower the target's Speed.",
+		shortDesc: "Has 33% recoil. 10% to lower target's Speed by 1.",
 		isViable: true,
 		name: "Terra Charge",
 		pp: 15,
@@ -2183,7 +2179,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 	},
-	//Realmon distribution: Zarude, Rowlet line (+Presumably Decidueye-H), Cacnea line, Phantump line, Carnivine
+	//Pre-Loria distribution: Zarude, Rowlet line (+Presumably Decidueye-H), Cacnea line, Phantump line, Carnivine
 	fireworkleaf: {
 		accuracy: 100,
 		basePower: 70,
