@@ -6,6 +6,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.damage(source.baseMaxhp / 8, source, target);
 			}
 		},
+		flags: {},
 		name: "Battle Spines",
 		shortDesc: "This Pokemon’s attacks do an additional 1/8 of the target’s max HP in damage.",
 	},
@@ -16,6 +17,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			  this.heal(ally.baseMaxhp / 4, ally, pokemon);
 			}
 		},
+		flags: {},
 		name: "Radio Therapy",
 		rating: 4,
 		shortDesc: "On switch-in, this Pokemon restores 1/4 of its ally's and its own maximum HP, rounded down.",
@@ -41,6 +43,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([powMod[this.effectState.fallen], 4096]);
 			}
 		},
+		flags: {},
 		name: "Bitter Cold",
 		rating: 3,
 		shortDesc: "This Pokemon's Ice moves have 10% more power for each fainted ally, up to 3 allies.",
@@ -79,6 +82,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.damage(pokemon.baseMaxhp / 8);
 			}
 		},
+		flags: {},
 		name: "Lasting Resentment",
 		rating: 4.5,
 		shortDesc: "While this Pokemon is active, foes switching out lose 1/8 of their max HP.",
@@ -91,6 +95,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				source.addVolatile('leechseed', this.effectState.target);
 			}
 		},
+		flags: {},
 		name: "Graviseeds",
 		shortDesc: "When this Pokemon is hit by an attack, the effect of Leech Seed begins.",
 		rating: 3,
@@ -104,6 +109,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-start', source, 'typechange', type, '[from] ability: Tipped Scales');
 			}
 		},
+		flags: {},
 		name: "Tipped Scales",
 		rating: 5,
 		shortDesc: "This Pokemon's type changes to match the type of the move it is about to use. Works multiple times per switch-in.",
@@ -147,6 +153,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Aura Booster X');
 			},
 		},
+		flags: {},
 		name: "Aura Booster X",
 		rating: 3,
 		shortDesc: "Booster Energy or Fairy move used, or Fairy Aura active: Side heals 1/16 max HP per turn.",
@@ -189,6 +196,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Aura Booster Y');
 			},
 		},
+		flags: {},
 		name: "Aura Booster Y",
 		rating: 3,
 		shortDesc: "Booster Energy or Dark  move used, or Dark Aura active: Foe's side loses 1/16 max HP per turn.",
@@ -207,6 +215,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Plus",
 		rating: 0,
 		num: 57,
@@ -223,6 +232,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Minus",
 		rating: 0,
 		num: 58,
@@ -233,6 +243,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.heal(pokemon.baseMaxhp / 3);
 			}
 		},
+		flags: {},
 		name: "Regenerator",
 		rating: 4.5,
 		num: 144,
@@ -254,6 +265,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.typeChangerBoosted === this.effect) return this.chainModify(2);
 		},
+		flags: {},
 		name: "Normalize",
 		rating: 0,
 		num: 96,
@@ -279,6 +291,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([powMod[this.effectState.fallen], 4096]);
 			}
 		},
+		flags: {},
 		name: "Supreme Overlord",
 		rating: 4,
 		num: 293,
@@ -295,6 +308,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				source.addVolatile('followme');
 			}
 		},
+		flags: {},
 		name: "Illuminate",
 		rating: 3,
 		num: 35,
@@ -310,6 +324,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Rivalry",
 		rating: 3,
 		num: 79,
