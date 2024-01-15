@@ -255,7 +255,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		rating: 2.5,
 		num: -12,
 	},
@@ -277,7 +277,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Frigid Bloodline",
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Ice moves; Ice immunity.",
 		rating: 3.5,

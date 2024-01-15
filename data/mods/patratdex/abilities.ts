@@ -60,7 +60,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Decoy",
 		rating: 3.5,
 		num: 9002,
@@ -112,7 +112,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				source.transformed = true;
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Hammer Head",
 		rating: 2.5,
 		num: 9005,
@@ -126,7 +126,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			const targetForme = (move.id === 'wheatshield' ? 'Incrownito' : 'Incrownito-Flock');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Hay Veil",
 		rating: 4,
 		num: 9006,

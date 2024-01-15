@@ -1,19 +1,6 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
 	ragingbull: {
-		num: 873,
-		accuracy: 100,
-		basePower: 90,
-		category: "Physical",
-		name: "Raging Bull",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		onTryHit(pokemon) {
-			// will shatter screens through sub, before you hit
-			pokemon.side.removeSideCondition('reflect');
-			pokemon.side.removeSideCondition('lightscreen');
-			pokemon.side.removeSideCondition('auroraveil');
-		},
+		inherit: true,
 		onModifyType(move, pokemon) {
 			switch (pokemon.species.name) {
 			case 'Tauros-Paldea-Combat':
@@ -28,21 +15,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				break;
 			}
 		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
 	},
 	dive: {
-		num: 291,
-		accuracy: 100,
-		basePower: 80,
-		category: "Physical",
-		name: "Dive",
-		pp: 10,
-		priority: 0,
-		flags: {
-			contact: 1, charge: 1, protect: 1, mirror: 1, nonsky: 1, allyanim: 1, nosleeptalk: 1, noassist: 1, failinstruct: 1,
-		},
+		inherit: true,
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -58,38 +33,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			attacker.addVolatile('twoturnmove', defender);
 			return null;
 		},
-		condition: {
-			duration: 2,
-			onImmunity(type, pokemon) {
-				if (type === 'sandstorm' || type === 'hail') return false;
-			},
-			onInvulnerability(target, source, move) {
-				if (['surf', 'whirlpool'].includes(move.id)) {
-					return;
-				}
-				return false;
-			},
-			onSourceModifyDamage(damage, source, target, move) {
-				if (move.id === 'surf' || move.id === 'whirlpool') {
-					return this.chainModify(2);
-				}
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Water",
-		contestType: "Beautiful",
 	},
 	darkvoid: {
-		num: 464,
-		accuracy: 50,
-		basePower: 0,
-		category: "Status",
-		name: "Dark Void",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1},
-		status: 'slp',
+		inherit: true,
 		onTry(source, target, move) {
 			if (source.species.name === 'Icekrai' || move.hasBounced) {
 				return;
@@ -98,22 +44,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.hint("Only a Pokemon whose form is Darkrai or a fusion thereof can use this move.");
 			return null;
 		},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Dark",
-		contestType: "Clever",
 	},
 	
 	aromatherapy: {
-		num: 312,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		isNonstandard: "Past",
-		name: "Aromatherapy",
-		pp: 5,
-		priority: 0,
-		flags: {snatch: 1, distance: 1},
+		inherit: true,
 		onHit(target, source, move) {
 			this.add('-activate', source, 'move: Aromatherapy');
 			let success = false;
@@ -126,73 +60,26 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			return !!success;
 		},
-		target: "allyTeam",
-		type: "Grass",
-		zMove: {effect: 'heal'},
-		contestType: "Clever",
 	},
 	autotomize: {
-		num: 475,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		isNonstandard: "Past",
-		name: "Autotomize",
-		pp: 15,
-		priority: 0,
-		flags: {snatch: 1},
+		inherit: true,
 		onTryHit(pokemon) {
 			if (pokemon.boosts.spe === (pokemon.hasAbility(['contrary','unfiltered']) ? -6 : 6)) {
 				return false;
 			}
 		},
-		boosts: {
-			spe: 2,
-		},
-		onHit(pokemon) {
-			if (pokemon.weighthg > 1) {
-				pokemon.weighthg = Math.max(1, pokemon.weighthg - 1000);
-				this.add('-start', pokemon, 'Autotomize');
-			}
-		},
-		secondary: null,
-		target: "self",
-		type: "Steel",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Beautiful",
 	},
 	partingshot: {
-		num: 575,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Parting Shot",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1, bypasssub: 1},
+		inherit: true,
 		onHit(target, source, move) {
 			const success = this.boost({atk: -1, spa: -1}, target, source);
 			if (!success && !target.hasAbility(['mirrorarmor','hourglass'])) {
 				delete move.selfSwitch;
 			}
 		},
-		selfSwitch: true,
-		secondary: null,
-		target: "normal",
-		type: "Dark",
-		zMove: {effect: 'healreplacement'},
-		contestType: "Cool",
 	},
 	smackdown: {
-		num: 479,
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		name: "Smack Down",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, nonsky: 1},
-		volatileStatus: 'smackdown',
+		inherit: true,
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
@@ -222,197 +109,21 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		secondary: null,
-		target: "normal",
-		type: "Rock",
-		contestType: "Tough",
 	},
 	switcheroo: {
-		num: 415,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Switcheroo",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, allyanim: 1, noassist: 1, failcopycat: 1},
+		inherit: true,
 		onTryImmunity(target) {
 			return !target.hasAbility(['stickyhold','armourlock']);
 		},
-		onHit(target, source, move) {
-			const yourItem = target.takeItem(source);
-			const myItem = source.takeItem();
-			if (target.item || source.item || (!yourItem && !myItem)) {
-				if (yourItem) target.item = yourItem.id;
-				if (myItem) source.item = myItem.id;
-				return false;
-			}
-			if (
-				(myItem && !this.singleEvent('TakeItem', myItem, source.itemState, target, source, move, myItem)) ||
-				(yourItem && !this.singleEvent('TakeItem', yourItem, target.itemState, source, target, move, yourItem))
-			) {
-				if (yourItem) target.item = yourItem.id;
-				if (myItem) source.item = myItem.id;
-				return false;
-			}
-			this.add('-activate', source, 'move: Trick', '[of] ' + target);
-			if (myItem) {
-				target.setItem(myItem);
-				this.add('-item', target, myItem, '[from] move: Switcheroo');
-			} else {
-				this.add('-enditem', target, yourItem, '[silent]', '[from] move: Switcheroo');
-			}
-			if (yourItem) {
-				source.setItem(yourItem);
-				this.add('-item', source, yourItem, '[from] move: Switcheroo');
-			} else {
-				this.add('-enditem', source, myItem, '[silent]', '[from] move: Switcheroo');
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Dark",
-		zMove: {boost: {spe: 2}},
-		contestType: "Clever",
 	},
 	trick: {
-		num: 271,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Trick",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, allyanim: 1, noassist: 1, failcopycat: 1},
+		inherit: true,
 		onTryImmunity(target) {
 			return !target.hasAbility(['stickyhold','armourlock']);
 		},
-		onHit(target, source, move) {
-			const yourItem = target.takeItem(source);
-			const myItem = source.takeItem();
-			if (target.item || source.item || (!yourItem && !myItem)) {
-				if (yourItem) target.item = yourItem.id;
-				if (myItem) source.item = myItem.id;
-				return false;
-			}
-			if (
-				(myItem && !this.singleEvent('TakeItem', myItem, source.itemState, target, source, move, myItem)) ||
-				(yourItem && !this.singleEvent('TakeItem', yourItem, target.itemState, source, target, move, yourItem))
-			) {
-				if (yourItem) target.item = yourItem.id;
-				if (myItem) source.item = myItem.id;
-				return false;
-			}
-			this.add('-activate', source, 'move: Trick', '[of] ' + target);
-			if (myItem) {
-				target.setItem(myItem);
-				this.add('-item', target, myItem, '[from] move: Trick');
-			} else {
-				this.add('-enditem', target, yourItem, '[silent]', '[from] move: Trick');
-			}
-			if (yourItem) {
-				source.setItem(yourItem);
-				this.add('-item', source, yourItem, '[from] move: Trick');
-			} else {
-				this.add('-enditem', source, myItem, '[silent]', '[from] move: Trick');
-			}
-		},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		zMove: {boost: {spe: 2}},
-		contestType: "Clever",
-	},
-	entrainment: {
-		num: 494,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Entrainment",
-		pp: 15,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1},
-		onTryHit(target, source) {
-			if (target === source || target.volatiles['dynamax'] || target.ability === source.ability || target.ability === 'truant'
-				|| target.getAbility().isPermanent || source.getAbility().isPermanent) return false;
-
-			const additionalBannedSourceAbilities = [
-				// Zen Mode removed because this is gen 9
-				'commander', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'pillage',
-				'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
-				'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive'
-			];
-			if (additionalBannedSourceAbilities.includes(source.ability)) {
-				return false;
-			}
-		},
-		onHit(target, source) {
-			const oldAbility = target.setAbility(source.ability);
-			if (oldAbility) {
-				this.add('-ability', target, target.getAbility().name, '[from] move: Entrainment');
-				if (!target.isAlly(source)) target.volatileStaleness = 'external';
-				return;
-			}
-			return oldAbility as false | null;
-		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		zMove: {boost: {spd: 1}},
-		contestType: "Cute",
-	},
-	roleplay: {
-		num: 272,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Role Play",
-		pp: 10,
-		priority: 0,
-		flags: {bypasssub: 1, allyanim: 1},
-		onTryHit(target, source) {
-			if (target.ability === source.ability) return false;
-
-			const additionalBannedTargetAbilities = [
-				'commander', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard', 'pillage',
-				'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 'lightdrive', 'openingact', 'protosynthesis', 'quarkdrive', 'nanorepairs', 'firewall', 
-				'weightoflife', 'circuitbreaker', 'ancientmarble', 'prehistorichunter', 'heatproofdrive'
-			];
-
-			if (target.getAbility().isPermanent || additionalBannedTargetAbilities.includes(target.ability) ||
-				source.getAbility().isPermanent) {
-				return false;
-			}
-		},
-		onHit(target, source) {
-			const oldAbility = source.setAbility(target.ability);
-			if (oldAbility) {
-				this.add('-ability', source, source.getAbility().name, '[from] move: Role Play', '[of] ' + target);
-				return;
-			}
-			return oldAbility as false | null;
-		},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		zMove: {boost: {spe: 1}},
-		contestType: "Cute",
 	},
 	disable: {
-		num: 50,
-		accuracy: 100,
-		basePower: 0,
-		category: "Status",
-		name: "Disable",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, reflectable: 1, mirror: 1, bypasssub: 1},
-		volatileStatus: 'disable',
-		onTryHit(target) {
-			if (!target.lastMove || target.lastMove.isZ || target.lastMove.isMax || target.lastMove.id === 'struggle') {
-				return false;
-			}
-		},
+		inherit: true,
 		condition: {
 			duration: 5,
 			noCopy: true, // doesn't get copied by Baton Pass
@@ -460,21 +171,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			},
 		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Clever",
 	},
 	rest: {
-		num: 156,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Rest",
-		pp: 5,
-		priority: 0,
-		flags: {snatch: 1, heal: 1},
+		inherit: true,
 		onTry(source) {
 			if (source.status === 'slp' || source.hasAbility('comatose')) return false;
 
@@ -487,74 +186,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				return null;
 			}
 		},
-		onHit(target, source, move) {
-			const result = target.setStatus('slp', source, move);
-			if (!result) return result;
-			target.statusState.time = 3;
-			target.statusState.startTime = 3;
-			this.heal(target.maxhp); // Aesthetic only as the healing happens after you fall asleep in-game
-		},
-		secondary: null,
-		target: "self",
-		type: "Psychic",
-		zMove: {effect: 'clearnegativeboost'},
-		contestType: "Cute",
-	},
-	skillswap: {
-		num: 285,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Skill Swap",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, bypasssub: 1, allyanim: 1},
-		onTryHit(target, source) {
-			const targetAbility = target.getAbility();
-			if (targetAbility.isPermanent) return false;
-			const sourceAbility = source.getAbility();
-			if (sourceAbility.isPermanent) return false;
-
-			
-			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard', 'terashell',
-				'systempurge', 'onceuponatime', 'primitive', 'quarksurge', 'lightdrive', 'openingact', 'protosynthesis',
-				'quarkdrive', 'nanorepairs', 'firewall', 'weightoflife', 'circuitbreaker', 'ancientmarble',
-					'prehistorichunter', 'heatproofdrive', 'pillage'];
-			// TODO: research in what order these should be checked
-			if (
-				additionalBannedAbilities.includes(target.ability) || additionalBannedAbilities.includes(source.ability)
-				|| target.volatiles['dynamax']
-			) {
-				return false;
-			}
-			const sourceCanBeSet = this.runEvent('SetAbility', source, source, this.effect, targetAbility);
-			if (!sourceCanBeSet) return sourceCanBeSet;
-			const targetCanBeSet = this.runEvent('SetAbility', target, source, this.effect, sourceAbility);
-			if (!targetCanBeSet) return targetCanBeSet;
-		},
-		onHit(target, source, move) {
-			const targetAbility = target.getAbility();
-			const sourceAbility = source.getAbility();
-			if (target.isAlly(source)) {
-				this.add('-activate', source, 'move: Skill Swap', '', '', '[of] ' + target);
-			} else {
-				this.add('-activate', source, 'move: Skill Swap', targetAbility, sourceAbility, '[of] ' + target);
-			}
-			this.singleEvent('End', sourceAbility, source.abilityState, source);
-			this.singleEvent('End', targetAbility, target.abilityState, target);
-			source.ability = targetAbility.id;
-			target.ability = sourceAbility.id;
-			source.abilityState = {id: this.toID(source.ability), target: source};
-			target.abilityState = {id: this.toID(target.ability), target: target};
-			if (!target.isAlly(source)) target.volatileStaleness = 'external';
-			this.singleEvent('Start', targetAbility, source.abilityState, source);
-			this.singleEvent('Start', sourceAbility, target.abilityState, target);
-		},
-		secondary: null,
-		target: "normal",
-		type: "Psychic",
-		zMove: {boost: {spe: 1}},
-		contestType: "Clever",
 	},
 	boltbeak: {
 		inherit: true,

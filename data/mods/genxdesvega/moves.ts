@@ -78,15 +78,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onHit(target, pokemon) {
 			let warnMoves: (Move | Pokemon)[][] = [];
-			let warnBp = 1;
-			for (const target of pokemon.foes()) {
-				for (const moveSlot of target.moveSlots) {
-					const move = this.dex.moves.get(moveSlot.move);
-					warnMoves.push(" " + move);
-				}
+			for (const moveSlot of target.moveSlots) {
+				warnMoves.push(" " + this.dex.moves.get(moveSlot.move));
 			}
 			if (!warnMoves.length) return;
-			this.add('-message', `${pokemon.name} revealed ${target.name}'s${warnMoves}!`);
+			this.add('-message', `${pokemon.name} revealed ${target.name}'s ${warnMoves}!`);
 		},
 		secondary: null,
 		target: "normal",
@@ -98,7 +94,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Last Laugh",
-		shortDesc: "Lower's the target's Attack, Sp. Atk, and Spe by 1. The user faints.",
+		shortDesc: "Lowers target's Attack, Sp. Atk, Spe by 1. User faints.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -122,7 +118,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Geist Bite",
-		shortDesc: "20% chance to lower the target's Def and SpD by 1 stage.",
+		shortDesc: "20% chance to lower the target's Def and SpD by 1.",
 		pp: 15,
 		priority: 0,
 		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
@@ -159,6 +155,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 	},
+	//realmon distribution: Flareon, Kalosian Litleo line, Tepig line, Fennekin line, Turtonator, Rolycoly line, Caspakid line
 	drift: {
 		num: -8,
 		accuracy: 100,
@@ -326,6 +323,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 		contestType: "Tough",
 	},
+	//Realmon distribution: Oddish family, Wooper line, Paldean Wooper line, Gligar line, Trubbish line, Poipole line
 	poisonterrain: {
 		num: -16,
 		accuracy: true,
@@ -390,6 +388,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	rototiller: {
 		inherit: true,
+		isNonstandard: null,
 		shortDesc: "Raises Atk/Sp. Atk of grounded Grass types by 1, 2 if Grassy Terrain.",
 		onHitField(target, source) {
 			const targets: Pokemon[] = [];
@@ -412,6 +411,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 	},
+	//Realmon distribution: Oddish family, both Wooper lines, Trubbish line, Frogadier and Greninja, Mareanie line, Naganadel
 	toxicshock: {
 		num: -17,
 		accuracy: 95,
@@ -428,7 +428,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		onModifyCritRatio(critRatio, source, target) {
 			if (this.field.isTerrain('poisonterrain') && target?.isGrounded()) {
-				this.hint(`${move.name} always crits on grounded targets in Poison Terrain.`);
+				this.hint(`Toxic Shock always crits on grounded targets in Poison Terrain.`,true);
 				return 5;
 			}
 		},
@@ -467,6 +467,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Cool",
 	},
+	//Realmon distribution: Braviary (status for Hisuian unknown), Mandibuzz, Hawlucha
 	airdive: {
 		num: -19,
 		accuracy: 90,
@@ -521,7 +522,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Flare Blitz", target);
 		},
 		onBasePower(basePower, pokemon) {
-			if (pokemon.status && pokemon.status === 'brn') {
+			if (pokemon.status === 'brn') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -549,7 +550,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon, target) {
-			if (target.positiveBoosts() > 0) {
+			if (target.positiveBoosts()) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -573,7 +574,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon, target) {
-			for (i in target.boosts) {
+			for (const i in target.boosts) {
 				if (target.boosts[i] < 0) {
 					return this.chainModify(1.5);
 				}
@@ -620,7 +621,26 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Sludge Bomb", target);
+			switch (source.species.name) {
+				case 'Crayoct':
+					this.add('-anim', source, "Spicy Extract", target);
+					break;
+				case 'Crayoct-Blue':
+					this.add('-anim', source, "Mist Ball", target);
+					break;
+				case 'Crayoct-Yellow':
+					this.add('-anim', source, "Charge Beam", target);
+					break;
+				case 'Crayoct-Pink':
+					this.add('-anim', source, "Psywave", target);
+					break;
+				case 'Crayoct-Brown':
+					this.add('-anim', source, "Mud Bomb", target);
+					break;
+				default:
+					this.add('-anim', source, "Sludge Bomb", target);
+					break;
+			}
 		},
 		onModifyType(move, pokemon) {
 			switch (pokemon.species.name) {
@@ -761,6 +781,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "100% chance to lower the target's Defense by 1.",
 		pp: 10,
 		priority: 0,
+		isViable: true,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
@@ -777,12 +798,18 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	highroller: {
+		num: -27,
 		accuracy: 100,
 		basePower: 40,
 		basePowerCallback(pokemon, target, move) {
 			const bp = move.basePower + 20 * pokemon.positiveBoosts();
 			this.debug('BP: ' + bp);
 			return bp;
+		},
+		isViable: true,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Pay Day", target);
 		},
 		category: "Physical",
 		name: "High Roller",
@@ -794,10 +821,171 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Steel",
 	},
+	
+	firewall: {
+		num: -28,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		shortDesc: "Protects the user. If the opponent makes contact, user restores 25% of max HP and cures statuses.",
+		isViable: true,
+		name: "Firewall",
+		pp: 5,
+		priority: 4,
+		flags: {},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Iron Defense", target);
+		},
+		stallingMove: true,
+		volatileStatus: 'firewall',
+		onTryHit(pokemon) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		},
+		onHit(pokemon) {
+			pokemon.addVolatile('stall');
+		},
+		condition: {
+			duration: 1,
+			onStart(target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit(target, source, move) {
+				if (!move.flags['protect'] || move.category === 'Status') {
+					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
+					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
+					return;
+				}
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-activate', target, 'move: Protect');
+				}
+				const lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove/*) {
+					// Outrage counter is reset
+					if (*/&& source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					//}
+				}
+				if (move.flags['contact']) {
+					this.heal(target.maxhp / 4, target, target, this.dex.getActiveMove("Firewall"));
+					target.cureStatus();
+				}
+				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && move.flags['contact']) {
+					this.heal(target.maxhp / 4, target, target, this.dex.getActiveMove("Firewall"));
+					target.cureStatus();
+				}
+			},
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+	},
+	pitfall: {
+		num: -29,
+		accuracy: 100,
+		basePower: 100,
+		category: "Physical",
+		name: "Pitfall",
+		shortDesc: "Traps and deals halved damage on contact with the user before it moves.",
+		pp: 15,
+		priority: -2,
+		flags: {protect: 1, noassist: 1, failmefirst: 1, nosleeptalk: 1, failcopycat: 1, failinstruct: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dig", target);
+		},
+		priorityChargeCallback(pokemon) {
+			pokemon.addVolatile('pitfall');
+		},
+		condition: {
+			duration: 1,
+			onStart(pokemon) {
+				this.add('-singleturn', pokemon, 'move: Pitfall');
+			},
+			onSourceBasePower(basePower, attacker, defender, move) {
+				if (this.checkMoveMakesContact(move, attacker, defender)) {
+					return this.chainModify(0.5);
+				}
+			},
+			onHit(target, source, move) {
+				if (this.checkMoveMakesContact(move, source, target)) {
+					source.addVolatile('trapped', target, this.dex.getActiveMove("Pitfall"), 'trapper');
+				}
+			},
+		},
+		onAfterMove(pokemon) {
+			pokemon.removeVolatile('pitfall');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		contestType: "Clever",
+	},
+	skyrush: {
+		num: -30,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Sky Rush",
+		shortDesc: "50% chance to raise the user's Attack by 1.",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, contact: 1},
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Brave Bird", target);
+		},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					atk: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Flying",
+		contestType: "Beautiful",
+	},
 
+	boltburst: {
+		num: -31,
+		accuracy: 100,
+		basePower: 0,
+		basePowerCallback(pokemon, target, move) {
+			const hp = target.hp;
+			const maxHP = target.maxhp;
+			const bp = Math.floor(Math.floor((140 * (100 * Math.floor(hp * 4096 / maxHP)) + 2048 - 1) / 4096) / 100) || 1;
+			this.debug('BP for ' + hp + '/' + maxHP + " HP: " + bp);
+			return bp;
+		},
+		category: "Special",
+		name: "Bolt Burst",
+		shortDesc: "More power the more HP the target has left. (Max 140)",
+		pp: 5,
+		priority: 0,
+		onPrepareHit: function(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Discharge", target);
+		},
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Electric",
+		zMove: {basePower: 200},
+		maxMove: {basePower: 150},
+		contestType: "Cool",
+	},
 	//vanilla moves
 	octazooka: {
 		inherit: true,
+		isNonstandard: null,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -949,8 +1137,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				let applies = !(!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','soaringspirit']))
-								|| pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity'));
+				let applies = !(
+					!(pokemon.hasType('Flying') || pokemon.hasAbility(['levitate','soaringspirit'])
+									  || this.getAllActive().some(target => target.hasAbility('treetopper')))
+						|| pokemon.hasItem('ironball') || pokemon.volatiles['ingrain'] || this.field.getPseudoWeather('gravity')
+				);
+				//TODO: Exclude Diglett/Sandygast lines/MGengar from Tree-Topper check
 				if (pokemon.removeVolatile('fly') || pokemon.removeVolatile('bounce')) {
 					applies = true;
 					this.queue.cancelMove(pokemon);
@@ -995,8 +1187,35 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 	},
+	knockoff: {
+		inherit: true,
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Knock Off', '[of] ' + source);
+					for (const pokemon in this.getAllActive()) {
+						if (pokemon.hasAbility('ravenous')) this.heal(pokemon.maxhp / 6, pokemon, pokemon, this.dex.abilities.get('ravenous'));
+					}
+				}
+			}
+		},
+	},
+	//There are mons that got dexited in SV but not Desvega and thus their signatures can't be used, so freeing their signatures here
+	naturesmadness: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	obstruct: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	shelltrap: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	
-	//loria moves just in case
+	//brazdo and loria moves just in case
 	citrusysting: {
 		accuracy: 90,
 		basePower: 0,
@@ -1055,7 +1274,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Clever",
 	},
 	bushclaws: {
-		num: 358,
 		accuracy: 100,
 		basePower: 85,
 		basePowerCallback(pokemon, target, move) {
@@ -1078,8 +1296,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		contestType: "Tough",
 	},
+	//Alolan Oricorio gets this too
 	revelationspin: {
-		num: 686,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -1286,6 +1504,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
+	//Realmon distribution (pre-Loria): Carvanha Families, Snorunt line, Hydreigon line, Lycanroc line, Silvally, Guzzlord, Crobat line,
+	//Noivern line, Mimikyu, Grimmsnarl line, Arbok line, Girafarig (+Farigiraf), Houndoom line, Mightyena line, Seviper, Huntail, 
+	//Eelektross line, Gengar line, Banette line, Sableye (Desvegan status unknown), Giratina, Trevenant, Lunala, Dragapult line
 	drainfang: {
 		accuracy: 100,
 		basePower: 80,
@@ -1306,11 +1527,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 		contestType: "Clever",
 	},
+	//Realmon distribution (pre-Loria): Rhyhorn line, Mudkip line, Numel line, Swinub line (Desvegan status unknown), Mudbray line
 	terracharge: {
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
-		shortDesc: "Deals 33% of the damage dealt in recoil. 10% chance to lower the target's Speed.",
+		shortDesc: "Has 33% recoil. 10% to lower target's Speed by 1.",
 		isViable: true,
 		name: "Terra Charge",
 		pp: 15,
@@ -1331,6 +1553,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 		contestType: "Cool",
 	},
+	//Pre-Loria Evo lines that could get it via Mirror Herb: Spoink, Darumaka, Oranguru, Woobat, Espurr, Pikipek
 	pressurecook: {
 		accuracy: 100,
 		basePower: 70,
@@ -1352,6 +1575,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		contestType: "Beautiful",
 	},
+	//Pre-Loria Evo lines that could get it via Mirror Herb: Mienfoo, Ekans, Seviper, Skorupi, Croagunk (+Croakorrode), Trapinch
 	poisondart: {
 		accuracy: 100,
 		basePower: 40,
@@ -1802,6 +2026,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		contestType: "Beautiful",
 	},
+	//Pre-Lorian mons that get this: Electivire, Mareep line, Shinx line, Pachirisu, Blitzle line, Eelektrik, Eelektross, Yamper line,
+	// Toxel line, Rhyhorn line, Absol, Pikachu, Raichu, Plusle, Minun, Pachirisu, Emolga, Dedenne, Togedemaru, Rikomoco
+
 	shocktail: {
 		accuracy: 100,
 		basePower: 85,
@@ -1829,6 +2056,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Beautiful",
 	},
+	//Vanillite, Tropius, and Snover lines get this too
 	bananasplit: {
 		accuracy: 100,
 		basePower: 50,
@@ -1906,6 +2134,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spe: 2}},
 		contestType: "Clever",
 	},
+	//Realmon distribution: Plusle, Minun, Eelektrik, Joltik, Chinchou, Regieleki, Stunfisk, Togedemaru, Blitzle, Zeraora
 	sparkingleap: {
 		accuracy: 100,
 		basePower: 80,
@@ -1950,6 +2179,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Rock",
 	},
+	//Pre-Loria distribution: Zarude, Rowlet line (+Presumably Decidueye-H), Cacnea line, Phantump line, Carnivine
 	fireworkleaf: {
 		accuracy: 100,
 		basePower: 70,
@@ -1973,6 +2203,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 		contestType: "Beautiful",
 	},
+	//Realmon distribtuion: Magby line, Cyndaquil line (+Presumably Typhlosion-H), Fennekin line, Salandit line, Kalosian Litleo line
 	quickshot: {
 		accuracy: 100,
 		basePower: 40,
@@ -2153,6 +2384,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 		contestType: "Cool",
 	},
+	//Realmon distribution: Rhyhorn line, Onix line, Aron line, Armaldo, Regirock,
+	//	Rampardos, Gigalith, Barbaracle, Lycanroc-Midnight, Stonjourner line
+ 
 	crippleclobber: {
 		accuracy: 100,
 		basePower: 80,

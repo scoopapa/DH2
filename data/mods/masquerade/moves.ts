@@ -431,7 +431,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		self: {
-			sideCondition: 'aquaring',
+			volatileStatus: 'aquaring',
 		},
 		secondary: null,
 		target: "normal",
@@ -542,6 +542,73 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Electric",
 		contestType: "Cool",
+	},
+	diamondglow: {
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		shortDesc: "100% chance to raise the user's Sp. Atk by 1.",
+		name: "Diamond Glow",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Luster Purge", target);
+		},
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Aurorus-Freezeflame': case 'Aurorus-Freezeflame-Tera':
+				move.type = 'Fire';
+				break;
+			case 'Aurorus-Glacier': case 'Aurorus-Glacier-Tera':
+				move.type = 'Ground';
+				break;
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		contestType: "Beautiful",
+	},
+	scaleshot: {
+		num: 799,
+		accuracy: 90,
+		basePower: 25,
+		category: "Physical",
+		name: "Scale Shot",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		multihit: [2, 5],
+		onModifyType(move, pokemon) {
+			switch (pokemon.species.name) {
+			case 'Druddigon-Rubyhead': case 'Druddigon-Rubyhead-Tera':
+				move.type = 'Rock';
+				break;
+			case 'Druddigon-Sharpshot': case 'Druddigon-Sharpshot-Tera':
+				move.type = 'Dark';
+				break;
+			}
+		},
+		selfBoost: {
+			boosts: {
+				def: -1,
+				spe: 1,
+			},
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
+		zMove: {basePower: 140},
+		maxMove: {basePower: 130},
 	},
 
 // unchanged moves
@@ -674,7 +741,6 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
 	},
-
 // other snowscap effects to add later: Aurora Veil, Weather-healing abilities, Solar Beam	
 	teraused: {
 		shortDesc: "Prevents Terastalization from being used multiple times.",

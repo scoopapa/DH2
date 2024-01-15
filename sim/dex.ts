@@ -530,9 +530,9 @@ export class ModdedDex {
 			}
 		}
 		if (parentDex) {
-			for (const dataType of DATA_TYPES) {
+			for (const dataType of DATA_TYPES.concat('Aliases')) {
 				const parentTypedData: DexTable<any> = parentDex.data[dataType];
-				const childTypedData: DexTable<any> = dataCache[dataType] || (dataCache[dataType] = {});
+				const childTypedData: DexTable<any> = (dataCache[dataType] ||= {});
 				for (const entryId in parentTypedData) {
 					if (childTypedData[entryId] === null) {
 						// null means don't inherit
@@ -559,7 +559,6 @@ export class ModdedDex {
 					}
 				}
 			}
-			dataCache['Aliases'] = parentDex.data['Aliases'];
 		}
 
 		// Flag the generation. Required for team validator.

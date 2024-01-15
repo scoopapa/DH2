@@ -1593,11 +1593,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	moraleboost: {
 		name: "Morale Boost",
 		shortDesc: "When an opponent is KO'd, FoAtk is raised.",
+		onFoeFaint(target, source, effect) {
+			this.boost({atk: 1});
+		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect && effect.effectType === 'Move') {
 				this.boost({atk: length}, source);
 			}
-		},
+		}
 	},
 	naturalform: {
 		name: "Natural Form",
@@ -2613,7 +2616,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boost[i]! *= -1;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	vanishingact: {
 		name: "Vanishing Act",

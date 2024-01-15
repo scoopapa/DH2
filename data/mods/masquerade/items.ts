@@ -896,4 +896,96 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		gen: 9,
 		desc: "Galvantula-Widowmaker: Terastallize to gain Purifying Salt.",
 	},
+	rubyheadmask: {
+		name: "Rubyhead Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Druddigon') return false;
+			return true;
+		},
+		forcedForme: "Druddigon-Rubyhead",
+		itemUser: ["Druddigon-Rubyhead"],
+		num: -1038,
+		gen: 9,
+		desc: "Druddigon-Rubyhead: Terastallize to gain Sheer Force.",
+	},
+	sharpshotmask: {
+		name: "Sharpshot Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Druddigon') return false;
+			return true;
+		},
+		forcedForme: "Druddigon-Sharpshot",
+		itemUser: ["Druddigon-Sharpshot"],
+		num: -1039,
+		gen: 9,
+		desc: "Druddigon-Sharpshot: Terastallize to gain Technician.",
+	},
+	freezeflamemask: {
+		name: "Freezeflame Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Aurorus') return false;
+			return true;
+		},
+		forcedForme: "Aurorus-Freezeflame",
+		itemUser: ["Aurorus-Freezeflame"],
+		num: -1040,
+		gen: 9,
+		desc: "Aurorus-Freezeflame: Terastallize to gain Sheer Force.",
+	},
+	glaciermask: {
+		name: "Glacier Mask",
+		spritenum: 758,
+		fling: {
+			basePower: 60,
+		},
+		onStart(pokemon) {
+			if (pokemon.side.sideConditions['teraused']) {
+				pokemon.canTerastallize = null;
+			} else {
+      		pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+			}
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Aurorus') return false;
+			return true;
+		},
+		forcedForme: "Aurorus-Glacier",
+		itemUser: ["Aurorus-Glacier"],
+		num: -1041,
+		gen: 9,
+		desc: "Aurorus-Glacier: Terastallize to gain Water Absorb.",
+	},
 };

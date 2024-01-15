@@ -240,6 +240,13 @@ export class Connection {
 	lastRequestedPage: string | null;
 	lastActiveTime: number;
 	openPages: null | Set<string>;
+	/**
+	 * Used to distinguish Connection from User.
+	 *
+	 * Makes it easy to do something like
+	 * `for (const conn of (userOrConn.connections || [userOrConn]))`
+	 */
+	readonly connections = null;
 	constructor(
 		id: string,
 		worker: ProcessManager.StreamWorker,
@@ -332,9 +339,16 @@ export interface UserSettings {
 export class User extends Chat.MessageContext {
 	/** In addition to needing it to implement MessageContext, this is also nice for compatibility with Connection. */
 	readonly user: User;
+	/**
+	 * Not a source of truth - should always be in sync with
+	 * `[...Rooms.rooms.values()].filter(room => this.id in room.users)`
+	 */
 	readonly inRooms: Set<RoomID>;
 	/**
-	 * Set of room IDs
+	 * Not a source of truth - should always in sync with
+	 * `[...Rooms.rooms.values()].filter(`
+	 * `  room => room.game && this.id in room.game.playerTable && !room.game.ended`
+	 * `)`
 	 */
 	readonly games: Set<RoomID>;
 	mmrCache: {[format: string]: number};
@@ -858,7 +872,7 @@ export class User extends Chat.MessageContext {
 			Punishments.checkName(user, userid, registered);
 
 			Rooms.global.checkAutojoin(user);
-			Rooms.global.joinOldBattles(this);
+			Rooms.global.rejoinGames(user);
 			Chat.loginfilter(user, this, userType);
 			return true;
 		}
@@ -874,7 +888,7 @@ export class User extends Chat.MessageContext {
 			return false;
 		}
 		Rooms.global.checkAutojoin(this);
-		Rooms.global.joinOldBattles(this);
+		Rooms.global.rejoinGames(this);
 		Chat.loginfilter(this, null, userType);
 		return true;
 	}
@@ -930,7 +944,14 @@ export class User extends Chat.MessageContext {
 			room.game.onRename(this, oldid, joining, isForceRenamed);
 		}
 		for (const roomid of this.inRooms) {
-			Rooms.get(roomid)!.onRename(this, oldid, joining);
+			const room = Rooms.get(roomid)!;
+			room.onRename(this, oldid, joining);
+			if (room.game && !this.games.has(roomid)) {
+				if (room.game.playerTable[this.id]) {
+					this.games.add(roomid);
+					room.game.onRename(this, oldid, joining, isForceRenamed);
+				}
+			}
 		}
 		if (isForceRenamed) this.trackRename = oldname;
 		return true;
@@ -1337,8 +1358,8 @@ export class User extends Chat.MessageContext {
 		}
 		if (!connection.inRooms.has(room.roomid)) {
 			if (!this.inRooms.has(room.roomid)) {
-				this.inRooms.add(room.roomid);
 				room.onJoin(this, connection);
+				this.inRooms.add(room.roomid);
 			}
 			connection.joinRoom(room);
 			room.onConnect(this, connection);

@@ -9,7 +9,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Nightmare Eater",
 		rating: 3.5,
 		num: 10,

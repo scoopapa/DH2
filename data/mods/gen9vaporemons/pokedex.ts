@@ -1,6 +1,6 @@
 export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	screamtail: {
-		inherit: true,
+		inherit: true, 
 		types: ["Fairy", "Dragon"],
 		abilities: {0: "Protosmosis", H: "Cute Charm"},
 	},
@@ -1865,7 +1865,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	terrakion: {
 		inherit: true,
-		abilities: {0: "Justified", H: "Blunt Force"},
+		abilities: {0: "Justified", H: "Muscle Memory"},
 	},
 	virizion: {
 		inherit: true,

@@ -66,8 +66,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.formeChange('Eisugiri', this.effect, true);
 			}
 		},
-		isBreakable: true,
-		isPermanent: true,
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 	},
 	nauticalnuke: {
 		onDamagingHit(damage, target, source, move) {
@@ -88,7 +87,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				source.formeChange(forme, effect);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Nautical Nuke",
 		shortDesc: "When hit after Surf/Dive, attacker takes 1/4 max HP and -2 to all stats.",
 	},
@@ -125,7 +124,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Commander Guard",
 		shortDesc: "This Pokemon can only be hit by Dondozo.",
 	},
@@ -227,7 +226,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Power of Dondozo', '[of] ' + target);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Power of Dondozo",
 		shortDesc: "This Pokemon has the abilities of Dondozo.",
 	},
@@ -359,7 +358,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				else pokemon.setAbility('oblivious');
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Fish Bond",
 		shortDesc: "When this Pokemon attacks and KOes another Pokemon, it transforms into Dondozo.",
 	},
@@ -448,8 +447,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isUnbreakable: true,
-		isPermanent: true,
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		rating: 5,
 		num: -1001,
 	},
@@ -588,8 +586,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				else pokemon.setAbility('oblivious');
 			}
 		},
-		isBreakable: true,
-		isPermanent: true,
+		flags: {breakable: 1, failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Call for Help",
 		shortDesc: "(Mimigiri only) The first hit it takes is blocked, and it takes 1/8 HP damage instead and becomes Dondozo.",
 	},
@@ -648,7 +645,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				else pokemon.setAbility('oblivious');
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Bozo to Dozo",
 		shortDesc: "This Pokemon transforms into Dondozo when switching out.",
 	},
@@ -714,7 +711,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Dondozo Shield",
 		shortDesc: "At 1/2 max HP or less, this Pokemon transforms into Dondozo.",
 	},
@@ -726,7 +723,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Dondon\'tzo",
 		shortDesc: "Prevents Dondozo's moves while this ability is active.",
 	},
@@ -739,7 +736,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Dondo-No",
 		shortDesc: "This Pokemon heals 1/4 max HP when hit by Dondozo; immunity to Dondozo.",
 	},
@@ -803,7 +800,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		// dondozo effect in pokedex.ts
 		name: "Commatose",
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		shortDesc: "This Pokemon cannot be statused, and is considered to be Dondozo.",
 	},
 	byeah: {
@@ -815,7 +812,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 			attacker.setAbility('byeah');
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "byeah",
 		shortDesc: "This Pokemon changes to Dondozo before it attacks.",
 	},
