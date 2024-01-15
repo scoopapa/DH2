@@ -66,7 +66,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			pokemon.maxhp = newMaxHP;
 			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power Construct",
 		rating: 5,
 		num: 211,
@@ -83,7 +83,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyMovePriority: -1,
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Battle Bond",
 		rating: 4,
 		num: 210,
@@ -187,7 +187,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	// this.add('-message', pokemon.name + " started to glow!");
 	// }
 	// },
-	// isPermanent: true,
+	// flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 	// name: "Xenospore",
 	// rating: 5,
 	// num: 211,
@@ -257,7 +257,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 	// }
 	// }
 	// },
-	// isPermanent: true,
+	// flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 	// name: "Schooling",
 	// shortDesc: "If user is Jaegorm, changes to Collective Form if it has > 1/4 max HP, else Solo Form.",
 	// rating: 3,

@@ -9819,9 +9819,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2L1",
 				"1L20"
 			],
-			"blizzard": [
-				"2M"
-			],
 			"bodyslam": [
 				"1M"
 			],
@@ -9880,9 +9877,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			hyperbeam: ["2M", "1M"],
-			"icebeam": [
-				"2M"
-			],
 			"icywind": [
 				"2M"
 			],
@@ -11303,7 +11297,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			"wrap": [
 				"1L1",
 				"2L1"
-			]
+			],
+			explosion: ["1M"],
+			selfdestruct: ["1M"],
 		}
 	},
 	"lickilord": {
@@ -14350,9 +14346,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2L1",
 				"1L20"
 			],
-			"blizzard": [
-				"2M"
-			],
 			"bodyslam": [
 				"1M"
 			],
@@ -14408,9 +14401,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"hiddenpower": [
-				"2M"
-			],
-			"icebeam": [
 				"2M"
 			],
 			"icywind": [
@@ -22790,9 +22780,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2L1",
 				"1L20"
 			],
-			"blizzard": [
-				"2M"
-			],
 			"bodyslam": [
 				"1M"
 			],
@@ -22848,9 +22835,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				"2M"
 			],
 			"hiddenpower": [
-				"2M"
-			],
-			"icebeam": [
 				"2M"
 			],
 			"icywind": [
@@ -28072,6 +28056,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			shadowball: ["2M"],
 			slash: ["2L49"],
 			sleeptalk: ["2M"],
+			sludgebomb: ["2M"],
 			snore: ["2M"],
 			spite: ["2E"],
 			strength: ["2M"],
@@ -28124,6 +28109,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			shadowball: ["2M"],
 			slash: ["2L49"],
 			sleeptalk: ["2M"],
+			sludgebomb: ["2M"],
 			snore: ["2M"],
 			spite: ["2E"],
 			strength: ["2M"],

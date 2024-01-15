@@ -31,7 +31,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
 		rating: 0,
 		shortDesc: "Changes this Pokemon's form to Zen Mode before using a Special move.",
@@ -61,7 +61,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
 		shortDesc: "(Partially functional placeholder) Changes this Pokemon's form to Zen Mode before using a Special move.",
 		rating: 3,
@@ -159,7 +159,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const targetForme = (move.category === 'Status' ? 'Eiscue' : 'Eiscue-Noice');
 			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Ice Face",
 		rating: 3,
 		num: 248,

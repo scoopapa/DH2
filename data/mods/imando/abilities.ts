@@ -32,7 +32,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 		onModifyMove(move) {
 			delete move.stab;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Conversion-Z",
 		rating: 5,
 		num: -5000,
@@ -107,7 +107,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.boost({spa: length}, source, source, this.dex.abilities.get('grimneigh'));
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "As One (Spectrier)",
 		shortDesc: "The combination of Unnerve and Grim Neigh.",
 		rating: 3.5,
@@ -276,6 +276,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, failskillswap: 1, breakable: 1},
 		name: "Wonder Guard",
 		shortDesc: "Immunity to non-Super Effective damage and indirect damage.",
 		rating: 5,
@@ -347,7 +348,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Protosynthesis",
 		shortDesc: "This Pokemon's highest stat is 1.3x in Sun or holding Booster Energy.",
 		rating: 3,
@@ -419,7 +420,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protosmosis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Protosmosis",
 		shortDesc: "This Pokemon's highest stat is 1.3x in Rain or holding Booster Energy.",
 		rating: 3,
@@ -491,7 +492,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protocrysalis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Protocrysalis",
 		shortDesc: "This Pokemon's highest stat is 1.3x in Sand or holding Booster Energy.",
 		rating: 3,
@@ -563,7 +564,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Protostasis');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Protostasis",
 		shortDesc: "This Pokemon's highest stat is 1.3x in Hail or holding Booster Energy.",
 		rating: 3,
@@ -635,7 +636,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Quark Drive",
 		shortDesc: "This Pokemon's highest stat is 1.3x in Electric Terrain or holding Booster Energy.",
 		rating: 3,
@@ -707,7 +708,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Photon Drive');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Photon Drive",
 		shortDesc: "This Pokemon's highest stat is 1.3x in Grassy Terrain or holding Booster Energy.",
 		rating: 3,
@@ -779,7 +780,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Neuron Drive');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Neuron Drive",
 		shortDesc: "This Pokemon's highest stat is 1.3x in Psychic Terrain or holding Booster Energy.",
 		rating: 3,
@@ -851,7 +852,7 @@ export const Abilities: {[abilityid: string]: ModdedAbilityData} = {
 				this.add('-end', pokemon, 'Rune Drive');
 			},
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Rune Drive",
 		shortDesc: "This Pokemon's highest stat is 1.3x in Misty Terrain or holding Booster Energy.",
 		rating: 3,

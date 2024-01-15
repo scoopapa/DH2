@@ -117,7 +117,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				break;
 			}
 		},
-		isPermanent: undefined,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "RKS System",
 		shortDesc: "Ability varies based on the user's type.",
 		rating: 4,
@@ -463,7 +463,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(2);
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "As One (Arrokuda)",
 		shortDesc: "Mold Breaker + Swift Swim",
 		rating: 4,
@@ -555,6 +555,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Power Construct",
 		shortDesc: "At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Dragon attacks.",
 		rating: 2,

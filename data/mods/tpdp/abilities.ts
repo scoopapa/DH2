@@ -2616,7 +2616,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				boost[i]! *= -1;
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 	},
 	vanishingact: {
 		name: "Vanishing Act",

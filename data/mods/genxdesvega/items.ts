@@ -315,6 +315,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				if (target.item && !target.volatiles['rulebook']) {
 					const itemName = target.getItem().name
 					this.add('-item', target, itemName, '[from] item: Rulebook', '[of] ' + pokemon, '[silent]');
+					this.add('-item', pokemon, 'Rulebook', '[silent]');
 					this.add('-message', `${pokemon.name} is inspecting ${target.name}\'s ${itemName} by its Rulebook!`);
 					target.addVolatile('rulebook');
 				}
