@@ -97,6 +97,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Last Laugh",
+		desc: "Lowers the target's Attack, Special Attack, and Speed by 1 stage. The user faints unless this move misses or there is no target. Fails entirely if this move hits a substitute, but does not fail if the target's stats cannot be changed.",
 		shortDesc: "Lowers target's Attack, Sp. Atk, Speed by 1. User faints.",
 		pp: 10,
 		priority: 0,
@@ -277,6 +278,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		name: "Iron Strike",
+		desc: "If this move is successful, the target experiences the effects of all entry hazards on its side of the field, unless its held item is Heavy-Duty Boots or its ability is Keen Eye.",
 		shortDesc: "Target takes hazard damage after being hit by this move.",
 		pp: 15,
 		priority: 0,
@@ -342,6 +344,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Poison Terrain",
+		desc: "For 5 turns, the terrain becomes Poison Terrain. During the effect, the power of Poison-type attacks made by grounded Pokemon is multiplied by 1.3 and grounded Pokemon that would be poisoned are always badly poisoned; Pokemon already experiencing standard poisoning do not become badly poisoned. Grounded Pokemon that are neither Bug-, Poison-, nor Steel-type lose 1/16 of their maximum HP at the end of each turn. Camouflage and Mimicry transform the user into an Poison type, Nature Power becomes Sludge Wave, and Secret Power has a 30% chance to lower the target's Special Defense by 1 stage. Fails if the current terrain is Poison Terrain.",
 		shortDesc: "5 turns. Grounded: +Poison power, -1/16 max HP if not Bug/Poison/Steel, Poison -> Toxic.",
 		pp: 10,
 		priority: 0,
@@ -401,6 +404,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	rototiller: {
 		inherit: true,
 		isNonstandard: null,
+		desc: "Raises the Attack and Special Attack of all grounded Grass-type Pokemon on the field by 2 stages if Grassy Terrain is active or 1 stage if not.",
 		shortDesc: "Raises Atk/Sp. Atk of grounded Grass types by 1, 2 if Grassy Terrain.",
 		onHitField(target, source) {
 			const targets: Pokemon[] = [];
@@ -847,6 +851,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and restores 1/4 of its maximum HP and cures its status when other Pokemon try to make contact. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, Field of Vision, Firewall, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, Toxic Snowball, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects the user. If the opponent makes contact, user restores 25% of max HP and cures statuses.",
 		isViable: true,
 		name: "Firewall",
@@ -1700,6 +1705,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 85,
 		category: "Physical",
+		desc: "Regardless of this move's type, any types that would resist it are disregarded in calculating the effectiveness of this move. This move does not ignore type-based immunities.", 
 		shortDesc: "Ignores resistances.",
 		isViable: true,
 		name: "Forest Rage",
@@ -1726,6 +1732,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 85,
 		category: "Special",
+		desc: "Regardless of this move's type, any types that would resist it are disregarded in calculating the effectiveness of this move. This move does not ignore type-based immunities.",
 		shortDesc: "Ignores resistances.",
 		isViable: true,
 		name: "River Wrath",
@@ -1780,6 +1787,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn. Attackers trying to use Special moves against it lose 1/4 of their maximum HP and are poisoned. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, Field of Vision, Firewall, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, Toxic Snowball, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects the user. Blocking Special moves: attacker loses 25% of their max HP and gets poisoned.",
 		isViable: true,
 		name: "Toxic Snowball",
@@ -1858,10 +1866,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 			this.add('-anim', source, "Recover", target);
 		},
 		onHit(target, source, move){
-			let b: BoostName;
-			for (b in source.boosts) {
-				if (source.boosts[b] < 0) delete source.boosts[b];
+			const boosts: SparseBoostsTable = {};
+			let i: BoostID;
+			for (i in source.boosts) {
+				if (source.boosts[i] < 0) {
+					boosts[i] = 0;
+				}
 			}
+			source.setBoost(boosts);
+			this.battle.add('-clearnegativeboost', source);
 		},
 		target: "normal",
 		type: "Rock",
@@ -2463,7 +2476,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 70,
 		basePower: 110,
 		category: "Physical",
-		shortDesc: "30% chance to paralyze foe. Perfect accuracy in Sun.",
+		desc: "Has a 30% chance to paralyze the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Desolate Land or Sunny Day, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 70%.",
+		shortDesc: "30% chance to paralyze. Can't miss in sun.",
 		isViable: true,
 		name: "Thunderstrike",
 		pp: 10,
