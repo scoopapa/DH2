@@ -19,7 +19,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	samureedeemale: {
+	samureedee: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
@@ -258,5 +258,213 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	kingturne: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
+	},
+	goopurr: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	riokrow: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	pipoffing: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	smolicute: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	polihoot: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	larvipin: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	pupadin: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	eevulpalola: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	sandshrewcrossbreed: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	poryskull: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	poryclops2: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	oddbell: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	gloopinbell: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	chikobebe: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	floeleef: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	scythadet: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	shinly: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	luxravia: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	floppip: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	quaxlet: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	quaxtrix: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	gimmipixroaming: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	gimmipix: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	cyndafoo: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	dewpidink: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	nacoly: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	kolstack: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	salanbat: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	litenna: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	hattlamp: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	snonkhisui: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	skwoggy: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	clefflin: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	clepplin: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	slowmitegalar: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	igglylett: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	ruffdot: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	varantis: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	sniloon: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	grubbasaur: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	charjasaur: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	snid: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	rhyhursa: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	rhyring: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	yanleo: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	sandwott: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	krokowott: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	tandoodle: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	litpig: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	torrapig: {
+		tier: "FENFE",
+		doublesTier: "FENFE",
+	},
+	jolterbug: {
+		tier: "FELC",
+		doublesTier: "FELC",
+	},
+	cacsea: {
+		tier: "FELC",
+		doublesTier: "FELC",
 	},
 };
