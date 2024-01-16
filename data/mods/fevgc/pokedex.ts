@@ -110,9 +110,13 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	megaflor: {
 		num: 2014,
 		name: "Megaflor",
+		baseForme: "Red",
+		gender: "F",
 		types: ["Fairy", "Grass"],
 		baseStats: {hp: 79, atk: 73, def: 84, spa: 100, spd: 127, spe: 77},
 		abilities: {0: "Overbloom", H: "Teamwork"},
+		cosmeticFormes: ["Megaflor-Blue", "Megaflor-Orange", "Megaflor-White", "Megaflor-Yellow"],
+		formeOrder: ["Megaflor", "Megaflor-Blue", "Megaflor-Orange", "Megaflor-White", "Megaflor-Yellow"],
 	},
 	armarizor: {
 		num: 2015,
@@ -599,19 +603,27 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 110, def: 115, spa: 35, spd: 60, spe: 75},
 		abilities: {0: "Quick Delivery", H: "Durian Breath"},
 	},
-	chikobébé: {
+	chikobebe: {
 		num: 2076,
-		name: "Chikobébé",
+		name: "Chikobe\u0301be\u0301",
+		baseForme: "Red",
+		gender: "F",
 		types: ["Fairy", "Grass"],
 		baseStats: {hp: 44, atk: 43, def: 52, spa: 55, spd: 72, spe: 43},
 		abilities: {0: "Overbloom", H: "Teamwork"},
+		cosmeticFormes: ["Chikobe\u0301be\u0301-Blue", "Chikobe\u0301be\u0301-Orange", "Chikobe\u0301be\u0301-White", "Chikobe\u0301be\u0301-Yellow"],
+		formeOrder: ["Chikobe\u0301be\u0301", "Chikobe\u0301be\u0301-Blue", "Chikobe\u0301be\u0301-Orange", "Chikobe\u0301be\u0301-White", "Chikobe\u0301be\u0301-Yellow"],
 	},
 	floeleef: {
 		num: 2077,
 		name: "Floeleef",
+		baseForme: "Red",
+		gender: "F",
 		types: ["Fairy", "Grass"],
 		baseStats: {hp: 57, atk: 53, def: 63, spa: 69, spd: 92, spe: 56},
 		abilities: {0: "Overbloom", H: "Teamwork"},
+		cosmeticFormes: ["Floeleef-Blue", "Floeleef-Orange", "Floeleef-White", "Floeleef-Yellow"],
+		formeOrder: ["Floeleef", "Floeleef-Blue", "Floeleef-Orange", "Floeleef-White", "Floeleef-Yellow"],
 	},
 	scythadet: {
 		num: 2078,
