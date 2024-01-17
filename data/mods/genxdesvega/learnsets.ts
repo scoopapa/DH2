@@ -6612,6 +6612,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			naturepower: ["9L1", "8L1"],
 			protect: ["9L1", "8L1"],
 			psybeam: ["9L1", "8L1"],
+			psychicterrain: ["9L1", "8L1"],
 			pursuit: ["9L1", "8L1"],
 			rage: ["9L1", "8L1"],
 			reflect: ["9L1", "8L1"],
@@ -6741,6 +6742,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			meanlook: ["9L1", "8L1"],
 			poisonjab: ["9L1", "8L1"],
 			futuresight: ["9L1", "8L1"],
+			psychicterrain: ["9L1", "8L1"],
 		},
 	},
 	parascend: {
@@ -6841,6 +6843,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			chillyreception: ["9L1"],
 			toxicshock: ["9L1"],
 			acidtrip: ["9L1"],
+			psychicterrain: ["9L1", "8L1"],
 		},
 	},
 	alumane: {
