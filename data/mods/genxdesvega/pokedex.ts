@@ -2602,6 +2602,32 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
+
+	//Other realmons with new abilities
+	magby: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Precision", H: "Vital Spirit"},
+	},
+	magmar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Precision", H: "Vital Spirit"},
+	},
+	magmortar: {
+		inherit: true,
+		abilities: {0: "Flame Body", 1: "Precision", H: "Vital Spirit"},
+	},
+	elekid: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Ambitious", H: "Vital Spirit"},
+	},
+	electabuzz: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Ambitious", H: "Vital Spirit"},
+	},
+	electivire: {
+		inherit: true,
+		abilities: {0: "Motor Drive", 1: "Ambitious", H: "Vital Spirit"},
+	},
   
 	cirno: {
 		num: -1,
