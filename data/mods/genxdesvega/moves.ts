@@ -27,7 +27,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Watchful Eye",
-		desc: "Prevents the target from switching out. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
+		desc: "Prevents the target from switching out. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Drift, Flip Turn, Frost Feint, Guardian Wind, Parting Shot, Poisonous Flight, Shed Tail, Swindle, Teleport, U-turn, or Volt Switch. If the target leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
 		shortDesc: "Prevents the target from switching out.",
 		pp: 10,
 		priority: 0,
@@ -71,6 +71,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Sleuth",
+		desc: "If this move is successful, all of the target's moves are revealed.",
 		shortDesc: "Reveals the target's moveset.",
 		pp: 20,
 		priority: 0,
@@ -434,7 +435,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 70,
 		category: "Physical",
 		name: "Toxic Shock",
-		shortDesc: "30% chance to badly poison. Always crits against foes on Poison Terrain.",
+		desc: "Has a 30% chance to badly poison the target. If the current terrain is Poison Terrain and the target is grounded, this move will always land a critical hit.",
+		shortDesc: "30% to badly poison. Crits if target is grounded on Poison Terrain.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -491,6 +493,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 60,
 		category: "Physical",
 		name: "Air Dive",
+		desc: "This move is always a critical hit unless the target is under the effect of Lucky Chant or has the Battle Armor or Shell Armor Abilities.",
 		shortDesc: "Always results in a critical hit.",
 		pp: 10,
 		priority: 0,
@@ -531,7 +534,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 100,
 		category: "Physical",
 		name: "Pepper Rush",
-		shortDesc: "Has 1.5x power if the user is burned. 10% chance to burn the target. Burns the user.",
+		desc: "If the user is burned, this move's damage is multiplied by 1.5 instead of halved. Has a 10% chance to burn the target. If the user does not have a non-volatile status condition after using this move, it is burned after using it.",
+		shortDesc: "Has 1.5x power if the user is burned. Thaws user. 10% chance to burn target. Burns user.",
 		pp: 5,
 		priority: 0,
 		flags: {defrost: 1, protect: 1, mirror: 1},
@@ -563,7 +567,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Special",
 		name: "Plus Pulse",
-		shortDesc: "Bypasses accuracy checks. 1.5x power if the target has a stat boosted.",
+		desc: "This move does not check accuracy. If the target has at least one stat stage greater than 0, this move's power is multiplied by 1.5.",
+		shortDesc: "This move does not check accuracy. 1.5x power if target has a stat boosted.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -587,7 +592,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 80,
 		category: "Physical",
 		name: "Minus Ion",
-		shortDesc: "Bypasses accuracy checks. 1.5x power if the target has a stat lowered.",
+		desc: "This move does not check accuracy. If the target has at least one stat stage less than 0, this move's power is multiplied by 1.5.",
+		shortDesc: "This move does not check accuracy. 1.5x power if target has a stat lowered.",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
@@ -609,6 +615,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	infestation: {
 		inherit: true,
+		desc: "Prevents the target from switching for three turns. Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Drift, Flip Turn, Frost Feint, Guardian Wind, Parting Shot, Poisonous Flight, Shed Tail, Swindle, Teleport, U-turn, or Volt Switch. The effect does not end if the user leaves the field, but does end if the target leaves the field or uses Mortal Spin, Rapid Spin, or Substitute successfully. Using this move again does not stack or reset the effect.",
 		shortDesc: "Traps and damages the target for 3 turns, even if the user switches out.",
 		onAfterHit(target, source, move) {
 			target.addVolatile('infestation');
@@ -633,7 +640,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 90,
 		category: "Special",
 		name: "Ink Burst",
-		desc: "Has a 30% chance to lower the target's Speed by 1 stage. If used by a Crayoct, this move's type will change depending on its color.",
+		desc: "Has a 30% chance to lower the target's Speed by 1 stage. If used by a Crayoct, this move's type will change depending on its color. Fire for Red, Flying for Blue, Electric for Yellow, Fairy for Pink, and Ground for Brown.",
 		shortDesc: "30% chance to lower the target's Speed by 1. Type depends on user's form.",
 		pp: 10,
 		priority: 0,
@@ -694,6 +701,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		name: "Venom Mist",
+		desc: "Raises the user's Attack by 1 stage. Poisons the target.",
 		shortDesc: "Raises the user's Attack by 1. Poisons adjacent Pokemon.",
 		pp: 5,
 		priority: 0,
@@ -719,7 +727,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		category: "Special",
 		name: "Sting Spit",
 		desc: "Hits twice, with each hit having a 50% chance to poison the target. If the first hit breaks the target's substitute, it will take damage for the second hit. In Double Battles, this move attempts to hit the targeted Pokemon and its ally once each. If hitting one of these Pokemon would be prevented by immunity, protection, semi-invulnerability, an Ability, or accuracy, it attempts to hit the other Pokemon twice instead. If this move is redirected, it hits that target twice.",
-		shortDesc: "Hits twice. Doubles: Tries to hit each foe once. Each hit has a 50% chance to Poison the target.",
+		shortDesc: "Hits twice. Doubles: Tries to hit each foe once. Each hit has a 50% chance to poison.",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, noparentalbond: 1},
@@ -851,8 +859,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and restores 1/4 of its maximum HP and cures its status when other Pokemon try to make contact. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, Field of Vision, Firewall, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, Toxic Snowball, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects the user. If the opponent makes contact, user restores 25% of max HP and cures statuses.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and restores 1/4 of its maximum HP and cures its non-volatile status condition when other Pokemon try to make contact. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, Field of Vision, Firewall, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, Toxic Snowball, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		shortDesc: "Protects the user. Contact: user restores 1/4 of max HP and cures its status.",
 		isViable: true,
 		name: "Firewall",
 		pp: 5,
@@ -1026,6 +1034,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	haze: {
 		inherit: true,
+		desc: "Resets the stat stages of all active Pokemon to 0. Pokemon with the ability Rock Bottom are not affected.",
 		onHitField() {
 			this.add('-clearallboost');
 			for (const pokemon of this.getAllActive()) {
@@ -1077,6 +1086,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	topsyturvy: {
 		inherit: true,
+		desc: "The target's positive stat stages become negative and vice versa. Fails if the target's ability is Rock Bottom or all of its stat stages are 0.",
 		onHit(target) {
 			if(target.hasAbility('rockbottom')) {
 				this.add("-fail", target, "unboost", "[from] ability: Rock Bottom", "[of] " + target);
@@ -1164,6 +1174,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	smackdown: {
 		inherit: true,
+		desc: "This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If this move hits a target under the effect of Bounce, Fly, Magnet Rise, or Telekinesis, the effect ends. If the target is a Flying type that has not used Roost this turn or a Pokemon with the Levitate or Soaring Spirit Abilities, or if there is an active Pokemon with Tree Topper, the target loses its immunity to Ground-type attacks and the Arena Trap Ability as long as it remains active. During the effect, Magnet Rise fails for the target and Telekinesis fails against the target, and the target is not affected by Tree-Topper.",
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
@@ -1274,6 +1285,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Special",
+		desc: "The type and power of this move depend on the user's held Berry, and the Berry is lost. Fails if the user is not holding a Berry, if the user has the Klutz Ability, or if Embargo, Magic Room, or an opponent's Rulebook is in effect for the user.",
 		shortDesc: "Power and type depends on the user's berry; Consumes berry.",
 		isViable: true,
 		name: "Berry Blast",
@@ -1421,7 +1433,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		desc: "Prevents the user and the target from switching out. The user and the target can still switch out if either of them is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field.",
+		desc: "Prevents the user and the target from switching out. The user and the target can still switch out if either of them is holding Shed Shell or uses Baton Pass, Drift, Flip Turn, Frost Feint, Guardian Wind, Parting Shot, Poisonous Flight, Shed Tail, Swindle, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field.",
 		shortDesc: "Traps both the user and the target",
 		isViable: true,
 		name: "Jaw Crush",
@@ -1705,7 +1717,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 85,
 		category: "Physical",
-		desc: "Regardless of this move's type, any types that would resist it are disregarded in calculating the effectiveness of this move. This move does not ignore type-based immunities.", 
+		desc: "Regardless of this move's type, it has neutral effectiveness against any types that it would otherwise be not very effective against. This move does not ignore type-based immunities.", 
 		shortDesc: "Ignores resistances.",
 		isViable: true,
 		name: "Forest Rage",
@@ -1732,7 +1744,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 85,
 		category: "Special",
-		desc: "Regardless of this move's type, any types that would resist it are disregarded in calculating the effectiveness of this move. This move does not ignore type-based immunities.",
+		desc: "Regardless of this move's type, it has neutral effectiveness against any types that it would otherwise be not very effective against. This move does not ignore type-based immunities.", 
 		shortDesc: "Ignores resistances.",
 		isViable: true,
 		name: "River Wrath",
@@ -1760,7 +1772,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "User's Atk >= Target's: -1 Def, otherwise user gains +1 Spe.",
+		desc: "If the target's Attack stat is greater than the user's, the user's Speed is raised by 1 stage. Otherwise, the target's Defense is lowered by 1 stage.",
+		shortDesc: "User's Atk > or = target's: -1 Def, otherwise user gains +1 Spe.",
 		isViable: true,
 		name: "Flare Up",
 		pp: 30,
@@ -1788,7 +1801,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		basePower: 0,
 		category: "Status",
 		desc: "The user is protected from most attacks made by other Pokemon during this turn. Attackers trying to use Special moves against it lose 1/4 of their maximum HP and are poisoned. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, Field of Vision, Firewall, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, Toxic Snowball, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
-		shortDesc: "Protects the user. Blocking Special moves: attacker loses 25% of their max HP and gets poisoned.",
+		shortDesc: "Protects the user. Blocking Special moves: Attacker loses 25% of their max HP and gets poisoned.",
 		isViable: true,
 		name: "Toxic Snowball",
 		pp: 10,
@@ -1853,7 +1866,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
-		shortDesc: "Resets the user's lowered stats.",
+		desc: "If this move is successful and the user had any stat changes less than 0 upon using it, these stat changes are cleared afterward.",
+		shortDesc: "Eliminates the user's negative stat changes.",
 		isViable: true,
 		name: "Purification",
 		pp: 5,
@@ -1884,6 +1898,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		desc: "For 3 turns, the user and its party members cannot have negative stat changes, non-volatile status conditions, or confusion inflicted on them by other Pokemon. The user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members.",
 		shortDesc: "Sets Mist and Safeguard for 3 turns and then switches out.",
 		isViable: true,
 		name: "Guardian Wind",
@@ -1915,8 +1930,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 			onSetStatus(status, target, source, effect) {
-				if (!effect || !source || effect.id === 'yawn') return;
-				if (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side) return;
+				if (!effect || !source || effect.id === 'yawn'/*) return;
+				if */|| (effect.effectType === 'Move' && effect.infiltrates && target.side !== source.side)) return;
 				if (target !== source) {
 					this.debug('interrupting setStatus');
 					if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
@@ -1952,6 +1967,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 25,
 		category: "Physical",
+		desc: "Hits two to five times. Each hit has a 10% chance to lower the target's Defense by 1 stage. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
 		shortDesc: "Hits 2-5 times. 10% chance to lower the target's Defense by 1.",
 		isViable: true,
 		name: "Coconut Burst",
@@ -1979,8 +1995,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Fails unless the user is a Fire type. If this move is successful, it restores 66.7% of the user's maximum HP and if it is not Terastallized, the user's Fire type becomes typeless as long as it remains active.",
-		shortDesc: "Restore 67% of Max HP; User's Fire type becomes typeless; must be Fire.",
+		desc: "Fails unless the user is a Fire type. If this move is successful, it restores 2/3 of the user's maximum HP and if it is not Terastallized, the user's Fire type becomes typeless as long as it remains active.",
+		shortDesc: "Restores 2/3 of Max HP; User's Fire type becomes typeless; must be Fire.",
 		isViable: true,
 		name: "Heat Release",
 		pp: 10,
@@ -2017,6 +2033,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return 50;
 		},
 		category: "Special",
+		desc: "For every consecutive turn that this move is used by at least one Pokemon, this move's power is multiplied by the number of turns to pass, but not more than 5.",
 		shortDesc: "Power increases when used on consecutive turns.",
 		isViable: true,
 		name: "Steady Stream",
@@ -2053,7 +2070,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 95,
 		category: "Special",
-		shortDesc: "If Psychic Terrain is active, user's Speed goes up by 1 stage.",
+		desc: "If the current terrain is Psychic Terrain and the user is grounded, this move has a 100% chance to raise the its Speed by 1 stage.",
+		shortDesc: "User on Psychic Terrain: 100% chance to raise its Speed by 1.",
 		isViable: true,
 		name: "Psychic Surf",
 		pp: 15,
@@ -2066,12 +2084,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 100,
 			self: {
-			onHit(target, source, move) {
-				if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
-					return !!this.boost({spe: 1}, source);
-				}
-				return false;
-			},
+				onHit(target, source, move) {
+					return (this.field.isTerrain('psychicterrain') && source.isGrounded() && !!this.boost({spe: 1}, source));
+				},
 			},
 		},
 		target: "allAdjacent",
@@ -2085,6 +2100,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Physical",
+		desc: "If the target has at least one stat change greater than 0, then this move has a 100% chance to paralyze the target.",
 		shortDesc: "Paralyzes if the target has positive stat boosts.",
 		isViable: true,
 		name: "Shock Tail",
@@ -2135,6 +2151,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
+		desc: "The user swaps its held item with the target's held item. If this move is successful, the user switches out even if it is trapped and is replaced immediately by a selected party member. Fails if either the user or the target is holding a Mail, Wonder Mask, or Z-Crystal, if neither is holding an item, if the user is trying to give or take a Mega Stone to or from the species that can Mega Evolve with it, or if the user is trying to give or take a Blue Orb, a Red Orb, a Griseous Orb, a Plate, a Drive, or a Memory to or from a Kyogre, a Groudon, a Giratina, an Arceus, a Genesect, or a Silvally, respectively. The target is immune to this move if it has the Sticky Hold Ability. The user does not switch out if there are no unfainted party members.",
 		shortDesc: "(Bugged?) Switches the user's item with the foes, then switches out if successful.",
 		isViable: true,
 		name: "Swindle",
@@ -2213,7 +2230,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 85,
 		category: "Special",
-		shortDesc: "Lowers the foe(s)'s Attack and Special Attack by 1 stage.",
+		desc: "Has a 100% chance to lower the target's Attack and Special Attack by 1 stage.",
+		shortDesc: "100% chance to lower the foe(s)'s Attack and Sp. Atk by 1.",
 		isViable: true,
 		name: "Pearl Barrage",
 		pp: 10,
@@ -2283,7 +2301,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 95,
 		basePower: 85,
 		category: "Physical",
-		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Drift, Frost Feint, Flip Turn, Parting Shot, Poisonous Flight, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Drift, Frost Feint, Flip Turn, Parting Shot, Poisonous Flight, Shed Tail, Swindle, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
 		isViable: true,
 		name: "Merciless Rend",
@@ -2385,6 +2403,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
+		desc: "If the target is an ally, this move restores 1/2 of its maximum HP, rounded down, instead of dealing damage. If the target is an opponent, it prevents it from switching out. The opponent can still switch out if it is holding Shed Shell or uses Baton Pass, Drift, Flip Turn, Frost Feint, Parting Shot, Poisonous Flight, Swindle, Teleport, U-turn, or Volt Switch. If the opponent leaves the field using Baton Pass, the replacement will remain trapped. The effect ends if the user leaves the field.",
 		shortDesc: "If used on foe, traps the foe. If used on ally, heals them by 50% of their max HP.",
 		isViable: true,
 		name: "Jaws of Life",
@@ -2403,10 +2422,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		onHit(target, source) {
-			if (source.side === target.side) {
-				if (!this.heal(Math.floor(target.baseMaxhp * 0.5))) {
-					this.add('-immune', target);
-				}
+			if (source.side === target.side && !this.heal(Math.floor(target.baseMaxhp * 0.5))) {
+				this.add('-immune', target);
 			}
 		},
 		secondary: {
@@ -2639,6 +2656,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 0,
 		category: "Physical",
+		desc: "If this move is successful, it deals damage or heals the target. 40% chance for 80 power, 30% chance for 100 power, 10% chance for 120 power, and 20% chance to raise the target's critical hit ratio by 1 stage.",
 		shortDesc: "80, 100, 120 power, or raises the target's crit ratio by 1 stage.",
 		isViable: true,
 		name: "Dragon's Gift",
