@@ -119,35 +119,35 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	toxtricoriopompomamped: {
+	toxtricorioampedpompom: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	toxtricoriobaileamped: {
+	toxtricorioampedbaile: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	toxtricoriopauamped: {
+	toxtricorioampedpau: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	toxtricoriosensuamped: {
+	toxtricorioampedsensu: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	toxtricoriopompomkeylow: {
+	toxtricoriolowkeypompom: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	toxtricoriobailekeylow: {
+	toxtricoriolowkeybaile: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	toxtricoriopaukeylow: {
+	toxtricoriolowkeypau: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	toxtricoriosensukeylow: {
+	toxtricoriolowkeysensu: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
