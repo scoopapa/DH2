@@ -7392,6 +7392,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			gigaimpact: ["9L1", "8L1"],
 			return: ["9L1", "8L1"],
 			frustration: ["9L1", "8L1"],
+			skittersmack: ["9L1", "8L1"],
 		},
 	},
 	woodensect: {
@@ -7421,6 +7422,7 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			gigaimpact: ["9L1", "8L1"],
 			return: ["9L1", "8L1"],
 			frustration: ["9L1", "8L1"],
+			skittersmack: ["9L1", "8L1"],
 		},
 	},
 	levipilosa: {
