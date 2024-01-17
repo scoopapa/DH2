@@ -2121,7 +2121,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			screech: ["9L1"],
 			outrage: ["9L1"],
 			dragonrush: ["9L1"],
-			dracofang: ["9L1"],
 			crosspoison: ["9L1"],
 			darkpulse: ["9L1"],
 			hex: ["9L1"],
