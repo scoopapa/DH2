@@ -159,7 +159,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "naganadel").learnset.toxicshock = ["9L1"];
 		
 		//rotom
-		this.modData("Learnsets", "rotom").learnset.sparkingleap = ["9L1"];
+		this.modData("Learnsets", "rotom").learnset.sparkingleap = ["9L1","8L1"];
 		this.modData("Learnsets", "rotom").learnset.dazzlinggleam = ["9L1"];
 		this.modData("Learnsets", "rotom").learnset.playrough = ["9L1"];
 		this.modData("Learnsets", "rotom").learnset.wildcharge = ["9L1"];
@@ -172,6 +172,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		//mareanie line
 		this.modData("Learnsets", "mareanie").learnset.toxicshock = ["9L1"];
 		this.modData("Learnsets", "toxapex").learnset.toxicshock = ["9L1"];
+
+		//sinnoh hippopotas line
+		this.modData("Learnsets", "hippopotas").learnset.terracharge = ["9L1","8L1"];
+		this.modData("Learnsets", "hippowdon").learnset.terracharge = ["9L1","8L1"];
 		
 		//kalosian litleo line
 		this.modData("Learnsets", "litleo").learnset.drift = ["9L1"];
@@ -213,6 +217,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "electivire").learnset.thunderstrike = ["9L1","8L1"];
 		this.modData("Learnsets", "electivire").learnset.shocktail = ["9L1","8L1"];
 
+		//trapinch line
+		this.modData("Learnsets", "vibrava").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "flygon").learnset.shocktail = ["9L1","8L1"];
+		
 		//pichu line
 		this.modData("Learnsets", "pichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "pikachu").learnset.shocktail = ["9L1","8L1"];
