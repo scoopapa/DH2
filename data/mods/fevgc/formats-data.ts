@@ -175,15 +175,15 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	lycanrosaquapaldeamidday: {
+	lycanrosmiddaypaldeaaqua: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	lycanrosblazepaldeamidnight: {
+	lycanrosmidnightpaldeablaze: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
-	lycanroscombatpaldeadusk: {
+	lycanrosduskpaldeacombat: {
 		tier: "FEOU",
 		doublesTier: "FEOU",
 	},
