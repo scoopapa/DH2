@@ -159,6 +159,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "naganadel").learnset.toxicshock = ["9L1"];
 		
 		//rotom
+		this.modData("Learnsets", "rotom").learnset.sparkingleap = ["9L1"];
 		this.modData("Learnsets", "rotom").learnset.dazzlinggleam = ["9L1"];
 		this.modData("Learnsets", "rotom").learnset.playrough = ["9L1"];
 		this.modData("Learnsets", "rotom").learnset.wildcharge = ["9L1"];
@@ -198,12 +199,43 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "rampardos").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "gigalith").learnset.crippleclobber = ["9L1","8L1"];
 		this.modData("Learnsets", "stonjourner").learnset.crippleclobber = ["9L1","8L1"];
+
+		//magby line
+		this.modData("Learnsets", "magby").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "magmar").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "magmortar").learnset.quickshot = ["9L1","8L1"];
 		
-		//misc shock tail distribution
+		//elekid line
+		this.modData("Learnsets", "elekid").learnset.thunderstrike = ["9L1","8L1"];
+		this.modData("Learnsets", "elekid").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "electabuzz").learnset.thunderstrike = ["9L1","8L1"];
+		this.modData("Learnsets", "electabuzz").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "electivire").learnset.thunderstrike = ["9L1","8L1"];
 		this.modData("Learnsets", "electivire").learnset.shocktail = ["9L1","8L1"];
+
+		//pichu line
+		this.modData("Learnsets", "pichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "pikachu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichu").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "raichualola").learnset.shocktail = ["9L1","8L1"];
+
+		//eeveelutions
+		this.modData("Learnsets", "eevee").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "vaporeon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "jolteon").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "jolteon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "flareon").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "flareon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "flareon").learnset.bulkup = ["9L1","8L1"];
+		this.modData("Learnsets", "espeon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "umbreon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "leafeon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "leafeon").learnset.bushclaws = ["9L1","8L1"];
+		this.modData("Learnsets", "leafeon").learnset.fireworkleaf = ["9L1","8L1"];
+		this.modData("Learnsets", "glaceon").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "glaceon").learnset.surf = ["9L1","8L1"];
+		this.modData("Learnsets", "glaceon").learnset.hydropump = ["9L1","8L1"];
+		this.modData("Learnsets", "sylveon").learnset.drainfang = ["9L1","8L1"];
 		
 		//misc drain fang distribution
 		this.modData("Learnsets", "sableye").learnset.drainfang = ["9L1","8L1"];
