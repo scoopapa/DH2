@@ -9,6 +9,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.6,
 		weightkg: 14,
 		evos: ["Doetective"],
+		eggGroups: ["Grass", "Field"],
 	},
 	doetective: {
 		num: 1329,
@@ -20,6 +21,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 50,
 		prevo: "Mysterelk",
 		evos: ["Noirvid"],
+		eggGroups: ["Grass", "Field"],
 	},
 	noirvid: {
 		num: 1330,
@@ -30,6 +32,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Doetective",
 		heightm: 1.9,
 		weightkg: 91,
+		eggGroups: ["Grass", "Field"],
 	},
 	pyrote: {
 		num: 1331,
@@ -40,6 +43,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.9,
 		weightkg: 11,
 		evos: ["Coymedia"],
+		eggGroups: ["Field"],
 	},
 	coymedia: {
 		num: 1332,
@@ -51,6 +55,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 20,
 		prevo: "Pyrote",
 		evos: ["Jestire"],
+		eggGroups: ["Field"],
 	},
 	jestire: {
 		num: 1333,
@@ -61,6 +66,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.8,
 		weightkg: 54,
 		prevo: "Coymedia",
+		eggGroups: ["Field"],
 	},
 	fangear: {
 		num: 1334,
@@ -71,6 +77,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.9,
 		weightkg: 18,
 		evos: ["Terromak"],
+		eggGroups: ["Water 1", "Water 2"],
 	},
 	terromak: {
 		num: 1335,
@@ -82,6 +89,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 38,
 		prevo: "Fangear",
 		evos: ["Shorror"],
+		eggGroups: ["Water 1", "Water 2"],
 	},
 	shorror: {
 		num: 1336,
@@ -91,6 +99,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Torrent", H: "Strong Jaw"},
 		heightm: 2,
 		weightkg: 88,
+		prevo: "Terromak",
+		eggGroups: ["Water 1", "Water 2"],
 	},
 	toadally: {
 		num: 1337,
@@ -291,6 +301,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.6,
 		weightkg: 13,
 		evos: ["Beheeyem-Loria"],
+		eggGroups: ["Human-Like"],
 	},
 	beheeyemloria: {
 		num: 606,
@@ -305,6 +316,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Elgyem-Loria",
 		evoLevel: 42,
 		evoCondition: "in a cold area",
+		eggGroups: ["Human-Like"],
 	},
 	elgyemdesvega: {
 		num: 605,
@@ -317,6 +329,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 9,
 		evos: ["Yuaftoh"],
+		eggGroups: ["Human-Like"],
 	},
 	yuaftoh: {
 		num: 1354,
@@ -329,6 +342,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Elgyem-Desvega",
 		evoType: "levelExtra",
 		evoCondition: "with low Friendship",
+		eggGroups: ["Human-Like"],
 	},
 	sableye: {
 		inherit: true,
@@ -348,6 +362,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evos: ["Aurumine"],
 		evoType: "useItem",
 		evoItem: "Nugget",
+		eggGroups: ["Human-Like"],
 	},
 	aurumine: {
 		num: 1355,
@@ -358,6 +373,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.1,
 		weightkg: 101.1,
 		prevo: "Sableye-Desvega",
+		eggGroups: ["Human-Like"],
 	},
 	hierrazona: {
 		num: 1356,
@@ -413,6 +429,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1,
 		weightkg: 35,
 		evos: ["Revavroom-Desvega"],
+		eggGroups: ["Mineral"],
 	},
 	revavroom: {
 		inherit: true,
@@ -430,6 +447,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2.3,
 		weightkg: 170,
 		prevo: "Varoom-Desvega",
+		eggGroups: ["Mineral"],
 	},
 	ratium: {
 		num: 1360,
@@ -466,6 +484,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Ledian",
 		evoType: "other",
 		evoCondition: "Win five battles while holding a Black Belt",
+		eggGroups: ["Bug"],
 	},
 	hotpole: {
 		num: 1363,
@@ -590,6 +609,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.2,
 		weightkg: 6,
 		evos: ["Geistal"],
+		eggGroups: ["Mineral", "Amorphous"],
 	},
 	geistal: {
 		num: 1375,
@@ -602,6 +622,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Gypsmite",
 		evos: ["Seletasma"],
 		evoLevel: 25,
+		eggGroups: ["Mineral", "Amorphous"],
 	},
 	seletasma: {
 		num: 1376,
@@ -613,6 +634,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 175,
 		prevo: "Geistal",
 		evoLevel: 35,
+		eggGroups: ["Mineral", "Amorphous"],
 	},
 	twinkletoad: {
 		num: 1377,
@@ -642,6 +664,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Static", 1: "Snow Coat", H: "Snow Warning"},
 		heightm: 0.3,
 		weightkg: 2,
+		eggGroups: ["Field"],
 	},
 	teddiursa: {
 		inherit: true,
@@ -664,6 +687,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 125.8,
 		prevo: "Teddiursa",
 		evos: ["Ursabluna"],
+		eggGroups: ["Field"],
 	},
 	ursabluna: {
 		num: 1380,
@@ -676,6 +700,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Ursaring-Desvega",
 		evoType: "levelMove",
 		evoMove: "Body Press",
+		eggGroups: ["Field"],
 	},
 	wapitini: {
 		num: 1381,
@@ -686,6 +711,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.6,
 		weightkg: 39,
 		evos: ["Arborelk", "Epithelk", "Elkrosis"],
+		eggGroups: ["Field"],
 	},
 	arborelk: {
 		num: 1382,
@@ -698,6 +724,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Wapitini",
 		evoType: "other",
 		evoCondition: "Win a battle with Grassy Terrain active",
+		eggGroups: ["Field"],
 	},
 	epithelk: {
 		num: 1383,
@@ -710,6 +737,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Wapitini",
 		evoType: "other",
 		evoCondition: "Win a battle with Psychic Terrain active",
+		eggGroups: ["Field"],
 	},
 	elkrosis: {
 		num: 1384,
@@ -722,6 +750,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Wapitini",
 		evoType: "other",
 		evoCondition: "Faint from poisoning while Poison Terrain is active",
+		eggGroups: ["Field"],
 	},
 	doloice: {
 		num: 1385,
@@ -731,6 +760,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Sand Rush", H: "Slush Rush"},
 		heightm: 1.6,
 		weightkg: 136,
+		eggGroups: ["Mineral"],
 	},
 	spearow: {
 		inherit: true,
@@ -748,6 +778,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.3,
 		weightkg: 2,
 		evos: ["Fearow-Desvega"],
+		eggGroups: ["Flying"],
 	},
 	fearow: {
 		inherit: true,
@@ -767,6 +798,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 38,
 		prevo: "Spearow-Desvega",
 		evos: ["Nixrow"],
+		eggGroups: ["Flying"],
 	},
 	hearow: {
 		num: 1286,
@@ -778,6 +810,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 20.5,
 		prevo: "Fearow",
 		evoLevel: 40,
+		eggGroups: ["Flying"],
 	},
 	nixrow: {
 		num: 1386,
@@ -790,6 +823,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Fearow-Desvega",
 		evoLevel: 50,
 		evoCondition: "in a snowy area",
+		eggGroups: ["Flying"],
 	},
 	swinub: {
 		inherit: true,
@@ -807,6 +841,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.4,
 		weightkg: 6.5,
 		evos: ["Piloswine-Desvega"],
+		eggGroups: ["Field"],
 	},
 	piloswine: {
 		inherit: true,
@@ -826,6 +861,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Swinub-Desvega",
 		evoLevel: 33,
 		evos: ["Mamoswine-Desvega"],
+		eggGroups: ["Field"],
 	},
 	mamoswine: {
 		inherit: true,
@@ -845,6 +881,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Piloswine-Desvega",
 		evoType: "levelMove",
 		evoMove: "Ancient Power",
+		eggGroups: ["Field"],
 	},
 	magcargo: {
 		inherit: true,
@@ -861,6 +898,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Magcargo",
 		evoType: "useItem",
 		evoItem: "Dawn Stone",
+		eggGroups: ["Amorphous"],
 	},
 	kitnetic: {
 		num: 1388,
@@ -911,6 +949,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Keen Eye", H: "Volt Absorb"},
 		heightm: 1.2,
 		weightkg: 30,
+		eggGroups: ["Flying"],
 	},
 	psychawk: {
 		num: 1393,
@@ -920,6 +959,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Keen Eye", H: "Magic Bounce"},
 		heightm: 1.1,
 		weightkg: 25,
+		eggGroups: ["Flying"],
 	},
 	skunder: {
 		num: 1394,
@@ -975,6 +1015,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Scovillain",
 		evoType: "useItem",
 		evoItem: "Flaming Pepper",
+		eggGroups: ["Grass"],
 	},
 	filamint: {
 		num: 1398,
@@ -1013,6 +1054,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Plus Pulse",
 		evoCondition: "in a sunny area",
+		eggGroups: ["Fairy"],
 	},
 	minun: {
 		inherit: true,
@@ -1030,6 +1072,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		evoType: "levelMove",
 		evoMove: "Minus Ion",
 		evoCondition: "in a rainy or foggy area",
+		eggGroups: ["Fairy"],
 	},
 	duroach: {
 		num: 1402,
@@ -1061,6 +1104,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.5,
 		weightkg: 6.0,
 		evos: ["Wildpyre"],
+		eggGroups: ["Grass", "Monster"],
 	},
 	wildpyre: {
 		num: 1405,
@@ -1073,6 +1117,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Kindread",
 		evoType: "trade",
 		evoItem: "Charcoal",
+		eggGroups: ["Grass", "Monster"],
 	},
 	roxwell: {
 		num: 1406,
@@ -1111,8 +1156,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Ghost", "Fairy"],
 		baseStats: {hp: 65, atk: 78, def: 78, spa: 104, spd: 104, spe: 91},
 		abilities: {0: "Power Lock"},
-		heightm: 1,
-		weightkg: 1,
+		heightm: 0.7,
+		weightkg: 15,
+		eggGroups: ["Field", "Fairy"],
 	},
 	vilink: {
 		num: 1410,
@@ -1183,9 +1229,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Water", "Normal"],
 		baseStats: {hp: 71, atk: 56, def: 63, spa: 55, spd: 70, spe: 70},
 		abilities: {0: "Water Bubble", H: "Infiltrator"},
-		heightm: 0.3,
+		heightm: 0.4,
 		weightkg: 1,
 		evos: ["Cuttrout"],
+		eggGroups: ["Water 2"],
 	},
 	cuttrout: {
 		num: 1417,
@@ -1193,10 +1240,11 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Water", "Steel"],
 		baseStats: {hp: 75, atk: 100, def: 63, spa: 112, spd: 75, spe: 85},
 		abilities: {0: "Battle Tide", H: "Infiltrator"},
-		heightm: 1,
-		weightkg: 19,
+		heightm: 0.7,
+		weightkg: 9,
 		prevo: "Aleviar",
 		evoLevel: 24,
+		eggGroups: ["Water 2"],
 	},
 	bidoof: {
 		inherit: true,
@@ -1217,6 +1265,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 69,
 		prevo: "Bibarel",
 		evoLevel: 40,
+		eggGroups: ["Field"],
 	},
 	salmini: {
 		num: 1419,
@@ -1302,12 +1351,13 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		types: ["Water"],
 		baseStats: {hp: 72, atk: 88, def: 64, spa: 120, spd: 64, spe: 104},
 		abilities: {0: "Suction Cups", 1: "Water Veil", H: "Protean"},
-		heightm: 1,
-		weightkg: 1,
+		heightm: 1.1,
+		weightkg: 22,
 		//this is similar to how tatsugiri interacts with order up
 		//it has three formes that are otherwise cosmetic but change which stat dondozo boosts
 		cosmeticFormes: ["Crayoct-Blue", "Crayoct-Yellow", "Crayoct-Pink", "Crayoct-Brown"],
 		formeOrder: ["Crayoct", "Crayoct-Blue", "Crayoct-Yellow", "Crayoct-Pink", "Crayoct-Brown"],
+		eggGroups: ["Water 1", "Water 2"],
 	},
 	cramorant: {
 		inherit: true,
@@ -1325,6 +1375,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.9,
 		weightkg: 20,
 		evos: ["Toxirant"],
+		eggGroups: ["Water 1", "Flying"],
 	},
 	cramorantdesvegagulping: {
 		num: 845,
@@ -1337,6 +1388,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.9,
 		weightkg: 20,
 		evos: ["Toxirant"],
+		eggGroups: ["Water 1", "Flying"],
+		requiredAbility: "Gulp Cannon",
 		battleOnly: "Cramorant-Desvega",
 	},
 	cramorantdesvegagorging: {
@@ -1350,6 +1403,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.9,
 		weightkg: 20,
 		evos: ["Toxirant"],
+		eggGroups: ["Water 1", "Flying"],
+		requiredAbility: "Gulp Cannon",
 		battleOnly: "Cramorant-Desvega",
 	},
 	toxirant: {
@@ -1363,6 +1418,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Cramorant-Desvega",
 		evoType: "levelExtra",
 		evoCondition: "after three successful activations of Gulp Cannon",
+		eggGroups: ["Water 1", "Flying"],
 	},
 	toxirantgulping: {
 		num: 1427,
@@ -1374,6 +1430,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Gulp Cannon"},
 		heightm: 1.5,
 		weightkg: 40,
+		eggGroups: ["Water 1", "Flying"],
+		requiredAbility: "Gulp Cannon",
 		battleOnly: "Toxirant",
 	},
 	toxirantgorging: {
@@ -1386,6 +1444,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Gulp Cannon"},
 		heightm: 1.5,
 		weightkg: 40,
+		eggGroups: ["Water 1", "Flying"],
+		requiredAbility: "Gulp Cannon",
 		battleOnly: "Toxirant",
 	},
 	teeniweed: {
@@ -1397,6 +1457,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.3,
 		weightkg: 4,
 		evos: ["Kelpsul"],
+		eggGroups: ["Grass", "Mineral"],
 	},
 	kelpsul: {
 		num: 1429,
@@ -1409,6 +1470,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Teeniweed",
 		evoLevel: 18,
 		evos: ["Kelplossus"],
+		eggGroups: ["Grass", "Mineral"],
 	},
 	kelplossus: {
 		num: 1430,
@@ -1421,6 +1483,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Kelpsul",
 		evoType: "trade",
 		evoItem: "King's Rock",
+		eggGroups: ["Grass", "Mineral"],
 	},
 	venipede: {
 		inherit: true,
@@ -1549,6 +1612,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 139.7,
 		prevo: "Pawniard",
 		evos: ["Queenmate"],
+		eggGroups: ["Human-Like"],
 	},
 	queenmate: {
 		num: 1438,
@@ -1561,6 +1625,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Knightmare",
 		evoType: "levelExtra",
 		evoCondition: "ten times while holding a Cracked Crown",
+		eggGroups: ["Human-Like"],
 	},
 	scraggy: {
 		inherit: true,
@@ -1578,6 +1643,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.6,
 		weightkg: 11.8,
 		evos: ["Scrafty-Desvega-Arbok", "Scrafty-Desvega-Triassinge", "Scrafty-Desvega-Sandaconda"],
+		eggGroups: ["Field", "Dragon"],
 	},
 	scrafty: {
 		inherit: true,
@@ -1597,6 +1663,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Scraggy-Desvega",
 		evoLevel: 39,
 		evoCondition: "while gaining a level from defeating an Arbok",
+		eggGroups: ["Field", "Dragon"],
 	},
 	scraftydesvegatriassinge: {
 		num: 560,
@@ -1611,6 +1678,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Scraggy-Desvega",
 		evoLevel: 39,
 		evoCondition: "while gaining a level from defeating a Triassinge",
+		eggGroups: ["Field", "Dragon"],
 	},
 	scraftydesvegasandaconda: {
 		num: 560,
@@ -1625,6 +1693,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Scraggy-Desvega",
 		evoLevel: 39,
 		evoCondition: "while gaining a level from defeating a Sandaconda",
+		eggGroups: ["Field", "Dragon"],
 	},
 	rotom: {
 		inherit: true,
@@ -1664,6 +1733,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 0.3,
 		changesFrom: "Rotom",
 		gen: 9,
+		eggGroups: ["Amorphous"],
 	},
 	mawiledesvega: {
 		num: 303,
@@ -1676,6 +1746,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.6,
 		weightkg: 11.5,
 		evos: ["Vulguile"],
+		eggGroups: ["Field", "Fairy"],
 	},
 	vulguile: {
 		num: 1439,
@@ -1688,6 +1759,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Mawile-Desvega",
 		evoType: "useItem",
 		evoItem: "Dragon Fang",
+		eggGroups: ["Field", "Fairy"],
 	},
 	casinova: {
 		num: 1440,
@@ -1740,6 +1812,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 66, atk: 41, def: 48, spa: 55, spd: 51, spe: 57},
 		abilities: {0: "Sap Sipper", H: "Intimidate"},
 		evos: ["Vipalm"],
+		heightm: 0.7,
+		weightkg: 10.1,
+		eggGroups: ["Grass", "Monster"],
 	},
 	vipalm: {
 		num: 1446,
@@ -1749,6 +1824,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Sap Sipper", H: "Intimidate"},
 		prevo: "Rootle",
 		evoLevel: 35,
+		heightm: 2.8,
+		weightkg: 68.3,
+		eggGroups: ["Grass", "Monster"],
 	},
 	embird: {
 		num: 1447,
@@ -1757,6 +1835,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 56, atk: 67, def: 40, spa: 47, spd: 40, spe: 68},
 		abilities: {0: "Flash Fire", H: "Speed Boost"},
 		evos: ["Majesoar"],
+		heightm: 0.4,
+		weightkg: 8.1,
+		eggGroups: ["Flying"],
 	},
 	majesoar: {
 		num: 1448,
@@ -1766,6 +1847,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Flash Fire", H: "Speed Boost"},
 		prevo: "Embird",
 		evoLevel: 35,
+		heightm: 1.3,
+		weightkg: 43.4,
+		eggGroups: ["Flying"],
 	},
 	misseal: {
 		num: 1449,
@@ -1774,6 +1858,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 50, atk: 40, def: 51, spa: 60, spd: 55, spe: 62},
 		abilities: {0: "Storm Drain", H: "Galvanize"},
 		evos: ["Pinnipoint"],
+		heightm: 0.8,
+		weightkg: 30.4,
+		eggGroups: ["Field", "Water 1"],
 	},
 	pinnipoint: {
 		num: 1450,
@@ -1783,6 +1870,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Storm Drain", H: "Galvanize"},
 		prevo: "Misseal",
 		evoLevel: 35,
+		heightm: 1.3,
+		weightkg: 51.5,
+		eggGroups: ["Field", "Water 1"],
 	},
 	snolobe: {
 		num: 1451,
@@ -1874,6 +1964,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Technician", 1: "Volt Absorb", H: "Light Metal"},
 		weightkg: 10,
 		evos: ["Silicyon"],
+		eggGroups: ["Field"],
 	},
 	silicyon: {
 		num: 1125,
@@ -1884,6 +1975,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 30,
 		prevo: "Alumane",
 		evoLevel: 25,
+		eggGroups: ["Field"],
 	},
 	levipilosa: {
 		num: 1155,
@@ -1892,6 +1984,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseStats: {hp: 120, atk: 55, def: 80, spa: 90, spd: 80, spe: 20},
 		abilities: {0: "Tree-Topper", H: "Telepathy"},
 		weightkg: 25,
+		eggGroups: ["Field"],
 	},
 	parasbrazdo: {
 		num: 46,
@@ -1904,6 +1997,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.3,
 		weightkg: 5.4,
 		evos: ["Parasect-Brazdo"],
+		eggGroups: ["Bug", "Grass"],
 	},
 	parasectbrazdo: {
 		num: 47,
@@ -1918,6 +2012,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Paras-Brazdo",
 		evoLevel: 24,
 		evos: ["Parascend"],
+		eggGroups: ["Bug", "Grass"],
 	},
 	parascend: {
 		num: 1129,
@@ -1929,6 +2024,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 35,
 		prevo: "Parasect-Brazdo",
 		evoLevel: 36,
+		eggGroups: ["Bug", "Grass"],
 	},
 	paras: {
 		inherit: true,
@@ -1950,6 +2046,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Gluttony", H: "Hydration"},
 		weightkg: 50,
 		evos: ["Hippowdon-Brazdo"],
+		eggGroups: ["Field"],
 	},
 	hippowdonbrazdo: {
 		num: 450,
@@ -1962,6 +2059,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 300,
 		prevo: "Hippopotas-Brazdo",
 		evoLevel: 34,
+		eggGroups: ["Field"],
 	},
 	hippopotas: {
 		inherit: true,
@@ -2042,6 +2140,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.4,
 		weightkg: 2.3,
 		evos: ["Carnivoross"],
+		eggGroups: ["Field", "Amorphous"],
 	},
 	carnivoross: {
 		num: 1243,
@@ -2052,9 +2151,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.8,
 		weightkg: 6.3,
 		prevo: "Canvis",
-    evoLevel: 26,
+		evoLevel: 26,
+		eggGroups: ["Field", "Amorphous"],
 	},
-  litleo: {
+	litleo: {
 		inherit: true,
 		otherFormes: ["Litleo-Loria"],
 		formeOrder: ["Litleo", "Litleo-Loria"],
@@ -2070,6 +2170,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.6,
 		weightkg: 13.5,
 		evos: ["Pyroar-Loria"],
+		eggGroups: ["Field"],
 	},
 	pyroar: {
 		inherit: true,
@@ -2089,6 +2190,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Litleo-Loria",
 		evoLevel: 35,
 		evos: ["Jungelion"],
+		eggGroups: ["Field"],
 	},
 	jungelion: {
 		num: 1265,
@@ -2099,7 +2201,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 2.1,
 		weightkg: 98.6,
 		prevo: "Pyroar-Loria",
-    evoLevel: 48,
+		evoLevel: 48,
+		eggGroups: ["Field"],
 	},
 	keisberg: {
 		num: 1287,
@@ -2112,6 +2215,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Eiscue",
 		evoType: "levelExtra",
 		evoCondition: "near an Icy Rock or Cryogenic Storage",
+		eggGroups: ["Water 1", "Field"],
 	},
 	stontravank: {
 		num: 1288,
@@ -2124,6 +2228,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Stonjourner",
 		evoType: "levelExtra",
 		evoCondition: "near a Mossy Rock or ruins",
+		eggGroups: ["Mineral"],
 	},
 	punkey: {
 		num: 1295,
@@ -2182,6 +2287,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.4,
 		weightkg: 12,
 		evos: ["Delcatty-Loria"],
+		eggGroups: ["Field", "Fairy"],
 	},
 	delcattyloria: {
 		num: 301,
@@ -2196,6 +2302,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Skitty-Loria",
 		evoLevel: 20,
 		evos: ["Glucatty"],
+		eggGroups: ["Field", "Fairy"],
 	},
 	spoinkloria: {
 		num: 325,
@@ -2208,6 +2315,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.7,
 		weightkg: 30.6,
 		evos: ["Grumpig-Loria"],
+		eggGroups: ["Field"],
 	},
 	grumpigloria: {
 		num: 326,
@@ -2221,6 +2329,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 71.5,
 		prevo: "Spoink-Loria",
 		evoLevel: 32,
+		eggGroups: ["Field"],
 	},
 	sandileloria: {
 		num: 551,
@@ -2233,6 +2342,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.4,
 		weightkg: 15.2,
 		evos: ["Krokorok-Loria"],
+		eggGroups: ["Field"],
 	},
 	krokorokloria: {
 		num: 552,
@@ -2245,12 +2355,20 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1,
 		weightkg: 33.4,
 		prevo: "Sandile-Loria",
-    evoLevel: 29,
+		evoLevel: 29,
 		evos: ["Krokoasis"],
+		eggGroups: ["Field"],
+	},
+	eiscue: {
+		inherit: true,
+		evos: ["Keisberg"],
+	},
+	eiscuenoice: {
+		inherit: true,
+		evos: ["Keisberg"],
 	},
 	stonjourner: {
 		inherit: true,
-		name: "Stonjourner",
 		evos: ["Stontravank"],
 	},
 	aretle: {
@@ -2304,8 +2422,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	grumpig: {
 		inherit: true,
-		otherFormes: ["Grumpig-Mega", "Grumpig-Loria", "Grumpig-Loria-Mega"],
-		formeOrder: ["Grumpig", "Grumpig-Mega", "Grumpig-Loria", "Grumpig-Loria-Mega"],
+		otherFormes: [/*"Grumpig-Mega",*/"Grumpig-Loria"/*, "Grumpig-Loria-Mega"*/],
+		formeOrder: ["Grumpig", /*"Grumpig-Mega",*/ "Grumpig-Loria"/*, "Grumpig-Loria-Mega"*/],
 	},
 	belubble: {
 		num: 1277,
@@ -2339,6 +2457,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 82.6,
 		prevo: "Krokorok-Loria",
 		evoLevel: 40,
+		eggGroups: ["Field"],
 	},
 	glucatty: {
 		num: 1225,
@@ -2351,6 +2470,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Delcatty-Loria",
 		evoType: "useItem",
 		evoItem: "Ice Stone",
+		eggGroups: ["Field", "Fairy"],
 	},
 	flambengo: {
 		num: 1275,
@@ -2415,10 +2535,10 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		formeOrder: ["Krokorok", "Krokorok-Loria"],
 	},
 	bagon: {
-    inherit: true,
-    otherFormes: ["Bagon-Loria"],
-    formeOrder: ["Bagon", "Bagon-Loria"],
-  },
+		inherit: true,
+		otherFormes: ["Bagon-Loria"],
+		formeOrder: ["Bagon", "Bagon-Loria"],
+	},
 	bagonloria: {
 		num: 371,
 		name: "Bagon-Loria",
@@ -2429,7 +2549,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Rock Head", H: "Clear Body"},
 		heightm: 0.3,
 		weightkg: 2.1,
-    evos: ["Shelgon-Loria"],
+		evos: ["Shelgon-Loria"],
+		eggGroups: ["Dragon"],
 	},
 	shelgon: {
 		inherit: true,
@@ -2449,6 +2570,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Bagon-Loria",
 		evoLevel: 30,
 		evos: ["Salamence-Loria"],
+		eggGroups: ["Dragon"],
 	},
 	salamence: {
 		inherit: true,
@@ -2467,6 +2589,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 36.7,
 		prevo: "Shelgon-Loria",
 		evoLevel: 50,
+		eggGroups: ["Dragon"],
 	},
 	cocolipso: {
 		num: 1201,
