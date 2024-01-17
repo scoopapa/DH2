@@ -576,6 +576,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Dragon"],
 		baseStats: {hp: 57, atk: 49, def: 44, spa: 59, spd: 67, spe: 54},
 		abilities: {0: "Root Snap", 1: "Hydrovision", H: "Goo With The Flow"},
+		weightkg: 3.2,
 	},
 	riokrow: {
 		num: 2064,
@@ -583,6 +584,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fighting", "Dark"],
 		baseStats: {hp: 60, atk: 80, def: 41, spa: 70, spd: 41, spe: 88},
 		abilities: {0: "Restless Speed", 1: "Hyperfocus", H: "Prankster"},
+		weightkg: 11.2,
 	},
 	pipoffing: {
 		num: 2065,
@@ -590,6 +592,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Poison"],
 		baseStats: {hp: 46, atk: 58, def: 74, spa: 60, spd: 50, spe: 37},
 		abilities: {0: "Murky Water", H: "Neutral Match"},
+		weightkg: 3.1,
 	},
 	smolicute: {
 		num: 2066,
@@ -597,6 +600,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass"],
 		baseStats: {hp: 50, atk: 37, def: 62, spa: 59, spd: 57, spe: 35},
 		abilities: {0: "Dawn Riser", H: "Harvest"},
+		weightkg: 4.5,
 	},
 	polihoot: {
 		num: 2067,
@@ -604,6 +608,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Flying"],
 		baseStats: {hp: 50, atk: 40, def: 35, spa: 40, spd: 50, spe: 70},
 		abilities: {0: "Dive Goggles", 1: "High Energy", H: "Keen Swim"},
+		weightkg: 16.8,
 	},
 	larvipin: {
 		num: 2068,
@@ -611,6 +616,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Grass"],
 		baseStats: {hp: 53, atk: 62, def: 57, spa: 46, spd: 47, spe: 39},
 		abilities: {0: "Overguts", H: "Bullet Veil"},
+		weightkg: 40.5,
 	},
 	pupadin: {
 		num: 2069,
@@ -618,6 +624,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Grass"],
 		baseStats: {hp: 65, atk: 81, def: 82, spa: 64, spd: 64, spe: 54},
 		abilities: {0: "Green Thumbs"},
+		weightkg: 90.5,
 	},
 	eevulpalola: {
 		num: 2070,
@@ -625,6 +632,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Ice"],
 		baseStats: {hp: 46, atk: 48, def: 45, spa: 47, spd: 65, spe: 60},
 		abilities: {0: "Weather Preview", H: "Snow Layers"},
+		weightkg: 8.2,
 	},
 	sandshrew: {
 		inherit: true,
@@ -639,6 +647,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Ice"],
 		baseStats: {hp: 50, atk: 75, def: 90, spa: 15, spd: 40, spe: 40},
 		abilities: {0: "Tundra Veil", H: "Tundra Rush"},
+		weightkg: 26,
 	},
 	poryskull: {
 		num: 2072,
@@ -646,6 +655,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 42, atk: 50, def: 82, spa: 57, spd: 82, spe: 32},
 		abilities: {0: "Visual Learner", H: "Malware"},
+		weightkg: 25.8,
 	},
 	poryclops2: {
 		num: 2073,
@@ -653,6 +663,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Ghost"],
 		baseStats: {hp: 62, atk: 75, def: 112, spa: 82, spd: 112, spe: 42},
 		abilities: {0: "Visual Learner", H: "Malware"},
+		weightkg: 31.6,
 	},
 	oddbell: {
 		num: 2074,
@@ -660,6 +671,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 47, atk: 62, def: 45, spa: 74, spd: 47, spe: 35},
 		abilities: {0: "Quick Delivery", H: "Sun Away"},
+		weightkg: 4.7,
 	},
 	gloopinbell: {
 		num: 2075,
@@ -667,6 +679,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Poison"],
 		baseStats: {hp: 75, atk: 110, def: 115, spa: 35, spd: 60, spe: 75},
 		abilities: {0: "Quick Delivery", H: "Durian Breath"},
+		weightkg: 7.5,
 	},
 	chikobebe: {
 		num: 2076,
@@ -678,6 +691,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overbloom", H: "Teamwork"},
 		cosmeticFormes: ["Chikobe\u0301be\u0301-Blue", "Chikobe\u0301be\u0301-Orange", "Chikobe\u0301be\u0301-White", "Chikobe\u0301be\u0301-Yellow"],
 		formeOrder: ["Chikobe\u0301be\u0301", "Chikobe\u0301be\u0301-Blue", "Chikobe\u0301be\u0301-Orange", "Chikobe\u0301be\u0301-White", "Chikobe\u0301be\u0301-Yellow"],
+		weightkg: 3.3,
 	},
 	floeleef: {
 		num: 2077,
@@ -689,6 +703,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		abilities: {0: "Overbloom", H: "Teamwork"},
 		cosmeticFormes: ["Floeleef-Blue", "Floeleef-Orange", "Floeleef-White", "Floeleef-Yellow"],
 		formeOrder: ["Floeleef", "Floeleef-Blue", "Floeleef-Orange", "Floeleef-White", "Floeleef-Yellow"],
+		weightkg: 8.4,
 	},
 	scythadet: {
 		num: 2078,
@@ -696,6 +711,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Flying"],
 		baseStats: {hp: 55, atk: 100, def: 60, spa: 52, spd: 60, spe: 70},
 		abilities: {0: "Blaze", H: "Fast Flame"},
+		weightkg: 33.3,
 	},
 	shinly: {
 		num: 2079,
@@ -703,6 +719,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 42, atk: 62, def: 32, spa: 35, spd: 32, spe: 52},
 		abilities: {0: "Underestimate", H: "Brave Look"},
+		weightkg: 5.8,
 	},
 	luxravia: {
 		num: 2080,
@@ -710,6 +727,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Flying"],
 		baseStats: {hp: 57, atk: 80, def: 49, spa: 50, spd: 44, spe: 70},
 		abilities: {0: "Underestimate", H: "Migrate"},
+		weightkg: 23,
 	},
 	floppip: {
 		num: 2081,
@@ -717,6 +735,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Flying"],
 		baseStats: {hp: 32, atk: 35, def: 35, spa: 45, spd: 42, spe: 62},
 		abilities: {0: "Guards Up", 1: "Safe Entry", H: "Speed Demon"},
+		weightkg: 1,
 	},
 	quaxlet: {
 		num: 2082,
@@ -724,6 +743,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Flying"],
 		baseStats: {hp: 61, atk: 61, def: 50, spa: 50, spd: 47, spe: 46},
 		abilities: {0: "Kelp Power", H: "Long Moxie"},
+		weightkg: 3.8,
 	},
 	quaxtrix: {
 		num: 2083,
@@ -731,6 +751,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Flying"],
 		baseStats: {hp: 74, atk: 80, def: 71, spa: 67, spd: 65, spe: 58},
 		abilities: {0: "Kelp Power", H: "Long Moxie"},
+		weightkg: 18.8,
 	},
 	gimmipixroaming: {
 		num: 2084,
@@ -740,6 +761,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Fire"],
 		baseStats: {hp: 41, atk: 35, def: 32, spa: 62, spd: 55, spe: 75},
 		abilities: {0: "Speedy Fire"},
+		weightkg: 5,
 	},
 	gimmipix: {
 		num: 2084,
@@ -748,6 +770,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Fire"],
 		baseStats: {hp: 44, atk: 35, def: 55, spa: 62, spd: 67, spe: 37},
 		abilities: {0: "Ghoul Fire"},
+		weightkg: 7.5,
 	},
 	cyndafoo: {
 		num: 2086,
@@ -755,6 +778,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire", "Fighting"],
 		baseStats: {hp: 42, atk: 70, def: 46, spa: 57, spd: 50, spe: 65},
 		abilities: {0: "Down In Flames", H: "Rekindle"},
+		weightkg: 14,
 	},
 	dewpidink: {
 		num: 2087,
@@ -762,6 +786,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Water", "Steel"],
 		baseStats: {hp: 44, atk: 51, def: 48, spa: 37, spd: 68, spe: 42},
 		abilities: {0: "Bubble Burster", H: "Own Tides"},
+		weightkg: 6.5,
 	},
 	nacoly: {
 		num: 2088,
@@ -769,6 +794,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Rock"],
 		baseStats: {hp: 42, atk: 47, def: 75, spa: 37, spd: 42, spe: 27},
 		abilities: {0: "Saltwater Sauna", 1: "Rough Body", H: "Sturdy Fire"},
+		weightkg: 14,
 	},
 	kolstack: {
 		num: 2089,
@@ -776,6 +802,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Rock"],
 		baseStats: {hp: 72, atk: 62, def: 95, spa: 47, spd: 67, spe: 42},
 		abilities: {0: "Saltwater Sauna", 1: "Obsidian Body", H: "Sturdy Fire"},
+		weightkg: 91.5,
 	},
 	salanbat: {
 		num: 2090,
@@ -783,6 +810,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Flying", "Poison"],
 		baseStats: {hp: 44, atk: 37, def: 37, spa: 58, spd: 40, spe: 66},
 		abilities: {0: "Deep Toxin", H: "Clueless"},
+		weightkg: 6.4,
 	},
 	litenna: {
 		num: 2091,
@@ -790,6 +818,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Psychic"],
 		baseStats: {hp: 46, atk: 30, def: 50, spa: 61, spd: 54, spe: 29},
 		abilities: {0: "Eerie Flames", 1: "Guards Up", H: "Healing Burns"},
+		weightkg: 3.3,
 	},
 	hattlamp: {
 		num: 2092,
@@ -797,6 +826,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ghost", "Psychic"],
 		baseStats: {hp: 51, atk: 35, def: 52, spa: 79, spd: 56, spe: 47},
 		abilities: {0: "Eerie Flames", 1: "Guards Up", H: "Healing Burns"},
+		weightkg: 8.9,
 	},
 	snonkhisui: {
 		num: 2093,
@@ -804,6 +834,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Fighting"],
 		baseStats: {hp: 54, atk: 70, def: 47, spa: 35, spd: 60, spe: 75},
 		abilities: {0: "Aroma Tricks", 1: "Hungry Eyes", H: "Inner Fat"},
+		weightkg: 18.6,
 	},
 	skwoggy: {
 		num: 2094,
@@ -811,6 +842,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Fighting"],
 		baseStats: {hp: 60, atk: 65, def: 62, spa: 35, spd: 52, spe: 36},
 		abilities: {0: "Scavenge", H: "Hunger Fate"},
+		weightkg: 7.2,
 	},
 	clefflin: {
 		num: 2095,
@@ -818,6 +850,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fairy", "Dragon"],
 		baseStats: {hp: 45, atk: 32, def: 54, spa: 42, spd: 47, spe: 17},
 		abilities: {0: "Cute Fruit", 1: "Magicproof", H: "Lunch With Friends"},
+		weightkg: 1.8,
 	},
 	clepplin: {
 		num: 2096,
@@ -825,6 +858,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fairy", "Dragon"],
 		baseStats: {hp: 75, atk: 62, def: 79, spa: 77, spd: 72, spe: 37},
 		abilities: {0: "Supercharming Syrup", 1: "Magic Sticks", H: "Lunch With Friends"},
+		weightkg: 6,
 	},
 	slowmitegalar: {
 		num: 2097,
@@ -832,6 +866,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Psychic", "Electric"],
 		baseStats: {hp: 57, atk: 51, def: 67, spa: 67, spd: 47, spe: 31},
 		abilities: {0: "Surgeon Eye", 1: "Iron Diet", H: "Tough Brains"},
+		weightkg: 21,
 	},
 	igglylett: {
 		num: 2098,
@@ -839,13 +874,16 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fairy", "Ghost"],
 		baseStats: {hp: 74, atk: 52, def: 32, spa: 37, spd: 35, spe: 25},
 		abilities: {0: "Unfriend Guard", 1: "Tuff Claws", H: "Malfunction"},
+		weightkg: 46.5,
 	},
 	ruffdot: {
 		num: 2099,
 		name: "Ruffdot",
+		gender: M,
 		types: ["Grass", "Normal"],
 		baseStats: {hp: 55, atk: 77, def: 50, spa: 33, spd: 40, spe: 45},
 		abilities: {0: "Sheer Bird", 1: "Sun Bathe", H: "Robin"},
+		weightkg: 7.3,
 	},
 	varantis: {
 		num: 2100,
@@ -853,6 +891,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Steel", "Grass"],
 		baseStats: {hp: 45, atk: 82, def: 49, spa: 40, spd: 40, spe: 41},
 		abilities: {0: "Leaf Coat", H: "Quickstart"},
+		weightkg: 18.3,
 	},
 	sniloon: {
 		num: 2101,
@@ -860,6 +899,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Ghost"],
 		baseStats: {hp: 87, atk: 47, def: 44, spa: 52, spd: 49, spe: 66},
 		abilities: {0: "Germinate", H: "Sacrifice"},
+		weightkg: 4.7,
 	},
 	grubbasaur: {
 		num: 2102,
@@ -867,6 +907,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Bug"],
 		baseStats: {hp: 46, atk: 72, def: 47, spa: 60, spd: 55, spe: 45},
 		abilities: {0: "Summer Bugs"},
+		weightkg: 5.7,
 	},
 	charjasaur: {
 		num: 2103,
@@ -874,6 +915,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Poison", "Bug"],
 		baseStats: {hp: 60, atk: 72, def: 91, spa: 67, spd: 77, spe: 48},
 		abilities: {0: "Solar Panel"},
+		weightkg: 11.8,
 	},
 	snid: {
 		num: 2104,
@@ -881,6 +923,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Electric"],
 		baseStats: {hp: 37, atk: 44, def: 36, spa: 55, spd: 42, spe: 57},
 		abilities: {0: "Static Dust", H: "Vital Scales"},
+		weightkg: 13.7,
 	},
 	rhyhursa: {
 		num: 2105,
@@ -888,6 +931,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Normal"],
 		baseStats: {hp: 70, atk: 82, def: 72, spa: 40, spd: 40, spe: 32},
 		abilities: {0: "Gangly", 1: "Rock Feet", H: "Zappy Sap"},
+		weightkg: 61.9,
 	},
 	rhyring: {
 		num: 2106,
@@ -895,6 +939,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Ground", "Normal"],
 		baseStats: {hp: 97, atk: 130, def: 97, spa: 60, spd: 60, spe: 47},
 		abilities: {0: "Careless", 1: "Rock Feet", H: "Shock Horror"},
+		weightkg: 122.9,
 	},
 	yanleo: {
 		num: 2107,
@@ -902,6 +947,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 63, atk: 57, def: 51, spa: 74, spd: 49, spe: 83},
 		abilities: {0: "Rival Group", 1: "Item Lockdown", H: "Speedy"},
+		weightkg: 25.8,
 	},
 	sandwott: {
 		num: 2108,
@@ -909,6 +955,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Water"],
 		baseStats: {hp: 52, atk: 63, def: 40, spa: 50, spd: 40, spe: 55},
 		abilities: {0: "Sea Monster", H: "Armor Confidence"},
+		weightkg: 10.6,
 	},
 	krokowott: {
 		num: 2109,
@@ -916,6 +963,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Water"],
 		baseStats: {hp: 67, atk: 78, def: 52, spa: 64, spd: 52, spe: 67},
 		abilities: {0: "Sea Monster", H: "Armor Confidence"},
+		weightkg: 29,
 	},
 	tandoodle: {
 		num: 2110,
@@ -923,6 +971,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Normal", "Poison"],
 		baseStats: {hp: 45, atk: 60, def: 40, spa: 40, spd: 40, spe: 75},
 		abilities: {0: "Hit and Run", 1: "Pick Tempo", H: "More Burdens"},
+		weightkg: 1.3,
 	},
 	litpig: {
 		num: 2111,
@@ -930,6 +979,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire"],
 		baseStats: {hp: 55, atk: 64, def: 43, spa: 53, spd: 43, spe: 57},
 		abilities: {0: "Inflame", H: "Fat Cat"},
+		weightkg: 7.1,
 	},
 	torrapig: {
 		num: 2112,
@@ -937,6 +987,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Fire"],
 		baseStats: {hp: 80, atk: 89, def: 52, spa: 75, spd: 62, spe: 72},
 		abilities: {0: "Inflame", H: "Fat Cat"},
+		weightkg: 40.3,
 	},
 	jolterbug: {
 		num: 2113,
@@ -944,6 +995,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Electric", "Bug"],
 		baseStats: {hp: 44, atk: 41, def: 45, spa: 42, spd: 37, spe: 51},
 		abilities: {0: "Friendly Looks", 1: "Freaky Eyes", H: "Dusty Bugs"},
+		weightkg: 1.6,
 	},
 	cacsea: {
 		num: 2114,
@@ -951,5 +1003,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		types: ["Grass", "Water"],
 		baseStats: {hp: 44, atk: 66, def: 55, spa: 77, spd: 33, spe: 55},
 		abilities: {0: "Hydrophilic", H: "Desert Shot"},
+		weightkg: 29.7,
 	},
 };
