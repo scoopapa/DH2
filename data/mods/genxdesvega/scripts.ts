@@ -244,11 +244,15 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "glaceon").learnset.surf = ["9L1","8L1"];
 		this.modData("Learnsets", "glaceon").learnset.hydropump = ["9L1","8L1"];
 		this.modData("Learnsets", "sylveon").learnset.drainfang = ["9L1","8L1"];
-		
-		//misc drain fang distribution
-		this.modData("Learnsets", "sableye").learnset.drainfang = ["9L1","8L1"];
+
+		//ekans line
 		this.modData("Learnsets", "ekans").learnset.drainfang = ["9L1","8L1"];
 		this.modData("Learnsets", "arbok").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "arbok").learnset.uturn = ["9L1","8L1"];
+		this.modData("Learnsets", "arbok").learnset.dragonrush = ["9L1","8L1"];
+		
+		//sableye
+		this.modData("Learnsets", "sableye").learnset.drainfang = ["9L1","8L1"];
 		
 		//misc drift distribution (wouldn't you know it they're all in desvega)
 		this.modData("Learnsets", "flareon").learnset.drift = ["9L1"];
@@ -261,7 +265,17 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "coalossal").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "capsakid").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "scovillain").learnset.drift = ["9L1"];
-		
+
+		//unovan starters
+		this.modData("Learnsets", "serperior").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "serperior").learnset.dragonhammer = ["9L1","8L1"];
+		this.modData("Learnsets", "serperior").learnset.drillrun = ["9L1","8L1"];
+		this.modData("Learnsets", "emboar").learnset.shocktail = ["9L1","8L1"];
+		this.modData("Learnsets", "emboar").learnset.calmmind = ["9L1","8L1"];
+		this.modData("Learnsets", "emboar").learnset.earthpower = ["9L1","8L1"];
+		this.modData("Learnsets", "samurott").learnset.shadowball = ["9L1","8L1"];
+		this.modData("Learnsets", "samurott").learnset.hypervoice = ["9L1","8L1"];
+		this.modData("Learnsets", "samurott").learnset.focusblast = ["9L1","8L1"];
 		
 		//Distributions at https://www.smogon.com/forums/threads/generation-x-the-third-chapter-desvega-concluded-coders-wanted.3722319/page-8
 		//(Toxic excluded for mons present in SV because that post was made before the Teal Mask, which made Toxic a TM again and with limited distribution too)
