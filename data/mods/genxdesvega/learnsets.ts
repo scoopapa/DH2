@@ -7036,6 +7036,9 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			snore: ["9L1", "8L1"],
 			steelbeam: ["9L1", "8L1"],
 			flash: ["9L1", "8L1"],
+
+			shocktail: ["9L1", "8L1"],
+			thunderstrike: ["9L1", "8L1"],
 		},
 	},
 	coirele: {
@@ -7108,6 +7111,9 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			earthpower: ["9L1", "8L1"],
 			flash: ["9L1", "8L1"],
 			stoneedge: ["9L1", "8L1"],
+			
+			shocktail: ["9L1", "8L1"],
+			thunderstrike: ["9L1", "8L1"],
 		},
 	},
 	ampalango: {
@@ -7190,6 +7196,9 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			lightscreen: ["9L1", "8L1"],
 			dragonpulse: ["9L1", "8L1"],
 			outrage: ["9L1", "8L1"],
+			
+			shocktail: ["9L1", "8L1"],
+			thunderstrike: ["9L1", "8L1"],
 		},
 	},
 	souarente: {
