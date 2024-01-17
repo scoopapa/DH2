@@ -538,7 +538,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		shortDesc: "Has 1.5x power if the user is burned. Thaws user. 10% chance to burn target. Burns user.",
 		pp: 5,
 		priority: 0,
-		flags: {defrost: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, defrost: 1, protect: 1, mirror: 1},
 		onPrepareHit: function(target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flare Blitz", target);
