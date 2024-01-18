@@ -108,7 +108,7 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "minun").learnset.minusion = ["9L1"];
 		this.modData("Learnsets", "minun").learnset.sparkingleap = ["9L1","8L1"];
 		this.modData("Learnsets", "minun").learnset.shocktail = ["9L1","8L1"];
-
+		
 		//bidoof line
 		delete this.modData("Learnsets", "bidoof").learnset.sunnyday;
 		delete this.modData("Learnsets", "bibarel").learnset.sunnyday;
@@ -194,8 +194,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "fennekin").learnset.quickshot = ["9L1","8L1"];
 		this.modData("Learnsets", "braixen").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "braixen").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "braixen").learnset.shocktail = ["9L1"];
 		this.modData("Learnsets", "delphox").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "delphox").learnset.quickshot = ["9L1","8L1"];
+		this.modData("Learnsets", "delphox").learnset.shocktail = ["9L1"];
 		
 		//rockruff line
 		this.modData("Learnsets", "rockruff").learnset.drainfang = ["9L1","8L1"];
@@ -253,12 +255,31 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 
 		//ekans line
 		this.modData("Learnsets", "ekans").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "ekans").learnset.poisonterrain = ["9L1","8L1"];
 		this.modData("Learnsets", "arbok").learnset.drainfang = ["9L1","8L1"];
+		this.modData("Learnsets", "arbok").learnset.poisonterrain = ["9L1","8L1"];
 		this.modData("Learnsets", "arbok").learnset.uturn = ["9L1","8L1"];
 		this.modData("Learnsets", "arbok").learnset.dragonrush = ["9L1","8L1"];
 		
 		//sableye
 		this.modData("Learnsets", "sableye").learnset.drainfang = ["9L1","8L1"];
+		
+		//dratini line
+		this.modData("Learnsets", "dragonair").learnset.defog = ["9L1"];
+		this.modData("Learnsets", "dragonite").learnset.defog = ["9L1"];
+		
+		//hoennian bagon line
+		this.modData("Learnsets", "bagon").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "shelgon").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "salamence").learnset.uturn = ["9L1"];
+		this.modData("Learnsets", "salamence").learnset.defog = ["9L1"];
+		
+		//rolycoly line
+		this.modData("Learnsets", "rolycoly").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "carkol").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "carkol").learnset.knockoff = ["9L1"];
+		this.modData("Learnsets", "coalossal").learnset.drift = ["9L1"];
+		this.modData("Learnsets", "coalossal").learnset.knockoff = ["9L1"];
 		
 		//misc drift distribution (wouldn't you know it they're all in desvega)
 		this.modData("Learnsets", "flareon").learnset.drift = ["9L1"];
@@ -266,13 +287,10 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "pignite").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "emboar").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "turtonator").learnset.drift = ["9L1"];
-		this.modData("Learnsets", "rolycoly").learnset.drift = ["9L1"];
-		this.modData("Learnsets", "carkol").learnset.drift = ["9L1"];
-		this.modData("Learnsets", "coalossal").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "capsakid").learnset.drift = ["9L1"];
 		this.modData("Learnsets", "scovillain").learnset.drift = ["9L1"];
 
-		//unovan starters
+		//unovan starters (obtained from mega distribution back in loria, ampharos still kept dragon pulse since gen 6 after all)
 		this.modData("Learnsets", "serperior").learnset.shocktail = ["9L1","8L1"];
 		this.modData("Learnsets", "serperior").learnset.dragonhammer = ["9L1","8L1"];
 		this.modData("Learnsets", "serperior").learnset.drillrun = ["9L1","8L1"];
