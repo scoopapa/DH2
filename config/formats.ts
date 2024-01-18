@@ -3063,6 +3063,12 @@ export const Formats: FormatList = [
 		// name: "nonpetmodformats",
 	},
 	{
+		name: "[Gen 9] Hidden Gems",
+		mod: 'hiddengems',
+		ruleset: ['Standard', 'Data Mod'],
+		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Baton Pass', 'Last Respects', 'Shed Tail'],
+	},
+	{
 		name: "[Gen 9] Littlest Cup",
 		desc: [
 			"<b>Littlest Cup</b>: A National Dex metagame where only Baby Pokemon are allowed."
