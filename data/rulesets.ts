@@ -2889,19 +2889,4 @@ export const Rulesets: {[k: string]: FormatData} = {
 		name: 'Useless Moves Clause',
 		// implemented in /mods/moderngen1/rulesets.ts
 	},
-	stellarterahintmod: {
-		effectType: "Rule",
-		name: "Stellar Tera Hint Mod",
-		desc: `Tells you whether an attack was boosted by Stellar Terastalization or not.`,
-		onBeforeMovePriority: 9,
-		onBeforeMove(target, source, move) {
-			const isTeraStellar = source.terastallized === 'Stellar';
-	  		const type = move.type;
-			if (isTeraStellar && !pokemon.stellarBoostedTypes.includes(type)) {
-				this.attrLastMove('[still]');
-				this.add('-anim', source, "Conversion", source);
-				this.hint("This move will be boosted by Stellar Tera if it hits.");
-			}
-		},
-	},
 };
