@@ -224,10 +224,8 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (move && move.category !== 'Status' && !move.ohko) return 1;
 		},
 		//This also marks the first instance of an item altering Fling's critrate
-		onPrepareHitPriority: 1,
-		onPrepareHit(target, source, move) {
-			if (!move || move.id !== 'fling') return;
-			move.willCrit = true;
+		onModifyCritRatio(critRatio, source, target, move) {
+			return (move.id === 'fling') ? 5 : critRatio;
 		},
 	},
 	ashball: {
