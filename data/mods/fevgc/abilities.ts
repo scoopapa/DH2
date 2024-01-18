@@ -6,11 +6,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSourceDamagingHit(damage, target, source, move) {
 			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
 				for (const side of [source.side.foeSidesWithConditions()]) {
-            if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
-            if (target.volatiles['substitute'] || side.getSideCondition(sideCondition)) {
-              if (this.randomChance(10, 10)) {
-                this.add('-ability', source, 'Sly Slime');
-                this.boost({spe: -1}, target, source, null, true);
+            	if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+            	if (target.volatiles['substitute'] || side.getSideCondition(sideCondition)) {
+              		if (this.randomChance(10, 10)) {
+                		this.add('-ability', source, 'Sly Slime');
+                		this.boost({spe: -1}, target, source, null, true);
 						}
 					}
 				}
