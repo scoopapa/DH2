@@ -2896,7 +2896,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 		onPrepareHit(target, source, move) {
 			const isTeraStellar = source.terastallized === 'Stellar';
 	  		const type = move.type;
-			if (isTeraStellar &&  && !pokemon.stellarBoostedTypes.includes(type)) {
+			if (isTeraStellar && !pokemon.stellarBoostedTypes.includes(type)) {
 				this.add('-anim', source, "Conversion", source);
 				this.hint("This move will be boosted by Stellar Tera if it hits.");
 			}
