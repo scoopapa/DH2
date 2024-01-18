@@ -2893,7 +2893,8 @@ export const Rulesets: {[k: string]: FormatData} = {
 		effectType: "Rule",
 		name: "Stellar Tera Hint Mod",
 		desc: `Tells you whether an attack was boosted by Stellar Terastalization or not.`,
-		onPrepareHit(target, source, move) {
+		onBeforeMovePriority: 9,
+		onBeforeMove(target, source, move) {
 			const isTeraStellar = source.terastallized === 'Stellar';
 	  		const type = move.type;
 			if (isTeraStellar && !pokemon.stellarBoostedTypes.includes(type)) {
