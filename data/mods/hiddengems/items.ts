@@ -203,6 +203,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Psychic' && source.useItem()) {
 				source.addVolatile('gem');
+				if (source.baseSpecies.baseSpecies === 'Golduck') {
+					this.add('-message', `${source.name}'s Hidden Gem activated!`);
+					const targetType = source.types[1];
+					this.add('-start', source, 'typeadd', 'Psychic', '[from] item: Psychic Gem');
+					source.setAbility('goodasgold', source, true);
+					this.add('-activate', source, 'ability: Good as Gold');
+					this.boost({spa: 1, spd: 1, spe: 1});
+				}
 			}
 		},
 		num: 557,
@@ -217,6 +225,12 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (target === source || move.category === 'Status') return;
 			if (move.type === 'Rock' && source.useItem()) {
 				source.addVolatile('gem');
+				if (source.baseSpecies.baseSpecies === 'Carbink') {
+					this.add('-message', `${source.name}'s Hidden Gem activated!`);
+					source.setAbility('hugepower', source, true);
+					this.add('-activate', source, 'ability: Huge Power');
+					this.boost({def: 1, spd: 2});
+				}
 			}
 		},
 		num: 559,
