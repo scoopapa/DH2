@@ -109,7 +109,9 @@ export const Scripts: {[k: string]: ModdedBattleScriptsData} = {
 		this.modData("Learnsets", "minun").learnset.sparkingleap = ["9L1","8L1"];
 		this.modData("Learnsets", "minun").learnset.shocktail = ["9L1","8L1"];
 
-		//bibarel
+		//bidoof line
+		delete this.modData("Learnsets", "bidoof").learnset.sunnyday;
+		delete this.modData("Learnsets", "bibarel").learnset.sunnyday;
 		this.modData("Learnsets", "bibarel").learnset.wavecrash = ["9L70"];
 		this.modData("Learnsets", "bibarel").learnset.shocktail = ["9M"];
 		
