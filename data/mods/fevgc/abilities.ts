@@ -11,10 +11,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
               if (this.randomChance(10, 10)) {
                 this.add('-ability', source, 'Sly Slime');
                 this.boost({spe: -1}, target, source, null, true);
-			      }
-          }
-        }
-      }
+						}
+					}
+				}
+			}
 		},
 		flags: {},
 		name: "Sly Slime",
