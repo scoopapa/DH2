@@ -410,4 +410,397 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Daft Shield",
 		shortDesc: "Shell Armor + Unaware",
 	},
+	forbiddengarden: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Forbidden Garden');
+			this.effectState.unnerved = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'Forbidden Garden');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		onFoeTryMove(target, source, move) {
+			if (move.type === 'Grass') {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: Forbidden Garden', move, '[of] ' + target);
+				return false;
+			}
+		},
+		flags: {},
+		name: "Forbidden Garden",
+		shortDesc: "While this Pokemon is active, opposing Pokemon can't use Grass moves or Berries.",
+	},
+	sandproof: {
+		onStart(source) {
+			this.field.setWeather('sandstorm');
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.flags['bullet']) {
+				this.add('-immune', pokemon, '[from] ability: Sandproof');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Sandproof",
+		shortDesc: "Sand Stream + Bulletproof",
+	},
+	cryowarning: {
+		onStart(source) {
+			this.field.setWeather('snow');
+		},
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail' || effect.id === 'snow') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		flags: {},
+		name: "Cryowarning",
+		shortDesc: "Snow Warning + Ice Body",
+	},
+	tundraveil: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifyAccuracyPriority: -1,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather(['hail', 'snow', 'sandstorm'])) {
+				this.debug('Tundra Veil - decreasing accuracy');
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Tundra Veil",
+		shortDesc: "Snow Cloak + Sand Veil",
+	},
+	tundrarush: {
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather(['hail', 'snow', 'sandstorm'])) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Tundra Rush",
+		shortDesc: "Slush Rush + Sand Rush",
+	},
+	nightvision: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Night Vision', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.stab = 2;
+		},
+		flags: {},
+		name: "Night Vision",
+		shortDesc: "Adaptability + Frisk",
+	},
+	malware: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Malware');
+			this.add('-message', `${pokemon.name}'s malicious code exerts pressure!`);
+			let totaldef = 0;
+			let totalspd = 0;
+			for (const target of pokemon.foes()) {
+				totaldef += target.getStat('def', false, true);
+				totalspd += target.getStat('spd', false, true);
+			}
+			if (totaldef && totaldef >= totalspd) {
+				this.boost({spa: 1});
+			} else if (totalspd) {
+				this.boost({atk: 1});
+			}
+		},
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			return 1;
+		},
+		flags: {},
+		name: "Malware",
+		shortDesc: "Download + Pressure",
+	},
+	quickdelivery: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		onStart(pokemon) { // double-check items.ts for implementation
+			pokemon.abilityState.gluttony = true;
+		},
+		onDamage(item, pokemon) {
+			pokemon.abilityState.gluttony = true;
+		},
+		flags: {},
+		name: "Quick Delivery",
+		shortDesc: "Chlorophyll + Gluttony",
+	},
+	fastvenom: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
+				const r = this.random(100);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
+			}
+		},
+		flags: {},
+		name: "Fast Venom",
+		shortDesc: "Chlorophyll + Effect Spore",
+	},
+	overbloom: {
+		onAllyTryBoost(boost, target, source, effect) {
+			if ((source && target === source) || !target.hasType('Grass')) return;
+			let showMsg = false;
+			let i: BoostID;
+			for (i in boost) {
+				if (boost[i]! < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect as ActiveMove).secondaries) {
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Overbloom', '[of] ' + effectHolder);
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (target.hasType('Grass') && source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Flower Veil');
+				if (effect.name === 'Synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) { // add any synchro clones here
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Overbloom', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (target.hasType('Grass') && status.id === 'yawn') {
+				this.debug('Flower Veil blocking yawn');
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Overbloom', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overbloom boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overbloom boost');
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Overbloom",
+		shortDesc: "Flower Veil + Overgrow",
+	},
+	teamwork: {
+		onAllyAfterUseItem(item, pokemon) {
+			if (pokemon.switchFlag) return;
+			const source = this.effectState.target;
+			const myItem = source.takeItem();
+			if (!myItem) return;
+			if (
+				!this.singleEvent('TakeItem', myItem, source.itemState, pokemon, source, this.effect, myItem) ||
+				!pokemon.setItem(myItem)
+			) {
+				source.item = myItem.id;
+				return;
+			}
+			this.add('-activate', source, 'ability: Teamwork', myItem, '[of] ' + pokemon);
+		},
+		onSetStatus(status, target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Teamwork');
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.add('-immune', target, '[from] ability: Teamwork');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Teamwork",
+		shortDesc: "Symbiosis + Leaf Guard",
+	},
+	pyrotechnic: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Pyrotechnic boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('flashfire')) {
+					this.add('-immune', target, '[from] ability: Pyrotechnic');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('flashfire');
+		},
+		flags: {breakable: 1},
+		name: "Pyrotechnic",
+		shortDesc: "Flash Fire + Technician",
+	},
+	lightarmor: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				this.boost({def: -1, spe: 2}, target, target);
+				pokemon.weighthg = Math.max(1, pokemon.weighthg / 2);
+			}
+		},
+		flags: {},
+		name: "Light Armor",
+		shortDesc: "If hit by a physical move, -1 Def, +2 Spe, halved weight.",
+	},
+	strongarmor: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				this.boost({def: -1, spe: 2}, target, target);
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// remember to add lo recoil immunity to sheer force clones
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
+		},
+		flags: {},
+		name: "Strong Armor",
+		shortDesc: "Weak Armor + Sheer Force", 
+	},
+	heatblade: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing']) {
+				this.debug('Heatblade boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.flags['slicing']) {
+				this.add('-immune', pokemon, '[from] ability: Heatblade');
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Heatblade",
+		shortDesc: "User's slicing moves deal 1.5x damage. User is immune to slicing moves.", 
+	},
+	underestimate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Underestimate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Underestimate boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		flags: {},
+		name: "Underestimate",
+		shortDesc: "Intimidate + Reckless", 
+	},
+	migrate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Migrate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Migrate",
+		shortDesc: "Intimidate + Guts", // add guts burn immunity to scripts
+	},
+	seizethemoment: {
+		// placeholder
+		flags: {},
+		name: "Seize the Moment",
+		shortDesc: "(Placeholder) If a screen is set on the foe's side of the field, it is also set on this Pokemon's side of the field.",
+	},
+	safeentry: {
+		onSetStatus(status, target, source, effect) {
+			if (!target.activeTurns) {
+				if ((effect as Move)?.status) {
+					this.add('-immune', target, '[from] ability: Safe Entry');
+				}
+				return false;
+			}
+		},
+		flags: {},
+		name: "Safe Entry",
+		shortDesc: "This Pokemon cannot be inflicted with status when switching in.",
+	},
 };
