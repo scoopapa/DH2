@@ -3860,7 +3860,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	brutebonnet: {
 		inherit: true,
-		abilities: {0: "Protosynthesis", H: "effectspore"},
+		abilities: {0: "Protosynthesis", H: "Effect Spore"},
 	},
 	fluttermane: {
 		inherit: true,
@@ -4094,10 +4094,12 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	gougingfire: {
 		inherit: true,
 		abilities: {0: "Protosynthesis", H: "Heat Sink"},
+		tags: ['Paradox'],
 	},
 	ragingbolt: {
 		inherit: true,
 		abilities: {0: "Protosynthesis", H: "Lightning Rod"},
+		tags: ['Paradox'],
 	},
 	powerchassis: {
 		num: 1022,
@@ -5459,10 +5461,6 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	greninjaash: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	bunnelby: {
 		inherit: true,
 		isNonstandard: null,
@@ -5743,6 +5741,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	palkiaorigin: null,
 	garbodorgmax: null,
 	greninjabond: null,
+	greninjaash: null,
 	floetteeternal: null,
 	gumshoostotem: null,
 	vikavolttotem: null,
