@@ -4237,6 +4237,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'OU',
 		natDexTier: 'OU'
 	},
+	magearna: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
 	sobble: {
 		tier: 'LC',
 		natDexTier: 'LC'
@@ -4320,6 +4324,26 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	dreepy: {
 		tier: 'LC',
 		natDexTier: 'LC'
+	},
+	urshifu: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
+	urshifurapidstrike: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
+	regieleki: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
+	spectrier: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
+	sneasler: {
+		tier: 'OU',
+		natDexTier: 'OU'
 	},
 	quaxly: {
 		tier: 'LC',
@@ -4413,6 +4437,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'OU',
 		natDexTier: 'OU'
 	},
+	espathra: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
 	tinkatink: {
 		tier: 'LC',
 		natDexTier: 'LC'
@@ -4424,6 +4452,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	finizen: {
 		tier: 'LC',
 		natDexTier: 'LC'
+	},
+	palafin: {
+		tier: 'OU',
+		natDexTier: 'OU'
 	},
 	cyclizar: {
 		tier: 'OU',
@@ -4461,6 +4493,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: 'LC',
 		natDexTier: 'LC'
 	},
+	annihilape: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
+	baxcalibur: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
 	wochien: {
 		tier: 'OU',
 		natDexTier: 'OU'
@@ -4470,6 +4510,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: 'LC'
 	},
 	sinistcha: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
+	ogerponhearthflame: {
+		tier: 'OU',
+		natDexTier: 'OU'
+	},
+	terapagos: {
 		tier: 'OU',
 		natDexTier: 'OU'
 	},
